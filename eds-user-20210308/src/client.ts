@@ -842,6 +842,136 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
   }
 }
 
+export class DescribeResourceGroupsResponseBodyResourceGroupPolicies extends $dara.Model {
+  /**
+   * @example
+   * pl-a8jnatl8kjasb***
+   */
+  id?: string;
+  /**
+   * @example
+   * False
+   */
+  isDefault?: boolean;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      isDefault: 'IsDefault',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      isDefault: 'boolean',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceGroupsResponseBodyResourceGroupTimers extends $dara.Model {
+  /**
+   * @example
+   * t-asdzx0mbjhg***
+   */
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model {
+  /**
+   * @example
+   * 3
+   */
+  authCount?: string;
+  /**
+   * @example
+   * 2022-11-29T17:25:40.000000000Z
+   */
+  createTime?: string;
+  policies?: DescribeResourceGroupsResponseBodyResourceGroupPolicies[];
+  /**
+   * @example
+   * 119
+   */
+  resourceCount?: string;
+  /**
+   * @example
+   * rg-cyo0il2pzge1***
+   */
+  resourceGroupId?: string;
+  resourceGroupName?: string;
+  timers?: DescribeResourceGroupsResponseBodyResourceGroupTimers[];
+  static names(): { [key: string]: string } {
+    return {
+      authCount: 'AuthCount',
+      createTime: 'CreateTime',
+      policies: 'Policies',
+      resourceCount: 'ResourceCount',
+      resourceGroupId: 'ResourceGroupId',
+      resourceGroupName: 'ResourceGroupName',
+      timers: 'Timers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCount: 'string',
+      createTime: 'string',
+      policies: { 'type': 'array', 'itemType': DescribeResourceGroupsResponseBodyResourceGroupPolicies },
+      resourceCount: 'string',
+      resourceGroupId: 'string',
+      resourceGroupName: 'string',
+      timers: { 'type': 'array', 'itemType': DescribeResourceGroupsResponseBodyResourceGroupTimers },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policies)) {
+      $dara.Model.validateArray(this.policies);
+    }
+    if(Array.isArray(this.timers)) {
+      $dara.Model.validateArray(this.timers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUsersResponseBodyUsersExtras extends $dara.Model {
   assignedResourceCount?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -3494,6 +3624,112 @@ export class CreatePropertyResponse extends $dara.Model {
   }
 }
 
+export class CreateResourceGroupRequest extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  isResourceGroupWithOfficeSite?: number;
+  /**
+   * @example
+   * AliyunConsole
+   */
+  platform?: string;
+  resourceGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isResourceGroupWithOfficeSite: 'IsResourceGroupWithOfficeSite',
+      platform: 'Platform',
+      resourceGroupName: 'ResourceGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isResourceGroupWithOfficeSite: 'number',
+      platform: 'string',
+      resourceGroupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceGroupResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 868B8926-2E7A-5BE7-9897-E811E994****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * rg-ckf3cx7isinhk***
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateResourceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateUsersRequest extends $dara.Model {
   /**
    * @remarks
@@ -3615,6 +3851,101 @@ export class CreateUsersResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateUsersResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceGroupRequest extends $dara.Model {
+  /**
+   * @example
+   * rg-aj01tck67a0szp***
+   */
+  resourceGroupId?: string;
+  resourceGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceGroupIds: 'ResourceGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceGroupIds)) {
+      $dara.Model.validateArray(this.resourceGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceGroupResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 2463A343-BD32-5803-959E-9A8472A1***
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteResourceGroupResponseBody,
     };
   }
 
@@ -4142,6 +4473,138 @@ export class DescribeOrgsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeOrgsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceGroupsRequest extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  needContainResourceGroupWithOfficeSite?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * AliyunConsole
+   */
+  platform?: string;
+  resourceGroupIds?: string[];
+  resourceGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      needContainResourceGroupWithOfficeSite: 'NeedContainResourceGroupWithOfficeSite',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      platform: 'Platform',
+      resourceGroupIds: 'ResourceGroupIds',
+      resourceGroupName: 'ResourceGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      needContainResourceGroupWithOfficeSite: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      platform: 'string',
+      resourceGroupIds: { 'type': 'array', 'itemType': 'string' },
+      resourceGroupName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceGroupIds)) {
+      $dara.Model.validateArray(this.resourceGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceGroupsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 68BA1DF7-8814-5AED-B844-F8F7F7****
+   */
+  requestId?: string;
+  resourceGroup?: DescribeResourceGroupsResponseBodyResourceGroup[];
+  /**
+   * @example
+   * 7
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceGroup: 'ResourceGroup',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceGroup: { 'type': 'array', 'itemType': DescribeResourceGroupsResponseBodyResourceGroup },
+      totalCount: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceGroup)) {
+      $dara.Model.validateArray(this.resourceGroup);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceGroupsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeResourceGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeResourceGroupsResponseBody,
     };
   }
 
@@ -7384,6 +7847,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建资源组
+   * 
+   * @param request - CreateResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResourceGroupResponse
+   */
+  async createResourceGroupWithOptions(request: CreateResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreateResourceGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.isResourceGroupWithOfficeSite)) {
+      query["IsResourceGroupWithOfficeSite"] = request.isResourceGroupWithOfficeSite;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateResourceGroup",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CreateResourceGroupResponse>(await this.callApi(params, req, runtime), new CreateResourceGroupResponse({}));
+  }
+
+  /**
+   * 创建资源组
+   * 
+   * @param request - CreateResourceGroupRequest
+   * @returns CreateResourceGroupResponse
+   */
+  async createResourceGroup(request: CreateResourceGroupRequest): Promise<CreateResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a convenience user.
    * 
    * @remarks
@@ -7447,6 +7960,52 @@ export default class Client extends OpenApi {
   async createUsers(request: CreateUsersRequest): Promise<CreateUsersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createUsersWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除资源组
+   * 
+   * @param request - DeleteResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceGroupResponse
+   */
+  async deleteResourceGroupWithOptions(request: DeleteResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<DeleteResourceGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupIds)) {
+      query["ResourceGroupIds"] = request.resourceGroupIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteResourceGroup",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DeleteResourceGroupResponse>(await this.callApi(params, req, runtime), new DeleteResourceGroupResponse({}));
+  }
+
+  /**
+   * 删除资源组
+   * 
+   * @param request - DeleteResourceGroupRequest
+   * @returns DeleteResourceGroupResponse
+   */
+  async deleteResourceGroup(request: DeleteResourceGroupRequest): Promise<DeleteResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteResourceGroupWithOptions(request, runtime);
   }
 
   /**
@@ -7667,6 +8226,68 @@ export default class Client extends OpenApi {
   async describeOrgs(request: DescribeOrgsRequest): Promise<DescribeOrgsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeOrgsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看资源组
+   * 
+   * @param request - DescribeResourceGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeResourceGroupsResponse
+   */
+  async describeResourceGroupsWithOptions(request: DescribeResourceGroupsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeResourceGroupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.needContainResourceGroupWithOfficeSite)) {
+      query["NeedContainResourceGroupWithOfficeSite"] = request.needContainResourceGroupWithOfficeSite;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.resourceGroupIds)) {
+      query["ResourceGroupIds"] = request.resourceGroupIds;
+    }
+
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeResourceGroups",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DescribeResourceGroupsResponse>(await this.callApi(params, req, runtime), new DescribeResourceGroupsResponse({}));
+  }
+
+  /**
+   * 查看资源组
+   * 
+   * @param request - DescribeResourceGroupsRequest
+   * @returns DescribeResourceGroupsResponse
+   */
+  async describeResourceGroups(request: DescribeResourceGroupsRequest): Promise<DescribeResourceGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeResourceGroupsWithOptions(request, runtime);
   }
 
   /**
