@@ -1534,6 +1534,36 @@ export class Id2MetaVerifyResponseBodyResultObject extends $dara.Model {
   }
 }
 
+export class Id2MetaVerifyWithOCRResponseBodyResultObject extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  bizCode?: string;
+  cardInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+      cardInfo: 'CardInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
+      cardInfo: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InitFaceVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @example
@@ -6235,6 +6265,168 @@ export class Id2MetaVerifyResponse extends $dara.Model {
   }
 }
 
+export class Id2MetaVerifyWithOCRRequest extends $dara.Model {
+  certFile?: string;
+  certNationalFile?: string;
+  /**
+   * @example
+   * https://www.aliyun.com/cert.jpeg
+   */
+  certNationalUrl?: string;
+  /**
+   * @example
+   * https://www.aliyun.com/cert.jpeg
+   */
+  certUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certFile: 'CertFile',
+      certNationalFile: 'CertNationalFile',
+      certNationalUrl: 'CertNationalUrl',
+      certUrl: 'CertUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certFile: 'string',
+      certNationalFile: 'string',
+      certNationalUrl: 'string',
+      certUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Id2MetaVerifyWithOCRAdvanceRequest extends $dara.Model {
+  certFileObject?: Readable;
+  certNationalFileObject?: Readable;
+  /**
+   * @example
+   * https://www.aliyun.com/cert.jpeg
+   */
+  certNationalUrl?: string;
+  /**
+   * @example
+   * https://www.aliyun.com/cert.jpeg
+   */
+  certUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certFileObject: 'CertFile',
+      certNationalFileObject: 'CertNationalFile',
+      certNationalUrl: 'CertNationalUrl',
+      certUrl: 'CertUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certFileObject: 'Readable',
+      certNationalFileObject: 'Readable',
+      certNationalUrl: 'string',
+      certUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Id2MetaVerifyWithOCRResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 130A2C10-B9EE-4D84-88E3-5384FF03****
+   */
+  requestId?: string;
+  resultObject?: Id2MetaVerifyWithOCRResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: Id2MetaVerifyWithOCRResponseBodyResultObject,
+    };
+  }
+
+  validate() {
+    if(this.resultObject && typeof (this.resultObject as any).validate === 'function') {
+      (this.resultObject as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Id2MetaVerifyWithOCRResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Id2MetaVerifyWithOCRResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Id2MetaVerifyWithOCRResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InitFaceVerifyRequest extends $dara.Model {
   appQualityCheck?: string;
   authId?: string;
@@ -10602,6 +10794,161 @@ export default class Client extends OpenApi {
   async id2MetaVerify(request: Id2MetaVerifyRequest): Promise<Id2MetaVerifyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.id2MetaVerifyWithOptions(request, runtime);
+  }
+
+  /**
+   * 身份二要素图片核验
+   * 
+   * @param request - Id2MetaVerifyWithOCRRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns Id2MetaVerifyWithOCRResponse
+   */
+  async id2MetaVerifyWithOCRWithOptions(request: Id2MetaVerifyWithOCRRequest, runtime: $dara.RuntimeOptions): Promise<Id2MetaVerifyWithOCRResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.certFile)) {
+      body["CertFile"] = request.certFile;
+    }
+
+    if (!$dara.isNull(request.certNationalFile)) {
+      body["CertNationalFile"] = request.certNationalFile;
+    }
+
+    if (!$dara.isNull(request.certNationalUrl)) {
+      body["CertNationalUrl"] = request.certNationalUrl;
+    }
+
+    if (!$dara.isNull(request.certUrl)) {
+      body["CertUrl"] = request.certUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "Id2MetaVerifyWithOCR",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<Id2MetaVerifyWithOCRResponse>(await this.callApi(params, req, runtime), new Id2MetaVerifyWithOCRResponse({}));
+  }
+
+  /**
+   * 身份二要素图片核验
+   * 
+   * @param request - Id2MetaVerifyWithOCRRequest
+   * @returns Id2MetaVerifyWithOCRResponse
+   */
+  async id2MetaVerifyWithOCR(request: Id2MetaVerifyWithOCRRequest): Promise<Id2MetaVerifyWithOCRResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.id2MetaVerifyWithOCRWithOptions(request, runtime);
+  }
+
+  async id2MetaVerifyWithOCRAdvance(request: Id2MetaVerifyWithOCRAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<Id2MetaVerifyWithOCRResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "Cloudauth",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = new OSS(ossConfig);
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let id2MetaVerifyWithOCRReq = new Id2MetaVerifyWithOCRRequest({ });
+    OpenApiUtil.convert(request, id2MetaVerifyWithOCRReq);
+    if (!$dara.isNull(request.certFileObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.certFileObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      id2MetaVerifyWithOCRReq.certFile = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    if (!$dara.isNull(request.certNationalFileObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.certNationalFileObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      id2MetaVerifyWithOCRReq.certNationalFile = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let id2MetaVerifyWithOCRResp = await this.id2MetaVerifyWithOCRWithOptions(id2MetaVerifyWithOCRReq, runtime);
+    return id2MetaVerifyWithOCRResp;
   }
 
   /**
