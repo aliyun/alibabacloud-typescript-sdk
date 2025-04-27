@@ -11542,6 +11542,8 @@ export class CreateDiagnosticRequest extends $dara.Model {
    * 
    * You can specify the ID of the stack that you want to diagnose.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 37A5679B-8488-5A5D-8D5C-90E66A577A5D
    */
