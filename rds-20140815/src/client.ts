@@ -19097,6 +19097,493 @@ export class DescribeRCInstanceAttributeResponseBodyVpcAttributes extends $dara.
   }
 }
 
+export class DescribeRCInstanceDdosCountResponseBodyDdosCount extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  blackholeCount?: string;
+  /**
+   * @example
+   * 0
+   */
+  defenseCount?: string;
+  /**
+   * @example
+   * 6
+   */
+  instacenCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      blackholeCount: 'BlackholeCount',
+      defenseCount: 'DefenseCount',
+      instacenCount: 'InstacenCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blackholeCount: 'string',
+      defenseCount: 'string',
+      instacenCount: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceHistoryEventsRequestEventPublishTime extends $dara.Model {
+  end?: string;
+  start?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'string',
+      start: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceHistoryEventsRequestNotBefore extends $dara.Model {
+  end?: string;
+  /**
+   * @example
+   * 2017-11-30T06:32:31Z
+   */
+  start?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'string',
+      start: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceHistoryEventsRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventCycleStatus extends $dara.Model {
+  code?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventType extends $dara.Model {
+  code?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttributeInactiveDisks extends $dara.Model {
+  creationTime?: string;
+  deviceCategory?: string;
+  deviceSize?: string;
+  deviceType?: string;
+  releaseTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      deviceCategory: 'DeviceCategory',
+      deviceSize: 'DeviceSize',
+      deviceType: 'DeviceType',
+      releaseTime: 'ReleaseTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      deviceCategory: 'string',
+      deviceSize: 'string',
+      deviceType: 'string',
+      releaseTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttribute extends $dara.Model {
+  canAccept?: string;
+  code?: string;
+  device?: string;
+  diskId?: string;
+  hostId?: string;
+  hostType?: string;
+  inactiveDisks?: DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttributeInactiveDisks[];
+  migrationOptions?: string[];
+  onlineRepairPolicy?: string;
+  punishDomain?: string;
+  punishType?: string;
+  punishUrl?: string;
+  rack?: string;
+  responseResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canAccept: 'CanAccept',
+      code: 'Code',
+      device: 'Device',
+      diskId: 'DiskId',
+      hostId: 'HostId',
+      hostType: 'HostType',
+      inactiveDisks: 'InactiveDisks',
+      migrationOptions: 'MigrationOptions',
+      onlineRepairPolicy: 'OnlineRepairPolicy',
+      punishDomain: 'PunishDomain',
+      punishType: 'PunishType',
+      punishUrl: 'PunishUrl',
+      rack: 'Rack',
+      responseResult: 'ResponseResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canAccept: 'string',
+      code: 'string',
+      device: 'string',
+      diskId: 'string',
+      hostId: 'string',
+      hostType: 'string',
+      inactiveDisks: { 'type': 'array', 'itemType': DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttributeInactiveDisks },
+      migrationOptions: { 'type': 'array', 'itemType': 'string' },
+      onlineRepairPolicy: 'string',
+      punishDomain: 'string',
+      punishType: 'string',
+      punishUrl: 'string',
+      rack: 'string',
+      responseResult: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inactiveDisks)) {
+      $dara.Model.validateArray(this.inactiveDisks);
+    }
+    if(Array.isArray(this.migrationOptions)) {
+      $dara.Model.validateArray(this.migrationOptions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSet extends $dara.Model {
+  eventCycleStatus?: DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventCycleStatus;
+  eventFinishTime?: string;
+  eventId?: string;
+  eventPublishTime?: string;
+  eventType?: DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventType;
+  extendedAttribute?: DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttribute;
+  impactLevel?: string;
+  instanceId?: string;
+  notBefore?: string;
+  reason?: string;
+  reasonCode?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventCycleStatus: 'EventCycleStatus',
+      eventFinishTime: 'EventFinishTime',
+      eventId: 'EventId',
+      eventPublishTime: 'EventPublishTime',
+      eventType: 'EventType',
+      extendedAttribute: 'ExtendedAttribute',
+      impactLevel: 'ImpactLevel',
+      instanceId: 'InstanceId',
+      notBefore: 'NotBefore',
+      reason: 'Reason',
+      reasonCode: 'ReasonCode',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventCycleStatus: DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventCycleStatus,
+      eventFinishTime: 'string',
+      eventId: 'string',
+      eventPublishTime: 'string',
+      eventType: DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventType,
+      extendedAttribute: DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetExtendedAttribute,
+      impactLevel: 'string',
+      instanceId: 'string',
+      notBefore: 'string',
+      reason: 'string',
+      reasonCode: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.eventCycleStatus && typeof (this.eventCycleStatus as any).validate === 'function') {
+      (this.eventCycleStatus as any).validate();
+    }
+    if(this.eventType && typeof (this.eventType as any).validate === 'function') {
+      (this.eventType as any).validate();
+    }
+    if(this.extendedAttribute && typeof (this.extendedAttribute as any).validate === 'function') {
+      (this.extendedAttribute as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfig extends $dara.Model {
+  /**
+   * @example
+   * 5200
+   */
+  blackholeThreshold?: number;
+  /**
+   * @example
+   * 300
+   */
+  defenseBpsThreshold?: number;
+  /**
+   * @example
+   * 70000
+   */
+  defensePpsThreshold?: number;
+  /**
+   * @example
+   * 12310
+   */
+  elasticThreshold?: number;
+  /**
+   * @example
+   * 39.105.XXX.XXX
+   */
+  instanceIp?: string;
+  /**
+   * @example
+   * normal
+   */
+  ipStatus?: string;
+  /**
+   * @example
+   * v4
+   */
+  ipVersion?: string;
+  /**
+   * @example
+   * true
+   */
+  isBgppack?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  isFullProtection?: number;
+  /**
+   * @example
+   * cn-beijing-wt97-a01
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      blackholeThreshold: 'BlackholeThreshold',
+      defenseBpsThreshold: 'DefenseBpsThreshold',
+      defensePpsThreshold: 'DefensePpsThreshold',
+      elasticThreshold: 'ElasticThreshold',
+      instanceIp: 'InstanceIp',
+      ipStatus: 'IpStatus',
+      ipVersion: 'IpVersion',
+      isBgppack: 'IsBgppack',
+      isFullProtection: 'IsFullProtection',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blackholeThreshold: 'number',
+      defenseBpsThreshold: 'number',
+      defensePpsThreshold: 'number',
+      elasticThreshold: 'number',
+      instanceIp: 'string',
+      ipStatus: 'string',
+      ipVersion: 'string',
+      isBgppack: 'boolean',
+      isFullProtection: 'number',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceIpAddressResponseBodyRCInstanceList extends $dara.Model {
+  /**
+   * @example
+   * rc-kti8hw44yy0x53******
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * rc-kti8hw44yy0x53******
+   */
+  instanceName?: string;
+  /**
+   * @example
+   * normal
+   */
+  instanceStatus?: string;
+  /**
+   * @example
+   * ecs
+   */
+  instanceType?: string;
+  ipAddressConfig?: DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfig[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceStatus: 'InstanceStatus',
+      instanceType: 'InstanceType',
+      ipAddressConfig: 'IpAddressConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceStatus: 'string',
+      instanceType: 'string',
+      ipAddressConfig: { 'type': 'array', 'itemType': DescribeRCInstanceIpAddressResponseBodyRCInstanceListIpAddressConfig },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipAddressConfig)) {
+      $dara.Model.validateArray(this.ipAddressConfig);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRCInstanceTypeFamiliesResponseBodyInstanceTypeFamiliesInstanceTypeFamily extends $dara.Model {
   /**
    * @remarks
@@ -26136,6 +26623,107 @@ export class TagResourcesRequestTag extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AcceptRCInquiredSystemEventRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * **if can be null:**
+   * true
+   */
+  eventId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * **if can be null:**
+   * true
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AcceptRCInquiredSystemEventResponseBody extends $dara.Model {
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AcceptRCInquiredSystemEventResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AcceptRCInquiredSystemEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AcceptRCInquiredSystemEventResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
     super.validate();
   }
 
@@ -37487,14 +38075,10 @@ export class CreateRCDiskRequest extends $dara.Model {
    * @remarks
    * The category of the data disk. Valid values:
    * 
-   * *   **cloud** (default): basic disk
    * *   **cloud_efficiency**: ultra disk.
    * *   **cloud_ssd**: standard SSD.
-   * *   **cloud_essd**: Enterprise ESSD (ESSD).
-   * *   **cloud_auto**: ESSD AutoPL disk
-   * *   **cloud_essd_entry**: ESSD Entry disk
-   * *   **elastic_ephemeral_disk_standard**: standard elastic ephemeral disk
-   * *   **elastic_ephemeral_disk_premium**: premium elastic ephemeral disk
+   * *   **cloud_essd**: ESSD.
+   * *   **cloud_auto**: ESSD AutoPL disk.
    * 
    * @example
    * cloud_ssd
@@ -37502,7 +38086,7 @@ export class CreateRCDiskRequest extends $dara.Model {
   diskCategory?: string;
   /**
    * @remarks
-   * The disk name. The name must be 2 to 128 characters in length and can contain letters and digits. The name can contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the data disk. The name must be 2 to 128 characters in length and can contain letters and digits. The name can contain colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * By default, this parameter is left empty.
    * 
@@ -37535,7 +38119,7 @@ export class CreateRCDiskRequest extends $dara.Model {
    * *   **PL2**: A single ESSD delivers up to 100,000 random read/write IOPS.
    * *   **PL3**: A single ESSD delivers up to 1,000,000 random read/write IOPS.
    * 
-   * For information about ESSD PLs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * For information about ESSD PLs, see [ESSDs](https://help.aliyun.com/document_detail/2859916.html).
    * 
    * @example
    * PL1
@@ -37569,11 +38153,9 @@ export class CreateRCDiskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The disk size. Unit: GiB. This parameter is required.
+   * The disk size. Unit: GiB. This parameter is required. Valid values:
    * 
-   * *   Valid values if you set DiskCategory to **cloud**: 5 to 2000.
-   * 
-   * *   Valid values if you set DiskCategory to **cloud_efficiency**: 20 to 32768.
+   * *   Valid values if you set DiskCategory to **cloud_essd_entry**: 10 to 32768.
    * 
    * *   Valid values if you set DiskCategory to **cloud_ssd**: 20 to 32768.
    * 
@@ -37585,12 +38167,6 @@ export class CreateRCDiskRequest extends $dara.Model {
    *     *   Valid values if PerformanceLevel is set to PL3: 1261 to 65536
    * 
    * *   Valid values if you set DiskCategory to **cloud_auto**: 1 to 65536.
-   * 
-   * *   Valid values if you set DiskCategory to **cloud_essd_entry**: 10 to 32768.
-   * 
-   * *   Valid values if you set DiskCategory to **elastic_ephemeral_disk_standard**: 64 to 8192.
-   * 
-   * *   Valid values if you set DiskCategory to **elastic_ephemeral_disk_premium**: 64 to 8192.
    * 
    * If `SnapshotId` is specified, the following limits apply to `SnapshotId` and `Size`:
    * 
@@ -37616,6 +38192,8 @@ export class CreateRCDiskRequest extends $dara.Model {
   /**
    * @remarks
    * The zone ID.
+   * 
+   * This parameter is required if you do not specify **InstanceId**.
    * 
    * @example
    * cn-hangzhou-a
@@ -37671,7 +38249,7 @@ export class CreateRCDiskRequest extends $dara.Model {
 export class CreateRCDiskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The disk ID.
+   * The cloud disk ID.
    * 
    * @example
    * rcd-2zegrjtnkp6dqbe1egca
@@ -63159,13 +63737,13 @@ export class DescribePriceRequest extends $dara.Model {
    * The commodity code of the instance. Valid values:
    * 
    * *   **bards**: The instance is a pay-as-you-go primary instance. This value is available at the China site (aliyun.com).
-   * *   **rds** (default): The instance is a subscription primary instance. This value is available on the China site (aliyun.com).
+   * *   **rds** (default): The instance is a subscription primary instance. This value is available at the China site (aliyun.com).
    * *   **rords**: The instance is a pay-as-you-go read-only instance. This value is available at the China site (aliyun.com).
    * *   **rds_rordspre_public_cn**: The instance is a subscription read-only instance. This value is available at the China site (aliyun.com).
    * *   **bards_intl**: The instance is a pay-as-you-go primary instance. This value is available at the international site (alibabacloud.com).
    * *   **rds_intl**: The instance is a subscription primary instance. This value is available at the international site (alibabacloud.com).
    * *   **rords_intl**: The instance is a pay-as-you-go read-only instance. This value is available at the international site (alibabacloud.com).
-   * *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance. This value is available on the international site (alibabacloud.com).
+   * *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance. This value is available at the international site (alibabacloud.com).
    * 
    * >  If you want to query the price of a read-only instance, you must specify this parameter.
    * 
@@ -63441,13 +64019,13 @@ export class DescribePriceShrinkRequest extends $dara.Model {
    * The commodity code of the instance. Valid values:
    * 
    * *   **bards**: The instance is a pay-as-you-go primary instance. This value is available at the China site (aliyun.com).
-   * *   **rds** (default): The instance is a subscription primary instance. This value is available on the China site (aliyun.com).
+   * *   **rds** (default): The instance is a subscription primary instance. This value is available at the China site (aliyun.com).
    * *   **rords**: The instance is a pay-as-you-go read-only instance. This value is available at the China site (aliyun.com).
    * *   **rds_rordspre_public_cn**: The instance is a subscription read-only instance. This value is available at the China site (aliyun.com).
    * *   **bards_intl**: The instance is a pay-as-you-go primary instance. This value is available at the international site (alibabacloud.com).
    * *   **rds_intl**: The instance is a subscription primary instance. This value is available at the international site (alibabacloud.com).
    * *   **rords_intl**: The instance is a pay-as-you-go read-only instance. This value is available at the international site (alibabacloud.com).
-   * *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance. This value is available on the international site (alibabacloud.com).
+   * *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance. This value is available at the international site (alibabacloud.com).
    * 
    * >  If you want to query the price of a read-only instance, you must specify this parameter.
    * 
@@ -65501,6 +66079,449 @@ export class DescribeRCInstanceAttributeResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRCInstanceAttributeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceDdosCountRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-beijing
+   */
+  ddosRegionId?: string;
+  /**
+   * @example
+   * ecs
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ddosRegionId: 'DdosRegionId',
+      instanceType: 'InstanceType',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ddosRegionId: 'string',
+      instanceType: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceDdosCountResponseBody extends $dara.Model {
+  ddosCount?: DescribeRCInstanceDdosCountResponseBodyDdosCount;
+  /**
+   * @example
+   * F77F3176-AAEA-5836-B2B4-A854E3ED****_Zv**
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ddosCount: 'DdosCount',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ddosCount: DescribeRCInstanceDdosCountResponseBodyDdosCount,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.ddosCount && typeof (this.ddosCount as any).validate === 'function') {
+      (this.ddosCount as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceDdosCountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCInstanceDdosCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCInstanceDdosCountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceHistoryEventsRequest extends $dara.Model {
+  eventPublishTime?: DescribeRCInstanceHistoryEventsRequestEventPublishTime;
+  notBefore?: DescribeRCInstanceHistoryEventsRequestNotBefore;
+  eventCycleStatus?: string;
+  eventId?: string[];
+  eventType?: string;
+  impactLevel?: string;
+  instanceEventCycleStatus?: string[];
+  instanceEventType?: string[];
+  instanceId?: string;
+  maxResults?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceId?: string[];
+  tag?: DescribeRCInstanceHistoryEventsRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      eventPublishTime: 'EventPublishTime',
+      notBefore: 'NotBefore',
+      eventCycleStatus: 'EventCycleStatus',
+      eventId: 'EventId',
+      eventType: 'EventType',
+      impactLevel: 'ImpactLevel',
+      instanceEventCycleStatus: 'InstanceEventCycleStatus',
+      instanceEventType: 'InstanceEventType',
+      instanceId: 'InstanceId',
+      maxResults: 'MaxResults',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventPublishTime: DescribeRCInstanceHistoryEventsRequestEventPublishTime,
+      notBefore: DescribeRCInstanceHistoryEventsRequestNotBefore,
+      eventCycleStatus: 'string',
+      eventId: { 'type': 'array', 'itemType': 'string' },
+      eventType: 'string',
+      impactLevel: 'string',
+      instanceEventCycleStatus: { 'type': 'array', 'itemType': 'string' },
+      instanceEventType: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      maxResults: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      tag: { 'type': 'array', 'itemType': DescribeRCInstanceHistoryEventsRequestTag },
+    };
+  }
+
+  validate() {
+    if(this.eventPublishTime && typeof (this.eventPublishTime as any).validate === 'function') {
+      (this.eventPublishTime as any).validate();
+    }
+    if(this.notBefore && typeof (this.notBefore as any).validate === 'function') {
+      (this.notBefore as any).validate();
+    }
+    if(Array.isArray(this.eventId)) {
+      $dara.Model.validateArray(this.eventId);
+    }
+    if(Array.isArray(this.instanceEventCycleStatus)) {
+      $dara.Model.validateArray(this.instanceEventCycleStatus);
+    }
+    if(Array.isArray(this.instanceEventType)) {
+      $dara.Model.validateArray(this.instanceEventType);
+    }
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceHistoryEventsResponseBody extends $dara.Model {
+  instanceSystemEventSet?: DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSet[];
+  nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceSystemEventSet: 'InstanceSystemEventSet',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceSystemEventSet: { 'type': 'array', 'itemType': DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSet },
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceSystemEventSet)) {
+      $dara.Model.validateArray(this.instanceSystemEventSet);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceHistoryEventsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCInstanceHistoryEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCInstanceHistoryEventsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceIpAddressRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  ddosRegionId?: string;
+  /**
+   * @example
+   * defense
+   */
+  ddosStatus?: string;
+  /**
+   * @example
+   * rc-y6dn4pyuub1r89******
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 39.105.XXX.XXX
+   */
+  instanceIp?: string;
+  /**
+   * @example
+   * rc-y6dn4pyuub1r89******
+   */
+  instanceName?: string;
+  /**
+   * @example
+   * ecs
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @example
+   * ecs
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      ddosRegionId: 'DdosRegionId',
+      ddosStatus: 'DdosStatus',
+      instanceId: 'InstanceId',
+      instanceIp: 'InstanceIp',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      ddosRegionId: 'string',
+      ddosStatus: 'string',
+      instanceId: 'string',
+      instanceIp: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceIpAddressResponseBody extends $dara.Model {
+  RCInstanceList?: DescribeRCInstanceIpAddressResponseBodyRCInstanceList[];
+  /**
+   * @example
+   * C048E440-EA84-5E97-8C81-2A7060D0****_th**
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  total?: string;
+  static names(): { [key: string]: string } {
+    return {
+      RCInstanceList: 'RCInstanceList',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      RCInstanceList: { 'type': 'array', 'itemType': DescribeRCInstanceIpAddressResponseBodyRCInstanceList },
+      requestId: 'string',
+      total: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.RCInstanceList)) {
+      $dara.Model.validateArray(this.RCInstanceList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceIpAddressResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCInstanceIpAddressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCInstanceIpAddressResponseBody,
     };
   }
 
@@ -94691,10 +95712,26 @@ export class SwitchDBInstanceVpcResponse extends $dara.Model {
 }
 
 export class SwitchOverMajorVersionUpgradeRequest extends $dara.Model {
+  /**
+   * @example
+   * pgm-m5e4gegx63fh92bn
+   */
   DBInstanceName?: string;
   ownerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: Buffer;
+  /**
+   * @example
+   * 10
+   */
   switchoverTimeout?: number;
+  /**
+   * @example
+   * switch
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -94729,6 +95766,9 @@ export class SwitchOverMajorVersionUpgradeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Id of the request
+   * 
+   * @example
+   * 17F57FEE-EA4F-4337-8D2E-9C23CAA63D74
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -97524,6 +98564,52 @@ export default class Client extends OpenApi {
     }
 
     return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * 接受并授权执行系统事件操作
+   * 
+   * @param request - AcceptRCInquiredSystemEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AcceptRCInquiredSystemEventResponse
+   */
+  async acceptRCInquiredSystemEventWithOptions(request: AcceptRCInquiredSystemEventRequest, runtime: $dara.RuntimeOptions): Promise<AcceptRCInquiredSystemEventResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AcceptRCInquiredSystemEvent",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<AcceptRCInquiredSystemEventResponse>(await this.callApi(params, req, runtime), new AcceptRCInquiredSystemEventResponse({}));
+  }
+
+  /**
+   * 接受并授权执行系统事件操作
+   * 
+   * @param request - AcceptRCInquiredSystemEventRequest
+   * @returns AcceptRCInquiredSystemEventResponse
+   */
+  async acceptRCInquiredSystemEvent(request: AcceptRCInquiredSystemEventRequest): Promise<AcceptRCInquiredSystemEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.acceptRCInquiredSystemEventWithOptions(request, runtime);
   }
 
   /**
@@ -101016,12 +102102,8 @@ export default class Client extends OpenApi {
    * Creates an ApsaraDB RDS global active database cluster.
    * 
    * @remarks
-   * ### [](#)Supported database engine
+   * ### [](#)Supported database engines
    * *   MySQL
-   * <props="china">
-   * ### [](#)References
-   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-   * [Create and release an ApsaraDB RDS global active database cluster](https://help.aliyun.com/document_detail/328592.html)
    * 
    * @param request - CreateGADInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101087,12 +102169,8 @@ export default class Client extends OpenApi {
    * Creates an ApsaraDB RDS global active database cluster.
    * 
    * @remarks
-   * ### [](#)Supported database engine
+   * ### [](#)Supported database engines
    * *   MySQL
-   * <props="china">
-   * ### [](#)References
-   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-   * [Create and release an ApsaraDB RDS global active database cluster](https://help.aliyun.com/document_detail/328592.html)
    * 
    * @param request - CreateGADInstanceRequest
    * @returns CreateGADInstanceResponse
@@ -113102,6 +114180,236 @@ export default class Client extends OpenApi {
   async describeRCInstanceAttribute(request: DescribeRCInstanceAttributeRequest): Promise<DescribeRCInstanceAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRCInstanceAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询RDS Custom实例被DDos攻击的数量
+   * 
+   * @param request - DescribeRCInstanceDdosCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCInstanceDdosCountResponse
+   */
+  async describeRCInstanceDdosCountWithOptions(request: DescribeRCInstanceDdosCountRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRCInstanceDdosCountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRCInstanceDdosCount",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DescribeRCInstanceDdosCountResponse>(await this.callApi(params, req, runtime), new DescribeRCInstanceDdosCountResponse({}));
+  }
+
+  /**
+   * 查询RDS Custom实例被DDos攻击的数量
+   * 
+   * @param request - DescribeRCInstanceDdosCountRequest
+   * @returns DescribeRCInstanceDdosCountResponse
+   */
+  async describeRCInstanceDdosCount(request: DescribeRCInstanceDdosCountRequest): Promise<DescribeRCInstanceDdosCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRCInstanceDdosCountWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询指定实例系统事件信息
+   * 
+   * @param request - DescribeRCInstanceHistoryEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCInstanceHistoryEventsResponse
+   */
+  async describeRCInstanceHistoryEventsWithOptions(request: DescribeRCInstanceHistoryEventsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRCInstanceHistoryEventsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eventCycleStatus)) {
+      query["EventCycleStatus"] = request.eventCycleStatus;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.eventType)) {
+      query["EventType"] = request.eventType;
+    }
+
+    if (!$dara.isNull(request.impactLevel)) {
+      query["ImpactLevel"] = request.impactLevel;
+    }
+
+    if (!$dara.isNull(request.instanceEventCycleStatus)) {
+      query["InstanceEventCycleStatus"] = request.instanceEventCycleStatus;
+    }
+
+    if (!$dara.isNull(request.instanceEventType)) {
+      query["InstanceEventType"] = request.instanceEventType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.eventPublishTime)) {
+      query["EventPublishTime"] = request.eventPublishTime;
+    }
+
+    if (!$dara.isNull(request.notBefore)) {
+      query["NotBefore"] = request.notBefore;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRCInstanceHistoryEvents",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DescribeRCInstanceHistoryEventsResponse>(await this.callApi(params, req, runtime), new DescribeRCInstanceHistoryEventsResponse({}));
+  }
+
+  /**
+   * 查询指定实例系统事件信息
+   * 
+   * @param request - DescribeRCInstanceHistoryEventsRequest
+   * @returns DescribeRCInstanceHistoryEventsResponse
+   */
+  async describeRCInstanceHistoryEvents(request: DescribeRCInstanceHistoryEventsRequest): Promise<DescribeRCInstanceHistoryEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRCInstanceHistoryEventsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询RDS Custom实例的公网IP
+   * 
+   * @param request - DescribeRCInstanceIpAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCInstanceIpAddressResponse
+   */
+  async describeRCInstanceIpAddressWithOptions(request: DescribeRCInstanceIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRCInstanceIpAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
+    if (!$dara.isNull(request.ddosStatus)) {
+      query["DdosStatus"] = request.ddosStatus;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceIp)) {
+      query["InstanceIp"] = request.instanceIp;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRCInstanceIpAddress",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DescribeRCInstanceIpAddressResponse>(await this.callApi(params, req, runtime), new DescribeRCInstanceIpAddressResponse({}));
+  }
+
+  /**
+   * 查询RDS Custom实例的公网IP
+   * 
+   * @param request - DescribeRCInstanceIpAddressRequest
+   * @returns DescribeRCInstanceIpAddressResponse
+   */
+  async describeRCInstanceIpAddress(request: DescribeRCInstanceIpAddressRequest): Promise<DescribeRCInstanceIpAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRCInstanceIpAddressWithOptions(request, runtime);
   }
 
   /**
@@ -126281,7 +127589,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 流量切换
+   * Performs a zero-downtime workload switchover after the major engine version upgrade of an ApsaraDB RDS for PostgreSQL instance.
+   * 
+   * @remarks
+   * Supported database engine
+   * *   PostgreSQL
    * 
    * @param request - SwitchOverMajorVersionUpgradeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -126328,7 +127640,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 流量切换
+   * Performs a zero-downtime workload switchover after the major engine version upgrade of an ApsaraDB RDS for PostgreSQL instance.
+   * 
+   * @remarks
+   * Supported database engine
+   * *   PostgreSQL
    * 
    * @param request - SwitchOverMajorVersionUpgradeRequest
    * @returns SwitchOverMajorVersionUpgradeResponse
