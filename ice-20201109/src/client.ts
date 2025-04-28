@@ -22060,6 +22060,8 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
    * 19de81b3b3d94abda22****
    */
   dialogueId?: string;
+  extend?: string;
+  nodeId?: string;
   /**
    * @example
    * user
@@ -22083,6 +22085,8 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
     return {
       attachedFileList: 'AttachedFileList',
       dialogueId: 'DialogueId',
+      extend: 'Extend',
+      nodeId: 'NodeId',
       producer: 'Producer',
       reasoningText: 'ReasoningText',
       roundId: 'RoundId',
@@ -22097,6 +22101,8 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
     return {
       attachedFileList: { 'type': 'array', 'itemType': ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList },
       dialogueId: 'string',
+      extend: 'string',
+      nodeId: 'string',
       producer: 'string',
       reasoningText: 'string',
       roundId: 'string',
@@ -59330,6 +59336,7 @@ export class DeleteAIAgentDialogueRequest extends $dara.Model {
    * f27f9b9be28642a88e18*******
    */
   dialogueId?: string;
+  nodeId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -59341,6 +59348,7 @@ export class DeleteAIAgentDialogueRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dialogueId: 'DialogueId',
+      nodeId: 'NodeId',
       sessionId: 'SessionId',
     };
   }
@@ -59348,6 +59356,7 @@ export class DeleteAIAgentDialogueRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dialogueId: 'string',
+      nodeId: 'string',
       sessionId: 'string',
     };
   }
@@ -73514,6 +73523,7 @@ export class ListAIAgentDialoguesRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  roundLimit?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -73536,6 +73546,7 @@ export class ListAIAgentDialoguesRequest extends $dara.Model {
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      roundLimit: 'RoundLimit',
       sessionId: 'SessionId',
       startTime: 'StartTime',
     };
@@ -73547,6 +73558,7 @@ export class ListAIAgentDialoguesRequest extends $dara.Model {
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      roundLimit: 'string',
       sessionId: 'string',
       startTime: 'number',
     };
@@ -105570,6 +105582,10 @@ export default class Client extends OpenApi {
       query["DialogueId"] = request.dialogueId;
     }
 
+    if (!$dara.isNull(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
     if (!$dara.isNull(request.sessionId)) {
       query["SessionId"] = request.sessionId;
     }
@@ -111122,6 +111138,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.roundLimit)) {
+      query["RoundLimit"] = request.roundLimit;
     }
 
     if (!$dara.isNull(request.sessionId)) {
