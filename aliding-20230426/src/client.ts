@@ -5721,6 +5721,248 @@ export class CreateRunResponseBodyContent extends $dara.Model {
   }
 }
 
+export class CreateRunResponseBodyDataContentCardCallback extends $dara.Model {
+  content?: string;
+  templateId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      templateId: 'templateId',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      templateId: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyDataContentDingCard extends $dara.Model {
+  cardDesc?: string;
+  content?: string;
+  contentType?: string;
+  finished?: boolean;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardDesc: 'cardDesc',
+      content: 'content',
+      contentType: 'contentType',
+      finished: 'finished',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardDesc: 'string',
+      content: 'string',
+      contentType: 'string',
+      finished: 'boolean',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyDataContentImageUrl extends $dara.Model {
+  detail?: string;
+  imageDesc?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'detail',
+      imageDesc: 'imageDesc',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      imageDesc: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyDataContentMarkdown extends $dara.Model {
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyDataContentText extends $dara.Model {
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyDataContent extends $dara.Model {
+  cardCallback?: CreateRunResponseBodyDataContentCardCallback;
+  dingCard?: CreateRunResponseBodyDataContentDingCard;
+  imageUrl?: CreateRunResponseBodyDataContentImageUrl;
+  markdown?: CreateRunResponseBodyDataContentMarkdown;
+  text?: CreateRunResponseBodyDataContentText;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardCallback: 'cardCallback',
+      dingCard: 'dingCard',
+      imageUrl: 'imageUrl',
+      markdown: 'markdown',
+      text: 'text',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardCallback: CreateRunResponseBodyDataContentCardCallback,
+      dingCard: CreateRunResponseBodyDataContentDingCard,
+      imageUrl: CreateRunResponseBodyDataContentImageUrl,
+      markdown: CreateRunResponseBodyDataContentMarkdown,
+      text: CreateRunResponseBodyDataContentText,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.cardCallback && typeof (this.cardCallback as any).validate === 'function') {
+      (this.cardCallback as any).validate();
+    }
+    if(this.dingCard && typeof (this.dingCard as any).validate === 'function') {
+      (this.dingCard as any).validate();
+    }
+    if(this.imageUrl && typeof (this.imageUrl as any).validate === 'function') {
+      (this.imageUrl as any).validate();
+    }
+    if(this.markdown && typeof (this.markdown as any).validate === 'function') {
+      (this.markdown as any).validate();
+    }
+    if(this.text && typeof (this.text as any).validate === 'function') {
+      (this.text as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyData extends $dara.Model {
+  content?: CreateRunResponseBodyDataContent[];
+  createAt?: number;
+  id?: string;
+  metadata?: { [key: string]: any };
+  object?: string;
+  role?: string;
+  runId?: string;
+  threadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      createAt: 'createAt',
+      id: 'id',
+      metadata: 'metadata',
+      object: 'object',
+      role: 'role',
+      runId: 'runId',
+      threadId: 'threadId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'array', 'itemType': CreateRunResponseBodyDataContent },
+      createAt: 'number',
+      id: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      object: 'string',
+      role: 'string',
+      runId: 'string',
+      threadId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.content)) {
+      $dara.Model.validateArray(this.content);
+    }
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRunResponseBodyDeltaContentCardCallback extends $dara.Model {
   /**
    * @example
@@ -15601,6 +15843,35 @@ export class GetRangeResponseBodyBackgroundColors extends $dara.Model {
       green: 'number',
       blue: 'number',
       hexString: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRangeResponseBodyHyperlinks extends $dara.Model {
+  type?: string;
+  link?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+      link: 'link',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      link: 'string',
+      text: 'string',
     };
   }
 
@@ -43580,6 +43851,7 @@ export class CreateRunResponseBody extends $dara.Model {
    * 1642448000000
    */
   createAt?: number;
+  data?: CreateRunResponseBodyData;
   /**
    * @example
    * {}
@@ -43641,6 +43913,7 @@ export class CreateRunResponseBody extends $dara.Model {
       completedAt: 'completedAt',
       content: 'content',
       createAt: 'createAt',
+      data: 'data',
       delta: 'delta',
       expiresAt: 'expiresAt',
       failedAt: 'failedAt',
@@ -43661,6 +43934,7 @@ export class CreateRunResponseBody extends $dara.Model {
       completedAt: 'number',
       content: CreateRunResponseBodyContent,
       createAt: 'number',
+      data: CreateRunResponseBodyData,
       delta: CreateRunResponseBodyDelta,
       expiresAt: 'number',
       failedAt: 'number',
@@ -43678,6 +43952,9 @@ export class CreateRunResponseBody extends $dara.Model {
   validate() {
     if(this.content && typeof (this.content as any).validate === 'function') {
       (this.content as any).validate();
+    }
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
     }
     if(this.delta && typeof (this.delta as any).validate === 'function') {
       (this.delta as any).validate();
@@ -61844,6 +62121,11 @@ export class GetRangeResponseBody extends $dara.Model {
    */
   formulas?: string[][];
   /**
+   * @example
+   * []
+   */
+  hyperlinks?: GetRangeResponseBodyHyperlinks[][];
+  /**
    * @remarks
    * requestId
    * 
@@ -61861,6 +62143,7 @@ export class GetRangeResponseBody extends $dara.Model {
       backgroundColors: 'backgroundColors',
       displayValues: 'displayValues',
       formulas: 'formulas',
+      hyperlinks: 'hyperlinks',
       requestId: 'requestId',
       values: 'values',
     };
@@ -61871,6 +62154,7 @@ export class GetRangeResponseBody extends $dara.Model {
       backgroundColors: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': GetRangeResponseBodyBackgroundColors } },
       displayValues: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
       formulas: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
+      hyperlinks: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': GetRangeResponseBodyHyperlinks } },
       requestId: 'string',
       values: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'any' } },
     };
@@ -61885,6 +62169,9 @@ export class GetRangeResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.formulas)) {
       $dara.Model.validateArray(this.formulas);
+    }
+    if(Array.isArray(this.hyperlinks)) {
+      $dara.Model.validateArray(this.hyperlinks);
     }
     if(Array.isArray(this.values)) {
       $dara.Model.validateArray(this.values);
