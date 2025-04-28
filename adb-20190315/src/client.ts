@@ -3530,6 +3530,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
    * 3306
    */
   port?: number;
+  productForm?: string;
   /**
    * @remarks
    * The edition of the cluster. Valid values:
@@ -3557,6 +3558,8 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
    * cn-hangzhou
    */
   regionId?: string;
+  reservedNodeCount?: number;
+  reservedNodeSize?: string;
   /**
    * @remarks
    * The resource group ID.
@@ -3684,9 +3687,12 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
       mode: 'Mode',
       payType: 'PayType',
       port: 'Port',
+      productForm: 'ProductForm',
       productVersion: 'ProductVersion',
       rdsInstanceId: 'RdsInstanceId',
       regionId: 'RegionId',
+      reservedNodeCount: 'ReservedNodeCount',
+      reservedNodeSize: 'ReservedNodeSize',
       resourceGroupId: 'ResourceGroupId',
       secondaryVSwitchId: 'SecondaryVSwitchId',
       secondaryZoneId: 'SecondaryZoneId',
@@ -3739,9 +3745,12 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
       mode: 'string',
       payType: 'string',
       port: 'number',
+      productForm: 'string',
       productVersion: 'string',
       rdsInstanceId: 'string',
       regionId: 'string',
+      reservedNodeCount: 'number',
+      reservedNodeSize: 'string',
       resourceGroupId: 'string',
       secondaryVSwitchId: 'string',
       secondaryZoneId: 'string',
