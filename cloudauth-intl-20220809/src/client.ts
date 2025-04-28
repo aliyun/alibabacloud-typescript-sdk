@@ -378,6 +378,68 @@ export class DocOcrResponseBodyResult extends $dara.Model {
   }
 }
 
+export class DocOcrMaxResponseBodyResult extends $dara.Model {
+  /**
+   * @example
+   * {
+   *   "docType": "PPTW01",
+   *   "ocrIdInfo": {
+   *     "passportNo": "36*******",
+   *     "expiryDate": "2032/02/10",
+   *     "placeOfBirth": "TAIWAN",
+   *     "surname": "CHEN",
+   *     "givenname": "LIN-CHUN",
+   *     "countryCode": "TWN",
+   *     "sex": "F",
+   *     "personalNo": "S22********",
+   *     "issueDate": "2022/02/10",
+   *     "birthDate": "1988/10/04"
+   *   }
+   * }
+   */
+  extIdInfo?: string;
+  /**
+   * @example
+   * Y
+   */
+  passed?: string;
+  /**
+   * @example
+   * 200
+   */
+  subCode?: string;
+  /**
+   * @example
+   * hk573be80f944d95ac812e0*******a8
+   */
+  transactionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extIdInfo: 'ExtIdInfo',
+      passed: 'Passed',
+      subCode: 'SubCode',
+      transactionId: 'TransactionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extIdInfo: 'string',
+      passed: 'string',
+      subCode: 'string',
+      transactionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EkycVerifyResponseBodyResult extends $dara.Model {
   /**
    * @example
@@ -1792,6 +1854,184 @@ export class DocOcrResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DocOcrResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DocOcrMaxRequest extends $dara.Model {
+  /**
+   * @example
+   * CNSSC01
+   */
+  docType?: string;
+  /**
+   * @example
+   * base64
+   */
+  idOcrPictureBase64?: string;
+  /**
+   * @example
+   * https://***********.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
+   */
+  idOcrPictureUrl?: string;
+  /**
+   * @example
+   * 0
+   */
+  idThreshold?: string;
+  /**
+   * @example
+   * e0c34a77f5ac40a5aa5e6ed20c******
+   */
+  merchantBizId?: string;
+  /**
+   * @example
+   * 123456789
+   */
+  merchantUserId?: string;
+  /**
+   * @example
+   * 0
+   */
+  ocrModel?: string;
+  /**
+   * @example
+   * ID_OCR_MAX
+   */
+  productCode?: string;
+  prompt?: string;
+  /**
+   * @example
+   * 1234567890
+   */
+  sceneCode?: string;
+  /**
+   * @example
+   * F
+   */
+  spoof?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docType: 'DocType',
+      idOcrPictureBase64: 'IdOcrPictureBase64',
+      idOcrPictureUrl: 'IdOcrPictureUrl',
+      idThreshold: 'IdThreshold',
+      merchantBizId: 'MerchantBizId',
+      merchantUserId: 'MerchantUserId',
+      ocrModel: 'OcrModel',
+      productCode: 'ProductCode',
+      prompt: 'Prompt',
+      sceneCode: 'SceneCode',
+      spoof: 'Spoof',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docType: 'string',
+      idOcrPictureBase64: 'string',
+      idOcrPictureUrl: 'string',
+      idThreshold: 'string',
+      merchantBizId: 'string',
+      merchantUserId: 'string',
+      ocrModel: 'string',
+      productCode: 'string',
+      prompt: 'string',
+      sceneCode: 'string',
+      spoof: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DocOcrMaxResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Success
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4EB35****87EBA1
+   */
+  requestId?: string;
+  result?: DocOcrMaxResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: DocOcrMaxResponseBodyResult,
+    };
+  }
+
+  validate() {
+    if(this.result && typeof (this.result as any).validate === 'function') {
+      (this.result as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DocOcrMaxResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DocOcrMaxResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DocOcrMaxResponseBody,
     };
   }
 
@@ -3964,6 +4204,88 @@ export default class Client extends OpenApi {
   async docOcr(request: DocOcrRequest): Promise<DocOcrResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.docOcrWithOptions(request, runtime);
+  }
+
+  /**
+   * 全球证件ocr识别接口
+   * 
+   * @param request - DocOcrMaxRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DocOcrMaxResponse
+   */
+  async docOcrMaxWithOptions(request: DocOcrMaxRequest, runtime: $dara.RuntimeOptions): Promise<DocOcrMaxResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.docType)) {
+      body["DocType"] = request.docType;
+    }
+
+    if (!$dara.isNull(request.idOcrPictureBase64)) {
+      body["IdOcrPictureBase64"] = request.idOcrPictureBase64;
+    }
+
+    if (!$dara.isNull(request.idOcrPictureUrl)) {
+      body["IdOcrPictureUrl"] = request.idOcrPictureUrl;
+    }
+
+    if (!$dara.isNull(request.idThreshold)) {
+      body["IdThreshold"] = request.idThreshold;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      body["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.merchantUserId)) {
+      body["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!$dara.isNull(request.ocrModel)) {
+      body["OcrModel"] = request.ocrModel;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.sceneCode)) {
+      body["SceneCode"] = request.sceneCode;
+    }
+
+    if (!$dara.isNull(request.spoof)) {
+      body["Spoof"] = request.spoof;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DocOcrMax",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DocOcrMaxResponse>(await this.callApi(params, req, runtime), new DocOcrMaxResponse({}));
+  }
+
+  /**
+   * 全球证件ocr识别接口
+   * 
+   * @param request - DocOcrMaxRequest
+   * @returns DocOcrMaxResponse
+   */
+  async docOcrMax(request: DocOcrMaxRequest): Promise<DocOcrMaxResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.docOcrMaxWithOptions(request, runtime);
   }
 
   /**
