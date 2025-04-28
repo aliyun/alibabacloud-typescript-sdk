@@ -7060,7 +7060,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
    * The user\\"s organizational unit path.
    * 
    * @example
-   * example.com\\wuying\\users
+   * example.com
    */
   userOuPath?: string;
   /**
@@ -30408,6 +30408,7 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   /**
    * @remarks
    * >  This parameter is not publicly available.
@@ -30454,6 +30455,7 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
       period: 'Period',
       periodUnit: 'PeriodUnit',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
       solutionId: 'SolutionId',
       userCount: 'UserCount',
       userMaxSize: 'UserMaxSize',
@@ -30476,6 +30478,7 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
       period: 'number',
       periodUnit: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
       solutionId: 'string',
       userCount: 'number',
       userMaxSize: 'number',
@@ -31435,6 +31438,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   /**
    * @remarks
    * The reset option of the shared group.
@@ -31610,6 +31614,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
       promotionId: 'PromotionId',
       ratioThreshold: 'RatioThreshold',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
       resetType: 'ResetType',
       scaleStrategyId: 'ScaleStrategyId',
       sessionType: 'SessionType',
@@ -31672,6 +31677,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
       promotionId: 'string',
       ratioThreshold: 'number',
       regionId: 'string',
+      resellerOwnerUid: 'number',
       resetType: 'number',
       scaleStrategyId: 'string',
       sessionType: 'string',
@@ -32171,6 +32177,7 @@ export class CreateDesktopsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   /**
    * @remarks
    * The ID of the resource group.
@@ -32300,6 +32307,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       policyGroupId: 'PolicyGroupId',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
       resourceGroupId: 'ResourceGroupId',
       savingPlanId: 'SavingPlanId',
       snapshotPolicyId: 'SnapshotPolicyId',
@@ -32339,6 +32347,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       policyGroupId: 'string',
       promotionId: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
       resourceGroupId: 'string',
       savingPlanId: 'string',
       snapshotPolicyId: 'string',
@@ -32623,6 +32632,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   /**
    * @remarks
    * The ID of the resource group.
@@ -32752,6 +32762,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
       policyGroupId: 'PolicyGroupId',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
       resourceGroupId: 'ResourceGroupId',
       savingPlanId: 'SavingPlanId',
       snapshotPolicyId: 'SnapshotPolicyId',
@@ -32791,6 +32802,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
       policyGroupId: 'string',
       promotionId: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
       resourceGroupId: 'string',
       savingPlanId: 'string',
       snapshotPolicyId: 'string',
@@ -33614,6 +33626,7 @@ export class CreateNetworkPackageRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -33626,6 +33639,7 @@ export class CreateNetworkPackageRequest extends $dara.Model {
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
     };
   }
 
@@ -33641,6 +33655,7 @@ export class CreateNetworkPackageRequest extends $dara.Model {
       periodUnit: 'string',
       promotionId: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
     };
   }
 
@@ -36426,10 +36441,12 @@ export class DeleteDesktopGroupRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {
       desktopGroupId: 'DesktopGroupId',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
     };
   }
 
@@ -36437,6 +36454,7 @@ export class DeleteDesktopGroupRequest extends $dara.Model {
     return {
       desktopGroupId: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
     };
   }
 
@@ -36532,10 +36550,12 @@ export class DeleteDesktopsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {
       desktopId: 'DesktopId',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
     };
   }
 
@@ -36543,6 +36563,7 @@ export class DeleteDesktopsRequest extends $dara.Model {
     return {
       desktopId: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      resellerOwnerUid: 'number',
     };
   }
 
@@ -37217,10 +37238,12 @@ export class DeleteNetworkPackagesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {
       networkPackageId: 'NetworkPackageId',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
     };
   }
 
@@ -37228,6 +37251,7 @@ export class DeleteNetworkPackagesRequest extends $dara.Model {
     return {
       networkPackageId: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      resellerOwnerUid: 'number',
     };
   }
 
@@ -45172,6 +45196,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   /**
    * @remarks
    * The resource type. The required parameters depend on the resource type.
@@ -45210,6 +45235,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
       resourceType: 'ResourceType',
       rootDiskSizeGib: 'RootDiskSizeGib',
       userDiskSizeGib: 'UserDiskSizeGib',
@@ -45222,6 +45248,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
       instanceId: 'string',
       instanceType: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
       resourceType: 'string',
       rootDiskSizeGib: 'number',
       userDiskSizeGib: 'number',
@@ -46266,6 +46293,7 @@ export class DescribePriceRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   /**
    * @remarks
    * The type of the resource.
@@ -46338,6 +46366,7 @@ export class DescribePriceRequest extends $dara.Model {
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
       resourceType: 'ResourceType',
       rootDiskCategory: 'RootDiskCategory',
       rootDiskSizeGib: 'RootDiskSizeGib',
@@ -46359,6 +46388,7 @@ export class DescribePriceRequest extends $dara.Model {
       periodUnit: 'string',
       promotionId: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
       resourceType: 'string',
       rootDiskCategory: 'string',
       rootDiskSizeGib: 'number',
@@ -46999,11 +47029,13 @@ export class DescribeRefundPriceRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {
       desktopId: 'DesktopId',
       refundType: 'RefundType',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
     };
   }
 
@@ -47012,6 +47044,7 @@ export class DescribeRefundPriceRequest extends $dara.Model {
       desktopId: { 'type': 'array', 'itemType': 'string' },
       refundType: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
     };
   }
 
@@ -47273,6 +47306,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   /**
    * @remarks
    * The resource type.
@@ -47294,6 +47328,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
       period: 'Period',
       periodUnit: 'PeriodUnit',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
       resourceType: 'ResourceType',
     };
   }
@@ -47305,6 +47340,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
       period: 'number',
       periodUnit: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
       resourceType: 'string',
     };
   }
@@ -57897,6 +57933,7 @@ export class ModifyDesktopChargeTypeRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   /**
    * @remarks
    * >  This parameter is in invitational preview and not publicly available.
@@ -57914,6 +57951,7 @@ export class ModifyDesktopChargeTypeRequest extends $dara.Model {
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
       useDuration: 'UseDuration',
     };
   }
@@ -57927,6 +57965,7 @@ export class ModifyDesktopChargeTypeRequest extends $dara.Model {
       periodUnit: 'string',
       promotionId: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
       useDuration: 'number',
     };
   }
@@ -59057,6 +59096,7 @@ export class ModifyDesktopSpecRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   /**
    * @remarks
    * The array of resource specification templates.
@@ -59140,6 +59180,7 @@ export class ModifyDesktopSpecRequest extends $dara.Model {
       desktopType: 'DesktopType',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
       resourceSpecs: 'ResourceSpecs',
       resourceType: 'ResourceType',
       rootDiskSizeGib: 'RootDiskSizeGib',
@@ -59155,6 +59196,7 @@ export class ModifyDesktopSpecRequest extends $dara.Model {
       desktopType: 'string',
       promotionId: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
       resourceSpecs: { 'type': 'array', 'itemType': ModifyDesktopSpecRequestResourceSpecs },
       resourceType: 'string',
       rootDiskSizeGib: 'number',
@@ -60303,6 +60345,7 @@ export class ModifyNetworkPackageBandwidthRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -60310,6 +60353,7 @@ export class ModifyNetworkPackageBandwidthRequest extends $dara.Model {
       networkPackageId: 'NetworkPackageId',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
     };
   }
 
@@ -60320,6 +60364,7 @@ export class ModifyNetworkPackageBandwidthRequest extends $dara.Model {
       networkPackageId: 'string',
       promotionId: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
     };
   }
 
@@ -63640,6 +63685,7 @@ export class RenewDesktopGroupRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -63648,6 +63694,7 @@ export class RenewDesktopGroupRequest extends $dara.Model {
       period: 'Period',
       periodUnit: 'PeriodUnit',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
     };
   }
 
@@ -63659,6 +63706,7 @@ export class RenewDesktopGroupRequest extends $dara.Model {
       period: 'number',
       periodUnit: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
     };
   }
 
@@ -63928,6 +63976,7 @@ export class RenewDesktopsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   /**
    * @remarks
    * >  This field is not available for public use.
@@ -63945,6 +63994,7 @@ export class RenewDesktopsRequest extends $dara.Model {
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
       resourceType: 'ResourceType',
     };
   }
@@ -63958,6 +64008,7 @@ export class RenewDesktopsRequest extends $dara.Model {
       periodUnit: 'string',
       promotionId: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
       resourceType: 'string',
     };
   }
@@ -64131,6 +64182,7 @@ export class RenewNetworkPackagesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -64140,6 +64192,7 @@ export class RenewNetworkPackagesRequest extends $dara.Model {
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
     };
   }
 
@@ -64152,6 +64205,7 @@ export class RenewNetworkPackagesRequest extends $dara.Model {
       periodUnit: 'string',
       promotionId: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
     };
   }
 
@@ -70650,6 +70704,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
+    }
+
     if (!$dara.isNull(request.solutionId)) {
       query["SolutionId"] = request.solutionId;
     }
@@ -70995,6 +71053,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
+    }
+
     if (!$dara.isNull(request.resetType)) {
       query["ResetType"] = request.resetType;
     }
@@ -71300,6 +71362,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
     }
 
     if (!$dara.isNull(request.resourceGroupId)) {
@@ -71637,6 +71703,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -72542,6 +72612,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -72591,6 +72665,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -72903,6 +72981,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -75671,6 +75753,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
+    }
+
     if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
@@ -76029,6 +76115,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
+    }
+
     if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
@@ -76355,6 +76445,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -76457,6 +76551,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
     }
 
     if (!$dara.isNull(request.resourceType)) {
@@ -80160,6 +80258,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
+    }
+
     if (!$dara.isNull(request.useDuration)) {
       query["UseDuration"] = request.useDuration;
     }
@@ -80681,6 +80783,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
     }
 
     if (!$dara.isNull(request.resourceSpecs)) {
@@ -81219,6 +81325,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -82443,6 +82553,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -82559,6 +82673,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
+    }
+
     if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
@@ -82627,6 +82745,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
