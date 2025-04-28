@@ -365,7 +365,7 @@ export class CreateProductOrdersRequestProducts extends $dara.Model {
 export class CreateWorkspaceResourceRequestResourcesLabels extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The label key.
    * 
    * @example
    * system.support.eas
@@ -373,7 +373,7 @@ export class CreateWorkspaceResourceRequestResourcesLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The label value.
    * 
    * @example
    * true
@@ -450,7 +450,7 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The name of the resource group, which is unique within your Alibaba Cloud account.
+   * The name of the resource group, which is unique within your Alibaba Cloud account. This parameter is required for MaxCompute, Elastic Compute Service (ECS), Lingjun, Alibaba Cloud Container Compute Service (ACS), and Realtime Compute for Apache Flink resources.
    * 
    * @example
    * groupName
@@ -469,15 +469,15 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The tags added to the resource.
+   * The labels added to the resource.
    */
   labels?: CreateWorkspaceResourceRequestResourcesLabels[];
   /**
    * @remarks
-   * The resource name. Format:
+   * The resource name. The name must meet the following requirements:
    * 
    * *   The name must be 3 to 28 characters in length, and can contain only letters, digits, and underscores (_). The name must start with a letter.
-   * *   The name is unique in the region.
+   * *   The name must be unique in the region.
    * 
    * This parameter is required.
    * 
@@ -487,7 +487,7 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * **This field is no longer used and will be removed. Use the ResourceType field instead.
+   * **This parameter is no longer used and will be removed. Use the ResourceType parameter instead.
    * 
    * @example
    * MaxCompute
@@ -495,12 +495,12 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The list of quotas. Only MaxCompute quotas are available.
+   * The quotas. Only MaxCompute quotas are available.
    */
   quotas?: CreateWorkspaceResourceRequestResourcesQuotas[];
   /**
    * @remarks
-   * The resource type. Valid values:
+   * The resource types. Valid values:
    * 
    * *   MaxCompute
    * *   ECS
@@ -593,6 +593,40 @@ export class CreateWorkspaceResourceResponseBodyResources extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       id: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConfigResponseBodyLabels extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -849,6 +883,80 @@ export class GetWorkspaceResponseBodyOwner extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigsResponseBodyConfigsLabels extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigsResponseBodyConfigs extends $dara.Model {
+  /**
+   * @example
+   * tempTableLifecycle
+   */
+  configKey?: string;
+  /**
+   * @example
+   * oss://***
+   */
+  configValue?: string;
+  labels?: ListConfigsResponseBodyConfigsLabels[];
+  static names(): { [key: string]: string } {
+    return {
+      configKey: 'ConfigKey',
+      configValue: 'ConfigValue',
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configKey: 'string',
+      configValue: 'string',
+      labels: { 'type': 'array', 'itemType': ListConfigsResponseBodyConfigsLabels },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
     super.validate();
   }
 
@@ -1205,7 +1313,21 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
 }
 
 export class ListModelsRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2303,6 +2425,121 @@ export class SetUserConfigsRequestConfigs extends $dara.Model {
   }
 }
 
+export class UpdateConfigRequestLabels extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigsRequestConfigsLabels extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigsRequestConfigs extends $dara.Model {
+  /**
+   * @example
+   * CommonResourceConfig
+   */
+  categoryName?: string;
+  /**
+   * @example
+   * tempStoragePath
+   */
+  configKey?: string;
+  /**
+   * @example
+   * oss://test/s/
+   */
+  configValue?: string;
+  labels?: UpdateConfigsRequestConfigsLabels[];
+  static names(): { [key: string]: string } {
+    return {
+      categoryName: 'CategoryName',
+      configKey: 'ConfigKey',
+      configValue: 'ConfigValue',
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryName: 'string',
+      configKey: 'string',
+      configValue: 'string',
+      labels: { 'type': 'array', 'itemType': UpdateConfigsRequestConfigsLabels },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWorkspaceResourceRequestLabels extends $dara.Model {
   /**
    * @remarks
@@ -2703,6 +2940,11 @@ export class Dataset extends $dara.Model {
 export class DatasetFileMeta extends $dara.Model {
   /**
    * @example
+   * image/jpeg
+   */
+  contentType?: string;
+  /**
+   * @example
    * 12
    */
   dataSize?: number;
@@ -2722,6 +2964,11 @@ export class DatasetFileMeta extends $dara.Model {
    * car.png
    */
   fileName?: string;
+  /**
+   * @example
+   * image
+   */
+  fileType?: string;
   /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
@@ -2758,12 +3005,14 @@ export class DatasetFileMeta extends $dara.Model {
   uri?: string;
   static names(): { [key: string]: string } {
     return {
+      contentType: 'ContentType',
       dataSize: 'DataSize',
       datasetFileMetaId: 'DatasetFileMetaId',
       downloadUrl: 'DownloadUrl',
       fileCreateTime: 'FileCreateTime',
       fileFingerPrint: 'FileFingerPrint',
       fileName: 'FileName',
+      fileType: 'FileType',
       fileUpdateTime: 'FileUpdateTime',
       metaAttributes: 'MetaAttributes',
       score: 'Score',
@@ -2777,12 +3026,14 @@ export class DatasetFileMeta extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      contentType: 'string',
       dataSize: 'number',
       datasetFileMetaId: 'string',
       downloadUrl: 'string',
       fileCreateTime: 'string',
       fileFingerPrint: 'string',
       fileName: 'string',
+      fileType: 'string',
       fileUpdateTime: 'string',
       metaAttributes: 'string',
       score: 'number',
@@ -6656,7 +6907,7 @@ export class CreateModelRequest extends $dara.Model {
    * The visibility of the model in the workspace. Valid values:
    * 
    * *   PRIVATE (default): Visible only to you and the administrator of the workspace.
-   * *   PUBLIC: Visible to all users in the workspace.
+   * *   PUBLIC: Vvisible to all users in the workspace.
    * 
    * @example
    * PRIVATE
@@ -6664,7 +6915,7 @@ export class CreateModelRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The domain of the model. Describes the domain in which the model is for. Example: nlp (Natural Language Processing), cv (computer vision), and others.
+   * The domain of the model. Describes the domain in which the model is for. Example: nlp (natural language processing), cv (computer vision), and others.
    * 
    * @example
    * nlp
@@ -6691,12 +6942,12 @@ export class CreateModelRequest extends $dara.Model {
   extraInfo?: { [key: string]: any };
   /**
    * @remarks
-   * The tags.
+   * The tags. This parameter will be deprecated and replaced by Tag.
    */
   labels?: Label[];
   /**
    * @remarks
-   * The model description, which is used to distinguish different models.
+   * The model description, used to distinguish different models.
    */
   modelDescription?: string;
   /**
@@ -6738,6 +6989,10 @@ export class CreateModelRequest extends $dara.Model {
    * ModelScope
    */
   origin?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: Label[];
   /**
    * @remarks
@@ -6749,7 +7004,7 @@ export class CreateModelRequest extends $dara.Model {
   task?: string;
   /**
    * @remarks
-   * The workspace ID. To obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID. Call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
    * 
    * @example
    * 796**
@@ -8048,6 +8303,116 @@ export class DeleteCodeSourceResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteCodeSourceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The category of the configuration item. Supported categories:
+   * 
+   * *   CommonResourceConfig
+   * *   DLCAutoRecycle - DLCPriorityConfig
+   * *   DSWPriorityConfig
+   * *   QuotaMaximumDuration
+   * 
+   * @example
+   * CommonResourceConfig
+   */
+  categoryName?: string;
+  /**
+   * @remarks
+   * The filter conditions. Separate multiple conditions with commas (,). The conditions have an AND relationship.
+   * 
+   * @example
+   * key1=value;key2=value2
+   */
+  labels?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryName: 'CategoryName',
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryName: 'string',
+      labels: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A******C83E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteConfigResponseBody,
     };
   }
 
@@ -9409,7 +9774,7 @@ export class DeleteUserConfigRequest extends $dara.Model {
 export class DeleteUserConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * dsjk****dfjksdf
@@ -9890,6 +10255,143 @@ export class GetCodeSourceResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCodeSourceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConfigRequest extends $dara.Model {
+  /**
+   * @example
+   * CommonResourceConfig
+   */
+  categoryName?: string;
+  /**
+   * @example
+   * tempStoragePath
+   */
+  configKey?: string;
+  /**
+   * @example
+   * oss://***
+   */
+  verbose?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryName: 'CategoryName',
+      configKey: 'ConfigKey',
+      verbose: 'Verbose',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryName: 'string',
+      configKey: 'string',
+      verbose: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConfigResponseBody extends $dara.Model {
+  /**
+   * @example
+   * CommonResourceConfig
+   */
+  categoryName?: string;
+  /**
+   * @example
+   * tempStoragePath
+   */
+  configKey?: string;
+  /**
+   * @example
+   * oss://***
+   */
+  configValue?: string;
+  labels?: GetConfigResponseBodyLabels[];
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A******C83E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1234******2
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryName: 'CategoryName',
+      configKey: 'ConfigKey',
+      configValue: 'ConfigValue',
+      labels: 'Labels',
+      requestId: 'RequestId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryName: 'string',
+      configKey: 'string',
+      configValue: 'string',
+      labels: { 'type': 'array', 'itemType': GetConfigResponseBodyLabels },
+      requestId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetConfigResponseBody,
     };
   }
 
@@ -10457,12 +10959,24 @@ export class GetDatasetFileMetaResponse extends $dara.Model {
 
 export class GetDatasetFileMetasStatisticsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Aggregates statistics based on the specified metadata field. The value is not case-sensitive. If not specified, the total number of dataset file metadata will be returned, instead of aggregation lists. Valid values:
+   * 
+   * *   filedir: the directory path of the file
+   * *   file_type: the file type
+   * *   tags.user: user-defined tag
+   * *   tags.user-delete-ai-tags: algorithm tags deleted by the user
+   * *   tags.ai: algorithm tags (aggregated by all tagging tasks)
+   * *   tags.all: algorithm tags and user-defined tags (excluding alogorithm tags deleted by the user)
+   * 
    * @example
    * filedir
    */
   aggregateBy?: string;
   /**
    * @remarks
+   * The dataset version.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10470,12 +10984,17 @@ export class GetDatasetFileMetasStatisticsRequest extends $dara.Model {
    */
   datasetVersion?: string;
   /**
+   * @remarks
+   * The maximum number of results to be returned from a single query when the NextToken parameter is used in the query. Valid values: 1 to 100. Default value: 10.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
    * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10510,13 +11029,23 @@ export class GetDatasetFileMetasStatisticsRequest extends $dara.Model {
 }
 
 export class GetDatasetFileMetasStatisticsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the returned aggregation list, including the number of each aggregate item. The list is by default sorted in descending order based on the count number.
+   */
   datasetFileMetasStats?: DatasetFileMetasStat[];
   /**
+   * @remarks
+   * The returned number. Example: the number of metadata records or the number of user-defined tags.
+   * 
    * @example
    * 73
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ADF6D849-*****-7E7030F0CE53
    */
@@ -13045,12 +13574,10 @@ export class ListCodeSourcesRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The order in which the entries are sorted by the specific field on the returned page.
+   * The order in which the entries are sorted by the specific field on the returned page. Valid values:
    * 
-   * Valid values:
-   * 
-   * *   asc: ascending order. This is the default value.
-   * *   desc: descending order.
+   * *   ASC (default)
+   * *   DESC
    * 
    * @example
    * desc
@@ -13076,10 +13603,10 @@ export class ListCodeSourcesRequest extends $dara.Model {
    * @remarks
    * The field used for sorting. Valid values:
    * 
-   * *   GmtModifyTime: the time when the source code is modified.
+   * *   GmtModifyTime: the time when the code source was modified.
    * *   DisplayName: the display name.
-   * *   CodeSourceId: the ID of the code source.
-   * *   GmtCreateTime: the time when the code source is created. This is the default value.
+   * *   CodeSourceId: the code source ID.
+   * *   GmtCreateTime: the time when the code source was created. This is the default value.
    * 
    * @example
    * GmtModifyTime
@@ -13209,6 +13736,129 @@ export class ListCodeSourcesResponse extends $dara.Model {
   }
 }
 
+export class ListConfigsRequest extends $dara.Model {
+  /**
+   * @example
+   * CommonResourceConfig
+   */
+  categoryName?: string;
+  /**
+   * @example
+   * tempStoragePath
+   */
+  configKeys?: string;
+  /**
+   * @example
+   * key1=value1,key2=value2
+   */
+  labels?: string;
+  /**
+   * @example
+   * true
+   */
+  verbose?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryName: 'CategoryName',
+      configKeys: 'ConfigKeys',
+      labels: 'Labels',
+      verbose: 'Verbose',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryName: 'string',
+      configKeys: 'string',
+      labels: 'string',
+      verbose: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigsResponseBody extends $dara.Model {
+  configs?: ListConfigsResponseBodyConfigs[];
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A******C83E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 15
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': ListConfigsResponseBodyConfigs },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configs)) {
+      $dara.Model.validateArray(this.configs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListConfigsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDatasetFileMetasRequest extends $dara.Model {
   /**
    * @remarks
@@ -13222,7 +13872,7 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
-   * The end time when the file is updated. This parameter is used when you want to query file metadata during a period of time. The time follows the ISO 8601 standard. This parameter is valid only when QueryType is set to TAG.
+   * The update time range to query. The end time. The time follows the ISO 8601 standard. This parameter is valid only when QueryType is set to TAG.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -13233,8 +13883,15 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
   /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
+   * 
+   * @example
+   * 2025-01-12T14:36:01.000Z
    */
   endTagUpdateTime?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
   /**
    * @remarks
@@ -13267,9 +13924,21 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
    * @deprecated
    */
   pageSize?: number;
+  /**
+   * @example
+   * cars/20250221/
+   */
   queryFileDir?: string;
+  /**
+   * @example
+   * shuima
+   */
   queryFileName?: string;
   queryFileTypeIncludeAny?: string[];
+  /**
+   * @example
+   * oss://test-xxx-oss/car/0001.png
+   */
   queryImage?: string;
   queryTagsExclude?: string[];
   queryTagsIncludeAll?: string[];
@@ -13311,7 +13980,7 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The start time when the file is updated. This parameter is used when you want to query file metadata during a period of time. The time follows the ISO 8601 standard. This parameter is valid only when QueryType is set to TAG.
+   * The update time range to query. The start time. The time follows the ISO 8601 standard. This parameter is valid only when QueryType is set to TAG.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -13322,8 +13991,15 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
   /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
+   * 
+   * @example
+   * 2025-01-12T14:36:01.000Z
    */
   startTagUpdateTime?: string;
+  /**
+   * @example
+   * w_100
+   */
   thumbnailMode?: string;
   /**
    * @remarks
@@ -13433,7 +14109,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
-   * The end time when the file is updated. This parameter is used when you want to query file metadata during a period of time. The time follows the ISO 8601 standard. This parameter is valid only when QueryType is set to TAG.
+   * The update time range to query. The end time. The time follows the ISO 8601 standard. This parameter is valid only when QueryType is set to TAG.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -13444,8 +14120,15 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
+   * 
+   * @example
+   * 2025-01-12T14:36:01.000Z
    */
   endTagUpdateTime?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
   /**
    * @remarks
@@ -13478,9 +14161,21 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
    * @deprecated
    */
   pageSize?: number;
+  /**
+   * @example
+   * cars/20250221/
+   */
   queryFileDir?: string;
+  /**
+   * @example
+   * shuima
+   */
   queryFileName?: string;
   queryFileTypeIncludeAnyShrink?: string;
+  /**
+   * @example
+   * oss://test-xxx-oss/car/0001.png
+   */
   queryImage?: string;
   queryTagsExcludeShrink?: string;
   queryTagsIncludeAllShrink?: string;
@@ -13522,7 +14217,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The start time when the file is updated. This parameter is used when you want to query file metadata during a period of time. The time follows the ISO 8601 standard. This parameter is valid only when QueryType is set to TAG.
+   * The update time range to query. The start time. The time follows the ISO 8601 standard. This parameter is valid only when QueryType is set to TAG.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -13533,8 +14228,15 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
+   * 
+   * @example
+   * 2025-01-12T14:36:01.000Z
    */
   startTagUpdateTime?: string;
+  /**
+   * @example
+   * w_100
+   */
   thumbnailMode?: string;
   /**
    * @remarks
@@ -13641,6 +14343,10 @@ export class ListDatasetFileMetasResponseBody extends $dara.Model {
    * v1
    */
   datasetVersion?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
   /**
    * @remarks
@@ -13652,7 +14358,7 @@ export class ListDatasetFileMetasResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -14111,15 +14817,6 @@ export class ListDatasetVersionsRequest extends $dara.Model {
   /**
    * @remarks
    * The field used to sort the results in queries by page. Default value: GmtCreateTime.
-   * 
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * 
    * Valid values:
    * 
    * *   SourceType
@@ -14154,12 +14851,6 @@ export class ListDatasetVersionsRequest extends $dara.Model {
    * *   PAI-PUBLIC-DATASET: a public dataset of Platform for AI (PAI).
    * *   ITAG: a dataset generated from a labeling job of iTAG.
    * *   USER: a dataset registered by a user.
-   * 
-   * <!---->
-   * 
-   * *
-   * *
-   * *
    * 
    * @example
    * USER
@@ -14430,12 +15121,6 @@ export class ListDatasetsRequest extends $dara.Model {
    * *   PAI-PUBLIC-DATASET: a public dataset of Platform for AI (PAI).
    * *   ITAG: a dataset generated from a labeling job of iTAG.
    * *   USER: a dataset registered by a user.
-   * 
-   * <!---->
-   * 
-   * *
-   * *
-   * *
    * 
    * @example
    * USER,ITAG
@@ -15862,6 +16547,10 @@ export class ListModelsRequest extends $dara.Model {
    * GmtCreateTime
    */
   sortBy?: string;
+  /**
+   * @remarks
+   * The tags of the model.
+   */
   tag?: ListModelsRequestTag[];
   /**
    * @remarks
@@ -16028,6 +16717,10 @@ export class ListModelsShrinkRequest extends $dara.Model {
    * GmtCreateTime
    */
   sortBy?: string;
+  /**
+   * @remarks
+   * The tags of the model.
+   */
   tagShrink?: string;
   /**
    * @remarks
@@ -18299,7 +18992,7 @@ export class SetUserConfigsRequest extends $dara.Model {
 export class SetUserConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * dsjk****dfjksdf
@@ -18638,6 +19331,203 @@ export class UpdateCodeSourceResponse extends $dara.Model {
   }
 }
 
+export class UpdateConfigRequest extends $dara.Model {
+  /**
+   * @example
+   * CommonResourceConfig
+   */
+  categoryName?: string;
+  /**
+   * @example
+   * tempStoragePath
+   */
+  configKey?: string;
+  /**
+   * @example
+   * oss://***
+   */
+  configValue?: string;
+  labels?: UpdateConfigRequestLabels[];
+  static names(): { [key: string]: string } {
+    return {
+      categoryName: 'CategoryName',
+      configKey: 'ConfigKey',
+      configValue: 'ConfigValue',
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryName: 'string',
+      configKey: 'string',
+      configValue: 'string',
+      labels: { 'type': 'array', 'itemType': UpdateConfigRequestLabels },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A******C83E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigsRequest extends $dara.Model {
+  configs?: UpdateConfigsRequestConfigs[];
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': UpdateConfigsRequestConfigs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configs)) {
+      $dara.Model.validateArray(this.configs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A******C83E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConfigsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateConfigsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDatasetRequest extends $dara.Model {
   /**
    * @remarks
@@ -18792,7 +19682,7 @@ export class UpdateDatasetFileMetasRequest extends $dara.Model {
   tagJobId?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the dataset belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * The ID of the workspace to which the dataset belongs. To obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 796**
@@ -21835,6 +22725,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes workspace configurations.
+   * 
+   * @param request - DeleteConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConfigResponse
+   */
+  async deleteConfigWithOptions(WorkspaceId: string, ConfigKey: string, request: DeleteConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteConfigResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoryName)) {
+      query["CategoryName"] = request.categoryName;
+    }
+
+    if (!$dara.isNull(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConfig",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(WorkspaceId)}/configs/${$dara.URL.percentEncode(ConfigKey)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<DeleteConfigResponse>(await this.callApi(params, req, runtime), new DeleteConfigResponse({}));
+  }
+
+  /**
+   * Deletes workspace configurations.
+   * 
+   * @param request - DeleteConfigRequest
+   * @returns DeleteConfigResponse
+   */
+  async deleteConfig(WorkspaceId: string, ConfigKey: string, request: DeleteConfigRequest): Promise<DeleteConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteConfigWithOptions(WorkspaceId, ConfigKey, request, headers, runtime);
+  }
+
+  /**
    * Deletes a dataset.
    * 
    * @param headers - map
@@ -22653,6 +23592,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取配置
+   * 
+   * @param request - GetConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConfigResponse
+   */
+  async getConfigWithOptions(WorkspaceId: string, request: GetConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetConfigResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoryName)) {
+      query["CategoryName"] = request.categoryName;
+    }
+
+    if (!$dara.isNull(request.configKey)) {
+      query["ConfigKey"] = request.configKey;
+    }
+
+    if (!$dara.isNull(request.verbose)) {
+      query["Verbose"] = request.verbose;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConfig",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(WorkspaceId)}/config`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<GetConfigResponse>(await this.callApi(params, req, runtime), new GetConfigResponse({}));
+  }
+
+  /**
+   * 获取配置
+   * 
+   * @param request - GetConfigRequest
+   * @returns GetConfigResponse
+   */
+  async getConfig(WorkspaceId: string, request: GetConfigRequest): Promise<GetConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getConfigWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * Obtains a dataset.
    * 
    * @param headers - map
@@ -22737,7 +23729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集下元数据的统计信息。
+   * Obtains metadata statistics of a dataset.
    * 
    * @param request - GetDatasetFileMetasStatisticsRequest
    * @param headers - map
@@ -22782,7 +23774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集下元数据的统计信息。
+   * Obtains metadata statistics of a dataset.
    * 
    * @param request - GetDatasetFileMetasStatisticsRequest
    * @returns GetDatasetFileMetasStatisticsResponse
@@ -23396,6 +24388,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCodeSourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取配置
+   * 
+   * @param request - ListConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConfigsResponse
+   */
+  async listConfigsWithOptions(WorkspaceId: string, request: ListConfigsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListConfigsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoryName)) {
+      query["CategoryName"] = request.categoryName;
+    }
+
+    if (!$dara.isNull(request.configKeys)) {
+      query["ConfigKeys"] = request.configKeys;
+    }
+
+    if (!$dara.isNull(request.labels)) {
+      query["Labels"] = request.labels;
+    }
+
+    if (!$dara.isNull(request.verbose)) {
+      query["Verbose"] = request.verbose;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConfigs",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(WorkspaceId)}/configs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<ListConfigsResponse>(await this.callApi(params, req, runtime), new ListConfigsResponse({}));
+  }
+
+  /**
+   * 获取配置
+   * 
+   * @param request - ListConfigsRequest
+   * @returns ListConfigsResponse
+   */
+  async listConfigs(WorkspaceId: string, request: ListConfigsRequest): Promise<ListConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConfigsWithOptions(WorkspaceId, request, headers, runtime);
   }
 
   /**
@@ -24708,7 +25757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the user configurations.
+   * Queries user information.
    * 
    * @param request - ListUserConfigsRequest
    * @param headers - map
@@ -24745,7 +25794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the user configurations.
+   * Queries user information.
    * 
    * @param request - ListUserConfigsRequest
    * @returns ListUserConfigsResponse
@@ -25361,6 +26410,108 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateCodeSourceWithOptions(CodeSourceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新配置
+   * 
+   * @param request - UpdateConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConfigResponse
+   */
+  async updateConfigWithOptions(WorkspaceId: string, request: UpdateConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoryName)) {
+      body["CategoryName"] = request.categoryName;
+    }
+
+    if (!$dara.isNull(request.configKey)) {
+      body["ConfigKey"] = request.configKey;
+    }
+
+    if (!$dara.isNull(request.configValue)) {
+      body["ConfigValue"] = request.configValue;
+    }
+
+    if (!$dara.isNull(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConfig",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(WorkspaceId)}/config`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<UpdateConfigResponse>(await this.callApi(params, req, runtime), new UpdateConfigResponse({}));
+  }
+
+  /**
+   * 更新配置
+   * 
+   * @param request - UpdateConfigRequest
+   * @returns UpdateConfigResponse
+   */
+  async updateConfig(WorkspaceId: string, request: UpdateConfigRequest): Promise<UpdateConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateConfigWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新配置
+   * 
+   * @param request - UpdateConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConfigsResponse
+   */
+  async updateConfigsWithOptions(WorkspaceId: string, request: UpdateConfigsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateConfigsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configs)) {
+      body["Configs"] = request.configs;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConfigs",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(WorkspaceId)}/configs`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<UpdateConfigsResponse>(await this.callApi(params, req, runtime), new UpdateConfigsResponse({}));
+  }
+
+  /**
+   * 更新配置
+   * 
+   * @param request - UpdateConfigsRequest
+   * @returns UpdateConfigsResponse
+   */
+  async updateConfigs(WorkspaceId: string, request: UpdateConfigsRequest): Promise<UpdateConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateConfigsWithOptions(WorkspaceId, request, headers, runtime);
   }
 
   /**
