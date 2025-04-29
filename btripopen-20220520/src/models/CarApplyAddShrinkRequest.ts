@@ -1,0 +1,152 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class CarApplyAddShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  cause?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  city?: string;
+  cityCodeSet?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-07-12 14:52:52
+   */
+  date?: string;
+  /**
+   * @example
+   * 2022-07-12 18:51:25
+   */
+  finishedDate?: string;
+  /**
+   * @example
+   * project1413
+   */
+  projectCode?: string;
+  projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  status?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * IRGS1413
+   */
+  thirdPartApplyId?: string;
+  /**
+   * @example
+   * QA1411
+   */
+  thirdPartCostCenterId?: string;
+  /**
+   * @example
+   * GA15131
+   */
+  thirdPartInvoiceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  timesTotal?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  timesType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  timesUsed?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  title?: string;
+  travelerStandardShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OPEN1415614
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cause: 'cause',
+      city: 'city',
+      cityCodeSet: 'city_code_set',
+      date: 'date',
+      finishedDate: 'finished_date',
+      projectCode: 'project_code',
+      projectName: 'project_name',
+      status: 'status',
+      thirdPartApplyId: 'third_part_apply_id',
+      thirdPartCostCenterId: 'third_part_cost_center_id',
+      thirdPartInvoiceId: 'third_part_invoice_id',
+      timesTotal: 'times_total',
+      timesType: 'times_type',
+      timesUsed: 'times_used',
+      title: 'title',
+      travelerStandardShrink: 'traveler_standard',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cause: 'string',
+      city: 'string',
+      cityCodeSet: 'string',
+      date: 'string',
+      finishedDate: 'string',
+      projectCode: 'string',
+      projectName: 'string',
+      status: 'number',
+      thirdPartApplyId: 'string',
+      thirdPartCostCenterId: 'string',
+      thirdPartInvoiceId: 'string',
+      timesTotal: 'number',
+      timesType: 'number',
+      timesUsed: 'number',
+      title: 'string',
+      travelerStandardShrink: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
