@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/farui20240628",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -19,15 +19,12 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@alicloud/tea-typescript": "^1.7.1",
-    "@alicloud/tea-util": "^1.4.9",
-    "@alicloud/oss-client": "^1.1.2",
+    "@darabonba/typescript": "^1.0.0",
+    "@alicloud/oss-client": "^1.1.4",
     "@alicloud/openplatform20191219": "2.0.0",
     "@alicloud/oss-util": "0.0.1",
     "@alicloud/tea-fileform": "^1.0.0",
-    "@alicloud/openapi-client": "^0.4.12",
-    "@alicloud/openapi-util": "^0.3.2",
-    "@alicloud/endpoint-util": "^0.0.1"
+    "@alicloud/openapi-core": "^1.0.0"
   },
   "files": [
     "dist",
