@@ -1,253 +1,11 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class GetPromptRequest extends $dara.Model {
-  /**
-   * @example
-   * chat
-   */
-  groupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'groupId',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPromptResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {$PromptContent}
-   */
-  data?: any;
-  /**
-   * @example
-   * success
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * BDA59622-2114-5F68-A530-3FCACAF0F04F
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 200
-   */
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      message: 'message',
-      requestId: 'requestId',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'any',
-      errorCode: 'string',
-      message: 'string',
-      requestId: 'string',
-      statusCode: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPromptResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetPromptResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetPromptResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushPromptRequest extends $dara.Model {
-  /**
-   * @example
-   * chat
-   */
-  groupId?: string;
-  /**
-   * @example
-   * {}
-   */
-  promptContent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'groupId',
-      promptContent: 'promptContent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      promptContent: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushPromptResponseBody extends $dara.Model {
-  /**
-   * @example
-   * True
-   */
-  data?: any;
-  /**
-   * @example
-   * success
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 5090DEE5-E7DB-59A8-B712-28918D3AAA8A
-   */
-  requestId?: string;
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      message: 'message',
-      requestId: 'requestId',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'any',
-      errorCode: 'string',
-      message: 'string',
-      requestId: 'string',
-      statusCode: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushPromptResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushPromptResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushPromptResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
@@ -272,6 +30,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * delete prompt
+   * 
+   * @param request - DeletePromptRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePromptResponse
+   */
+  async deletePromptWithOptions(request: $_model.DeletePromptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePromptResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["groupId"] = request.groupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePrompt",
+      version: "2025-04-08",
+      protocol: "HTTPS",
+      pathname: `/prompt/delete`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePromptResponse>(await this.callApi(params, req, runtime), new $_model.DeletePromptResponse({}));
+  }
+
+  /**
+   * delete prompt
+   * 
+   * @param request - DeletePromptRequest
+   * @returns DeletePromptResponse
+   */
+  async deletePrompt(request: $_model.DeletePromptRequest): Promise<$_model.DeletePromptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deletePromptWithOptions(request, headers, runtime);
+  }
+
+  /**
    * get prompt
    * 
    * @param request - GetPromptRequest
@@ -279,7 +82,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPromptResponse
    */
-  async getPromptWithOptions(request: GetPromptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetPromptResponse> {
+  async getPromptWithOptions(request: $_model.GetPromptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPromptResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.groupId)) {
@@ -301,12 +104,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetPromptResponse>(await this.callApi(params, req, runtime), new GetPromptResponse({}));
-    } else {
-      return $dara.cast<GetPromptResponse>(await this.execute(params, req, runtime), new GetPromptResponse({}));
-    }
-
+    return $dara.cast<$_model.GetPromptResponse>(await this.callApi(params, req, runtime), new $_model.GetPromptResponse({}));
   }
 
   /**
@@ -315,7 +113,7 @@ export default class Client extends OpenApi {
    * @param request - GetPromptRequest
    * @returns GetPromptResponse
    */
-  async getPrompt(request: GetPromptRequest): Promise<GetPromptResponse> {
+  async getPrompt(request: $_model.GetPromptRequest): Promise<$_model.GetPromptResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPromptWithOptions(request, headers, runtime);
@@ -329,7 +127,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushPromptResponse
    */
-  async pushPromptWithOptions(request: PushPromptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<PushPromptResponse> {
+  async pushPromptWithOptions(request: $_model.PushPromptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PushPromptResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.groupId)) {
@@ -357,12 +155,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PushPromptResponse>(await this.callApi(params, req, runtime), new PushPromptResponse({}));
-    } else {
-      return $dara.cast<PushPromptResponse>(await this.execute(params, req, runtime), new PushPromptResponse({}));
-    }
-
+    return $dara.cast<$_model.PushPromptResponse>(await this.callApi(params, req, runtime), new $_model.PushPromptResponse({}));
   }
 
   /**
@@ -371,7 +164,7 @@ export default class Client extends OpenApi {
    * @param request - PushPromptRequest
    * @returns PushPromptResponse
    */
-  async pushPrompt(request: PushPromptRequest): Promise<PushPromptResponse> {
+  async pushPrompt(request: $_model.PushPromptRequest): Promise<$_model.PushPromptResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.pushPromptWithOptions(request, headers, runtime);
