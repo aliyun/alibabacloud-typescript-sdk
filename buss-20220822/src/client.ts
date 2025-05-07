@@ -1,1774 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class BusinessResultServiceRequest extends $tea.Model {
-  actionCode?: string;
-  bussinessCode?: string;
-  errCode?: string;
-  errMessage?: string;
-  requestId?: string;
-  result?: { [key: string]: any };
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      actionCode: 'ActionCode',
-      bussinessCode: 'BussinessCode',
-      errCode: 'ErrCode',
-      errMessage: 'ErrMessage',
-      requestId: 'RequestId',
-      result: 'Result',
-      success: 'Success',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      actionCode: 'string',
-      bussinessCode: 'string',
-      errCode: 'string',
-      errMessage: 'string',
-      requestId: 'string',
-      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BusinessResultServiceShrinkRequest extends $tea.Model {
-  actionCode?: string;
-  bussinessCode?: string;
-  errCode?: string;
-  errMessage?: string;
-  requestId?: string;
-  resultShrink?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      actionCode: 'ActionCode',
-      bussinessCode: 'BussinessCode',
-      errCode: 'ErrCode',
-      errMessage: 'ErrMessage',
-      requestId: 'RequestId',
-      resultShrink: 'Result',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionCode: 'string',
-      bussinessCode: 'string',
-      errCode: 'string',
-      errMessage: 'string',
-      requestId: 'string',
-      resultShrink: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BusinessResultServiceResponseBody extends $tea.Model {
-  code?: string;
-  count?: number;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      count: 'Count',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      count: 'number',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BusinessResultServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BusinessResultServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BusinessResultServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserInvestigationInfoQueryTaskRequest extends $tea.Model {
-  dataType?: string;
-  employeeId?: string;
-  endTime?: number;
-  ossFileName?: string;
-  startTime?: number;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataType: 'dataType',
-      employeeId: 'employeeId',
-      endTime: 'endTime',
-      ossFileName: 'ossFileName',
-      startTime: 'startTime',
-      userId: 'userId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataType: 'string',
-      employeeId: 'string',
-      endTime: 'number',
-      ossFileName: 'string',
-      startTime: 'number',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserInvestigationInfoQueryTaskResponseBody extends $tea.Model {
-  code?: string;
-  data?: CreateUserInvestigationInfoQueryTaskResponseBodyData;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: CreateUserInvestigationInfoQueryTaskResponseBodyData,
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserInvestigationInfoQueryTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateUserInvestigationInfoQueryTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateUserInvestigationInfoQueryTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindInstanceInfoRequest extends $tea.Model {
-  bussinessCode?: string;
-  domain?: string;
-  endTime?: number;
-  extras?: { [key: string]: any };
-  ip?: string;
-  needDNS?: boolean;
-  startTime?: number;
-  url?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bussinessCode: 'bussinessCode',
-      domain: 'domain',
-      endTime: 'endTime',
-      extras: 'extras',
-      ip: 'ip',
-      needDNS: 'needDNS',
-      startTime: 'startTime',
-      url: 'url',
-      userId: 'userId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bussinessCode: 'string',
-      domain: 'string',
-      endTime: 'number',
-      extras: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      ip: 'string',
-      needDNS: 'boolean',
-      startTime: 'number',
-      url: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindInstanceInfoShrinkRequest extends $tea.Model {
-  bussinessCode?: string;
-  domain?: string;
-  endTime?: number;
-  extrasShrink?: string;
-  ip?: string;
-  needDNS?: boolean;
-  startTime?: number;
-  url?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bussinessCode: 'bussinessCode',
-      domain: 'domain',
-      endTime: 'endTime',
-      extrasShrink: 'extras',
-      ip: 'ip',
-      needDNS: 'needDNS',
-      startTime: 'startTime',
-      url: 'url',
-      userId: 'userId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bussinessCode: 'string',
-      domain: 'string',
-      endTime: 'number',
-      extrasShrink: 'string',
-      ip: 'string',
-      needDNS: 'boolean',
-      startTime: 'number',
-      url: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindInstanceInfoResponseBody extends $tea.Model {
-  code?: string;
-  count?: number;
-  data?: FindInstanceInfoResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      count: 'Count',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      count: 'number',
-      data: FindInstanceInfoResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindInstanceInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FindInstanceInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FindInstanceInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindUserAvailbleResourcesRequest extends $tea.Model {
-  bussinessCode?: string;
-  currPage?: number;
-  pageSize?: number;
-  resourceType?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bussinessCode: 'bussinessCode',
-      currPage: 'currPage',
-      pageSize: 'pageSize',
-      resourceType: 'resourceType',
-      userId: 'userId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bussinessCode: 'string',
-      currPage: 'number',
-      pageSize: 'number',
-      resourceType: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindUserAvailbleResourcesResponseBody extends $tea.Model {
-  code?: string;
-  count?: number;
-  data?: FindUserAvailbleResourcesResponseBodyData;
-  maxResults?: number;
-  message?: string;
-  nextToken?: string;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      count: 'Count',
-      data: 'Data',
-      maxResults: 'MaxResults',
-      message: 'Message',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      count: 'number',
-      data: FindUserAvailbleResourcesResponseBodyData,
-      maxResults: 'number',
-      message: 'string',
-      nextToken: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindUserAvailbleResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FindUserAvailbleResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FindUserAvailbleResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PunishResourceSearchRequest extends $tea.Model {
-  actionCodes?: string[];
-  bussinessCodes?: string[];
-  class?: string;
-  domain?: string;
-  endDate?: number;
-  instanceId?: string;
-  ip?: string;
-  page?: number;
-  pageSize?: number;
-  sourceCodes?: string[];
-  startDate?: number;
-  status?: string;
-  url?: string;
-  userIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      actionCodes: 'ActionCodes',
-      bussinessCodes: 'BussinessCodes',
-      class: 'Class',
-      domain: 'Domain',
-      endDate: 'EndDate',
-      instanceId: 'InstanceId',
-      ip: 'Ip',
-      page: 'Page',
-      pageSize: 'PageSize',
-      sourceCodes: 'SourceCodes',
-      startDate: 'StartDate',
-      status: 'Status',
-      url: 'Url',
-      userIds: 'UserIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionCodes: { 'type': 'array', 'itemType': 'string' },
-      bussinessCodes: { 'type': 'array', 'itemType': 'string' },
-      class: 'string',
-      domain: 'string',
-      endDate: 'number',
-      instanceId: 'string',
-      ip: 'string',
-      page: 'number',
-      pageSize: 'number',
-      sourceCodes: { 'type': 'array', 'itemType': 'string' },
-      startDate: 'number',
-      status: 'string',
-      url: 'string',
-      userIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PunishResourceSearchShrinkRequest extends $tea.Model {
-  actionCodesShrink?: string;
-  bussinessCodesShrink?: string;
-  class?: string;
-  domain?: string;
-  endDate?: number;
-  instanceId?: string;
-  ip?: string;
-  page?: number;
-  pageSize?: number;
-  sourceCodesShrink?: string;
-  startDate?: number;
-  status?: string;
-  url?: string;
-  userIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionCodesShrink: 'ActionCodes',
-      bussinessCodesShrink: 'BussinessCodes',
-      class: 'Class',
-      domain: 'Domain',
-      endDate: 'EndDate',
-      instanceId: 'InstanceId',
-      ip: 'Ip',
-      page: 'Page',
-      pageSize: 'PageSize',
-      sourceCodesShrink: 'SourceCodes',
-      startDate: 'StartDate',
-      status: 'Status',
-      url: 'Url',
-      userIdsShrink: 'UserIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionCodesShrink: 'string',
-      bussinessCodesShrink: 'string',
-      class: 'string',
-      domain: 'string',
-      endDate: 'number',
-      instanceId: 'string',
-      ip: 'string',
-      page: 'number',
-      pageSize: 'number',
-      sourceCodesShrink: 'string',
-      startDate: 'number',
-      status: 'string',
-      url: 'string',
-      userIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PunishResourceSearchResponseBody extends $tea.Model {
-  code?: string;
-  dataList?: PunishResourceSearchResponseBodyDataList[];
-  message?: string;
-  success?: string;
-  totalCount?: number;
-  viewCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      dataList: 'DataList',
-      message: 'Message',
-      success: 'Success',
-      totalCount: 'TotalCount',
-      viewCount: 'ViewCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      dataList: { 'type': 'array', 'itemType': PunishResourceSearchResponseBodyDataList },
-      message: 'string',
-      success: 'string',
-      totalCount: 'number',
-      viewCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PunishResourceSearchResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PunishResourceSearchResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PunishResourceSearchResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RiskEventSyncRequest extends $tea.Model {
-  deleted?: boolean;
-  discoveryTime?: number;
-  eventName?: string;
-  eventNumber?: string;
-  relevanceBu?: string;
-  riskDetail?: string;
-  riskEffectType?: string;
-  riskLevel?: string;
-  riskType?: string;
-  source?: string;
-  submitter?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deleted: 'Deleted',
-      discoveryTime: 'DiscoveryTime',
-      eventName: 'EventName',
-      eventNumber: 'EventNumber',
-      relevanceBu: 'RelevanceBu',
-      riskDetail: 'RiskDetail',
-      riskEffectType: 'RiskEffectType',
-      riskLevel: 'RiskLevel',
-      riskType: 'RiskType',
-      source: 'Source',
-      submitter: 'Submitter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deleted: 'boolean',
-      discoveryTime: 'number',
-      eventName: 'string',
-      eventNumber: 'string',
-      relevanceBu: 'string',
-      riskDetail: 'string',
-      riskEffectType: 'string',
-      riskLevel: 'string',
-      riskType: 'string',
-      source: 'string',
-      submitter: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RiskEventSyncResponseBody extends $tea.Model {
-  code?: string;
-  count?: number;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      count: 'Count',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      count: 'number',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RiskEventSyncResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RiskEventSyncResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RiskEventSyncResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishEventsRequest extends $tea.Model {
-  aliUid?: string;
-  bussinessCodes?: string[];
-  caseCodes?: string[];
-  eventCodes?: string[];
-  resourceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      bussinessCodes: 'BussinessCodes',
-      caseCodes: 'CaseCodes',
-      eventCodes: 'EventCodes',
-      resourceId: 'ResourceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'string',
-      bussinessCodes: { 'type': 'array', 'itemType': 'string' },
-      caseCodes: { 'type': 'array', 'itemType': 'string' },
-      eventCodes: { 'type': 'array', 'itemType': 'string' },
-      resourceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishEventsShrinkRequest extends $tea.Model {
-  aliUid?: string;
-  bussinessCodesShrink?: string;
-  caseCodesShrink?: string;
-  eventCodesShrink?: string;
-  resourceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      bussinessCodesShrink: 'BussinessCodes',
-      caseCodesShrink: 'CaseCodes',
-      eventCodesShrink: 'EventCodes',
-      resourceId: 'ResourceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'string',
-      bussinessCodesShrink: 'string',
-      caseCodesShrink: 'string',
-      eventCodesShrink: 'string',
-      resourceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishEventsResponseBody extends $tea.Model {
-  code?: string;
-  dataList?: SearchPunishEventsResponseBodyDataList[];
-  message?: string;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      dataList: 'DataList',
-      message: 'Message',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      dataList: { 'type': 'array', 'itemType': SearchPunishEventsResponseBodyDataList },
-      message: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishEventsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SearchPunishEventsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SearchPunishEventsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishRecordsRequest extends $tea.Model {
-  actionCodes?: string[];
-  aliUid?: string;
-  bussinessCodes?: string;
-  caseCodes?: string[];
-  domain?: string;
-  endTime?: number;
-  eventCodes?: string[];
-  ip?: string;
-  page?: string;
-  pageSize?: string;
-  punishStatus?: string[];
-  resourceId?: string;
-  sourceCodes?: string[];
-  startTime?: number;
-  url?: string;
-  urlFuzzy?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionCodes: 'ActionCodes',
-      aliUid: 'AliUid',
-      bussinessCodes: 'BussinessCodes',
-      caseCodes: 'CaseCodes',
-      domain: 'Domain',
-      endTime: 'EndTime',
-      eventCodes: 'EventCodes',
-      ip: 'Ip',
-      page: 'Page',
-      pageSize: 'PageSize',
-      punishStatus: 'PunishStatus',
-      resourceId: 'ResourceId',
-      sourceCodes: 'SourceCodes',
-      startTime: 'StartTime',
-      url: 'Url',
-      urlFuzzy: 'UrlFuzzy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionCodes: { 'type': 'array', 'itemType': 'string' },
-      aliUid: 'string',
-      bussinessCodes: 'string',
-      caseCodes: { 'type': 'array', 'itemType': 'string' },
-      domain: 'string',
-      endTime: 'number',
-      eventCodes: { 'type': 'array', 'itemType': 'string' },
-      ip: 'string',
-      page: 'string',
-      pageSize: 'string',
-      punishStatus: { 'type': 'array', 'itemType': 'string' },
-      resourceId: 'string',
-      sourceCodes: { 'type': 'array', 'itemType': 'string' },
-      startTime: 'number',
-      url: 'string',
-      urlFuzzy: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishRecordsShrinkRequest extends $tea.Model {
-  actionCodesShrink?: string;
-  aliUid?: string;
-  bussinessCodes?: string;
-  caseCodesShrink?: string;
-  domain?: string;
-  endTime?: number;
-  eventCodesShrink?: string;
-  ip?: string;
-  page?: string;
-  pageSize?: string;
-  punishStatusShrink?: string;
-  resourceId?: string;
-  sourceCodesShrink?: string;
-  startTime?: number;
-  url?: string;
-  urlFuzzy?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionCodesShrink: 'ActionCodes',
-      aliUid: 'AliUid',
-      bussinessCodes: 'BussinessCodes',
-      caseCodesShrink: 'CaseCodes',
-      domain: 'Domain',
-      endTime: 'EndTime',
-      eventCodesShrink: 'EventCodes',
-      ip: 'Ip',
-      page: 'Page',
-      pageSize: 'PageSize',
-      punishStatusShrink: 'PunishStatus',
-      resourceId: 'ResourceId',
-      sourceCodesShrink: 'SourceCodes',
-      startTime: 'StartTime',
-      url: 'Url',
-      urlFuzzy: 'UrlFuzzy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionCodesShrink: 'string',
-      aliUid: 'string',
-      bussinessCodes: 'string',
-      caseCodesShrink: 'string',
-      domain: 'string',
-      endTime: 'number',
-      eventCodesShrink: 'string',
-      ip: 'string',
-      page: 'string',
-      pageSize: 'string',
-      punishStatusShrink: 'string',
-      resourceId: 'string',
-      sourceCodesShrink: 'string',
-      startTime: 'number',
-      url: 'string',
-      urlFuzzy: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishRecordsResponseBody extends $tea.Model {
-  code?: string;
-  dataList?: SearchPunishRecordsResponseBodyDataList[];
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      dataList: 'DataList',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      dataList: { 'type': 'array', 'itemType': SearchPunishRecordsResponseBodyDataList },
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishRecordsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SearchPunishRecordsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SearchPunishRecordsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishRequestRequest extends $tea.Model {
-  antiStatuses?: string[];
-  bussinessCodes?: string[];
-  class?: string;
-  endDate?: number;
-  eventCodes?: string[];
-  extRequestId?: string;
-  id?: number;
-  idType?: string;
-  instanceId?: string;
-  page?: number;
-  pageSize?: number;
-  punishDomain?: string;
-  punishIp?: string;
-  punishStatuses?: string[];
-  punishUrl?: string;
-  punishUrlFull?: string;
-  sourceCodes?: string[];
-  startDate?: number;
-  userIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      antiStatuses: 'AntiStatuses',
-      bussinessCodes: 'BussinessCodes',
-      class: 'Class',
-      endDate: 'EndDate',
-      eventCodes: 'EventCodes',
-      extRequestId: 'ExtRequestId',
-      id: 'Id',
-      idType: 'IdType',
-      instanceId: 'InstanceId',
-      page: 'Page',
-      pageSize: 'PageSize',
-      punishDomain: 'PunishDomain',
-      punishIp: 'PunishIp',
-      punishStatuses: 'PunishStatuses',
-      punishUrl: 'PunishUrl',
-      punishUrlFull: 'PunishUrlFull',
-      sourceCodes: 'SourceCodes',
-      startDate: 'StartDate',
-      userIds: 'UserIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      antiStatuses: { 'type': 'array', 'itemType': 'string' },
-      bussinessCodes: { 'type': 'array', 'itemType': 'string' },
-      class: 'string',
-      endDate: 'number',
-      eventCodes: { 'type': 'array', 'itemType': 'string' },
-      extRequestId: 'string',
-      id: 'number',
-      idType: 'string',
-      instanceId: 'string',
-      page: 'number',
-      pageSize: 'number',
-      punishDomain: 'string',
-      punishIp: 'string',
-      punishStatuses: { 'type': 'array', 'itemType': 'string' },
-      punishUrl: 'string',
-      punishUrlFull: 'string',
-      sourceCodes: { 'type': 'array', 'itemType': 'string' },
-      startDate: 'number',
-      userIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishRequestShrinkRequest extends $tea.Model {
-  antiStatusesShrink?: string;
-  bussinessCodesShrink?: string;
-  class?: string;
-  endDate?: number;
-  eventCodesShrink?: string;
-  extRequestId?: string;
-  id?: number;
-  idType?: string;
-  instanceId?: string;
-  page?: number;
-  pageSize?: number;
-  punishDomain?: string;
-  punishIp?: string;
-  punishStatusesShrink?: string;
-  punishUrl?: string;
-  punishUrlFull?: string;
-  sourceCodesShrink?: string;
-  startDate?: number;
-  userIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      antiStatusesShrink: 'AntiStatuses',
-      bussinessCodesShrink: 'BussinessCodes',
-      class: 'Class',
-      endDate: 'EndDate',
-      eventCodesShrink: 'EventCodes',
-      extRequestId: 'ExtRequestId',
-      id: 'Id',
-      idType: 'IdType',
-      instanceId: 'InstanceId',
-      page: 'Page',
-      pageSize: 'PageSize',
-      punishDomain: 'PunishDomain',
-      punishIp: 'PunishIp',
-      punishStatusesShrink: 'PunishStatuses',
-      punishUrl: 'PunishUrl',
-      punishUrlFull: 'PunishUrlFull',
-      sourceCodesShrink: 'SourceCodes',
-      startDate: 'StartDate',
-      userIdsShrink: 'UserIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      antiStatusesShrink: 'string',
-      bussinessCodesShrink: 'string',
-      class: 'string',
-      endDate: 'number',
-      eventCodesShrink: 'string',
-      extRequestId: 'string',
-      id: 'number',
-      idType: 'string',
-      instanceId: 'string',
-      page: 'number',
-      pageSize: 'number',
-      punishDomain: 'string',
-      punishIp: 'string',
-      punishStatusesShrink: 'string',
-      punishUrl: 'string',
-      punishUrlFull: 'string',
-      sourceCodesShrink: 'string',
-      startDate: 'number',
-      userIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishRequestResponseBody extends $tea.Model {
-  class?: string;
-  code?: string;
-  count?: number;
-  dataList?: SearchPunishRequestResponseBodyDataList[];
-  message?: string;
-  success?: boolean;
-  totalCount?: number;
-  viewCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      class: 'Class',
-      code: 'Code',
-      count: 'Count',
-      dataList: 'DataList',
-      message: 'Message',
-      success: 'Success',
-      totalCount: 'TotalCount',
-      viewCount: 'ViewCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      class: 'string',
-      code: 'string',
-      count: 'number',
-      dataList: { 'type': 'array', 'itemType': SearchPunishRequestResponseBodyDataList },
-      message: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-      viewCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishRequestResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SearchPunishRequestResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SearchPunishRequestResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserInvestigationInfoQueryTaskResponseBodyData extends $tea.Model {
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'taskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindInstanceInfoResponseBodyDataPegInstanceInfoListUserInfo extends $tea.Model {
-  gcLevel?: string;
-  hitWhiteReason?: string;
-  userId?: string;
-  userSite?: string;
-  whiteUser?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      gcLevel: 'GcLevel',
-      hitWhiteReason: 'HitWhiteReason',
-      userId: 'UserId',
-      userSite: 'UserSite',
-      whiteUser: 'WhiteUser',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gcLevel: 'string',
-      hitWhiteReason: 'string',
-      userId: 'string',
-      userSite: 'string',
-      whiteUser: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindInstanceInfoResponseBodyDataPegInstanceInfoList extends $tea.Model {
-  bussinessCode?: string;
-  coordinate?: { [key: string]: any };
-  idType?: string;
-  instanceId?: string;
-  serviceCreatedTime?: string;
-  userId?: string;
-  userInfo?: FindInstanceInfoResponseBodyDataPegInstanceInfoListUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      bussinessCode: 'BussinessCode',
-      coordinate: 'Coordinate',
-      idType: 'IdType',
-      instanceId: 'InstanceId',
-      serviceCreatedTime: 'ServiceCreatedTime',
-      userId: 'UserId',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bussinessCode: 'string',
-      coordinate: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      idType: 'string',
-      instanceId: 'string',
-      serviceCreatedTime: 'string',
-      userId: 'string',
-      userInfo: FindInstanceInfoResponseBodyDataPegInstanceInfoListUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindInstanceInfoResponseBodyData extends $tea.Model {
-  pegInstanceInfoList?: FindInstanceInfoResponseBodyDataPegInstanceInfoList[];
-  static names(): { [key: string]: string } {
-    return {
-      pegInstanceInfoList: 'PegInstanceInfoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pegInstanceInfoList: { 'type': 'array', 'itemType': FindInstanceInfoResponseBodyDataPegInstanceInfoList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindUserAvailbleResourcesResponseBodyDataPegCoordinates extends $tea.Model {
-  bussinessCode?: string;
-  chargeType?: string;
-  coordinate?: { [key: string]: any };
-  idType?: string;
-  instanceId?: string;
-  region?: string;
-  releaseTime?: string;
-  resCreateTime?: string;
-  resourceStatus?: string;
-  resourceType?: string;
-  serviceCreatedTime?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bussinessCode: 'BussinessCode',
-      chargeType: 'ChargeType',
-      coordinate: 'Coordinate',
-      idType: 'IdType',
-      instanceId: 'InstanceId',
-      region: 'Region',
-      releaseTime: 'ReleaseTime',
-      resCreateTime: 'ResCreateTime',
-      resourceStatus: 'ResourceStatus',
-      resourceType: 'ResourceType',
-      serviceCreatedTime: 'ServiceCreatedTime',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bussinessCode: 'string',
-      chargeType: 'string',
-      coordinate: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      idType: 'string',
-      instanceId: 'string',
-      region: 'string',
-      releaseTime: 'string',
-      resCreateTime: 'string',
-      resourceStatus: 'string',
-      resourceType: 'string',
-      serviceCreatedTime: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindUserAvailbleResourcesResponseBodyDataUserInfo extends $tea.Model {
-  gcLevel?: string;
-  hitWhiteReason?: string;
-  userId?: string;
-  userSite?: string;
-  whiteUser?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      gcLevel: 'GcLevel',
-      hitWhiteReason: 'HitWhiteReason',
-      userId: 'UserId',
-      userSite: 'UserSite',
-      whiteUser: 'WhiteUser',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gcLevel: 'string',
-      hitWhiteReason: 'string',
-      userId: 'string',
-      userSite: 'string',
-      whiteUser: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindUserAvailbleResourcesResponseBodyData extends $tea.Model {
-  pegCoordinates?: FindUserAvailbleResourcesResponseBodyDataPegCoordinates[];
-  userInfo?: FindUserAvailbleResourcesResponseBodyDataUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      pegCoordinates: 'PegCoordinates',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pegCoordinates: { 'type': 'array', 'itemType': FindUserAvailbleResourcesResponseBodyDataPegCoordinates },
-      userInfo: FindUserAvailbleResourcesResponseBodyDataUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PunishResourceSearchResponseBodyDataList extends $tea.Model {
-  actionCode?: string;
-  bussinessCode?: string;
-  class?: string;
-  coordinate?: string;
-  creator?: string;
-  deleted?: boolean;
-  domain?: string;
-  extras?: string;
-  gmtCreated?: string;
-  gmtModified?: string;
-  id?: number;
-  instanceId?: string;
-  ip?: string;
-  modifier?: string;
-  objectId?: string;
-  objectType?: string;
-  objectValue?: string;
-  punishFrom?: string;
-  reason?: string;
-  requestId?: number;
-  sourceCode?: string;
-  status?: string;
-  url?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionCode: 'ActionCode',
-      bussinessCode: 'BussinessCode',
-      class: 'Class',
-      coordinate: 'Coordinate',
-      creator: 'Creator',
-      deleted: 'Deleted',
-      domain: 'Domain',
-      extras: 'Extras',
-      gmtCreated: 'GmtCreated',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      instanceId: 'InstanceId',
-      ip: 'Ip',
-      modifier: 'Modifier',
-      objectId: 'ObjectId',
-      objectType: 'ObjectType',
-      objectValue: 'ObjectValue',
-      punishFrom: 'PunishFrom',
-      reason: 'Reason',
-      requestId: 'RequestId',
-      sourceCode: 'SourceCode',
-      status: 'Status',
-      url: 'Url',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionCode: 'string',
-      bussinessCode: 'string',
-      class: 'string',
-      coordinate: 'string',
-      creator: 'string',
-      deleted: 'boolean',
-      domain: 'string',
-      extras: 'string',
-      gmtCreated: 'string',
-      gmtModified: 'string',
-      id: 'number',
-      instanceId: 'string',
-      ip: 'string',
-      modifier: 'string',
-      objectId: 'string',
-      objectType: 'string',
-      objectValue: 'string',
-      punishFrom: 'string',
-      reason: 'string',
-      requestId: 'number',
-      sourceCode: 'string',
-      status: 'string',
-      url: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishEventsResponseBodyDataList extends $tea.Model {
-  bussinessCode?: string;
-  caseCode?: string;
-  recordsCount?: number;
-  resourceId?: string;
-  tipsCode?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bussinessCode: 'BussinessCode',
-      caseCode: 'CaseCode',
-      recordsCount: 'RecordsCount',
-      resourceId: 'ResourceId',
-      tipsCode: 'TipsCode',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bussinessCode: 'string',
-      caseCode: 'string',
-      recordsCount: 'number',
-      resourceId: 'string',
-      tipsCode: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishRecordsResponseBodyDataList extends $tea.Model {
-  actionCode?: string;
-  antiStatus?: string;
-  bussinessCode?: string;
-  caseCode?: string;
-  createTime?: string;
-  domain?: string;
-  eventCode?: string;
-  ip?: string;
-  punishStatus?: string;
-  reason?: string;
-  resourceId?: string;
-  tipsCode?: string;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionCode: 'ActionCode',
-      antiStatus: 'AntiStatus',
-      bussinessCode: 'BussinessCode',
-      caseCode: 'CaseCode',
-      createTime: 'CreateTime',
-      domain: 'Domain',
-      eventCode: 'EventCode',
-      ip: 'Ip',
-      punishStatus: 'PunishStatus',
-      reason: 'Reason',
-      resourceId: 'ResourceId',
-      tipsCode: 'TipsCode',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionCode: 'string',
-      antiStatus: 'string',
-      bussinessCode: 'string',
-      caseCode: 'string',
-      createTime: 'string',
-      domain: 'string',
-      eventCode: 'string',
-      ip: 'string',
-      punishStatus: 'string',
-      reason: 'string',
-      resourceId: 'string',
-      tipsCode: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchPunishRequestResponseBodyDataList extends $tea.Model {
-  antiPunishRespTime?: string;
-  antiPunishTime?: string;
-  antiResult?: string;
-  antiStatus?: string;
-  bussinessCode?: string;
-  caseCode?: string;
-  caseExtendCode?: string;
-  caseSubCode?: string;
-  class?: string;
-  creator?: string;
-  deleted?: boolean;
-  eventCode?: string;
-  expectedRemoveTime?: string;
-  extRequestId?: string;
-  gmtCreated?: string;
-  gmtModified?: string;
-  id?: number;
-  idType?: string;
-  instanceId?: string;
-  ipString?: string;
-  modifier?: string;
-  punishDomain?: string;
-  punishIp?: string;
-  punishRequest?: string;
-  punishRespTime?: string;
-  punishResult?: string;
-  punishStatus?: string;
-  punishTime?: string;
-  punishUrl?: string;
-  reason?: string;
-  sourceCode?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      antiPunishRespTime: 'AntiPunishRespTime',
-      antiPunishTime: 'AntiPunishTime',
-      antiResult: 'AntiResult',
-      antiStatus: 'AntiStatus',
-      bussinessCode: 'BussinessCode',
-      caseCode: 'CaseCode',
-      caseExtendCode: 'CaseExtendCode',
-      caseSubCode: 'CaseSubCode',
-      class: 'Class',
-      creator: 'Creator',
-      deleted: 'Deleted',
-      eventCode: 'EventCode',
-      expectedRemoveTime: 'ExpectedRemoveTime',
-      extRequestId: 'ExtRequestId',
-      gmtCreated: 'GmtCreated',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      idType: 'IdType',
-      instanceId: 'InstanceId',
-      ipString: 'IpString',
-      modifier: 'Modifier',
-      punishDomain: 'PunishDomain',
-      punishIp: 'PunishIp',
-      punishRequest: 'PunishRequest',
-      punishRespTime: 'PunishRespTime',
-      punishResult: 'PunishResult',
-      punishStatus: 'PunishStatus',
-      punishTime: 'PunishTime',
-      punishUrl: 'PunishUrl',
-      reason: 'Reason',
-      sourceCode: 'SourceCode',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      antiPunishRespTime: 'string',
-      antiPunishTime: 'string',
-      antiResult: 'string',
-      antiStatus: 'string',
-      bussinessCode: 'string',
-      caseCode: 'string',
-      caseExtendCode: 'string',
-      caseSubCode: 'string',
-      class: 'string',
-      creator: 'string',
-      deleted: 'boolean',
-      eventCode: 'string',
-      expectedRemoveTime: 'string',
-      extRequestId: 'string',
-      gmtCreated: 'string',
-      gmtModified: 'string',
-      id: 'number',
-      idType: 'string',
-      instanceId: 'string',
-      ipString: 'string',
-      modifier: 'string',
-      punishDomain: 'string',
-      punishIp: 'string',
-      punishRequest: 'string',
-      punishRespTime: 'string',
-      punishResult: 'string',
-      punishStatus: 'string',
-      punishTime: 'string',
-      punishUrl: 'string',
-      reason: 'string',
-      sourceCode: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -1777,37 +18,37 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
-   * @summary 处罚请求异步接口回调
-   *
-   * @param tmpReq BusinessResultServiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BusinessResultServiceResponse
+   * 处罚请求异步接口回调
+   * 
+   * @param tmpReq - BusinessResultServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BusinessResultServiceResponse
    */
-  async businessResultServiceWithOptions(tmpReq: BusinessResultServiceRequest, runtime: $Util.RuntimeOptions): Promise<BusinessResultServiceResponse> {
-    Util.validateModel(tmpReq);
-    let request = new BusinessResultServiceShrinkRequest({ });
+  async businessResultServiceWithOptions(tmpReq: $_model.BusinessResultServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BusinessResultServiceResponse> {
+    tmpReq.validate();
+    let request = new $_model.BusinessResultServiceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.result)) {
+    if (!$dara.isNull(tmpReq.result)) {
       request.resultShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.result, "Result", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BusinessResultService",
       version: "2022-08-22",
       protocol: "HTTPS",
@@ -1818,34 +59,34 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BusinessResultServiceResponse>(await this.callApi(params, req, runtime), new BusinessResultServiceResponse({}));
+    return $dara.cast<$_model.BusinessResultServiceResponse>(await this.callApi(params, req, runtime), new $_model.BusinessResultServiceResponse({}));
   }
 
   /**
-   * @summary 处罚请求异步接口回调
-   *
-   * @param request BusinessResultServiceRequest
-   * @return BusinessResultServiceResponse
+   * 处罚请求异步接口回调
+   * 
+   * @param request - BusinessResultServiceRequest
+   * @returns BusinessResultServiceResponse
    */
-  async businessResultService(request: BusinessResultServiceRequest): Promise<BusinessResultServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async businessResultService(request: $_model.BusinessResultServiceRequest): Promise<$_model.BusinessResultServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.businessResultServiceWithOptions(request, runtime);
   }
 
   /**
-   * @summary 协查中心查询任务接口
-   *
-   * @param request CreateUserInvestigationInfoQueryTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateUserInvestigationInfoQueryTaskResponse
+   * 协查中心查询任务接口
+   * 
+   * @param request - CreateUserInvestigationInfoQueryTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserInvestigationInfoQueryTaskResponse
    */
-  async createUserInvestigationInfoQueryTaskWithOptions(request: CreateUserInvestigationInfoQueryTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserInvestigationInfoQueryTaskResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async createUserInvestigationInfoQueryTaskWithOptions(request: $_model.CreateUserInvestigationInfoQueryTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateUserInvestigationInfoQueryTaskResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateUserInvestigationInfoQueryTask",
       version: "2022-08-22",
       protocol: "HTTPS",
@@ -1856,40 +97,40 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateUserInvestigationInfoQueryTaskResponse>(await this.callApi(params, req, runtime), new CreateUserInvestigationInfoQueryTaskResponse({}));
+    return $dara.cast<$_model.CreateUserInvestigationInfoQueryTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateUserInvestigationInfoQueryTaskResponse({}));
   }
 
   /**
-   * @summary 协查中心查询任务接口
-   *
-   * @param request CreateUserInvestigationInfoQueryTaskRequest
-   * @return CreateUserInvestigationInfoQueryTaskResponse
+   * 协查中心查询任务接口
+   * 
+   * @param request - CreateUserInvestigationInfoQueryTaskRequest
+   * @returns CreateUserInvestigationInfoQueryTaskResponse
    */
-  async createUserInvestigationInfoQueryTask(request: CreateUserInvestigationInfoQueryTaskRequest): Promise<CreateUserInvestigationInfoQueryTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createUserInvestigationInfoQueryTask(request: $_model.CreateUserInvestigationInfoQueryTaskRequest): Promise<$_model.CreateUserInvestigationInfoQueryTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createUserInvestigationInfoQueryTaskWithOptions(request, runtime);
   }
 
   /**
-   * @summary 反查资源
-   *
-   * @param tmpReq FindInstanceInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FindInstanceInfoResponse
+   * 反查资源
+   * 
+   * @param tmpReq - FindInstanceInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FindInstanceInfoResponse
    */
-  async findInstanceInfoWithOptions(tmpReq: FindInstanceInfoRequest, runtime: $Util.RuntimeOptions): Promise<FindInstanceInfoResponse> {
-    Util.validateModel(tmpReq);
-    let request = new FindInstanceInfoShrinkRequest({ });
+  async findInstanceInfoWithOptions(tmpReq: $_model.FindInstanceInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FindInstanceInfoResponse> {
+    tmpReq.validate();
+    let request = new $_model.FindInstanceInfoShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.extras)) {
+    if (!$dara.isNull(tmpReq.extras)) {
       request.extrasShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extras, "extras", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "FindInstanceInfo",
       version: "2022-08-22",
       protocol: "HTTPS",
@@ -1900,34 +141,34 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<FindInstanceInfoResponse>(await this.callApi(params, req, runtime), new FindInstanceInfoResponse({}));
+    return $dara.cast<$_model.FindInstanceInfoResponse>(await this.callApi(params, req, runtime), new $_model.FindInstanceInfoResponse({}));
   }
 
   /**
-   * @summary 反查资源
-   *
-   * @param request FindInstanceInfoRequest
-   * @return FindInstanceInfoResponse
+   * 反查资源
+   * 
+   * @param request - FindInstanceInfoRequest
+   * @returns FindInstanceInfoResponse
    */
-  async findInstanceInfo(request: FindInstanceInfoRequest): Promise<FindInstanceInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async findInstanceInfo(request: $_model.FindInstanceInfoRequest): Promise<$_model.FindInstanceInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.findInstanceInfoWithOptions(request, runtime);
   }
 
   /**
-   * @summary 根据用户id查询对应产品下全部可用资产信息接口
-   *
-   * @param request FindUserAvailbleResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FindUserAvailbleResourcesResponse
+   * 根据用户id查询对应产品下全部可用资产信息接口
+   * 
+   * @param request - FindUserAvailbleResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FindUserAvailbleResourcesResponse
    */
-  async findUserAvailbleResourcesWithOptions(request: FindUserAvailbleResourcesRequest, runtime: $Util.RuntimeOptions): Promise<FindUserAvailbleResourcesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async findUserAvailbleResourcesWithOptions(request: $_model.FindUserAvailbleResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FindUserAvailbleResourcesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "FindUserAvailbleResources",
       version: "2022-08-22",
       protocol: "HTTPS",
@@ -1938,52 +179,90 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<FindUserAvailbleResourcesResponse>(await this.callApi(params, req, runtime), new FindUserAvailbleResourcesResponse({}));
+    return $dara.cast<$_model.FindUserAvailbleResourcesResponse>(await this.callApi(params, req, runtime), new $_model.FindUserAvailbleResourcesResponse({}));
   }
 
   /**
-   * @summary 根据用户id查询对应产品下全部可用资产信息接口
-   *
-   * @param request FindUserAvailbleResourcesRequest
-   * @return FindUserAvailbleResourcesResponse
+   * 根据用户id查询对应产品下全部可用资产信息接口
+   * 
+   * @param request - FindUserAvailbleResourcesRequest
+   * @returns FindUserAvailbleResourcesResponse
    */
-  async findUserAvailbleResources(request: FindUserAvailbleResourcesRequest): Promise<FindUserAvailbleResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async findUserAvailbleResources(request: $_model.FindUserAvailbleResourcesRequest): Promise<$_model.FindUserAvailbleResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.findUserAvailbleResourcesWithOptions(request, runtime);
   }
 
   /**
-   * @summary 处罚资源搜索
-   *
-   * @param tmpReq PunishResourceSearchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PunishResourceSearchResponse
+   * 查询安全事件详情
+   * 
+   * @param request - GetSecurityEventDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecurityEventDetailResponse
    */
-  async punishResourceSearchWithOptions(tmpReq: PunishResourceSearchRequest, runtime: $Util.RuntimeOptions): Promise<PunishResourceSearchResponse> {
-    Util.validateModel(tmpReq);
-    let request = new PunishResourceSearchShrinkRequest({ });
+  async getSecurityEventDetailWithOptions(request: $_model.GetSecurityEventDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSecurityEventDetailResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSecurityEventDetail",
+      version: "2022-08-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSecurityEventDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetSecurityEventDetailResponse({}));
+  }
+
+  /**
+   * 查询安全事件详情
+   * 
+   * @param request - GetSecurityEventDetailRequest
+   * @returns GetSecurityEventDetailResponse
+   */
+  async getSecurityEventDetail(request: $_model.GetSecurityEventDetailRequest): Promise<$_model.GetSecurityEventDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSecurityEventDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 处罚资源搜索
+   * 
+   * @param tmpReq - PunishResourceSearchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PunishResourceSearchResponse
+   */
+  async punishResourceSearchWithOptions(tmpReq: $_model.PunishResourceSearchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PunishResourceSearchResponse> {
+    tmpReq.validate();
+    let request = new $_model.PunishResourceSearchShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.actionCodes)) {
+    if (!$dara.isNull(tmpReq.actionCodes)) {
       request.actionCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actionCodes, "ActionCodes", "json");
     }
 
-    if (!Util.isUnset(tmpReq.bussinessCodes)) {
+    if (!$dara.isNull(tmpReq.bussinessCodes)) {
       request.bussinessCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bussinessCodes, "BussinessCodes", "json");
     }
 
-    if (!Util.isUnset(tmpReq.sourceCodes)) {
+    if (!$dara.isNull(tmpReq.sourceCodes)) {
       request.sourceCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceCodes, "SourceCodes", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userIds)) {
+    if (!$dara.isNull(tmpReq.userIds)) {
       request.userIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userIds, "UserIds", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PunishResourceSearch",
       version: "2022-08-22",
       protocol: "HTTPS",
@@ -1994,78 +273,120 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PunishResourceSearchResponse>(await this.callApi(params, req, runtime), new PunishResourceSearchResponse({}));
+    return $dara.cast<$_model.PunishResourceSearchResponse>(await this.callApi(params, req, runtime), new $_model.PunishResourceSearchResponse({}));
   }
 
   /**
-   * @summary 处罚资源搜索
-   *
-   * @param request PunishResourceSearchRequest
-   * @return PunishResourceSearchResponse
+   * 处罚资源搜索
+   * 
+   * @param request - PunishResourceSearchRequest
+   * @returns PunishResourceSearchResponse
    */
-  async punishResourceSearch(request: PunishResourceSearchRequest): Promise<PunishResourceSearchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async punishResourceSearch(request: $_model.PunishResourceSearchRequest): Promise<$_model.PunishResourceSearchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.punishResourceSearchWithOptions(request, runtime);
   }
 
   /**
-   * @summary 风险事件同步
-   *
-   * @param request RiskEventSyncRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RiskEventSyncResponse
+   * 记录是否点击链接
+   * 
+   * @param request - RecordClickLinkActionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecordClickLinkActionResponse
    */
-  async riskEventSyncWithOptions(request: RiskEventSyncRequest, runtime: $Util.RuntimeOptions): Promise<RiskEventSyncResponse> {
-    Util.validateModel(request);
+  async recordClickLinkActionWithOptions(request: $_model.RecordClickLinkActionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecordClickLinkActionResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deleted)) {
+    if (!$dara.isNull(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RecordClickLinkAction",
+      version: "2022-08-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RecordClickLinkActionResponse>(await this.callApi(params, req, runtime), new $_model.RecordClickLinkActionResponse({}));
+  }
+
+  /**
+   * 记录是否点击链接
+   * 
+   * @param request - RecordClickLinkActionRequest
+   * @returns RecordClickLinkActionResponse
+   */
+  async recordClickLinkAction(request: $_model.RecordClickLinkActionRequest): Promise<$_model.RecordClickLinkActionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.recordClickLinkActionWithOptions(request, runtime);
+  }
+
+  /**
+   * 风险事件同步
+   * 
+   * @param request - RiskEventSyncRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RiskEventSyncResponse
+   */
+  async riskEventSyncWithOptions(request: $_model.RiskEventSyncRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RiskEventSyncResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleted)) {
       body["Deleted"] = request.deleted;
     }
 
-    if (!Util.isUnset(request.discoveryTime)) {
+    if (!$dara.isNull(request.discoveryTime)) {
       body["DiscoveryTime"] = request.discoveryTime;
     }
 
-    if (!Util.isUnset(request.eventName)) {
+    if (!$dara.isNull(request.eventName)) {
       body["EventName"] = request.eventName;
     }
 
-    if (!Util.isUnset(request.eventNumber)) {
+    if (!$dara.isNull(request.eventNumber)) {
       body["EventNumber"] = request.eventNumber;
     }
 
-    if (!Util.isUnset(request.relevanceBu)) {
+    if (!$dara.isNull(request.relevanceBu)) {
       body["RelevanceBu"] = request.relevanceBu;
     }
 
-    if (!Util.isUnset(request.riskDetail)) {
+    if (!$dara.isNull(request.riskDetail)) {
       body["RiskDetail"] = request.riskDetail;
     }
 
-    if (!Util.isUnset(request.riskEffectType)) {
+    if (!$dara.isNull(request.riskEffectType)) {
       body["RiskEffectType"] = request.riskEffectType;
     }
 
-    if (!Util.isUnset(request.riskLevel)) {
+    if (!$dara.isNull(request.riskLevel)) {
       body["RiskLevel"] = request.riskLevel;
     }
 
-    if (!Util.isUnset(request.riskType)) {
+    if (!$dara.isNull(request.riskType)) {
       body["RiskType"] = request.riskType;
     }
 
-    if (!Util.isUnset(request.source)) {
+    if (!$dara.isNull(request.source)) {
       body["Source"] = request.source;
     }
 
-    if (!Util.isUnset(request.submitter)) {
+    if (!$dara.isNull(request.submitter)) {
       body["Submitter"] = request.submitter;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RiskEventSync",
       version: "2022-08-22",
       protocol: "HTTPS",
@@ -2076,68 +397,68 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RiskEventSyncResponse>(await this.callApi(params, req, runtime), new RiskEventSyncResponse({}));
+    return $dara.cast<$_model.RiskEventSyncResponse>(await this.callApi(params, req, runtime), new $_model.RiskEventSyncResponse({}));
   }
 
   /**
-   * @summary 风险事件同步
-   *
-   * @param request RiskEventSyncRequest
-   * @return RiskEventSyncResponse
+   * 风险事件同步
+   * 
+   * @param request - RiskEventSyncRequest
+   * @returns RiskEventSyncResponse
    */
-  async riskEventSync(request: RiskEventSyncRequest): Promise<RiskEventSyncResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async riskEventSync(request: $_model.RiskEventSyncRequest): Promise<$_model.RiskEventSyncResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.riskEventSyncWithOptions(request, runtime);
   }
 
   /**
-   * @summary 管控事件查询
-   *
-   * @param tmpReq SearchPunishEventsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchPunishEventsResponse
+   * 管控事件查询
+   * 
+   * @param tmpReq - SearchPunishEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchPunishEventsResponse
    */
-  async searchPunishEventsWithOptions(tmpReq: SearchPunishEventsRequest, runtime: $Util.RuntimeOptions): Promise<SearchPunishEventsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new SearchPunishEventsShrinkRequest({ });
+  async searchPunishEventsWithOptions(tmpReq: $_model.SearchPunishEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchPunishEventsResponse> {
+    tmpReq.validate();
+    let request = new $_model.SearchPunishEventsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.bussinessCodes)) {
+    if (!$dara.isNull(tmpReq.bussinessCodes)) {
       request.bussinessCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bussinessCodes, "BussinessCodes", "json");
     }
 
-    if (!Util.isUnset(tmpReq.caseCodes)) {
+    if (!$dara.isNull(tmpReq.caseCodes)) {
       request.caseCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.caseCodes, "CaseCodes", "json");
     }
 
-    if (!Util.isUnset(tmpReq.eventCodes)) {
+    if (!$dara.isNull(tmpReq.eventCodes)) {
       request.eventCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventCodes, "EventCodes", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.aliUid)) {
+    if (!$dara.isNull(request.aliUid)) {
       query["AliUid"] = request.aliUid;
     }
 
-    if (!Util.isUnset(request.bussinessCodesShrink)) {
+    if (!$dara.isNull(request.bussinessCodesShrink)) {
       query["BussinessCodes"] = request.bussinessCodesShrink;
     }
 
-    if (!Util.isUnset(request.caseCodesShrink)) {
+    if (!$dara.isNull(request.caseCodesShrink)) {
       query["CaseCodes"] = request.caseCodesShrink;
     }
 
-    if (!Util.isUnset(request.eventCodesShrink)) {
+    if (!$dara.isNull(request.eventCodesShrink)) {
       query["EventCodes"] = request.eventCodesShrink;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SearchPunishEvents",
       version: "2022-08-22",
       protocol: "HTTPS",
@@ -2148,120 +469,120 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SearchPunishEventsResponse>(await this.callApi(params, req, runtime), new SearchPunishEventsResponse({}));
+    return $dara.cast<$_model.SearchPunishEventsResponse>(await this.callApi(params, req, runtime), new $_model.SearchPunishEventsResponse({}));
   }
 
   /**
-   * @summary 管控事件查询
-   *
-   * @param request SearchPunishEventsRequest
-   * @return SearchPunishEventsResponse
+   * 管控事件查询
+   * 
+   * @param request - SearchPunishEventsRequest
+   * @returns SearchPunishEventsResponse
    */
-  async searchPunishEvents(request: SearchPunishEventsRequest): Promise<SearchPunishEventsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async searchPunishEvents(request: $_model.SearchPunishEventsRequest): Promise<$_model.SearchPunishEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.searchPunishEventsWithOptions(request, runtime);
   }
 
   /**
-   * @summary 管控事件查询
-   *
-   * @param tmpReq SearchPunishRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchPunishRecordsResponse
+   * 管控事件查询
+   * 
+   * @param tmpReq - SearchPunishRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchPunishRecordsResponse
    */
-  async searchPunishRecordsWithOptions(tmpReq: SearchPunishRecordsRequest, runtime: $Util.RuntimeOptions): Promise<SearchPunishRecordsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new SearchPunishRecordsShrinkRequest({ });
+  async searchPunishRecordsWithOptions(tmpReq: $_model.SearchPunishRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchPunishRecordsResponse> {
+    tmpReq.validate();
+    let request = new $_model.SearchPunishRecordsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.actionCodes)) {
+    if (!$dara.isNull(tmpReq.actionCodes)) {
       request.actionCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actionCodes, "ActionCodes", "json");
     }
 
-    if (!Util.isUnset(tmpReq.caseCodes)) {
+    if (!$dara.isNull(tmpReq.caseCodes)) {
       request.caseCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.caseCodes, "CaseCodes", "json");
     }
 
-    if (!Util.isUnset(tmpReq.eventCodes)) {
+    if (!$dara.isNull(tmpReq.eventCodes)) {
       request.eventCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventCodes, "EventCodes", "json");
     }
 
-    if (!Util.isUnset(tmpReq.punishStatus)) {
+    if (!$dara.isNull(tmpReq.punishStatus)) {
       request.punishStatusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.punishStatus, "PunishStatus", "json");
     }
 
-    if (!Util.isUnset(tmpReq.sourceCodes)) {
+    if (!$dara.isNull(tmpReq.sourceCodes)) {
       request.sourceCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceCodes, "SourceCodes", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.actionCodesShrink)) {
+    if (!$dara.isNull(request.actionCodesShrink)) {
       query["ActionCodes"] = request.actionCodesShrink;
     }
 
-    if (!Util.isUnset(request.aliUid)) {
+    if (!$dara.isNull(request.aliUid)) {
       query["AliUid"] = request.aliUid;
     }
 
-    if (!Util.isUnset(request.bussinessCodes)) {
+    if (!$dara.isNull(request.bussinessCodes)) {
       query["BussinessCodes"] = request.bussinessCodes;
     }
 
-    if (!Util.isUnset(request.caseCodesShrink)) {
+    if (!$dara.isNull(request.caseCodesShrink)) {
       query["CaseCodes"] = request.caseCodesShrink;
     }
 
-    if (!Util.isUnset(request.domain)) {
+    if (!$dara.isNull(request.domain)) {
       query["Domain"] = request.domain;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.eventCodesShrink)) {
+    if (!$dara.isNull(request.eventCodesShrink)) {
       query["EventCodes"] = request.eventCodesShrink;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       query["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.page)) {
+    if (!$dara.isNull(request.page)) {
       query["Page"] = request.page;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.punishStatusShrink)) {
+    if (!$dara.isNull(request.punishStatusShrink)) {
       query["PunishStatus"] = request.punishStatusShrink;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.sourceCodesShrink)) {
+    if (!$dara.isNull(request.sourceCodesShrink)) {
       query["SourceCodes"] = request.sourceCodesShrink;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.url)) {
+    if (!$dara.isNull(request.url)) {
       query["Url"] = request.url;
     }
 
-    if (!Util.isUnset(request.urlFuzzy)) {
+    if (!$dara.isNull(request.urlFuzzy)) {
       query["UrlFuzzy"] = request.urlFuzzy;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SearchPunishRecords",
       version: "2022-08-22",
       protocol: "HTTPS",
@@ -2272,60 +593,60 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SearchPunishRecordsResponse>(await this.callApi(params, req, runtime), new SearchPunishRecordsResponse({}));
+    return $dara.cast<$_model.SearchPunishRecordsResponse>(await this.callApi(params, req, runtime), new $_model.SearchPunishRecordsResponse({}));
   }
 
   /**
-   * @summary 管控事件查询
-   *
-   * @param request SearchPunishRecordsRequest
-   * @return SearchPunishRecordsResponse
+   * 管控事件查询
+   * 
+   * @param request - SearchPunishRecordsRequest
+   * @returns SearchPunishRecordsResponse
    */
-  async searchPunishRecords(request: SearchPunishRecordsRequest): Promise<SearchPunishRecordsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async searchPunishRecords(request: $_model.SearchPunishRecordsRequest): Promise<$_model.SearchPunishRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.searchPunishRecordsWithOptions(request, runtime);
   }
 
   /**
-   * @summary 处罚记录查询
-   *
-   * @param tmpReq SearchPunishRequestRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchPunishRequestResponse
+   * 处罚记录查询
+   * 
+   * @param tmpReq - SearchPunishRequestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchPunishRequestResponse
    */
-  async searchPunishRequestWithOptions(tmpReq: SearchPunishRequestRequest, runtime: $Util.RuntimeOptions): Promise<SearchPunishRequestResponse> {
-    Util.validateModel(tmpReq);
-    let request = new SearchPunishRequestShrinkRequest({ });
+  async searchPunishRequestWithOptions(tmpReq: $_model.SearchPunishRequestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchPunishRequestResponse> {
+    tmpReq.validate();
+    let request = new $_model.SearchPunishRequestShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.antiStatuses)) {
+    if (!$dara.isNull(tmpReq.antiStatuses)) {
       request.antiStatusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.antiStatuses, "AntiStatuses", "json");
     }
 
-    if (!Util.isUnset(tmpReq.bussinessCodes)) {
+    if (!$dara.isNull(tmpReq.bussinessCodes)) {
       request.bussinessCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bussinessCodes, "BussinessCodes", "json");
     }
 
-    if (!Util.isUnset(tmpReq.eventCodes)) {
+    if (!$dara.isNull(tmpReq.eventCodes)) {
       request.eventCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventCodes, "EventCodes", "json");
     }
 
-    if (!Util.isUnset(tmpReq.punishStatuses)) {
+    if (!$dara.isNull(tmpReq.punishStatuses)) {
       request.punishStatusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.punishStatuses, "PunishStatuses", "json");
     }
 
-    if (!Util.isUnset(tmpReq.sourceCodes)) {
+    if (!$dara.isNull(tmpReq.sourceCodes)) {
       request.sourceCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceCodes, "SourceCodes", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userIds)) {
+    if (!$dara.isNull(tmpReq.userIds)) {
       request.userIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userIds, "UserIds", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SearchPunishRequest",
       version: "2022-08-22",
       protocol: "HTTPS",
@@ -2336,18 +657,56 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SearchPunishRequestResponse>(await this.callApi(params, req, runtime), new SearchPunishRequestResponse({}));
+    return $dara.cast<$_model.SearchPunishRequestResponse>(await this.callApi(params, req, runtime), new $_model.SearchPunishRequestResponse({}));
   }
 
   /**
-   * @summary 处罚记录查询
-   *
-   * @param request SearchPunishRequestRequest
-   * @return SearchPunishRequestResponse
+   * 处罚记录查询
+   * 
+   * @param request - SearchPunishRequestRequest
+   * @returns SearchPunishRequestResponse
    */
-  async searchPunishRequest(request: SearchPunishRequestRequest): Promise<SearchPunishRequestResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async searchPunishRequest(request: $_model.SearchPunishRequestRequest): Promise<$_model.SearchPunishRequestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.searchPunishRequestWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新安全事件状态
+   * 
+   * @param request - UpdateSecurityEventStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSecurityEventStatusResponse
+   */
+  async updateSecurityEventStatusWithOptions(request: $_model.UpdateSecurityEventStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSecurityEventStatusResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSecurityEventStatus",
+      version: "2022-08-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSecurityEventStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSecurityEventStatusResponse({}));
+  }
+
+  /**
+   * 更新安全事件状态
+   * 
+   * @param request - UpdateSecurityEventStatusRequest
+   * @returns UpdateSecurityEventStatusResponse
+   */
+  async updateSecurityEventStatus(request: $_model.UpdateSecurityEventStatusRequest): Promise<$_model.UpdateSecurityEventStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSecurityEventStatusWithOptions(request, runtime);
   }
 
 }
