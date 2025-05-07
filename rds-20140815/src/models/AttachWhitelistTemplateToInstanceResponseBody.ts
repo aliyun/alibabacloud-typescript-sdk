@@ -1,0 +1,98 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { AttachWhitelistTemplateToInstanceResponseBodyData } from "./AttachWhitelistTemplateToInstanceResponseBodyData";
+
+
+export class AttachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code returned. Valid values:
+   * 
+   * *   **200**: success
+   * *   **400**: client error
+   * *   **401**: identity authentication failed
+   * *   **404**: request page not found
+   * *   **500**: server error
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: AttachWhitelistTemplateToInstanceResponseBodyData;
+  /**
+   * @remarks
+   * The HTTP status code returned. Valid values:
+   * 
+   * *   **200**: success
+   * *   **400**: client error
+   * *   **500**: server error
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The message returned.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 08A3B71B-FE08-4B03-974F-CC7EA6DB1828
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: AttachWhitelistTemplateToInstanceResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

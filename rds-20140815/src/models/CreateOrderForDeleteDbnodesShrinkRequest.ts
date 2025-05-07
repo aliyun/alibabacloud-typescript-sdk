@@ -1,0 +1,181 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class CreateOrderForDeleteDBNodesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to automatically complete the payment. Valid values:
+   * 
+   * 1.  **true**: You must make sure that your account balance is sufficient.
+   * 2.  **false**: An unpaid order is generated.
+   * 
+   * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+   * 
+   * @example
+   * false
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * The additional business information about the instance.
+   * 
+   * @example
+   * {\\"shopCartItemId\\":\\"25******\\",\\"produceDriver\\":\\"NoOrder\\",\\"aliyun_shopcart_order_source\\":\\"fromShopcart\\",\\"shopCartId\\":\\"10190203suffix20230509******\\"}
+   */
+  businessInfo?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCzxxxxxxx
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The commodity code. Valid values:
+   * 
+   * *   **bards**: The instance is a pay-as-you-go primary instance.
+   * *   **rds**: The instance is a subscription primary instance.
+   * *   **rords**: The instance is a pay-as-you-go read-only instance.
+   * *   **rds_rordspre_public_cn**: The instance is a subscription read-only instance.
+   * *   **bards_intl**: The instance is a pay-as-you-go primary instance.
+   * *   **rds_intl**: The instance is a subscription primary instance.
+   * *   **rords_intl**: The instance is a pay-as-you-go read-only instance.
+   * *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bards
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
+   * 
+   * @example
+   * rm-8vb******
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * An array that consists of information about the ID of the node.
+   */
+  DBNodeIdShrink?: string;
+  /**
+   * @remarks
+   * The database engine version of the instance. Valid values:
+   * 
+   * Valid values if you set Engine to MySQL: **5.5, 5.6, 5.7, and 8.0**
+   * 
+   * @example
+   * 5.7
+   */
+  engineVersion?: string;
+  /**
+   * @remarks
+   * The type of the database node. Valid values:
+   * 
+   * *   **Master**: the primary node
+   * *   **Slave**: the secondary node
+   * 
+   * @example
+   * Master
+   */
+  nodeType?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * aliwood-1688-mobile-promotion
+   */
+  promotionCode?: string;
+  /**
+   * @remarks
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resources.
+   * 
+   * @example
+   * buy
+   */
+  resource?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmy*****
+   */
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      businessInfo: 'BusinessInfo',
+      clientToken: 'ClientToken',
+      commodityCode: 'CommodityCode',
+      DBInstanceId: 'DBInstanceId',
+      DBNodeIdShrink: 'DBNodeId',
+      engineVersion: 'EngineVersion',
+      nodeType: 'NodeType',
+      ownerId: 'OwnerId',
+      promotionCode: 'PromotionCode',
+      regionId: 'RegionId',
+      resource: 'Resource',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      businessInfo: 'string',
+      clientToken: 'string',
+      commodityCode: 'string',
+      DBInstanceId: 'string',
+      DBNodeIdShrink: 'string',
+      engineVersion: 'string',
+      nodeType: 'string',
+      ownerId: 'number',
+      promotionCode: 'string',
+      regionId: 'string',
+      resource: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
