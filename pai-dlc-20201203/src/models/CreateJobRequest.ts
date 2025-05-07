@@ -1,0 +1,286 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { CreateJobRequestCodeSource } from "./CreateJobRequestCodeSource";
+import { CredentialConfig } from "./CredentialConfig";
+import { CreateJobRequestDataSources } from "./CreateJobRequestDataSources";
+import { JobElasticSpec } from "./JobElasticSpec";
+import { JobSpec } from "./JobSpec";
+import { JobSettings } from "./JobSettings";
+import { CreateJobRequestUserVpc } from "./CreateJobRequestUserVpc";
+
+
+export class CreateJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The job visibility. Valid values:
+   * 
+   * *   PUBLIC: The job is visible to all members in the workspace.
+   * *   PRIVATE: The job is visible only to you and the administrator of the workspace.
+   * 
+   * @example
+   * PRIVATE
+   */
+  accessibility?: string;
+  /**
+   * @remarks
+   * The code source of the job. Before the node of the job runs, DLC automatically downloads the configured code from the code source and mounts the code to the local path of the container.
+   */
+  codeSource?: CreateJobRequestCodeSource;
+  /**
+   * @remarks
+   * The access credential configuration.
+   */
+  credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The data sources for job running.
+   */
+  dataSources?: CreateJobRequestDataSources[];
+  /**
+   * @remarks
+   * This parameter is not supported.
+   * 
+   * @example
+   * “”
+   */
+  debuggerConfigContent?: string;
+  /**
+   * @remarks
+   * The job name. The name must be in the following format:
+   * 
+   * *   The name must be 1 to 256 characters in length.
+   * *   The name can contain digits, letters, underscores (_), periods (.), and hyphens (-).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tf-mnist-test
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * This parameter is not supported.
+   */
+  elasticSpec?: JobElasticSpec;
+  /**
+   * @remarks
+   * The environment variables.
+   */
+  envs?: { [key: string]: string };
+  /**
+   * @remarks
+   * The maximum running duration of the job. Unit: minutes.
+   * 
+   * @example
+   * 1024
+   */
+  jobMaxRunningTimeMinutes?: number;
+  /**
+   * @remarks
+   * The configurations for job running, such as the image address, startup command, node resource declaration, and number of replicas.****
+   * 
+   * A DLC job consists of different types of nodes. If nodes of the same type have exactly the same configuration, the configuration is called JobSpec. **JobSpecs** specifies the configurations of all types of nodes. The value is of the array type.
+   * 
+   * This parameter is required.
+   */
+  jobSpecs?: JobSpec[];
+  /**
+   * @remarks
+   * The job type. The value is case-sensitive. The following job types are supported:
+   * 
+   * *   TFJob
+   * *   PyTorchJob
+   * *   MPIJob
+   * *   XGBoostJob
+   * *   OneFlowJob
+   * *   ElasticBatchJob
+   * *   SlurmJob
+   * *   RayJob
+   * 
+   * Valid values for each job type:
+   * 
+   * *   OneFlowJob: OneFlow.
+   * *   PyTorchJob: PyTorch.
+   * *   SlurmJob: Slurm.
+   * *   XGBoostJob: XGBoost.
+   * *   ElasticBatchJob: ElasticBatch.
+   * *   MPIJob: MPIJob.
+   * *   TFJob: Tensorflow.
+   * *   RayJob: Ray.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TFJob
+   */
+  jobType?: string;
+  /**
+   * @remarks
+   * The additional configuration of the job. You can use this parameter to adjust the behavior of the attached data source. For example, if the attached data source of the job is of the OSS type, you can use this parameter to add the following configurations to override the default parameters of JindoFS: `fs.oss.download.thread.concurrency=4,fs.oss.download.queue.size=16`.
+   * 
+   * @example
+   * key1=value1,key2=value2
+   */
+  options?: string;
+  /**
+   * @remarks
+   * The priority of the job. Default value: 1. Valid values: 1 to 9.
+   * 
+   * *   1: the lowest priority.
+   * *   9: the highest priority.
+   * 
+   * @example
+   * 8
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The ID of the resource group. This parameter is optional.
+   * 
+   * *   If you leave this parameter empty, the job is submitted to a public resource group.
+   * *   If a resource quota is bound to the current workspace, you can specify the resource quota ID. For more information about how to query the resource quota ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
+   * 
+   * @example
+   * rs-xxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The additional parameter configurations of the job.
+   */
+  settings?: JobSettings;
+  /**
+   * @remarks
+   * The policy that is used to check whether a distributed multi-node job is successful. Only TensorFlow distributed multi-node jobs are supported.
+   * 
+   * *   ChiefWorker: If you use this policy, the job is considered successful when the pod on the chief node completes operations.
+   * *   AllWorkers (default): If you use this policy, the job is considered successful when all worker nodes complete operations.
+   * 
+   * @example
+   * AllWorkers
+   */
+  successPolicy?: string;
+  /**
+   * @remarks
+   * The folder in which the third-party Python library file requirements.txt is stored. Before the startup command specified by the UserCommand parameter is run on each node, DLC fetches the requirements.txt file from the folder and runs `pip install -r` to install the required package and library.
+   * 
+   * @example
+   * /root/code/
+   */
+  thirdpartyLibDir?: string;
+  /**
+   * @remarks
+   * The third-party Python libraries to be installed.
+   */
+  thirdpartyLibs?: string[];
+  /**
+   * @remarks
+   * The startup command for all nodes of the job.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * python /root/code/mnist.py
+   */
+  userCommand?: string;
+  /**
+   * @remarks
+   * The VPC settings.
+   */
+  userVpc?: CreateJobRequestUserVpc;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * ws-20210126170216-xxxxxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessibility: 'Accessibility',
+      codeSource: 'CodeSource',
+      credentialConfig: 'CredentialConfig',
+      dataSources: 'DataSources',
+      debuggerConfigContent: 'DebuggerConfigContent',
+      displayName: 'DisplayName',
+      elasticSpec: 'ElasticSpec',
+      envs: 'Envs',
+      jobMaxRunningTimeMinutes: 'JobMaxRunningTimeMinutes',
+      jobSpecs: 'JobSpecs',
+      jobType: 'JobType',
+      options: 'Options',
+      priority: 'Priority',
+      resourceId: 'ResourceId',
+      settings: 'Settings',
+      successPolicy: 'SuccessPolicy',
+      thirdpartyLibDir: 'ThirdpartyLibDir',
+      thirdpartyLibs: 'ThirdpartyLibs',
+      userCommand: 'UserCommand',
+      userVpc: 'UserVpc',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessibility: 'string',
+      codeSource: CreateJobRequestCodeSource,
+      credentialConfig: CredentialConfig,
+      dataSources: { 'type': 'array', 'itemType': CreateJobRequestDataSources },
+      debuggerConfigContent: 'string',
+      displayName: 'string',
+      elasticSpec: JobElasticSpec,
+      envs: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      jobMaxRunningTimeMinutes: 'number',
+      jobSpecs: { 'type': 'array', 'itemType': JobSpec },
+      jobType: 'string',
+      options: 'string',
+      priority: 'number',
+      resourceId: 'string',
+      settings: JobSettings,
+      successPolicy: 'string',
+      thirdpartyLibDir: 'string',
+      thirdpartyLibs: { 'type': 'array', 'itemType': 'string' },
+      userCommand: 'string',
+      userVpc: CreateJobRequestUserVpc,
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.codeSource && typeof (this.codeSource as any).validate === 'function') {
+      (this.codeSource as any).validate();
+    }
+    if(this.credentialConfig && typeof (this.credentialConfig as any).validate === 'function') {
+      (this.credentialConfig as any).validate();
+    }
+    if(Array.isArray(this.dataSources)) {
+      $dara.Model.validateArray(this.dataSources);
+    }
+    if(this.elasticSpec && typeof (this.elasticSpec as any).validate === 'function') {
+      (this.elasticSpec as any).validate();
+    }
+    if(this.envs) {
+      $dara.Model.validateMap(this.envs);
+    }
+    if(Array.isArray(this.jobSpecs)) {
+      $dara.Model.validateArray(this.jobSpecs);
+    }
+    if(this.settings && typeof (this.settings as any).validate === 'function') {
+      (this.settings as any).validate();
+    }
+    if(Array.isArray(this.thirdpartyLibs)) {
+      $dara.Model.validateArray(this.thirdpartyLibs);
+    }
+    if(this.userVpc && typeof (this.userVpc as any).validate === 'function') {
+      (this.userVpc as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
