@@ -1,0 +1,34 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class UpdateAxbBindFixedLineRequestExtra extends $dara.Model {
+  /**
+   * @remarks
+   * 录音控制， 0：不录音 1：录音
+   * 
+   * @example
+   * 0
+   */
+  callrecording?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callrecording: 'Callrecording',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callrecording: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
