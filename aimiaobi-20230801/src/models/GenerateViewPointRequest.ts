@@ -1,0 +1,41 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { GenerateViewPointRequestReferenceData } from "./GenerateViewPointRequestReferenceData";
+
+
+export class GenerateViewPointRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c160c841c8e54295bf2f441432785944_p_efm
+   */
+  agentKey?: string;
+  referenceData?: GenerateViewPointRequestReferenceData;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      referenceData: 'ReferenceData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      referenceData: GenerateViewPointRequestReferenceData,
+    };
+  }
+
+  validate() {
+    if(this.referenceData && typeof (this.referenceData as any).validate === 'function') {
+      (this.referenceData as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
