@@ -7,6 +7,12 @@ import { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextToken
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext extends $dara.Model {
   /**
    * @example
+   * 您想了解关于xx的哪些信息？
+   */
+  askUser?: string;
+  askUserKeywords?: string[];
+  /**
+   * @example
    * start
    */
   currentStep?: string;
@@ -33,6 +39,8 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext 
   tokenCalculate?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextTokenCalculate;
   static names(): { [key: string]: string } {
     return {
+      askUser: 'AskUser',
+      askUserKeywords: 'AskUserKeywords',
       currentStep: 'CurrentStep',
       generatedContent: 'GeneratedContent',
       modelId: 'ModelId',
@@ -48,6 +56,8 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext 
 
   static types(): { [key: string]: any } {
     return {
+      askUser: 'string',
+      askUserKeywords: { 'type': 'array', 'itemType': 'string' },
       currentStep: 'string',
       generatedContent: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent,
       modelId: 'string',
@@ -62,6 +72,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext 
   }
 
   validate() {
+    if(Array.isArray(this.askUserKeywords)) {
+      $dara.Model.validateArray(this.askUserKeywords);
+    }
     if(this.generatedContent && typeof (this.generatedContent as any).validate === 'function') {
       (this.generatedContent as any).validate();
     }
