@@ -66,6 +66,7 @@ export class GetLoginTokenResponseBody extends $dara.Model {
    * MFAVerify
    */
   nextStage?: string;
+  nickName?: string;
   /**
    * @remarks
    * > This is a parameter only for internal use.
@@ -160,6 +161,7 @@ export class GetLoginTokenResponseBody extends $dara.Model {
       label: 'Label',
       loginToken: 'LoginToken',
       nextStage: 'NextStage',
+      nickName: 'NickName',
       passwordStrategy: 'PasswordStrategy',
       phone: 'Phone',
       props: 'Props',
@@ -183,6 +185,7 @@ export class GetLoginTokenResponseBody extends $dara.Model {
       label: 'string',
       loginToken: 'string',
       nextStage: 'string',
+      nickName: 'string',
       passwordStrategy: GetLoginTokenResponseBodyPasswordStrategy,
       phone: 'string',
       props: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },

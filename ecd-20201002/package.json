@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/ecd20201002",
-  "version": "2.1.10",
+  "version": "2.1.11",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
