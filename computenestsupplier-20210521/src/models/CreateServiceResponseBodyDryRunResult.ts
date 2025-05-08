@@ -1,0 +1,35 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { CreateServiceResponseBodyDryRunResultRolePolicy } from "./CreateServiceResponseBodyDryRunResultRolePolicy";
+
+
+export class CreateServiceResponseBodyDryRunResult extends $dara.Model {
+  /**
+   * @remarks
+   * The required ram policy for deploying role.
+   */
+  rolePolicy?: CreateServiceResponseBodyDryRunResultRolePolicy;
+  static names(): { [key: string]: string } {
+    return {
+      rolePolicy: 'RolePolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rolePolicy: CreateServiceResponseBodyDryRunResultRolePolicy,
+    };
+  }
+
+  validate() {
+    if(this.rolePolicy && typeof (this.rolePolicy as any).validate === 'function') {
+      (this.rolePolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
