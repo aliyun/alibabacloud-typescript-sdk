@@ -281,4 +281,44 @@ export default class Client extends OpenApi {
     return await this.globalSearchWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 通晓统一搜索API
+   * 
+   * @param request - UnifiedSearchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnifiedSearchResponse
+   */
+  async unifiedSearchWithOptions(request: $_model.UnifiedSearchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UnifiedSearchResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnifiedSearch",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v1/iqs/search/unified`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnifiedSearchResponse>(await this.callApi(params, req, runtime), new $_model.UnifiedSearchResponse({}));
+  }
+
+  /**
+   * 通晓统一搜索API
+   * 
+   * @param request - UnifiedSearchRequest
+   * @returns UnifiedSearchResponse
+   */
+  async unifiedSearch(request: $_model.UnifiedSearchRequest): Promise<$_model.UnifiedSearchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.unifiedSearchWithOptions(request, headers, runtime);
+  }
+
 }

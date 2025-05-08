@@ -9,12 +9,12 @@ export class UnifiedPageItem extends $dara.Model {
   link?: string;
   mainText?: string;
   markdownText?: string;
-  publishedTime?: string;
-  rerankScore?: number;
   /**
    * @example
    * 2025-04-07T10:15:30.123+08:00
    */
+  publishedTime?: string;
+  rerankScore?: number;
   snippet?: string;
   summary?: string;
   title?: string;

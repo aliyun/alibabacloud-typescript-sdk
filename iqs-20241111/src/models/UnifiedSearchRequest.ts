@@ -1,37 +1,25 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RequestContents } from "./RequestContents";
+import { UnifiedSearchInput } from "./UnifiedSearchInput";
 
 
 export class UnifiedSearchRequest extends $dara.Model {
-  category?: string;
-  contents?: RequestContents;
-  engineType?: string;
-  query?: string;
-  timeRange?: string;
+  body?: UnifiedSearchInput;
   static names(): { [key: string]: string } {
     return {
-      category: 'category',
-      contents: 'contents',
-      engineType: 'engineType',
-      query: 'query',
-      timeRange: 'timeRange',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      category: 'string',
-      contents: RequestContents,
-      engineType: 'string',
-      query: 'string',
-      timeRange: 'string',
+      body: UnifiedSearchInput,
     };
   }
 
   validate() {
-    if(this.contents && typeof (this.contents as any).validate === 'function') {
-      (this.contents as any).validate();
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
     }
     super.validate();
   }
