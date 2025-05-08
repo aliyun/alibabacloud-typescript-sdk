@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/aimiaobi20230801",
-  "version": "1.22.2",
+  "version": "1.22.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

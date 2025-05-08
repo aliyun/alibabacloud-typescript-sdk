@@ -82,6 +82,7 @@ export { GetInterveneRuleDetailResponseBodyData } from './GetInterveneRuleDetail
 export { GetInterveneTemplateFileUrlResponseBodyData } from './GetInterveneTemplateFileUrlResponseBodyData';
 export { GetMaterialByIdResponseBodyData } from './GetMaterialByIdResponseBodyData';
 export { GetPropertiesResponseBodyDataConsoleConfig } from './GetPropertiesResponseBodyDataConsoleConfig';
+export { GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseSearchSources } from './GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseSearchSources';
 export { GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamplesArticles } from './GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamplesArticles';
 export { GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamples } from './GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamples';
 export { GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSources } from './GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSources';
