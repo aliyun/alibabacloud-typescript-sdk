@@ -12,6 +12,11 @@ export class SaveDataSourceOrderConfigShrinkRequest extends $dara.Model {
    */
   agentKey?: string;
   /**
+   * @example
+   * copilotReference
+   */
+  generateTechnology?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -27,6 +32,7 @@ export class SaveDataSourceOrderConfigShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
+      generateTechnology: 'GenerateTechnology',
       productCode: 'ProductCode',
       userConfigDataSourceListShrink: 'UserConfigDataSourceList',
     };
@@ -35,6 +41,7 @@ export class SaveDataSourceOrderConfigShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentKey: 'string',
+      generateTechnology: 'string',
       productCode: 'string',
       userConfigDataSourceListShrink: 'string',
     };

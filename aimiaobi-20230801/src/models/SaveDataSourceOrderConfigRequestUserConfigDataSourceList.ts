@@ -11,6 +11,7 @@ export class SaveDataSourceOrderConfigRequestUserConfigDataSourceList extends $d
    * QuarkCommonNews
    */
   code?: string;
+  enable?: boolean;
   name?: string;
   /**
    * @remarks
@@ -31,6 +32,7 @@ export class SaveDataSourceOrderConfigRequestUserConfigDataSourceList extends $d
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      enable: 'Enable',
       name: 'Name',
       number: 'Number',
       type: 'Type',
@@ -40,6 +42,7 @@ export class SaveDataSourceOrderConfigRequestUserConfigDataSourceList extends $d
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      enable: 'boolean',
       name: 'string',
       number: 'number',
       type: 'string',

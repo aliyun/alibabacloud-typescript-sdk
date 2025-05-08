@@ -1680,6 +1680,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.generateTechnology)) {
+      body["GenerateTechnology"] = request.generateTechnology;
+    }
+
     if (!$dara.isNull(request.productCode)) {
       body["ProductCode"] = request.productCode;
     }
@@ -6700,6 +6704,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.generateTechnology)) {
+      body["GenerateTechnology"] = request.generateTechnology;
+    }
+
     if (!$dara.isNull(request.productCode)) {
       body["ProductCode"] = request.productCode;
     }
