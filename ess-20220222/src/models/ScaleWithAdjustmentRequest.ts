@@ -68,6 +68,7 @@ export class ScaleWithAdjustmentRequest extends $dara.Model {
    */
   overrides?: ScaleWithAdjustmentRequestOverrides;
   ownerId?: number;
+  parallelTask?: boolean;
   resourceOwnerAccount?: string;
   /**
    * @remarks
@@ -104,6 +105,7 @@ export class ScaleWithAdjustmentRequest extends $dara.Model {
       minAdjustmentMagnitude: 'MinAdjustmentMagnitude',
       overrides: 'Overrides',
       ownerId: 'OwnerId',
+      parallelTask: 'ParallelTask',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       scalingGroupId: 'ScalingGroupId',
       syncActivity: 'SyncActivity',
@@ -120,6 +122,7 @@ export class ScaleWithAdjustmentRequest extends $dara.Model {
       minAdjustmentMagnitude: 'number',
       overrides: ScaleWithAdjustmentRequestOverrides,
       ownerId: 'number',
+      parallelTask: 'boolean',
       resourceOwnerAccount: 'string',
       scalingGroupId: 'string',
       syncActivity: 'boolean',
