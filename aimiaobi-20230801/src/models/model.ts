@@ -170,6 +170,9 @@ export { ListSearchTaskDialogueDatasResponseBodyArticlesMultimodalMedias } from 
 export { ListSearchTaskDialogueDatasResponseBodyArticles } from './ListSearchTaskDialogueDatasResponseBodyArticles';
 export { ListSearchTaskDialogueDatasResponseBodyImages } from './ListSearchTaskDialogueDatasResponseBodyImages';
 export { ListSearchTaskDialogueDatasResponseBodyVideos } from './ListSearchTaskDialogueDatasResponseBodyVideos';
+export { ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources } from './ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources';
+export { ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParam } from './ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParam';
+export { ListSearchTaskDialoguesResponseBodyDataChatConfig } from './ListSearchTaskDialoguesResponseBodyDataChatConfig';
 export { ListSearchTaskDialoguesResponseBodyData } from './ListSearchTaskDialoguesResponseBodyData';
 export { ListSearchTasksResponseBodyData } from './ListSearchTasksResponseBodyData';
 export { ListStyleLearningResultResponseBodyData } from './ListStyleLearningResultResponseBodyData';

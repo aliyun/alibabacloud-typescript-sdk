@@ -1,8 +1,10 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ListSearchTaskDialoguesResponseBodyDataChatConfig } from "./ListSearchTaskDialoguesResponseBodyDataChatConfig";
 
 
 export class ListSearchTaskDialoguesResponseBodyData extends $dara.Model {
+  chatConfig?: ListSearchTaskDialoguesResponseBodyDataChatConfig;
   /**
    * @example
    * 2024-11-25 13:33:01
@@ -56,6 +58,7 @@ export class ListSearchTaskDialoguesResponseBodyData extends $dara.Model {
   text?: string;
   static names(): { [key: string]: string } {
     return {
+      chatConfig: 'ChatConfig',
       createTime: 'CreateTime',
       dialogueType: 'DialogueType',
       goodText: 'GoodText',
@@ -72,6 +75,7 @@ export class ListSearchTaskDialoguesResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      chatConfig: ListSearchTaskDialoguesResponseBodyDataChatConfig,
       createTime: 'string',
       dialogueType: 'number',
       goodText: 'string',
@@ -87,6 +91,9 @@ export class ListSearchTaskDialoguesResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(this.chatConfig && typeof (this.chatConfig as any).validate === 'function') {
+      (this.chatConfig as any).validate();
+    }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }
