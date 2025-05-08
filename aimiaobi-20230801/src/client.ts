@@ -3223,6 +3223,10 @@ export default class Client extends OpenApi {
       body["EndTime"] = request.endTime;
     }
 
+    if (!$dara.isNull(request.includeConfig)) {
+      body["IncludeConfig"] = request.includeConfig;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }

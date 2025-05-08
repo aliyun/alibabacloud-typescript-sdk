@@ -16,6 +16,11 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
   content?: string;
   /**
    * @example
+   * 2025-04-14 19:59:53
+   */
+  createTime?: string;
+  /**
+   * @example
    * false
    */
   disableHandleMultimodalMedia?: boolean;
@@ -76,6 +81,11 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
    */
   title?: string;
   /**
+   * @example
+   * 2025-04-14 19:59:53
+   */
+  updateTime?: string;
+  /**
    * @remarks
    * url
    * 
@@ -87,6 +97,7 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
     return {
       categoryUuid: 'CategoryUuid',
       content: 'Content',
+      createTime: 'CreateTime',
       disableHandleMultimodalMedia: 'DisableHandleMultimodalMedia',
       docId: 'DocId',
       docType: 'DocType',
@@ -100,6 +111,7 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
       status: 'Status',
       summary: 'Summary',
       title: 'Title',
+      updateTime: 'UpdateTime',
       url: 'Url',
     };
   }
@@ -108,6 +120,7 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
     return {
       categoryUuid: 'string',
       content: 'string',
+      createTime: 'string',
       disableHandleMultimodalMedia: 'boolean',
       docId: 'string',
       docType: 'string',
@@ -121,6 +134,7 @@ export class ListDatasetDocumentsResponseBodyData extends $dara.Model {
       status: 'number',
       summary: 'string',
       title: 'string',
+      updateTime: 'string',
       url: 'string',
     };
   }

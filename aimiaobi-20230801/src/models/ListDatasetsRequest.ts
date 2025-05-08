@@ -23,6 +23,7 @@ export class ListDatasetsRequest extends $dara.Model {
    * 创建时间-结束
    */
   endTime?: string;
+  includeConfig?: boolean;
   /**
    * @example
    * 1
@@ -57,6 +58,7 @@ export class ListDatasetsRequest extends $dara.Model {
       datasetName: 'DatasetName',
       datasetType: 'DatasetType',
       endTime: 'EndTime',
+      includeConfig: 'IncludeConfig',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       searchDatasetEnable: 'SearchDatasetEnable',
@@ -71,6 +73,7 @@ export class ListDatasetsRequest extends $dara.Model {
       datasetName: 'string',
       datasetType: 'string',
       endTime: 'string',
+      includeConfig: 'boolean',
       pageNumber: 'number',
       pageSize: 'string',
       searchDatasetEnable: 'number',

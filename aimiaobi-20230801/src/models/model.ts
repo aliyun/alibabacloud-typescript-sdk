@@ -140,7 +140,9 @@ export { ListCustomViewPointsResponseBodyDataViewPoints } from './ListCustomView
 export { ListCustomViewPointsResponseBodyData } from './ListCustomViewPointsResponseBodyData';
 export { ListDatasetDocumentsResponseBodyDataMultimodalMedias } from './ListDatasetDocumentsResponseBodyDataMultimodalMedias';
 export { ListDatasetDocumentsResponseBodyData } from './ListDatasetDocumentsResponseBodyData';
+export { ListDatasetsResponseBodyCustomSemanticSearchConfig } from './ListDatasetsResponseBodyCustomSemanticSearchConfig';
 export { ListDatasetsResponseBodyData } from './ListDatasetsResponseBodyData';
+export { ListDatasetsResponseBodyThirdSearchConfig } from './ListDatasetsResponseBodyThirdSearchConfig';
 export { ListDialoguesResponseBodyData } from './ListDialoguesResponseBodyData';
 export { ListDocsResponseBodyData } from './ListDocsResponseBodyData';
 export { ListFreshViewPointsResponseBodyDataOutlines } from './ListFreshViewPointsResponseBodyDataOutlines';

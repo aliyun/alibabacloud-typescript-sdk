@@ -1,6 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ListDatasetsResponseBodyCustomSemanticSearchConfig } from "./ListDatasetsResponseBodyCustomSemanticSearchConfig";
 import { ListDatasetsResponseBodyData } from "./ListDatasetsResponseBodyData";
+import { ListDatasetsResponseBodyThirdSearchConfig } from "./ListDatasetsResponseBodyThirdSearchConfig";
 
 
 export class ListDatasetsResponseBody extends $dara.Model {
@@ -9,6 +11,7 @@ export class ListDatasetsResponseBody extends $dara.Model {
    * NoData
    */
   code?: string;
+  customSemanticSearchConfig?: ListDatasetsResponseBodyCustomSemanticSearchConfig;
   data?: ListDatasetsResponseBodyData[];
   /**
    * @example
@@ -40,6 +43,7 @@ export class ListDatasetsResponseBody extends $dara.Model {
    * true
    */
   success?: boolean;
+  thirdSearchConfig?: ListDatasetsResponseBodyThirdSearchConfig;
   /**
    * @example
    * 100
@@ -48,6 +52,7 @@ export class ListDatasetsResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      customSemanticSearchConfig: 'CustomSemanticSearchConfig',
       data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
@@ -55,6 +60,7 @@ export class ListDatasetsResponseBody extends $dara.Model {
       pageSize: 'PageSize',
       requestId: 'RequestId',
       success: 'Success',
+      thirdSearchConfig: 'ThirdSearchConfig',
       totalCount: 'TotalCount',
     };
   }
@@ -62,6 +68,7 @@ export class ListDatasetsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      customSemanticSearchConfig: ListDatasetsResponseBodyCustomSemanticSearchConfig,
       data: { 'type': 'array', 'itemType': ListDatasetsResponseBodyData },
       httpStatusCode: 'number',
       message: 'string',
@@ -69,13 +76,20 @@ export class ListDatasetsResponseBody extends $dara.Model {
       pageSize: 'number',
       requestId: 'string',
       success: 'boolean',
+      thirdSearchConfig: ListDatasetsResponseBodyThirdSearchConfig,
       totalCount: 'number',
     };
   }
 
   validate() {
+    if(this.customSemanticSearchConfig && typeof (this.customSemanticSearchConfig as any).validate === 'function') {
+      (this.customSemanticSearchConfig as any).validate();
+    }
     if(Array.isArray(this.data)) {
       $dara.Model.validateArray(this.data);
+    }
+    if(this.thirdSearchConfig && typeof (this.thirdSearchConfig as any).validate === 'function') {
+      (this.thirdSearchConfig as any).validate();
     }
     super.validate();
   }

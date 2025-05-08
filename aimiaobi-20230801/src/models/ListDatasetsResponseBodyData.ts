@@ -37,6 +37,11 @@ export class ListDatasetsResponseBodyData extends $dara.Model {
    * @example
    * 1
    */
+  docUsedQuota?: number;
+  /**
+   * @example
+   * 1
+   */
   searchDatasetEnable?: number;
   static names(): { [key: string]: string } {
     return {
@@ -46,6 +51,7 @@ export class ListDatasetsResponseBodyData extends $dara.Model {
       datasetId: 'DatasetId',
       datasetName: 'DatasetName',
       datasetType: 'DatasetType',
+      docUsedQuota: 'DocUsedQuota',
       searchDatasetEnable: 'SearchDatasetEnable',
     };
   }
@@ -58,6 +64,7 @@ export class ListDatasetsResponseBodyData extends $dara.Model {
       datasetId: 'number',
       datasetName: 'string',
       datasetType: 'string',
+      docUsedQuota: 'number',
       searchDatasetEnable: 'number',
     };
   }
