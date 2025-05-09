@@ -339,6 +339,7 @@ export { SearchTableResponseBodySearchTableListSearchTableOwnerIdList } from './
 export { SearchTableResponseBodySearchTableListSearchTableOwnerNameList } from './SearchTableResponseBodySearchTableListSearchTableOwnerNameList';
 export { SearchTableResponseBodySearchTableListSearchTable } from './SearchTableResponseBodySearchTableListSearchTable';
 export { SearchTableResponseBodySearchTableList } from './SearchTableResponseBodySearchTableList';
+export { SimplyAddInstanceResponseBodyInstance } from './SimplyAddInstanceResponseBodyInstance';
 export { UpdateAuthorityTemplateResponseBodyAuthorityTemplateView } from './UpdateAuthorityTemplateResponseBodyAuthorityTemplateView';
 export { UpdateSLARulesRequestSlaRuleList } from './UpdateSlarulesRequestSlaRuleList';
 export { UpdateStandardGroupResponseBodyStandardGroup } from './UpdateStandardGroupResponseBodyStandardGroup';
@@ -1147,6 +1148,9 @@ export { SetOwnersResponse } from './SetOwnersResponse';
 export { SetWorkflowExtraInfoRequest } from './SetWorkflowExtraInfoRequest';
 export { SetWorkflowExtraInfoResponseBody } from './SetWorkflowExtraInfoResponseBody';
 export { SetWorkflowExtraInfoResponse } from './SetWorkflowExtraInfoResponse';
+export { SimplyAddInstanceRequest } from './SimplyAddInstanceRequest';
+export { SimplyAddInstanceResponseBody } from './SimplyAddInstanceResponseBody';
+export { SimplyAddInstanceResponse } from './SimplyAddInstanceResponse';
 export { SkipDataCorrectRowCheckRequest } from './SkipDataCorrectRowCheckRequest';
 export { SkipDataCorrectRowCheckResponseBody } from './SkipDataCorrectRowCheckResponseBody';
 export { SkipDataCorrectRowCheckResponse } from './SkipDataCorrectRowCheckResponse';

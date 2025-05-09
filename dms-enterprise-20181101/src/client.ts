@@ -14877,6 +14877,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加实例
+   * 
+   * @param request - SimplyAddInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SimplyAddInstanceResponse
+   */
+  async simplyAddInstanceWithOptions(request: $_model.SimplyAddInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SimplyAddInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.databasePassword)) {
+      query["DatabasePassword"] = request.databasePassword;
+    }
+
+    if (!$dara.isNull(request.databaseUser)) {
+      query["DatabaseUser"] = request.databaseUser;
+    }
+
+    if (!$dara.isNull(request.host)) {
+      query["Host"] = request.host;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceRegion)) {
+      query["InstanceRegion"] = request.instanceRegion;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SimplyAddInstance",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SimplyAddInstanceResponse>(await this.callApi(params, req, runtime), new $_model.SimplyAddInstanceResponse({}));
+  }
+
+  /**
+   * 添加实例
+   * 
+   * @param request - SimplyAddInstanceRequest
+   * @returns SimplyAddInstanceResponse
+   */
+  async simplyAddInstance(request: $_model.SimplyAddInstanceRequest): Promise<$_model.SimplyAddInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.simplyAddInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Skips the verification on the number of rows in the precheck for data change.
    * 
    * @param request - SkipDataCorrectRowCheckRequest
