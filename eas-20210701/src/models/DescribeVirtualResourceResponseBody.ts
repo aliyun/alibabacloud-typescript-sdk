@@ -1,0 +1,105 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { DescribeVirtualResourceResponseBodyResources } from "./DescribeVirtualResourceResponseBodyResources";
+
+
+export class DescribeVirtualResourceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the virtual resource group was created.
+   * 
+   * @example
+   * 2024-10-16T17:52:49Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the retention period of preemptible instances was disabled.
+   * 
+   * @example
+   * true
+   */
+  disableSpotProtectionPeriod?: boolean;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The list of resources in the virtual resource group.
+   */
+  resources?: DescribeVirtualResourceResponseBodyResources[];
+  /**
+   * @remarks
+   * The number of deployed services.
+   * 
+   * @example
+   * 1
+   */
+  serviceCount?: number;
+  /**
+   * @remarks
+   * The time when the virtual resource group was last updated.
+   * 
+   * @example
+   * 2024-10-16T19:52:49Z
+   */
+  updateTime?: string;
+  /**
+   * @remarks
+   * The ID of the virtual resource group.
+   * 
+   * @example
+   * eas-vr-npovr28onap1xxxxxx
+   */
+  virtualResourceId?: string;
+  /**
+   * @remarks
+   * The name of the virtual resource group.
+   * 
+   * @example
+   * MyVirtualResource
+   */
+  virtualResourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      disableSpotProtectionPeriod: 'DisableSpotProtectionPeriod',
+      requestId: 'RequestId',
+      resources: 'Resources',
+      serviceCount: 'ServiceCount',
+      updateTime: 'UpdateTime',
+      virtualResourceId: 'VirtualResourceId',
+      virtualResourceName: 'VirtualResourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      disableSpotProtectionPeriod: 'boolean',
+      requestId: 'string',
+      resources: { 'type': 'array', 'itemType': DescribeVirtualResourceResponseBodyResources },
+      serviceCount: 'number',
+      updateTime: 'string',
+      virtualResourceId: 'string',
+      virtualResourceName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
