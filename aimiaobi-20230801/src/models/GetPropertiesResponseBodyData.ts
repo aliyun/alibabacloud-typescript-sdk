@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { GetPropertiesResponseBodyDataConsoleConfig } from "./GetPropertiesResponseBodyDataConsoleConfig";
 import { GetPropertiesResponseBodyDataIntelligentSearchConfig } from "./GetPropertiesResponseBodyDataIntelligentSearchConfig";
+import { GetPropertiesResponseBodyDataSearchSourceList } from "./GetPropertiesResponseBodyDataSearchSourceList";
 import { GetPropertiesResponseBodyDataSearchSources } from "./GetPropertiesResponseBodyDataSearchSources";
 import { GetPropertiesResponseBodyDataUserInfo } from "./GetPropertiesResponseBodyDataUserInfo";
 import { GetPropertiesResponseBodyDataWanxiangImageSizeConfig } from "./GetPropertiesResponseBodyDataWanxiangImageSizeConfig";
@@ -13,6 +14,7 @@ export class GetPropertiesResponseBodyData extends $dara.Model {
   consoleConfig?: GetPropertiesResponseBodyDataConsoleConfig;
   generalConfigMap?: { [key: string]: any };
   intelligentSearchConfig?: GetPropertiesResponseBodyDataIntelligentSearchConfig;
+  searchSourceList?: GetPropertiesResponseBodyDataSearchSourceList[];
   searchSources?: GetPropertiesResponseBodyDataSearchSources[];
   /**
    * @example
@@ -28,6 +30,7 @@ export class GetPropertiesResponseBodyData extends $dara.Model {
       consoleConfig: 'ConsoleConfig',
       generalConfigMap: 'GeneralConfigMap',
       intelligentSearchConfig: 'IntelligentSearchConfig',
+      searchSourceList: 'SearchSourceList',
       searchSources: 'SearchSources',
       slrAuthorized: 'SlrAuthorized',
       userInfo: 'UserInfo',
@@ -42,6 +45,7 @@ export class GetPropertiesResponseBodyData extends $dara.Model {
       consoleConfig: GetPropertiesResponseBodyDataConsoleConfig,
       generalConfigMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       intelligentSearchConfig: GetPropertiesResponseBodyDataIntelligentSearchConfig,
+      searchSourceList: { 'type': 'array', 'itemType': GetPropertiesResponseBodyDataSearchSourceList },
       searchSources: { 'type': 'array', 'itemType': GetPropertiesResponseBodyDataSearchSources },
       slrAuthorized: 'boolean',
       userInfo: GetPropertiesResponseBodyDataUserInfo,
@@ -62,6 +66,9 @@ export class GetPropertiesResponseBodyData extends $dara.Model {
     }
     if(this.intelligentSearchConfig && typeof (this.intelligentSearchConfig as any).validate === 'function') {
       (this.intelligentSearchConfig as any).validate();
+    }
+    if(Array.isArray(this.searchSourceList)) {
+      $dara.Model.validateArray(this.searchSourceList);
     }
     if(Array.isArray(this.searchSources)) {
       $dara.Model.validateArray(this.searchSources);

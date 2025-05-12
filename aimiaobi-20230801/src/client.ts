@@ -2438,6 +2438,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取文体学习分析结果
+   * 
+   * @param request - GetStyleLearningResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStyleLearningResultResponse
+   */
+  async getStyleLearningResultWithOptions(request: $_model.GetStyleLearningResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStyleLearningResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStyleLearningResult",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStyleLearningResultResponse>(await this.callApi(params, req, runtime), new $_model.GetStyleLearningResultResponse({}));
+  }
+
+  /**
+   * 获取文体学习分析结果
+   * 
+   * @param request - GetStyleLearningResultRequest
+   * @returns GetStyleLearningResultResponse
+   */
+  async getStyleLearningResult(request: $_model.GetStyleLearningResultRequest): Promise<$_model.GetStyleLearningResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStyleLearningResultWithOptions(request, runtime);
+  }
+
+  /**
    * 根据ID获取热点事件信息
    * 
    * @param request - GetTopicByIdRequest
@@ -4766,6 +4814,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取文体列表
+   * 
+   * @param request - ListWritingStylesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWritingStylesResponse
+   */
+  async listWritingStylesWithOptions(request: $_model.ListWritingStylesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWritingStylesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.scene)) {
+      body["Scene"] = request.scene;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWritingStyles",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWritingStylesResponse>(await this.callApi(params, req, runtime), new $_model.ListWritingStylesResponse({}));
+  }
+
+  /**
+   * 获取文体列表
+   * 
+   * @param request - ListWritingStylesRequest
+   * @returns ListWritingStylesResponse
+   */
+  async listWritingStyles(request: $_model.ListWritingStylesRequest): Promise<$_model.ListWritingStylesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWritingStylesWithOptions(request, runtime);
+  }
+
+  /**
    * 根据taskId查询异步任务状态
    * 
    * @param request - QueryAsyncTaskRequest
@@ -6633,6 +6737,154 @@ export default class Client extends OpenApi {
   async runWriting(request: $_model.RunWritingRequest): Promise<$_model.RunWritingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.runWritingWithOptions(request, runtime);
+  }
+
+  /**
+   * 直接写作
+   * 
+   * @param tmpReq - RunWritingV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunWritingV2Response
+   */
+  async runWritingV2WithOptions(tmpReq: $_model.RunWritingV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.RunWritingV2Response> {
+    tmpReq.validate();
+    let request = new $_model.RunWritingV2ShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.articles)) {
+      request.articlesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.articles, "Articles", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.keywords)) {
+      request.keywordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.keywords, "Keywords", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.miniDocs)) {
+      request.miniDocsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.miniDocs, "MiniDocs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.outlines)) {
+      request.outlinesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outlines, "Outlines", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.searchSources)) {
+      request.searchSourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchSources, "SearchSources", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.summarization)) {
+      request.summarizationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.summarization, "Summarization", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.writingParams)) {
+      request.writingParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.writingParams, "WritingParams", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.articlesShrink)) {
+      body["Articles"] = request.articlesShrink;
+    }
+
+    if (!$dara.isNull(request.distributeWriting)) {
+      body["DistributeWriting"] = request.distributeWriting;
+    }
+
+    if (!$dara.isNull(request.gcNumberSize)) {
+      body["GcNumberSize"] = request.gcNumberSize;
+    }
+
+    if (!$dara.isNull(request.gcNumberSizeTag)) {
+      body["GcNumberSizeTag"] = request.gcNumberSizeTag;
+    }
+
+    if (!$dara.isNull(request.keywordsShrink)) {
+      body["Keywords"] = request.keywordsShrink;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.miniDocsShrink)) {
+      body["MiniDocs"] = request.miniDocsShrink;
+    }
+
+    if (!$dara.isNull(request.outlinesShrink)) {
+      body["Outlines"] = request.outlinesShrink;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.promptMode)) {
+      body["PromptMode"] = request.promptMode;
+    }
+
+    if (!$dara.isNull(request.searchSourcesShrink)) {
+      body["SearchSources"] = request.searchSourcesShrink;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.step)) {
+      body["Step"] = request.step;
+    }
+
+    if (!$dara.isNull(request.summarizationShrink)) {
+      body["Summarization"] = request.summarizationShrink;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.useSearch)) {
+      body["UseSearch"] = request.useSearch;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.writingParamsShrink)) {
+      body["WritingParams"] = request.writingParamsShrink;
+    }
+
+    if (!$dara.isNull(request.writingScene)) {
+      body["WritingScene"] = request.writingScene;
+    }
+
+    if (!$dara.isNull(request.writingStyle)) {
+      body["WritingStyle"] = request.writingStyle;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunWritingV2",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunWritingV2Response>(await this.callApi(params, req, runtime), new $_model.RunWritingV2Response({}));
+  }
+
+  /**
+   * 直接写作
+   * 
+   * @param request - RunWritingV2Request
+   * @returns RunWritingV2Response
+   */
+  async runWritingV2(request: $_model.RunWritingV2Request): Promise<$_model.RunWritingV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runWritingV2WithOptions(request, runtime);
   }
 
   /**
