@@ -147,6 +147,7 @@ export { ListDialoguesResponseBodyData } from './ListDialoguesResponseBodyData';
 export { ListDocsResponseBodyData } from './ListDocsResponseBodyData';
 export { ListFreshViewPointsResponseBodyDataOutlines } from './ListFreshViewPointsResponseBodyDataOutlines';
 export { ListFreshViewPointsResponseBodyData } from './ListFreshViewPointsResponseBodyData';
+export { ListGeneratedContentsResponseBodyDataFileAttr } from './ListGeneratedContentsResponseBodyDataFileAttr';
 export { ListGeneratedContentsResponseBodyData } from './ListGeneratedContentsResponseBodyData';
 export { ListHotNewsWithTypeResponseBodyDataNews } from './ListHotNewsWithTypeResponseBodyDataNews';
 export { ListHotNewsWithTypeResponseBodyData } from './ListHotNewsWithTypeResponseBodyData';
@@ -166,6 +167,7 @@ export { ListInterveneRulesResponseBodyDataInterveneRuleList } from './ListInter
 export { ListInterveneRulesResponseBodyData } from './ListInterveneRulesResponseBodyData';
 export { ListIntervenesResponseBodyDataInterveneList } from './ListIntervenesResponseBodyDataInterveneList';
 export { ListIntervenesResponseBodyData } from './ListIntervenesResponseBodyData';
+export { ListMaterialDocumentsResponseBodyDataFileAttr } from './ListMaterialDocumentsResponseBodyDataFileAttr';
 export { ListMaterialDocumentsResponseBodyData } from './ListMaterialDocumentsResponseBodyData';
 export { ListPlanningProposalResponseBodyDataOutlines } from './ListPlanningProposalResponseBodyDataOutlines';
 export { ListPlanningProposalResponseBodyData } from './ListPlanningProposalResponseBodyData';

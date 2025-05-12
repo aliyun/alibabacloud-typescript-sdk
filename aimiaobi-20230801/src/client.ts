@@ -3502,6 +3502,10 @@ export default class Client extends OpenApi {
       body["Current"] = request.current;
     }
 
+    if (!$dara.isNull(request.dataType)) {
+      body["DataType"] = request.dataType;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       body["EndTime"] = request.endTime;
     }

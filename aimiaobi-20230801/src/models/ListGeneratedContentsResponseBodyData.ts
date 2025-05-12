@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ListGeneratedContentsResponseBodyDataFileAttr } from "./ListGeneratedContentsResponseBodyDataFileAttr";
 
 
 export class ListGeneratedContentsResponseBodyData extends $dara.Model {
@@ -25,6 +26,8 @@ export class ListGeneratedContentsResponseBodyData extends $dara.Model {
    * xxx
    */
   deviceId?: string;
+  fileAttr?: ListGeneratedContentsResponseBodyDataFileAttr;
+  fileKey?: string;
   /**
    * @example
    * 10
@@ -62,6 +65,8 @@ export class ListGeneratedContentsResponseBodyData extends $dara.Model {
       createTime: 'CreateTime',
       createUser: 'CreateUser',
       deviceId: 'DeviceId',
+      fileAttr: 'FileAttr',
+      fileKey: 'FileKey',
       id: 'Id',
       keywordList: 'KeywordList',
       keywords: 'Keywords',
@@ -82,6 +87,8 @@ export class ListGeneratedContentsResponseBodyData extends $dara.Model {
       createTime: 'string',
       createUser: 'string',
       deviceId: 'string',
+      fileAttr: ListGeneratedContentsResponseBodyDataFileAttr,
+      fileKey: 'string',
       id: 'number',
       keywordList: { 'type': 'array', 'itemType': 'string' },
       keywords: 'string',
@@ -95,6 +102,9 @@ export class ListGeneratedContentsResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(this.fileAttr && typeof (this.fileAttr as any).validate === 'function') {
+      (this.fileAttr as any).validate();
+    }
     if(Array.isArray(this.keywordList)) {
       $dara.Model.validateArray(this.keywordList);
     }

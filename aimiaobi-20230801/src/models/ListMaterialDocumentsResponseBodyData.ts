@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ListMaterialDocumentsResponseBodyDataFileAttr } from "./ListMaterialDocumentsResponseBodyDataFileAttr";
 
 
 export class ListMaterialDocumentsResponseBodyData extends $dara.Model {
@@ -26,6 +27,8 @@ export class ListMaterialDocumentsResponseBodyData extends $dara.Model {
    * https://www.example.com
    */
   externalUrl?: string;
+  fileAttr?: ListMaterialDocumentsResponseBodyDataFileAttr;
+  fileKey?: string;
   htmlContent?: string;
   /**
    * @example
@@ -81,6 +84,8 @@ export class ListMaterialDocumentsResponseBodyData extends $dara.Model {
       docKeywords: 'DocKeywords',
       docType: 'DocType',
       externalUrl: 'ExternalUrl',
+      fileAttr: 'FileAttr',
+      fileKey: 'FileKey',
       htmlContent: 'HtmlContent',
       id: 'Id',
       pubTime: 'PubTime',
@@ -107,6 +112,8 @@ export class ListMaterialDocumentsResponseBodyData extends $dara.Model {
       docKeywords: { 'type': 'array', 'itemType': 'string' },
       docType: 'string',
       externalUrl: 'string',
+      fileAttr: ListMaterialDocumentsResponseBodyDataFileAttr,
+      fileKey: 'string',
       htmlContent: 'string',
       id: 'number',
       pubTime: 'string',
@@ -127,6 +134,9 @@ export class ListMaterialDocumentsResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.docKeywords)) {
       $dara.Model.validateArray(this.docKeywords);
+    }
+    if(this.fileAttr && typeof (this.fileAttr as any).validate === 'function') {
+      (this.fileAttr as any).validate();
     }
     super.validate();
   }

@@ -21,6 +21,7 @@ export class ListGeneratedContentsRequest extends $dara.Model {
    * 1
    */
   current?: number;
+  dataType?: string;
   /**
    * @example
    * 2024-01-04 11:46:07
@@ -44,6 +45,7 @@ export class ListGeneratedContentsRequest extends $dara.Model {
       agentKey: 'AgentKey',
       contentDomain: 'ContentDomain',
       current: 'Current',
+      dataType: 'DataType',
       endTime: 'EndTime',
       query: 'Query',
       size: 'Size',
@@ -58,6 +60,7 @@ export class ListGeneratedContentsRequest extends $dara.Model {
       agentKey: 'string',
       contentDomain: 'string',
       current: 'number',
+      dataType: 'string',
       endTime: 'string',
       query: 'string',
       size: 'number',
