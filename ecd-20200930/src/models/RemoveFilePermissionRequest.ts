@@ -1,0 +1,90 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { RemoveFilePermissionRequestMemberList } from "./RemoveFilePermissionRequestMemberList";
+
+
+export class RemoveFilePermissionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the cloud disk in Cloud Drive Service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou+cds-066224****
+   */
+  cdsId?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * user01
+   */
+  endUserId?: string;
+  /**
+   * @remarks
+   * The file ID. The ID is a unique identifier for the file.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 6333e553a133ce21e6f747cf948bb9ef95d7****
+   */
+  fileId?: string;
+  /**
+   * @remarks
+   * The group ID.
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The users that you want to authorize.
+   * 
+   * This parameter is required.
+   */
+  memberList?: RemoveFilePermissionRequestMemberList[];
+  /**
+   * @remarks
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cdsId: 'CdsId',
+      endUserId: 'EndUserId',
+      fileId: 'FileId',
+      groupId: 'GroupId',
+      memberList: 'MemberList',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cdsId: 'string',
+      endUserId: 'string',
+      fileId: 'string',
+      groupId: 'string',
+      memberList: { 'type': 'array', 'itemType': RemoveFilePermissionRequestMemberList },
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.memberList)) {
+      $dara.Model.validateArray(this.memberList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

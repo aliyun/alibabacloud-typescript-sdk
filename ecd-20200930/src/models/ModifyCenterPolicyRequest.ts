@@ -1,0 +1,1362 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { ModifyCenterPolicyRequestAuthorizeAccessPolicyRule } from "./ModifyCenterPolicyRequestAuthorizeAccessPolicyRule";
+import { ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule } from "./ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule";
+import { ModifyCenterPolicyRequestClientType } from "./ModifyCenterPolicyRequestClientType";
+import { ModifyCenterPolicyRequestDeviceRedirects } from "./ModifyCenterPolicyRequestDeviceRedirects";
+import { ModifyCenterPolicyRequestDeviceRules } from "./ModifyCenterPolicyRequestDeviceRules";
+import { ModifyCenterPolicyRequestDomainResolveRule } from "./ModifyCenterPolicyRequestDomainResolveRule";
+import { ModifyCenterPolicyRequestNetRedirectRule } from "./ModifyCenterPolicyRequestNetRedirectRule";
+import { ModifyCenterPolicyRequestRevokeAccessPolicyRule } from "./ModifyCenterPolicyRequestRevokeAccessPolicyRule";
+import { ModifyCenterPolicyRequestRevokeSecurityPolicyRule } from "./ModifyCenterPolicyRequestRevokeSecurityPolicyRule";
+import { ModifyCenterPolicyRequestUsbSupplyRedirectRule } from "./ModifyCenterPolicyRequestUsbSupplyRedirectRule";
+
+
+export class ModifyCenterPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to grant the admin permissions to end users.
+   * 
+   * >  This parameter is in private preview and only available to specific users.
+   * 
+   * Valid values:
+   * 
+   * *   allow: forcibly grants admin permissions.
+   * *   deny: forcibly rejects granting admin permissions.
+   * *   inherited: inherits the admin permissions from the user dimension.
+   * 
+   * @example
+   * deny
+   */
+  adminAccess?: string;
+  /**
+   * @remarks
+   * The anti-screenshot policy.
+   * 
+   * Valid values:
+   * 
+   * *   off (default): disables anti-screenshot.
+   * *   on: enables anti-screenshot.
+   * 
+   * @example
+   * on
+   */
+  appContentProtection?: string;
+  /**
+   * @remarks
+   * The client IP address whitelists that you want to add.
+   */
+  authorizeAccessPolicyRule?: ModifyCenterPolicyRequestAuthorizeAccessPolicyRule[];
+  /**
+   * @remarks
+   * The security group rules.
+   */
+  authorizeSecurityPolicyRule?: ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule[];
+  /**
+   * @remarks
+   * The business type.
+   * 
+   * Valid values:
+   * 
+   * *   1: public cloud
+   * *   8: commercial edition.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  businessType?: number;
+  /**
+   * @remarks
+   * The on-premises camera redirection policy. This parameter only applies if DeviceRedirects does not include an on-premises camera redirection policy.
+   * 
+   * Valid values:
+   * 
+   * *   deviceRedirect: enables device redirection.
+   * *   off: disables device redirection.
+   * 
+   * @example
+   * on
+   */
+  cameraRedirect?: string;
+  /**
+   * @remarks
+   * The types of Alibaba Cloud Workspace clients that end users can use to connect to cloud computers.
+   */
+  clientType?: ModifyCenterPolicyRequestClientType[];
+  /**
+   * @remarks
+   * The read/write permissions on the clipboard.
+   * 
+   * Valid values:
+   * 
+   * *   read: specifies one-way transfer. You can copy files only from on-premises devices to cloud computers.
+   * *   readwrite: specifies two-way transfer. You can copy files between on-premises devices and cloud computers.
+   * *   write: specifies one-way transfer. You can only copy files from cloud computers to on-premises devices.
+   * *   off (default): disables all transfers, both one-way and two-way. Files cannot be copied directly between on-premises devices and cloud computers.
+   * 
+   * @example
+   * off
+   */
+  clipboard?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable color enhancement for design and 3D applications.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t enable color enhancement for design and 3D applications.
+   * *   on: enables color enhancement for design and 3D applications.
+   * 
+   * @example
+   * off
+   */
+  colorEnhancement?: string;
+  /**
+   * @remarks
+   * The CPU underclocking duration. Valid values: 30 to 120. Unit: seconds.
+   * 
+   * @example
+   * 50
+   */
+  cpuDownGradeDuration?: number;
+  /**
+   * @remarks
+   * The CPU processors.
+   */
+  cpuProcessors?: string[];
+  /**
+   * @remarks
+   * The CPU spike protection policy.
+   * 
+   * Valid values:
+   * 
+   * *   off: disables CPU spike protection.
+   * *   on: enables CPU spike protection.
+   * 
+   * @example
+   * off
+   */
+  cpuProtectedMode?: string;
+  /**
+   * @remarks
+   * The overall CPU usage. Valid values: 70 to 90. Unit: percentage (%).
+   * 
+   * @example
+   * 70
+   */
+  cpuRateLimit?: number;
+  /**
+   * @remarks
+   * The overall CPU sampling duration. Valid values: 10 to 60. Unit: seconds.
+   * 
+   * @example
+   * 30
+   */
+  cpuSampleDuration?: number;
+  /**
+   * @remarks
+   * The single-CPU usage. Valid values: 70 to 100. Unit: %.
+   * 
+   * @example
+   * 80
+   */
+  cpuSingleRateLimit?: number;
+  /**
+   * @remarks
+   * Specifies whether to display the peripheral connection prompt.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t display the peripheral connection prompt.
+   * *   on: displays the peripheral connection prompt.
+   * 
+   * @example
+   * off
+   */
+  deviceConnectHint?: string;
+  /**
+   * @remarks
+   * The device redirection rules.
+   */
+  deviceRedirects?: ModifyCenterPolicyRequestDeviceRedirects[];
+  /**
+   * @remarks
+   * The custom peripheral rules.
+   */
+  deviceRules?: ModifyCenterPolicyRequestDeviceRules[];
+  /**
+   * @remarks
+   * Specifies whether to retain the session upon disconnection.
+   * 
+   * >  This parameter applies only to cloud application policies.
+   * 
+   * Valid values:
+   * 
+   * *   customTime: retains the session for a specified time period.
+   * *   persistent: retains the session permanently.
+   * 
+   * @example
+   * customTime
+   */
+  disconnectKeepSession?: string;
+  /**
+   * @remarks
+   * The retention period of the session after disconnection. Valid values: 30 to 7200. Unit: seconds.
+   * 
+   * >  This parameter applies only to cloud application policies.
+   * 
+   * @example
+   * 120
+   */
+  disconnectKeepSessionTime?: number;
+  /**
+   * @remarks
+   * The display mode.
+   * 
+   * Valid values:
+   * 
+   * *   clientCustom: suitable for user-defined scenarios.
+   * *   adminOffice: suitable for daily office scenarios.
+   * *   adminDesign: suitable for design and 3D application scenarios.
+   * *   adminCustom: suitable for admin-customized scenarios.
+   * 
+   * @example
+   * clientCustom
+   */
+  displayMode?: string;
+  /**
+   * @remarks
+   * The domain resolution policies.
+   */
+  domainResolveRule?: ModifyCenterPolicyRequestDomainResolveRule[];
+  /**
+   * @remarks
+   * Specifies whether to enforce the domain resolution policy.
+   * 
+   * Valid values:
+   * 
+   * *   off: disables the domain resolution policy.
+   * *   on: enables the domain resolution policy.
+   * 
+   * @example
+   * off
+   */
+  domainResolveRuleType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enforce a bandwidth limit for sessions.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t enforce a bandwidth limit for sessions.
+   * *   on: enforces a bandwidth limit for sessions.
+   * 
+   * @example
+   * off
+   */
+  enableSessionRateLimiting?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable end users to request administrator help.
+   * 
+   * Valid values:
+   * 
+   * *   off: disables end users to request administrator help.
+   * *   on: enables end users to request administrator help.
+   * 
+   * @example
+   * off
+   */
+  endUserApplyAdminCoordinate?: string;
+  /**
+   * @remarks
+   * Specifies whether to allow end users from the same office network to share cloud computers.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t allow end users from the same office network to share cloud computers.
+   * *   on: allows end users from the same office network to share cloud computers.
+   * 
+   * @example
+   * off
+   */
+  endUserGroupCoordinate?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable file transfer.
+   * 
+   * Valid values:
+   * 
+   * *   off: enables file transfer.
+   * *   on: disables file transfer.
+   * 
+   * @example
+   * off
+   */
+  fileMigrate?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable Image Quality Control. This feature is highly recommended for professional design scenarios where performance and user experience are critical.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
+   * 
+   * @example
+   * off
+   */
+  gpuAcceleration?: string;
+  /**
+   * @remarks
+   * The file transfer policy on the web client.
+   * 
+   * Valid values:
+   * 
+   * *   all: File upload and download are supported.
+   * *   download: Only file download is supported.
+   * *   upload: Only file upload is supported.
+   * *   off (default): File upload and download are not supported.
+   * 
+   * @example
+   * off
+   */
+  html5FileTransfer?: string;
+  /**
+   * @remarks
+   * The network communication protocol.
+   * 
+   * Valid values:
+   * 
+   * *   tcp: TCP is used when UDP/AST is restricted.
+   * *   rtc: AST is used for high-frequency audio and video streaming.
+   * *   auto: UTO enables automatic switch between AST and UDP modes based on desktop content.
+   * *   both: UDP is ideal for office and HD graphic design use.
+   * 
+   * @example
+   * both
+   */
+  internetCommunicationProtocol?: string;
+  internetPrinter?: string;
+  /**
+   * @remarks
+   * The read/write permissions on the on-premises drive.
+   * 
+   * Valid values:
+   * 
+   * *   read: read-only. Cloud computers support on-premises disk mapping, but only for reading (copying) files—not modifying them.
+   * *   readwrite: read and write. Cloud computers support on-premises disk mapping, allowing you to read (copy) and write (modify) on-premises files.
+   * *   off (default): none. Cloud computers don\\"t support on-premises disk mapping.
+   * 
+   * @example
+   * off
+   */
+  localDrive?: string;
+  /**
+   * @remarks
+   * The maximum duration to retry reconnecting to cloud computers after an unexpected disconnection (non-human causes). Valid values: 30 to 7200. Unit: seconds.
+   * 
+   * @example
+   * 120
+   */
+  maxReconnectTime?: number;
+  /**
+   * @remarks
+   * The memory underclocking duration per process. Valid values: 30 to 120. Unit: seconds.
+   * 
+   * @example
+   * 40
+   */
+  memoryDownGradeDuration?: number;
+  /**
+   * @remarks
+   * The memory processors.
+   */
+  memoryProcessors?: string[];
+  /**
+   * @remarks
+   * The memory spike protection policy.
+   * 
+   * Valid values:
+   * 
+   * *   off: disables memory spike protection.
+   * *   on: enables memory spike protection.
+   * 
+   * @example
+   * off
+   */
+  memoryProtectedMode?: string;
+  /**
+   * @remarks
+   * The overall memory usage. Valid values: 70 to 90. Unit: %.
+   * 
+   * @example
+   * 70
+   */
+  memoryRateLimit?: number;
+  /**
+   * @remarks
+   * The overall memory sampling duration. Valid values: 30 to 60. Unit: seconds.
+   * 
+   * @example
+   * 40
+   */
+  memorySampleDuration?: number;
+  /**
+   * @remarks
+   * The memory usage per process. Valid values: 30 to 60. Unit: %.
+   * 
+   * @example
+   * 40
+   */
+  memorySingleRateLimit?: number;
+  /**
+   * @remarks
+   * Specifies whether to display the Restart button in the DesktopAssistant menu when end users connect to cloud computers from Android clients.
+   * 
+   * >  This feature applies to only mobile clients of version 7.4.0 or later.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t display the Restart button in the DesktopAssistant menu when end users connect to cloud computers from Android clients.
+   * *   on: displays the Restart button in the DesktopAssistant menu when end users connect to cloud computers from Android clients.
+   * 
+   * @example
+   * off
+   */
+  mobileRestart?: string;
+  /**
+   * @remarks
+   * Specifies whether to display the Stop button in the DesktopAssistant menu when end users connect to cloud computers from Android clients.
+   * 
+   * >  This feature applies to only mobile clients of version 7.4.0 or later.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t display the Stop button in the DesktopAssistant menu when end users connect to cloud computers from Android clients.
+   * *   on: displays the Stop button in the DesktopAssistant menu when end users connect to cloud computers from Android clients.
+   * 
+   * @example
+   * off
+   */
+  mobileShutdown?: string;
+  /**
+   * @remarks
+   * The policy name.
+   * 
+   * @example
+   * testPolicyGroupName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The network redirection policy.
+   * 
+   * >  This parameter is in private preview and only available to specific users.
+   * 
+   * Valid values:
+   * 
+   * *   all: enables network redirection globally.
+   * *   off (default): disables network redirection.
+   * *   on: enables the whitelist mode.
+   * 
+   * @example
+   * on
+   */
+  netRedirect?: string;
+  /**
+   * @remarks
+   * The network redirection rules.
+   * 
+   * >  This parameter is in private preview and only available to specific users.
+   */
+  netRedirectRule?: ModifyCenterPolicyRequestNetRedirectRule[];
+  /**
+   * @remarks
+   * Specifies whether to enforce a disconnection upon inactivity.
+   * 
+   * >  This parameter applies only to cloud application policies.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t enforce a disconnection upon inactivity.
+   * *   on: enforces a disconnection upon inactivity.
+   * 
+   * @example
+   * off
+   */
+  noOperationDisconnect?: string;
+  /**
+   * @remarks
+   * The duration of disconnection after inactivity. Valid values: 120 to 7200. Unit: seconds.
+   * 
+   * >  This parameter applies only to cloud application policies.
+   * 
+   * @example
+   * 120
+   */
+  noOperationDisconnectTime?: number;
+  /**
+   * @remarks
+   * The cloud computer policy ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pg-53iyi2aar0nd6****
+   */
+  policyGroupId?: string;
+  /**
+   * @remarks
+   * The printer redirection policy. This parameter only applies if DeviceRedirects does not include a printer redirection policy.
+   * 
+   * Valid values:
+   * 
+   * *   deviceRedirect (default):enables device redirection.
+   * *   usbRedirect: enables USB redirection.
+   * *   off: disables any type of redirection.
+   * 
+   * @example
+   * off
+   */
+  printerRedirect?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable image quality enhancement for design and 3D applications.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t enable image quality enhancement for design and 3D applications.
+   * *   on: enables image quality enhancement for design and 3D applications.
+   * 
+   * @example
+   * off
+   */
+  qualityEnhancement?: string;
+  /**
+   * @remarks
+   * The duration of screen recording after the specified event is detected. Unit: minutes. Valid values: 10 to 60.
+   * 
+   * @example
+   * 10
+   */
+  recordEventDuration?: number;
+  /**
+   * @remarks
+   * The absolute paths to screen recording files.
+   */
+  recordEventFilePaths?: string[];
+  /**
+   * @remarks
+   * The absolute paths to screen recording registries.
+   */
+  recordEventRegisters?: string[];
+  /**
+   * @remarks
+   * The events that trigger screen recording.
+   */
+  recordEvents?: string[];
+  /**
+   * @remarks
+   * The screen recording policy.
+   * 
+   * Valid values:
+   * 
+   * *   period: Screen recording occurs at set intervals.
+   * *   session: Screen recording is limited to sessions only.
+   * *   off: Screen recording is disabled.
+   * *   alltime: Screen recording is always enabled.
+   * 
+   * @example
+   * off
+   */
+  recording?: string;
+  /**
+   * @remarks
+   * Specifies whether to record audio files generated by cloud computers.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t record audio files generated by cloud computers.
+   * *   on: records audio files generated by cloud computers.
+   * 
+   * @example
+   * on
+   */
+  recordingAudio?: string;
+  /**
+   * @remarks
+   * The length of the screen recording file (in minutes). Screen recordings are split based on the specified duration and uploaded to Object Storage Service (OSS) buckets. If a file reaches 300 MB, the system prioritizes rolling updates for that file. Valid values: 10 to 60.
+   * 
+   * @example
+   * 10
+   */
+  recordingDuration?: number;
+  /**
+   * @remarks
+   * The screen recording\\"s end time in HH:MM:SS format. The value is meaningful only if `Recording` is set to `PERIOD`.
+   * 
+   * @example
+   * 08:59:00
+   */
+  recordingEndTime?: string;
+  /**
+   * @remarks
+   * The retention period of the screen recording file. Valid values: 1 to 180. Unit: days.
+   * 
+   * @example
+   * 15
+   */
+  recordingExpires?: number;
+  /**
+   * @remarks
+   * The frame rate of screen recording. Unit: fps.
+   * 
+   * @example
+   * 5
+   */
+  recordingFps?: string;
+  /**
+   * @remarks
+   * The screen recording\\"s start time in HH:MM:SS format. The value is meaningful only if `Recording` is set to `PERIOD`.
+   * 
+   * @example
+   * 08:00:00
+   */
+  recordingStartTime?: string;
+  /**
+   * @remarks
+   * Specifies whether to notify end users when screen recording is enabled.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t notify end users when screen recording is enabled.
+   * *   on: notifies end users when screen recording is enabled.
+   * 
+   * @example
+   * off
+   */
+  recordingUserNotify?: string;
+  /**
+   * @remarks
+   * The notification sent to end users when screen recording is enabled.
+   */
+  recordingUserNotifyMessage?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to `cn-shanghai`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The keyboard and mouse control permissions during remote assistance.
+   * 
+   * Valid values:
+   * 
+   * *   optionalControl: By default, keyboard and mouse control is disabled during remote assistance. You can request permissions as needed.
+   * *   fullControl: Keyboard and mouse control is enabled during remote assistance.
+   * *   disableControl: Keyboard and mouse control is disabled during remote assistance.
+   * 
+   * @example
+   * fullControl
+   */
+  remoteCoordinate?: string;
+  /**
+   * @remarks
+   * The computer reset setting.
+   * 
+   * Valid values:
+   * 
+   * *   off: disables the reset setting.
+   * *   on: enables the reset setting.
+   * 
+   * @example
+   * off
+   */
+  resetDesktop?: string;
+  /**
+   * @remarks
+   * The height of the resolution. Unit: pixel. Valid values for cloud applications: 500 to 50000. Valid values for cloud computers: 480 to 4096.
+   * 
+   * @example
+   * 1280
+   */
+  resolutionHeight?: number;
+  /**
+   * @remarks
+   * The resolution type.
+   * 
+   * Valid values:
+   * 
+   * *   adaptive: adaptive resolution.
+   * *   customer: fixed resolution.
+   * 
+   * @example
+   * adaptive
+   */
+  resolutionModel?: string;
+  /**
+   * @remarks
+   * The width of the resolution. Unit: pixel. Valid values for cloud applications: 500 to 50000. Valid values for cloud computers: 480 to 4096.
+   * 
+   * @example
+   * 720
+   */
+  resolutionWidth?: number;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * Valid values:
+   * 
+   * *   app: cloud applications.
+   * *   desktop: cloud computers.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * desktop
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The client IP address whitelists that you want to delete.
+   */
+  revokeAccessPolicyRule?: ModifyCenterPolicyRequestRevokeAccessPolicyRule[];
+  /**
+   * @remarks
+   * The security group rules that you want to delete.
+   */
+  revokeSecurityPolicyRule?: ModifyCenterPolicyRequestRevokeSecurityPolicyRule[];
+  safeMenu?: string;
+  /**
+   * @remarks
+   * The effective scope of the policy.
+   * 
+   * Valid values:
+   * 
+   * *   IP: The policy applies to specific IP addresses.
+   * *   GLOBAL: The policy applies globally.
+   * 
+   * @example
+   * GLOBAL
+   */
+  scope?: string;
+  /**
+   * @remarks
+   * The effective scopes. This parameter is required when `Scope` is set to `IP`. If `Scope` is set to `IP`, this parameter doesn\\"t take effect.
+   */
+  scopeValue?: string[];
+  /**
+   * @remarks
+   * The bandwidth peak allowed for sessions. Unit: Kbit/s. Valid values: 2000 to 100000.
+   * 
+   * @example
+   * 2000
+   */
+  sessionMaxRateKbps?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable smoothness enhancement for daily office use.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t enable smoothness enhancement for daily office use.
+   * *   on: enables smoothness enhancement for daily office use.
+   * 
+   * @example
+   * off
+   */
+  smoothEnhancement?: string;
+  /**
+   * @remarks
+   * Specifies whether to display the metric status entry in the DesktopAssistant menu.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t display the metric status entry in the DesktopAssistant menu.
+   * *   on: displays the metric status entry in the DesktopAssistant menu.
+   * 
+   * @example
+   * off
+   */
+  statusMonitor?: string;
+  /**
+   * @remarks
+   * The streaming mode.
+   * 
+   * Valid values:
+   * 
+   * *   intelligent
+   * *   smooth
+   * 
+   * @example
+   * smooth
+   */
+  streamingMode?: string;
+  /**
+   * @remarks
+   * The target frame rate. Valid values: 10 to 60.
+   * 
+   * @example
+   * 30
+   */
+  targetFps?: number;
+  /**
+   * @remarks
+   * Specifies whether to display the application taskbar.
+   * 
+   * >  This parameter applies only to cloud application policies.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t display the application taskbar.
+   * *   on: displays the application taskbar.
+   * 
+   * @example
+   * off
+   */
+  taskbar?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the USB redirection feature.
+   * 
+   * Valid values:
+   * 
+   * *   off (default)
+   * *   on
+   * 
+   * @example
+   * off
+   */
+  usbRedirect?: string;
+  /**
+   * @remarks
+   * The USB redirection rules.
+   */
+  usbSupplyRedirectRule?: ModifyCenterPolicyRequestUsbSupplyRedirectRule[];
+  /**
+   * @remarks
+   * The average bitrate for video encoding. Unit: Kbit/s. Valid values: 1000 to 50000.
+   * 
+   * @example
+   * 2000
+   */
+  videoEncAvgKbps?: number;
+  /**
+   * @remarks
+   * The maximum QP for video files. Higher QP values result in lower video quality. Valid values: 0 to 51.
+   * 
+   * @example
+   * 30
+   */
+  videoEncMaxQP?: number;
+  /**
+   * @remarks
+   * The minimum quantizer parameter (QP) for video files. A lower QP means better video quality. Valid values: 0 to 51.
+   * 
+   * @example
+   * 30
+   */
+  videoEncMinQP?: number;
+  /**
+   * @remarks
+   * The peak bitrate allowed for video encoding. Unit: Kbit/s. Valid values: 1000 to 50000.
+   * 
+   * @example
+   * 2000
+   */
+  videoEncPeakKbps?: number;
+  /**
+   * @remarks
+   * The video encoding policy.
+   * 
+   * Valid values:
+   * 
+   * *   qualityFirst: prioritizes image quality.
+   * *   bandwidthFirst: prioritizes bandwidth.
+   * 
+   * @example
+   * qualityFirst
+   */
+  videoEncPolicy?: string;
+  /**
+   * @remarks
+   * The multimedia redirection policy.
+   * 
+   * Valid values:
+   * 
+   * *   off: disables multimedia redirection.
+   * *   on: enables multimedia redirection.
+   * 
+   * @example
+   * on
+   */
+  videoRedirect?: string;
+  /**
+   * @remarks
+   * The image display quality.
+   * 
+   * Valid values:
+   * 
+   * *   high: high-definition (HD).
+   * *   low: smoothness.
+   * *   lossless: no quality loss.
+   * *   medium (default): scenario-specific adaptation.
+   * 
+   * @example
+   * low
+   */
+  visualQuality?: string;
+  /**
+   * @remarks
+   * The watermark policy.
+   * 
+   * Valid values:
+   * 
+   * *   blind: displays invisible watermarks.
+   * *   off (default): displays no watermark.
+   * *   on: displays visible watermarks.
+   * 
+   * @example
+   * off
+   */
+  watermark?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable anti-screen capture for invisible watermarks.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t enable anti-screen capture for invisible watermarks.
+   * *   on: enables anti-screen capture for invisible watermarks.
+   * 
+   * @example
+   * off
+   */
+  watermarkAntiCam?: string;
+  /**
+   * @remarks
+   * The font color of the watermark. Valid values: 0 to 16777215.
+   * 
+   * @example
+   * 0
+   */
+  watermarkColor?: number;
+  /**
+   * @remarks
+   * The number of watermark columns. Valid values: 3 to 10.
+   * 
+   * @example
+   * 3
+   */
+  watermarkColumnAmount?: number;
+  /**
+   * @remarks
+   * If you set `WatermarkType` to `custom`, you must also specify `WatermarkCustomText`.
+   * 
+   * @example
+   * test
+   */
+  watermarkCustomText?: string;
+  /**
+   * @remarks
+   * The watermark rotation. Valid values: -10 to -30.
+   * 
+   * @example
+   * -10
+   */
+  watermarkDegree?: number;
+  /**
+   * @remarks
+   * The font size of the watermark. Valid values: 10 to 20.
+   * 
+   * @example
+   * 10
+   */
+  watermarkFontSize?: number;
+  /**
+   * @remarks
+   * The font style of the watermark.
+   * 
+   * Valid values:
+   * 
+   * *   plain
+   * *   bold
+   * 
+   * @example
+   * plain
+   */
+  watermarkFontStyle?: string;
+  /**
+   * @remarks
+   * The enhancement level for invisible watermarks.
+   * 
+   * Valid values:
+   * 
+   * *   high
+   * *   low
+   * *   medium
+   * 
+   * @example
+   * medium
+   */
+  watermarkPower?: string;
+  /**
+   * @remarks
+   * The number of watermark rows. Valid values: 3 to 10.
+   * 
+   * @example
+   * 5
+   */
+  watermarkRowAmount?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable security priority for invisible watermarks.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
+   * 
+   * @example
+   * off
+   */
+  watermarkSecurity?: string;
+  /**
+   * @remarks
+   * The watermark opacity. A higher value makes the watermark more opaque. Valid values: 10 to 100.
+   * 
+   * @example
+   * 10
+   */
+  watermarkTransparencyValue?: number;
+  /**
+   * @remarks
+   * The watermark type. You can specify up to three types. Separate multiple values with commas (,).
+   * 
+   * >  If you provide `custom` as the value for this parameter, you must configure `WatermarkCustomText` to specify custom text.
+   * 
+   * Valid values:
+   * 
+   * *   EndUserId: the username.
+   * *   Custom: the custom text.
+   * *   DesktopIp: the IP address of the cloud computer.
+   * *   ClientIp: the IP address of the client.
+   * *   HostName: the rightmost 15 digits of the cloud computer ID.
+   * *   ClientTime: the current time displayed on the cloud computer.
+   * 
+   * @example
+   * EndUserId
+   */
+  watermarkType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable Cloud Computer Manager.
+   * 
+   * Valid values:
+   * 
+   * *   off: disables Cloud Computer Manager.
+   * *   on: enables Cloud Computer Manager.
+   * 
+   * @example
+   * off
+   */
+  wuyingKeeper?: string;
+  /**
+   * @remarks
+   * Specifies whether to display the Xiaoying AI Assistant option in the DesktopAssistant menu when end users connect to cloud computers via desktop clients (Windows and macOS).
+   * 
+   * >  This feature applies to only desktop clients of version 7.7.0 or later.
+   * 
+   * Valid values:
+   * 
+   * *   off: doesn\\"t display the Xiaoying AI Assistant option in the DesktopAssistant menu.
+   * *   on: displays the Xiaoying AI Assistant option in the DesktopAssistant menu.
+   * 
+   * @example
+   * on
+   */
+  wyAssistant?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adminAccess: 'AdminAccess',
+      appContentProtection: 'AppContentProtection',
+      authorizeAccessPolicyRule: 'AuthorizeAccessPolicyRule',
+      authorizeSecurityPolicyRule: 'AuthorizeSecurityPolicyRule',
+      businessType: 'BusinessType',
+      cameraRedirect: 'CameraRedirect',
+      clientType: 'ClientType',
+      clipboard: 'Clipboard',
+      colorEnhancement: 'ColorEnhancement',
+      cpuDownGradeDuration: 'CpuDownGradeDuration',
+      cpuProcessors: 'CpuProcessors',
+      cpuProtectedMode: 'CpuProtectedMode',
+      cpuRateLimit: 'CpuRateLimit',
+      cpuSampleDuration: 'CpuSampleDuration',
+      cpuSingleRateLimit: 'CpuSingleRateLimit',
+      deviceConnectHint: 'DeviceConnectHint',
+      deviceRedirects: 'DeviceRedirects',
+      deviceRules: 'DeviceRules',
+      disconnectKeepSession: 'DisconnectKeepSession',
+      disconnectKeepSessionTime: 'DisconnectKeepSessionTime',
+      displayMode: 'DisplayMode',
+      domainResolveRule: 'DomainResolveRule',
+      domainResolveRuleType: 'DomainResolveRuleType',
+      enableSessionRateLimiting: 'EnableSessionRateLimiting',
+      endUserApplyAdminCoordinate: 'EndUserApplyAdminCoordinate',
+      endUserGroupCoordinate: 'EndUserGroupCoordinate',
+      fileMigrate: 'FileMigrate',
+      gpuAcceleration: 'GpuAcceleration',
+      html5FileTransfer: 'Html5FileTransfer',
+      internetCommunicationProtocol: 'InternetCommunicationProtocol',
+      internetPrinter: 'InternetPrinter',
+      localDrive: 'LocalDrive',
+      maxReconnectTime: 'MaxReconnectTime',
+      memoryDownGradeDuration: 'MemoryDownGradeDuration',
+      memoryProcessors: 'MemoryProcessors',
+      memoryProtectedMode: 'MemoryProtectedMode',
+      memoryRateLimit: 'MemoryRateLimit',
+      memorySampleDuration: 'MemorySampleDuration',
+      memorySingleRateLimit: 'MemorySingleRateLimit',
+      mobileRestart: 'MobileRestart',
+      mobileShutdown: 'MobileShutdown',
+      name: 'Name',
+      netRedirect: 'NetRedirect',
+      netRedirectRule: 'NetRedirectRule',
+      noOperationDisconnect: 'NoOperationDisconnect',
+      noOperationDisconnectTime: 'NoOperationDisconnectTime',
+      policyGroupId: 'PolicyGroupId',
+      printerRedirect: 'PrinterRedirect',
+      qualityEnhancement: 'QualityEnhancement',
+      recordEventDuration: 'RecordEventDuration',
+      recordEventFilePaths: 'RecordEventFilePaths',
+      recordEventRegisters: 'RecordEventRegisters',
+      recordEvents: 'RecordEvents',
+      recording: 'Recording',
+      recordingAudio: 'RecordingAudio',
+      recordingDuration: 'RecordingDuration',
+      recordingEndTime: 'RecordingEndTime',
+      recordingExpires: 'RecordingExpires',
+      recordingFps: 'RecordingFps',
+      recordingStartTime: 'RecordingStartTime',
+      recordingUserNotify: 'RecordingUserNotify',
+      recordingUserNotifyMessage: 'RecordingUserNotifyMessage',
+      regionId: 'RegionId',
+      remoteCoordinate: 'RemoteCoordinate',
+      resetDesktop: 'ResetDesktop',
+      resolutionHeight: 'ResolutionHeight',
+      resolutionModel: 'ResolutionModel',
+      resolutionWidth: 'ResolutionWidth',
+      resourceType: 'ResourceType',
+      revokeAccessPolicyRule: 'RevokeAccessPolicyRule',
+      revokeSecurityPolicyRule: 'RevokeSecurityPolicyRule',
+      safeMenu: 'SafeMenu',
+      scope: 'Scope',
+      scopeValue: 'ScopeValue',
+      sessionMaxRateKbps: 'SessionMaxRateKbps',
+      smoothEnhancement: 'SmoothEnhancement',
+      statusMonitor: 'StatusMonitor',
+      streamingMode: 'StreamingMode',
+      targetFps: 'TargetFps',
+      taskbar: 'Taskbar',
+      usbRedirect: 'UsbRedirect',
+      usbSupplyRedirectRule: 'UsbSupplyRedirectRule',
+      videoEncAvgKbps: 'VideoEncAvgKbps',
+      videoEncMaxQP: 'VideoEncMaxQP',
+      videoEncMinQP: 'VideoEncMinQP',
+      videoEncPeakKbps: 'VideoEncPeakKbps',
+      videoEncPolicy: 'VideoEncPolicy',
+      videoRedirect: 'VideoRedirect',
+      visualQuality: 'VisualQuality',
+      watermark: 'Watermark',
+      watermarkAntiCam: 'WatermarkAntiCam',
+      watermarkColor: 'WatermarkColor',
+      watermarkColumnAmount: 'WatermarkColumnAmount',
+      watermarkCustomText: 'WatermarkCustomText',
+      watermarkDegree: 'WatermarkDegree',
+      watermarkFontSize: 'WatermarkFontSize',
+      watermarkFontStyle: 'WatermarkFontStyle',
+      watermarkPower: 'WatermarkPower',
+      watermarkRowAmount: 'WatermarkRowAmount',
+      watermarkSecurity: 'WatermarkSecurity',
+      watermarkTransparencyValue: 'WatermarkTransparencyValue',
+      watermarkType: 'WatermarkType',
+      wuyingKeeper: 'WuyingKeeper',
+      wyAssistant: 'WyAssistant',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adminAccess: 'string',
+      appContentProtection: 'string',
+      authorizeAccessPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestAuthorizeAccessPolicyRule },
+      authorizeSecurityPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule },
+      businessType: 'number',
+      cameraRedirect: 'string',
+      clientType: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestClientType },
+      clipboard: 'string',
+      colorEnhancement: 'string',
+      cpuDownGradeDuration: 'number',
+      cpuProcessors: { 'type': 'array', 'itemType': 'string' },
+      cpuProtectedMode: 'string',
+      cpuRateLimit: 'number',
+      cpuSampleDuration: 'number',
+      cpuSingleRateLimit: 'number',
+      deviceConnectHint: 'string',
+      deviceRedirects: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestDeviceRedirects },
+      deviceRules: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestDeviceRules },
+      disconnectKeepSession: 'string',
+      disconnectKeepSessionTime: 'number',
+      displayMode: 'string',
+      domainResolveRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestDomainResolveRule },
+      domainResolveRuleType: 'string',
+      enableSessionRateLimiting: 'string',
+      endUserApplyAdminCoordinate: 'string',
+      endUserGroupCoordinate: 'string',
+      fileMigrate: 'string',
+      gpuAcceleration: 'string',
+      html5FileTransfer: 'string',
+      internetCommunicationProtocol: 'string',
+      internetPrinter: 'string',
+      localDrive: 'string',
+      maxReconnectTime: 'number',
+      memoryDownGradeDuration: 'number',
+      memoryProcessors: { 'type': 'array', 'itemType': 'string' },
+      memoryProtectedMode: 'string',
+      memoryRateLimit: 'number',
+      memorySampleDuration: 'number',
+      memorySingleRateLimit: 'number',
+      mobileRestart: 'string',
+      mobileShutdown: 'string',
+      name: 'string',
+      netRedirect: 'string',
+      netRedirectRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestNetRedirectRule },
+      noOperationDisconnect: 'string',
+      noOperationDisconnectTime: 'number',
+      policyGroupId: 'string',
+      printerRedirect: 'string',
+      qualityEnhancement: 'string',
+      recordEventDuration: 'number',
+      recordEventFilePaths: { 'type': 'array', 'itemType': 'string' },
+      recordEventRegisters: { 'type': 'array', 'itemType': 'string' },
+      recordEvents: { 'type': 'array', 'itemType': 'string' },
+      recording: 'string',
+      recordingAudio: 'string',
+      recordingDuration: 'number',
+      recordingEndTime: 'string',
+      recordingExpires: 'number',
+      recordingFps: 'string',
+      recordingStartTime: 'string',
+      recordingUserNotify: 'string',
+      recordingUserNotifyMessage: 'string',
+      regionId: 'string',
+      remoteCoordinate: 'string',
+      resetDesktop: 'string',
+      resolutionHeight: 'number',
+      resolutionModel: 'string',
+      resolutionWidth: 'number',
+      resourceType: 'string',
+      revokeAccessPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestRevokeAccessPolicyRule },
+      revokeSecurityPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestRevokeSecurityPolicyRule },
+      safeMenu: 'string',
+      scope: 'string',
+      scopeValue: { 'type': 'array', 'itemType': 'string' },
+      sessionMaxRateKbps: 'number',
+      smoothEnhancement: 'string',
+      statusMonitor: 'string',
+      streamingMode: 'string',
+      targetFps: 'number',
+      taskbar: 'string',
+      usbRedirect: 'string',
+      usbSupplyRedirectRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestUsbSupplyRedirectRule },
+      videoEncAvgKbps: 'number',
+      videoEncMaxQP: 'number',
+      videoEncMinQP: 'number',
+      videoEncPeakKbps: 'number',
+      videoEncPolicy: 'string',
+      videoRedirect: 'string',
+      visualQuality: 'string',
+      watermark: 'string',
+      watermarkAntiCam: 'string',
+      watermarkColor: 'number',
+      watermarkColumnAmount: 'number',
+      watermarkCustomText: 'string',
+      watermarkDegree: 'number',
+      watermarkFontSize: 'number',
+      watermarkFontStyle: 'string',
+      watermarkPower: 'string',
+      watermarkRowAmount: 'number',
+      watermarkSecurity: 'string',
+      watermarkTransparencyValue: 'number',
+      watermarkType: 'string',
+      wuyingKeeper: 'string',
+      wyAssistant: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.authorizeAccessPolicyRule)) {
+      $dara.Model.validateArray(this.authorizeAccessPolicyRule);
+    }
+    if(Array.isArray(this.authorizeSecurityPolicyRule)) {
+      $dara.Model.validateArray(this.authorizeSecurityPolicyRule);
+    }
+    if(Array.isArray(this.clientType)) {
+      $dara.Model.validateArray(this.clientType);
+    }
+    if(Array.isArray(this.cpuProcessors)) {
+      $dara.Model.validateArray(this.cpuProcessors);
+    }
+    if(Array.isArray(this.deviceRedirects)) {
+      $dara.Model.validateArray(this.deviceRedirects);
+    }
+    if(Array.isArray(this.deviceRules)) {
+      $dara.Model.validateArray(this.deviceRules);
+    }
+    if(Array.isArray(this.domainResolveRule)) {
+      $dara.Model.validateArray(this.domainResolveRule);
+    }
+    if(Array.isArray(this.memoryProcessors)) {
+      $dara.Model.validateArray(this.memoryProcessors);
+    }
+    if(Array.isArray(this.netRedirectRule)) {
+      $dara.Model.validateArray(this.netRedirectRule);
+    }
+    if(Array.isArray(this.recordEventFilePaths)) {
+      $dara.Model.validateArray(this.recordEventFilePaths);
+    }
+    if(Array.isArray(this.recordEventRegisters)) {
+      $dara.Model.validateArray(this.recordEventRegisters);
+    }
+    if(Array.isArray(this.recordEvents)) {
+      $dara.Model.validateArray(this.recordEvents);
+    }
+    if(Array.isArray(this.revokeAccessPolicyRule)) {
+      $dara.Model.validateArray(this.revokeAccessPolicyRule);
+    }
+    if(Array.isArray(this.revokeSecurityPolicyRule)) {
+      $dara.Model.validateArray(this.revokeSecurityPolicyRule);
+    }
+    if(Array.isArray(this.scopeValue)) {
+      $dara.Model.validateArray(this.scopeValue);
+    }
+    if(Array.isArray(this.usbSupplyRedirectRule)) {
+      $dara.Model.validateArray(this.usbSupplyRedirectRule);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
