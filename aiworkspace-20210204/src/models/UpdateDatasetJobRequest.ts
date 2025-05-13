@@ -1,0 +1,51 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class UpdateDatasetJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The dataset version name.
+   * 
+   * @example
+   * v1
+   */
+  datasetVersion?: string;
+  /**
+   * @remarks
+   * The dataset job description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
+   * @example
+   * 478**
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetVersion: 'DatasetVersion',
+      description: 'Description',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetVersion: 'string',
+      description: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
