@@ -721,18 +721,6 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    if (!$dara.isNull(request.customersShrink)) {
-      query["Customers"] = request.customersShrink;
-    }
-
-    if (!$dara.isNull(request.failReturn)) {
-      query["FailReturn"] = request.failReturn;
-    }
-
-    if (!$dara.isNull(request.outId)) {
-      query["OutId"] = request.outId;
-    }
-
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -745,12 +733,26 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.customersShrink)) {
+      body["Customers"] = request.customersShrink;
+    }
+
+    if (!$dara.isNull(request.failReturn)) {
+      body["FailReturn"] = request.failReturn;
+    }
+
+    if (!$dara.isNull(request.outId)) {
+      body["OutId"] = request.outId;
+    }
+
     if (!$dara.isNull(request.taskId)) {
-      query["TaskId"] = request.taskId;
+      body["TaskId"] = request.taskId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "ImportNumberV2",

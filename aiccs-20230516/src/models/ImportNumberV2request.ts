@@ -7,7 +7,7 @@ export class ImportNumberV2Request extends $dara.Model {
   customers?: ImportNumberV2RequestCustomers[];
   /**
    * @example
-   * 38
+   * 1
    */
   failReturn?: number;
   /**
@@ -20,7 +20,7 @@ export class ImportNumberV2Request extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @example
-   * 89
+   * 92
    */
   taskId?: number;
   static names(): { [key: string]: string } {

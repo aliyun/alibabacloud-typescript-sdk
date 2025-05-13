@@ -6,7 +6,7 @@ export class ImportNumberV2ShrinkRequest extends $dara.Model {
   customersShrink?: string;
   /**
    * @example
-   * 38
+   * 1
    */
   failReturn?: number;
   /**
@@ -19,7 +19,7 @@ export class ImportNumberV2ShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @example
-   * 89
+   * 92
    */
   taskId?: number;
   static names(): { [key: string]: string } {
