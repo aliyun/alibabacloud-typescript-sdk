@@ -5,6 +5,9 @@ import { DescribeApplicationSlbsResponseBodyDataIntranet } from "./DescribeAppli
 
 
 export class DescribeApplicationSlbsResponseBodyData extends $dara.Model {
+  appId?: string;
+  appName?: string;
+  clusterId?: string;
   /**
    * @remarks
    * The configurations of the Internet-facing SLB instance.
@@ -72,6 +75,9 @@ export class DescribeApplicationSlbsResponseBodyData extends $dara.Model {
   intranetSlbId?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
+      appName: 'AppName',
+      clusterId: 'ClusterId',
       internet: 'Internet',
       internetIp: 'InternetIp',
       internetSlbChargeType: 'InternetSlbChargeType',
@@ -87,6 +93,9 @@ export class DescribeApplicationSlbsResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
+      appName: 'string',
+      clusterId: 'string',
       internet: { 'type': 'array', 'itemType': DescribeApplicationSlbsResponseBodyDataInternet },
       internetIp: 'string',
       internetSlbChargeType: 'string',

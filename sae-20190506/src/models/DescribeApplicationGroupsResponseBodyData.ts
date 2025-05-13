@@ -95,6 +95,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
    * 1.0.0
    */
   packageVersion?: string;
+  packageVersionId?: string;
   /**
    * @remarks
    * The total number of instances.
@@ -130,6 +131,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
       packageType: 'PackageType',
       packageUrl: 'PackageUrl',
       packageVersion: 'PackageVersion',
+      packageVersionId: 'PackageVersionId',
       replicas: 'Replicas',
       runningInstances: 'RunningInstances',
       webContainer: 'WebContainer',
@@ -147,6 +149,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
       packageType: 'string',
       packageUrl: 'string',
       packageVersion: 'string',
+      packageVersionId: 'string',
       replicas: 'number',
       runningInstances: 'number',
       webContainer: 'string',

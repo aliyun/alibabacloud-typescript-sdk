@@ -20,6 +20,8 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
    * app-test
    */
   appName?: string;
+  applicationEnableGreyTagRoute?: boolean;
+  applicationUpdateStrategy?: string;
   /**
    * @remarks
    * The approval ID of the change order.
@@ -190,6 +192,8 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
     return {
       appId: 'AppId',
       appName: 'AppName',
+      applicationEnableGreyTagRoute: 'ApplicationEnableGreyTagRoute',
+      applicationUpdateStrategy: 'ApplicationUpdateStrategy',
       approvalId: 'ApprovalId',
       auto: 'Auto',
       batchCount: 'BatchCount',
@@ -213,6 +217,8 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
     return {
       appId: 'string',
       appName: 'string',
+      applicationEnableGreyTagRoute: 'boolean',
+      applicationUpdateStrategy: 'string',
       approvalId: 'string',
       auto: 'boolean',
       batchCount: 'number',
