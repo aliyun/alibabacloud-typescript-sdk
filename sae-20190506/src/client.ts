@@ -5130,6 +5130,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取应用列表，供全链路灰度拉取应用列表
+   * 
+   * @param request - ListApplicationsForSwimmingLaneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationsForSwimmingLaneResponse
+   */
+  async listApplicationsForSwimmingLaneWithOptions(request: $_model.ListApplicationsForSwimmingLaneRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationsForSwimmingLaneResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationsForSwimmingLane",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/cas/gray/listApplicationsForSwimmingLane`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationsForSwimmingLaneResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationsForSwimmingLaneResponse({}));
+  }
+
+  /**
+   * 获取应用列表，供全链路灰度拉取应用列表
+   * 
+   * @param request - ListApplicationsForSwimmingLaneRequest
+   * @returns ListApplicationsForSwimmingLaneResponse
+   */
+  async listApplicationsForSwimmingLane(request: $_model.ListApplicationsForSwimmingLaneRequest): Promise<$_model.ListApplicationsForSwimmingLaneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listApplicationsForSwimmingLaneWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Query a list of change orders.
    * 
    * @param request - ListChangeOrdersRequest
