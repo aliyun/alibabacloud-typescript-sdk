@@ -41,12 +41,12 @@ export class SubmitCopyrightJobRequest extends $dara.Model {
    * @example
    * 0
    */
-  startTime?: string;
+  startTime?: number;
   /**
    * @example
    * 10
    */
-  totalTime?: string;
+  totalTime?: number;
   /**
    * @example
    * http://www.example.com/video/test.mp4
@@ -82,8 +82,8 @@ export class SubmitCopyrightJobRequest extends $dara.Model {
       message: 'string',
       output: 'string',
       params: 'string',
-      startTime: 'string',
-      totalTime: 'string',
+      startTime: 'number',
+      totalTime: 'number',
       url: 'string',
       userData: 'string',
     };
