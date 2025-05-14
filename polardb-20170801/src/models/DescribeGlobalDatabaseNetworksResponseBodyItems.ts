@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { DescribeGlobalDatabaseNetworksResponseBodyItemsDBClusters } from "./DescribeGlobalDatabaseNetworksResponseBodyItemsDbclusters";
+import { DescribeGlobalDatabaseNetworksResponseBodyItemsLabels } from "./DescribeGlobalDatabaseNetworksResponseBodyItemsLabels";
 
 
 export class DescribeGlobalDatabaseNetworksResponseBodyItems extends $dara.Model {
@@ -68,6 +69,7 @@ export class DescribeGlobalDatabaseNetworksResponseBodyItems extends $dara.Model
    * active
    */
   GDNStatus?: string;
+  labels?: DescribeGlobalDatabaseNetworksResponseBodyItemsLabels;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -77,6 +79,7 @@ export class DescribeGlobalDatabaseNetworksResponseBodyItems extends $dara.Model
       GDNDescription: 'GDNDescription',
       GDNId: 'GDNId',
       GDNStatus: 'GDNStatus',
+      labels: 'Labels',
     };
   }
 
@@ -89,12 +92,16 @@ export class DescribeGlobalDatabaseNetworksResponseBodyItems extends $dara.Model
       GDNDescription: 'string',
       GDNId: 'string',
       GDNStatus: 'string',
+      labels: DescribeGlobalDatabaseNetworksResponseBodyItemsLabels,
     };
   }
 
   validate() {
     if(Array.isArray(this.DBClusters)) {
       $dara.Model.validateArray(this.DBClusters);
+    }
+    if(this.labels && typeof (this.labels as any).validate === 'function') {
+      (this.labels as any).validate();
     }
     super.validate();
   }

@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { DescribeGlobalDatabaseNetworkResponseBodyConnections } from "./DescribeGlobalDatabaseNetworkResponseBodyConnections";
 import { DescribeGlobalDatabaseNetworkResponseBodyDBClusters } from "./DescribeGlobalDatabaseNetworkResponseBodyDbclusters";
+import { DescribeGlobalDatabaseNetworkResponseBodyLabels } from "./DescribeGlobalDatabaseNetworkResponseBodyLabels";
 
 
 export class DescribeGlobalDatabaseNetworkResponseBody extends $dara.Model {
@@ -90,6 +91,7 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $dara.Model {
    * [gdnid].gdn.rds.aliyuncs.com
    */
   globalDomainName?: string;
+  labels?: DescribeGlobalDatabaseNetworkResponseBodyLabels;
   /**
    * @remarks
    * The ID of the request.
@@ -118,6 +120,7 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $dara.Model {
       GDNId: 'GDNId',
       GDNStatus: 'GDNStatus',
       globalDomainName: 'GlobalDomainName',
+      labels: 'Labels',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -135,6 +138,7 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $dara.Model {
       GDNId: 'string',
       GDNStatus: 'string',
       globalDomainName: 'string',
+      labels: DescribeGlobalDatabaseNetworkResponseBodyLabels,
       requestId: 'string',
       resourceGroupId: 'string',
     };
@@ -146,6 +150,9 @@ export class DescribeGlobalDatabaseNetworkResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.DBClusters)) {
       $dara.Model.validateArray(this.DBClusters);
+    }
+    if(this.labels && typeof (this.labels as any).validate === 'function') {
+      (this.labels as any).validate();
     }
     super.validate();
   }

@@ -1658,6 +1658,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建全球数据网络
+   * 
+   * @param request - CreateGlobalDataNetworkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGlobalDataNetworkResponse
+   */
+  async createGlobalDataNetworkWithOptions(request: $_model.CreateGlobalDataNetworkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGlobalDataNetworkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.destinationFileSystemPath)) {
+      query["DestinationFileSystemPath"] = request.destinationFileSystemPath;
+    }
+
+    if (!$dara.isNull(request.destinationId)) {
+      query["DestinationId"] = request.destinationId;
+    }
+
+    if (!$dara.isNull(request.destinationRegion)) {
+      query["DestinationRegion"] = request.destinationRegion;
+    }
+
+    if (!$dara.isNull(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!$dara.isNull(request.freezeSourceDuringSync)) {
+      query["FreezeSourceDuringSync"] = request.freezeSourceDuringSync;
+    }
+
+    if (!$dara.isNull(request.sourceFileSystemPath)) {
+      query["SourceFileSystemPath"] = request.sourceFileSystemPath;
+    }
+
+    if (!$dara.isNull(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!$dara.isNull(request.sourceRegion)) {
+      query["SourceRegion"] = request.sourceRegion;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateGlobalDataNetwork",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateGlobalDataNetworkResponse>(await this.callApi(params, req, runtime), new $_model.CreateGlobalDataNetworkResponse({}));
+  }
+
+  /**
+   * 创建全球数据网络
+   * 
+   * @param request - CreateGlobalDataNetworkRequest
+   * @returns CreateGlobalDataNetworkResponse
+   */
+  async createGlobalDataNetwork(request: $_model.CreateGlobalDataNetworkRequest): Promise<$_model.CreateGlobalDataNetworkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createGlobalDataNetworkWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a global database network (GDN).
    * 
    * @remarks
@@ -1680,6 +1758,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.GDNDescription)) {
       query["GDNDescription"] = request.GDNDescription;
+    }
+
+    if (!$dara.isNull(request.GDNVersion)) {
+      query["GDNVersion"] = request.GDNVersion;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -2629,6 +2711,48 @@ export default class Client extends OpenApi {
   async deleteDatabase(request: $_model.DeleteDatabaseRequest): Promise<$_model.DeleteDatabaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteGlobalDataNetwork
+   * 
+   * @param request - DeleteGlobalDataNetworkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGlobalDataNetworkResponse
+   */
+  async deleteGlobalDataNetworkWithOptions(request: $_model.DeleteGlobalDataNetworkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGlobalDataNetworkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.networkId)) {
+      query["NetworkId"] = request.networkId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteGlobalDataNetwork",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteGlobalDataNetworkResponse>(await this.callApi(params, req, runtime), new $_model.DeleteGlobalDataNetworkResponse({}));
+  }
+
+  /**
+   * DeleteGlobalDataNetwork
+   * 
+   * @param request - DeleteGlobalDataNetworkRequest
+   * @returns DeleteGlobalDataNetworkResponse
+   */
+  async deleteGlobalDataNetwork(request: $_model.DeleteGlobalDataNetworkRequest): Promise<$_model.DeleteGlobalDataNetworkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteGlobalDataNetworkWithOptions(request, runtime);
   }
 
   /**
@@ -5445,6 +5569,52 @@ export default class Client extends OpenApi {
   async describeDetachedBackups(request: $_model.DescribeDetachedBackupsRequest): Promise<$_model.DescribeDetachedBackupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDetachedBackupsWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeGlobalDataNetworkList
+   * 
+   * @param request - DescribeGlobalDataNetworkListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGlobalDataNetworkListResponse
+   */
+  async describeGlobalDataNetworkListWithOptions(request: $_model.DescribeGlobalDataNetworkListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGlobalDataNetworkListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeGlobalDataNetworkList",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeGlobalDataNetworkListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeGlobalDataNetworkListResponse({}));
+  }
+
+  /**
+   * DescribeGlobalDataNetworkList
+   * 
+   * @param request - DescribeGlobalDataNetworkListRequest
+   * @returns DescribeGlobalDataNetworkListResponse
+   */
+  async describeGlobalDataNetworkList(request: $_model.DescribeGlobalDataNetworkListRequest): Promise<$_model.DescribeGlobalDataNetworkListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeGlobalDataNetworkListWithOptions(request, runtime);
   }
 
   /**
@@ -10820,6 +10990,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.force)) {
+      query["Force"] = request.force;
     }
 
     if (!$dara.isNull(request.GDNId)) {

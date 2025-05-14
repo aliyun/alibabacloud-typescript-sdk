@@ -34,6 +34,7 @@ export class CreateGlobalDatabaseNetworkRequest extends $dara.Model {
    * GDN-fortest
    */
   GDNDescription?: string;
+  GDNVersion?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -52,6 +53,7 @@ export class CreateGlobalDatabaseNetworkRequest extends $dara.Model {
       DBClusterId: 'DBClusterId',
       enableGlobalDomainName: 'EnableGlobalDomainName',
       GDNDescription: 'GDNDescription',
+      GDNVersion: 'GDNVersion',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceGroupId: 'ResourceGroupId',
@@ -66,6 +68,7 @@ export class CreateGlobalDatabaseNetworkRequest extends $dara.Model {
       DBClusterId: 'string',
       enableGlobalDomainName: 'boolean',
       GDNDescription: 'string',
+      GDNVersion: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceGroupId: 'string',

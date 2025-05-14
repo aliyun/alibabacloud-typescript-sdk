@@ -15,6 +15,7 @@ export class RemoveDBClusterFromGDNRequest extends $dara.Model {
    * pc-wz9fb5nn44u1d****
    */
   DBClusterId?: string;
+  force?: boolean;
   /**
    * @remarks
    * The ID of the GDN.
@@ -33,6 +34,7 @@ export class RemoveDBClusterFromGDNRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      force: 'Force',
       GDNId: 'GDNId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -45,6 +47,7 @@ export class RemoveDBClusterFromGDNRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      force: 'boolean',
       GDNId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
