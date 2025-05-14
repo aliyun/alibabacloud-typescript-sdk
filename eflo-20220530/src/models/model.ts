@@ -3,6 +3,7 @@ export { AssignPrivateIpAddressResponseBodyContent } from './AssignPrivateIpAddr
 export { AssociateVpdCidrBlockResponseBodyContent } from './AssociateVpdCidrBlockResponseBodyContent';
 export { CreateElasticNetworkInterfaceRequestTag } from './CreateElasticNetworkInterfaceRequestTag';
 export { CreateElasticNetworkInterfaceResponseBodyContent } from './CreateElasticNetworkInterfaceResponseBodyContent';
+export { CreateErRequestTag } from './CreateErRequestTag';
 export { CreateErResponseBodyContent } from './CreateErResponseBodyContent';
 export { CreateErAttachmentResponseBodyContent } from './CreateErAttachmentResponseBodyContent';
 export { CreateErRouteMapResponseBodyContent } from './CreateErRouteMapResponseBodyContent';
@@ -26,6 +27,7 @@ export { GetElasticNetworkInterfaceResponseBodyContent } from './GetElasticNetwo
 export { GetErResponseBodyContentErAttachments } from './GetErResponseBodyContentErAttachments';
 export { GetErResponseBodyContentErRouteEntrys } from './GetErResponseBodyContentErRouteEntrys';
 export { GetErResponseBodyContentErRouteMaps } from './GetErResponseBodyContentErRouteMaps';
+export { GetErResponseBodyContentTags } from './GetErResponseBodyContentTags';
 export { GetErResponseBodyContent } from './GetErResponseBodyContent';
 export { GetErAttachmentResponseBodyContent } from './GetErAttachmentResponseBodyContent';
 export { GetErRouteEntryResponseBodyContent } from './GetErRouteEntryResponseBodyContent';
@@ -70,6 +72,8 @@ export { ListErRouteEntriesResponseBodyContentData } from './ListErRouteEntriesR
 export { ListErRouteEntriesResponseBodyContent } from './ListErRouteEntriesResponseBodyContent';
 export { ListErRouteMapsResponseBodyContentData } from './ListErRouteMapsResponseBodyContentData';
 export { ListErRouteMapsResponseBodyContent } from './ListErRouteMapsResponseBodyContent';
+export { ListErsRequestTag } from './ListErsRequestTag';
+export { ListErsResponseBodyContentDataTags } from './ListErsResponseBodyContentDataTags';
 export { ListErsResponseBodyContentData } from './ListErsResponseBodyContentData';
 export { ListErsResponseBodyContent } from './ListErsResponseBodyContent';
 export { ListInstancesByNcdResponseBodyContentInstanceInfos } from './ListInstancesByNcdResponseBodyContentInstanceInfos';

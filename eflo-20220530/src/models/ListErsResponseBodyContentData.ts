@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ListErsResponseBodyContentDataTags } from "./ListErsResponseBodyContentDataTags";
 
 
 export class ListErsResponseBodyContentData extends $dara.Model {
@@ -99,6 +100,7 @@ export class ListErsResponseBodyContentData extends $dara.Model {
    * Available
    */
   status?: string;
+  tags?: ListErsResponseBodyContentDataTags[];
   /**
    * @remarks
    * The tenant ID.
@@ -121,6 +123,7 @@ export class ListErsResponseBodyContentData extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       routeMaps: 'RouteMaps',
       status: 'Status',
+      tags: 'Tags',
       tenantId: 'TenantId',
     };
   }
@@ -139,11 +142,15 @@ export class ListErsResponseBodyContentData extends $dara.Model {
       resourceGroupId: 'string',
       routeMaps: 'number',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListErsResponseBodyContentDataTags },
       tenantId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

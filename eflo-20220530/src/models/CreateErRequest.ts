@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { CreateErRequestTag } from "./CreateErRequestTag";
 
 
 export class CreateErRequest extends $dara.Model {
@@ -49,6 +50,7 @@ export class CreateErRequest extends $dara.Model {
    * rg-acfmyuzlx2iihcy
    */
   resourceGroupId?: string;
+  tag?: CreateErRequestTag[];
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -56,6 +58,7 @@ export class CreateErRequest extends $dara.Model {
       masterZoneId: 'MasterZoneId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -66,10 +69,14 @@ export class CreateErRequest extends $dara.Model {
       masterZoneId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateErRequestTag },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

@@ -416,6 +416,10 @@ export default class Client extends OpenApi {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!$dara.isNull(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -3159,6 +3163,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      body["Tag"] = request.tag;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

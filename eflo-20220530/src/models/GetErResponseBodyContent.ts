@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 import { GetErResponseBodyContentErAttachments } from "./GetErResponseBodyContentErAttachments";
 import { GetErResponseBodyContentErRouteEntrys } from "./GetErResponseBodyContentErRouteEntrys";
 import { GetErResponseBodyContentErRouteMaps } from "./GetErResponseBodyContentErRouteMaps";
+import { GetErResponseBodyContentTags } from "./GetErResponseBodyContentTags";
 
 
 export class GetErResponseBodyContent extends $dara.Model {
@@ -101,6 +102,7 @@ export class GetErResponseBodyContent extends $dara.Model {
    * Available
    */
   status?: string;
+  tags?: GetErResponseBodyContentTags[];
   /**
    * @remarks
    * The ID of the tenant.
@@ -124,6 +126,7 @@ export class GetErResponseBodyContent extends $dara.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tags: 'Tags',
       tenantId: 'TenantId',
     };
   }
@@ -143,6 +146,7 @@ export class GetErResponseBodyContent extends $dara.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': GetErResponseBodyContentTags },
       tenantId: 'string',
     };
   }
@@ -156,6 +160,9 @@ export class GetErResponseBodyContent extends $dara.Model {
     }
     if(Array.isArray(this.erRouteMaps)) {
       $dara.Model.validateArray(this.erRouteMaps);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ListErsRequestTag } from "./ListErsRequestTag";
 
 
 export class ListErsRequest extends $dara.Model {
@@ -91,6 +92,7 @@ export class ListErsRequest extends $dara.Model {
    * rg-acfmwfm33rlt6zi
    */
   resourceGroupId?: string;
+  tag?: ListErsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       enablePage: 'EnablePage',
@@ -103,6 +105,7 @@ export class ListErsRequest extends $dara.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -118,10 +121,14 @@ export class ListErsRequest extends $dara.Model {
       pageSize: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': ListErsRequestTag },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 
