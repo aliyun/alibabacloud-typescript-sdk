@@ -1,14345 +1,11 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class AttachKeyPairResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances to which the ADB key pair is successfully attached.
-   */
-  attachedInstanceIds?: string[];
-  /**
-   * @remarks
-   * The number of the cloud phone instances to which the ADB key pair failed to be attached.
-   * 
-   * @example
-   * 0
-   */
-  failCount?: number;
-  /**
-   * @remarks
-   * The ID of the ADB key pair.
-   * 
-   * @example
-   * kp-6v2q33ae4tw3a****
-   */
-  keyPairId?: string;
-  /**
-   * @remarks
-   * The total number of the cloud phone instances.
-   * 
-   * @example
-   * 100
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      attachedInstanceIds: 'AttachedInstanceIds',
-      failCount: 'FailCount',
-      keyPairId: 'KeyPairId',
-      totalCount: 'TotalCount',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      attachedInstanceIds: { 'type': 'array', 'itemType': 'string' },
-      failCount: 'number',
-      keyPairId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.attachedInstanceIds)) {
-      $dara.Model.validateArray(this.attachedInstanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BackupFileResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the cloud phone instance.
-   * 
-   * @example
-   * acp-34pqe4r0kd9kn****
-   */
-  androidInstanceId?: string;
-  /**
-   * @remarks
-   * The ID of the backup file.
-   * 
-   * @example
-   * bf-b0qbg3pbpjkn7****
-   */
-  backupFileId?: string;
-  /**
-   * @remarks
-   * The name of the backup file.
-   * 
-   * @example
-   * a-58ftsoo90p0qa****.ab
-   */
-  backupFileName?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * t-22ex666a5mco5****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceId: 'AndroidInstanceId',
-      backupFileId: 'BackupFileId',
-      backupFileName: 'BackupFileName',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceId: 'string',
-      backupFileId: 'string',
-      backupFileName: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetAcpConnectionTicketRequestInstanceTasks extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the cloud phone instance.
-   * 
-   * @example
-   * acp-fkuit0cmyfvzz****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the task.
-   * 
-   * @example
-   * cn-hangzhou@c9f5c2e8-f5c4-4b01-8602-000cae94****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * @example
-   * aig-1uzb6heg797z3****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the cloud phone instance.
-   * 
-   * @example
-   * acp-ajxvwo1u0hqvd****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the task.
-   * 
-   * @example
-   * cn-hangzhou@c9f5c2e8-f5c4-4b01-8602-000cae94****
-   */
-  taskId?: string;
-  /**
-   * @remarks
-   * The state of the task.
-   * 
-   * @example
-   * FINISHED
-   */
-  taskStatus?: string;
-  /**
-   * @remarks
-   * The ticket used to connect to the cloud phone instance.
-   * 
-   * @example
-   * piVE58_AdmVSVW7SEW3*AE5*p8mmO5gvItsNOmv4S_f_cNpoU_BOTwChTBoNM1ZJeedfK9zxYnbN5hossqIZCr6t7SGxRigm2Cb4fGaCdBZWIzmgdHq6sXXZQg4KFWufyvpeV*0*Cm58slMT1tJw3****
-   */
-  ticket?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      instanceId: 'InstanceId',
-      taskId: 'TaskId',
-      taskStatus: 'TaskStatus',
-      ticket: 'Ticket',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      instanceId: 'string',
-      taskId: 'string',
-      taskStatus: 'string',
-      ticket: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos extends $dara.Model {
-  /**
-   * @example
-   * cpn-jewjt8xryuitu****
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeCloudPhoneNodeResponseBodyNodeInfos extends $dara.Model {
-  instanceInfos?: ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos[];
-  /**
-   * @example
-   * cpn-e5kxgjyt8s1mb****
-   */
-  nodeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceInfos: 'InstanceInfos',
-      nodeId: 'NodeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceInfos: { 'type': 'array', 'itemType': ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos },
-      nodeId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceInfos)) {
-      $dara.Model.validateArray(this.instanceInfos);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckResourceStockResponseBodyResourceStockModels extends $dara.Model {
-  /**
-   * @remarks
-   * Region ID.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Inventory status of the instance group.
-   * 
-   * @example
-   * Available
-   */
-  stockStatus?: string;
-  /**
-   * @remarks
-   * Zone ID.
-   * 
-   * @example
-   * cn-shanghai-b
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      stockStatus: 'StockStatus',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      stockStatus: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAndroidInstanceGroupRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the instance group.
-   * 
-   * @example
-   * ag-cuv4scs4obxch****
-   */
-  instanceGroupId?: string;
-  /**
-   * @remarks
-   * The IDs of the instances.
-   */
-  instanceIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceGroupId: 'InstanceGroupId',
-      instanceIds: 'InstanceIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceGroupId: 'string',
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceIds)) {
-      $dara.Model.validateArray(this.instanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppRequestCustomAppInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The size of the .apk file. Unit: MB.
-   * 
-   * @example
-   * 10
-   */
-  apkSize?: string;
-  /**
-   * @remarks
-   * The download URL of the app.
-   * 
-   * @example
-   * http://testApp.apk
-   */
-  downloadUrl?: string;
-  /**
-   * @remarks
-   * The MD5 value of the .apk file.
-   * 
-   * @example
-   * df3f46ce5844ddb278f14c5a9cd2****
-   */
-  md5?: string;
-  /**
-   * @remarks
-   * The name of the app package.
-   * 
-   * @example
-   * com.example.demo
-   */
-  packageName?: string;
-  /**
-   * @remarks
-   * The version of the app.
-   * 
-   * @example
-   * 1.0.0
-   */
-  version?: string;
-  /**
-   * @remarks
-   * The code of the app version.
-   * 
-   * @example
-   * 10000
-   */
-  versionCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apkSize: 'ApkSize',
-      downloadUrl: 'DownloadUrl',
-      md5: 'Md5',
-      packageName: 'PackageName',
-      version: 'Version',
-      versionCode: 'VersionCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apkSize: 'string',
-      downloadUrl: 'string',
-      md5: 'string',
-      packageName: 'string',
-      version: 'string',
-      versionCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCloudPhoneNodeRequestDisplayConfig extends $dara.Model {
-  dpi?: number;
-  fps?: number;
-  lockResolution?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dpi: 'Dpi',
-      fps: 'Fps',
-      lockResolution: 'LockResolution',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dpi: 'number',
-      fps: 'number',
-      lockResolution: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCloudPhoneNodeRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * keyname
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * valuename
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCloudPhoneNodeShrinkRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * keyname
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * valuename
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCloudPhoneNodeResponseBodyNodeInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances.
-   */
-  instanceIds?: string[];
-  /**
-   * @remarks
-   * The ID of the cloud phone matrix.
-   * 
-   * @example
-   * cpn-e5kxgjyt8s1mb****
-   */
-  nodeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceIds: 'InstanceIds',
-      nodeId: 'NodeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-      nodeId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceIds)) {
-      $dara.Model.validateArray(this.instanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateKeyPairResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the key pair was created.
-   * 
-   * @example
-   * 2024-06-30 08:45:09.0
-   */
-  gmtCreated?: string;
-  /**
-   * @remarks
-   * The ID of the key pair.
-   * 
-   * @example
-   * kp-6v2q33ae4tw3*****
-   */
-  keyPairId?: string;
-  /**
-   * @remarks
-   * The name of the key pair.
-   * 
-   * @example
-   * testKeyPairName
-   */
-  keyPairName?: string;
-  /**
-   * @remarks
-   * The private key of the key pair. The PEM-encoded private key that is in PKCS#8 format and adheres to the ADB connection specification.
-   * 
-   * @example
-   * MIIEpAIBAAKCAQEAtReyMzLIcBH78EV2zj****
-   */
-  privateKeyBody?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreated: 'GmtCreated',
-      keyPairId: 'KeyPairId',
-      keyPairName: 'KeyPairName',
-      privateKeyBody: 'PrivateKeyBody',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreated: 'string',
-      keyPairId: 'string',
-      keyPairName: 'string',
-      privateKeyBody: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePolicyGroupRequestNetRedirectPolicyRules extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the rule.
-   * 
-   * Valid values:
-   * 
-   * *   prc: an application package name.
-   * *   domain: a domain name.
-   * 
-   * @example
-   * domain
-   */
-  ruleType?: string;
-  /**
-   * @remarks
-   * The name of the application package or domain name.
-   * 
-   * @example
-   * *.example.com
-   */
-  target?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ruleType: 'RuleType',
-      target: 'Target',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ruleType: 'string',
-      target: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to manually configure a custom proxy.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  customProxy?: string;
-  /**
-   * @remarks
-   * The IPv4 address of the custom proxy.
-   * 
-   * @example
-   * 47.100.XX.XX
-   */
-  hostAddr?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the network redirection feature.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  netRedirect?: string;
-  /**
-   * @remarks
-   * The port of the custom proxy. Valid values: 1 to 65535.
-   * 
-   * @example
-   * 1145
-   */
-  port?: string;
-  /**
-   * @remarks
-   * The password of the proxy. The password must be 1 to 256 in length and cannot contain Chinese character or space characters.
-   * 
-   * @example
-   * password
-   */
-  proxyPassword?: string;
-  /**
-   * @remarks
-   * The type of the proxy protocol.
-   * 
-   * Valid values:
-   * 
-   * *   socks5.
-   * 
-   * @example
-   * socks5
-   */
-  proxyType?: string;
-  /**
-   * @remarks
-   * The username of the proxy. The name must be 1 to 256 in length and cannot contain Chinese character or space characters.
-   * 
-   * @example
-   * username
-   */
-  proxyUserName?: string;
-  /**
-   * @remarks
-   * The proxy rules. You can create up to 100 proxy rules.
-   */
-  rules?: CreatePolicyGroupRequestNetRedirectPolicyRules[];
-  static names(): { [key: string]: string } {
-    return {
-      customProxy: 'CustomProxy',
-      hostAddr: 'HostAddr',
-      netRedirect: 'NetRedirect',
-      port: 'Port',
-      proxyPassword: 'ProxyPassword',
-      proxyType: 'ProxyType',
-      proxyUserName: 'ProxyUserName',
-      rules: 'Rules',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customProxy: 'string',
-      hostAddr: 'string',
-      netRedirect: 'string',
-      port: 'string',
-      proxyPassword: 'string',
-      proxyType: 'string',
-      proxyUserName: 'string',
-      rules: { 'type': 'array', 'itemType': CreatePolicyGroupRequestNetRedirectPolicyRules },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.rules)) {
-      $dara.Model.validateArray(this.rules);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePolicyGroupRequestWatermark extends $dara.Model {
-  watermarkColor?: number;
-  watermarkCustomText?: string;
-  watermarkFontSize?: number;
-  watermarkSwitch?: string;
-  watermarkTransparencyValue?: number;
-  watermarkTypes?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      watermarkColor: 'WatermarkColor',
-      watermarkCustomText: 'WatermarkCustomText',
-      watermarkFontSize: 'WatermarkFontSize',
-      watermarkSwitch: 'WatermarkSwitch',
-      watermarkTransparencyValue: 'WatermarkTransparencyValue',
-      watermarkTypes: 'WatermarkTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      watermarkColor: 'number',
-      watermarkCustomText: 'string',
-      watermarkFontSize: 'number',
-      watermarkSwitch: 'string',
-      watermarkTransparencyValue: 'number',
-      watermarkTypes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.watermarkTypes)) {
-      $dara.Model.validateArray(this.watermarkTypes);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScreenshotResponseBodyTasks extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the cloud phone instance.
-   * 
-   * @example
-   * acp-bwhtebzah2fse****
-   */
-  androidInstanceId?: string;
-  /**
-   * @remarks
-   * The ID of the task. You can use the task ID with the DescribeTasks operation to get the download link for the screenshot.
-   * 
-   * @example
-   * t-imr0fufqd7cle****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceId: 'AndroidInstanceId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteImagesResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the images that failed to be deleted.
-   */
-  failDeleteImageIds?: string[];
-  /**
-   * @remarks
-   * The IDs of the images that are successfully deleted.
-   */
-  successDeleteImageIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      failDeleteImageIds: 'FailDeleteImageIds',
-      successDeleteImageIds: 'SuccessDeleteImageIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failDeleteImageIds: { 'type': 'array', 'itemType': 'string' },
-      successDeleteImageIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.failDeleteImageIds)) {
-      $dara.Model.validateArray(this.failDeleteImageIds);
-    }
-    if(Array.isArray(this.successDeleteImageIds)) {
-      $dara.Model.validateArray(this.successDeleteImageIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks extends $dara.Model {
-  /**
-   * @remarks
-   * The size of the disk. Unit: GB.
-   * 
-   * @example
-   * 32
-   */
-  diskSize?: number;
-  /**
-   * @remarks
-   * The type of the disk.
-   * 
-   * @example
-   * SYSTEM
-   */
-  diskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskSize: 'DiskSize',
-      diskType: 'DiskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskSize: 'number',
-      diskType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * @example
-   * aig-48xr63m4dybjk****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The type of the architecture.
-   * 
-   * @example
-   * ARM
-   */
-  architectureType?: string;
-  /**
-   * @remarks
-   * The number of available instances.
-   * 
-   * >  Available instances are those not in the Deleting or Deleted state.
-   * 
-   * @example
-   * 5
-   */
-  availableInstanceAmount?: number;
-  /**
-   * @remarks
-   * The billing method.
-   * 
-   * @example
-   * PrePaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The number of vCPUs.
-   * 
-   * @example
-   * 8
-   */
-  cpu?: string;
-  /**
-   * @remarks
-   * The disks.
-   */
-  disks?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks[];
-  /**
-   * @example
-   * true
-   */
-  enableIpv6?: boolean;
-  /**
-   * @remarks
-   * The cause of the creation failure.
-   * 
-   * @example
-   * 0
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The time when the instance group was created.
-   * 
-   * @example
-   * 2024-02-01 10:56:36
-   */
-  gmtCreate?: string;
-  /**
-   * @remarks
-   * The time when the subscription instance group expires.
-   * 
-   * @example
-   * 2027-06-29 07:25:31
-   */
-  gmtExpired?: string;
-  /**
-   * @remarks
-   * The time when the instance group was updated.
-   * 
-   * @example
-   * 2024-02-01 10:56:36
-   */
-  gmtModified?: string;
-  /**
-   * @remarks
-   * The ID of the image.
-   * 
-   * @example
-   * imgc-06zyt9m93zwax****
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The list of installed applications.
-   * 
-   * @example
-   * "TikTok","WeChat"
-   */
-  installedAppList?: string;
-  /**
-   * @remarks
-   * The ID of the instance group.
-   * 
-   * @example
-   * ag-h67a2cs0zprfdh****
-   */
-  instanceGroupId?: string;
-  /**
-   * @remarks
-   * The name of the instance group.
-   * 
-   * @example
-   * defaultInstanceGroup
-   */
-  instanceGroupName?: string;
-  /**
-   * @remarks
-   * The specifications of the instance group.
-   * 
-   * @example
-   * acp.basic.small
-   */
-  instanceGroupSpec?: string;
-  /**
-   * @remarks
-   * The description of the instance group specifications.
-   * 
-   * @example
-   * ARM-2vCPU4GiB 32GiB
-   */
-  instanceGroupSpecDescribe?: string;
-  /**
-   * @remarks
-   * The status of the instance group.
-   * 
-   * @example
-   * RUNNING
-   */
-  instanceGroupStatus?: string;
-  /**
-   * @example
-   * 50
-   */
-  ipv6Bandwidth?: number;
-  /**
-   * @remarks
-   * The memory size.
-   * 
-   * @example
-   * 8
-   */
-  memory?: number;
-  /**
-   * @remarks
-   * The number of instances in the instance group.
-   * 
-   * @example
-   * 10
-   */
-  numberOfInstances?: string;
-  /**
-   * @remarks
-   * The ID of the network.
-   * 
-   * @example
-   * cn-shanghai+dir-030598****
-   */
-  officeSiteId?: string;
-  /**
-   * @remarks
-   * The ID of the policy.
-   * 
-   * @example
-   * pg-c6n38xucps8kl****
-   */
-  policyGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The rendering mode of the instance group.
-   * 
-   * Valid values:
-   * 
-   * *   GPURemote: GPU remote rendering.
-   * *   CPU: CPU rendering.
-   * *   GPUocal: GPU local rendering.
-   * 
-   * @example
-   * CPU
-   */
-  renderingType?: string;
-  /**
-   * @remarks
-   * The height of the resolution.
-   * 
-   * @example
-   * 1280
-   */
-  resolutionHeight?: number;
-  /**
-   * @remarks
-   * The width of the resolution.
-   * 
-   * @example
-   * 720
-   */
-  resolutionWidth?: number;
-  /**
-   * @remarks
-   * The sales mode.
-   * 
-   * @example
-   * standard
-   */
-  saleMode?: string;
-  /**
-   * @remarks
-   * The version of the operating system.
-   * 
-   * @example
-   * Android 12
-   */
-  systemVersion?: string;
-  /**
-   * @remarks
-   * The ID of the vSwitch.
-   * 
-   * @example
-   * vsw-t4n0yqs009ho024wt****
-   */
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      architectureType: 'ArchitectureType',
-      availableInstanceAmount: 'AvailableInstanceAmount',
-      chargeType: 'ChargeType',
-      cpu: 'Cpu',
-      disks: 'Disks',
-      enableIpv6: 'EnableIpv6',
-      errorCode: 'ErrorCode',
-      gmtCreate: 'GmtCreate',
-      gmtExpired: 'GmtExpired',
-      gmtModified: 'GmtModified',
-      imageId: 'ImageId',
-      installedAppList: 'InstalledAppList',
-      instanceGroupId: 'InstanceGroupId',
-      instanceGroupName: 'InstanceGroupName',
-      instanceGroupSpec: 'InstanceGroupSpec',
-      instanceGroupSpecDescribe: 'InstanceGroupSpecDescribe',
-      instanceGroupStatus: 'InstanceGroupStatus',
-      ipv6Bandwidth: 'Ipv6Bandwidth',
-      memory: 'Memory',
-      numberOfInstances: 'NumberOfInstances',
-      officeSiteId: 'OfficeSiteId',
-      policyGroupId: 'PolicyGroupId',
-      regionId: 'RegionId',
-      renderingType: 'RenderingType',
-      resolutionHeight: 'ResolutionHeight',
-      resolutionWidth: 'ResolutionWidth',
-      saleMode: 'SaleMode',
-      systemVersion: 'SystemVersion',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      architectureType: 'string',
-      availableInstanceAmount: 'number',
-      chargeType: 'string',
-      cpu: 'string',
-      disks: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks },
-      enableIpv6: 'boolean',
-      errorCode: 'string',
-      gmtCreate: 'string',
-      gmtExpired: 'string',
-      gmtModified: 'string',
-      imageId: 'string',
-      installedAppList: 'string',
-      instanceGroupId: 'string',
-      instanceGroupName: 'string',
-      instanceGroupSpec: 'string',
-      instanceGroupSpecDescribe: 'string',
-      instanceGroupStatus: 'string',
-      ipv6Bandwidth: 'number',
-      memory: 'number',
-      numberOfInstances: 'string',
-      officeSiteId: 'string',
-      policyGroupId: 'string',
-      regionId: 'string',
-      renderingType: 'string',
-      resolutionHeight: 'number',
-      resolutionWidth: 'number',
-      saleMode: 'string',
-      systemVersion: 'string',
-      vSwitchId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.disks)) {
-      $dara.Model.validateArray(this.disks);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAndroidInstancesRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * @example
-   * key
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag.
-   * 
-   * @example
-   * value
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAndroidInstancesResponseBodyInstanceModelDisks extends $dara.Model {
-  /**
-   * @remarks
-   * The disk size. Unit: GB.
-   * 
-   * @example
-   * 32
-   */
-  diskSize?: number;
-  /**
-   * @remarks
-   * The type of the disk.
-   * 
-   * @example
-   * SYSTEM
-   */
-  diskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskSize: 'DiskSize',
-      diskType: 'DiskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskSize: 'number',
-      diskType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig extends $dara.Model {
-  dpi?: number;
-  fps?: number;
-  lockResolution?: string;
-  resolutionHeight?: number;
-  resolutionWidth?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dpi: 'Dpi',
-      fps: 'Fps',
-      lockResolution: 'LockResolution',
-      resolutionHeight: 'ResolutionHeight',
-      resolutionWidth: 'ResolutionWidth',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dpi: 'number',
-      fps: 'number',
-      lockResolution: 'string',
-      resolutionHeight: 'number',
-      resolutionWidth: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAndroidInstancesResponseBodyInstanceModelTags extends $dara.Model {
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * @example
-   * key
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag.
-   * 
-   * @example
-   * value
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the instance group.
-   * 
-   * @example
-   * ag-ayyhomlal7po****
-   */
-  androidInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The name of the instance group.
-   * 
-   * @example
-   * AndroidInstanceGroupName
-   */
-  androidInstanceGroupName?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * acp-8at8h6ejkadjh****
-   */
-  androidInstanceId?: string;
-  /**
-   * @remarks
-   * The name of the instance.
-   * 
-   * @example
-   * name
-   */
-  androidInstanceName?: string;
-  /**
-   * @remarks
-   * The state of the instance.
-   * 
-   * @example
-   * RUNNING
-   */
-  androidInstanceStatus?: string;
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * @example
-   * aig-i7yv6tkn7kh8dv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the physical instance.
-   * 
-   * @example
-   * ai-9ey6io0q58rcd****
-   */
-  appInstanceId?: string;
-  /**
-   * @remarks
-   * The ID of the user to whom the instance is assigned.
-   * 
-   * @example
-   * test
-   */
-  authorizedUserId?: string;
-  /**
-   * @remarks
-   * The ID of the bound user.
-   * 
-   * @example
-   * test
-   */
-  bindUserId?: string;
-  /**
-   * @remarks
-   * The billing method of the instance.
-   * 
-   * @example
-   * PrePaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The number of vCPUs.
-   * 
-   * @example
-   * 4
-   */
-  cpu?: string;
-  /**
-   * @remarks
-   * The disks.
-   */
-  disks?: DescribeAndroidInstancesResponseBodyInstanceModelDisks[];
-  displayConfig?: DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig;
-  /**
-   * @remarks
-   * The cause of the instance data backup failure or restoration failure.
-   * 
-   * @example
-   * FilePathNotFound
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The time when the instance was created.
-   * 
-   * @example
-   * 2023-05-06 10:42:10
-   */
-  gmtCreate?: string;
-  /**
-   * @remarks
-   * The time when the subscription instance group expires.
-   * 
-   * @example
-   * 2024-07-15T02:03:33Z
-   */
-  gmtExpired?: string;
-  /**
-   * @remarks
-   * The time when the instance was modified.
-   * 
-   * @example
-   * 2023-05-06 10:42:10
-   */
-  gmtModified?: string;
-  imageId?: string;
-  /**
-   * @remarks
-   * The version of the image.
-   * 
-   * @example
-   * 3.5.3.867
-   */
-  imageVersion?: string;
-  /**
-   * @remarks
-   * The type of the instance.
-   * 
-   * @example
-   * acp.basic.small
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The ID of the key pair.
-   * 
-   * @example
-   * kp-5hh431emkpucs****
-   */
-  keyPairId?: string;
-  /**
-   * @remarks
-   * The memory size.
-   * 
-   * @example
-   * 1024
-   */
-  memory?: number;
-  /**
-   * @remarks
-   * The IP address of the ENI.
-   * 
-   * @example
-   * 192.168.22.48
-   */
-  networkInterfaceIp?: string;
-  /**
-   * @remarks
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * null
-   */
-  networkInterfaceIpv6Address?: string;
-  /**
-   * @remarks
-   * The office network ID.
-   * 
-   * @example
-   * cn-shenzhen+dir-211620****
-   */
-  officeSiteId?: string;
-  /**
-   * @remarks
-   * The ID of the persistent session.
-   * 
-   * @example
-   * p-0btrd5zj8epo****
-   */
-  persistentAppInstanceId?: string;
-  /**
-   * @remarks
-   * The ID of the policy.
-   * 
-   * @example
-   * pg-0bszojpu0seql****
-   */
-  policyGroupId?: string;
-  /**
-   * @remarks
-   * The public IP address.
-   * 
-   * @example
-   * 10.32.1.41
-   */
-  publicIpAddress?: string;
-  /**
-   * @remarks
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * null
-   */
-  publicIpv6Address?: string;
-  /**
-   * @remarks
-   * The progress of instance data backup or restoration.
-   * 
-   * @example
-   * 100
-   */
-  rate?: number;
-  /**
-   * @remarks
-   * The region ID of the instance.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The rendering type.
-   * 
-   * @example
-   * local
-   */
-  renderingType?: string;
-  /**
-   * @remarks
-   * The session status.
-   * 
-   * Valid values:
-   * 
-   * *   disConnect: The session is disconnected.
-   * *   connect: The session is connected.
-   * 
-   * @example
-   * connect
-   */
-  sessionStatus?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
-  tags?: DescribeAndroidInstancesResponseBodyInstanceModelTags[];
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceGroupId: 'AndroidInstanceGroupId',
-      androidInstanceGroupName: 'AndroidInstanceGroupName',
-      androidInstanceId: 'AndroidInstanceId',
-      androidInstanceName: 'AndroidInstanceName',
-      androidInstanceStatus: 'AndroidInstanceStatus',
-      appInstanceGroupId: 'AppInstanceGroupId',
-      appInstanceId: 'AppInstanceId',
-      authorizedUserId: 'AuthorizedUserId',
-      bindUserId: 'BindUserId',
-      chargeType: 'ChargeType',
-      cpu: 'Cpu',
-      disks: 'Disks',
-      displayConfig: 'DisplayConfig',
-      errorCode: 'ErrorCode',
-      gmtCreate: 'GmtCreate',
-      gmtExpired: 'GmtExpired',
-      gmtModified: 'GmtModified',
-      imageId: 'ImageId',
-      imageVersion: 'ImageVersion',
-      instanceType: 'InstanceType',
-      keyPairId: 'KeyPairId',
-      memory: 'Memory',
-      networkInterfaceIp: 'NetworkInterfaceIp',
-      networkInterfaceIpv6Address: 'NetworkInterfaceIpv6Address',
-      officeSiteId: 'OfficeSiteId',
-      persistentAppInstanceId: 'PersistentAppInstanceId',
-      policyGroupId: 'PolicyGroupId',
-      publicIpAddress: 'PublicIpAddress',
-      publicIpv6Address: 'PublicIpv6Address',
-      rate: 'Rate',
-      regionId: 'RegionId',
-      renderingType: 'RenderingType',
-      sessionStatus: 'SessionStatus',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceGroupId: 'string',
-      androidInstanceGroupName: 'string',
-      androidInstanceId: 'string',
-      androidInstanceName: 'string',
-      androidInstanceStatus: 'string',
-      appInstanceGroupId: 'string',
-      appInstanceId: 'string',
-      authorizedUserId: 'string',
-      bindUserId: 'string',
-      chargeType: 'string',
-      cpu: 'string',
-      disks: { 'type': 'array', 'itemType': DescribeAndroidInstancesResponseBodyInstanceModelDisks },
-      displayConfig: DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig,
-      errorCode: 'string',
-      gmtCreate: 'string',
-      gmtExpired: 'string',
-      gmtModified: 'string',
-      imageId: 'string',
-      imageVersion: 'string',
-      instanceType: 'string',
-      keyPairId: 'string',
-      memory: 'number',
-      networkInterfaceIp: 'string',
-      networkInterfaceIpv6Address: 'string',
-      officeSiteId: 'string',
-      persistentAppInstanceId: 'string',
-      policyGroupId: 'string',
-      publicIpAddress: 'string',
-      publicIpv6Address: 'string',
-      rate: 'number',
-      regionId: 'string',
-      renderingType: 'string',
-      sessionStatus: 'string',
-      tags: { 'type': 'array', 'itemType': DescribeAndroidInstancesResponseBodyInstanceModelTags },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.disks)) {
-      $dara.Model.validateArray(this.disks);
-    }
-    if(this.displayConfig && typeof (this.displayConfig as any).validate === 'function') {
-      (this.displayConfig as any).validate();
-    }
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAppsResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The version of the application.
-   * 
-   * @example
-   * 1.0.0
-   */
-  androidAppVersion?: string;
-  /**
-   * @remarks
-   * Apk size.
-   * 
-   * @example
-   * 10244893
-   */
-  apkSize?: string;
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * 10404
-   */
-  appId?: number;
-  /**
-   * @remarks
-   * The name of the application.
-   * 
-   * @example
-   * testapp
-   */
-  appName?: string;
-  appType?: string;
-  /**
-   * @remarks
-   * Region id.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The description of the application.
-   * 
-   * @example
-   * default description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The time when the application was created.
-   * 
-   * @example
-   * 2022-08-11 17:45:03
-   */
-  gmtCreate?: string;
-  /**
-   * @remarks
-   * The time when the application was last modified.
-   * 
-   * @example
-   * 2022-08-11 17:45:03
-   */
-  gmtModified?: string;
-  /**
-   * @remarks
-   * The icon URL of the application.
-   * 
-   * @example
-   * https://test.png
-   */
-  iconUrl?: string;
-  /**
-   * @remarks
-   * The installation/uninstallation status of the application.
-   * 
-   * Valid values:
-   * 
-   * *   INSTALLFAILED: The application failed to be installed.
-   * *   UNINSTALLING: The application is being uninstalled.
-   * *   INSTALLING: The application is being installed.
-   * *   UNINSTALLED: The application is uninstalled.
-   * *   INSTALLED: The application is installed.
-   * *   UNINSTALLFAILED: The application failed to be uninstalled.
-   * 
-   * @example
-   * INSTALLING
-   */
-  installationStatus?: string;
-  /**
-   * @remarks
-   * The list of instance groups where the application is installed.
-   */
-  instanceGroupList?: string[];
-  /**
-   * @remarks
-   * The value of MD5.
-   * 
-   * @example
-   * THCIEH73KEK3334
-   */
-  MD5?: string;
-  /**
-   * @remarks
-   * The name of the application package.
-   * 
-   * @example
-   * cn.rdstar.rdstarandroid
-   */
-  packageName?: string;
-  /**
-   * @remarks
-   * The status of the application.
-   * 
-   * Valid values:
-   * 
-   * *   FAILED: The application failed to be created.
-   * *   NORMAL: The application is available.
-   * *   CREATING: The application is being created.
-   * 
-   * @example
-   * NORMAL
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidAppVersion: 'AndroidAppVersion',
-      apkSize: 'ApkSize',
-      appId: 'AppId',
-      appName: 'AppName',
-      appType: 'AppType',
-      bizRegionId: 'BizRegionId',
-      description: 'Description',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      iconUrl: 'IconUrl',
-      installationStatus: 'InstallationStatus',
-      instanceGroupList: 'InstanceGroupList',
-      MD5: 'MD5',
-      packageName: 'PackageName',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidAppVersion: 'string',
-      apkSize: 'string',
-      appId: 'number',
-      appName: 'string',
-      appType: 'string',
-      bizRegionId: 'string',
-      description: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      iconUrl: 'string',
-      installationStatus: 'string',
-      instanceGroupList: { 'type': 'array', 'itemType': 'string' },
-      MD5: 'string',
-      packageName: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceGroupList)) {
-      $dara.Model.validateArray(this.instanceGroupList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupFilesResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * acp-34pqe4r0kd9kn****
-   */
-  androidInstanceId?: string;
-  /**
-   * @remarks
-   * The name of the instance.
-   * 
-   * @example
-   * defaultInstanceName
-   */
-  androidInstanceName?: string;
-  /**
-   * @remarks
-   * Indicates whether the whole instance is backed up.
-   * 
-   * @example
-   * true
-   */
-  backupAll?: boolean;
-  /**
-   * @remarks
-   * The ID of the backup file.
-   * 
-   * @example
-   * bf-b0qbg3pbpjkn7****
-   */
-  backupFileId?: string;
-  /**
-   * @remarks
-   * The name of the backup file.
-   * 
-   * @example
-   * a-58ftsoo90p0qa****.ab
-   */
-  backupFileName?: string;
-  /**
-   * @remarks
-   * The directory in which the backup file is stored.
-   * 
-   * @example
-   * oss://cloudphone-saved-bucket-cn-shanghai/backup/aic-58ftsoo90p0qa****.ab
-   */
-  backupFilePath?: string;
-  /**
-   * @remarks
-   * The description of the backup file.
-   * 
-   * @example
-   * This is default description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The owner of the backup file.
-   * 
-   * @example
-   * test
-   */
-  endUserId?: string;
-  /**
-   * @remarks
-   * The total size of the source files.
-   * 
-   * @example
-   * 10227168
-   */
-  fileSize?: number;
-  /**
-   * @remarks
-   * The time when the backup file was created.
-   * 
-   * @example
-   * 2024-05-15 17:33:59
-   */
-  gmtCreated?: string;
-  /**
-   * @remarks
-   * The time when the backup file was last updated.
-   * 
-   * @example
-   * 2024-05-15 17:33:59
-   */
-  gmtModified?: string;
-  /**
-   * @remarks
-   * The ID of the instance group.
-   * 
-   * @example
-   * ag-58ftsoo90p0qi****
-   */
-  instanceGroupId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The names of the application packages that are backed up.
-   */
-  sourceAppInfoList?: string[];
-  /**
-   * @remarks
-   * The directories of the source files.
-   */
-  sourceFilePathList?: string[];
-  /**
-   * @remarks
-   * The status of the backup file.
-   * 
-   * Valid values:
-   * 
-   * *   AVAILABLE
-   * *   RECOVERING
-   * 
-   * @example
-   * AVAILABLE
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * t-bp67acfmxazb4p****
-   */
-  taskId?: string;
-  /**
-   * @remarks
-   * The endpoint of the OSS bucket that stores the backup file.
-   * 
-   * @example
-   * oss-cn-hangzhou.aliyuncs.com
-   */
-  uploadEndpoint?: string;
-  /**
-   * @remarks
-   * The type of the backup.
-   * 
-   * Valid values:
-   * 
-   * *   OSS: backup files are stored in OSS buckets. .
-   * 
-   * @example
-   * OSS
-   */
-  uploadType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceId: 'AndroidInstanceId',
-      androidInstanceName: 'AndroidInstanceName',
-      backupAll: 'BackupAll',
-      backupFileId: 'BackupFileId',
-      backupFileName: 'BackupFileName',
-      backupFilePath: 'BackupFilePath',
-      description: 'Description',
-      endUserId: 'EndUserId',
-      fileSize: 'FileSize',
-      gmtCreated: 'GmtCreated',
-      gmtModified: 'GmtModified',
-      instanceGroupId: 'InstanceGroupId',
-      regionId: 'RegionId',
-      sourceAppInfoList: 'SourceAppInfoList',
-      sourceFilePathList: 'SourceFilePathList',
-      status: 'Status',
-      taskId: 'TaskId',
-      uploadEndpoint: 'UploadEndpoint',
-      uploadType: 'UploadType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceId: 'string',
-      androidInstanceName: 'string',
-      backupAll: 'boolean',
-      backupFileId: 'string',
-      backupFileName: 'string',
-      backupFilePath: 'string',
-      description: 'string',
-      endUserId: 'string',
-      fileSize: 'number',
-      gmtCreated: 'string',
-      gmtModified: 'string',
-      instanceGroupId: 'string',
-      regionId: 'string',
-      sourceAppInfoList: { 'type': 'array', 'itemType': 'string' },
-      sourceFilePathList: { 'type': 'array', 'itemType': 'string' },
-      status: 'string',
-      taskId: 'string',
-      uploadEndpoint: 'string',
-      uploadType: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.sourceAppInfoList)) {
-      $dara.Model.validateArray(this.sourceAppInfoList);
-    }
-    if(Array.isArray(this.sourceFilePathList)) {
-      $dara.Model.validateArray(this.sourceFilePathList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
-  /**
-   * @remarks
-   * The billing method.
-   * 
-   * @example
-   * PrePaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The number of CPU cores.
-   * 
-   * @example
-   * 2
-   */
-  cpu?: string;
-  /**
-   * @remarks
-   * The creation time.
-   * 
-   * @example
-   * 2024-11-13 02:03:14
-   */
-  gmtCreate?: string;
-  /**
-   * @remarks
-   * The expiration time of the subscription matrix.
-   * 
-   * @example
-   * 2025-03-09 02:00:34
-   */
-  gmtExpired?: string;
-  /**
-   * @remarks
-   * The last modification time.
-   * 
-   * @example
-   * 2025-02-13 02:03:14
-   */
-  gmtModified?: string;
-  instanceType?: string;
-  /**
-   * @remarks
-   * The memory size. Unit: GB.
-   * 
-   * @example
-   * 32
-   */
-  memory?: number;
-  /**
-   * @remarks
-   * The network ID.
-   * 
-   * @example
-   * cn-hangzhou+dir-5mwr9azebliva****
-   */
-  networkId?: string;
-  /**
-   * @remarks
-   * The matrix ID.
-   * 
-   * @example
-   * cpn-ehs0yoedq8ntm****
-   */
-  nodeId?: string;
-  /**
-   * @remarks
-   * The matrix name.
-   * 
-   * @example
-   * node_name
-   */
-  nodeName?: string;
-  /**
-   * @remarks
-   * The number of cloud phone instances per matrix.
-   * 
-   * @example
-   * 25
-   */
-  phoneCount?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The height of the resolution. Unit: pixel.
-   * 
-   * @example
-   * 1280
-   */
-  resolutionHeight?: number;
-  /**
-   * @remarks
-   * The width of the resolution. Unit: pixel.
-   * 
-   * @example
-   * 720
-   */
-  resolutionWidth?: number;
-  /**
-   * @remarks
-   * The matrix specification.
-   * 
-   * @example
-   * cpm.gn6.gx1
-   */
-  serverType?: string;
-  /**
-   * @remarks
-   * The size of the shared storage. Unit: GiB.
-   * 
-   * @example
-   * 100
-   */
-  shareDataVolume?: number;
-  /**
-   * @remarks
-   * The matrix status.
-   * 
-   * @example
-   * RUNNING
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-2zeekryyc1q3sm72l****
-   */
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      chargeType: 'ChargeType',
-      cpu: 'Cpu',
-      gmtCreate: 'GmtCreate',
-      gmtExpired: 'GmtExpired',
-      gmtModified: 'GmtModified',
-      instanceType: 'InstanceType',
-      memory: 'Memory',
-      networkId: 'NetworkId',
-      nodeId: 'NodeId',
-      nodeName: 'NodeName',
-      phoneCount: 'PhoneCount',
-      regionId: 'RegionId',
-      resolutionHeight: 'ResolutionHeight',
-      resolutionWidth: 'ResolutionWidth',
-      serverType: 'ServerType',
-      shareDataVolume: 'ShareDataVolume',
-      status: 'Status',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chargeType: 'string',
-      cpu: 'string',
-      gmtCreate: 'string',
-      gmtExpired: 'string',
-      gmtModified: 'string',
-      instanceType: 'string',
-      memory: 'number',
-      networkId: 'string',
-      nodeId: 'string',
-      nodeName: 'string',
-      phoneCount: 'number',
-      regionId: 'string',
-      resolutionHeight: 'number',
-      resolutionWidth: 'number',
-      serverType: 'string',
-      shareDataVolume: 'number',
-      status: 'string',
-      vSwitchId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageListResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account.
-   * 
-   * @example
-   * 117819727354****
-   */
-  aliUid?: number;
-  /**
-   * @remarks
-   * The description of the image.
-   * 
-   * @example
-   * description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The time when the image was created.
-   * 
-   * @example
-   * 2024-02-01 10:56:36
-   */
-  gmtCreate?: string;
-  /**
-   * @remarks
-   * The time when the image was last modified.
-   * 
-   * @example
-   * 2024-02-01 10:56:36
-   */
-  gmtModified?: string;
-  /**
-   * @remarks
-   * The ID of the image.
-   * 
-   * @example
-   * imgc-075cllfeuazh****
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The name of the image.
-   * 
-   * @example
-   * IMAGE
-   */
-  imageName?: string;
-  /**
-   * @remarks
-   * The region where the image is distributed. The key is the region and the value is the distribution information.
-   */
-  imageRegionDistributeMap?: { [key: string]: DataImageRegionDistributeMapValue };
-  /**
-   * @remarks
-   * The list of regions.
-   */
-  imageRegionList?: string[];
-  /**
-   * @remarks
-   * The type of the image.
-   * 
-   * Valid values:
-   * 
-   * *   User: custom images.
-   * *   System: system images.
-   * 
-   * @example
-   * System
-   */
-  imageType?: string;
-  imageVersion?: string;
-  /**
-   * @remarks
-   * The language of the image.
-   * 
-   * @example
-   * zh
-   */
-  language?: string;
-  /**
-   * @remarks
-   * The time when the image was published.
-   * 
-   * @example
-   * 2024-07-25 10:06:45
-   */
-  releaseTime?: string;
-  /**
-   * @remarks
-   * The rendering type.
-   * 
-   * Valid values:
-   * 
-   * *   GPURemote
-   * *   CPU
-   * *   GPULocal
-   * 
-   * @example
-   * CPU
-   */
-  renderingType?: string;
-  /**
-   * @remarks
-   * The state of the image.
-   * 
-   * Valid values:
-   * 
-   * *   AVAILABLE: The image is available.
-   * *   DELETE: The image is deleted.
-   * *   INIT: The image is being initialized.
-   * *   CREATE_FAILED: The image failed to be created.
-   * *   CREATING: The image is being created.
-   * 
-   * @example
-   * AVAILABLE
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The OS type of the image.
-   * 
-   * @example
-   * Android 12
-   */
-  systemType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      description: 'Description',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      imageId: 'ImageId',
-      imageName: 'ImageName',
-      imageRegionDistributeMap: 'ImageRegionDistributeMap',
-      imageRegionList: 'ImageRegionList',
-      imageType: 'ImageType',
-      imageVersion: 'ImageVersion',
-      language: 'Language',
-      releaseTime: 'ReleaseTime',
-      renderingType: 'RenderingType',
-      status: 'Status',
-      systemType: 'SystemType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'number',
-      description: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      imageId: 'string',
-      imageName: 'string',
-      imageRegionDistributeMap: { 'type': 'map', 'keyType': 'string', 'valueType': DataImageRegionDistributeMapValue },
-      imageRegionList: { 'type': 'array', 'itemType': 'string' },
-      imageType: 'string',
-      imageVersion: 'string',
-      language: 'string',
-      releaseTime: 'string',
-      renderingType: 'string',
-      status: 'string',
-      systemType: 'string',
-    };
-  }
-
-  validate() {
-    if(this.imageRegionDistributeMap) {
-      $dara.Model.validateMap(this.imageRegionDistributeMap);
-    }
-    if(Array.isArray(this.imageRegionList)) {
-      $dara.Model.validateArray(this.imageRegionList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInvocationsResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The end time of the command execution.
-   * 
-   * @example
-   * 2022-08-11 17:45:03
-   */
-  finishTime?: string;
-  /**
-   * @remarks
-   * The ID of the cloud phone instance on which the command is executed.
-   * 
-   * @example
-   * acp-uto81vfd8t8z****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the execution.
-   * 
-   * @example
-   * t-15775dc8****
-   */
-  invocationId?: string;
-  /**
-   * @remarks
-   * The execution state of the command.
-   * 
-   * Valid values:
-   * 
-   * *   Failed: The execution of the command failed.
-   * *   Timeout: The execution of the command timed out.
-   * *   Running: The command is being executed.
-   * *   Success: The execution of the command is successful.
-   * *   Pending: The command is waiting to be executed.
-   * 
-   * @example
-   * RUNNING
-   */
-  invocationStatus?: string;
-  /**
-   * @remarks
-   * The output of the command execution.
-   * 
-   * @example
-   * success
-   */
-  output?: string;
-  /**
-   * @remarks
-   * The start time of the command execution.
-   * 
-   * @example
-   * 2022-08-11 17:45:03
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      finishTime: 'FinishTime',
-      instanceId: 'InstanceId',
-      invocationId: 'InvocationId',
-      invocationStatus: 'InvocationStatus',
-      output: 'Output',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      finishTime: 'string',
-      instanceId: 'string',
-      invocationId: 'string',
-      invocationStatus: 'string',
-      output: 'string',
-      startTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeKeyPairsResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the ADB key pair was created.
-   * 
-   * @example
-   * 2022-10-11T08:53:32Z
-   */
-  gmtCreated?: string;
-  /**
-   * @remarks
-   * The ID of the ADB key pair.
-   * 
-   * @example
-   * kp-6v2q33ae4tw3a****
-   */
-  keyPairId?: string;
-  /**
-   * @remarks
-   * The name of the ADB key pair.
-   * 
-   * @example
-   * testKeyPairName
-   */
-  keyPairName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreated: 'GmtCreated',
-      keyPairId: 'KeyPairId',
-      keyPairName: 'KeyPairName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreated: 'string',
-      keyPairId: 'string',
-      keyPairName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegionModels extends $dara.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The region name.
-   * 
-   * @example
-   * China (Hangzhou)
-   */
-  regionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      regionName: 'RegionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      regionName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
-  /**
-   * @remarks
-   * Number of CPU cores.
-   * 
-   * @example
-   * 8
-   */
-  core?: number;
-  /**
-   * @remarks
-   * The maximum number of cloud phone instances.
-   * 
-   * @example
-   * 40
-   */
-  maxPhoneCount?: string;
-  /**
-   * @remarks
-   * Memory size.
-   * 
-   * @example
-   * 16
-   */
-  memory?: number;
-  /**
-   * @remarks
-   * The minimum number of cloud phone instances.
-   * 
-   * @example
-   * 4
-   */
-  minPhoneCount?: string;
-  /**
-   * @example
-   * 2
-   */
-  phoneCount?: string;
-  /**
-   * @example
-   * 1920*1080
-   */
-  resolution?: string;
-  /**
-   * @remarks
-   * Specification ID.
-   * 
-   * @example
-   * acp.basic.small
-   */
-  specId?: string;
-  /**
-   * @remarks
-   * Specification status.
-   * 
-   * @example
-   * Available
-   */
-  specStatus?: string;
-  /**
-   * @remarks
-   * Specification type.
-   * 
-   * @example
-   * ARM
-   */
-  specType?: string;
-  /**
-   * @remarks
-   * System disk size, in GB.
-   * 
-   * @example
-   * 32
-   */
-  systemDiskSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      core: 'Core',
-      maxPhoneCount: 'MaxPhoneCount',
-      memory: 'Memory',
-      minPhoneCount: 'MinPhoneCount',
-      phoneCount: 'PhoneCount',
-      resolution: 'Resolution',
-      specId: 'SpecId',
-      specStatus: 'SpecStatus',
-      specType: 'SpecType',
-      systemDiskSize: 'SystemDiskSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      core: 'number',
-      maxPhoneCount: 'string',
-      memory: 'number',
-      minPhoneCount: 'string',
-      phoneCount: 'string',
-      resolution: 'string',
-      specId: 'string',
-      specStatus: 'string',
-      specType: 'string',
-      systemDiskSize: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTasksResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * SendFileFailed
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * connect error.
-   */
-  errorMsg?: string;
-  /**
-   * @remarks
-   * The total number of failed subtasks.
-   * 
-   * @example
-   * 2
-   */
-  failedChildCount?: number;
-  /**
-   * @remarks
-   * The end time of the task.
-   * 
-   * @example
-   * 2022-10-11T08:53:32Z
-   */
-  finishTime?: string;
-  /**
-   * @remarks
-   * The ID of the cloud phone instance.
-   * 
-   * @example
-   * acp-uto81vfd8t8z****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The name of the cloud phone instance.
-   * 
-   * @example
-   * defaultInstanceName
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * The state of the cloud phone instance.
-   * 
-   * @example
-   * RUNNING
-   */
-  instanceStatus?: string;
-  /**
-   * @remarks
-   * The ID of the command execution.
-   * 
-   * @example
-   * B8ED2BA9-0C6A-5643-818F-B5D60A64****
-   */
-  invokeId?: string;
-  /**
-   * @remarks
-   * The level of the task.
-   * 
-   * @example
-   * 1
-   */
-  level?: number;
-  /**
-   * @remarks
-   * The operator.
-   * 
-   * @example
-   * test
-   */
-  operator?: string;
-  /**
-   * @remarks
-   * The parameters of the task.
-   * 
-   * @example
-   * param
-   */
-  param?: string;
-  /**
-   * @remarks
-   * The ID of the parent task.
-   * 
-   * @example
-   * t-41oan3tza16vs****
-   */
-  parentTaskId?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource.
-   * 
-   * @example
-   * acp-25nt4kk9whhok****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The execution result of the task.
-   * 
-   * @example
-   * {\\"Success\\": True}
-   */
-  result?: string;
-  /**
-   * @remarks
-   * The total number of the subtasks that are running.
-   * 
-   * @example
-   * 0
-   */
-  runningChildCount?: number;
-  /**
-   * @remarks
-   * The start time of the task.
-   * 
-   * @example
-   * 2022-10-11T08:53:32Z
-   */
-  startTime?: string;
-  /**
-   * @remarks
-   * The total number of successfully executed subtasks.
-   * 
-   * @example
-   * 98
-   */
-  successChildCount?: number;
-  /**
-   * @remarks
-   * The ID of the task.
-   * 
-   * @example
-   * t-bp67acfmxazb4p****
-   */
-  taskId?: string;
-  /**
-   * @remarks
-   * The state of the task.
-   * 
-   * @example
-   * Processing
-   */
-  taskStatus?: string;
-  /**
-   * @remarks
-   * The type of the task.
-   * 
-   * @example
-   * StartInstance
-   */
-  taskType?: string;
-  /**
-   * @remarks
-   * The total number of subtasks of the current batch task.
-   * 
-   * @example
-   * 100
-   */
-  totalChildCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      failedChildCount: 'FailedChildCount',
-      finishTime: 'FinishTime',
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      instanceStatus: 'InstanceStatus',
-      invokeId: 'InvokeId',
-      level: 'Level',
-      operator: 'Operator',
-      param: 'Param',
-      parentTaskId: 'ParentTaskId',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      result: 'Result',
-      runningChildCount: 'RunningChildCount',
-      startTime: 'StartTime',
-      successChildCount: 'SuccessChildCount',
-      taskId: 'TaskId',
-      taskStatus: 'TaskStatus',
-      taskType: 'TaskType',
-      totalChildCount: 'TotalChildCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMsg: 'string',
-      failedChildCount: 'number',
-      finishTime: 'string',
-      instanceId: 'string',
-      instanceName: 'string',
-      instanceStatus: 'string',
-      invokeId: 'string',
-      level: 'number',
-      operator: 'string',
-      param: 'string',
-      parentTaskId: 'string',
-      regionId: 'string',
-      resourceId: 'string',
-      result: 'string',
-      runningChildCount: 'number',
-      startTime: 'string',
-      successChildCount: 'number',
-      taskId: 'string',
-      taskStatus: 'string',
-      taskType: 'string',
-      totalChildCount: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachKeyPairResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances from which the ADB key pair is successfully detached.
-   */
-  detachedInstanceIds?: string[];
-  /**
-   * @remarks
-   * The number of the cloud phone instances from which the ADB key pair failed to be detached.
-   * 
-   * @example
-   * 0
-   */
-  failCount?: number;
-  /**
-   * @remarks
-   * The ID of the ADB key pair.
-   * 
-   * @example
-   * kp-6v2q33ae4tw3a****
-   */
-  keyPairId?: string;
-  /**
-   * @remarks
-   * The total number of the cloud phone instances.
-   * 
-   * @example
-   * 10
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      detachedInstanceIds: 'DetachedInstanceIds',
-      failCount: 'FailCount',
-      keyPairId: 'KeyPairId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detachedInstanceIds: { 'type': 'array', 'itemType': 'string' },
-      failCount: 'number',
-      keyPairId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.detachedInstanceIds)) {
-      $dara.Model.validateArray(this.detachedInstanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FetchFileResponseBodyData extends $dara.Model {
-  androidInstanceId?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceId: 'AndroidInstanceId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportKeyPairResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the ADB key pair was created.
-   * 
-   * @example
-   * 2023-03-05T10:29:22Z
-   */
-  gmtCreated?: string;
-  /**
-   * @remarks
-   * The ID of the ADB key pair.
-   * 
-   * @example
-   * kp-6v2q33ae4tw3*****
-   */
-  keyPairId?: string;
-  /**
-   * @remarks
-   * The name of the ADB key pair.
-   * 
-   * @example
-   * TestKeyPairName
-   */
-  keyPairName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreated: 'GmtCreated',
-      keyPairId: 'KeyPairId',
-      keyPairName: 'KeyPairName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreated: 'string',
-      keyPairId: 'string',
-      keyPairName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the rule.
-   * 
-   * Valid values:
-   * 
-   * *   prc: an application package name.
-   * *   domain: a domain name.
-   * 
-   * @example
-   * domain
-   */
-  ruleType?: string;
-  /**
-   * @remarks
-   * The name of the application package or domain name.
-   * 
-   * @example
-   * *.example.com
-   */
-  target?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ruleType: 'RuleType',
-      target: 'Target',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ruleType: 'string',
-      target: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether a custom proxy is manually configured.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  customProxy?: string;
-  /**
-   * @remarks
-   * The IPv4 address of the custom proxy.
-   * 
-   * @example
-   * 47.100.XX.XX
-   */
-  hostAddr?: string;
-  /**
-   * @remarks
-   * Indicates whether the network redirection feature is enabled. When this feature is enabled, network traffic is automatically redirected to the on-premises network by default.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  netRedirect?: string;
-  /**
-   * @remarks
-   * The port of the custom proxy. Valid values: 1 to 65535.
-   * 
-   * @example
-   * 1145
-   */
-  port?: string;
-  /**
-   * @remarks
-   * The password of the proxy. The password must be 1 to 256 in length and cannot contain Chinese character or space characters.
-   * 
-   * @example
-   * password
-   */
-  proxyPassword?: string;
-  /**
-   * @remarks
-   * The type of the proxy protocol.
-   * 
-   * Valid values:
-   * 
-   * *   socks5.
-   * 
-   * @example
-   * socks5
-   */
-  proxyType?: string;
-  /**
-   * @remarks
-   * The username of the proxy. The name must be 1 to 256 in length and cannot contain Chinese character or space characters.
-   * 
-   * @example
-   * username
-   */
-  proxyUserName?: string;
-  /**
-   * @remarks
-   * The proxy rules.
-   */
-  rules?: ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules[];
-  static names(): { [key: string]: string } {
-    return {
-      customProxy: 'CustomProxy',
-      hostAddr: 'HostAddr',
-      netRedirect: 'NetRedirect',
-      port: 'Port',
-      proxyPassword: 'ProxyPassword',
-      proxyType: 'ProxyType',
-      proxyUserName: 'ProxyUserName',
-      rules: 'Rules',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customProxy: 'string',
-      hostAddr: 'string',
-      netRedirect: 'string',
-      port: 'string',
-      proxyPassword: 'string',
-      proxyType: 'string',
-      proxyUserName: 'string',
-      rules: { 'type': 'array', 'itemType': ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicyRules },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.rules)) {
-      $dara.Model.validateArray(this.rules);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources extends $dara.Model {
-  androidInstanceGroupIds?: string[];
-  cloudPhoneMatrixIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceGroupIds: 'AndroidInstanceGroupIds',
-      cloudPhoneMatrixIds: 'CloudPhoneMatrixIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceGroupIds: { 'type': 'array', 'itemType': 'string' },
-      cloudPhoneMatrixIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.androidInstanceGroupIds)) {
-      $dara.Model.validateArray(this.androidInstanceGroupIds);
-    }
-    if(Array.isArray(this.cloudPhoneMatrixIds)) {
-      $dara.Model.validateArray(this.cloudPhoneMatrixIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyGroupsResponseBodyPolicyGroupModelWatermark extends $dara.Model {
-  watermarkColor?: number;
-  watermarkCustomText?: string;
-  watermarkFontSize?: number;
-  watermarkSwitch?: string;
-  watermarkTransparencyValue?: number;
-  watermarkTypes?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      watermarkColor: 'WatermarkColor',
-      watermarkCustomText: 'WatermarkCustomText',
-      watermarkFontSize: 'WatermarkFontSize',
-      watermarkSwitch: 'WatermarkSwitch',
-      watermarkTransparencyValue: 'WatermarkTransparencyValue',
-      watermarkTypes: 'WatermarkTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      watermarkColor: 'number',
-      watermarkCustomText: 'string',
-      watermarkFontSize: 'number',
-      watermarkSwitch: 'string',
-      watermarkTransparencyValue: 'number',
-      watermarkTypes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.watermarkTypes)) {
-      $dara.Model.validateArray(this.watermarkTypes);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the webcam redirection feature.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * on
-   */
-  cameraRedirect?: string;
-  /**
-   * @remarks
-   * The read/write permissions on the clipboard.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: read and write.
-   * *   off: read/write disabled.
-   * 
-   * @example
-   * readwrite
-   */
-  clipboard?: string;
-  /**
-   * @remarks
-   * The time when the policy was created.
-   * 
-   * @example
-   * 2024-06-04 10:28:54
-   */
-  gmtCreate?: string;
-  /**
-   * @remarks
-   * The file transfer policy of the HTML5 client.
-   * 
-   * Valid values:
-   * 
-   * *   all: File upload and download are supported.
-   * *   download: Only file download is supported.
-   * *   upload: Only file upload is supported.
-   * *   off: File upload or download is forbidden.
-   * 
-   * @example
-   * download
-   */
-  html5FileTransfer?: string;
-  /**
-   * @remarks
-   * The read/write permissions on the on-premises drive.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: ready and write.
-   * *   off: read/write denied.
-   * 
-   * @example
-   * off
-   */
-  localDrive?: string;
-  /**
-   * @remarks
-   * Identifies whether the resolution is locked.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  lockResolution?: string;
-  /**
-   * @remarks
-   * The network redirection policy.
-   */
-  netRedirectPolicy?: ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy;
-  /**
-   * @remarks
-   * The ID of the policy.
-   * 
-   * @example
-   * pg-9q6o8qpiy8opkj****
-   */
-  policyGroupId?: string;
-  /**
-   * @remarks
-   * The name of the policy.
-   * 
-   * @example
-   * Default Policy
-   */
-  policyGroupName?: string;
-  policyRelatedResources?: ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources;
-  /**
-   * @remarks
-   * The height of the resolution.
-   * 
-   * @example
-   * 1080
-   */
-  sessionResolutionHeight?: number;
-  /**
-   * @remarks
-   * The width of the resolution.
-   * 
-   * @example
-   * 1920
-   */
-  sessionResolutionWidth?: number;
-  watermark?: ListPolicyGroupsResponseBodyPolicyGroupModelWatermark;
-  static names(): { [key: string]: string } {
-    return {
-      cameraRedirect: 'CameraRedirect',
-      clipboard: 'Clipboard',
-      gmtCreate: 'GmtCreate',
-      html5FileTransfer: 'Html5FileTransfer',
-      localDrive: 'LocalDrive',
-      lockResolution: 'LockResolution',
-      netRedirectPolicy: 'NetRedirectPolicy',
-      policyGroupId: 'PolicyGroupId',
-      policyGroupName: 'PolicyGroupName',
-      policyRelatedResources: 'PolicyRelatedResources',
-      sessionResolutionHeight: 'SessionResolutionHeight',
-      sessionResolutionWidth: 'SessionResolutionWidth',
-      watermark: 'Watermark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cameraRedirect: 'string',
-      clipboard: 'string',
-      gmtCreate: 'string',
-      html5FileTransfer: 'string',
-      localDrive: 'string',
-      lockResolution: 'string',
-      netRedirectPolicy: ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy,
-      policyGroupId: 'string',
-      policyGroupName: 'string',
-      policyRelatedResources: ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources,
-      sessionResolutionHeight: 'number',
-      sessionResolutionWidth: 'number',
-      watermark: ListPolicyGroupsResponseBodyPolicyGroupModelWatermark,
-    };
-  }
-
-  validate() {
-    if(this.netRedirectPolicy && typeof (this.netRedirectPolicy as any).validate === 'function') {
-      (this.netRedirectPolicy as any).validate();
-    }
-    if(this.policyRelatedResources && typeof (this.policyRelatedResources as any).validate === 'function') {
-      (this.policyRelatedResources as any).validate();
-    }
-    if(this.watermark && typeof (this.watermark as any).validate === 'function') {
-      (this.watermark as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyGroupRequestNetRedirectPolicyRules extends $dara.Model {
-  ruleType?: string;
-  target?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ruleType: 'RuleType',
-      target: 'Target',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ruleType: 'string',
-      target: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyGroupRequestNetRedirectPolicy extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to manually configure a custom proxy.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  customProxy?: string;
-  /**
-   * @remarks
-   * The IPv4 address of the custom proxy.
-   * 
-   * @example
-   * 47.100.XX.XX
-   */
-  hostAddr?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable network redirection.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  netRedirect?: string;
-  /**
-   * @remarks
-   * The port of the custom proxy. Valid values: 1 to 65535.
-   * 
-   * @example
-   * 1145
-   */
-  port?: string;
-  /**
-   * @remarks
-   * The password of the proxy. The password must be 1 to 256 in length and cannot contain Chinese character or space characters.
-   * 
-   * @example
-   * password
-   */
-  proxyPassword?: string;
-  /**
-   * @remarks
-   * The type of the proxy protocol.
-   * 
-   * Valid values:
-   * 
-   * *   socks5.
-   * 
-   * @example
-   * socks5
-   */
-  proxyType?: string;
-  /**
-   * @remarks
-   * The username of the proxy. The name must be 1 to 256 in length and cannot contain Chinese character or space characters.
-   * 
-   * @example
-   * username
-   */
-  proxyUserName?: string;
-  rules?: ModifyPolicyGroupRequestNetRedirectPolicyRules[];
-  static names(): { [key: string]: string } {
-    return {
-      customProxy: 'CustomProxy',
-      hostAddr: 'HostAddr',
-      netRedirect: 'NetRedirect',
-      port: 'Port',
-      proxyPassword: 'ProxyPassword',
-      proxyType: 'ProxyType',
-      proxyUserName: 'ProxyUserName',
-      rules: 'Rules',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customProxy: 'string',
-      hostAddr: 'string',
-      netRedirect: 'string',
-      port: 'string',
-      proxyPassword: 'string',
-      proxyType: 'string',
-      proxyUserName: 'string',
-      rules: { 'type': 'array', 'itemType': ModifyPolicyGroupRequestNetRedirectPolicyRules },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.rules)) {
-      $dara.Model.validateArray(this.rules);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyGroupRequestWatermark extends $dara.Model {
-  watermarkColor?: number;
-  watermarkCustomText?: string;
-  watermarkFontSize?: number;
-  watermarkSwitch?: string;
-  watermarkTransparencyValue?: number;
-  watermarkTypes?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      watermarkColor: 'WatermarkColor',
-      watermarkCustomText: 'WatermarkCustomText',
-      watermarkFontSize: 'WatermarkFontSize',
-      watermarkSwitch: 'WatermarkSwitch',
-      watermarkTransparencyValue: 'WatermarkTransparencyValue',
-      watermarkTypes: 'WatermarkTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      watermarkColor: 'number',
-      watermarkCustomText: 'string',
-      watermarkFontSize: 'number',
-      watermarkSwitch: 'string',
-      watermarkTransparencyValue: 'number',
-      watermarkTypes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.watermarkTypes)) {
-      $dara.Model.validateArray(this.watermarkTypes);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecoveryFileResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * acp-34pqe4r0kd9kn****
-   */
-  androidInstanceId?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * t-5prhfo7wv1gjx****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceId: 'AndroidInstanceId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendFileResponseBodyData extends $dara.Model {
-  androidInstanceId?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceId: 'AndroidInstanceId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAdbSecureResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The number of the cloud phone instances for which the ADB authentication feature failed to be enabled.
-   * 
-   * @example
-   * 0
-   */
-  failCount?: number;
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances for which the ADB authentication feature is enabled.
-   */
-  instanceIds?: string[];
-  /**
-   * @remarks
-   * The total number of the cloud phone instances.
-   * 
-   * @example
-   * 100
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      failCount: 'FailCount',
-      instanceIds: 'InstanceIds',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failCount: 'number',
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceIds)) {
-      $dara.Model.validateArray(this.instanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DataImageRegionDistributeMapValue extends $dara.Model {
-  /**
-   * @remarks
-   * The status of the image distribution task.
-   * 
-   * Valid values:
-   * 
-   * *   AVAILABLE: The task is ready.
-   * *   DELETE: The task is deleted.
-   * *   INIT: The task is being initialized.
-   * *   CREATE_FAILED: The task failed to be created.
-   * *   CREATING: The task is being created.
-   * 
-   * @example
-   * AVAILABLE
-   */
-  distributeStatus?: string;
-  /**
-   * @remarks
-   * The distribution progress of the image.
-   * 
-   * @example
-   * 100%
-   */
-  progress?: string;
-  static names(): { [key: string]: string } {
-    return {
-      distributeStatus: 'DistributeStatus',
-      progress: 'Progress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      distributeStatus: 'string',
-      progress: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachKeyPairRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
-   */
-  instanceIds?: string[];
-  /**
-   * @remarks
-   * The ID of the ADB key pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * kp-6v2q33ae4tw3a****
-   */
-  keyPairId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceIds: 'InstanceIds',
-      keyPairId: 'KeyPairId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-      keyPairId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceIds)) {
-      $dara.Model.validateArray(this.instanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachKeyPairResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The object that is returned.
-   */
-  data?: AttachKeyPairResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: AttachKeyPairResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachKeyPairResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AttachKeyPairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AttachKeyPairResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AuthorizeAndroidInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * List of instance IDs.
-   */
-  androidInstanceIds?: string[];
-  /**
-   * @remarks
-   * User ID to be assigned.
-   * 
-   * @example
-   * test
-   */
-  authorizeUserId?: string;
-  /**
-   * @remarks
-   * User ID to be unassigned.
-   * 
-   * @example
-   * test
-   */
-  unAuthorizeUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceIds: 'AndroidInstanceIds',
-      authorizeUserId: 'AuthorizeUserId',
-      unAuthorizeUserId: 'UnAuthorizeUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
-      authorizeUserId: 'string',
-      unAuthorizeUserId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.androidInstanceIds)) {
-      $dara.Model.validateArray(this.androidInstanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AuthorizeAndroidInstanceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * 1A923337-44D9-5CAD-9A53-95084BD4****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AuthorizeAndroidInstanceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AuthorizeAndroidInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AuthorizeAndroidInstanceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BackupFileRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the instances.
-   * 
-   * This parameter is required.
-   */
-  androidInstanceIdList?: string[];
-  /**
-   * @remarks
-   * Specifies whether to back up the whole instance.
-   * 
-   * @example
-   * true
-   */
-  backupAll?: boolean;
-  /**
-   * @remarks
-   * The name of the backup file.
-   * 
-   * @example
-   * defaultBackupFile
-   */
-  backupFileName?: string;
-  /**
-   * @remarks
-   * The OSS path of the backup file.
-   * 
-   * >  To upload a backup file to an OSS bucket, you must obtain the name of the bucket. When calling the describeBuckets operation to retrieve a bucket name, you must also call the ossObjectList operation to obtain the object key. Combine these to form the full path: oss://${bucketName}/${key}.
-   * 
-   * This parameter is required.
-   */
-  backupFilePath?: string;
-  /**
-   * @remarks
-   * The description of the backup file.
-   * 
-   * @example
-   * This is a backup file description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The names of the application packages that you want to back up.
-   */
-  sourceAppList?: string[];
-  /**
-   * @remarks
-   * The paths to the source files.
-   */
-  sourceFilePathList?: string[];
-  /**
-   * @remarks
-   * The endpoint of the OSS bucket to which you want to upload the backup file.
-   * 
-   * > : When calling the DescribeBuckets operation to query buckets, retrieve the IntranetEndpoint value if the cloud phone and the OSS bucket are in the same region. If they are in different regions, retrieve the ExtranetEndpoint value instead.
-   * 
-   * @example
-   * oss-cn-shanghai-internal.aliyuncs.com
-   */
-  uploadEndpoint?: string;
-  /**
-   * @remarks
-   * The type of the backup.
-   * 
-   * Valid values:
-   * 
-   * *   OSS: uploads the backup file to an OSS bucket.
-   * 
-   * @example
-   * OSS
-   */
-  uploadType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceIdList: 'AndroidInstanceIdList',
-      backupAll: 'BackupAll',
-      backupFileName: 'BackupFileName',
-      backupFilePath: 'BackupFilePath',
-      description: 'Description',
-      sourceAppList: 'SourceAppList',
-      sourceFilePathList: 'SourceFilePathList',
-      uploadEndpoint: 'UploadEndpoint',
-      uploadType: 'UploadType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
-      backupAll: 'boolean',
-      backupFileName: 'string',
-      backupFilePath: 'string',
-      description: 'string',
-      sourceAppList: { 'type': 'array', 'itemType': 'string' },
-      sourceFilePathList: { 'type': 'array', 'itemType': 'string' },
-      uploadEndpoint: 'string',
-      uploadType: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.androidInstanceIdList)) {
-      $dara.Model.validateArray(this.androidInstanceIdList);
-    }
-    if(Array.isArray(this.sourceAppList)) {
-      $dara.Model.validateArray(this.sourceAppList);
-    }
-    if(Array.isArray(this.sourceFilePathList)) {
-      $dara.Model.validateArray(this.sourceFilePathList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BackupFileResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The number of instances that are backed up.
-   * 
-   * @example
-   * 100
-   */
-  count?: number;
-  /**
-   * @remarks
-   * The object that is returned.
-   * 
-   * @example
-   * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****
-   */
-  data?: BackupFileResponseBodyData[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the batch task.
-   * 
-   * @example
-   * t-22ex666a5mco5****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      data: 'Data',
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      data: { 'type': 'array', 'itemType': BackupFileResponseBodyData },
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BackupFileResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BackupFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BackupFileResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetAcpConnectionTicketRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the user to whom the cloud phone instance is assigned.
-   * 
-   * @example
-   * user
-   */
-  endUserId?: string;
-  /**
-   * @remarks
-   * The ID of the instance group.
-   * 
-   * @example
-   * ag-25nt4kk9whjh****
-   */
-  instanceGroupId?: string;
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances. You can specify 1 to 100 IDs of cloud phone instances.
-   */
-  instanceIds?: string[];
-  /**
-   * @remarks
-   * The instance connection tasks.
-   */
-  instanceTasks?: BatchGetAcpConnectionTicketRequestInstanceTasks[];
-  static names(): { [key: string]: string } {
-    return {
-      endUserId: 'EndUserId',
-      instanceGroupId: 'InstanceGroupId',
-      instanceIds: 'InstanceIds',
-      instanceTasks: 'InstanceTasks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endUserId: 'string',
-      instanceGroupId: 'string',
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-      instanceTasks: { 'type': 'array', 'itemType': BatchGetAcpConnectionTicketRequestInstanceTasks },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceIds)) {
-      $dara.Model.validateArray(this.instanceIds);
-    }
-    if(Array.isArray(this.instanceTasks)) {
-      $dara.Model.validateArray(this.instanceTasks);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetAcpConnectionTicketResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The results of the instance connection tasks.
-   */
-  instanceConnectionModels?: BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7B9EFA4F-4305-5968-BAEE-BD8B8DE5****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceConnectionModels: 'InstanceConnectionModels',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceConnectionModels: { 'type': 'array', 'itemType': BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels },
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceConnectionModels)) {
-      $dara.Model.validateArray(this.instanceConnectionModels);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetAcpConnectionTicketResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BatchGetAcpConnectionTicketResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BatchGetAcpConnectionTicketResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeCloudPhoneNodeRequest extends $dara.Model {
-  /**
-   * @example
-   * ac.max
-   */
-  instanceType?: string;
-  /**
-   * @example
-   * cpn-0ugbptfu473fy****
-   */
-  nodeId?: string;
-  /**
-   * @example
-   * 20
-   */
-  phoneCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceType: 'InstanceType',
-      nodeId: 'NodeId',
-      phoneCount: 'PhoneCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceType: 'string',
-      nodeId: 'string',
-      phoneCount: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeCloudPhoneNodeResponseBody extends $dara.Model {
-  nodeInfos?: ChangeCloudPhoneNodeResponseBodyNodeInfos[];
-  /**
-   * @example
-   * 4610632D-D661-5982-B3D7-5D3FD183F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nodeInfos: 'NodeInfos',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodeInfos: { 'type': 'array', 'itemType': ChangeCloudPhoneNodeResponseBodyNodeInfos },
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.nodeInfos)) {
-      $dara.Model.validateArray(this.nodeInfos);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeCloudPhoneNodeResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ChangeCloudPhoneNodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ChangeCloudPhoneNodeResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckResourceStockRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specification ID.
-   * 
-   * @example
-   * acp.basic.small
-   */
-  acpSpecId?: string;
-  amount?: number;
-  /**
-   * @remarks
-   * Region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  gpuAcceleration?: boolean;
-  /**
-   * @remarks
-   * The availability zone of the resource.
-   * 
-   * @example
-   * cn-hangzhou-i
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acpSpecId: 'AcpSpecId',
-      amount: 'Amount',
-      bizRegionId: 'BizRegionId',
-      gpuAcceleration: 'GpuAcceleration',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acpSpecId: 'string',
-      amount: 'number',
-      bizRegionId: 'string',
-      gpuAcceleration: 'boolean',
-      zoneId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckResourceStockResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * 805D8FB6-512A-531C-9E4D-2A807D3C****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Details of resource inventory.
-   */
-  resourceStockModels?: CheckResourceStockResponseBodyResourceStockModels[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resourceStockModels: 'ResourceStockModels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resourceStockModels: { 'type': 'array', 'itemType': CheckResourceStockResponseBodyResourceStockModels },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.resourceStockModels)) {
-      $dara.Model.validateArray(this.resourceStockModels);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckResourceStockResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckResourceStockResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckResourceStockResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAndroidInstanceGroupRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The number of instance groups. Default value: 1. Maximum value: 1.
-   * 
-   * @example
-   * 8
-   */
-  amount?: number;
-  /**
-   * @remarks
-   * Specifies whether to enable automatic payment. Default value: false.
-   * 
-   * Valid values:
-   * 
-   * *   true: enables automatic payment. Make sure that your Alibaba Cloud account has sufficient balance.
-   * *   false: disables automatic payment. You must manually complete the payment.
-   * 
-   * @example
-   * false
-   */
-  autoPay?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable auto-renewal. Default value: false.
-   * 
-   * Valid values:
-   * 
-   * *   true: automatically renew resource upon expiration.
-   * *   false: manually renew resources upon expiration.
-   * 
-   * @example
-   * false
-   */
-  autoRenew?: boolean;
-  /**
-   * @remarks
-   * The ID of the region. You can call the DescribeRegions operation to query the regions where Cloud Phone is supported.
-   * 
-   * Valid values:
-   * 
-   * *   cn-shenzhen: China (Shenzhen).
-   * *   cn-beijing: China (Beijing).
-   * *   cn-shanghai: China (Shanghai).
-   * *   cn-hongkong: China (Hong Kong).
-   * *   ap-southeast-1: Singapore.
-   * *   cn-hangzhou: China (Hangzhou).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The billing method.
-   * 
-   * Valid values:
-   * 
-   * *   PostPaid: pay-as-you-go.
-   * *   PrePaid: subscription.
-   * 
-   * @example
-   * PostPaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. The value cannot exceed 100 characters in length.
-   * 
-   * @example
-   * asadbuvwiabdbvchjsbj
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * null
-   */
-  enableIpv6?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable GPU acceleration.
-   * 
-   * Valid values:
-   * 
-   * *   true: enables GPU acceleration.
-   * *   false (default): disables GPU acceleration.
-   * 
-   * @example
-   * false
-   */
-  gpuAcceleration?: boolean;
-  /**
-   * @remarks
-   * The ID of the image. You can call the [DescribeImageList](https://help.aliyun.com/document_detail/2807324.html) operation to query images.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * imgc-06zyt9m93zwax****
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The name of the instance group.
-   * 
-   * >  The name can be up to 30 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), or hyphens (-). It must start with letters but cannot start with `http://` or `https://`.
-   * 
-   * @example
-   * defaultInstanceGroup
-   */
-  instanceGroupName?: string;
-  /**
-   * @remarks
-   * The specifications of the instance group. You can call the [DescribeSpec](https://help.aliyun.com/document_detail/2807299.html) operation to query the available specifications.
-   * 
-   * Valid values:
-   * 
-   * *   acp.perf.large: Performance (8 vCPUs, 16 GiB of memory, and 32 GiB of storage.
-   * *   acp.basic.small: Lightweight (2 vCPUs, 4 GiB of memory, and 32 GiB of storage).
-   * *   acp.std.large: Standard (4 vCPUs, 8 GiB of memory, and 32 GiB of storage).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * acp.basic.small
-   */
-  instanceGroupSpec?: string;
-  /**
-   * @remarks
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * null
-   */
-  ipv6Bandwidth?: number;
-  /**
-   * @remarks
-   * The ID of the key pair. When you create an instance group and specify a valid key pair ID, all cloud phone instances within the group will automatically be bound to that key pair upon creation. This eliminates the need to manually bind key pairs to individual cloud phone instances.
-   * 
-   * >  Binding key pairs to cloud phone instances is currently not supported during instance group resizing.
-   * 
-   * @example
-   * kp-7o9xywwfutc1l****
-   */
-  keyPairId?: string;
-  /**
-   * @remarks
-   * The number of cloud phones in the instance group. Maximum value: 100.
-   * 
-   * @example
-   * 1
-   */
-  numberOfInstances?: number;
-  /**
-   * @remarks
-   * The ID of the network.
-   * 
-   * *   This parameter is required if you assign a shared network to cloud phones. You can go to the [Network](https://wya.wuying.aliyun.com/network) page of the Cloud Phone console to retrieve the ID of a **shared network**. If no shared network is available in the Cloud Phone console, you can leave this parameter empty. The system automatically creates one when you create an instance group.
-   * *   This parameter is required if you assign a virtual private cloud (VPC) to cloud phones. You can go to the [Network](https://wya.wuying.aliyun.com/network) page of the Cloud Phone console to retrieve the ID of a **VPC**. If no VPC is available in the Cloud Phone console, you must first create one.
-   * 
-   * @example
-   * cn-hangzhou+dir-745976****
-   */
-  officeSiteId?: string;
-  /**
-   * @remarks
-   * The subscription duration. The unit is specified by PeriodUnit.
-   * 
-   * @example
-   * 1
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The unit of the subscription duration.
-   * 
-   * Valid values:
-   * 
-   * *   Month
-   * *   Year
-   * *   Hour (Note that this unit is supported only by pay-as-you-go.)
-   * 
-   * @example
-   * Month
-   */
-  periodUnit?: string;
-  /**
-   * @remarks
-   * The ID of the policy. You can call the [ListPolicyGroups](https://help.aliyun.com/document_detail/2807352.html) operation to query policies.
-   * 
-   * @example
-   * pg-b7bxrrwxkijjh****
-   */
-  policyGroupId?: string;
-  /**
-   * @remarks
-   * The tags
-   */
-  tag?: CreateAndroidInstanceGroupRequestTag[];
-  /**
-   * @remarks
-   * The ID of the vSwitch. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/448774.html) operation to query vSwitches.
-   * 
-   * *   This parameter is not required if you assign a shared network to cloud phones.
-   * *   This parameter is required if you assign a VPC to cloud phones. The vSwitch specified by this parameter is used to create cloud phones.
-   * 
-   * @example
-   * vsw-uf61uvzhz8ejaw776****
-   */
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'Amount',
-      autoPay: 'AutoPay',
-      autoRenew: 'AutoRenew',
-      bizRegionId: 'BizRegionId',
-      chargeType: 'ChargeType',
-      clientToken: 'ClientToken',
-      enableIpv6: 'EnableIpv6',
-      gpuAcceleration: 'GpuAcceleration',
-      imageId: 'ImageId',
-      instanceGroupName: 'InstanceGroupName',
-      instanceGroupSpec: 'InstanceGroupSpec',
-      ipv6Bandwidth: 'Ipv6Bandwidth',
-      keyPairId: 'KeyPairId',
-      numberOfInstances: 'NumberOfInstances',
-      officeSiteId: 'OfficeSiteId',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      policyGroupId: 'PolicyGroupId',
-      tag: 'Tag',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      autoPay: 'boolean',
-      autoRenew: 'boolean',
-      bizRegionId: 'string',
-      chargeType: 'string',
-      clientToken: 'string',
-      enableIpv6: 'boolean',
-      gpuAcceleration: 'boolean',
-      imageId: 'string',
-      instanceGroupName: 'string',
-      instanceGroupSpec: 'string',
-      ipv6Bandwidth: 'number',
-      keyPairId: 'string',
-      numberOfInstances: 'number',
-      officeSiteId: 'string',
-      period: 'number',
-      periodUnit: 'string',
-      policyGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateAndroidInstanceGroupRequestTag },
-      vSwitchId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAndroidInstanceGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the instance groups.
-   */
-  instanceGroupIds?: string[];
-  /**
-   * @remarks
-   * The instance groups.
-   */
-  instanceGroupInfos?: CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos[];
-  /**
-   * @remarks
-   * The ID of the order.
-   * 
-   * @example
-   * 22365781890****
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 1A923337-44D9-5CAD-9A53-95084BD4****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceGroupIds: 'InstanceGroupIds',
-      instanceGroupInfos: 'InstanceGroupInfos',
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
-      instanceGroupInfos: { 'type': 'array', 'itemType': CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos },
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceGroupIds)) {
-      $dara.Model.validateArray(this.instanceGroupIds);
-    }
-    if(Array.isArray(this.instanceGroupInfos)) {
-      $dara.Model.validateArray(this.instanceGroupInfos);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAndroidInstanceGroupResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateAndroidInstanceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAndroidInstanceGroupResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application.
-   * 
-   * @example
-   * Application Name 1
-   */
-  appName?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The information about the custom app.
-   * 
-   * > 
-   * 
-   * *   If you want to pass in a custom app, configure the `CustomAppInfo` parameter. Take note that the six fields within it are mandatory.
-   * 
-   * *   A custom app has a higher priority than an app from the Alibaba Cloud Workspace Application Center. If you configure the `CustomAppInfo` parameter, the `FileName` and `FilePath` pair or the `OssAppUrl` will not take effect.
-   */
-  customAppInfo?: CreateAppRequestCustomAppInfo;
-  /**
-   * @remarks
-   * The description of the application.
-   * 
-   * @example
-   * test
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The name used by the app file in Object Storage Service (OSS). This parameter, combined with `FilePath`, uniquely identifies the OSS path of the app file.
-   * 
-   * > 
-   * 
-   * *   If you want to pass in an app from the Alibaba Cloud Workspace Application Center, configure the `FileName` and `FilePath` parameters. Alternatively, configure the `OssAppUrl` parameter. The FileName and FilePath parameters takes precedence over the OssAppUrl parameter.
-   * 
-   * *   Log on to the [Elastic Desktop Service (EDS) Enterprise](https://eds.console.aliyun.com/osshelp) console, upload the app file to the Application Center according to the on-screen instructions, and then retrieve the parameter value.
-   * 
-   * @example
-   * testApp.apk
-   */
-  fileName?: string;
-  /**
-   * @remarks
-   * The OSS bucket path to the app file. This parameter, combined with `FileName`, uniquely identifies the OSS path of the app file.
-   * 
-   * > 
-   * 
-   * *   If you want to pass in an app from the Alibaba Cloud Workspace Application Center, configure the `FileName` and `FilePath` parameters. Alternatively, configure the `OssAppUrl` parameter. The FileName and FilePath parameters takes precedence over the OssAppUrl parameter.
-   * 
-   * *   Log on to the [EDS Enterprise](https://eds.console.aliyun.com/osshelp) console, upload the app file to the Application Center according to the on-screen instructions, and then retrieve the parameter value.
-   */
-  filePath?: string;
-  /**
-   * @remarks
-   * The icon URL of the application.
-   * 
-   * @example
-   * https://www.example.com/icon.png
-   */
-  iconUrl?: string;
-  /**
-   * @remarks
-   * The parameters used for installing the application. By default, the `-r` parameter is included when you install an application.
-   * 
-   * @example
-   * -d
-   */
-  installParam?: string;
-  /**
-   * @remarks
-   * The OSS bucket endpoint of the app file.
-   * 
-   * > 
-   * 
-   * *   If you want to pass in an app from the Alibaba Cloud Workspace Application Center, configure the `FileName` and `FilePath` parameters. Alternatively, configure the `OssAppUrl` parameter. The FileName and FilePath parameters takes precedence over the OssAppUrl parameter.
-   * 
-   * *   Log on to the [EDS Enterprise](https://eds.console.aliyun.com/osshelp) console, upload the app file to the Application Center according to the on-screen instructions, and then retrieve the parameter value.
-   * 
-   * @example
-   * http://testApp.apk
-   */
-  ossAppUrl?: string;
-  signApk?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      bizRegionId: 'BizRegionId',
-      customAppInfo: 'CustomAppInfo',
-      description: 'Description',
-      fileName: 'FileName',
-      filePath: 'FilePath',
-      iconUrl: 'IconUrl',
-      installParam: 'InstallParam',
-      ossAppUrl: 'OssAppUrl',
-      signApk: 'SignApk',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      bizRegionId: 'string',
-      customAppInfo: CreateAppRequestCustomAppInfo,
-      description: 'string',
-      fileName: 'string',
-      filePath: 'string',
-      iconUrl: 'string',
-      installParam: 'string',
-      ossAppUrl: 'string',
-      signApk: 'string',
-    };
-  }
-
-  validate() {
-    if(this.customAppInfo && typeof (this.customAppInfo as any).validate === 'function') {
-      (this.customAppInfo as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the application.
-   * 
-   * @example
-   * Application Name 1
-   */
-  appName?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The information about the custom app.
-   * 
-   * > 
-   * 
-   * *   If you want to pass in a custom app, configure the `CustomAppInfo` parameter. Take note that the six fields within it are mandatory.
-   * 
-   * *   A custom app has a higher priority than an app from the Alibaba Cloud Workspace Application Center. If you configure the `CustomAppInfo` parameter, the `FileName` and `FilePath` pair or the `OssAppUrl` will not take effect.
-   */
-  customAppInfoShrink?: string;
-  /**
-   * @remarks
-   * The description of the application.
-   * 
-   * @example
-   * test
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The name used by the app file in Object Storage Service (OSS). This parameter, combined with `FilePath`, uniquely identifies the OSS path of the app file.
-   * 
-   * > 
-   * 
-   * *   If you want to pass in an app from the Alibaba Cloud Workspace Application Center, configure the `FileName` and `FilePath` parameters. Alternatively, configure the `OssAppUrl` parameter. The FileName and FilePath parameters takes precedence over the OssAppUrl parameter.
-   * 
-   * *   Log on to the [Elastic Desktop Service (EDS) Enterprise](https://eds.console.aliyun.com/osshelp) console, upload the app file to the Application Center according to the on-screen instructions, and then retrieve the parameter value.
-   * 
-   * @example
-   * testApp.apk
-   */
-  fileName?: string;
-  /**
-   * @remarks
-   * The OSS bucket path to the app file. This parameter, combined with `FileName`, uniquely identifies the OSS path of the app file.
-   * 
-   * > 
-   * 
-   * *   If you want to pass in an app from the Alibaba Cloud Workspace Application Center, configure the `FileName` and `FilePath` parameters. Alternatively, configure the `OssAppUrl` parameter. The FileName and FilePath parameters takes precedence over the OssAppUrl parameter.
-   * 
-   * *   Log on to the [EDS Enterprise](https://eds.console.aliyun.com/osshelp) console, upload the app file to the Application Center according to the on-screen instructions, and then retrieve the parameter value.
-   */
-  filePath?: string;
-  /**
-   * @remarks
-   * The icon URL of the application.
-   * 
-   * @example
-   * https://www.example.com/icon.png
-   */
-  iconUrl?: string;
-  /**
-   * @remarks
-   * The parameters used for installing the application. By default, the `-r` parameter is included when you install an application.
-   * 
-   * @example
-   * -d
-   */
-  installParam?: string;
-  /**
-   * @remarks
-   * The OSS bucket endpoint of the app file.
-   * 
-   * > 
-   * 
-   * *   If you want to pass in an app from the Alibaba Cloud Workspace Application Center, configure the `FileName` and `FilePath` parameters. Alternatively, configure the `OssAppUrl` parameter. The FileName and FilePath parameters takes precedence over the OssAppUrl parameter.
-   * 
-   * *   Log on to the [EDS Enterprise](https://eds.console.aliyun.com/osshelp) console, upload the app file to the Application Center according to the on-screen instructions, and then retrieve the parameter value.
-   * 
-   * @example
-   * http://testApp.apk
-   */
-  ossAppUrl?: string;
-  signApk?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      bizRegionId: 'BizRegionId',
-      customAppInfoShrink: 'CustomAppInfo',
-      description: 'Description',
-      fileName: 'FileName',
-      filePath: 'FilePath',
-      iconUrl: 'IconUrl',
-      installParam: 'InstallParam',
-      ossAppUrl: 'OssAppUrl',
-      signApk: 'SignApk',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      bizRegionId: 'string',
-      customAppInfoShrink: 'string',
-      description: 'string',
-      fileName: 'string',
-      filePath: 'string',
-      iconUrl: 'string',
-      installParam: 'string',
-      ossAppUrl: 'string',
-      signApk: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * 1234
-   */
-  appId?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * E5138F7E-46B5-526A-8C99-82DEAE6B****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'number',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAppResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCloudPhoneNodeRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the auto-payment feature.
-   * 
-   * Valid values:
-   * 
-   * *   False (default): You must manually complete the payment in the Alibaba Cloud Expenses and Costs console.
-   * *   true: enables the auto-payment feature.
-   * 
-   * @example
-   * true
-   */
-  autoPay?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable the auto-renewal feature.
-   * 
-   * Valid values:
-   * 
-   * *   true: enables the auto-renewal feature. In this case, the system automatically renews instances upon expiration.
-   * *   false (default): disables the auto-renewal feature. In this case, you need to manually renew instances upon expiration.
-   * 
-   * @example
-   * true
-   */
-  autoRenew?: boolean;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The billing method. Only the subscription billing method is supported.
-   * 
-   * @example
-   * PrePaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The number of cloud phone matrixes you want to purchase.
-   * 
-   * @example
-   * 1
-   */
-  count?: string;
-  displayConfig?: CreateCloudPhoneNodeRequestDisplayConfig;
-  /**
-   * @remarks
-   * The image ID.
-   * 
-   * @example
-   * imgc-075cllfeuazh0****
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The instance specification.
-   * 
-   * Valid values:
-   * 
-   * *   ac.max: By default, this specification allows up to 25 instances. You can adjust this number by using PhoneCount (Value range: 4 to 40).
-   * *   ac.plus: By default, this specification allows up to 40 instances. You can adjust this number by using PhoneCount (Value range: 4 to 40).
-   * 
-   * @example
-   * ac.max
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The office network ID.
-   * 
-   * @example
-   * cn-hangzhou+dir-5mwr9azebliva****
-   */
-  networkId?: string;
-  /**
-   * @remarks
-   * The name of the cloud phone matrix.
-   * 
-   * @example
-   * node_name
-   */
-  nodeName?: string;
-  /**
-   * @remarks
-   * The subscription duration. The unit is specified by `PeriodUnit`. Valid values:
-   * 
-   * *   When `PeriodUnit` is set to **year**: 1.
-   * *   When `PeriodUnit` is set to **month**: 1, 2, 3, and 6.
-   * 
-   * @example
-   * 1
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The unit of the subscription duration.
-   * 
-   * Valid values:
-   * 
-   * *   Month (default)
-   * *   Year
-   * 
-   * @example
-   * Month
-   */
-  periodUnit?: string;
-  /**
-   * @remarks
-   * The number of instances per cloud phone matrix.
-   * 
-   * @example
-   * 25
-   */
-  phoneCount?: number;
-  /**
-   * @remarks
-   * The resolution height. Unit: pixel.
-   * 
-   * @example
-   * 1280
-   */
-  resolutionHeight?: number;
-  /**
-   * @remarks
-   * The resolution width. Unit: pixel.
-   * 
-   * @example
-   * 720
-   */
-  resolutionWidth?: number;
-  /**
-   * @remarks
-   * The shared storage size Unit: GiB.
-   * 
-   * @example
-   * 200
-   */
-  serverShareDataVolume?: number;
-  /**
-   * @remarks
-   * The matrix specification.
-   * 
-   * Valid values:
-   * 
-   * *   cpm.gn6.gx1
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cpm.gn6.gx1
-   */
-  serverType?: string;
-  /**
-   * @remarks
-   * The resource tags.
-   */
-  tag?: CreateCloudPhoneNodeRequestTag[];
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-2zeekryyc1q3sm72l****
-   */
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoPay: 'AutoPay',
-      autoRenew: 'AutoRenew',
-      bizRegionId: 'BizRegionId',
-      chargeType: 'ChargeType',
-      count: 'Count',
-      displayConfig: 'DisplayConfig',
-      imageId: 'ImageId',
-      instanceType: 'InstanceType',
-      networkId: 'NetworkId',
-      nodeName: 'NodeName',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      phoneCount: 'PhoneCount',
-      resolutionHeight: 'ResolutionHeight',
-      resolutionWidth: 'ResolutionWidth',
-      serverShareDataVolume: 'ServerShareDataVolume',
-      serverType: 'ServerType',
-      tag: 'Tag',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoPay: 'boolean',
-      autoRenew: 'boolean',
-      bizRegionId: 'string',
-      chargeType: 'string',
-      count: 'string',
-      displayConfig: CreateCloudPhoneNodeRequestDisplayConfig,
-      imageId: 'string',
-      instanceType: 'string',
-      networkId: 'string',
-      nodeName: 'string',
-      period: 'number',
-      periodUnit: 'string',
-      phoneCount: 'number',
-      resolutionHeight: 'number',
-      resolutionWidth: 'number',
-      serverShareDataVolume: 'number',
-      serverType: 'string',
-      tag: { 'type': 'array', 'itemType': CreateCloudPhoneNodeRequestTag },
-      vSwitchId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.displayConfig && typeof (this.displayConfig as any).validate === 'function') {
-      (this.displayConfig as any).validate();
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the auto-payment feature.
-   * 
-   * Valid values:
-   * 
-   * *   False (default): You must manually complete the payment in the Alibaba Cloud Expenses and Costs console.
-   * *   true: enables the auto-payment feature.
-   * 
-   * @example
-   * true
-   */
-  autoPay?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable the auto-renewal feature.
-   * 
-   * Valid values:
-   * 
-   * *   true: enables the auto-renewal feature. In this case, the system automatically renews instances upon expiration.
-   * *   false (default): disables the auto-renewal feature. In this case, you need to manually renew instances upon expiration.
-   * 
-   * @example
-   * true
-   */
-  autoRenew?: boolean;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The billing method. Only the subscription billing method is supported.
-   * 
-   * @example
-   * PrePaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The number of cloud phone matrixes you want to purchase.
-   * 
-   * @example
-   * 1
-   */
-  count?: string;
-  displayConfigShrink?: string;
-  /**
-   * @remarks
-   * The image ID.
-   * 
-   * @example
-   * imgc-075cllfeuazh0****
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The instance specification.
-   * 
-   * Valid values:
-   * 
-   * *   ac.max: By default, this specification allows up to 25 instances. You can adjust this number by using PhoneCount (Value range: 4 to 40).
-   * *   ac.plus: By default, this specification allows up to 40 instances. You can adjust this number by using PhoneCount (Value range: 4 to 40).
-   * 
-   * @example
-   * ac.max
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The office network ID.
-   * 
-   * @example
-   * cn-hangzhou+dir-5mwr9azebliva****
-   */
-  networkId?: string;
-  /**
-   * @remarks
-   * The name of the cloud phone matrix.
-   * 
-   * @example
-   * node_name
-   */
-  nodeName?: string;
-  /**
-   * @remarks
-   * The subscription duration. The unit is specified by `PeriodUnit`. Valid values:
-   * 
-   * *   When `PeriodUnit` is set to **year**: 1.
-   * *   When `PeriodUnit` is set to **month**: 1, 2, 3, and 6.
-   * 
-   * @example
-   * 1
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The unit of the subscription duration.
-   * 
-   * Valid values:
-   * 
-   * *   Month (default)
-   * *   Year
-   * 
-   * @example
-   * Month
-   */
-  periodUnit?: string;
-  /**
-   * @remarks
-   * The number of instances per cloud phone matrix.
-   * 
-   * @example
-   * 25
-   */
-  phoneCount?: number;
-  /**
-   * @remarks
-   * The resolution height. Unit: pixel.
-   * 
-   * @example
-   * 1280
-   */
-  resolutionHeight?: number;
-  /**
-   * @remarks
-   * The resolution width. Unit: pixel.
-   * 
-   * @example
-   * 720
-   */
-  resolutionWidth?: number;
-  /**
-   * @remarks
-   * The shared storage size Unit: GiB.
-   * 
-   * @example
-   * 200
-   */
-  serverShareDataVolume?: number;
-  /**
-   * @remarks
-   * The matrix specification.
-   * 
-   * Valid values:
-   * 
-   * *   cpm.gn6.gx1
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cpm.gn6.gx1
-   */
-  serverType?: string;
-  /**
-   * @remarks
-   * The resource tags.
-   */
-  tag?: CreateCloudPhoneNodeShrinkRequestTag[];
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-2zeekryyc1q3sm72l****
-   */
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoPay: 'AutoPay',
-      autoRenew: 'AutoRenew',
-      bizRegionId: 'BizRegionId',
-      chargeType: 'ChargeType',
-      count: 'Count',
-      displayConfigShrink: 'DisplayConfig',
-      imageId: 'ImageId',
-      instanceType: 'InstanceType',
-      networkId: 'NetworkId',
-      nodeName: 'NodeName',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      phoneCount: 'PhoneCount',
-      resolutionHeight: 'ResolutionHeight',
-      resolutionWidth: 'ResolutionWidth',
-      serverShareDataVolume: 'ServerShareDataVolume',
-      serverType: 'ServerType',
-      tag: 'Tag',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoPay: 'boolean',
-      autoRenew: 'boolean',
-      bizRegionId: 'string',
-      chargeType: 'string',
-      count: 'string',
-      displayConfigShrink: 'string',
-      imageId: 'string',
-      instanceType: 'string',
-      networkId: 'string',
-      nodeName: 'string',
-      period: 'number',
-      periodUnit: 'string',
-      phoneCount: 'number',
-      resolutionHeight: 'number',
-      resolutionWidth: 'number',
-      serverShareDataVolume: 'number',
-      serverType: 'string',
-      tag: { 'type': 'array', 'itemType': CreateCloudPhoneNodeShrinkRequestTag },
-      vSwitchId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCloudPhoneNodeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The cloud phone matrixes.
-   */
-  nodeInfos?: CreateCloudPhoneNodeResponseBodyNodeInfos[];
-  /**
-   * @remarks
-   * The order ID.
-   * 
-   * @example
-   * 223684716098****
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nodeInfos: 'NodeInfos',
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodeInfos: { 'type': 'array', 'itemType': CreateCloudPhoneNodeResponseBodyNodeInfos },
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.nodeInfos)) {
-      $dara.Model.validateArray(this.nodeInfos);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCloudPhoneNodeResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateCloudPhoneNodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateCloudPhoneNodeResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCustomImageRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. By default, this parameter is left empty. The token cannot exceed 64 characters in length.
-   * 
-   * @example
-   * 20393E53-8FF1-524C-B494-B478A5369733
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The description of the custom image.
-   * 
-   * @example
-   * create for cc5g group auth rules test
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The name of the custom image.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * custom image name
-   */
-  imageName?: string;
-  /**
-   * @remarks
-   * The ID of the cloud phone instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * acp-2zecay9ponatdc4m****
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      description: 'Description',
-      imageName: 'ImageName',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      description: 'string',
-      imageName: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCustomImageResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the custom image.
-   * 
-   * @example
-   * imgc-075cllfeuazh0****
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 20393E53-8FF1-524C-B494-B478A5369733
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageId: 'ImageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCustomImageResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateCustomImageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateCustomImageResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateKeyPairRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the key pair. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). The name must start with a letter but cannot start with http:// or https://.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * testKeyPairName
-   */
-  keyPairName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keyPairName: 'KeyPairName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyPairName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateKeyPairResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The objects that are returned.
-   */
-  data?: CreateKeyPairResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateKeyPairResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateKeyPairResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateKeyPairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateKeyPairResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePolicyGroupRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the webcam redirection feature.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  cameraRedirect?: string;
-  /**
-   * @remarks
-   * The read/write permissions on the clipboard.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: read and write.
-   * *   off: read/write disabled.
-   * 
-   * @example
-   * readwrite
-   */
-  clipboard?: string;
-  /**
-   * @remarks
-   * The file transfer policy of the Alibaba Cloud Workspace web client.
-   * 
-   * Valid values:
-   * 
-   * *   all: File upload and download are supported.
-   * *   download: Only file download is supported.
-   * *   upload: Only file upload is supported.
-   * *   off: File upload or download is forbidden.
-   * 
-   * @example
-   * off
-   */
-  html5FileTransfer?: string;
-  /**
-   * @remarks
-   * The read/write permissions on the on-premises drive.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: ready and write.
-   * *   off: read/write disabled.
-   * 
-   * @example
-   * off
-   */
-  localDrive?: string;
-  /**
-   * @remarks
-   * Specifies whether to lock the resolution.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  lockResolution?: string;
-  /**
-   * @remarks
-   * The network redirection policy.
-   */
-  netRedirectPolicy?: CreatePolicyGroupRequestNetRedirectPolicy;
-  /**
-   * @remarks
-   * The name of the policy.
-   * 
-   * @example
-   * defaultPolicy
-   */
-  policyGroupName?: string;
-  policyType?: string;
-  /**
-   * @remarks
-   * The height of the resolution. Unit: pixels.
-   * 
-   * @example
-   * 1280
-   */
-  resolutionHeight?: number;
-  /**
-   * @remarks
-   * The width of the resolution. Unit: pixels.
-   * 
-   * @example
-   * 720
-   */
-  resolutionWidth?: number;
-  watermark?: CreatePolicyGroupRequestWatermark;
-  static names(): { [key: string]: string } {
-    return {
-      cameraRedirect: 'CameraRedirect',
-      clipboard: 'Clipboard',
-      html5FileTransfer: 'Html5FileTransfer',
-      localDrive: 'LocalDrive',
-      lockResolution: 'LockResolution',
-      netRedirectPolicy: 'NetRedirectPolicy',
-      policyGroupName: 'PolicyGroupName',
-      policyType: 'PolicyType',
-      resolutionHeight: 'ResolutionHeight',
-      resolutionWidth: 'ResolutionWidth',
-      watermark: 'Watermark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cameraRedirect: 'string',
-      clipboard: 'string',
-      html5FileTransfer: 'string',
-      localDrive: 'string',
-      lockResolution: 'string',
-      netRedirectPolicy: CreatePolicyGroupRequestNetRedirectPolicy,
-      policyGroupName: 'string',
-      policyType: 'string',
-      resolutionHeight: 'number',
-      resolutionWidth: 'number',
-      watermark: CreatePolicyGroupRequestWatermark,
-    };
-  }
-
-  validate() {
-    if(this.netRedirectPolicy && typeof (this.netRedirectPolicy as any).validate === 'function') {
-      (this.netRedirectPolicy as any).validate();
-    }
-    if(this.watermark && typeof (this.watermark as any).validate === 'function') {
-      (this.watermark as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePolicyGroupShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the webcam redirection feature.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  cameraRedirect?: string;
-  /**
-   * @remarks
-   * The read/write permissions on the clipboard.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: read and write.
-   * *   off: read/write disabled.
-   * 
-   * @example
-   * readwrite
-   */
-  clipboard?: string;
-  /**
-   * @remarks
-   * The file transfer policy of the Alibaba Cloud Workspace web client.
-   * 
-   * Valid values:
-   * 
-   * *   all: File upload and download are supported.
-   * *   download: Only file download is supported.
-   * *   upload: Only file upload is supported.
-   * *   off: File upload or download is forbidden.
-   * 
-   * @example
-   * off
-   */
-  html5FileTransfer?: string;
-  /**
-   * @remarks
-   * The read/write permissions on the on-premises drive.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: ready and write.
-   * *   off: read/write disabled.
-   * 
-   * @example
-   * off
-   */
-  localDrive?: string;
-  /**
-   * @remarks
-   * Specifies whether to lock the resolution.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  lockResolution?: string;
-  /**
-   * @remarks
-   * The network redirection policy.
-   */
-  netRedirectPolicyShrink?: string;
-  /**
-   * @remarks
-   * The name of the policy.
-   * 
-   * @example
-   * defaultPolicy
-   */
-  policyGroupName?: string;
-  policyType?: string;
-  /**
-   * @remarks
-   * The height of the resolution. Unit: pixels.
-   * 
-   * @example
-   * 1280
-   */
-  resolutionHeight?: number;
-  /**
-   * @remarks
-   * The width of the resolution. Unit: pixels.
-   * 
-   * @example
-   * 720
-   */
-  resolutionWidth?: number;
-  watermarkShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cameraRedirect: 'CameraRedirect',
-      clipboard: 'Clipboard',
-      html5FileTransfer: 'Html5FileTransfer',
-      localDrive: 'LocalDrive',
-      lockResolution: 'LockResolution',
-      netRedirectPolicyShrink: 'NetRedirectPolicy',
-      policyGroupName: 'PolicyGroupName',
-      policyType: 'PolicyType',
-      resolutionHeight: 'ResolutionHeight',
-      resolutionWidth: 'ResolutionWidth',
-      watermarkShrink: 'Watermark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cameraRedirect: 'string',
-      clipboard: 'string',
-      html5FileTransfer: 'string',
-      localDrive: 'string',
-      lockResolution: 'string',
-      netRedirectPolicyShrink: 'string',
-      policyGroupName: 'string',
-      policyType: 'string',
-      resolutionHeight: 'number',
-      resolutionWidth: 'number',
-      watermarkShrink: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePolicyGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the policy.
-   * 
-   * @example
-   * pg-exbuu6yrpvb******
-   */
-  policyGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC******
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyGroupId: 'PolicyGroupId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyGroupId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePolicyGroupResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreatePolicyGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreatePolicyGroupResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScreenshotRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances. You can create multiple snapshots simultaneously.
-   * 
-   * This parameter is required.
-   */
-  androidInstanceIdList?: string[];
-  /**
-   * @remarks
-   * The name of the OSS bucket. The name must start with "cloudphone-saved-bucket-". The OSS bucket and the cloud phone instance must be in the same region. If you leave this parameter empty, the system will create a default OSS bucket named “cloudphone-saved-bucket-{Region of the cloud phone instance}-{AliUid}.”
-   * 
-   * @example
-   * cloudphone-saved-bucket-cn-shanghai-default
-   */
-  ossBucketName?: string;
-  /**
-   * @remarks
-   * Specifies whether to bypass the snapshot policy control. Default value: false.
-   * 
-   * @example
-   * false
-   */
-  skipCheckPolicyConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceIdList: 'AndroidInstanceIdList',
-      ossBucketName: 'OssBucketName',
-      skipCheckPolicyConfig: 'SkipCheckPolicyConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
-      ossBucketName: 'string',
-      skipCheckPolicyConfig: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.androidInstanceIdList)) {
-      $dara.Model.validateArray(this.androidInstanceIdList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScreenshotResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request. If the request fails, share this ID with technical support to help diagnose the issue.
-   * 
-   * @example
-   * 3AF82CE1-2801-52CE-BF64-B491DD7C****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The tasks.
-   */
-  tasks?: CreateScreenshotResponseBodyTasks[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tasks: 'Tasks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tasks: { 'type': 'array', 'itemType': CreateScreenshotResponseBodyTasks },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tasks)) {
-      $dara.Model.validateArray(this.tasks);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScreenshotResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateScreenshotResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateScreenshotResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAndroidInstanceGroupRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the instance groups.
-   */
-  instanceGroupIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceGroupIds: 'InstanceGroupIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceGroupIds)) {
-      $dara.Model.validateArray(this.instanceGroupIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAndroidInstanceGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * CB95E410-FD1D-53C5-9F7D-93CC44D7****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAndroidInstanceGroupResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteAndroidInstanceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAndroidInstanceGroupResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the applications.
-   */
-  appIdList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      appIdList: 'AppIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appIdList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.appIdList)) {
-      $dara.Model.validateArray(this.appIdList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 310A783E-CC46-5452-A8A3-71AE5DB5****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteAppsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAppsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCloudPhoneNodesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cloud phone matrix IDs.
-   */
-  nodeIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      nodeIds: 'NodeIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodeIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.nodeIds)) {
-      $dara.Model.validateArray(this.nodeIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCloudPhoneNodesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCloudPhoneNodesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteCloudPhoneNodesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteCloudPhoneNodesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteImagesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the images.
-   * 
-   * This parameter is required.
-   */
-  imageIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      imageIds: 'ImageIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.imageIds)) {
-      $dara.Model.validateArray(this.imageIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteImagesShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the images.
-   * 
-   * This parameter is required.
-   */
-  imageIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageIdsShrink: 'ImageIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageIdsShrink: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteImagesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The images.
-   */
-  data?: DeleteImagesResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 4610632D-D661-5982-B3D7-5D3FD183F595
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeleteImagesResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteImagesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteImagesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteImagesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteKeyPairsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the ADB key pairs.
-   */
-  keyPairIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      keyPairIds: 'KeyPairIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyPairIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.keyPairIds)) {
-      $dara.Model.validateArray(this.keyPairIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteKeyPairsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 5C5CEF0A-D6E1-58D3-8750-67DB4F82****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteKeyPairsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteKeyPairsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteKeyPairsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePolicyGroupRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the policies.
-   * 
-   * This parameter is required.
-   */
-  policyGroupIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      policyGroupIds: 'PolicyGroupIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyGroupIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.policyGroupIds)) {
-      $dara.Model.validateArray(this.policyGroupIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePolicyGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 17C731AB-AAEE-5844-A352-D8D0352D3F0B
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePolicyGroupResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeletePolicyGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeletePolicyGroupResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The billing method.
-   * 
-   * Valid values:
-   * 
-   * *   PrePaid: subscription
-   * *   PostPaid: pay-as-you-go
-   * 
-   * @example
-   * PostPaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The IDs of the instance groups.
-   */
-  instanceGroupIds?: string[];
-  /**
-   * @remarks
-   * The name of the instance group. Instance groups support fuzzy search by name.
-   * 
-   * @example
-   * defaultInstanceGroup
-   */
-  instanceGroupName?: string;
-  /**
-   * @remarks
-   * The ID of the key pair.
-   * 
-   * @example
-   * kp-5htf0ymsrnb7q****
-   */
-  keyPairId?: string;
-  /**
-   * @remarks
-   * The maximum number of entries per page. Value range: 0 to 100. Default value: 100.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the policy.
-   * 
-   * @example
-   * pg-1b77w6xrqfubi****
-   */
-  policyGroupId?: string;
-  /**
-   * @remarks
-   * The purchase mode of cloud phone instances.
-   * 
-   * Valid values:
-   * 
-   * *   Instance (default): the instance group mode.
-   * *   Node: the matrix mode [whitelisted].
-   * 
-   * @example
-   * standard
-   */
-  saleMode?: string;
-  /**
-   * @remarks
-   * The status of the instance group.
-   * 
-   * Valid values:
-   * 
-   * *   UPDATING_FAILED: The image update for the instance group failed.
-   * *   FAILED: The instance group failed to be created.
-   * *   RUNNING: The instance group is available.
-   * *   EXPIRED: The instance group expired.
-   * *   DELETING: The instance group is being deleted.
-   * *   DELETED: The instance group is deleted.
-   * *   UPDATING: The instance group is undergoing an image update.
-   * *   CREATING: The instance group is being created.
-   * 
-   * @example
-   * CREATING
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizRegionId: 'BizRegionId',
-      chargeType: 'ChargeType',
-      instanceGroupIds: 'InstanceGroupIds',
-      instanceGroupName: 'InstanceGroupName',
-      keyPairId: 'KeyPairId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      policyGroupId: 'PolicyGroupId',
-      saleMode: 'SaleMode',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizRegionId: 'string',
-      chargeType: 'string',
-      instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
-      instanceGroupName: 'string',
-      keyPairId: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      policyGroupId: 'string',
-      saleMode: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceGroupIds)) {
-      $dara.Model.validateArray(this.instanceGroupIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAndroidInstanceGroupsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The instance group.
-   */
-  instanceGroupModel?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel[];
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * F07A1DA1-E1EB-5CCA-8EED-12F85D32****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 10
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceGroupModel: 'InstanceGroupModel',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceGroupModel: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel },
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceGroupModel)) {
-      $dara.Model.validateArray(this.instanceGroupModel);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAndroidInstanceGroupsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeAndroidInstanceGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeAndroidInstanceGroupsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAndroidInstancesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the instances.
-   */
-  androidInstanceIds?: string[];
-  /**
-   * @remarks
-   * The name of the instance.
-   * 
-   * @example
-   * name
-   */
-  androidInstanceName?: string;
-  authorizedUserId?: string;
-  /**
-   * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) operation to query the regions where Cloud Phone is supported.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The billing method.
-   * 
-   * Valid values:
-   * 
-   * *   PostPaid: pay-as-you-go.
-   * *   PrePaid: subscription.
-   * 
-   * @example
-   * PostPaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The ID of the instance group.
-   * 
-   * @example
-   * ag-25nt4kk9whjh****
-   */
-  instanceGroupId?: string;
-  /**
-   * @remarks
-   * The IDs of the instance groups.
-   */
-  instanceGroupIds?: string[];
-  /**
-   * @remarks
-   * The name of the instance group.
-   * 
-   * @example
-   * test
-   */
-  instanceGroupName?: string;
-  /**
-   * @remarks
-   * The ID of the bound key pair.
-   * 
-   * @example
-   * kp-5hh431emkpuoi****
-   */
-  keyPairId?: string;
-  /**
-   * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 100. Default value: 100.
-   * 
-   * @example
-   * 20
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the node.
-   * 
-   * @example
-   * node_id
-   */
-  nodeId?: string;
-  /**
-   * @remarks
-   * The name of the node.
-   * 
-   * @example
-   * node_name
-   */
-  nodeName?: string;
-  officeSiteIds?: string[];
-  /**
-   * @remarks
-   * The sales mode.
-   * 
-   * Valid values:
-   * 
-   * *   Instance: the standard mode.
-   * *   Node: the node mode.
-   * 
-   * @example
-   * Instance
-   */
-  saleMode?: string;
-  /**
-   * @remarks
-   * The state of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   BACKUPING: The instance is being backed up.
-   * *   STARTING: The instance is being started.
-   * *   RUNNING: The instance group is available.
-   * *   DELETING: The instance is being deleted.
-   * *   BACKUP_FAILED: The backup operation failed.
-   * *   DELETED: The instance is deleted.
-   * *   FAILED: The instance failed to be created.
-   * *   STOPPED: The instance is stopped.
-   * *   RECOVERING: The instance has an ongoing file recovery task.
-   * *   UNAVAILABLE: The instance has an exception.
-   * *   REBOOTING: The instance is being restarted.
-   * *   RESETTING: The instance is being reset.
-   * *   STOPPING: The instance is being stopped.
-   * *   RECOVER_FAILED: The file recovery task failed.
-   * *   CREATING: The instance is being created.
-   * 
-   * @example
-   * RUNNING
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The tags of the resources.
-   */
-  tag?: DescribeAndroidInstancesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceIds: 'AndroidInstanceIds',
-      androidInstanceName: 'AndroidInstanceName',
-      authorizedUserId: 'AuthorizedUserId',
-      bizRegionId: 'BizRegionId',
-      chargeType: 'ChargeType',
-      instanceGroupId: 'InstanceGroupId',
-      instanceGroupIds: 'InstanceGroupIds',
-      instanceGroupName: 'InstanceGroupName',
-      keyPairId: 'KeyPairId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      nodeId: 'NodeId',
-      nodeName: 'NodeName',
-      officeSiteIds: 'OfficeSiteIds',
-      saleMode: 'SaleMode',
-      status: 'Status',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
-      androidInstanceName: 'string',
-      authorizedUserId: 'string',
-      bizRegionId: 'string',
-      chargeType: 'string',
-      instanceGroupId: 'string',
-      instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
-      instanceGroupName: 'string',
-      keyPairId: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      nodeId: 'string',
-      nodeName: 'string',
-      officeSiteIds: { 'type': 'array', 'itemType': 'string' },
-      saleMode: 'string',
-      status: 'string',
-      tag: { 'type': 'array', 'itemType': DescribeAndroidInstancesRequestTag },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.androidInstanceIds)) {
-      $dara.Model.validateArray(this.androidInstanceIds);
-    }
-    if(Array.isArray(this.instanceGroupIds)) {
-      $dara.Model.validateArray(this.instanceGroupIds);
-    }
-    if(Array.isArray(this.officeSiteIds)) {
-      $dara.Model.validateArray(this.officeSiteIds);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAndroidInstancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The cloud phone instances.
-   */
-  instanceModel?: DescribeAndroidInstancesResponseBodyInstanceModel[];
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6kmma/xxE9WtwL/ADvZ****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * F07A1DA1-E1EB-5CCA-8EED-12F85D32****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 10
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceModel: 'InstanceModel',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceModel: { 'type': 'array', 'itemType': DescribeAndroidInstancesResponseBodyInstanceModel },
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceModel)) {
-      $dara.Model.validateArray(this.instanceModel);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAndroidInstancesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeAndroidInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeAndroidInstancesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAppsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the applications.
-   */
-  appIdList?: string[];
-  /**
-   * @remarks
-   * The name of the application.
-   * 
-   * @example
-   * defaultAppName
-   */
-  appName?: string;
-  appType?: string;
-  /**
-   * @remarks
-   * Region id.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The installation/uninstallation status of the application.
-   * 
-   * Valid values:
-   * 
-   * *   INSTALLFAILED: The application failed to be installed.
-   * *   UNINSTALLING: The application is being uninstalled.
-   * *   INSTALLING: The application is being installed.
-   * *   UNINSTALLED: The application is uninstalled.
-   * *   INSTALLED: The application is installed.
-   * *   UNINSTALLFAILED: The application failed to be uninstalled.
-   * 
-   * @example
-   * INSTALLING
-   */
-  installationStatus?: string;
-  /**
-   * @remarks
-   * The value of MD5.
-   * 
-   * @example
-   * THCIEH73KEK3334
-   */
-  MD5?: string;
-  /**
-   * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The status of the application.
-   * 
-   * Valid values:
-   * 
-   * *   FAILED: The application failed to be created.
-   * *   NORMAL: The application is available.
-   * *   CREATING: The application is being created.
-   * 
-   * @example
-   * NORMAL
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appIdList: 'AppIdList',
-      appName: 'AppName',
-      appType: 'AppType',
-      bizRegionId: 'BizRegionId',
-      installationStatus: 'InstallationStatus',
-      MD5: 'MD5',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appIdList: { 'type': 'array', 'itemType': 'string' },
-      appName: 'string',
-      appType: 'string',
-      bizRegionId: 'string',
-      installationStatus: 'string',
-      MD5: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.appIdList)) {
-      $dara.Model.validateArray(this.appIdList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAppsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The objects that are returned.
-   */
-  data?: DescribeAppsResponseBodyData[];
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * CB95E410-FD1D-53C5-9F7D-93CC44D7****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 10
-   */
-  totalCount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeAppsResponseBodyData },
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAppsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeAppsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeAppsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupFilesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * acp-34pqe4r0kd9kn****
-   */
-  androidInstanceId?: string;
-  /**
-   * @remarks
-   * The name of the instance. Fuzzy match is supported.
-   * 
-   * @example
-   * acp-34pqe4r0kd9kn****
-   */
-  androidInstanceName?: string;
-  /**
-   * @remarks
-   * Specifies whether the whole instance is backed up.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  backupAll?: boolean;
-  /**
-   * @remarks
-   * The ID of the backup file.
-   * 
-   * @example
-   * bf-dxrh5jrv0zpb8****
-   */
-  backupFileId?: string;
-  /**
-   * @remarks
-   * The name of the backup file. Fuzzy match is supported.
-   * 
-   * @example
-   * defaulBackupFile
-   */
-  backupFileName?: string;
-  /**
-   * @remarks
-   * The description of the backup file. Fuzzy match is supported.
-   * 
-   * @example
-   * default description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The end of the period for querying generated backup files.
-   * 
-   * @example
-   * 2024-05-20 10:00:00
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The owner of the backup file.
-   * 
-   * @example
-   * test1
-   */
-  endUserId?: string;
-  /**
-   * @remarks
-   * The ID of the instance group.
-   * 
-   * @example
-   * ag-fxdx91jsfyiy3****
-   */
-  instanceGroupId?: string;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The beginning of the period for querying generated backup files.
-   * 
-   * @example
-   * 2024-05-23 10:00:00
-   */
-  startTime?: string;
-  /**
-   * @remarks
-   * The status of the backup files.
-   */
-  statusList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceId: 'AndroidInstanceId',
-      androidInstanceName: 'AndroidInstanceName',
-      backupAll: 'BackupAll',
-      backupFileId: 'BackupFileId',
-      backupFileName: 'BackupFileName',
-      description: 'Description',
-      endTime: 'EndTime',
-      endUserId: 'EndUserId',
-      instanceGroupId: 'InstanceGroupId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      startTime: 'StartTime',
-      statusList: 'StatusList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceId: 'string',
-      androidInstanceName: 'string',
-      backupAll: 'boolean',
-      backupFileId: 'string',
-      backupFileName: 'string',
-      description: 'string',
-      endTime: 'string',
-      endUserId: 'string',
-      instanceGroupId: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      startTime: 'string',
-      statusList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.statusList)) {
-      $dara.Model.validateArray(this.statusList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupFilesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The backup files that are returned.
-   */
-  data?: DescribeBackupFilesResponseBodyData[];
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: string;
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request. If the request fails, provide this ID to technical support to assist in diagnosing the issue.
-   * 
-   * @example
-   * 425F351C-3F8E-5218-A520-B6311D0D****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 91
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeBackupFilesResponseBodyData },
-      maxResults: 'string',
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupFilesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeBackupFilesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeBackupFilesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCloudPhoneNodesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The billing method. Only the subscription billing method is supported.
-   * 
-   * @example
-   * PrePaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 100. Default value: 20.
-   * 
-   * @example
-   * 20
-   */
-  maxResults?: string;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If a query doesn\\"t return all results, the response includes a NextToken value for pagination. You must specify the token that is obtained from the previous query as the value of NextToken.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The matrix IDs.
-   */
-  nodeIds?: string[];
-  /**
-   * @remarks
-   * The matrix name.
-   * 
-   * @example
-   * node_name
-   */
-  nodeName?: string;
-  /**
-   * @remarks
-   * The matrix specification.
-   * 
-   * Valid values:
-   * 
-   * *   cpm.gn6.gx1
-   * 
-   * @example
-   * cpm.gn6.gx1
-   */
-  serverType?: string;
-  /**
-   * @remarks
-   * The matrix status.
-   * 
-   * Valid values:
-   * 
-   * *   FAILED: The matrix failed to be created.
-   * *   RUNNING: The matrix is available.
-   * *   DELETING: The matrix is being deleted.
-   * *   NODE_READY: The matrix is ready, and cloud phone instances are being created.
-   * *   DELETED: The matrix is deleted.
-   * *   CREATING: The matrix is being created.
-   * 
-   * @example
-   * CREATING
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizRegionId: 'BizRegionId',
-      chargeType: 'ChargeType',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      nodeIds: 'NodeIds',
-      nodeName: 'NodeName',
-      serverType: 'ServerType',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizRegionId: 'string',
-      chargeType: 'string',
-      maxResults: 'string',
-      nextToken: 'string',
-      nodeIds: { 'type': 'array', 'itemType': 'string' },
-      nodeName: 'string',
-      serverType: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.nodeIds)) {
-      $dara.Model.validateArray(this.nodeIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCloudPhoneNodesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The maximum number of entries per page.
-   * 
-   * @example
-   * 20
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   ****
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The matrixes.
-   */
-  nodeModel?: DescribeCloudPhoneNodesResponseBodyNodeModel[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * F07A1DA1-E1EB-5CCA-8EED-12F85D32****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of cloud phone instances.
-   * 
-   * @example
-   * 31
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      nodeModel: 'NodeModel',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      nodeModel: { 'type': 'array', 'itemType': DescribeCloudPhoneNodesResponseBodyNodeModel },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.nodeModel)) {
-      $dara.Model.validateArray(this.nodeModel);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCloudPhoneNodesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeCloudPhoneNodesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeCloudPhoneNodesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageListRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the image.
-   * 
-   * @example
-   * imgc-075cllfeuazh0****
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The name of the image.
-   * 
-   * @example
-   * Android 12 image
-   */
-  imageName?: string;
-  /**
-   * @remarks
-   * Image package type.
-   * 
-   * @example
-   * VM
-   */
-  imagePackageType?: string;
-  /**
-   * @remarks
-   * The type of the image.
-   * 
-   * Valid values:
-   * 
-   * *   User: custom images.
-   * *   System: system images.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * System
-   */
-  imageType?: string;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
-   * 
-   * @example
-   * 20
-   * 
-   * **if can be null:**
-   * true
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The state of the image.
-   * 
-   * Valid values:
-   * 
-   * *   AVAILABLE: The image is available.
-   * *   DELETE: The image is deleted.
-   * *   INIT: The image is being initialized.
-   * *   CREATE_FAILED: The image failed to be created.
-   * *   CREATING: The image is being created.
-   * 
-   * @example
-   * AVAILABLE
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageId: 'ImageId',
-      imageName: 'ImageName',
-      imagePackageType: 'ImagePackageType',
-      imageType: 'ImageType',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageId: 'string',
-      imageName: 'string',
-      imagePackageType: 'string',
-      imageType: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The images.
-   */
-  data?: DescribeImageListResponseBodyData[];
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 620740FF-492F-5956-B1BA-361E966C0269
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 30
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeImageListResponseBodyData },
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageListResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeImageListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeImageListResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInvocationsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
-   * 
-   * This parameter is required.
-   */
-  instanceIds?: string[];
-  /**
-   * @remarks
-   * The ID of the execution. You can retrieve the output of a command once by using either the execution ID or the cloud phone instance ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * t-4e98eeb5****
-   */
-  invocationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceIds: 'InstanceIds',
-      invocationId: 'InvocationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-      invocationId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceIds)) {
-      $dara.Model.validateArray(this.instanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInvocationsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The objects that are returned.
-   */
-  data?: DescribeInvocationsResponseBodyData[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 440D7342-5E7C-B2DB-D0B4EAC2BDF1****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 10
-   */
-  totalCount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeInvocationsResponseBodyData },
-      requestId: 'string',
-      totalCount: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInvocationsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeInvocationsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeInvocationsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeKeyPairsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the ADB key pairs.
-   */
-  keyPairIds?: string[];
-  /**
-   * @remarks
-   * The name of the ADB key pair.
-   * 
-   * @example
-   * testKeyPairName
-   */
-  keyPairName?: string;
-  /**
-   * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
-   * 
-   * @example
-   * AAAAAYRHtOLVQzCYj17y+OP7LZQBUVVbi0GTu8g5****
-   */
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keyPairIds: 'KeyPairIds',
-      keyPairName: 'KeyPairName',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyPairIds: { 'type': 'array', 'itemType': 'string' },
-      keyPairName: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.keyPairIds)) {
-      $dara.Model.validateArray(this.keyPairIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeKeyPairsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The objects that are returned.
-   */
-  data?: DescribeKeyPairsResponseBodyData[];
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * FFbc8N4E1iOlcSxC+8boa0HHH2LKWbggYUinyrZWvtS1oTrMYCg1HuMLGuftj0****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 565FB06A-AE04-5AD0-8A32-5BA92CA5****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 10
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeKeyPairsResponseBodyData },
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeKeyPairsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeKeyPairsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeKeyPairsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The display language of the console. Valid values:
-   * 
-   * *   cn: Simplified Chinese
-   * *   en: English
-   * 
-   * @example
-   * en
-   */
-  acceptLanguage?: string;
-  /**
-   * @remarks
-   * The sales mode.
-   * 
-   * Valid values:
-   * 
-   * *   Instance: the instance group mode. [Default]
-   * *   Node: the matrix mode. [Whitelist required]
-   * 
-   * @example
-   * Instance
-   */
-  saleMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceptLanguage: 'AcceptLanguage',
-      saleMode: 'SaleMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptLanguage: 'string',
-      saleMode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Available regions.
-   */
-  regionModels?: DescribeRegionsResponseBodyRegionModels[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * A87B3769-0D05-5383-B236-5798B455****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionModels: 'RegionModels',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionModels: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionModels },
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.regionModels)) {
-      $dara.Model.validateArray(this.regionModels);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRegionsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpecRequest extends $dara.Model {
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The matrix specification.
-   * 
-   * Valid values:
-   * 
-   * *   cpm.gn6.gx1
-   * 
-   * @example
-   * cpm.gn6.gx1
-   */
-  matrixSpec?: string;
-  /**
-   * @remarks
-   * The maximum number of items to return per page in a paginated query. The value range is 1 to 100, with a default value of 100.
-   * 
-   * @example
-   * 20
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * Indicates the starting position for reading. If left empty, it starts from the beginning.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The purchase mode of cloud mobile phones.
-   * 
-   * Valid values:
-   * 
-   * *   Instance (default): the instance group mode.
-   * *   Node: the matrix mode [whitelisted].
-   * 
-   * @example
-   * Instance
-   */
-  saleMode?: string;
-  /**
-   * @remarks
-   * List of specification IDs.
-   */
-  specIds?: string[];
-  /**
-   * @remarks
-   * Specification status.
-   * 
-   * @example
-   * Available
-   */
-  specStatus?: string;
-  /**
-   * @remarks
-   * Specification type.
-   * 
-   * @example
-   * ARM
-   */
-  specType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizRegionId: 'BizRegionId',
-      matrixSpec: 'MatrixSpec',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      saleMode: 'SaleMode',
-      specIds: 'SpecIds',
-      specStatus: 'SpecStatus',
-      specType: 'SpecType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizRegionId: 'string',
-      matrixSpec: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      saleMode: 'string',
-      specIds: { 'type': 'array', 'itemType': 'string' },
-      specStatus: 'string',
-      specType: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.specIds)) {
-      $dara.Model.validateArray(this.specIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpecResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates the current read position returned by this call. An empty value means that all data has been read.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * D9888DAD-331E-5FBC-B5A0-F2445115****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The specifications.
-   */
-  specInfoModel?: DescribeSpecResponseBodySpecInfoModel[];
-  /**
-   * @remarks
-   * Total number of items.
-   * 
-   * @example
-   * 4
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      specInfoModel: 'SpecInfoModel',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      specInfoModel: { 'type': 'array', 'itemType': DescribeSpecResponseBodySpecInfoModel },
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.specInfoModel)) {
-      $dara.Model.validateArray(this.specInfoModel);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpecResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSpecResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSpecResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTasksRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the cloud phone instance.
-   * 
-   * @example
-   * acp-2zecay9ponatdc4m****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The name of the cloud phone instance.
-   * 
-   * @example
-   * defaultInstanceName
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * The ID of the command execution. You can set the value to the last returned request ID.
-   * 
-   * @example
-   * B8ED2BA9-0C6A-5643-818F-B5D60A64****
-   */
-  invokeId?: string;
-  /**
-   * @remarks
-   * The level of the task. A value of 1 specifies a batch task. A value of 2 specifies an instance-level task.
-   * 
-   * @example
-   * 1
-   */
-  level?: number;
-  /**
-   * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
-   * 
-   * @example
-   * FFbc8N4E1iOlcSxC+8boa0HHH2LKWbggYUinyrZWvtS1oTrMYCg1HuMLGuftj0****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The extension field.
-   * 
-   * @example
-   * param
-   */
-  param?: string;
-  /**
-   * @remarks
-   * The ID of the parent task.
-   * 
-   * @example
-   * t-iaej5dkbnmivx****
-   */
-  parentTaskId?: string;
-  /**
-   * @remarks
-   * The IDs of the resources.
-   */
-  resourceIds?: string[];
-  /**
-   * @remarks
-   * The IDs of the tasks.
-   */
-  taskIds?: string[];
-  /**
-   * @remarks
-   * The state of the task.
-   * 
-   * Valid values:
-   * 
-   * *   PartFinished: The task is partially successful.
-   * *   Finished: The task is completed.
-   * *   Failed: The task failed.
-   * *   Skipped: The task is skipped.
-   * *   Processing: The task is running.
-   * *   Waiting: The task is in queue.
-   * 
-   * @example
-   * Processing
-   */
-  taskStatus?: string;
-  /**
-   * @remarks
-   * The status of the tasks.
-   */
-  taskStatuses?: string[];
-  /**
-   * @remarks
-   * The type of the task.
-   * 
-   * Valid values:
-   * 
-   * *   BackupFile: backs up files.
-   * *   StopInstance: stops cloud phone instances.
-   * *   RebootInstance: restarts cloud phone instances.
-   * *   StartApp: starts apps.
-   * *   SendFile: uploads files.
-   * *   RunCommand: sends remote command.
-   * *   RestartApp: restarts apps.
-   * *   ResetInstance: resets cloud phone instances.
-   * *   RecoverFile: recovers files.
-   * *   UninstallApp: uninstalls apps.
-   * *   StopApp: stops apps.
-   * *   Screenshot: takes screenshots.
-   * *   InstallApp: installs apps.
-   * *   FetchFile: downloads files.
-   * *   UpdateGroupImage: replaces images.
-   * *   StartInstance: starts instances.
-   * 
-   * @example
-   * StartInstance
-   */
-  taskType?: string;
-  /**
-   * @remarks
-   * The types of the tasks.
-   */
-  taskTypes?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      invokeId: 'InvokeId',
-      level: 'Level',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      param: 'Param',
-      parentTaskId: 'ParentTaskId',
-      resourceIds: 'ResourceIds',
-      taskIds: 'TaskIds',
-      taskStatus: 'TaskStatus',
-      taskStatuses: 'TaskStatuses',
-      taskType: 'TaskType',
-      taskTypes: 'TaskTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      instanceName: 'string',
-      invokeId: 'string',
-      level: 'number',
-      maxResults: 'number',
-      nextToken: 'string',
-      param: 'string',
-      parentTaskId: 'string',
-      resourceIds: { 'type': 'array', 'itemType': 'string' },
-      taskIds: { 'type': 'array', 'itemType': 'string' },
-      taskStatus: 'string',
-      taskStatuses: { 'type': 'array', 'itemType': 'string' },
-      taskType: 'string',
-      taskTypes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.resourceIds)) {
-      $dara.Model.validateArray(this.resourceIds);
-    }
-    if(Array.isArray(this.taskIds)) {
-      $dara.Model.validateArray(this.taskIds);
-    }
-    if(Array.isArray(this.taskStatuses)) {
-      $dara.Model.validateArray(this.taskStatuses);
-    }
-    if(Array.isArray(this.taskTypes)) {
-      $dara.Model.validateArray(this.taskTypes);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTasksResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The objects that are returned.
-   */
-  data?: DescribeTasksResponseBodyData[];
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * B8ED2BA9-0C6A-5643-818F-B5D60A64****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 10
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeTasksResponseBodyData },
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTasksResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeTasksResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachKeyPairRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
-   */
-  instanceIds?: string[];
-  /**
-   * @remarks
-   * The ID of the ADB key pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * kp-6v2q33ae4tw3a****
-   */
-  keyPairId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceIds: 'InstanceIds',
-      keyPairId: 'KeyPairId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-      keyPairId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceIds)) {
-      $dara.Model.validateArray(this.instanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachKeyPairResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The object that is returned.
-   */
-  data?: DetachKeyPairResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DetachKeyPairResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachKeyPairResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetachKeyPairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetachKeyPairResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisconnectAndroidInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  instanceIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceIds: 'InstanceIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceIds)) {
-      $dara.Model.validateArray(this.instanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisconnectAndroidInstanceResponseBody extends $dara.Model {
-  /**
-   * @example
-   * E5138F7E-46B5-526A-8C99-82DEAE6B****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisconnectAndroidInstanceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DisconnectAndroidInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DisconnectAndroidInstanceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DistributeImageRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The regions to which you want to distribute an image.
-   * 
-   * This parameter is required.
-   */
-  distributeRegionList?: string[];
-  /**
-   * @remarks
-   * The ID of the image that you want to distribute.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * imgc-075cllfeuazh0****
-   */
-  imageId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      distributeRegionList: 'DistributeRegionList',
-      imageId: 'ImageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      distributeRegionList: { 'type': 'array', 'itemType': 'string' },
-      imageId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.distributeRegionList)) {
-      $dara.Model.validateArray(this.distributeRegionList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DistributeImageResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 440D7342-5FC2-5E7C-B2DB-D0B4EAC2BDF1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DistributeImageResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DistributeImageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DistributeImageResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DowngradeAndroidInstanceGroupRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances that you want to delete.
-   */
-  androidInstanceIds?: string[];
-  /**
-   * @remarks
-   * Specifies whether to enable the auto-payment feature. Default value: false.
-   * 
-   * Valid values:
-   * 
-   * *   true: enables the auto-payment feature. Ensure your account has sufficient balance to use this feature.
-   * *   false: disables the auto-payment feature. This requires manual payment each time you place an order.
-   * 
-   * @example
-   * true
-   */
-  autoPay?: boolean;
-  /**
-   * @remarks
-   * The ID of the instance group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ag-cuv4scs4obxhs****
-   */
-  instanceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceIds: 'AndroidInstanceIds',
-      autoPay: 'AutoPay',
-      instanceGroupId: 'InstanceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
-      autoPay: 'boolean',
-      instanceGroupId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.androidInstanceIds)) {
-      $dara.Model.validateArray(this.androidInstanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DowngradeAndroidInstanceGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the order.
-   * 
-   * @example
-   * 22326560487****
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 3AF82CE1-2801-52CE-BF64-B491DD7C****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DowngradeAndroidInstanceGroupResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DowngradeAndroidInstanceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DowngradeAndroidInstanceGroupResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EndCoordinationRequest extends $dara.Model {
-  /**
-   * @example
-   * lina
-   */
-  coordinatorUserId?: string;
-  /**
-   * @example
-   * acp-2zecay9ponatdc4m****
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * xiaoming
-   */
-  ownerUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      coordinatorUserId: 'CoordinatorUserId',
-      instanceId: 'InstanceId',
-      ownerUserId: 'OwnerUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      coordinatorUserId: 'string',
-      instanceId: 'string',
-      ownerUserId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EndCoordinationResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 5C5CEF0A-D6E1-58D3-8750-67DB4F82****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EndCoordinationResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: EndCoordinationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EndCoordinationResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExpandDataVolumeRequest extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
-  autoPay?: boolean;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  nodeIds?: string[];
-  /**
-   * @example
-   * 100
-   */
-  shareDataVolume?: number;
-  static names(): { [key: string]: string } {
-    return {
-      autoPay: 'AutoPay',
-      bizRegionId: 'BizRegionId',
-      nodeIds: 'NodeIds',
-      shareDataVolume: 'ShareDataVolume',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoPay: 'boolean',
-      bizRegionId: 'string',
-      nodeIds: { 'type': 'array', 'itemType': 'string' },
-      shareDataVolume: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.nodeIds)) {
-      $dara.Model.validateArray(this.nodeIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExpandDataVolumeResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 22326560487****
-   */
-  orderId?: string;
-  /**
-   * @example
-   * 5C5CEF0A-D6E1-58D3-8750-67DB4F82****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExpandDataVolumeResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ExpandDataVolumeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ExpandDataVolumeResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FetchFileRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances.
-   * 
-   * This parameter is required.
-   */
-  androidInstanceIdList?: string[];
-  /**
-   * @remarks
-   * The path to the file that you want to pull from the cloud phone instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * /data/a.txt
-   */
-  sourceFilePath?: string;
-  /**
-   * @remarks
-   * The endpoint of the OSS bucket in which you want to store the pulled file.
-   * 
-   * >  Set the value to an internal endpoint when the cloud phone instance and the OSS bucket are in the same region to improve upload speed without incurring public traffic fees. Sample endpoint: `oss-cn-hangzhou-internal.aliyuncs.com`. For more information, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * oss-cn-hangzhou.aliyuncs.com
-   */
-  uploadEndpoint?: string;
-  /**
-   * @remarks
-   * The type of the storage service.
-   * 
-   * >  Currently, only OSS is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * OSS
-   */
-  uploadType?: string;
-  /**
-   * @remarks
-   * The OSS URL of the pulled file.
-   * 
-   * >  The OSS bucket name must start with "cloudphone-saved-bucket-", for example, "cloudphone-saved-bucket-example". You must also create an OSS directory to store the backup data. Set the value for UploadUrl in this format: oss://\\<BucketName>/\\<OSSDirectoryName>.
-   * 
-   * This parameter is required.
-   */
-  uploadUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceIdList: 'AndroidInstanceIdList',
-      sourceFilePath: 'SourceFilePath',
-      uploadEndpoint: 'UploadEndpoint',
-      uploadType: 'UploadType',
-      uploadUrl: 'UploadUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
-      sourceFilePath: 'string',
-      uploadEndpoint: 'string',
-      uploadType: 'string',
-      uploadUrl: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.androidInstanceIdList)) {
-      $dara.Model.validateArray(this.androidInstanceIdList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FetchFileResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The objects that are returned.
-   * 
-   * @example
-   * 425F351C-3F8E-5218-A520-B6311D0D****
-   */
-  data?: FetchFileResponseBodyData[];
-  /**
-   * @remarks
-   * The ID of the request. If the request fails, share this ID with technical support to help diagnose the issue.
-   * 
-   * @example
-   * 425F351C-3F8E-5218-A520-B6311D0D****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the batch task.
-   * 
-   * @example
-   * t-ehs0yoedj0xe9****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': FetchFileResponseBodyData },
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FetchFileResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FetchFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FetchFileResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateCoordinationCodeRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * acp-2zecay9ponatdc4m****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the user to whom the current instance is assigned.
-   * 
-   * @example
-   * xiaoming
-   */
-  ownerUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ownerUserId: 'OwnerUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ownerUserId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateCoordinationCodeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The collaboration code.
-   * 
-   * @example
-   * CSHGDK
-   */
-  coordinatorCode?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1A923337-44D9-5CAD-9A53-95084BD4****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      coordinatorCode: 'CoordinatorCode',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      coordinatorCode: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateCoordinationCodeResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GenerateCoordinationCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GenerateCoordinationCodeResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportKeyPairRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the ADB key pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TestKeyPairName
-   */
-  keyPairName?: string;
-  /**
-   * @remarks
-   * The public key of the ADB key pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ABC1234567*****
-   */
-  publicKeyBody?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keyPairName: 'KeyPairName',
-      publicKeyBody: 'PublicKeyBody',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyPairName: 'string',
-      publicKeyBody: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportKeyPairResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The object that is returned.
-   */
-  data?: ImportKeyPairResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ImportKeyPairResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportKeyPairResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ImportKeyPairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ImportKeyPairResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InstallAppRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the apps that you want to install.
-   */
-  appIdList?: string[];
-  /**
-   * @remarks
-   * The IDs of the instance groups.
-   */
-  instanceGroupIdList?: string[];
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances.
-   */
-  instanceIdList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      appIdList: 'AppIdList',
-      instanceGroupIdList: 'InstanceGroupIdList',
-      instanceIdList: 'InstanceIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appIdList: { 'type': 'array', 'itemType': 'string' },
-      instanceGroupIdList: { 'type': 'array', 'itemType': 'string' },
-      instanceIdList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.appIdList)) {
-      $dara.Model.validateArray(this.appIdList);
-    }
-    if(Array.isArray(this.instanceGroupIdList)) {
-      $dara.Model.validateArray(this.instanceGroupIdList);
-    }
-    if(Array.isArray(this.instanceIdList)) {
-      $dara.Model.validateArray(this.instanceIdList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InstallAppResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * E5138F7E-46B5-526A-8C99-82DEAE6B****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the task.
-   * 
-   * @example
-   * t-14xwibw7yp73q****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InstallAppResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: InstallAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: InstallAppResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyGroupsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The maximum number of entries per page. Value range: 1 to 100. Default value: 20.
-   * 
-   * @example
-   * 20
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The IDs of the policies.
-   */
-  policyGroupIds?: string[];
-  /**
-   * @remarks
-   * The name of the policy.
-   * 
-   * @example
-   * defaultPolicyGroup
-   */
-  policyGroupName?: string;
-  policyType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      policyGroupIds: 'PolicyGroupIds',
-      policyGroupName: 'PolicyGroupName',
-      policyType: 'PolicyType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      policyGroupIds: { 'type': 'array', 'itemType': 'string' },
-      policyGroupName: 'string',
-      policyType: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.policyGroupIds)) {
-      $dara.Model.validateArray(this.policyGroupIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyGroupsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The policies.
-   */
-  policyGroupModel?: ListPolicyGroupsResponseBodyPolicyGroupModel[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7B9EFA4F-4305-5968-BAEE-BD8B8DE5****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 31
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      policyGroupModel: 'PolicyGroupModel',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      policyGroupModel: { 'type': 'array', 'itemType': ListPolicyGroupsResponseBodyPolicyGroupModel },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.policyGroupModel)) {
-      $dara.Model.validateArray(this.policyGroupModel);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPolicyGroupsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPolicyGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPolicyGroupsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAndroidInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the cloud phone instance.
-   * 
-   * @example
-   * acp-8v5bjld0r7tkl****
-   */
-  androidInstanceId?: string;
-  /**
-   * @remarks
-   * The new name of the cloud phone instance.
-   * 
-   * >  The name can be up to 30 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), or hyphens (-). It must start with letters but cannot start with http:// or https://.
-   * 
-   * @example
-   * new_name
-   */
-  newAndroidInstanceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceId: 'AndroidInstanceId',
-      newAndroidInstanceName: 'NewAndroidInstanceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceId: 'string',
-      newAndroidInstanceName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAndroidInstanceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * E5138F7E-46B5-526A-8C99-82DEAE6B****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAndroidInstanceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyAndroidInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyAndroidInstanceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAndroidInstanceGroupRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the instance group.
-   * 
-   * @example
-   * ag-cuv4scs4obxhs****
-   */
-  instanceGroupId?: string;
-  /**
-   * @remarks
-   * The new name of the instance group.
-   * 
-   * > 
-   * 
-   * *   The name can be up to 30 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), or hyphens (-). It must start with letters but cannot start with http:// or https://.
-   * 
-   * @example
-   * newName
-   */
-  newInstanceGroupName?: string;
-  /**
-   * @remarks
-   * The ID of the policy.
-   * 
-   * @example
-   * pg-2w97kp89gnsif****
-   */
-  policyGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceGroupId: 'InstanceGroupId',
-      newInstanceGroupName: 'NewInstanceGroupName',
-      policyGroupId: 'PolicyGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceGroupId: 'string',
-      newInstanceGroupName: 'string',
-      policyGroupId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAndroidInstanceGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 6C83EBE3-F267-5F11-ABF8-4E7B90B****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAndroidInstanceGroupResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyAndroidInstanceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyAndroidInstanceGroupResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAppRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the application.
-   * 
-   * @example
-   * 1234
-   */
-  appId?: number;
-  /**
-   * @remarks
-   * The name of the application.
-   * 
-   * @example
-   * defaultAppName
-   */
-  appName?: string;
-  /**
-   * @remarks
-   * The description of the application.
-   * 
-   * @example
-   * default description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The URL of the icon.
-   * 
-   * @example
-   * https://defaultIcon.png
-   */
-  iconUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appName: 'AppName',
-      description: 'Description',
-      iconUrl: 'IconUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'number',
-      appName: 'string',
-      description: 'string',
-      iconUrl: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAppResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 83418504-5A82-5896-A24C-B2D468F0****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAppResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyAppResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyCloudPhoneNodeRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name that you want to assign to the cloud phone matrix.
-   * 
-   * @example
-   * node_name_new
-   */
-  newNodeName?: string;
-  /**
-   * @remarks
-   * The ID of the cloud phone matrix.
-   * 
-   * @example
-   * cpn-0ugbptfu473fy****
-   */
-  nodeId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      newNodeName: 'NewNodeName',
-      nodeId: 'NodeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      newNodeName: 'string',
-      nodeId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyCloudPhoneNodeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 7B9EFA4F-4305-5968-BAEE-BD8B8DE5****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyCloudPhoneNodeResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyCloudPhoneNodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyCloudPhoneNodeResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyInstanceChargeTypeRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the auto-payment feature. Default value: false.
-   * 
-   * @example
-   * false
-   */
-  autoPay?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable the auto-renewal feature. Default value: false.
-   * 
-   * @example
-   * false
-   */
-  autoRenew?: boolean;
-  /**
-   * @remarks
-   * The billing method. Valid values:
-   * 
-   * >  Currently, this operation only allows you to change the billing method from **pay-as-you-go to subscription**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * PrePaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The IDs of the instance groups.
-   * 
-   * This parameter is required.
-   */
-  instanceGroupIds?: string[];
-  /**
-   * @remarks
-   * The subscription duration. The unit is specified by PeriodUnit. Valid values: 1 Month, 2 Months, 3 Months, 6 Months, and 1 Year.
-   * 
-   * @example
-   * 1
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The unit of the subscription duration. Valid values:
-   * 
-   * *   **Month**
-   * *   **Year**
-   * 
-   * @example
-   * Month
-   */
-  periodUnit?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoPay: 'AutoPay',
-      autoRenew: 'AutoRenew',
-      chargeType: 'ChargeType',
-      instanceGroupIds: 'InstanceGroupIds',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoPay: 'boolean',
-      autoRenew: 'boolean',
-      chargeType: 'string',
-      instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
-      period: 'number',
-      periodUnit: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceGroupIds)) {
-      $dara.Model.validateArray(this.instanceGroupIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyInstanceChargeTypeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the instance groups.
-   */
-  instanceGroupIds?: string[];
-  /**
-   * @remarks
-   * The ID of the order.
-   * 
-   * @example
-   * 22326560487****
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 1A923337-44D9-5CAD-9A53-95084BD4****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceGroupIds: 'InstanceGroupIds',
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceGroupIds)) {
-      $dara.Model.validateArray(this.instanceGroupIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyInstanceChargeTypeResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyInstanceChargeTypeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyInstanceChargeTypeResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyKeyPairNameRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the ADB key pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * kp-6v2q33ae4tw3a****
-   */
-  keyPairId?: string;
-  /**
-   * @remarks
-   * The name of the ADB key pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * newKeyPairName
-   */
-  newKeyPairName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keyPairId: 'KeyPairId',
-      newKeyPairName: 'NewKeyPairName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyPairId: 'string',
-      newKeyPairName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyKeyPairNameResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyKeyPairNameResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyKeyPairNameResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyKeyPairNameResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyGroupRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the webcam redirection feature.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  cameraRedirect?: string;
-  /**
-   * @remarks
-   * The read/write permissions on the clipboard.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: ready and write.
-   * *   off: read/write disabled.
-   * 
-   * @example
-   * readwrite
-   */
-  clipboard?: string;
-  /**
-   * @remarks
-   * The file transfer policy of the Alibaba Cloud Workspace web client.
-   * 
-   * Valid values:
-   * 
-   * *   all: File upload and download are supported.
-   * *   download: Only file download is supported.
-   * *   upload: Only file upload is supported.
-   * *   off: File upload or download is forbidden.
-   * 
-   * @example
-   * off
-   */
-  html5FileTransfer?: string;
-  /**
-   * @remarks
-   * The read/write permissions on the on-premises drive.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: ready and write.
-   * *   off: read/write disabled.
-   * 
-   * @example
-   * off
-   */
-  localDrive?: string;
-  /**
-   * @remarks
-   * Specifies whether to lock the resolution.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  lockResolution?: string;
-  /**
-   * @remarks
-   * The network redirection policy.
-   */
-  netRedirectPolicy?: ModifyPolicyGroupRequestNetRedirectPolicy;
-  /**
-   * @remarks
-   * The ID of the policy.
-   * 
-   * @example
-   * pg-4bi18ebi9tfjh****
-   */
-  policyGroupId?: string;
-  /**
-   * @remarks
-   * The name of the policy.
-   * 
-   * @example
-   * defaultPolicyGroup
-   */
-  policyGroupName?: string;
-  /**
-   * @remarks
-   * The height of the resolution. Unit: pixels.
-   * 
-   * @example
-   * 1280
-   */
-  resolutionHeight?: number;
-  /**
-   * @remarks
-   * The width of the resolution. Unit: pixels.
-   * 
-   * @example
-   * 720
-   */
-  resolutionWidth?: number;
-  watermark?: ModifyPolicyGroupRequestWatermark;
-  static names(): { [key: string]: string } {
-    return {
-      cameraRedirect: 'CameraRedirect',
-      clipboard: 'Clipboard',
-      html5FileTransfer: 'Html5FileTransfer',
-      localDrive: 'LocalDrive',
-      lockResolution: 'LockResolution',
-      netRedirectPolicy: 'NetRedirectPolicy',
-      policyGroupId: 'PolicyGroupId',
-      policyGroupName: 'PolicyGroupName',
-      resolutionHeight: 'ResolutionHeight',
-      resolutionWidth: 'ResolutionWidth',
-      watermark: 'Watermark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cameraRedirect: 'string',
-      clipboard: 'string',
-      html5FileTransfer: 'string',
-      localDrive: 'string',
-      lockResolution: 'string',
-      netRedirectPolicy: ModifyPolicyGroupRequestNetRedirectPolicy,
-      policyGroupId: 'string',
-      policyGroupName: 'string',
-      resolutionHeight: 'number',
-      resolutionWidth: 'number',
-      watermark: ModifyPolicyGroupRequestWatermark,
-    };
-  }
-
-  validate() {
-    if(this.netRedirectPolicy && typeof (this.netRedirectPolicy as any).validate === 'function') {
-      (this.netRedirectPolicy as any).validate();
-    }
-    if(this.watermark && typeof (this.watermark as any).validate === 'function') {
-      (this.watermark as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyGroupShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the webcam redirection feature.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  cameraRedirect?: string;
-  /**
-   * @remarks
-   * The read/write permissions on the clipboard.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: ready and write.
-   * *   off: read/write disabled.
-   * 
-   * @example
-   * readwrite
-   */
-  clipboard?: string;
-  /**
-   * @remarks
-   * The file transfer policy of the Alibaba Cloud Workspace web client.
-   * 
-   * Valid values:
-   * 
-   * *   all: File upload and download are supported.
-   * *   download: Only file download is supported.
-   * *   upload: Only file upload is supported.
-   * *   off: File upload or download is forbidden.
-   * 
-   * @example
-   * off
-   */
-  html5FileTransfer?: string;
-  /**
-   * @remarks
-   * The read/write permissions on the on-premises drive.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only.
-   * *   readwrite: ready and write.
-   * *   off: read/write disabled.
-   * 
-   * @example
-   * off
-   */
-  localDrive?: string;
-  /**
-   * @remarks
-   * Specifies whether to lock the resolution.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
-   * 
-   * @example
-   * off
-   */
-  lockResolution?: string;
-  /**
-   * @remarks
-   * The network redirection policy.
-   */
-  netRedirectPolicyShrink?: string;
-  /**
-   * @remarks
-   * The ID of the policy.
-   * 
-   * @example
-   * pg-4bi18ebi9tfjh****
-   */
-  policyGroupId?: string;
-  /**
-   * @remarks
-   * The name of the policy.
-   * 
-   * @example
-   * defaultPolicyGroup
-   */
-  policyGroupName?: string;
-  /**
-   * @remarks
-   * The height of the resolution. Unit: pixels.
-   * 
-   * @example
-   * 1280
-   */
-  resolutionHeight?: number;
-  /**
-   * @remarks
-   * The width of the resolution. Unit: pixels.
-   * 
-   * @example
-   * 720
-   */
-  resolutionWidth?: number;
-  watermarkShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cameraRedirect: 'CameraRedirect',
-      clipboard: 'Clipboard',
-      html5FileTransfer: 'Html5FileTransfer',
-      localDrive: 'LocalDrive',
-      lockResolution: 'LockResolution',
-      netRedirectPolicyShrink: 'NetRedirectPolicy',
-      policyGroupId: 'PolicyGroupId',
-      policyGroupName: 'PolicyGroupName',
-      resolutionHeight: 'ResolutionHeight',
-      resolutionWidth: 'ResolutionWidth',
-      watermarkShrink: 'Watermark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cameraRedirect: 'string',
-      clipboard: 'string',
-      html5FileTransfer: 'string',
-      localDrive: 'string',
-      lockResolution: 'string',
-      netRedirectPolicyShrink: 'string',
-      policyGroupId: 'string',
-      policyGroupName: 'string',
-      resolutionHeight: 'number',
-      resolutionWidth: 'number',
-      watermarkShrink: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 552B7EED-D434-511F-B838-29EA4E906034
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyGroupResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyPolicyGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyPolicyGroupResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OperateAppRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the app.
-   * 
-   * @example
-   * 1234
-   */
-  appId?: number;
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances.
-   */
-  instanceIdList?: string[];
-  /**
-   * @remarks
-   * The type of the operation.
-   * 
-   * Valid values:
-   * 
-   * *   stop: closes the app.
-   * *   restart: reopens the app.
-   * *   start: open the app.
-   * 
-   * @example
-   * start
-   */
-  operateType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      instanceIdList: 'InstanceIdList',
-      operateType: 'OperateType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'number',
-      instanceIdList: { 'type': 'array', 'itemType': 'string' },
-      operateType: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceIdList)) {
-      $dara.Model.validateArray(this.instanceIdList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OperateAppResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 425F351C-3F8E-5218-A520-B6311D0D****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the task.
-   * 
-   * @example
-   * t-imr0fufqgac2z****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OperateAppResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OperateAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OperateAppResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RebootAndroidInstancesInGroupRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances.
-   */
-  androidInstanceIds?: string[];
-  /**
-   * @remarks
-   * Specifies whether to enforce a restart operation. If a cloud phone instance fails to stop due to system or network issues, a forced restart can be triggered, though it may result in data loss.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  forceStop?: boolean;
-  saleMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceIds: 'AndroidInstanceIds',
-      forceStop: 'ForceStop',
-      saleMode: 'SaleMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
-      forceStop: 'boolean',
-      saleMode: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.androidInstanceIds)) {
-      $dara.Model.validateArray(this.androidInstanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RebootAndroidInstancesInGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 227CBB4C-F5DC-589D-A667-C5CA3D52****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RebootAndroidInstancesInGroupResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RebootAndroidInstancesInGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RebootAndroidInstancesInGroupResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecoveryFileRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the instances.
-   * 
-   * This parameter is required.
-   */
-  androidInstanceIdList?: string[];
-  /**
-   * @remarks
-   * Specifies whether to back up the whole instance.
-   * 
-   * @example
-   * true
-   */
-  backupAll?: boolean;
-  /**
-   * @remarks
-   * The ID of the backup file.
-   * 
-   * @example
-   * bf-azhps4rdyi2th****
-   */
-  backupFileId?: string;
-  /**
-   * @remarks
-   * The OSS path to which the backup file is uploaded.
-   * 
-   * >  When calling the describeBuckets operation to retrieve a bucket name, you must also call the ossObjectList operation to obtain the object key. Combine these to form the full path: oss://${bucketName}/${key}.
-   */
-  backupFilePath?: string;
-  /**
-   * @remarks
-   * The endpoint of the OSS bucket that stores the backup file.
-   * 
-   * > : When calling the DescribeBuckets operation to query buckets, retrieve the IntranetEndpoint value if the cloud phone and the OSS bucket are in the same region. If they are in different regions, retrieve the ExtranetEndpoint value instead.
-   * 
-   * @example
-   * oss-cn-hangzhou-internal.aliyuncs.com
-   */
-  uploadEndpoint?: string;
-  /**
-   * @remarks
-   * The type of the backup.
-   * 
-   * Valid values:
-   * 
-   * *   OSS: backup files are stored in OSS buckets.
-   * 
-   * @example
-   * OSS
-   */
-  uploadType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceIdList: 'AndroidInstanceIdList',
-      backupAll: 'BackupAll',
-      backupFileId: 'BackupFileId',
-      backupFilePath: 'BackupFilePath',
-      uploadEndpoint: 'UploadEndpoint',
-      uploadType: 'UploadType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
-      backupAll: 'boolean',
-      backupFileId: 'string',
-      backupFilePath: 'string',
-      uploadEndpoint: 'string',
-      uploadType: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.androidInstanceIdList)) {
-      $dara.Model.validateArray(this.androidInstanceIdList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecoveryFileResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The number of restored instances.
-   * 
-   * @example
-   * 97
-   */
-  count?: number;
-  /**
-   * @remarks
-   * The backup file that is restored.
-   * 
-   * @example
-   * 6AD56E39-430B-5401-AB4A-7B086454****
-   */
-  data?: RecoveryFileResponseBodyData[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 6AD56E39-430B-5401-AB4A-7B086454****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the batch task.
-   * 
-   * @example
-   * t-5prhfo7wv1gjx****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      data: 'Data',
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      data: { 'type': 'array', 'itemType': RecoveryFileResponseBodyData },
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecoveryFileResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RecoveryFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RecoveryFileResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewAndroidInstanceGroupsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the auto-payment feature.
-   * 
-   * Valid values:
-   * 
-   * *   true: enables the auto-payment feature. Ensure your account has sufficient balance to use this feature.
-   * *   false: disables the auto-payment feature. You need to manually complete the payment process.
-   * 
-   * @example
-   * true
-   */
-  autoPay?: boolean;
-  /**
-   * @remarks
-   * The IDs of the instance groups.
-   */
-  instanceGroupIds?: string[];
-  /**
-   * @remarks
-   * The duration of the renewal, measured in units defined by PeriodUnit.
-   * 
-   * @example
-   * 6
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The unit of the renewal duration. Default value: Month.
-   * 
-   * Valid values:
-   * 
-   * *   Month
-   * *   Year
-   * 
-   * @example
-   * Month
-   */
-  periodUnit?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoPay: 'AutoPay',
-      instanceGroupIds: 'InstanceGroupIds',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoPay: 'boolean',
-      instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
-      period: 'number',
-      periodUnit: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceGroupIds)) {
-      $dara.Model.validateArray(this.instanceGroupIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewAndroidInstanceGroupsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the order.
-   * 
-   * @example
-   * 22326560487****
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 4B886792-2051-5DB4-8AE6-C8E45D3B4****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewAndroidInstanceGroupsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RenewAndroidInstanceGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RenewAndroidInstanceGroupsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewCloudPhoneNodesRequest extends $dara.Model {
-  autoPay?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable the auto-renewal feature.
-   * 
-   * Valid values:
-   * 
-   * *   true: enables the auto-renewal feature. In this case, the system automatically renews the instance upon expiration.
-   * *   false (default): disables the auto-renewal feature. In this case, you need to manually renew the instance upon expiration.
-   * 
-   * @example
-   * true
-   */
-  autoRenew?: boolean;
-  /**
-   * @remarks
-   * The cloud phone matrix IDs.
-   */
-  nodeIds?: string[];
-  /**
-   * @remarks
-   * The subscription duration. The unit is specified by `PeriodUnit`. Valid values:
-   * 
-   * *   When `PeriodUnit` is set to **year**: 1.
-   * *   When `PeriodUnit` is set to **month**: 1, 2, 3, and 6.
-   * 
-   * @example
-   * 1
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The unit of the subscription duration.
-   * 
-   * Valid values:
-   * 
-   * *   Month (default)
-   * *   Year
-   * 
-   * @example
-   * Month
-   */
-  periodUnit?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoPay: 'AutoPay',
-      autoRenew: 'AutoRenew',
-      nodeIds: 'NodeIds',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoPay: 'boolean',
-      autoRenew: 'boolean',
-      nodeIds: { 'type': 'array', 'itemType': 'string' },
-      period: 'number',
-      periodUnit: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.nodeIds)) {
-      $dara.Model.validateArray(this.nodeIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewCloudPhoneNodesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The order ID.
-   * 
-   * @example
-   * 22365781890****
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewCloudPhoneNodesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RenewCloudPhoneNodesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RenewCloudPhoneNodesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetAndroidInstancesInGroupRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances.
-   */
-  androidInstanceIds?: string[];
-  saleMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceIds: 'AndroidInstanceIds',
-      saleMode: 'SaleMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
-      saleMode: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.androidInstanceIds)) {
-      $dara.Model.validateArray(this.androidInstanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetAndroidInstancesInGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetAndroidInstancesInGroupResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ResetAndroidInstancesInGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ResetAndroidInstancesInGroupResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCommandRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The content of the command.
-   * 
-   * @example
-   * ls
-   */
-  commandContent?: string;
-  /**
-   * @remarks
-   * The encoding method of the command content (`CommandContent`). The value is not case-sensitive.
-   * 
-   * >  If you set the value to an invalid encoding method, the system will process the command content as `PlainText`.
-   * 
-   * Valid values:
-   * 
-   * *   Base64: encodes the command content in Base64.
-   * *   PlainText (default): does not encode the command content. The command content is input as plain text.
-   * 
-   * @example
-   * PlainText
-   */
-  contentEncoding?: string;
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
-   */
-  instanceIds?: string[];
-  /**
-   * @remarks
-   * The timeout period of the command execution. If the command execution exceeds the timeout period, it will be considered timed out. If you leave this parameter empty, it defaults to 60.
-   * 
-   * @example
-   * 60
-   */
-  timeout?: number;
-  static names(): { [key: string]: string } {
-    return {
-      commandContent: 'CommandContent',
-      contentEncoding: 'ContentEncoding',
-      instanceIds: 'InstanceIds',
-      timeout: 'Timeout',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commandContent: 'string',
-      contentEncoding: 'string',
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-      timeout: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceIds)) {
-      $dara.Model.validateArray(this.instanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCommandResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the command execution. You can use the command execution ID to query the output of a command.
-   * 
-   * @example
-   * t-gov2ujrk32v4****
-   */
-  invokeId?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 440D7342-5E7C-B2DB-D0B4EAC2BDF1****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      invokeId: 'InvokeId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      invokeId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCommandResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RunCommandResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RunCommandResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendFileRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances.
-   * 
-   * This parameter is required.
-   */
-  androidInstanceIdList?: string[];
-  /**
-   * @remarks
-   * The path to which you want to upload the pushed file in the cloud phone instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * /data
-   */
-  sourceFilePath?: string;
-  /**
-   * @remarks
-   * The name of the file uploaded from the Object Storage Service (OSS) to the cloud phone instance.
-   * 
-   * >  If UploadType is set to OSS, you must specify TargetFileName. If TargetFileName is empty, the file uploaded from the OSS bucket to the cloud phone instance retains its original name. If TargetFileName is provided with a value, the uploaded file in the SourceFilePath directory uses the specified name (TargetFileName). If UploadType is set to DOWNLOAD_URL, TargetFileName does not take effect.
-   * 
-   * @example
-   * test.txt
-   */
-  targetFileName?: string;
-  /**
-   * @remarks
-   * The endpoint of the OSS bucket in which the file is stored.
-   * 
-   * >  Set the value to an internal endpoint when the cloud phone instance and the OSS bucket are in the same region to improve transfer speed without incurring public traffic fees. Sample endpoint: `oss-cn-hangzhou-internal.aliyuncs.com`. For more information, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
-   * 
-   * @example
-   * oss-cn-hangzhou.aliyuncs.com
-   */
-  uploadEndpoint?: string;
-  /**
-   * @remarks
-   * The storage type of the file that you want to upload.
-   * 
-   * *   Set the value to OSS.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * OSS
-   */
-  uploadType?: string;
-  /**
-   * @remarks
-   * The OSS URL of the file.
-   * 
-   * >  The OSS bucket name must start with "cloudphone-saved-bucket-", for example, "cloudphone-saved-bucket-example". You must also create an OSS directory to store the backup data. Set the value for UploadUrl in this format: oss://\\<BucketName>/\\<OSSDirectoryName>\\<FileName>.
-   * 
-   * This parameter is required.
-   */
-  uploadUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceIdList: 'AndroidInstanceIdList',
-      sourceFilePath: 'SourceFilePath',
-      targetFileName: 'TargetFileName',
-      uploadEndpoint: 'UploadEndpoint',
-      uploadType: 'UploadType',
-      uploadUrl: 'UploadUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
-      sourceFilePath: 'string',
-      targetFileName: 'string',
-      uploadEndpoint: 'string',
-      uploadType: 'string',
-      uploadUrl: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.androidInstanceIdList)) {
-      $dara.Model.validateArray(this.androidInstanceIdList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendFileResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The objects that are returned.
-   * 
-   * @example
-   * 425F351C-3F8E-5218-A520-B6311D0D****
-   */
-  data?: SendFileResponseBodyData[];
-  /**
-   * @remarks
-   * The ID of the request. If the request fails, share this ID with technical support to help diagnose the issue.
-   * 
-   * @example
-   * 425F351C-3F8E-5218-A520-B6311D0D****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the batch task.
-   * 
-   * @example
-   * t-ehs0yoedj0xe9****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': SendFileResponseBodyData },
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendFileResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SendFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SendFileResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAdbSecureRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
-   */
-  instanceIds?: string[];
-  /**
-   * @remarks
-   * The status of the ADB authentication feature.
-   * 
-   * Valid values:
-   * 
-   * *   0: The ADB authentication feature is disabled.
-   * *   1: The ADB authentication feature is enabled.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceIds: 'InstanceIds',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-      status: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceIds)) {
-      $dara.Model.validateArray(this.instanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAdbSecureResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned object.
-   */
-  data?: SetAdbSecureResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SetAdbSecureResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAdbSecureResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetAdbSecureResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetAdbSecureResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartAndroidInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * List of instances.
-   */
-  androidInstanceIds?: string[];
-  saleMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceIds: 'AndroidInstanceIds',
-      saleMode: 'SaleMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
-      saleMode: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.androidInstanceIds)) {
-      $dara.Model.validateArray(this.androidInstanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartAndroidInstanceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * 17C731AB-AAEE-5844-A352-D8D0352D****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartAndroidInstanceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartAndroidInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartAndroidInstanceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopAndroidInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances.
-   */
-  androidInstanceIds?: string[];
-  /**
-   * @remarks
-   * Specifies whether to enforce a stop operation. If a cloud phone instance fails to stop due to system or network issues, a forced stop can be triggered, though it may result in data loss.
-   * 
-   * @example
-   * false
-   */
-  forceStop?: boolean;
-  saleMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidInstanceIds: 'AndroidInstanceIds',
-      forceStop: 'ForceStop',
-      saleMode: 'SaleMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
-      forceStop: 'boolean',
-      saleMode: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.androidInstanceIds)) {
-      $dara.Model.validateArray(this.androidInstanceIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopAndroidInstanceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * E38B41A8-8E00-5AE4-A957-6636ACB8****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopAndroidInstanceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopAndroidInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopAndroidInstanceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UninstallAppRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the apps.
-   */
-  appIdList?: string[];
-  /**
-   * @remarks
-   * The ID of the instance groups. If you specify this parameter, you cannot specify InstanceIdList.
-   */
-  instanceGroupIdList?: string[];
-  /**
-   * @remarks
-   * The IDs of the cloud phone instances. If you specify this parameter, you cannot specify InstanceGroupIdList.
-   */
-  instanceIdList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      appIdList: 'AppIdList',
-      instanceGroupIdList: 'InstanceGroupIdList',
-      instanceIdList: 'InstanceIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appIdList: { 'type': 'array', 'itemType': 'string' },
-      instanceGroupIdList: { 'type': 'array', 'itemType': 'string' },
-      instanceIdList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.appIdList)) {
-      $dara.Model.validateArray(this.appIdList);
-    }
-    if(Array.isArray(this.instanceGroupIdList)) {
-      $dara.Model.validateArray(this.instanceGroupIdList);
-    }
-    if(Array.isArray(this.instanceIdList)) {
-      $dara.Model.validateArray(this.instanceIdList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UninstallAppResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * E5138F7E-46B5-526A-8C99-82DEAE6B****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the task.
-   * 
-   * @example
-   * t-1ljew7on6ay0j****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UninstallAppResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UninstallAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UninstallAppResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateCustomImageNameRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the image.
-   * 
-   * @example
-   * imgc-075cllfeuazh0****
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The name of the image.
-   * 
-   * @example
-   * imagename
-   */
-  imageName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageId: 'ImageId',
-      imageName: 'ImageName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageId: 'string',
-      imageName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateCustomImageNameResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 552B7EED-D434-511F-B838-29EA4E906034
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateCustomImageNameResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateCustomImageNameResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateCustomImageNameResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceGroupImageRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the image.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * imgc-075cllfeuazh****
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The IDs of the instance groups.
-   * 
-   * This parameter is required.
-   */
-  instanceGroupIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      imageId: 'ImageId',
-      instanceGroupIds: 'InstanceGroupIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageId: 'string',
-      instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceGroupIds)) {
-      $dara.Model.validateArray(this.instanceGroupIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceGroupImageResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 55726272-E40B-530D-914F-5126B19C79B3
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceGroupImageResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateInstanceGroupImageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateInstanceGroupImageResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceImageRequest extends $dara.Model {
-  /**
-   * @example
-   * imgc-075cllfeuazh0****
-   */
-  imageId?: string;
-  instanceIdList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      imageId: 'ImageId',
-      instanceIdList: 'InstanceIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageId: 'string',
-      instanceIdList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceIdList)) {
-      $dara.Model.validateArray(this.instanceIdList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceImageResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1A923337-44D9-5CAD-9A53-95084BD4****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * t-1ljew7on6ay0j****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceImageResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateInstanceImageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateInstanceImageResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeAndroidInstanceGroupRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the auto-payment feature.
-   * 
-   * Valid values:
-   * 
-   * *   true: enables the auto-payment feature. Make sure that your Alibaba Cloud account has sufficient balance.
-   * *   false: disables the auto-payment feature. You need to manually complete the payment process.
-   * 
-   * @example
-   * true
-   */
-  autoPay?: boolean;
-  /**
-   * @remarks
-   * The number of instances that you want to increase.
-   * 
-   * @example
-   * 10
-   */
-  increaseNumberOfInstance?: number;
-  /**
-   * @remarks
-   * The ID of the instance group.
-   * 
-   * @example
-   * ag-asguicdjh****
-   */
-  instanceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoPay: 'AutoPay',
-      increaseNumberOfInstance: 'IncreaseNumberOfInstance',
-      instanceGroupId: 'InstanceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoPay: 'boolean',
-      increaseNumberOfInstance: 'number',
-      instanceGroupId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeAndroidInstanceGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * [\\"acp-3vzqq4y3f31f3z3df\\"]
-   */
-  instanceIds?: string;
-  /**
-   * @remarks
-   * The ID of the order.
-   * 
-   * @example
-   * 223684716098****
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 310A783E-CC46-5452-A8A3-71AE5DB59****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceIds: 'InstanceIds',
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceIds: 'string',
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeAndroidInstanceGroupResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpgradeAndroidInstanceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpgradeAndroidInstanceGroupResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
@@ -14375,7 +41,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachKeyPairResponse
    */
-  async attachKeyPairWithOptions(request: AttachKeyPairRequest, runtime: $dara.RuntimeOptions): Promise<AttachKeyPairResponse> {
+  async attachKeyPairWithOptions(request: $_model.AttachKeyPairRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachKeyPairResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.instanceIds)) {
@@ -14400,7 +66,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AttachKeyPairResponse>(await this.callApi(params, req, runtime), new AttachKeyPairResponse({}));
+    return $dara.cast<$_model.AttachKeyPairResponse>(await this.callApi(params, req, runtime), new $_model.AttachKeyPairResponse({}));
   }
 
   /**
@@ -14413,7 +79,7 @@ export default class Client extends OpenApi {
    * @param request - AttachKeyPairRequest
    * @returns AttachKeyPairResponse
    */
-  async attachKeyPair(request: AttachKeyPairRequest): Promise<AttachKeyPairResponse> {
+  async attachKeyPair(request: $_model.AttachKeyPairRequest): Promise<$_model.AttachKeyPairResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.attachKeyPairWithOptions(request, runtime);
   }
@@ -14429,7 +95,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AuthorizeAndroidInstanceResponse
    */
-  async authorizeAndroidInstanceWithOptions(request: AuthorizeAndroidInstanceRequest, runtime: $dara.RuntimeOptions): Promise<AuthorizeAndroidInstanceResponse> {
+  async authorizeAndroidInstanceWithOptions(request: $_model.AuthorizeAndroidInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AuthorizeAndroidInstanceResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceIds)) {
@@ -14458,7 +124,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AuthorizeAndroidInstanceResponse>(await this.callApi(params, req, runtime), new AuthorizeAndroidInstanceResponse({}));
+    return $dara.cast<$_model.AuthorizeAndroidInstanceResponse>(await this.callApi(params, req, runtime), new $_model.AuthorizeAndroidInstanceResponse({}));
   }
 
   /**
@@ -14471,7 +137,7 @@ export default class Client extends OpenApi {
    * @param request - AuthorizeAndroidInstanceRequest
    * @returns AuthorizeAndroidInstanceResponse
    */
-  async authorizeAndroidInstance(request: AuthorizeAndroidInstanceRequest): Promise<AuthorizeAndroidInstanceResponse> {
+  async authorizeAndroidInstance(request: $_model.AuthorizeAndroidInstanceRequest): Promise<$_model.AuthorizeAndroidInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.authorizeAndroidInstanceWithOptions(request, runtime);
   }
@@ -14486,7 +152,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BackupFileResponse
    */
-  async backupFileWithOptions(request: BackupFileRequest, runtime: $dara.RuntimeOptions): Promise<BackupFileResponse> {
+  async backupFileWithOptions(request: $_model.BackupFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BackupFileResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceIdList)) {
@@ -14539,7 +205,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<BackupFileResponse>(await this.callApi(params, req, runtime), new BackupFileResponse({}));
+    return $dara.cast<$_model.BackupFileResponse>(await this.callApi(params, req, runtime), new $_model.BackupFileResponse({}));
   }
 
   /**
@@ -14551,7 +217,7 @@ export default class Client extends OpenApi {
    * @param request - BackupFileRequest
    * @returns BackupFileResponse
    */
-  async backupFile(request: BackupFileRequest): Promise<BackupFileResponse> {
+  async backupFile(request: $_model.BackupFileRequest): Promise<$_model.BackupFileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.backupFileWithOptions(request, runtime);
   }
@@ -14563,7 +229,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BatchGetAcpConnectionTicketResponse
    */
-  async batchGetAcpConnectionTicketWithOptions(request: BatchGetAcpConnectionTicketRequest, runtime: $dara.RuntimeOptions): Promise<BatchGetAcpConnectionTicketResponse> {
+  async batchGetAcpConnectionTicketWithOptions(request: $_model.BatchGetAcpConnectionTicketRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchGetAcpConnectionTicketResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.endUserId)) {
@@ -14596,7 +262,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<BatchGetAcpConnectionTicketResponse>(await this.callApi(params, req, runtime), new BatchGetAcpConnectionTicketResponse({}));
+    return $dara.cast<$_model.BatchGetAcpConnectionTicketResponse>(await this.callApi(params, req, runtime), new $_model.BatchGetAcpConnectionTicketResponse({}));
   }
 
   /**
@@ -14605,7 +271,7 @@ export default class Client extends OpenApi {
    * @param request - BatchGetAcpConnectionTicketRequest
    * @returns BatchGetAcpConnectionTicketResponse
    */
-  async batchGetAcpConnectionTicket(request: BatchGetAcpConnectionTicketRequest): Promise<BatchGetAcpConnectionTicketResponse> {
+  async batchGetAcpConnectionTicket(request: $_model.BatchGetAcpConnectionTicketRequest): Promise<$_model.BatchGetAcpConnectionTicketResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.batchGetAcpConnectionTicketWithOptions(request, runtime);
   }
@@ -14617,7 +283,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeCloudPhoneNodeResponse
    */
-  async changeCloudPhoneNodeWithOptions(request: ChangeCloudPhoneNodeRequest, runtime: $dara.RuntimeOptions): Promise<ChangeCloudPhoneNodeResponse> {
+  async changeCloudPhoneNodeWithOptions(request: $_model.ChangeCloudPhoneNodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeCloudPhoneNodeResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.instanceType)) {
@@ -14646,7 +312,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ChangeCloudPhoneNodeResponse>(await this.callApi(params, req, runtime), new ChangeCloudPhoneNodeResponse({}));
+    return $dara.cast<$_model.ChangeCloudPhoneNodeResponse>(await this.callApi(params, req, runtime), new $_model.ChangeCloudPhoneNodeResponse({}));
   }
 
   /**
@@ -14655,7 +321,7 @@ export default class Client extends OpenApi {
    * @param request - ChangeCloudPhoneNodeRequest
    * @returns ChangeCloudPhoneNodeResponse
    */
-  async changeCloudPhoneNode(request: ChangeCloudPhoneNodeRequest): Promise<ChangeCloudPhoneNodeResponse> {
+  async changeCloudPhoneNode(request: $_model.ChangeCloudPhoneNodeRequest): Promise<$_model.ChangeCloudPhoneNodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.changeCloudPhoneNodeWithOptions(request, runtime);
   }
@@ -14667,7 +333,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckResourceStockResponse
    */
-  async checkResourceStockWithOptions(request: CheckResourceStockRequest, runtime: $dara.RuntimeOptions): Promise<CheckResourceStockResponse> {
+  async checkResourceStockWithOptions(request: $_model.CheckResourceStockRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckResourceStockResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.acpSpecId)) {
@@ -14704,7 +370,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CheckResourceStockResponse>(await this.callApi(params, req, runtime), new CheckResourceStockResponse({}));
+    return $dara.cast<$_model.CheckResourceStockResponse>(await this.callApi(params, req, runtime), new $_model.CheckResourceStockResponse({}));
   }
 
   /**
@@ -14713,7 +379,7 @@ export default class Client extends OpenApi {
    * @param request - CheckResourceStockRequest
    * @returns CheckResourceStockResponse
    */
-  async checkResourceStock(request: CheckResourceStockRequest): Promise<CheckResourceStockResponse> {
+  async checkResourceStock(request: $_model.CheckResourceStockRequest): Promise<$_model.CheckResourceStockResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkResourceStockWithOptions(request, runtime);
   }
@@ -14730,7 +396,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAndroidInstanceGroupResponse
    */
-  async createAndroidInstanceGroupWithOptions(request: CreateAndroidInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreateAndroidInstanceGroupResponse> {
+  async createAndroidInstanceGroupWithOptions(request: $_model.CreateAndroidInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAndroidInstanceGroupResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.amount)) {
@@ -14827,7 +493,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateAndroidInstanceGroupResponse>(await this.callApi(params, req, runtime), new CreateAndroidInstanceGroupResponse({}));
+    return $dara.cast<$_model.CreateAndroidInstanceGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateAndroidInstanceGroupResponse({}));
   }
 
   /**
@@ -14841,7 +507,7 @@ export default class Client extends OpenApi {
    * @param request - CreateAndroidInstanceGroupRequest
    * @returns CreateAndroidInstanceGroupResponse
    */
-  async createAndroidInstanceGroup(request: CreateAndroidInstanceGroupRequest): Promise<CreateAndroidInstanceGroupResponse> {
+  async createAndroidInstanceGroup(request: $_model.CreateAndroidInstanceGroupRequest): Promise<$_model.CreateAndroidInstanceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAndroidInstanceGroupWithOptions(request, runtime);
   }
@@ -14866,9 +532,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAppResponse
    */
-  async createAppWithOptions(tmpReq: CreateAppRequest, runtime: $dara.RuntimeOptions): Promise<CreateAppResponse> {
+  async createAppWithOptions(tmpReq: $_model.CreateAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppResponse> {
     tmpReq.validate();
-    let request = new CreateAppShrinkRequest({ });
+    let request = new $_model.CreateAppShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.customAppInfo)) {
       request.customAppInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customAppInfo, "CustomAppInfo", "json");
@@ -14929,7 +595,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateAppResponse>(await this.callApi(params, req, runtime), new CreateAppResponse({}));
+    return $dara.cast<$_model.CreateAppResponse>(await this.callApi(params, req, runtime), new $_model.CreateAppResponse({}));
   }
 
   /**
@@ -14951,7 +617,7 @@ export default class Client extends OpenApi {
    * @param request - CreateAppRequest
    * @returns CreateAppResponse
    */
-  async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
+  async createApp(request: $_model.CreateAppRequest): Promise<$_model.CreateAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAppWithOptions(request, runtime);
   }
@@ -14963,9 +629,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateCloudPhoneNodeResponse
    */
-  async createCloudPhoneNodeWithOptions(tmpReq: CreateCloudPhoneNodeRequest, runtime: $dara.RuntimeOptions): Promise<CreateCloudPhoneNodeResponse> {
+  async createCloudPhoneNodeWithOptions(tmpReq: $_model.CreateCloudPhoneNodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCloudPhoneNodeResponse> {
     tmpReq.validate();
-    let request = new CreateCloudPhoneNodeShrinkRequest({ });
+    let request = new $_model.CreateCloudPhoneNodeShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.displayConfig)) {
       request.displayConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.displayConfig, "DisplayConfig", "json");
@@ -15064,7 +730,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateCloudPhoneNodeResponse>(await this.callApi(params, req, runtime), new CreateCloudPhoneNodeResponse({}));
+    return $dara.cast<$_model.CreateCloudPhoneNodeResponse>(await this.callApi(params, req, runtime), new $_model.CreateCloudPhoneNodeResponse({}));
   }
 
   /**
@@ -15073,7 +739,7 @@ export default class Client extends OpenApi {
    * @param request - CreateCloudPhoneNodeRequest
    * @returns CreateCloudPhoneNodeResponse
    */
-  async createCloudPhoneNode(request: CreateCloudPhoneNodeRequest): Promise<CreateCloudPhoneNodeResponse> {
+  async createCloudPhoneNode(request: $_model.CreateCloudPhoneNodeRequest): Promise<$_model.CreateCloudPhoneNodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createCloudPhoneNodeWithOptions(request, runtime);
   }
@@ -15085,7 +751,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateCustomImageResponse
    */
-  async createCustomImageWithOptions(request: CreateCustomImageRequest, runtime: $dara.RuntimeOptions): Promise<CreateCustomImageResponse> {
+  async createCustomImageWithOptions(request: $_model.CreateCustomImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomImageResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
@@ -15118,7 +784,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateCustomImageResponse>(await this.callApi(params, req, runtime), new CreateCustomImageResponse({}));
+    return $dara.cast<$_model.CreateCustomImageResponse>(await this.callApi(params, req, runtime), new $_model.CreateCustomImageResponse({}));
   }
 
   /**
@@ -15127,7 +793,7 @@ export default class Client extends OpenApi {
    * @param request - CreateCustomImageRequest
    * @returns CreateCustomImageResponse
    */
-  async createCustomImage(request: CreateCustomImageRequest): Promise<CreateCustomImageResponse> {
+  async createCustomImage(request: $_model.CreateCustomImageRequest): Promise<$_model.CreateCustomImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createCustomImageWithOptions(request, runtime);
   }
@@ -15143,7 +809,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateKeyPairResponse
    */
-  async createKeyPairWithOptions(request: CreateKeyPairRequest, runtime: $dara.RuntimeOptions): Promise<CreateKeyPairResponse> {
+  async createKeyPairWithOptions(request: $_model.CreateKeyPairRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKeyPairResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.keyPairName)) {
@@ -15164,7 +830,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateKeyPairResponse>(await this.callApi(params, req, runtime), new CreateKeyPairResponse({}));
+    return $dara.cast<$_model.CreateKeyPairResponse>(await this.callApi(params, req, runtime), new $_model.CreateKeyPairResponse({}));
   }
 
   /**
@@ -15177,7 +843,7 @@ export default class Client extends OpenApi {
    * @param request - CreateKeyPairRequest
    * @returns CreateKeyPairResponse
    */
-  async createKeyPair(request: CreateKeyPairRequest): Promise<CreateKeyPairResponse> {
+  async createKeyPair(request: $_model.CreateKeyPairRequest): Promise<$_model.CreateKeyPairResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createKeyPairWithOptions(request, runtime);
   }
@@ -15189,9 +855,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePolicyGroupResponse
    */
-  async createPolicyGroupWithOptions(tmpReq: CreatePolicyGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreatePolicyGroupResponse> {
+  async createPolicyGroupWithOptions(tmpReq: $_model.CreatePolicyGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePolicyGroupResponse> {
     tmpReq.validate();
-    let request = new CreatePolicyGroupShrinkRequest({ });
+    let request = new $_model.CreatePolicyGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.netRedirectPolicy)) {
       request.netRedirectPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.netRedirectPolicy, "NetRedirectPolicy", "json");
@@ -15260,7 +926,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreatePolicyGroupResponse>(await this.callApi(params, req, runtime), new CreatePolicyGroupResponse({}));
+    return $dara.cast<$_model.CreatePolicyGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreatePolicyGroupResponse({}));
   }
 
   /**
@@ -15269,7 +935,7 @@ export default class Client extends OpenApi {
    * @param request - CreatePolicyGroupRequest
    * @returns CreatePolicyGroupResponse
    */
-  async createPolicyGroup(request: CreatePolicyGroupRequest): Promise<CreatePolicyGroupResponse> {
+  async createPolicyGroup(request: $_model.CreatePolicyGroupRequest): Promise<$_model.CreatePolicyGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createPolicyGroupWithOptions(request, runtime);
   }
@@ -15284,7 +950,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateScreenshotResponse
    */
-  async createScreenshotWithOptions(request: CreateScreenshotRequest, runtime: $dara.RuntimeOptions): Promise<CreateScreenshotResponse> {
+  async createScreenshotWithOptions(request: $_model.CreateScreenshotRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateScreenshotResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceIdList)) {
@@ -15313,7 +979,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateScreenshotResponse>(await this.callApi(params, req, runtime), new CreateScreenshotResponse({}));
+    return $dara.cast<$_model.CreateScreenshotResponse>(await this.callApi(params, req, runtime), new $_model.CreateScreenshotResponse({}));
   }
 
   /**
@@ -15325,7 +991,7 @@ export default class Client extends OpenApi {
    * @param request - CreateScreenshotRequest
    * @returns CreateScreenshotResponse
    */
-  async createScreenshot(request: CreateScreenshotRequest): Promise<CreateScreenshotResponse> {
+  async createScreenshot(request: $_model.CreateScreenshotRequest): Promise<$_model.CreateScreenshotResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createScreenshotWithOptions(request, runtime);
   }
@@ -15341,7 +1007,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAndroidInstanceGroupResponse
    */
-  async deleteAndroidInstanceGroupWithOptions(request: DeleteAndroidInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAndroidInstanceGroupResponse> {
+  async deleteAndroidInstanceGroupWithOptions(request: $_model.DeleteAndroidInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAndroidInstanceGroupResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.instanceGroupIds)) {
@@ -15362,7 +1028,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteAndroidInstanceGroupResponse>(await this.callApi(params, req, runtime), new DeleteAndroidInstanceGroupResponse({}));
+    return $dara.cast<$_model.DeleteAndroidInstanceGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAndroidInstanceGroupResponse({}));
   }
 
   /**
@@ -15375,7 +1041,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteAndroidInstanceGroupRequest
    * @returns DeleteAndroidInstanceGroupResponse
    */
-  async deleteAndroidInstanceGroup(request: DeleteAndroidInstanceGroupRequest): Promise<DeleteAndroidInstanceGroupResponse> {
+  async deleteAndroidInstanceGroup(request: $_model.DeleteAndroidInstanceGroupRequest): Promise<$_model.DeleteAndroidInstanceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAndroidInstanceGroupWithOptions(request, runtime);
   }
@@ -15387,7 +1053,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAppsResponse
    */
-  async deleteAppsWithOptions(request: DeleteAppsRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAppsResponse> {
+  async deleteAppsWithOptions(request: $_model.DeleteAppsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAppsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appIdList)) {
@@ -15408,7 +1074,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteAppsResponse>(await this.callApi(params, req, runtime), new DeleteAppsResponse({}));
+    return $dara.cast<$_model.DeleteAppsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAppsResponse({}));
   }
 
   /**
@@ -15417,7 +1083,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteAppsRequest
    * @returns DeleteAppsResponse
    */
-  async deleteApps(request: DeleteAppsRequest): Promise<DeleteAppsResponse> {
+  async deleteApps(request: $_model.DeleteAppsRequest): Promise<$_model.DeleteAppsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppsWithOptions(request, runtime);
   }
@@ -15432,7 +1098,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCloudPhoneNodesResponse
    */
-  async deleteCloudPhoneNodesWithOptions(request: DeleteCloudPhoneNodesRequest, runtime: $dara.RuntimeOptions): Promise<DeleteCloudPhoneNodesResponse> {
+  async deleteCloudPhoneNodesWithOptions(request: $_model.DeleteCloudPhoneNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCloudPhoneNodesResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.nodeIds)) {
@@ -15453,7 +1119,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteCloudPhoneNodesResponse>(await this.callApi(params, req, runtime), new DeleteCloudPhoneNodesResponse({}));
+    return $dara.cast<$_model.DeleteCloudPhoneNodesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCloudPhoneNodesResponse({}));
   }
 
   /**
@@ -15465,7 +1131,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteCloudPhoneNodesRequest
    * @returns DeleteCloudPhoneNodesResponse
    */
-  async deleteCloudPhoneNodes(request: DeleteCloudPhoneNodesRequest): Promise<DeleteCloudPhoneNodesResponse> {
+  async deleteCloudPhoneNodes(request: $_model.DeleteCloudPhoneNodesRequest): Promise<$_model.DeleteCloudPhoneNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCloudPhoneNodesWithOptions(request, runtime);
   }
@@ -15480,9 +1146,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteImagesResponse
    */
-  async deleteImagesWithOptions(tmpReq: DeleteImagesRequest, runtime: $dara.RuntimeOptions): Promise<DeleteImagesResponse> {
+  async deleteImagesWithOptions(tmpReq: $_model.DeleteImagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteImagesResponse> {
     tmpReq.validate();
-    let request = new DeleteImagesShrinkRequest({ });
+    let request = new $_model.DeleteImagesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.imageIds)) {
       request.imageIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageIds, "ImageIds", "json");
@@ -15507,7 +1173,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteImagesResponse>(await this.callApi(params, req, runtime), new DeleteImagesResponse({}));
+    return $dara.cast<$_model.DeleteImagesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteImagesResponse({}));
   }
 
   /**
@@ -15519,7 +1185,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteImagesRequest
    * @returns DeleteImagesResponse
    */
-  async deleteImages(request: DeleteImagesRequest): Promise<DeleteImagesResponse> {
+  async deleteImages(request: $_model.DeleteImagesRequest): Promise<$_model.DeleteImagesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteImagesWithOptions(request, runtime);
   }
@@ -15535,7 +1201,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteKeyPairsResponse
    */
-  async deleteKeyPairsWithOptions(request: DeleteKeyPairsRequest, runtime: $dara.RuntimeOptions): Promise<DeleteKeyPairsResponse> {
+  async deleteKeyPairsWithOptions(request: $_model.DeleteKeyPairsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKeyPairsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.keyPairIds)) {
@@ -15556,7 +1222,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteKeyPairsResponse>(await this.callApi(params, req, runtime), new DeleteKeyPairsResponse({}));
+    return $dara.cast<$_model.DeleteKeyPairsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKeyPairsResponse({}));
   }
 
   /**
@@ -15569,7 +1235,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteKeyPairsRequest
    * @returns DeleteKeyPairsResponse
    */
-  async deleteKeyPairs(request: DeleteKeyPairsRequest): Promise<DeleteKeyPairsResponse> {
+  async deleteKeyPairs(request: $_model.DeleteKeyPairsRequest): Promise<$_model.DeleteKeyPairsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteKeyPairsWithOptions(request, runtime);
   }
@@ -15581,7 +1247,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePolicyGroupResponse
    */
-  async deletePolicyGroupWithOptions(request: DeletePolicyGroupRequest, runtime: $dara.RuntimeOptions): Promise<DeletePolicyGroupResponse> {
+  async deletePolicyGroupWithOptions(request: $_model.DeletePolicyGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePolicyGroupResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.policyGroupIds)) {
@@ -15602,7 +1268,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeletePolicyGroupResponse>(await this.callApi(params, req, runtime), new DeletePolicyGroupResponse({}));
+    return $dara.cast<$_model.DeletePolicyGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeletePolicyGroupResponse({}));
   }
 
   /**
@@ -15611,7 +1277,7 @@ export default class Client extends OpenApi {
    * @param request - DeletePolicyGroupRequest
    * @returns DeletePolicyGroupResponse
    */
-  async deletePolicyGroup(request: DeletePolicyGroupRequest): Promise<DeletePolicyGroupResponse> {
+  async deletePolicyGroup(request: $_model.DeletePolicyGroupRequest): Promise<$_model.DeletePolicyGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePolicyGroupWithOptions(request, runtime);
   }
@@ -15623,7 +1289,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAndroidInstanceGroupsResponse
    */
-  async describeAndroidInstanceGroupsWithOptions(request: DescribeAndroidInstanceGroupsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeAndroidInstanceGroupsResponse> {
+  async describeAndroidInstanceGroupsWithOptions(request: $_model.DescribeAndroidInstanceGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAndroidInstanceGroupsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.bizRegionId)) {
@@ -15680,7 +1346,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeAndroidInstanceGroupsResponse>(await this.callApi(params, req, runtime), new DescribeAndroidInstanceGroupsResponse({}));
+    return $dara.cast<$_model.DescribeAndroidInstanceGroupsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAndroidInstanceGroupsResponse({}));
   }
 
   /**
@@ -15689,7 +1355,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeAndroidInstanceGroupsRequest
    * @returns DescribeAndroidInstanceGroupsResponse
    */
-  async describeAndroidInstanceGroups(request: DescribeAndroidInstanceGroupsRequest): Promise<DescribeAndroidInstanceGroupsResponse> {
+  async describeAndroidInstanceGroups(request: $_model.DescribeAndroidInstanceGroupsRequest): Promise<$_model.DescribeAndroidInstanceGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAndroidInstanceGroupsWithOptions(request, runtime);
   }
@@ -15701,7 +1367,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAndroidInstancesResponse
    */
-  async describeAndroidInstancesWithOptions(request: DescribeAndroidInstancesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeAndroidInstancesResponse> {
+  async describeAndroidInstancesWithOptions(request: $_model.DescribeAndroidInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAndroidInstancesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceIds)) {
@@ -15760,6 +1426,10 @@ export default class Client extends OpenApi {
       query["OfficeSiteIds"] = request.officeSiteIds;
     }
 
+    if (!$dara.isNull(request.qosRuleIds)) {
+      query["QosRuleIds"] = request.qosRuleIds;
+    }
+
     if (!$dara.isNull(request.saleMode)) {
       query["SaleMode"] = request.saleMode;
     }
@@ -15786,7 +1456,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeAndroidInstancesResponse>(await this.callApi(params, req, runtime), new DescribeAndroidInstancesResponse({}));
+    return $dara.cast<$_model.DescribeAndroidInstancesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAndroidInstancesResponse({}));
   }
 
   /**
@@ -15795,7 +1465,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeAndroidInstancesRequest
    * @returns DescribeAndroidInstancesResponse
    */
-  async describeAndroidInstances(request: DescribeAndroidInstancesRequest): Promise<DescribeAndroidInstancesResponse> {
+  async describeAndroidInstances(request: $_model.DescribeAndroidInstancesRequest): Promise<$_model.DescribeAndroidInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAndroidInstancesWithOptions(request, runtime);
   }
@@ -15807,7 +1477,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAppsResponse
    */
-  async describeAppsWithOptions(request: DescribeAppsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeAppsResponse> {
+  async describeAppsWithOptions(request: $_model.DescribeAppsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAppsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appIdList)) {
@@ -15860,7 +1530,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeAppsResponse>(await this.callApi(params, req, runtime), new DescribeAppsResponse({}));
+    return $dara.cast<$_model.DescribeAppsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAppsResponse({}));
   }
 
   /**
@@ -15869,7 +1539,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeAppsRequest
    * @returns DescribeAppsResponse
    */
-  async describeApps(request: DescribeAppsRequest): Promise<DescribeAppsResponse> {
+  async describeApps(request: $_model.DescribeAppsRequest): Promise<$_model.DescribeAppsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAppsWithOptions(request, runtime);
   }
@@ -15884,7 +1554,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupFilesResponse
    */
-  async describeBackupFilesWithOptions(request: DescribeBackupFilesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeBackupFilesResponse> {
+  async describeBackupFilesWithOptions(request: $_model.DescribeBackupFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBackupFilesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceId)) {
@@ -15953,7 +1623,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeBackupFilesResponse>(await this.callApi(params, req, runtime), new DescribeBackupFilesResponse({}));
+    return $dara.cast<$_model.DescribeBackupFilesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBackupFilesResponse({}));
   }
 
   /**
@@ -15965,7 +1635,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeBackupFilesRequest
    * @returns DescribeBackupFilesResponse
    */
-  async describeBackupFiles(request: DescribeBackupFilesRequest): Promise<DescribeBackupFilesResponse> {
+  async describeBackupFiles(request: $_model.DescribeBackupFilesRequest): Promise<$_model.DescribeBackupFilesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeBackupFilesWithOptions(request, runtime);
   }
@@ -15977,7 +1647,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCloudPhoneNodesResponse
    */
-  async describeCloudPhoneNodesWithOptions(request: DescribeCloudPhoneNodesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeCloudPhoneNodesResponse> {
+  async describeCloudPhoneNodesWithOptions(request: $_model.DescribeCloudPhoneNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCloudPhoneNodesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.bizRegionId)) {
@@ -16026,7 +1696,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeCloudPhoneNodesResponse>(await this.callApi(params, req, runtime), new DescribeCloudPhoneNodesResponse({}));
+    return $dara.cast<$_model.DescribeCloudPhoneNodesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCloudPhoneNodesResponse({}));
   }
 
   /**
@@ -16035,9 +1705,51 @@ export default class Client extends OpenApi {
    * @param request - DescribeCloudPhoneNodesRequest
    * @returns DescribeCloudPhoneNodesResponse
    */
-  async describeCloudPhoneNodes(request: DescribeCloudPhoneNodesRequest): Promise<DescribeCloudPhoneNodesResponse> {
+  async describeCloudPhoneNodes(request: $_model.DescribeCloudPhoneNodesRequest): Promise<$_model.DescribeCloudPhoneNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCloudPhoneNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询显示设置
+   * 
+   * @param request - DescribeDisplayConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDisplayConfigResponse
+   */
+  async describeDisplayConfigWithOptions(request: $_model.DescribeDisplayConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDisplayConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.androidInstanceIds)) {
+      body["AndroidInstanceIds"] = request.androidInstanceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDisplayConfig",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDisplayConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDisplayConfigResponse({}));
+  }
+
+  /**
+   * 查询显示设置
+   * 
+   * @param request - DescribeDisplayConfigRequest
+   * @returns DescribeDisplayConfigResponse
+   */
+  async describeDisplayConfig(request: $_model.DescribeDisplayConfigRequest): Promise<$_model.DescribeDisplayConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDisplayConfigWithOptions(request, runtime);
   }
 
   /**
@@ -16047,7 +1759,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeImageListResponse
    */
-  async describeImageListWithOptions(request: DescribeImageListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeImageListResponse> {
+  async describeImageListWithOptions(request: $_model.DescribeImageListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeImageListResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.imagePackageType)) {
@@ -16094,7 +1806,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeImageListResponse>(await this.callApi(params, req, runtime), new DescribeImageListResponse({}));
+    return $dara.cast<$_model.DescribeImageListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeImageListResponse({}));
   }
 
   /**
@@ -16103,7 +1815,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeImageListRequest
    * @returns DescribeImageListResponse
    */
-  async describeImageList(request: DescribeImageListRequest): Promise<DescribeImageListResponse> {
+  async describeImageList(request: $_model.DescribeImageListRequest): Promise<$_model.DescribeImageListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeImageListWithOptions(request, runtime);
   }
@@ -16115,7 +1827,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInvocationsResponse
    */
-  async describeInvocationsWithOptions(request: DescribeInvocationsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInvocationsResponse> {
+  async describeInvocationsWithOptions(request: $_model.DescribeInvocationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInvocationsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.instanceIds)) {
@@ -16140,7 +1852,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeInvocationsResponse>(await this.callApi(params, req, runtime), new DescribeInvocationsResponse({}));
+    return $dara.cast<$_model.DescribeInvocationsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInvocationsResponse({}));
   }
 
   /**
@@ -16149,7 +1861,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeInvocationsRequest
    * @returns DescribeInvocationsResponse
    */
-  async describeInvocations(request: DescribeInvocationsRequest): Promise<DescribeInvocationsResponse> {
+  async describeInvocations(request: $_model.DescribeInvocationsRequest): Promise<$_model.DescribeInvocationsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInvocationsWithOptions(request, runtime);
   }
@@ -16161,7 +1873,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeKeyPairsResponse
    */
-  async describeKeyPairsWithOptions(request: DescribeKeyPairsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeKeyPairsResponse> {
+  async describeKeyPairsWithOptions(request: $_model.DescribeKeyPairsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeKeyPairsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.keyPairIds)) {
@@ -16194,7 +1906,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeKeyPairsResponse>(await this.callApi(params, req, runtime), new DescribeKeyPairsResponse({}));
+    return $dara.cast<$_model.DescribeKeyPairsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeKeyPairsResponse({}));
   }
 
   /**
@@ -16203,7 +1915,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeKeyPairsRequest
    * @returns DescribeKeyPairsResponse
    */
-  async describeKeyPairs(request: DescribeKeyPairsRequest): Promise<DescribeKeyPairsResponse> {
+  async describeKeyPairs(request: $_model.DescribeKeyPairsRequest): Promise<$_model.DescribeKeyPairsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeKeyPairsWithOptions(request, runtime);
   }
@@ -16215,7 +1927,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRegionsResponse> {
+  async describeRegionsWithOptions(request: $_model.DescribeRegionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.acceptLanguage)) {
@@ -16240,7 +1952,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
   }
 
   /**
@@ -16249,7 +1961,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
    */
-  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
+  async describeRegions(request: $_model.DescribeRegionsRequest): Promise<$_model.DescribeRegionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
@@ -16261,7 +1973,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSpecResponse
    */
-  async describeSpecWithOptions(request: DescribeSpecRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSpecResponse> {
+  async describeSpecWithOptions(request: $_model.DescribeSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSpecResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.bizRegionId)) {
@@ -16310,7 +2022,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeSpecResponse>(await this.callApi(params, req, runtime), new DescribeSpecResponse({}));
+    return $dara.cast<$_model.DescribeSpecResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSpecResponse({}));
   }
 
   /**
@@ -16319,7 +2031,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeSpecRequest
    * @returns DescribeSpecResponse
    */
-  async describeSpec(request: DescribeSpecRequest): Promise<DescribeSpecResponse> {
+  async describeSpec(request: $_model.DescribeSpecRequest): Promise<$_model.DescribeSpecResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSpecWithOptions(request, runtime);
   }
@@ -16338,7 +2050,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTasksResponse
    */
-  async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $dara.RuntimeOptions): Promise<DescribeTasksResponse> {
+  async describeTasksWithOptions(request: $_model.DescribeTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTasksResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
@@ -16411,7 +2123,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeTasksResponse>(await this.callApi(params, req, runtime), new DescribeTasksResponse({}));
+    return $dara.cast<$_model.DescribeTasksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTasksResponse({}));
   }
 
   /**
@@ -16427,7 +2139,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeTasksRequest
    * @returns DescribeTasksResponse
    */
-  async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
+  async describeTasks(request: $_model.DescribeTasksRequest): Promise<$_model.DescribeTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeTasksWithOptions(request, runtime);
   }
@@ -16442,7 +2154,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachKeyPairResponse
    */
-  async detachKeyPairWithOptions(request: DetachKeyPairRequest, runtime: $dara.RuntimeOptions): Promise<DetachKeyPairResponse> {
+  async detachKeyPairWithOptions(request: $_model.DetachKeyPairRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachKeyPairResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.instanceIds)) {
@@ -16467,7 +2179,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DetachKeyPairResponse>(await this.callApi(params, req, runtime), new DetachKeyPairResponse({}));
+    return $dara.cast<$_model.DetachKeyPairResponse>(await this.callApi(params, req, runtime), new $_model.DetachKeyPairResponse({}));
   }
 
   /**
@@ -16479,7 +2191,7 @@ export default class Client extends OpenApi {
    * @param request - DetachKeyPairRequest
    * @returns DetachKeyPairResponse
    */
-  async detachKeyPair(request: DetachKeyPairRequest): Promise<DetachKeyPairResponse> {
+  async detachKeyPair(request: $_model.DetachKeyPairRequest): Promise<$_model.DetachKeyPairResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.detachKeyPairWithOptions(request, runtime);
   }
@@ -16491,7 +2203,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisconnectAndroidInstanceResponse
    */
-  async disconnectAndroidInstanceWithOptions(request: DisconnectAndroidInstanceRequest, runtime: $dara.RuntimeOptions): Promise<DisconnectAndroidInstanceResponse> {
+  async disconnectAndroidInstanceWithOptions(request: $_model.DisconnectAndroidInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisconnectAndroidInstanceResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.instanceIds)) {
@@ -16512,7 +2224,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DisconnectAndroidInstanceResponse>(await this.callApi(params, req, runtime), new DisconnectAndroidInstanceResponse({}));
+    return $dara.cast<$_model.DisconnectAndroidInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DisconnectAndroidInstanceResponse({}));
   }
 
   /**
@@ -16521,7 +2233,7 @@ export default class Client extends OpenApi {
    * @param request - DisconnectAndroidInstanceRequest
    * @returns DisconnectAndroidInstanceResponse
    */
-  async disconnectAndroidInstance(request: DisconnectAndroidInstanceRequest): Promise<DisconnectAndroidInstanceResponse> {
+  async disconnectAndroidInstance(request: $_model.DisconnectAndroidInstanceRequest): Promise<$_model.DisconnectAndroidInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disconnectAndroidInstanceWithOptions(request, runtime);
   }
@@ -16536,7 +2248,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DistributeImageResponse
    */
-  async distributeImageWithOptions(request: DistributeImageRequest, runtime: $dara.RuntimeOptions): Promise<DistributeImageResponse> {
+  async distributeImageWithOptions(request: $_model.DistributeImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DistributeImageResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.distributeRegionList)) {
@@ -16561,7 +2273,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DistributeImageResponse>(await this.callApi(params, req, runtime), new DistributeImageResponse({}));
+    return $dara.cast<$_model.DistributeImageResponse>(await this.callApi(params, req, runtime), new $_model.DistributeImageResponse({}));
   }
 
   /**
@@ -16573,7 +2285,7 @@ export default class Client extends OpenApi {
    * @param request - DistributeImageRequest
    * @returns DistributeImageResponse
    */
-  async distributeImage(request: DistributeImageRequest): Promise<DistributeImageResponse> {
+  async distributeImage(request: $_model.DistributeImageRequest): Promise<$_model.DistributeImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.distributeImageWithOptions(request, runtime);
   }
@@ -16588,7 +2300,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DowngradeAndroidInstanceGroupResponse
    */
-  async downgradeAndroidInstanceGroupWithOptions(request: DowngradeAndroidInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<DowngradeAndroidInstanceGroupResponse> {
+  async downgradeAndroidInstanceGroupWithOptions(request: $_model.DowngradeAndroidInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DowngradeAndroidInstanceGroupResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceIds)) {
@@ -16617,7 +2329,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DowngradeAndroidInstanceGroupResponse>(await this.callApi(params, req, runtime), new DowngradeAndroidInstanceGroupResponse({}));
+    return $dara.cast<$_model.DowngradeAndroidInstanceGroupResponse>(await this.callApi(params, req, runtime), new $_model.DowngradeAndroidInstanceGroupResponse({}));
   }
 
   /**
@@ -16629,7 +2341,7 @@ export default class Client extends OpenApi {
    * @param request - DowngradeAndroidInstanceGroupRequest
    * @returns DowngradeAndroidInstanceGroupResponse
    */
-  async downgradeAndroidInstanceGroup(request: DowngradeAndroidInstanceGroupRequest): Promise<DowngradeAndroidInstanceGroupResponse> {
+  async downgradeAndroidInstanceGroup(request: $_model.DowngradeAndroidInstanceGroupRequest): Promise<$_model.DowngradeAndroidInstanceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.downgradeAndroidInstanceGroupWithOptions(request, runtime);
   }
@@ -16641,7 +2353,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EndCoordinationResponse
    */
-  async endCoordinationWithOptions(request: EndCoordinationRequest, runtime: $dara.RuntimeOptions): Promise<EndCoordinationResponse> {
+  async endCoordinationWithOptions(request: $_model.EndCoordinationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EndCoordinationResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.coordinatorUserId)) {
@@ -16670,7 +2382,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<EndCoordinationResponse>(await this.callApi(params, req, runtime), new EndCoordinationResponse({}));
+    return $dara.cast<$_model.EndCoordinationResponse>(await this.callApi(params, req, runtime), new $_model.EndCoordinationResponse({}));
   }
 
   /**
@@ -16679,7 +2391,7 @@ export default class Client extends OpenApi {
    * @param request - EndCoordinationRequest
    * @returns EndCoordinationResponse
    */
-  async endCoordination(request: EndCoordinationRequest): Promise<EndCoordinationResponse> {
+  async endCoordination(request: $_model.EndCoordinationRequest): Promise<$_model.EndCoordinationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.endCoordinationWithOptions(request, runtime);
   }
@@ -16691,7 +2403,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExpandDataVolumeResponse
    */
-  async expandDataVolumeWithOptions(request: ExpandDataVolumeRequest, runtime: $dara.RuntimeOptions): Promise<ExpandDataVolumeResponse> {
+  async expandDataVolumeWithOptions(request: $_model.ExpandDataVolumeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExpandDataVolumeResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.autoPay)) {
@@ -16724,7 +2436,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ExpandDataVolumeResponse>(await this.callApi(params, req, runtime), new ExpandDataVolumeResponse({}));
+    return $dara.cast<$_model.ExpandDataVolumeResponse>(await this.callApi(params, req, runtime), new $_model.ExpandDataVolumeResponse({}));
   }
 
   /**
@@ -16733,7 +2445,7 @@ export default class Client extends OpenApi {
    * @param request - ExpandDataVolumeRequest
    * @returns ExpandDataVolumeResponse
    */
-  async expandDataVolume(request: ExpandDataVolumeRequest): Promise<ExpandDataVolumeResponse> {
+  async expandDataVolume(request: $_model.ExpandDataVolumeRequest): Promise<$_model.ExpandDataVolumeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.expandDataVolumeWithOptions(request, runtime);
   }
@@ -16748,7 +2460,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FetchFileResponse
    */
-  async fetchFileWithOptions(request: FetchFileRequest, runtime: $dara.RuntimeOptions): Promise<FetchFileResponse> {
+  async fetchFileWithOptions(request: $_model.FetchFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FetchFileResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceIdList)) {
@@ -16785,7 +2497,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<FetchFileResponse>(await this.callApi(params, req, runtime), new FetchFileResponse({}));
+    return $dara.cast<$_model.FetchFileResponse>(await this.callApi(params, req, runtime), new $_model.FetchFileResponse({}));
   }
 
   /**
@@ -16797,7 +2509,7 @@ export default class Client extends OpenApi {
    * @param request - FetchFileRequest
    * @returns FetchFileResponse
    */
-  async fetchFile(request: FetchFileRequest): Promise<FetchFileResponse> {
+  async fetchFile(request: $_model.FetchFileRequest): Promise<$_model.FetchFileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.fetchFileWithOptions(request, runtime);
   }
@@ -16812,7 +2524,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateCoordinationCodeResponse
    */
-  async generateCoordinationCodeWithOptions(request: GenerateCoordinationCodeRequest, runtime: $dara.RuntimeOptions): Promise<GenerateCoordinationCodeResponse> {
+  async generateCoordinationCodeWithOptions(request: $_model.GenerateCoordinationCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateCoordinationCodeResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
@@ -16837,7 +2549,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GenerateCoordinationCodeResponse>(await this.callApi(params, req, runtime), new GenerateCoordinationCodeResponse({}));
+    return $dara.cast<$_model.GenerateCoordinationCodeResponse>(await this.callApi(params, req, runtime), new $_model.GenerateCoordinationCodeResponse({}));
   }
 
   /**
@@ -16849,7 +2561,7 @@ export default class Client extends OpenApi {
    * @param request - GenerateCoordinationCodeRequest
    * @returns GenerateCoordinationCodeResponse
    */
-  async generateCoordinationCode(request: GenerateCoordinationCodeRequest): Promise<GenerateCoordinationCodeResponse> {
+  async generateCoordinationCode(request: $_model.GenerateCoordinationCodeRequest): Promise<$_model.GenerateCoordinationCodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.generateCoordinationCodeWithOptions(request, runtime);
   }
@@ -16864,7 +2576,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ImportKeyPairResponse
    */
-  async importKeyPairWithOptions(request: ImportKeyPairRequest, runtime: $dara.RuntimeOptions): Promise<ImportKeyPairResponse> {
+  async importKeyPairWithOptions(request: $_model.ImportKeyPairRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportKeyPairResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.keyPairName)) {
@@ -16889,7 +2601,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ImportKeyPairResponse>(await this.callApi(params, req, runtime), new ImportKeyPairResponse({}));
+    return $dara.cast<$_model.ImportKeyPairResponse>(await this.callApi(params, req, runtime), new $_model.ImportKeyPairResponse({}));
   }
 
   /**
@@ -16901,7 +2613,7 @@ export default class Client extends OpenApi {
    * @param request - ImportKeyPairRequest
    * @returns ImportKeyPairResponse
    */
-  async importKeyPair(request: ImportKeyPairRequest): Promise<ImportKeyPairResponse> {
+  async importKeyPair(request: $_model.ImportKeyPairRequest): Promise<$_model.ImportKeyPairResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.importKeyPairWithOptions(request, runtime);
   }
@@ -16916,7 +2628,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InstallAppResponse
    */
-  async installAppWithOptions(request: InstallAppRequest, runtime: $dara.RuntimeOptions): Promise<InstallAppResponse> {
+  async installAppWithOptions(request: $_model.InstallAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstallAppResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appIdList)) {
@@ -16945,7 +2657,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<InstallAppResponse>(await this.callApi(params, req, runtime), new InstallAppResponse({}));
+    return $dara.cast<$_model.InstallAppResponse>(await this.callApi(params, req, runtime), new $_model.InstallAppResponse({}));
   }
 
   /**
@@ -16957,7 +2669,7 @@ export default class Client extends OpenApi {
    * @param request - InstallAppRequest
    * @returns InstallAppResponse
    */
-  async installApp(request: InstallAppRequest): Promise<InstallAppResponse> {
+  async installApp(request: $_model.InstallAppRequest): Promise<$_model.InstallAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.installAppWithOptions(request, runtime);
   }
@@ -16969,7 +2681,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPolicyGroupsResponse
    */
-  async listPolicyGroupsWithOptions(request: ListPolicyGroupsRequest, runtime: $dara.RuntimeOptions): Promise<ListPolicyGroupsResponse> {
+  async listPolicyGroupsWithOptions(request: $_model.ListPolicyGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPolicyGroupsResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.maxResults)) {
@@ -17006,7 +2718,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListPolicyGroupsResponse>(await this.callApi(params, req, runtime), new ListPolicyGroupsResponse({}));
+    return $dara.cast<$_model.ListPolicyGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListPolicyGroupsResponse({}));
   }
 
   /**
@@ -17015,7 +2727,7 @@ export default class Client extends OpenApi {
    * @param request - ListPolicyGroupsRequest
    * @returns ListPolicyGroupsResponse
    */
-  async listPolicyGroups(request: ListPolicyGroupsRequest): Promise<ListPolicyGroupsResponse> {
+  async listPolicyGroups(request: $_model.ListPolicyGroupsRequest): Promise<$_model.ListPolicyGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listPolicyGroupsWithOptions(request, runtime);
   }
@@ -17027,7 +2739,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAndroidInstanceResponse
    */
-  async modifyAndroidInstanceWithOptions(request: ModifyAndroidInstanceRequest, runtime: $dara.RuntimeOptions): Promise<ModifyAndroidInstanceResponse> {
+  async modifyAndroidInstanceWithOptions(request: $_model.ModifyAndroidInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAndroidInstanceResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceId)) {
@@ -17052,7 +2764,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyAndroidInstanceResponse>(await this.callApi(params, req, runtime), new ModifyAndroidInstanceResponse({}));
+    return $dara.cast<$_model.ModifyAndroidInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAndroidInstanceResponse({}));
   }
 
   /**
@@ -17061,7 +2773,7 @@ export default class Client extends OpenApi {
    * @param request - ModifyAndroidInstanceRequest
    * @returns ModifyAndroidInstanceResponse
    */
-  async modifyAndroidInstance(request: ModifyAndroidInstanceRequest): Promise<ModifyAndroidInstanceResponse> {
+  async modifyAndroidInstance(request: $_model.ModifyAndroidInstanceRequest): Promise<$_model.ModifyAndroidInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAndroidInstanceWithOptions(request, runtime);
   }
@@ -17073,7 +2785,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAndroidInstanceGroupResponse
    */
-  async modifyAndroidInstanceGroupWithOptions(request: ModifyAndroidInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<ModifyAndroidInstanceGroupResponse> {
+  async modifyAndroidInstanceGroupWithOptions(request: $_model.ModifyAndroidInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAndroidInstanceGroupResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.instanceGroupId)) {
@@ -17102,7 +2814,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyAndroidInstanceGroupResponse>(await this.callApi(params, req, runtime), new ModifyAndroidInstanceGroupResponse({}));
+    return $dara.cast<$_model.ModifyAndroidInstanceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAndroidInstanceGroupResponse({}));
   }
 
   /**
@@ -17111,7 +2823,7 @@ export default class Client extends OpenApi {
    * @param request - ModifyAndroidInstanceGroupRequest
    * @returns ModifyAndroidInstanceGroupResponse
    */
-  async modifyAndroidInstanceGroup(request: ModifyAndroidInstanceGroupRequest): Promise<ModifyAndroidInstanceGroupResponse> {
+  async modifyAndroidInstanceGroup(request: $_model.ModifyAndroidInstanceGroupRequest): Promise<$_model.ModifyAndroidInstanceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAndroidInstanceGroupWithOptions(request, runtime);
   }
@@ -17123,7 +2835,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAppResponse
    */
-  async modifyAppWithOptions(request: ModifyAppRequest, runtime: $dara.RuntimeOptions): Promise<ModifyAppResponse> {
+  async modifyAppWithOptions(request: $_model.ModifyAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAppResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appId)) {
@@ -17156,7 +2868,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyAppResponse>(await this.callApi(params, req, runtime), new ModifyAppResponse({}));
+    return $dara.cast<$_model.ModifyAppResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAppResponse({}));
   }
 
   /**
@@ -17165,7 +2877,7 @@ export default class Client extends OpenApi {
    * @param request - ModifyAppRequest
    * @returns ModifyAppResponse
    */
-  async modifyApp(request: ModifyAppRequest): Promise<ModifyAppResponse> {
+  async modifyApp(request: $_model.ModifyAppRequest): Promise<$_model.ModifyAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAppWithOptions(request, runtime);
   }
@@ -17177,7 +2889,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyCloudPhoneNodeResponse
    */
-  async modifyCloudPhoneNodeWithOptions(request: ModifyCloudPhoneNodeRequest, runtime: $dara.RuntimeOptions): Promise<ModifyCloudPhoneNodeResponse> {
+  async modifyCloudPhoneNodeWithOptions(request: $_model.ModifyCloudPhoneNodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCloudPhoneNodeResponse> {
     request.validate();
     let query = OpenApiUtil.query(request.toMap());
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -17194,7 +2906,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyCloudPhoneNodeResponse>(await this.callApi(params, req, runtime), new ModifyCloudPhoneNodeResponse({}));
+    return $dara.cast<$_model.ModifyCloudPhoneNodeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyCloudPhoneNodeResponse({}));
   }
 
   /**
@@ -17203,9 +2915,61 @@ export default class Client extends OpenApi {
    * @param request - ModifyCloudPhoneNodeRequest
    * @returns ModifyCloudPhoneNodeResponse
    */
-  async modifyCloudPhoneNode(request: ModifyCloudPhoneNodeRequest): Promise<ModifyCloudPhoneNodeResponse> {
+  async modifyCloudPhoneNode(request: $_model.ModifyCloudPhoneNodeRequest): Promise<$_model.ModifyCloudPhoneNodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyCloudPhoneNodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改显示设置
+   * 
+   * @param tmpReq - ModifyDisplayConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDisplayConfigResponse
+   */
+  async modifyDisplayConfigWithOptions(tmpReq: $_model.ModifyDisplayConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDisplayConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyDisplayConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.displayConfig)) {
+      request.displayConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.displayConfig, "DisplayConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.androidInstanceIds)) {
+      body["AndroidInstanceIds"] = request.androidInstanceIds;
+    }
+
+    if (!$dara.isNull(request.displayConfigShrink)) {
+      body["DisplayConfig"] = request.displayConfigShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDisplayConfig",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDisplayConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDisplayConfigResponse({}));
+  }
+
+  /**
+   * 修改显示设置
+   * 
+   * @param request - ModifyDisplayConfigRequest
+   * @returns ModifyDisplayConfigResponse
+   */
+  async modifyDisplayConfig(request: $_model.ModifyDisplayConfigRequest): Promise<$_model.ModifyDisplayConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDisplayConfigWithOptions(request, runtime);
   }
 
   /**
@@ -17215,7 +2979,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyInstanceChargeTypeResponse
    */
-  async modifyInstanceChargeTypeWithOptions(request: ModifyInstanceChargeTypeRequest, runtime: $dara.RuntimeOptions): Promise<ModifyInstanceChargeTypeResponse> {
+  async modifyInstanceChargeTypeWithOptions(request: $_model.ModifyInstanceChargeTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceChargeTypeResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.autoPay)) {
@@ -17256,7 +3020,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyInstanceChargeTypeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceChargeTypeResponse({}));
+    return $dara.cast<$_model.ModifyInstanceChargeTypeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceChargeTypeResponse({}));
   }
 
   /**
@@ -17265,7 +3029,7 @@ export default class Client extends OpenApi {
    * @param request - ModifyInstanceChargeTypeRequest
    * @returns ModifyInstanceChargeTypeResponse
    */
-  async modifyInstanceChargeType(request: ModifyInstanceChargeTypeRequest): Promise<ModifyInstanceChargeTypeResponse> {
+  async modifyInstanceChargeType(request: $_model.ModifyInstanceChargeTypeRequest): Promise<$_model.ModifyInstanceChargeTypeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyInstanceChargeTypeWithOptions(request, runtime);
   }
@@ -17277,7 +3041,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyKeyPairNameResponse
    */
-  async modifyKeyPairNameWithOptions(request: ModifyKeyPairNameRequest, runtime: $dara.RuntimeOptions): Promise<ModifyKeyPairNameResponse> {
+  async modifyKeyPairNameWithOptions(request: $_model.ModifyKeyPairNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyKeyPairNameResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.keyPairId)) {
@@ -17302,7 +3066,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyKeyPairNameResponse>(await this.callApi(params, req, runtime), new ModifyKeyPairNameResponse({}));
+    return $dara.cast<$_model.ModifyKeyPairNameResponse>(await this.callApi(params, req, runtime), new $_model.ModifyKeyPairNameResponse({}));
   }
 
   /**
@@ -17311,7 +3075,7 @@ export default class Client extends OpenApi {
    * @param request - ModifyKeyPairNameRequest
    * @returns ModifyKeyPairNameResponse
    */
-  async modifyKeyPairName(request: ModifyKeyPairNameRequest): Promise<ModifyKeyPairNameResponse> {
+  async modifyKeyPairName(request: $_model.ModifyKeyPairNameRequest): Promise<$_model.ModifyKeyPairNameResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyKeyPairNameWithOptions(request, runtime);
   }
@@ -17323,9 +3087,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyPolicyGroupResponse
    */
-  async modifyPolicyGroupWithOptions(tmpReq: ModifyPolicyGroupRequest, runtime: $dara.RuntimeOptions): Promise<ModifyPolicyGroupResponse> {
+  async modifyPolicyGroupWithOptions(tmpReq: $_model.ModifyPolicyGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPolicyGroupResponse> {
     tmpReq.validate();
-    let request = new ModifyPolicyGroupShrinkRequest({ });
+    let request = new $_model.ModifyPolicyGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.netRedirectPolicy)) {
       request.netRedirectPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.netRedirectPolicy, "NetRedirectPolicy", "json");
@@ -17394,7 +3158,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyPolicyGroupResponse>(await this.callApi(params, req, runtime), new ModifyPolicyGroupResponse({}));
+    return $dara.cast<$_model.ModifyPolicyGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModifyPolicyGroupResponse({}));
   }
 
   /**
@@ -17403,7 +3167,7 @@ export default class Client extends OpenApi {
    * @param request - ModifyPolicyGroupRequest
    * @returns ModifyPolicyGroupResponse
    */
-  async modifyPolicyGroup(request: ModifyPolicyGroupRequest): Promise<ModifyPolicyGroupResponse> {
+  async modifyPolicyGroup(request: $_model.ModifyPolicyGroupRequest): Promise<$_model.ModifyPolicyGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPolicyGroupWithOptions(request, runtime);
   }
@@ -17418,7 +3182,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OperateAppResponse
    */
-  async operateAppWithOptions(request: OperateAppRequest, runtime: $dara.RuntimeOptions): Promise<OperateAppResponse> {
+  async operateAppWithOptions(request: $_model.OperateAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateAppResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appId)) {
@@ -17447,7 +3211,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<OperateAppResponse>(await this.callApi(params, req, runtime), new OperateAppResponse({}));
+    return $dara.cast<$_model.OperateAppResponse>(await this.callApi(params, req, runtime), new $_model.OperateAppResponse({}));
   }
 
   /**
@@ -17459,7 +3223,7 @@ export default class Client extends OpenApi {
    * @param request - OperateAppRequest
    * @returns OperateAppResponse
    */
-  async operateApp(request: OperateAppRequest): Promise<OperateAppResponse> {
+  async operateApp(request: $_model.OperateAppRequest): Promise<$_model.OperateAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.operateAppWithOptions(request, runtime);
   }
@@ -17474,7 +3238,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RebootAndroidInstancesInGroupResponse
    */
-  async rebootAndroidInstancesInGroupWithOptions(request: RebootAndroidInstancesInGroupRequest, runtime: $dara.RuntimeOptions): Promise<RebootAndroidInstancesInGroupResponse> {
+  async rebootAndroidInstancesInGroupWithOptions(request: $_model.RebootAndroidInstancesInGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RebootAndroidInstancesInGroupResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceIds)) {
@@ -17503,7 +3267,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RebootAndroidInstancesInGroupResponse>(await this.callApi(params, req, runtime), new RebootAndroidInstancesInGroupResponse({}));
+    return $dara.cast<$_model.RebootAndroidInstancesInGroupResponse>(await this.callApi(params, req, runtime), new $_model.RebootAndroidInstancesInGroupResponse({}));
   }
 
   /**
@@ -17515,7 +3279,7 @@ export default class Client extends OpenApi {
    * @param request - RebootAndroidInstancesInGroupRequest
    * @returns RebootAndroidInstancesInGroupResponse
    */
-  async rebootAndroidInstancesInGroup(request: RebootAndroidInstancesInGroupRequest): Promise<RebootAndroidInstancesInGroupResponse> {
+  async rebootAndroidInstancesInGroup(request: $_model.RebootAndroidInstancesInGroupRequest): Promise<$_model.RebootAndroidInstancesInGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.rebootAndroidInstancesInGroupWithOptions(request, runtime);
   }
@@ -17530,7 +3294,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RecoveryFileResponse
    */
-  async recoveryFileWithOptions(request: RecoveryFileRequest, runtime: $dara.RuntimeOptions): Promise<RecoveryFileResponse> {
+  async recoveryFileWithOptions(request: $_model.RecoveryFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecoveryFileResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceIdList)) {
@@ -17571,7 +3335,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RecoveryFileResponse>(await this.callApi(params, req, runtime), new RecoveryFileResponse({}));
+    return $dara.cast<$_model.RecoveryFileResponse>(await this.callApi(params, req, runtime), new $_model.RecoveryFileResponse({}));
   }
 
   /**
@@ -17583,7 +3347,7 @@ export default class Client extends OpenApi {
    * @param request - RecoveryFileRequest
    * @returns RecoveryFileResponse
    */
-  async recoveryFile(request: RecoveryFileRequest): Promise<RecoveryFileResponse> {
+  async recoveryFile(request: $_model.RecoveryFileRequest): Promise<$_model.RecoveryFileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.recoveryFileWithOptions(request, runtime);
   }
@@ -17595,7 +3359,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RenewAndroidInstanceGroupsResponse
    */
-  async renewAndroidInstanceGroupsWithOptions(request: RenewAndroidInstanceGroupsRequest, runtime: $dara.RuntimeOptions): Promise<RenewAndroidInstanceGroupsResponse> {
+  async renewAndroidInstanceGroupsWithOptions(request: $_model.RenewAndroidInstanceGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenewAndroidInstanceGroupsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.autoPay)) {
@@ -17628,7 +3392,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RenewAndroidInstanceGroupsResponse>(await this.callApi(params, req, runtime), new RenewAndroidInstanceGroupsResponse({}));
+    return $dara.cast<$_model.RenewAndroidInstanceGroupsResponse>(await this.callApi(params, req, runtime), new $_model.RenewAndroidInstanceGroupsResponse({}));
   }
 
   /**
@@ -17637,7 +3401,7 @@ export default class Client extends OpenApi {
    * @param request - RenewAndroidInstanceGroupsRequest
    * @returns RenewAndroidInstanceGroupsResponse
    */
-  async renewAndroidInstanceGroups(request: RenewAndroidInstanceGroupsRequest): Promise<RenewAndroidInstanceGroupsResponse> {
+  async renewAndroidInstanceGroups(request: $_model.RenewAndroidInstanceGroupsRequest): Promise<$_model.RenewAndroidInstanceGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.renewAndroidInstanceGroupsWithOptions(request, runtime);
   }
@@ -17649,7 +3413,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RenewCloudPhoneNodesResponse
    */
-  async renewCloudPhoneNodesWithOptions(request: RenewCloudPhoneNodesRequest, runtime: $dara.RuntimeOptions): Promise<RenewCloudPhoneNodesResponse> {
+  async renewCloudPhoneNodesWithOptions(request: $_model.RenewCloudPhoneNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenewCloudPhoneNodesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.autoPay)) {
@@ -17688,7 +3452,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RenewCloudPhoneNodesResponse>(await this.callApi(params, req, runtime), new RenewCloudPhoneNodesResponse({}));
+    return $dara.cast<$_model.RenewCloudPhoneNodesResponse>(await this.callApi(params, req, runtime), new $_model.RenewCloudPhoneNodesResponse({}));
   }
 
   /**
@@ -17697,7 +3461,7 @@ export default class Client extends OpenApi {
    * @param request - RenewCloudPhoneNodesRequest
    * @returns RenewCloudPhoneNodesResponse
    */
-  async renewCloudPhoneNodes(request: RenewCloudPhoneNodesRequest): Promise<RenewCloudPhoneNodesResponse> {
+  async renewCloudPhoneNodes(request: $_model.RenewCloudPhoneNodesRequest): Promise<$_model.RenewCloudPhoneNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.renewCloudPhoneNodesWithOptions(request, runtime);
   }
@@ -17712,7 +3476,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResetAndroidInstancesInGroupResponse
    */
-  async resetAndroidInstancesInGroupWithOptions(request: ResetAndroidInstancesInGroupRequest, runtime: $dara.RuntimeOptions): Promise<ResetAndroidInstancesInGroupResponse> {
+  async resetAndroidInstancesInGroupWithOptions(request: $_model.ResetAndroidInstancesInGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetAndroidInstancesInGroupResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceIds)) {
@@ -17737,7 +3501,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ResetAndroidInstancesInGroupResponse>(await this.callApi(params, req, runtime), new ResetAndroidInstancesInGroupResponse({}));
+    return $dara.cast<$_model.ResetAndroidInstancesInGroupResponse>(await this.callApi(params, req, runtime), new $_model.ResetAndroidInstancesInGroupResponse({}));
   }
 
   /**
@@ -17749,7 +3513,7 @@ export default class Client extends OpenApi {
    * @param request - ResetAndroidInstancesInGroupRequest
    * @returns ResetAndroidInstancesInGroupResponse
    */
-  async resetAndroidInstancesInGroup(request: ResetAndroidInstancesInGroupRequest): Promise<ResetAndroidInstancesInGroupResponse> {
+  async resetAndroidInstancesInGroup(request: $_model.ResetAndroidInstancesInGroupRequest): Promise<$_model.ResetAndroidInstancesInGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resetAndroidInstancesInGroupWithOptions(request, runtime);
   }
@@ -17761,7 +3525,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunCommandResponse
    */
-  async runCommandWithOptions(request: RunCommandRequest, runtime: $dara.RuntimeOptions): Promise<RunCommandResponse> {
+  async runCommandWithOptions(request: $_model.RunCommandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunCommandResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.commandContent)) {
@@ -17794,7 +3558,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RunCommandResponse>(await this.callApi(params, req, runtime), new RunCommandResponse({}));
+    return $dara.cast<$_model.RunCommandResponse>(await this.callApi(params, req, runtime), new $_model.RunCommandResponse({}));
   }
 
   /**
@@ -17803,7 +3567,7 @@ export default class Client extends OpenApi {
    * @param request - RunCommandRequest
    * @returns RunCommandResponse
    */
-  async runCommand(request: RunCommandRequest): Promise<RunCommandResponse> {
+  async runCommand(request: $_model.RunCommandRequest): Promise<$_model.RunCommandResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.runCommandWithOptions(request, runtime);
   }
@@ -17818,7 +3582,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendFileResponse
    */
-  async sendFileWithOptions(request: SendFileRequest, runtime: $dara.RuntimeOptions): Promise<SendFileResponse> {
+  async sendFileWithOptions(request: $_model.SendFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendFileResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceIdList)) {
@@ -17859,7 +3623,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SendFileResponse>(await this.callApi(params, req, runtime), new SendFileResponse({}));
+    return $dara.cast<$_model.SendFileResponse>(await this.callApi(params, req, runtime), new $_model.SendFileResponse({}));
   }
 
   /**
@@ -17871,7 +3635,7 @@ export default class Client extends OpenApi {
    * @param request - SendFileRequest
    * @returns SendFileResponse
    */
-  async sendFile(request: SendFileRequest): Promise<SendFileResponse> {
+  async sendFile(request: $_model.SendFileRequest): Promise<$_model.SendFileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.sendFileWithOptions(request, runtime);
   }
@@ -17886,7 +3650,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetAdbSecureResponse
    */
-  async setAdbSecureWithOptions(request: SetAdbSecureRequest, runtime: $dara.RuntimeOptions): Promise<SetAdbSecureResponse> {
+  async setAdbSecureWithOptions(request: $_model.SetAdbSecureRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetAdbSecureResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.instanceIds)) {
@@ -17911,7 +3675,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetAdbSecureResponse>(await this.callApi(params, req, runtime), new SetAdbSecureResponse({}));
+    return $dara.cast<$_model.SetAdbSecureResponse>(await this.callApi(params, req, runtime), new $_model.SetAdbSecureResponse({}));
   }
 
   /**
@@ -17923,7 +3687,7 @@ export default class Client extends OpenApi {
    * @param request - SetAdbSecureRequest
    * @returns SetAdbSecureResponse
    */
-  async setAdbSecure(request: SetAdbSecureRequest): Promise<SetAdbSecureResponse> {
+  async setAdbSecure(request: $_model.SetAdbSecureRequest): Promise<$_model.SetAdbSecureResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setAdbSecureWithOptions(request, runtime);
   }
@@ -17938,7 +3702,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartAndroidInstanceResponse
    */
-  async startAndroidInstanceWithOptions(request: StartAndroidInstanceRequest, runtime: $dara.RuntimeOptions): Promise<StartAndroidInstanceResponse> {
+  async startAndroidInstanceWithOptions(request: $_model.StartAndroidInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartAndroidInstanceResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceIds)) {
@@ -17963,7 +3727,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StartAndroidInstanceResponse>(await this.callApi(params, req, runtime), new StartAndroidInstanceResponse({}));
+    return $dara.cast<$_model.StartAndroidInstanceResponse>(await this.callApi(params, req, runtime), new $_model.StartAndroidInstanceResponse({}));
   }
 
   /**
@@ -17975,7 +3739,7 @@ export default class Client extends OpenApi {
    * @param request - StartAndroidInstanceRequest
    * @returns StartAndroidInstanceResponse
    */
-  async startAndroidInstance(request: StartAndroidInstanceRequest): Promise<StartAndroidInstanceResponse> {
+  async startAndroidInstance(request: $_model.StartAndroidInstanceRequest): Promise<$_model.StartAndroidInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startAndroidInstanceWithOptions(request, runtime);
   }
@@ -17990,7 +3754,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopAndroidInstanceResponse
    */
-  async stopAndroidInstanceWithOptions(request: StopAndroidInstanceRequest, runtime: $dara.RuntimeOptions): Promise<StopAndroidInstanceResponse> {
+  async stopAndroidInstanceWithOptions(request: $_model.StopAndroidInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopAndroidInstanceResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidInstanceIds)) {
@@ -18019,7 +3783,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StopAndroidInstanceResponse>(await this.callApi(params, req, runtime), new StopAndroidInstanceResponse({}));
+    return $dara.cast<$_model.StopAndroidInstanceResponse>(await this.callApi(params, req, runtime), new $_model.StopAndroidInstanceResponse({}));
   }
 
   /**
@@ -18031,7 +3795,7 @@ export default class Client extends OpenApi {
    * @param request - StopAndroidInstanceRequest
    * @returns StopAndroidInstanceResponse
    */
-  async stopAndroidInstance(request: StopAndroidInstanceRequest): Promise<StopAndroidInstanceResponse> {
+  async stopAndroidInstance(request: $_model.StopAndroidInstanceRequest): Promise<$_model.StopAndroidInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopAndroidInstanceWithOptions(request, runtime);
   }
@@ -18046,7 +3810,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UninstallAppResponse
    */
-  async uninstallAppWithOptions(request: UninstallAppRequest, runtime: $dara.RuntimeOptions): Promise<UninstallAppResponse> {
+  async uninstallAppWithOptions(request: $_model.UninstallAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UninstallAppResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appIdList)) {
@@ -18075,7 +3839,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UninstallAppResponse>(await this.callApi(params, req, runtime), new UninstallAppResponse({}));
+    return $dara.cast<$_model.UninstallAppResponse>(await this.callApi(params, req, runtime), new $_model.UninstallAppResponse({}));
   }
 
   /**
@@ -18087,7 +3851,7 @@ export default class Client extends OpenApi {
    * @param request - UninstallAppRequest
    * @returns UninstallAppResponse
    */
-  async uninstallApp(request: UninstallAppRequest): Promise<UninstallAppResponse> {
+  async uninstallApp(request: $_model.UninstallAppRequest): Promise<$_model.UninstallAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.uninstallAppWithOptions(request, runtime);
   }
@@ -18099,7 +3863,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCustomImageNameResponse
    */
-  async updateCustomImageNameWithOptions(request: UpdateCustomImageNameRequest, runtime: $dara.RuntimeOptions): Promise<UpdateCustomImageNameResponse> {
+  async updateCustomImageNameWithOptions(request: $_model.UpdateCustomImageNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCustomImageNameResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.imageId)) {
@@ -18124,7 +3888,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateCustomImageNameResponse>(await this.callApi(params, req, runtime), new UpdateCustomImageNameResponse({}));
+    return $dara.cast<$_model.UpdateCustomImageNameResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCustomImageNameResponse({}));
   }
 
   /**
@@ -18133,7 +3897,7 @@ export default class Client extends OpenApi {
    * @param request - UpdateCustomImageNameRequest
    * @returns UpdateCustomImageNameResponse
    */
-  async updateCustomImageName(request: UpdateCustomImageNameRequest): Promise<UpdateCustomImageNameResponse> {
+  async updateCustomImageName(request: $_model.UpdateCustomImageNameRequest): Promise<$_model.UpdateCustomImageNameResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCustomImageNameWithOptions(request, runtime);
   }
@@ -18148,7 +3912,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateInstanceGroupImageResponse
    */
-  async updateInstanceGroupImageWithOptions(request: UpdateInstanceGroupImageRequest, runtime: $dara.RuntimeOptions): Promise<UpdateInstanceGroupImageResponse> {
+  async updateInstanceGroupImageWithOptions(request: $_model.UpdateInstanceGroupImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInstanceGroupImageResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.imageId)) {
@@ -18173,7 +3937,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateInstanceGroupImageResponse>(await this.callApi(params, req, runtime), new UpdateInstanceGroupImageResponse({}));
+    return $dara.cast<$_model.UpdateInstanceGroupImageResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInstanceGroupImageResponse({}));
   }
 
   /**
@@ -18185,7 +3949,7 @@ export default class Client extends OpenApi {
    * @param request - UpdateInstanceGroupImageRequest
    * @returns UpdateInstanceGroupImageResponse
    */
-  async updateInstanceGroupImage(request: UpdateInstanceGroupImageRequest): Promise<UpdateInstanceGroupImageResponse> {
+  async updateInstanceGroupImage(request: $_model.UpdateInstanceGroupImageRequest): Promise<$_model.UpdateInstanceGroupImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateInstanceGroupImageWithOptions(request, runtime);
   }
@@ -18197,7 +3961,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateInstanceImageResponse
    */
-  async updateInstanceImageWithOptions(request: UpdateInstanceImageRequest, runtime: $dara.RuntimeOptions): Promise<UpdateInstanceImageResponse> {
+  async updateInstanceImageWithOptions(request: $_model.UpdateInstanceImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInstanceImageResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.imageId)) {
@@ -18222,7 +3986,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateInstanceImageResponse>(await this.callApi(params, req, runtime), new UpdateInstanceImageResponse({}));
+    return $dara.cast<$_model.UpdateInstanceImageResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInstanceImageResponse({}));
   }
 
   /**
@@ -18231,7 +3995,7 @@ export default class Client extends OpenApi {
    * @param request - UpdateInstanceImageRequest
    * @returns UpdateInstanceImageResponse
    */
-  async updateInstanceImage(request: UpdateInstanceImageRequest): Promise<UpdateInstanceImageResponse> {
+  async updateInstanceImage(request: $_model.UpdateInstanceImageRequest): Promise<$_model.UpdateInstanceImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateInstanceImageWithOptions(request, runtime);
   }
@@ -18246,7 +4010,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpgradeAndroidInstanceGroupResponse
    */
-  async upgradeAndroidInstanceGroupWithOptions(request: UpgradeAndroidInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<UpgradeAndroidInstanceGroupResponse> {
+  async upgradeAndroidInstanceGroupWithOptions(request: $_model.UpgradeAndroidInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeAndroidInstanceGroupResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.autoPay)) {
@@ -18275,7 +4039,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpgradeAndroidInstanceGroupResponse>(await this.callApi(params, req, runtime), new UpgradeAndroidInstanceGroupResponse({}));
+    return $dara.cast<$_model.UpgradeAndroidInstanceGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeAndroidInstanceGroupResponse({}));
   }
 
   /**
@@ -18287,7 +4051,7 @@ export default class Client extends OpenApi {
    * @param request - UpgradeAndroidInstanceGroupRequest
    * @returns UpgradeAndroidInstanceGroupResponse
    */
-  async upgradeAndroidInstanceGroup(request: UpgradeAndroidInstanceGroupRequest): Promise<UpgradeAndroidInstanceGroupResponse> {
+  async upgradeAndroidInstanceGroup(request: $_model.UpgradeAndroidInstanceGroupRequest): Promise<$_model.UpgradeAndroidInstanceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.upgradeAndroidInstanceGroupWithOptions(request, runtime);
   }
