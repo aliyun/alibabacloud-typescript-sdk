@@ -35,6 +35,7 @@ export class CreateMediaLiveChannelRequestVideoSettings extends $dara.Model {
    * The video encoding settings.
    */
   videoCodecSetting?: CreateMediaLiveChannelRequestVideoSettingsVideoCodecSetting;
+  videoCodecType?: string;
   /**
    * @remarks
    * The width of the output. Valid values: 0 to 2000. If you set it to 0 or leave it empty, the width automatically adapts to the specified height to maintain the original aspect ratio.
@@ -49,6 +50,7 @@ export class CreateMediaLiveChannelRequestVideoSettings extends $dara.Model {
       name: 'Name',
       videoCodec: 'VideoCodec',
       videoCodecSetting: 'VideoCodecSetting',
+      videoCodecType: 'VideoCodecType',
       width: 'Width',
     };
   }
@@ -59,6 +61,7 @@ export class CreateMediaLiveChannelRequestVideoSettings extends $dara.Model {
       name: 'string',
       videoCodec: 'string',
       videoCodecSetting: CreateMediaLiveChannelRequestVideoSettingsVideoCodecSetting,
+      videoCodecType: 'string',
       width: 'number',
     };
   }

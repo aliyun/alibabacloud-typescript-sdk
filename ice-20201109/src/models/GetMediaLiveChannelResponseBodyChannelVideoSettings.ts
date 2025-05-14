@@ -35,6 +35,11 @@ export class GetMediaLiveChannelResponseBodyChannelVideoSettings extends $dara.M
   videoCodecSetting?: GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSetting;
   /**
    * @remarks
+   * 视频转码方式（普通转码、窄带高清转码等）
+   */
+  videoCodecType?: string;
+  /**
+   * @remarks
    * The width of the video in pixels.
    * 
    * @example
@@ -47,6 +52,7 @@ export class GetMediaLiveChannelResponseBodyChannelVideoSettings extends $dara.M
       name: 'Name',
       videoCodec: 'VideoCodec',
       videoCodecSetting: 'VideoCodecSetting',
+      videoCodecType: 'VideoCodecType',
       width: 'Width',
     };
   }
@@ -57,6 +63,7 @@ export class GetMediaLiveChannelResponseBodyChannelVideoSettings extends $dara.M
       name: 'string',
       videoCodec: 'string',
       videoCodecSetting: GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSetting,
+      videoCodecType: 'string',
       width: 'number',
     };
   }
