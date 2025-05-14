@@ -224,6 +224,7 @@ export { RunCustomHotTopicAnalysisResponseBodyPayloadOutput } from './RunCustomH
 export { RunCustomHotTopicAnalysisResponseBodyPayloadUsage } from './RunCustomHotTopicAnalysisResponseBodyPayloadUsage';
 export { RunCustomHotTopicAnalysisResponseBodyPayload } from './RunCustomHotTopicAnalysisResponseBodyPayload';
 export { RunCustomHotTopicViewPointAnalysisResponseBodyHeader } from './RunCustomHotTopicViewPointAnalysisResponseBodyHeader';
+export { RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles } from './RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles';
 export { RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutput } from './RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutput';
 export { RunCustomHotTopicViewPointAnalysisResponseBodyPayloadUsage } from './RunCustomHotTopicViewPointAnalysisResponseBodyPayloadUsage';
 export { RunCustomHotTopicViewPointAnalysisResponseBodyPayload } from './RunCustomHotTopicViewPointAnalysisResponseBodyPayload';

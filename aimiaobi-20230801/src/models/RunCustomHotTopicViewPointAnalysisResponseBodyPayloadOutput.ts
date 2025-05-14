@@ -1,8 +1,10 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles } from "./RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles";
 
 
 export class RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutput extends $dara.Model {
+  articles?: RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles[];
   askUser?: string[];
   /**
    * @example
@@ -31,6 +33,7 @@ export class RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutput extends
   topicId?: string;
   static names(): { [key: string]: string } {
     return {
+      articles: 'Articles',
       askUser: 'AskUser',
       asyncTaskId: 'AsyncTaskId',
       attitude: 'Attitude',
@@ -42,6 +45,7 @@ export class RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutput extends
 
   static types(): { [key: string]: any } {
     return {
+      articles: { 'type': 'array', 'itemType': RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutputArticles },
       askUser: { 'type': 'array', 'itemType': 'string' },
       asyncTaskId: 'string',
       attitude: 'string',
@@ -52,6 +56,9 @@ export class RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutput extends
   }
 
   validate() {
+    if(Array.isArray(this.articles)) {
+      $dara.Model.validateArray(this.articles);
+    }
     if(Array.isArray(this.askUser)) {
       $dara.Model.validateArray(this.askUser);
     }
