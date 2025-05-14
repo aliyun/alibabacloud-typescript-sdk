@@ -1,0 +1,36 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class ListInstancesResponseBodyInstancesAffinityCPU extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the CPU affinity feature was enabled.
+   * 
+   * true false
+   * 
+   * @example
+   * true
+   */
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
