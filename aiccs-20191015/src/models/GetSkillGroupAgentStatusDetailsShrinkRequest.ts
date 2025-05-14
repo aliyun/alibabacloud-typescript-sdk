@@ -1,0 +1,82 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class GetSkillGroupAgentStatusDetailsShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  depIdsShrink?: string;
+  /**
+   * @example
+   * 1614824972
+   */
+  endDate?: number;
+  /**
+   * @example
+   * true
+   */
+  existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * true
+   */
+  existSkillGroupGrouping?: boolean;
+  groupIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1614824872
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      depIdsShrink: 'DepIds',
+      endDate: 'EndDate',
+      existDepartmentGrouping: 'ExistDepartmentGrouping',
+      existSkillGroupGrouping: 'ExistSkillGroupGrouping',
+      groupIdsShrink: 'GroupIds',
+      instanceId: 'InstanceId',
+      pageSize: 'PageSize',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      depIdsShrink: 'string',
+      endDate: 'number',
+      existDepartmentGrouping: 'boolean',
+      existSkillGroupGrouping: 'boolean',
+      groupIdsShrink: 'string',
+      instanceId: 'string',
+      pageSize: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

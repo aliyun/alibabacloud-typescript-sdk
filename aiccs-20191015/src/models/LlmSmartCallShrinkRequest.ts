@@ -1,0 +1,70 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class LlmSmartCallShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * F32XXX2CF9
+   */
+  applicationCode?: string;
+  bizParamShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 137****0000
+   */
+  calledNumber?: string;
+  /**
+   * @example
+   * 057188040000
+   */
+  callerNumber?: string;
+  extension?: string;
+  /**
+   * @example
+   * 222356****
+   */
+  outId?: string;
+  promptParamShrink?: string;
+  startWordParamShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationCode: 'ApplicationCode',
+      bizParamShrink: 'BizParam',
+      calledNumber: 'CalledNumber',
+      callerNumber: 'CallerNumber',
+      extension: 'Extension',
+      outId: 'OutId',
+      promptParamShrink: 'PromptParam',
+      startWordParamShrink: 'StartWordParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationCode: 'string',
+      bizParamShrink: 'string',
+      calledNumber: 'string',
+      callerNumber: 'string',
+      extension: 'string',
+      outId: 'string',
+      promptParamShrink: 'string',
+      startWordParamShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
