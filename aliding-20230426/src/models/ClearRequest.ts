@@ -1,0 +1,61 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { ClearRequestTenantContext } from "./ClearRequestTenantContext";
+
+
+export class ClearRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * A3:C3
+   */
+  rangeAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Sheet1
+   */
+  sheetId?: string;
+  tenantContext?: ClearRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
+  workbookId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rangeAddress: 'RangeAddress',
+      sheetId: 'SheetId',
+      tenantContext: 'TenantContext',
+      workbookId: 'WorkbookId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rangeAddress: 'string',
+      sheetId: 'string',
+      tenantContext: ClearRequestTenantContext,
+      workbookId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.tenantContext && typeof (this.tenantContext as any).validate === 'function') {
+      (this.tenantContext as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

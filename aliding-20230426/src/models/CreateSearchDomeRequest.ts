@@ -1,0 +1,65 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { CreateSearchDomeRequestTenantContext } from "./CreateSearchDomeRequestTenantContext";
+
+
+export class CreateSearchDomeRequest extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
+  content?: string;
+  /**
+   * @example
+   * 1699265024987
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 1030
+   */
+  resId?: string;
+  /**
+   * @example
+   * 1699265024987
+   */
+  startTime?: number;
+  tenantContext?: CreateSearchDomeRequestTenantContext;
+  userIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      endTime: 'EndTime',
+      resId: 'ResId',
+      startTime: 'StartTime',
+      tenantContext: 'TenantContext',
+      userIdList: 'UserIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      endTime: 'number',
+      resId: 'string',
+      startTime: 'number',
+      tenantContext: CreateSearchDomeRequestTenantContext,
+      userIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.tenantContext && typeof (this.tenantContext as any).validate === 'function') {
+      (this.tenantContext as any).validate();
+    }
+    if(Array.isArray(this.userIdList)) {
+      $dara.Model.validateArray(this.userIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
