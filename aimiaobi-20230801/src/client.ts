@@ -138,6 +138,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消审核任务
+   * 
+   * @param request - CancelAuditTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelAuditTaskResponse
+   */
+  async cancelAuditTaskWithOptions(request: $_model.CancelAuditTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelAuditTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.articleId)) {
+      body["ArticleId"] = request.articleId;
+    }
+
+    if (!$dara.isNull(request.contentAuditTaskId)) {
+      body["ContentAuditTaskId"] = request.contentAuditTaskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelAuditTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelAuditTaskResponse>(await this.callApi(params, req, runtime), new $_model.CancelAuditTaskResponse({}));
+  }
+
+  /**
+   * 取消审核任务
+   * 
+   * @param request - CancelAuditTaskRequest
+   * @returns CancelAuditTaskResponse
+   */
+  async cancelAuditTask(request: $_model.CancelAuditTaskRequest): Promise<$_model.CancelAuditTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelAuditTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 清除所有干预内容
    * 
    * @param request - ClearIntervenesRequest
@@ -4918,6 +4968,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询审核结果
+   * 
+   * @param request - QueryAuditTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAuditTaskResponse
+   */
+  async queryAuditTaskWithOptions(request: $_model.QueryAuditTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAuditTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.articleId)) {
+      body["ArticleId"] = request.articleId;
+    }
+
+    if (!$dara.isNull(request.contentAuditTaskId)) {
+      body["ContentAuditTaskId"] = request.contentAuditTaskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAuditTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAuditTaskResponse>(await this.callApi(params, req, runtime), new $_model.QueryAuditTaskResponse({}));
+  }
+
+  /**
+   * 查询审核结果
+   * 
+   * @param request - QueryAuditTaskRequest
+   * @returns QueryAuditTaskResponse
+   */
+  async queryAuditTask(request: $_model.QueryAuditTaskRequest): Promise<$_model.QueryAuditTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAuditTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 内容缩写
    * 
    * @param request - RunAbbreviationContentRequest
@@ -7381,6 +7481,64 @@ export default class Client extends OpenApi {
   async submitAsyncTask(request: $_model.SubmitAsyncTaskRequest): Promise<$_model.SubmitAsyncTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitAsyncTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交审核任务
+   * 
+   * @param request - SubmitAuditTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAuditTaskResponse
+   */
+  async submitAuditTaskWithOptions(request: $_model.SubmitAuditTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitAuditTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.articleId)) {
+      body["ArticleId"] = request.articleId;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.htmlContent)) {
+      body["HtmlContent"] = request.htmlContent;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitAuditTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitAuditTaskResponse>(await this.callApi(params, req, runtime), new $_model.SubmitAuditTaskResponse({}));
+  }
+
+  /**
+   * 提交审核任务
+   * 
+   * @param request - SubmitAuditTaskRequest
+   * @returns SubmitAuditTaskResponse
+   */
+  async submitAuditTask(request: $_model.SubmitAuditTaskRequest): Promise<$_model.SubmitAuditTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitAuditTaskWithOptions(request, runtime);
   }
 
   /**
