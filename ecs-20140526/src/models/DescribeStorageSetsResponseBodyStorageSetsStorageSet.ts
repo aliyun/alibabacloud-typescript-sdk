@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeStorageSetsResponseBodyStorageSetsStorageSetTags } from "./DescribeStorageSetsResponseBodyStorageSetsStorageSetTags";
 
 
 export class DescribeStorageSetsResponseBodyStorageSetsStorageSet extends $dara.Model {
@@ -27,6 +28,7 @@ export class DescribeStorageSetsResponseBodyStorageSetsStorageSet extends $dara.
    * cn-hangzhou
    */
   regionId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The ID of the storage set.
@@ -51,6 +53,7 @@ export class DescribeStorageSetsResponseBodyStorageSetsStorageSet extends $dara.
    * 3
    */
   storageSetPartitionNumber?: number;
+  tags?: DescribeStorageSetsResponseBodyStorageSetsStorageSetTags;
   /**
    * @remarks
    * The ID of the zone to which the storage set belongs.
@@ -64,9 +67,11 @@ export class DescribeStorageSetsResponseBodyStorageSetsStorageSet extends $dara.
       creationTime: 'CreationTime',
       description: 'Description',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       storageSetId: 'StorageSetId',
       storageSetName: 'StorageSetName',
       storageSetPartitionNumber: 'StorageSetPartitionNumber',
+      tags: 'Tags',
       zoneId: 'ZoneId',
     };
   }
@@ -76,14 +81,19 @@ export class DescribeStorageSetsResponseBodyStorageSetsStorageSet extends $dara.
       creationTime: 'string',
       description: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       storageSetId: 'string',
       storageSetName: 'string',
       storageSetPartitionNumber: 'number',
+      tags: DescribeStorageSetsResponseBodyStorageSetsStorageSetTags,
       zoneId: 'string',
     };
   }
 
   validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
     super.validate();
   }
 

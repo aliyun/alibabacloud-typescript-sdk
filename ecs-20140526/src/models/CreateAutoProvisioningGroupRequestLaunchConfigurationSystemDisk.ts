@@ -4,6 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAutoProvisioningGroupRequestLaunchConfigurationSystemDisk extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the automatic snapshot policy to apply to the system disk.
+   * 
+   * When you specify this parameter, take note of the following items:
+   * 
+   * *   This parameter takes effect only when the AutoProvisioningGroupType parameter is set to instant.
+   * 
    * @example
    * sp-bp67acfmxazb4p****
    */
@@ -45,7 +52,7 @@ export class CreateAutoProvisioningGroupRequestLaunchConfigurationSystemDisk ext
    * *   true: encrypts system disk N.
    * *   false: does not encrypt system disk N.
    * 
-   * Default value: false.
+   * Default value: false. Valid values:
    * 
    * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
    * 
@@ -55,7 +62,7 @@ export class CreateAutoProvisioningGroupRequestLaunchConfigurationSystemDisk ext
   encrypted?: string;
   /**
    * @remarks
-   * The ID of the KMS key to use for the system disk.
+   * The ID of the KMS key to use for system disk N.
    * 
    * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
    * 
@@ -65,7 +72,7 @@ export class CreateAutoProvisioningGroupRequestLaunchConfigurationSystemDisk ext
   KMSKeyId?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk to use as data disk N. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
+   * The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
    * 
    * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
    * 

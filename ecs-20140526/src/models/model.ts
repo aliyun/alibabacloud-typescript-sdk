@@ -114,6 +114,7 @@ export { CreateSecurityGroupRequestTag } from './CreateSecurityGroupRequestTag';
 export { CreateSimulatedSystemEventsResponseBodyEventIdSet } from './CreateSimulatedSystemEventsResponseBodyEventIdSet';
 export { CreateSnapshotRequestTag } from './CreateSnapshotRequestTag';
 export { CreateSnapshotGroupRequestTag } from './CreateSnapshotGroupRequestTag';
+export { CreateStorageSetRequestTag } from './CreateStorageSetRequestTag';
 export { DeleteActivationResponseBodyActivation } from './DeleteActivationResponseBodyActivation';
 export { DeleteLaunchTemplateResponseBodyLaunchTemplateVersionNumbers } from './DeleteLaunchTemplateResponseBodyLaunchTemplateVersionNumbers';
 export { DeleteLaunchTemplateVersionResponseBodyLaunchTemplateVersionsLaunchTemplateVersion } from './DeleteLaunchTemplateVersionResponseBodyLaunchTemplateVersionsLaunchTemplateVersion';
@@ -690,6 +691,9 @@ export { DescribeStorageCapacityUnitsResponseBodyStorageCapacityUnitsStorageCapa
 export { DescribeStorageCapacityUnitsResponseBodyStorageCapacityUnits } from './DescribeStorageCapacityUnitsResponseBodyStorageCapacityUnits';
 export { DescribeStorageSetDetailsResponseBodyDisksDisk } from './DescribeStorageSetDetailsResponseBodyDisksDisk';
 export { DescribeStorageSetDetailsResponseBodyDisks } from './DescribeStorageSetDetailsResponseBodyDisks';
+export { DescribeStorageSetsRequestTag } from './DescribeStorageSetsRequestTag';
+export { DescribeStorageSetsResponseBodyStorageSetsStorageSetTagsTag } from './DescribeStorageSetsResponseBodyStorageSetsStorageSetTagsTag';
+export { DescribeStorageSetsResponseBodyStorageSetsStorageSetTags } from './DescribeStorageSetsResponseBodyStorageSetsStorageSetTags';
 export { DescribeStorageSetsResponseBodyStorageSetsStorageSet } from './DescribeStorageSetsResponseBodyStorageSetsStorageSet';
 export { DescribeStorageSetsResponseBodyStorageSets } from './DescribeStorageSetsResponseBodyStorageSets';
 export { DescribeTagsRequestTag } from './DescribeTagsRequestTag';

@@ -51,10 +51,10 @@ export class CreateDiskRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The category of the data disk. Valid values:
+   * The category of the data disk. Valid values for different disk categories:
    * 
    * *   cloud: basic disk
-   * *   cloud_efficiency: ultra disk
+   * *   cloud_efficiency: utra disk
    * *   cloud_ssd: standard SSD
    * *   cloud_essd: ESSD
    * *   cloud_auto: ESSD AutoPL disk
@@ -64,6 +64,12 @@ export class CreateDiskRequest extends $dara.Model {
    * *   elastic_ephemeral_disk_premium: premium elastic ephemeral disk
    * 
    * Default value: cloud.
+   * 
+   * Valid values:
+   * 
+   * *   cloud_regional_disk_auto
+   * *   elastic_ephemeral_disk_standard
+   * *   elastic_ephemeral_disk_premium
    * 
    * @example
    * cloud_ssd
@@ -189,7 +195,7 @@ export class CreateDiskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The size of the data disk. Unit: GiB. This parameter is required. Valid values:
+   * The disk size. Unit: GiB. This parameter is required. Valid values for different disk categories:
    * 
    * *   Valid values when DiskCategory is set to cloud: 5 to 2000.
    * 

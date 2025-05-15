@@ -26,7 +26,7 @@ export class DescribeDisksRequest extends $dara.Model {
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * The category of the disk. Valid values:
+   * The disk category. Valid values:
    * 
    * *   all: all disk categories
    * *   cloud: basic disk
@@ -34,6 +34,7 @@ export class DescribeDisksRequest extends $dara.Model {
    * *   cloud_ssd: standard SSD
    * *   cloud_essd: Enterprise SSD (ESSD)
    * *   cloud_auto: ESSD AutoPL disk
+   * *   cloud_regional_disk_auto: Regional ESSD
    * *   local_ssd_pro: I/O-intensive local disk
    * *   local_hdd_pro: throughput-intensive local disk
    * *   cloud_essd_entry: ESSD Entry disk

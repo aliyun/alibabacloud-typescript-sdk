@@ -4,6 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the automatic snapshot policy to apply to data disk N.
+   * 
+   * When you specify this parameter, take note of the following items:
+   * 
+   * *   This parameter takes effect only when the AutoProvisioningGroupType parameter is set to instant.
+   * 
    * @example
    * sp-bp67acfmxazb4p****
    */
@@ -27,7 +34,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk
    * 
    * *   cloud_efficiency: utra disk.
    * *   cloud_ssd: standard SSD.
-   * *   cloud_essd: enterprise SSD (ESSD).
+   * *   cloud_essd: ESSD.
    * *   cloud: basic disk.
    * 
    * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
@@ -71,7 +78,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk
   device?: string;
   /**
    * @remarks
-   * The name of data disk N. The name must be 2 to 128 characters in length The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (_), and hyphens (-).
+   * The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (_), and hyphens (-).
    * 
    * This parameter is left empty by default.
    * 
@@ -96,7 +103,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk
    * *   true: encrypts system disk N.
    * *   false: does not encrypt system disk N.
    * 
-   * Default value: false.
+   * Default value: false. Valid values:
    * 
    * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
    * 
@@ -131,7 +138,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk to use as data disk N. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
+   * The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
    * 
    * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
    * 

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeStorageSetsRequestTag } from "./DescribeStorageSetsRequestTag";
 
 
 export class DescribeStorageSetsRequest extends $dara.Model {
@@ -77,6 +78,7 @@ export class DescribeStorageSetsRequest extends $dara.Model {
    * storageSetTest
    */
   storageSetName?: string;
+  tag?: DescribeStorageSetsRequestTag[];
   /**
    * @remarks
    * The zone ID of the storage set. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
@@ -97,6 +99,7 @@ export class DescribeStorageSetsRequest extends $dara.Model {
       resourceOwnerId: 'ResourceOwnerId',
       storageSetIds: 'StorageSetIds',
       storageSetName: 'StorageSetName',
+      tag: 'Tag',
       zoneId: 'ZoneId',
     };
   }
@@ -113,11 +116,15 @@ export class DescribeStorageSetsRequest extends $dara.Model {
       resourceOwnerId: 'number',
       storageSetIds: 'string',
       storageSetName: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeStorageSetsRequestTag },
       zoneId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

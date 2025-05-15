@@ -245,6 +245,7 @@ export class InvokeCommandRequest extends $dara.Model {
    * axtSecretPassword
    */
   windowsPasswordName?: string;
+  workingDir?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -269,6 +270,7 @@ export class InvokeCommandRequest extends $dara.Model {
       timeout: 'Timeout',
       username: 'Username',
       windowsPasswordName: 'WindowsPasswordName',
+      workingDir: 'WorkingDir',
     };
   }
 
@@ -296,6 +298,7 @@ export class InvokeCommandRequest extends $dara.Model {
       timeout: 'number',
       username: 'string',
       windowsPasswordName: 'string',
+      workingDir: 'string',
     };
   }
 

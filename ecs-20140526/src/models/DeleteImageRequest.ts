@@ -11,7 +11,7 @@ export class DeleteImageRequest extends $dara.Model {
    * *   true: forcefully deletes the custom image, regardless of whether the image is being used by instances.
    * *   false: verifies that the custom image is not being used by instances and then deletes the image.
    * 
-   * Default value: false.
+   * Default value: false
    * 
    * @example
    * false

@@ -12,10 +12,10 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
    * @remarks
    * Specifies whether to allow cross-cluster instance type upgrade. Valid values:
    * 
-   * *   true: force attaches the disk to the instance.
-   * *   false: does not force attach the disk to the instance.
+   * *   true
+   * *   false
    * 
-   * Default value: false. Valid values:
+   * Default value: false.
    * 
    * When you set `AllowMigrateAcrossZone` to true and upgrade the instance based on the returned information, take note of the following items:
    * 
@@ -34,10 +34,10 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
    * @remarks
    * Specifies whether to submit an asynchronous request. Valid values:
    * 
-   * *   true: force attaches the disk to the instance.
-   * *   false: does not force attach the disk to the instance.
+   * *   true
+   * *   false
    * 
-   * Default value: false. Valid values:
+   * Default value: false.
    * 
    * @example
    * false
@@ -111,11 +111,6 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
   /**
    * @remarks
    * >  This parameter is not publicly available.
-   * 
-   * Valid values:
-   * 
-   * *   Online
-   * *   Offline
    * 
    * @example
    * null

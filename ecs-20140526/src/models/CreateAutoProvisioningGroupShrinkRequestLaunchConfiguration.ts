@@ -363,6 +363,14 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
    * 1
    */
   autoRenewPeriod?: number;
+  /**
+   * @remarks
+   * The image options.
+   * 
+   * When you specify this parameter, take note of the following items:
+   * 
+   * *   This parameter takes effect only when the AutoProvisioningGroupType parameter is set to instant.
+   */
   imageOptions?: CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions;
   /**
    * @remarks
@@ -385,11 +393,37 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
    */
   periodUnit?: string;
   /**
+   * @remarks
+   * The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
+   * 
+   * *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+   * *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for one hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+   * 
+   * Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. The preemptible instance is billed by second. We recommend that you specify an appropriate protection period based on your business requirements.
+   * 
+   * When you specify this parameter, take note of the following items:
+   * 
+   * *   This parameter takes effect only when the AutoProvisioningGroupType parameter is set to instant.
+   * 
    * @example
    * 1
    */
   spotDuration?: number;
   /**
+   * @remarks
+   * The interruption event of the preemptible instances. Valid values:
+   * 
+   * *   Terminate: The instance is released.
+   * *   Stop: The instance is stopped in economical mode.
+   * 
+   * For information about the economical mode, see [Economical mode](https://help.aliyun.com/zh/ecs/user-guide/economical-mode?spm=a2c4g.11186623.0.0.58796e1dJaYlK0).
+   * 
+   * Default value: Terminate.
+   * 
+   * When you specify this parameter, take note of the following items:
+   * 
+   * *   This parameter takes effect only when the AutoProvisioningGroupType parameter is set to instant.
+   * 
    * @example
    * Terminate
    */
