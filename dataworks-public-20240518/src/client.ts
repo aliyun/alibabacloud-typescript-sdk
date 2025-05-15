@@ -10313,6 +10313,10 @@ export default class Client extends OpenApi {
       body["Id"] = request.id;
     }
 
+    if (!$dara.isNull(request.instanceMode)) {
+      body["InstanceMode"] = request.instanceMode;
+    }
+
     if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
