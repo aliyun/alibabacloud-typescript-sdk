@@ -886,6 +886,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除指定自定义文体
+   * 
+   * @param request - DeleteStyleLearningResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStyleLearningResultResponse
+   */
+  async deleteStyleLearningResultWithOptions(request: $_model.DeleteStyleLearningResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteStyleLearningResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteStyleLearningResult",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteStyleLearningResultResponse>(await this.callApi(params, req, runtime), new $_model.DeleteStyleLearningResultResponse({}));
+  }
+
+  /**
+   * 删除指定自定义文体
+   * 
+   * @param request - DeleteStyleLearningResultRequest
+   * @returns DeleteStyleLearningResultResponse
+   */
+  async deleteStyleLearningResult(request: $_model.DeleteStyleLearningResultRequest): Promise<$_model.DeleteStyleLearningResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteStyleLearningResultWithOptions(request, runtime);
+  }
+
+  /**
    * 从链接中提取文档内容
    * 
    * @param tmpReq - DocumentExtractionRequest

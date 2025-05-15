@@ -14,6 +14,7 @@ export class QueryAuditTaskResponseBodyData extends $dara.Model {
    * 审核时的原文
    */
   content?: string;
+  htmlContent?: string;
   response?: QueryAuditTaskResponseBodyDataResponse;
   /**
    * @example
@@ -25,13 +26,16 @@ export class QueryAuditTaskResponseBodyData extends $dara.Model {
    * 1
    */
   taskStatus?: number;
+  title?: string;
   static names(): { [key: string]: string } {
     return {
       auditTime: 'AuditTime',
       content: 'Content',
+      htmlContent: 'HtmlContent',
       response: 'Response',
       status: 'Status',
       taskStatus: 'TaskStatus',
+      title: 'Title',
     };
   }
 
@@ -39,9 +43,11 @@ export class QueryAuditTaskResponseBodyData extends $dara.Model {
     return {
       auditTime: 'string',
       content: 'string',
+      htmlContent: 'string',
       response: QueryAuditTaskResponseBodyDataResponse,
       status: 'string',
       taskStatus: 'number',
+      title: 'string',
     };
   }
 
