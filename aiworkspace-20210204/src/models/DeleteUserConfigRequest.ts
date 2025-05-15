@@ -11,15 +11,18 @@ export class DeleteUserConfigRequest extends $dara.Model {
    * tempStoragePath
    */
   configKey?: string;
+  scope?: string;
   static names(): { [key: string]: string } {
     return {
       configKey: 'ConfigKey',
+      scope: 'Scope',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       configKey: 'string',
+      scope: 'string',
     };
   }
 

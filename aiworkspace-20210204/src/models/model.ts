@@ -66,6 +66,7 @@ export { LineageEntity } from './LineageEntity';
 export { LineageRelation } from './LineageRelation';
 export { Model } from './Model_';
 export { ModelVersion } from './ModelVersion';
+export { Prompt } from './Prompt';
 export { Relation } from './Relation';
 export { Relationship } from './Relationship';
 export { Run } from './Run';

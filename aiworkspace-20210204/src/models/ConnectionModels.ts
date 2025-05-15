@@ -8,11 +8,13 @@ export class ConnectionModels extends $dara.Model {
   displayName?: string;
   model?: string;
   modelType?: string;
+  toolCall?: boolean;
   static names(): { [key: string]: string } {
     return {
       displayName: 'DisplayName',
       model: 'Model',
       modelType: 'ModelType',
+      toolCall: 'ToolCall',
     };
   }
 
@@ -21,6 +23,7 @@ export class ConnectionModels extends $dara.Model {
       displayName: 'string',
       model: 'string',
       modelType: 'string',
+      toolCall: 'boolean',
     };
   }
 

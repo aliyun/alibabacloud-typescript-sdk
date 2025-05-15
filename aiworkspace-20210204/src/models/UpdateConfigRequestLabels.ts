@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConfigRequestLabels extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class UpdateConfigRequestLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * value1

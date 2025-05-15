@@ -2223,6 +2223,10 @@ export default class Client extends OpenApi {
       query["ConfigKey"] = request.configKey;
     }
 
+    if (!$dara.isNull(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
