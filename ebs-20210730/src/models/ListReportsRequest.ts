@@ -3,11 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListReportsRequest extends $dara.Model {
+  appId?: string;
   /**
    * @remarks
    * App name.
-   * 
-   * This parameter is required.
    * 
    * @example
    * App1
@@ -55,6 +54,7 @@ export class ListReportsRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       appName: 'AppName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -66,6 +66,7 @@ export class ListReportsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       appName: 'string',
       maxResults: 'number',
       nextToken: 'string',

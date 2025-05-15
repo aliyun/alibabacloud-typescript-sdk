@@ -2503,6 +2503,10 @@ export default class Client extends OpenApi {
   async listReportsWithOptions(request: $_model.ListReportsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListReportsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
