@@ -18,6 +18,7 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
    * 50000000
    */
   quota?: number;
+  regionId?: string;
   /**
    * @example
    * C6C3B72B********E95FB0A161
@@ -38,6 +39,7 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
       logStoreName: 'LogStoreName',
       projectName: 'ProjectName',
       quota: 'Quota',
+      regionId: 'RegionId',
       requestId: 'RequestId',
       ttl: 'Ttl',
       used: 'Used',
@@ -49,6 +51,7 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
       logStoreName: 'string',
       projectName: 'string',
       quota: 'number',
+      regionId: 'string',
       requestId: 'string',
       ttl: 'number',
       used: 'number',

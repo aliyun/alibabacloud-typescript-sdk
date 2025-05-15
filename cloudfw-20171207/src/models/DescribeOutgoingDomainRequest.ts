@@ -27,6 +27,7 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
    * 1
    */
   currentPage?: string;
+  dataType?: string;
   /**
    * @remarks
    * The domain name in outbound connections.
@@ -45,6 +46,7 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
    * 1656750960
    */
   endTime?: string;
+  isAITraffic?: string;
   /**
    * @remarks
    * The language of the content within the request. Valid values:
@@ -156,8 +158,10 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
     return {
       categoryId: 'CategoryId',
       currentPage: 'CurrentPage',
+      dataType: 'DataType',
       domain: 'Domain',
       endTime: 'EndTime',
+      isAITraffic: 'IsAITraffic',
       lang: 'Lang',
       order: 'Order',
       pageSize: 'PageSize',
@@ -172,8 +176,10 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
     return {
       categoryId: 'string',
       currentPage: 'string',
+      dataType: 'string',
       domain: 'string',
       endTime: 'string',
+      isAITraffic: 'string',
       lang: 'string',
       order: 'string',
       pageSize: 'string',

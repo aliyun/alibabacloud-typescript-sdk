@@ -3545,12 +3545,20 @@ export default class Client extends OpenApi {
       query["CurrentPage"] = request.currentPage;
     }
 
+    if (!$dara.isNull(request.dataType)) {
+      query["DataType"] = request.dataType;
+    }
+
     if (!$dara.isNull(request.domain)) {
       query["Domain"] = request.domain;
     }
 
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.isAITraffic)) {
+      query["IsAITraffic"] = request.isAITraffic;
     }
 
     if (!$dara.isNull(request.lang)) {
