@@ -80,6 +80,9 @@ export class GetNodeInfoForPodResponseBodyContent extends $dara.Model {
    * cn-wulanchabu-b
    */
   zoneId?: string;
+  hdeniIpv6SipQuota?: number;
+  hdeniSipQuota?: number;
+  leniIpv6SipQuota?: number;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
@@ -92,6 +95,9 @@ export class GetNodeInfoForPodResponseBodyContent extends $dara.Model {
       vSwitches: 'VSwitches',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
+      hdeniIpv6SipQuota: 'hdeniIpv6SipQuota',
+      hdeniSipQuota: 'hdeniSipQuota',
+      leniIpv6SipQuota: 'leniIpv6SipQuota',
     };
   }
 
@@ -107,6 +113,9 @@ export class GetNodeInfoForPodResponseBodyContent extends $dara.Model {
       vSwitches: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
       zoneId: 'string',
+      hdeniIpv6SipQuota: 'number',
+      hdeniSipQuota: 'number',
+      leniIpv6SipQuota: 'number',
     };
   }
 
