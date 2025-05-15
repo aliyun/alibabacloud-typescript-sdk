@@ -4,6 +4,7 @@ import { ListIntervenesResponseBodyDataInterveneList } from "./ListIntervenesRes
 
 
 export class ListIntervenesResponseBodyData extends $dara.Model {
+  code?: number;
   interveneList?: ListIntervenesResponseBodyDataInterveneList[];
   /**
    * @example
@@ -22,6 +23,7 @@ export class ListIntervenesResponseBodyData extends $dara.Model {
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       interveneList: 'InterveneList',
       pageIndex: 'PageIndex',
       pageSize: 'PageSize',
@@ -31,6 +33,7 @@ export class ListIntervenesResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       interveneList: { 'type': 'array', 'itemType': ListIntervenesResponseBodyDataInterveneList },
       pageIndex: 'number',
       pageSize: 'number',

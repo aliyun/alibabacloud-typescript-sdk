@@ -4,15 +4,18 @@ import { GetInterveneGlobalReplyResponseBodyDataReplyMessagList } from "./GetInt
 
 
 export class GetInterveneGlobalReplyResponseBodyData extends $dara.Model {
+  code?: number;
   replyMessagList?: GetInterveneGlobalReplyResponseBodyDataReplyMessagList[];
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       replyMessagList: 'ReplyMessagList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       replyMessagList: { 'type': 'array', 'itemType': GetInterveneGlobalReplyResponseBodyDataReplyMessagList },
     };
   }

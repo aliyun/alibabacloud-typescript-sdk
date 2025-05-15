@@ -4,15 +4,18 @@ import { GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail } from "./Get
 
 
 export class GetInterveneRuleDetailResponseBodyData extends $dara.Model {
+  code?: number;
   interveneRuleDetail?: GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       interveneRuleDetail: 'InterveneRuleDetail',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       interveneRuleDetail: GetInterveneRuleDetailResponseBodyDataInterveneRuleDetail,
     };
   }

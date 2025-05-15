@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsertInterveneGlobalReplyResponseBodyData extends $dara.Model {
+  code?: number;
   failIdList?: string[];
   /**
    * @example
@@ -11,6 +12,7 @@ export class InsertInterveneGlobalReplyResponseBodyData extends $dara.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       failIdList: 'FailIdList',
       taskId: 'TaskId',
     };
@@ -18,6 +20,7 @@ export class InsertInterveneGlobalReplyResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       failIdList: { 'type': 'array', 'itemType': 'string' },
       taskId: 'string',
     };

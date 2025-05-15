@@ -2,15 +2,25 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RunDocSmartCardRequest extends $dara.Model {
+export class RunBookBrainmapRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  cleanCache?: boolean;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 84ufBYEeLMZOjRFo84HJ7ySL3Efr55
+   * 12345
    */
   docId?: string;
+  /**
+   * @example
+   * 3
+   */
+  nodeNumber?: number;
   prompt?: string;
   /**
    * @remarks
@@ -21,27 +31,38 @@ export class RunDocSmartCardRequest extends $dara.Model {
    */
   sessionId?: string;
   /**
+   * @example
+   * 20
+   */
+  wordNumber?: number;
+  /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * llm-2setzb9x4ewsd
+   * llm-hx72jf15gqyobvd9
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      cleanCache: 'CleanCache',
       docId: 'DocId',
+      nodeNumber: 'NodeNumber',
       prompt: 'Prompt',
       sessionId: 'SessionId',
+      wordNumber: 'WordNumber',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cleanCache: 'boolean',
       docId: 'string',
+      nodeNumber: 'number',
       prompt: 'string',
       sessionId: 'string',
+      wordNumber: 'number',
       workspaceId: 'string',
     };
   }

@@ -4,15 +4,18 @@ import { GetInterveneImportTaskInfoResponseBodyDataStatus } from "./GetIntervene
 
 
 export class GetInterveneImportTaskInfoResponseBodyData extends $dara.Model {
+  code?: number;
   status?: GetInterveneImportTaskInfoResponseBodyDataStatus;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       status: GetInterveneImportTaskInfoResponseBodyDataStatus,
     };
   }

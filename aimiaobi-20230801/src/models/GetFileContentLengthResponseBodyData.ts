@@ -2,24 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InsertInterveneRuleResponseBodyData extends $dara.Model {
-  code?: number;
+export class GetFileContentLengthResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 12345
+   * 1024
    */
-  ruleId?: number;
+  wordNum?: number;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      ruleId: 'RuleId',
+      wordNum: 'WordNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
-      ruleId: 'number',
+      wordNum: 'number',
     };
   }
 

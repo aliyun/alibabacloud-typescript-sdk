@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInterveneCntResponseBodyData extends $dara.Model {
   cntList?: any[];
+  code?: number;
   /**
    * @example
    * 10
@@ -22,6 +23,7 @@ export class ListInterveneCntResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cntList: 'CntList',
+      code: 'Code',
       pageCnt: 'PageCnt',
       pageIndex: 'PageIndex',
       pageSize: 'PageSize',
@@ -31,6 +33,7 @@ export class ListInterveneCntResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cntList: { 'type': 'array', 'itemType': 'any' },
+      code: 'number',
       pageCnt: 'number',
       pageIndex: 'number',
       pageSize: 'number',

@@ -2,24 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ExportIntervenesResponseBodyData extends $dara.Model {
-  code?: number;
+export class GetFileContentLengthRequest extends $dara.Model {
   /**
    * @example
-   * http://xxx/xxx.xls
+   * test.pdf
+   */
+  docName?: string;
+  /**
+   * @example
+   * https://xxx/test.pdf
    */
   fileUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
+      docName: 'DocName',
       fileUrl: 'FileUrl',
+      workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      docName: 'string',
       fileUrl: 'string',
+      workspaceId: 'string',
     };
   }
 

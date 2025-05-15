@@ -4,6 +4,7 @@ import { ListInterveneRulesResponseBodyDataInterveneRuleList } from "./ListInter
 
 
 export class ListInterveneRulesResponseBodyData extends $dara.Model {
+  code?: number;
   /**
    * @example
    * 1
@@ -22,6 +23,7 @@ export class ListInterveneRulesResponseBodyData extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       count: 'Count',
       interveneRuleList: 'InterveneRuleList',
       pageIndex: 'PageIndex',
@@ -31,6 +33,7 @@ export class ListInterveneRulesResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       count: 'number',
       interveneRuleList: { 'type': 'array', 'itemType': ListInterveneRulesResponseBodyDataInterveneRuleList },
       pageIndex: 'number',

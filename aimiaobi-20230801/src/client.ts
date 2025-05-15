@@ -2020,6 +2020,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 妙读获得文档字数
+   * 
+   * @param request - GetFileContentLengthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileContentLengthResponse
+   */
+  async getFileContentLengthWithOptions(request: $_model.GetFileContentLengthRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFileContentLengthResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.docName)) {
+      body["DocName"] = request.docName;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFileContentLength",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFileContentLengthResponse>(await this.callApi(params, req, runtime), new $_model.GetFileContentLengthResponse({}));
+  }
+
+  /**
+   * 妙读获得文档字数
+   * 
+   * @param request - GetFileContentLengthRequest
+   * @returns GetFileContentLengthResponse
+   */
+  async getFileContentLength(request: $_model.GetFileContentLengthRequest): Promise<$_model.GetFileContentLengthResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFileContentLengthWithOptions(request, runtime);
+  }
+
+  /**
    * 文档管理-查询详情。
    * 
    * @param request - GetGeneratedContentRequest
@@ -5064,6 +5114,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 妙读生成书籍脑图
+   * 
+   * @param request - RunBookBrainmapRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunBookBrainmapResponse
+   */
+  async runBookBrainmapWithOptions(request: $_model.RunBookBrainmapRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunBookBrainmapResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cleanCache)) {
+      body["CleanCache"] = request.cleanCache;
+    }
+
+    if (!$dara.isNull(request.docId)) {
+      body["DocId"] = request.docId;
+    }
+
+    if (!$dara.isNull(request.nodeNumber)) {
+      body["NodeNumber"] = request.nodeNumber;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.wordNumber)) {
+      body["WordNumber"] = request.wordNumber;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunBookBrainmap",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunBookBrainmapResponse>(await this.callApi(params, req, runtime), new $_model.RunBookBrainmapResponse({}));
+  }
+
+  /**
+   * 妙读生成书籍脑图
+   * 
+   * @param request - RunBookBrainmapRequest
+   * @returns RunBookBrainmapResponse
+   */
+  async runBookBrainmap(request: $_model.RunBookBrainmapRequest): Promise<$_model.RunBookBrainmapResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runBookBrainmapWithOptions(request, runtime);
+  }
+
+  /**
    * 书籍导读接口
    * 
    * @param request - RunBookIntroductionRequest
@@ -5693,6 +5809,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.docId)) {
       body["DocId"] = request.docId;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
     }
 
     if (!$dara.isNull(request.sessionId)) {

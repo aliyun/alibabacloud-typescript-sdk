@@ -4,6 +4,7 @@ import { ListInterveneImportTasksResponseBodyDataStatusList } from "./ListInterv
 
 
 export class ListInterveneImportTasksResponseBodyData extends $dara.Model {
+  code?: number;
   /**
    * @example
    * 1
@@ -22,6 +23,7 @@ export class ListInterveneImportTasksResponseBodyData extends $dara.Model {
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       pageIndex: 'PageIndex',
       pageSize: 'PageSize',
       statusList: 'StatusList',
@@ -31,6 +33,7 @@ export class ListInterveneImportTasksResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
       pageIndex: 'number',
       pageSize: 'number',
       statusList: { 'type': 'array', 'itemType': ListInterveneImportTasksResponseBodyDataStatusList },

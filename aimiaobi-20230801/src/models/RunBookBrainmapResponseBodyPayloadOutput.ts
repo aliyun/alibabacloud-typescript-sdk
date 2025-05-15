@@ -2,24 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InsertInterveneRuleResponseBodyData extends $dara.Model {
-  code?: number;
+export class RunBookBrainmapResponseBodyPayloadOutput extends $dara.Model {
   /**
    * @example
-   * 12345
+   * {"xxxx":"xxx"}
    */
-  ruleId?: number;
+  content?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      ruleId: 'RuleId',
+      content: 'Content',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
-      ruleId: 'number',
+      content: 'string',
     };
   }
 
