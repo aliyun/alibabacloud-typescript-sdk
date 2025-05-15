@@ -15,6 +15,11 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult
   endTimeFormat?: string;
   /**
    * @example
+   * 张三
+   */
+  speaker?: string;
+  /**
+   * @example
    * 00:01
    */
   startTime?: number;
@@ -32,6 +37,7 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult
     return {
       endTime: 'endTime',
       endTimeFormat: 'endTimeFormat',
+      speaker: 'speaker',
       startTime: 'startTime',
       startTimeFormat: 'startTimeFormat',
       text: 'text',
@@ -42,6 +48,7 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult
     return {
       endTime: 'number',
       endTimeFormat: 'string',
+      speaker: 'string',
       startTime: 'number',
       startTimeFormat: 'string',
       text: 'string',

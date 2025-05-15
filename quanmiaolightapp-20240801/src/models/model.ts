@@ -40,6 +40,8 @@ export { GetVideoAnalysisTaskResponseBodyDataPayloadUsage } from './GetVideoAnal
 export { GetVideoAnalysisTaskResponseBodyDataPayload } from './GetVideoAnalysisTaskResponseBodyDataPayload';
 export { GetVideoAnalysisTaskResponseBodyDataTaskRunInfo } from './GetVideoAnalysisTaskResponseBodyDataTaskRunInfo';
 export { GetVideoAnalysisTaskResponseBodyData } from './GetVideoAnalysisTaskResponseBodyData';
+export { ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags } from './ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags';
+export { ListAnalysisTagDetailByTaskIdResponseBodyData } from './ListAnalysisTagDetailByTaskIdResponseBodyData';
 export { ListHotTopicSummariesResponseBodyDataNewsComments } from './ListHotTopicSummariesResponseBodyDataNewsComments';
 export { ListHotTopicSummariesResponseBodyDataNews } from './ListHotTopicSummariesResponseBodyDataNews';
 export { ListHotTopicSummariesResponseBodyDataSummarySummaries } from './ListHotTopicSummariesResponseBodyDataSummarySummaries';
@@ -110,6 +112,8 @@ export { RunTagMiningAnalysisResponseBodyPayloadUsage } from './RunTagMiningAnal
 export { RunTagMiningAnalysisResponseBodyPayload } from './RunTagMiningAnalysisResponseBodyPayload';
 export { RunVideoAnalysisRequestFrameSampleMethod } from './RunVideoAnalysisRequestFrameSampleMethod';
 export { RunVideoAnalysisRequestTextProcessTasks } from './RunVideoAnalysisRequestTextProcessTasks';
+export { RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions } from './RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions';
+export { RunVideoAnalysisRequestVideoCaptionInfo } from './RunVideoAnalysisRequestVideoCaptionInfo';
 export { RunVideoAnalysisRequestVideoRoles } from './RunVideoAnalysisRequestVideoRoles';
 export { RunVideoAnalysisResponseBodyHeader } from './RunVideoAnalysisResponseBodyHeader';
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultUsage } from './RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultUsage';
@@ -142,8 +146,11 @@ export { SubmitTagMiningAnalysisTaskRequestTags } from './SubmitTagMiningAnalysi
 export { SubmitTagMiningAnalysisTaskResponseBodyData } from './SubmitTagMiningAnalysisTaskResponseBodyData';
 export { SubmitVideoAnalysisTaskRequestFrameSampleMethod } from './SubmitVideoAnalysisTaskRequestFrameSampleMethod';
 export { SubmitVideoAnalysisTaskRequestTextProcessTasks } from './SubmitVideoAnalysisTaskRequestTextProcessTasks';
+export { SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions } from './SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions';
+export { SubmitVideoAnalysisTaskRequestVideoCaptionInfo } from './SubmitVideoAnalysisTaskRequestVideoCaptionInfo';
 export { SubmitVideoAnalysisTaskRequestVideoRoles } from './SubmitVideoAnalysisTaskRequestVideoRoles';
 export { SubmitVideoAnalysisTaskResponseBodyData } from './SubmitVideoAnalysisTaskResponseBodyData';
+export { UpdateVideoAnalysisTaskResponseBodyData } from './UpdateVideoAnalysisTaskResponseBodyData';
 export { CancelAsyncTaskRequest } from './CancelAsyncTaskRequest';
 export { CancelAsyncTaskResponseBody } from './CancelAsyncTaskResponseBody';
 export { CancelAsyncTaskResponse } from './CancelAsyncTaskResponse';
@@ -169,6 +176,9 @@ export { GetVideoAnalysisConfigResponse } from './GetVideoAnalysisConfigResponse
 export { GetVideoAnalysisTaskRequest } from './GetVideoAnalysisTaskRequest';
 export { GetVideoAnalysisTaskResponseBody } from './GetVideoAnalysisTaskResponseBody';
 export { GetVideoAnalysisTaskResponse } from './GetVideoAnalysisTaskResponse';
+export { ListAnalysisTagDetailByTaskIdRequest } from './ListAnalysisTagDetailByTaskIdRequest';
+export { ListAnalysisTagDetailByTaskIdResponseBody } from './ListAnalysisTagDetailByTaskIdResponseBody';
+export { ListAnalysisTagDetailByTaskIdResponse } from './ListAnalysisTagDetailByTaskIdResponse';
 export { ListHotTopicSummariesRequest } from './ListHotTopicSummariesRequest';
 export { ListHotTopicSummariesResponseBody } from './ListHotTopicSummariesResponseBody';
 export { ListHotTopicSummariesResponse } from './ListHotTopicSummariesResponse';
@@ -234,3 +244,6 @@ export { SubmitVideoAnalysisTaskResponse } from './SubmitVideoAnalysisTaskRespon
 export { UpdateVideoAnalysisConfigRequest } from './UpdateVideoAnalysisConfigRequest';
 export { UpdateVideoAnalysisConfigResponseBody } from './UpdateVideoAnalysisConfigResponseBody';
 export { UpdateVideoAnalysisConfigResponse } from './UpdateVideoAnalysisConfigResponse';
+export { UpdateVideoAnalysisTaskRequest } from './UpdateVideoAnalysisTaskRequest';
+export { UpdateVideoAnalysisTaskResponseBody } from './UpdateVideoAnalysisTaskResponseBody';
+export { UpdateVideoAnalysisTaskResponse } from './UpdateVideoAnalysisTaskResponse';

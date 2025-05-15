@@ -39,6 +39,7 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
    */
   splitInterval?: number;
   textProcessTasksShrink?: string;
+  videoCaptionInfoShrink?: string;
   videoExtraInfo?: string;
   videoModelCustomPromptTemplate?: string;
   /**
@@ -70,6 +71,7 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
       snapshotInterval: 'snapshotInterval',
       splitInterval: 'splitInterval',
       textProcessTasksShrink: 'textProcessTasks',
+      videoCaptionInfoShrink: 'videoCaptionInfo',
       videoExtraInfo: 'videoExtraInfo',
       videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
       videoModelId: 'videoModelId',
@@ -93,6 +95,7 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
       snapshotInterval: 'number',
       splitInterval: 'number',
       textProcessTasksShrink: 'string',
+      videoCaptionInfoShrink: 'string',
       videoExtraInfo: 'string',
       videoModelCustomPromptTemplate: 'string',
       videoModelId: 'string',

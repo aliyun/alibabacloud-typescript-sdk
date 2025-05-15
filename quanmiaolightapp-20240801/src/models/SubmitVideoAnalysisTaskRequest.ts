@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { SubmitVideoAnalysisTaskRequestFrameSampleMethod } from "./SubmitVideoAnalysisTaskRequestFrameSampleMethod";
 import { SubmitVideoAnalysisTaskRequestTextProcessTasks } from "./SubmitVideoAnalysisTaskRequestTextProcessTasks";
+import { SubmitVideoAnalysisTaskRequestVideoCaptionInfo } from "./SubmitVideoAnalysisTaskRequestVideoCaptionInfo";
 import { SubmitVideoAnalysisTaskRequestVideoRoles } from "./SubmitVideoAnalysisTaskRequestVideoRoles";
 
 
@@ -42,6 +43,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
    */
   splitInterval?: number;
   textProcessTasks?: SubmitVideoAnalysisTaskRequestTextProcessTasks[];
+  videoCaptionInfo?: SubmitVideoAnalysisTaskRequestVideoCaptionInfo;
   videoExtraInfo?: string;
   videoModelCustomPromptTemplate?: string;
   /**
@@ -73,6 +75,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
       snapshotInterval: 'snapshotInterval',
       splitInterval: 'splitInterval',
       textProcessTasks: 'textProcessTasks',
+      videoCaptionInfo: 'videoCaptionInfo',
       videoExtraInfo: 'videoExtraInfo',
       videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
       videoModelId: 'videoModelId',
@@ -96,6 +99,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
       snapshotInterval: 'number',
       splitInterval: 'number',
       textProcessTasks: { 'type': 'array', 'itemType': SubmitVideoAnalysisTaskRequestTextProcessTasks },
+      videoCaptionInfo: SubmitVideoAnalysisTaskRequestVideoCaptionInfo,
       videoExtraInfo: 'string',
       videoModelCustomPromptTemplate: 'string',
       videoModelId: 'string',
@@ -117,6 +121,9 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
     }
     if(Array.isArray(this.textProcessTasks)) {
       $dara.Model.validateArray(this.textProcessTasks);
+    }
+    if(this.videoCaptionInfo && typeof (this.videoCaptionInfo as any).validate === 'function') {
+      (this.videoCaptionInfo as any).validate();
     }
     if(Array.isArray(this.videoRoles)) {
       $dara.Model.validateArray(this.videoRoles);

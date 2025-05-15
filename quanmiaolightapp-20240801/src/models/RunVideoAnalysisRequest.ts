@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { RunVideoAnalysisRequestFrameSampleMethod } from "./RunVideoAnalysisRequestFrameSampleMethod";
 import { RunVideoAnalysisRequestTextProcessTasks } from "./RunVideoAnalysisRequestTextProcessTasks";
+import { RunVideoAnalysisRequestVideoCaptionInfo } from "./RunVideoAnalysisRequestVideoCaptionInfo";
 import { RunVideoAnalysisRequestVideoRoles } from "./RunVideoAnalysisRequestVideoRoles";
 
 
@@ -43,6 +44,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
    */
   taskId?: string;
   textProcessTasks?: RunVideoAnalysisRequestTextProcessTasks[];
+  videoCaptionInfo?: RunVideoAnalysisRequestVideoCaptionInfo;
   videoExtraInfo?: string;
   videoModelCustomPromptTemplate?: string;
   /**
@@ -72,6 +74,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
       splitInterval: 'splitInterval',
       taskId: 'taskId',
       textProcessTasks: 'textProcessTasks',
+      videoCaptionInfo: 'videoCaptionInfo',
       videoExtraInfo: 'videoExtraInfo',
       videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
       videoModelId: 'videoModelId',
@@ -96,6 +99,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
       splitInterval: 'number',
       taskId: 'string',
       textProcessTasks: { 'type': 'array', 'itemType': RunVideoAnalysisRequestTextProcessTasks },
+      videoCaptionInfo: RunVideoAnalysisRequestVideoCaptionInfo,
       videoExtraInfo: 'string',
       videoModelCustomPromptTemplate: 'string',
       videoModelId: 'string',
@@ -117,6 +121,9 @@ export class RunVideoAnalysisRequest extends $dara.Model {
     }
     if(Array.isArray(this.textProcessTasks)) {
       $dara.Model.validateArray(this.textProcessTasks);
+    }
+    if(this.videoCaptionInfo && typeof (this.videoCaptionInfo as any).validate === 'function') {
+      (this.videoCaptionInfo as any).validate();
     }
     if(Array.isArray(this.videoRoles)) {
       $dara.Model.validateArray(this.videoRoles);

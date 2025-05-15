@@ -416,6 +416,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取挖掘分析结果明细列表
+   * 
+   * @param request - ListAnalysisTagDetailByTaskIdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAnalysisTagDetailByTaskIdResponse
+   */
+  async listAnalysisTagDetailByTaskIdWithOptions(workspaceId: string, request: $_model.ListAnalysisTagDetailByTaskIdRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAnalysisTagDetailByTaskIdResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAnalysisTagDetailByTaskId",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/listAnalysisTagDetailByTaskId`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAnalysisTagDetailByTaskIdResponse>(await this.callApi(params, req, runtime), new $_model.ListAnalysisTagDetailByTaskIdResponse({}));
+  }
+
+  /**
+   * 获取挖掘分析结果明细列表
+   * 
+   * @param request - ListAnalysisTagDetailByTaskIdRequest
+   * @returns ListAnalysisTagDetailByTaskIdResponse
+   */
+  async listAnalysisTagDetailByTaskId(workspaceId: string, request: $_model.ListAnalysisTagDetailByTaskIdRequest): Promise<$_model.ListAnalysisTagDetailByTaskIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAnalysisTagDetailByTaskIdWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 轻应用-新闻播报-获取热点话题摘要列表
    * 
    * @param request - ListHotTopicSummariesRequest
@@ -1346,6 +1399,10 @@ export default class Client extends OpenApi {
       request.textProcessTasksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.textProcessTasks, "textProcessTasks", "json");
     }
 
+    if (!$dara.isNull(tmpReq.videoCaptionInfo)) {
+      request.videoCaptionInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoCaptionInfo, "videoCaptionInfo", "json");
+    }
+
     if (!$dara.isNull(tmpReq.videoRoles)) {
       request.videoRolesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoRoles, "videoRoles", "json");
     }
@@ -1401,6 +1458,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.textProcessTasksShrink)) {
       body["textProcessTasks"] = request.textProcessTasksShrink;
+    }
+
+    if (!$dara.isNull(request.videoCaptionInfoShrink)) {
+      body["videoCaptionInfo"] = request.videoCaptionInfoShrink;
     }
 
     if (!$dara.isNull(request.videoExtraInfo)) {
@@ -1667,6 +1728,10 @@ export default class Client extends OpenApi {
       request.textProcessTasksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.textProcessTasks, "textProcessTasks", "json");
     }
 
+    if (!$dara.isNull(tmpReq.videoCaptionInfo)) {
+      request.videoCaptionInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoCaptionInfo, "videoCaptionInfo", "json");
+    }
+
     if (!$dara.isNull(tmpReq.videoRoles)) {
       request.videoRolesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoRoles, "videoRoles", "json");
     }
@@ -1718,6 +1783,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.textProcessTasksShrink)) {
       body["textProcessTasks"] = request.textProcessTasksShrink;
+    }
+
+    if (!$dara.isNull(request.videoCaptionInfoShrink)) {
+      body["videoCaptionInfo"] = request.videoCaptionInfoShrink;
     }
 
     if (!$dara.isNull(request.videoExtraInfo)) {
@@ -1817,6 +1886,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateVideoAnalysisConfigWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 视频理解-修改任务状态
+   * 
+   * @param request - UpdateVideoAnalysisTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVideoAnalysisTaskResponse
+   */
+  async updateVideoAnalysisTaskWithOptions(workspaceId: string, request: $_model.UpdateVideoAnalysisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVideoAnalysisTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskStatus)) {
+      body["taskStatus"] = request.taskStatus;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVideoAnalysisTask",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/videoAnalysis/updateVideoAnalysisTask`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVideoAnalysisTaskResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVideoAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 视频理解-修改任务状态
+   * 
+   * @param request - UpdateVideoAnalysisTaskRequest
+   * @returns UpdateVideoAnalysisTaskResponse
+   */
+  async updateVideoAnalysisTask(workspaceId: string, request: $_model.UpdateVideoAnalysisTaskRequest): Promise<$_model.UpdateVideoAnalysisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateVideoAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
 }

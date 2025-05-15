@@ -2,17 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResultVideoCaptions extends $dara.Model {
+export class SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions extends $dara.Model {
   /**
    * @example
-   * 1710432000000
+   * 10000
    */
   endTime?: number;
-  /**
-   * @example
-   * 00:01
-   */
-  endTimeFormat?: string;
   /**
    * @example
    * 张三
@@ -20,26 +15,19 @@ export class RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResultVideoCap
   speaker?: string;
   /**
    * @example
-   * 0
+   * 1000
    */
   startTime?: number;
   /**
    * @example
-   * 00:01
-   */
-  startTimeFormat?: string;
-  /**
-   * @example
-   * xxx
+   * 你好
    */
   text?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'endTime',
-      endTimeFormat: 'endTimeFormat',
       speaker: 'speaker',
       startTime: 'startTime',
-      startTimeFormat: 'startTimeFormat',
       text: 'text',
     };
   }
@@ -47,10 +35,8 @@ export class RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResultVideoCap
   static types(): { [key: string]: any } {
     return {
       endTime: 'number',
-      endTimeFormat: 'string',
       speaker: 'string',
       startTime: 'number',
-      startTimeFormat: 'string',
       text: 'string',
     };
   }
