@@ -4,6 +4,7 @@ import { DescribeSnapshotLinksResponseBodySnapshotLinks } from "./DescribeSnapsh
 
 
 export class DescribeSnapshotLinksResponseBody extends $dara.Model {
+  nextToken?: string;
   /**
    * @remarks
    * The page number.
@@ -43,6 +44,7 @@ export class DescribeSnapshotLinksResponseBody extends $dara.Model {
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      nextToken: 'NextToken',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -53,6 +55,7 @@ export class DescribeSnapshotLinksResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',

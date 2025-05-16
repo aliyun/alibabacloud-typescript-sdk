@@ -51,12 +51,12 @@ export class CreateDiskRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The category of the data disk. Valid values for different disk categories:
+   * The category of the data disk. Valid values:
    * 
    * *   cloud: basic disk
-   * *   cloud_efficiency: utra disk
+   * *   cloud_efficiency: ultra disk
    * *   cloud_ssd: standard SSD
-   * *   cloud_essd: ESSD
+   * *   cloud_essd: Enterprise SSD (ESSD)
    * *   cloud_auto: ESSD AutoPL disk
    * *   cloud_essd_entry: ESSD Entry disk
    * *   cloud_regional_disk_auto: Regional ESSD
@@ -64,12 +64,6 @@ export class CreateDiskRequest extends $dara.Model {
    * *   elastic_ephemeral_disk_premium: premium elastic ephemeral disk
    * 
    * Default value: cloud.
-   * 
-   * Valid values:
-   * 
-   * *   cloud_regional_disk_auto
-   * *   elastic_ephemeral_disk_standard
-   * *   elastic_ephemeral_disk_premium
    * 
    * @example
    * cloud_ssd
@@ -163,9 +157,14 @@ export class CreateDiskRequest extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
+   * The provisioned read/write IOPS per ESSD AutoPL disk. Valid values:
    * 
-   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}
+   * *   Capacity (GiB) ≤ 3: not configurable.
+   * *   Capacity (GiB) ≥ 4: [0, min{(1,000
+   * 
+   * IOPS/GiB × Capacity - Baseline IOPS), 50,000}].
+   * 
+   * Baseline IOPS = max{min{1,800 + 50 × Capacity, 50,000}, 3,000}.
    * 
    * >  This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
    * 
@@ -195,7 +194,7 @@ export class CreateDiskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The disk size. Unit: GiB. This parameter is required. Valid values for different disk categories:
+   * The disk size. Unit: GiB. You must specify this parameter. Valid values for different disk categories:
    * 
    * *   Valid values when DiskCategory is set to cloud: 5 to 2000.
    * 

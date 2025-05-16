@@ -19,6 +19,8 @@ export class DescribeSnapshotLinksRequest extends $dara.Model {
    * i-bp1h6jmbefj2cyqs****
    */
   instanceId?: string;
+  maxResults?: number;
+  nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -65,6 +67,8 @@ export class DescribeSnapshotLinksRequest extends $dara.Model {
     return {
       diskIds: 'DiskIds',
       instanceId: 'InstanceId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -80,6 +84,8 @@ export class DescribeSnapshotLinksRequest extends $dara.Model {
     return {
       diskIds: 'string',
       instanceId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
