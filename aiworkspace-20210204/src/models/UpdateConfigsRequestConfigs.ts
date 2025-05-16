@@ -13,6 +13,7 @@ export class UpdateConfigsRequestConfigs extends $dara.Model {
    * *   DLCPriorityConfig
    * *   DSWPriorityConfig
    * *   QuotaMaximumDuration
+   * *   CommonTagConfig
    * 
    * @example
    * CommonResourceConfig
@@ -24,8 +25,9 @@ export class UpdateConfigsRequestConfigs extends $dara.Model {
    * 
    * *   tempStoragePath: Temporary storage path. This key can be used only when CategoryName is set to CommonResourceConfig.
    * *   isAutoRecycle: Automatic recycle configuration. This key can be used only when CategoryName is set to DLCAutoRecycle.
-   * *   priorityConfig: Priority configuration. This key can be used only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
-   * *   quotaMaximumDuration Maximum run time of DLC jobs for a quota. This key can be used only when CategoryName is set to QuotaMaximumDuration.
+   * *   tempStoragePath: Temporary storage path. This key can be used only when CategoryName is set to CommonResourceConfig.
+   * *   quotaMaximumDuration: Maximum run time of DLC jobs for a quota. This key can be used only when CategoryName is set to QuotaMaximumDuration.
+   * *   predefinedTags: The predefined tags of the workspace. All created resources must have tags.
    * 
    * @example
    * tempStoragePath
@@ -34,6 +36,8 @@ export class UpdateConfigsRequestConfigs extends $dara.Model {
   /**
    * @remarks
    * The value of the configuration item.
+   * 
+   * *   When ConfigKey is predefinedTags, the ConfigValue follows this format: [{"Type":"Tag","Key":"Key1","Value":"{"Products":"DLC,DSW,EAS","Values":"value1,value2,value3"}"}]. "Products" indicates the products that use the predefined tags.
    * 
    * @example
    * oss://test/s/

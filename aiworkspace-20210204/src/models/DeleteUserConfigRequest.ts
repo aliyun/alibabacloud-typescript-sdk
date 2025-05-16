@@ -11,6 +11,13 @@ export class DeleteUserConfigRequest extends $dara.Model {
    * tempStoragePath
    */
   configKey?: string;
+  /**
+   * @remarks
+   * The scope. Valid values: subUser and owner.
+   * 
+   * @example
+   * subUser
+   */
   scope?: string;
   static names(): { [key: string]: string } {
     return {

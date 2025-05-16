@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The category of the configuration item. Supported categories:
+   * The category of the configuration item. Valid values:
    * 
    * *   CommonResourceConfig
    * *   DLCAutoRecycle - DLCPriorityConfig
    * *   DSWPriorityConfig
    * *   QuotaMaximumDuration
+   * *   CommonTagConfig
    * 
    * @example
    * CommonResourceConfig

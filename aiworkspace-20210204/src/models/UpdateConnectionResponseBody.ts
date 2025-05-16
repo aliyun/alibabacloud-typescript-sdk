@@ -2,34 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateConfigsRequestConfigsLabels extends $dara.Model {
+export class UpdateConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The request ID.
    * 
    * @example
-   * key1
+   * A0F049F0-8D69-5BAC-8F10-B******A34C
    */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
-      value: 'Value',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
-      value: 'string',
+      requestId: 'string',
     };
   }
 

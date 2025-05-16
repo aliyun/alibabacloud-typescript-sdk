@@ -18,7 +18,7 @@ export class CreateModelVersionRequest extends $dara.Model {
   approvalStatus?: string;
   /**
    * @remarks
-   * Compression Configuration
+   * The compression configuration.
    * 
    * @example
    * {}
@@ -26,7 +26,7 @@ export class CreateModelVersionRequest extends $dara.Model {
   compressionSpec?: { [key: string]: any };
   /**
    * @remarks
-   * Evaluation Configuration
+   * The evaluation configuration.
    * 
    * @example
    * {}
@@ -34,7 +34,7 @@ export class CreateModelVersionRequest extends $dara.Model {
   evaluationSpec?: { [key: string]: any };
   /**
    * @remarks
-   * Other information.
+   * The additional information.
    * 
    * @example
    * {
@@ -45,7 +45,7 @@ export class CreateModelVersionRequest extends $dara.Model {
   extraInfo?: { [key: string]: any };
   /**
    * @remarks
-   * The format of the model. Valid values:
+   * The model format. Valid values:
    * 
    * *   OfflineModel
    * *   SavedModel
@@ -64,9 +64,9 @@ export class CreateModelVersionRequest extends $dara.Model {
   formatType?: string;
   /**
    * @remarks
-   * The framework of the model. Valid values:
+   * The model framework. Valid values:
    * 
-   * *   Pytorch 
+   * *   Pytorch
    * *   XGBoost
    * *   Keras
    * *   Caffe
@@ -80,7 +80,7 @@ export class CreateModelVersionRequest extends $dara.Model {
   frameworkType?: string;
   /**
    * @remarks
-   * Describes how to apply to downstream inference services. For example, describes the processor and container of EAS. Example: `{ "processor": "tensorflow_gpu_1.12" }`
+   * Describes how to apply to downstream inference services. For example, describe the processor and container of EAS. Example: `{ "processor": "tensorflow_gpu_1.12" }`
    * 
    * @example
    * {
@@ -90,7 +90,7 @@ export class CreateModelVersionRequest extends $dara.Model {
   inferenceSpec?: { [key: string]: any };
   /**
    * @remarks
-   * The tags.
+   * The labels.
    */
   labels?: Label[];
   /**
@@ -127,21 +127,21 @@ export class CreateModelVersionRequest extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * The source ID.
+   * The ID of the model source.
    * 
-   * *   If the source type is Custom, this field is not limited.
-   * *   If the source is PAIFlow or TrainingService, the format is:
+   * *   If SourceType is set to Custom, this parameter is not limited.
+   * *   If SourceType is set to PAIFlow or TrainingService, the ID of the model source is in the following format:
    * 
    * <!---->
    * 
    *     region=<region_id>,workspaceId=<workspace_id>,kind=<kind>,id=<id>
    * 
-   * Where,
+   * Take note of the following parameters:
    * 
-   * *   region is the region ID.
-   * *   workspaceId is the ID of the workspace.
-   * *   kind is the type. Valid values: PipelineRun (PAIFlow) and ServiceJob (training service).
-   * *   id: a unique identifier.
+   * *   region indicates the region ID.
+   * *   workspaceId indicates the workspace ID.
+   * *   kind indicates the type. Valid values: PipelineRun (PAIFlow) and ServiceJob (training service).
+   * *   id indicates the unique identifier.
    * 
    * @example
    * region=cn-shanghai,workspaceId=13**,kind=PipelineRun,id=run-sakdb****jdf
@@ -153,7 +153,7 @@ export class CreateModelVersionRequest extends $dara.Model {
    * 
    * *   Custom (default)
    * *   PAIFlow
-   * *   TrainingService: PAI training service.
+   * *   TrainingService: the Platform for AI (PAI) training service.
    * 
    * @example
    * PAIFlow
@@ -161,7 +161,7 @@ export class CreateModelVersionRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The training configurations. Used for fine-tuning and incremental training.
+   * The training configurations, which is used for fine-tuning and incremental training.
    * 
    * @example
    * {}
@@ -172,7 +172,7 @@ export class CreateModelVersionRequest extends $dara.Model {
    * The URI of the model version, which is the location where the model is stored. Valid values:
    * 
    * *   The HTTP(S) address of the model. Example: `https://myweb.com/mymodel.tar.gz`.
-   * *   The OSS path of the model, in the format of `oss://<bucket>.<endpoint>/object`. For endpoint, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html). Example: `oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/`.
+   * *   The OSS path of the model, in the format of `oss://<bucket>.<endpoint>/object`. For information about endpoints, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html). Example: `oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/`.
    * 
    * This parameter is required.
    * 
@@ -182,12 +182,12 @@ export class CreateModelVersionRequest extends $dara.Model {
   uri?: string;
   /**
    * @remarks
-   * The version descriptions.
+   * The version description.
    */
   versionDescription?: string;
   /**
    * @remarks
-   * The model version, which is unique for each model. If left empty, the first version is **0.1.0** by default. After that, the version number is increased by 1 in sequence. For example, the second version number is **0.2.0**. A version number consists of a major version number, a minor version number, and a stage version number, separated by periods (.). Among them: the major version number and minor version number are numeric. The stage version number begins with a digit and can include numbers, underscores, and letters. For example, the version number is 1.1.0 or 2.3.4_beta.
+   * The model version, which is unique for each model. If you leave this parameter empty, the first version is **0.1.0** by default. After that, the minor version number is increased by 1 in sequence. For example, the second version number is **0.2.0**. A version number consists of a major version number, a minor version number, and a stage version number, separated by periods (.). The major version number and minor version number are numeric. The stage version number begins with a digit and can include numbers, underscores, and letters. For example, the version number is 1.1.0 or 2.3.4_beta.
    * 
    * @example
    * 0.1.0

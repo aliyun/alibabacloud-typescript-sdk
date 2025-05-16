@@ -6,10 +6,10 @@ import { Label } from "./Label";
 export class CreateDatasetRequest extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the workspace. Valid values:
+   * The workspace accessibility. Valid values:
    * 
-   * *   PRIVATE (default): The workspace is visible only to you and the administrator of the workspace.
-   * *   PUBLIC: The workspace is visible to all users.
+   * *   PRIVATE: The workspace is accessible only to you and the administrator of the workspace. This is the default value.
+   * *   PUBLIC: The workspace is accessible to all users.
    * 
    * @example
    * PRIVATE
@@ -33,7 +33,7 @@ export class CreateDatasetRequest extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * The type of the data source. Valid values:
+   * The data source type. Valid values:
    * 
    * *   OSS: Object Storage Service (OSS).
    * *   NAS: File Storage NAS (NAS).
@@ -70,41 +70,41 @@ export class CreateDatasetRequest extends $dara.Model {
    * **OSS**
    * 
    * {\\
-   * "region": "${region}",// The region ID\\
-   * "bucket": "${bucket}",//The bucket name\\
-   * "path": "${path}" // The file path\\
+   * "region": "${region}",// The region ID.\\
+   * "bucket": "${bucket}",//The bucket name.\\
+   * "path": "${path}" // The file path.\\
    * }\\
    * 
    * 
    * **NAS**
    * 
    * {\\
-   * "region": "${region}",// The region ID\\
-   * "fileSystemId": "${file_system_id}", // The file system ID\\
-   * "path": "${path}", // The file system path\\
-   * "mountTarget": "${mount_target}" // The mount point of the file system\\
+   * "region": "${region}",// The region ID.\\
+   * "fileSystemId": "${file_system_id}", // The file system ID.\\
+   * "path": "${path}", // The file system path.\\
+   * "mountTarget": "${mount_target}" // The mount point of the file system.\\
    * }\\
    * 
    * 
    * **CPFS**
    * 
    * {\\
-   * "region": "${region}",// The region ID\\
-   * "fileSystemId": "${file_system_id}", // The file system ID\\
-   * "protocolServiceId":"${protocol_service_id}", // The file system protocol service\\
-   * "exportId": "${export_id}", // The file system export directory\\
-   * "path": "${path}", // The file system path\\
+   * "region": "${region}",// The region ID.\\
+   * "fileSystemId": "${file_system_id}", // The file system ID.\\
+   * "protocolServiceId":"${protocol_service_id}", // The file system protocol service.\\
+   * "exportId": "${export_id}", // The file system export directory.\\
+   * "path": "${path}", // The file system path.\\
    * }\\
    * 
    * 
    * **CPFS for Lingjun**
    * 
    * {\\
-   * "region": "${region}",// The region ID\\
-   * "fileSystemId": "${file_system_id}", // The file system ID\\
-   * "path": "${path}", // The file system path\\
-   * "mountTarget": "${mount_target}" // The mount point of the file system, CPFS for Lingjun only\\
-   * "isVpcMount": boolean, // Whether the mount point is a virtual private cloud (VPC) mount point, CPFS for Lingjun only\\
+   * "region": "${region}",// The region ID.\\
+   * "fileSystemId": "${file_system_id}", // The file system ID.\\
+   * "path": "${path}", // The file system path.\\
+   * "mountTarget": "${mount_target}" // The mount point of the file system, CPFS for Lingjun only.\\
+   * "isVpcMount": boolean, // Whether the mount point is a virtual private cloud (VPC) mount point, CPFS for Lingjun only.\\
    * }\\
    * 
    * @example
@@ -189,7 +189,7 @@ export class CreateDatasetRequest extends $dara.Model {
   providerType?: string;
   /**
    * @remarks
-   * The ID of the source dataset of the labeled dataset.
+   * The ID of the source dataset for the labeled dataset.
    * 
    * @example
    * d-bvfasdfxxxxj8o411
@@ -197,7 +197,7 @@ export class CreateDatasetRequest extends $dara.Model {
   sourceDatasetId?: string;
   /**
    * @remarks
-   * The version of the source dataset of the labeled dataset.
+   * The version of the source dataset for the labeled dataset.
    * 
    * @example
    * v2
@@ -205,11 +205,11 @@ export class CreateDatasetRequest extends $dara.Model {
   sourceDatasetVersion?: string;
   /**
    * @remarks
-   * The ID of the data source.
+   * The data source ID.
    * 
-   * *   If SourceType is set to USER, the value of SourceId can be a custom string.
+   * *   If SourceType is set to USER, the value of SourceId is a custom string.
    * *   If SourceType is set to ITAG, the value of SourceId is the ID of the labeling job of iTAG.
-   * *   If SourceType is set to PAI_PUBLIC_DATASET, the value of SourceId is empty by default.
+   * *   If SourceType is set to PAI_PUBLIC_DATASET, SourceId is empty by default.
    * 
    * @example
    * jdnhf***fnrimv
@@ -217,9 +217,11 @@ export class CreateDatasetRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The type of the data source. Default value: USER. Valid values:
+   * The type of the data source. Default value: USER.
    * 
-   * *   PAI-PUBLIC-DATASET: a public dataset of Platform for AI (PAI).
+   * Valid values:
+   * 
+   * *   PAI_PUBLIC_DATASET: a public dataset of PAI.
    * *   ITAG: a dataset generated from a labeling job of iTAG.
    * *   USER: a dataset registered by a user.
    * 
@@ -231,8 +233,8 @@ export class CreateDatasetRequest extends $dara.Model {
    * @remarks
    * The URI of the data source.
    * 
-   * *   Value format when DataSourceType is set to OSS: `oss://bucket.endpoint/object`.
-   * *   Value formats when DataSourceType is set to NAS: General-purpose NAS: `nas://<nasfisid>.region/subpath/to/dir/`. CPFS 1.0: `nas://<cpfs-fsid>.region/subpath/to/dir/`. CPFS 2.0: `nas://<cpfs-fsid>.region/<protocolserviceid>/`. You can distinguish CPFS 1.0 and CPFS 2.0 file systems based on the format of the file system ID: The ID for CPFS 1.0 is in the cpfs-<8-bit ASCII characters> format. The ID for CPFS 2.0 is in the cpfs-<16-bit ASCII characters> format.
+   * *   Value format if DataSourceType is set to OSS: `oss://bucket.endpoint/object`.
+   * *   Value formats if DataSourceType is set to NAS: General-purpose NAS: `nas://<nasfisid>.region/subpath/to/dir/`. CPFS 1.0: `nas://<cpfs-fsid>.region/subpath/to/dir/`. CPFS 2.0: `nas://<cpfs-fsid>.region/<protocolserviceid>/`. You can distinguish CPFS 1.0 and CPFS 2.0 file systems based on the format of the file system ID: The ID for CPFS 1.0 is in the cpfs-<8-bit ASCII characters> format. The ID for CPFS 2.0 is in the cpfs-<16-bit ASCII characters> format.
    * 
    * This parameter is required.
    * 

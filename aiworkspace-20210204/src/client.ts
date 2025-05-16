@@ -380,6 +380,83 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建连接
+   * 
+   * @param request - CreateConnectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConnectionResponse
+   */
+  async createConnectionWithOptions(request: $_model.CreateConnectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateConnectionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
+    if (!$dara.isNull(request.configs)) {
+      body["Configs"] = request.configs;
+    }
+
+    if (!$dara.isNull(request.connectionName)) {
+      body["ConnectionName"] = request.connectionName;
+    }
+
+    if (!$dara.isNull(request.connectionType)) {
+      body["ConnectionType"] = request.connectionType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.models)) {
+      body["Models"] = request.models;
+    }
+
+    if (!$dara.isNull(request.resourceMeta)) {
+      body["ResourceMeta"] = request.resourceMeta;
+    }
+
+    if (!$dara.isNull(request.secrets)) {
+      body["Secrets"] = request.secrets;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateConnection",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/connections`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateConnectionResponse>(await this.callApi(params, req, runtime), new $_model.CreateConnectionResponse({}));
+  }
+
+  /**
+   * 创建连接
+   * 
+   * @param request - CreateConnectionRequest
+   * @returns CreateConnectionResponse
+   */
+  async createConnection(request: $_model.CreateConnectionRequest): Promise<$_model.CreateConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createConnectionWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Creates a dataset.
    * 
    * @param request - CreateDatasetRequest
@@ -1571,6 +1648,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a connection.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConnectionResponse
+   */
+  async deleteConnectionWithOptions(ConnectionId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConnectionResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConnection",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/connections/${$dara.URL.percentEncode(ConnectionId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteConnectionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteConnectionResponse({}));
+  }
+
+  /**
+   * Deletes a connection.
+   * @returns DeleteConnectionResponse
+   */
+  async deleteConnection(ConnectionId: string): Promise<$_model.DeleteConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteConnectionWithOptions(ConnectionId, headers, runtime);
+  }
+
+  /**
    * Deletes a dataset.
    * 
    * @param headers - map
@@ -2446,6 +2558,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取连接
+   * 
+   * @param request - GetConnectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConnectionResponse
+   */
+  async getConnectionWithOptions(ConnectionId: string, request: $_model.GetConnectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetConnectionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.encryptOption)) {
+      query["EncryptOption"] = request.encryptOption;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConnection",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/connections/${$dara.URL.percentEncode(ConnectionId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetConnectionResponse>(await this.callApi(params, req, runtime), new $_model.GetConnectionResponse({}));
+  }
+
+  /**
+   * 获取连接
+   * 
+   * @param request - GetConnectionRequest
+   * @returns GetConnectionResponse
+   */
+  async getConnection(ConnectionId: string, request: $_model.GetConnectionRequest): Promise<$_model.GetConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getConnectionWithOptions(ConnectionId, request, headers, runtime);
+  }
+
+  /**
    * Obtains a dataset.
    * 
    * @param headers - map
@@ -3246,6 +3403,109 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConfigsWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Lists connections.
+   * 
+   * @param tmpReq - ListConnectionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConnectionsResponse
+   */
+  async listConnectionsWithOptions(tmpReq: $_model.ListConnectionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConnectionsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListConnectionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.connectionIds)) {
+      request.connectionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.connectionIds, "ConnectionIds", "simple");
+    }
+
+    if (!$dara.isNull(tmpReq.connectionTypes)) {
+      request.connectionTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.connectionTypes, "ConnectionTypes", "simple");
+    }
+
+    if (!$dara.isNull(tmpReq.modelTypes)) {
+      request.modelTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modelTypes, "ModelTypes", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.connectionIdsShrink)) {
+      query["ConnectionIds"] = request.connectionIdsShrink;
+    }
+
+    if (!$dara.isNull(request.connectionName)) {
+      query["ConnectionName"] = request.connectionName;
+    }
+
+    if (!$dara.isNull(request.connectionTypesShrink)) {
+      query["ConnectionTypes"] = request.connectionTypesShrink;
+    }
+
+    if (!$dara.isNull(request.encryptOption)) {
+      query["EncryptOption"] = request.encryptOption;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.modelTypesShrink)) {
+      query["ModelTypes"] = request.modelTypesShrink;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.toolCall)) {
+      query["ToolCall"] = request.toolCall;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConnections",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/connections`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConnectionsResponse>(await this.callApi(params, req, runtime), new $_model.ListConnectionsResponse({}));
+  }
+
+  /**
+   * Lists connections.
+   * 
+   * @param request - ListConnectionsRequest
+   * @returns ListConnectionsResponse
+   */
+  async listConnections(request: $_model.ListConnectionsRequest): Promise<$_model.ListConnectionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConnectionsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -5313,6 +5573,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateConfigsWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Updates a connection.
+   * 
+   * @param request - UpdateConnectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConnectionResponse
+   */
+  async updateConnectionWithOptions(ConnectionId: string, request: $_model.UpdateConnectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateConnectionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configs)) {
+      body["Configs"] = request.configs;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.models)) {
+      body["Models"] = request.models;
+    }
+
+    if (!$dara.isNull(request.secrets)) {
+      body["Secrets"] = request.secrets;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConnection",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/connections/${$dara.URL.percentEncode(ConnectionId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateConnectionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateConnectionResponse({}));
+  }
+
+  /**
+   * Updates a connection.
+   * 
+   * @param request - UpdateConnectionRequest
+   * @returns UpdateConnectionResponse
+   */
+  async updateConnection(ConnectionId: string, request: $_model.UpdateConnectionRequest): Promise<$_model.UpdateConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateConnectionWithOptions(ConnectionId, request, headers, runtime);
   }
 
   /**

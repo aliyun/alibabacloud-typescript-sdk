@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SetUserConfigsRequestConfigs extends $dara.Model {
   /**
    * @remarks
-   * The category. Currently, only DataPrivacyConfig is supported.
+   * The category. Only DataPrivacyConfig is supported.
+   * 
+   * This parameter is required.
    * 
    * @example
    * DataPrivacyConfig
@@ -15,6 +17,8 @@ export class SetUserConfigsRequestConfigs extends $dara.Model {
    * @remarks
    * The key of the configuration item.
    * 
+   * This parameter is required.
+   * 
    * @example
    * customizePAIAssumedRole
    */
@@ -23,13 +27,17 @@ export class SetUserConfigsRequestConfigs extends $dara.Model {
    * @remarks
    * The value of the configuration item.
    * 
+   * This parameter is required.
+   * 
    * @example
    * role
    */
   configValue?: string;
   /**
    * @remarks
-   * The scope. Currently, subUser and owner are supported.
+   * The scope. Valid values: subUser and owner.
+   * 
+   * This parameter is required.
    * 
    * @example
    * owner

@@ -6,13 +6,14 @@ import { GetConfigResponseBodyLabels } from "./GetConfigResponseBodyLabels";
 export class GetConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The category of the configuration item. Supported categories:
+   * The category of the configuration item. Valid values:
    * 
    * *   CommonResourceConfig
    * *   DLCAutoRecycle
    * *   DLCPriorityConfig
    * *   DSWPriorityConfig
    * *   QuotaMaximumDuration
+   * *   CommonTagConfig
    * 
    * @example
    * CommonResourceConfig
@@ -20,12 +21,13 @@ export class GetConfigResponseBody extends $dara.Model {
   categoryName?: string;
   /**
    * @remarks
-   * The key of the configuration item. Supported keys:
+   * The key of the configuration item. Valid values:
    * 
    * *   tempStoragePath: Temporary storage path. This key can be used only when CategoryName is set to CommonResourceConfig.
    * *   isAutoRecycle: Automatic recycle configuration. This key can be used only when CategoryName is set to DLCAutoRecycle.
    * *   priorityConfig: Priority configuration. This key can be used only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
-   * *   quotaMaximumDuration Maximum run time of DLC jobs for a quota. This key can be used only when CategoryName is set to QuotaMaximumDuration.
+   * *   quotaMaximumDuration: Maximum run time of DLC jobs for a quota. This key can be used only when CategoryName is set to QuotaMaximumDuration.
+   * *   predefinedTags: Predefined tags of the workspace. Created resources must include tags.
    * 
    * @example
    * tempStoragePath
