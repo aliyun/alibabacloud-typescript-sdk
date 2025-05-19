@@ -11,6 +11,7 @@ export class GetNodeInfoForPodResponseBodyContent extends $dara.Model {
    * cluster-****
    */
   clusterId?: string;
+  hdeniIpv6SipQuota?: number;
   /**
    * @remarks
    * Lingjun Gaomi network interface controller quota
@@ -19,6 +20,8 @@ export class GetNodeInfoForPodResponseBodyContent extends $dara.Model {
    * 10
    */
   hdeniQuota?: number;
+  hdeniSipQuota?: number;
+  leniIpv6SipQuota?: number;
   /**
    * @remarks
    * Lingjun Elastic Network Interface quota, including system type
@@ -80,13 +83,13 @@ export class GetNodeInfoForPodResponseBodyContent extends $dara.Model {
    * cn-wulanchabu-b
    */
   zoneId?: string;
-  hdeniIpv6SipQuota?: number;
-  hdeniSipQuota?: number;
-  leniIpv6SipQuota?: number;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      hdeniIpv6SipQuota: 'HdeniIpv6SipQuota',
       hdeniQuota: 'HdeniQuota',
+      hdeniSipQuota: 'HdeniSipQuota',
+      leniIpv6SipQuota: 'LeniIpv6SipQuota',
       leniQuota: 'LeniQuota',
       leniSipQuota: 'LeniSipQuota',
       lniSipQuota: 'LniSipQuota',
@@ -95,16 +98,16 @@ export class GetNodeInfoForPodResponseBodyContent extends $dara.Model {
       vSwitches: 'VSwitches',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
-      hdeniIpv6SipQuota: 'hdeniIpv6SipQuota',
-      hdeniSipQuota: 'hdeniSipQuota',
-      leniIpv6SipQuota: 'leniIpv6SipQuota',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      hdeniIpv6SipQuota: 'number',
       hdeniQuota: 'number',
+      hdeniSipQuota: 'number',
+      leniIpv6SipQuota: 'number',
       leniQuota: 'number',
       leniSipQuota: 'number',
       lniSipQuota: 'number',
@@ -113,9 +116,6 @@ export class GetNodeInfoForPodResponseBodyContent extends $dara.Model {
       vSwitches: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
       zoneId: 'string',
-      hdeniIpv6SipQuota: 'number',
-      hdeniSipQuota: 'number',
-      leniIpv6SipQuota: 'number',
     };
   }
 
