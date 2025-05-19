@@ -4,6 +4,7 @@ import { SparkConf } from "./SparkConf";
 
 
 export class Template extends $dara.Model {
+  bizId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -21,11 +22,13 @@ export class Template extends $dara.Model {
    * This parameter is required.
    */
   gmtModified?: string;
+  isDefault?: boolean;
   /**
    * @remarks
    * This parameter is required.
    */
   modifier?: number;
+  name?: string;
   sparkConf?: SparkConf[];
   /**
    * @remarks
@@ -65,12 +68,15 @@ export class Template extends $dara.Model {
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
+      bizId: 'bizId',
       creator: 'creator',
       displaySparkVersion: 'displaySparkVersion',
       fusion: 'fusion',
       gmtCreated: 'gmtCreated',
       gmtModified: 'gmtModified',
+      isDefault: 'isDefault',
       modifier: 'modifier',
+      name: 'name',
       sparkConf: 'sparkConf',
       sparkDriverCores: 'sparkDriverCores',
       sparkDriverMemory: 'sparkDriverMemory',
@@ -85,12 +91,15 @@ export class Template extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizId: 'string',
       creator: 'number',
       displaySparkVersion: 'string',
       fusion: 'boolean',
       gmtCreated: 'string',
       gmtModified: 'string',
+      isDefault: 'boolean',
       modifier: 'number',
+      name: 'string',
       sparkConf: { 'type': 'array', 'itemType': SparkConf },
       sparkDriverCores: 'number',
       sparkDriverMemory: 'number',

@@ -11,6 +11,7 @@ export class GetTemplateRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  templateBizId?: string;
   /**
    * @remarks
    * The template type.
@@ -27,6 +28,7 @@ export class GetTemplateRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       regionId: 'regionId',
+      templateBizId: 'templateBizId',
       templateType: 'templateType',
     };
   }
@@ -34,6 +36,7 @@ export class GetTemplateRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      templateBizId: 'string',
       templateType: 'string',
     };
   }

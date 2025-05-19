@@ -54,6 +54,7 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Mode
    * {\\"cpu\\":\\"1\\",\\"memory\\":\\"4Gi\\",\\"cu\\":\\"1\\"}
    */
   maxResource?: string;
+  orderId?: string;
   /**
    * @remarks
    * The status of the subscription quota. Valid values:
@@ -82,6 +83,7 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Mode
       expireTime: 'expireTime',
       instanceId: 'instanceId',
       maxResource: 'maxResource',
+      orderId: 'orderId',
       paymentStatus: 'paymentStatus',
       usedResource: 'usedResource',
     };
@@ -95,6 +97,7 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Mode
       expireTime: 'number',
       instanceId: 'string',
       maxResource: 'string',
+      orderId: 'string',
       paymentStatus: 'string',
       usedResource: 'string',
     };

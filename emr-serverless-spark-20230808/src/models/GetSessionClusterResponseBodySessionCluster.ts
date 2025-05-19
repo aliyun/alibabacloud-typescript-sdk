@@ -106,6 +106,7 @@ export class GetSessionClusterResponseBodySessionCluster extends $dara.Model {
    * test
    */
   name?: string;
+  publicEndpointEnabled?: boolean;
   /**
    * @remarks
    * The queue name.
@@ -204,6 +205,7 @@ export class GetSessionClusterResponseBodySessionCluster extends $dara.Model {
       gmtCreate: 'gmtCreate',
       kind: 'kind',
       name: 'name',
+      publicEndpointEnabled: 'publicEndpointEnabled',
       queueName: 'queueName',
       releaseVersion: 'releaseVersion',
       sessionClusterId: 'sessionClusterId',
@@ -232,6 +234,7 @@ export class GetSessionClusterResponseBodySessionCluster extends $dara.Model {
       gmtCreate: 'number',
       kind: 'string',
       name: 'string',
+      publicEndpointEnabled: 'boolean',
       queueName: 'string',
       releaseVersion: 'string',
       sessionClusterId: 'string',

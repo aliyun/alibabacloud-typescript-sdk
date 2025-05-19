@@ -64,6 +64,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
    * spark_job_name
    */
   name?: string;
+  publicEndpointEnabled?: boolean;
   /**
    * @remarks
    * The queue name.
@@ -98,6 +99,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
       fusion: 'fusion',
       kind: 'kind',
       name: 'name',
+      publicEndpointEnabled: 'publicEndpointEnabled',
       queueName: 'queueName',
       releaseVersion: 'releaseVersion',
       regionId: 'regionId',
@@ -114,6 +116,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
       fusion: 'boolean',
       kind: 'string',
       name: 'string',
+      publicEndpointEnabled: 'boolean',
       queueName: 'string',
       releaseVersion: 'string',
       regionId: 'string',

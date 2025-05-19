@@ -308,6 +308,10 @@ export default class Client extends OpenApi {
       body["name"] = request.name;
     }
 
+    if (!$dara.isNull(request.publicEndpointEnabled)) {
+      body["publicEndpointEnabled"] = request.publicEndpointEnabled;
+    }
+
     if (!$dara.isNull(request.queueName)) {
       body["queueName"] = request.queueName;
     }
@@ -838,6 +842,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.templateBizId)) {
+      query["templateBizId"] = request.templateBizId;
     }
 
     if (!$dara.isNull(request.templateType)) {

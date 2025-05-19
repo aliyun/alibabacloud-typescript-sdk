@@ -100,6 +100,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
    * adhoc_query
    */
   name?: string;
+  publicEndpointEnabled?: boolean;
   /**
    * @remarks
    * The name of the queue that is used to run the session.
@@ -197,6 +198,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
       gmtCreate: 'gmtCreate',
       kind: 'kind',
       name: 'name',
+      publicEndpointEnabled: 'publicEndpointEnabled',
       queueName: 'queueName',
       releaseVersion: 'releaseVersion',
       sessionClusterId: 'sessionClusterId',
@@ -224,6 +226,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $dara.Model 
       gmtCreate: 'number',
       kind: 'string',
       name: 'string',
+      publicEndpointEnabled: 'boolean',
       queueName: 'string',
       releaseVersion: 'string',
       sessionClusterId: 'string',
