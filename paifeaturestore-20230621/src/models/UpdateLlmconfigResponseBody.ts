@@ -2,20 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateFeatureViewRequestFieldsTransformInput extends $dara.Model {
-  name?: string;
-  type?: string;
+export class UpdateLLMConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      name: 'Name',
-      type: 'Type',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
-      type: 'string',
+      requestId: 'string',
     };
   }
 

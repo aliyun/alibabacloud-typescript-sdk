@@ -83,6 +83,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检查FG配置内容是否正确，是否满足所有规则。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckModelFeatureFGFeatureResponse
+   */
+  async checkModelFeatureFGFeatureWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CheckModelFeatureFGFeatureResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckModelFeatureFGFeature",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(InstanceId)}/modelfeatures/${$dara.URL.percentEncode(ModelFeatureId)}/action/checkfgfeature`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckModelFeatureFGFeatureResponse>(await this.callApi(params, req, runtime), new $_model.CheckModelFeatureFGFeatureResponse({}));
+  }
+
+  /**
+   * 检查FG配置内容是否正确，是否满足所有规则。
+   * @returns CheckModelFeatureFGFeatureResponse
+   */
+  async checkModelFeatureFGFeature(InstanceId: string, ModelFeatureId: string): Promise<$_model.CheckModelFeatureFGFeatureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.checkModelFeatureFGFeatureWithOptions(InstanceId, ModelFeatureId, headers, runtime);
+  }
+
+  /**
    * 创建数据源。
    * 
    * @param request - CreateDatasourceRequest
@@ -332,6 +367,79 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建大模型调用信息配置
+   * 
+   * @param request - CreateLLMConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLLMConfigResponse
+   */
+  async createLLMConfigWithOptions(InstanceId: string, request: $_model.CreateLLMConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLLMConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.baseUrl)) {
+      body["BaseUrl"] = request.baseUrl;
+    }
+
+    if (!$dara.isNull(request.batchSize)) {
+      body["BatchSize"] = request.batchSize;
+    }
+
+    if (!$dara.isNull(request.maxTokens)) {
+      body["MaxTokens"] = request.maxTokens;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.rps)) {
+      body["Rps"] = request.rps;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLLMConfig",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(InstanceId)}/llmconfigs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLLMConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateLLMConfigResponse({}));
+  }
+
+  /**
+   * 创建大模型调用信息配置
+   * 
+   * @param request - CreateLLMConfigRequest
+   * @returns CreateLLMConfigResponse
+   */
+  async createLLMConfig(InstanceId: string, request: $_model.CreateLLMConfigRequest): Promise<$_model.CreateLLMConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createLLMConfigWithOptions(InstanceId, request, headers, runtime);
   }
 
   /**
@@ -669,6 +777,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteFeatureViewWithOptions(InstanceId, FeatureViewId, headers, runtime);
+  }
+
+  /**
+   * 删除大模型调用信息配置
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLLMConfigResponse
+   */
+  async deleteLLMConfigWithOptions(InstanceId: string, LLMConfigId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLLMConfigResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLLMConfig",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(InstanceId)}/llmconfigs/${$dara.URL.percentEncode(LLMConfigId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLLMConfigResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLLMConfigResponse({}));
+  }
+
+  /**
+   * 删除大模型调用信息配置
+   * @returns DeleteLLMConfigResponse
+   */
+  async deleteLLMConfig(InstanceId: string, LLMConfigId: string): Promise<$_model.DeleteLLMConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteLLMConfigWithOptions(InstanceId, LLMConfigId, headers, runtime);
   }
 
   /**
@@ -1013,6 +1156,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取 LLMConfig 信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLLMConfigResponse
+   */
+  async getLLMConfigWithOptions(InstanceId: string, LLMConfigId: string, RegionId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetLLMConfigResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLLMConfig",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(InstanceId)}/llmconfigs/${$dara.URL.percentEncode(LLMConfigId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLLMConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetLLMConfigResponse({}));
+  }
+
+  /**
+   * 获取 LLMConfig 信息
+   * @returns GetLLMConfigResponse
+   */
+  async getLLMConfig(InstanceId: string, LLMConfigId: string, RegionId: string): Promise<$_model.GetLLMConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLLMConfigWithOptions(InstanceId, LLMConfigId, RegionId, headers, runtime);
+  }
+
+  /**
    * 获取Label表详细信息。
    * 
    * @param headers - map
@@ -1290,6 +1468,99 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTaskWithOptions(InstanceId, TaskId, headers, runtime);
+  }
+
+  /**
+   * 获取数据源下所有特征视图信息。
+   * 
+   * @param request - ListDatasourceFeatureViewsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatasourceFeatureViewsResponse
+   */
+  async listDatasourceFeatureViewsWithOptions(InstanceId: string, DatasourceId: string, request: $_model.ListDatasourceFeatureViewsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatasourceFeatureViewsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.showStorageUsage)) {
+      query["ShowStorageUsage"] = request.showStorageUsage;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.verbose)) {
+      query["Verbose"] = request.verbose;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDatasourceFeatureViews",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(InstanceId)}/datasources/${$dara.URL.percentEncode(DatasourceId)}/featureviews`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDatasourceFeatureViewsResponse>(await this.callApi(params, req, runtime), new $_model.ListDatasourceFeatureViewsResponse({}));
+  }
+
+  /**
+   * 获取数据源下所有特征视图信息。
+   * 
+   * @param request - ListDatasourceFeatureViewsRequest
+   * @returns ListDatasourceFeatureViewsResponse
+   */
+  async listDatasourceFeatureViews(InstanceId: string, DatasourceId: string, request: $_model.ListDatasourceFeatureViewsRequest): Promise<$_model.ListDatasourceFeatureViewsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDatasourceFeatureViewsWithOptions(InstanceId, DatasourceId, request, headers, runtime);
   }
 
   /**
@@ -1759,6 +2030,79 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取大模型调用信息配置
+   * 
+   * @param request - ListLLMConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLLMConfigsResponse
+   */
+  async listLLMConfigsWithOptions(InstanceId: string, request: $_model.ListLLMConfigsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListLLMConfigsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLLMConfigs",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(InstanceId)}/llmconfigs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLLMConfigsResponse>(await this.callApi(params, req, runtime), new $_model.ListLLMConfigsResponse({}));
+  }
+
+  /**
+   * 获取大模型调用信息配置
+   * 
+   * @param request - ListLLMConfigsRequest
+   * @returns ListLLMConfigsResponse
+   */
+  async listLLMConfigs(InstanceId: string, request: $_model.ListLLMConfigsRequest): Promise<$_model.ListLLMConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listLLMConfigsWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  /**
    * 获取Label表列表。
    * 
    * @param tmpReq - ListLabelTablesRequest
@@ -1994,6 +2338,75 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProjectFeatureViewsWithOptions(InstanceId, ProjectId, headers, runtime);
+  }
+
+  /**
+   * 获取项目下所有特征信息
+   * 
+   * @param request - ListProjectFeaturesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectFeaturesResponse
+   */
+  async listProjectFeaturesWithOptions(InstanceId: string, ProjectId: string, request: $_model.ListProjectFeaturesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListProjectFeaturesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aliasName)) {
+      query["AliasName"] = request.aliasName;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProjectFeatures",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(InstanceId)}/projects/${$dara.URL.percentEncode(ProjectId)}/features`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProjectFeaturesResponse>(await this.callApi(params, req, runtime), new $_model.ListProjectFeaturesResponse({}));
+  }
+
+  /**
+   * 获取项目下所有特征信息
+   * 
+   * @param request - ListProjectFeaturesRequest
+   * @returns ListProjectFeaturesResponse
+   */
+  async listProjectFeatures(InstanceId: string, ProjectId: string, request: $_model.ListProjectFeaturesRequest): Promise<$_model.ListProjectFeaturesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProjectFeaturesWithOptions(InstanceId, ProjectId, request, headers, runtime);
   }
 
   /**
@@ -2265,6 +2678,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 停止任务。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopTaskResponse
+   */
+  async stopTaskWithOptions(InstanceId: string, TaskId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopTaskResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopTask",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(InstanceId)}/tasks/${$dara.URL.percentEncode(TaskId)}/action/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopTaskResponse>(await this.callApi(params, req, runtime), new $_model.StopTaskResponse({}));
+  }
+
+  /**
+   * 停止任务。
+   * @returns StopTaskResponse
+   */
+  async stopTask(InstanceId: string, TaskId: string): Promise<$_model.StopTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopTaskWithOptions(InstanceId, TaskId, headers, runtime);
+  }
+
+  /**
    * 更新数据源信息。
    * 
    * @param request - UpdateDatasourceRequest
@@ -2315,6 +2763,75 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateDatasourceWithOptions(InstanceId, DatasourceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新大模型调用信息配置
+   * 
+   * @param request - UpdateLLMConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLLMConfigResponse
+   */
+  async updateLLMConfigWithOptions(InstanceId: string, LLMConfigId: string, request: $_model.UpdateLLMConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLLMConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.baseUrl)) {
+      body["BaseUrl"] = request.baseUrl;
+    }
+
+    if (!$dara.isNull(request.batchSize)) {
+      body["BatchSize"] = request.batchSize;
+    }
+
+    if (!$dara.isNull(request.maxTokens)) {
+      body["MaxTokens"] = request.maxTokens;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.rps)) {
+      body["Rps"] = request.rps;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateLLMConfig",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(InstanceId)}/llmconfigs/${$dara.URL.percentEncode(LLMConfigId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateLLMConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLLMConfigResponse({}));
+  }
+
+  /**
+   * 更新大模型调用信息配置
+   * 
+   * @param request - UpdateLLMConfigRequest
+   * @returns UpdateLLMConfigResponse
+   */
+  async updateLLMConfig(InstanceId: string, LLMConfigId: string, request: $_model.UpdateLLMConfigRequest): Promise<$_model.UpdateLLMConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateLLMConfigWithOptions(InstanceId, LLMConfigId, request, headers, runtime);
   }
 
   /**
