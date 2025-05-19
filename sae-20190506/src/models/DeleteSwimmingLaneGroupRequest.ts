@@ -2,29 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AbortChangeOrderRequest extends $dara.Model {
+export class DeleteSwimmingLaneGroupRequest extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the change order.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * be2e1c76-682b-4897-98d3-1d8d6478****
+   * 2074
    */
-  changeOrderId?: string;
-  rollback?: boolean;
+  groupId?: number;
+  /**
+   * @example
+   * cn-beijing:demo
+   */
+  namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      changeOrderId: 'ChangeOrderId',
-      rollback: 'Rollback',
+      groupId: 'GroupId',
+      namespaceId: 'NamespaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      changeOrderId: 'string',
-      rollback: 'boolean',
+      groupId: 'number',
+      namespaceId: 'string',
     };
   }
 

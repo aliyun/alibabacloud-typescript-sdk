@@ -89,6 +89,10 @@ export default class Client extends OpenApi {
       query["ChangeOrderId"] = request.changeOrderId;
     }
 
+    if (!$dara.isNull(request.rollback)) {
+      query["Rollback"] = request.rollback;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -1353,6 +1357,168 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建或者更新泳道
+   * 
+   * @param tmpReq - CreateOrUpdateSwimmingLaneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOrUpdateSwimmingLaneResponse
+   */
+  async createOrUpdateSwimmingLaneWithOptions(tmpReq: $_model.CreateOrUpdateSwimmingLaneRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOrUpdateSwimmingLaneResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateOrUpdateSwimmingLaneShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.appEntryRule)) {
+      request.appEntryRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.appEntryRule, "AppEntryRule", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.mseGatewayEntryRule)) {
+      request.mseGatewayEntryRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.mseGatewayEntryRule, "MseGatewayEntryRule", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appEntryRuleShrink)) {
+      query["AppEntryRule"] = request.appEntryRuleShrink;
+    }
+
+    if (!$dara.isNull(request.canaryModel)) {
+      query["CanaryModel"] = request.canaryModel;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.laneId)) {
+      query["LaneId"] = request.laneId;
+    }
+
+    if (!$dara.isNull(request.laneName)) {
+      query["LaneName"] = request.laneName;
+    }
+
+    if (!$dara.isNull(request.laneTag)) {
+      query["LaneTag"] = request.laneTag;
+    }
+
+    if (!$dara.isNull(request.mseGatewayEntryRuleShrink)) {
+      query["MseGatewayEntryRule"] = request.mseGatewayEntryRuleShrink;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOrUpdateSwimmingLane",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/cas/gray/createOrUpdateSwimmingLane`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOrUpdateSwimmingLaneResponse>(await this.callApi(params, req, runtime), new $_model.CreateOrUpdateSwimmingLaneResponse({}));
+  }
+
+  /**
+   * 创建或者更新泳道
+   * 
+   * @param request - CreateOrUpdateSwimmingLaneRequest
+   * @returns CreateOrUpdateSwimmingLaneResponse
+   */
+  async createOrUpdateSwimmingLane(request: $_model.CreateOrUpdateSwimmingLaneRequest): Promise<$_model.CreateOrUpdateSwimmingLaneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createOrUpdateSwimmingLaneWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建或者更新泳道组
+   * 
+   * @param tmpReq - CreateOrUpdateSwimmingLaneGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOrUpdateSwimmingLaneGroupResponse
+   */
+  async createOrUpdateSwimmingLaneGroupWithOptions(tmpReq: $_model.CreateOrUpdateSwimmingLaneGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOrUpdateSwimmingLaneGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateOrUpdateSwimmingLaneGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.appIds)) {
+      request.appIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.appIds, "AppIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appIdsShrink)) {
+      query["AppIds"] = request.appIdsShrink;
+    }
+
+    if (!$dara.isNull(request.entryAppId)) {
+      query["EntryAppId"] = request.entryAppId;
+    }
+
+    if (!$dara.isNull(request.entryAppType)) {
+      query["EntryAppType"] = request.entryAppType;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.swimVersion)) {
+      query["SwimVersion"] = request.swimVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOrUpdateSwimmingLaneGroup",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/cas/gray/createOrUpdateSwimmingLaneGroup`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOrUpdateSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateOrUpdateSwimmingLaneGroupResponse({}));
+  }
+
+  /**
+   * 创建或者更新泳道组
+   * 
+   * @param request - CreateOrUpdateSwimmingLaneGroupRequest
+   * @returns CreateOrUpdateSwimmingLaneGroupResponse
+   */
+  async createOrUpdateSwimmingLaneGroup(request: $_model.CreateOrUpdateSwimmingLaneGroupRequest): Promise<$_model.CreateOrUpdateSwimmingLaneGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createOrUpdateSwimmingLaneGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Null
    * 
    * @param tmpReq - CreateSecretRequest
@@ -1938,6 +2104,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteSecretWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除泳道组
+   * 
+   * @param request - DeleteSwimmingLaneGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSwimmingLaneGroupResponse
+   */
+  async deleteSwimmingLaneGroupWithOptions(request: $_model.DeleteSwimmingLaneGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSwimmingLaneGroupResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSwimmingLaneGroup",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/cas/gray/deleteSwimmingLaneGroup`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSwimmingLaneGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSwimmingLaneGroupResponse({}));
+  }
+
+  /**
+   * 删除泳道组
+   * 
+   * @param request - DeleteSwimmingLaneGroupRequest
+   * @returns DeleteSwimmingLaneGroupResponse
+   */
+  async deleteSwimmingLaneGroup(request: $_model.DeleteSwimmingLaneGroupRequest): Promise<$_model.DeleteSwimmingLaneGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteSwimmingLaneGroupWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3785,6 +4000,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询泳道详情
+   * 
+   * @param request - DescribeSwimmingLaneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSwimmingLaneResponse
+   */
+  async describeSwimmingLaneWithOptions(request: $_model.DescribeSwimmingLaneRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSwimmingLaneResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.laneId)) {
+      query["LaneId"] = request.laneId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSwimmingLane",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/cas/gray/describeSwimmingLane`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSwimmingLaneResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSwimmingLaneResponse({}));
+  }
+
+  /**
+   * 查询泳道详情
+   * 
+   * @param request - DescribeSwimmingLaneRequest
+   * @returns DescribeSwimmingLaneResponse
+   */
+  async describeSwimmingLane(request: $_model.DescribeSwimmingLaneRequest): Promise<$_model.DescribeSwimmingLaneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeSwimmingLaneWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Query web applications.
    * 
    * @remarks
@@ -4797,6 +5065,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询所有泳道组
+   * 
+   * @param request - ListAllSwimmingLaneGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAllSwimmingLaneGroupsResponse
+   */
+  async listAllSwimmingLaneGroupsWithOptions(request: $_model.ListAllSwimmingLaneGroupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAllSwimmingLaneGroupsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAllSwimmingLaneGroups",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/cas/gray/listSwimmingLaneGroups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAllSwimmingLaneGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListAllSwimmingLaneGroupsResponse({}));
+  }
+
+  /**
+   * 查询所有泳道组
+   * 
+   * @param request - ListAllSwimmingLaneGroupsRequest
+   * @returns ListAllSwimmingLaneGroupsResponse
+   */
+  async listAllSwimmingLaneGroups(request: $_model.ListAllSwimmingLaneGroupsRequest): Promise<$_model.ListAllSwimmingLaneGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAllSwimmingLaneGroupsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询所有泳道
+   * 
+   * @param request - ListAllSwimmingLanesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAllSwimmingLanesResponse
+   */
+  async listAllSwimmingLanesWithOptions(request: $_model.ListAllSwimmingLanesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAllSwimmingLanesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAllSwimmingLanes",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/cas/gray/listSwimmingLanes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAllSwimmingLanesResponse>(await this.callApi(params, req, runtime), new $_model.ListAllSwimmingLanesResponse({}));
+  }
+
+  /**
+   * 查询所有泳道
+   * 
+   * @param request - ListAllSwimmingLanesRequest
+   * @returns ListAllSwimmingLanesResponse
+   */
+  async listAllSwimmingLanes(request: $_model.ListAllSwimmingLanesRequest): Promise<$_model.ListAllSwimmingLanesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAllSwimmingLanesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the events that occurred in an application.
    * 
    * @param request - ListAppEventsRequest
@@ -5732,6 +6094,104 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSecretsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询泳道可选的网关路由
+   * 
+   * @param request - ListSwimmingLaneGatewayRoutesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSwimmingLaneGatewayRoutesResponse
+   */
+  async listSwimmingLaneGatewayRoutesWithOptions(request: $_model.ListSwimmingLaneGatewayRoutesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSwimmingLaneGatewayRoutesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSwimmingLaneGatewayRoutes",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/cas/gray/listSwimmingLaneGatewayRoutes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSwimmingLaneGatewayRoutesResponse>(await this.callApi(params, req, runtime), new $_model.ListSwimmingLaneGatewayRoutesResponse({}));
+  }
+
+  /**
+   * 查询泳道可选的网关路由
+   * 
+   * @param request - ListSwimmingLaneGatewayRoutesRequest
+   * @returns ListSwimmingLaneGatewayRoutesResponse
+   */
+  async listSwimmingLaneGatewayRoutes(request: $_model.ListSwimmingLaneGatewayRoutesRequest): Promise<$_model.ListSwimmingLaneGatewayRoutesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSwimmingLaneGatewayRoutesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询所有泳道标签列表
+   * 
+   * @param request - ListSwimmingLaneGroupTagsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSwimmingLaneGroupTagsResponse
+   */
+  async listSwimmingLaneGroupTagsWithOptions(request: $_model.ListSwimmingLaneGroupTagsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSwimmingLaneGroupTagsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSwimmingLaneGroupTags",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/cas/gray/listSwimmingLaneGroupTags`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSwimmingLaneGroupTagsResponse>(await this.callApi(params, req, runtime), new $_model.ListSwimmingLaneGroupTagsResponse({}));
+  }
+
+  /**
+   * 查询所有泳道标签列表
+   * 
+   * @param request - ListSwimmingLaneGroupTagsRequest
+   * @returns ListSwimmingLaneGroupTagsResponse
+   */
+  async listSwimmingLaneGroupTags(request: $_model.ListSwimmingLaneGroupTagsRequest): Promise<$_model.ListSwimmingLaneGroupTagsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSwimmingLaneGroupTagsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -7887,6 +8347,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateSecretWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新泳道的启用属性
+   * 
+   * @param request - UpdateSwimmingLaneEnableAttributeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSwimmingLaneEnableAttributeResponse
+   */
+  async updateSwimmingLaneEnableAttributeWithOptions(request: $_model.UpdateSwimmingLaneEnableAttributeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSwimmingLaneEnableAttributeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.laneId)) {
+      query["LaneId"] = request.laneId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSwimmingLaneEnableAttribute",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/cas/gray/updateSwimmingLaneEnableAttribute`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSwimmingLaneEnableAttributeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSwimmingLaneEnableAttributeResponse({}));
+  }
+
+  /**
+   * 更新泳道的启用属性
+   * 
+   * @param request - UpdateSwimmingLaneEnableAttributeRequest
+   * @returns UpdateSwimmingLaneEnableAttributeResponse
+   */
+  async updateSwimmingLaneEnableAttribute(request: $_model.UpdateSwimmingLaneEnableAttributeRequest): Promise<$_model.UpdateSwimmingLaneEnableAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateSwimmingLaneEnableAttributeWithOptions(request, headers, runtime);
   }
 
   /**

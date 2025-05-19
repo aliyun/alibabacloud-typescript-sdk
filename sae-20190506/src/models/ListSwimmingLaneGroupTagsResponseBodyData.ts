@@ -2,29 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AbortChangeOrderRequest extends $dara.Model {
+export class ListSwimmingLaneGroupTagsResponseBodyData extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the change order.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * be2e1c76-682b-4897-98d3-1d8d6478****
+   * {"version":"1.0.0","owner":"team-a"}
    */
-  changeOrderId?: string;
-  rollback?: boolean;
+  metadata?: string;
+  /**
+   * @example
+   * {"alicloud.service.tag":"g1"}
+   */
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
-      changeOrderId: 'ChangeOrderId',
-      rollback: 'Rollback',
+      metadata: 'Metadata',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      changeOrderId: 'string',
-      rollback: 'boolean',
+      metadata: 'string',
+      tag: 'string',
     };
   }
 
