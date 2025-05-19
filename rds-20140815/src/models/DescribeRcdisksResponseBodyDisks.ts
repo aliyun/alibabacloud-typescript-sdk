@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeRCDisksResponseBodyDisksTag } from "./DescribeRcdisksResponseBodyDisksTag";
 
 
 export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
@@ -7,9 +8,9 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
    * @remarks
    * The category of the disk. Valid values:
    * 
-   * *   **cloud_efficiency**: ultra disk
-   * *   **cloud_ssd**: standard SSD
-   * *   **cloud_essd**: ESSD
+   * *   **cloud_efficiency**: ultra disk.
+   * *   **cloud_ssd**: standard SSD.
+   * *   **cloud_essd**: ESSD.
    * *   **cloud_auto**: Premium ESSD
    * 
    * @example
@@ -219,6 +220,7 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
    * ss-i-bp1j4i2jdf3owlhe****
    */
   storageSetId?: string;
+  tag?: DescribeRCDisksResponseBodyDisksTag[];
   /**
    * @remarks
    * The disk type. Valid values:
@@ -263,6 +265,7 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
       status: 'Status',
       storageClusterId: 'StorageClusterId',
       storageSetId: 'StorageSetId',
+      tag: 'Tag',
       type: 'Type',
       zoneId: 'ZoneId',
     };
@@ -293,12 +296,16 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
       status: 'string',
       storageClusterId: 'string',
       storageSetId: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeRCDisksResponseBodyDisksTag },
       type: 'string',
       zoneId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

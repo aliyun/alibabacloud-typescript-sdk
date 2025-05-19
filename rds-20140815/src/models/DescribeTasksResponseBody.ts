@@ -11,7 +11,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   items?: DescribeTasksResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -27,7 +27,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A103039D-B1B2-4C57-B989-7D7C0DA95426
@@ -35,7 +35,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 40

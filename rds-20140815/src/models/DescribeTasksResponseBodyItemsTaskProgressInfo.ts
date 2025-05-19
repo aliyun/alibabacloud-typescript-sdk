@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTasksResponseBodyItemsTaskProgressInfo extends $dara.Model {
   /**
    * @remarks
-   * The start time of the task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC .
+   * The start time of the task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
    * 
    * @example
    * 2020-11-20T01:00Z
@@ -31,7 +31,7 @@ export class DescribeTasksResponseBodyItemsTaskProgressInfo extends $dara.Model 
    * @remarks
    * The estimated end time of the task.
    * 
-   * > In most cases, this parameter is empty.
+   * >  In most cases, this parameter is empty.
    * 
    * @example
    * null
@@ -47,7 +47,7 @@ export class DescribeTasksResponseBodyItemsTaskProgressInfo extends $dara.Model 
   finishTime?: string;
   /**
    * @remarks
-   * The progress of the task in percentage.
+   * The task progress in percentage.
    * 
    * @example
    * 100
@@ -57,7 +57,7 @@ export class DescribeTasksResponseBodyItemsTaskProgressInfo extends $dara.Model 
    * @remarks
    * The description of the task progress.
    * 
-   * > If no progress description is provided for the task, this parameter is empty.
+   * >  If no progress description is provided for the task, this parameter is empty.
    * 
    * @example
    * null
@@ -109,7 +109,7 @@ export class DescribeTasksResponseBodyItemsTaskProgressInfo extends $dara.Model 
    * @remarks
    * The error code that is returned when an error occurs.
    * 
-   * > This parameter is returned only when an error occurs.
+   * >  This parameter is returned only when an error occurs.
    * 
    * @example
    * null
@@ -127,7 +127,7 @@ export class DescribeTasksResponseBodyItemsTaskProgressInfo extends $dara.Model 
   taskErrorMessage?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID. You can use one of the following methods to obtain the task ID:
    * 
    * @example
    * 3472xxxxx

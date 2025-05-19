@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeRCDisksRequestTag } from "./DescribeRcdisksRequestTag";
 
 
 export class DescribeRCDisksRequest extends $dara.Model {
@@ -37,7 +38,7 @@ export class DescribeRCDisksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -45,6 +46,7 @@ export class DescribeRCDisksRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  tag?: DescribeRCDisksRequestTag[];
   static names(): { [key: string]: string } {
     return {
       diskIds: 'DiskIds',
@@ -52,6 +54,7 @@ export class DescribeRCDisksRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      tag: 'Tag',
     };
   }
 
@@ -62,10 +65,14 @@ export class DescribeRCDisksRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeRCDisksRequestTag },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

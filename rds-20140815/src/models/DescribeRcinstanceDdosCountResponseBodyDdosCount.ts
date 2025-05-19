@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRCInstanceDdosCountResponseBodyDdosCount extends $dara.Model {
   /**
+   * @remarks
+   * The number of instances for which blackhole filtering is triggered.
+   * 
    * @example
    * 0
    */
   blackholeCount?: string;
   /**
+   * @remarks
+   * The number of instances for which traffic scrubbing is triggered.
+   * 
    * @example
    * 0
    */
   defenseCount?: string;
   /**
+   * @remarks
+   * The total number of instances.
+   * 
    * @example
    * 6
    */

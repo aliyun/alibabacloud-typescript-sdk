@@ -19,6 +19,7 @@ export { CreateGadInstanceMemberRequestUnitNode } from './CreateGadInstanceMembe
 export { CreateGadInstanceMemberResponseBodyResult } from './CreateGadInstanceMemberResponseBodyResult';
 export { CreateMaskingRulesRequestRuleConfig } from './CreateMaskingRulesRequestRuleConfig';
 export { CreateRCDeploymentSetRequestTag } from './CreateRcdeploymentSetRequestTag';
+export { CreateRCDiskRequestTag } from './CreateRcdiskRequestTag';
 export { CreateRCNodePoolRequestDataDisk } from './CreateRcnodePoolRequestDataDisk';
 export { CreateRCNodePoolRequestSystemDisk } from './CreateRcnodePoolRequestSystemDisk';
 export { CreateRCNodePoolRequestTag } from './CreateRcnodePoolRequestTag';
@@ -243,6 +244,8 @@ export { DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagsTag 
 export { DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTags } from './DescribeRcdeploymentSetsResponseBodyDeploymentSetsDeploymentSetTags';
 export { DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet } from './DescribeRcdeploymentSetsResponseBodyDeploymentSetsDeploymentSet';
 export { DescribeRCDeploymentSetsResponseBodyDeploymentSets } from './DescribeRcdeploymentSetsResponseBodyDeploymentSets';
+export { DescribeRCDisksRequestTag } from './DescribeRcdisksRequestTag';
+export { DescribeRCDisksResponseBodyDisksTag } from './DescribeRcdisksResponseBodyDisksTag';
 export { DescribeRCDisksResponseBodyDisks } from './DescribeRcdisksResponseBodyDisks';
 export { DescribeRCImageListResponseBodyImagesDiskDeviceMappings } from './DescribeRcimageListResponseBodyImagesDiskDeviceMappings';
 export { DescribeRCImageListResponseBodyImages } from './DescribeRcimageListResponseBodyImages';

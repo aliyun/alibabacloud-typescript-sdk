@@ -16,6 +16,7 @@ export class ModifyRCInstanceRequest extends $dara.Model {
    * true
    */
   autoPay?: boolean;
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * The type of the change that you want to perform on the instance. Valid values:
@@ -56,6 +57,7 @@ export class ModifyRCInstanceRequest extends $dara.Model {
    * mysql.i8.large.2cm
    */
   instanceType?: string;
+  promotionCode?: string;
   rebootTime?: string;
   rebootWhenFinished?: boolean;
   /**
@@ -69,10 +71,12 @@ export class ModifyRCInstanceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
+      autoUseCoupon: 'AutoUseCoupon',
       direction: 'Direction',
       dryRun: 'DryRun',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
+      promotionCode: 'PromotionCode',
       rebootTime: 'RebootTime',
       rebootWhenFinished: 'RebootWhenFinished',
       regionId: 'RegionId',
@@ -82,10 +86,12 @@ export class ModifyRCInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+      autoUseCoupon: 'boolean',
       direction: 'string',
       dryRun: 'boolean',
       instanceId: 'string',
       instanceType: 'string',
+      promotionCode: 'string',
       rebootTime: 'string',
       rebootWhenFinished: 'boolean',
       regionId: 'string',

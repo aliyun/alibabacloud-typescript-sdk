@@ -4,13 +4,23 @@ import { DescribeRCInstanceIpAddressResponseBodyRCInstanceList } from "./Describ
 
 
 export class DescribeRCInstanceIpAddressResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array that consists of details of the instance.
+   */
   RCInstanceList?: DescribeRCInstanceIpAddressResponseBodyRCInstanceList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C048E440-EA84-5E97-8C81-2A7060D0****_th**
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of the assets.
+   * 
    * @example
    * 1
    */

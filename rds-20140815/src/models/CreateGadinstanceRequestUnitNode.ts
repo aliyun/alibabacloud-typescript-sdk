@@ -9,7 +9,7 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
    * 
    * *   The name must be **2 to 255** characters in length.
    * *   The name can contain letters, digits, underscores (_), and hyphens (-) and must start with a letter.
-   * *   The name cannot start with `http://` or `https://`.
+   * *   Does not start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -17,7 +17,7 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The storage capacity of the unit node that you want to create. Unit: GB You can adjust the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableResource operation to query the storage capacity range that is supported by the new instance type.
+   * The storage capacity of the unit node that you want to create. Unit: GB. You can adjust the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableResource operation to query the storage capacity range that is supported by the new instance type.
    * 
    * @example
    * 20
@@ -25,17 +25,17 @@ export class CreateGADInstanceRequestUnitNode extends $dara.Model {
   DBInstanceStorage?: number;
   /**
    * @remarks
-   * The storage type of the instance. Valid values:
+   * The storage type of the new instance. Valid values:
    * 
-   * *   **local_ssd**: local SSD. This is the recommended storage type.
-   * *   **cloud_ssd**: standard SSD. This storage type is not recommended. Standard SSDs are no longer available for purchase in some Alibaba Cloud regions.
-   * *   **cloud_essd**: PL1 ESSD
-   * *   **cloud_essd2**: PL2 ESSD
-   * *   **cloud_essd3**: PL3 ESSD
+   * *   **local_ssd**: Premium Local SSD (recommended)
+   * *   **cloud_ssd**: standard SSD. This storage type is not recommended. Standard SSDs are no longer available for purchase in specific Alibaba Cloud regions.
+   * *   **cloud_essd**: Enterprise SSD (ESSD) of performance level 1 (PL1).
+   * *   **cloud_essd2**: ESSD of PL2.
+   * *   **cloud_essd3**: ESSD of PL3.
    * 
    * The default value of this parameter is determined by the instance type specified by the **DBInstanceClass** parameter.
    * 
-   * *   If the instance type specifies the local SSD storage type, the default value of this parameter is **local_ssd**.
+   * *   If the instance type specifies the Premium Local SSD storage type, the default value of this parameter is **local_ssd**.
    * *   If the instance type specifies the cloud disk storage type, the default value of this parameter is **cloud_essd**.
    * 
    * @example

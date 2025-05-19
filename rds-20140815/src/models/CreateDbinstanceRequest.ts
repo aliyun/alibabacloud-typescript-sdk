@@ -99,12 +99,12 @@ export class CreateDBInstanceRequest extends $dara.Model {
   bpeEnabled?: string;
   /**
    * @remarks
-   * Specifies whether to enable the I/O burst feature of general ESSDs. Valid values:
+   * Specifies whether to enable the I/O burst feature of Premium ESSDs. Valid values:
    * 
    * *   **true**
    * *   **false**
    * 
-   * >  For more information about the I/O burst feature of general ESSDs, see [What are general ESSDs?](https://help.aliyun.com/document_detail/2340501.html)
+   * >  For more information about the I/O burst feature of general ESSDs, see [What are Premium ESSDs?](https://help.aliyun.com/document_detail/2340501.html)
    * 
    * @example
    * false
@@ -154,12 +154,12 @@ export class CreateDBInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to enable the data archiving feature of general ESSDs. Valid values:
+   * Specifies whether to enable the data archiving feature of Premium ESSDs. Valid values:
    * 
    * *   **true**
    * *   **false**
    * 
-   * >  For more information about the data archiving feature of general ESSDs, see [Use the data archiving feature of general ESSDs](https://help.aliyun.com/document_detail/2701832.html).
+   * >  For more information about the data archiving feature of Premium ESSDs, see [Use the data archiving feature](https://help.aliyun.com/document_detail/2701832.html).
    * 
    * @example
    * false
@@ -251,8 +251,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * The storage type of the instance. Valid values:
    * 
-   * *   **local_ssd**: local SSD. This is the recommended storage type.
-   * *   **general_essd**: general Enterprise SSD (ESSD). This is the recommended storage type.
+   * *   **local_ssd**: Premium Local SSD (recommended)
+   * *   **general_essd**: Premium Enterprise SSD (ESSD) (recommend)
    * *   **cloud_essd**: PL1 ESSD
    * *   **cloud_essd2**: PL2 ESSD
    * *   **cloud_essd3**: PL3 ESSD
@@ -260,10 +260,10 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * 
    * The default value of this parameter is determined by the instance type specified by the **DBInstanceClass** parameter.
    * 
-   * *   If the instance type specifies the local SSD storage type, the default value of this parameter is **local_ssd**.
-   * *   If the instance type specifies the standard SSD or ESSD storage type, the default value of this parameter is **cloud_essd**.
+   * *   If the instance type specifies the Premium Local SSD storage type, the default value of this parameter is **local_ssd**.
+   * *   If the instance type specifies the cloud disk storage type, the default value of this parameter is **cloud_essd**.
    * 
-   * >  Serverless instances support only PL1 ESSDs and general ESSDs.
+   * >  Serverless instances support only PL1 ESSDs and Premium ESSDs.
    * 
    * @example
    * cloud_essd
@@ -292,20 +292,23 @@ export class CreateDBInstanceRequest extends $dara.Model {
   DBParamGroupId?: string;
   /**
    * @remarks
-   * The time zone of the instance. This parameter takes effect only when you set the **Engine** parameter to **MySQL** or **PostgreSQL**.
+   * The time zone of the instance. This parameter takes effect only when you set **Engine** to **MySQL** or **PostgreSQL**.
    * 
-   * *   If you set **Engine** to **MySQL**:
+   * *   **Engine** is set to **MySQL**:
    * 
-   *     *   The time zone of the instance is in UTC. Valid values: **-12:59** to **+13:00**.
-   *     *   If the instance uses local SSDs, you can specify the name of the time zone. Example: Asia/Hong_Kong. For more information, see [Time zones](https://help.aliyun.com/document_detail/297356.html).
+   *     *   This time zone is in UTC. Valid values: \\*\\*-12:59\\*\\* to **+13:00**.
+   *     *   If the instance uses Premium Local SSDs, you can specify the name of the time zone. For example, you can specify the Asia/Hong_Kong time zone. For more information, see [Time zones](https://help.aliyun.com/document_detail/297356.html).
    * 
-   * *   If you set **Engine** to **PostgreSQL**:
+   * *   **Engine** is set to **PostgreSQL**.
    * 
-   *     *   The time zone of the instance is not in UTC. For more information, see [Time zones](https://help.aliyun.com/document_detail/297356.html).
-   *     *   You can specify this parameter only when the instance runs PostgreSQL with standard SSDs or ESSDs.
+   *     *   This time zone is not in UTC. For more information, see [Time zones](https://help.aliyun.com/document_detail/297356.html).
+   *     *   You can configure this parameter only when the RDS instance uses cloud disks.
    * 
-   * > *   You can specify the time zone when you create a primary instance. You cannot specify the time zone when you create a read-only instance. Read-only instances inherit the time zone of their primary instance.
-   * > *   If you do not specify this parameter, the system automatically assigns the default time zone of the region in which the instance resides.
+   * > 
+   * 
+   * *   You can specify the time zone when you create a primary instance. You cannot specify the time zone when you create a read-only instance. Read-only instances inherit the time zone of their primary instance.
+   * 
+   * *   If you do not specify this parameter, the system automatically assigns the default time zone of the region in which the instance resides.
    * 
    * @example
    * +08:00
@@ -379,12 +382,12 @@ export class CreateDBInstanceRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The database engine version of the instance. Valid values:
+   * The database engine version of the instance.
    * 
    * *   Regular RDS instance
    * 
    *     *   Valid values when you set Engine to MySQL: **5.5**, **5.6**, **5.7**, and **8.0**
-   *     *   Valid values when you set Engine to SQLServer: **08r2_ent_ha** (cloud disks, discontinued), **2008r2** (local disks, discontinued), **2012** (SQL Server EE Basic), **2012_ent_ha**, **2012_std_ha**, **2012_web**, **2014_ent_ha**, **2014_std_ha**, **2016_ent_ha**, **2016_std_ha**, **2016_web**, **2017_ent**, **2017_std_ha**, **2017_web**, **2019_ent**, **2019_std_ha**, **2019_web**, **2022_ent**, **2022_std_ha**, and **2022_web**
+   *     *   Valid values when you set Engine to SQLServer: **08r2_ent_ha**(cloud disks, discontinued), **2008r2**(premium local disks, discontinued), **2012**(SQL Server EE Basic), **2012_ent_ha**, **2012_std_ha**, **2012_web**, **2014_ent_ha**, **2014_std_ha**, **2016_ent_ha**, **2016_std_ha**, **2016_web**, **2017_ent**, **2017_std_ha**, **2017_web**, **2019_ent**, **2019_std_ha**, **2019_web**, **2022_ent**, **2022_std_ha**, and **2022_web**
    *     *   Valid values when you set Engine to PostgreSQL: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, **15.0**, **16.0**, and **17.0**
    *     *   Valid values when you set Engine to MariaDB: **10.3** and **10.6**
    * 
@@ -431,12 +434,12 @@ export class CreateDBInstanceRequest extends $dara.Model {
   instanceNetworkType?: string;
   /**
    * @remarks
-   * Specifies whether to enable the I/O acceleration feature of general ESSDs. Valid values:
+   * Specifies whether to enable Buffer Pool Extension (BPE) of Premium ESSDs. Valid values:
    * 
-   * *   **1**: enabled
-   * *   **0**: disabled
+   * *   **1**: enables BPE.
+   * *   **0**: disables BPE.
    * 
-   * >  For more information about the I/O acceleration feature of general ESSDs, see [Introduction](https://help.aliyun.com/document_detail/2527067.html).
+   * >  For more information about Buffer Pool Extension(BPE) of Premium ESSDs, see [Buffer Pool Extension(BPE)](https://help.aliyun.com/document_detail/2527067.html).
    * 
    * @example
    * 0
@@ -444,12 +447,12 @@ export class CreateDBInstanceRequest extends $dara.Model {
   ioAccelerationEnabled?: string;
   /**
    * @remarks
-   * Specifies whether to enable the write optimization feature. Valid values:
+   * The switch of the 16K atomic write function. Valid values:
    * 
    * *   **optimized**
    * *   **none** (default)
    * 
-   * >  For more information about the write optimization feature, see [Write optimization](https://help.aliyun.com/document_detail/2858761.html).
+   * >  For more information, see [Use the 16K atomic write feature](https://help.aliyun.com/document_detail/2858761.html).
    * 
    * @example
    * optimized

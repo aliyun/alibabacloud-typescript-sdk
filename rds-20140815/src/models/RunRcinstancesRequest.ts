@@ -41,6 +41,7 @@ export class RunRCInstancesRequest extends $dara.Model {
    * false
    */
   autoRenew?: boolean;
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -178,6 +179,7 @@ export class RunRCInstancesRequest extends $dara.Model {
    * Year
    */
   periodUnit?: string;
+  promotionCode?: string;
   /**
    * @remarks
    * The region ID. You can call the DescribeRegions operation to query the most recent region list.
@@ -244,6 +246,7 @@ export class RunRCInstancesRequest extends $dara.Model {
       amount: 'Amount',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
+      autoUseCoupon: 'AutoUseCoupon',
       clientToken: 'ClientToken',
       createAckEdgeParam: 'CreateAckEdgeParam',
       createExtraParam: 'CreateExtraParam',
@@ -264,6 +267,7 @@ export class RunRCInstancesRequest extends $dara.Model {
       password: 'Password',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      promotionCode: 'PromotionCode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
@@ -284,6 +288,7 @@ export class RunRCInstancesRequest extends $dara.Model {
       amount: 'number',
       autoPay: 'boolean',
       autoRenew: 'boolean',
+      autoUseCoupon: 'boolean',
       clientToken: 'string',
       createAckEdgeParam: RunRCInstancesRequestCreateAckEdgeParam,
       createExtraParam: 'string',
@@ -304,6 +309,7 @@ export class RunRCInstancesRequest extends $dara.Model {
       password: 'string',
       period: 'number',
       periodUnit: 'string',
+      promotionCode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       securityEnhancementStrategy: 'string',

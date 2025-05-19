@@ -20,8 +20,8 @@ export class CreateRCNodePoolRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * 
-   * *   **true**: enables the feature. Make sure that your account balance is sufficient.
-   * *   **false**: disables the feature. An unpaid order is generated.
+   * *   **true**: enables the feature. Make sure that your account balance is sufficient when you enable automatic payment.
+   * *   **false**: does not automatically complete the payment. An unpaid order is generated.
    * 
    * >  Default value: true. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
    * 
