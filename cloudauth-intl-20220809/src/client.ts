@@ -1,3669 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- */
+import * as $dara from '@darabonba/typescript';
 import OSS, * as $OSS from '@alicloud/oss-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
-import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
-import FileForm, * as $FileForm from '@alicloud/tea-fileform';
+import * as $OSSUtil from '@alicloud/oss-util';
+import * as $FileForm from '@alicloud/tea-fileform';
 import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
-import { Readable } from 'stream';
-import * as $dara from '@darabonba/typescript';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class CardOcrResponseBodyResult extends $dara.Model {
-  extCardInfo?: string;
-  extIdInfo?: string;
-  /**
-   * @example
-   * Y
-   */
-  passed?: string;
-  /**
-   * @example
-   * 200
-   */
-  subCode?: string;
-  /**
-   * @example
-   * 08573be80f944d95ac812e019e3655a8
-   */
-  transactionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extCardInfo: 'ExtCardInfo',
-      extIdInfo: 'ExtIdInfo',
-      passed: 'Passed',
-      subCode: 'SubCode',
-      transactionId: 'TransactionId',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      extCardInfo: 'string',
-      extIdInfo: 'string',
-      passed: 'string',
-      subCode: 'string',
-      transactionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckResultResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * **
-   */
-  ekycResult?: string;
-  /**
-   * @example
-   * **
-   */
-  extBasicInfo?: string;
-  /**
-   * @example
-   * **
-   */
-  extFaceInfo?: string;
-  /**
-   * @example
-   * **
-   */
-  extIdInfo?: string;
-  extInfo?: string;
-  /**
-   * @example
-   * **
-   */
-  extRiskInfo?: string;
-  /**
-   * @example
-   * Y
-   */
-  passed?: string;
-  /**
-   * @example
-   * ***
-   */
-  subCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ekycResult: 'EkycResult',
-      extBasicInfo: 'ExtBasicInfo',
-      extFaceInfo: 'ExtFaceInfo',
-      extIdInfo: 'ExtIdInfo',
-      extInfo: 'ExtInfo',
-      extRiskInfo: 'ExtRiskInfo',
-      passed: 'Passed',
-      subCode: 'SubCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ekycResult: 'string',
-      extBasicInfo: 'string',
-      extFaceInfo: 'string',
-      extIdInfo: 'string',
-      extInfo: 'string',
-      extRiskInfo: 'string',
-      passed: 'string',
-      subCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckVerifyLogResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
-  extInfo?: string;
-  interruptPage?: string;
-  logInfo?: string[];
-  /**
-   * @example
-   * {
-   *           "faceOverTimes": 0,
-   *           "hasFaceOverTimes": false,
-   *           "hasFacePermissionRefuse": false,
-   *           "hasOcrEdit": true,
-   *           "hasOcrEditOverTimes": false,
-   *           "hasOcrOverTimes": true,
-   *           "hasOcrPermissionRefuse": false,
-   *           "ocrEditOverTimes": 0,
-   *           "ocrEditTimes": 1,
-   *           "ocrOverTimes": 1,
-   *           "pageStayTimeInfo": {
-   *             "LOADING": "1615",
-   *             "OCR_SCAN": "37446",
-   *             "OCR_RESULT": "1338",
-   *             "FACE": "8707"
-   *           }
-   *         }
-   */
-  logStatisticsInfo?: string;
-  /**
-   * @example
-   * Y
-   */
-  passed?: string;
-  /**
-   * @example
-   * 200
-   */
-  subCode?: string;
-  /**
-   * @example
-   * 1001
-   */
-  verifyErrorCode?: string;
-  /**
-   * @example
-   * 1
-   */
-  verifyStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extInfo: 'ExtInfo',
-      interruptPage: 'InterruptPage',
-      logInfo: 'LogInfo',
-      logStatisticsInfo: 'LogStatisticsInfo',
-      passed: 'Passed',
-      subCode: 'SubCode',
-      verifyErrorCode: 'VerifyErrorCode',
-      verifyStatus: 'VerifyStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extInfo: 'string',
-      interruptPage: 'string',
-      logInfo: { 'type': 'array', 'itemType': 'string' },
-      logStatisticsInfo: 'string',
-      passed: 'string',
-      subCode: 'string',
-      verifyErrorCode: 'string',
-      verifyStatus: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.logInfo)) {
-      $dara.Model.validateArray(this.logInfo);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CredentialVerifyIntlResponseBodyResultObject extends $dara.Model {
-  materialInfo?: string;
-  /**
-   * @example
-   * 1
-   */
-  result?: string;
-  riskScore?: { [key: string]: string };
-  /**
-   * @example
-   * PS
-   */
-  riskTag?: string;
-  static names(): { [key: string]: string } {
-    return {
-      materialInfo: 'MaterialInfo',
-      result: 'Result',
-      riskScore: 'RiskScore',
-      riskTag: 'RiskTag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      materialInfo: 'string',
-      result: 'string',
-      riskScore: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      riskTag: 'string',
-    };
-  }
-
-  validate() {
-    if(this.riskScore) {
-      $dara.Model.validateMap(this.riskScore);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeDetectIntlResponseBodyResultObject extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
-  result?: string;
-  riskScore?: { [key: string]: string };
-  /**
-   * @example
-   * SuspectDeepForgery,SuspectWarterMark
-   */
-  riskTag?: string;
-  static names(): { [key: string]: string } {
-    return {
-      result: 'Result',
-      riskScore: 'RiskScore',
-      riskTag: 'RiskTag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      result: 'string',
-      riskScore: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      riskTag: 'string',
-    };
-  }
-
-  validate() {
-    if(this.riskScore) {
-      $dara.Model.validateMap(this.riskScore);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVerifyResultResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * Y/N
-   */
-  deleteResult?: string;
-  /**
-   * @example
-   * 4ab0b***cbde97
-   */
-  transactionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deleteResult: 'DeleteResult',
-      transactionId: 'TransactionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deleteResult: 'string',
-      transactionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DocOcrResponseBodyResult extends $dara.Model {
-  extIdInfo?: string;
-  /**
-   * @example
-   * Y
-   */
-  passed?: string;
-  /**
-   * @example
-   * 200
-   */
-  subCode?: string;
-  /**
-   * @example
-   * 08573be80f944d95ac812e019e3655a8
-   */
-  transactionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extIdInfo: 'ExtIdInfo',
-      passed: 'Passed',
-      subCode: 'SubCode',
-      transactionId: 'TransactionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extIdInfo: 'string',
-      passed: 'string',
-      subCode: 'string',
-      transactionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DocOcrMaxResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * {
-   *   "docType": "PPTW01",
-   *   "ocrIdInfo": {
-   *     "passportNo": "36*******",
-   *     "expiryDate": "2032/02/10",
-   *     "placeOfBirth": "TAIWAN",
-   *     "surname": "CHEN",
-   *     "givenname": "LIN-CHUN",
-   *     "countryCode": "TWN",
-   *     "sex": "F",
-   *     "personalNo": "S22********",
-   *     "issueDate": "2022/02/10",
-   *     "birthDate": "1988/10/04"
-   *   }
-   * }
-   */
-  extIdInfo?: string;
-  /**
-   * @example
-   * Y
-   */
-  passed?: string;
-  /**
-   * @example
-   * 200
-   */
-  subCode?: string;
-  /**
-   * @example
-   * hk573be80f944d95ac812e0*******a8
-   */
-  transactionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extIdInfo: 'ExtIdInfo',
-      passed: 'Passed',
-      subCode: 'SubCode',
-      transactionId: 'TransactionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extIdInfo: 'string',
-      passed: 'string',
-      subCode: 'string',
-      transactionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EkycVerifyResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * {
-   * "faceAttack": "N",
-   * "faceComparisonScore": 52.57,
-   * "facePassed": "N",
-   * "authorityComparisonScore": 80.39
-   * }
-   */
-  extFaceInfo?: string;
-  extIdInfo?: string;
-  /**
-   * @example
-   * Y
-   */
-  passed?: string;
-  /**
-   * @example
-   * 205
-   */
-  subCode?: string;
-  /**
-   * @example
-   * 4ab0b***cbde97
-   */
-  transactionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extFaceInfo: 'ExtFaceInfo',
-      extIdInfo: 'ExtIdInfo',
-      passed: 'Passed',
-      subCode: 'SubCode',
-      transactionId: 'TransactionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extFaceInfo: 'string',
-      extIdInfo: 'string',
-      passed: 'string',
-      subCode: 'string',
-      transactionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceCompareResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * 98
-   */
-  faceComparisonScore?: number;
-  /**
-   * @example
-   * Y
-   */
-  passed?: string;
-  /**
-   * @example
-   * 08573be80f944d95ac812e019e3655a8
-   */
-  transactionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      faceComparisonScore: 'FaceComparisonScore',
-      passed: 'Passed',
-      transactionId: 'TransactionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceComparisonScore: 'number',
-      passed: 'string',
-      transactionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceGuardRiskResponseBodyResult extends $dara.Model {
-  guardRiskScore?: number;
-  riskExtends?: string;
-  /**
-   * @example
-   * ROOT,VPN,HOOK
-   */
-  riskTags?: string;
-  /**
-   * @example
-   * hk573be80f944d95ac812e019e3655a8
-   */
-  transactionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      guardRiskScore: 'GuardRiskScore',
-      riskExtends: 'RiskExtends',
-      riskTags: 'RiskTags',
-      transactionId: 'TransactionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      guardRiskScore: 'number',
-      riskExtends: 'string',
-      riskTags: 'string',
-      transactionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
-  faceAge?: number;
-  /**
-   * @example
-   * Y
-   */
-  faceAttack?: string;
-  faceGender?: string;
-  /**
-   * @example
-   * 87.19
-   */
-  faceQualityScore?: number;
-  /**
-   * @example
-   * Y
-   */
-  occlusionResult?: string;
-  static names(): { [key: string]: string } {
-    return {
-      faceAge: 'FaceAge',
-      faceAttack: 'FaceAttack',
-      faceGender: 'FaceGender',
-      faceQualityScore: 'FaceQualityScore',
-      occlusionResult: 'OcclusionResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceAge: 'number',
-      faceAttack: 'string',
-      faceGender: 'string',
-      faceQualityScore: 'number',
-      occlusionResult: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceLivenessResponseBodyResult extends $dara.Model {
-  extFaceInfo?: FaceLivenessResponseBodyResultExtFaceInfo;
-  /**
-   * @example
-   * N
-   */
-  passed?: string;
-  /**
-   * @example
-   * 205
-   */
-  subCode?: string;
-  /**
-   * @example
-   * 08573be80f944d95ac812e019e3655a8
-   */
-  transactionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extFaceInfo: 'ExtFaceInfo',
-      passed: 'Passed',
-      subCode: 'SubCode',
-      transactionId: 'TransactionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extFaceInfo: FaceLivenessResponseBodyResultExtFaceInfo,
-      passed: 'string',
-      subCode: 'string',
-      transactionId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.extFaceInfo && typeof (this.extFaceInfo as any).validate === 'function') {
-      (this.extFaceInfo as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Id2MetaPeriodVerifyIntlResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * Y
-   */
-  passed?: string;
-  /**
-   * @example
-   * 200
-   */
-  subCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      passed: 'Passed',
-      subCode: 'SubCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      passed: 'string',
-      subCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Id2MetaVerifyIntlResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
-  bizCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizCode: 'BizCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InitializeResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * ***
-   */
-  clientCfg?: string;
-  /**
-   * @example
-   * 08573be80f944d95ac812e019e3655a8
-   */
-  transactionId?: string;
-  /**
-   * @example
-   * http****
-   */
-  transactionUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientCfg: 'ClientCfg',
-      transactionId: 'TransactionId',
-      transactionUrl: 'TransactionUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientCfg: 'string',
-      transactionId: 'string',
-      transactionUrl: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Mobile3MetaVerifyIntlResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
-  bizCode?: string;
-  /**
-   * @example
-   * CMCC
-   */
-  ispName?: string;
-  /**
-   * @example
-   * 101
-   */
-  subCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizCode: 'BizCode',
-      ispName: 'IspName',
-      subCode: 'SubCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizCode: 'string',
-      ispName: 'string',
-      subCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardOcrRequest extends $dara.Model {
-  /**
-   * @example
-   * 00000006
-   */
-  docType?: string;
-  /**
-   * @example
-   * F
-   */
-  idFaceQuality?: string;
-  idOcrPictureBase64?: string;
-  /**
-   * @example
-   * https://digital-cardocr-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
-   */
-  idOcrPictureUrl?: string;
-  /**
-   * @example
-   * dso9322***dsjsd22
-   */
-  merchantBizId?: string;
-  /**
-   * @example
-   * 123456789
-   */
-  merchantUserId?: string;
-  /**
-   * @example
-   * T
-   */
-  ocr?: string;
-  /**
-   * @example
-   * ID_OCR_MIN
-   */
-  productCode?: string;
-  /**
-   * @example
-   * F
-   */
-  spoof?: string;
-  static names(): { [key: string]: string } {
-    return {
-      docType: 'DocType',
-      idFaceQuality: 'IdFaceQuality',
-      idOcrPictureBase64: 'IdOcrPictureBase64',
-      idOcrPictureUrl: 'IdOcrPictureUrl',
-      merchantBizId: 'MerchantBizId',
-      merchantUserId: 'MerchantUserId',
-      ocr: 'Ocr',
-      productCode: 'ProductCode',
-      spoof: 'Spoof',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      docType: 'string',
-      idFaceQuality: 'string',
-      idOcrPictureBase64: 'string',
-      idOcrPictureUrl: 'string',
-      merchantBizId: 'string',
-      merchantUserId: 'string',
-      ocr: 'string',
-      productCode: 'string',
-      spoof: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardOcrResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 4EB356FE-BB6A-5DCC-B4C5-E8051787EBA1
-   */
-  requestId?: string;
-  result?: CardOcrResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: CardOcrResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CardOcrResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CardOcrResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CardOcrResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckResultRequest extends $dara.Model {
-  /**
-   * @example
-   * ***
-   */
-  extraImageControlList?: string;
-  /**
-   * @example
-   * N
-   */
-  isReturnImage?: string;
-  /**
-   * @example
-   * djs20d***9-dsskc
-   */
-  merchantBizId?: string;
-  /**
-   * @example
-   * Y
-   */
-  returnFiveCategorySpoofResult?: string;
-  /**
-   * @example
-   * 4ab0b***cbde97
-   */
-  transactionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extraImageControlList: 'ExtraImageControlList',
-      isReturnImage: 'IsReturnImage',
-      merchantBizId: 'MerchantBizId',
-      returnFiveCategorySpoofResult: 'ReturnFiveCategorySpoofResult',
-      transactionId: 'TransactionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extraImageControlList: 'string',
-      isReturnImage: 'string',
-      merchantBizId: 'string',
-      returnFiveCategorySpoofResult: 'string',
-      transactionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckResultResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 4EB35****87EBA1
-   */
-  requestId?: string;
-  result?: CheckResultResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: CheckResultResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckVerifyLogRequest extends $dara.Model {
-  /**
-   * @example
-   * e0c34a***353888
-   */
-  merchantBizId?: string;
-  /**
-   * @example
-   * hksb7ba1b*********015d694361bee4
-   */
-  transactionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      merchantBizId: 'MerchantBizId',
-      transactionId: 'TransactionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      merchantBizId: 'string',
-      transactionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckVerifyLogResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 4EB35****87EBA1
-   */
-  requestId?: string;
-  result?: CheckVerifyLogResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: CheckVerifyLogResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckVerifyLogResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckVerifyLogResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckVerifyLogResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CredentialVerifyIntlRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 0101
-   */
-  credName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 01
-   */
-  credType?: string;
-  imageFile?: string;
-  /**
-   * @example
-   * https://oss-bj01.avic.com/eavic-prod-commodity/pic/commodity/94677ee6-1067-4287-8ff4-6e030ef3a5a8.jpg
-   */
-  imageUrl?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  productCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      credName: 'CredName',
-      credType: 'CredType',
-      imageFile: 'ImageFile',
-      imageUrl: 'ImageUrl',
-      productCode: 'ProductCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credName: 'string',
-      credType: 'string',
-      imageFile: 'string',
-      imageUrl: 'string',
-      productCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CredentialVerifyIntlAdvanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 0101
-   */
-  credName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 01
-   */
-  credType?: string;
-  imageFileObject?: Readable;
-  /**
-   * @example
-   * https://oss-bj01.avic.com/eavic-prod-commodity/pic/commodity/94677ee6-1067-4287-8ff4-6e030ef3a5a8.jpg
-   */
-  imageUrl?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  productCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      credName: 'CredName',
-      credType: 'CredType',
-      imageFileObject: 'ImageFile',
-      imageUrl: 'ImageUrl',
-      productCode: 'ProductCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credName: 'string',
-      credType: 'string',
-      imageFileObject: 'Readable',
-      imageUrl: 'string',
-      productCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CredentialVerifyIntlResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 130A2C10-B9EE-4D84-88E3-5384FF039795
-   */
-  requestId?: string;
-  resultObject?: CredentialVerifyIntlResponseBodyResultObject;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      resultObject: 'ResultObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      resultObject: CredentialVerifyIntlResponseBodyResultObject,
-    };
-  }
-
-  validate() {
-    if(this.resultObject && typeof (this.resultObject as any).validate === 'function') {
-      (this.resultObject as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CredentialVerifyIntlResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CredentialVerifyIntlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CredentialVerifyIntlResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeDetectIntlRequest extends $dara.Model {
-  /**
-   * @example
-   * /9j/4AAQSkZJRgABAQAASxxxxxxx
-   */
-  faceBase64?: string;
-  /**
-   * @example
-   * IMAGE
-   */
-  faceInputType?: string;
-  /**
-   * @example
-   * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
-   */
-  faceUrl?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e0c34a77f5ac40a5aa5e6ed20c******
-   */
-  merchantBizId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * FACE_DEEPFAKE
-   */
-  productCode?: string;
-  /**
-   * @example
-   * 1234567890
-   */
-  sceneCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      faceBase64: 'FaceBase64',
-      faceInputType: 'FaceInputType',
-      faceUrl: 'FaceUrl',
-      merchantBizId: 'MerchantBizId',
-      productCode: 'ProductCode',
-      sceneCode: 'SceneCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceBase64: 'string',
-      faceInputType: 'string',
-      faceUrl: 'string',
-      merchantBizId: 'string',
-      productCode: 'string',
-      sceneCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeDetectIntlResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 8FC3D6AC-9FED-4311-8DA7-C4BF47D9F260
-   */
-  requestId?: string;
-  resultObject?: DeepfakeDetectIntlResponseBodyResultObject;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      resultObject: 'ResultObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      resultObject: DeepfakeDetectIntlResponseBodyResultObject,
-    };
-  }
-
-  validate() {
-    if(this.resultObject && typeof (this.resultObject as any).validate === 'function') {
-      (this.resultObject as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeDetectIntlResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeepfakeDetectIntlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeepfakeDetectIntlResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVerifyResultRequest extends $dara.Model {
-  /**
-   * @example
-   * Y / N
-   */
-  deleteAfterQuery?: string;
-  /**
-   * @example
-   * Img / Text / All
-   */
-  deleteType?: string;
-  /**
-   * @example
-   * 4ab0b***cbde97
-   */
-  transactionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deleteAfterQuery: 'DeleteAfterQuery',
-      deleteType: 'DeleteType',
-      transactionId: 'TransactionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deleteAfterQuery: 'string',
-      deleteType: 'string',
-      transactionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVerifyResultResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 4EB35****87EBA1
-   */
-  requestId?: string;
-  result?: DeleteVerifyResultResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: DeleteVerifyResultResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVerifyResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteVerifyResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteVerifyResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DocOcrRequest extends $dara.Model {
-  cardSide?: string;
-  /**
-   * @example
-   * 00000006
-   */
-  docType?: string;
-  /**
-   * @example
-   * F
-   */
-  idFaceQuality?: string;
-  idOcrPictureBase64?: string;
-  /**
-   * @example
-   * https://digital-cardocr-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
-   */
-  idOcrPictureUrl?: string;
-  idThreshold?: string;
-  /**
-   * @example
-   * dso9322***dsjsd22
-   */
-  merchantBizId?: string;
-  /**
-   * @example
-   * 123456789
-   */
-  merchantUserId?: string;
-  /**
-   * @example
-   * T
-   */
-  ocr?: string;
-  productCode?: string;
-  /**
-   * @example
-   * F
-   */
-  spoof?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cardSide: 'CardSide',
-      docType: 'DocType',
-      idFaceQuality: 'IdFaceQuality',
-      idOcrPictureBase64: 'IdOcrPictureBase64',
-      idOcrPictureUrl: 'IdOcrPictureUrl',
-      idThreshold: 'IdThreshold',
-      merchantBizId: 'MerchantBizId',
-      merchantUserId: 'MerchantUserId',
-      ocr: 'Ocr',
-      productCode: 'ProductCode',
-      spoof: 'Spoof',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cardSide: 'string',
-      docType: 'string',
-      idFaceQuality: 'string',
-      idOcrPictureBase64: 'string',
-      idOcrPictureUrl: 'string',
-      idThreshold: 'string',
-      merchantBizId: 'string',
-      merchantUserId: 'string',
-      ocr: 'string',
-      productCode: 'string',
-      spoof: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DocOcrResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 86C40EC3-5940-5F47-995C-BFE90B70E540
-   */
-  requestId?: string;
-  result?: DocOcrResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: DocOcrResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DocOcrResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DocOcrResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DocOcrResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DocOcrMaxRequest extends $dara.Model {
-  /**
-   * @example
-   * CNSSC01
-   */
-  docType?: string;
-  /**
-   * @example
-   * base64
-   */
-  idOcrPictureBase64?: string;
-  /**
-   * @example
-   * https://***********.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
-   */
-  idOcrPictureUrl?: string;
-  /**
-   * @example
-   * 0
-   */
-  idThreshold?: string;
-  /**
-   * @example
-   * e0c34a77f5ac40a5aa5e6ed20c******
-   */
-  merchantBizId?: string;
-  /**
-   * @example
-   * 123456789
-   */
-  merchantUserId?: string;
-  /**
-   * @example
-   * 0
-   */
-  ocrModel?: string;
-  /**
-   * @example
-   * ID_OCR_MAX
-   */
-  productCode?: string;
-  prompt?: string;
-  /**
-   * @example
-   * 1234567890
-   */
-  sceneCode?: string;
-  /**
-   * @example
-   * F
-   */
-  spoof?: string;
-  static names(): { [key: string]: string } {
-    return {
-      docType: 'DocType',
-      idOcrPictureBase64: 'IdOcrPictureBase64',
-      idOcrPictureUrl: 'IdOcrPictureUrl',
-      idThreshold: 'IdThreshold',
-      merchantBizId: 'MerchantBizId',
-      merchantUserId: 'MerchantUserId',
-      ocrModel: 'OcrModel',
-      productCode: 'ProductCode',
-      prompt: 'Prompt',
-      sceneCode: 'SceneCode',
-      spoof: 'Spoof',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      docType: 'string',
-      idOcrPictureBase64: 'string',
-      idOcrPictureUrl: 'string',
-      idThreshold: 'string',
-      merchantBizId: 'string',
-      merchantUserId: 'string',
-      ocrModel: 'string',
-      productCode: 'string',
-      prompt: 'string',
-      sceneCode: 'string',
-      spoof: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DocOcrMaxResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 4EB35****87EBA1
-   */
-  requestId?: string;
-  result?: DocOcrMaxResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: DocOcrMaxResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DocOcrMaxResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DocOcrMaxResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DocOcrMaxResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EkycVerifyRequest extends $dara.Model {
-  /**
-   * @example
-   * T
-   */
-  authorize?: string;
-  /**
-   * @example
-   * F
-   */
-  crop?: string;
-  docName?: string;
-  /**
-   * @example
-   * 410***************
-   */
-  docNo?: string;
-  /**
-   * @example
-   * 00000001
-   */
-  docType?: string;
-  facePictureBase64?: string;
-  /**
-   * @example
-   * https://digital-face-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
-   */
-  facePictureUrl?: string;
-  idOcrPictureBase64?: string;
-  /**
-   * @example
-   * https://digital-cardocr-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
-   */
-  idOcrPictureUrl?: string;
-  idThreshold?: string;
-  /**
-   * @example
-   * e0c34a77f5ac40a5aa5e6ed20c353888
-   */
-  merchantBizId?: string;
-  /**
-   * @example
-   * 123456
-   */
-  merchantUserId?: string;
-  /**
-   * @example
-   * eKYC_MIN
-   */
-  productCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authorize: 'Authorize',
-      crop: 'Crop',
-      docName: 'DocName',
-      docNo: 'DocNo',
-      docType: 'DocType',
-      facePictureBase64: 'FacePictureBase64',
-      facePictureUrl: 'FacePictureUrl',
-      idOcrPictureBase64: 'IdOcrPictureBase64',
-      idOcrPictureUrl: 'IdOcrPictureUrl',
-      idThreshold: 'IdThreshold',
-      merchantBizId: 'MerchantBizId',
-      merchantUserId: 'MerchantUserId',
-      productCode: 'ProductCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorize: 'string',
-      crop: 'string',
-      docName: 'string',
-      docNo: 'string',
-      docType: 'string',
-      facePictureBase64: 'string',
-      facePictureUrl: 'string',
-      idOcrPictureBase64: 'string',
-      idOcrPictureUrl: 'string',
-      idThreshold: 'string',
-      merchantBizId: 'string',
-      merchantUserId: 'string',
-      productCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EkycVerifyResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 4EB356FE-BB6A-5DCC-B4C5-E8051787EBA1
-   */
-  requestId?: string;
-  result?: EkycVerifyResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: EkycVerifyResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EkycVerifyResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: EkycVerifyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EkycVerifyResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceCompareRequest extends $dara.Model {
-  /**
-   * @example
-   * e0c34a77f5ac40a5aa5e6ed20c353888
-   */
-  merchantBizId?: string;
-  sourceFacePicture?: string;
-  /**
-   * @example
-   * https://***face1.jpeg
-   */
-  sourceFacePictureUrl?: string;
-  targetFacePicture?: string;
-  /**
-   * @example
-   * https://***face2.jpeg
-   */
-  targetFacePictureUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      merchantBizId: 'MerchantBizId',
-      sourceFacePicture: 'SourceFacePicture',
-      sourceFacePictureUrl: 'SourceFacePictureUrl',
-      targetFacePicture: 'TargetFacePicture',
-      targetFacePictureUrl: 'TargetFacePictureUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      merchantBizId: 'string',
-      sourceFacePicture: 'string',
-      sourceFacePictureUrl: 'string',
-      targetFacePicture: 'string',
-      targetFacePictureUrl: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceCompareResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 4EB356FE-BB6A-5DCC-B4C5-E8051787EBA1
-   */
-  requestId?: string;
-  result?: FaceCompareResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: FaceCompareResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceCompareResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FaceCompareResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FaceCompareResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceGuardRiskRequest extends $dara.Model {
-  /**
-   * @example
-   * LMALL20******001
-   */
-  bizId?: string;
-  /**
-   * @example
-   * Tk9SSUQuMS*****************ZDNmNWY5NzQxOW1o
-   */
-  deviceToken?: string;
-  /**
-   * @example
-   * 0c83ce0101d34eff886b1f7d1cdef67f
-   */
-  merchantBizId?: string;
-  /**
-   * @example
-   * FACE_GUARD
-   */
-  productCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      deviceToken: 'DeviceToken',
-      merchantBizId: 'MerchantBizId',
-      productCode: 'ProductCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      deviceToken: 'string',
-      merchantBizId: 'string',
-      productCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceGuardRiskResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 595E387B-3F0E-5C52-BD02-8EFE63D41FD5
-   */
-  requestId?: string;
-  result?: FaceGuardRiskResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: FaceGuardRiskResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceGuardRiskResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FaceGuardRiskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FaceGuardRiskResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceLivenessRequest extends $dara.Model {
-  /**
-   * @example
-   * T
-   */
-  crop?: string;
-  facePictureBase64?: string;
-  /**
-   * @example
-   * https://digital-face-prod8.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
-   */
-  facePictureUrl?: string;
-  /**
-   * @example
-   * T
-   */
-  faceQuality?: string;
-  /**
-   * @example
-   * e0c34a77f5ac40a5aa5e6ed20c353888
-   */
-  merchantBizId?: string;
-  /**
-   * @example
-   * 123456789
-   */
-  merchantUserId?: string;
-  /**
-   * @example
-   * T
-   */
-  occlusion?: string;
-  /**
-   * @example
-   * FACE_LIVENESS_MIN
-   */
-  productCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      crop: 'Crop',
-      facePictureBase64: 'FacePictureBase64',
-      facePictureUrl: 'FacePictureUrl',
-      faceQuality: 'FaceQuality',
-      merchantBizId: 'MerchantBizId',
-      merchantUserId: 'MerchantUserId',
-      occlusion: 'Occlusion',
-      productCode: 'ProductCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      crop: 'string',
-      facePictureBase64: 'string',
-      facePictureUrl: 'string',
-      faceQuality: 'string',
-      merchantBizId: 'string',
-      merchantUserId: 'string',
-      occlusion: 'string',
-      productCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceLivenessResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 42EA58CA-5DF4-55D5-82C4-5E7A40DA62BA
-   */
-  requestId?: string;
-  result?: FaceLivenessResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: FaceLivenessResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceLivenessResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FaceLivenessResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FaceLivenessResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FraudResultCallBackRequest extends $dara.Model {
-  /**
-   * @example
-   * shs2b27333914876c01de4cb22f5841f
-   */
-  certifyId?: string;
-  extParams?: string;
-  /**
-   * @example
-   * PASS
-   */
-  resultCode?: string;
-  /**
-   * @example
-   * production
-   */
-  verifyDeployEnv?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certifyId: 'CertifyId',
-      extParams: 'ExtParams',
-      resultCode: 'ResultCode',
-      verifyDeployEnv: 'VerifyDeployEnv',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certifyId: 'string',
-      extParams: 'string',
-      resultCode: 'string',
-      verifyDeployEnv: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FraudResultCallBackResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 4EB35****87EBA1
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FraudResultCallBackResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FraudResultCallBackResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FraudResultCallBackResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Id2MetaPeriodVerifyIntlRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  docName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 411xxxxxxxxxxx0001
-   */
-  docNo?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ​00000001
-   */
-  docType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e0c34a77f5ac40a5aa5e6ed20c35****
-   */
-  merchantBizId?: string;
-  /**
-   * @example
-   * 1234567890
-   */
-  merchantUserId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eKYC_Date_MIN
-   */
-  productCode?: string;
-  /**
-   * @example
-   * 1234567890
-   */
-  sceneCode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 20301001
-   */
-  validityEndDate?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 20201001
-   */
-  validityStartDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      docName: 'DocName',
-      docNo: 'DocNo',
-      docType: 'DocType',
-      merchantBizId: 'MerchantBizId',
-      merchantUserId: 'MerchantUserId',
-      productCode: 'ProductCode',
-      sceneCode: 'SceneCode',
-      validityEndDate: 'ValidityEndDate',
-      validityStartDate: 'ValidityStartDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      docName: 'string',
-      docNo: 'string',
-      docType: 'string',
-      merchantBizId: 'string',
-      merchantUserId: 'string',
-      productCode: 'string',
-      sceneCode: 'string',
-      validityEndDate: 'string',
-      validityStartDate: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Id2MetaPeriodVerifyIntlResponseBody extends $dara.Model {
-  /**
-   * @example
-   * success
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 7B97D932-7FF5-517D-BF39-7CA1BEE3CDD9
-   */
-  requestId?: string;
-  result?: Id2MetaPeriodVerifyIntlResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: Id2MetaPeriodVerifyIntlResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Id2MetaPeriodVerifyIntlResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: Id2MetaPeriodVerifyIntlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: Id2MetaPeriodVerifyIntlResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Id2MetaVerifyIntlRequest extends $dara.Model {
-  /**
-   * @example
-   * 429001********8211
-   */
-  identifyNum?: string;
-  /**
-   * @example
-   * normal
-   */
-  paramType?: string;
-  /**
-   * @example
-   * ID_2META
-   */
-  productCode?: string;
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      identifyNum: 'IdentifyNum',
-      paramType: 'ParamType',
-      productCode: 'ProductCode',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      identifyNum: 'string',
-      paramType: 'string',
-      productCode: 'string',
-      userName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Id2MetaVerifyIntlResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * EFA11401-C961-5E89-A2D3-BF9883E5CC3D
-   */
-  requestId?: string;
-  result?: Id2MetaVerifyIntlResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: Id2MetaVerifyIntlResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Id2MetaVerifyIntlResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: Id2MetaVerifyIntlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: Id2MetaVerifyIntlResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InitializeRequest extends $dara.Model {
-  appQualityCheck?: string;
-  authorize?: string;
-  callbackToken?: string;
-  callbackUrl?: string;
-  /**
-   * @example
-   * *
-   */
-  crop?: string;
-  dateOfBirth?: string;
-  dateOfExpiry?: string;
-  docPageConfig?: string[];
-  docScanMode?: string;
-  /**
-   * @example
-   * 01000000
-   */
-  docType?: string;
-  docVideo?: string;
-  documentNumber?: string;
-  experienceCode?: string;
-  facePictureBase64?: string;
-  /**
-   * @example
-   * ***
-   */
-  facePictureUrl?: string;
-  /**
-   * @example
-   * *
-   */
-  idFaceQuality?: string;
-  /**
-   * @example
-   * Y
-   */
-  idSpoof?: string;
-  idThreshold?: string;
-  languageConfig?: string;
-  MRTDInput?: string;
-  /**
-   * @example
-   * e0c34a***353888
-   */
-  merchantBizId?: string;
-  /**
-   * @example
-   * 1221****6543
-   */
-  merchantUserId?: string;
-  /**
-   * @example
-   * {\\"bioMetaInfo\\":\\"4.1.0:2916352,0\\",\\"deviceType\\":\\"web\\",\\"ua\\":\\"Mozilla/5.0 (Macintosh
-   */
-  metaInfo?: string;
-  model?: string;
-  /**
-   * @remarks
-   * OCR。
-   * 
-   * @example
-   * *
-   */
-  ocr?: string;
-  procedurePriority?: string;
-  /**
-   * @example
-   * eKYC
-   */
-  productCode?: string;
-  productFlow?: string;
-  /**
-   * @example
-   * http*****
-   */
-  returnUrl?: string;
-  /**
-   * @example
-   * PAY**
-   */
-  sceneCode?: string;
-  securityLevel?: string;
-  showAlbumIcon?: string;
-  showGuidePage?: string;
-  showOcrResult?: string;
-  styleConfig?: string;
-  useNFC?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appQualityCheck: 'AppQualityCheck',
-      authorize: 'Authorize',
-      callbackToken: 'CallbackToken',
-      callbackUrl: 'CallbackUrl',
-      crop: 'Crop',
-      dateOfBirth: 'DateOfBirth',
-      dateOfExpiry: 'DateOfExpiry',
-      docPageConfig: 'DocPageConfig',
-      docScanMode: 'DocScanMode',
-      docType: 'DocType',
-      docVideo: 'DocVideo',
-      documentNumber: 'DocumentNumber',
-      experienceCode: 'ExperienceCode',
-      facePictureBase64: 'FacePictureBase64',
-      facePictureUrl: 'FacePictureUrl',
-      idFaceQuality: 'IdFaceQuality',
-      idSpoof: 'IdSpoof',
-      idThreshold: 'IdThreshold',
-      languageConfig: 'LanguageConfig',
-      MRTDInput: 'MRTDInput',
-      merchantBizId: 'MerchantBizId',
-      merchantUserId: 'MerchantUserId',
-      metaInfo: 'MetaInfo',
-      model: 'Model',
-      ocr: 'Ocr',
-      procedurePriority: 'ProcedurePriority',
-      productCode: 'ProductCode',
-      productFlow: 'ProductFlow',
-      returnUrl: 'ReturnUrl',
-      sceneCode: 'SceneCode',
-      securityLevel: 'SecurityLevel',
-      showAlbumIcon: 'ShowAlbumIcon',
-      showGuidePage: 'ShowGuidePage',
-      showOcrResult: 'ShowOcrResult',
-      styleConfig: 'StyleConfig',
-      useNFC: 'UseNFC',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appQualityCheck: 'string',
-      authorize: 'string',
-      callbackToken: 'string',
-      callbackUrl: 'string',
-      crop: 'string',
-      dateOfBirth: 'string',
-      dateOfExpiry: 'string',
-      docPageConfig: { 'type': 'array', 'itemType': 'string' },
-      docScanMode: 'string',
-      docType: 'string',
-      docVideo: 'string',
-      documentNumber: 'string',
-      experienceCode: 'string',
-      facePictureBase64: 'string',
-      facePictureUrl: 'string',
-      idFaceQuality: 'string',
-      idSpoof: 'string',
-      idThreshold: 'string',
-      languageConfig: 'string',
-      MRTDInput: 'string',
-      merchantBizId: 'string',
-      merchantUserId: 'string',
-      metaInfo: 'string',
-      model: 'string',
-      ocr: 'string',
-      procedurePriority: 'string',
-      productCode: 'string',
-      productFlow: 'string',
-      returnUrl: 'string',
-      sceneCode: 'string',
-      securityLevel: 'string',
-      showAlbumIcon: 'string',
-      showGuidePage: 'string',
-      showOcrResult: 'string',
-      styleConfig: 'string',
-      useNFC: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.docPageConfig)) {
-      $dara.Model.validateArray(this.docPageConfig);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InitializeShrinkRequest extends $dara.Model {
-  appQualityCheck?: string;
-  authorize?: string;
-  callbackToken?: string;
-  callbackUrl?: string;
-  /**
-   * @example
-   * *
-   */
-  crop?: string;
-  dateOfBirth?: string;
-  dateOfExpiry?: string;
-  docPageConfigShrink?: string;
-  docScanMode?: string;
-  /**
-   * @example
-   * 01000000
-   */
-  docType?: string;
-  docVideo?: string;
-  documentNumber?: string;
-  experienceCode?: string;
-  facePictureBase64?: string;
-  /**
-   * @example
-   * ***
-   */
-  facePictureUrl?: string;
-  /**
-   * @example
-   * *
-   */
-  idFaceQuality?: string;
-  /**
-   * @example
-   * Y
-   */
-  idSpoof?: string;
-  idThreshold?: string;
-  languageConfig?: string;
-  MRTDInput?: string;
-  /**
-   * @example
-   * e0c34a***353888
-   */
-  merchantBizId?: string;
-  /**
-   * @example
-   * 1221****6543
-   */
-  merchantUserId?: string;
-  /**
-   * @example
-   * {\\"bioMetaInfo\\":\\"4.1.0:2916352,0\\",\\"deviceType\\":\\"web\\",\\"ua\\":\\"Mozilla/5.0 (Macintosh
-   */
-  metaInfo?: string;
-  model?: string;
-  /**
-   * @remarks
-   * OCR。
-   * 
-   * @example
-   * *
-   */
-  ocr?: string;
-  procedurePriority?: string;
-  /**
-   * @example
-   * eKYC
-   */
-  productCode?: string;
-  productFlow?: string;
-  /**
-   * @example
-   * http*****
-   */
-  returnUrl?: string;
-  /**
-   * @example
-   * PAY**
-   */
-  sceneCode?: string;
-  securityLevel?: string;
-  showAlbumIcon?: string;
-  showGuidePage?: string;
-  showOcrResult?: string;
-  styleConfig?: string;
-  useNFC?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appQualityCheck: 'AppQualityCheck',
-      authorize: 'Authorize',
-      callbackToken: 'CallbackToken',
-      callbackUrl: 'CallbackUrl',
-      crop: 'Crop',
-      dateOfBirth: 'DateOfBirth',
-      dateOfExpiry: 'DateOfExpiry',
-      docPageConfigShrink: 'DocPageConfig',
-      docScanMode: 'DocScanMode',
-      docType: 'DocType',
-      docVideo: 'DocVideo',
-      documentNumber: 'DocumentNumber',
-      experienceCode: 'ExperienceCode',
-      facePictureBase64: 'FacePictureBase64',
-      facePictureUrl: 'FacePictureUrl',
-      idFaceQuality: 'IdFaceQuality',
-      idSpoof: 'IdSpoof',
-      idThreshold: 'IdThreshold',
-      languageConfig: 'LanguageConfig',
-      MRTDInput: 'MRTDInput',
-      merchantBizId: 'MerchantBizId',
-      merchantUserId: 'MerchantUserId',
-      metaInfo: 'MetaInfo',
-      model: 'Model',
-      ocr: 'Ocr',
-      procedurePriority: 'ProcedurePriority',
-      productCode: 'ProductCode',
-      productFlow: 'ProductFlow',
-      returnUrl: 'ReturnUrl',
-      sceneCode: 'SceneCode',
-      securityLevel: 'SecurityLevel',
-      showAlbumIcon: 'ShowAlbumIcon',
-      showGuidePage: 'ShowGuidePage',
-      showOcrResult: 'ShowOcrResult',
-      styleConfig: 'StyleConfig',
-      useNFC: 'UseNFC',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appQualityCheck: 'string',
-      authorize: 'string',
-      callbackToken: 'string',
-      callbackUrl: 'string',
-      crop: 'string',
-      dateOfBirth: 'string',
-      dateOfExpiry: 'string',
-      docPageConfigShrink: 'string',
-      docScanMode: 'string',
-      docType: 'string',
-      docVideo: 'string',
-      documentNumber: 'string',
-      experienceCode: 'string',
-      facePictureBase64: 'string',
-      facePictureUrl: 'string',
-      idFaceQuality: 'string',
-      idSpoof: 'string',
-      idThreshold: 'string',
-      languageConfig: 'string',
-      MRTDInput: 'string',
-      merchantBizId: 'string',
-      merchantUserId: 'string',
-      metaInfo: 'string',
-      model: 'string',
-      ocr: 'string',
-      procedurePriority: 'string',
-      productCode: 'string',
-      productFlow: 'string',
-      returnUrl: 'string',
-      sceneCode: 'string',
-      securityLevel: 'string',
-      showAlbumIcon: 'string',
-      showGuidePage: 'string',
-      showOcrResult: 'string',
-      styleConfig: 'string',
-      useNFC: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InitializeResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 4EB35****87EBA1
-   */
-  requestId?: string;
-  result?: InitializeResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: InitializeResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InitializeResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: InitializeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: InitializeResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Mobile3MetaVerifyIntlRequest extends $dara.Model {
-  /**
-   * @example
-   * 429001********8211
-   */
-  identifyNum?: string;
-  /**
-   * @example
-   * 186****1234
-   */
-  mobile?: string;
-  /**
-   * @example
-   * normal
-   */
-  paramType?: string;
-  /**
-   * @example
-   * MOBILE_3META
-   */
-  productCode?: string;
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      identifyNum: 'IdentifyNum',
-      mobile: 'Mobile',
-      paramType: 'ParamType',
-      productCode: 'ProductCode',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      identifyNum: 'string',
-      mobile: 'string',
-      paramType: 'string',
-      productCode: 'string',
-      userName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Mobile3MetaVerifyIntlResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * D241532C-4EE9-5A2A-A5A5-C1FD98CE2EDD
-   */
-  requestId?: string;
-  result?: Mobile3MetaVerifyIntlResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: Mobile3MetaVerifyIntlResponseBodyResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Mobile3MetaVerifyIntlResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: Mobile3MetaVerifyIntlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: Mobile3MetaVerifyIntlResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
@@ -3697,7 +43,7 @@ export default class Client extends OpenApi {
    * @returns CardOcrResponse
    */
   // Deprecated
-  async cardOcrWithOptions(request: CardOcrRequest, runtime: $dara.RuntimeOptions): Promise<CardOcrResponse> {
+  async cardOcrWithOptions(request: $_model.CardOcrRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CardOcrResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.docType)) {
@@ -3752,7 +98,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CardOcrResponse>(await this.callApi(params, req, runtime), new CardOcrResponse({}));
+    return $dara.cast<$_model.CardOcrResponse>(await this.callApi(params, req, runtime), new $_model.CardOcrResponse({}));
   }
 
   /**
@@ -3764,7 +110,7 @@ export default class Client extends OpenApi {
    * @returns CardOcrResponse
    */
   // Deprecated
-  async cardOcr(request: CardOcrRequest): Promise<CardOcrResponse> {
+  async cardOcr(request: $_model.CardOcrRequest): Promise<$_model.CardOcrResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.cardOcrWithOptions(request, runtime);
   }
@@ -3776,7 +122,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckResultResponse
    */
-  async checkResultWithOptions(request: CheckResultRequest, runtime: $dara.RuntimeOptions): Promise<CheckResultResponse> {
+  async checkResultWithOptions(request: $_model.CheckResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckResultResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.extraImageControlList)) {
@@ -3813,7 +159,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CheckResultResponse>(await this.callApi(params, req, runtime), new CheckResultResponse({}));
+    return $dara.cast<$_model.CheckResultResponse>(await this.callApi(params, req, runtime), new $_model.CheckResultResponse({}));
   }
 
   /**
@@ -3822,7 +168,7 @@ export default class Client extends OpenApi {
    * @param request - CheckResultRequest
    * @returns CheckResultResponse
    */
-  async checkResult(request: CheckResultRequest): Promise<CheckResultResponse> {
+  async checkResult(request: $_model.CheckResultRequest): Promise<$_model.CheckResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkResultWithOptions(request, runtime);
   }
@@ -3834,7 +180,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckVerifyLogResponse
    */
-  async checkVerifyLogWithOptions(request: CheckVerifyLogRequest, runtime: $dara.RuntimeOptions): Promise<CheckVerifyLogResponse> {
+  async checkVerifyLogWithOptions(request: $_model.CheckVerifyLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckVerifyLogResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.merchantBizId)) {
@@ -3859,7 +205,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CheckVerifyLogResponse>(await this.callApi(params, req, runtime), new CheckVerifyLogResponse({}));
+    return $dara.cast<$_model.CheckVerifyLogResponse>(await this.callApi(params, req, runtime), new $_model.CheckVerifyLogResponse({}));
   }
 
   /**
@@ -3868,7 +214,7 @@ export default class Client extends OpenApi {
    * @param request - CheckVerifyLogRequest
    * @returns CheckVerifyLogResponse
    */
-  async checkVerifyLog(request: CheckVerifyLogRequest): Promise<CheckVerifyLogResponse> {
+  async checkVerifyLog(request: $_model.CheckVerifyLogRequest): Promise<$_model.CheckVerifyLogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkVerifyLogWithOptions(request, runtime);
   }
@@ -3880,7 +226,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CredentialVerifyIntlResponse
    */
-  async credentialVerifyIntlWithOptions(request: CredentialVerifyIntlRequest, runtime: $dara.RuntimeOptions): Promise<CredentialVerifyIntlResponse> {
+  async credentialVerifyIntlWithOptions(request: $_model.CredentialVerifyIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CredentialVerifyIntlResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.credName)) {
@@ -3919,7 +265,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CredentialVerifyIntlResponse>(await this.callApi(params, req, runtime), new CredentialVerifyIntlResponse({}));
+    return $dara.cast<$_model.CredentialVerifyIntlResponse>(await this.callApi(params, req, runtime), new $_model.CredentialVerifyIntlResponse({}));
   }
 
   /**
@@ -3928,12 +274,12 @@ export default class Client extends OpenApi {
    * @param request - CredentialVerifyIntlRequest
    * @returns CredentialVerifyIntlResponse
    */
-  async credentialVerifyIntl(request: CredentialVerifyIntlRequest): Promise<CredentialVerifyIntlResponse> {
+  async credentialVerifyIntl(request: $_model.CredentialVerifyIntlRequest): Promise<$_model.CredentialVerifyIntlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.credentialVerifyIntlWithOptions(request, runtime);
   }
 
-  async credentialVerifyIntlAdvance(request: CredentialVerifyIntlAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<CredentialVerifyIntlResponse> {
+  async credentialVerifyIntlAdvance(request: $_model.CredentialVerifyIntlAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CredentialVerifyIntlResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
@@ -3976,7 +322,7 @@ export default class Client extends OpenApi {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     OpenApiUtil.convert(runtime, ossRuntime);
-    let credentialVerifyIntlReq = new CredentialVerifyIntlRequest({ });
+    let credentialVerifyIntlReq = new $_model.CredentialVerifyIntlRequest({ });
     OpenApiUtil.convert(request, credentialVerifyIntlReq);
     if (!$dara.isNull(request.imageFileObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
@@ -4015,7 +361,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeepfakeDetectIntlResponse
    */
-  async deepfakeDetectIntlWithOptions(request: DeepfakeDetectIntlRequest, runtime: $dara.RuntimeOptions): Promise<DeepfakeDetectIntlResponse> {
+  async deepfakeDetectIntlWithOptions(request: $_model.DeepfakeDetectIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeepfakeDetectIntlResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.faceInputType)) {
@@ -4058,7 +404,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeepfakeDetectIntlResponse>(await this.callApi(params, req, runtime), new DeepfakeDetectIntlResponse({}));
+    return $dara.cast<$_model.DeepfakeDetectIntlResponse>(await this.callApi(params, req, runtime), new $_model.DeepfakeDetectIntlResponse({}));
   }
 
   /**
@@ -4067,7 +413,7 @@ export default class Client extends OpenApi {
    * @param request - DeepfakeDetectIntlRequest
    * @returns DeepfakeDetectIntlResponse
    */
-  async deepfakeDetectIntl(request: DeepfakeDetectIntlRequest): Promise<DeepfakeDetectIntlResponse> {
+  async deepfakeDetectIntl(request: $_model.DeepfakeDetectIntlRequest): Promise<$_model.DeepfakeDetectIntlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deepfakeDetectIntlWithOptions(request, runtime);
   }
@@ -4079,7 +425,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVerifyResultResponse
    */
-  async deleteVerifyResultWithOptions(request: DeleteVerifyResultRequest, runtime: $dara.RuntimeOptions): Promise<DeleteVerifyResultResponse> {
+  async deleteVerifyResultWithOptions(request: $_model.DeleteVerifyResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVerifyResultResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.deleteAfterQuery)) {
@@ -4108,7 +454,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteVerifyResultResponse>(await this.callApi(params, req, runtime), new DeleteVerifyResultResponse({}));
+    return $dara.cast<$_model.DeleteVerifyResultResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVerifyResultResponse({}));
   }
 
   /**
@@ -4117,7 +463,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteVerifyResultRequest
    * @returns DeleteVerifyResultResponse
    */
-  async deleteVerifyResult(request: DeleteVerifyResultRequest): Promise<DeleteVerifyResultResponse> {
+  async deleteVerifyResult(request: $_model.DeleteVerifyResultRequest): Promise<$_model.DeleteVerifyResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteVerifyResultWithOptions(request, runtime);
   }
@@ -4129,7 +475,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DocOcrResponse
    */
-  async docOcrWithOptions(request: DocOcrRequest, runtime: $dara.RuntimeOptions): Promise<DocOcrResponse> {
+  async docOcrWithOptions(request: $_model.DocOcrRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DocOcrResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.cardSide)) {
@@ -4192,7 +538,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DocOcrResponse>(await this.callApi(params, req, runtime), new DocOcrResponse({}));
+    return $dara.cast<$_model.DocOcrResponse>(await this.callApi(params, req, runtime), new $_model.DocOcrResponse({}));
   }
 
   /**
@@ -4201,7 +547,7 @@ export default class Client extends OpenApi {
    * @param request - DocOcrRequest
    * @returns DocOcrResponse
    */
-  async docOcr(request: DocOcrRequest): Promise<DocOcrResponse> {
+  async docOcr(request: $_model.DocOcrRequest): Promise<$_model.DocOcrResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.docOcrWithOptions(request, runtime);
   }
@@ -4213,7 +559,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DocOcrMaxResponse
    */
-  async docOcrMaxWithOptions(request: DocOcrMaxRequest, runtime: $dara.RuntimeOptions): Promise<DocOcrMaxResponse> {
+  async docOcrMaxWithOptions(request: $_model.DocOcrMaxRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DocOcrMaxResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.docType)) {
@@ -4274,7 +620,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DocOcrMaxResponse>(await this.callApi(params, req, runtime), new DocOcrMaxResponse({}));
+    return $dara.cast<$_model.DocOcrMaxResponse>(await this.callApi(params, req, runtime), new $_model.DocOcrMaxResponse({}));
   }
 
   /**
@@ -4283,7 +629,7 @@ export default class Client extends OpenApi {
    * @param request - DocOcrMaxRequest
    * @returns DocOcrMaxResponse
    */
-  async docOcrMax(request: DocOcrMaxRequest): Promise<DocOcrMaxResponse> {
+  async docOcrMax(request: $_model.DocOcrMaxRequest): Promise<$_model.DocOcrMaxResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.docOcrMaxWithOptions(request, runtime);
   }
@@ -4295,7 +641,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EkycVerifyResponse
    */
-  async ekycVerifyWithOptions(request: EkycVerifyRequest, runtime: $dara.RuntimeOptions): Promise<EkycVerifyResponse> {
+  async ekycVerifyWithOptions(request: $_model.EkycVerifyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EkycVerifyResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.authorize)) {
@@ -4366,7 +712,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<EkycVerifyResponse>(await this.callApi(params, req, runtime), new EkycVerifyResponse({}));
+    return $dara.cast<$_model.EkycVerifyResponse>(await this.callApi(params, req, runtime), new $_model.EkycVerifyResponse({}));
   }
 
   /**
@@ -4375,7 +721,7 @@ export default class Client extends OpenApi {
    * @param request - EkycVerifyRequest
    * @returns EkycVerifyResponse
    */
-  async ekycVerify(request: EkycVerifyRequest): Promise<EkycVerifyResponse> {
+  async ekycVerify(request: $_model.EkycVerifyRequest): Promise<$_model.EkycVerifyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.ekycVerifyWithOptions(request, runtime);
   }
@@ -4387,7 +733,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FaceCompareResponse
    */
-  async faceCompareWithOptions(request: FaceCompareRequest, runtime: $dara.RuntimeOptions): Promise<FaceCompareResponse> {
+  async faceCompareWithOptions(request: $_model.FaceCompareRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FaceCompareResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.merchantBizId)) {
@@ -4426,7 +772,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<FaceCompareResponse>(await this.callApi(params, req, runtime), new FaceCompareResponse({}));
+    return $dara.cast<$_model.FaceCompareResponse>(await this.callApi(params, req, runtime), new $_model.FaceCompareResponse({}));
   }
 
   /**
@@ -4435,7 +781,7 @@ export default class Client extends OpenApi {
    * @param request - FaceCompareRequest
    * @returns FaceCompareResponse
    */
-  async faceCompare(request: FaceCompareRequest): Promise<FaceCompareResponse> {
+  async faceCompare(request: $_model.FaceCompareRequest): Promise<$_model.FaceCompareResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.faceCompareWithOptions(request, runtime);
   }
@@ -4447,7 +793,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FaceGuardRiskResponse
    */
-  async faceGuardRiskWithOptions(request: FaceGuardRiskRequest, runtime: $dara.RuntimeOptions): Promise<FaceGuardRiskResponse> {
+  async faceGuardRiskWithOptions(request: $_model.FaceGuardRiskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FaceGuardRiskResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.bizId)) {
@@ -4480,7 +826,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<FaceGuardRiskResponse>(await this.callApi(params, req, runtime), new FaceGuardRiskResponse({}));
+    return $dara.cast<$_model.FaceGuardRiskResponse>(await this.callApi(params, req, runtime), new $_model.FaceGuardRiskResponse({}));
   }
 
   /**
@@ -4489,7 +835,7 @@ export default class Client extends OpenApi {
    * @param request - FaceGuardRiskRequest
    * @returns FaceGuardRiskResponse
    */
-  async faceGuardRisk(request: FaceGuardRiskRequest): Promise<FaceGuardRiskResponse> {
+  async faceGuardRisk(request: $_model.FaceGuardRiskRequest): Promise<$_model.FaceGuardRiskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.faceGuardRiskWithOptions(request, runtime);
   }
@@ -4501,7 +847,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FaceLivenessResponse
    */
-  async faceLivenessWithOptions(request: FaceLivenessRequest, runtime: $dara.RuntimeOptions): Promise<FaceLivenessResponse> {
+  async faceLivenessWithOptions(request: $_model.FaceLivenessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FaceLivenessResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.crop)) {
@@ -4552,7 +898,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<FaceLivenessResponse>(await this.callApi(params, req, runtime), new FaceLivenessResponse({}));
+    return $dara.cast<$_model.FaceLivenessResponse>(await this.callApi(params, req, runtime), new $_model.FaceLivenessResponse({}));
   }
 
   /**
@@ -4561,7 +907,7 @@ export default class Client extends OpenApi {
    * @param request - FaceLivenessRequest
    * @returns FaceLivenessResponse
    */
-  async faceLiveness(request: FaceLivenessRequest): Promise<FaceLivenessResponse> {
+  async faceLiveness(request: $_model.FaceLivenessRequest): Promise<$_model.FaceLivenessResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.faceLivenessWithOptions(request, runtime);
   }
@@ -4573,7 +919,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FraudResultCallBackResponse
    */
-  async fraudResultCallBackWithOptions(request: FraudResultCallBackRequest, runtime: $dara.RuntimeOptions): Promise<FraudResultCallBackResponse> {
+  async fraudResultCallBackWithOptions(request: $_model.FraudResultCallBackRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FraudResultCallBackResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.certifyId)) {
@@ -4606,7 +952,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<FraudResultCallBackResponse>(await this.callApi(params, req, runtime), new FraudResultCallBackResponse({}));
+    return $dara.cast<$_model.FraudResultCallBackResponse>(await this.callApi(params, req, runtime), new $_model.FraudResultCallBackResponse({}));
   }
 
   /**
@@ -4615,7 +961,7 @@ export default class Client extends OpenApi {
    * @param request - FraudResultCallBackRequest
    * @returns FraudResultCallBackResponse
    */
-  async fraudResultCallBack(request: FraudResultCallBackRequest): Promise<FraudResultCallBackResponse> {
+  async fraudResultCallBack(request: $_model.FraudResultCallBackRequest): Promise<$_model.FraudResultCallBackResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.fraudResultCallBackWithOptions(request, runtime);
   }
@@ -4627,7 +973,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns Id2MetaPeriodVerifyIntlResponse
    */
-  async id2MetaPeriodVerifyIntlWithOptions(request: Id2MetaPeriodVerifyIntlRequest, runtime: $dara.RuntimeOptions): Promise<Id2MetaPeriodVerifyIntlResponse> {
+  async id2MetaPeriodVerifyIntlWithOptions(request: $_model.Id2MetaPeriodVerifyIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.Id2MetaPeriodVerifyIntlResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.docName)) {
@@ -4680,7 +1026,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<Id2MetaPeriodVerifyIntlResponse>(await this.callApi(params, req, runtime), new Id2MetaPeriodVerifyIntlResponse({}));
+    return $dara.cast<$_model.Id2MetaPeriodVerifyIntlResponse>(await this.callApi(params, req, runtime), new $_model.Id2MetaPeriodVerifyIntlResponse({}));
   }
 
   /**
@@ -4689,7 +1035,7 @@ export default class Client extends OpenApi {
    * @param request - Id2MetaPeriodVerifyIntlRequest
    * @returns Id2MetaPeriodVerifyIntlResponse
    */
-  async id2MetaPeriodVerifyIntl(request: Id2MetaPeriodVerifyIntlRequest): Promise<Id2MetaPeriodVerifyIntlResponse> {
+  async id2MetaPeriodVerifyIntl(request: $_model.Id2MetaPeriodVerifyIntlRequest): Promise<$_model.Id2MetaPeriodVerifyIntlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.id2MetaPeriodVerifyIntlWithOptions(request, runtime);
   }
@@ -4701,7 +1047,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns Id2MetaVerifyIntlResponse
    */
-  async id2MetaVerifyIntlWithOptions(request: Id2MetaVerifyIntlRequest, runtime: $dara.RuntimeOptions): Promise<Id2MetaVerifyIntlResponse> {
+  async id2MetaVerifyIntlWithOptions(request: $_model.Id2MetaVerifyIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.Id2MetaVerifyIntlResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.identifyNum)) {
@@ -4734,7 +1080,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<Id2MetaVerifyIntlResponse>(await this.callApi(params, req, runtime), new Id2MetaVerifyIntlResponse({}));
+    return $dara.cast<$_model.Id2MetaVerifyIntlResponse>(await this.callApi(params, req, runtime), new $_model.Id2MetaVerifyIntlResponse({}));
   }
 
   /**
@@ -4743,7 +1089,7 @@ export default class Client extends OpenApi {
    * @param request - Id2MetaVerifyIntlRequest
    * @returns Id2MetaVerifyIntlResponse
    */
-  async id2MetaVerifyIntl(request: Id2MetaVerifyIntlRequest): Promise<Id2MetaVerifyIntlResponse> {
+  async id2MetaVerifyIntl(request: $_model.Id2MetaVerifyIntlRequest): Promise<$_model.Id2MetaVerifyIntlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.id2MetaVerifyIntlWithOptions(request, runtime);
   }
@@ -4755,9 +1101,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InitializeResponse
    */
-  async initializeWithOptions(tmpReq: InitializeRequest, runtime: $dara.RuntimeOptions): Promise<InitializeResponse> {
+  async initializeWithOptions(tmpReq: $_model.InitializeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InitializeResponse> {
     tmpReq.validate();
-    let request = new InitializeShrinkRequest({ });
+    let request = new $_model.InitializeShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.docPageConfig)) {
       request.docPageConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docPageConfig, "DocPageConfig", "json");
@@ -4924,7 +1270,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<InitializeResponse>(await this.callApi(params, req, runtime), new InitializeResponse({}));
+    return $dara.cast<$_model.InitializeResponse>(await this.callApi(params, req, runtime), new $_model.InitializeResponse({}));
   }
 
   /**
@@ -4933,7 +1279,7 @@ export default class Client extends OpenApi {
    * @param request - InitializeRequest
    * @returns InitializeResponse
    */
-  async initialize(request: InitializeRequest): Promise<InitializeResponse> {
+  async initialize(request: $_model.InitializeRequest): Promise<$_model.InitializeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.initializeWithOptions(request, runtime);
   }
@@ -4945,7 +1291,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns Mobile3MetaVerifyIntlResponse
    */
-  async mobile3MetaVerifyIntlWithOptions(request: Mobile3MetaVerifyIntlRequest, runtime: $dara.RuntimeOptions): Promise<Mobile3MetaVerifyIntlResponse> {
+  async mobile3MetaVerifyIntlWithOptions(request: $_model.Mobile3MetaVerifyIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.Mobile3MetaVerifyIntlResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.identifyNum)) {
@@ -4982,7 +1328,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<Mobile3MetaVerifyIntlResponse>(await this.callApi(params, req, runtime), new Mobile3MetaVerifyIntlResponse({}));
+    return $dara.cast<$_model.Mobile3MetaVerifyIntlResponse>(await this.callApi(params, req, runtime), new $_model.Mobile3MetaVerifyIntlResponse({}));
   }
 
   /**
@@ -4991,7 +1337,7 @@ export default class Client extends OpenApi {
    * @param request - Mobile3MetaVerifyIntlRequest
    * @returns Mobile3MetaVerifyIntlResponse
    */
-  async mobile3MetaVerifyIntl(request: Mobile3MetaVerifyIntlRequest): Promise<Mobile3MetaVerifyIntlResponse> {
+  async mobile3MetaVerifyIntl(request: $_model.Mobile3MetaVerifyIntlRequest): Promise<$_model.Mobile3MetaVerifyIntlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.mobile3MetaVerifyIntlWithOptions(request, runtime);
   }
