@@ -26,6 +26,7 @@ export class ListScheduleEventRequest extends $dara.Model {
    * INFO
    */
   event?: string;
+  eventType?: string;
   /**
    * @example
    * 1310630367761285120
@@ -67,6 +68,7 @@ export class ListScheduleEventRequest extends $dara.Model {
       clusterId: 'ClusterId',
       endTime: 'EndTime',
       event: 'Event',
+      eventType: 'EventType',
       jobExecutionId: 'JobExecutionId',
       jobName: 'JobName',
       keyword: 'Keyword',
@@ -83,6 +85,7 @@ export class ListScheduleEventRequest extends $dara.Model {
       clusterId: 'string',
       endTime: 'number',
       event: 'string',
+      eventType: 'string',
       jobExecutionId: 'string',
       jobName: 'string',
       keyword: 'string',

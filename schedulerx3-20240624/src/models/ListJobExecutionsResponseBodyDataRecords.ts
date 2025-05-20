@@ -88,6 +88,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
    * 1
    */
   timeType?: number;
+  totalTokens?: number;
   /**
    * @example
    * 1
@@ -117,6 +118,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
       serverIp: 'ServerIp',
       status: 'Status',
       timeType: 'TimeType',
+      totalTokens: 'TotalTokens',
       triggerType: 'TriggerType',
       workAddr: 'WorkAddr',
     };
@@ -141,6 +143,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
       serverIp: 'string',
       status: 'number',
       timeType: 'number',
+      totalTokens: 'number',
       triggerType: 'number',
       workAddr: 'string',
     };
