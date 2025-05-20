@@ -2871,6 +2871,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.destinationCidrBlock)) {
+      query["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
     if (!$dara.isNull(request.direction)) {
       query["Direction"] = request.direction;
     }
@@ -8546,7 +8550,27 @@ export default class Client extends OpenApi {
    */
   async describeNetworkAclsWithOptions(request: $_model.DescribeNetworkAclsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNetworkAclsResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.networkAclId)) {
+      query["NetworkAclId"] = request.networkAclId;
+    }
+
+    if (!$dara.isNull(request.networkAclName)) {
+      query["NetworkAclName"] = request.networkAclName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8555,7 +8579,7 @@ export default class Client extends OpenApi {
       version: "2017-11-10",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",

@@ -19,6 +19,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
    * This is IngressAclEntries.
    */
   description?: string;
+  destinationCidrBlock?: string;
   /**
    * @remarks
    * The ID of the inbound rule.
@@ -93,6 +94,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
     return {
       cidrBlock: 'CidrBlock',
       description: 'Description',
+      destinationCidrBlock: 'DestinationCidrBlock',
       networkAclEntryId: 'NetworkAclEntryId',
       networkAclEntryName: 'NetworkAclEntryName',
       policy: 'Policy',
@@ -107,6 +109,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
     return {
       cidrBlock: 'string',
       description: 'string',
+      destinationCidrBlock: 'string',
       networkAclEntryId: 'string',
       networkAclEntryName: 'string',
       policy: 'string',

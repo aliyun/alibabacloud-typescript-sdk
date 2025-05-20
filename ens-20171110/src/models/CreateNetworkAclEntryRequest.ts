@@ -23,6 +23,7 @@ export class CreateNetworkAclEntryRequest extends $dara.Model {
    * This is my NetworkAcl.
    */
   description?: string;
+  destinationCidrBlock?: string;
   /**
    * @remarks
    * The direction in which the rule is applied. Valid values:
@@ -111,6 +112,7 @@ export class CreateNetworkAclEntryRequest extends $dara.Model {
     return {
       cidrBlock: 'CidrBlock',
       description: 'Description',
+      destinationCidrBlock: 'DestinationCidrBlock',
       direction: 'Direction',
       networkAclEntryName: 'NetworkAclEntryName',
       networkAclId: 'NetworkAclId',
@@ -125,6 +127,7 @@ export class CreateNetworkAclEntryRequest extends $dara.Model {
     return {
       cidrBlock: 'string',
       description: 'string',
+      destinationCidrBlock: 'string',
       direction: 'string',
       networkAclEntryName: 'string',
       networkAclId: 'string',
