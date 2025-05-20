@@ -2,28 +2,25 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InsertMultiDimTableRecordRequestRecords extends $dara.Model {
+export class QueryDentriesInfoResponseBodyDentryProperties extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
+   * @example
+   * True
    */
-  fields?: { [key: string]: any };
+  readOnly?: boolean;
   static names(): { [key: string]: string } {
     return {
-      fields: 'Fields',
+      readOnly: 'ReadOnly',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fields: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      readOnly: 'boolean',
     };
   }
 
   validate() {
-    if(this.fields) {
-      $dara.Model.validateMap(this.fields);
-    }
     super.validate();
   }
 

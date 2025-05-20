@@ -2,54 +2,57 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateMultiDimTableFieldShrinkRequest extends $dara.Model {
+export class QueryDentriesInfoShrinkRequest extends $dara.Model {
+  appIdsForAppPropertiesShrink?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * r1R7q3QmWew5lo02fxB7noNyJxxxxxx
+   * 140901622636
    */
-  baseId?: string;
+  dentryId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 22443475065
    */
-  name?: string;
-  propertyShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  sheetIdOrName?: string;
+  spaceId?: string;
   tenantContextShrink?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * text
+   * urv3ZIAtcmmIgQzHq08YcAiEiE
    */
-  type?: string;
+  unionId?: string;
+  /**
+   * @example
+   * false
+   */
+  withThumbnail?: boolean;
   static names(): { [key: string]: string } {
     return {
-      baseId: 'BaseId',
-      name: 'Name',
-      propertyShrink: 'Property',
-      sheetIdOrName: 'SheetIdOrName',
+      appIdsForAppPropertiesShrink: 'AppIdsForAppProperties',
+      dentryId: 'DentryId',
+      spaceId: 'SpaceId',
       tenantContextShrink: 'TenantContext',
-      type: 'Type',
+      unionId: 'UnionId',
+      withThumbnail: 'WithThumbnail',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      baseId: 'string',
-      name: 'string',
-      propertyShrink: 'string',
-      sheetIdOrName: 'string',
+      appIdsForAppPropertiesShrink: 'string',
+      dentryId: 'string',
+      spaceId: 'string',
       tenantContextShrink: 'string',
-      type: 'string',
+      unionId: 'string',
+      withThumbnail: 'boolean',
     };
   }
 

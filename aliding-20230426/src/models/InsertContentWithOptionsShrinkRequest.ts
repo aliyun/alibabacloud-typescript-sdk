@@ -2,54 +2,61 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateMultiDimTableFieldShrinkRequest extends $dara.Model {
+export class InsertContentWithOptionsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * r1R7q3QmWew5lo02fxB7noNyJxxxxxx
+   * content
    */
-  baseId?: string;
+  contentShrink?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * documentId
    */
-  name?: string;
-  propertyShrink?: string;
+  documentId?: string;
+  /**
+   * @example
+   * 1
+   */
+  index?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * union_id
    */
-  sheetIdOrName?: string;
+  operatorId?: string;
+  /**
+   * @example
+   * [0,0]
+   */
+  pathShrink?: string;
   tenantContextShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * text
-   */
-  type?: string;
   static names(): { [key: string]: string } {
     return {
-      baseId: 'BaseId',
-      name: 'Name',
-      propertyShrink: 'Property',
-      sheetIdOrName: 'SheetIdOrName',
+      contentShrink: 'Content',
+      documentId: 'DocumentId',
+      index: 'Index',
+      operatorId: 'OperatorId',
+      pathShrink: 'Path',
       tenantContextShrink: 'TenantContext',
-      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      baseId: 'string',
-      name: 'string',
-      propertyShrink: 'string',
-      sheetIdOrName: 'string',
+      contentShrink: 'string',
+      documentId: 'string',
+      index: 'number',
+      operatorId: 'string',
+      pathShrink: 'string',
       tenantContextShrink: 'string',
-      type: 'string',
     };
   }
 

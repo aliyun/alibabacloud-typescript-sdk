@@ -2,28 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InsertMultiDimTableRecordRequestRecords extends $dara.Model {
+export class QueryDentriesInfoHeadersAccountContext extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 012345
    */
-  fields?: { [key: string]: any };
+  accountId?: string;
   static names(): { [key: string]: string } {
     return {
-      fields: 'Fields',
+      accountId: 'accountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fields: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      accountId: 'string',
     };
   }
 
   validate() {
-    if(this.fields) {
-      $dara.Model.validateMap(this.fields);
-    }
     super.validate();
   }
 

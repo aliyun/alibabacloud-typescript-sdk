@@ -3,9 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddMultiDimTableRequestFields extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   property?: { [key: string]: any };
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * text
    */

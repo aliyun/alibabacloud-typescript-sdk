@@ -11604,6 +11604,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 文档中插入内容
+   * 
+   * @param tmpReq - InsertContentWithOptionsRequest
+   * @param tmpHeader - InsertContentWithOptionsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InsertContentWithOptionsResponse
+   */
+  async insertContentWithOptionsWithOptions(tmpReq: $_model.InsertContentWithOptionsRequest, tmpHeader: $_model.InsertContentWithOptionsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.InsertContentWithOptionsResponse> {
+    tmpReq.validate();
+    let request = new $_model.InsertContentWithOptionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.InsertContentWithOptionsShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.path)) {
+      request.pathShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.path, "Path", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contentShrink)) {
+      body["Content"] = request.contentShrink;
+    }
+
+    if (!$dara.isNull(request.documentId)) {
+      body["DocumentId"] = request.documentId;
+    }
+
+    if (!$dara.isNull(request.index)) {
+      body["Index"] = request.index;
+    }
+
+    if (!$dara.isNull(request.operatorId)) {
+      body["OperatorId"] = request.operatorId;
+    }
+
+    if (!$dara.isNull(request.pathShrink)) {
+      body["Path"] = request.pathShrink;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InsertContentWithOptions",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/insertContentWithOptions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InsertContentWithOptionsResponse>(await this.callApi(params, req, runtime), new $_model.InsertContentWithOptionsResponse({}));
+  }
+
+  /**
+   * 文档中插入内容
+   * 
+   * @param request - InsertContentWithOptionsRequest
+   * @returns InsertContentWithOptionsResponse
+   */
+  async insertContentWithOptions(request: $_model.InsertContentWithOptionsRequest): Promise<$_model.InsertContentWithOptionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.InsertContentWithOptionsHeaders({ });
+    return await this.insertContentWithOptionsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 新增记录
    * 
    * @param tmpReq - InsertMultiDimTableRecordRequest
@@ -14041,6 +14135,96 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.QueryConferenceMembersHeaders({ });
     return await this.queryConferenceMembersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取文件或文件夹信息
+   * 
+   * @param tmpReq - QueryDentriesInfoRequest
+   * @param tmpHeader - QueryDentriesInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDentriesInfoResponse
+   */
+  async queryDentriesInfoWithOptions(tmpReq: $_model.QueryDentriesInfoRequest, tmpHeader: $_model.QueryDentriesInfoHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDentriesInfoResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryDentriesInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.QueryDentriesInfoShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.appIdsForAppProperties)) {
+      request.appIdsForAppPropertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.appIdsForAppProperties, "AppIdsForAppProperties", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appIdsForAppPropertiesShrink)) {
+      body["AppIdsForAppProperties"] = request.appIdsForAppPropertiesShrink;
+    }
+
+    if (!$dara.isNull(request.dentryId)) {
+      body["DentryId"] = request.dentryId;
+    }
+
+    if (!$dara.isNull(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.unionId)) {
+      body["UnionId"] = request.unionId;
+    }
+
+    if (!$dara.isNull(request.withThumbnail)) {
+      body["WithThumbnail"] = request.withThumbnail;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryDentriesInfo",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/queryDentriesInfo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryDentriesInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryDentriesInfoResponse({}));
+  }
+
+  /**
+   * 获取文件或文件夹信息
+   * 
+   * @param request - QueryDentriesInfoRequest
+   * @returns QueryDentriesInfoResponse
+   */
+  async queryDentriesInfo(request: $_model.QueryDentriesInfoRequest): Promise<$_model.QueryDentriesInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.QueryDentriesInfoHeaders({ });
+    return await this.queryDentriesInfoWithOptions(request, headers, runtime);
   }
 
   /**

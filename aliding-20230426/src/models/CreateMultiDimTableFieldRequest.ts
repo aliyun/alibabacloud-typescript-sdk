@@ -25,6 +25,9 @@ export class CreateMultiDimTableFieldRequest extends $dara.Model {
   sheetIdOrName?: string;
   tenantContext?: CreateMultiDimTableFieldRequestTenantContext;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * text
    */

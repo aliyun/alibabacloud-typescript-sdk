@@ -13,7 +13,15 @@ export class InsertMultiDimTableRecordRequest extends $dara.Model {
    * r1R7q3QmWew5lo02fxB7nxxxxxxxx
    */
   baseId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   records?: InsertMultiDimTableRecordRequestRecords[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sheetIdOrName?: string;
   tenantContext?: InsertMultiDimTableRecordRequestTenantContext;
   static names(): { [key: string]: string } {
