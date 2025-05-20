@@ -84,6 +84,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * deleteSlrEfloCnpForDeleting
+   * 
+   * @param request - CheckServiceLinkedRoleEfloCnpForDeletingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckServiceLinkedRoleEfloCnpForDeletingResponse
+   */
+  async checkServiceLinkedRoleEfloCnpForDeletingWithOptions(request: $_model.CheckServiceLinkedRoleEfloCnpForDeletingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckServiceLinkedRoleEfloCnpForDeletingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!$dara.isNull(request.deletionTaskId)) {
+      query["DeletionTaskId"] = request.deletionTaskId;
+    }
+
+    if (!$dara.isNull(request.roleArn)) {
+      query["RoleArn"] = request.roleArn;
+    }
+
+    if (!$dara.isNull(request.SPIRegionId)) {
+      query["SPIRegionId"] = request.SPIRegionId;
+    }
+
+    if (!$dara.isNull(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckServiceLinkedRoleEfloCnpForDeleting",
+      version: "2023-08-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckServiceLinkedRoleEfloCnpForDeletingResponse>(await this.callApi(params, req, runtime), new $_model.CheckServiceLinkedRoleEfloCnpForDeletingResponse({}));
+  }
+
+  /**
+   * deleteSlrEfloCnpForDeleting
+   * 
+   * @param request - CheckServiceLinkedRoleEfloCnpForDeletingRequest
+   * @returns CheckServiceLinkedRoleEfloCnpForDeletingResponse
+   */
+  async checkServiceLinkedRoleEfloCnpForDeleting(request: $_model.CheckServiceLinkedRoleEfloCnpForDeletingRequest): Promise<$_model.CheckServiceLinkedRoleEfloCnpForDeletingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkServiceLinkedRoleEfloCnpForDeletingWithOptions(request, runtime);
+  }
+
+  /**
    * Create Experiment Plan
    * 
    * @param tmpReq - CreateExperimentPlanRequest

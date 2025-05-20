@@ -1,3 +1,4 @@
+export { CheckServiceLinkedRoleEfloCnpForDeletingResponseBodyResources } from './CheckServiceLinkedRoleEfloCnpForDeletingResponseBodyResources';
 export { CreateExperimentPlanRequestTag } from './CreateExperimentPlanRequestTag';
 export { CreateExperimentPlanShrinkRequestTag } from './CreateExperimentPlanShrinkRequestTag';
 export { CreateExperimentPlanTemplateRequestTemplatePipelineEnvParams } from './CreateExperimentPlanTemplateRequestTemplatePipelineEnvParams';
@@ -70,6 +71,9 @@ export { DataResultsTaskIndividualResultMapValue } from './DataResultsTaskIndivi
 export { ChangeResourceGroupRequest } from './ChangeResourceGroupRequest';
 export { ChangeResourceGroupResponseBody } from './ChangeResourceGroupResponseBody';
 export { ChangeResourceGroupResponse } from './ChangeResourceGroupResponse';
+export { CheckServiceLinkedRoleEfloCnpForDeletingRequest } from './CheckServiceLinkedRoleEfloCnpForDeletingRequest';
+export { CheckServiceLinkedRoleEfloCnpForDeletingResponseBody } from './CheckServiceLinkedRoleEfloCnpForDeletingResponseBody';
+export { CheckServiceLinkedRoleEfloCnpForDeletingResponse } from './CheckServiceLinkedRoleEfloCnpForDeletingResponse';
 export { CreateExperimentPlanRequest } from './CreateExperimentPlanRequest';
 export { CreateExperimentPlanShrinkRequest } from './CreateExperimentPlanShrinkRequest';
 export { CreateExperimentPlanResponseBody } from './CreateExperimentPlanResponseBody';
