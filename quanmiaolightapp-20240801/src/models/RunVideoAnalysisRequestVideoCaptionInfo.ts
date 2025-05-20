@@ -4,15 +4,22 @@ import { RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions } from "./RunVideo
 
 
 export class RunVideoAnalysisRequestVideoCaptionInfo extends $dara.Model {
+  /**
+   * @example
+   * oss:// | http://
+   */
+  videoCaptionFileUrl?: string;
   videoCaptions?: RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions[];
   static names(): { [key: string]: string } {
     return {
+      videoCaptionFileUrl: 'videoCaptionFileUrl',
       videoCaptions: 'videoCaptions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      videoCaptionFileUrl: 'string',
       videoCaptions: { 'type': 'array', 'itemType': RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions },
     };
   }

@@ -4,15 +4,22 @@ import { SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions } from "./S
 
 
 export class SubmitVideoAnalysisTaskRequestVideoCaptionInfo extends $dara.Model {
+  /**
+   * @example
+   * oss:// | http://
+   */
+  videoCaptionFileUrl?: string;
   videoCaptions?: SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions[];
   static names(): { [key: string]: string } {
     return {
+      videoCaptionFileUrl: 'videoCaptionFileUrl',
       videoCaptions: 'videoCaptions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      videoCaptionFileUrl: 'string',
       videoCaptions: { 'type': 'array', 'itemType': SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions },
     };
   }
