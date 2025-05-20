@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class JobSettings extends $dara.Model {
   advancedSettings?: { [key: string]: any };
+  allocateAllRDMADevices?: boolean;
   /**
    * @example
    * 166924
@@ -88,6 +89,7 @@ export class JobSettings extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       advancedSettings: 'AdvancedSettings',
+      allocateAllRDMADevices: 'AllocateAllRDMADevices',
       businessUserId: 'BusinessUserId',
       caller: 'Caller',
       disableEcsStockCheck: 'DisableEcsStockCheck',
@@ -111,6 +113,7 @@ export class JobSettings extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       advancedSettings: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      allocateAllRDMADevices: 'boolean',
       businessUserId: 'string',
       caller: 'string',
       disableEcsStockCheck: 'boolean',
