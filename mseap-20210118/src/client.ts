@@ -490,6 +490,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 合作伙伴获取用户跨平台信息
+   * 
+   * @param request - GetPlatformUserInfoForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPlatformUserInfoForPartnerResponse
+   */
+  async getPlatformUserInfoForPartnerWithOptions(request: $_model.GetPlatformUserInfoForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPlatformUserInfoForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.platformType)) {
+      query["PlatformType"] = request.platformType;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPlatformUserInfoForPartner",
+      version: "2021-01-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPlatformUserInfoForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.GetPlatformUserInfoForPartnerResponse({}));
+  }
+
+  /**
+   * 合作伙伴获取用户跨平台信息
+   * 
+   * @param request - GetPlatformUserInfoForPartnerRequest
+   * @returns GetPlatformUserInfoForPartnerResponse
+   */
+  async getPlatformUserInfoForPartner(request: $_model.GetPlatformUserInfoForPartnerRequest): Promise<$_model.GetPlatformUserInfoForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPlatformUserInfoForPartnerWithOptions(request, runtime);
+  }
+
+  /**
    * 获取代理
    * 
    * @param request - GetProxyByTypeRequest
