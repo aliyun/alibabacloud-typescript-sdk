@@ -3030,6 +3030,10 @@ export default class Client extends OpenApi {
       body["ingressConfig"] = request.ingressConfig;
     }
 
+    if (!$dara.isNull(request.onlyChangeConfig)) {
+      body["onlyChangeConfig"] = request.onlyChangeConfig;
+    }
+
     if (!$dara.isNull(request.protocols)) {
       body["protocols"] = request.protocols;
     }

@@ -50,6 +50,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
    * The HTTP Ingress API configurations.
    */
   ingressConfig?: UpdateHttpApiRequestIngressConfig;
+  onlyChangeConfig?: boolean;
   /**
    * @remarks
    * The protocols that are used to access the API.
@@ -69,6 +70,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
       description: 'description',
       enableAuth: 'enableAuth',
       ingressConfig: 'ingressConfig',
+      onlyChangeConfig: 'onlyChangeConfig',
       protocols: 'protocols',
       versionConfig: 'versionConfig',
     };
@@ -83,6 +85,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
       description: 'string',
       enableAuth: 'boolean',
       ingressConfig: UpdateHttpApiRequestIngressConfig,
+      onlyChangeConfig: 'boolean',
       protocols: { 'type': 'array', 'itemType': 'string' },
       versionConfig: HttpApiVersionConfig,
     };
