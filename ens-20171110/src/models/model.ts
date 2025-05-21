@@ -92,6 +92,8 @@ export { DescribeDeviceServiceResponseBodyResourceInfosInternalIps } from './Des
 export { DescribeDeviceServiceResponseBodyResourceInfosPublicIps } from './DescribeDeviceServiceResponseBodyResourceInfosPublicIps';
 export { DescribeDeviceServiceResponseBodyResourceInfos } from './DescribeDeviceServiceResponseBodyResourceInfos';
 export { DescribeDiskIopsListResponseBodyDiskIopsList } from './DescribeDiskIopsListResponseBodyDiskIopsList';
+export { DescribeDisksResponseBodyDisksDisksTagsTags } from './DescribeDisksResponseBodyDisksDisksTagsTags';
+export { DescribeDisksResponseBodyDisksDisksTags } from './DescribeDisksResponseBodyDisksDisksTags';
 export { DescribeDisksResponseBodyDisksDisks } from './DescribeDisksResponseBodyDisksDisks';
 export { DescribeDisksResponseBodyDisks } from './DescribeDisksResponseBodyDisks';
 export { DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInfo } from './DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInfo';

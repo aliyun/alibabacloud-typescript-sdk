@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeDisksResponseBodyDisksDisksTags } from "./DescribeDisksResponseBodyDisksDisksTags";
 
 
 export class DescribeDisksResponseBodyDisksDisks extends $dara.Model {
@@ -169,6 +170,7 @@ export class DescribeDisksResponseBodyDisksDisks extends $dara.Model {
    * Available
    */
   status?: string;
+  tags?: DescribeDisksResponseBodyDisksDisksTags;
   /**
    * @remarks
    * The type of the cloud disk or local disk. Valid values:
@@ -199,6 +201,7 @@ export class DescribeDisksResponseBodyDisksDisks extends $dara.Model {
       size: 'Size',
       snapshotId: 'SnapshotId',
       status: 'Status',
+      tags: 'Tags',
       type: 'Type',
     };
   }
@@ -222,11 +225,15 @@ export class DescribeDisksResponseBodyDisksDisks extends $dara.Model {
       size: 'number',
       snapshotId: 'string',
       status: 'string',
+      tags: DescribeDisksResponseBodyDisksDisksTags,
       type: 'string',
     };
   }
 
   validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
     super.validate();
   }
 
