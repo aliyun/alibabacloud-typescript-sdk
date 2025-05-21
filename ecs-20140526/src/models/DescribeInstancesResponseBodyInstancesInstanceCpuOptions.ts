@@ -26,7 +26,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceCpuOptions extends $d
    * The number of threads per CPU core.
    * 
    * @example
-   * 4
+   * 2
    */
   threadsPerCore?: number;
   /**

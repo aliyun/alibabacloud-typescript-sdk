@@ -19,10 +19,14 @@ export class DescribeNetworkInterfaceAttributeResponseBodyEnhancedNetwork extend
    * false
    */
   enableSriov?: boolean;
+  virtualFunctionQuantity?: number;
+  virtualFunctionTotalQueueNumber?: number;
   static names(): { [key: string]: string } {
     return {
       enableRss: 'EnableRss',
       enableSriov: 'EnableSriov',
+      virtualFunctionQuantity: 'VirtualFunctionQuantity',
+      virtualFunctionTotalQueueNumber: 'VirtualFunctionTotalQueueNumber',
     };
   }
 
@@ -30,6 +34,8 @@ export class DescribeNetworkInterfaceAttributeResponseBodyEnhancedNetwork extend
     return {
       enableRss: 'boolean',
       enableSriov: 'boolean',
+      virtualFunctionQuantity: 'number',
+      virtualFunctionTotalQueueNumber: 'number',
     };
   }
 

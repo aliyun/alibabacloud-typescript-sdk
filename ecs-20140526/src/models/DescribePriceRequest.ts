@@ -209,9 +209,9 @@ export class DescribePriceRequest extends $dara.Model {
   priceUnit?: string;
   /**
    * @remarks
-   * Recurrence rules for the time-segmented assurance of the elasticity assurance.
+   * The assurance schedules of the time-segmented elasticity assurance.
    * 
-   * >  The time-segmented assurance of the elasticity assurance is available only in specific regions and to specific users. To use this feature, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
+   * >  Time-segmented elasticity assurances are available only in specific regions and to specific users. To use time-segmented elasticity assurances, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
    */
   recurrenceRules?: DescribePriceRequestRecurrenceRules[];
   /**

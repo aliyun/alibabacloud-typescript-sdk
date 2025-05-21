@@ -51,12 +51,12 @@ export class CreateDiskRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The category of the data disk. Valid values:
+   * The category of the data disk. Valid values for different disk categories:
    * 
    * *   cloud: basic disk
-   * *   cloud_efficiency: ultra disk
+   * *   cloud_efficiency: utra disk
    * *   cloud_ssd: standard SSD
-   * *   cloud_essd: Enterprise SSD (ESSD)
+   * *   cloud_essd: ESSD
    * *   cloud_auto: ESSD AutoPL disk
    * *   cloud_essd_entry: ESSD Entry disk
    * *   cloud_regional_disk_auto: Regional ESSD
@@ -64,6 +64,18 @@ export class CreateDiskRequest extends $dara.Model {
    * *   elastic_ephemeral_disk_premium: premium elastic ephemeral disk
    * 
    * Default value: cloud.
+   * 
+   * Enumerated values:
+   * 
+   * *   cloud: basic disk
+   * *   cloud_efficiency: ultra disk
+   * *   cloud_ssd: SSD
+   * *   cloud_auto: ESSD AutoPL disk
+   * *   cloud_regional_disk_auto: Regional ESSD
+   * *   cloud_essd: ESSD
+   * *   elastic_ephemeral_disk_standard: standard elastic ephemeral disk.
+   * *   cloud_essd: ESSD
+   * *   elastic_ephemeral_disk_premium: premium elastic ephemeral disk
    * 
    * @example
    * cloud_ssd
@@ -157,14 +169,14 @@ export class CreateDiskRequest extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS per ESSD AutoPL disk. Valid values:
+   * Specifies the read/write IOPS that is provisioned for the ESSD AutoPL disk. Valid value:
    * 
-   * *   Capacity (GiB) ≤ 3: not configurable.
-   * *   Capacity (GiB) ≥ 4: [0, min{(1,000
+   * *   Capacity (GiB) <= 3: not configurable
+   * *   Capacity (GiB) >= 4: [0, min{(1,000
    * 
-   * IOPS/GiB × Capacity - Baseline IOPS), 50,000}].
+   * IOPS/GiB × Capacity - Baseline IOPS), 50,000}]
    * 
-   * Baseline IOPS = max{min{1,800 + 50 × Capacity, 50,000}, 3,000}.
+   * Baseline performance: max{min{1,800 + 50 × Capacity, 50,000}, 3,000}
    * 
    * >  This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
    * 
@@ -194,7 +206,7 @@ export class CreateDiskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The disk size. Unit: GiB. You must specify this parameter. Valid values for different disk categories:
+   * The size of the data disk. Unit: GiB. This parameter is required. Valid values for different disk categories:
    * 
    * *   Valid values when DiskCategory is set to cloud: 5 to 2000.
    * 

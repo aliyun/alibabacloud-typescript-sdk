@@ -45,6 +45,23 @@ export class DescribeDisksRequest extends $dara.Model {
    * 
    * Default value: all.
    * 
+   * Enumerated values:
+   * 
+   * *   all: all disks categories
+   * *   cloud_efficiency: ultra disk
+   * *   cloud_ssd: standard SSD
+   * *   local_ssd_pro: I/O-intensive local disk
+   * *   ephemeral: retired local disk
+   * *   cloud_essd_entry: ESSD Entry disk
+   * *   elastic_ephemeral_disk_premium: premium elastic ephemeral disk
+   * *   cloud: basic disk
+   * *   ephemeral_ssd: retired local SSD
+   * *   cloud_auto: ESSD AutoPL disk
+   * *   cloud_regional_disk_auto: Regional ESSD
+   * *   cloud_essd: ESSD
+   * *   elastic_ephemeral_disk_standard: standard elastic ephemeral disk
+   * *   local_hdd_pro: throughput-intensive local disk
+   * 
    * @example
    * all
    */
