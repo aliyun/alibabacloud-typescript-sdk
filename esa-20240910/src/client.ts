@@ -3082,60 +3082,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a route to map a URL to a routine so that the routine can be triggered to respond to requests destined for the URL.
-   * 
-   * @param request - CreateRoutineRelatedRouteRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateRoutineRelatedRouteResponse
-   */
-  async createRoutineRelatedRouteWithOptions(request: $_model.CreateRoutineRelatedRouteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRoutineRelatedRouteResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.byPass)) {
-      body["ByPass"] = request.byPass;
-    }
-
-    if (!$dara.isNull(request.name)) {
-      body["Name"] = request.name;
-    }
-
-    if (!$dara.isNull(request.route)) {
-      body["Route"] = request.route;
-    }
-
-    if (!$dara.isNull(request.siteId)) {
-      body["SiteId"] = request.siteId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "CreateRoutineRelatedRoute",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.CreateRoutineRelatedRouteResponse>(await this.callApi(params, req, runtime), new $_model.CreateRoutineRelatedRouteResponse({}));
-  }
-
-  /**
-   * Adds a route to map a URL to a routine so that the routine can be triggered to respond to requests destined for the URL.
-   * 
-   * @param request - CreateRoutineRelatedRouteRequest
-   * @returns CreateRoutineRelatedRouteResponse
-   */
-  async createRoutineRelatedRoute(request: $_model.CreateRoutineRelatedRouteRequest): Promise<$_model.CreateRoutineRelatedRouteResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.createRoutineRelatedRouteWithOptions(request, runtime);
-  }
-
-  /**
    * 新增边缘函数路由配置
    * 
    * @param request - CreateRoutineRouteRequest
@@ -5552,60 +5498,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a route that is associated with a routine.
-   * 
-   * @param request - DeleteRoutineRelatedRouteRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteRoutineRelatedRouteResponse
-   */
-  async deleteRoutineRelatedRouteWithOptions(request: $_model.DeleteRoutineRelatedRouteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRoutineRelatedRouteResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.name)) {
-      body["Name"] = request.name;
-    }
-
-    if (!$dara.isNull(request.route)) {
-      body["Route"] = request.route;
-    }
-
-    if (!$dara.isNull(request.routeId)) {
-      body["RouteId"] = request.routeId;
-    }
-
-    if (!$dara.isNull(request.siteId)) {
-      body["SiteId"] = request.siteId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DeleteRoutineRelatedRoute",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DeleteRoutineRelatedRouteResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRoutineRelatedRouteResponse({}));
-  }
-
-  /**
-   * Deletes a route that is associated with a routine.
-   * 
-   * @param request - DeleteRoutineRelatedRouteRequest
-   * @returns DeleteRoutineRelatedRouteResponse
-   */
-  async deleteRoutineRelatedRoute(request: $_model.DeleteRoutineRelatedRouteRequest): Promise<$_model.DeleteRoutineRelatedRouteResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.deleteRoutineRelatedRouteWithOptions(request, runtime);
-  }
-
-  /**
    * 删除边缘函数路由配置
    * 
    * @param request - DeleteRoutineRouteRequest
@@ -6649,6 +6541,64 @@ export default class Client extends OpenApi {
   async describeRatePlanInstanceStatus(request: $_model.DescribeRatePlanInstanceStatusRequest): Promise<$_model.DescribeRatePlanInstanceStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRatePlanInstanceStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询站点离线日志
+   * 
+   * @param request - DescribeSiteLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSiteLogsResponse
+   */
+  async describeSiteLogsWithOptions(request: $_model.DescribeSiteLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSiteLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSiteLogs",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSiteLogsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSiteLogsResponse({}));
+  }
+
+  /**
+   * 查询站点离线日志
+   * 
+   * @param request - DescribeSiteLogsRequest
+   * @returns DescribeSiteLogsResponse
+   */
+  async describeSiteLogs(request: $_model.DescribeSiteLogsRequest): Promise<$_model.DescribeSiteLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSiteLogsWithOptions(request, runtime);
   }
 
   /**
@@ -12472,6 +12422,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * OpenErService
+   * 
+   * @param request - OpenErServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenErServiceResponse
+   */
+  async openErServiceWithOptions(request: $_model.OpenErServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OpenErServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OpenErService",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OpenErServiceResponse>(await this.callApi(params, req, runtime), new $_model.OpenErServiceResponse({}));
+  }
+
+  /**
+   * OpenErService
+   * 
+   * @param request - OpenErServiceRequest
+   * @returns OpenErServiceResponse
+   */
+  async openErService(request: $_model.OpenErServiceRequest): Promise<$_model.OpenErServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.openErServiceWithOptions(request, runtime);
+  }
+
+  /**
    * Prefetches cache.
    * 
    * @param tmpReq - PreloadCachesRequest
@@ -15066,6 +15062,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.addRealClientIpHeader)) {
       query["AddRealClientIpHeader"] = request.addRealClientIpHeader;
+    }
+
+    if (!$dara.isNull(request.realClientIpHeaderName)) {
+      query["RealClientIpHeaderName"] = request.realClientIpHeaderName;
     }
 
     if (!$dara.isNull(request.siteId)) {

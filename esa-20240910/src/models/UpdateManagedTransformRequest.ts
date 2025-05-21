@@ -25,6 +25,7 @@ export class UpdateManagedTransformRequest extends $dara.Model {
    * on
    */
   addRealClientIpHeader?: string;
+  realClientIpHeaderName?: string;
   /**
    * @remarks
    * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
@@ -47,6 +48,7 @@ export class UpdateManagedTransformRequest extends $dara.Model {
     return {
       addClientGeolocationHeader: 'AddClientGeolocationHeader',
       addRealClientIpHeader: 'AddRealClientIpHeader',
+      realClientIpHeaderName: 'RealClientIpHeaderName',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
     };
@@ -56,6 +58,7 @@ export class UpdateManagedTransformRequest extends $dara.Model {
     return {
       addClientGeolocationHeader: 'string',
       addRealClientIpHeader: 'string',
+      realClientIpHeaderName: 'string',
       siteId: 'number',
       siteVersion: 'number',
     };

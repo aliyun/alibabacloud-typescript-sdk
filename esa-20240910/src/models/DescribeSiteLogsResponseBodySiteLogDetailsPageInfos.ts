@@ -2,34 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteRoutineRelatedRouteResponseBody extends $dara.Model {
+export class DescribeSiteLogsResponseBodySiteLogDetailsPageInfos extends $dara.Model {
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
-   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+   * 1
    */
-  requestId?: string;
+  pageIndex?: number;
   /**
-   * @remarks
-   * Indicates whether the operation is successful.
-   * 
    * @example
-   * OK
+   * 10
    */
-  status?: string;
+  pageSize?: number;
+  /**
+   * @example
+   * 47
+   */
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      status: 'Status',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      status: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 

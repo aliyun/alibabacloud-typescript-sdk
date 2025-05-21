@@ -2,34 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateRoutineRelatedRouteResponseBody extends $dara.Model {
+export class OpenErServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+   * 5CC228B4-7A67-4016-9C9F-4A4133494A91
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the operation is successful.
-   * 
-   * @example
-   * OK
-   */
-  status?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      status: 'string',
     };
   }
 

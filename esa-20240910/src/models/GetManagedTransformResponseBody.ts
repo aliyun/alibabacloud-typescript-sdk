@@ -23,6 +23,7 @@ export class GetManagedTransformResponseBody extends $dara.Model {
    * on
    */
   addRealClientIpHeader?: string;
+  realClientIpHeaderName?: string;
   /**
    * @remarks
    * Request ID.
@@ -43,6 +44,7 @@ export class GetManagedTransformResponseBody extends $dara.Model {
     return {
       addClientGeolocationHeader: 'AddClientGeolocationHeader',
       addRealClientIpHeader: 'AddRealClientIpHeader',
+      realClientIpHeaderName: 'RealClientIpHeaderName',
       requestId: 'RequestId',
       siteVersion: 'SiteVersion',
     };
@@ -52,6 +54,7 @@ export class GetManagedTransformResponseBody extends $dara.Model {
     return {
       addClientGeolocationHeader: 'string',
       addRealClientIpHeader: 'string',
+      realClientIpHeaderName: 'string',
       requestId: 'string',
       siteVersion: 'number',
     };

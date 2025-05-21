@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRoutineRelatedRecordResponseBody extends $dara.Model {
+  recordId?: number;
   /**
    * @remarks
    * The request ID.
@@ -21,6 +22,7 @@ export class CreateRoutineRelatedRecordResponseBody extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      recordId: 'RecordId',
       requestId: 'RequestId',
       status: 'Status',
     };
@@ -28,6 +30,7 @@ export class CreateRoutineRelatedRecordResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      recordId: 'number',
       requestId: 'string',
       status: 'string',
     };

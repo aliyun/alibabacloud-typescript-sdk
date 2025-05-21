@@ -2,53 +2,52 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateRoutineRelatedRouteRequest extends $dara.Model {
-  byPass?: string;
+export class DescribeSiteLogsRequest extends $dara.Model {
   /**
-   * @remarks
-   * The routine name.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * CreateRoutineRelatedRoute
+   * 2022-11-06T17:00:00Z
    */
-  name?: string;
+  endTime?: string;
   /**
-   * @remarks
-   * The route.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * *.example.com/path1*
+   * 1
    */
-  route?: string;
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
   /**
    * @remarks
-   * The website ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 54362329990032
+   * 123456***
    */
   siteId?: number;
+  /**
+   * @example
+   * 2022-11-06T16:00:00Z
+   */
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
-      byPass: 'ByPass',
-      name: 'Name',
-      route: 'Route',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       siteId: 'SiteId',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      byPass: 'string',
-      name: 'string',
-      route: 'string',
+      endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       siteId: 'number',
+      startTime: 'string',
     };
   }
 
