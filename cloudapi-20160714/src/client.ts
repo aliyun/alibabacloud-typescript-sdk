@@ -1359,6 +1359,10 @@ export default class Client extends OpenApi {
       query["DatasetType"] = request.datasetType;
     }
 
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
@@ -10457,6 +10461,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.datasetName)) {
       query["DatasetName"] = request.datasetName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
     }
 
     if (!$dara.isNull(request.securityToken)) {

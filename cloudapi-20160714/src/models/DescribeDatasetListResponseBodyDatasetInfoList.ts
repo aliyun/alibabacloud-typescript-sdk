@@ -40,6 +40,7 @@ export class DescribeDatasetListResponseBodyDatasetInfoList extends $dara.Model 
    * IP_WHITELIST_CIDR
    */
   datasetType?: string;
+  description?: string;
   /**
    * @remarks
    * The time when the dataset was last modified. The time is displayed in UTC.
@@ -59,6 +60,7 @@ export class DescribeDatasetListResponseBodyDatasetInfoList extends $dara.Model 
       datasetId: 'DatasetId',
       datasetName: 'DatasetName',
       datasetType: 'DatasetType',
+      description: 'Description',
       modifiedTime: 'ModifiedTime',
       tags: 'Tags',
     };
@@ -70,6 +72,7 @@ export class DescribeDatasetListResponseBodyDatasetInfoList extends $dara.Model 
       datasetId: 'string',
       datasetName: 'string',
       datasetType: 'string',
+      description: 'string',
       modifiedTime: 'string',
       tags: { 'type': 'array', 'itemType': DescribeDatasetListResponseBodyDatasetInfoListTags },
     };

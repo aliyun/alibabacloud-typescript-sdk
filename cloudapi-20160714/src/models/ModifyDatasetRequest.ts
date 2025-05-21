@@ -17,17 +17,17 @@ export class ModifyDatasetRequest extends $dara.Model {
    * @remarks
    * The name of the dataset.
    * 
-   * This parameter is required.
-   * 
    * @example
    * NewDatasetName
    */
   datasetName?: string;
+  description?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       datasetName: 'DatasetName',
+      description: 'Description',
       securityToken: 'SecurityToken',
     };
   }
@@ -36,6 +36,7 @@ export class ModifyDatasetRequest extends $dara.Model {
     return {
       datasetId: 'string',
       datasetName: 'string',
+      description: 'string',
       securityToken: 'string',
     };
   }

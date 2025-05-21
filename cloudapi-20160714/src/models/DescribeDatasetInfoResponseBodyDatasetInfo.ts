@@ -39,6 +39,7 @@ export class DescribeDatasetInfoResponseBodyDatasetInfo extends $dara.Model {
    * JWT_BLOCKING
    */
   datasetType?: string;
+  description?: string;
   /**
    * @remarks
    * The last modification time (UTC) of the dataset.
@@ -53,6 +54,7 @@ export class DescribeDatasetInfoResponseBodyDatasetInfo extends $dara.Model {
       datasetId: 'DatasetId',
       datasetName: 'DatasetName',
       datasetType: 'DatasetType',
+      description: 'Description',
       modifiedTime: 'ModifiedTime',
     };
   }
@@ -63,6 +65,7 @@ export class DescribeDatasetInfoResponseBodyDatasetInfo extends $dara.Model {
       datasetId: 'string',
       datasetName: 'string',
       datasetType: 'string',
+      description: 'string',
       modifiedTime: 'string',
     };
   }

@@ -28,6 +28,7 @@ export class CreateDatasetRequest extends $dara.Model {
    * JWT_BLOCKING
    */
   datasetType?: string;
+  description?: string;
   securityToken?: string;
   /**
    * @remarks
@@ -38,6 +39,7 @@ export class CreateDatasetRequest extends $dara.Model {
     return {
       datasetName: 'DatasetName',
       datasetType: 'DatasetType',
+      description: 'Description',
       securityToken: 'SecurityToken',
       tag: 'Tag',
     };
@@ -47,6 +49,7 @@ export class CreateDatasetRequest extends $dara.Model {
     return {
       datasetName: 'string',
       datasetType: 'string',
+      description: 'string',
       securityToken: 'string',
       tag: { 'type': 'array', 'itemType': CreateDatasetRequestTag },
     };
