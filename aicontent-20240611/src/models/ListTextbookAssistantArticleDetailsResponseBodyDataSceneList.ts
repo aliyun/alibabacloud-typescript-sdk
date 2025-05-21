@@ -14,13 +14,13 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataSceneList extend
    */
   sceneId?: string;
   sceneImageList?: string[];
-  sceneTransLate?: string;
+  sceneTranslate?: string;
   static names(): { [key: string]: string } {
     return {
       scene: 'scene',
       sceneId: 'sceneId',
       sceneImageList: 'sceneImageList',
-      sceneTransLate: 'sceneTransLate',
+      sceneTranslate: 'sceneTranslate',
     };
   }
 
@@ -29,7 +29,7 @@ export class ListTextbookAssistantArticleDetailsResponseBodyDataSceneList extend
       scene: 'string',
       sceneId: 'string',
       sceneImageList: { 'type': 'array', 'itemType': 'string' },
-      sceneTransLate: 'string',
+      sceneTranslate: 'string',
     };
   }
 

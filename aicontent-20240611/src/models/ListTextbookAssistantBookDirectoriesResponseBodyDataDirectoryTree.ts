@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeTopic } from "./ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeTopic";
+import { ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit } from "./ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit";
 
 
 export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTree extends $dara.Model {
@@ -15,11 +16,13 @@ export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTree e
    */
   directoryName?: string;
   topic?: ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeTopic[];
+  unit?: ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit[];
   static names(): { [key: string]: string } {
     return {
       directoryId: 'directoryId',
       directoryName: 'directoryName',
       topic: 'topic',
+      unit: 'unit',
     };
   }
 
@@ -28,12 +31,16 @@ export class ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTree e
       directoryId: 'string',
       directoryName: 'string',
       topic: { 'type': 'array', 'itemType': ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeTopic },
+      unit: { 'type': 'array', 'itemType': ListTextbookAssistantBookDirectoriesResponseBodyDataDirectoryTreeUnit },
     };
   }
 
   validate() {
     if(Array.isArray(this.topic)) {
       $dara.Model.validateArray(this.topic);
+    }
+    if(Array.isArray(this.unit)) {
+      $dara.Model.validateArray(this.unit);
     }
     super.validate();
   }

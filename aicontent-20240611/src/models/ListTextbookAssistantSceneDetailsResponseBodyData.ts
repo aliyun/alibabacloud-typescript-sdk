@@ -22,6 +22,7 @@ export class ListTextbookAssistantSceneDetailsResponseBodyData extends $dara.Mod
   sceneId?: string;
   sceneImageList?: string[];
   sceneTaskList?: ListTextbookAssistantSceneDetailsResponseBodyDataSceneTaskList[];
+  sceneTranslate?: string;
   sentenceList?: ListTextbookAssistantSceneDetailsResponseBodyDataSentenceList[];
   /**
    * @example
@@ -38,6 +39,7 @@ export class ListTextbookAssistantSceneDetailsResponseBodyData extends $dara.Mod
       sceneId: 'sceneId',
       sceneImageList: 'sceneImageList',
       sceneTaskList: 'sceneTaskList',
+      sceneTranslate: 'sceneTranslate',
       sentenceList: 'sentenceList',
       target: 'target',
       theme: 'theme',
@@ -53,6 +55,7 @@ export class ListTextbookAssistantSceneDetailsResponseBodyData extends $dara.Mod
       sceneId: 'string',
       sceneImageList: { 'type': 'array', 'itemType': 'string' },
       sceneTaskList: { 'type': 'array', 'itemType': ListTextbookAssistantSceneDetailsResponseBodyDataSceneTaskList },
+      sceneTranslate: 'string',
       sentenceList: { 'type': 'array', 'itemType': ListTextbookAssistantSceneDetailsResponseBodyDataSentenceList },
       target: 'string',
       theme: ListTextbookAssistantSceneDetailsResponseBodyDataTheme,
