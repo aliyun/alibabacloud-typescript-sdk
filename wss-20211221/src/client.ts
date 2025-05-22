@@ -30,6 +30,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 多商品组合下单
+   * 
    * @param tmpReq - CreateMultiOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateMultiOrderResponse
@@ -77,6 +79,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 多商品组合下单
+   * 
    * @param request - CreateMultiOrderRequest
    * @returns CreateMultiOrderResponse
    */

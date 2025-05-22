@@ -19,6 +19,7 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
    * false
    */
   autoRenew?: boolean;
+  buyChange?: boolean;
   components?: CreateMultiOrderRequestOrderItemsComponents[];
   /**
    * @example
@@ -49,6 +50,7 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
       amount: 'Amount',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
+      buyChange: 'BuyChange',
       components: 'Components',
       period: 'Period',
       periodUnit: 'PeriodUnit',
@@ -63,6 +65,7 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
       amount: 'number',
       autoPay: 'boolean',
       autoRenew: 'boolean',
+      buyChange: 'boolean',
       components: { 'type': 'array', 'itemType': CreateMultiOrderRequestOrderItemsComponents },
       period: 'number',
       periodUnit: 'string',
