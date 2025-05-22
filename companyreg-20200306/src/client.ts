@@ -1,3276 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class BindProduceAuthorizationRequest extends $tea.Model {
-  authorizedUserIds?: string;
-  bizId?: string;
-  bizType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authorizedUserIds: 'AuthorizedUserIds',
-      bizId: 'BizId',
-      bizType: 'BizType',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      authorizedUserIds: 'string',
-      bizId: 'string',
-      bizType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindProduceAuthorizationResponseBody extends $tea.Model {
-  data?: BindProduceAuthorizationResponseBodyData;
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: BindProduceAuthorizationResponseBodyData,
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindProduceAuthorizationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BindProduceAuthorizationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BindProduceAuthorizationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseIntentionForPartnerRequest extends $tea.Model {
-  bizType?: string;
-  intentionBizId?: string;
-  note?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      intentionBizId: 'IntentionBizId',
-      note: 'Note',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      intentionBizId: 'string',
-      note: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseIntentionForPartnerResponseBody extends $tea.Model {
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseIntentionForPartnerResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CloseIntentionForPartnerResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CloseIntentionForPartnerResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseUserIntentionRequest extends $tea.Model {
-  bizType?: string;
-  intentionBizId?: string;
-  note?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      intentionBizId: 'IntentionBizId',
-      note: 'Note',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      intentionBizId: 'string',
-      note: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseUserIntentionResponseBody extends $tea.Model {
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseUserIntentionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CloseUserIntentionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CloseUserIntentionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBusinessOpportunityRequest extends $tea.Model {
-  bizType?: string;
-  contactName?: string;
-  mobile?: string;
-  source?: number;
-  VCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      contactName: 'ContactName',
-      mobile: 'Mobile',
-      source: 'Source',
-      VCode: 'VCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      contactName: 'string',
-      mobile: 'string',
-      source: 'number',
-      VCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBusinessOpportunityResponseBody extends $tea.Model {
-  errorCode?: string;
-  errorMessage?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBusinessOpportunityResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateBusinessOpportunityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateBusinessOpportunityResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProduceForPartnerRequest extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  extInfo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-      extInfo: 'ExtInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      extInfo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProduceForPartnerResponseBody extends $tea.Model {
-  bizId?: string;
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProduceForPartnerResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateProduceForPartnerResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateProduceForPartnerResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePartnerConfigRequest extends $tea.Model {
-  bizType?: string;
-  partnerCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      partnerCode: 'PartnerCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      partnerCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePartnerConfigResponseBody extends $tea.Model {
-  contact?: string;
-  partnerCode?: string;
-  partnerName?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contact: 'Contact',
-      partnerCode: 'PartnerCode',
-      partnerName: 'PartnerName',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contact: 'string',
-      partnerCode: 'string',
-      partnerName: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePartnerConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribePartnerConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribePartnerConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateUploadFilePolicyRequest extends $tea.Model {
-  bizType?: string;
-  fileName?: string;
-  fileType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      fileName: 'FileName',
-      fileType: 'FileType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      fileName: 'string',
-      fileType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateUploadFilePolicyResponseBody extends $tea.Model {
-  accessId?: string;
-  encodedPolicy?: string;
-  expireTime?: string;
-  fileDir?: string;
-  fileUrl?: string;
-  host?: string;
-  requestId?: string;
-  signature?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessId: 'AccessId',
-      encodedPolicy: 'EncodedPolicy',
-      expireTime: 'ExpireTime',
-      fileDir: 'FileDir',
-      fileUrl: 'FileUrl',
-      host: 'Host',
-      requestId: 'RequestId',
-      signature: 'Signature',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessId: 'string',
-      encodedPolicy: 'string',
-      expireTime: 'string',
-      fileDir: 'string',
-      fileUrl: 'string',
-      host: 'string',
-      requestId: 'string',
-      signature: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateUploadFilePolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GenerateUploadFilePolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GenerateUploadFilePolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAlipayUrlRequest extends $tea.Model {
-  bizType?: string;
-  orderId?: number;
-  returnUrl?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      orderId: 'OrderId',
-      returnUrl: 'ReturnUrl',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      orderId: 'number',
-      returnUrl: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAlipayUrlResponseBody extends $tea.Model {
-  data?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAlipayUrlResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAlipayUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAlipayUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListIntentionNoteRequest extends $tea.Model {
-  beginTime?: number;
-  endTime?: number;
-  intentionBizId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      beginTime: 'BeginTime',
-      endTime: 'EndTime',
-      intentionBizId: 'IntentionBizId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginTime: 'number',
-      endTime: 'number',
-      intentionBizId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListIntentionNoteResponseBody extends $tea.Model {
-  currentPageNum?: number;
-  data?: ListIntentionNoteResponseBodyData[];
-  pageSize?: number;
-  requestId?: string;
-  totalItemNum?: number;
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: { 'type': 'array', 'itemType': ListIntentionNoteResponseBodyData },
-      pageSize: 'number',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListIntentionNoteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListIntentionNoteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListIntentionNoteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProduceAuthorizationRequest extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  pageNum?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProduceAuthorizationResponseBody extends $tea.Model {
-  currentPageNum?: number;
-  data?: ListProduceAuthorizationResponseBodyData[];
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalItemNum?: number;
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: { 'type': 'array', 'itemType': ListProduceAuthorizationResponseBodyData },
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProduceAuthorizationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListProduceAuthorizationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListProduceAuthorizationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserDetailSolutionsRequest extends $tea.Model {
-  bizType?: string;
-  intentionBizId?: string;
-  pageNum?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      intentionBizId: 'IntentionBizId',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      intentionBizId: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserDetailSolutionsResponseBody extends $tea.Model {
-  currentPageNum?: number;
-  data?: ListUserDetailSolutionsResponseBodyData[];
-  pageSize?: number;
-  requestId?: string;
-  totalItemNum?: number;
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: { 'type': 'array', 'itemType': ListUserDetailSolutionsResponseBodyData },
-      pageSize: 'number',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserDetailSolutionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserDetailSolutionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserDetailSolutionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserIntentionNotesRequest extends $tea.Model {
-  bizType?: string;
-  intentionBizId?: string;
-  pageNum?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      intentionBizId: 'IntentionBizId',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      intentionBizId: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserIntentionNotesResponseBody extends $tea.Model {
-  data?: ListUserIntentionNotesResponseBodyData[];
-  pageNum?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalItemNum?: number;
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': ListUserIntentionNotesResponseBodyData },
-      pageNum: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserIntentionNotesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserIntentionNotesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserIntentionNotesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserIntentionsRequest extends $tea.Model {
-  area?: string;
-  bizType?: string;
-  bizTypes?: string;
-  intentionBizId?: string;
-  pageNum?: number;
-  pageSize?: number;
-  sortFiled?: string;
-  sortOrder?: string;
-  status?: number;
-  withExtInfo?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      area: 'Area',
-      bizType: 'BizType',
-      bizTypes: 'BizTypes',
-      intentionBizId: 'IntentionBizId',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      sortFiled: 'SortFiled',
-      sortOrder: 'SortOrder',
-      status: 'Status',
-      withExtInfo: 'WithExtInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      area: 'string',
-      bizType: 'string',
-      bizTypes: 'string',
-      intentionBizId: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      sortFiled: 'string',
-      sortOrder: 'string',
-      status: 'number',
-      withExtInfo: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserIntentionsResponseBody extends $tea.Model {
-  currentPageNum?: number;
-  data?: ListUserIntentionsResponseBodyData[];
-  pageSize?: number;
-  requestId?: string;
-  totalItemNum?: number;
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: { 'type': 'array', 'itemType': ListUserIntentionsResponseBodyData },
-      pageSize: 'number',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserIntentionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserIntentionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserIntentionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserProduceOperateLogsRequest extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  pageNum?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserProduceOperateLogsResponseBody extends $tea.Model {
-  data?: ListUserProduceOperateLogsResponseBodyData[];
-  pageNum?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  totalItemNum?: number;
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': ListUserProduceOperateLogsResponseBodyData },
-      pageNum: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserProduceOperateLogsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserProduceOperateLogsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserProduceOperateLogsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserSolutionsRequest extends $tea.Model {
-  existStatus?: number[];
-  intentionBizId?: string;
-  pageNum?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      existStatus: 'ExistStatus',
-      intentionBizId: 'IntentionBizId',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      existStatus: { 'type': 'array', 'itemType': 'number' },
-      intentionBizId: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserSolutionsShrinkRequest extends $tea.Model {
-  existStatusShrink?: string;
-  intentionBizId?: string;
-  pageNum?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      existStatusShrink: 'ExistStatus',
-      intentionBizId: 'IntentionBizId',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      existStatusShrink: 'string',
-      intentionBizId: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserSolutionsResponseBody extends $tea.Model {
-  currentPageNum?: number;
-  data?: ListUserSolutionsResponseBodyData[];
-  pageSize?: number;
-  requestId?: string;
-  totalItemNum?: number;
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: { 'type': 'array', 'itemType': ListUserSolutionsResponseBodyData },
-      pageSize: 'number',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserSolutionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserSolutionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserSolutionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OperateProduceForPartnerRequest extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  extInfo?: string;
-  operateType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-      extInfo: 'ExtInfo',
-      operateType: 'OperateType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      extInfo: 'string',
-      operateType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OperateProduceForPartnerResponseBody extends $tea.Model {
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OperateProduceForPartnerResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OperateProduceForPartnerResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OperateProduceForPartnerResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PutMeasureDataRequest extends $tea.Model {
-  bizType?: string;
-  data?: string;
-  dataType?: string;
-  endTime?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      data: 'Data',
-      dataType: 'DataType',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      data: 'string',
-      dataType: 'string',
-      endTime: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PutMeasureDataResponseBody extends $tea.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PutMeasureDataResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PutMeasureDataResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PutMeasureDataResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PutMeasureReadyFlagRequest extends $tea.Model {
-  bizType?: string;
-  dataType?: string;
-  endTime?: string;
-  readyFlag?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      dataType: 'DataType',
-      endTime: 'EndTime',
-      readyFlag: 'ReadyFlag',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      dataType: 'string',
-      endTime: 'string',
-      readyFlag: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PutMeasureReadyFlagResponseBody extends $tea.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PutMeasureReadyFlagResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PutMeasureReadyFlagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PutMeasureReadyFlagResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAvailableNumbersRequest extends $tea.Model {
-  bizType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAvailableNumbersResponseBody extends $tea.Model {
-  data?: string[];
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': 'string' },
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAvailableNumbersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryAvailableNumbersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryAvailableNumbersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryBagRemainingRequest extends $tea.Model {
-  bizType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryBagRemainingResponseBody extends $tea.Model {
-  data?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryBagRemainingResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryBagRemainingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryBagRemainingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCommodityConfigRequest extends $tea.Model {
-  bizType?: string;
-  commodityCode?: string;
-  queryModule?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      commodityCode: 'CommodityCode',
-      queryModule: 'QueryModule',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      commodityCode: 'string',
-      queryModule: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCommodityConfigResponseBody extends $tea.Model {
-  data?: QueryCommodityConfigResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: QueryCommodityConfigResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCommodityConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryCommodityConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryCommodityConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryInstanceRequest extends $tea.Model {
-  bizType?: string;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryInstanceResponseBody extends $tea.Model {
-  data?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPartnerIntentionListRequest extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  pageNum?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPartnerIntentionListResponseBody extends $tea.Model {
-  currentPageNum?: number;
-  data?: QueryPartnerIntentionListResponseBodyData[];
-  pageSize?: number;
-  requestId?: string;
-  totalItemNum?: number;
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: { 'type': 'array', 'itemType': QueryPartnerIntentionListResponseBodyData },
-      pageSize: 'number',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPartnerIntentionListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryPartnerIntentionListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryPartnerIntentionListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPartnerProduceListRequest extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  pageNum?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPartnerProduceListResponseBody extends $tea.Model {
-  currentPageNum?: number;
-  data?: QueryPartnerProduceListResponseBodyData[];
-  pageSize?: number;
-  requestId?: string;
-  totalItemNum?: number;
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: { 'type': 'array', 'itemType': QueryPartnerProduceListResponseBodyData },
-      pageSize: 'number',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPartnerProduceListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryPartnerProduceListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryPartnerProduceListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryUserNeedAuthResponseBody extends $tea.Model {
-  needAuth?: boolean;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      needAuth: 'NeedAuth',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      needAuth: 'boolean',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryUserNeedAuthResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryUserNeedAuthResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryUserNeedAuthResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecordPostBackRequest extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  contactor?: string;
-  content?: string;
-  entityKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'bizId',
-      bizType: 'bizType',
-      contactor: 'contactor',
-      content: 'content',
-      entityKey: 'entityKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      contactor: 'string',
-      content: 'string',
-      entityKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecordPostBackResponseBody extends $tea.Model {
-  allowRetry?: boolean;
-  appName?: string;
-  dynamicCode?: string;
-  dynamicMessage?: string;
-  errorArgs?: any[];
-  errorCode?: string;
-  errorMsg?: string;
-  httpStatusCode?: number;
-  module?: boolean;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      allowRetry: 'AllowRetry',
-      appName: 'AppName',
-      dynamicCode: 'DynamicCode',
-      dynamicMessage: 'DynamicMessage',
-      errorArgs: 'ErrorArgs',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      httpStatusCode: 'HttpStatusCode',
-      module: 'Module',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowRetry: 'boolean',
-      appName: 'string',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      errorArgs: { 'type': 'array', 'itemType': 'any' },
-      errorCode: 'string',
-      errorMsg: 'string',
-      httpStatusCode: 'number',
-      module: 'boolean',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecordPostBackResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RecordPostBackResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RecordPostBackResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RejectSolutionRequest extends $tea.Model {
-  note?: string;
-  solutionBizId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      note: 'Note',
-      solutionBizId: 'SolutionBizId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      note: 'string',
-      solutionBizId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RejectSolutionResponseBody extends $tea.Model {
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RejectSolutionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RejectSolutionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RejectSolutionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RejectUserSolutionRequest extends $tea.Model {
-  bizType?: string;
-  note?: string;
-  solutionBizId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      note: 'Note',
-      solutionBizId: 'SolutionBizId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      note: 'string',
-      solutionBizId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RejectUserSolutionResponseBody extends $tea.Model {
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RejectUserSolutionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RejectUserSolutionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RejectUserSolutionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseProduceAuthorizationRequest extends $tea.Model {
-  authorizedUserId?: string;
-  bizId?: string;
-  bizType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authorizedUserId: 'AuthorizedUserId',
-      bizId: 'BizId',
-      bizType: 'BizType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizedUserId: 'string',
-      bizId: 'string',
-      bizType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseProduceAuthorizationResponseBody extends $tea.Model {
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseProduceAuthorizationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReleaseProduceAuthorizationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReleaseProduceAuthorizationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartBackToBackCallRequest extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  callCenterNumber?: string;
-  caller?: string;
-  mobileKey?: string;
-  skillType?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-      callCenterNumber: 'CallCenterNumber',
-      caller: 'Caller',
-      mobileKey: 'MobileKey',
-      skillType: 'SkillType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      callCenterNumber: 'string',
-      caller: 'string',
-      mobileKey: 'string',
-      skillType: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartBackToBackCallResponseBody extends $tea.Model {
-  data?: boolean;
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartBackToBackCallResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartBackToBackCallResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartBackToBackCallResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitIntentionNoteRequest extends $tea.Model {
-  intentionBizId?: string;
-  note?: string;
-  static names(): { [key: string]: string } {
-    return {
-      intentionBizId: 'IntentionBizId',
-      note: 'Note',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      intentionBizId: 'string',
-      note: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitIntentionNoteResponseBody extends $tea.Model {
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitIntentionNoteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitIntentionNoteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitIntentionNoteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitSolutionRequest extends $tea.Model {
-  bizType?: string;
-  intentionBizId?: string;
-  operateType?: string;
-  solution?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      intentionBizId: 'IntentionBizId',
-      operateType: 'OperateType',
-      solution: 'Solution',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      intentionBizId: 'string',
-      operateType: 'string',
-      solution: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitSolutionResponseBody extends $tea.Model {
-  confirmUrl?: string;
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  solutionBizId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      confirmUrl: 'ConfirmUrl',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-      solutionBizId: 'SolutionBizId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confirmUrl: 'string',
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-      solutionBizId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitSolutionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitSolutionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitSolutionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferIntentionOwnerRequest extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  personId?: number;
-  remark?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-      personId: 'PersonId',
-      remark: 'Remark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      personId: 'number',
-      remark: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferIntentionOwnerResponseBody extends $tea.Model {
-  data?: boolean;
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferIntentionOwnerResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TransferIntentionOwnerResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TransferIntentionOwnerResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferProduceOwnerRequest extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  personId?: number;
-  remark?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-      personId: 'PersonId',
-      remark: 'Remark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      personId: 'number',
-      remark: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferProduceOwnerResponseBody extends $tea.Model {
-  data?: boolean;
-  errorCode?: string;
-  errorMsg?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      errorCode: 'string',
-      errorMsg: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferProduceOwnerResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TransferProduceOwnerResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TransferProduceOwnerResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindProduceAuthorizationResponseBodyDataAuthorizedUserList extends $tea.Model {
-  accountValidType?: number;
-  userId?: string;
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountValidType: 'AccountValidType',
-      userId: 'UserId',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountValidType: 'number',
-      userId: 'string',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindProduceAuthorizationResponseBodyData extends $tea.Model {
-  authorizedUserList?: BindProduceAuthorizationResponseBodyDataAuthorizedUserList[];
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      authorizedUserList: 'AuthorizedUserList',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizedUserList: { 'type': 'array', 'itemType': BindProduceAuthorizationResponseBodyDataAuthorizedUserList },
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListIntentionNoteResponseBodyData extends $tea.Model {
-  createTime?: string;
-  intentionBizId?: string;
-  note?: string;
-  source?: number;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      intentionBizId: 'IntentionBizId',
-      note: 'Note',
-      source: 'Source',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      intentionBizId: 'string',
-      note: 'string',
-      source: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProduceAuthorizationResponseBodyData extends $tea.Model {
-  authorizedUserId?: string;
-  authorizedUserName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authorizedUserId: 'AuthorizedUserId',
-      authorizedUserName: 'AuthorizedUserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizedUserId: 'string',
-      authorizedUserName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserDetailSolutionsResponseBodyData extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  createTime?: number;
-  deliveryOrderBizId?: string;
-  extInfo?: string;
-  intentionAssignBizId?: string;
-  intentionBizId?: string;
-  partnerCode?: string;
-  reason?: string;
-  status?: number;
-  updateTime?: number;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-      createTime: 'CreateTime',
-      deliveryOrderBizId: 'DeliveryOrderBizId',
-      extInfo: 'ExtInfo',
-      intentionAssignBizId: 'IntentionAssignBizId',
-      intentionBizId: 'IntentionBizId',
-      partnerCode: 'PartnerCode',
-      reason: 'Reason',
-      status: 'Status',
-      updateTime: 'UpdateTime',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      createTime: 'number',
-      deliveryOrderBizId: 'string',
-      extInfo: 'string',
-      intentionAssignBizId: 'string',
-      intentionBizId: 'string',
-      partnerCode: 'string',
-      reason: 'string',
-      status: 'number',
-      updateTime: 'number',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserIntentionNotesResponseBodyData extends $tea.Model {
-  createTime?: string;
-  note?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      note: 'Note',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      note: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserIntentionsResponseBodyData extends $tea.Model {
-  area?: string;
-  bizId?: string;
-  bizType?: string;
-  contactName?: string;
-  createTime?: number;
-  description?: string;
-  ext?: string;
-  mobile?: string;
-  reason?: string;
-  status?: number;
-  updateTime?: number;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      area: 'Area',
-      bizId: 'BizId',
-      bizType: 'BizType',
-      contactName: 'ContactName',
-      createTime: 'CreateTime',
-      description: 'Description',
-      ext: 'Ext',
-      mobile: 'Mobile',
-      reason: 'Reason',
-      status: 'Status',
-      updateTime: 'UpdateTime',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      area: 'string',
-      bizId: 'string',
-      bizType: 'string',
-      contactName: 'string',
-      createTime: 'number',
-      description: 'string',
-      ext: 'string',
-      mobile: 'string',
-      reason: 'string',
-      status: 'number',
-      updateTime: 'number',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserProduceOperateLogsResponseBodyData extends $tea.Model {
-  bizId?: string;
-  bizStatus?: number;
-  bizType?: string;
-  note?: string;
-  operateName?: string;
-  operateTime?: number;
-  operateUserType?: string;
-  toBizStatus?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizStatus: 'BizStatus',
-      bizType: 'BizType',
-      note: 'Note',
-      operateName: 'OperateName',
-      operateTime: 'OperateTime',
-      operateUserType: 'OperateUserType',
-      toBizStatus: 'ToBizStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizStatus: 'number',
-      bizType: 'string',
-      note: 'string',
-      operateName: 'string',
-      operateTime: 'number',
-      operateUserType: 'string',
-      toBizStatus: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserSolutionsResponseBodyData extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  createTime?: number;
-  deliveryOrderBizId?: string;
-  intentionAssignBizId?: string;
-  intentionBizId?: string;
-  partnerCode?: string;
-  reason?: string;
-  status?: number;
-  updateTime?: number;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-      createTime: 'CreateTime',
-      deliveryOrderBizId: 'DeliveryOrderBizId',
-      intentionAssignBizId: 'IntentionAssignBizId',
-      intentionBizId: 'IntentionBizId',
-      partnerCode: 'PartnerCode',
-      reason: 'Reason',
-      status: 'Status',
-      updateTime: 'UpdateTime',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      createTime: 'number',
-      deliveryOrderBizId: 'string',
-      intentionAssignBizId: 'string',
-      intentionBizId: 'string',
-      partnerCode: 'string',
-      reason: 'string',
-      status: 'number',
-      updateTime: 'number',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCommodityConfigResponseBodyDataCommodityModules extends $tea.Model {
-  lxModuleCode?: string;
-  moduleCode?: string;
-  moduleDescription?: string;
-  moduleName?: string;
-  moduleTip?: string;
-  moduleType?: string;
-  moduleUrl?: string;
-  moduleValue?: string;
-  sortNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      lxModuleCode: 'LxModuleCode',
-      moduleCode: 'ModuleCode',
-      moduleDescription: 'ModuleDescription',
-      moduleName: 'ModuleName',
-      moduleTip: 'ModuleTip',
-      moduleType: 'ModuleType',
-      moduleUrl: 'ModuleUrl',
-      moduleValue: 'ModuleValue',
-      sortNumber: 'SortNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lxModuleCode: 'string',
-      moduleCode: 'string',
-      moduleDescription: 'string',
-      moduleName: 'string',
-      moduleTip: 'string',
-      moduleType: 'string',
-      moduleUrl: 'string',
-      moduleValue: 'string',
-      sortNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCommodityConfigResponseBodyData extends $tea.Model {
-  commodityCode?: string;
-  commodityModules?: QueryCommodityConfigResponseBodyDataCommodityModules[];
-  description?: string;
-  iconUrl?: string;
-  productLine?: string;
-  protocolUrl?: string;
-  startingPrice?: string;
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      commodityCode: 'CommodityCode',
-      commodityModules: 'CommodityModules',
-      description: 'Description',
-      iconUrl: 'IconUrl',
-      productLine: 'ProductLine',
-      protocolUrl: 'ProtocolUrl',
-      startingPrice: 'StartingPrice',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commodityCode: 'string',
-      commodityModules: { 'type': 'array', 'itemType': QueryCommodityConfigResponseBodyDataCommodityModules },
-      description: 'string',
-      iconUrl: 'string',
-      productLine: 'string',
-      protocolUrl: 'string',
-      startingPrice: 'string',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPartnerIntentionListResponseBodyData extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  mobile?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-      mobile: 'Mobile',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      mobile: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPartnerProduceListResponseBodyData extends $tea.Model {
-  bizId?: string;
-  bizType?: string;
-  mobile?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-      mobile: 'mobile',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-      mobile: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
@@ -3337,36 +76,41 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async bindProduceAuthorizationWithOptions(request: BindProduceAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<BindProduceAuthorizationResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - BindProduceAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindProduceAuthorizationResponse
+   */
+  async bindProduceAuthorizationWithOptions(request: $_model.BindProduceAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindProduceAuthorizationResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.authorizedUserIds)) {
+    if (!$dara.isNull(request.authorizedUserIds)) {
       body["AuthorizedUserIds"] = request.authorizedUserIds;
     }
 
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       body["BizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       body["BizType"] = request.bizType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindProduceAuthorization",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3377,33 +121,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindProduceAuthorizationResponse>(await this.callApi(params, req, runtime), new BindProduceAuthorizationResponse({}));
+    return $dara.cast<$_model.BindProduceAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.BindProduceAuthorizationResponse({}));
   }
 
-  async bindProduceAuthorization(request: BindProduceAuthorizationRequest): Promise<BindProduceAuthorizationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - BindProduceAuthorizationRequest
+   * @returns BindProduceAuthorizationResponse
+   */
+  async bindProduceAuthorization(request: $_model.BindProduceAuthorizationRequest): Promise<$_model.BindProduceAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindProduceAuthorizationWithOptions(request, runtime);
   }
 
-  async closeIntentionForPartnerWithOptions(request: CloseIntentionForPartnerRequest, runtime: $Util.RuntimeOptions): Promise<CloseIntentionForPartnerResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - CloseIntentionForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloseIntentionForPartnerResponse
+   */
+  async closeIntentionForPartnerWithOptions(request: $_model.CloseIntentionForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloseIntentionForPartnerResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.intentionBizId)) {
+    if (!$dara.isNull(request.intentionBizId)) {
       query["IntentionBizId"] = request.intentionBizId;
     }
 
-    if (!Util.isUnset(request.note)) {
+    if (!$dara.isNull(request.note)) {
       query["Note"] = request.note;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CloseIntentionForPartner",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3414,33 +167,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CloseIntentionForPartnerResponse>(await this.callApi(params, req, runtime), new CloseIntentionForPartnerResponse({}));
+    return $dara.cast<$_model.CloseIntentionForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.CloseIntentionForPartnerResponse({}));
   }
 
-  async closeIntentionForPartner(request: CloseIntentionForPartnerRequest): Promise<CloseIntentionForPartnerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - CloseIntentionForPartnerRequest
+   * @returns CloseIntentionForPartnerResponse
+   */
+  async closeIntentionForPartner(request: $_model.CloseIntentionForPartnerRequest): Promise<$_model.CloseIntentionForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.closeIntentionForPartnerWithOptions(request, runtime);
   }
 
-  async closeUserIntentionWithOptions(request: CloseUserIntentionRequest, runtime: $Util.RuntimeOptions): Promise<CloseUserIntentionResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - CloseUserIntentionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloseUserIntentionResponse
+   */
+  async closeUserIntentionWithOptions(request: $_model.CloseUserIntentionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloseUserIntentionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.intentionBizId)) {
+    if (!$dara.isNull(request.intentionBizId)) {
       query["IntentionBizId"] = request.intentionBizId;
     }
 
-    if (!Util.isUnset(request.note)) {
+    if (!$dara.isNull(request.note)) {
       query["Note"] = request.note;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CloseUserIntention",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3451,41 +213,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CloseUserIntentionResponse>(await this.callApi(params, req, runtime), new CloseUserIntentionResponse({}));
+    return $dara.cast<$_model.CloseUserIntentionResponse>(await this.callApi(params, req, runtime), new $_model.CloseUserIntentionResponse({}));
   }
 
-  async closeUserIntention(request: CloseUserIntentionRequest): Promise<CloseUserIntentionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - CloseUserIntentionRequest
+   * @returns CloseUserIntentionResponse
+   */
+  async closeUserIntention(request: $_model.CloseUserIntentionRequest): Promise<$_model.CloseUserIntentionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.closeUserIntentionWithOptions(request, runtime);
   }
 
-  async createBusinessOpportunityWithOptions(request: CreateBusinessOpportunityRequest, runtime: $Util.RuntimeOptions): Promise<CreateBusinessOpportunityResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - CreateBusinessOpportunityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBusinessOpportunityResponse
+   */
+  async createBusinessOpportunityWithOptions(request: $_model.CreateBusinessOpportunityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBusinessOpportunityResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.contactName)) {
+    if (!$dara.isNull(request.contactName)) {
       query["ContactName"] = request.contactName;
     }
 
-    if (!Util.isUnset(request.mobile)) {
+    if (!$dara.isNull(request.mobile)) {
       query["Mobile"] = request.mobile;
     }
 
-    if (!Util.isUnset(request.source)) {
+    if (!$dara.isNull(request.source)) {
       query["Source"] = request.source;
     }
 
-    if (!Util.isUnset(request.VCode)) {
+    if (!$dara.isNull(request.VCode)) {
       query["VCode"] = request.VCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateBusinessOpportunity",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3496,33 +267,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateBusinessOpportunityResponse>(await this.callApi(params, req, runtime), new CreateBusinessOpportunityResponse({}));
+    return $dara.cast<$_model.CreateBusinessOpportunityResponse>(await this.callApi(params, req, runtime), new $_model.CreateBusinessOpportunityResponse({}));
   }
 
-  async createBusinessOpportunity(request: CreateBusinessOpportunityRequest): Promise<CreateBusinessOpportunityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - CreateBusinessOpportunityRequest
+   * @returns CreateBusinessOpportunityResponse
+   */
+  async createBusinessOpportunity(request: $_model.CreateBusinessOpportunityRequest): Promise<$_model.CreateBusinessOpportunityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createBusinessOpportunityWithOptions(request, runtime);
   }
 
-  async createProduceForPartnerWithOptions(request: CreateProduceForPartnerRequest, runtime: $Util.RuntimeOptions): Promise<CreateProduceForPartnerResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - CreateProduceForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProduceForPartnerResponse
+   */
+  async createProduceForPartnerWithOptions(request: $_model.CreateProduceForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProduceForPartnerResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.extInfo)) {
+    if (!$dara.isNull(request.extInfo)) {
       query["ExtInfo"] = request.extInfo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateProduceForPartner",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3533,29 +313,38 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateProduceForPartnerResponse>(await this.callApi(params, req, runtime), new CreateProduceForPartnerResponse({}));
+    return $dara.cast<$_model.CreateProduceForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.CreateProduceForPartnerResponse({}));
   }
 
-  async createProduceForPartner(request: CreateProduceForPartnerRequest): Promise<CreateProduceForPartnerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - CreateProduceForPartnerRequest
+   * @returns CreateProduceForPartnerResponse
+   */
+  async createProduceForPartner(request: $_model.CreateProduceForPartnerRequest): Promise<$_model.CreateProduceForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createProduceForPartnerWithOptions(request, runtime);
   }
 
-  async describePartnerConfigWithOptions(request: DescribePartnerConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribePartnerConfigResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - DescribePartnerConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePartnerConfigResponse
+   */
+  async describePartnerConfigWithOptions(request: $_model.DescribePartnerConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePartnerConfigResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.partnerCode)) {
+    if (!$dara.isNull(request.partnerCode)) {
       query["PartnerCode"] = request.partnerCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribePartnerConfig",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3566,33 +355,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePartnerConfigResponse>(await this.callApi(params, req, runtime), new DescribePartnerConfigResponse({}));
+    return $dara.cast<$_model.DescribePartnerConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribePartnerConfigResponse({}));
   }
 
-  async describePartnerConfig(request: DescribePartnerConfigRequest): Promise<DescribePartnerConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DescribePartnerConfigRequest
+   * @returns DescribePartnerConfigResponse
+   */
+  async describePartnerConfig(request: $_model.DescribePartnerConfigRequest): Promise<$_model.DescribePartnerConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describePartnerConfigWithOptions(request, runtime);
   }
 
-  async generateUploadFilePolicyWithOptions(request: GenerateUploadFilePolicyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateUploadFilePolicyResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - GenerateUploadFilePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateUploadFilePolicyResponse
+   */
+  async generateUploadFilePolicyWithOptions(request: $_model.GenerateUploadFilePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateUploadFilePolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.fileName)) {
+    if (!$dara.isNull(request.fileName)) {
       query["FileName"] = request.fileName;
     }
 
-    if (!Util.isUnset(request.fileType)) {
+    if (!$dara.isNull(request.fileType)) {
       query["FileType"] = request.fileType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GenerateUploadFilePolicy",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3603,21 +401,30 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateUploadFilePolicyResponse>(await this.callApi(params, req, runtime), new GenerateUploadFilePolicyResponse({}));
+    return $dara.cast<$_model.GenerateUploadFilePolicyResponse>(await this.callApi(params, req, runtime), new $_model.GenerateUploadFilePolicyResponse({}));
   }
 
-  async generateUploadFilePolicy(request: GenerateUploadFilePolicyRequest): Promise<GenerateUploadFilePolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - GenerateUploadFilePolicyRequest
+   * @returns GenerateUploadFilePolicyResponse
+   */
+  async generateUploadFilePolicy(request: $_model.GenerateUploadFilePolicyRequest): Promise<$_model.GenerateUploadFilePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.generateUploadFilePolicyWithOptions(request, runtime);
   }
 
-  async getAlipayUrlWithOptions(request: GetAlipayUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetAlipayUrlResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  /**
+   * @param request - GetAlipayUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAlipayUrlResponse
+   */
+  async getAlipayUrlWithOptions(request: $_model.GetAlipayUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAlipayUrlResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAlipayUrl",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3628,41 +435,54 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAlipayUrlResponse>(await this.callApi(params, req, runtime), new GetAlipayUrlResponse({}));
+    return $dara.cast<$_model.GetAlipayUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetAlipayUrlResponse({}));
   }
 
-  async getAlipayUrl(request: GetAlipayUrlRequest): Promise<GetAlipayUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - GetAlipayUrlRequest
+   * @returns GetAlipayUrlResponse
+   */
+  async getAlipayUrl(request: $_model.GetAlipayUrlRequest): Promise<$_model.GetAlipayUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAlipayUrlWithOptions(request, runtime);
   }
 
-  async listIntentionNoteWithOptions(request: ListIntentionNoteRequest, runtime: $Util.RuntimeOptions): Promise<ListIntentionNoteResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ListIntentionNoteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntentionNoteResponse
+   */
+  async listIntentionNoteWithOptions(request: $_model.ListIntentionNoteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListIntentionNoteResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.intentionBizId)) {
+    if (!$dara.isNull(request.intentionBizId)) {
       query["IntentionBizId"] = request.intentionBizId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListIntentionNote",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3673,37 +493,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListIntentionNoteResponse>(await this.callApi(params, req, runtime), new ListIntentionNoteResponse({}));
+    return $dara.cast<$_model.ListIntentionNoteResponse>(await this.callApi(params, req, runtime), new $_model.ListIntentionNoteResponse({}));
   }
 
-  async listIntentionNote(request: ListIntentionNoteRequest): Promise<ListIntentionNoteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ListIntentionNoteRequest
+   * @returns ListIntentionNoteResponse
+   */
+  async listIntentionNote(request: $_model.ListIntentionNoteRequest): Promise<$_model.ListIntentionNoteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listIntentionNoteWithOptions(request, runtime);
   }
 
-  async listProduceAuthorizationWithOptions(request: ListProduceAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<ListProduceAuthorizationResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ListProduceAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProduceAuthorizationResponse
+   */
+  async listProduceAuthorizationWithOptions(request: $_model.ListProduceAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProduceAuthorizationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListProduceAuthorization",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3714,37 +543,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListProduceAuthorizationResponse>(await this.callApi(params, req, runtime), new ListProduceAuthorizationResponse({}));
+    return $dara.cast<$_model.ListProduceAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.ListProduceAuthorizationResponse({}));
   }
 
-  async listProduceAuthorization(request: ListProduceAuthorizationRequest): Promise<ListProduceAuthorizationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ListProduceAuthorizationRequest
+   * @returns ListProduceAuthorizationResponse
+   */
+  async listProduceAuthorization(request: $_model.ListProduceAuthorizationRequest): Promise<$_model.ListProduceAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listProduceAuthorizationWithOptions(request, runtime);
   }
 
-  async listUserDetailSolutionsWithOptions(request: ListUserDetailSolutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserDetailSolutionsResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ListUserDetailSolutionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserDetailSolutionsResponse
+   */
+  async listUserDetailSolutionsWithOptions(request: $_model.ListUserDetailSolutionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserDetailSolutionsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.intentionBizId)) {
+    if (!$dara.isNull(request.intentionBizId)) {
       query["IntentionBizId"] = request.intentionBizId;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserDetailSolutions",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3755,37 +593,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserDetailSolutionsResponse>(await this.callApi(params, req, runtime), new ListUserDetailSolutionsResponse({}));
+    return $dara.cast<$_model.ListUserDetailSolutionsResponse>(await this.callApi(params, req, runtime), new $_model.ListUserDetailSolutionsResponse({}));
   }
 
-  async listUserDetailSolutions(request: ListUserDetailSolutionsRequest): Promise<ListUserDetailSolutionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ListUserDetailSolutionsRequest
+   * @returns ListUserDetailSolutionsResponse
+   */
+  async listUserDetailSolutions(request: $_model.ListUserDetailSolutionsRequest): Promise<$_model.ListUserDetailSolutionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserDetailSolutionsWithOptions(request, runtime);
   }
 
-  async listUserIntentionNotesWithOptions(request: ListUserIntentionNotesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserIntentionNotesResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ListUserIntentionNotesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserIntentionNotesResponse
+   */
+  async listUserIntentionNotesWithOptions(request: $_model.ListUserIntentionNotesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserIntentionNotesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.intentionBizId)) {
+    if (!$dara.isNull(request.intentionBizId)) {
       query["IntentionBizId"] = request.intentionBizId;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserIntentionNotes",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3796,61 +643,72 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserIntentionNotesResponse>(await this.callApi(params, req, runtime), new ListUserIntentionNotesResponse({}));
+    return $dara.cast<$_model.ListUserIntentionNotesResponse>(await this.callApi(params, req, runtime), new $_model.ListUserIntentionNotesResponse({}));
   }
 
-  async listUserIntentionNotes(request: ListUserIntentionNotesRequest): Promise<ListUserIntentionNotesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ListUserIntentionNotesRequest
+   * @returns ListUserIntentionNotesResponse
+   */
+  async listUserIntentionNotes(request: $_model.ListUserIntentionNotesRequest): Promise<$_model.ListUserIntentionNotesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserIntentionNotesWithOptions(request, runtime);
   }
 
-  async listUserIntentionsWithOptions(request: ListUserIntentionsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserIntentionsResponse> {
-    Util.validateModel(request);
+  /**
+   * 用户控制天需求列表查询
+   * 
+   * @param request - ListUserIntentionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserIntentionsResponse
+   */
+  async listUserIntentionsWithOptions(request: $_model.ListUserIntentionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserIntentionsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.area)) {
+    if (!$dara.isNull(request.area)) {
       query["Area"] = request.area;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.bizTypes)) {
+    if (!$dara.isNull(request.bizTypes)) {
       query["BizTypes"] = request.bizTypes;
     }
 
-    if (!Util.isUnset(request.intentionBizId)) {
+    if (!$dara.isNull(request.intentionBizId)) {
       query["IntentionBizId"] = request.intentionBizId;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.sortFiled)) {
+    if (!$dara.isNull(request.sortFiled)) {
       query["SortFiled"] = request.sortFiled;
     }
 
-    if (!Util.isUnset(request.sortOrder)) {
+    if (!$dara.isNull(request.sortOrder)) {
       query["SortOrder"] = request.sortOrder;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.withExtInfo)) {
+    if (!$dara.isNull(request.withExtInfo)) {
       query["WithExtInfo"] = request.withExtInfo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserIntentions",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3861,37 +719,48 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserIntentionsResponse>(await this.callApi(params, req, runtime), new ListUserIntentionsResponse({}));
+    return $dara.cast<$_model.ListUserIntentionsResponse>(await this.callApi(params, req, runtime), new $_model.ListUserIntentionsResponse({}));
   }
 
-  async listUserIntentions(request: ListUserIntentionsRequest): Promise<ListUserIntentionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 用户控制天需求列表查询
+   * 
+   * @param request - ListUserIntentionsRequest
+   * @returns ListUserIntentionsResponse
+   */
+  async listUserIntentions(request: $_model.ListUserIntentionsRequest): Promise<$_model.ListUserIntentionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserIntentionsWithOptions(request, runtime);
   }
 
-  async listUserProduceOperateLogsWithOptions(request: ListUserProduceOperateLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserProduceOperateLogsResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ListUserProduceOperateLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserProduceOperateLogsResponse
+   */
+  async listUserProduceOperateLogsWithOptions(request: $_model.ListUserProduceOperateLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserProduceOperateLogsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserProduceOperateLogs",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3902,43 +771,56 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserProduceOperateLogsResponse>(await this.callApi(params, req, runtime), new ListUserProduceOperateLogsResponse({}));
+    return $dara.cast<$_model.ListUserProduceOperateLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListUserProduceOperateLogsResponse({}));
   }
 
-  async listUserProduceOperateLogs(request: ListUserProduceOperateLogsRequest): Promise<ListUserProduceOperateLogsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ListUserProduceOperateLogsRequest
+   * @returns ListUserProduceOperateLogsResponse
+   */
+  async listUserProduceOperateLogs(request: $_model.ListUserProduceOperateLogsRequest): Promise<$_model.ListUserProduceOperateLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserProduceOperateLogsWithOptions(request, runtime);
   }
 
-  async listUserSolutionsWithOptions(tmpReq: ListUserSolutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserSolutionsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListUserSolutionsShrinkRequest({ });
+  /**
+   * @param tmpReq - ListUserSolutionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserSolutionsResponse
+   */
+  async listUserSolutionsWithOptions(tmpReq: $_model.ListUserSolutionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserSolutionsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListUserSolutionsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.existStatus)) {
+    if (!$dara.isNull(tmpReq.existStatus)) {
       request.existStatusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.existStatus, "ExistStatus", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.existStatusShrink)) {
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.existStatusShrink)) {
       query["ExistStatus"] = request.existStatusShrink;
     }
 
-    if (!Util.isUnset(request.intentionBizId)) {
+    if (!$dara.isNull(request.intentionBizId)) {
       query["IntentionBizId"] = request.intentionBizId;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserSolutions",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3949,37 +831,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserSolutionsResponse>(await this.callApi(params, req, runtime), new ListUserSolutionsResponse({}));
+    return $dara.cast<$_model.ListUserSolutionsResponse>(await this.callApi(params, req, runtime), new $_model.ListUserSolutionsResponse({}));
   }
 
-  async listUserSolutions(request: ListUserSolutionsRequest): Promise<ListUserSolutionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ListUserSolutionsRequest
+   * @returns ListUserSolutionsResponse
+   */
+  async listUserSolutions(request: $_model.ListUserSolutionsRequest): Promise<$_model.ListUserSolutionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserSolutionsWithOptions(request, runtime);
   }
 
-  async operateProduceForPartnerWithOptions(request: OperateProduceForPartnerRequest, runtime: $Util.RuntimeOptions): Promise<OperateProduceForPartnerResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - OperateProduceForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateProduceForPartnerResponse
+   */
+  async operateProduceForPartnerWithOptions(request: $_model.OperateProduceForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateProduceForPartnerResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.extInfo)) {
+    if (!$dara.isNull(request.extInfo)) {
       query["ExtInfo"] = request.extInfo;
     }
 
-    if (!Util.isUnset(request.operateType)) {
+    if (!$dara.isNull(request.operateType)) {
       query["OperateType"] = request.operateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OperateProduceForPartner",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -3990,41 +881,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OperateProduceForPartnerResponse>(await this.callApi(params, req, runtime), new OperateProduceForPartnerResponse({}));
+    return $dara.cast<$_model.OperateProduceForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.OperateProduceForPartnerResponse({}));
   }
 
-  async operateProduceForPartner(request: OperateProduceForPartnerRequest): Promise<OperateProduceForPartnerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - OperateProduceForPartnerRequest
+   * @returns OperateProduceForPartnerResponse
+   */
+  async operateProduceForPartner(request: $_model.OperateProduceForPartnerRequest): Promise<$_model.OperateProduceForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.operateProduceForPartnerWithOptions(request, runtime);
   }
 
-  async putMeasureDataWithOptions(request: PutMeasureDataRequest, runtime: $Util.RuntimeOptions): Promise<PutMeasureDataResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - PutMeasureDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutMeasureDataResponse
+   */
+  async putMeasureDataWithOptions(request: $_model.PutMeasureDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PutMeasureDataResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       body["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.data)) {
+    if (!$dara.isNull(request.data)) {
       body["Data"] = request.data;
     }
 
-    if (!Util.isUnset(request.dataType)) {
+    if (!$dara.isNull(request.dataType)) {
       body["DataType"] = request.dataType;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       body["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       body["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PutMeasureData",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4035,41 +935,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PutMeasureDataResponse>(await this.callApi(params, req, runtime), new PutMeasureDataResponse({}));
+    return $dara.cast<$_model.PutMeasureDataResponse>(await this.callApi(params, req, runtime), new $_model.PutMeasureDataResponse({}));
   }
 
-  async putMeasureData(request: PutMeasureDataRequest): Promise<PutMeasureDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - PutMeasureDataRequest
+   * @returns PutMeasureDataResponse
+   */
+  async putMeasureData(request: $_model.PutMeasureDataRequest): Promise<$_model.PutMeasureDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.putMeasureDataWithOptions(request, runtime);
   }
 
-  async putMeasureReadyFlagWithOptions(request: PutMeasureReadyFlagRequest, runtime: $Util.RuntimeOptions): Promise<PutMeasureReadyFlagResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - PutMeasureReadyFlagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutMeasureReadyFlagResponse
+   */
+  async putMeasureReadyFlagWithOptions(request: $_model.PutMeasureReadyFlagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PutMeasureReadyFlagResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.dataType)) {
+    if (!$dara.isNull(request.dataType)) {
       query["DataType"] = request.dataType;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.readyFlag)) {
+    if (!$dara.isNull(request.readyFlag)) {
       query["ReadyFlag"] = request.readyFlag;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PutMeasureReadyFlag",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4080,25 +989,36 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PutMeasureReadyFlagResponse>(await this.callApi(params, req, runtime), new PutMeasureReadyFlagResponse({}));
+    return $dara.cast<$_model.PutMeasureReadyFlagResponse>(await this.callApi(params, req, runtime), new $_model.PutMeasureReadyFlagResponse({}));
   }
 
-  async putMeasureReadyFlag(request: PutMeasureReadyFlagRequest): Promise<PutMeasureReadyFlagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - PutMeasureReadyFlagRequest
+   * @returns PutMeasureReadyFlagResponse
+   */
+  async putMeasureReadyFlag(request: $_model.PutMeasureReadyFlagRequest): Promise<$_model.PutMeasureReadyFlagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.putMeasureReadyFlagWithOptions(request, runtime);
   }
 
-  async queryAvailableNumbersWithOptions(request: QueryAvailableNumbersRequest, runtime: $Util.RuntimeOptions): Promise<QueryAvailableNumbersResponse> {
-    Util.validateModel(request);
+  /**
+   * 获取玄坛合作伙伴双呼时可用外呼号码
+   * 
+   * @param request - QueryAvailableNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAvailableNumbersResponse
+   */
+  async queryAvailableNumbersWithOptions(request: $_model.QueryAvailableNumbersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAvailableNumbersResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryAvailableNumbers",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4109,21 +1029,32 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryAvailableNumbersResponse>(await this.callApi(params, req, runtime), new QueryAvailableNumbersResponse({}));
+    return $dara.cast<$_model.QueryAvailableNumbersResponse>(await this.callApi(params, req, runtime), new $_model.QueryAvailableNumbersResponse({}));
   }
 
-  async queryAvailableNumbers(request: QueryAvailableNumbersRequest): Promise<QueryAvailableNumbersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 获取玄坛合作伙伴双呼时可用外呼号码
+   * 
+   * @param request - QueryAvailableNumbersRequest
+   * @returns QueryAvailableNumbersResponse
+   */
+  async queryAvailableNumbers(request: $_model.QueryAvailableNumbersRequest): Promise<$_model.QueryAvailableNumbersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryAvailableNumbersWithOptions(request, runtime);
   }
 
-  async queryBagRemainingWithOptions(request: QueryBagRemainingRequest, runtime: $Util.RuntimeOptions): Promise<QueryBagRemainingResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  /**
+   * @param request - QueryBagRemainingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryBagRemainingResponse
+   */
+  async queryBagRemainingWithOptions(request: $_model.QueryBagRemainingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryBagRemainingResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryBagRemaining",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4134,66 +1065,38 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryBagRemainingResponse>(await this.callApi(params, req, runtime), new QueryBagRemainingResponse({}));
+    return $dara.cast<$_model.QueryBagRemainingResponse>(await this.callApi(params, req, runtime), new $_model.QueryBagRemainingResponse({}));
   }
 
-  async queryBagRemaining(request: QueryBagRemainingRequest): Promise<QueryBagRemainingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - QueryBagRemainingRequest
+   * @returns QueryBagRemainingResponse
+   */
+  async queryBagRemaining(request: $_model.QueryBagRemainingRequest): Promise<$_model.QueryBagRemainingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryBagRemainingWithOptions(request, runtime);
   }
 
-  async queryCommodityConfigWithOptions(request: QueryCommodityConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryCommodityConfigResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - QueryInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryInstanceResponse
+   */
+  async queryInstanceWithOptions(request: $_model.QueryInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryInstanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.commodityCode)) {
-      query["CommodityCode"] = request.commodityCode;
-    }
-
-    if (!Util.isUnset(request.queryModule)) {
-      query["QueryModule"] = request.queryModule;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "QueryCommodityConfig",
-      version: "2020-03-06",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<QueryCommodityConfigResponse>(await this.callApi(params, req, runtime), new QueryCommodityConfigResponse({}));
-  }
-
-  async queryCommodityConfig(request: QueryCommodityConfigRequest): Promise<QueryCommodityConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryCommodityConfigWithOptions(request, runtime);
-  }
-
-  async queryInstanceWithOptions(request: QueryInstanceRequest, runtime: $Util.RuntimeOptions): Promise<QueryInstanceResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.bizType)) {
-      query["BizType"] = request.bizType;
-    }
-
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryInstance",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4204,37 +1107,48 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryInstanceResponse>(await this.callApi(params, req, runtime), new QueryInstanceResponse({}));
+    return $dara.cast<$_model.QueryInstanceResponse>(await this.callApi(params, req, runtime), new $_model.QueryInstanceResponse({}));
   }
 
-  async queryInstance(request: QueryInstanceRequest): Promise<QueryInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - QueryInstanceRequest
+   * @returns QueryInstanceResponse
+   */
+  async queryInstance(request: $_model.QueryInstanceRequest): Promise<$_model.QueryInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryInstanceWithOptions(request, runtime);
   }
 
-  async queryPartnerIntentionListWithOptions(request: QueryPartnerIntentionListRequest, runtime: $Util.RuntimeOptions): Promise<QueryPartnerIntentionListResponse> {
-    Util.validateModel(request);
+  /**
+   * QueryPartnerIntentionList
+   * 
+   * @param request - QueryPartnerIntentionListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPartnerIntentionListResponse
+   */
+  async queryPartnerIntentionListWithOptions(request: $_model.QueryPartnerIntentionListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPartnerIntentionListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryPartnerIntentionList",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4245,21 +1159,34 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryPartnerIntentionListResponse>(await this.callApi(params, req, runtime), new QueryPartnerIntentionListResponse({}));
+    return $dara.cast<$_model.QueryPartnerIntentionListResponse>(await this.callApi(params, req, runtime), new $_model.QueryPartnerIntentionListResponse({}));
   }
 
-  async queryPartnerIntentionList(request: QueryPartnerIntentionListRequest): Promise<QueryPartnerIntentionListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * QueryPartnerIntentionList
+   * 
+   * @param request - QueryPartnerIntentionListRequest
+   * @returns QueryPartnerIntentionListResponse
+   */
+  async queryPartnerIntentionList(request: $_model.QueryPartnerIntentionListRequest): Promise<$_model.QueryPartnerIntentionListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPartnerIntentionListWithOptions(request, runtime);
   }
 
-  async queryPartnerProduceListWithOptions(request: QueryPartnerProduceListRequest, runtime: $Util.RuntimeOptions): Promise<QueryPartnerProduceListResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  /**
+   * QueryPartnerProduceList
+   * 
+   * @param request - QueryPartnerProduceListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPartnerProduceListResponse
+   */
+  async queryPartnerProduceListWithOptions(request: $_model.QueryPartnerProduceListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPartnerProduceListResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryPartnerProduceList",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4270,17 +1197,28 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryPartnerProduceListResponse>(await this.callApi(params, req, runtime), new QueryPartnerProduceListResponse({}));
+    return $dara.cast<$_model.QueryPartnerProduceListResponse>(await this.callApi(params, req, runtime), new $_model.QueryPartnerProduceListResponse({}));
   }
 
-  async queryPartnerProduceList(request: QueryPartnerProduceListRequest): Promise<QueryPartnerProduceListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * QueryPartnerProduceList
+   * 
+   * @param request - QueryPartnerProduceListRequest
+   * @returns QueryPartnerProduceListResponse
+   */
+  async queryPartnerProduceList(request: $_model.QueryPartnerProduceListRequest): Promise<$_model.QueryPartnerProduceListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPartnerProduceListWithOptions(request, runtime);
   }
 
-  async queryUserNeedAuthWithOptions(runtime: $Util.RuntimeOptions): Promise<QueryUserNeedAuthResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  /**
+   * @param request - QueryUserNeedAuthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryUserNeedAuthResponse
+   */
+  async queryUserNeedAuthWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.QueryUserNeedAuthResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "QueryUserNeedAuth",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4291,41 +1229,51 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryUserNeedAuthResponse>(await this.callApi(params, req, runtime), new QueryUserNeedAuthResponse({}));
+    return $dara.cast<$_model.QueryUserNeedAuthResponse>(await this.callApi(params, req, runtime), new $_model.QueryUserNeedAuthResponse({}));
   }
 
-  async queryUserNeedAuth(): Promise<QueryUserNeedAuthResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @returns QueryUserNeedAuthResponse
+   */
+  async queryUserNeedAuth(): Promise<$_model.QueryUserNeedAuthResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryUserNeedAuthWithOptions(runtime);
   }
 
-  async recordPostBackWithOptions(request: RecordPostBackRequest, runtime: $Util.RuntimeOptions): Promise<RecordPostBackResponse> {
-    Util.validateModel(request);
+  /**
+   * RecordPostBack
+   * 
+   * @param request - RecordPostBackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecordPostBackResponse
+   */
+  async recordPostBackWithOptions(request: $_model.RecordPostBackRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecordPostBackResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       query["bizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["bizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.contactor)) {
+    if (!$dara.isNull(request.contactor)) {
       query["contactor"] = request.contactor;
     }
 
-    if (!Util.isUnset(request.content)) {
+    if (!$dara.isNull(request.content)) {
       query["content"] = request.content;
     }
 
-    if (!Util.isUnset(request.entityKey)) {
+    if (!$dara.isNull(request.entityKey)) {
       query["entityKey"] = request.entityKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RecordPostBack",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4336,29 +1284,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RecordPostBackResponse>(await this.callApi(params, req, runtime), new RecordPostBackResponse({}));
+    return $dara.cast<$_model.RecordPostBackResponse>(await this.callApi(params, req, runtime), new $_model.RecordPostBackResponse({}));
   }
 
-  async recordPostBack(request: RecordPostBackRequest): Promise<RecordPostBackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * RecordPostBack
+   * 
+   * @param request - RecordPostBackRequest
+   * @returns RecordPostBackResponse
+   */
+  async recordPostBack(request: $_model.RecordPostBackRequest): Promise<$_model.RecordPostBackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.recordPostBackWithOptions(request, runtime);
   }
 
-  async rejectSolutionWithOptions(request: RejectSolutionRequest, runtime: $Util.RuntimeOptions): Promise<RejectSolutionResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - RejectSolutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RejectSolutionResponse
+   */
+  async rejectSolutionWithOptions(request: $_model.RejectSolutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RejectSolutionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.note)) {
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.note)) {
       query["Note"] = request.note;
     }
 
-    if (!Util.isUnset(request.solutionBizId)) {
+    if (!$dara.isNull(request.solutionBizId)) {
       query["SolutionBizId"] = request.solutionBizId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RejectSolution",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4369,33 +1332,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RejectSolutionResponse>(await this.callApi(params, req, runtime), new RejectSolutionResponse({}));
+    return $dara.cast<$_model.RejectSolutionResponse>(await this.callApi(params, req, runtime), new $_model.RejectSolutionResponse({}));
   }
 
-  async rejectSolution(request: RejectSolutionRequest): Promise<RejectSolutionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - RejectSolutionRequest
+   * @returns RejectSolutionResponse
+   */
+  async rejectSolution(request: $_model.RejectSolutionRequest): Promise<$_model.RejectSolutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.rejectSolutionWithOptions(request, runtime);
   }
 
-  async rejectUserSolutionWithOptions(request: RejectUserSolutionRequest, runtime: $Util.RuntimeOptions): Promise<RejectUserSolutionResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - RejectUserSolutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RejectUserSolutionResponse
+   */
+  async rejectUserSolutionWithOptions(request: $_model.RejectUserSolutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RejectUserSolutionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.note)) {
+    if (!$dara.isNull(request.note)) {
       query["Note"] = request.note;
     }
 
-    if (!Util.isUnset(request.solutionBizId)) {
+    if (!$dara.isNull(request.solutionBizId)) {
       query["SolutionBizId"] = request.solutionBizId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RejectUserSolution",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4406,33 +1378,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RejectUserSolutionResponse>(await this.callApi(params, req, runtime), new RejectUserSolutionResponse({}));
+    return $dara.cast<$_model.RejectUserSolutionResponse>(await this.callApi(params, req, runtime), new $_model.RejectUserSolutionResponse({}));
   }
 
-  async rejectUserSolution(request: RejectUserSolutionRequest): Promise<RejectUserSolutionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - RejectUserSolutionRequest
+   * @returns RejectUserSolutionResponse
+   */
+  async rejectUserSolution(request: $_model.RejectUserSolutionRequest): Promise<$_model.RejectUserSolutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.rejectUserSolutionWithOptions(request, runtime);
   }
 
-  async releaseProduceAuthorizationWithOptions(request: ReleaseProduceAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseProduceAuthorizationResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ReleaseProduceAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseProduceAuthorizationResponse
+   */
+  async releaseProduceAuthorizationWithOptions(request: $_model.ReleaseProduceAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReleaseProduceAuthorizationResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.authorizedUserId)) {
+    if (!$dara.isNull(request.authorizedUserId)) {
       body["AuthorizedUserId"] = request.authorizedUserId;
     }
 
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       body["BizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       body["BizType"] = request.bizType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReleaseProduceAuthorization",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4443,45 +1424,56 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReleaseProduceAuthorizationResponse>(await this.callApi(params, req, runtime), new ReleaseProduceAuthorizationResponse({}));
+    return $dara.cast<$_model.ReleaseProduceAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.ReleaseProduceAuthorizationResponse({}));
   }
 
-  async releaseProduceAuthorization(request: ReleaseProduceAuthorizationRequest): Promise<ReleaseProduceAuthorizationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ReleaseProduceAuthorizationRequest
+   * @returns ReleaseProduceAuthorizationResponse
+   */
+  async releaseProduceAuthorization(request: $_model.ReleaseProduceAuthorizationRequest): Promise<$_model.ReleaseProduceAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.releaseProduceAuthorizationWithOptions(request, runtime);
   }
 
-  async startBackToBackCallWithOptions(request: StartBackToBackCallRequest, runtime: $Util.RuntimeOptions): Promise<StartBackToBackCallResponse> {
-    Util.validateModel(request);
+  /**
+   * 玄坛双呼外呼发起
+   * 
+   * @param request - StartBackToBackCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartBackToBackCallResponse
+   */
+  async startBackToBackCallWithOptions(request: $_model.StartBackToBackCallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartBackToBackCallResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.callCenterNumber)) {
+    if (!$dara.isNull(request.callCenterNumber)) {
       query["CallCenterNumber"] = request.callCenterNumber;
     }
 
-    if (!Util.isUnset(request.caller)) {
+    if (!$dara.isNull(request.caller)) {
       query["Caller"] = request.caller;
     }
 
-    if (!Util.isUnset(request.mobileKey)) {
+    if (!$dara.isNull(request.mobileKey)) {
       query["MobileKey"] = request.mobileKey;
     }
 
-    if (!Util.isUnset(request.skillType)) {
+    if (!$dara.isNull(request.skillType)) {
       query["SkillType"] = request.skillType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartBackToBackCall",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4492,29 +1484,122 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartBackToBackCallResponse>(await this.callApi(params, req, runtime), new StartBackToBackCallResponse({}));
+    return $dara.cast<$_model.StartBackToBackCallResponse>(await this.callApi(params, req, runtime), new $_model.StartBackToBackCallResponse({}));
   }
 
-  async startBackToBackCall(request: StartBackToBackCallRequest): Promise<StartBackToBackCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 玄坛双呼外呼发起
+   * 
+   * @param request - StartBackToBackCallRequest
+   * @returns StartBackToBackCallResponse
+   */
+  async startBackToBackCall(request: $_model.StartBackToBackCallRequest): Promise<$_model.StartBackToBackCallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startBackToBackCallWithOptions(request, runtime);
   }
 
-  async submitIntentionNoteWithOptions(request: SubmitIntentionNoteRequest, runtime: $Util.RuntimeOptions): Promise<SubmitIntentionNoteResponse> {
-    Util.validateModel(request);
+  /**
+   * 合作伙伴提交需求单
+   * 
+   * @param request - SubmitIntentionForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitIntentionForPartnerResponse
+   */
+  async submitIntentionForPartnerWithOptions(request: $_model.SubmitIntentionForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitIntentionForPartnerResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.intentionBizId)) {
+    if (!$dara.isNull(request.area)) {
+      query["Area"] = request.area;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.channel)) {
+      query["Channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.commodityType)) {
+      query["CommodityType"] = request.commodityType;
+    }
+
+    if (!$dara.isNull(request.contactName)) {
+      query["ContactName"] = request.contactName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.extInfo)) {
+      query["ExtInfo"] = request.extInfo;
+    }
+
+    if (!$dara.isNull(request.grade)) {
+      query["Grade"] = request.grade;
+    }
+
+    if (!$dara.isNull(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitIntentionForPartner",
+      version: "2020-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitIntentionForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.SubmitIntentionForPartnerResponse({}));
+  }
+
+  /**
+   * 合作伙伴提交需求单
+   * 
+   * @param request - SubmitIntentionForPartnerRequest
+   * @returns SubmitIntentionForPartnerResponse
+   */
+  async submitIntentionForPartner(request: $_model.SubmitIntentionForPartnerRequest): Promise<$_model.SubmitIntentionForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitIntentionForPartnerWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - SubmitIntentionNoteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitIntentionNoteResponse
+   */
+  async submitIntentionNoteWithOptions(request: $_model.SubmitIntentionNoteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitIntentionNoteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.intentionBizId)) {
       query["IntentionBizId"] = request.intentionBizId;
     }
 
-    if (!Util.isUnset(request.note)) {
+    if (!$dara.isNull(request.note)) {
       query["Note"] = request.note;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SubmitIntentionNote",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4525,41 +1610,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitIntentionNoteResponse>(await this.callApi(params, req, runtime), new SubmitIntentionNoteResponse({}));
+    return $dara.cast<$_model.SubmitIntentionNoteResponse>(await this.callApi(params, req, runtime), new $_model.SubmitIntentionNoteResponse({}));
   }
 
-  async submitIntentionNote(request: SubmitIntentionNoteRequest): Promise<SubmitIntentionNoteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - SubmitIntentionNoteRequest
+   * @returns SubmitIntentionNoteResponse
+   */
+  async submitIntentionNote(request: $_model.SubmitIntentionNoteRequest): Promise<$_model.SubmitIntentionNoteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.submitIntentionNoteWithOptions(request, runtime);
   }
 
-  async submitSolutionWithOptions(request: SubmitSolutionRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSolutionResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - SubmitSolutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSolutionResponse
+   */
+  async submitSolutionWithOptions(request: $_model.SubmitSolutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitSolutionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.intentionBizId)) {
+    if (!$dara.isNull(request.intentionBizId)) {
       query["IntentionBizId"] = request.intentionBizId;
     }
 
-    if (!Util.isUnset(request.operateType)) {
+    if (!$dara.isNull(request.operateType)) {
       query["OperateType"] = request.operateType;
     }
 
-    if (!Util.isUnset(request.solution)) {
+    if (!$dara.isNull(request.solution)) {
       query["Solution"] = request.solution;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.userId)) {
       query["UserId"] = request.userId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SubmitSolution",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4570,37 +1664,48 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitSolutionResponse>(await this.callApi(params, req, runtime), new SubmitSolutionResponse({}));
+    return $dara.cast<$_model.SubmitSolutionResponse>(await this.callApi(params, req, runtime), new $_model.SubmitSolutionResponse({}));
   }
 
-  async submitSolution(request: SubmitSolutionRequest): Promise<SubmitSolutionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - SubmitSolutionRequest
+   * @returns SubmitSolutionResponse
+   */
+  async submitSolution(request: $_model.SubmitSolutionRequest): Promise<$_model.SubmitSolutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.submitSolutionWithOptions(request, runtime);
   }
 
-  async transferIntentionOwnerWithOptions(request: TransferIntentionOwnerRequest, runtime: $Util.RuntimeOptions): Promise<TransferIntentionOwnerResponse> {
-    Util.validateModel(request);
+  /**
+   * 玄坛需求单转派小二
+   * 
+   * @param request - TransferIntentionOwnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransferIntentionOwnerResponse
+   */
+  async transferIntentionOwnerWithOptions(request: $_model.TransferIntentionOwnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TransferIntentionOwnerResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.personId)) {
+    if (!$dara.isNull(request.personId)) {
       query["PersonId"] = request.personId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TransferIntentionOwner",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4611,37 +1716,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TransferIntentionOwnerResponse>(await this.callApi(params, req, runtime), new TransferIntentionOwnerResponse({}));
+    return $dara.cast<$_model.TransferIntentionOwnerResponse>(await this.callApi(params, req, runtime), new $_model.TransferIntentionOwnerResponse({}));
   }
 
-  async transferIntentionOwner(request: TransferIntentionOwnerRequest): Promise<TransferIntentionOwnerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 玄坛需求单转派小二
+   * 
+   * @param request - TransferIntentionOwnerRequest
+   * @returns TransferIntentionOwnerResponse
+   */
+  async transferIntentionOwner(request: $_model.TransferIntentionOwnerRequest): Promise<$_model.TransferIntentionOwnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.transferIntentionOwnerWithOptions(request, runtime);
   }
 
-  async transferProduceOwnerWithOptions(request: TransferProduceOwnerRequest, runtime: $Util.RuntimeOptions): Promise<TransferProduceOwnerResponse> {
-    Util.validateModel(request);
+  /**
+   * 玄坛服务单转派小二
+   * 
+   * @param request - TransferProduceOwnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransferProduceOwnerResponse
+   */
+  async transferProduceOwnerWithOptions(request: $_model.TransferProduceOwnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TransferProduceOwnerResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.personId)) {
+    if (!$dara.isNull(request.personId)) {
       query["PersonId"] = request.personId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TransferProduceOwner",
       version: "2020-03-06",
       protocol: "HTTPS",
@@ -4652,11 +1770,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TransferProduceOwnerResponse>(await this.callApi(params, req, runtime), new TransferProduceOwnerResponse({}));
+    return $dara.cast<$_model.TransferProduceOwnerResponse>(await this.callApi(params, req, runtime), new $_model.TransferProduceOwnerResponse({}));
   }
 
-  async transferProduceOwner(request: TransferProduceOwnerRequest): Promise<TransferProduceOwnerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 玄坛服务单转派小二
+   * 
+   * @param request - TransferProduceOwnerRequest
+   * @returns TransferProduceOwnerResponse
+   */
+  async transferProduceOwner(request: $_model.TransferProduceOwnerRequest): Promise<$_model.TransferProduceOwnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.transferProduceOwnerWithOptions(request, runtime);
   }
 
