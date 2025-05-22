@@ -18,6 +18,7 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
    * 1
    */
   from?: number;
+  isMatch?: boolean;
   /**
    * @example
    * 2
@@ -39,6 +40,7 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
       cid: 'Cid',
       customizeCode: 'CustomizeCode',
       from: 'From',
+      isMatch: 'IsMatch',
       pid: 'Pid',
       tid: 'Tid',
       to: 'To',
@@ -51,6 +53,7 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
       cid: 'string',
       customizeCode: 'string',
       from: 'number',
+      isMatch: 'boolean',
       pid: 'number',
       tid: 'string',
       to: 'number',

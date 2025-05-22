@@ -18,6 +18,8 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
    */
   complainable?: boolean;
   conditionHitInfoList?: GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoConditionHitInfoList;
+  machineHitResult?: number;
+  reviewHitResult?: number;
   reviewInfo?: GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo;
   /**
    * @example
@@ -51,6 +53,8 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
       complainHistories: 'ComplainHistories',
       complainable: 'Complainable',
       conditionHitInfoList: 'ConditionHitInfoList',
+      machineHitResult: 'MachineHitResult',
+      reviewHitResult: 'ReviewHitResult',
       reviewInfo: 'ReviewInfo',
       rid: 'Rid',
       ruleName: 'RuleName',
@@ -67,6 +71,8 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
       complainHistories: GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoComplainHistories,
       complainable: 'boolean',
       conditionHitInfoList: GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoConditionHitInfoList,
+      machineHitResult: 'number',
+      reviewHitResult: 'number',
       reviewInfo: GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo,
       rid: 'number',
       ruleName: 'string',
