@@ -50,6 +50,7 @@ export class DescribeProductInstancesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceInstanceAccessStatus?: string;
   /**
    * @remarks
    * The ID of the instance.
@@ -140,6 +141,7 @@ export class DescribeProductInstancesRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceInstanceAccessStatus: 'ResourceInstanceAccessStatus',
       resourceInstanceId: 'ResourceInstanceId',
       resourceInstanceIp: 'ResourceInstanceIp',
       resourceInstanceName: 'ResourceInstanceName',
@@ -158,6 +160,7 @@ export class DescribeProductInstancesRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceInstanceAccessStatus: 'string',
       resourceInstanceId: 'string',
       resourceInstanceIp: 'string',
       resourceInstanceName: 'string',

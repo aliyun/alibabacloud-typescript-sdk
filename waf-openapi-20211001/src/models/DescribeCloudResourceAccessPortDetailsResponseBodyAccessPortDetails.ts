@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates } from "./DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates";
 import { DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders } from "./DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders";
+import { DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails } from "./DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails";
 
 
 export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails extends $dara.Model {
@@ -135,6 +136,8 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
    * 1
    */
   status?: number;
+  subStatus?: string;
+  subStatusDetails?: DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails[];
   /**
    * @remarks
    * The version of the Transport Layer Security (TLS) protocol. Valid values:
@@ -201,6 +204,8 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
       protocol: 'Protocol',
       readTimeout: 'ReadTimeout',
       status: 'Status',
+      subStatus: 'SubStatus',
+      subStatusDetails: 'SubStatusDetails',
       TLSVersion: 'TLSVersion',
       writeTimeout: 'WriteTimeout',
       xffHeaderMode: 'XffHeaderMode',
@@ -225,6 +230,8 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
       protocol: 'string',
       readTimeout: 'number',
       status: 'number',
+      subStatus: 'string',
+      subStatusDetails: { 'type': 'array', 'itemType': DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails },
       TLSVersion: 'string',
       writeTimeout: 'number',
       xffHeaderMode: 'number',
@@ -242,6 +249,9 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
     }
     if(Array.isArray(this.logHeaders)) {
       $dara.Model.validateArray(this.logHeaders);
+    }
+    if(Array.isArray(this.subStatusDetails)) {
+      $dara.Model.validateArray(this.subStatusDetails);
     }
     if(Array.isArray(this.xffHeaders)) {
       $dara.Model.validateArray(this.xffHeaders);

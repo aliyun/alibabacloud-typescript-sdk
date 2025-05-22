@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates extends $dara.Model {
+  appliedType?: string;
   /**
    * @remarks
    * The ID of the certificate.
@@ -19,17 +20,22 @@ export class DescribeProductInstancesResponseBodyProductInstancesResourcePortsCe
    * trafficxxxx.cn
    */
   certificateName?: string;
+  domain?: string;
   static names(): { [key: string]: string } {
     return {
+      appliedType: 'AppliedType',
       certificateId: 'CertificateId',
       certificateName: 'CertificateName',
+      domain: 'Domain',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appliedType: 'string',
       certificateId: 'string',
       certificateName: 'string',
+      domain: 'string',
     };
   }
 

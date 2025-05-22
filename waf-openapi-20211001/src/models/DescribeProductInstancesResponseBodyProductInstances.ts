@@ -1,9 +1,13 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols } from "./DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols";
 import { DescribeProductInstancesResponseBodyProductInstancesResourcePorts } from "./DescribeProductInstancesResponseBodyProductInstancesResourcePorts";
 
 
 export class DescribeProductInstancesResponseBodyProductInstances extends $dara.Model {
+  accessInstanceId?: string;
+  accessPortAndProtocols?: DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols[];
+  accessPorts?: number[];
   /**
    * @remarks
    * The ID of the Alibaba Cloud account to which the resource belongs.
@@ -12,6 +16,8 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
    * 1704********9107
    */
   ownerUserId?: string;
+  resourceInstanceAccessStatus?: string;
+  resourceInstanceEdition?: string;
   /**
    * @remarks
    * The ID of the instance.
@@ -94,7 +100,12 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   resourceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessInstanceId: 'AccessInstanceId',
+      accessPortAndProtocols: 'AccessPortAndProtocols',
+      accessPorts: 'AccessPorts',
       ownerUserId: 'OwnerUserId',
+      resourceInstanceAccessStatus: 'ResourceInstanceAccessStatus',
+      resourceInstanceEdition: 'ResourceInstanceEdition',
       resourceInstanceId: 'ResourceInstanceId',
       resourceInstanceIp: 'ResourceInstanceIp',
       resourceInstanceName: 'ResourceInstanceName',
@@ -108,7 +119,12 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
 
   static types(): { [key: string]: any } {
     return {
+      accessInstanceId: 'string',
+      accessPortAndProtocols: { 'type': 'array', 'itemType': DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols },
+      accessPorts: { 'type': 'array', 'itemType': 'number' },
       ownerUserId: 'string',
+      resourceInstanceAccessStatus: 'string',
+      resourceInstanceEdition: 'string',
       resourceInstanceId: 'string',
       resourceInstanceIp: 'string',
       resourceInstanceName: 'string',
@@ -121,6 +137,12 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   }
 
   validate() {
+    if(Array.isArray(this.accessPortAndProtocols)) {
+      $dara.Model.validateArray(this.accessPortAndProtocols);
+    }
+    if(Array.isArray(this.accessPorts)) {
+      $dara.Model.validateArray(this.accessPorts);
+    }
     if(Array.isArray(this.resourcePorts)) {
       $dara.Model.validateArray(this.resourcePorts);
     }

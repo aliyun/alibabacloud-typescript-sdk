@@ -5577,6 +5577,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resourceInstanceAccessStatus)) {
+      query["ResourceInstanceAccessStatus"] = request.resourceInstanceAccessStatus;
+    }
+
     if (!$dara.isNull(request.resourceInstanceId)) {
       query["ResourceInstanceId"] = request.resourceInstanceId;
     }

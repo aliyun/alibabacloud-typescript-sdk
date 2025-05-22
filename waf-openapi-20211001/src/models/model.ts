@@ -30,6 +30,7 @@ export { DescribeCertDetailResponseBodyCertDetail } from './DescribeCertDetailRe
 export { DescribeCertsResponseBodyCerts } from './DescribeCertsResponseBodyCerts';
 export { DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates } from './DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates';
 export { DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders } from './DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders';
+export { DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails } from './DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails';
 export { DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails } from './DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails';
 export { DescribeCloudResourcesResponseBodyCloudResources } from './DescribeCloudResourcesResponseBodyCloudResources';
 export { DescribeCnameCountResponseBodyCnameCount } from './DescribeCnameCountResponseBodyCnameCount';
@@ -93,6 +94,7 @@ export { DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues } from '
 export { DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange } from './DescribeNetworkFlowTopNmetricResponseBodyTopNmetaDataDateRange';
 export { DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData } from './DescribeNetworkFlowTopNmetricResponseBodyTopNmetaData';
 export { DescribePeakTrendResponseBodyFlowChart } from './DescribePeakTrendResponseBodyFlowChart';
+export { DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols } from './DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols';
 export { DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates } from './DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates';
 export { DescribeProductInstancesResponseBodyProductInstancesResourcePorts } from './DescribeProductInstancesResponseBodyProductInstancesResourcePorts';
 export { DescribeProductInstancesResponseBodyProductInstances } from './DescribeProductInstancesResponseBodyProductInstances';
