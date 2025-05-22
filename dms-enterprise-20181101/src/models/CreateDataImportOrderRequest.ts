@@ -29,6 +29,7 @@ export class CreateDataImportOrderRequest extends $dara.Model {
    * This parameter is required.
    */
   param?: CreateDataImportOrderRequestParam;
+  realLoginUserUid?: string;
   /**
    * @remarks
    * The stakeholders of the data import. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than DMS administrators and database administrators (DBAs) are not allowed to view the ticket details.
@@ -47,6 +48,7 @@ export class CreateDataImportOrderRequest extends $dara.Model {
       attachmentKey: 'AttachmentKey',
       comment: 'Comment',
       param: 'Param',
+      realLoginUserUid: 'RealLoginUserUid',
       relatedUserList: 'RelatedUserList',
       tid: 'Tid',
     };
@@ -57,6 +59,7 @@ export class CreateDataImportOrderRequest extends $dara.Model {
       attachmentKey: 'string',
       comment: 'string',
       param: CreateDataImportOrderRequestParam,
+      realLoginUserUid: 'string',
       relatedUserList: { 'type': 'array', 'itemType': 'number' },
       tid: 'number',
     };

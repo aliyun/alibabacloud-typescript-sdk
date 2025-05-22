@@ -1771,6 +1771,10 @@ export default class Client extends OpenApi {
       query["Param"] = request.paramShrink;
     }
 
+    if (!$dara.isNull(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
+    }
+
     if (!$dara.isNull(request.relatedUserListShrink)) {
       query["RelatedUserList"] = request.relatedUserListShrink;
     }
