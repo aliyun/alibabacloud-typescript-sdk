@@ -416,6 +416,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 热点新闻推荐
+   * 
+   * @param request - HotNewsRecommendRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HotNewsRecommendResponse
+   */
+  async hotNewsRecommendWithOptions(workspaceId: string, request: $_model.HotNewsRecommendRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.HotNewsRecommendResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "HotNewsRecommend",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/hotNewsRecommend`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.HotNewsRecommendResponse>(await this.callApi(params, req, runtime), new $_model.HotNewsRecommendResponse({}));
+  }
+
+  /**
+   * 热点新闻推荐
+   * 
+   * @param request - HotNewsRecommendRequest
+   * @returns HotNewsRecommendResponse
+   */
+  async hotNewsRecommend(workspaceId: string, request: $_model.HotNewsRecommendRequest): Promise<$_model.HotNewsRecommendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.hotNewsRecommendWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 获取挖掘分析结果明细列表
    * 
    * @param request - ListAnalysisTagDetailByTaskIdRequest

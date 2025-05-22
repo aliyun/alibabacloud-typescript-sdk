@@ -40,6 +40,8 @@ export { GetVideoAnalysisTaskResponseBodyDataPayloadUsage } from './GetVideoAnal
 export { GetVideoAnalysisTaskResponseBodyDataPayload } from './GetVideoAnalysisTaskResponseBodyDataPayload';
 export { GetVideoAnalysisTaskResponseBodyDataTaskRunInfo } from './GetVideoAnalysisTaskResponseBodyDataTaskRunInfo';
 export { GetVideoAnalysisTaskResponseBodyData } from './GetVideoAnalysisTaskResponseBodyData';
+export { HotNewsRecommendResponseBodyDataNews } from './HotNewsRecommendResponseBodyDataNews';
+export { HotNewsRecommendResponseBodyData } from './HotNewsRecommendResponseBodyData';
 export { ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags } from './ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags';
 export { ListAnalysisTagDetailByTaskIdResponseBodyData } from './ListAnalysisTagDetailByTaskIdResponseBodyData';
 export { ListHotTopicSummariesResponseBodyDataNewsComments } from './ListHotTopicSummariesResponseBodyDataNewsComments';
@@ -176,6 +178,9 @@ export { GetVideoAnalysisConfigResponse } from './GetVideoAnalysisConfigResponse
 export { GetVideoAnalysisTaskRequest } from './GetVideoAnalysisTaskRequest';
 export { GetVideoAnalysisTaskResponseBody } from './GetVideoAnalysisTaskResponseBody';
 export { GetVideoAnalysisTaskResponse } from './GetVideoAnalysisTaskResponse';
+export { HotNewsRecommendRequest } from './HotNewsRecommendRequest';
+export { HotNewsRecommendResponseBody } from './HotNewsRecommendResponseBody';
+export { HotNewsRecommendResponse } from './HotNewsRecommendResponse';
 export { ListAnalysisTagDetailByTaskIdRequest } from './ListAnalysisTagDetailByTaskIdRequest';
 export { ListAnalysisTagDetailByTaskIdResponseBody } from './ListAnalysisTagDetailByTaskIdResponseBody';
 export { ListAnalysisTagDetailByTaskIdResponse } from './ListAnalysisTagDetailByTaskIdResponse';
