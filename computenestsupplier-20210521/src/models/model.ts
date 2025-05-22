@@ -133,6 +133,7 @@ export { UpdateServiceShrinkRequestServiceInfo } from './UpdateServiceShrinkRequ
 export { UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy } from './UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy';
 export { UpdateServiceResponseBodyDryRunResultRolePolicy } from './UpdateServiceResponseBodyDryRunResultRolePolicy';
 export { UpdateServiceResponseBodyDryRunResult } from './UpdateServiceResponseBodyDryRunResult';
+export { UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo } from './UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo';
 export { UpdateServiceInstanceAttributeRequestLicenseData } from './UpdateServiceInstanceAttributeRequestLicenseData';
 export { UpdateSupplierInformationRequestDeliverySettings } from './UpdateSupplierInformationRequestDeliverySettings';
 export { UpdateSupplierInformationRequestSupportContacts } from './UpdateSupplierInformationRequestSupportContacts';
