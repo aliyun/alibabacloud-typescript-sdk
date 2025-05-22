@@ -28,6 +28,17 @@ export class PriceEstimateFeature extends $dara.Model {
    */
   cpuStrategy?: string;
   /**
+   * @example
+   * L1
+   */
+  cpuUtilLevel?: string;
+  cpuUtilMetrics?: number[];
+  /**
+   * @example
+   * true
+   */
+  enableCpuIdle?: boolean;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -35,6 +46,11 @@ export class PriceEstimateFeature extends $dara.Model {
    * Test/Production
    */
   envType?: string;
+  /**
+   * @example
+   * 30
+   */
+  ephemeralStorageGiB?: number;
   /**
    * @example
    * 3
@@ -95,6 +111,11 @@ export class PriceEstimateFeature extends $dara.Model {
   minInstanceCount?: number;
   /**
    * @example
+   * std
+   */
+  newSaeVersion?: string;
+  /**
+   * @example
    * 0
    */
   noneLoadInstanceCount?: number;
@@ -111,12 +132,21 @@ export class PriceEstimateFeature extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * haiguang
+   */
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       appType: 'AppType',
       cpuCore: 'CpuCore',
       cpuStrategy: 'CpuStrategy',
+      cpuUtilLevel: 'CpuUtilLevel',
+      cpuUtilMetrics: 'CpuUtilMetrics',
+      enableCpuIdle: 'EnableCpuIdle',
       envType: 'EnvType',
+      ephemeralStorageGiB: 'EphemeralStorageGiB',
       highLoadInstanceCount: 'HighLoadInstanceCount',
       highLoadQps: 'HighLoadQps',
       highLoadSeconds: 'HighLoadSeconds',
@@ -128,9 +158,11 @@ export class PriceEstimateFeature extends $dara.Model {
       maxInstanceCount: 'MaxInstanceCount',
       memoryGiB: 'MemoryGiB',
       minInstanceCount: 'MinInstanceCount',
+      newSaeVersion: 'NewSaeVersion',
       noneLoadInstanceCount: 'NoneLoadInstanceCount',
       noneLoadSeconds: 'NoneLoadSeconds',
       regionId: 'RegionId',
+      resourceType: 'ResourceType',
     };
   }
 
@@ -139,7 +171,11 @@ export class PriceEstimateFeature extends $dara.Model {
       appType: 'string',
       cpuCore: 'number',
       cpuStrategy: 'string',
+      cpuUtilLevel: 'string',
+      cpuUtilMetrics: { 'type': 'array', 'itemType': 'number' },
+      enableCpuIdle: 'boolean',
       envType: 'string',
+      ephemeralStorageGiB: 'number',
       highLoadInstanceCount: 'number',
       highLoadQps: 'number',
       highLoadSeconds: 'number',
@@ -151,13 +187,18 @@ export class PriceEstimateFeature extends $dara.Model {
       maxInstanceCount: 'number',
       memoryGiB: 'number',
       minInstanceCount: 'number',
+      newSaeVersion: 'string',
       noneLoadInstanceCount: 'number',
       noneLoadSeconds: 'number',
       regionId: 'string',
+      resourceType: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.cpuUtilMetrics)) {
+      $dara.Model.validateArray(this.cpuUtilMetrics);
+    }
     super.validate();
   }
 

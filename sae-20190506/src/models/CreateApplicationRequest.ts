@@ -128,6 +128,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * [{"name":"envtmp","value":"0"}]
    */
   envs?: string;
+  gpuConfig?: string;
   /**
    * @example
    * 10
@@ -468,6 +469,7 @@ export class CreateApplicationRequest extends $dara.Model {
       enableNewArms: 'EnableNewArms',
       enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
       envs: 'Envs',
+      gpuConfig: 'GpuConfig',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
       initContainersConfig: 'InitContainersConfig',
@@ -547,6 +549,7 @@ export class CreateApplicationRequest extends $dara.Model {
       enableNewArms: 'boolean',
       enableSidecarResourceIsolated: 'boolean',
       envs: 'string',
+      gpuConfig: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
       initContainersConfig: { 'type': 'array', 'itemType': InitContainerConfig },

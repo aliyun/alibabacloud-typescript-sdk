@@ -68,6 +68,7 @@ export { DeleteApplicationResponseBodyData } from './DeleteApplicationResponseBo
 export { DeleteConfigMapResponseBodyData } from './DeleteConfigMapResponseBodyData';
 export { DeleteGreyTagRouteResponseBodyData } from './DeleteGreyTagRouteResponseBodyData';
 export { DeleteIngressResponseBodyData } from './DeleteIngressResponseBodyData';
+export { DeleteInstancesResponseBodyData } from './DeleteInstancesResponseBodyData';
 export { DeleteSecretResponseBodyData } from './DeleteSecretResponseBodyData';
 export { DeployApplicationResponseBodyData } from './DeployApplicationResponseBodyData';
 export { DescribeAppServiceDetailResponseBodyDataMethodsParameterDefinitions } from './DescribeAppServiceDetailResponseBodyDataMethodsParameterDefinitions';
@@ -503,6 +504,9 @@ export { DeleteHistoryJobResponse } from './DeleteHistoryJobResponse';
 export { DeleteIngressRequest } from './DeleteIngressRequest';
 export { DeleteIngressResponseBody } from './DeleteIngressResponseBody';
 export { DeleteIngressResponse } from './DeleteIngressResponse';
+export { DeleteInstancesRequest } from './DeleteInstancesRequest';
+export { DeleteInstancesResponseBody } from './DeleteInstancesResponseBody';
+export { DeleteInstancesResponse } from './DeleteInstancesResponse';
 export { DeleteJobRequest } from './DeleteJobRequest';
 export { DeleteJobResponseBody } from './DeleteJobResponseBody';
 export { DeleteJobResponse } from './DeleteJobResponse';

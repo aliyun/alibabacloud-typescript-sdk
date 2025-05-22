@@ -214,6 +214,7 @@ export class DeployApplicationRequest extends $dara.Model {
    * [{"name":"envtmp","value":"0"}]
    */
   envs?: string;
+  gpuConfig?: string;
   /**
    * @remarks
    * The ID of the corresponding Secret.
@@ -693,6 +694,7 @@ export class DeployApplicationRequest extends $dara.Model {
       enableNewArms: 'EnableNewArms',
       enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
       envs: 'Envs',
+      gpuConfig: 'GpuConfig',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
       initContainersConfig: 'InitContainersConfig',
@@ -770,6 +772,7 @@ export class DeployApplicationRequest extends $dara.Model {
       enableNewArms: 'boolean',
       enableSidecarResourceIsolated: 'boolean',
       envs: 'string',
+      gpuConfig: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
       initContainersConfig: { 'type': 'array', 'itemType': InitContainerConfig },

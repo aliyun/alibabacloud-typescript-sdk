@@ -430,6 +430,10 @@ export default class Client extends OpenApi {
       query["Envs"] = request.envs;
     }
 
+    if (!$dara.isNull(request.gpuConfig)) {
+      query["GpuConfig"] = request.gpuConfig;
+    }
+
     if (!$dara.isNull(request.imagePullSecrets)) {
       query["ImagePullSecrets"] = request.imagePullSecrets;
     }
@@ -1964,6 +1968,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除实例
+   * 
+   * @param request - DeleteInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstancesResponse
+   */
+  async deleteInstancesWithOptions(request: $_model.DeleteInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInstancesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteInstances",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/app/deleteInstances`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteInstancesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteInstancesResponse({}));
+  }
+
+  /**
+   * 删除实例
+   * 
+   * @param request - DeleteInstancesRequest
+   * @returns DeleteInstancesResponse
+   */
+  async deleteInstances(request: $_model.DeleteInstancesRequest): Promise<$_model.DeleteInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteInstancesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Delete a job template.
    * 
    * @param request - DeleteJobRequest
@@ -2399,6 +2452,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.envs)) {
       query["Envs"] = request.envs;
+    }
+
+    if (!$dara.isNull(request.gpuConfig)) {
+      query["GpuConfig"] = request.gpuConfig;
     }
 
     if (!$dara.isNull(request.imagePullSecrets)) {

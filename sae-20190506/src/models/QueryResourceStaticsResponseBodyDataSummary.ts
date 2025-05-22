@@ -14,6 +14,8 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
   cpu?: number;
   cu?: number;
   ephemeralStorage?: number;
+  gpuA10?: number;
+  gpuPpu810e?: number;
   idleCpu?: number;
   /**
    * @remarks
@@ -29,6 +31,8 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
       cpu: 'Cpu',
       cu: 'Cu',
       ephemeralStorage: 'EphemeralStorage',
+      gpuA10: 'GpuA10',
+      gpuPpu810e: 'GpuPpu810e',
       idleCpu: 'IdleCpu',
       memory: 'Memory',
     };
@@ -40,6 +44,8 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
       cpu: 'number',
       cu: 'number',
       ephemeralStorage: 'number',
+      gpuA10: 'number',
+      gpuPpu810e: 'number',
       idleCpu: 'number',
       memory: 'number',
     };

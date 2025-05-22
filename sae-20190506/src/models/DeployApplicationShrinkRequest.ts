@@ -212,6 +212,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * [{"name":"envtmp","value":"0"}]
    */
   envs?: string;
+  gpuConfig?: string;
   /**
    * @remarks
    * The ID of the corresponding Secret.
@@ -691,6 +692,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       enableNewArms: 'EnableNewArms',
       enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
       envs: 'Envs',
+      gpuConfig: 'GpuConfig',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
       initContainersConfigShrink: 'InitContainersConfig',
@@ -768,6 +770,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       enableNewArms: 'boolean',
       enableSidecarResourceIsolated: 'boolean',
       envs: 'string',
+      gpuConfig: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
       initContainersConfigShrink: 'string',
