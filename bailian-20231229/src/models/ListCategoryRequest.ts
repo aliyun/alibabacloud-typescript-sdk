@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCategoryRequest extends $dara.Model {
+  categoryName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -28,6 +29,7 @@ export class ListCategoryRequest extends $dara.Model {
   parentCategoryId?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryName: 'CategoryName',
       categoryType: 'CategoryType',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -37,6 +39,7 @@ export class ListCategoryRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      categoryName: 'string',
       categoryType: 'string',
       maxResults: 'number',
       nextToken: 'string',

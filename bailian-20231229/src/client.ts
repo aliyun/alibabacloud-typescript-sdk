@@ -1206,6 +1206,10 @@ export default class Client extends OpenApi {
   async listCategoryWithOptions(WorkspaceId: string, request: $_model.ListCategoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListCategoryResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoryName)) {
+      body["CategoryName"] = request.categoryName;
+    }
+
     if (!$dara.isNull(request.categoryType)) {
       body["CategoryType"] = request.categoryType;
     }
