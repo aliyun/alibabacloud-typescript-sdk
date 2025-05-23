@@ -1378,6 +1378,10 @@ export default class Client extends OpenApi {
       query["AndroidInstanceName"] = request.androidInstanceName;
     }
 
+    if (!$dara.isNull(request.appManagePolicyId)) {
+      query["AppManagePolicyId"] = request.appManagePolicyId;
+    }
+
     if (!$dara.isNull(request.authorizedUserId)) {
       query["AuthorizedUserId"] = request.authorizedUserId;
     }

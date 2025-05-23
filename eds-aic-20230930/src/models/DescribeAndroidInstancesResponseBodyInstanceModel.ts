@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy } from "./DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy";
 import { DescribeAndroidInstancesResponseBodyInstanceModelDisks } from "./DescribeAndroidInstancesResponseBodyInstanceModelDisks";
 import { DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig } from "./DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig";
 import { DescribeAndroidInstancesResponseBodyInstanceModelTags } from "./DescribeAndroidInstancesResponseBodyInstanceModelTags";
@@ -62,6 +63,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * ai-9ey6io0q58rcd****
    */
   appInstanceId?: string;
+  appManagePolicy?: DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy;
   /**
    * @remarks
    * The ID of the user to whom the instance is assigned.
@@ -273,6 +275,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       androidInstanceStatus: 'AndroidInstanceStatus',
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceId: 'AppInstanceId',
+      appManagePolicy: 'AppManagePolicy',
       authorizedUserId: 'AuthorizedUserId',
       bindUserId: 'BindUserId',
       chargeType: 'ChargeType',
@@ -313,6 +316,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       androidInstanceStatus: 'string',
       appInstanceGroupId: 'string',
       appInstanceId: 'string',
+      appManagePolicy: DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy,
       authorizedUserId: 'string',
       bindUserId: 'string',
       chargeType: 'string',
@@ -345,6 +349,9 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   }
 
   validate() {
+    if(this.appManagePolicy && typeof (this.appManagePolicy as any).validate === 'function') {
+      (this.appManagePolicy as any).validate();
+    }
     if(Array.isArray(this.disks)) {
       $dara.Model.validateArray(this.disks);
     }

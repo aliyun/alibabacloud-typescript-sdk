@@ -21,6 +21,7 @@ export { DeleteImagesResponseBodyData } from './DeleteImagesResponseBodyData';
 export { DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks } from './DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks';
 export { DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel } from './DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel';
 export { DescribeAndroidInstancesRequestTag } from './DescribeAndroidInstancesRequestTag';
+export { DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy } from './DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy';
 export { DescribeAndroidInstancesResponseBodyInstanceModelDisks } from './DescribeAndroidInstancesResponseBodyInstanceModelDisks';
 export { DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig } from './DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig';
 export { DescribeAndroidInstancesResponseBodyInstanceModelTags } from './DescribeAndroidInstancesResponseBodyInstanceModelTags';

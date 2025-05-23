@@ -17,6 +17,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
    * name
    */
   androidInstanceName?: string;
+  appManagePolicyId?: string;
   authorizedUserId?: string;
   /**
    * @remarks
@@ -150,6 +151,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
       androidInstanceName: 'AndroidInstanceName',
+      appManagePolicyId: 'AppManagePolicyId',
       authorizedUserId: 'AuthorizedUserId',
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
@@ -173,6 +175,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
       androidInstanceName: 'string',
+      appManagePolicyId: 'string',
       authorizedUserId: 'string',
       bizRegionId: 'string',
       chargeType: 'string',
