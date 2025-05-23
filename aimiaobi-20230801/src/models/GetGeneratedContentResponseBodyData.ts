@@ -30,6 +30,7 @@ export class GetGeneratedContentResponseBodyData extends $dara.Model {
    * 86
    */
   id?: number;
+  ignoreContentAuditWords?: string;
   keywordList?: string[];
   keywords?: string;
   prompt?: string;
@@ -63,6 +64,7 @@ export class GetGeneratedContentResponseBodyData extends $dara.Model {
       createUser: 'CreateUser',
       deviceId: 'DeviceId',
       id: 'Id',
+      ignoreContentAuditWords: 'IgnoreContentAuditWords',
       keywordList: 'KeywordList',
       keywords: 'Keywords',
       prompt: 'Prompt',
@@ -83,6 +85,7 @@ export class GetGeneratedContentResponseBodyData extends $dara.Model {
       createUser: 'string',
       deviceId: 'string',
       id: 'number',
+      ignoreContentAuditWords: 'string',
       keywordList: { 'type': 'array', 'itemType': 'string' },
       keywords: 'string',
       prompt: 'string',
