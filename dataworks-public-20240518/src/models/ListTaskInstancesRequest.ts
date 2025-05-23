@@ -99,6 +99,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
    * Id Desc
    */
   sortBy?: string;
+  status?: string;
   /**
    * @remarks
    * The ID of the task for which the instance is generated.
@@ -193,6 +194,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
       projectId: 'ProjectId',
       runtimeResource: 'RuntimeResource',
       sortBy: 'SortBy',
+      status: 'Status',
       taskId: 'TaskId',
       taskIds: 'TaskIds',
       taskName: 'TaskName',
@@ -217,6 +219,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
       projectId: 'number',
       runtimeResource: 'string',
       sortBy: 'string',
+      status: 'string',
       taskId: 'number',
       taskIds: { 'type': 'array', 'itemType': 'number' },
       taskName: 'string',

@@ -450,6 +450,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - CreateBusinessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBusinessResponse
+   */
+  async createBusinessWithOptions(request: $_model.CreateBusinessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBusinessResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessName)) {
+      body["BusinessName"] = request.businessName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!$dara.isNull(request.useType)) {
+      body["UseType"] = request.useType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBusiness",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBusinessResponse>(await this.callApi(params, req, runtime), new $_model.CreateBusinessResponse({}));
+  }
+
+  /**
+   * @param request - CreateBusinessRequest
+   * @returns CreateBusinessResponse
+   */
+  async createBusiness(request: $_model.CreateBusinessRequest): Promise<$_model.CreateBusinessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBusinessWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an alert rule for a synchronization task.
    * 
    * @param tmpReq - CreateDIAlarmRuleRequest
@@ -1114,6 +1172,222 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - CreateFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFileResponse
+   */
+  async createFileWithOptions(request: $_model.CreateFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.advancedSettings)) {
+      body["AdvancedSettings"] = request.advancedSettings;
+    }
+
+    if (!$dara.isNull(request.applyScheduleImmediately)) {
+      body["ApplyScheduleImmediately"] = request.applyScheduleImmediately;
+    }
+
+    if (!$dara.isNull(request.autoParsing)) {
+      body["AutoParsing"] = request.autoParsing;
+    }
+
+    if (!$dara.isNull(request.autoRerunIntervalMillis)) {
+      body["AutoRerunIntervalMillis"] = request.autoRerunIntervalMillis;
+    }
+
+    if (!$dara.isNull(request.autoRerunTimes)) {
+      body["AutoRerunTimes"] = request.autoRerunTimes;
+    }
+
+    if (!$dara.isNull(request.connectionName)) {
+      body["ConnectionName"] = request.connectionName;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.createFolderIfNotExists)) {
+      body["CreateFolderIfNotExists"] = request.createFolderIfNotExists;
+    }
+
+    if (!$dara.isNull(request.cronExpress)) {
+      body["CronExpress"] = request.cronExpress;
+    }
+
+    if (!$dara.isNull(request.cycleType)) {
+      body["CycleType"] = request.cycleType;
+    }
+
+    if (!$dara.isNull(request.dependentNodeIdList)) {
+      body["DependentNodeIdList"] = request.dependentNodeIdList;
+    }
+
+    if (!$dara.isNull(request.dependentType)) {
+      body["DependentType"] = request.dependentType;
+    }
+
+    if (!$dara.isNull(request.endEffectDate)) {
+      body["EndEffectDate"] = request.endEffectDate;
+    }
+
+    if (!$dara.isNull(request.fileDescription)) {
+      body["FileDescription"] = request.fileDescription;
+    }
+
+    if (!$dara.isNull(request.fileFolderPath)) {
+      body["FileFolderPath"] = request.fileFolderPath;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    if (!$dara.isNull(request.ignoreParentSkipRunningProperty)) {
+      body["IgnoreParentSkipRunningProperty"] = request.ignoreParentSkipRunningProperty;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.inputList)) {
+      body["InputList"] = request.inputList;
+    }
+
+    if (!$dara.isNull(request.inputParameters)) {
+      body["InputParameters"] = request.inputParameters;
+    }
+
+    if (!$dara.isNull(request.outputParameters)) {
+      body["OutputParameters"] = request.outputParameters;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.paraValue)) {
+      body["ParaValue"] = request.paraValue;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!$dara.isNull(request.rerunMode)) {
+      body["RerunMode"] = request.rerunMode;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupIdentifier)) {
+      body["ResourceGroupIdentifier"] = request.resourceGroupIdentifier;
+    }
+
+    if (!$dara.isNull(request.schedulerType)) {
+      body["SchedulerType"] = request.schedulerType;
+    }
+
+    if (!$dara.isNull(request.startEffectDate)) {
+      body["StartEffectDate"] = request.startEffectDate;
+    }
+
+    if (!$dara.isNull(request.startImmediately)) {
+      body["StartImmediately"] = request.startImmediately;
+    }
+
+    if (!$dara.isNull(request.stop)) {
+      body["Stop"] = request.stop;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      body["Timeout"] = request.timeout;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFile",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFileResponse>(await this.callApi(params, req, runtime), new $_model.CreateFileResponse({}));
+  }
+
+  /**
+   * @param request - CreateFileRequest
+   * @returns CreateFileResponse
+   */
+  async createFile(request: $_model.CreateFileRequest): Promise<$_model.CreateFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createFileWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - CreateFolderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFolderResponse
+   */
+  async createFolderWithOptions(request: $_model.CreateFolderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFolderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.folderPath)) {
+      body["FolderPath"] = request.folderPath;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFolder",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFolderResponse>(await this.callApi(params, req, runtime), new $_model.CreateFolderResponse({}));
+  }
+
+  /**
+   * @param request - CreateFolderRequest
+   * @returns CreateFolderResponse
+   */
+  async createFolder(request: $_model.CreateFolderRequest): Promise<$_model.CreateFolderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createFolderWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a user-defined function (UDF) in DataStudio. The information about the UDF is described by using FlowSpec.
    * 
    * @remarks
@@ -1739,6 +2013,167 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 支持用户指定自己的文件（比如jar，py，arhive，file等）创建数据开发资源文件
+   * 
+   * @param request - CreateResourceFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResourceFileResponse
+   */
+  async createResourceFileWithOptions(request: $_model.CreateResourceFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateResourceFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.fileDescription)) {
+      body["FileDescription"] = request.fileDescription;
+    }
+
+    if (!$dara.isNull(request.fileFolderPath)) {
+      body["FileFolderPath"] = request.fileFolderPath;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    if (!$dara.isNull(request.originResourceName)) {
+      body["OriginResourceName"] = request.originResourceName;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.registerToCalcEngine)) {
+      body["RegisterToCalcEngine"] = request.registerToCalcEngine;
+    }
+
+    if (!$dara.isNull(request.resourceFile)) {
+      body["ResourceFile"] = request.resourceFile;
+    }
+
+    if (!$dara.isNull(request.storageURL)) {
+      body["StorageURL"] = request.storageURL;
+    }
+
+    if (!$dara.isNull(request.uploadMode)) {
+      body["UploadMode"] = request.uploadMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateResourceFile",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateResourceFileResponse>(await this.callApi(params, req, runtime), new $_model.CreateResourceFileResponse({}));
+  }
+
+  /**
+   * 支持用户指定自己的文件（比如jar，py，arhive，file等）创建数据开发资源文件
+   * 
+   * @param request - CreateResourceFileRequest
+   * @returns CreateResourceFileResponse
+   */
+  async createResourceFile(request: $_model.CreateResourceFileRequest): Promise<$_model.CreateResourceFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createResourceFileWithOptions(request, runtime);
+  }
+
+  async createResourceFileAdvance(request: $_model.CreateResourceFileAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateResourceFileResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "dataworks-public",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = new OSS(ossConfig);
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let createResourceFileReq = new $_model.CreateResourceFileRequest({ });
+    OpenApiUtil.convert(request, createResourceFileReq);
+    if (!$dara.isNull(request.resourceFileObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.resourceFileObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      createResourceFileReq.resourceFile = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let createResourceFileResp = await this.createResourceFileWithOptions(createResourceFileReq, runtime);
+    return createResourceFileResp;
+  }
+
+  /**
    * Creates a serverless resource group.
    * 
    * @remarks
@@ -1892,6 +2327,92 @@ export default class Client extends OpenApi {
   async createRoute(request: $_model.CreateRouteRequest): Promise<$_model.CreateRouteResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - CreateUdfFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUdfFileResponse
+   */
+  async createUdfFileWithOptions(request: $_model.CreateUdfFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateUdfFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.className)) {
+      body["ClassName"] = request.className;
+    }
+
+    if (!$dara.isNull(request.cmdDescription)) {
+      body["CmdDescription"] = request.cmdDescription;
+    }
+
+    if (!$dara.isNull(request.createFolderIfNotExists)) {
+      body["CreateFolderIfNotExists"] = request.createFolderIfNotExists;
+    }
+
+    if (!$dara.isNull(request.example)) {
+      body["Example"] = request.example;
+    }
+
+    if (!$dara.isNull(request.fileFolderPath)) {
+      body["FileFolderPath"] = request.fileFolderPath;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.functionType)) {
+      body["FunctionType"] = request.functionType;
+    }
+
+    if (!$dara.isNull(request.parameterDescription)) {
+      body["ParameterDescription"] = request.parameterDescription;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!$dara.isNull(request.resources)) {
+      body["Resources"] = request.resources;
+    }
+
+    if (!$dara.isNull(request.returnValue)) {
+      body["ReturnValue"] = request.returnValue;
+    }
+
+    if (!$dara.isNull(request.udfDescription)) {
+      body["UdfDescription"] = request.udfDescription;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateUdfFile",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateUdfFileResponse>(await this.callApi(params, req, runtime), new $_model.CreateUdfFileResponse({}));
+  }
+
+  /**
+   * @param request - CreateUdfFileRequest
+   * @returns CreateUdfFileResponse
+   */
+  async createUdfFile(request: $_model.CreateUdfFileRequest): Promise<$_model.CreateUdfFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createUdfFileWithOptions(request, runtime);
   }
 
   /**
@@ -2074,6 +2595,52 @@ export default class Client extends OpenApi {
   async deleteAlertRule(request: $_model.DeleteAlertRuleRequest): Promise<$_model.DeleteAlertRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAlertRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DeleteBusinessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBusinessResponse
+   */
+  async deleteBusinessWithOptions(request: $_model.DeleteBusinessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBusinessResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessId)) {
+      body["BusinessId"] = request.businessId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBusiness",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBusinessResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBusinessResponse({}));
+  }
+
+  /**
+   * @param request - DeleteBusinessRequest
+   * @returns DeleteBusinessResponse
+   */
+  async deleteBusiness(request: $_model.DeleteBusinessRequest): Promise<$_model.DeleteBusinessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBusinessWithOptions(request, runtime);
   }
 
   /**
@@ -2506,6 +3073,98 @@ export default class Client extends OpenApi {
   async deleteDataSourceSharedRule(request: $_model.DeleteDataSourceSharedRuleRequest): Promise<$_model.DeleteDataSourceSharedRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDataSourceSharedRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DeleteFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFileResponse
+   */
+  async deleteFileWithOptions(request: $_model.DeleteFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFile",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFileResponse({}));
+  }
+
+  /**
+   * @param request - DeleteFileRequest
+   * @returns DeleteFileResponse
+   */
+  async deleteFile(request: $_model.DeleteFileRequest): Promise<$_model.DeleteFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFileWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DeleteFolderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFolderResponse
+   */
+  async deleteFolderWithOptions(request: $_model.DeleteFolderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFolderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.folderId)) {
+      body["FolderId"] = request.folderId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFolder",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFolderResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFolderResponse({}));
+  }
+
+  /**
+   * @param request - DeleteFolderRequest
+   * @returns DeleteFolderResponse
+   */
+  async deleteFolder(request: $_model.DeleteFolderRequest): Promise<$_model.DeleteFolderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFolderWithOptions(request, runtime);
   }
 
   /**
@@ -3157,6 +3816,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DeployFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeployFileResponse
+   */
+  async deployFileWithOptions(request: $_model.DeployFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeployFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeployFile",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeployFileResponse>(await this.callApi(params, req, runtime), new $_model.DeployFileResponse({}));
+  }
+
+  /**
+   * @param request - DeployFileRequest
+   * @returns DeployFileResponse
+   */
+  async deployFile(request: $_model.DeployFileRequest): Promise<$_model.DeployFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deployFileWithOptions(request, runtime);
+  }
+
+  /**
    * Disassociates monitoring rules from a data quality monitoring task.
    * 
    * @param tmpReq - DetachDataQualityRulesFromEvaluationTaskRequest
@@ -3266,6 +3979,60 @@ export default class Client extends OpenApi {
   async dissociateProjectFromResourceGroup(request: $_model.DissociateProjectFromResourceGroupRequest): Promise<$_model.DissociateProjectFromResourceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.dissociateProjectFromResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - EstablishRelationTableToBusinessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EstablishRelationTableToBusinessResponse
+   */
+  async establishRelationTableToBusinessWithOptions(request: $_model.EstablishRelationTableToBusinessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EstablishRelationTableToBusinessResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessId)) {
+      body["BusinessId"] = request.businessId;
+    }
+
+    if (!$dara.isNull(request.folderId)) {
+      body["FolderId"] = request.folderId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!$dara.isNull(request.tableGuid)) {
+      body["TableGuid"] = request.tableGuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EstablishRelationTableToBusiness",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EstablishRelationTableToBusinessResponse>(await this.callApi(params, req, runtime), new $_model.EstablishRelationTableToBusinessResponse({}));
+  }
+
+  /**
+   * @param request - EstablishRelationTableToBusinessRequest
+   * @returns EstablishRelationTableToBusinessResponse
+   */
+  async establishRelationTableToBusiness(request: $_model.EstablishRelationTableToBusinessRequest): Promise<$_model.EstablishRelationTableToBusinessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.establishRelationTableToBusinessWithOptions(request, runtime);
   }
 
   /**
@@ -3438,6 +4205,52 @@ export default class Client extends OpenApi {
   async getAlertRule(request: $_model.GetAlertRuleRequest): Promise<$_model.GetAlertRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAlertRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetBusinessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBusinessResponse
+   */
+  async getBusinessWithOptions(request: $_model.GetBusinessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetBusinessResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessId)) {
+      body["BusinessId"] = request.businessId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBusiness",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBusinessResponse>(await this.callApi(params, req, runtime), new $_model.GetBusinessResponse({}));
+  }
+
+  /**
+   * @param request - GetBusinessRequest
+   * @returns GetBusinessResponse
+   */
+  async getBusiness(request: $_model.GetBusinessRequest): Promise<$_model.GetBusinessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getBusinessWithOptions(request, runtime);
   }
 
   /**
@@ -3945,6 +4758,202 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - GetDeploymentPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeploymentPackageResponse
+   */
+  async getDeploymentPackageWithOptions(request: $_model.GetDeploymentPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeploymentPackageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deploymentId)) {
+      body["DeploymentId"] = request.deploymentId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDeploymentPackage",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDeploymentPackageResponse>(await this.callApi(params, req, runtime), new $_model.GetDeploymentPackageResponse({}));
+  }
+
+  /**
+   * @param request - GetDeploymentPackageRequest
+   * @returns GetDeploymentPackageResponse
+   */
+  async getDeploymentPackage(request: $_model.GetDeploymentPackageRequest): Promise<$_model.GetDeploymentPackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDeploymentPackageWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileResponse
+   */
+  async getFileWithOptions(request: $_model.GetFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFile",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFileResponse>(await this.callApi(params, req, runtime), new $_model.GetFileResponse({}));
+  }
+
+  /**
+   * @param request - GetFileRequest
+   * @returns GetFileResponse
+   */
+  async getFile(request: $_model.GetFileRequest): Promise<$_model.GetFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFileWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetFileVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileVersionResponse
+   */
+  async getFileVersionWithOptions(request: $_model.GetFileVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFileVersionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.fileVersion)) {
+      body["FileVersion"] = request.fileVersion;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFileVersion",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFileVersionResponse>(await this.callApi(params, req, runtime), new $_model.GetFileVersionResponse({}));
+  }
+
+  /**
+   * @param request - GetFileVersionRequest
+   * @returns GetFileVersionResponse
+   */
+  async getFileVersion(request: $_model.GetFileVersionRequest): Promise<$_model.GetFileVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFileVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetFolderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFolderResponse
+   */
+  async getFolderWithOptions(request: $_model.GetFolderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFolderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.folderId)) {
+      body["FolderId"] = request.folderId;
+    }
+
+    if (!$dara.isNull(request.folderPath)) {
+      body["FolderPath"] = request.folderPath;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFolder",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFolderResponse>(await this.callApi(params, req, runtime), new $_model.GetFolderResponse({}));
+  }
+
+  /**
+   * @param request - GetFolderRequest
+   * @returns GetFolderResponse
+   */
+  async getFolder(request: $_model.GetFolderRequest): Promise<$_model.GetFolderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFolderWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a user-defined function (UDF) in DataStudio.
    * 
    * @param request - GetFunctionRequest
@@ -3980,6 +4989,52 @@ export default class Client extends OpenApi {
   async getFunction(request: $_model.GetFunctionRequest): Promise<$_model.GetFunctionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFunctionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取扩展点触发时的数据快照
+   * 
+   * @param request - GetIDEEventDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIDEEventDetailResponse
+   */
+  async getIDEEventDetailWithOptions(request: $_model.GetIDEEventDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetIDEEventDetailResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.messageId)) {
+      body["MessageId"] = request.messageId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIDEEventDetail",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetIDEEventDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetIDEEventDetailResponse({}));
+  }
+
+  /**
+   * 获取扩展点触发时的数据快照
+   * 
+   * @param request - GetIDEEventDetailRequest
+   * @returns GetIDEEventDetailResponse
+   */
+  async getIDEEventDetail(request: $_model.GetIDEEventDetailRequest): Promise<$_model.GetIDEEventDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getIDEEventDetailWithOptions(request, runtime);
   }
 
   /**
@@ -5180,6 +6235,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ListBusinessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBusinessResponse
+   */
+  async listBusinessWithOptions(request: $_model.ListBusinessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBusinessResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBusiness",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBusinessResponse>(await this.callApi(params, req, runtime), new $_model.ListBusinessResponse({}));
+  }
+
+  /**
+   * @param request - ListBusinessRequest
+   * @returns ListBusinessResponse
+   */
+  async listBusiness(request: $_model.ListBusinessRequest): Promise<$_model.ListBusinessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBusinessWithOptions(request, runtime);
+  }
+
+  /**
    * 查询数据目录列表
    * 
    * @param tmpReq - ListCatalogsRequest
@@ -6008,6 +7117,176 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取待发布的文件版本列表
+   * 
+   * @param tmpReq - ListDeploymentPackageFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDeploymentPackageFilesResponse
+   */
+  async listDeploymentPackageFilesWithOptions(tmpReq: $_model.ListDeploymentPackageFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDeploymentPackageFilesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListDeploymentPackageFilesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fileIds)) {
+      request.fileIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fileIds, "FileIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.businessId)) {
+      query["BusinessId"] = request.businessId;
+    }
+
+    if (!$dara.isNull(request.changeType)) {
+      query["ChangeType"] = request.changeType;
+    }
+
+    if (!$dara.isNull(request.commitFrom)) {
+      query["CommitFrom"] = request.commitFrom;
+    }
+
+    if (!$dara.isNull(request.commitTo)) {
+      query["CommitTo"] = request.commitTo;
+    }
+
+    if (!$dara.isNull(request.commitUserId)) {
+      query["CommitUserId"] = request.commitUserId;
+    }
+
+    if (!$dara.isNull(request.fileIdsShrink)) {
+      query["FileIds"] = request.fileIdsShrink;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.fileType)) {
+      query["FileType"] = request.fileType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.solutionId)) {
+      query["SolutionId"] = request.solutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDeploymentPackageFiles",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDeploymentPackageFilesResponse>(await this.callApi(params, req, runtime), new $_model.ListDeploymentPackageFilesResponse({}));
+  }
+
+  /**
+   * 获取待发布的文件版本列表
+   * 
+   * @param request - ListDeploymentPackageFilesRequest
+   * @returns ListDeploymentPackageFilesResponse
+   */
+  async listDeploymentPackageFiles(request: $_model.ListDeploymentPackageFilesRequest): Promise<$_model.ListDeploymentPackageFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDeploymentPackageFilesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询发布包列表
+   * 
+   * @param request - ListDeploymentPackagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDeploymentPackagesResponse
+   */
+  async listDeploymentPackagesWithOptions(request: $_model.ListDeploymentPackagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDeploymentPackagesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.creator)) {
+      body["Creator"] = request.creator;
+    }
+
+    if (!$dara.isNull(request.endCreateTime)) {
+      body["EndCreateTime"] = request.endCreateTime;
+    }
+
+    if (!$dara.isNull(request.endExecuteTime)) {
+      body["EndExecuteTime"] = request.endExecuteTime;
+    }
+
+    if (!$dara.isNull(request.executor)) {
+      body["Executor"] = request.executor;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDeploymentPackages",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDeploymentPackagesResponse>(await this.callApi(params, req, runtime), new $_model.ListDeploymentPackagesResponse({}));
+  }
+
+  /**
+   * 查询发布包列表
+   * 
+   * @param request - ListDeploymentPackagesRequest
+   * @returns ListDeploymentPackagesResponse
+   */
+  async listDeploymentPackages(request: $_model.ListDeploymentPackagesRequest): Promise<$_model.ListDeploymentPackagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDeploymentPackagesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of descendant instances of an instance by page.
    * 
    * @remarks
@@ -6125,6 +7404,212 @@ export default class Client extends OpenApi {
   async listEntitiesInMetaCollection(request: $_model.ListEntitiesInMetaCollectionRequest): Promise<$_model.ListEntitiesInMetaCollectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listEntitiesInMetaCollectionWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListFileVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFileVersionsResponse
+   */
+  async listFileVersionsWithOptions(request: $_model.ListFileVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFileVersionsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFileVersions",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFileVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListFileVersionsResponse({}));
+  }
+
+  /**
+   * @param request - ListFileVersionsRequest
+   * @returns ListFileVersionsResponse
+   */
+  async listFileVersions(request: $_model.ListFileVersionsRequest): Promise<$_model.ListFileVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFileVersionsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFilesResponse
+   */
+  async listFilesWithOptions(request: $_model.ListFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFilesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.commitStatus)) {
+      body["CommitStatus"] = request.commitStatus;
+    }
+
+    if (!$dara.isNull(request.exactFileName)) {
+      body["ExactFileName"] = request.exactFileName;
+    }
+
+    if (!$dara.isNull(request.fileFolderPath)) {
+      body["FileFolderPath"] = request.fileFolderPath;
+    }
+
+    if (!$dara.isNull(request.fileIdIn)) {
+      body["FileIdIn"] = request.fileIdIn;
+    }
+
+    if (!$dara.isNull(request.fileTypes)) {
+      body["FileTypes"] = request.fileTypes;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.lastEditUser)) {
+      body["LastEditUser"] = request.lastEditUser;
+    }
+
+    if (!$dara.isNull(request.needAbsoluteFolderPath)) {
+      body["NeedAbsoluteFolderPath"] = request.needAbsoluteFolderPath;
+    }
+
+    if (!$dara.isNull(request.needContent)) {
+      body["NeedContent"] = request.needContent;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!$dara.isNull(request.useType)) {
+      body["UseType"] = request.useType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFiles",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFilesResponse>(await this.callApi(params, req, runtime), new $_model.ListFilesResponse({}));
+  }
+
+  /**
+   * @param request - ListFilesRequest
+   * @returns ListFilesResponse
+   */
+  async listFiles(request: $_model.ListFilesRequest): Promise<$_model.ListFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFilesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListFoldersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFoldersResponse
+   */
+  async listFoldersWithOptions(request: $_model.ListFoldersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFoldersResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.parentFolderPath)) {
+      body["ParentFolderPath"] = request.parentFolderPath;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFolders",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFoldersResponse>(await this.callApi(params, req, runtime), new $_model.ListFoldersResponse({}));
+  }
+
+  /**
+   * @param request - ListFoldersRequest
+   * @returns ListFoldersResponse
+   */
+  async listFolders(request: $_model.ListFoldersRequest): Promise<$_model.ListFoldersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFoldersWithOptions(request, runtime);
   }
 
   /**
@@ -6435,6 +7920,44 @@ export default class Client extends OpenApi {
   async listPartitions(request: $_model.ListPartitionsRequest): Promise<$_model.ListPartitionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listPartitionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 通过发布流程的ID获取发布内容
+   * 
+   * @param request - ListPipelineRunItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPipelineRunItemsResponse
+   */
+  async listPipelineRunItemsWithOptions(request: $_model.ListPipelineRunItemsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPipelineRunItemsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPipelineRunItems",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPipelineRunItemsResponse>(await this.callApi(params, req, runtime), new $_model.ListPipelineRunItemsResponse({}));
+  }
+
+  /**
+   * 通过发布流程的ID获取发布内容
+   * 
+   * @param request - ListPipelineRunItemsRequest
+   * @returns ListPipelineRunItemsResponse
+   */
+  async listPipelineRunItems(request: $_model.ListPipelineRunItemsRequest): Promise<$_model.ListPipelineRunItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPipelineRunItemsWithOptions(request, runtime);
   }
 
   /**
@@ -7048,6 +8571,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sortBy)) {
       body["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
     }
 
     if (!$dara.isNull(request.taskId)) {
@@ -8570,6 +10097,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - SubmitFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitFileResponse
+   */
+  async submitFileWithOptions(request: $_model.SubmitFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!$dara.isNull(request.skipAllDeployFileExtensions)) {
+      body["SkipAllDeployFileExtensions"] = request.skipAllDeployFileExtensions;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitFile",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitFileResponse>(await this.callApi(params, req, runtime), new $_model.SubmitFileResponse({}));
+  }
+
+  /**
+   * @param request - SubmitFileRequest
+   * @returns SubmitFileResponse
+   */
+  async submitFile(request: $_model.SubmitFileRequest): Promise<$_model.SubmitFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitFileWithOptions(request, runtime);
+  }
+
+  /**
    * Suspends multiple instances at a time.
    * 
    * @remarks
@@ -8965,6 +10546,64 @@ export default class Client extends OpenApi {
   async updateAlertRule(request: $_model.UpdateAlertRuleRequest): Promise<$_model.UpdateAlertRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAlertRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - UpdateBusinessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBusinessResponse
+   */
+  async updateBusinessWithOptions(request: $_model.UpdateBusinessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateBusinessResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessId)) {
+      body["BusinessId"] = request.businessId;
+    }
+
+    if (!$dara.isNull(request.businessName)) {
+      body["BusinessName"] = request.businessName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateBusiness",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateBusinessResponse>(await this.callApi(params, req, runtime), new $_model.UpdateBusinessResponse({}));
+  }
+
+  /**
+   * @param request - UpdateBusinessRequest
+   * @returns UpdateBusinessResponse
+   */
+  async updateBusiness(request: $_model.UpdateBusinessRequest): Promise<$_model.UpdateBusinessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateBusinessWithOptions(request, runtime);
   }
 
   /**
@@ -9540,6 +11179,222 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - UpdateFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFileResponse
+   */
+  async updateFileWithOptions(request: $_model.UpdateFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.advancedSettings)) {
+      body["AdvancedSettings"] = request.advancedSettings;
+    }
+
+    if (!$dara.isNull(request.applyScheduleImmediately)) {
+      body["ApplyScheduleImmediately"] = request.applyScheduleImmediately;
+    }
+
+    if (!$dara.isNull(request.autoParsing)) {
+      body["AutoParsing"] = request.autoParsing;
+    }
+
+    if (!$dara.isNull(request.autoRerunIntervalMillis)) {
+      body["AutoRerunIntervalMillis"] = request.autoRerunIntervalMillis;
+    }
+
+    if (!$dara.isNull(request.autoRerunTimes)) {
+      body["AutoRerunTimes"] = request.autoRerunTimes;
+    }
+
+    if (!$dara.isNull(request.connectionName)) {
+      body["ConnectionName"] = request.connectionName;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.cronExpress)) {
+      body["CronExpress"] = request.cronExpress;
+    }
+
+    if (!$dara.isNull(request.cycleType)) {
+      body["CycleType"] = request.cycleType;
+    }
+
+    if (!$dara.isNull(request.dependentNodeIdList)) {
+      body["DependentNodeIdList"] = request.dependentNodeIdList;
+    }
+
+    if (!$dara.isNull(request.dependentType)) {
+      body["DependentType"] = request.dependentType;
+    }
+
+    if (!$dara.isNull(request.endEffectDate)) {
+      body["EndEffectDate"] = request.endEffectDate;
+    }
+
+    if (!$dara.isNull(request.fileDescription)) {
+      body["FileDescription"] = request.fileDescription;
+    }
+
+    if (!$dara.isNull(request.fileFolderPath)) {
+      body["FileFolderPath"] = request.fileFolderPath;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.ignoreParentSkipRunningProperty)) {
+      body["IgnoreParentSkipRunningProperty"] = request.ignoreParentSkipRunningProperty;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.inputList)) {
+      body["InputList"] = request.inputList;
+    }
+
+    if (!$dara.isNull(request.inputParameters)) {
+      body["InputParameters"] = request.inputParameters;
+    }
+
+    if (!$dara.isNull(request.outputList)) {
+      body["OutputList"] = request.outputList;
+    }
+
+    if (!$dara.isNull(request.outputParameters)) {
+      body["OutputParameters"] = request.outputParameters;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.paraValue)) {
+      body["ParaValue"] = request.paraValue;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!$dara.isNull(request.rerunMode)) {
+      body["RerunMode"] = request.rerunMode;
+    }
+
+    if (!$dara.isNull(request.resourceGroupIdentifier)) {
+      body["ResourceGroupIdentifier"] = request.resourceGroupIdentifier;
+    }
+
+    if (!$dara.isNull(request.schedulerType)) {
+      body["SchedulerType"] = request.schedulerType;
+    }
+
+    if (!$dara.isNull(request.startEffectDate)) {
+      body["StartEffectDate"] = request.startEffectDate;
+    }
+
+    if (!$dara.isNull(request.startImmediately)) {
+      body["StartImmediately"] = request.startImmediately;
+    }
+
+    if (!$dara.isNull(request.stop)) {
+      body["Stop"] = request.stop;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      body["Timeout"] = request.timeout;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFile",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFileResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFileResponse({}));
+  }
+
+  /**
+   * @param request - UpdateFileRequest
+   * @returns UpdateFileResponse
+   */
+  async updateFile(request: $_model.UpdateFileRequest): Promise<$_model.UpdateFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateFileWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - UpdateFolderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFolderResponse
+   */
+  async updateFolderWithOptions(request: $_model.UpdateFolderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFolderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.folderId)) {
+      body["FolderId"] = request.folderId;
+    }
+
+    if (!$dara.isNull(request.folderName)) {
+      body["FolderName"] = request.folderName;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFolder",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFolderResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFolderResponse({}));
+  }
+
+  /**
+   * @param request - UpdateFolderRequest
+   * @returns UpdateFolderResponse
+   */
+  async updateFolder(request: $_model.UpdateFolderRequest): Promise<$_model.UpdateFolderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateFolderWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateFunctionRequest
@@ -9587,6 +11442,60 @@ export default class Client extends OpenApi {
   async updateFunction(request: $_model.UpdateFunctionRequest): Promise<$_model.UpdateFunctionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateFunctionWithOptions(request, runtime);
+  }
+
+  /**
+   * 回调扩展点消息的检查结果
+   * 
+   * @param request - UpdateIDEEventResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIDEEventResultResponse
+   */
+  async updateIDEEventResultWithOptions(request: $_model.UpdateIDEEventResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateIDEEventResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.checkResult)) {
+      body["CheckResult"] = request.checkResult;
+    }
+
+    if (!$dara.isNull(request.checkResultTip)) {
+      body["CheckResultTip"] = request.checkResultTip;
+    }
+
+    if (!$dara.isNull(request.extensionCode)) {
+      body["ExtensionCode"] = request.extensionCode;
+    }
+
+    if (!$dara.isNull(request.messageId)) {
+      body["MessageId"] = request.messageId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateIDEEventResult",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateIDEEventResultResponse>(await this.callApi(params, req, runtime), new $_model.UpdateIDEEventResultResponse({}));
+  }
+
+  /**
+   * 回调扩展点消息的检查结果
+   * 
+   * @param request - UpdateIDEEventResultRequest
+   * @returns UpdateIDEEventResultResponse
+   */
+  async updateIDEEventResult(request: $_model.UpdateIDEEventResultRequest): Promise<$_model.UpdateIDEEventResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateIDEEventResultWithOptions(request, runtime);
   }
 
   /**
@@ -10256,6 +12165,88 @@ export default class Client extends OpenApi {
   async updateTaskInstances(request: $_model.UpdateTaskInstancesRequest): Promise<$_model.UpdateTaskInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTaskInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - UpdateUdfFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUdfFileResponse
+   */
+  async updateUdfFileWithOptions(request: $_model.UpdateUdfFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateUdfFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.className)) {
+      body["ClassName"] = request.className;
+    }
+
+    if (!$dara.isNull(request.cmdDescription)) {
+      body["CmdDescription"] = request.cmdDescription;
+    }
+
+    if (!$dara.isNull(request.example)) {
+      body["Example"] = request.example;
+    }
+
+    if (!$dara.isNull(request.fileFolderPath)) {
+      body["FileFolderPath"] = request.fileFolderPath;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.functionType)) {
+      body["FunctionType"] = request.functionType;
+    }
+
+    if (!$dara.isNull(request.parameterDescription)) {
+      body["ParameterDescription"] = request.parameterDescription;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!$dara.isNull(request.resources)) {
+      body["Resources"] = request.resources;
+    }
+
+    if (!$dara.isNull(request.returnValue)) {
+      body["ReturnValue"] = request.returnValue;
+    }
+
+    if (!$dara.isNull(request.udfDescription)) {
+      body["UdfDescription"] = request.udfDescription;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateUdfFile",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateUdfFileResponse>(await this.callApi(params, req, runtime), new $_model.UpdateUdfFileResponse({}));
+  }
+
+  /**
+   * @param request - UpdateUdfFileRequest
+   * @returns UpdateUdfFileResponse
+   */
+  async updateUdfFile(request: $_model.UpdateUdfFileRequest): Promise<$_model.UpdateUdfFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateUdfFileWithOptions(request, runtime);
   }
 
   /**

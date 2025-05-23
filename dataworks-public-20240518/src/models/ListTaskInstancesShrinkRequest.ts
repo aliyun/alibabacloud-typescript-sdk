@@ -99,6 +99,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
    * Id Desc
    */
   sortBy?: string;
+  status?: string;
   /**
    * @remarks
    * The ID of the task for which the instance is generated.
@@ -193,6 +194,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
       projectId: 'ProjectId',
       runtimeResource: 'RuntimeResource',
       sortBy: 'SortBy',
+      status: 'Status',
       taskId: 'TaskId',
       taskIdsShrink: 'TaskIds',
       taskName: 'TaskName',
@@ -217,6 +219,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
       projectId: 'number',
       runtimeResource: 'string',
       sortBy: 'string',
+      status: 'string',
       taskId: 'number',
       taskIdsShrink: 'string',
       taskName: 'string',
