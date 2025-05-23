@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeAttributes } from "./DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeAttributes";
+import { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeClock } from "./DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeClock";
 import { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeCpuOptions } from "./DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeCpuOptions";
 import { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeEnhancedNetwork } from "./DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeEnhancedNetwork";
 import { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCards } from "./DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCards";
@@ -17,6 +18,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
    * 4
    */
   baselineCredit?: number;
+  clock?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeClock;
   /**
    * @remarks
    * The CPU architecture. Valid values:
@@ -379,6 +381,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
     return {
       attributes: 'Attributes',
       baselineCredit: 'BaselineCredit',
+      clock: 'Clock',
       cpuArchitecture: 'CpuArchitecture',
       cpuCoreCount: 'CpuCoreCount',
       cpuOptions: 'CpuOptions',
@@ -427,6 +430,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
     return {
       attributes: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeAttributes,
       baselineCredit: 'number',
+      clock: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeClock,
       cpuArchitecture: 'string',
       cpuCoreCount: 'number',
       cpuOptions: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeCpuOptions,
@@ -474,6 +478,9 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
   validate() {
     if(this.attributes && typeof (this.attributes as any).validate === 'function') {
       (this.attributes as any).validate();
+    }
+    if(this.clock && typeof (this.clock as any).validate === 'function') {
+      (this.clock as any).validate();
     }
     if(this.cpuOptions && typeof (this.cpuOptions as any).validate === 'function') {
       (this.cpuOptions as any).validate();
