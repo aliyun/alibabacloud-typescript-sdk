@@ -7,6 +7,8 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling extends $d
    * @remarks
    * The maximum bandwidth of the elastic IP address (EIP).
    * 
+   * Valid values: 1 to 100. Unit: Mbit/s.
+   * 
    * @example
    * 5
    */
@@ -24,10 +26,12 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling extends $d
   eipInternetChargeType?: string;
   /**
    * @remarks
-   * Specifies whether to enable auto scaling. Valid values:
+   * Indicates whether auto scaling is enabled. Valid values:
    * 
-   * *   `true`
-   * *   `false`: If you set this parameter to `false`, other parameters in `auto_scaling` do not take effect.
+   * *   `true`: Auto scaling is enabled for the node pool. When the capacity planning of the cluster cannot meet the requirements of pod scheduling, ACK automatically scales out nodes based on the configured minimum and maximum number of instances. Node instant scaling is enabled by default for clusters that run Kubernetes 1.24 or later. Node auto scaling is enabled for clusters that run Kubernetes 1.24 and earlier. For more information, see [Node auto scaling](https://help.aliyun.com/document_detail/2746785.html).
+   * *   `false`: does not enable auto scaling. ACK adjusts the number of nodes in the node pool based on the value of the Expected Nodes parameter. The number of nodes is always the same as the value of the Expected Nodes parameter.
+   * 
+   * If you set this parameter to false, other parameters of `auto_scaling` do not take effect.
    * 
    * @example
    * true
@@ -46,7 +50,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling extends $d
   isBondEip?: boolean;
   /**
    * @remarks
-   * The maximum number of Elastic Compute Service (ECS) instances that can be created in the node pool.
+   * The maximum number of scalable instances in the node pool. Your existing instances are not included.
    * 
    * @example
    * 10
@@ -54,7 +58,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling extends $d
   maxInstances?: number;
   /**
    * @remarks
-   * The minimum number of ECS instances that must be retained in the node pool.
+   * The minimum number of scalable instances in the node pool, excluding your existing instances.
    * 
    * @example
    * 2

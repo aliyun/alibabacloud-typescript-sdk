@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateClusterInspectConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 873DC52C-28AA-5A5C-938C-684D3D4B****
    */

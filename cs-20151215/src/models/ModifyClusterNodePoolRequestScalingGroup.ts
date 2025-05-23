@@ -15,7 +15,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
    * *   `true`: enables auto-renewal.
    * *   `false`: disables auto-renewal.
    * 
-   * Default value: `false`
+   * Default value: `false`.
    * 
    * @example
    * true
@@ -23,10 +23,10 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal period. Valid value:
+   * The auto-renewal period. Valid values:
    * 
    * *   Valid values when PeriodUnit is set to Week: 1, 2, and 3.
-   * *   Valid values when PeriodUnit is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
+   * *   Valid values when PeriodUnit is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60
    * 
    * Default value: 1.
    * 
@@ -36,9 +36,9 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created due to reasons such as the cost or insufficient inventory. This parameter takes effect only when you set `multi_az_policy` to `COST_OPTIMIZED`. Valid values:
+   * Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created due to reasons such as the price or insufficient inventory. This parameter takes effect when you set `multi_az_policy` to `COST_OPTIMIZED`. Valid values:
    * 
-   * *   `true`: automatically creates pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created
+   * *   `true`: automatically creates pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created.
    * *   `false`: does not create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created.
    * 
    * @example
@@ -50,10 +50,18 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
    * The configurations of the data disks that are mounted to nodes in the node pool. Valid values: 0 to 10. You can mount at most 10 data disks to the nodes in the node pool.
    */
   dataDisks?: DataDisk[];
+  /**
+   * @example
+   * ds-bp1d19mmbsv3jf6xxxxx
+   */
   deploymentsetId?: string;
   /**
    * @remarks
    * The expected number of nodes in the node pool.
+   * 
+   * The expected number of nodes in the node pool. We recommend that you configure at least two nodes to ensure that cluster components run as expected. You can modify the Expected Nodes parameter to adjust the number of nodes in the node pool.
+   * 
+   * If you do not want to create nodes in the node pool, set this parameter to 0. You can manually modify this parameter to add nodes later.
    * 
    * @example
    * 2
@@ -61,7 +69,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   desiredSize?: number;
   /**
    * @remarks
-   * The custom image ID. You can call the `DescribeKubernetesVersionMetadata` operation to query the supported images. By default, the latest image is used.
+   * The custom image ID. You can call the `DescribeKubernetesVersionMetadata` operation to query the images supported by ACK. By default, the latest image is used.
    * 
    * @example
    * aliyun_2_1903_x64_20G_alibase_20200904.vhd
@@ -73,14 +81,14 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
    * 
    * *   `AliyunLinux`: Alibaba Cloud Linux 2.
    * *   `AliyunLinuxSecurity`: Alibaba Cloud Linux 2 (UEFI).
-   * *   `AliyunLinux3`: Alibaba Cloud Linux 3
-   * *   `AliyunLinux3Arm64`: Alibaba Cloud Linux 3 (ARM).
+   * *   `AliyunLinux3`: Alibaba Cloud Linux 3.
+   * *   `AliyunLinux3Arm64`: Alibaba Cloud Linux 3 for ARM.
    * *   `AliyunLinux3Security`: Alibaba Cloud Linux 3 (UEFI).
    * *   `CentOS`: CentOS.
    * *   `Windows`: Windows.
    * *   `WindowsCore`: Windows Core.
    * *   `ContainerOS`: ContainerOS.
-   * *   `AliyunLinux3ContainerOptimized`: Alibaba Cloud Linux 3 Container-optimized image.
+   * *   `AliyunLinux3ContainerOptimized`: Alibaba Cloud Linux 3 Container-optimized.
    * 
    * @example
    * AliyunLinux
@@ -90,10 +98,10 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
    * @remarks
    * The billing method of nodes in the node pool. Valid values:
    * 
-   * *   `PrePaid`: subscription
-   * *   `PostPaid`: pay-as-you-go
+   * *   `PrePaid`: subscription.
+   * *   `PostPaid`: pay-as-you-go.
    * 
-   * Default value: `PostPaid`
+   * Default value: `PostPaid`.
    * 
    * @example
    * PostPaid
@@ -101,20 +109,22 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The instance attributes.
+   * .The instance attributes.
    */
   instancePatterns?: InstancePatterns[];
   /**
    * @remarks
    * The instance types. You can specify multiple instance types. A node is assigned the instance type from the first instance type of the list until the node is created. The instance type that is used to create the node varies based on the actual instance stock.
+   * 
+   * You can specify 1 to 10 instance types.
    */
   instanceTypes?: string[];
   /**
    * @remarks
-   * The billing method of the public IP address. Valid values:
+   * The metering method of the public IP address. Valid values:
    * 
-   * *   `PayByBandwidth`: pay-by-bandwidth
-   * *   `PayByTraffic`: pay-by-data-transfer
+   * *   `PayByBandwidth`: pay-by-bandwidth.
+   * *   `PayByTraffic`: pay-by-data-transfer.
    * 
    * @example
    * PayByBandwidth
@@ -148,15 +158,15 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
    * @remarks
    * The ECS instance scaling policy for the multi-zone scaling group. Valid values:
    * 
-   * *   `PRIORITY`: The scaling group is scaled based on the VSwitchIds.N parameter. If an ECS instance cannot be created in the zone in which the vSwitch that has the highest priority resides, Auto Scaling creates the ECS instance in the zone in which the vSwitch that has the next highest priority resides.
+   * *   `PRIORITY`: ECS instances are scaled based on the value of VSwitchIds.N. If an ECS instance cannot be created in the zone where the vSwitch that has the highest priority resides, the system creates the ECS instance in the zone where the vSwitch that has the next highest priority resides.
    * 
-   * *   `COST_OPTIMIZED`: ECS instances are created based on the vCPU unit price in ascending order. Preemptible instances are preferably created when preemptible instance types are specified in the scaling configurations. You can specify `CompensateWithOnDemand` to specify whether to automatically create pay-as-you-go instances when preemptible instances cannot be created due to insufficient resources.
+   * *   `COST_OPTIMIZED`: ECS instances are created based on the vCPU unit price in ascending order. Preemptible instances are preferably created if preemptible instance types are specified in the scaling configurations. You can set the `CompensateWithOnDemand` parameter to specify whether to automatically create pay-as-you-go instances when preemptible instances cannot be created due to insufficient inventory.
    * 
    *     **
    * 
-   *     **Note** `COST_OPTIMIZED` is valid only when multiple instance types are specified or at least one preemptible instance type is specified.
+   *     **Note** `COST_OPTIMIZED` takes effect only when multiple instance types are specified or at least one preemptible instance type is specified.
    * 
-   * *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to the insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
+   * *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
    * 
    * Default value: `PRIORITY`.
    * 
@@ -166,7 +176,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   multiAzPolicy?: string;
   /**
    * @remarks
-   * The minimum number of pay-as-you-go instances that must be kept in the scaling group. Valid values: 0 to 1000. If the number of pay-as-you-go instances is smaller than the value of this parameter, Auto Scaling preferably creates pay-as-you-go instances.
+   * The minimum number of pay-as-you-go instances that must be kept in the scaling group. Valid values: 0 to 1000. If the number of pay-as-you-go instances is less than the value of this parameter, the system preferably creates pay-as-you-go instances.
    * 
    * @example
    * 0
@@ -182,9 +192,10 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   onDemandPercentageAboveBaseCapacity?: number;
   /**
    * @remarks
-   * The subscription duration of the nodes in the node pool. This parameter takes effect and is required only when you set `instance_charge_type` to `PrePaid`.
+   * The subscription duration of nodes in the node pool. This parameter takes effect and is required if you set `instance_charge_type` to `PrePaid`.
    * 
-   * Valid values if `period_unit` is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
+   * *   If `period_unit` is set to Week, the valid values of `period` are 1, 2, 3, and 4.
+   * *   If `period_unit` is set to Month, the valid values of `period` are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
    * 
    * @example
    * 1
@@ -192,9 +203,10 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The billing cycle of the nodes in the node pool. This parameter is required if you set `instance_charge_type` to `PrePaid`. Valid values:
+   * The billing cycle of nodes in the node pool. This parameter takes effect and is required if you set `instance_charge_type` to `PrePaid`. Valid values:
    * 
-   * The billing cycle is measured only in months.
+   * *   `Month`: The subscription duration is measured in months.
+   * *   `Week`: The subscription duration is measured in weeks.
    * 
    * Default value: `Month`.
    * 
@@ -204,6 +216,8 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
+   * This parameter is obsolete. Use the `image_type` parameter instead.
+   * 
    * The OS platform. Valid values:
    * 
    * *   `AliyunLinux`
@@ -219,12 +233,12 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The configuration of the private node pool.
+   * The configurations of the private node pool.
    */
   privatePoolOptions?: ModifyClusterNodePoolRequestScalingGroupPrivatePoolOptions;
   /**
    * @remarks
-   * The ApsaraDB RDS instances.
+   * The IDs of ApsaraDB RDS instances.
    */
   rdsInstances?: string[];
   /**
@@ -232,7 +246,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
    * The scaling mode of the scaling group. Valid values:
    * 
    * *   `release`: the standard mode. ECS instances are created and released based on resource usage.
-   * *   `recycle`: the swift mode. ECS instances are created, stopped, or started during scaling events. This reduces the time required for the next scale-out event. When the instance is stopped, you are charged only for the storage service. This does not apply to ECS instances that are attached to local disks.
+   * *   `recycle`: the swift mode. ECS instances are created, stopped, or started during scaling events. This reduces the time required for the next scale-out event. When the instance is stopped, you are charged only for the storage service. This does not apply to ECS instances that are attached with local disks.
    * 
    * @example
    * release
@@ -249,7 +263,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   spotInstancePools?: number;
   /**
    * @remarks
-   * Indicates whether preemptible instances can be supplemented. If the supplementation of preemptible instances is enabled, when the scaling group receives a system message that a preemptible instance is to be reclaimed, the scaling group attempts to create a new instance to replace this instance. Valid values:
+   * Specifies whether to enable the supplementation of preemptible instances. If you set this parameter to true, when the scaling group receives a system message indicating that a preemptible instance is to be reclaimed, the scaling group attempts to create a new instance to replace the instance. Valid values:
    * 
    * *   `true`: supplements preemptible instances.
    * *   `false`: does not supplement preemptible instances.
@@ -279,7 +293,12 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * Specifies whether to enable Burst for the system disk when the disk type is cloud_auto.
+   * Specifies whether to enable the burst feature for the system disk. Valid values:
+   * 
+   * *   true: enables the burst feature.
+   * *   false: disables the burst feature.
+   * 
+   * This parameter is effective only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * true
@@ -287,17 +306,20 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   systemDiskBurstingEnabled?: boolean;
   /**
    * @remarks
-   * The system disk types. The system attempts to create system disks of a disk type with a lower priority if the disk type with a higher priority is unavailable. Valid values: cloud: disk. cloud_efficiency: Ultra disk. cloud_ssd: Standard SSD. cloud_essd: Enterprise SSD (ESSD).
+   * The categories of the system disk. The system attempts to create system disks of a disk category with a lower priority if the disk category with a higher priority is unavailable.
    */
   systemDiskCategories?: string[];
   /**
    * @remarks
-   * The type of system disk. Valid values:
+   * The category of the system disk. Valid values:
    * 
-   * *   `cloud_efficiency`: ultra disk
-   * *   `cloud_ssd`: standard SSD
+   * *   `cloud_efficiency`: ultra disk.
+   * *   `cloud_ssd`: standard SSD.
+   * *   `cloud_essd`: Enterprise ESSD (ESSD).
+   * *   `cloud_auto`: ESSD AutoPL disk.
+   * *   `cloud_essd_entry`: ESSD Entry disk.
    * 
-   * Default value: `cloud_ssd`
+   * Default value: `cloud_efficiency`.
    * 
    * @example
    * cloud_efficiency
@@ -305,7 +327,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The encryption algorithm that is used by the system disk. The value is aes-256.
+   * The encryption algorithm that is used to encrypt the system disk. Set the value to aes-256.
    * 
    * @example
    * aes-256
@@ -313,7 +335,10 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   systemDiskEncryptAlgorithm?: string;
   /**
    * @remarks
-   * Indicates whether the system disk is encrypted. Valid values: true: encrypts the system disk. false: does not encrypt the system disk.
+   * Specifies whether to encrypt the system disk. Valid values:
+   * 
+   * *   true: encrypts the system disk.
+   * *   false: does not encrypt the system disk.
    * 
    * @example
    * false
@@ -329,7 +354,12 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   systemDiskKmsKeyId?: string;
   /**
    * @remarks
-   * The performance level (PL) of the system disk that you want to use for the node. This parameter takes effect only for ESSDs. You can specify a higher PL if you increase the size of the data disk. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * The performance level (PL) of the system disk. This parameter takes effect only for an ESSD. You can specify a higher PL if you increase the size of the data disk. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * 
+   * *   PL0: moderate maximum concurrent I/O performance and low I/O latency.
+   * *   PL1: moderate maximum concurrent I/O performance and low I/O latency.
+   * *   PL2: high maximum concurrent I/O performance and low I/O latency.
+   * *   PL3: ultra-high maximum concurrent I/O performance and ultra-low I/O latency.
    * 
    * @example
    * PL1
@@ -337,7 +367,11 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The predefined read and write IOPS of the system disk when the disk type is cloud_auto.
+   * The preset IOPS of the system disk.
+   * 
+   * Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
+   * 
+   * This parameter is effective only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * 1000
@@ -345,9 +379,9 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
   systemDiskProvisionedIops?: number;
   /**
    * @remarks
-   * The size of the system disk in GiB.
+   * The size of the system disk. Unit: GiB
    * 
-   * Valid values: 20 to 500.
+   * Valid values: 20 to 2048.
    * 
    * The value of this parameter must be at least 20 and greater than or equal to the size of the image.
    * 
@@ -361,12 +395,12 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
    * @remarks
    * The tags that you want to add only to ECS instances.
    * 
-   * The label key must be unique and cannot exceed 128 characters in length. The label key and value cannot start with aliyun or acs: and cannot contain https:// or http://.
+   * The tag key must be unique and cannot exceed 128 characters in length. The tag key and value cannot start with aliyun or acs: or contain https:// or http://.
    */
   tags?: Tag[];
   /**
    * @remarks
-   * The IDs of vSwitches. You can specify 1 to 20 vSwitches.
+   * The vSwitch IDs. You can specify one to eight vSwitch IDs.
    * 
    * >  To ensure high availability, we recommend that you select vSwitches that reside in different zones.
    */

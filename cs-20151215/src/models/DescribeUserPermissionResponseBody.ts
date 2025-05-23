@@ -21,7 +21,7 @@ export class DescribeUserPermissionResponseBody extends $dara.Model {
    * 
    * *   `cluster`: indicates that the permissions are scoped to a cluster.
    * *   `namespace`: indicates that the permissions are scoped to a namespace of a cluster.
-   * *   `console`: indicates that the permissions are scoped to all clusters. This value was displayed only in the console.
+   * *   `console`: indicates that the permissions are scoped to all clusters.
    * 
    * @example
    * cluster

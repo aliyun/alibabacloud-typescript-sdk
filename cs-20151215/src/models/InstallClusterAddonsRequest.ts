@@ -6,7 +6,7 @@ import { InstallClusterAddonsRequestBody } from "./InstallClusterAddonsRequestBo
 export class InstallClusterAddonsRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body.
+   * 请求体参数。
    * 
    * @example
    * ags-metrics-collector

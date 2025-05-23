@@ -25,7 +25,10 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsManagement extends $da
   autoRepairPolicy?: DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy;
   /**
    * @remarks
-   * Specifies whether to enable auto update.
+   * Specifies whether to enable auto node upgrade. This parameter takes effect only if `enable` is set to true.
+   * 
+   * *   `true`: Auto update is enabled.
+   * *   `false`: Auto update is disabled.
    * 
    * @example
    * true
@@ -38,7 +41,10 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsManagement extends $da
   autoUpgradePolicy?: DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolicy;
   /**
    * @remarks
-   * Specifies whether to enable auto Common Vulnerabilities and Exposures (CVE) patching.
+   * Indicates whether auto Common Vulnerabilities and Exposures (CVE) patching is enabled. This parameter takes effect only when `enable=true` is specified.
+   * 
+   * *   `true`: enables auto CVE patching.
+   * *   `true`: disables auto CVE patching.
    * 
    * @example
    * true

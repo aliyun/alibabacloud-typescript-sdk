@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeClusterNodePoolDetailResponseBodyAutoMode extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {

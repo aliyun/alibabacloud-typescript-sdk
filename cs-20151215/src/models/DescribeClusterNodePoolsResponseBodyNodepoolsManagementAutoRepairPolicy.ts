@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow node restart.
+   * Specifies whether to allow node restart. This parameter takes effect only when `auto_repair=true` is specified.
+   * 
+   * *   `true`: allows node restart.
+   * *   `false`: does not allow node restart.
    * 
    * @example
    * true

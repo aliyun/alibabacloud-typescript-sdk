@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyClusterNodePoolRequestManagementAutoUpgradePolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether ACK is allowed to automatically update the kubelet. Valid values:
+   * Specifies whether ACK is allowed to automatically upgrade the kubelet. Valid values:
    * 
    * *   `true`: yes.
    * *   `false`: no.
@@ -16,10 +16,10 @@ export class ModifyClusterNodePoolRequestManagementAutoUpgradePolicy extends $da
   autoUpgradeKubelet?: boolean;
   /**
    * @remarks
-   * Specifies whether ACK is allowed to automatically update the operating system. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
+   * Specifies whether ACK is allowed to automatically upgrade the operating system. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
    * 
-   * *   `true`: allows the auto upgrade of the OS.
-   * *   `false`: does not allow the auto upgrade of the OS.
+   * *   `true`: yes.
+   * *   `false`: no.
    * 
    * Default value: `false`.
    * 
@@ -29,10 +29,10 @@ export class ModifyClusterNodePoolRequestManagementAutoUpgradePolicy extends $da
   autoUpgradeOs?: boolean;
   /**
    * @remarks
-   * Specifies whether ACK is allowed to automatically update the runtime. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
+   * Specifies whether ACK is allowed to automatically upgrade the runtime. This parameter takes effect only when you specify `auto_upgrade=true`. Valid values:
    * 
-   * *   `true`: allows the auto upgrade of the runtime.
-   * *   `false`: does not allow the auto upgrade of the runtime.
+   * *   `true`: yes.
+   * *   `false`: no.
    * 
    * Default value: `false`.
    * 

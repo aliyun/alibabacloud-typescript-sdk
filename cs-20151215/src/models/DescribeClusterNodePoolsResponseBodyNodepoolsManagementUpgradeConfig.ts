@@ -26,7 +26,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsManagementUpgradeConfi
   maxUnavailable?: number;
   /**
    * @remarks
-   * The number of additional nodes.
+   * The number of nodes that are temporarily added to the node pool during an auto update. You must specify this parameter or `surge_percentage`.
    * 
    * @example
    * 5

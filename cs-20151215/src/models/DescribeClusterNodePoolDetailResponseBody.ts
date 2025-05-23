@@ -92,7 +92,7 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
   nodepoolInfo?: DescribeClusterNodePoolDetailResponseBodyNodepoolInfo;
   /**
    * @remarks
-   * The configurations of the scaling group used by the node pool.
+   * The configurations of the scaling group that is used by the node pool.
    */
   scalingGroup?: DescribeClusterNodePoolDetailResponseBodyScalingGroup;
   /**

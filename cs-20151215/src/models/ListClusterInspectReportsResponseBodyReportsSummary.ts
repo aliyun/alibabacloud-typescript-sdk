@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListClusterInspectReportsResponseBodyReportsSummary extends $dara.Model {
   /**
+   * @remarks
+   * The number of items whose result is advice.
+   * 
    * @example
    * 0
    */
   adviceCount?: number;
   /**
+   * @remarks
+   * Aggregated inspection task result code.
+   * 
    * @example
    * warning
    */
   code?: string;
   /**
+   * @remarks
+   * The number of items whose result is error.
+   * 
    * @example
    * 0
    */
   errorCount?: number;
   /**
+   * @remarks
+   * The number of items whose result is normal.
+   * 
    * @example
    * 1
    */
   normalCount?: number;
   /**
+   * @remarks
+   * The number of items whose result is warning.
+   * 
    * @example
    * 0
    */

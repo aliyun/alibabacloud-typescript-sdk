@@ -12,7 +12,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $dara.Model {
    * *   `true`: installs the CloudMonitor agent on ECS nodes.
    * *   `false`: does not install the CloudMonitor agent on ECS nodes.
    * 
-   * Default value: `false`
+   * Default value: `false`.
    * 
    * @example
    * true
@@ -22,8 +22,8 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $dara.Model {
    * @remarks
    * The CPU management policy of nodes in the node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later:
    * 
-   * *   `static`: allows pods with specific resource characteristics on the node to be granted with enhanced CPU affinity and exclusivity
-   * *   `none`: specifies that the default CPU affinity is used
+   * *   `static`: allows pods with specific resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
+   * *   `none`: specifies that the default CPU affinity is used.
    * 
    * Default value: `none`.
    * 
@@ -33,7 +33,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $dara.Model {
   cpuPolicy?: string;
   /**
    * @remarks
-   * The labels of the nodes in the node pool. You can add labels to the nodes in the cluster. You must add the label based on the following rules:
+   * The labels that are added to the nodes in the cluster. You must add the label based on the following rules:
    * 
    * *   A label is a case-sensitive key-value pair. You can add up to 20 labels.
    * *   The key must be unique and cannot exceed 64 characters in length. The value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
@@ -41,7 +41,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $dara.Model {
   labels?: Tag[];
   /**
    * @remarks
-   * The user-defined script that is executed before nodes are initialized. For more information, see [Prepare user data](https://help.aliyun.com/document_detail/49121.html).
+   * Predefined custom data. Nodes automatically run predefined scripts before they are added to the cluster. For more information, see [User-Data script](https://help.aliyun.com/document_detail/49121.html).
    * 
    * @example
    * IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi
@@ -49,7 +49,13 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $dara.Model {
   preUserData?: string;
   /**
    * @remarks
-   * The name of the container runtime.
+   * The name of the container runtime. The following types of runtime are supported by ACK:
+   * 
+   * *   containerd: containerd is the recommended runtime and supports all Kubernetes versions.
+   * *   Sandboxed-Container.runv: The Sandbox-Container runtime provides improved isolation and supports Kubernetes 1.31 and earlier.
+   * *   docker: discontinued. The Docker runtime supports Kubernetes 1.22 and earlier.
+   * 
+   * Default value: containerd.
    * 
    * @example
    * docker
@@ -72,13 +78,16 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $dara.Model {
    * @remarks
    * Specifies whether the nodes are unschedulable after a scale-out activity is performed.
    * 
+   * *   true: The nodes are unschedulable after a scale-out activity is performed.
+   * *   false: The nodes are schedulable after a scale-out activity is performed.
+   * 
    * @example
    * false
    */
   unschedulable?: boolean;
   /**
    * @remarks
-   * The user-defined script that is executed after nodes are initialized. For more information, see [Prepare user data](https://help.aliyun.com/document_detail/49121.html).
+   * The user data of the instance. Nodes automatically run user-data scripts after they are added to the cluster. For more information, see [User-Data script](https://help.aliyun.com/document_detail/49121.html).
    * 
    * @example
    * IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi

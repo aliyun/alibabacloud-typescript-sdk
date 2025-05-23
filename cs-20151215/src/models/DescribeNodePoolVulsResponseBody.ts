@@ -6,12 +6,15 @@ import { DescribeNodePoolVulsResponseBodyVulRecords } from "./DescribeNodePoolVu
 export class DescribeNodePoolVulsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The node pool vulnerabilities.
+   * The vulnerability list of all node pools.
    */
   vulRecords?: DescribeNodePoolVulsResponseBodyVulRecords[];
   /**
    * @remarks
-   * Whether the Cloud Security CVE Remediation Service has been purchased
+   * Indicates whether the CVE vulnerability patching service provided by Security Center is purchased.
+   * 
+   * *   true: yes
+   * *   false: no
    * 
    * @example
    * false

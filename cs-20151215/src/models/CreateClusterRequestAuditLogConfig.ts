@@ -2,24 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteClusterInspectConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 873DC52C-28AA-5A5C-938C-684D3D4B****
-   */
-  requestId?: string;
+export class CreateClusterRequestAuditLogConfig extends $dara.Model {
+  enabled?: boolean;
+  slsProjectName?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
+      enabled: 'enabled',
+      slsProjectName: 'sls_project_name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      enabled: 'boolean',
+      slsProjectName: 'string',
     };
   }
 

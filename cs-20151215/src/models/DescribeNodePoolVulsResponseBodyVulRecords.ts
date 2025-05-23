@@ -22,7 +22,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecords extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * A list of vulnerabilities.
+   * The list of vulnerabilities.
    */
   vulList?: DescribeNodePoolVulsResponseBodyVulRecordsVulList[];
   static names(): { [key: string]: string } {

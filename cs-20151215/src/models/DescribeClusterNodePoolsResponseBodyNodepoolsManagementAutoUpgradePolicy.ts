@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow auto update of the kubelet.
+   * Specifies whether to allow the auto upgrade of the kubelet. This parameter takes effect only if `auto_upgrade` is set to true. Valid values:
+   * 
+   * *   `true`: allows the auto upgrade of the kubelet.
+   * *   `false`: no.
    * 
    * @example
    * true

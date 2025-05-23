@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListClusterInspectReportsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of returned results. Maximum value: 50.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * AK8uQQrxgFKsI3OiS5TbhUQ9R3kPme4I3
    */

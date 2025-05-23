@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { Addon } from "./Addon";
+import { CreateClusterRequestAuditLogConfig } from "./CreateClusterRequestAuditLogConfig";
 import { CreateClusterRequestControlPlaneConfig } from "./CreateClusterRequestControlPlaneConfig";
 import { MaintenanceWindow } from "./MaintenanceWindow";
 import { Nodepool } from "./Nodepool";
@@ -57,6 +58,7 @@ export class CreateClusterRequest extends $dara.Model {
    * kubernetes.default.svc
    */
   apiAudiences?: string;
+  auditLogConfig?: CreateClusterRequestAuditLogConfig;
   /**
    * @remarks
    * [**Deprecated**]
@@ -1252,6 +1254,7 @@ export class CreateClusterRequest extends $dara.Model {
       accessControlList: 'access_control_list',
       addons: 'addons',
       apiAudiences: 'api_audiences',
+      auditLogConfig: 'audit_log_config',
       autoRenew: 'auto_renew',
       autoRenewPeriod: 'auto_renew_period',
       chargeType: 'charge_type',
@@ -1355,6 +1358,7 @@ export class CreateClusterRequest extends $dara.Model {
       accessControlList: { 'type': 'array', 'itemType': 'string' },
       addons: { 'type': 'array', 'itemType': Addon },
       apiAudiences: 'string',
+      auditLogConfig: CreateClusterRequestAuditLogConfig,
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
       chargeType: 'string',
@@ -1459,6 +1463,9 @@ export class CreateClusterRequest extends $dara.Model {
     }
     if(Array.isArray(this.addons)) {
       $dara.Model.validateArray(this.addons);
+    }
+    if(this.auditLogConfig && typeof (this.auditLogConfig as any).validate === 'function') {
+      (this.auditLogConfig as any).validate();
     }
     if(this.controlPlaneConfig && typeof (this.controlPlaneConfig as any).validate === 'function') {
       (this.controlPlaneConfig as any).validate();

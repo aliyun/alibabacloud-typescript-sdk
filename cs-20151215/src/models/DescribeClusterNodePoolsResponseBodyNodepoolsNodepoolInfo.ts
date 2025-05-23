@@ -13,10 +13,10 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo extends $
   created?: string;
   /**
    * @remarks
-   * Specifies whether the node pool is a default node pool. A Container Service for Kubernetes (ACK) cluster generally has only one default node pool. Valid values:
+   * Indicates whether the node pool is a default node pool. An Container Service for Kubernetes (ACK) cluster usually has only one default node pool. Valid values:
    * 
-   * *   `true`
-   * *   `false`:
+   * *   `true`: The node pool is a default node pool.
+   * *   `false`: The node pool is a non-default node pool.
    * 
    * @example
    * true
@@ -25,8 +25,6 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo extends $
   /**
    * @remarks
    * The name of the node pool.
-   * 
-   * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). It cannot start with a hyphen (-).
    * 
    * @example
    * default-nodepool
@@ -60,8 +58,9 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo extends $
    * @remarks
    * The type of node pool. Valid values:
    * 
-   * *   `edge`: edge node pool.
-   * *   `ess`: node pool in the cloud.
+   * *   `ess`: regular node pool, which supports the managed node pool feature and the auto scaling feature.
+   * *   `edge`: edge node pool
+   * *   `lingjun`: Lingjun node pool.
    * 
    * @example
    * ess

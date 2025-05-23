@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteClusterNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all pods from the nodes that you want to remove. Valid values:
+   * Specifies whether to remove all pods from the nodes you want to remove. Valid values:
    * 
-   * *   `true`: removes all pods from the nodes that you want to remove.
-   * *   `false`: does not remove pods from the nodes that you want to remove.
+   * *   `true`: removes all pods automatically.
+   * *   `false`: skips removing pods.
    * 
-   * Default value: `false`.
+   * Default value: `false`
    * 
    * @example
    * true
@@ -18,21 +18,23 @@ export class DeleteClusterNodesRequest extends $dara.Model {
   drainNode?: boolean;
   /**
    * @remarks
-   * The list of nodes to be removed. You need to specify the name of the nodes used in the cluster, for example, `cn-hangzhou.192.168.0.70`.
+   * The list of nodes to remove. You must specify the node names used in the cluster, for example, `cn-hangzhou.192.168.xx.xx`.
    * 
    * This parameter is required.
    */
   nodes?: string[];
   /**
    * @remarks
-   * Specifies whether to release the Elastic Compute Service (ECS) instances. Valid values:
+   * Specifies whether to release the ECS instances. Valid values:
    * 
    * *   `true`: releases the ECS instances.
-   * *   `false`: does not release the ECS instances.
+   * *   `false`: retains the ECS instances.
    * 
-   * Default value: `false`.
+   * Default value: `false`
    * 
-   * >  You cannot release subscription ECS instances.
+   * **
+   * 
+   * **Notes** Unsupported for subscription ECS instances.
    * 
    * @example
    * true

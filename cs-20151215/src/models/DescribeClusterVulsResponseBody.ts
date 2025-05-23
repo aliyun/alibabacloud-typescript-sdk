@@ -6,7 +6,7 @@ import { DescribeClusterVulsResponseBodyVulRecords } from "./DescribeClusterVuls
 export class DescribeClusterVulsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of vulnerabilities.
+   * The list of vulnerabilities.
    */
   vulRecords?: DescribeClusterVulsResponseBodyVulRecords[];
   static names(): { [key: string]: string } {

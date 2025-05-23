@@ -18,6 +18,7 @@ export { NodepoolTeeConfig } from './NodepoolTeeConfig';
 export { AttachInstancesResponseBodyList } from './AttachInstancesResponseBodyList';
 export { CheckServiceRoleRequestRoles } from './CheckServiceRoleRequestRoles';
 export { CheckServiceRoleResponseBodyRoles } from './CheckServiceRoleResponseBodyRoles';
+export { CreateClusterRequestAuditLogConfig } from './CreateClusterRequestAuditLogConfig';
 export { CreateClusterRequestControlPlaneConfig } from './CreateClusterRequestControlPlaneConfig';
 export { CreateClusterRequestOperationPolicyClusterAutoUpgrade } from './CreateClusterRequestOperationPolicyClusterAutoUpgrade';
 export { CreateClusterRequestOperationPolicy } from './CreateClusterRequestOperationPolicy';

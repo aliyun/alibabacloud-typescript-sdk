@@ -24,10 +24,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * After you set `cluster_type` to `ManagedKubernetes` and configure the `profile` parameter, you can further specify the edition of the cluster. Valid values:
-   * 
-   * *   `ack.pro.small`: ACK Pro cluster.
-   * *   `ack.standard`: ACK Basic cluster. If you leave the parameter empty, ACK Basic cluster is selected.
+   * The specification of the cluster.
    * 
    * @example
    * ack.standard
@@ -35,9 +32,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   clusterSpec?: string;
   /**
    * @remarks
-   * *   `Kubernetes`: ACK dedicated cluster.
-   * *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless Basic clusters, ACK Serverless Pro clusters, ACK Edge Basic clusters, ACK Edge Pro clusters, and ACK Lingjun Pro clusters.
-   * *   `ExternalKubernetes`: registered cluster.
+   * The type of the instance.
    * 
    * @example
    * Kubernetes
@@ -53,7 +48,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   containerCidr?: string;
   /**
    * @remarks
-   * The time when the cluster was created.
+   * The time at which the instance is created.
    * 
    * @example
    * 2020-08-20T10:51:29+08:00
@@ -69,7 +64,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   currentVersion?: string;
   /**
    * @remarks
-   * Specifies whether to enable cluster deletion protection. If this option is enabled, the cluster cannot be deleted in the ACK console or by calling API operations. Valid values:
+   * Specifies whether to enable cluster deletion protection. If you enable this option, the cluster cannot be deleted in the console or by calling API operations. Valid values:
    * 
    * *   `true`: enables deletion protection for the cluster. This way, the cluster cannot be deleted in the ACK console or by calling API operations.
    * *   `false`: disables deletion protection for the cluster. This way, the cluster can be deleted in the ACK console or by calling API operations.
@@ -98,9 +93,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   externalLoadbalancerId?: string;
   /**
    * @remarks
-   * The Kubernetes version of the cluster. The Kubernetes versions supported by ACK are the same as the Kubernetes versions supported by open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not configure this parameter, the latest Kubernetes version is used.
-   * 
-   * You can create clusters that run the latest two Kubernetes versions in the ACK console. You can call the API operation to create clusters of other Kubernetes versions. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
+   * The version of the cluster. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
    * 
    * @example
    * 1.16.9-aliyun.1
@@ -110,8 +103,8 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
    * @remarks
    * The IP stack of the cluster. Valid values:
    * 
-   * *   ipv4: The cluster is an IPv4 cluster.
-   * *   dual: The cluster is a dual-stack cluster.
+   * *   ipv4: creates a cluster that supports only the IPv4 protocol stack.
+   * *   dual: creates a cluster that supports IPv4/IPv6 dual-stack.
    * 
    * @example
    * ipv4
@@ -141,8 +134,6 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   /**
    * @remarks
    * The cluster name.
-   * 
-   * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
    * 
    * @example
    * cluster-demo
@@ -187,12 +178,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   privateZone?: boolean;
   /**
    * @remarks
-   * The cluster identifier. Valid values:
-   * 
-   * *   `Default`: ACK managed cluster. ACK managed clusters include ACK Basic clusters and ACK Pro clusters.
-   * *   `Edge`: ACK Edge cluster. ACK Edge clusters include ACK Edge Basic clusters and ACK Edge Pro clusters.
-   * *   `Serverless`: ACK Serverless cluster. ACK Serverless clusters include ACK Serverless Basic clusters and ACK Serverless Pro clusters.
-   * *   `Lingjun`: ACK Lingjun Pro cluster.
+   * The subtype of the cluster.
    * 
    * @example
    * Default
@@ -200,9 +186,9 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   profile?: string;
   /**
    * @remarks
-   * The Kube-proxy mode. Valid values:
+   * The kube-proxy mode.
    * 
-   * *   `iptables`: a mature and stable kube-proxy mode that uses iptables rules to conduct Service discovery and load balancing. The performance of this mode is limited by the size of the cluster. This mode is suitable for clusters that run a small number of Services.
+   * *   `iptables`: a mature and stable mode that uses iptables rules to conduct service discovery and load balancing. The performance of this mode is limited by the size of the cluster. This mode is suitable for clusters that run a small number of Services.
    * *   `ipvs`: provides high performance and uses IP Virtual Server (IPVS). This allows you to configure service discovery and load balancing. This mode is suitable for clusters that are required to run a large number of services. We recommend that you use this mode in scenarios that require high load balancing performance.
    * 
    * @example
@@ -274,15 +260,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * Tis parameter is deprecated. Use the container_cidr parameter to obtain the pod CIDR block. The pod CIDR block. It must be a valid and private CIDR block, and must be one of the following CIDR blocks or their subnets:
-   * 
-   * *   10.0.0.0/8
-   * *   172.16-31.0.0/12-16
-   * *   192.168.0.0/16
-   * 
-   * The pod CIDR block cannot overlap with the CIDR block of the VPC in which the cluster is deployed and the CIDR blocks of existing clusters in the VPC. You cannot modify the pod CIDR block after you create the cluster.
-   * 
-   * For more information about the network planning of Container Service for Kubernetes (ACK) clusters, see [Plan CIDR blocks for an ACK cluster](https://help.aliyun.com/document_detail/86500.html).
+   * This parameter is deprecated. Use the container_cidr parameter to obtain the pod CIDR block.
    * 
    * @example
    * 172.21.0.0/16
@@ -292,7 +270,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   subnetCidr?: string;
   /**
    * @remarks
-   * The resource tags of the cluster.
+   * The label of the cluster.
    */
   tags?: Tag[];
   /**
@@ -313,7 +291,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   updated?: string;
   /**
    * @remarks
-   * The ID of the VPC where the cluster is deployed. This parameter is required when you create a cluster.
+   * The ID of the virtual private cloud (VPC) that is used by the cluster.
    * 
    * @example
    * vpc-2vcg932hsxsxuqbgl****
@@ -321,7 +299,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The IDs of the vSwitches. You can select one to three vSwitches when you create a cluster. To ensure the high availability of the cluster, we recommend that you select vSwitches in different zones.
+   * The ID of the vSwitch in the cluster.
    * 
    * @example
    * vsw-2vc41xuumx5z2rdma****,vsw-2vc41xuumx5z2rdma****

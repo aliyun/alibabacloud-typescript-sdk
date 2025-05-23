@@ -6,10 +6,7 @@ import { DescribeAddonResponseBodyNewerVersions } from "./DescribeAddonResponseB
 export class DescribeAddonResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Architectures supported by the component. Valid values:
-   * 
-   * *   amd64
-   * *   arm64
+   * The CPU architecture supported by the component.
    */
   architecture?: string[];
   /**
@@ -54,17 +51,12 @@ export class DescribeAddonResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The latest version of the component.
+   * The latest version information of the component.
    */
   newerVersions?: DescribeAddonResponseBodyNewerVersions[];
   /**
    * @remarks
-   * Operations supported by the component. Valid values:
-   * 
-   * *   Install
-   * *   Upgrade
-   * *   Modify
-   * *   Uninstall
+   * The operations supported by the component.
    */
   supportedActions?: string[];
   /**

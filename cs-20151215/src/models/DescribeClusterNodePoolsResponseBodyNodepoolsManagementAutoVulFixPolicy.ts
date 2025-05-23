@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow node restart.
+   * Specifies whether to allow node restart. This parameter takes effect only if `auto_vul_fix` is set to true. Valid values:
+   * 
+   * *   `true`: allows node restart.
+   * *   `false`: does not allow node restart.
    * 
    * @example
    * true
@@ -14,6 +17,10 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPo
   /**
    * @remarks
    * The severity level of CVEs that can be automatically patched. Multiple severity levels are separated by commas (,).
+   * 
+   * *   `asap`: high.
+   * *   `later`: medium.
+   * *   `nntf`: low.
    * 
    * @example
    * asap,nntf

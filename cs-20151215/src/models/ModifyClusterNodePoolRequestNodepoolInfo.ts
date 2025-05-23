@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyClusterNodePoolRequestNodepoolInfo extends $dara.Model {
   /**
    * @remarks
-   * The name of a node pool.
+   * The name of the node pool.
    * 
    * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). It cannot start with a hyphen (-).
    * 
@@ -15,7 +15,9 @@ export class ModifyClusterNodePoolRequestNodepoolInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The resource group ID to which the instance belongs.
+   * The ID of the resource group to which the node pool belongs. Instances that are added to the node pool belong to this resource group.
+   * 
+   * Each resource can belong only to one resource group. You can regard a resource group as a project, an application, or an organization based on your business scenarios.
    * 
    * @example
    * rg-acfmyvw3wjm****

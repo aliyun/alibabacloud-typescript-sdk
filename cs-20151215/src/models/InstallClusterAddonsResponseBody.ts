@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallClusterAddonsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * 集群ID。
    * 
    * @example
    * c82e6987e2961451182edacd74faf****
@@ -13,18 +13,18 @@ export class InstallClusterAddonsResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The request ID.
+   * 请求ID。
    * 
    * @example
-   * 48BD70F6-A7E6-543D-9F23-08DEB764C92E
+   * 687C5BAA-D103-4993-884B-C35E4314****
    */
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * 任务ID。
    * 
    * @example
-   * T-5a54309c80282e39ea00002f
+   * T-5a54309c80282e39ea0****
    */
   taskId?: string;
   static names(): { [key: string]: string } {

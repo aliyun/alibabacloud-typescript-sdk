@@ -25,10 +25,10 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * After you set `cluster_type` to `ManagedKubernetes` and configure the `profile` parameter, you can further specify the edition of the cluster.
+   * The edition of the cluster
    * 
-   * *   `ack.pro.small`: Pro.
-   * *   `ack.standard`: Basic. If you leave the parameter empty, the Basic edition is selected.
+   * *   `ack.pro.small`: the Pro edition.
+   * *   `ack.standard`: the Basic edition.
    * 
    * @example
    * ack.pro.small
@@ -36,8 +36,10 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   clusterSpec?: string;
   /**
    * @remarks
+   * The type of the instance.
+   * 
    * *   `Kubernetes`: ACK dedicated cluster.
-   * *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless clusters (Basic and Pro), ACK Edge clusters (Basic and Pro), and ACK Lingjun clusters (Pro).
+   * *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK managed Basic clusters, ACK managed Pro clusters, ACK Serverless Pro clusters, ACK Serverless Basic clusters, ACK Edge Pro clusters, ACK Edge Basic clusters, and ACK Lingjun Pro clusters.
    * *   `ExternalKubernetes`: registered cluster.
    * 
    * @example
@@ -46,7 +48,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The CIDR block of the pod. The configuration of the Flannel network plug-in.
+   * The pod CIDR block. The configuration of the Flannel network plug-in.
    * 
    * @example
    * 172.20.0.0/16
@@ -67,7 +69,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   created?: string;
   /**
    * @remarks
-   * The current Kubernetes version of the cluster. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
+   * The Kubernetes version of the cluster. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
    * 
    * @example
    * 1.16.6-aliyun.1
@@ -142,9 +144,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   metaData?: string;
   /**
    * @remarks
-   * The name of the cluster.
-   * 
-   * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
+   * The cluster name.
    * 
    * @example
    * cluster-demo
@@ -160,7 +160,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   networkMode?: string;
   /**
    * @remarks
-   * The Kubernetes version to which the cluster can be updated.
+   * The Kubernetes version to which the cluster can be upgraded.
    * 
    * @example
    * 1.18.8-aliyun.1
@@ -168,7 +168,9 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   nextVersion?: string;
   /**
    * @remarks
-   * The maximum number of IP addresses that can be assigned to nodes. This number is determined by the node CIDR block. This parameter takes effect only if the cluster uses Flannel network plug-in.
+   * This parameter is available only for Flannel.
+   * 
+   * The subnet mask length of the node CIDR block. This parameter indicates the maximum number of IP addresses that can be assigned to nodes.
    * 
    * @example
    * 26
@@ -199,7 +201,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   privateZone?: boolean;
   /**
    * @remarks
-   * If you set `cluster_type` to `ManagedKubernetes`, an ACK managed cluster is created. In this case, you can further specify the cluster edition.
+   * The subtype of the cluster.
    * 
    * *   `Default`. ACK managed cluster. ACK managed clusters include ACK Basic clusters and ACK Pro clusters.
    * *   `Edge`: ACK Edge cluster. ACK Edge clusters include ACK Edge Basic clusters and ACK Edge Pro clusters.
@@ -247,7 +249,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The CIDR block of the service network.
+   * The Service CIDR block.
    * 
    * This parameter is required.
    * 
@@ -286,15 +288,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The pod CIDR block. It must be a valid and private CIDR block, and must be one of the following CIDR blocks or their subnets:
-   * 
-   * *   10.0.0.0/8
-   * *   172.16-31.0.0/12-16
-   * *   192.168.0.0/16
-   * 
-   * The pod CIDR block cannot overlap with the CIDR block of the VPC in which the cluster is deployed and the CIDR blocks of existing clusters in the VPC. You cannot modify the pod CIDR block after you create the cluster.
-   * 
-   * For more information about the network planning of ACK clusters, see [Plan CIDR blocks for an ACK cluster](https://help.aliyun.com/document_detail/186964.html).
+   * The pod CIDR block.
    * 
    * @example
    * 172.20.0.0/16
@@ -304,7 +298,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   subnetCidr?: string;
   /**
    * @remarks
-   * The resource tags of the cluster.
+   * The resource labels of the cluster.
    */
   tags?: Tag[];
   /**

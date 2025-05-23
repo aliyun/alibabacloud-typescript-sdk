@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNodePoolNodeConfigRequestOsConfig extends $dara.Model {
   /**
    * @remarks
-   * Configuration for sysctl kernel parameters.
+   * The sysctl configuration.
    */
   sysctl?: { [key: string]: any };
   static names(): { [key: string]: string } {

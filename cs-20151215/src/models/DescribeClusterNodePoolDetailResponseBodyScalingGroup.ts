@@ -337,7 +337,12 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   spotStrategy?: string;
   /**
    * @remarks
-   * Whether to enable Burst (performance burst) for the node system disk, configured when the disk type is cloud_auto.
+   * Indicates whether to enable the burst feature for the system disk. Valid values:
+   * 
+   * *   true: enables the burst feature for the system disk. The performance burst feature allows ESSD AutoPL disks to burst their performance when spikes in read/write workloads occur and reduce the performance to the baseline level at the end of workload spikes.
+   * *   false: does not enable the burst feature for the system disk.
+   * 
+   * This parameter is effective only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * true

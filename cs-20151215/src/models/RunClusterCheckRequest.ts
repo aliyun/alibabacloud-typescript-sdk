@@ -5,12 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class RunClusterCheckRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster check items.
+   * The cluster check parameters.
    */
   options?: { [key: string]: string };
   /**
    * @remarks
-   * The target to be checked.
+   * The check target.
+   * 
+   * If you set `type=NodePoolUpgrade`, you must set this parameter to the node pool ID. Otherwise, this parameter is optional.
    * 
    * @example
    * np1f6779297c4444a3a1cdd29be8e5****
@@ -18,7 +20,14 @@ export class RunClusterCheckRequest extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * The check method.
+   * The check type.
+   * 
+   * Valid values:
+   * 
+   * *   ClusterMigrate: cluster migration.
+   * *   MasterUpgrade: control plane upgrade.
+   * *   NodePoolUpgrade: node pool upgrade.
+   * *   ClusterUpgrade: cluster upgrade.
    * 
    * This parameter is required.
    * 

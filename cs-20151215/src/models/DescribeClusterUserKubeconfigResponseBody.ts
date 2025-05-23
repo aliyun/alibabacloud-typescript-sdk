@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterUserKubeconfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The content of the kubeconfig file. For more information about how to view the kubeconfig file, see [Configure cluster credentials](https://help.aliyun.com/document_detail/86494.html).
+   * The kubeconfig file of the cluster.
    * 
    * @example
    * apiVersion: v1****
@@ -13,7 +13,7 @@ export class DescribeClusterUserKubeconfigResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The validity period of the kubeconfig file. The value is the UTC time displayed in RFC3339 format.
+   * The expiration time of the kubeconfig file. Format: the UTC time in the RFC3339 format.
    * 
    * @example
    * 2024-03-10T09:56:17Z

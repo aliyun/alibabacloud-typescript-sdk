@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnInstallClusterAddonsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c5b5e80b0b64a4bf6939d2d8fbbc5****
@@ -13,7 +13,7 @@ export class UnInstallClusterAddonsResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 74D1512F-67DA-54E8-99EA-4D50EB4898F4
@@ -21,7 +21,7 @@ export class UnInstallClusterAddonsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * T-66e39b39c0fdd001320005c0

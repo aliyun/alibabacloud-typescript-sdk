@@ -24,9 +24,11 @@ export class DescribeClustersV1Request extends $dara.Model {
   clusterSpec?: string;
   /**
    * @remarks
+   * The type of the instance.
+   * 
    * *   `Kubernetes`: ACK dedicated cluster.
    * *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless Basic clusters, ACK Serverless Pro clusters, ACK Edge Basic clusters, ACK Edge Pro clusters, and ACK Lingjun Pro clusters.
-   * *   `ExternalKubernetes`: registered cluster.
+   * *   `ExternalKubernetes`: registered cluster
    * 
    * @example
    * Kubernetes
@@ -36,15 +38,13 @@ export class DescribeClustersV1Request extends $dara.Model {
    * @remarks
    * The cluster name.
    * 
-   * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
-   * 
    * @example
    * cluster-demo
    */
   name?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 3

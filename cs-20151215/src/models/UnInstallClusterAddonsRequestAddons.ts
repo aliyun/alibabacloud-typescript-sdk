@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UnInstallClusterAddonsRequestAddons extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to clear cloud resources.
+   * Specifies whether to clean up related cloud resources during uninstallation.
    * 
-   * *   true: clears the data and cloud resources.
-   * *   false: retains the data and cloud resources.
+   * *   true: clean up
+   * *   false: retain
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class UnInstallClusterAddonsRequestAddons extends $dara.Model {
   cleanupCloudResources?: boolean;
   /**
    * @remarks
-   * The name of the component.
+   * The name of the add-on to uninstall. You can call the [ListClusterAddonInstances](https://help.aliyun.com/document_detail/2667940.html) operation to query the installed add-ons.
    * 
    * @example
    * ack-node-problem-detector

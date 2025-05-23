@@ -9,7 +9,7 @@ import { ModifyClusterNodePoolRequestManagementUpgradeConfig } from "./ModifyClu
 export class ModifyClusterNodePoolRequestManagement extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto repair. This parameter takes effect only when you specify `enable=true`. Valid values:
+   * Specifies whether to enable auto node repair. This parameter takes effect only if `enable` is set to true. Valid values:
    * 
    * *   `true`: enables auto repair.
    * *   `false`: disables auto repair.
@@ -27,10 +27,10 @@ export class ModifyClusterNodePoolRequestManagement extends $dara.Model {
   autoRepairPolicy?: ModifyClusterNodePoolRequestManagementAutoRepairPolicy;
   /**
    * @remarks
-   * Indicates whether auto update is enabled. Valid values:
+   * Specifies whether to enable auto upgrade. Valid values:
    * 
-   * *   `true`: enables auto update.
-   * *   `false`: disables auto update.
+   * *   `true`: enables auto upgrade.
+   * *   `false`: disables auto upgrade.
    * 
    * @example
    * true
@@ -38,14 +38,14 @@ export class ModifyClusterNodePoolRequestManagement extends $dara.Model {
   autoUpgrade?: boolean;
   /**
    * @remarks
-   * The auto update policy.
+   * The auto upgrade policy.
    */
   autoUpgradePolicy?: ModifyClusterNodePoolRequestManagementAutoUpgradePolicy;
   /**
    * @remarks
    * Specifies whether ACK is allowed to automatically patch CVE vulnerabilities. Valid values:
    * 
-   * *   `true`: eanbles auto CVE patching.
+   * *   `true`: enables auto CVE patching.
    * *   `true`: disables auto CVE patching.
    * 
    * @example
@@ -64,7 +64,7 @@ export class ModifyClusterNodePoolRequestManagement extends $dara.Model {
    * *   `true`: enables the managed node pool feature.
    * *   `false`: disables the managed node pool feature. Other parameters in this section take effect only when `enable=true` is specified.
    * 
-   * Default value: `false`
+   * Default value: `false`.
    * 
    * @example
    * true
@@ -72,7 +72,9 @@ export class ModifyClusterNodePoolRequestManagement extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The configuration of auto update. The configuration takes effect only when `enable=true` is specified.
+   * This parameter is deprecated. Use the preceding `auto_upgrade` parameter instead.
+   * 
+   * The configurations of auto upgrade. The configurations take effect only when `enable` is set to true.
    * 
    * @deprecated
    */

@@ -21,12 +21,10 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal period. Valid values:
+   * The auto-renewal period. Valid value:
    * 
-   * *   Valid values when PeriodUnit is set to Week: 1, 2, and 3
+   * *   Valid values when PeriodUnit is set to Week: 1, 2, and 3.
    * *   Valid values when PeriodUnit is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60
-   * 
-   * Default value: 1.
    * 
    * @example
    * 0
@@ -34,7 +32,9 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * Specifies whether to enable Center for Internet Security (CIS) reinforcement. CIS reinforcement can be enabled only if Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3 is installed on nodes.
+   * This parameter is deprecated.
+   * 
+   * Use security_hardening_os instead.
    * 
    * @example
    * false
@@ -76,7 +76,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   desiredSize?: number;
   /**
    * @remarks
-   * The custom image ID. You can call the `DescribeKubernetesVersionMetadata` operation to query the images supported by ACK.
+   * The ID of the custom image. You can call the `DescribeKubernetesVersionMetadata` operation to query the images supported by ACK.
    * 
    * @example
    * aliyun_2_1903_x64_20G_alibase_20200529.vhd
@@ -84,7 +84,18 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   imageId?: string;
   /**
    * @remarks
-   * The type of the operating system image.
+   * The type of the OS image.
+   * 
+   * *   `AliyunLinux`: Alibaba Cloud Linux 2.
+   * *   `AliyunLinuxSecurity`: Alibaba Cloud Linux 2 (UEFI).
+   * *   `AliyunLinux3`: Alibaba Cloud Linux 3
+   * *   `AliyunLinux3Arm64`: Alibaba Cloud Linux 3 (ARM).
+   * *   `AliyunLinux3Security`: Alibaba Cloud Linux 3 (UEFI).
+   * *   `CentOS`: CentOS.
+   * *   `Windows`: Windows.
+   * *   `WindowsCore`: Windows Core.
+   * *   `ContainerOS`: ContainerOS.
+   * *   `AliyunLinux3ContainerOptimized`: Alibaba Cloud Linux 3 Container-optimized.
    * 
    * @example
    * AliyunLinux
@@ -103,7 +114,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   instanceChargeType?: string;
   /**
    * @remarks
-   * The attributes of an instance.
+   * The attribute configurations of the instance.
    */
   instancePatterns?: InstancePatterns[];
   /**
@@ -116,7 +127,10 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   instanceTypes?: string[];
   /**
    * @remarks
-   * The billing method of the public IP address.
+   * The metering method of the public IP address.
+   * 
+   * *   PayByBandwidth: pay-by-data-transfer.
+   * *   PayByTraffic: pay-by-data-transfer.
    * 
    * @example
    * PayByBandwidth
@@ -142,7 +156,10 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   keyPair?: string;
   /**
    * @remarks
-   * Specifies whether a non-root user can log on to the ECS instance added to the node pool.
+   * Indicates whether a non-root user can log on to an Elastic Compute Service (ECS) instance added to the node pool.
+   * 
+   * *   true: Logs in as a non-root user (ecs-user).
+   * *   false: Logs in as the root user.
    * 
    * @example
    * true
@@ -194,9 +211,10 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   onDemandPercentageAboveBaseCapacity?: number;
   /**
    * @remarks
-   * The subscription duration of the nodes in the node pool. This parameter takes effect and is required if you set `instance_charge_type` to `PrePaid`.
+   * The subscription duration of the nodes in the node pool. This parameter is available and required only when `instance_charge_type` is set to `PrePaid`.
    * 
-   * If `period_unit` is set to Month, the valid values of period are 1, 2, 3, 6, 12, 24, 36, 48, and 60.
+   * *   If `period_unit` is set to Week, the valid values of `period` are 1, 2, 3, and 4.
+   * *   If `period_unit` is set to Month, the valid values of `period` are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
    * 
    * @example
    * 1
@@ -204,9 +222,10 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   period?: number;
   /**
    * @remarks
-   * The billing cycle of the nodes in the node pool. This parameter takes effect only if`instance_charge_type` is set to `PrePaid`.
+   * The billing cycle of the nodes in the node pool. This parameter is required if you set `instance_charge_type` to `PrePaid`. Valid values:
    * 
-   * Valid value: `Month`, which indicates that the subscription duration is measured in months.
+   * *   `Month`: The subscription duration is measured in months.
+   * *   `Week`: The subscription duration is measured in weeks.
    * 
    * @example
    * Month
@@ -214,7 +233,9 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   periodUnit?: string;
   /**
    * @remarks
-   * The operating system distribution. Valid values:
+   * This parameter is deprecated.
+   * 
+   * The OS distribution that is used. Valid values:
    * 
    * *   `CentOS`
    * *   `AliyunLinux`
@@ -272,7 +293,9 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   scalingPolicy?: string;
   /**
    * @remarks
-   * The ID of the security group to which the node pool is added. If the node pool is added to multiple security groups, the first ID in the value of the `security_group_ids` parameter is returned.
+   * This parameter is deprecated.
+   * 
+   * The ID of the security group to which the node pool is added. If the node pool is added to multiple security groups, the first ID in the value of `security_group_ids` is returned.
    * 
    * @example
    * sg-2ze1iuk12m2sb4c4****
@@ -285,8 +308,11 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   securityGroupIds?: string[];
   /**
    * @remarks
-   * Alibaba Cloud OS security hardening. Values:
-   * - `true`: Enable Alibaba Cloud OS security hardening. - `false`: Do not enable Alibaba Cloud OS security hardening.
+   * Indicates whether Alibaba Cloud Linux Security Hardening is enabled. Valid values:
+   * 
+   * *   `true`: Alibaba Cloud Linux Security Hardening is enabled.
+   * *   `false`: Alibaba Cloud Linux Security Hardening is disabled.
+   * 
    * Default value: `false`.
    * 
    * @example
@@ -341,7 +367,12 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   spotStrategy?: string;
   /**
    * @remarks
-   * Specifies whether to enable Burst for the system disk when the disk type is cloud_auto.
+   * Specifies whether to enable the burst feature for the system disk. Valid values:
+   * 
+   * *   true: enables the burst feature.
+   * *   false: disables the burst feature.
+   * 
+   * This parameter is effective only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * true
@@ -349,7 +380,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   systemDiskBurstingEnabled?: boolean;
   /**
    * @remarks
-   * The categories of system disks. The system creates system disks of a disk category with a lower priority if the disk category with a higher priority is unavailable. Valid values: cloud (basic disk), cloud_efficiency (ultra disk). cloud_ssd (standard SSD), cloud_essd (Enterprise SSD).
+   * The categories of system disks. The system creates system disks of a disk category with a lower priority if the disk category with a higher priority is unavailable.
    */
   systemDiskCategories?: string[];
   /**
@@ -358,6 +389,9 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
    * 
    * *   `cloud_efficiency`: ultra disk
    * *   `cloud_ssd`: SSD
+   * *   `cloud_essd`: Enterprise ESSD (ESSD).
+   * *   `cloud_auto`: ESSD AutoPL disk.
+   * *   `cloud_essd_entry`: ESSD Entry disk.
    * 
    * @example
    * cloud_efficiency
@@ -365,7 +399,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The encryption algorithm that is used to encrypt the system disk. Set the value to aes-256.
+   * The encryption algorithm that is used to encrypt the system disk. The value is aes-256.
    * 
    * @example
    * aes-256
@@ -392,7 +426,12 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   systemDiskKmsKeyId?: string;
   /**
    * @remarks
-   * The performance level (PL) of the system disk. This parameter takes effect only for an ESSD.
+   * The performance level (PL) of the system disk. This parameter takes effect only for an ESSD. You can specify a higher PL if you increase the size of a data disk. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * 
+   * *   PL0: moderate maximum concurrent I/O performance and low I/O latency.
+   * *   PL1: moderate maximum concurrent I/O performance and low I/O latency.
+   * *   PL2: high maximum concurrent I/O performance and low I/O latency.
+   * *   PL3: ultra-high maximum concurrent I/O performance and ultra-low I/O latency.
    * 
    * @example
    * PL1
@@ -408,9 +447,9 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   systemDiskProvisionedIops?: number;
   /**
    * @remarks
-   * The size of the system disk. Unit: GiB.
+   * The size of the system disk in GiB.
    * 
-   * Valid values: 20 to 500.
+   * Valid values: 20 to 2048.
    * 
    * @example
    * 120
@@ -418,16 +457,12 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   systemDiskSize?: number;
   /**
    * @remarks
-   * The labels that you want to add only to Elastic Compute Service (ECS) instances.
-   * 
-   * The key must be unique and cannot exceed 128 characters in length. The key and value must not start with aliyun or acs: or contain https:// or http://.
+   * The label to be added to the ECS instances.
    */
   tags?: Tag[];
   /**
    * @remarks
-   * The vSwitch IDs. You can specify 1 to 20 vSwitches.
-   * 
-   * >  To ensure high availability, we recommend that you select vSwitches in different zones.
+   * The vSwitch IDs.
    */
   vswitchIds?: string[];
   static names(): { [key: string]: string } {

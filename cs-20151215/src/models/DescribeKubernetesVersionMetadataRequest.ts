@@ -19,9 +19,9 @@ export class DescribeKubernetesVersionMetadataRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The Kubernetes version of the cluster. The Kubernetes versions supported by ACK are the same as the Kubernetes versions supported by open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not set this parameter, the latest Kubernetes version is used.
+   * The Kubernetes version of the cluster. The Kubernetes versions supported by ACK are the same as the Kubernetes versions supported by open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not configure this parameter, the latest Kubernetes version is used.
    * 
-   * You can create ACK clusters of the latest two Kubernetes versions in the ACK console. You can call the specific ACK API operation to create clusters of other Kubernetes versions. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
+   * For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
    * 
    * @example
    * 1.16.9-aliyun.1
@@ -58,7 +58,10 @@ export class DescribeKubernetesVersionMetadataRequest extends $dara.Model {
   profile?: string;
   /**
    * @remarks
-   * Specify whether to query the Kubernetes versions available for updates. This parameter takes effect only when the KubernetesVersion parameter is specified.
+   * Specifies whether to query the Kubernetes versions available for updates. This parameter takes effect only when the KubernetesVersion parameter is specified.
+   * 
+   * *   true: queries the Kubernetes versions available for updates.
+   * *   false: does not query the Kubernetes versions available for updates.
    * 
    * @example
    * 1.30.1-aliyun.1

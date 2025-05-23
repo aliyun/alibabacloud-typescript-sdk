@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.Model {
   /**
    * @remarks
-   * The image ID.
+   * The ID of the image.
    * 
    * @example
    * centos_7_7_x64_20G_alibase_20200426.vhd
@@ -21,7 +21,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   imageName?: string;
   /**
    * @remarks
-   * The OS platform. Valid values:
+   * The OS platform. You can obtain the terminal ID by calling one of the following operations:
    * 
    * *   `AliyunLinux`
    * *   `CentOS`
@@ -42,7 +42,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   osVersion?: string;
   /**
    * @remarks
-   * The type of OS distribution that you want to use. To specify the node OS, we recommend that you use this parameter. Valid values:
+   * The type of operating system distribution that you want to use. We recommend that you use this parameter to specify the node operating system. You can obtain the terminal ID by calling one of the following operations:
    * 
    * *   `CentOS`
    * *   `AliyunLinux`

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyClusterNodePoolRequestScalingGroupPrivatePoolOptions extends $dara.Model {
   /**
    * @remarks
-   * The private node pool ID.
+   * The private node pool ID. This parameter is available only when `match_criteria` is set to `Target`.
    * 
    * @example
    * eap-bp67acfmxazb4****
@@ -13,11 +13,11 @@ export class ModifyClusterNodePoolRequestScalingGroupPrivatePoolOptions extends 
   id?: string;
   /**
    * @remarks
-   * The type of private node pool. This parameter specifies the type of private node pool that you want to use to create instances. A private pool is generated when an elasticity assurance or a capacity reservation takes effect. The system selects a private pool to start instances. Valid values:
+   * The type of private node pool. This parameter specifies the type of private pool that you want to use to create instances. A private pool is generated when an elasticity assurance or a capacity reservation takes effect. The system selects a private pool to start instances. Valid values:
    * 
-   * *   `Open`: uses an open private pool. The system selects an open private pool to start instances. If no matching open private pools are available, the resources in the public pool are used.
+   * *   `Open`: open private pool. The system selects an open private pool to start instances. If no matching open private pools are available, the resources in the public pool are used.
    * *   `Target`: uses a specified private pool. The system uses the resources of the specified private pool to start instances. If the specified private pool is unavailable, instances cannot be started.
-   * *   `None`: does not use private pools. The resources of private node pools are not used to launch instances.
+   * *   `None`: no private pool is used. The resources of private pools are not used to launch the instances.
    * 
    * @example
    * Open

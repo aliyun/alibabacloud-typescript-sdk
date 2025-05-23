@@ -7,10 +7,14 @@ import { ModifyNodePoolNodeConfigRequestRollingPolicy } from "./ModifyNodePoolNo
 
 
 export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The containerd runtime configuration.
+   */
   containerdConfig?: ContainerdConfig;
   /**
    * @remarks
-   * The kubelet configuration.
+   * The kubelet configurations.
    */
   kubeletConfig?: KubeletConfig;
   /**
@@ -20,7 +24,7 @@ export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
   osConfig?: ModifyNodePoolNodeConfigRequestOsConfig;
   /**
    * @remarks
-   * The rolling update configuration.
+   * The rolling policy configuration.
    */
   rollingPolicy?: ModifyNodePoolNodeConfigRequestRollingPolicy;
   static names(): { [key: string]: string } {

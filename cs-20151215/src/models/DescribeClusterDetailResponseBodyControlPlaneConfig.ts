@@ -53,7 +53,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   deploymentsetId?: string;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * aliyun_3_x64_20G_alibase_20240819.vhd
@@ -90,7 +90,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $dara.M
   nodePortRange?: string;
   /**
    * @remarks
-   * The subscription duration.
+   * The subscription duration of nodes in the node pool.
    * 
    * @example
    * 1

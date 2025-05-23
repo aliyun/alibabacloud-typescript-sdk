@@ -43,14 +43,12 @@ export class CreateTemplateRequest extends $dara.Model {
   template?: string;
   /**
    * @remarks
-   * The type of template. You can set the parameter to a custom value.
+   * The template type.
    * 
    * *   If the parameter is set to `kubernetes`, the template is displayed on the Templates page in the console.
-   * *   If you set the parameter to `compose`, the template is not displayed in the console.
+   * *   If this parameter is not specified or the value is set to another value, the template is not displayed on the Orchestration Template page in the console.
    * 
    * We recommend that you set the parameter to `kubernetes`.
-   * 
-   * Default value: `compose`.
    * 
    * @example
    * kubernetes

@@ -5,12 +5,22 @@ import { ListClusterInspectReportsResponseBodyReports } from "./ListClusterInspe
 
 export class ListClusterInspectReportsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * 405b99e5411f9a4e7148506e45
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of inspection reports.
+   */
   reports?: ListClusterInspectReportsResponseBodyReports[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 49511F2D-D56A-5C24-B9AE-C8491E09B***
    */

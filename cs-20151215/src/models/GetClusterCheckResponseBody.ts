@@ -13,7 +13,7 @@ export class GetClusterCheckResponseBody extends $dara.Model {
   checkId?: string;
   /**
    * @remarks
-   * The list of check items.
+   * A list of check items.
    */
   checkItems?: { [key: string]: { [key: string]: any }[] };
   /**

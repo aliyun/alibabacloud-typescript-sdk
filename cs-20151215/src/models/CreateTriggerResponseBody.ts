@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTriggerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The action that the trigger performs. For example, a value of `redeploy` indicates that the trigger redeploys the application.
+   * The actions performed by the trigger.
    * 
    * @example
    * redeploy
@@ -21,7 +21,7 @@ export class CreateTriggerResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the trigger.
+   * The trigger ID.
    * 
    * @example
    * 102536
@@ -37,7 +37,7 @@ export class CreateTriggerResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The type of trigger. Default value: deployment.
+   * The trigger type.
    * 
    * @example
    * deployment

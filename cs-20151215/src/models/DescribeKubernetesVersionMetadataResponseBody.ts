@@ -72,7 +72,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   creatable?: boolean;
   /**
    * @remarks
-   * The list of available versions for updates.
+   * The list of available Kubernetes versions for updates.
    */
   upgradableVersions?: string[];
   static names(): { [key: string]: string } {

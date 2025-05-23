@@ -15,13 +15,16 @@ export class DescribeAddonResponseBodyNewerVersions extends $dara.Model {
    * @remarks
    * Indicates whether the component can be updated to the version.
    * 
+   * *   true: yes
+   * *   false: no
+   * 
    * @example
    * true
    */
   upgradable?: boolean;
   /**
    * @remarks
-   * The version number.
+   * The latest version number of the component.
    * 
    * @example
    * v1.9.3.10-7dfca203-aliyun

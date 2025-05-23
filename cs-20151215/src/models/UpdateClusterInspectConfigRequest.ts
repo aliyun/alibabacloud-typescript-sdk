@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateClusterInspectConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of disabled inspection check items.
+   */
   disabledCheckItems?: string[];
   /**
+   * @remarks
+   * Specifies whether to enable cluster inspection.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The inspection period defined using RFC5545 Recurrence Rule. You must specify BYHOUR and BYMINUTE. Only FREQ=DAILY is supported. COUNT or UNTIL is not supported.
+   * 
    * @example
    * FREQ=DAILY;BYHOUR=10;BYMINUTE=15
    */

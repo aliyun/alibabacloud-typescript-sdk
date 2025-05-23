@@ -6,7 +6,7 @@ import { UnInstallClusterAddonsRequestAddons } from "./UnInstallClusterAddonsReq
 export class UnInstallClusterAddonsRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of components that you want to uninstall. The list is an array.
+   * The list of add-ons to uninstall.
    */
   addons?: UnInstallClusterAddonsRequestAddons[];
   static names(): { [key: string]: string } {

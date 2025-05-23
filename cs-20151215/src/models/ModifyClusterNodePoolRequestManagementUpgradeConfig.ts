@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyClusterNodePoolRequestManagementUpgradeConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto update. Valid values:
+   * This parameter is deprecated. Use the preceding `auto_upgrade` parameter instead.
    * 
-   * *   true: enables auto update.
-   * *   false: disables auto update.
+   * Specifies whether to enable auto upgrade. Valid values:
+   * 
+   * *   true: enables auto upgrade.
+   * *   false: disables auto upgrade.
    * 
    * Default value: `true`.
    * 
@@ -32,9 +34,11 @@ export class ModifyClusterNodePoolRequestManagementUpgradeConfig extends $dara.M
   maxUnavailable?: number;
   /**
    * @remarks
-   * The number of additional nodes that are temporarily added to the node pool during an auto update. Additional nodes are used to host the workloads of nodes that are being updated.
+   * The number of additional nodes that are temporarily added to the node pool during an auto upgrade. Specify this parameter or `surge_percentage`.
    * 
-   * >  We recommend that you set the number of additional nodes to a value that does not exceed the current number of existing nodes.
+   * A node is unavailable during an upgrade. Additional nodes are used to temporarily host the workloads of nodes that are being upgraded.
+   * 
+   * >  We recommend that you specify a value that does not exceed the current number of nodes in the node pool.
    * 
    * @example
    * 5
@@ -42,7 +46,9 @@ export class ModifyClusterNodePoolRequestManagementUpgradeConfig extends $dara.M
   surge?: number;
   /**
    * @remarks
-   * The percentage of additional nodes to the nodes in the node pool. You must set this parameter or `surge`.
+   * The percentage of additional nodes in the node pool. Specify this parameter or the `surge` parameter is specified.
+   * 
+   * The number of additional nodes = The percentage of additional nodes × The number of nodes in the node pool. For example, if the percentage of additional nodes is 50% and the number of nodes in the node pool is 6, the number of additional nodes is 3.
    * 
    * @example
    * 0

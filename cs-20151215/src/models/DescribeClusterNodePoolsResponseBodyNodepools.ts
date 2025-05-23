@@ -16,7 +16,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepools extends $dara.Model {
   autoMode?: DescribeClusterNodePoolsResponseBodyNodepoolsAutoMode;
   /**
    * @remarks
-   * The configurations of auto scaling.
+   * The configurations about auto scaling.
    */
   autoScaling?: DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling;
   /**
@@ -28,7 +28,10 @@ export class DescribeClusterNodePoolsResponseBodyNodepools extends $dara.Model {
   interconnectConfig?: DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig;
   /**
    * @remarks
-   * The network type of the edge node pool. Valid values: basic and dedicated. This parameter takes effect only on edge node pools.
+   * The network type of the edge node pool. This parameter takes effect only if you set `type` of the node pool to `edge`. Valid values:
+   * 
+   * *   `basic`: Internet. Nodes in the node pool communicate with nodes in the cloud over the Internet. Applications deployed on the edge nodes cannot directly access virtual private clouds (VPCs) over the Internet.
+   * *   `private`: private network. You can connect nodes in the node pool to the cloud by using Express Connect, VPN, or Cloud Enterprise Network (CEN). This greatly improves the quality and security of cloud-edge communication.
    * 
    * @example
    * improved
@@ -36,12 +39,12 @@ export class DescribeClusterNodePoolsResponseBodyNodepools extends $dara.Model {
   interconnectMode?: string;
   /**
    * @remarks
-   * The configurations of the cluster in which the node pool is deployed.
+   * The configurations of the cluster.
    */
   kubernetesConfig?: DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig;
   /**
    * @remarks
-   * The configurations of managed node pools. Managed node pools are available only in professional managed Kubernetes clusters.
+   * The configuration of the managed node pool feature. The configuration takes effect only for ACK Pro managed clusters.
    */
   management?: DescribeClusterNodePoolsResponseBodyNodepoolsManagement;
   /**
@@ -64,12 +67,12 @@ export class DescribeClusterNodePoolsResponseBodyNodepools extends $dara.Model {
   nodepoolInfo?: DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo;
   /**
    * @remarks
-   * The configurations of the scaling group.
+   * The configurations of the scaling group that is used by the node pool.
    */
   scalingGroup?: DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup;
   /**
    * @remarks
-   * The status details of the node pool.
+   * The status of the node pool.
    */
   status?: DescribeClusterNodePoolsResponseBodyNodepoolsStatus;
   /**

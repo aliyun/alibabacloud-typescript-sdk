@@ -24,27 +24,27 @@ export class ModifyClusterNodePoolRequest extends $dara.Model {
   concurrency?: boolean;
   /**
    * @remarks
-   * The configurations of the cluster in which the node pool is deployed.
+   * The configurations of the cluster.
    */
   kubernetesConfig?: ModifyClusterNodePoolRequestKubernetesConfig;
   /**
    * @remarks
-   * The configuration of the managed node pool feature.
+   * The configurations of the managed node pool feature.
    */
   management?: ModifyClusterNodePoolRequestManagement;
   /**
    * @remarks
-   * The configuration of the node pool.
+   * The configurations of the node pool.
    */
   nodepoolInfo?: ModifyClusterNodePoolRequestNodepoolInfo;
   /**
    * @remarks
-   * The configuration of the scaling group.
+   * The configurations of the scaling group that is used by the node pool.
    */
   scalingGroup?: ModifyClusterNodePoolRequestScalingGroup;
   /**
    * @remarks
-   * The configurations about confidential computing for the cluster.
+   * The configurations of confidential computing for the cluster.
    */
   teeConfig?: ModifyClusterNodePoolRequestTeeConfig;
   /**

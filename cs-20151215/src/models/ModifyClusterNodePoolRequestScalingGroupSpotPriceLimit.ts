@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyClusterNodePoolRequestScalingGroupSpotPriceLimit extends $dara.Model {
   /**
    * @remarks
-   * The price cap of a preemptible instance.
+   * The instance type of preemptible instances.
    * 
    * @example
    * ecs.c6.large
@@ -13,7 +13,7 @@ export class ModifyClusterNodePoolRequestScalingGroupSpotPriceLimit extends $dar
   instanceType?: string;
   /**
    * @remarks
-   * The maximum bid price of a preemptible instance.
+   * The price cap of a preemptible instance.
    * 
    * Unit: USD/hour.
    * 

@@ -29,20 +29,19 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig exten
   cpuPolicy?: string;
   /**
    * @remarks
-   * The labels that are added to the nodes in the cluster. You must add labels based on the following rules:
-   * 
-   * *   A label is a case-sensitive key-value pair. You can add up to 20 labels.
-   * *   The key must be unique and can be up to 64 characters in length. The value can be empty and can be up to 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
+   * The node labels.
    */
   labels?: Tag[];
   /**
    * @remarks
+   * The name of the custom node.
+   * 
    * The custom node name. A custom node name consists of a prefix, an IP substring, and a suffix.
    * 
    * *   The prefix and suffix can contain multiple parts that are separated by periods (.). Each part can contain lowercase letters, digits, and hyphens (-). A custom node name must start and end with a digit or lowercase letter.
    * *   The IP substring length specifies the number of digits to be truncated from the end of the node IP address. The IP substring length ranges from 5 to 12.
    * 
-   * For example, if the node IP address is 192.168.0.55, the prefix is aliyun.com, the IP substring length is 5, and the suffix is test, the node name is aliyun.com00055test.
+   * For example, if the node IP address is 192.168.0.55, the prefix is aliyun.com, the IP substring length is 5, and the suffix is test, the node name will aliyun.com00055test.
    * 
    * @example
    * customized,test.,5,.com
@@ -58,7 +57,11 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig exten
   preUserData?: string;
   /**
    * @remarks
-   * The name of the container runtime.
+   * The name of the container runtime. The following types of runtime are supported by ACK:
+   * 
+   * *   containerd: containerd is the recommended runtime and supports all Kubernetes versions.
+   * *   Sandboxed-Container.runv: The Sandbox-Container runtime provides improved isolation and supports Kubernetes 1.31 and earlier.
+   * *   Docker (deprecated): supports Kubernetes 1.22 and earlier.
    * 
    * @example
    * docker
@@ -74,12 +77,15 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig exten
   runtimeVersion?: string;
   /**
    * @remarks
-   * The taints of the nodes in the node pool. Taints can be used together with tolerations to avoid scheduling pods to specified nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+   * The taint. Taints can be used together with tolerations to avoid scheduling pods to specified nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
    */
   taints?: Taint[];
   /**
    * @remarks
-   * Specifies whether the nodes are schedulable after a scale-out activity is performed.
+   * Specifies whether the nodes are unschedulable after a scale-out activity is performed.
+   * 
+   * *   true: The node cannot be scheduled.
+   * *   false: The node can be scheduled.
    * 
    * @example
    * true

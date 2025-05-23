@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateK8sClusterUserConfigExpireRequest extends $dara.Model {
   /**
    * @remarks
-   * The validity period of the kubeconfig file. Unit: hours.
+   * Specifies the expiration time of the kubeconfig file. Unit: hours.
    * 
-   * > The value of expire_hour must be greater than 0 and equal to or smaller than 876000 (100 years).
+   * Valid values: [1, 1876000]. The maximum value is 100 years.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class UpdateK8sClusterUserConfigExpireRequest extends $dara.Model {
   expireHour?: number;
   /**
    * @remarks
-   * The user ID.
+   * The RAM user ID.
    * 
    * This parameter is required.
    * 

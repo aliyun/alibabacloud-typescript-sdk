@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunClusterInspectResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The inspection report ID.
+   * 
    * @example
    * 5d6557c983064c45bed62ab2a2119cc7
    */
   reportId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0AB4D067-4DD7-5471-B90A-FCC564BC3337
    */
   requestId?: string;
   /**
+   * @remarks
+   * The inspection task ID.
+   * 
    * @example
    * T-67d7ec016ce37c0106000***
    */

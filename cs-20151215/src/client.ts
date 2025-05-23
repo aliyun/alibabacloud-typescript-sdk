@@ -703,6 +703,10 @@ export default class Client extends OpenApi {
       body["api_audiences"] = request.apiAudiences;
     }
 
+    if (!$dara.isNull(request.auditLogConfig)) {
+      body["audit_log_config"] = request.auditLogConfig;
+    }
+
     if (!$dara.isNull(request.autoRenew)) {
       body["auto_renew"] = request.autoRenew;
     }
@@ -1172,7 +1176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建集群巡检配置
+   * Configures cluster inspection.
    * 
    * @param request - CreateClusterInspectConfigRequest
    * @param headers - map
@@ -1213,7 +1217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建集群巡检配置
+   * Configures cluster inspection.
    * 
    * @param request - CreateClusterInspectConfigRequest
    * @returns CreateClusterInspectConfigResponse
@@ -1737,7 +1741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除集群巡检配置
+   * Deletes cluster inspection configurations.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1762,7 +1766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除集群巡检配置
+   * Deletes cluster inspection configurations.
    * @returns DeleteClusterInspectConfigResponse
    */
   async deleteClusterInspectConfig(clusterId: string): Promise<$_model.DeleteClusterInspectConfigResponse> {
@@ -1817,12 +1821,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes nodes from a Container Service for Kubernetes (ACK) cluster. When you remove nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes. When you remove nodes, pods on the nodes are migrated. This may adversely affect your businesses. We recommend that you back up data and perform this operation during off-peak hours.
+   * Removes nodes from a Container Service for Kubernetes (ACK) cluster when they are no longer required through the DeleteClusterNodes interface. When removing nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes.
    * 
    * @remarks
-   *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
-   * *   The operation may have unexpected risks. Back up the data before you perform this operation.
-   * *   When you remove a node, the system sets the status of the node to Unschedulable.
+   *   Use this API or the [ACK console](https://cs.console.aliyun.com) for node removal. Do not remove a node by running the `kubectl delete node` command.
+   * *   Never directly release or remove ECS instances through the ECS or Auto Scaling console/APIs. Renew subscription ECS instances before they expire. Violations may cause node termination and removal from the ACK console.
+   * *   If a node pool has the Expected Nodes parameter configured, the node pool automatically scales other ECS instances to maintain the expected number of nodes.
+   * *   When you remove a node, the pods on the node are migrated to other nodes. To prevent service interruptions, remove nodes during off-peak hours. Unexpected risks may arise during node removal. Back up the data in advance.
+   * *   ACK drains the node during node removal. Make sure that other nodes in the cluster have sufficient resources to host the evicted pods.
+   * *   To ensure the pods on the node you want to remove can be successfully scheduled to other nodes, check whether the node affinity rules and scheduling policies of the pods meet the requirements.
    * 
    * @param request - DeleteClusterNodesRequest
    * @param headers - map
@@ -1863,12 +1870,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes nodes from a Container Service for Kubernetes (ACK) cluster. When you remove nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes. When you remove nodes, pods on the nodes are migrated. This may adversely affect your businesses. We recommend that you back up data and perform this operation during off-peak hours.
+   * Removes nodes from a Container Service for Kubernetes (ACK) cluster when they are no longer required through the DeleteClusterNodes interface. When removing nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes.
    * 
    * @remarks
-   *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
-   * *   The operation may have unexpected risks. Back up the data before you perform this operation.
-   * *   When you remove a node, the system sets the status of the node to Unschedulable.
+   *   Use this API or the [ACK console](https://cs.console.aliyun.com) for node removal. Do not remove a node by running the `kubectl delete node` command.
+   * *   Never directly release or remove ECS instances through the ECS or Auto Scaling console/APIs. Renew subscription ECS instances before they expire. Violations may cause node termination and removal from the ACK console.
+   * *   If a node pool has the Expected Nodes parameter configured, the node pool automatically scales other ECS instances to maintain the expected number of nodes.
+   * *   When you remove a node, the pods on the node are migrated to other nodes. To prevent service interruptions, remove nodes during off-peak hours. Unexpected risks may arise during node removal. Back up the data in advance.
+   * *   ACK drains the node during node removal. Make sure that other nodes in the cluster have sufficient resources to host the evicted pods.
+   * *   To ensure the pods on the node you want to remove can be successfully scheduled to other nodes, check whether the node affinity rules and scheduling policies of the pods meet the requirements.
    * 
    * @param request - DeleteClusterNodesRequest
    * @returns DeleteClusterNodesResponse
@@ -2931,7 +2941,8 @@ export default class Client extends OpenApi {
    * Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
    * 
    * @remarks
-   * >  The default validity period of a kubeconfig file is 3 years. 180 days before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the kubeconfig file is valid for 3 years. The previous kubeconfig file still remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
+   *   The default validity period of a kubeconfig file is 3 years. 180 days before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the kubeconfig file is valid for 3 years. The previous kubeconfig file still remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
+   * *   We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
    * 
    * @param request - DescribeClusterUserKubeconfigRequest
    * @param headers - map
@@ -2971,7 +2982,8 @@ export default class Client extends OpenApi {
    * Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
    * 
    * @remarks
-   * >  The default validity period of a kubeconfig file is 3 years. 180 days before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the kubeconfig file is valid for 3 years. The previous kubeconfig file still remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
+   *   The default validity period of a kubeconfig file is 3 years. 180 days before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the kubeconfig file is valid for 3 years. The previous kubeconfig file still remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
+   * *   We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
    * 
    * @param request - DescribeClusterUserKubeconfigRequest
    * @returns DescribeClusterUserKubeconfigResponse
@@ -4865,9 +4877,8 @@ export default class Client extends OpenApi {
    * Updates the role-based access control (RBAC) permissions of a Resource Access Management (RAM) user or RAM role. By default, you do not have the RBAC permissions on a Container Service for Kubernetes (ACK) cluster if you are not the cluster owner or you are not using an Alibaba Cloud account. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
    * 
    * @remarks
-   * *Precautions**:
-   * *   If you use a Resource Access Management (RAM) user to call the operation, make sure that the RAM user has the permissions to modify the permissions of other RAM users or RAM roles. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned after you call the operation. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
-   * *   If you update full permissions, the existing permissions of the RAM user or RAM role on the cluster are overwritten. You must specify all the permissions that you want to grant to the RAM user or RAM role in the request parameters when you call the operation.
+   *   If you use a Resource Access Management (RAM) account to call this operation, make sure it has permissions to modify cluster authorization information for other RAM users or RAM roles. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
+   * *   This operation overwrites all existing cluster permissions for the target RAM user or RAM role. You must specify all the permissions you want to grant to the RAM user or RAM role in the request.
    * 
    * @param request - GrantPermissionsRequest
    * @param headers - map
@@ -4898,9 +4909,8 @@ export default class Client extends OpenApi {
    * Updates the role-based access control (RBAC) permissions of a Resource Access Management (RAM) user or RAM role. By default, you do not have the RBAC permissions on a Container Service for Kubernetes (ACK) cluster if you are not the cluster owner or you are not using an Alibaba Cloud account. You can call this operation to specify the resources that can be accessed, permission scope, and predefined roles. This helps you better manage the access control on resources in ACK clusters.
    * 
    * @remarks
-   * *Precautions**:
-   * *   If you use a Resource Access Management (RAM) user to call the operation, make sure that the RAM user has the permissions to modify the permissions of other RAM users or RAM roles. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned after you call the operation. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
-   * *   If you update full permissions, the existing permissions of the RAM user or RAM role on the cluster are overwritten. You must specify all the permissions that you want to grant to the RAM user or RAM role in the request parameters when you call the operation.
+   *   If you use a Resource Access Management (RAM) account to call this operation, make sure it has permissions to modify cluster authorization information for other RAM users or RAM roles. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
+   * *   This operation overwrites all existing cluster permissions for the target RAM user or RAM role. You must specify all the permissions you want to grant to the RAM user or RAM role in the request.
    * 
    * @param request - GrantPermissionsRequest
    * @returns GrantPermissionsResponse
@@ -4912,7 +4922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs a component by specifying the name and version of the component. To enhance Kubernetes capabilities, you can install a variety of components in Container Service for Kubernetes (ACK) clusters, such as fully-managed core components and application, logging and monitoring, network, storage, and security group components.
+   * 为了增强Kubernetes能力，ACK集群支持了多种组件，例如托管的核心组件，应用、日志和监控、网络、存储、安全组件等。您可以调用InstallClusterAddons接口，通过组件名称和版本安装组件。
    * 
    * @param request - InstallClusterAddonsRequest
    * @param headers - map
@@ -4940,7 +4950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs a component by specifying the name and version of the component. To enhance Kubernetes capabilities, you can install a variety of components in Container Service for Kubernetes (ACK) clusters, such as fully-managed core components and application, logging and monitoring, network, storage, and security group components.
+   * 为了增强Kubernetes能力，ACK集群支持了多种组件，例如托管的核心组件，应用、日志和监控、网络、存储、安全组件等。您可以调用InstallClusterAddons接口，通过组件名称和版本安装组件。
    * 
    * @param request - InstallClusterAddonsRequest
    * @returns InstallClusterAddonsResponse
@@ -5101,7 +5111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取巡检报告列表
+   * Obtains the details of the cluster inspection report.
    * 
    * @param request - ListClusterInspectReportsRequest
    * @param headers - map
@@ -5138,7 +5148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取巡检报告列表
+   * Obtains the details of the cluster inspection report.
    * 
    * @param request - ListClusterInspectReportsRequest
    * @returns ListClusterInspectReportsResponse
@@ -5382,7 +5392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Container Service for Kubernetes (ACK) Pro clusters are developed based on ACK Basic clusters. ACK Pro clusters provide all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. In addition, ACK Pro clusters provide you with enhanced reliability, security, and schedulability. ACK Pro clusters are covered by the SLA that supports compensation clauses. ACK Pro clusters are suitable for large-scale businesses that require high stability and security in production environments. We recommend that you migrate from ACK Basic clusters to ACK Pro clusters.
+   * The Container Service for Kubernetes (ACK) managed Pro cluster type is developed based on the ACK managed Basic cluster type. It inherits all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. It further enhances reliability, security, scheduling capabilities, and offers service level agreement (SLA)-backed guarantees, making it ideal for enterprise customers with large-scale production workloads requiring high stability and security. You can call the MigrateCluster operation to migrate an ACK managed Basic cluster to an ACK managed Pro cluster.
    * 
    * @param request - MigrateClusterRequest
    * @param headers - map
@@ -5419,7 +5429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Container Service for Kubernetes (ACK) Pro clusters are developed based on ACK Basic clusters. ACK Pro clusters provide all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. In addition, ACK Pro clusters provide you with enhanced reliability, security, and schedulability. ACK Pro clusters are covered by the SLA that supports compensation clauses. ACK Pro clusters are suitable for large-scale businesses that require high stability and security in production environments. We recommend that you migrate from ACK Basic clusters to ACK Pro clusters.
+   * The Container Service for Kubernetes (ACK) managed Pro cluster type is developed based on the ACK managed Basic cluster type. It inherits all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. It further enhances reliability, security, scheduling capabilities, and offers service level agreement (SLA)-backed guarantees, making it ideal for enterprise customers with large-scale production workloads requiring high stability and security. You can call the MigrateCluster operation to migrate an ACK managed Basic cluster to an ACK managed Pro cluster.
    * 
    * @param request - MigrateClusterRequest
    * @returns MigrateClusterResponse
@@ -5885,7 +5895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * When you use Container Service for Kubernetes (ACK) for the first time, you must activate ACK by using an Alibaba Cloud account or RAM user with the required permissions and complete ACK authorization.
+   * When using Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
    * 
    * @remarks
    *   You can activate ACK by using Alibaba Cloud accounts.
@@ -5922,7 +5932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * When you use Container Service for Kubernetes (ACK) for the first time, you must activate ACK by using an Alibaba Cloud account or RAM user with the required permissions and complete ACK authorization.
+   * When using Container Service for Kubernetes (ACK) for the first time, you must call the OpenAckService operation to activate the service.
    * 
    * @remarks
    *   You can activate ACK by using Alibaba Cloud accounts.
@@ -6471,7 +6481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起集群巡检
+   * Triggers a cluster inspection and generates a report.
    * 
    * @param request - RunClusterInspectRequest
    * @param headers - map
@@ -6504,7 +6514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起集群巡检
+   * Triggers a cluster inspection and generates a report.
    * 
    * @param request - RunClusterInspectRequest
    * @returns RunClusterInspectResponse
@@ -7208,7 +7218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新集群巡检配置
+   * Modifies cluster inspection configurations.
    * 
    * @param request - UpdateClusterInspectConfigRequest
    * @param headers - map
@@ -7249,7 +7259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新集群巡检配置
+   * Modifies cluster inspection configurations.
    * 
    * @param request - UpdateClusterInspectConfigRequest
    * @returns UpdateClusterInspectConfigResponse
@@ -7604,7 +7614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the UpgradeCluster operation to upgrade a cluster by cluster ID.
+   * Outdated Kubernetes versions may have security and stability issues. We recommend that you update the Kubernetes version of your cluster at the earliest opportunity to enjoy the new features of the new Kubernetes version. You can call the UpgradeCluster operation to manually upgrade a cluster.
    * 
    * @remarks
    * After successfully calling the UpgradeCluster interface, this API returns the `task_id` of the upgrade task. You can manage this operation task by calling the following task APIs:
@@ -7660,7 +7670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the UpgradeCluster operation to upgrade a cluster by cluster ID.
+   * Outdated Kubernetes versions may have security and stability issues. We recommend that you update the Kubernetes version of your cluster at the earliest opportunity to enjoy the new features of the new Kubernetes version. You can call the UpgradeCluster operation to manually upgrade a cluster.
    * 
    * @remarks
    * After successfully calling the UpgradeCluster interface, this API returns the `task_id` of the upgrade task. You can manage this operation task by calling the following task APIs:
