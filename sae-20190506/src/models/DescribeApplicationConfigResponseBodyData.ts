@@ -587,6 +587,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
    */
   slsConfigs?: string;
+  startupProbe?: string;
   swimlanePvtzDiscovery?: string;
   /**
    * @remarks
@@ -759,6 +760,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       serviceTags: 'ServiceTags',
       sidecarContainersConfig: 'SidecarContainersConfig',
       slsConfigs: 'SlsConfigs',
+      startupProbe: 'StartupProbe',
       swimlanePvtzDiscovery: 'SwimlanePvtzDiscovery',
       tags: 'Tags',
       terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
@@ -847,6 +849,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       serviceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       sidecarContainersConfig: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataSidecarContainersConfig },
       slsConfigs: 'string',
+      startupProbe: 'string',
       swimlanePvtzDiscovery: 'string',
       tags: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataTags },
       terminationGracePeriodSeconds: 'number',

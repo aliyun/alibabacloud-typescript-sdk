@@ -574,6 +574,10 @@ export default class Client extends OpenApi {
       query["SlsConfigs"] = request.slsConfigs;
     }
 
+    if (!$dara.isNull(request.startupProbe)) {
+      query["StartupProbe"] = request.startupProbe;
+    }
+
     if (!$dara.isNull(request.terminationGracePeriodSeconds)) {
       query["TerminationGracePeriodSeconds"] = request.terminationGracePeriodSeconds;
     }
@@ -2588,6 +2592,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.slsConfigs)) {
       query["SlsConfigs"] = request.slsConfigs;
+    }
+
+    if (!$dara.isNull(request.startupProbe)) {
+      query["StartupProbe"] = request.startupProbe;
     }
 
     if (!$dara.isNull(request.terminationGracePeriodSeconds)) {

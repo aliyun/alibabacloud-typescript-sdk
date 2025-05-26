@@ -386,6 +386,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
    */
   slsConfigs?: string;
+  startupProbe?: string;
   /**
    * @remarks
    * 30
@@ -512,6 +513,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       serviceTags: 'ServiceTags',
       sidecarContainersConfigShrink: 'SidecarContainersConfig',
       slsConfigs: 'SlsConfigs',
+      startupProbe: 'StartupProbe',
       terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
       timezone: 'Timezone',
       tomcatConfig: 'TomcatConfig',
@@ -592,6 +594,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       serviceTags: 'string',
       sidecarContainersConfigShrink: 'string',
       slsConfigs: 'string',
+      startupProbe: 'string',
       terminationGracePeriodSeconds: 'number',
       timezone: 'string',
       tomcatConfig: 'string',

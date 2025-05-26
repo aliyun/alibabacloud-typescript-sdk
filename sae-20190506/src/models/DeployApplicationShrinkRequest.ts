@@ -587,6 +587,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
    */
   slsConfigs?: string;
+  startupProbe?: string;
   swimlanePvtzDiscoverySvc?: string;
   /**
    * @remarks
@@ -735,6 +736,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       serviceTags: 'ServiceTags',
       sidecarContainersConfigShrink: 'SidecarContainersConfig',
       slsConfigs: 'SlsConfigs',
+      startupProbe: 'StartupProbe',
       swimlanePvtzDiscoverySvc: 'SwimlanePvtzDiscoverySvc',
       terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
       timezone: 'Timezone',
@@ -813,6 +815,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       serviceTags: 'string',
       sidecarContainersConfigShrink: 'string',
       slsConfigs: 'string',
+      startupProbe: 'string',
       swimlanePvtzDiscoverySvc: 'string',
       terminationGracePeriodSeconds: 'number',
       timezone: 'string',
