@@ -10,7 +10,7 @@ export class GetFeatureViewResponseBodyFields extends $dara.Model {
    * user
    */
   name?: string;
-  transform?: GetFeatureViewResponseBodyFieldsTransform;
+  transform?: GetFeatureViewResponseBodyFieldsTransform[];
   /**
    * @example
    * int
@@ -29,7 +29,7 @@ export class GetFeatureViewResponseBodyFields extends $dara.Model {
     return {
       attributes: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
-      transform: GetFeatureViewResponseBodyFieldsTransform,
+      transform: { 'type': 'array', 'itemType': GetFeatureViewResponseBodyFieldsTransform },
       type: 'string',
     };
   }
@@ -38,8 +38,8 @@ export class GetFeatureViewResponseBodyFields extends $dara.Model {
     if(Array.isArray(this.attributes)) {
       $dara.Model.validateArray(this.attributes);
     }
-    if(this.transform && typeof (this.transform as any).validate === 'function') {
-      (this.transform as any).validate();
+    if(Array.isArray(this.transform)) {
+      $dara.Model.validateArray(this.transform);
     }
     super.validate();
   }

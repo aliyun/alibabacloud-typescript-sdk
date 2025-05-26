@@ -5,10 +5,6 @@ import { GetFeatureViewResponseBodyFieldsTransformInput } from "./GetFeatureView
 
 export class GetFeatureViewResponseBodyFieldsTransform extends $dara.Model {
   input?: GetFeatureViewResponseBodyFieldsTransformInput[];
-  /**
-   * @example
-   * 1
-   */
   LLMConfigId?: number;
   type?: string;
   static names(): { [key: string]: string } {
