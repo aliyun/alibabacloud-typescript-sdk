@@ -25,7 +25,11 @@ export class JobSpec extends $dara.Model {
    */
   image?: string;
   imageConfig?: ImageConfig;
+  /**
+   * @deprecated
+   */
   isCheif?: boolean;
+  isChief?: boolean;
   localMountSpecs?: LocalMountSpec[];
   /**
    * @example
@@ -57,6 +61,7 @@ export class JobSpec extends $dara.Model {
       image: 'Image',
       imageConfig: 'ImageConfig',
       isCheif: 'IsCheif',
+      isChief: 'IsChief',
       localMountSpecs: 'LocalMountSpecs',
       podCount: 'PodCount',
       resourceConfig: 'ResourceConfig',
@@ -77,6 +82,7 @@ export class JobSpec extends $dara.Model {
       image: 'string',
       imageConfig: ImageConfig,
       isCheif: 'boolean',
+      isChief: 'boolean',
       localMountSpecs: { 'type': 'array', 'itemType': LocalMountSpec },
       podCount: 'number',
       resourceConfig: ResourceConfig,
