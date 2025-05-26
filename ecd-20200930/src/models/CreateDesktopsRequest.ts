@@ -17,6 +17,7 @@ export class CreateDesktopsRequest extends $dara.Model {
    * 1
    */
   amount?: number;
+  appRuleId?: string;
   /**
    * @remarks
    * Specifies whether to enable automatic payment.
@@ -356,6 +357,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
+      appRuleId: 'AppRuleId',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       bundleId: 'BundleId',
@@ -396,6 +398,7 @@ export class CreateDesktopsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
+      appRuleId: 'string',
       autoPay: 'boolean',
       autoRenew: 'boolean',
       bundleId: 'string',

@@ -451,6 +451,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
    * The tags.
    */
   tags?: DescribeDesktopGroupsResponseBodyDesktopGroupsTags[];
+  userGroupName?: string;
   /**
    * @remarks
    * The user\\"s organizational unit path.
@@ -531,6 +532,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       systemDiskCategory: 'SystemDiskCategory',
       systemDiskSize: 'SystemDiskSize',
       tags: 'Tags',
+      userGroupName: 'UserGroupName',
       userOuPath: 'UserOuPath',
       version: 'Version',
       volumeEncryptionEnabled: 'VolumeEncryptionEnabled',
@@ -586,6 +588,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       systemDiskCategory: 'string',
       systemDiskSize: 'number',
       tags: { 'type': 'array', 'itemType': DescribeDesktopGroupsResponseBodyDesktopGroupsTags },
+      userGroupName: 'string',
       userOuPath: 'string',
       version: 'number',
       volumeEncryptionEnabled: 'boolean',

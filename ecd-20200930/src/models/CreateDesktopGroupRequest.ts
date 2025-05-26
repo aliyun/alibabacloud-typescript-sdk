@@ -574,6 +574,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
    * ccg-0caoeogrk9m5****
    */
   timerGroupId?: string;
+  userGroupName?: string;
   userOuPath?: string;
   /**
    * @remarks
@@ -657,6 +658,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
       systemDiskSize: 'SystemDiskSize',
       tag: 'Tag',
       timerGroupId: 'TimerGroupId',
+      userGroupName: 'UserGroupName',
       userOuPath: 'UserOuPath',
       volumeEncryptionEnabled: 'VolumeEncryptionEnabled',
       volumeEncryptionKey: 'VolumeEncryptionKey',
@@ -720,6 +722,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
       systemDiskSize: 'number',
       tag: { 'type': 'array', 'itemType': CreateDesktopGroupRequestTag },
       timerGroupId: 'string',
+      userGroupName: 'string',
       userOuPath: 'string',
       volumeEncryptionEnabled: 'boolean',
       volumeEncryptionKey: 'string',

@@ -33,6 +33,7 @@ export class DescribeUsersInGroupResponseBody extends $dara.Model {
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  userGroupName?: string;
   userOuPath?: string;
   /**
    * @remarks
@@ -48,6 +49,7 @@ export class DescribeUsersInGroupResponseBody extends $dara.Model {
       nextToken: 'NextToken',
       onlineUsersCount: 'OnlineUsersCount',
       requestId: 'RequestId',
+      userGroupName: 'UserGroupName',
       userOuPath: 'UserOuPath',
       usersCount: 'UsersCount',
     };
@@ -59,6 +61,7 @@ export class DescribeUsersInGroupResponseBody extends $dara.Model {
       nextToken: 'string',
       onlineUsersCount: 'number',
       requestId: 'string',
+      userGroupName: 'string',
       userOuPath: 'string',
       usersCount: 'number',
     };

@@ -300,6 +300,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.userGroupName)) {
+      query["UserGroupName"] = request.userGroupName;
+    }
+
     if (!$dara.isNull(request.userOuPath)) {
       query["UserOuPath"] = request.userOuPath;
     }
@@ -3068,6 +3072,10 @@ export default class Client extends OpenApi {
       query["TimerGroupId"] = request.timerGroupId;
     }
 
+    if (!$dara.isNull(request.userGroupName)) {
+      query["UserGroupName"] = request.userGroupName;
+    }
+
     if (!$dara.isNull(request.userOuPath)) {
       query["UserOuPath"] = request.userOuPath;
     }
@@ -3245,6 +3253,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.amount)) {
       query["Amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.appRuleId)) {
+      query["AppRuleId"] = request.appRuleId;
     }
 
     if (!$dara.isNull(request.autoPay)) {
@@ -4211,6 +4223,109 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建模板
+   * 
+   * @param request - CreateTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTemplateResponse
+   */
+  async createTemplateWithOptions(request: $_model.CreateTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataDiskList)) {
+      bodyFlat["DataDiskList"] = request.dataDiskList;
+    }
+
+    if (!$dara.isNull(request.defaultLanguage)) {
+      body["DefaultLanguage"] = request.defaultLanguage;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.policyGroupId)) {
+      body["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.regionConfigList)) {
+      bodyFlat["RegionConfigList"] = request.regionConfigList;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceTagList)) {
+      bodyFlat["ResourceTagList"] = request.resourceTagList;
+    }
+
+    if (!$dara.isNull(request.siteConfigList)) {
+      bodyFlat["SiteConfigList"] = request.siteConfigList;
+    }
+
+    if (!$dara.isNull(request.systemDiskPerformanceLevel)) {
+      body["SystemDiskPerformanceLevel"] = request.systemDiskPerformanceLevel;
+    }
+
+    if (!$dara.isNull(request.systemDiskSize)) {
+      body["SystemDiskSize"] = request.systemDiskSize;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      body["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.timerGroupId)) {
+      body["TimerGroupId"] = request.timerGroupId;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTemplate",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateTemplateResponse({}));
+  }
+
+  /**
+   * 创建模板
+   * 
+   * @param request - CreateTemplateRequest
+   * @returns CreateTemplateResponse
+   */
+  async createTemplate(request: $_model.CreateTemplateRequest): Promise<$_model.CreateTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an automatic snapshot policy.
    * 
    * @param request - DeleteAutoSnapshotPolicyRequest
@@ -5148,6 +5263,58 @@ export default class Client extends OpenApi {
   async deleteSnapshot(request: $_model.DeleteSnapshotRequest): Promise<$_model.DeleteSnapshotResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSnapshotWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes custom cloud computer templates.
+   * 
+   * @remarks
+   * Deleting a template does not affect cloud computers created from it or the associated resources.
+   * 
+   * @param request - DeleteTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTemplatesResponse
+   */
+  async deleteTemplatesWithOptions(request: $_model.DeleteTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTemplatesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.templateIds)) {
+      body["TemplateIds"] = request.templateIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTemplates",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTemplatesResponse({}));
+  }
+
+  /**
+   * Deletes custom cloud computer templates.
+   * 
+   * @remarks
+   * Deleting a template does not affect cloud computers created from it or the associated resources.
+   * 
+   * @param request - DeleteTemplatesRequest
+   * @returns DeleteTemplatesResponse
+   */
+  async deleteTemplates(request: $_model.DeleteTemplatesRequest): Promise<$_model.DeleteTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -8776,6 +8943,84 @@ export default class Client extends OpenApi {
   async describeSnapshots(request: $_model.DescribeSnapshotsRequest): Promise<$_model.DescribeSnapshotsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSnapshotsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询模板列表
+   * 
+   * @param request - DescribeTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTemplatesResponse
+   */
+  async describeTemplatesWithOptions(request: $_model.DescribeTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTemplatesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.templateIds)) {
+      body["TemplateIds"] = request.templateIds;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      body["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.templateType)) {
+      body["TemplateType"] = request.templateType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTemplates",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTemplatesResponse({}));
+  }
+
+  /**
+   * 查询模板列表
+   * 
+   * @param request - DescribeTemplatesRequest
+   * @returns DescribeTemplatesResponse
+   */
+  async describeTemplates(request: $_model.DescribeTemplatesRequest): Promise<$_model.DescribeTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -13943,6 +14188,159 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 模板全量更新
+   * 
+   * @param request - ModifyTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTemplateResponse
+   */
+  async modifyTemplateWithOptions(request: $_model.ModifyTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteConfigList)) {
+      query["SiteConfigList"] = request.siteConfigList;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.defaultLanguage)) {
+      body["DefaultLanguage"] = request.defaultLanguage;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.policyGroupId)) {
+      body["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionConfigList)) {
+      bodyFlat["RegionConfigList"] = request.regionConfigList;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceTagList)) {
+      bodyFlat["ResourceTagList"] = request.resourceTagList;
+    }
+
+    if (!$dara.isNull(request.systemDiskPerformanceLevel)) {
+      body["SystemDiskPerformanceLevel"] = request.systemDiskPerformanceLevel;
+    }
+
+    if (!$dara.isNull(request.systemDiskSize)) {
+      body["SystemDiskSize"] = request.systemDiskSize;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      body["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.timerGroupId)) {
+      body["TimerGroupId"] = request.timerGroupId;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyTemplate",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ModifyTemplateResponse({}));
+  }
+
+  /**
+   * 模板全量更新
+   * 
+   * @param request - ModifyTemplateRequest
+   * @returns ModifyTemplateResponse
+   */
+  async modifyTemplate(request: $_model.ModifyTemplateRequest): Promise<$_model.ModifyTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the basic information of a custom cloud computer template, including the template name and template description.
+   * 
+   * @remarks
+   * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](~~ModifyTemplate~~) operation.
+   * 
+   * @param request - ModifyTemplateBaseInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTemplateBaseInfoResponse
+   */
+  async modifyTemplateBaseInfoWithOptions(request: $_model.ModifyTemplateBaseInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyTemplateBaseInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      body["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyTemplateBaseInfo",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyTemplateBaseInfoResponse>(await this.callApi(params, req, runtime), new $_model.ModifyTemplateBaseInfoResponse({}));
+  }
+
+  /**
+   * Modifies the basic information of a custom cloud computer template, including the template name and template description.
+   * 
+   * @remarks
+   * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](~~ModifyTemplate~~) operation.
+   * 
+   * @param request - ModifyTemplateBaseInfoRequest
+   * @returns ModifyTemplateBaseInfoResponse
+   */
+  async modifyTemplateBaseInfo(request: $_model.ModifyTemplateBaseInfoRequest): Promise<$_model.ModifyTemplateBaseInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyTemplateBaseInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies a scheduled task configuration group.
    * 
    * @param request - ModifyTimerGroupRequest
@@ -14406,6 +14804,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.userGroupName)) {
+      query["UserGroupName"] = request.userGroupName;
     }
 
     if (!$dara.isNull(request.userOuPath)) {

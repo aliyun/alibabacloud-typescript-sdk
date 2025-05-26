@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers } from "./DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers";
 
 
 export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model {
@@ -68,6 +69,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
    * RESET_TYPE_SYSTEM
    */
   resetType?: string;
+  segmentTimers?: DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers[];
   /**
    * @remarks
    * The type of the scheduled task.
@@ -111,6 +113,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
       operationType: 'OperationType',
       processWhitelist: 'ProcessWhitelist',
       resetType: 'ResetType',
+      segmentTimers: 'SegmentTimers',
       timerType: 'TimerType',
       triggerType: 'TriggerType',
     };
@@ -126,6 +129,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
       operationType: 'string',
       processWhitelist: { 'type': 'array', 'itemType': 'string' },
       resetType: 'string',
+      segmentTimers: { 'type': 'array', 'itemType': DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers },
       timerType: 'string',
       triggerType: 'string',
     };
@@ -134,6 +138,9 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
   validate() {
     if(Array.isArray(this.processWhitelist)) {
       $dara.Model.validateArray(this.processWhitelist);
+    }
+    if(Array.isArray(this.segmentTimers)) {
+      $dara.Model.validateArray(this.segmentTimers);
     }
     super.validate();
   }

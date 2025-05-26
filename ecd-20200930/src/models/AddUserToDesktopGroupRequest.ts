@@ -39,6 +39,7 @@ export class AddUserToDesktopGroupRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  userGroupName?: string;
   userOuPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,6 +48,7 @@ export class AddUserToDesktopGroupRequest extends $dara.Model {
       desktopGroupIds: 'DesktopGroupIds',
       endUserIds: 'EndUserIds',
       regionId: 'RegionId',
+      userGroupName: 'UserGroupName',
       userOuPath: 'UserOuPath',
     };
   }
@@ -58,6 +60,7 @@ export class AddUserToDesktopGroupRequest extends $dara.Model {
       desktopGroupIds: { 'type': 'array', 'itemType': 'string' },
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      userGroupName: 'string',
       userOuPath: 'string',
     };
   }
