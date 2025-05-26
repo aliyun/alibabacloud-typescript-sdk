@@ -2,41 +2,30 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CardOcrResponseBodyResult extends $dara.Model {
-  extCardInfo?: string;
-  extIdInfo?: string;
+/**
+ */
+export class BankMetaVerifyIntlResponseBodyResultObject extends $dara.Model {
   /**
    * @example
-   * Y
+   * 1
    */
-  passed?: string;
+  bizCode?: string;
   /**
    * @example
-   * 200
+   * 101
    */
   subCode?: string;
-  /**
-   * @example
-   * 08573be80f944d95ac812e019e3655a8
-   */
-  transactionId?: string;
   static names(): { [key: string]: string } {
     return {
-      extCardInfo: 'ExtCardInfo',
-      extIdInfo: 'ExtIdInfo',
-      passed: 'Passed',
+      bizCode: 'BizCode',
       subCode: 'SubCode',
-      transactionId: 'TransactionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      extCardInfo: 'string',
-      extIdInfo: 'string',
-      passed: 'string',
+      bizCode: 'string',
       subCode: 'string',
-      transactionId: 'string',
     };
   }
 

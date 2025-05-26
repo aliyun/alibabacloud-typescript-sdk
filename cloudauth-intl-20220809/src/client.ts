@@ -34,6 +34,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 银行卡核验
+   * 
+   * @param request - BankMetaVerifyIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BankMetaVerifyIntlResponse
+   */
+  async bankMetaVerifyIntlWithOptions(request: $_model.BankMetaVerifyIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BankMetaVerifyIntlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bankCard)) {
+      query["BankCard"] = request.bankCard;
+    }
+
+    if (!$dara.isNull(request.identifyNum)) {
+      query["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!$dara.isNull(request.identityType)) {
+      query["IdentityType"] = request.identityType;
+    }
+
+    if (!$dara.isNull(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!$dara.isNull(request.paramType)) {
+      query["ParamType"] = request.paramType;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!$dara.isNull(request.verifyMode)) {
+      query["VerifyMode"] = request.verifyMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BankMetaVerifyIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BankMetaVerifyIntlResponse>(await this.callApi(params, req, runtime), new $_model.BankMetaVerifyIntlResponse({}));
+  }
+
+  /**
+   * 银行卡核验
+   * 
+   * @param request - BankMetaVerifyIntlRequest
+   * @returns BankMetaVerifyIntlResponse
+   */
+  async bankMetaVerifyIntl(request: $_model.BankMetaVerifyIntlRequest): Promise<$_model.BankMetaVerifyIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.bankMetaVerifyIntlWithOptions(request, runtime);
+  }
+
+  /**
    * 证件OCR识别纯服务端接口
    * 
    * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.

@@ -1,3 +1,4 @@
+export { BankMetaVerifyIntlResponseBodyResultObject } from './BankMetaVerifyIntlResponseBodyResultObject';
 export { CardOcrResponseBodyResult } from './CardOcrResponseBodyResult';
 export { CheckResultResponseBodyResult } from './CheckResultResponseBodyResult';
 export { CheckVerifyLogResponseBodyResult } from './CheckVerifyLogResponseBodyResult';
@@ -15,6 +16,9 @@ export { Id2MetaPeriodVerifyIntlResponseBodyResult } from './Id2metaPeriodVerify
 export { Id2MetaVerifyIntlResponseBodyResult } from './Id2metaVerifyIntlResponseBodyResult';
 export { InitializeResponseBodyResult } from './InitializeResponseBodyResult';
 export { Mobile3MetaVerifyIntlResponseBodyResult } from './Mobile3metaVerifyIntlResponseBodyResult';
+export { BankMetaVerifyIntlRequest } from './BankMetaVerifyIntlRequest';
+export { BankMetaVerifyIntlResponseBody } from './BankMetaVerifyIntlResponseBody';
+export { BankMetaVerifyIntlResponse } from './BankMetaVerifyIntlResponse';
 export { CardOcrRequest } from './CardOcrRequest';
 export { CardOcrResponseBody } from './CardOcrResponseBody';
 export { CardOcrResponse } from './CardOcrResponse';
