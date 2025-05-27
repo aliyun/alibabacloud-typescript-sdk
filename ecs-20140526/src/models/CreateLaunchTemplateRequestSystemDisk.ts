@@ -91,6 +91,7 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
    * null
    */
   iops?: number;
+  KMSKeyId?: string;
   /**
    * @remarks
    * The performance level of the ESSD to use as the system disk. Default value: PL0. Valid values:
@@ -141,6 +142,7 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
       diskName: 'DiskName',
       encrypted: 'Encrypted',
       iops: 'Iops',
+      KMSKeyId: 'KMSKeyId',
       performanceLevel: 'PerformanceLevel',
       provisionedIops: 'ProvisionedIops',
       size: 'Size',
@@ -157,6 +159,7 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
       diskName: 'string',
       encrypted: 'string',
       iops: 'number',
+      KMSKeyId: 'string',
       performanceLevel: 'string',
       provisionedIops: 'number',
       size: 'number',

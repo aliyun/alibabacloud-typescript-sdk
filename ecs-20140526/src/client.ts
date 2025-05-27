@@ -7188,6 +7188,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -9713,7 +9717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a snapshot. If you call this operation to delete a snapshot that is being created, the snapshot creation task is canceled.
+   * Deletes a specified snapshot. If you call this operation to delete a snapshot that is being created, the associated snapshot creation task is also canceled.
    * 
    * @remarks
    * Take note of the following items:
@@ -9770,7 +9774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a snapshot. If you call this operation to delete a snapshot that is being created, the snapshot creation task is canceled.
+   * Deletes a specified snapshot. If you call this operation to delete a snapshot that is being created, the associated snapshot creation task is also canceled.
    * 
    * @remarks
    * Take note of the following items:

@@ -11,6 +11,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
   diskName?: string;
   encrypted?: string;
   iops?: number;
+  KMSKeyId?: string;
   performanceLevel?: string;
   provisionedIops?: number;
   size?: number;
@@ -24,6 +25,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
       diskName: 'DiskName',
       encrypted: 'Encrypted',
       iops: 'Iops',
+      KMSKeyId: 'KMSKeyId',
       performanceLevel: 'PerformanceLevel',
       provisionedIops: 'ProvisionedIops',
       size: 'Size',
@@ -40,6 +42,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
       diskName: 'string',
       encrypted: 'string',
       iops: 'number',
+      KMSKeyId: 'string',
       performanceLevel: 'string',
       provisionedIops: 'number',
       size: 'number',

@@ -89,6 +89,7 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
    * false
    */
   encrypted?: string;
+  KMSKeyId?: string;
   /**
    * @remarks
    * The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
@@ -163,6 +164,7 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
       device: 'Device',
       diskName: 'DiskName',
       encrypted: 'Encrypted',
+      KMSKeyId: 'KMSKeyId',
       performanceLevel: 'PerformanceLevel',
       provisionedIops: 'ProvisionedIops',
       size: 'Size',
@@ -180,6 +182,7 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
       device: 'string',
       diskName: 'string',
       encrypted: 'string',
+      KMSKeyId: 'string',
       performanceLevel: 'string',
       provisionedIops: 'number',
       size: 'number',

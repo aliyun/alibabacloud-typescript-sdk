@@ -42,6 +42,7 @@ export class CreateStorageSetRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -71,6 +72,7 @@ export class CreateStorageSetRequest extends $dara.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       storageSetName: 'StorageSetName',
@@ -87,6 +89,7 @@ export class CreateStorageSetRequest extends $dara.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       storageSetName: 'string',

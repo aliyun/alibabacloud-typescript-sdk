@@ -75,6 +75,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
    * false
    */
   encrypted?: string;
+  KMSKeyId?: string;
   /**
    * @remarks
    * The performance level of the ESSD to use as a data disk. This parameter is returned only when the value of `Category` is cloud_essd. Valid values:
@@ -126,6 +127,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
       device: 'Device',
       diskName: 'DiskName',
       encrypted: 'Encrypted',
+      KMSKeyId: 'KMSKeyId',
       performanceLevel: 'PerformanceLevel',
       provisionedIops: 'ProvisionedIops',
       size: 'Size',
@@ -143,6 +145,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
       device: 'string',
       diskName: 'string',
       encrypted: 'string',
+      KMSKeyId: 'string',
       performanceLevel: 'string',
       provisionedIops: 'number',
       size: 'number',
