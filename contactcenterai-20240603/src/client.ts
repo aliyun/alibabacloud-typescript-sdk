@@ -279,6 +279,10 @@ export default class Client extends OpenApi {
   async createTaskWithOptions(workspaceId: string, appId: string, request: $_model.CreateTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTaskResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.callBackUrl)) {
+      body["callBackUrl"] = request.callBackUrl;
+    }
+
     if (!$dara.isNull(request.categoryTags)) {
       body["categoryTags"] = request.categoryTags;
     }

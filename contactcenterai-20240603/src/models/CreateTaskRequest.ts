@@ -10,6 +10,7 @@ import { CreateTaskRequestVariables } from "./CreateTaskRequestVariables";
 
 
 export class CreateTaskRequest extends $dara.Model {
+  callBackUrl?: string;
   categoryTags?: CreateTaskRequestCategoryTags[];
   customPrompt?: string;
   dialogue?: CreateTaskRequestDialogue;
@@ -39,6 +40,7 @@ export class CreateTaskRequest extends $dara.Model {
   variables?: CreateTaskRequestVariables[];
   static names(): { [key: string]: string } {
     return {
+      callBackUrl: 'callBackUrl',
       categoryTags: 'categoryTags',
       customPrompt: 'customPrompt',
       dialogue: 'dialogue',
@@ -57,6 +59,7 @@ export class CreateTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      callBackUrl: 'string',
       categoryTags: { 'type': 'array', 'itemType': CreateTaskRequestCategoryTags },
       customPrompt: 'string',
       dialogue: CreateTaskRequestDialogue,
