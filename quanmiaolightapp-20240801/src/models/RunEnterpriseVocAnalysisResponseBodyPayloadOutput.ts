@@ -5,10 +5,12 @@ import { RunEnterpriseVocAnalysisResponseBodyPayloadOutputFilterResult } from ".
 
 export class RunEnterpriseVocAnalysisResponseBodyPayloadOutput extends $dara.Model {
   filterResult?: RunEnterpriseVocAnalysisResponseBodyPayloadOutputFilterResult;
+  reasonContent?: string;
   text?: string;
   static names(): { [key: string]: string } {
     return {
       filterResult: 'filterResult',
+      reasonContent: 'reasonContent',
       text: 'text',
     };
   }
@@ -16,6 +18,7 @@ export class RunEnterpriseVocAnalysisResponseBodyPayloadOutput extends $dara.Mod
   static types(): { [key: string]: any } {
     return {
       filterResult: RunEnterpriseVocAnalysisResponseBodyPayloadOutputFilterResult,
+      reasonContent: 'string',
       text: 'string',
     };
   }

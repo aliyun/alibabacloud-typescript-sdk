@@ -21,6 +21,7 @@ export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
    */
   modelId?: string;
   outputFormat?: string;
+  sourceTrace?: boolean;
   tags?: SubmitEnterpriseVocAnalysisTaskRequestTags[];
   taskDescription?: string;
   /**
@@ -37,6 +38,7 @@ export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
       filterTags: 'filterTags',
       modelId: 'modelId',
       outputFormat: 'outputFormat',
+      sourceTrace: 'sourceTrace',
       tags: 'tags',
       taskDescription: 'taskDescription',
       url: 'url',
@@ -52,6 +54,7 @@ export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
       filterTags: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestFilterTags },
       modelId: 'string',
       outputFormat: 'string',
+      sourceTrace: 'boolean',
       tags: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestTags },
       taskDescription: 'string',
       url: 'string',

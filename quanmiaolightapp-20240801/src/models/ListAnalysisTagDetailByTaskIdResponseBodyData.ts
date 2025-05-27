@@ -11,11 +11,13 @@ export class ListAnalysisTagDetailByTaskIdResponseBodyData extends $dara.Model {
   content?: string;
   contentTags?: ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags[];
   originResponse?: string;
+  sourceList?: string[];
   static names(): { [key: string]: string } {
     return {
       content: 'content',
       contentTags: 'contentTags',
       originResponse: 'originResponse',
+      sourceList: 'sourceList',
     };
   }
 
@@ -24,12 +26,16 @@ export class ListAnalysisTagDetailByTaskIdResponseBodyData extends $dara.Model {
       content: 'string',
       contentTags: { 'type': 'array', 'itemType': ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags },
       originResponse: 'string',
+      sourceList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
     if(Array.isArray(this.contentTags)) {
       $dara.Model.validateArray(this.contentTags);
+    }
+    if(Array.isArray(this.sourceList)) {
+      $dara.Model.validateArray(this.sourceList);
     }
     super.validate();
   }

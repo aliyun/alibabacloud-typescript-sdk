@@ -32,6 +32,7 @@ export class RunEnterpriseVocAnalysisShrinkRequest extends $dara.Model {
    * 按照如下格式输出：{"text1": "xxxx", "text2": "xxxx"}
    */
   outputFormat?: string;
+  sourceTrace?: boolean;
   /**
    * @remarks
    * 业务标签体系，用于对文本内容进行分类和分析。
@@ -57,6 +58,7 @@ export class RunEnterpriseVocAnalysisShrinkRequest extends $dara.Model {
       filterTagsShrink: 'filterTags',
       modelId: 'modelId',
       outputFormat: 'outputFormat',
+      sourceTrace: 'sourceTrace',
       tagsShrink: 'tags',
       taskDescription: 'taskDescription',
     };
@@ -71,6 +73,7 @@ export class RunEnterpriseVocAnalysisShrinkRequest extends $dara.Model {
       filterTagsShrink: 'string',
       modelId: 'string',
       outputFormat: 'string',
+      sourceTrace: 'boolean',
       tagsShrink: 'string',
       taskDescription: 'string',
     };

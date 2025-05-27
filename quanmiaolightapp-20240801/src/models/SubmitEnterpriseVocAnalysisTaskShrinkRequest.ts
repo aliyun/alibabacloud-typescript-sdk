@@ -18,6 +18,7 @@ export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
    */
   modelId?: string;
   outputFormat?: string;
+  sourceTrace?: boolean;
   tagsShrink?: string;
   taskDescription?: string;
   /**
@@ -34,6 +35,7 @@ export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
       filterTagsShrink: 'filterTags',
       modelId: 'modelId',
       outputFormat: 'outputFormat',
+      sourceTrace: 'sourceTrace',
       tagsShrink: 'tags',
       taskDescription: 'taskDescription',
       url: 'url',
@@ -49,6 +51,7 @@ export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
       filterTagsShrink: 'string',
       modelId: 'string',
       outputFormat: 'string',
+      sourceTrace: 'boolean',
       tagsShrink: 'string',
       taskDescription: 'string',
       url: 'string',

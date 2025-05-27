@@ -623,6 +623,10 @@ export default class Client extends OpenApi {
       body["outputFormat"] = request.outputFormat;
     }
 
+    if (!$dara.isNull(request.sourceTrace)) {
+      body["sourceTrace"] = request.sourceTrace;
+    }
+
     if (!$dara.isNull(request.tagsShrink)) {
       body["tags"] = request.tagsShrink;
     }
@@ -1614,6 +1618,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.outputFormat)) {
       body["outputFormat"] = request.outputFormat;
+    }
+
+    if (!$dara.isNull(request.sourceTrace)) {
+      body["sourceTrace"] = request.sourceTrace;
     }
 
     if (!$dara.isNull(request.tagsShrink)) {
