@@ -1016,6 +1016,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发现EventSource(例如：Mysql)的Schema和SimpleData
+   * 
+   * @param tmpReq - DiscoverEventSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DiscoverEventSourceResponse
+   */
+  async discoverEventSourceWithOptions(tmpReq: $_model.DiscoverEventSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DiscoverEventSourceResponse> {
+    tmpReq.validate();
+    let request = new $_model.DiscoverEventSourceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sourceMySQLParameters)) {
+      request.sourceMySQLParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceMySQLParameters, "SourceMySQLParameters", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sourceMySQLParametersShrink)) {
+      body["SourceMySQLParameters"] = request.sourceMySQLParametersShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DiscoverEventSource",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DiscoverEventSourceResponse>(await this.callApi(params, req, runtime), new $_model.DiscoverEventSourceResponse({}));
+  }
+
+  /**
+   * 发现EventSource(例如：Mysql)的Schema和SimpleData
+   * 
+   * @param request - DiscoverEventSourceRequest
+   * @returns DiscoverEventSourceResponse
+   */
+  async discoverEventSource(request: $_model.DiscoverEventSourceRequest): Promise<$_model.DiscoverEventSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.discoverEventSourceWithOptions(request, runtime);
+  }
+
+  /**
    * Enables an event rule.
    * 
    * @remarks
@@ -2277,6 +2325,54 @@ export default class Client extends OpenApi {
   async testEventPattern(request: $_model.TestEventPatternRequest): Promise<$_model.TestEventPatternResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.testEventPatternWithOptions(request, runtime);
+  }
+
+  /**
+   * 检查EventSource配置是否可用
+   * 
+   * @param tmpReq - TestEventSourceConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TestEventSourceConfigResponse
+   */
+  async testEventSourceConfigWithOptions(tmpReq: $_model.TestEventSourceConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TestEventSourceConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.TestEventSourceConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sourceMySQLParameters)) {
+      request.sourceMySQLParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceMySQLParameters, "SourceMySQLParameters", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sourceMySQLParametersShrink)) {
+      body["SourceMySQLParameters"] = request.sourceMySQLParametersShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TestEventSourceConfig",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TestEventSourceConfigResponse>(await this.callApi(params, req, runtime), new $_model.TestEventSourceConfigResponse({}));
+  }
+
+  /**
+   * 检查EventSource配置是否可用
+   * 
+   * @param request - TestEventSourceConfigRequest
+   * @returns TestEventSourceConfigResponse
+   */
+  async testEventSourceConfig(request: $_model.TestEventSourceConfigRequest): Promise<$_model.TestEventSourceConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.testEventSourceConfigWithOptions(request, runtime);
   }
 
   /**
