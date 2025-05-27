@@ -9,6 +9,7 @@ export class RunDocSummaryRequest extends $dara.Model {
    * 12345
    */
   docId?: string;
+  modelName?: string;
   query?: string;
   recommendContent?: string;
   /**
@@ -31,6 +32,7 @@ export class RunDocSummaryRequest extends $dara.Model {
     return {
       cleanCache: 'CleanCache',
       docId: 'DocId',
+      modelName: 'ModelName',
       query: 'Query',
       recommendContent: 'RecommendContent',
       sessionId: 'SessionId',
@@ -42,6 +44,7 @@ export class RunDocSummaryRequest extends $dara.Model {
     return {
       cleanCache: 'boolean',
       docId: 'string',
+      modelName: 'string',
       query: 'string',
       recommendContent: 'string',
       sessionId: 'string',

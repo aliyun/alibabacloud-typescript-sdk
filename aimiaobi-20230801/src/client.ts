@@ -5917,6 +5917,10 @@ export default class Client extends OpenApi {
       body["DocId"] = request.docId;
     }
 
+    if (!$dara.isNull(request.modelName)) {
+      body["ModelName"] = request.modelName;
+    }
+
     if (!$dara.isNull(request.query)) {
       body["Query"] = request.query;
     }
