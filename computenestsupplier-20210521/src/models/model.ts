@@ -52,6 +52,7 @@ export { GetServiceInstanceResponseBodyServiceServiceInfos } from './GetServiceI
 export { GetServiceInstanceResponseBodyServiceUpgradableServiceInfos } from './GetServiceInstanceResponseBodyServiceUpgradableServiceInfos';
 export { GetServiceInstanceResponseBodyService } from './GetServiceInstanceResponseBodyService';
 export { GetServiceInstanceResponseBodyTags } from './GetServiceInstanceResponseBodyTags';
+export { GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions } from './GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions';
 export { GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation } from './GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation';
 export { GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles } from './GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles';
 export { GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision } from './GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision';
