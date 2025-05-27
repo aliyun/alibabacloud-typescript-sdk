@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions } from "./GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions";
 import { GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision } from "./GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision";
 
 
@@ -15,6 +16,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisions extends $dara.Mod
    * true
    */
   autoEnableService?: boolean;
+  commodityProvisions?: GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions[];
   /**
    * @remarks
    * The URL that points to the activation page of the service.
@@ -63,6 +65,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisions extends $dara.Mod
   static names(): { [key: string]: string } {
     return {
       autoEnableService: 'AutoEnableService',
+      commodityProvisions: 'CommodityProvisions',
       enableURL: 'EnableURL',
       roleProvision: 'RoleProvision',
       serviceName: 'ServiceName',
@@ -74,6 +77,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisions extends $dara.Mod
   static types(): { [key: string]: any } {
     return {
       autoEnableService: 'boolean',
+      commodityProvisions: { 'type': 'array', 'itemType': GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions },
       enableURL: 'string',
       roleProvision: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision,
       serviceName: 'string',
@@ -83,6 +87,9 @@ export class GetServiceProvisionsResponseBodyServiceProvisions extends $dara.Mod
   }
 
   validate() {
+    if(Array.isArray(this.commodityProvisions)) {
+      $dara.Model.validateArray(this.commodityProvisions);
+    }
     if(this.roleProvision && typeof (this.roleProvision as any).validate === 'function') {
       (this.roleProvision as any).validate();
     }
