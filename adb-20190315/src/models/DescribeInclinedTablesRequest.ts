@@ -65,9 +65,9 @@ export class DescribeInclinedTablesRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * - 30；
-   * - 50；
-   * - 100；
+   * - 30
+   * - 50
+   * - 100
    * 
    * Default value: 30.
    * 

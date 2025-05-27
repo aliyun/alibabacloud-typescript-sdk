@@ -42,6 +42,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
    * Running
    */
   DBClusterStatus?: string;
+  DBClusterVersion?: string;
   /**
    * @remarks
    * The version of the cluster. Set the value to **3.0**.
@@ -104,6 +105,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
       DBClusterDescription: 'DBClusterDescription',
       DBClusterIds: 'DBClusterIds',
       DBClusterStatus: 'DBClusterStatus',
+      DBClusterVersion: 'DBClusterVersion',
       DBVersion: 'DBVersion',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -122,6 +124,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
       DBClusterDescription: 'string',
       DBClusterIds: 'string',
       DBClusterStatus: 'string',
+      DBClusterVersion: 'string',
       DBVersion: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

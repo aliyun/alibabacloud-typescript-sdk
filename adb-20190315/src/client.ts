@@ -3699,6 +3699,10 @@ export default class Client extends OpenApi {
       query["DBClusterStatus"] = request.DBClusterStatus;
     }
 
+    if (!$dara.isNull(request.DBClusterVersion)) {
+      query["DBClusterVersion"] = request.DBClusterVersion;
+    }
+
     if (!$dara.isNull(request.DBVersion)) {
       query["DBVersion"] = request.DBVersion;
     }
