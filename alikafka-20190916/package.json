@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/alikafka20190916",
-  "version": "2.8.2",
+  "version": "2.9.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
