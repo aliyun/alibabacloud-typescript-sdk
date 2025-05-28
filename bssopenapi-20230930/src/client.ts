@@ -1,5349 +1,11 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class DataModuleMapListSpnTypeMapListValueFilterModules extends $dara.Model {
-  moduleId?: number;
-  moduleCode?: string;
-  moduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      moduleId: 'ModuleId',
-      moduleCode: 'ModuleCode',
-      moduleName: 'ModuleName',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      moduleId: 'number',
-      moduleCode: 'string',
-      moduleName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DataModuleMapListSpnTypeMapListValueShowModules extends $dara.Model {
-  moduleId?: number;
-  moduleCode?: string;
-  moduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      moduleId: 'ModuleId',
-      moduleCode: 'ModuleCode',
-      moduleName: 'ModuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      moduleId: 'number',
-      moduleCode: 'string',
-      moduleName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddCouponDeductTagRequestEcIdAccountIds extends $dara.Model {
-  accountIds?: number[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  ecId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      ecId: 'EcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'number' },
-      ecId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.accountIds)) {
-      $dara.Model.validateArray(this.accountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddCouponDeductTagRequestTags extends $dara.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCouponDeductTagRequestEcIdAccountIds extends $dara.Model {
-  accountIds?: number[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  ecId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      ecId: 'EcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'number' },
-      ecId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.accountIds)) {
-      $dara.Model.validateArray(this.accountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponRequestEcIdAccountIds extends $dara.Model {
-  accountIds?: number[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1501603440974415
-   */
-  ecId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      ecId: 'EcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'number' },
-      ecId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.accountIds)) {
-      $dara.Model.validateArray(this.accountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponResponseBodyDataShareUidList extends $dara.Model {
-  /**
-   * @example
-   * 1902671110151254
-   */
-  uid?: string;
-  userNick?: string;
-  static names(): { [key: string]: string } {
-    return {
-      uid: 'Uid',
-      userNick: 'UserNick',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      uid: 'string',
-      userNick: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 9929.750000
-   */
-  amount?: string;
-  certainAmount?: string;
-  /**
-   * @example
-   * 59243658
-   */
-  couponId?: number;
-  /**
-   * @example
-   * 731074910070
-   */
-  couponNo?: string;
-  /**
-   * @example
-   * CERTAIN
-   */
-  couponType?: string;
-  couponTypeName?: string;
-  /**
-   * @example
-   * CNY
-   */
-  currency?: string;
-  /**
-   * @example
-   * 2021-03-06T15:12Z
-   */
-  endTime?: string;
-  /**
-   * @example
-   * 2021-03-02T15:12Z
-   */
-  gmtCreate?: string;
-  itemNames?: string[];
-  moneyLimit?: string;
-  orderTimeRule?: string;
-  /**
-   * @example
-   * 100.00
-   */
-  remainAmount?: string;
-  remark?: string;
-  shareUidList?: DescribeCouponResponseBodyDataShareUidList[];
-  /**
-   * @example
-   * true
-   */
-  showSetDeductTagButton?: boolean;
-  /**
-   * @example
-   * CHINA
-   */
-  site?: string;
-  siteName?: string;
-  /**
-   * @example
-   * 2021-03-02T15:12Z
-   */
-  startTime?: string;
-  /**
-   * @example
-   * Available
-   */
-  status?: string;
-  /**
-   * @example
-   * 1902671110151254
-   */
-  suitAccount?: string;
-  /**
-   * @example
-   * all
-   */
-  suitItemType?: string;
-  /**
-   * @example
-   * UNIVERSAL
-   */
-  universalType?: string;
-  yhOrderTypes?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'Amount',
-      certainAmount: 'CertainAmount',
-      couponId: 'CouponId',
-      couponNo: 'CouponNo',
-      couponType: 'CouponType',
-      couponTypeName: 'CouponTypeName',
-      currency: 'Currency',
-      endTime: 'EndTime',
-      gmtCreate: 'GmtCreate',
-      itemNames: 'ItemNames',
-      moneyLimit: 'MoneyLimit',
-      orderTimeRule: 'OrderTimeRule',
-      remainAmount: 'RemainAmount',
-      remark: 'Remark',
-      shareUidList: 'ShareUidList',
-      showSetDeductTagButton: 'ShowSetDeductTagButton',
-      site: 'Site',
-      siteName: 'SiteName',
-      startTime: 'StartTime',
-      status: 'Status',
-      suitAccount: 'SuitAccount',
-      suitItemType: 'SuitItemType',
-      universalType: 'UniversalType',
-      yhOrderTypes: 'YhOrderTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'string',
-      certainAmount: 'string',
-      couponId: 'number',
-      couponNo: 'string',
-      couponType: 'string',
-      couponTypeName: 'string',
-      currency: 'string',
-      endTime: 'string',
-      gmtCreate: 'string',
-      itemNames: { 'type': 'array', 'itemType': 'string' },
-      moneyLimit: 'string',
-      orderTimeRule: 'string',
-      remainAmount: 'string',
-      remark: 'string',
-      shareUidList: { 'type': 'array', 'itemType': DescribeCouponResponseBodyDataShareUidList },
-      showSetDeductTagButton: 'boolean',
-      site: 'string',
-      siteName: 'string',
-      startTime: 'string',
-      status: 'string',
-      suitAccount: 'string',
-      suitItemType: 'string',
-      universalType: 'string',
-      yhOrderTypes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.itemNames)) {
-      $dara.Model.validateArray(this.itemNames);
-    }
-    if(Array.isArray(this.shareUidList)) {
-      $dara.Model.validateArray(this.shareUidList);
-    }
-    if(Array.isArray(this.yhOrderTypes)) {
-      $dara.Model.validateArray(this.yhOrderTypes);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponItemListRequestEcIdAccountIds extends $dara.Model {
-  accountIds?: number[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1004064243473974
-   */
-  ecId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      ecId: 'EcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'number' },
-      ecId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.accountIds)) {
-      $dara.Model.validateArray(this.accountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponItemListResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * vm
-   */
-  code?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      name: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserSpnSummaryInfoRequestEcIdAccountIds extends $dara.Model {
-  accountIds?: number[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  ecId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      ecId: 'EcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'number' },
-      ecId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.accountIds)) {
-      $dara.Model.validateArray(this.accountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserSpnSummaryInfoResponseBodyRegionList extends $dara.Model {
-  regionCode?: string;
-  regionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionCode: 'RegionCode',
-      regionName: 'RegionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionCode: 'string',
-      regionName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserSpnSummaryInfoResponseBodySpnCodeAndTypeList extends $dara.Model {
-  productCode?: string;
-  spnCommodityCode?: string;
-  spnType?: string;
-  spnTypeName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      productCode: 'ProductCode',
-      spnCommodityCode: 'SpnCommodityCode',
-      spnType: 'SpnType',
-      spnTypeName: 'SpnTypeName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productCode: 'string',
-      spnCommodityCode: 'string',
-      spnType: 'string',
-      spnTypeName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountAvailableAmountResponseBodyExtendLedgerList extends $dara.Model {
-  /**
-   * @example
-   * CNY
-   */
-  currency?: string;
-  /**
-   * @example
-   * 应付对冲账本
-   */
-  ledgerName?: string;
-  /**
-   * @example
-   * 50
-   */
-  originalAmount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currency: 'Currency',
-      ledgerName: 'LedgerName',
-      originalAmount: 'OriginalAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currency: 'string',
-      ledgerName: 'string',
-      originalAmount: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountAvailableAmountResponseBodyOriginalCashAmountList extends $dara.Model {
-  /**
-   * @example
-   * 10
-   */
-  amount?: string;
-  /**
-   * @example
-   * USD
-   */
-  currency?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'Amount',
-      currency: 'Currency',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'string',
-      currency: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountCanRecycleAmountResponseBodyRecycleToFundAccountList extends $dara.Model {
-  /**
-   * @example
-   * 122323121
-   */
-  fundAccountId?: string;
-  /**
-   * @example
-   * 云某的账户
-   */
-  fundAccountName?: string;
-  /**
-   * @example
-   * 183221321
-   */
-  fundAccountOwnerAccountId?: string;
-  /**
-   * @example
-   * 120
-   */
-  maxRecyclableAmount?: string;
-  /**
-   * @example
-   * 120
-   */
-  originalTransferRemainAmount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fundAccountId: 'FundAccountId',
-      fundAccountName: 'FundAccountName',
-      fundAccountOwnerAccountId: 'FundAccountOwnerAccountId',
-      maxRecyclableAmount: 'MaxRecyclableAmount',
-      originalTransferRemainAmount: 'OriginalTransferRemainAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fundAccountId: 'string',
-      fundAccountName: 'string',
-      fundAccountOwnerAccountId: 'string',
-      maxRecyclableAmount: 'string',
-      originalTransferRemainAmount: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 5
-   */
-  balance?: string;
-  /**
-   * @example
-   * 2323203243
-   */
-  billNumber?: string;
-  /**
-   * @example
-   * 20244389232
-   */
-  channelTransactionNumber?: string;
-  /**
-   * @example
-   * USD
-   */
-  currency?: string;
-  /**
-   * @example
-   * 23473943
-   */
-  fundAccountEcid?: string;
-  /**
-   * @example
-   * 1232121
-   */
-  fundAccountId?: number;
-  /**
-   * @example
-   * 云某的名称
-   */
-  fundAccountName?: string;
-  /**
-   * @example
-   * 32343231
-   */
-  fundAccountOwnerAccountId?: number;
-  /**
-   * @example
-   * ACCT_BOOK
-   */
-  fundType?: string;
-  /**
-   * @example
-   * 2684210001
-   */
-  nbid?: string;
-  /**
-   * @example
-   * 订单备注
-   */
-  remark?: string;
-  /**
-   * @example
-   * 26842
-   */
-  site?: string;
-  /**
-   * @example
-   * 186****3975
-   */
-  transactionAccount?: string;
-  /**
-   * @example
-   * 10
-   */
-  transactionAmount?: string;
-  /**
-   * @example
-   * ALIPAY
-   */
-  transactionChannel?: string;
-  /**
-   * @example
-   * IN
-   */
-  transactionDirection?: string;
-  /**
-   * @example
-   * 5423121
-   */
-  transactionNumber?: number;
-  /**
-   * @example
-   * 2024-12-01 12:00:00
-   */
-  transactionTime?: string;
-  /**
-   * @example
-   * CHARGE
-   */
-  transactionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      balance: 'Balance',
-      billNumber: 'BillNumber',
-      channelTransactionNumber: 'ChannelTransactionNumber',
-      currency: 'Currency',
-      fundAccountEcid: 'FundAccountEcid',
-      fundAccountId: 'FundAccountId',
-      fundAccountName: 'FundAccountName',
-      fundAccountOwnerAccountId: 'FundAccountOwnerAccountId',
-      fundType: 'FundType',
-      nbid: 'Nbid',
-      remark: 'Remark',
-      site: 'Site',
-      transactionAccount: 'TransactionAccount',
-      transactionAmount: 'TransactionAmount',
-      transactionChannel: 'TransactionChannel',
-      transactionDirection: 'TransactionDirection',
-      transactionNumber: 'TransactionNumber',
-      transactionTime: 'TransactionTime',
-      transactionType: 'TransactionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      balance: 'string',
-      billNumber: 'string',
-      channelTransactionNumber: 'string',
-      currency: 'string',
-      fundAccountEcid: 'string',
-      fundAccountId: 'number',
-      fundAccountName: 'string',
-      fundAccountOwnerAccountId: 'number',
-      fundType: 'string',
-      nbid: 'string',
-      remark: 'string',
-      site: 'string',
-      transactionAccount: 'string',
-      transactionAmount: 'string',
-      transactionChannel: 'string',
-      transactionDirection: 'string',
-      transactionNumber: 'number',
-      transactionTime: 'string',
-      transactionType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityRequestEcIdAccountIds extends $dara.Model {
-  accountIds?: number[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  ecId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      ecId: 'EcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'number' },
-      ecId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.accountIds)) {
-      $dara.Model.validateArray(this.accountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityResponseBodyDataCycleList extends $dara.Model {
-  code?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      name: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityResponseBodyDataFilterModules extends $dara.Model {
-  moduleCode?: string;
-  moduleId?: number;
-  moduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      moduleCode: 'ModuleCode',
-      moduleId: 'ModuleId',
-      moduleName: 'ModuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      moduleCode: 'string',
-      moduleId: 'number',
-      moduleName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityResponseBodyDataModuleMapListFilterModules extends $dara.Model {
-  moduleCode?: string;
-  moduleId?: number;
-  moduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      moduleCode: 'ModuleCode',
-      moduleId: 'ModuleId',
-      moduleName: 'ModuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      moduleCode: 'string',
-      moduleId: 'number',
-      moduleName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityResponseBodyDataModuleMapListShowModules extends $dara.Model {
-  moduleCode?: string;
-  moduleId?: number;
-  moduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      moduleCode: 'ModuleCode',
-      moduleId: 'ModuleId',
-      moduleName: 'ModuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      moduleCode: 'string',
-      moduleId: 'number',
-      moduleName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityResponseBodyDataModuleMapListSpnTypeNameList extends $dara.Model {
-  code?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      name: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityResponseBodyDataModuleMapList extends $dara.Model {
-  filterModules?: GetSavingPlanDeductableCommodityResponseBodyDataModuleMapListFilterModules[];
-  moduleCode?: string;
-  moduleId?: number;
-  moduleName?: string;
-  showModules?: GetSavingPlanDeductableCommodityResponseBodyDataModuleMapListShowModules[];
-  spnTypeList?: string[];
-  spnTypeMapList?: { [key: string]: DataModuleMapListSpnTypeMapListValue }[];
-  spnTypeNameList?: GetSavingPlanDeductableCommodityResponseBodyDataModuleMapListSpnTypeNameList[];
-  static names(): { [key: string]: string } {
-    return {
-      filterModules: 'FilterModules',
-      moduleCode: 'ModuleCode',
-      moduleId: 'ModuleId',
-      moduleName: 'ModuleName',
-      showModules: 'ShowModules',
-      spnTypeList: 'SpnTypeList',
-      spnTypeMapList: 'SpnTypeMapList',
-      spnTypeNameList: 'SpnTypeNameList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filterModules: { 'type': 'array', 'itemType': GetSavingPlanDeductableCommodityResponseBodyDataModuleMapListFilterModules },
-      moduleCode: 'string',
-      moduleId: 'number',
-      moduleName: 'string',
-      showModules: { 'type': 'array', 'itemType': GetSavingPlanDeductableCommodityResponseBodyDataModuleMapListShowModules },
-      spnTypeList: { 'type': 'array', 'itemType': 'string' },
-      spnTypeMapList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': DataModuleMapListSpnTypeMapListValue } },
-      spnTypeNameList: { 'type': 'array', 'itemType': GetSavingPlanDeductableCommodityResponseBodyDataModuleMapListSpnTypeNameList },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.filterModules)) {
-      $dara.Model.validateArray(this.filterModules);
-    }
-    if(Array.isArray(this.showModules)) {
-      $dara.Model.validateArray(this.showModules);
-    }
-    if(Array.isArray(this.spnTypeList)) {
-      $dara.Model.validateArray(this.spnTypeList);
-    }
-    if(Array.isArray(this.spnTypeMapList)) {
-      $dara.Model.validateArray(this.spnTypeMapList);
-    }
-    if(Array.isArray(this.spnTypeNameList)) {
-      $dara.Model.validateArray(this.spnTypeNameList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityResponseBodyDataPayModeList extends $dara.Model {
-  code?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      name: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityResponseBodyDataPricingModules extends $dara.Model {
-  moduleCode?: string;
-  moduleId?: number;
-  moduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      moduleCode: 'ModuleCode',
-      moduleId: 'ModuleId',
-      moduleName: 'ModuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      moduleCode: 'string',
-      moduleId: 'number',
-      moduleName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityResponseBodyData extends $dara.Model {
-  activityId?: number;
-  commodityCode?: string;
-  commodityId?: number;
-  commodityName?: string;
-  cycleList?: GetSavingPlanDeductableCommodityResponseBodyDataCycleList[];
-  filterModules?: GetSavingPlanDeductableCommodityResponseBodyDataFilterModules[];
-  itemCode?: string;
-  itemId?: number;
-  itemName?: string;
-  moduleMapList?: GetSavingPlanDeductableCommodityResponseBodyDataModuleMapList[];
-  payModeList?: GetSavingPlanDeductableCommodityResponseBodyDataPayModeList[];
-  pricingModules?: GetSavingPlanDeductableCommodityResponseBodyDataPricingModules[];
-  spnCommodityCode?: string;
-  spnCommodityName?: string;
-  spnDiscountConfigType?: string;
-  stepPriceMap?: { [key: string]: DataStepPriceMapValue[] };
-  static names(): { [key: string]: string } {
-    return {
-      activityId: 'ActivityId',
-      commodityCode: 'CommodityCode',
-      commodityId: 'CommodityId',
-      commodityName: 'CommodityName',
-      cycleList: 'CycleList',
-      filterModules: 'FilterModules',
-      itemCode: 'ItemCode',
-      itemId: 'ItemId',
-      itemName: 'ItemName',
-      moduleMapList: 'ModuleMapList',
-      payModeList: 'PayModeList',
-      pricingModules: 'PricingModules',
-      spnCommodityCode: 'SpnCommodityCode',
-      spnCommodityName: 'SpnCommodityName',
-      spnDiscountConfigType: 'SpnDiscountConfigType',
-      stepPriceMap: 'StepPriceMap',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activityId: 'number',
-      commodityCode: 'string',
-      commodityId: 'number',
-      commodityName: 'string',
-      cycleList: { 'type': 'array', 'itemType': GetSavingPlanDeductableCommodityResponseBodyDataCycleList },
-      filterModules: { 'type': 'array', 'itemType': GetSavingPlanDeductableCommodityResponseBodyDataFilterModules },
-      itemCode: 'string',
-      itemId: 'number',
-      itemName: 'string',
-      moduleMapList: { 'type': 'array', 'itemType': GetSavingPlanDeductableCommodityResponseBodyDataModuleMapList },
-      payModeList: { 'type': 'array', 'itemType': GetSavingPlanDeductableCommodityResponseBodyDataPayModeList },
-      pricingModules: { 'type': 'array', 'itemType': GetSavingPlanDeductableCommodityResponseBodyDataPricingModules },
-      spnCommodityCode: 'string',
-      spnCommodityName: 'string',
-      spnDiscountConfigType: 'string',
-      stepPriceMap: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': DataStepPriceMapValue } },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.cycleList)) {
-      $dara.Model.validateArray(this.cycleList);
-    }
-    if(Array.isArray(this.filterModules)) {
-      $dara.Model.validateArray(this.filterModules);
-    }
-    if(Array.isArray(this.moduleMapList)) {
-      $dara.Model.validateArray(this.moduleMapList);
-    }
-    if(Array.isArray(this.payModeList)) {
-      $dara.Model.validateArray(this.payModeList);
-    }
-    if(Array.isArray(this.pricingModules)) {
-      $dara.Model.validateArray(this.pricingModules);
-    }
-    if(this.stepPriceMap) {
-      $dara.Model.validateMap(this.stepPriceMap);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanShareAccountsRequestEcIdAccountIds extends $dara.Model {
-  accountIds?: number[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  ecId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      ecId: 'EcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'number' },
-      ecId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.accountIds)) {
-      $dara.Model.validateArray(this.accountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanShareAccountsResponseBodyDataShareTimeList extends $dara.Model {
-  shareEndTime?: string;
-  shareStartTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      shareEndTime: 'ShareEndTime',
-      shareStartTime: 'ShareStartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      shareEndTime: 'string',
-      shareStartTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanShareAccountsResponseBodyData extends $dara.Model {
-  accountId?: string;
-  aliUid?: number;
-  shareTimeList?: GetSavingPlanShareAccountsResponseBodyDataShareTimeList[];
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      aliUid: 'AliUid',
-      shareTimeList: 'ShareTimeList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      aliUid: 'number',
-      shareTimeList: { 'type': 'array', 'itemType': GetSavingPlanShareAccountsResponseBodyDataShareTimeList },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.shareTimeList)) {
-      $dara.Model.validateArray(this.shareTimeList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanUserDeductRuleRequestEcIdAccountIds extends $dara.Model {
-  accountIds?: number[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  ecId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      ecId: 'EcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'number' },
-      ecId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.accountIds)) {
-      $dara.Model.validateArray(this.accountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanUserDeductRuleResponseBodyData extends $dara.Model {
-  commodityCode?: string;
-  commodityName?: string;
-  moduleCode?: string;
-  moduleName?: string;
-  skipDeduct?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      commodityCode: 'CommodityCode',
-      commodityName: 'CommodityName',
-      moduleCode: 'ModuleCode',
-      moduleName: 'ModuleName',
-      skipDeduct: 'SkipDeduct',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commodityCode: 'string',
-      commodityName: 'string',
-      moduleCode: 'string',
-      moduleName: 'string',
-      skipDeduct: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCouponDeductTagRequestEcIdAccountIds extends $dara.Model {
-  accountIds?: number[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  ecId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      ecId: 'EcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'number' },
-      ecId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.accountIds)) {
-      $dara.Model.validateArray(this.accountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCouponDeductTagResponseBodyData extends $dara.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFundAccountResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 2024-12-30 12:00:00
-   */
-  createDate?: string;
-  /**
-   * @example
-   * 1232121
-   */
-  fundAccountAdminAccountId?: string;
-  /**
-   * @example
-   * 云某的账户
-   */
-  fundAccountAdminAccountName?: string;
-  /**
-   * @example
-   * 1022231
-   */
-  fundAccountId?: string;
-  /**
-   * @example
-   * 云某的账户
-   */
-  fundAccountName?: string;
-  /**
-   * @example
-   * 132123211
-   */
-  fundAccountOwnerAccountId?: string;
-  /**
-   * @example
-   * VALID
-   */
-  fundAccountStatus?: string;
-  /**
-   * @example
-   * DIRECT_USER
-   */
-  fundAccountType?: string;
-  /**
-   * @example
-   * 2684210001
-   */
-  nbid?: string;
-  permissions?: string[];
-  /**
-   * @example
-   * 26842
-   */
-  site?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createDate: 'CreateDate',
-      fundAccountAdminAccountId: 'FundAccountAdminAccountId',
-      fundAccountAdminAccountName: 'FundAccountAdminAccountName',
-      fundAccountId: 'FundAccountId',
-      fundAccountName: 'FundAccountName',
-      fundAccountOwnerAccountId: 'FundAccountOwnerAccountId',
-      fundAccountStatus: 'FundAccountStatus',
-      fundAccountType: 'FundAccountType',
-      nbid: 'Nbid',
-      permissions: 'Permissions',
-      site: 'Site',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createDate: 'string',
-      fundAccountAdminAccountId: 'string',
-      fundAccountAdminAccountName: 'string',
-      fundAccountId: 'string',
-      fundAccountName: 'string',
-      fundAccountOwnerAccountId: 'string',
-      fundAccountStatus: 'string',
-      fundAccountType: 'string',
-      nbid: 'string',
-      permissions: { 'type': 'array', 'itemType': 'string' },
-      site: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.permissions)) {
-      $dara.Model.validateArray(this.permissions);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFundAccountPayRelationResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 32812132121
-   */
-  accountId?: string;
-  /**
-   * @example
-   * 云某的名称
-   */
-  accountName?: string;
-  /**
-   * @example
-   * 213231232
-   */
-  ecid?: string;
-  /**
-   * @example
-   * 2024-12-01 12:00:10
-   */
-  effectiveTime?: string;
-  /**
-   * @example
-   * 123231213
-   */
-  fundAccountId?: string;
-  /**
-   * @example
-   * 312328912
-   */
-  fundAccountOwnerAccountId?: string;
-  /**
-   * @example
-   * 2025-01-01 12:12:12
-   */
-  ineffectiveTime?: string;
-  /**
-   * @example
-   * 2684210001
-   */
-  nbid?: string;
-  /**
-   * @example
-   * 云某的名称
-   */
-  operatorName?: string;
-  /**
-   * @example
-   * 1232343423
-   */
-  operatorNo?: string;
-  /**
-   * @example
-   * aliyun_pk
-   */
-  operatorType?: string;
-  /**
-   * @example
-   * PAYMENT
-   */
-  relationType?: string;
-  /**
-   * @example
-   * 26842
-   */
-  site?: string;
-  /**
-   * @example
-   * valid
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      accountName: 'AccountName',
-      ecid: 'Ecid',
-      effectiveTime: 'EffectiveTime',
-      fundAccountId: 'FundAccountId',
-      fundAccountOwnerAccountId: 'FundAccountOwnerAccountId',
-      ineffectiveTime: 'IneffectiveTime',
-      nbid: 'Nbid',
-      operatorName: 'OperatorName',
-      operatorNo: 'OperatorNo',
-      operatorType: 'OperatorType',
-      relationType: 'RelationType',
-      site: 'Site',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      accountName: 'string',
-      ecid: 'string',
-      effectiveTime: 'string',
-      fundAccountId: 'string',
-      fundAccountOwnerAccountId: 'string',
-      ineffectiveTime: 'string',
-      nbid: 'string',
-      operatorName: 'string',
-      operatorNo: 'string',
-      operatorType: 'string',
-      relationType: 'string',
-      site: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSavingPlanUserDeductRuleRequestEcIdAccountIds extends $dara.Model {
-  accountIds?: number[];
-  ecId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountIds: 'AccountIds',
-      ecId: 'EcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountIds: { 'type': 'array', 'itemType': 'number' },
-      ecId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.accountIds)) {
-      $dara.Model.validateArray(this.accountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSavingPlanUserDeductRuleRequestUserDeductRules extends $dara.Model {
-  commodityCode?: string;
-  moduleCode?: string;
-  skipDeduct?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      commodityCode: 'CommodityCode',
-      moduleCode: 'ModuleCode',
-      skipDeduct: 'SkipDeduct',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commodityCode: 'string',
-      moduleCode: 'string',
-      skipDeduct: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DataModuleMapListSpnTypeMapListValue extends $dara.Model {
-  filterModules?: DataModuleMapListSpnTypeMapListValueFilterModules[];
-  showModules?: DataModuleMapListSpnTypeMapListValueShowModules[];
-  static names(): { [key: string]: string } {
-    return {
-      filterModules: 'FilterModules',
-      showModules: 'ShowModules',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filterModules: { 'type': 'array', 'itemType': DataModuleMapListSpnTypeMapListValueFilterModules },
-      showModules: { 'type': 'array', 'itemType': DataModuleMapListSpnTypeMapListValueShowModules },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.filterModules)) {
-      $dara.Model.validateArray(this.filterModules);
-    }
-    if(Array.isArray(this.showModules)) {
-      $dara.Model.validateArray(this.showModules);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DataStepPriceMapValue extends $dara.Model {
-  rightClose?: boolean;
-  min?: string;
-  max?: string;
-  currency?: string;
-  leftClose?: boolean;
-  stepPriceValue?: string;
-  priceValueType?: string;
-  priceValue?: string;
-  deductCycleType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      rightClose: 'RightClose',
-      min: 'Min',
-      max: 'Max',
-      currency: 'Currency',
-      leftClose: 'LeftClose',
-      stepPriceValue: 'StepPriceValue',
-      priceValueType: 'PriceValueType',
-      priceValue: 'PriceValue',
-      deductCycleType: 'DeductCycleType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rightClose: 'boolean',
-      min: 'string',
-      max: 'string',
-      currency: 'string',
-      leftClose: 'boolean',
-      stepPriceValue: 'string',
-      priceValueType: 'string',
-      priceValue: 'string',
-      deductCycleType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddCouponDeductTagRequest extends $dara.Model {
-  couponId?: string;
-  ecIdAccountIds?: AddCouponDeductTagRequestEcIdAccountIds[];
-  nbid?: string;
-  tags?: AddCouponDeductTagRequestTags[];
-  static names(): { [key: string]: string } {
-    return {
-      couponId: 'CouponId',
-      ecIdAccountIds: 'EcIdAccountIds',
-      nbid: 'Nbid',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponId: 'string',
-      ecIdAccountIds: { 'type': 'array', 'itemType': AddCouponDeductTagRequestEcIdAccountIds },
-      nbid: 'string',
-      tags: { 'type': 'array', 'itemType': AddCouponDeductTagRequestTags },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.ecIdAccountIds)) {
-      $dara.Model.validateArray(this.ecIdAccountIds);
-    }
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddCouponDeductTagShrinkRequest extends $dara.Model {
-  couponId?: string;
-  ecIdAccountIdsShrink?: string;
-  nbid?: string;
-  tagsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      couponId: 'CouponId',
-      ecIdAccountIdsShrink: 'EcIdAccountIds',
-      nbid: 'Nbid',
-      tagsShrink: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponId: 'string',
-      ecIdAccountIdsShrink: 'string',
-      nbid: 'string',
-      tagsShrink: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddCouponDeductTagResponseBody extends $dara.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddCouponDeductTagResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddCouponDeductTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddCouponDeductTagResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelFundAccountLowAvailableAmountAlarmRequest extends $dara.Model {
-  /**
-   * @example
-   * 123321123
-   */
-  fundAccountId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      fundAccountId: 'FundAccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fundAccountId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelFundAccountLowAvailableAmountAlarmResponseBody extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @example
-   * {}
-   */
-  metadata?: any;
-  /**
-   * @example
-   * DFC1F7F9-3BA9-BA4D-2F2E653
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      metadata: 'Metadata',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      metadata: 'any',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelFundAccountLowAvailableAmountAlarmResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelFundAccountLowAvailableAmountAlarmResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelFundAccountLowAvailableAmountAlarmResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFundAccountTransferRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 100
-   */
-  amount?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * CNY
-   */
-  currency?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cash
-   */
-  financeType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 123212323
-   */
-  fromFundAccountId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 转账的备注
-   */
-  remark?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 11112231
-   */
-  toFundAccountId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * grant
-   */
-  transferType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'Amount',
-      currency: 'Currency',
-      financeType: 'FinanceType',
-      fromFundAccountId: 'FromFundAccountId',
-      remark: 'Remark',
-      toFundAccountId: 'ToFundAccountId',
-      transferType: 'TransferType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'string',
-      currency: 'string',
-      financeType: 'string',
-      fromFundAccountId: 'number',
-      remark: 'string',
-      toFundAccountId: 'number',
-      transferType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFundAccountTransferResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
-  metadata?: any;
-  /**
-   * @example
-   * 1BB79-5B23-3EA-BB4F-352F93E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      metadata: 'Metadata',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      metadata: 'any',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFundAccountTransferResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateFundAccountTransferResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateFundAccountTransferResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCouponDeductTagRequest extends $dara.Model {
-  couponId?: string;
-  ecIdAccountIds?: DeleteCouponDeductTagRequestEcIdAccountIds[];
-  nbid?: string;
-  tagKeys?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      couponId: 'CouponId',
-      ecIdAccountIds: 'EcIdAccountIds',
-      nbid: 'Nbid',
-      tagKeys: 'TagKeys',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponId: 'string',
-      ecIdAccountIds: { 'type': 'array', 'itemType': DeleteCouponDeductTagRequestEcIdAccountIds },
-      nbid: 'string',
-      tagKeys: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.ecIdAccountIds)) {
-      $dara.Model.validateArray(this.ecIdAccountIds);
-    }
-    if(Array.isArray(this.tagKeys)) {
-      $dara.Model.validateArray(this.tagKeys);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCouponDeductTagShrinkRequest extends $dara.Model {
-  couponId?: string;
-  ecIdAccountIdsShrink?: string;
-  nbid?: string;
-  tagKeysShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      couponId: 'CouponId',
-      ecIdAccountIdsShrink: 'EcIdAccountIds',
-      nbid: 'Nbid',
-      tagKeysShrink: 'TagKeys',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponId: 'string',
-      ecIdAccountIdsShrink: 'string',
-      nbid: 'string',
-      tagKeysShrink: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCouponDeductTagResponseBody extends $dara.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCouponDeductTagResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteCouponDeductTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteCouponDeductTagResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponRequest extends $dara.Model {
-  /**
-   * @example
-   * 351430260343
-   */
-  couponId?: number;
-  /**
-   * @example
-   * 554863270150
-   */
-  couponNo?: string;
-  /**
-   * @example
-   * CERTAIN
-   */
-  couponType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  ecIdAccountIds?: DescribeCouponRequestEcIdAccountIds[];
-  /**
-   * @example
-   * 1708423156000
-   */
-  effectiveEndTime?: number;
-  /**
-   * @example
-   * 1684750028000
-   */
-  effectiveStartTime?: number;
-  /**
-   * @example
-   * 1708423156000
-   */
-  expireEndDate?: number;
-  /**
-   * @example
-   * 1684750028000
-   */
-  expireStartDate?: number;
-  /**
-   * @example
-   * 2684201000001
-   */
-  nbid?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * AVAILABLE
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      couponId: 'CouponId',
-      couponNo: 'CouponNo',
-      couponType: 'CouponType',
-      currentPage: 'CurrentPage',
-      ecIdAccountIds: 'EcIdAccountIds',
-      effectiveEndTime: 'EffectiveEndTime',
-      effectiveStartTime: 'EffectiveStartTime',
-      expireEndDate: 'ExpireEndDate',
-      expireStartDate: 'ExpireStartDate',
-      nbid: 'Nbid',
-      pageSize: 'PageSize',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponId: 'number',
-      couponNo: 'string',
-      couponType: 'string',
-      currentPage: 'number',
-      ecIdAccountIds: { 'type': 'array', 'itemType': DescribeCouponRequestEcIdAccountIds },
-      effectiveEndTime: 'number',
-      effectiveStartTime: 'number',
-      expireEndDate: 'number',
-      expireStartDate: 'number',
-      nbid: 'string',
-      pageSize: 'number',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.ecIdAccountIds)) {
-      $dara.Model.validateArray(this.ecIdAccountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 351430260343
-   */
-  couponId?: number;
-  /**
-   * @example
-   * 554863270150
-   */
-  couponNo?: string;
-  /**
-   * @example
-   * CERTAIN
-   */
-  couponType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  ecIdAccountIdsShrink?: string;
-  /**
-   * @example
-   * 1708423156000
-   */
-  effectiveEndTime?: number;
-  /**
-   * @example
-   * 1684750028000
-   */
-  effectiveStartTime?: number;
-  /**
-   * @example
-   * 1708423156000
-   */
-  expireEndDate?: number;
-  /**
-   * @example
-   * 1684750028000
-   */
-  expireStartDate?: number;
-  /**
-   * @example
-   * 2684201000001
-   */
-  nbid?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * AVAILABLE
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      couponId: 'CouponId',
-      couponNo: 'CouponNo',
-      couponType: 'CouponType',
-      currentPage: 'CurrentPage',
-      ecIdAccountIdsShrink: 'EcIdAccountIds',
-      effectiveEndTime: 'EffectiveEndTime',
-      effectiveStartTime: 'EffectiveStartTime',
-      expireEndDate: 'ExpireEndDate',
-      expireStartDate: 'ExpireStartDate',
-      nbid: 'Nbid',
-      pageSize: 'PageSize',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponId: 'number',
-      couponNo: 'string',
-      couponType: 'string',
-      currentPage: 'number',
-      ecIdAccountIdsShrink: 'string',
-      effectiveEndTime: 'number',
-      effectiveStartTime: 'number',
-      expireEndDate: 'number',
-      expireStartDate: 'number',
-      nbid: 'string',
-      pageSize: 'number',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  data?: DescribeCouponResponseBodyData[];
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * C880B065-A781-4F19-B6DD-3E0E3B715C64
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 2
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      data: 'Data',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      data: { 'type': 'array', 'itemType': DescribeCouponResponseBodyData },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeCouponResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeCouponResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponItemListRequest extends $dara.Model {
-  /**
-   * @example
-   * 59104570
-   */
-  couponId?: number;
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  ecIdAccountIds?: DescribeCouponItemListRequestEcIdAccountIds[];
-  name?: string;
-  /**
-   * @example
-   * 2684201000001
-   */
-  nbid?: string;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      couponId: 'CouponId',
-      currentPage: 'CurrentPage',
-      ecIdAccountIds: 'EcIdAccountIds',
-      name: 'Name',
-      nbid: 'Nbid',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponId: 'number',
-      currentPage: 'number',
-      ecIdAccountIds: { 'type': 'array', 'itemType': DescribeCouponItemListRequestEcIdAccountIds },
-      name: 'string',
-      nbid: 'string',
-      pageSize: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.ecIdAccountIds)) {
-      $dara.Model.validateArray(this.ecIdAccountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponItemListShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 59104570
-   */
-  couponId?: number;
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  ecIdAccountIdsShrink?: string;
-  name?: string;
-  /**
-   * @example
-   * 2684201000001
-   */
-  nbid?: string;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      couponId: 'CouponId',
-      currentPage: 'CurrentPage',
-      ecIdAccountIdsShrink: 'EcIdAccountIds',
-      name: 'Name',
-      nbid: 'Nbid',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponId: 'number',
-      currentPage: 'number',
-      ecIdAccountIdsShrink: 'string',
-      name: 'string',
-      nbid: 'string',
-      pageSize: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponItemListResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  data?: DescribeCouponItemListResponseBodyData[];
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * EAE08A27-386C-579E-966D-8853EC3C5D0E
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 5
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      data: 'Data',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      data: { 'type': 'array', 'itemType': DescribeCouponItemListResponseBodyData },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponItemListResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeCouponItemListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeCouponItemListResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserSpnSummaryInfoRequest extends $dara.Model {
-  ecIdAccountIds?: DescribeUserSpnSummaryInfoRequestEcIdAccountIds[];
-  nbid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ecIdAccountIds: 'EcIdAccountIds',
-      nbid: 'Nbid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ecIdAccountIds: { 'type': 'array', 'itemType': DescribeUserSpnSummaryInfoRequestEcIdAccountIds },
-      nbid: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.ecIdAccountIds)) {
-      $dara.Model.validateArray(this.ecIdAccountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserSpnSummaryInfoShrinkRequest extends $dara.Model {
-  ecIdAccountIdsShrink?: string;
-  nbid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ecIdAccountIdsShrink: 'EcIdAccountIds',
-      nbid: 'Nbid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ecIdAccountIdsShrink: 'string',
-      nbid: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserSpnSummaryInfoResponseBody extends $dara.Model {
-  instanceFamilyList?: string[];
-  regionList?: DescribeUserSpnSummaryInfoResponseBodyRegionList[];
-  requestId?: string;
-  spnCodeAndTypeList?: DescribeUserSpnSummaryInfoResponseBodySpnCodeAndTypeList[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceFamilyList: 'InstanceFamilyList',
-      regionList: 'RegionList',
-      requestId: 'RequestId',
-      spnCodeAndTypeList: 'SpnCodeAndTypeList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceFamilyList: { 'type': 'array', 'itemType': 'string' },
-      regionList: { 'type': 'array', 'itemType': DescribeUserSpnSummaryInfoResponseBodyRegionList },
-      requestId: 'string',
-      spnCodeAndTypeList: { 'type': 'array', 'itemType': DescribeUserSpnSummaryInfoResponseBodySpnCodeAndTypeList },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instanceFamilyList)) {
-      $dara.Model.validateArray(this.instanceFamilyList);
-    }
-    if(Array.isArray(this.regionList)) {
-      $dara.Model.validateArray(this.regionList);
-    }
-    if(Array.isArray(this.spnCodeAndTypeList)) {
-      $dara.Model.validateArray(this.spnCodeAndTypeList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserSpnSummaryInfoResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeUserSpnSummaryInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeUserSpnSummaryInfoResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountAvailableAmountRequest extends $dara.Model {
-  /**
-   * @example
-   * 12332112
-   */
-  fundAccountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fundAccountId: 'FundAccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fundAccountId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountAvailableAmountResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
-  availableAmount?: string;
-  /**
-   * @example
-   * 50
-   */
-  availableCreditAmount?: string;
-  /**
-   * @example
-   * 0
-   */
-  bankAcceptanceAmount?: string;
-  /**
-   * @example
-   * 50
-   */
-  cashAmount?: string;
-  /**
-   * @example
-   * 100
-   */
-  creditAmount?: string;
-  /**
-   * @example
-   * 0
-   */
-  creditRefundAmount?: string;
-  creditUser?: boolean;
-  /**
-   * @example
-   * CNY
-   */
-  currency?: string;
-  /**
-   * @example
-   * 20
-   */
-  currentMonthUnclearedAmount?: string;
-  extendLedgerList?: GetFundAccountAvailableAmountResponseBodyExtendLedgerList[];
-  /**
-   * @example
-   * 12332112
-   */
-  fundAccountId?: string;
-  /**
-   * @example
-   * 1344312434
-   */
-  fundAccountOwnerAccountId?: string;
-  /**
-   * @example
-   * valid
-   */
-  fundAccountStatus?: string;
-  /**
-   * @example
-   * REDIRECT_USER
-   */
-  fundAccountType?: string;
-  /**
-   * @example
-   * 30
-   */
-  historyMonthUnclearedAmount?: string;
-  /**
-   * @example
-   * {}
-   */
-  metadata?: any;
-  /**
-   * @example
-   * 0
-   */
-  negativeBillAmount?: string;
-  originalCashAmountList?: GetFundAccountAvailableAmountResponseBodyOriginalCashAmountList[];
-  /**
-   * @example
-   * 20
-   */
-  quotaAmount?: string;
-  /**
-   * @example
-   * 10
-   */
-  quotaConsumedAmount?: string;
-  /**
-   * @example
-   * F96A2D13-7509-5DF9-A60E-E7E3A3CB68E8
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 50
-   */
-  unclearedAmount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      availableAmount: 'AvailableAmount',
-      availableCreditAmount: 'AvailableCreditAmount',
-      bankAcceptanceAmount: 'BankAcceptanceAmount',
-      cashAmount: 'CashAmount',
-      creditAmount: 'CreditAmount',
-      creditRefundAmount: 'CreditRefundAmount',
-      creditUser: 'CreditUser',
-      currency: 'Currency',
-      currentMonthUnclearedAmount: 'CurrentMonthUnclearedAmount',
-      extendLedgerList: 'ExtendLedgerList',
-      fundAccountId: 'FundAccountId',
-      fundAccountOwnerAccountId: 'FundAccountOwnerAccountId',
-      fundAccountStatus: 'FundAccountStatus',
-      fundAccountType: 'FundAccountType',
-      historyMonthUnclearedAmount: 'HistoryMonthUnclearedAmount',
-      metadata: 'Metadata',
-      negativeBillAmount: 'NegativeBillAmount',
-      originalCashAmountList: 'OriginalCashAmountList',
-      quotaAmount: 'QuotaAmount',
-      quotaConsumedAmount: 'QuotaConsumedAmount',
-      requestId: 'RequestId',
-      unclearedAmount: 'UnclearedAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableAmount: 'string',
-      availableCreditAmount: 'string',
-      bankAcceptanceAmount: 'string',
-      cashAmount: 'string',
-      creditAmount: 'string',
-      creditRefundAmount: 'string',
-      creditUser: 'boolean',
-      currency: 'string',
-      currentMonthUnclearedAmount: 'string',
-      extendLedgerList: { 'type': 'array', 'itemType': GetFundAccountAvailableAmountResponseBodyExtendLedgerList },
-      fundAccountId: 'string',
-      fundAccountOwnerAccountId: 'string',
-      fundAccountStatus: 'string',
-      fundAccountType: 'string',
-      historyMonthUnclearedAmount: 'string',
-      metadata: 'any',
-      negativeBillAmount: 'string',
-      originalCashAmountList: { 'type': 'array', 'itemType': GetFundAccountAvailableAmountResponseBodyOriginalCashAmountList },
-      quotaAmount: 'string',
-      quotaConsumedAmount: 'string',
-      requestId: 'string',
-      unclearedAmount: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.extendLedgerList)) {
-      $dara.Model.validateArray(this.extendLedgerList);
-    }
-    if(Array.isArray(this.originalCashAmountList)) {
-      $dara.Model.validateArray(this.originalCashAmountList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountAvailableAmountResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFundAccountAvailableAmountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFundAccountAvailableAmountResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountCanAllocateCreditAmountRequest extends $dara.Model {
-  /**
-   * @example
-   * 1233231
-   */
-  fundAccountId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      fundAccountId: 'FundAccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fundAccountId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountCanAllocateCreditAmountResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 2032123221
-   */
-  ecid?: string;
-  /**
-   * @example
-   * 300
-   */
-  ecidAllocatedCreditAmount?: string;
-  /**
-   * @example
-   * 1000
-   */
-  ecidCreditAmount?: string;
-  /**
-   * @example
-   * 202321232
-   */
-  fundAccountEcid?: string;
-  /**
-   * @example
-   * 12332112
-   */
-  fundAccountId?: number;
-  /**
-   * @example
-   * 云某的名称
-   */
-  fundAccountName?: string;
-  /**
-   * @example
-   * 123433121
-   */
-  fundAccountOwnerAccountId?: number;
-  /**
-   * @example
-   * 1500
-   */
-  maxCanAllocateCreditAmount?: string;
-  /**
-   * @example
-   * {}
-   */
-  metadata?: any;
-  /**
-   * @example
-   * 200
-   */
-  minCanAllocateCreditAmount?: string;
-  /**
-   * @example
-   * 2684210001
-   */
-  nbid?: string;
-  /**
-   * @example
-   * CC706AAC-75A6-55B5-9AB7-7D171C6C7655
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 26842
-   */
-  site?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ecid: 'Ecid',
-      ecidAllocatedCreditAmount: 'EcidAllocatedCreditAmount',
-      ecidCreditAmount: 'EcidCreditAmount',
-      fundAccountEcid: 'FundAccountEcid',
-      fundAccountId: 'FundAccountId',
-      fundAccountName: 'FundAccountName',
-      fundAccountOwnerAccountId: 'FundAccountOwnerAccountId',
-      maxCanAllocateCreditAmount: 'MaxCanAllocateCreditAmount',
-      metadata: 'Metadata',
-      minCanAllocateCreditAmount: 'MinCanAllocateCreditAmount',
-      nbid: 'Nbid',
-      requestId: 'RequestId',
-      site: 'Site',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ecid: 'string',
-      ecidAllocatedCreditAmount: 'string',
-      ecidCreditAmount: 'string',
-      fundAccountEcid: 'string',
-      fundAccountId: 'number',
-      fundAccountName: 'string',
-      fundAccountOwnerAccountId: 'number',
-      maxCanAllocateCreditAmount: 'string',
-      metadata: 'any',
-      minCanAllocateCreditAmount: 'string',
-      nbid: 'string',
-      requestId: 'string',
-      site: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountCanAllocateCreditAmountResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFundAccountCanAllocateCreditAmountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFundAccountCanAllocateCreditAmountResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountCanRecycleAmountRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * CNY
-   */
-  currency?: string;
-  /**
-   * @example
-   * 122321223
-   */
-  recycleFromFundAccountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currency: 'Currency',
-      recycleFromFundAccountId: 'RecycleFromFundAccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currency: 'string',
-      recycleFromFundAccountId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountCanRecycleAmountResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 300
-   */
-  availableAmount?: string;
-  /**
-   * @example
-   * CNY
-   */
-  currency?: string;
-  /**
-   * @example
-   * {}
-   */
-  metadata?: any;
-  /**
-   * @example
-   * 1232122132
-   */
-  recycleFromFundAccountId?: string;
-  recycleToFundAccountList?: GetFundAccountCanRecycleAmountResponseBodyRecycleToFundAccountList[];
-  /**
-   * @example
-   * 6000EE23-274B-4E07-A697-FF2E999520A4
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 200
-   */
-  transferAmount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      availableAmount: 'AvailableAmount',
-      currency: 'Currency',
-      metadata: 'Metadata',
-      recycleFromFundAccountId: 'RecycleFromFundAccountId',
-      recycleToFundAccountList: 'RecycleToFundAccountList',
-      requestId: 'RequestId',
-      transferAmount: 'TransferAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableAmount: 'string',
-      currency: 'string',
-      metadata: 'any',
-      recycleFromFundAccountId: 'string',
-      recycleToFundAccountList: { 'type': 'array', 'itemType': GetFundAccountCanRecycleAmountResponseBodyRecycleToFundAccountList },
-      requestId: 'string',
-      transferAmount: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.recycleToFundAccountList)) {
-      $dara.Model.validateArray(this.recycleToFundAccountList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountCanRecycleAmountResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFundAccountCanRecycleAmountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFundAccountCanRecycleAmountResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountCanTransferAmountRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * CNY
-   */
-  currency?: string;
-  /**
-   * @example
-   * 123212
-   */
-  fundAccountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currency: 'Currency',
-      fundAccountId: 'FundAccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currency: 'string',
-      fundAccountId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountCanTransferAmountResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
-  availableAmount?: string;
-  /**
-   * @example
-   * 500
-   */
-  cashAmount?: string;
-  /**
-   * @example
-   * CNY
-   */
-  currency?: string;
-  /**
-   * @example
-   * 2032121324
-   */
-  fundAccountEcid?: string;
-  /**
-   * @example
-   * 12332112
-   */
-  fundAccountId?: number;
-  /**
-   * @example
-   * 云某的账户
-   */
-  fundAccountName?: string;
-  /**
-   * @example
-   * 154738212323
-   */
-  fundAccountOwnerAccountId?: number;
-  /**
-   * @example
-   * 100
-   */
-  maxTransferableAmount?: string;
-  /**
-   * @example
-   * {}
-   */
-  metadata?: any;
-  /**
-   * @example
-   * 2684210001
-   */
-  nbid?: string;
-  /**
-   * @example
-   * 6000EE23-274B-4E07-A697-FF2E999520A4
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 26842
-   */
-  site?: string;
-  /**
-   * @example
-   * 100
-   */
-  transferAmount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      availableAmount: 'AvailableAmount',
-      cashAmount: 'CashAmount',
-      currency: 'Currency',
-      fundAccountEcid: 'FundAccountEcid',
-      fundAccountId: 'FundAccountId',
-      fundAccountName: 'FundAccountName',
-      fundAccountOwnerAccountId: 'FundAccountOwnerAccountId',
-      maxTransferableAmount: 'MaxTransferableAmount',
-      metadata: 'Metadata',
-      nbid: 'Nbid',
-      requestId: 'RequestId',
-      site: 'Site',
-      transferAmount: 'TransferAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableAmount: 'string',
-      cashAmount: 'string',
-      currency: 'string',
-      fundAccountEcid: 'string',
-      fundAccountId: 'number',
-      fundAccountName: 'string',
-      fundAccountOwnerAccountId: 'number',
-      maxTransferableAmount: 'string',
-      metadata: 'any',
-      nbid: 'string',
-      requestId: 'string',
-      site: 'string',
-      transferAmount: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountCanTransferAmountResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFundAccountCanTransferAmountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFundAccountCanTransferAmountResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountCanWithdrawAmountRequest extends $dara.Model {
-  /**
-   * @example
-   * 123212232
-   */
-  fundAccountId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      fundAccountId: 'FundAccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fundAccountId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountCanWithdrawAmountResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 400
-   */
-  canOriginalWithdrawAmount?: string;
-  /**
-   * @example
-   * 500
-   */
-  canWithdrawAmount?: string;
-  /**
-   * @example
-   * 100
-   */
-  cannotOriginalWithdrawAmount?: string;
-  /**
-   * @example
-   * 1000
-   */
-  cashAmount?: string;
-  /**
-   * @example
-   * 100
-   */
-  creditMemoAmount?: string;
-  /**
-   * @example
-   * 200
-   */
-  currentMonthUnclearedAmount?: string;
-  /**
-   * @example
-   * 100
-   */
-  historyMonthUnclearedAmount?: string;
-  /**
-   * @example
-   * {}
-   */
-  metadata?: any;
-  /**
-   * @example
-   * 100
-   */
-  payAsYouGoReversedAmount?: string;
-  /**
-   * @example
-   * DF58589C-A06C-4224-8615-7797E6474FA3
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 0
-   */
-  transferAmount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      canOriginalWithdrawAmount: 'CanOriginalWithdrawAmount',
-      canWithdrawAmount: 'CanWithdrawAmount',
-      cannotOriginalWithdrawAmount: 'CannotOriginalWithdrawAmount',
-      cashAmount: 'CashAmount',
-      creditMemoAmount: 'CreditMemoAmount',
-      currentMonthUnclearedAmount: 'CurrentMonthUnclearedAmount',
-      historyMonthUnclearedAmount: 'HistoryMonthUnclearedAmount',
-      metadata: 'Metadata',
-      payAsYouGoReversedAmount: 'PayAsYouGoReversedAmount',
-      requestId: 'RequestId',
-      transferAmount: 'TransferAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      canOriginalWithdrawAmount: 'string',
-      canWithdrawAmount: 'string',
-      cannotOriginalWithdrawAmount: 'string',
-      cashAmount: 'string',
-      creditMemoAmount: 'string',
-      currentMonthUnclearedAmount: 'string',
-      historyMonthUnclearedAmount: 'string',
-      metadata: 'any',
-      payAsYouGoReversedAmount: 'string',
-      requestId: 'string',
-      transferAmount: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountCanWithdrawAmountResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFundAccountCanWithdrawAmountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFundAccountCanWithdrawAmountResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountLowAvailableAmountAlarmRequest extends $dara.Model {
-  /**
-   * @example
-   * 12332112
-   */
-  fundAccountId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      fundAccountId: 'FundAccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fundAccountId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountLowAvailableAmountAlarmResponseBody extends $dara.Model {
-  alarmEnabled?: boolean;
-  /**
-   * @example
-   * {}
-   */
-  metadata?: any;
-  /**
-   * @example
-   * 6000EE23-274B-4E07-A697-FF2E999520A4
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 100
-   */
-  thresholdAmount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alarmEnabled: 'AlarmEnabled',
-      metadata: 'Metadata',
-      requestId: 'RequestId',
-      thresholdAmount: 'ThresholdAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alarmEnabled: 'boolean',
-      metadata: 'any',
-      requestId: 'string',
-      thresholdAmount: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountLowAvailableAmountAlarmResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFundAccountLowAvailableAmountAlarmResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFundAccountLowAvailableAmountAlarmResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountTransactionDetailsRequest extends $dara.Model {
-  /**
-   * @example
-   * 2023212312321
-   */
-  billNumber?: string;
-  /**
-   * @example
-   * 20250312334312322
-   */
-  channelTransactionNumber?: string;
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * 1735664561000
-   */
-  endTime?: number;
-  /**
-   * @example
-   * 123221232
-   */
-  fundAccountId?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 1735664461000
-   */
-  startTime?: number;
-  transactionChannelList?: string[];
-  /**
-   * @example
-   * IN
-   */
-  transactionDirection?: string;
-  /**
-   * @example
-   * 543231231
-   */
-  transactionNumber?: number;
-  /**
-   * @example
-   * CHARGE
-   */
-  transactionType?: string;
-  transactionTypeList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      billNumber: 'BillNumber',
-      channelTransactionNumber: 'ChannelTransactionNumber',
-      currentPage: 'CurrentPage',
-      endTime: 'EndTime',
-      fundAccountId: 'FundAccountId',
-      pageSize: 'PageSize',
-      startTime: 'StartTime',
-      transactionChannelList: 'TransactionChannelList',
-      transactionDirection: 'TransactionDirection',
-      transactionNumber: 'TransactionNumber',
-      transactionType: 'TransactionType',
-      transactionTypeList: 'TransactionTypeList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      billNumber: 'string',
-      channelTransactionNumber: 'string',
-      currentPage: 'number',
-      endTime: 'number',
-      fundAccountId: 'number',
-      pageSize: 'number',
-      startTime: 'number',
-      transactionChannelList: { 'type': 'array', 'itemType': 'string' },
-      transactionDirection: 'string',
-      transactionNumber: 'number',
-      transactionType: 'string',
-      transactionTypeList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.transactionChannelList)) {
-      $dara.Model.validateArray(this.transactionChannelList);
-    }
-    if(Array.isArray(this.transactionTypeList)) {
-      $dara.Model.validateArray(this.transactionTypeList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountTransactionDetailsShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 2023212312321
-   */
-  billNumber?: string;
-  /**
-   * @example
-   * 20250312334312322
-   */
-  channelTransactionNumber?: string;
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * 1735664561000
-   */
-  endTime?: number;
-  /**
-   * @example
-   * 123221232
-   */
-  fundAccountId?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 1735664461000
-   */
-  startTime?: number;
-  transactionChannelListShrink?: string;
-  /**
-   * @example
-   * IN
-   */
-  transactionDirection?: string;
-  /**
-   * @example
-   * 543231231
-   */
-  transactionNumber?: number;
-  /**
-   * @example
-   * CHARGE
-   */
-  transactionType?: string;
-  transactionTypeListShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      billNumber: 'BillNumber',
-      channelTransactionNumber: 'ChannelTransactionNumber',
-      currentPage: 'CurrentPage',
-      endTime: 'EndTime',
-      fundAccountId: 'FundAccountId',
-      pageSize: 'PageSize',
-      startTime: 'StartTime',
-      transactionChannelListShrink: 'TransactionChannelList',
-      transactionDirection: 'TransactionDirection',
-      transactionNumber: 'TransactionNumber',
-      transactionType: 'TransactionType',
-      transactionTypeListShrink: 'TransactionTypeList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      billNumber: 'string',
-      channelTransactionNumber: 'string',
-      currentPage: 'number',
-      endTime: 'number',
-      fundAccountId: 'number',
-      pageSize: 'number',
-      startTime: 'number',
-      transactionChannelListShrink: 'string',
-      transactionDirection: 'string',
-      transactionNumber: 'number',
-      transactionType: 'string',
-      transactionTypeListShrink: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountTransactionDetailsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  data?: GetFundAccountTransactionDetailsResponseBodyData[];
-  /**
-   * @example
-   * {}
-   */
-  metadata?: any;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * D6E068C3-25BC-455A-85FE-45F0B22ECB1F
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 30
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      data: 'Data',
-      metadata: 'Metadata',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      data: { 'type': 'array', 'itemType': GetFundAccountTransactionDetailsResponseBodyData },
-      metadata: 'any',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFundAccountTransactionDetailsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFundAccountTransactionDetailsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFundAccountTransactionDetailsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityRequest extends $dara.Model {
-  ecIdAccountIds?: GetSavingPlanDeductableCommodityRequestEcIdAccountIds[];
-  nbid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ecIdAccountIds: 'EcIdAccountIds',
-      nbid: 'Nbid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ecIdAccountIds: { 'type': 'array', 'itemType': GetSavingPlanDeductableCommodityRequestEcIdAccountIds },
-      nbid: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.ecIdAccountIds)) {
-      $dara.Model.validateArray(this.ecIdAccountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityShrinkRequest extends $dara.Model {
-  ecIdAccountIdsShrink?: string;
-  nbid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ecIdAccountIdsShrink: 'EcIdAccountIds',
-      nbid: 'Nbid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ecIdAccountIdsShrink: 'string',
-      nbid: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityResponseBody extends $dara.Model {
-  data?: GetSavingPlanDeductableCommodityResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': GetSavingPlanDeductableCommodityResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanDeductableCommodityResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSavingPlanDeductableCommodityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSavingPlanDeductableCommodityResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanShareAccountsRequest extends $dara.Model {
-  currentPage?: number;
-  ecIdAccountIds?: GetSavingPlanShareAccountsRequestEcIdAccountIds[];
-  nbid?: string;
-  pageSize?: number;
-  spnInstanceCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      ecIdAccountIds: 'EcIdAccountIds',
-      nbid: 'Nbid',
-      pageSize: 'PageSize',
-      spnInstanceCode: 'SpnInstanceCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      ecIdAccountIds: { 'type': 'array', 'itemType': GetSavingPlanShareAccountsRequestEcIdAccountIds },
-      nbid: 'string',
-      pageSize: 'number',
-      spnInstanceCode: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.ecIdAccountIds)) {
-      $dara.Model.validateArray(this.ecIdAccountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanShareAccountsShrinkRequest extends $dara.Model {
-  currentPage?: number;
-  ecIdAccountIdsShrink?: string;
-  nbid?: string;
-  pageSize?: number;
-  spnInstanceCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      ecIdAccountIdsShrink: 'EcIdAccountIds',
-      nbid: 'Nbid',
-      pageSize: 'PageSize',
-      spnInstanceCode: 'SpnInstanceCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      ecIdAccountIdsShrink: 'string',
-      nbid: 'string',
-      pageSize: 'number',
-      spnInstanceCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanShareAccountsResponseBody extends $dara.Model {
-  data?: GetSavingPlanShareAccountsResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': GetSavingPlanShareAccountsResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanShareAccountsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSavingPlanShareAccountsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSavingPlanShareAccountsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanUserDeductRuleRequest extends $dara.Model {
-  currentPage?: number;
-  ecIdAccountIds?: GetSavingPlanUserDeductRuleRequestEcIdAccountIds[];
-  nbid?: string;
-  pageSize?: number;
-  spnInstanceCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      ecIdAccountIds: 'EcIdAccountIds',
-      nbid: 'Nbid',
-      pageSize: 'PageSize',
-      spnInstanceCode: 'SpnInstanceCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      ecIdAccountIds: { 'type': 'array', 'itemType': GetSavingPlanUserDeductRuleRequestEcIdAccountIds },
-      nbid: 'string',
-      pageSize: 'number',
-      spnInstanceCode: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.ecIdAccountIds)) {
-      $dara.Model.validateArray(this.ecIdAccountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanUserDeductRuleShrinkRequest extends $dara.Model {
-  currentPage?: number;
-  ecIdAccountIdsShrink?: string;
-  nbid?: string;
-  pageSize?: number;
-  spnInstanceCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      ecIdAccountIdsShrink: 'EcIdAccountIds',
-      nbid: 'Nbid',
-      pageSize: 'PageSize',
-      spnInstanceCode: 'SpnInstanceCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      ecIdAccountIdsShrink: 'string',
-      nbid: 'string',
-      pageSize: 'number',
-      spnInstanceCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanUserDeductRuleResponseBody extends $dara.Model {
-  data?: GetSavingPlanUserDeductRuleResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': GetSavingPlanUserDeductRuleResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavingPlanUserDeductRuleResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSavingPlanUserDeductRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSavingPlanUserDeductRuleResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCouponDeductTagRequest extends $dara.Model {
-  couponId?: string;
-  ecIdAccountIds?: ListCouponDeductTagRequestEcIdAccountIds[];
-  nbid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      couponId: 'CouponId',
-      ecIdAccountIds: 'EcIdAccountIds',
-      nbid: 'Nbid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponId: 'string',
-      ecIdAccountIds: { 'type': 'array', 'itemType': ListCouponDeductTagRequestEcIdAccountIds },
-      nbid: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.ecIdAccountIds)) {
-      $dara.Model.validateArray(this.ecIdAccountIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCouponDeductTagShrinkRequest extends $dara.Model {
-  couponId?: string;
-  ecIdAccountIdsShrink?: string;
-  nbid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      couponId: 'CouponId',
-      ecIdAccountIdsShrink: 'EcIdAccountIds',
-      nbid: 'Nbid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponId: 'string',
-      ecIdAccountIdsShrink: 'string',
-      nbid: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCouponDeductTagResponseBody extends $dara.Model {
-  data?: ListCouponDeductTagResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': ListCouponDeductTagResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCouponDeductTagResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListCouponDeductTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListCouponDeductTagResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFundAccountRequest extends $dara.Model {
-  /**
-   * @example
-   * 2084210001
-   */
-  nbid?: string;
-  queryOnlyInUse?: boolean;
-  queryOnlyManage?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      nbid: 'Nbid',
-      queryOnlyInUse: 'QueryOnlyInUse',
-      queryOnlyManage: 'QueryOnlyManage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nbid: 'string',
-      queryOnlyInUse: 'boolean',
-      queryOnlyManage: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFundAccountResponseBody extends $dara.Model {
-  data?: ListFundAccountResponseBodyData[];
-  /**
-   * @example
-   * {}
-   */
-  metadata?: any;
-  /**
-   * @example
-   * 6000EE23-274B-4E07-A697-FF2E999520A4
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      metadata: 'Metadata',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': ListFundAccountResponseBodyData },
-      metadata: 'any',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFundAccountResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListFundAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListFundAccountResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFundAccountPayRelationRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 12323123
-   */
-  fundAccountId?: string;
-  /**
-   * @example
-   * 2684201000001
-   */
-  nbid?: string;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * valid
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      fundAccountId: 'FundAccountId',
-      nbid: 'Nbid',
-      pageSize: 'PageSize',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      fundAccountId: 'string',
-      nbid: 'string',
-      pageSize: 'number',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFundAccountPayRelationResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  data?: ListFundAccountPayRelationResponseBodyData[];
-  /**
-   * @example
-   * {}
-   */
-  metadata?: any;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 50
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      data: 'Data',
-      metadata: 'Metadata',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      data: { 'type': 'array', 'itemType': ListFundAccountPayRelationResponseBodyData },
-      metadata: 'any',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFundAccountPayRelationResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListFundAccountPayRelationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListFundAccountPayRelationResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetFundAccountCreditAmountRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 500
-   */
-  creditAmount?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * CNY
-   */
-  currency?: string;
-  /**
-   * @example
-   * 1232312
-   */
-  fundAccountId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      creditAmount: 'CreditAmount',
-      currency: 'Currency',
-      fundAccountId: 'FundAccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      creditAmount: 'string',
-      currency: 'string',
-      fundAccountId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetFundAccountCreditAmountResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
-  metadata?: any;
-  /**
-   * @example
-   * 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      metadata: 'Metadata',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      metadata: 'any',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetFundAccountCreditAmountResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetFundAccountCreditAmountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetFundAccountCreditAmountResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetFundAccountLowAvailableAmountAlarmRequest extends $dara.Model {
-  /**
-   * @example
-   * 12321213
-   */
-  fundAccountId?: number;
-  /**
-   * @example
-   * 100
-   */
-  thresholdAmount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fundAccountId: 'FundAccountId',
-      thresholdAmount: 'ThresholdAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fundAccountId: 'number',
-      thresholdAmount: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetFundAccountLowAvailableAmountAlarmResponseBody extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @example
-   * {}
-   */
-  metadata?: any;
-  /**
-   * @example
-   * 08108BF5-1AA3-518E-9986-95A3616E8DA9
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      metadata: 'Metadata',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      metadata: 'any',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetFundAccountLowAvailableAmountAlarmResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetFundAccountLowAvailableAmountAlarmResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetFundAccountLowAvailableAmountAlarmResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSavingPlanUserDeductRuleRequest extends $dara.Model {
-  ecIdAccountIds?: SetSavingPlanUserDeductRuleRequestEcIdAccountIds[];
-  nbid?: string;
-  spnInstanceCode?: string;
-  userDeductRules?: SetSavingPlanUserDeductRuleRequestUserDeductRules[];
-  static names(): { [key: string]: string } {
-    return {
-      ecIdAccountIds: 'EcIdAccountIds',
-      nbid: 'Nbid',
-      spnInstanceCode: 'SpnInstanceCode',
-      userDeductRules: 'UserDeductRules',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ecIdAccountIds: { 'type': 'array', 'itemType': SetSavingPlanUserDeductRuleRequestEcIdAccountIds },
-      nbid: 'string',
-      spnInstanceCode: 'string',
-      userDeductRules: { 'type': 'array', 'itemType': SetSavingPlanUserDeductRuleRequestUserDeductRules },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.ecIdAccountIds)) {
-      $dara.Model.validateArray(this.ecIdAccountIds);
-    }
-    if(Array.isArray(this.userDeductRules)) {
-      $dara.Model.validateArray(this.userDeductRules);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSavingPlanUserDeductRuleShrinkRequest extends $dara.Model {
-  ecIdAccountIdsShrink?: string;
-  nbid?: string;
-  spnInstanceCode?: string;
-  userDeductRulesShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ecIdAccountIdsShrink: 'EcIdAccountIds',
-      nbid: 'Nbid',
-      spnInstanceCode: 'SpnInstanceCode',
-      userDeductRulesShrink: 'UserDeductRules',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ecIdAccountIdsShrink: 'string',
-      nbid: 'string',
-      spnInstanceCode: 'string',
-      userDeductRulesShrink: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSavingPlanUserDeductRuleResponseBody extends $dara.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSavingPlanUserDeductRuleResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetSavingPlanUserDeductRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetSavingPlanUserDeductRuleResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
@@ -5434,9 +96,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddCouponDeductTagResponse
    */
-  async addCouponDeductTagWithOptions(tmpReq: AddCouponDeductTagRequest, runtime: $dara.RuntimeOptions): Promise<AddCouponDeductTagResponse> {
+  async addCouponDeductTagWithOptions(tmpReq: $_model.AddCouponDeductTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddCouponDeductTagResponse> {
     tmpReq.validate();
-    let request = new AddCouponDeductTagShrinkRequest({ });
+    let request = new $_model.AddCouponDeductTagShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
       request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
@@ -5477,7 +139,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddCouponDeductTagResponse>(await this.callApi(params, req, runtime), new AddCouponDeductTagResponse({}));
+    return $dara.cast<$_model.AddCouponDeductTagResponse>(await this.callApi(params, req, runtime), new $_model.AddCouponDeductTagResponse({}));
   }
 
   /**
@@ -5486,7 +148,7 @@ export default class Client extends OpenApi {
    * @param request - AddCouponDeductTagRequest
    * @returns AddCouponDeductTagResponse
    */
-  async addCouponDeductTag(request: AddCouponDeductTagRequest): Promise<AddCouponDeductTagResponse> {
+  async addCouponDeductTag(request: $_model.AddCouponDeductTagRequest): Promise<$_model.AddCouponDeductTagResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.addCouponDeductTagWithOptions(request, runtime);
   }
@@ -5498,7 +160,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelFundAccountLowAvailableAmountAlarmResponse
    */
-  async cancelFundAccountLowAvailableAmountAlarmWithOptions(request: CancelFundAccountLowAvailableAmountAlarmRequest, runtime: $dara.RuntimeOptions): Promise<CancelFundAccountLowAvailableAmountAlarmResponse> {
+  async cancelFundAccountLowAvailableAmountAlarmWithOptions(request: $_model.CancelFundAccountLowAvailableAmountAlarmRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelFundAccountLowAvailableAmountAlarmResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.fundAccountId)) {
@@ -5519,7 +181,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CancelFundAccountLowAvailableAmountAlarmResponse>(await this.callApi(params, req, runtime), new CancelFundAccountLowAvailableAmountAlarmResponse({}));
+    return $dara.cast<$_model.CancelFundAccountLowAvailableAmountAlarmResponse>(await this.callApi(params, req, runtime), new $_model.CancelFundAccountLowAvailableAmountAlarmResponse({}));
   }
 
   /**
@@ -5528,9 +190,119 @@ export default class Client extends OpenApi {
    * @param request - CancelFundAccountLowAvailableAmountAlarmRequest
    * @returns CancelFundAccountLowAvailableAmountAlarmResponse
    */
-  async cancelFundAccountLowAvailableAmountAlarm(request: CancelFundAccountLowAvailableAmountAlarmRequest): Promise<CancelFundAccountLowAvailableAmountAlarmResponse> {
+  async cancelFundAccountLowAvailableAmountAlarm(request: $_model.CancelFundAccountLowAvailableAmountAlarmRequest): Promise<$_model.CancelFundAccountLowAvailableAmountAlarmResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelFundAccountLowAvailableAmountAlarmWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建财务单元
+   * 
+   * @param tmpReq - CreateCostCenterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCostCenterResponse
+   */
+  async createCostCenterWithOptions(tmpReq: $_model.CreateCostCenterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCostCenterResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateCostCenterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.costCenterEntityList)) {
+      request.costCenterEntityListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.costCenterEntityList, "CostCenterEntityList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.costCenterEntityListShrink)) {
+      query["CostCenterEntityList"] = request.costCenterEntityListShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCostCenter",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCostCenterResponse>(await this.callApi(params, req, runtime), new $_model.CreateCostCenterResponse({}));
+  }
+
+  /**
+   * 创建财务单元
+   * 
+   * @param request - CreateCostCenterRequest
+   * @returns CreateCostCenterResponse
+   */
+  async createCostCenter(request: $_model.CreateCostCenterRequest): Promise<$_model.CreateCostCenterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCostCenterWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建资金账户付款关系
+   * 
+   * @param tmpReq - CreateFundAccountPayRelationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFundAccountPayRelationResponse
+   */
+  async createFundAccountPayRelationWithOptions(tmpReq: $_model.CreateFundAccountPayRelationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFundAccountPayRelationResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateFundAccountPayRelationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fundAccountId)) {
+      body["FundAccountId"] = request.fundAccountId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFundAccountPayRelation",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFundAccountPayRelationResponse>(await this.callApi(params, req, runtime), new $_model.CreateFundAccountPayRelationResponse({}));
+  }
+
+  /**
+   * 创建资金账户付款关系
+   * 
+   * @param request - CreateFundAccountPayRelationRequest
+   * @returns CreateFundAccountPayRelationResponse
+   */
+  async createFundAccountPayRelation(request: $_model.CreateFundAccountPayRelationRequest): Promise<$_model.CreateFundAccountPayRelationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createFundAccountPayRelationWithOptions(request, runtime);
   }
 
   /**
@@ -5540,7 +312,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateFundAccountTransferResponse
    */
-  async createFundAccountTransferWithOptions(request: CreateFundAccountTransferRequest, runtime: $dara.RuntimeOptions): Promise<CreateFundAccountTransferResponse> {
+  async createFundAccountTransferWithOptions(request: $_model.CreateFundAccountTransferRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFundAccountTransferResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.amount)) {
@@ -5585,7 +357,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateFundAccountTransferResponse>(await this.callApi(params, req, runtime), new CreateFundAccountTransferResponse({}));
+    return $dara.cast<$_model.CreateFundAccountTransferResponse>(await this.callApi(params, req, runtime), new $_model.CreateFundAccountTransferResponse({}));
   }
 
   /**
@@ -5594,9 +366,135 @@ export default class Client extends OpenApi {
    * @param request - CreateFundAccountTransferRequest
    * @returns CreateFundAccountTransferResponse
    */
-  async createFundAccountTransfer(request: CreateFundAccountTransferRequest): Promise<CreateFundAccountTransferResponse> {
+  async createFundAccountTransfer(request: $_model.CreateFundAccountTransferRequest): Promise<$_model.CreateFundAccountTransferResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createFundAccountTransferWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建账单订阅
+   * 
+   * @param request - CreateReportDefinitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateReportDefinitionResponse
+   */
+  async createReportDefinitionWithOptions(request: $_model.CreateReportDefinitionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateReportDefinitionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.beginBillingCycle)) {
+      query["BeginBillingCycle"] = request.beginBillingCycle;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.ossBucketName)) {
+      query["OssBucketName"] = request.ossBucketName;
+    }
+
+    if (!$dara.isNull(request.ossBucketOwnerAccountId)) {
+      query["OssBucketOwnerAccountId"] = request.ossBucketOwnerAccountId;
+    }
+
+    if (!$dara.isNull(request.ossBucketPath)) {
+      query["OssBucketPath"] = request.ossBucketPath;
+    }
+
+    if (!$dara.isNull(request.reportType)) {
+      query["ReportType"] = request.reportType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.mcProject)) {
+      body["McProject"] = request.mcProject;
+    }
+
+    if (!$dara.isNull(request.mcTableName)) {
+      body["McTableName"] = request.mcTableName;
+    }
+
+    if (!$dara.isNull(request.reportSourceType)) {
+      body["ReportSourceType"] = request.reportSourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateReportDefinition",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateReportDefinitionResponse>(await this.callApi(params, req, runtime), new $_model.CreateReportDefinitionResponse({}));
+  }
+
+  /**
+   * 创建账单订阅
+   * 
+   * @param request - CreateReportDefinitionRequest
+   * @returns CreateReportDefinitionResponse
+   */
+  async createReportDefinition(request: $_model.CreateReportDefinitionRequest): Promise<$_model.CreateReportDefinitionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createReportDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除财务单元
+   * 
+   * @param request - DeleteCostCenterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCostCenterResponse
+   */
+  async deleteCostCenterWithOptions(request: $_model.DeleteCostCenterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCostCenterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.costCenterId)) {
+      query["CostCenterId"] = request.costCenterId;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.ownerAccountId)) {
+      query["OwnerAccountId"] = request.ownerAccountId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCostCenter",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCostCenterResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCostCenterResponse({}));
+  }
+
+  /**
+   * 删除财务单元
+   * 
+   * @param request - DeleteCostCenterRequest
+   * @returns DeleteCostCenterResponse
+   */
+  async deleteCostCenter(request: $_model.DeleteCostCenterRequest): Promise<$_model.DeleteCostCenterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCostCenterWithOptions(request, runtime);
   }
 
   /**
@@ -5606,9 +504,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCouponDeductTagResponse
    */
-  async deleteCouponDeductTagWithOptions(tmpReq: DeleteCouponDeductTagRequest, runtime: $dara.RuntimeOptions): Promise<DeleteCouponDeductTagResponse> {
+  async deleteCouponDeductTagWithOptions(tmpReq: $_model.DeleteCouponDeductTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCouponDeductTagResponse> {
     tmpReq.validate();
-    let request = new DeleteCouponDeductTagShrinkRequest({ });
+    let request = new $_model.DeleteCouponDeductTagShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
       request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
@@ -5649,7 +547,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteCouponDeductTagResponse>(await this.callApi(params, req, runtime), new DeleteCouponDeductTagResponse({}));
+    return $dara.cast<$_model.DeleteCouponDeductTagResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCouponDeductTagResponse({}));
   }
 
   /**
@@ -5658,9 +556,55 @@ export default class Client extends OpenApi {
    * @param request - DeleteCouponDeductTagRequest
    * @returns DeleteCouponDeductTagResponse
    */
-  async deleteCouponDeductTag(request: DeleteCouponDeductTagRequest): Promise<DeleteCouponDeductTagResponse> {
+  async deleteCouponDeductTag(request: $_model.DeleteCouponDeductTagRequest): Promise<$_model.DeleteCouponDeductTagResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCouponDeductTagWithOptions(request, runtime);
+  }
+
+  /**
+   * 取消账单订阅
+   * 
+   * @param request - DeleteReportDefinitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteReportDefinitionResponse
+   */
+  async deleteReportDefinitionWithOptions(request: $_model.DeleteReportDefinitionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteReportDefinitionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.reportTaskId)) {
+      query["ReportTaskId"] = request.reportTaskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteReportDefinition",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteReportDefinitionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteReportDefinitionResponse({}));
+  }
+
+  /**
+   * 取消账单订阅
+   * 
+   * @param request - DeleteReportDefinitionRequest
+   * @returns DeleteReportDefinitionResponse
+   */
+  async deleteReportDefinition(request: $_model.DeleteReportDefinitionRequest): Promise<$_model.DeleteReportDefinitionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteReportDefinitionWithOptions(request, runtime);
   }
 
   /**
@@ -5670,9 +614,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCouponResponse
    */
-  async describeCouponWithOptions(tmpReq: DescribeCouponRequest, runtime: $dara.RuntimeOptions): Promise<DescribeCouponResponse> {
+  async describeCouponWithOptions(tmpReq: $_model.DescribeCouponRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCouponResponse> {
     tmpReq.validate();
-    let request = new DescribeCouponShrinkRequest({ });
+    let request = new $_model.DescribeCouponShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
       request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
@@ -5693,7 +637,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeCouponResponse>(await this.callApi(params, req, runtime), new DescribeCouponResponse({}));
+    return $dara.cast<$_model.DescribeCouponResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCouponResponse({}));
   }
 
   /**
@@ -5702,7 +646,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeCouponRequest
    * @returns DescribeCouponResponse
    */
-  async describeCoupon(request: DescribeCouponRequest): Promise<DescribeCouponResponse> {
+  async describeCoupon(request: $_model.DescribeCouponRequest): Promise<$_model.DescribeCouponResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCouponWithOptions(request, runtime);
   }
@@ -5714,9 +658,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCouponItemListResponse
    */
-  async describeCouponItemListWithOptions(tmpReq: DescribeCouponItemListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeCouponItemListResponse> {
+  async describeCouponItemListWithOptions(tmpReq: $_model.DescribeCouponItemListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCouponItemListResponse> {
     tmpReq.validate();
-    let request = new DescribeCouponItemListShrinkRequest({ });
+    let request = new $_model.DescribeCouponItemListShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
       request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
@@ -5737,7 +681,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeCouponItemListResponse>(await this.callApi(params, req, runtime), new DescribeCouponItemListResponse({}));
+    return $dara.cast<$_model.DescribeCouponItemListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCouponItemListResponse({}));
   }
 
   /**
@@ -5746,7 +690,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeCouponItemListRequest
    * @returns DescribeCouponItemListResponse
    */
-  async describeCouponItemList(request: DescribeCouponItemListRequest): Promise<DescribeCouponItemListResponse> {
+  async describeCouponItemList(request: $_model.DescribeCouponItemListRequest): Promise<$_model.DescribeCouponItemListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCouponItemListWithOptions(request, runtime);
   }
@@ -5758,9 +702,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUserSpnSummaryInfoResponse
    */
-  async describeUserSpnSummaryInfoWithOptions(tmpReq: DescribeUserSpnSummaryInfoRequest, runtime: $dara.RuntimeOptions): Promise<DescribeUserSpnSummaryInfoResponse> {
+  async describeUserSpnSummaryInfoWithOptions(tmpReq: $_model.DescribeUserSpnSummaryInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeUserSpnSummaryInfoResponse> {
     tmpReq.validate();
-    let request = new DescribeUserSpnSummaryInfoShrinkRequest({ });
+    let request = new $_model.DescribeUserSpnSummaryInfoShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
       request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
@@ -5789,7 +733,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeUserSpnSummaryInfoResponse>(await this.callApi(params, req, runtime), new DescribeUserSpnSummaryInfoResponse({}));
+    return $dara.cast<$_model.DescribeUserSpnSummaryInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeUserSpnSummaryInfoResponse({}));
   }
 
   /**
@@ -5798,7 +742,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeUserSpnSummaryInfoRequest
    * @returns DescribeUserSpnSummaryInfoResponse
    */
-  async describeUserSpnSummaryInfo(request: DescribeUserSpnSummaryInfoRequest): Promise<DescribeUserSpnSummaryInfoResponse> {
+  async describeUserSpnSummaryInfo(request: $_model.DescribeUserSpnSummaryInfoRequest): Promise<$_model.DescribeUserSpnSummaryInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeUserSpnSummaryInfoWithOptions(request, runtime);
   }
@@ -5810,7 +754,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFundAccountAvailableAmountResponse
    */
-  async getFundAccountAvailableAmountWithOptions(request: GetFundAccountAvailableAmountRequest, runtime: $dara.RuntimeOptions): Promise<GetFundAccountAvailableAmountResponse> {
+  async getFundAccountAvailableAmountWithOptions(request: $_model.GetFundAccountAvailableAmountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFundAccountAvailableAmountResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.fundAccountId)) {
@@ -5831,7 +775,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetFundAccountAvailableAmountResponse>(await this.callApi(params, req, runtime), new GetFundAccountAvailableAmountResponse({}));
+    return $dara.cast<$_model.GetFundAccountAvailableAmountResponse>(await this.callApi(params, req, runtime), new $_model.GetFundAccountAvailableAmountResponse({}));
   }
 
   /**
@@ -5840,7 +784,7 @@ export default class Client extends OpenApi {
    * @param request - GetFundAccountAvailableAmountRequest
    * @returns GetFundAccountAvailableAmountResponse
    */
-  async getFundAccountAvailableAmount(request: GetFundAccountAvailableAmountRequest): Promise<GetFundAccountAvailableAmountResponse> {
+  async getFundAccountAvailableAmount(request: $_model.GetFundAccountAvailableAmountRequest): Promise<$_model.GetFundAccountAvailableAmountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFundAccountAvailableAmountWithOptions(request, runtime);
   }
@@ -5852,7 +796,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFundAccountCanAllocateCreditAmountResponse
    */
-  async getFundAccountCanAllocateCreditAmountWithOptions(request: GetFundAccountCanAllocateCreditAmountRequest, runtime: $dara.RuntimeOptions): Promise<GetFundAccountCanAllocateCreditAmountResponse> {
+  async getFundAccountCanAllocateCreditAmountWithOptions(request: $_model.GetFundAccountCanAllocateCreditAmountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFundAccountCanAllocateCreditAmountResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.fundAccountId)) {
@@ -5873,7 +817,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetFundAccountCanAllocateCreditAmountResponse>(await this.callApi(params, req, runtime), new GetFundAccountCanAllocateCreditAmountResponse({}));
+    return $dara.cast<$_model.GetFundAccountCanAllocateCreditAmountResponse>(await this.callApi(params, req, runtime), new $_model.GetFundAccountCanAllocateCreditAmountResponse({}));
   }
 
   /**
@@ -5882,7 +826,7 @@ export default class Client extends OpenApi {
    * @param request - GetFundAccountCanAllocateCreditAmountRequest
    * @returns GetFundAccountCanAllocateCreditAmountResponse
    */
-  async getFundAccountCanAllocateCreditAmount(request: GetFundAccountCanAllocateCreditAmountRequest): Promise<GetFundAccountCanAllocateCreditAmountResponse> {
+  async getFundAccountCanAllocateCreditAmount(request: $_model.GetFundAccountCanAllocateCreditAmountRequest): Promise<$_model.GetFundAccountCanAllocateCreditAmountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFundAccountCanAllocateCreditAmountWithOptions(request, runtime);
   }
@@ -5894,7 +838,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFundAccountCanRecycleAmountResponse
    */
-  async getFundAccountCanRecycleAmountWithOptions(request: GetFundAccountCanRecycleAmountRequest, runtime: $dara.RuntimeOptions): Promise<GetFundAccountCanRecycleAmountResponse> {
+  async getFundAccountCanRecycleAmountWithOptions(request: $_model.GetFundAccountCanRecycleAmountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFundAccountCanRecycleAmountResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.currency)) {
@@ -5919,7 +863,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetFundAccountCanRecycleAmountResponse>(await this.callApi(params, req, runtime), new GetFundAccountCanRecycleAmountResponse({}));
+    return $dara.cast<$_model.GetFundAccountCanRecycleAmountResponse>(await this.callApi(params, req, runtime), new $_model.GetFundAccountCanRecycleAmountResponse({}));
   }
 
   /**
@@ -5928,7 +872,7 @@ export default class Client extends OpenApi {
    * @param request - GetFundAccountCanRecycleAmountRequest
    * @returns GetFundAccountCanRecycleAmountResponse
    */
-  async getFundAccountCanRecycleAmount(request: GetFundAccountCanRecycleAmountRequest): Promise<GetFundAccountCanRecycleAmountResponse> {
+  async getFundAccountCanRecycleAmount(request: $_model.GetFundAccountCanRecycleAmountRequest): Promise<$_model.GetFundAccountCanRecycleAmountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFundAccountCanRecycleAmountWithOptions(request, runtime);
   }
@@ -5940,7 +884,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFundAccountCanTransferAmountResponse
    */
-  async getFundAccountCanTransferAmountWithOptions(request: GetFundAccountCanTransferAmountRequest, runtime: $dara.RuntimeOptions): Promise<GetFundAccountCanTransferAmountResponse> {
+  async getFundAccountCanTransferAmountWithOptions(request: $_model.GetFundAccountCanTransferAmountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFundAccountCanTransferAmountResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.currency)) {
@@ -5965,7 +909,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetFundAccountCanTransferAmountResponse>(await this.callApi(params, req, runtime), new GetFundAccountCanTransferAmountResponse({}));
+    return $dara.cast<$_model.GetFundAccountCanTransferAmountResponse>(await this.callApi(params, req, runtime), new $_model.GetFundAccountCanTransferAmountResponse({}));
   }
 
   /**
@@ -5974,7 +918,7 @@ export default class Client extends OpenApi {
    * @param request - GetFundAccountCanTransferAmountRequest
    * @returns GetFundAccountCanTransferAmountResponse
    */
-  async getFundAccountCanTransferAmount(request: GetFundAccountCanTransferAmountRequest): Promise<GetFundAccountCanTransferAmountResponse> {
+  async getFundAccountCanTransferAmount(request: $_model.GetFundAccountCanTransferAmountRequest): Promise<$_model.GetFundAccountCanTransferAmountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFundAccountCanTransferAmountWithOptions(request, runtime);
   }
@@ -5986,7 +930,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFundAccountCanWithdrawAmountResponse
    */
-  async getFundAccountCanWithdrawAmountWithOptions(request: GetFundAccountCanWithdrawAmountRequest, runtime: $dara.RuntimeOptions): Promise<GetFundAccountCanWithdrawAmountResponse> {
+  async getFundAccountCanWithdrawAmountWithOptions(request: $_model.GetFundAccountCanWithdrawAmountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFundAccountCanWithdrawAmountResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.fundAccountId)) {
@@ -6007,7 +951,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetFundAccountCanWithdrawAmountResponse>(await this.callApi(params, req, runtime), new GetFundAccountCanWithdrawAmountResponse({}));
+    return $dara.cast<$_model.GetFundAccountCanWithdrawAmountResponse>(await this.callApi(params, req, runtime), new $_model.GetFundAccountCanWithdrawAmountResponse({}));
   }
 
   /**
@@ -6016,7 +960,7 @@ export default class Client extends OpenApi {
    * @param request - GetFundAccountCanWithdrawAmountRequest
    * @returns GetFundAccountCanWithdrawAmountResponse
    */
-  async getFundAccountCanWithdrawAmount(request: GetFundAccountCanWithdrawAmountRequest): Promise<GetFundAccountCanWithdrawAmountResponse> {
+  async getFundAccountCanWithdrawAmount(request: $_model.GetFundAccountCanWithdrawAmountRequest): Promise<$_model.GetFundAccountCanWithdrawAmountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFundAccountCanWithdrawAmountWithOptions(request, runtime);
   }
@@ -6028,7 +972,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFundAccountLowAvailableAmountAlarmResponse
    */
-  async getFundAccountLowAvailableAmountAlarmWithOptions(request: GetFundAccountLowAvailableAmountAlarmRequest, runtime: $dara.RuntimeOptions): Promise<GetFundAccountLowAvailableAmountAlarmResponse> {
+  async getFundAccountLowAvailableAmountAlarmWithOptions(request: $_model.GetFundAccountLowAvailableAmountAlarmRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFundAccountLowAvailableAmountAlarmResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.fundAccountId)) {
@@ -6049,7 +993,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetFundAccountLowAvailableAmountAlarmResponse>(await this.callApi(params, req, runtime), new GetFundAccountLowAvailableAmountAlarmResponse({}));
+    return $dara.cast<$_model.GetFundAccountLowAvailableAmountAlarmResponse>(await this.callApi(params, req, runtime), new $_model.GetFundAccountLowAvailableAmountAlarmResponse({}));
   }
 
   /**
@@ -6058,7 +1002,7 @@ export default class Client extends OpenApi {
    * @param request - GetFundAccountLowAvailableAmountAlarmRequest
    * @returns GetFundAccountLowAvailableAmountAlarmResponse
    */
-  async getFundAccountLowAvailableAmountAlarm(request: GetFundAccountLowAvailableAmountAlarmRequest): Promise<GetFundAccountLowAvailableAmountAlarmResponse> {
+  async getFundAccountLowAvailableAmountAlarm(request: $_model.GetFundAccountLowAvailableAmountAlarmRequest): Promise<$_model.GetFundAccountLowAvailableAmountAlarmResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFundAccountLowAvailableAmountAlarmWithOptions(request, runtime);
   }
@@ -6070,9 +1014,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFundAccountTransactionDetailsResponse
    */
-  async getFundAccountTransactionDetailsWithOptions(tmpReq: GetFundAccountTransactionDetailsRequest, runtime: $dara.RuntimeOptions): Promise<GetFundAccountTransactionDetailsResponse> {
+  async getFundAccountTransactionDetailsWithOptions(tmpReq: $_model.GetFundAccountTransactionDetailsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFundAccountTransactionDetailsResponse> {
     tmpReq.validate();
-    let request = new GetFundAccountTransactionDetailsShrinkRequest({ });
+    let request = new $_model.GetFundAccountTransactionDetailsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.transactionChannelList)) {
       request.transactionChannelListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transactionChannelList, "TransactionChannelList", "json");
@@ -6147,7 +1091,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetFundAccountTransactionDetailsResponse>(await this.callApi(params, req, runtime), new GetFundAccountTransactionDetailsResponse({}));
+    return $dara.cast<$_model.GetFundAccountTransactionDetailsResponse>(await this.callApi(params, req, runtime), new $_model.GetFundAccountTransactionDetailsResponse({}));
   }
 
   /**
@@ -6156,7 +1100,7 @@ export default class Client extends OpenApi {
    * @param request - GetFundAccountTransactionDetailsRequest
    * @returns GetFundAccountTransactionDetailsResponse
    */
-  async getFundAccountTransactionDetails(request: GetFundAccountTransactionDetailsRequest): Promise<GetFundAccountTransactionDetailsResponse> {
+  async getFundAccountTransactionDetails(request: $_model.GetFundAccountTransactionDetailsRequest): Promise<$_model.GetFundAccountTransactionDetailsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFundAccountTransactionDetailsWithOptions(request, runtime);
   }
@@ -6168,9 +1112,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSavingPlanDeductableCommodityResponse
    */
-  async getSavingPlanDeductableCommodityWithOptions(tmpReq: GetSavingPlanDeductableCommodityRequest, runtime: $dara.RuntimeOptions): Promise<GetSavingPlanDeductableCommodityResponse> {
+  async getSavingPlanDeductableCommodityWithOptions(tmpReq: $_model.GetSavingPlanDeductableCommodityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSavingPlanDeductableCommodityResponse> {
     tmpReq.validate();
-    let request = new GetSavingPlanDeductableCommodityShrinkRequest({ });
+    let request = new $_model.GetSavingPlanDeductableCommodityShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
       request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
@@ -6199,7 +1143,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetSavingPlanDeductableCommodityResponse>(await this.callApi(params, req, runtime), new GetSavingPlanDeductableCommodityResponse({}));
+    return $dara.cast<$_model.GetSavingPlanDeductableCommodityResponse>(await this.callApi(params, req, runtime), new $_model.GetSavingPlanDeductableCommodityResponse({}));
   }
 
   /**
@@ -6208,7 +1152,7 @@ export default class Client extends OpenApi {
    * @param request - GetSavingPlanDeductableCommodityRequest
    * @returns GetSavingPlanDeductableCommodityResponse
    */
-  async getSavingPlanDeductableCommodity(request: GetSavingPlanDeductableCommodityRequest): Promise<GetSavingPlanDeductableCommodityResponse> {
+  async getSavingPlanDeductableCommodity(request: $_model.GetSavingPlanDeductableCommodityRequest): Promise<$_model.GetSavingPlanDeductableCommodityResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSavingPlanDeductableCommodityWithOptions(request, runtime);
   }
@@ -6220,9 +1164,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSavingPlanShareAccountsResponse
    */
-  async getSavingPlanShareAccountsWithOptions(tmpReq: GetSavingPlanShareAccountsRequest, runtime: $dara.RuntimeOptions): Promise<GetSavingPlanShareAccountsResponse> {
+  async getSavingPlanShareAccountsWithOptions(tmpReq: $_model.GetSavingPlanShareAccountsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSavingPlanShareAccountsResponse> {
     tmpReq.validate();
-    let request = new GetSavingPlanShareAccountsShrinkRequest({ });
+    let request = new $_model.GetSavingPlanShareAccountsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
       request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
@@ -6263,7 +1207,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetSavingPlanShareAccountsResponse>(await this.callApi(params, req, runtime), new GetSavingPlanShareAccountsResponse({}));
+    return $dara.cast<$_model.GetSavingPlanShareAccountsResponse>(await this.callApi(params, req, runtime), new $_model.GetSavingPlanShareAccountsResponse({}));
   }
 
   /**
@@ -6272,7 +1216,7 @@ export default class Client extends OpenApi {
    * @param request - GetSavingPlanShareAccountsRequest
    * @returns GetSavingPlanShareAccountsResponse
    */
-  async getSavingPlanShareAccounts(request: GetSavingPlanShareAccountsRequest): Promise<GetSavingPlanShareAccountsResponse> {
+  async getSavingPlanShareAccounts(request: $_model.GetSavingPlanShareAccountsRequest): Promise<$_model.GetSavingPlanShareAccountsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSavingPlanShareAccountsWithOptions(request, runtime);
   }
@@ -6284,9 +1228,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSavingPlanUserDeductRuleResponse
    */
-  async getSavingPlanUserDeductRuleWithOptions(tmpReq: GetSavingPlanUserDeductRuleRequest, runtime: $dara.RuntimeOptions): Promise<GetSavingPlanUserDeductRuleResponse> {
+  async getSavingPlanUserDeductRuleWithOptions(tmpReq: $_model.GetSavingPlanUserDeductRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSavingPlanUserDeductRuleResponse> {
     tmpReq.validate();
-    let request = new GetSavingPlanUserDeductRuleShrinkRequest({ });
+    let request = new $_model.GetSavingPlanUserDeductRuleShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
       request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
@@ -6327,7 +1271,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetSavingPlanUserDeductRuleResponse>(await this.callApi(params, req, runtime), new GetSavingPlanUserDeductRuleResponse({}));
+    return $dara.cast<$_model.GetSavingPlanUserDeductRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetSavingPlanUserDeductRuleResponse({}));
   }
 
   /**
@@ -6336,7 +1280,7 @@ export default class Client extends OpenApi {
    * @param request - GetSavingPlanUserDeductRuleRequest
    * @returns GetSavingPlanUserDeductRuleResponse
    */
-  async getSavingPlanUserDeductRule(request: GetSavingPlanUserDeductRuleRequest): Promise<GetSavingPlanUserDeductRuleResponse> {
+  async getSavingPlanUserDeductRule(request: $_model.GetSavingPlanUserDeductRuleRequest): Promise<$_model.GetSavingPlanUserDeductRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSavingPlanUserDeductRuleWithOptions(request, runtime);
   }
@@ -6348,9 +1292,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCouponDeductTagResponse
    */
-  async listCouponDeductTagWithOptions(tmpReq: ListCouponDeductTagRequest, runtime: $dara.RuntimeOptions): Promise<ListCouponDeductTagResponse> {
+  async listCouponDeductTagWithOptions(tmpReq: $_model.ListCouponDeductTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCouponDeductTagResponse> {
     tmpReq.validate();
-    let request = new ListCouponDeductTagShrinkRequest({ });
+    let request = new $_model.ListCouponDeductTagShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
       request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
@@ -6383,7 +1327,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListCouponDeductTagResponse>(await this.callApi(params, req, runtime), new ListCouponDeductTagResponse({}));
+    return $dara.cast<$_model.ListCouponDeductTagResponse>(await this.callApi(params, req, runtime), new $_model.ListCouponDeductTagResponse({}));
   }
 
   /**
@@ -6392,7 +1336,7 @@ export default class Client extends OpenApi {
    * @param request - ListCouponDeductTagRequest
    * @returns ListCouponDeductTagResponse
    */
-  async listCouponDeductTag(request: ListCouponDeductTagRequest): Promise<ListCouponDeductTagResponse> {
+  async listCouponDeductTag(request: $_model.ListCouponDeductTagRequest): Promise<$_model.ListCouponDeductTagResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCouponDeductTagWithOptions(request, runtime);
   }
@@ -6404,7 +1348,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFundAccountResponse
    */
-  async listFundAccountWithOptions(request: ListFundAccountRequest, runtime: $dara.RuntimeOptions): Promise<ListFundAccountResponse> {
+  async listFundAccountWithOptions(request: $_model.ListFundAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFundAccountResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.nbid)) {
@@ -6435,7 +1379,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListFundAccountResponse>(await this.callApi(params, req, runtime), new ListFundAccountResponse({}));
+    return $dara.cast<$_model.ListFundAccountResponse>(await this.callApi(params, req, runtime), new $_model.ListFundAccountResponse({}));
   }
 
   /**
@@ -6444,7 +1388,7 @@ export default class Client extends OpenApi {
    * @param request - ListFundAccountRequest
    * @returns ListFundAccountResponse
    */
-  async listFundAccount(request: ListFundAccountRequest): Promise<ListFundAccountResponse> {
+  async listFundAccount(request: $_model.ListFundAccountRequest): Promise<$_model.ListFundAccountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFundAccountWithOptions(request, runtime);
   }
@@ -6456,7 +1400,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFundAccountPayRelationResponse
    */
-  async listFundAccountPayRelationWithOptions(request: ListFundAccountPayRelationRequest, runtime: $dara.RuntimeOptions): Promise<ListFundAccountPayRelationResponse> {
+  async listFundAccountPayRelationWithOptions(request: $_model.ListFundAccountPayRelationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFundAccountPayRelationResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.currentPage)) {
@@ -6495,7 +1439,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListFundAccountPayRelationResponse>(await this.callApi(params, req, runtime), new ListFundAccountPayRelationResponse({}));
+    return $dara.cast<$_model.ListFundAccountPayRelationResponse>(await this.callApi(params, req, runtime), new $_model.ListFundAccountPayRelationResponse({}));
   }
 
   /**
@@ -6504,9 +1448,235 @@ export default class Client extends OpenApi {
    * @param request - ListFundAccountPayRelationRequest
    * @returns ListFundAccountPayRelationResponse
    */
-  async listFundAccountPayRelation(request: ListFundAccountPayRelationRequest): Promise<ListFundAccountPayRelationResponse> {
+  async listFundAccountPayRelation(request: $_model.ListFundAccountPayRelationRequest): Promise<$_model.ListFundAccountPayRelationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFundAccountPayRelationWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看已订阅的报告列表
+   * 
+   * @param request - ListReportDefinitionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListReportDefinitionsResponse
+   */
+  async listReportDefinitionsWithOptions(request: $_model.ListReportDefinitionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListReportDefinitionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListReportDefinitions",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListReportDefinitionsResponse>(await this.callApi(params, req, runtime), new $_model.ListReportDefinitionsResponse({}));
+  }
+
+  /**
+   * 查看已订阅的报告列表
+   * 
+   * @param request - ListReportDefinitionsRequest
+   * @returns ListReportDefinitionsResponse
+   */
+  async listReportDefinitions(request: $_model.ListReportDefinitionsRequest): Promise<$_model.ListReportDefinitionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listReportDefinitionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改财务单元
+   * 
+   * @param tmpReq - ModifyCostCenterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCostCenterResponse
+   */
+  async modifyCostCenterWithOptions(tmpReq: $_model.ModifyCostCenterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCostCenterResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyCostCenterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.costCenterEntityList)) {
+      request.costCenterEntityListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.costCenterEntityList, "CostCenterEntityList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.costCenterEntityListShrink)) {
+      query["CostCenterEntityList"] = request.costCenterEntityListShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCostCenter",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyCostCenterResponse>(await this.callApi(params, req, runtime), new $_model.ModifyCostCenterResponse({}));
+  }
+
+  /**
+   * 修改财务单元
+   * 
+   * @param request - ModifyCostCenterRequest
+   * @returns ModifyCostCenterResponse
+   */
+  async modifyCostCenter(request: $_model.ModifyCostCenterRequest): Promise<$_model.ModifyCostCenterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCostCenterWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询财务单元
+   * 
+   * @param tmpReq - QueryCostCenterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCostCenterResponse
+   */
+  async queryCostCenterWithOptions(tmpReq: $_model.QueryCostCenterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryCostCenterResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryCostCenterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.ownerAccountId)) {
+      query["OwnerAccountId"] = request.ownerAccountId;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.parentCostCenterId)) {
+      query["ParentCostCenterId"] = request.parentCostCenterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryCostCenter",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryCostCenterResponse>(await this.callApi(params, req, runtime), new $_model.QueryCostCenterResponse({}));
+  }
+
+  /**
+   * 查询财务单元
+   * 
+   * @param request - QueryCostCenterRequest
+   * @returns QueryCostCenterResponse
+   */
+  async queryCostCenter(request: $_model.QueryCostCenterRequest): Promise<$_model.QueryCostCenterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryCostCenterWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询财务单元下资源信息
+   * 
+   * @param request - QueryCostCenterResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCostCenterResourceResponse
+   */
+  async queryCostCenterResourceWithOptions(request: $_model.QueryCostCenterResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryCostCenterResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ecIdAccountIds)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIds;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.costCenterId)) {
+      body["CostCenterId"] = request.costCenterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccountId)) {
+      body["OwnerAccountId"] = request.ownerAccountId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryCostCenterResource",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryCostCenterResourceResponse>(await this.callApi(params, req, runtime), new $_model.QueryCostCenterResourceResponse({}));
+  }
+
+  /**
+   * 查询财务单元下资源信息
+   * 
+   * @param request - QueryCostCenterResourceRequest
+   * @returns QueryCostCenterResourceResponse
+   */
+  async queryCostCenterResource(request: $_model.QueryCostCenterResourceRequest): Promise<$_model.QueryCostCenterResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryCostCenterResourceWithOptions(request, runtime);
   }
 
   /**
@@ -6516,7 +1686,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetFundAccountCreditAmountResponse
    */
-  async setFundAccountCreditAmountWithOptions(request: SetFundAccountCreditAmountRequest, runtime: $dara.RuntimeOptions): Promise<SetFundAccountCreditAmountResponse> {
+  async setFundAccountCreditAmountWithOptions(request: $_model.SetFundAccountCreditAmountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetFundAccountCreditAmountResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.creditAmount)) {
@@ -6545,7 +1715,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetFundAccountCreditAmountResponse>(await this.callApi(params, req, runtime), new SetFundAccountCreditAmountResponse({}));
+    return $dara.cast<$_model.SetFundAccountCreditAmountResponse>(await this.callApi(params, req, runtime), new $_model.SetFundAccountCreditAmountResponse({}));
   }
 
   /**
@@ -6554,7 +1724,7 @@ export default class Client extends OpenApi {
    * @param request - SetFundAccountCreditAmountRequest
    * @returns SetFundAccountCreditAmountResponse
    */
-  async setFundAccountCreditAmount(request: SetFundAccountCreditAmountRequest): Promise<SetFundAccountCreditAmountResponse> {
+  async setFundAccountCreditAmount(request: $_model.SetFundAccountCreditAmountRequest): Promise<$_model.SetFundAccountCreditAmountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setFundAccountCreditAmountWithOptions(request, runtime);
   }
@@ -6566,7 +1736,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetFundAccountLowAvailableAmountAlarmResponse
    */
-  async setFundAccountLowAvailableAmountAlarmWithOptions(request: SetFundAccountLowAvailableAmountAlarmRequest, runtime: $dara.RuntimeOptions): Promise<SetFundAccountLowAvailableAmountAlarmResponse> {
+  async setFundAccountLowAvailableAmountAlarmWithOptions(request: $_model.SetFundAccountLowAvailableAmountAlarmRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetFundAccountLowAvailableAmountAlarmResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.fundAccountId)) {
@@ -6591,7 +1761,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetFundAccountLowAvailableAmountAlarmResponse>(await this.callApi(params, req, runtime), new SetFundAccountLowAvailableAmountAlarmResponse({}));
+    return $dara.cast<$_model.SetFundAccountLowAvailableAmountAlarmResponse>(await this.callApi(params, req, runtime), new $_model.SetFundAccountLowAvailableAmountAlarmResponse({}));
   }
 
   /**
@@ -6600,7 +1770,7 @@ export default class Client extends OpenApi {
    * @param request - SetFundAccountLowAvailableAmountAlarmRequest
    * @returns SetFundAccountLowAvailableAmountAlarmResponse
    */
-  async setFundAccountLowAvailableAmountAlarm(request: SetFundAccountLowAvailableAmountAlarmRequest): Promise<SetFundAccountLowAvailableAmountAlarmResponse> {
+  async setFundAccountLowAvailableAmountAlarm(request: $_model.SetFundAccountLowAvailableAmountAlarmRequest): Promise<$_model.SetFundAccountLowAvailableAmountAlarmResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setFundAccountLowAvailableAmountAlarmWithOptions(request, runtime);
   }
@@ -6612,9 +1782,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetSavingPlanUserDeductRuleResponse
    */
-  async setSavingPlanUserDeductRuleWithOptions(tmpReq: SetSavingPlanUserDeductRuleRequest, runtime: $dara.RuntimeOptions): Promise<SetSavingPlanUserDeductRuleResponse> {
+  async setSavingPlanUserDeductRuleWithOptions(tmpReq: $_model.SetSavingPlanUserDeductRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetSavingPlanUserDeductRuleResponse> {
     tmpReq.validate();
-    let request = new SetSavingPlanUserDeductRuleShrinkRequest({ });
+    let request = new $_model.SetSavingPlanUserDeductRuleShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
       request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
@@ -6657,7 +1827,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetSavingPlanUserDeductRuleResponse>(await this.callApi(params, req, runtime), new SetSavingPlanUserDeductRuleResponse({}));
+    return $dara.cast<$_model.SetSavingPlanUserDeductRuleResponse>(await this.callApi(params, req, runtime), new $_model.SetSavingPlanUserDeductRuleResponse({}));
   }
 
   /**
@@ -6666,7 +1836,7 @@ export default class Client extends OpenApi {
    * @param request - SetSavingPlanUserDeductRuleRequest
    * @returns SetSavingPlanUserDeductRuleResponse
    */
-  async setSavingPlanUserDeductRule(request: SetSavingPlanUserDeductRuleRequest): Promise<SetSavingPlanUserDeductRuleResponse> {
+  async setSavingPlanUserDeductRule(request: $_model.SetSavingPlanUserDeductRuleRequest): Promise<$_model.SetSavingPlanUserDeductRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setSavingPlanUserDeductRuleWithOptions(request, runtime);
   }

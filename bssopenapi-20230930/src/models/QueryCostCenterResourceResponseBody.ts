@@ -1,0 +1,69 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { QueryCostCenterResourceResponseBodyCostCenterResourceDtoList } from "./QueryCostCenterResourceResponseBodyCostCenterResourceDtoList";
+
+
+export class QueryCostCenterResourceResponseBody extends $dara.Model {
+  costCenterResourceDtoList?: QueryCostCenterResourceResponseBodyCostCenterResourceDtoList[];
+  /**
+   * @example
+   * 200
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * {}
+   */
+  metadata?: any;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eyJwYWdlTnVtIjoyLCJwYWdlU2l6ZSI6MTB9
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2000
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      costCenterResourceDtoList: 'CostCenterResourceDtoList',
+      maxResults: 'MaxResults',
+      metadata: 'Metadata',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costCenterResourceDtoList: { 'type': 'array', 'itemType': QueryCostCenterResourceResponseBodyCostCenterResourceDtoList },
+      maxResults: 'number',
+      metadata: 'any',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.costCenterResourceDtoList)) {
+      $dara.Model.validateArray(this.costCenterResourceDtoList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
