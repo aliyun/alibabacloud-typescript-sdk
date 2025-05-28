@@ -21,6 +21,7 @@ export { GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings
 export { GetServiceResponseBodyCommodityMarketplaceMetadata } from './GetServiceResponseBodyCommodityMarketplaceMetadata';
 export { GetServiceResponseBodyCommoditySpecifications } from './GetServiceResponseBodyCommoditySpecifications';
 export { GetServiceResponseBodyCommodity } from './GetServiceResponseBodyCommodity';
+export { GetServiceResponseBodyComplianceMetadata } from './GetServiceResponseBodyComplianceMetadata';
 export { GetServiceResponseBodyInstanceRoleInfos } from './GetServiceResponseBodyInstanceRoleInfos';
 export { GetServiceResponseBodyServiceDocumentInfos } from './GetServiceResponseBodyServiceDocumentInfos';
 export { GetServiceResponseBodyServiceInfosAgreements } from './GetServiceResponseBodyServiceInfosAgreements';

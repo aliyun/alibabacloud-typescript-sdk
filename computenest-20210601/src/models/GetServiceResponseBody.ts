@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { GetServiceResponseBodyCommodity } from "./GetServiceResponseBodyCommodity";
+import { GetServiceResponseBodyComplianceMetadata } from "./GetServiceResponseBodyComplianceMetadata";
 import { GetServiceResponseBodyInstanceRoleInfos } from "./GetServiceResponseBodyInstanceRoleInfos";
 import { GetServiceResponseBodyServiceDocumentInfos } from "./GetServiceResponseBodyServiceDocumentInfos";
 import { GetServiceResponseBodyServiceInfos } from "./GetServiceResponseBodyServiceInfos";
@@ -32,6 +33,7 @@ export class GetServiceResponseBody extends $dara.Model {
    * The information about the order placed in Alibaba Cloud Marketplace.
    */
   commodity?: GetServiceResponseBodyCommodity;
+  complianceMetadata?: GetServiceResponseBodyComplianceMetadata;
   /**
    * @remarks
    * Service deployment approach, Valid values：
@@ -317,6 +319,7 @@ export class GetServiceResponseBody extends $dara.Model {
       alarmMetadata: 'AlarmMetadata',
       categories: 'Categories',
       commodity: 'Commodity',
+      complianceMetadata: 'ComplianceMetadata',
       deployFrom: 'DeployFrom',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
@@ -357,6 +360,7 @@ export class GetServiceResponseBody extends $dara.Model {
       alarmMetadata: 'string',
       categories: 'string',
       commodity: GetServiceResponseBodyCommodity,
+      complianceMetadata: GetServiceResponseBodyComplianceMetadata,
       deployFrom: 'string',
       deployMetadata: 'string',
       deployType: 'string',
@@ -395,6 +399,9 @@ export class GetServiceResponseBody extends $dara.Model {
   validate() {
     if(this.commodity && typeof (this.commodity as any).validate === 'function') {
       (this.commodity as any).validate();
+    }
+    if(this.complianceMetadata && typeof (this.complianceMetadata as any).validate === 'function') {
+      (this.complianceMetadata as any).validate();
     }
     if(Array.isArray(this.instanceRoleInfos)) {
       $dara.Model.validateArray(this.instanceRoleInfos);
