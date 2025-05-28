@@ -1,0 +1,45 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class QueryDatasetSwitchInfoResponseBodyResult extends $dara.Model {
+  /**
+   * @example
+   * 7c7223ae-****-3c744528014b
+   */
+  cubeId?: string;
+  /**
+   * @example
+   * 1
+   */
+  isOpenColumnLevelPermission?: number;
+  /**
+   * @example
+   * 1
+   */
+  isOpenRowLevelPermission?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cubeId: 'CubeId',
+      isOpenColumnLevelPermission: 'IsOpenColumnLevelPermission',
+      isOpenRowLevelPermission: 'IsOpenRowLevelPermission',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cubeId: 'string',
+      isOpenColumnLevelPermission: 'number',
+      isOpenRowLevelPermission: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

@@ -1,0 +1,57 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class CancelAuthorizationMenuResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * D8749D65-E80A-433C-AF1B-CE9C180FF3B4
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Number of menus successfully unauthorized.
+   * 
+   * @example
+   * 2
+   */
+  result?: number;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Possible values:
+   * 
+   * - true: The request was successful.
+   * - false: The request failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'number',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
