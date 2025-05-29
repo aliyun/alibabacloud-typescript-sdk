@@ -1,0 +1,106 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class DescribeVsStreamsPublishListRequest extends $dara.Model {
+  /**
+   * @example
+   * xxxApp
+   */
+  appName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example.aliyundoc.com
+   */
+  domainName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-06-30T19:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * publish_time_asc
+   */
+  orderBy?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 3000
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * fuzzy
+   */
+  queryType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2016-06-29T19:00:00Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * xxxStream
+   */
+  streamName?: string;
+  /**
+   * @example
+   * all
+   */
+  streamType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      orderBy: 'OrderBy',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      queryType: 'QueryType',
+      startTime: 'StartTime',
+      streamName: 'StreamName',
+      streamType: 'StreamType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      domainName: 'string',
+      endTime: 'string',
+      orderBy: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryType: 'string',
+      startTime: 'string',
+      streamName: 'string',
+      streamType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
