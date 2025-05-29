@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMemberResponseBody extends $dara.Model {
+  accountType?: string;
   /**
    * @remarks
    * The display name of the member.
@@ -58,6 +59,7 @@ export class GetMemberResponseBody extends $dara.Model {
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      accountType: 'AccountType',
       displayName: 'DisplayName',
       gmtCreateTime: 'GmtCreateTime',
       memberId: 'MemberId',
@@ -70,6 +72,7 @@ export class GetMemberResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountType: 'string',
       displayName: 'string',
       gmtCreateTime: 'string',
       memberId: 'string',
