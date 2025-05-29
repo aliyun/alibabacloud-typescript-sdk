@@ -190,6 +190,8 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * [{"name":"TEST_ENV_KEY","value":"TEST_ENV_VAR"}]
    */
   envs?: string;
+  gpuCount?: string;
+  gpuType?: string;
   /**
    * @example
    * 10
@@ -712,6 +714,8 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       enableIdle: 'EnableIdle',
       enableNewArms: 'EnableNewArms',
       envs: 'Envs',
+      gpuCount: 'GpuCount',
+      gpuType: 'GpuType',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
       initContainersConfig: 'InitContainersConfig',
@@ -801,6 +805,8 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       enableIdle: 'boolean',
       enableNewArms: 'boolean',
       envs: 'string',
+      gpuCount: 'string',
+      gpuType: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
       initContainersConfig: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataInitContainersConfig },

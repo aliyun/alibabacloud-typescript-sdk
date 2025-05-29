@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class PriceEstimateFeature extends $dara.Model {
   /**
+   * @example
+   * 1
+   */
+  appCount?: number;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -139,6 +144,7 @@ export class PriceEstimateFeature extends $dara.Model {
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      appCount: 'AppCount',
       appType: 'AppType',
       cpuCore: 'CpuCore',
       cpuStrategy: 'CpuStrategy',
@@ -168,6 +174,7 @@ export class PriceEstimateFeature extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appCount: 'number',
       appType: 'string',
       cpuCore: 'number',
       cpuStrategy: 'string',
