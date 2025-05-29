@@ -32,11 +32,13 @@ export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries extends $
   hotValue?: number;
   images?: RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesImages[];
   news?: RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesNews[];
+  pubTime?: string;
   /**
    * @example
    * xxx
    */
   textSummary?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
       customHotValue: 'customHotValue',
@@ -46,7 +48,9 @@ export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries extends $
       hotValue: 'hotValue',
       images: 'images',
       news: 'news',
+      pubTime: 'pubTime',
       textSummary: 'textSummary',
+      url: 'url',
     };
   }
 
@@ -59,7 +63,9 @@ export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries extends $
       hotValue: 'number',
       images: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesImages },
       news: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesNews },
+      pubTime: 'string',
       textSummary: 'string',
+      url: 'string',
     };
   }
 

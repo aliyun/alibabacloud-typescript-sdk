@@ -7,7 +7,10 @@ import { RunHotTopicChatResponseBodyPayloadOutputMultimodalMedias } from "./RunH
 
 export class RunHotTopicChatResponseBodyPayloadOutput extends $dara.Model {
   articles?: RunHotTopicChatResponseBodyPayloadOutputArticles[];
+  category?: string;
   hotTopicSummaries?: RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries[];
+  keyword?: string;
+  location?: string;
   multimodalMedias?: RunHotTopicChatResponseBodyPayloadOutputMultimodalMedias[];
   recommendQueries?: string[];
   searchQuery?: string;
@@ -19,7 +22,10 @@ export class RunHotTopicChatResponseBodyPayloadOutput extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       articles: 'articles',
+      category: 'category',
       hotTopicSummaries: 'hotTopicSummaries',
+      keyword: 'keyword',
+      location: 'location',
       multimodalMedias: 'multimodalMedias',
       recommendQueries: 'recommendQueries',
       searchQuery: 'searchQuery',
@@ -30,7 +36,10 @@ export class RunHotTopicChatResponseBodyPayloadOutput extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       articles: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputArticles },
+      category: 'string',
       hotTopicSummaries: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries },
+      keyword: 'string',
+      location: 'string',
       multimodalMedias: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputMultimodalMedias },
       recommendQueries: { 'type': 'array', 'itemType': 'string' },
       searchQuery: 'string',
