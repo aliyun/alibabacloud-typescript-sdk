@@ -12,6 +12,10 @@ export class UpdateServiceInstanceAttributeRequestLicenseData extends $dara.Mode
    * {"Test"}
    */
   customData?: string;
+  /**
+   * @remarks
+   * Mock response info.
+   */
   responseInfo?: UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo;
   static names(): { [key: string]: string } {
     return {

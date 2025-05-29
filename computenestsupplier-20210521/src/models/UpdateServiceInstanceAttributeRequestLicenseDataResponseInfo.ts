@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateServiceInstanceAttributeRequestLicenseDataResponseInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Mock error code.
+   * 
+   * @example
+   * EntityNotExist.Service
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Mock error message.
+   * 
+   * @example
+   * The provided parameter "ServiceId" is invalid.
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * if you want mock response, please open this option.
+   * 
+   * @example
+   * true
+   */
   updateResponse?: boolean;
   static names(): { [key: string]: string } {
     return {

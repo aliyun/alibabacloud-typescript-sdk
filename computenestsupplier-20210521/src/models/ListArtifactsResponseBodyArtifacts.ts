@@ -62,6 +62,16 @@ export class ListArtifactsResponseBodyArtifacts extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * Permission fields are applicable to container image artifact and Helm Chart artifact They can only change from Automatic to Public. Options:
+   * - Public
+   * - Automatic
+   * 
+   * @example
+   * Public
+   */
+  permissionType?: string;
+  /**
+   * @remarks
    * The ID of the resource group.
    * 
    * @example
@@ -97,6 +107,7 @@ export class ListArtifactsResponseBodyArtifacts extends $dara.Model {
       gmtModified: 'GmtModified',
       maxVersion: 'MaxVersion',
       name: 'Name',
+      permissionType: 'PermissionType',
       resourceGroupId: 'ResourceGroupId',
       status: 'Status',
       tags: 'Tags',
@@ -112,6 +123,7 @@ export class ListArtifactsResponseBodyArtifacts extends $dara.Model {
       gmtModified: 'string',
       maxVersion: 'string',
       name: 'string',
+      permissionType: 'string',
       resourceGroupId: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListArtifactsResponseBodyArtifactsTags },
