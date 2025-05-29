@@ -2,23 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AIAgentRuntimeConfigAvatarChat3D extends $dara.Model {
-  agentUserId?: string;
-  authToken?: string;
-  channelId?: string;
+export class AIAgentConfigVoiceprintConfig extends $dara.Model {
+  useVoiceprint?: boolean;
+  voiceprintId?: string;
   static names(): { [key: string]: string } {
     return {
-      agentUserId: 'AgentUserId',
-      authToken: 'AuthToken',
-      channelId: 'ChannelId',
+      useVoiceprint: 'UseVoiceprint',
+      voiceprintId: 'VoiceprintId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      agentUserId: 'string',
-      authToken: 'string',
-      channelId: 'string',
+      useVoiceprint: 'boolean',
+      voiceprintId: 'string',
     };
   }
 

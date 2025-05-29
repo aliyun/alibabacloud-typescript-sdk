@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { LivePackagingConfig } from "./LivePackagingConfig";
 
 
 export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint extends $dara.Model {
@@ -80,6 +81,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
    * 2023-04-01T12:00:00Z
    */
   lastModified?: string;
+  livePackagingConfig?: LivePackagingConfig;
   /**
    * @remarks
    * The playlist name.
@@ -116,6 +118,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
       ipBlacklist: 'IpBlacklist',
       ipWhitelist: 'IpWhitelist',
       lastModified: 'LastModified',
+      livePackagingConfig: 'LivePackagingConfig',
       manifestName: 'ManifestName',
       protocol: 'Protocol',
       timeshiftVision: 'TimeshiftVision',
@@ -134,6 +137,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
       ipBlacklist: 'string',
       ipWhitelist: 'string',
       lastModified: 'string',
+      livePackagingConfig: LivePackagingConfig,
       manifestName: 'string',
       protocol: 'string',
       timeshiftVision: 'number',
@@ -141,6 +145,9 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   }
 
   validate() {
+    if(this.livePackagingConfig && typeof (this.livePackagingConfig as any).validate === 'function') {
+      (this.livePackagingConfig as any).validate();
+    }
     super.validate();
   }
 

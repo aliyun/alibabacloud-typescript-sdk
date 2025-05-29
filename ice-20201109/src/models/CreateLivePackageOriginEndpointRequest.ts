@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { LivePackagingConfig } from "./LivePackagingConfig";
 
 
 export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
@@ -70,6 +71,7 @@ export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
    * 192.168.1.0/24,10.0.0.1/24
    */
   ipWhitelist?: string;
+  livePackagingConfig?: LivePackagingConfig;
   /**
    * @remarks
    * The playlist name. Default value: manifest.
@@ -106,6 +108,7 @@ export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
       groupName: 'GroupName',
       ipBlacklist: 'IpBlacklist',
       ipWhitelist: 'IpWhitelist',
+      livePackagingConfig: 'LivePackagingConfig',
       manifestName: 'ManifestName',
       protocol: 'Protocol',
       timeshiftVision: 'TimeshiftVision',
@@ -122,6 +125,7 @@ export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
       groupName: 'string',
       ipBlacklist: 'string',
       ipWhitelist: 'string',
+      livePackagingConfig: LivePackagingConfig,
       manifestName: 'string',
       protocol: 'string',
       timeshiftVision: 'number',
@@ -129,6 +133,9 @@ export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.livePackagingConfig && typeof (this.livePackagingConfig as any).validate === 'function') {
+      (this.livePackagingConfig as any).validate();
+    }
     super.validate();
   }
 

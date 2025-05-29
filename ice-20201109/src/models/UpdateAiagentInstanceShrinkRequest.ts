@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateAIAgentInstanceShrinkRequest extends $dara.Model {
+  agentConfigShrink?: string;
   /**
    * @remarks
    * The ID of the AI agent that you want to update.
@@ -16,6 +17,8 @@ export class UpdateAIAgentInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The template configurations of the AI agent. The configurations are merged with the template configurations that are used to start the AI agent. For more information, see the definition of TemplateConfig.
+   * 
+   * @deprecated
    */
   templateConfigShrink?: string;
   /**
@@ -25,6 +28,7 @@ export class UpdateAIAgentInstanceShrinkRequest extends $dara.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      agentConfigShrink: 'AgentConfig',
       instanceId: 'InstanceId',
       templateConfigShrink: 'TemplateConfig',
       userData: 'UserData',
@@ -33,6 +37,7 @@ export class UpdateAIAgentInstanceShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentConfigShrink: 'string',
       instanceId: 'string',
       templateConfigShrink: 'string',
       userData: 'string',

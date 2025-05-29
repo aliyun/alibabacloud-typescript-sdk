@@ -1,10 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AIAgentConfig } from "./AiagentConfig";
 import { AIAgentRuntimeConfig } from "./AiagentRuntimeConfig";
 import { AIAgentTemplateConfig } from "./AiagentTemplateConfig";
 
 
 export class DescribeAIAgentInstanceResponseBodyInstance extends $dara.Model {
+  agentConfig?: AIAgentConfig;
   /**
    * @remarks
    * The URL of the call log file.
@@ -36,6 +38,8 @@ export class DescribeAIAgentInstanceResponseBodyInstance extends $dara.Model {
    * 
    * @example
    * {"VoiceChat": {"AppId": "your_voice_chat_app_id"}}
+   * 
+   * @deprecated
    */
   templateConfig?: AIAgentTemplateConfig;
   /**
@@ -48,6 +52,7 @@ export class DescribeAIAgentInstanceResponseBodyInstance extends $dara.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      agentConfig: 'AgentConfig',
       callLogUrl: 'CallLogUrl',
       runtimeConfig: 'RuntimeConfig',
       sessionId: 'SessionId',
@@ -59,6 +64,7 @@ export class DescribeAIAgentInstanceResponseBodyInstance extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentConfig: AIAgentConfig,
       callLogUrl: 'string',
       runtimeConfig: AIAgentRuntimeConfig,
       sessionId: 'string',
@@ -69,6 +75,9 @@ export class DescribeAIAgentInstanceResponseBodyInstance extends $dara.Model {
   }
 
   validate() {
+    if(this.agentConfig && typeof (this.agentConfig as any).validate === 'function') {
+      (this.agentConfig as any).validate();
+    }
     if(this.runtimeConfig && typeof (this.runtimeConfig as any).validate === 'function') {
       (this.runtimeConfig as any).validate();
     }

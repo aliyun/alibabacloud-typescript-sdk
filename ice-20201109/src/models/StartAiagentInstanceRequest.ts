@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AIAgentConfig } from "./AiagentConfig";
 import { StartAIAgentInstanceRequestChatSyncConfig } from "./StartAiagentInstanceRequestChatSyncConfig";
 import { AIAgentRuntimeConfig } from "./AiagentRuntimeConfig";
 import { AIAgentTemplateConfig } from "./AiagentTemplateConfig";
@@ -16,6 +17,7 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
    * 39f8e0bc005e4f309379701645f4****
    */
   AIAgentId?: string;
+  agentConfig?: AIAgentConfig;
   /**
    * @remarks
    * 同步聊天记录配置。
@@ -31,6 +33,9 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
    * f213fbc005e4f309379701645f4****
    */
   sessionId?: string;
+  /**
+   * @deprecated
+   */
   templateConfig?: AIAgentTemplateConfig;
   /**
    * @example
@@ -40,6 +45,7 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       AIAgentId: 'AIAgentId',
+      agentConfig: 'AgentConfig',
       chatSyncConfig: 'ChatSyncConfig',
       runtimeConfig: 'RuntimeConfig',
       sessionId: 'SessionId',
@@ -51,6 +57,7 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       AIAgentId: 'string',
+      agentConfig: AIAgentConfig,
       chatSyncConfig: StartAIAgentInstanceRequestChatSyncConfig,
       runtimeConfig: AIAgentRuntimeConfig,
       sessionId: 'string',
@@ -60,6 +67,9 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.agentConfig && typeof (this.agentConfig as any).validate === 'function') {
+      (this.agentConfig as any).validate();
+    }
     if(this.chatSyncConfig && typeof (this.chatSyncConfig as any).validate === 'function') {
       (this.chatSyncConfig as any).validate();
     }

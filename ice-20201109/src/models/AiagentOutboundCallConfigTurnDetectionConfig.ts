@@ -2,27 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AIAgentRuntimeConfigAvatarChat3D extends $dara.Model {
-  agentUserId?: string;
-  authToken?: string;
-  channelId?: string;
+export class AIAgentOutboundCallConfigTurnDetectionConfig extends $dara.Model {
+  turnEndWords?: string[];
   static names(): { [key: string]: string } {
     return {
-      agentUserId: 'AgentUserId',
-      authToken: 'AuthToken',
-      channelId: 'ChannelId',
+      turnEndWords: 'TurnEndWords',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      agentUserId: 'string',
-      authToken: 'string',
-      channelId: 'string',
+      turnEndWords: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.turnEndWords)) {
+      $dara.Model.validateArray(this.turnEndWords);
+    }
     super.validate();
   }
 

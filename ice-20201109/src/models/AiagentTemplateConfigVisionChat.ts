@@ -4,9 +4,11 @@ import { AIAgentTemplateConfigVisionChatLlmHistory } from "./AiagentTemplateConf
 
 
 export class AIAgentTemplateConfigVisionChat extends $dara.Model {
+  asrHotWords?: string[];
   asrLanguageId?: string;
   asrMaxSilence?: number;
   bailianAppParams?: string;
+  charBreak?: boolean;
   enableIntelligentSegment?: boolean;
   enablePushToTalk?: boolean;
   enableVoiceInterrupt?: boolean;
@@ -29,9 +31,11 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   workflowOverrideParams?: string;
   static names(): { [key: string]: string } {
     return {
+      asrHotWords: 'AsrHotWords',
       asrLanguageId: 'AsrLanguageId',
       asrMaxSilence: 'AsrMaxSilence',
       bailianAppParams: 'BailianAppParams',
+      charBreak: 'CharBreak',
       enableIntelligentSegment: 'EnableIntelligentSegment',
       enablePushToTalk: 'EnablePushToTalk',
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
@@ -57,9 +61,11 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      asrHotWords: { 'type': 'array', 'itemType': 'string' },
       asrLanguageId: 'string',
       asrMaxSilence: 'number',
       bailianAppParams: 'string',
+      charBreak: 'boolean',
       enableIntelligentSegment: 'boolean',
       enablePushToTalk: 'boolean',
       enableVoiceInterrupt: 'boolean',
@@ -84,6 +90,9 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.asrHotWords)) {
+      $dara.Model.validateArray(this.asrHotWords);
+    }
     if(Array.isArray(this.interruptWords)) {
       $dara.Model.validateArray(this.interruptWords);
     }

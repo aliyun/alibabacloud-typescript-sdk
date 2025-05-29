@@ -13,6 +13,7 @@ export class StartAIAgentInstanceShrinkRequest extends $dara.Model {
    * 39f8e0bc005e4f309379701645f4****
    */
   AIAgentId?: string;
+  agentConfigShrink?: string;
   /**
    * @remarks
    * 同步聊天记录配置。
@@ -28,6 +29,9 @@ export class StartAIAgentInstanceShrinkRequest extends $dara.Model {
    * f213fbc005e4f309379701645f4****
    */
   sessionId?: string;
+  /**
+   * @deprecated
+   */
   templateConfigShrink?: string;
   /**
    * @example
@@ -37,6 +41,7 @@ export class StartAIAgentInstanceShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       AIAgentId: 'AIAgentId',
+      agentConfigShrink: 'AgentConfig',
       chatSyncConfigShrink: 'ChatSyncConfig',
       runtimeConfigShrink: 'RuntimeConfig',
       sessionId: 'SessionId',
@@ -48,6 +53,7 @@ export class StartAIAgentInstanceShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       AIAgentId: 'string',
+      agentConfigShrink: 'string',
       chatSyncConfigShrink: 'string',
       runtimeConfigShrink: 'string',
       sessionId: 'string',

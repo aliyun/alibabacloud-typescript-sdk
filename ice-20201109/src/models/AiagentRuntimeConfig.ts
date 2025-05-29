@@ -6,12 +6,27 @@ import { AIAgentRuntimeConfigVoiceChat } from "./AiagentRuntimeConfigVoiceChat";
 
 
 export class AIAgentRuntimeConfig extends $dara.Model {
+  agentUserId?: string;
+  authToken?: string;
+  /**
+   * @deprecated
+   */
   avatarChat3D?: AIAgentRuntimeConfigAvatarChat3D;
+  channelId?: string;
+  /**
+   * @deprecated
+   */
   visionChat?: AIAgentRuntimeConfigVisionChat;
+  /**
+   * @deprecated
+   */
   voiceChat?: AIAgentRuntimeConfigVoiceChat;
   static names(): { [key: string]: string } {
     return {
+      agentUserId: 'AgentUserId',
+      authToken: 'AuthToken',
       avatarChat3D: 'AvatarChat3D',
+      channelId: 'ChannelId',
       visionChat: 'VisionChat',
       voiceChat: 'VoiceChat',
     };
@@ -19,7 +34,10 @@ export class AIAgentRuntimeConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentUserId: 'string',
+      authToken: 'string',
       avatarChat3D: AIAgentRuntimeConfigAvatarChat3D,
+      channelId: 'string',
       visionChat: AIAgentRuntimeConfigVisionChat,
       voiceChat: AIAgentRuntimeConfigVoiceChat,
     };

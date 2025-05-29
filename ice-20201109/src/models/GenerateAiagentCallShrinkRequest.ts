@@ -13,6 +13,7 @@ export class GenerateAIAgentCallShrinkRequest extends $dara.Model {
    * 39f8e0bc005e4f309379701645f4****
    */
   AIAgentId?: string;
+  agentConfigShrink?: string;
   chatSyncConfigShrink?: string;
   /**
    * @remarks
@@ -30,6 +31,8 @@ export class GenerateAIAgentCallShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The template configurations of the AI agent. The specified configurations are merged with the template configurations that are specified in the console. If you do not specify this parameter, the system uses the default configurations for an AI agent created in the console.
+   * 
+   * @deprecated
    */
   templateConfigShrink?: string;
   /**
@@ -48,6 +51,7 @@ export class GenerateAIAgentCallShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       AIAgentId: 'AIAgentId',
+      agentConfigShrink: 'AgentConfig',
       chatSyncConfigShrink: 'ChatSyncConfig',
       expire: 'Expire',
       sessionId: 'SessionId',
@@ -60,6 +64,7 @@ export class GenerateAIAgentCallShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       AIAgentId: 'string',
+      agentConfigShrink: 'string',
       chatSyncConfigShrink: 'string',
       expire: 'number',
       sessionId: 'string',

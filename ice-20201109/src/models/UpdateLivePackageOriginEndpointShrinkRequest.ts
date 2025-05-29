@@ -1,12 +1,11 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { LivePackagingConfig } from "./LivePackagingConfig";
 
 
-export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint extends $dara.Model {
+export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorization code.
+   * The authorization code. It can be up to 200 characters in length. You must configure AuthorizationCode, IpWhitelist, or both. Format: [A-Za-z0-9-_.]+
    * 
    * @example
    * Abc123Def456
@@ -16,18 +15,12 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
    * @remarks
    * The channel name.
    * 
+   * This parameter is required.
+   * 
    * @example
    * channel-1
    */
   channelName?: string;
-  /**
-   * @remarks
-   * The time when the endpoint was created.
-   * 
-   * @example
-   * 2023-04-01T12:00:00Z
-   */
-  createTime?: string;
   /**
    * @remarks
    * The endpoint description.
@@ -35,7 +28,9 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   description?: string;
   /**
    * @remarks
-   * The endpoint name.
+   * The origin endpoint name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
+   * 
+   * This parameter is required.
    * 
    * @example
    * endpoint-1
@@ -43,15 +38,9 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   endpointName?: string;
   /**
    * @remarks
-   * The endpoint URL.
-   * 
-   * @example
-   * https://xxx.packagepull-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
-   */
-  endpointUrl?: string;
-  /**
-   * @remarks
    * The channel group name.
+   * 
+   * This parameter is required.
    * 
    * @example
    * channel-group-1
@@ -59,32 +48,24 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   groupName?: string;
   /**
    * @remarks
-   * The IP address blacklist.
+   * The IP address blacklist. It supports subnet masks. Separate multiple IP addresses with commas (,).
    * 
    * @example
-   * 10.21.222.1/32
+   * 103.0.0.0/8
    */
   ipBlacklist?: string;
   /**
    * @remarks
-   * The IP address whitelist.
+   * The IP address whitelist. It supports subnet masks. 0.0.0.0/0 is not allowed. It can be up to 1,000 characters in length. Separate multiple IP addresses with commas (,). You must configure AuthorizationCode, IpWhitelist, or both.
    * 
    * @example
-   * 192.168.1.0/24,10.0.0.1/24
+   * 192.168.1.0/24,10.0.0.1
    */
   ipWhitelist?: string;
+  livePackagingConfigShrink?: string;
   /**
    * @remarks
-   * The time when the endpoint was last modified.
-   * 
-   * @example
-   * 2023-04-01T12:00:00Z
-   */
-  lastModified?: string;
-  livePackagingConfig?: LivePackagingConfig;
-  /**
-   * @remarks
-   * The playlist name.
+   * The playlist name. Default value: manifest.
    * 
    * @example
    * manifest
@@ -92,7 +73,9 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   manifestName?: string;
   /**
    * @remarks
-   * The distribution protocol.
+   * The protocol. Only HLS is supported.
+   * 
+   * This parameter is required.
    * 
    * @example
    * HLS
@@ -100,7 +83,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   protocol?: string;
   /**
    * @remarks
-   * The number of days that time-shifted content is available.
+   * The number of days that time-shifted content is available. Maximum value: 30.
    * 
    * @example
    * 5
@@ -110,15 +93,12 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
     return {
       authorizationCode: 'AuthorizationCode',
       channelName: 'ChannelName',
-      createTime: 'CreateTime',
       description: 'Description',
       endpointName: 'EndpointName',
-      endpointUrl: 'EndpointUrl',
       groupName: 'GroupName',
       ipBlacklist: 'IpBlacklist',
       ipWhitelist: 'IpWhitelist',
-      lastModified: 'LastModified',
-      livePackagingConfig: 'LivePackagingConfig',
+      livePackagingConfigShrink: 'LivePackagingConfig',
       manifestName: 'ManifestName',
       protocol: 'Protocol',
       timeshiftVision: 'TimeshiftVision',
@@ -129,15 +109,12 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
     return {
       authorizationCode: 'string',
       channelName: 'string',
-      createTime: 'string',
       description: 'string',
       endpointName: 'string',
-      endpointUrl: 'string',
       groupName: 'string',
       ipBlacklist: 'string',
       ipWhitelist: 'string',
-      lastModified: 'string',
-      livePackagingConfig: LivePackagingConfig,
+      livePackagingConfigShrink: 'string',
       manifestName: 'string',
       protocol: 'string',
       timeshiftVision: 'number',
@@ -145,9 +122,6 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   }
 
   validate() {
-    if(this.livePackagingConfig && typeof (this.livePackagingConfig as any).validate === 'function') {
-      (this.livePackagingConfig as any).validate();
-    }
     super.validate();
   }
 

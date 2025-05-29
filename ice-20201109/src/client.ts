@@ -1501,12 +1501,18 @@ export default class Client extends OpenApi {
    * ## [](#)Usage notes
    * This API operation is mainly used to configure origin settings, security policies including the IP address blacklist and whitelist and authorization code, and time shifting settings for channels. Before you create an origin endpoint, you must create a live package channel group and channel. After you create the endpoint, the endpoint URL and other configuration details are returned.
    * 
-   * @param request - CreateLivePackageOriginEndpointRequest
+   * @param tmpReq - CreateLivePackageOriginEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateLivePackageOriginEndpointResponse
    */
-  async createLivePackageOriginEndpointWithOptions(request: $_model.CreateLivePackageOriginEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLivePackageOriginEndpointResponse> {
-    request.validate();
+  async createLivePackageOriginEndpointWithOptions(tmpReq: $_model.CreateLivePackageOriginEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLivePackageOriginEndpointResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateLivePackageOriginEndpointShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.livePackagingConfig)) {
+      request.livePackagingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.livePackagingConfig, "LivePackagingConfig", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -1539,6 +1545,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ipWhitelist)) {
       body["IpWhitelist"] = request.ipWhitelist;
+    }
+
+    if (!$dara.isNull(request.livePackagingConfigShrink)) {
+      body["LivePackagingConfig"] = request.livePackagingConfigShrink;
     }
 
     if (!$dara.isNull(request.manifestName)) {
@@ -5230,6 +5240,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.GenerateAIAgentCallShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.agentConfig)) {
+      request.agentConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentConfig, "AgentConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.chatSyncConfig)) {
       request.chatSyncConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.chatSyncConfig, "ChatSyncConfig", "json");
     }
@@ -5241,6 +5255,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.AIAgentId)) {
       query["AIAgentId"] = request.AIAgentId;
+    }
+
+    if (!$dara.isNull(request.agentConfigShrink)) {
+      query["AgentConfig"] = request.agentConfigShrink;
     }
 
     if (!$dara.isNull(request.chatSyncConfigShrink)) {
@@ -8402,6 +8420,52 @@ export default class Client extends OpenApi {
   async listAIAgentInstance(request: $_model.ListAIAgentInstanceRequest): Promise<$_model.ListAIAgentInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAIAgentInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 罗列用户电话资源接口
+   * 
+   * @param request - ListAIAgentPhoneNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAIAgentPhoneNumberResponse
+   */
+  async listAIAgentPhoneNumberWithOptions(request: $_model.ListAIAgentPhoneNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAIAgentPhoneNumberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAIAgentPhoneNumber",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAIAgentPhoneNumberResponse>(await this.callApi(params, req, runtime), new $_model.ListAIAgentPhoneNumberResponse({}));
+  }
+
+  /**
+   * 罗列用户电话资源接口
+   * 
+   * @param request - ListAIAgentPhoneNumberRequest
+   * @returns ListAIAgentPhoneNumberResponse
+   */
+  async listAIAgentPhoneNumber(request: $_model.ListAIAgentPhoneNumberRequest): Promise<$_model.ListAIAgentPhoneNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAIAgentPhoneNumberWithOptions(request, runtime);
   }
 
   /**
@@ -13610,6 +13674,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.StartAIAgentInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.agentConfig)) {
+      request.agentConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentConfig, "AgentConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.chatSyncConfig)) {
       request.chatSyncConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.chatSyncConfig, "ChatSyncConfig", "json");
     }
@@ -13625,6 +13693,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.AIAgentId)) {
       query["AIAgentId"] = request.AIAgentId;
+    }
+
+    if (!$dara.isNull(request.agentConfigShrink)) {
+      query["AgentConfig"] = request.agentConfigShrink;
     }
 
     if (!$dara.isNull(request.chatSyncConfigShrink)) {
@@ -13676,6 +13748,74 @@ export default class Client extends OpenApi {
   async startAIAgentInstance(request: $_model.StartAIAgentInstanceRequest): Promise<$_model.StartAIAgentInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startAIAgentInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+   * 
+   * @param tmpReq - StartAIAgentOutboundCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartAIAgentOutboundCallResponse
+   */
+  async startAIAgentOutboundCallWithOptions(tmpReq: $_model.StartAIAgentOutboundCallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartAIAgentOutboundCallResponse> {
+    tmpReq.validate();
+    let request = new $_model.StartAIAgentOutboundCallShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.config)) {
+      request.configShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.config, "Config", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.AIAgentId)) {
+      query["AIAgentId"] = request.AIAgentId;
+    }
+
+    if (!$dara.isNull(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!$dara.isNull(request.callerNumber)) {
+      query["CallerNumber"] = request.callerNumber;
+    }
+
+    if (!$dara.isNull(request.configShrink)) {
+      query["Config"] = request.configShrink;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartAIAgentOutboundCall",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartAIAgentOutboundCallResponse>(await this.callApi(params, req, runtime), new $_model.StartAIAgentOutboundCallResponse({}));
+  }
+
+  /**
+   * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+   * 
+   * @param request - StartAIAgentOutboundCallRequest
+   * @returns StartAIAgentOutboundCallResponse
+   */
+  async startAIAgentOutboundCall(request: $_model.StartAIAgentOutboundCallRequest): Promise<$_model.StartAIAgentOutboundCallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startAIAgentOutboundCallWithOptions(request, runtime);
   }
 
   /**
@@ -14082,6 +14222,82 @@ export default class Client extends OpenApi {
   async stopRtcRobotInstance(request: $_model.StopRtcRobotInstanceRequest): Promise<$_model.StopRtcRobotInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopRtcRobotInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交视频送审任务
+   * 
+   * @param tmpReq - SubmitAIAgentVideoAuditTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAIAgentVideoAuditTaskResponse
+   */
+  async submitAIAgentVideoAuditTaskWithOptions(tmpReq: $_model.SubmitAIAgentVideoAuditTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitAIAgentVideoAuditTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitAIAgentVideoAuditTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.callbackConfig)) {
+      request.callbackConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callbackConfig, "CallbackConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.capturePolicies)) {
+      request.capturePoliciesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.capturePolicies, "CapturePolicies", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.AIAgentId)) {
+      query["AIAgentId"] = request.AIAgentId;
+    }
+
+    if (!$dara.isNull(request.auditInterval)) {
+      query["AuditInterval"] = request.auditInterval;
+    }
+
+    if (!$dara.isNull(request.callbackConfigShrink)) {
+      query["CallbackConfig"] = request.callbackConfigShrink;
+    }
+
+    if (!$dara.isNull(request.capturePoliciesShrink)) {
+      query["CapturePolicies"] = request.capturePoliciesShrink;
+    }
+
+    if (!$dara.isNull(request.inputShrink)) {
+      query["Input"] = request.inputShrink;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitAIAgentVideoAuditTask",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitAIAgentVideoAuditTaskResponse>(await this.callApi(params, req, runtime), new $_model.SubmitAIAgentVideoAuditTaskResponse({}));
+  }
+
+  /**
+   * 提交视频送审任务
+   * 
+   * @param request - SubmitAIAgentVideoAuditTaskRequest
+   * @returns SubmitAIAgentVideoAuditTaskResponse
+   */
+  async submitAIAgentVideoAuditTask(request: $_model.SubmitAIAgentVideoAuditTaskRequest): Promise<$_model.SubmitAIAgentVideoAuditTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitAIAgentVideoAuditTaskWithOptions(request, runtime);
   }
 
   /**
@@ -16797,11 +17013,19 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.UpdateAIAgentInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.agentConfig)) {
+      request.agentConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentConfig, "AgentConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.templateConfig)) {
       request.templateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateConfig, "TemplateConfig", "json");
     }
 
     let query = { };
+    if (!$dara.isNull(request.agentConfigShrink)) {
+      query["AgentConfig"] = request.agentConfigShrink;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -17457,12 +17681,18 @@ export default class Client extends OpenApi {
    * ## [](#)Usage notes
    * You can call this operation to modify the origin protocol, set the number of days that time-shifted content is available, define playlist names, and configure the IP address blacklist and whitelist, allowing for fine-grained control over streaming media distribution. Some parameters are required. You must configure IpWhitelist, AuthorizationCode, or both.
    * 
-   * @param request - UpdateLivePackageOriginEndpointRequest
+   * @param tmpReq - UpdateLivePackageOriginEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateLivePackageOriginEndpointResponse
    */
-  async updateLivePackageOriginEndpointWithOptions(request: $_model.UpdateLivePackageOriginEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLivePackageOriginEndpointResponse> {
-    request.validate();
+  async updateLivePackageOriginEndpointWithOptions(tmpReq: $_model.UpdateLivePackageOriginEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLivePackageOriginEndpointResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateLivePackageOriginEndpointShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.livePackagingConfig)) {
+      request.livePackagingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.livePackagingConfig, "LivePackagingConfig", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.authorizationCode)) {
       body["AuthorizationCode"] = request.authorizationCode;
@@ -17490,6 +17720,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ipWhitelist)) {
       body["IpWhitelist"] = request.ipWhitelist;
+    }
+
+    if (!$dara.isNull(request.livePackagingConfigShrink)) {
+      body["LivePackagingConfig"] = request.livePackagingConfigShrink;
     }
 
     if (!$dara.isNull(request.manifestName)) {

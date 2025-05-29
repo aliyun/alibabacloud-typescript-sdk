@@ -5,17 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class GetAdInsertionResponseBodyConfigManifestEndpointConfig extends $dara.Model {
   /**
    * @remarks
+   * DASH清单播放端点前缀
+   */
+  dashPrefix?: string;
+  /**
+   * @remarks
    * The playback endpoint prefix for accessing HLS manifests.
    */
   hlsPrefix?: string;
   static names(): { [key: string]: string } {
     return {
+      dashPrefix: 'DashPrefix',
       hlsPrefix: 'HlsPrefix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dashPrefix: 'string',
       hlsPrefix: 'string',
     };
   }

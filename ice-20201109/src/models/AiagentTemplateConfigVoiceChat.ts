@@ -4,11 +4,13 @@ import { AIAgentTemplateConfigVoiceChatLlmHistory } from "./AiagentTemplateConfi
 
 
 export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
+  asrHotWords?: string[];
   asrLanguageId?: string;
   asrMaxSilence?: number;
   avatarUrl?: string;
   avatarUrlType?: string;
   bailianAppParams?: string;
+  charBreak?: boolean;
   enableIntelligentSegment?: boolean;
   enablePushToTalk?: boolean;
   enableVoiceInterrupt?: boolean;
@@ -31,11 +33,13 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
   workflowOverrideParams?: string;
   static names(): { [key: string]: string } {
     return {
+      asrHotWords: 'AsrHotWords',
       asrLanguageId: 'AsrLanguageId',
       asrMaxSilence: 'AsrMaxSilence',
       avatarUrl: 'AvatarUrl',
       avatarUrlType: 'AvatarUrlType',
       bailianAppParams: 'BailianAppParams',
+      charBreak: 'CharBreak',
       enableIntelligentSegment: 'EnableIntelligentSegment',
       enablePushToTalk: 'EnablePushToTalk',
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
@@ -61,11 +65,13 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      asrHotWords: { 'type': 'array', 'itemType': 'string' },
       asrLanguageId: 'string',
       asrMaxSilence: 'number',
       avatarUrl: 'string',
       avatarUrlType: 'string',
       bailianAppParams: 'string',
+      charBreak: 'boolean',
       enableIntelligentSegment: 'boolean',
       enablePushToTalk: 'boolean',
       enableVoiceInterrupt: 'boolean',
@@ -90,6 +96,9 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.asrHotWords)) {
+      $dara.Model.validateArray(this.asrHotWords);
+    }
     if(Array.isArray(this.interruptWords)) {
       $dara.Model.validateArray(this.interruptWords);
     }

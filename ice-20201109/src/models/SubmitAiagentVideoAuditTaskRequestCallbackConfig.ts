@@ -2,23 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AIAgentRuntimeConfigAvatarChat3D extends $dara.Model {
-  agentUserId?: string;
-  authToken?: string;
-  channelId?: string;
+export class SubmitAIAgentVideoAuditTaskRequestCallbackConfig extends $dara.Model {
+  /**
+   * @example
+   * Bearer Token
+   */
+  token?: string;
+  /**
+   * @example
+   * https://yourcallback
+   */
+  url?: string;
   static names(): { [key: string]: string } {
     return {
-      agentUserId: 'AgentUserId',
-      authToken: 'AuthToken',
-      channelId: 'ChannelId',
+      token: 'Token',
+      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      agentUserId: 'string',
-      authToken: 'string',
-      channelId: 'string',
+      token: 'string',
+      url: 'string',
     };
   }
 

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AIAgentConfig } from "./AiagentConfig";
 import { GenerateAIAgentCallRequestChatSyncConfig } from "./GenerateAiagentCallRequestChatSyncConfig";
 import { AIAgentTemplateConfig } from "./AiagentTemplateConfig";
 
@@ -15,6 +16,7 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
    * 39f8e0bc005e4f309379701645f4****
    */
   AIAgentId?: string;
+  agentConfig?: AIAgentConfig;
   chatSyncConfig?: GenerateAIAgentCallRequestChatSyncConfig;
   /**
    * @remarks
@@ -32,6 +34,8 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
   /**
    * @remarks
    * The template configurations of the AI agent. The specified configurations are merged with the template configurations that are specified in the console. If you do not specify this parameter, the system uses the default configurations for an AI agent created in the console.
+   * 
+   * @deprecated
    */
   templateConfig?: AIAgentTemplateConfig;
   /**
@@ -50,6 +54,7 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       AIAgentId: 'AIAgentId',
+      agentConfig: 'AgentConfig',
       chatSyncConfig: 'ChatSyncConfig',
       expire: 'Expire',
       sessionId: 'SessionId',
@@ -62,6 +67,7 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       AIAgentId: 'string',
+      agentConfig: AIAgentConfig,
       chatSyncConfig: GenerateAIAgentCallRequestChatSyncConfig,
       expire: 'number',
       sessionId: 'string',
@@ -72,6 +78,9 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.agentConfig && typeof (this.agentConfig as any).validate === 'function') {
+      (this.agentConfig as any).validate();
+    }
     if(this.chatSyncConfig && typeof (this.chatSyncConfig as any).validate === 'function') {
       (this.chatSyncConfig as any).validate();
     }
