@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 import { DescribeInstanceAttributeResponseBodyDedicatedHostAttribute } from "./DescribeInstanceAttributeResponseBodyDedicatedHostAttribute";
 import { DescribeInstanceAttributeResponseBodyEipAddress } from "./DescribeInstanceAttributeResponseBodyEipAddress";
 import { DescribeInstanceAttributeResponseBodyInnerIpAddress } from "./DescribeInstanceAttributeResponseBodyInnerIpAddress";
+import { DescribeInstanceAttributeResponseBodyNetworkOptions } from "./DescribeInstanceAttributeResponseBodyNetworkOptions";
 import { DescribeInstanceAttributeResponseBodyOperationLocks } from "./DescribeInstanceAttributeResponseBodyOperationLocks";
 import { DescribeInstanceAttributeResponseBodyPublicIpAddress } from "./DescribeInstanceAttributeResponseBodyPublicIpAddress";
 import { DescribeInstanceAttributeResponseBodySecurityGroupIds } from "./DescribeInstanceAttributeResponseBodySecurityGroupIds";
@@ -202,6 +203,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * 16384
    */
   memory?: number;
+  networkOptions?: DescribeInstanceAttributeResponseBodyNetworkOptions;
   /**
    * @remarks
    * The reason why the instance was locked. Valid values:
@@ -321,6 +323,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
       internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
       ioOptimized: 'IoOptimized',
       memory: 'Memory',
+      networkOptions: 'NetworkOptions',
       operationLocks: 'OperationLocks',
       publicIpAddress: 'PublicIpAddress',
       regionId: 'RegionId',
@@ -360,6 +363,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
       internetMaxBandwidthOut: 'number',
       ioOptimized: 'string',
       memory: 'number',
+      networkOptions: DescribeInstanceAttributeResponseBodyNetworkOptions,
       operationLocks: DescribeInstanceAttributeResponseBodyOperationLocks,
       publicIpAddress: DescribeInstanceAttributeResponseBodyPublicIpAddress,
       regionId: 'string',
@@ -383,6 +387,9 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
     }
     if(this.innerIpAddress && typeof (this.innerIpAddress as any).validate === 'function') {
       (this.innerIpAddress as any).validate();
+    }
+    if(this.networkOptions && typeof (this.networkOptions as any).validate === 'function') {
+      (this.networkOptions as any).validate();
     }
     if(this.operationLocks && typeof (this.operationLocks as any).validate === 'function') {
       (this.operationLocks as any).validate();

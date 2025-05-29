@@ -13,7 +13,7 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the performance burst feature for data disk N. Valid values:
+   * Specifies whether to enable the performance burst feature for the system disk. Valid values:
    * 
    * *   true
    * *   false
@@ -26,12 +26,12 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
    * @remarks
    * The category of data disk N. Valid values:
    * 
-   * *   cloud: basic disk.
-   * *   cloud_efficiency: ultra disk.
-   * *   cloud_ssd: standard SSD.
-   * *   cloud_essd: ESSD.
+   * *   cloud: basic disk
+   * *   cloud_efficiency: utra disk
+   * *   cloud_ssd: standard SSD
+   * *   cloud_essd: ESSD
    * *   cloud_auto: ESSD AutoPL disk
-   * *   cloud_essd_entry: ESSD Entry disk.
+   * *   cloud_essd_entry: ESSD Entry disk
    * 
    * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
    * 
@@ -41,7 +41,7 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to release data disk N when the instance is released. Valid values:
+   * Specifies whether to release data disk N when the associated instance is released. Valid values:
    * 
    * *   true
    * *   false
@@ -75,7 +75,7 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
   device?: string;
   /**
    * @remarks
-   * The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
+   * The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. can contain letters, digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * testDataDiskName
@@ -89,15 +89,22 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
    * false
    */
   encrypted?: string;
+  /**
+   * @remarks
+   * The ID of the KMS key used for the data disk.
+   * 
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d****
+   */
   KMSKeyId?: string;
   /**
    * @remarks
    * The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
    * 
-   * *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-   * *   PL1 (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
-   * *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-   * *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+   * *   PL0: A single ESSD can deliver up to 10000 random read/write IOPS.
+   * *   PL1 (default): A single ESSD can deliver up to 50000 random read/write IOPS.
+   * *   PL2: A single ESSD can deliver up to 100000 random read/write IOPS.
+   * *   PL3: A single ESSD can deliver up to 1000000 random read/write IOPS.
    * 
    * For information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
@@ -129,9 +136,9 @@ export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
    * 
    * *   Valid values if you set DataDisk.N.Category to cloud_essd: vary based on the value of `DataDisk.N.PerformanceLevel`.
    * 
-   *     *   Valid values if you set DataDisk.N.PerformanceLevel to PL0: 1 to 32768.
-   *     *   Valid values if you set DataDisk.N.PerformanceLevel to PL1: 20 to 32768.
-   *     *   Valid values if you set DataDisk.N.PerformanceLevel to PL2: 461 to 32768.
+   *     *   Valid values if DataDisk.N.PerformanceLevel is set to PL0: 1 to 32768.
+   *     *   Valid values if DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
+   *     *   Valid values if DataDisk.N.PerformanceLevel is set to PL2: 461 to 32768.
    *     *   Valid values if you set DataDisk.N.PerformanceLevel to PL3: 1261 to 32768.
    * 
    * *   Valid values if you set DataDisk.N.Category to cloud_auto: 1 to 32768.

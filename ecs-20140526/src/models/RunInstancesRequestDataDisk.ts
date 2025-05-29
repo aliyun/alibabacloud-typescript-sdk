@@ -15,7 +15,7 @@ export class RunInstancesRequestDataDisk extends $dara.Model {
    * @remarks
    * Specifies whether to enable the performance burst feature for data disk N. Valid values:
    * 
-   * *   true: enables the performance burst feature for the data disk.
+   * *   true: enables the performance burst feature for the system disk.
    * *   false: disables the performance burst feature for the data disk.
    * 
    * >  This parameter is available only if you set DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
@@ -28,7 +28,7 @@ export class RunInstancesRequestDataDisk extends $dara.Model {
    * @remarks
    * The category of data disk N. Valid values:
    * 
-   * *   cloud_efficiency: ultra disk.
+   * *   cloud_efficiency: utra disk.
    * 
    * *   cloud_ssd: standard SSD.
    * 
@@ -38,6 +38,8 @@ export class RunInstancesRequestDataDisk extends $dara.Model {
    * 
    * *   cloud_auto: ESSD AutoPL disk.
    * 
+   * *   cloud_regional_disk_auto: Regional ESSD.
+   * 
    * *   cloud_essd_entry: ESSD Entry disk.
    * 
    *     **
@@ -46,7 +48,7 @@ export class RunInstancesRequestDataDisk extends $dara.Model {
    * 
    * *   elastic_ephemeral_disk_standard: standard elastic ephemeral disk.
    * 
-   * *   elastic_ephemeral_disk_premium: premium elastic ephemeral disk.
+   * *   elastic_ephemeral_disk_premium: premium elastic ephemeral disk
    * 
    * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
    * 
@@ -82,7 +84,11 @@ export class RunInstancesRequestDataDisk extends $dara.Model {
    * *   1st to 25th data disks: /dev/xvd`[b-z]`.
    * *   From the 26th data disk on: /dev/xvd`[aa-zz]`. For example, the 26th data disk is named /dev/xvdaa, the 27th data disk is named /dev/xvdab, and so on.
    * 
-   * >  This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set this parameter to the mount point of data disk N in the full image and modify `DataDisk.N.Size` and `DataDisk.N.Category` to change the category and size of data disk N created based on the image.
+   * > 
+   * 
+   * *   This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set this parameter to the mount point of data disk N in the full image and modify `DataDisk.N.Size` and `DataDisk.N.Category` to change the category and size of data disk N created based on the image.
+   * 
+   * *   When you use a full image to create an ECS instance, the data disks in the image are created as the first N data disks of the instance.
    * 
    * @example
    * /dev/xvdb
@@ -121,7 +127,7 @@ export class RunInstancesRequestDataDisk extends $dara.Model {
   encrypted?: string;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS) key to use for data disk N.
+   * The ID of the KMS key used for the data disk.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -131,10 +137,10 @@ export class RunInstancesRequestDataDisk extends $dara.Model {
    * @remarks
    * The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
    * 
-   * *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-   * *   PL1 (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
-   * *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-   * *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+   * *   PL0: A single ESSD can deliver up to 10000 random read/write IOPS.
+   * *   PL1 (default): A single ESSD can deliver up to 50000 random read/write IOPS.
+   * *   PL2: A single ESSD can deliver up to 100000 random read/write IOPS.
+   * *   PL3: A single ESSD can deliver up to 1000000 random read/write IOPS.
    * 
    * For information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
@@ -185,7 +191,7 @@ export class RunInstancesRequestDataDisk extends $dara.Model {
    * @remarks
    * The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16.
    * 
-   * When `DataDisk.N.SnapshotId` is specified, `DataDisk.N.Size` is ignored. The data disk is created with the size of the specified snapshot. Use snapshots created after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+   * When `DataDisk.N.SnapshotId` is specified, `DataDisk.N.Size` is ignored. The data disk is created with the size of the specified snapshot. Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
    * 
    * @example
    * s-bp17441ohwka0yuh****

@@ -370,6 +370,7 @@ export { DescribeInstanceAttachmentAttributesResponseBodyInstances } from './Des
 export { DescribeInstanceAttributeResponseBodyDedicatedHostAttribute } from './DescribeInstanceAttributeResponseBodyDedicatedHostAttribute';
 export { DescribeInstanceAttributeResponseBodyEipAddress } from './DescribeInstanceAttributeResponseBodyEipAddress';
 export { DescribeInstanceAttributeResponseBodyInnerIpAddress } from './DescribeInstanceAttributeResponseBodyInnerIpAddress';
+export { DescribeInstanceAttributeResponseBodyNetworkOptions } from './DescribeInstanceAttributeResponseBodyNetworkOptions';
 export { DescribeInstanceAttributeResponseBodyOperationLocksLockReason } from './DescribeInstanceAttributeResponseBodyOperationLocksLockReason';
 export { DescribeInstanceAttributeResponseBodyOperationLocks } from './DescribeInstanceAttributeResponseBodyOperationLocks';
 export { DescribeInstanceAttributeResponseBodyPublicIpAddress } from './DescribeInstanceAttributeResponseBodyPublicIpAddress';

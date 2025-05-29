@@ -75,6 +75,13 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
    * false
    */
   encrypted?: string;
+  /**
+   * @remarks
+   * The ID of the KMS key used for the data disk.
+   * 
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d3fb40****
+   */
   KMSKeyId?: string;
   /**
    * @remarks

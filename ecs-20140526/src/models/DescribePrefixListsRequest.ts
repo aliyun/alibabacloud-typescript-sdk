@@ -65,9 +65,20 @@ export class DescribePrefixListsRequest extends $dara.Model {
    * cn-chengdu
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the prefix list belongs.
+   * 
+   * @example
+   * rg-bp67acfmxazb4p****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The tags of the prefix list.
+   */
   tag?: DescribePrefixListsRequestTag[];
   static names(): { [key: string]: string } {
     return {

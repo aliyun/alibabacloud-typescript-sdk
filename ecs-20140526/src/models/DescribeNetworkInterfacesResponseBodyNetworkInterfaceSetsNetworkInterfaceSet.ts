@@ -183,7 +183,14 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
   serviceManaged?: boolean;
   /**
    * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
+   * Indicates whether the source and destination IP address check feature is enabled. To improve network security, enable this feature. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * >  Before you use this parameter, read [Source and destination IP address check](https://help.aliyun.com/document_detail/2863210.html).
    * 
    * @example
    * false

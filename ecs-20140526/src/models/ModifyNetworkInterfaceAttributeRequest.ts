@@ -110,7 +110,14 @@ export class ModifyNetworkInterfaceAttributeRequest extends $dara.Model {
   securityGroupId?: string[];
   /**
    * @remarks
-   * >  This parameter is in invitational preview and is not publicly available.
+   * Source and destination IP address check We recommend that you enable the feature to improve network security. Valid value:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * >  This feature is available only in some regions. Before you use this method, read [Source and destination IP address check](https://help.aliyun.com/document_detail/2863210.html).
    * 
    * @example
    * false

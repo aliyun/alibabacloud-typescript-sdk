@@ -71,9 +71,20 @@ export class CreatePrefixListRequest extends $dara.Model {
    * cn-chengdu
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which to assign the prefix list.
+   * 
+   * @example
+   * rg-bp67acfmxazb4p****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The tags to add to the prefix list.
+   */
   tag?: CreatePrefixListRequestTag[];
   static names(): { [key: string]: string } {
     return {

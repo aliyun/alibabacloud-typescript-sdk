@@ -63,7 +63,18 @@ export class DescribePrefixListsResponseBodyPrefixListsPrefixList extends $dara.
    * PrefixListNameSample
    */
   prefixListName?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the prefix list belongs.
+   * 
+   * @example
+   * rg-bp67acfmxazb4p****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags of the prefix list.
+   */
   tags?: DescribePrefixListsResponseBodyPrefixListsPrefixListTags;
   static names(): { [key: string]: string } {
     return {

@@ -35,7 +35,7 @@ export class DescribeSnapshotLinksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100.
+   * The number of entries per page. Valid values: 1 to 100.
    * 
    * Default value: 10.
    * 

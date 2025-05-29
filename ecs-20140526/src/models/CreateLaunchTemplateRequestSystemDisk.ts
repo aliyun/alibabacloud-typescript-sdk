@@ -91,6 +91,13 @@ export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
    * null
    */
   iops?: number;
+  /**
+   * @remarks
+   * The ID of the KMS key to use for the system disk.
+   * 
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d3fb40****
+   */
   KMSKeyId?: string;
   /**
    * @remarks

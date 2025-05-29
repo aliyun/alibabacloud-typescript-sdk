@@ -13,7 +13,7 @@ export class CreateLaunchTemplateVersionRequestDataDisk extends $dara.Model {
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the performance burst feature for data disk N. Valid values:
+   * Specifies whether to enable the performance burst feature for the system disk. Valid values:
    * 
    * *   true
    * *   false
@@ -26,12 +26,12 @@ export class CreateLaunchTemplateVersionRequestDataDisk extends $dara.Model {
    * @remarks
    * The category of data disk N. Valid values:
    * 
-   * *   cloud: basic disk.
-   * *   cloud_efficiency: ultra disk.
-   * *   cloud_ssd: standard SSD.
-   * *   cloud_auto: ESSD AutoPL disk.
-   * *   cloud_essd: ESSD.
-   * *   cloud_essd_entry: ESSD Entry disk.
+   * *   cloud: basic disk
+   * *   cloud_efficiency: utra disk
+   * *   cloud_ssd: standard SSD
+   * *   cloud_auto: Enterprise SSD (ESSD) AutoPL disk.
+   * *   cloud_essd: ESSD
+   * *   cloud_essd_entry: ESSD Entry disk
    * 
    * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
    * 
@@ -41,7 +41,7 @@ export class CreateLaunchTemplateVersionRequestDataDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to release data disk N when the instance is released. Valid values:
+   * Specifies whether to release data disk N when the associated instance is released. Valid values:
    * 
    * *   true
    * *   false
@@ -75,7 +75,7 @@ export class CreateLaunchTemplateVersionRequestDataDisk extends $dara.Model {
   device?: string;
   /**
    * @remarks
-   * The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
+   * The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. can contain letters, digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * testDataDiskName
@@ -89,15 +89,22 @@ export class CreateLaunchTemplateVersionRequestDataDisk extends $dara.Model {
    * false
    */
   encrypted?: string;
+  /**
+   * @remarks
+   * The ID of the KMS key used for the data disk.
+   * 
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d****
+   */
   KMSKeyId?: string;
   /**
    * @remarks
    * The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
    * 
-   * *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-   * *   PL1 (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
-   * *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-   * *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+   * *   PL0: A single ESSD can deliver up to 10000 random read/write IOPS.
+   * *   PL1 (default): A single ESSD can deliver up to 50000 random read/write IOPS.
+   * *   PL2: A single ESSD can deliver up to 100000 random read/write IOPS.
+   * *   PL3: A single ESSD can deliver up to 1000000 random read/write IOPS.
    * 
    * For information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
@@ -121,11 +128,11 @@ export class CreateLaunchTemplateVersionRequestDataDisk extends $dara.Model {
    * @remarks
    * The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
    * 
-   * *   Valid values if you set DataDisk.N.Category to cloud: 5 to 2000.
+   * *   Valid values if DataDisk.N.Category is set to cloud: 5 to 2000.
    * 
-   * *   Valid values if you set DataDisk.N.Category to cloud_efficiency: 20 to 32768.
+   * *   Valid values if DataDisk.N.Category is set to cloud_efficiency: 20 to 32768.
    * 
-   * *   Valid values if you set DataDisk.N.Category to cloud_ssd: 20 to 32768.
+   * *   Valid values when DataDisk.N.Category is set to cloud_ssd: 20 to 32768.
    * 
    * *   Valid values if you set DataDisk.N.Category to cloud_essd: vary based on the `DataDisk.N.PerformanceLevel` value.
    * 
@@ -148,7 +155,7 @@ export class CreateLaunchTemplateVersionRequestDataDisk extends $dara.Model {
    * @remarks
    * The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16. When `DataDisk.N.SnapshotId` is specified, `DataDisk.N.Size` is ignored. The data disk is created with the size of the specified snapshot.
    * 
-   * Use snapshots created after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+   * Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
    * 
    * @example
    * s-bp17441ohwka0yuh****
