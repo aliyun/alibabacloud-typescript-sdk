@@ -6,6 +6,10 @@ import { HttpApiVersionConfig } from "./HttpApiVersionConfig";
 
 
 export class ImportHttpApiRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The deployment configuration.
+   */
   deployConfigs?: HttpApiDeployConfig;
   /**
    * @remarks
@@ -23,6 +27,10 @@ export class ImportHttpApiRequest extends $dara.Model {
    * false
    */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The MCP route ID.
+   */
   mcpRouteId?: string;
   /**
    * @remarks
@@ -50,7 +58,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   specContentBase64?: string;
   /**
    * @remarks
-   * The download URL of the API definition file. You can download the file over the Internet or by using an Object Storage Service (OSS) internal download URL that belongs to the current region. You must obtain the required permissions to download the file. For OSS URLs that are not publicly readable, refer to https://help.aliyun.com/zh/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects to specify URLs that provide download permissions. Currently, only OSS URLs are supported.
+   * The download URL of the API definition file. You can download the file over the Internet or by using an Object Storage Service (OSS) internal download URL that belongs to the current region. You must obtain the required permissions to download the file. For OSS URLs that are not publicly readable, refer to [Download objects using presigned URLs](https://help.aliyun.com/document_detail/39607.html) to specify URLs that provide download permissions. Currently, only OSS URLs are supported.
    * 
    * @example
    * https://my-bucket.oss-cn-hangzhou.aliyuncs.com/my-api/api.yaml
@@ -67,7 +75,7 @@ export class ImportHttpApiRequest extends $dara.Model {
    * 
    * *   SpectOnly: All configurations in the file take effect.
    * *   SpecFirst: The file takes precedence. New APIs are created and existing ones are updated. APIs not included in the file remain unchanged.
-   * *   ExistFirst (default): The existing APIs take precedence. New APIs are created but existing ones remain unchanged.
+   * *   ExistFirst (default): The existing APIs take precedence. New APIs are created but existing ones remain unchanged. If this parameter is not specified, the ExistFirst policy takes effect.
    * 
    * @example
    * ExistFirst
@@ -83,7 +91,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   targetHttpApiId?: string;
   /**
    * @remarks
-   * Version configuration.
+   * The API versioning configuration. If versioning is enabled for an API and the version and name of an API to be imported are the same as those of the existing API, the existing API is updated by this import. If versioning is not enabled for an API and the name of an API to be imported are the same as that of the existing API, the existing API is updated by this import.
    */
   versionConfig?: HttpApiVersionConfig;
   static names(): { [key: string]: string } {

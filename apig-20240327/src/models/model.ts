@@ -56,6 +56,7 @@ export { CreateHttpApiOperationResponseBodyDataOperations } from './CreateHttpAp
 export { CreateHttpApiOperationResponseBodyData } from './CreateHttpApiOperationResponseBodyData';
 export { CreateHttpApiRouteRequestBackendConfigServices } from './CreateHttpApiRouteRequestBackendConfigServices';
 export { CreateHttpApiRouteRequestBackendConfig } from './CreateHttpApiRouteRequestBackendConfig';
+export { CreateHttpApiRouteRequestMcpRouteConfig } from './CreateHttpApiRouteRequestMcpRouteConfig';
 export { CreateHttpApiRouteResponseBodyData } from './CreateHttpApiRouteResponseBodyData';
 export { CreatePluginAttachmentResponseBodyData } from './CreatePluginAttachmentResponseBodyData';
 export { CreatePolicyResponseBodyData } from './CreatePolicyResponseBodyData';

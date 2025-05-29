@@ -480,6 +480,10 @@ export default class Client extends OpenApi {
       body["match"] = request.match;
     }
 
+    if (!$dara.isNull(request.mcpRouteConfig)) {
+      body["mcpRouteConfig"] = request.mcpRouteConfig;
+    }
+
     if (!$dara.isNull(request.name)) {
       body["name"] = request.name;
     }

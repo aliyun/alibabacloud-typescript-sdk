@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 import { CreateHttpApiRouteRequestBackendConfig } from "./CreateHttpApiRouteRequestBackendConfig";
 import { HttpApiDeployConfig } from "./HttpApiDeployConfig";
 import { HttpRouteMatch } from "./HttpRouteMatch";
+import { CreateHttpApiRouteRequestMcpRouteConfig } from "./CreateHttpApiRouteRequestMcpRouteConfig";
 
 
 export class CreateHttpApiRouteRequest extends $dara.Model {
@@ -38,6 +39,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
    * The rule for matching the route.
    */
   match?: HttpRouteMatch;
+  mcpRouteConfig?: CreateHttpApiRouteRequestMcpRouteConfig;
   /**
    * @remarks
    * The route name.
@@ -54,6 +56,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
       domainIds: 'domainIds',
       environmentId: 'environmentId',
       match: 'match',
+      mcpRouteConfig: 'mcpRouteConfig',
       name: 'name',
     };
   }
@@ -66,6 +69,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
       domainIds: { 'type': 'array', 'itemType': 'string' },
       environmentId: 'string',
       match: HttpRouteMatch,
+      mcpRouteConfig: CreateHttpApiRouteRequestMcpRouteConfig,
       name: 'string',
     };
   }
@@ -82,6 +86,9 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
     }
     if(this.match && typeof (this.match as any).validate === 'function') {
       (this.match as any).validate();
+    }
+    if(this.mcpRouteConfig && typeof (this.mcpRouteConfig as any).validate === 'function') {
+      (this.mcpRouteConfig as any).validate();
     }
     super.validate();
   }
