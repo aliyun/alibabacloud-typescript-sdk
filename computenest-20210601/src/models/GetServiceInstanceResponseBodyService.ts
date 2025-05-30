@@ -24,6 +24,7 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
    * ros
    */
   deployType?: string;
+  operationMetadata?: string;
   /**
    * @remarks
    * The time when the service version was published.
@@ -172,6 +173,7 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
     return {
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
+      operationMetadata: 'OperationMetadata',
       publishTime: 'PublishTime',
       serviceDocUrl: 'ServiceDocUrl',
       serviceId: 'ServiceId',
@@ -193,6 +195,7 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
     return {
       deployMetadata: 'string',
       deployType: 'string',
+      operationMetadata: 'string',
       publishTime: 'string',
       serviceDocUrl: 'string',
       serviceId: 'string',
