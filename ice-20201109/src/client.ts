@@ -1349,6 +1349,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建热词库
+   * 
+   * @param tmpReq - CreateHotwordLibraryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHotwordLibraryResponse
+   */
+  async createHotwordLibraryWithOptions(tmpReq: $_model.CreateHotwordLibraryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateHotwordLibraryResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateHotwordLibraryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.hotwords)) {
+      request.hotwordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hotwords, "Hotwords", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.hotwordsShrink)) {
+      query["Hotwords"] = request.hotwordsShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.usageScenario)) {
+      query["UsageScenario"] = request.usageScenario;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateHotwordLibrary",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateHotwordLibraryResponse>(await this.callApi(params, req, runtime), new $_model.CreateHotwordLibraryResponse({}));
+  }
+
+  /**
+   * 创建热词库
+   * 
+   * @param request - CreateHotwordLibraryRequest
+   * @returns CreateHotwordLibraryResponse
+   */
+  async createHotwordLibrary(request: $_model.CreateHotwordLibraryRequest): Promise<$_model.CreateHotwordLibraryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createHotwordLibraryWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a live package channel.
    * 
    * @remarks
@@ -3250,6 +3310,48 @@ export default class Client extends OpenApi {
   async deleteEditingProjects(request: $_model.DeleteEditingProjectsRequest): Promise<$_model.DeleteEditingProjectsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteEditingProjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除热词词库
+   * 
+   * @param request - DeleteHotwordLibraryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHotwordLibraryResponse
+   */
+  async deleteHotwordLibraryWithOptions(request: $_model.DeleteHotwordLibraryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteHotwordLibraryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hotwordLibraryId)) {
+      query["HotwordLibraryId"] = request.hotwordLibraryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteHotwordLibrary",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteHotwordLibraryResponse>(await this.callApi(params, req, runtime), new $_model.DeleteHotwordLibraryResponse({}));
+  }
+
+  /**
+   * 删除热词词库
+   * 
+   * @param request - DeleteHotwordLibraryRequest
+   * @returns DeleteHotwordLibraryResponse
+   */
+  async deleteHotwordLibrary(request: $_model.DeleteHotwordLibraryRequest): Promise<$_model.DeleteHotwordLibraryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteHotwordLibraryWithOptions(request, runtime);
   }
 
   /**
@@ -6138,6 +6240,48 @@ export default class Client extends OpenApi {
   async getEventCallback(): Promise<$_model.GetEventCallbackResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getEventCallbackWithOptions(runtime);
+  }
+
+  /**
+   * 查询热词词库
+   * 
+   * @param request - GetHotwordLibraryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHotwordLibraryResponse
+   */
+  async getHotwordLibraryWithOptions(request: $_model.GetHotwordLibraryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetHotwordLibraryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hotwordLibraryId)) {
+      query["HotwordLibraryId"] = request.hotwordLibraryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetHotwordLibrary",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetHotwordLibraryResponse>(await this.callApi(params, req, runtime), new $_model.GetHotwordLibraryResponse({}));
+  }
+
+  /**
+   * 查询热词词库
+   * 
+   * @param request - GetHotwordLibraryRequest
+   * @returns GetHotwordLibraryResponse
+   */
+  async getHotwordLibrary(request: $_model.GetHotwordLibraryRequest): Promise<$_model.GetHotwordLibraryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getHotwordLibraryWithOptions(request, runtime);
   }
 
   /**
@@ -9390,6 +9534,80 @@ export default class Client extends OpenApi {
   async listEditingProjects(request: $_model.ListEditingProjectsRequest): Promise<$_model.ListEditingProjectsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listEditingProjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询所有热词库的列表
+   * 
+   * @param request - ListHotwordLibrariesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHotwordLibrariesResponse
+   */
+  async listHotwordLibrariesWithOptions(request: $_model.ListHotwordLibrariesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListHotwordLibrariesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.usageScenario)) {
+      query["UsageScenario"] = request.usageScenario;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListHotwordLibraries",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListHotwordLibrariesResponse>(await this.callApi(params, req, runtime), new $_model.ListHotwordLibrariesResponse({}));
+  }
+
+  /**
+   * 查询所有热词库的列表
+   * 
+   * @param request - ListHotwordLibrariesRequest
+   * @returns ListHotwordLibrariesResponse
+   */
+  async listHotwordLibraries(request: $_model.ListHotwordLibrariesRequest): Promise<$_model.ListHotwordLibrariesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listHotwordLibrariesWithOptions(request, runtime);
   }
 
   /**
@@ -17490,6 +17708,66 @@ export default class Client extends OpenApi {
   async updateEditingProject(request: $_model.UpdateEditingProjectRequest): Promise<$_model.UpdateEditingProjectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateEditingProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新热词库
+   * 
+   * @param tmpReq - UpdateHotwordLibraryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateHotwordLibraryResponse
+   */
+  async updateHotwordLibraryWithOptions(tmpReq: $_model.UpdateHotwordLibraryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateHotwordLibraryResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateHotwordLibraryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.hotwords)) {
+      request.hotwordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hotwords, "Hotwords", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.hotwordLibraryId)) {
+      query["HotwordLibraryId"] = request.hotwordLibraryId;
+    }
+
+    if (!$dara.isNull(request.hotwordsShrink)) {
+      query["Hotwords"] = request.hotwordsShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateHotwordLibrary",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateHotwordLibraryResponse>(await this.callApi(params, req, runtime), new $_model.UpdateHotwordLibraryResponse({}));
+  }
+
+  /**
+   * 更新热词库
+   * 
+   * @param request - UpdateHotwordLibraryRequest
+   * @returns UpdateHotwordLibraryResponse
+   */
+  async updateHotwordLibrary(request: $_model.UpdateHotwordLibraryRequest): Promise<$_model.UpdateHotwordLibraryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateHotwordLibraryWithOptions(request, runtime);
   }
 
   /**
