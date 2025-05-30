@@ -16,11 +16,6 @@ export class GetTemplateRequest extends $dara.Model {
    * @remarks
    * The template type.
    * 
-   * Valid values:
-   * 
-   * *   TASK
-   * *   SESSION
-   * 
    * @example
    * TASK
    */

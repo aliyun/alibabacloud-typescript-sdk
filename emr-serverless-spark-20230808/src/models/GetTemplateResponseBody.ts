@@ -6,7 +6,7 @@ import { Template } from "./Template";
 export class GetTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: Template;
   /**
