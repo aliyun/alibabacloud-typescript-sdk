@@ -32,7 +32,11 @@ export class LlmSmartCallShrinkRequest extends $dara.Model {
    */
   outId?: string;
   promptParamShrink?: string;
+  sessionTimeout?: number;
   startWordParamShrink?: string;
+  ttsSpeed?: number;
+  ttsVoiceCode?: string;
+  ttsVolume?: number;
   static names(): { [key: string]: string } {
     return {
       applicationCode: 'ApplicationCode',
@@ -42,7 +46,11 @@ export class LlmSmartCallShrinkRequest extends $dara.Model {
       extension: 'Extension',
       outId: 'OutId',
       promptParamShrink: 'PromptParam',
+      sessionTimeout: 'SessionTimeout',
       startWordParamShrink: 'StartWordParam',
+      ttsSpeed: 'TtsSpeed',
+      ttsVoiceCode: 'TtsVoiceCode',
+      ttsVolume: 'TtsVolume',
     };
   }
 
@@ -55,7 +63,11 @@ export class LlmSmartCallShrinkRequest extends $dara.Model {
       extension: 'string',
       outId: 'string',
       promptParamShrink: 'string',
+      sessionTimeout: 'number',
       startWordParamShrink: 'string',
+      ttsSpeed: 'number',
+      ttsVoiceCode: 'string',
+      ttsVolume: 'number',
     };
   }
 

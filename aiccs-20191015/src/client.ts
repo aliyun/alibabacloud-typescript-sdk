@@ -5953,8 +5953,24 @@ export default class Client extends OpenApi {
       query["PromptParam"] = request.promptParamShrink;
     }
 
+    if (!$dara.isNull(request.sessionTimeout)) {
+      query["SessionTimeout"] = request.sessionTimeout;
+    }
+
     if (!$dara.isNull(request.startWordParamShrink)) {
       query["StartWordParam"] = request.startWordParamShrink;
+    }
+
+    if (!$dara.isNull(request.ttsSpeed)) {
+      query["TtsSpeed"] = request.ttsSpeed;
+    }
+
+    if (!$dara.isNull(request.ttsVoiceCode)) {
+      query["TtsVoiceCode"] = request.ttsVoiceCode;
+    }
+
+    if (!$dara.isNull(request.ttsVolume)) {
+      query["TtsVolume"] = request.ttsVolume;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
