@@ -7,15 +7,15 @@ import { DescribeClusterResponseBodyNetworks } from "./DescribeClusterResponseBo
 export class DescribeClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cluster Description
+   * 集群描述
    * 
    * @example
-   * Default cluster
+   * 测试集群
    */
   clusterDescription?: string;
   /**
    * @remarks
-   * Cluster ID
+   * 集群id
    * 
    * @example
    * i116913051662373010974
@@ -23,7 +23,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Cluster Name
+   * 集群名称
    * 
    * @example
    * Eflo-YJ-Test-Cluster
@@ -31,7 +31,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * Cluster Type
+   * 集群类型
    * 
    * @example
    * AckEdgePro
@@ -39,12 +39,12 @@ export class DescribeClusterResponseBody extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * Component Information
+   * 组件信息
    */
   components?: DescribeClusterResponseBodyComponents[];
   /**
    * @remarks
-   * Type of IP in the compute network
+   * 计算网络的IP类型
    * 
    * @example
    * IPv4
@@ -52,7 +52,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   computingIpVersion?: string;
   /**
    * @remarks
-   * Creation Time
+   * 创建时间
    * 
    * @example
    * 2022-06-08T07:05:11Z
@@ -60,7 +60,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Cluster Number
+   * 集群编号
    * 
    * @example
    * A2
@@ -68,12 +68,12 @@ export class DescribeClusterResponseBody extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * Network Information
+   * 网络信息
    */
   networks?: DescribeClusterResponseBodyNetworks;
   /**
    * @remarks
-   * Number of Nodes
+   * 节点数
    * 
    * @example
    * 2
@@ -81,7 +81,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * Number of Node Groups
+   * 节点组数量
    * 
    * @example
    * 2
@@ -89,15 +89,15 @@ export class DescribeClusterResponseBody extends $dara.Model {
   nodeGroupCount?: number;
   /**
    * @remarks
-   * Open Eni Jumbo Frame
+   * 网络接口巨帧
    * 
    * @example
-   * close
+   * unsupported
    */
   openEniJumboFrame?: string;
   /**
    * @remarks
-   * Cluster State
+   * 集群状态
    * 
    * @example
    * running
@@ -105,7 +105,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   operatingState?: string;
   /**
    * @remarks
-   * Request ID.
+   * 请求id。
    * 
    * @example
    * 887FA855-89F4-5DB3-B305-C5879EC480E6
@@ -113,7 +113,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Resource Group ID
+   * 资源组id
    * 
    * @example
    * rg-aek2k3rqlvv6ytq
@@ -121,7 +121,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Task ID
+   * 任务id
    * 
    * @example
    * i152609221670466904596
@@ -129,7 +129,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Update Time
+   * 更新时间
    * 
    * @example
    * 2022-08-23T06:36:17.000Z
@@ -137,7 +137,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * VPC ID
+   * 专有网络ID
    * 
    * @example
    * vpc-0jlkqysom5dmcviymep3f

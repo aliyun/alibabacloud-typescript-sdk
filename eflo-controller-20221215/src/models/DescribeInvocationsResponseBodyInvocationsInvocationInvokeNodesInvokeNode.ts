@@ -40,7 +40,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
    * - UserGroupNotExists: The user group specified for file sending does not exist.
    * 
    * @example
-   * NodeNotExists：
+   * NodeNotExists
    */
   errorCode?: string;
   /**

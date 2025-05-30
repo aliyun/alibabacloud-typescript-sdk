@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * 集群id。
    * 
    * This parameter is required.
    * 

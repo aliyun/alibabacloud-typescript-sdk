@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterResponseBodyComponents extends $dara.Model {
   /**
    * @remarks
-   * Component ID
+   * 组件id
    * 
    * @example
    * i149549021660892626529
@@ -13,7 +13,7 @@ export class DescribeClusterResponseBodyComponents extends $dara.Model {
   componentId?: string;
   /**
    * @remarks
-   * Component Type
+   * 组件类型
    * 
    * @example
    * ACKEdge

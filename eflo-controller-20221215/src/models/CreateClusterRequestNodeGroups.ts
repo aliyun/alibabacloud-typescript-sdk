@@ -29,6 +29,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
    * sc-key
    */
   keyPairName?: string;
+  loginPassword?: string;
   /**
    * @remarks
    * Machine type
@@ -84,6 +85,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
       fileSystemMountEnabled: 'FileSystemMountEnabled',
       imageId: 'ImageId',
       keyPairName: 'KeyPairName',
+      loginPassword: 'LoginPassword',
       machineType: 'MachineType',
       nodeGroupDescription: 'NodeGroupDescription',
       nodeGroupName: 'NodeGroupName',
@@ -99,6 +101,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
       fileSystemMountEnabled: 'boolean',
       imageId: 'string',
       keyPairName: 'string',
+      loginPassword: 'string',
       machineType: 'string',
       nodeGroupDescription: 'string',
       nodeGroupName: 'string',

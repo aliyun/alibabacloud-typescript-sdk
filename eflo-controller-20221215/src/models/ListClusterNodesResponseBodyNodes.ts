@@ -32,6 +32,9 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
    * whether or not support file system mount
+   * 
+   * @example
+   * False
    */
   fileSystemMountEnabled?: boolean;
   /**

@@ -770,7 +770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cluster Details
+   * 查询灵骏集群详情。
    * 
    * @param request - DescribeClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -801,7 +801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cluster Details
+   * 查询灵骏集群详情。
    * 
    * @param request - DescribeClusterRequest
    * @returns DescribeClusterResponse
@@ -2578,6 +2578,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.keyPairName)) {
       body["KeyPairName"] = request.keyPairName;
+    }
+
+    if (!$dara.isNull(request.loginPassword)) {
+      body["LoginPassword"] = request.loginPassword;
     }
 
     if (!$dara.isNull(request.newNodeGroupName)) {

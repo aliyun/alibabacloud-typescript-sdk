@@ -13,7 +13,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   fileSystemMountEnabled?: boolean;
   /**
    * @remarks
-   * 节点组的默认镜像id，如果不设置，那么就不会改变。
+   * The default image ID of a node group remains unchanged if not explicitly set.
    * 
    * @example
    * i123847249284734
@@ -27,6 +27,11 @@ export class UpdateNodeGroupRequest extends $dara.Model {
    * sc-key
    */
   keyPairName?: string;
+  /**
+   * @remarks
+   * 节点组内机器的登录密码
+   */
+  loginPassword?: string;
   /**
    * @remarks
    * Node group name
@@ -58,6 +63,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
       fileSystemMountEnabled: 'FileSystemMountEnabled',
       imageId: 'ImageId',
       keyPairName: 'KeyPairName',
+      loginPassword: 'LoginPassword',
       newNodeGroupName: 'NewNodeGroupName',
       nodeGroupId: 'NodeGroupId',
       userData: 'UserData',
@@ -69,6 +75,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
       fileSystemMountEnabled: 'boolean',
       imageId: 'string',
       keyPairName: 'string',
+      loginPassword: 'string',
       newNodeGroupName: 'string',
       nodeGroupId: 'string',
       userData: 'string',
