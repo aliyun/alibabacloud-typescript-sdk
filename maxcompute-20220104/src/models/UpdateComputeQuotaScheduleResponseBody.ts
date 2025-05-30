@@ -1,0 +1,79 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class UpdateComputeQuotaScheduleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   * 
+   * @example
+   * success
+   */
+  data?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * QUOTA_PLAN_NOT_FOUND
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * plan \\"***\\" does not exist
+   */
+  errorMsg?: string;
+  /**
+   * @remarks
+   * HTTP status code.
+   * - 1xx: Informational - The request has been received and is being processed.
+   * - 2xx: Success - The request action was successfully received, understood, and accepted by the server.
+   * - 3xx: Redirection - Further action must be taken to complete the request.
+   * - 4xx: Client Error - The request contains an error in the request parameters, syntax, or specific request conditions cannot be met.
+   * - 5xx: Server Error - The server could not fulfill the request due to other reasons.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0be3e0aa16667684362147582e038f
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
