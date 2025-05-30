@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateClusterNodePoolRequestManagementAutoRepairPolicy extends $dara.Model {
+  approvalRequired?: boolean;
   /**
    * @remarks
    * Specifies whether to allow node restart. This parameter takes effect only when `auto_repair` is set to true. Valid values:
@@ -18,12 +19,14 @@ export class CreateClusterNodePoolRequestManagementAutoRepairPolicy extends $dar
   restartNode?: boolean;
   static names(): { [key: string]: string } {
     return {
+      approvalRequired: 'approval_required',
       restartNode: 'restart_node',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      approvalRequired: 'boolean',
       restartNode: 'boolean',
     };
   }

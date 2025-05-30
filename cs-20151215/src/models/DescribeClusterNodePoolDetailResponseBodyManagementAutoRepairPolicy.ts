@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy extends $dara.Model {
+  approvalRequired?: boolean;
   /**
    * @remarks
    * Whether to allow restarting nodes.
@@ -13,12 +14,14 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy
   restartNode?: boolean;
   static names(): { [key: string]: string } {
     return {
+      approvalRequired: 'approval_required',
       restartNode: 'restart_node',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      approvalRequired: 'boolean',
       restartNode: 'boolean',
     };
   }
