@@ -266,6 +266,8 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * The tags.
    */
   tags?: DescribeAndroidInstancesResponseBodyInstanceModelTags[];
+  vSwitchId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       androidInstanceGroupId: 'AndroidInstanceGroupId',
@@ -304,6 +306,8 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       renderingType: 'RenderingType',
       sessionStatus: 'SessionStatus',
       tags: 'Tags',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -345,6 +349,8 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       renderingType: 'string',
       sessionStatus: 'string',
       tags: { 'type': 'array', 'itemType': DescribeAndroidInstancesResponseBodyInstanceModelTags },
+      vSwitchId: 'string',
+      zoneId: 'string',
     };
   }
 

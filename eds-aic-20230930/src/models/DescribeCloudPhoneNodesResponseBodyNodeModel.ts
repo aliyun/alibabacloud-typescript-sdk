@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos } from "./DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos";
 
 
 export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
@@ -60,6 +61,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
    * cn-hangzhou+dir-5mwr9azebliva****
    */
   networkId?: string;
+  networkInfos?: DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos[];
   /**
    * @remarks
    * The matrix ID.
@@ -150,6 +152,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       instanceType: 'InstanceType',
       memory: 'Memory',
       networkId: 'NetworkId',
+      networkInfos: 'NetworkInfos',
       nodeId: 'NodeId',
       nodeName: 'NodeName',
       phoneCount: 'PhoneCount',
@@ -173,6 +176,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       instanceType: 'string',
       memory: 'number',
       networkId: 'string',
+      networkInfos: { 'type': 'array', 'itemType': DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos },
       nodeId: 'string',
       nodeName: 'string',
       phoneCount: 'number',
@@ -187,6 +191,9 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.networkInfos)) {
+      $dara.Model.validateArray(this.networkInfos);
+    }
     super.validate();
   }
 

@@ -9,10 +9,12 @@ export class ResetAndroidInstancesInGroupRequest extends $dara.Model {
    */
   androidInstanceIds?: string[];
   saleMode?: string;
+  settingResetType?: number;
   static names(): { [key: string]: string } {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
       saleMode: 'SaleMode',
+      settingResetType: 'SettingResetType',
     };
   }
 
@@ -20,6 +22,7 @@ export class ResetAndroidInstancesInGroupRequest extends $dara.Model {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
       saleMode: 'string',
+      settingResetType: 'number',
     };
   }
 

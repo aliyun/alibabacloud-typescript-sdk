@@ -11,6 +11,8 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
    * aig-1uzb6heg797z3****
    */
   appInstanceGroupId?: string;
+  appInstanceId?: string;
+  errorCode?: string;
   /**
    * @remarks
    * The ID of the cloud phone instance.
@@ -19,6 +21,7 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
    * acp-ajxvwo1u0hqvd****
    */
   instanceId?: string;
+  persistentAppInstanceId?: string;
   /**
    * @remarks
    * The ID of the task.
@@ -46,7 +49,10 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
   static names(): { [key: string]: string } {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceId: 'AppInstanceId',
+      errorCode: 'ErrorCode',
       instanceId: 'InstanceId',
+      persistentAppInstanceId: 'PersistentAppInstanceId',
       taskId: 'TaskId',
       taskStatus: 'TaskStatus',
       ticket: 'Ticket',
@@ -56,7 +62,10 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
   static types(): { [key: string]: any } {
     return {
       appInstanceGroupId: 'string',
+      appInstanceId: 'string',
+      errorCode: 'string',
       instanceId: 'string',
+      persistentAppInstanceId: 'string',
       taskId: 'string',
       taskStatus: 'string',
       ticket: 'string',

@@ -3491,6 +3491,10 @@ export default class Client extends OpenApi {
       query["SaleMode"] = request.saleMode;
     }
 
+    if (!$dara.isNull(request.settingResetType)) {
+      query["SettingResetType"] = request.settingResetType;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });

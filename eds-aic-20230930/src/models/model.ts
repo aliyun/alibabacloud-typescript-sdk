@@ -28,6 +28,7 @@ export { DescribeAndroidInstancesResponseBodyInstanceModelTags } from './Describ
 export { DescribeAndroidInstancesResponseBodyInstanceModel } from './DescribeAndroidInstancesResponseBodyInstanceModel';
 export { DescribeAppsResponseBodyData } from './DescribeAppsResponseBodyData';
 export { DescribeBackupFilesResponseBodyData } from './DescribeBackupFilesResponseBodyData';
+export { DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos } from './DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos';
 export { DescribeCloudPhoneNodesResponseBodyNodeModel } from './DescribeCloudPhoneNodesResponseBodyNodeModel';
 export { DescribeDisplayConfigResponseBodyDisplayConfigModel } from './DescribeDisplayConfigResponseBodyDisplayConfigModel';
 export { DescribeImageListResponseBodyData } from './DescribeImageListResponseBodyData';
