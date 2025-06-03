@@ -13,19 +13,19 @@ export class CreateRunRequest extends $dara.Model {
   assistantId?: string;
   /**
    * @example
-   * 你是一个聪明的小助理
-   */
-  instructions?: string;
-  /**
-   * @example
-   * {}
-   */
-  metadata?: { [key: string]: any };
-  /**
-   * @example
    * assistantId
    */
   originalAssistantId?: string;
+  /**
+   * @example
+   * agentKey1
+   */
+  sourceIdOfOriginalAssistantId?: string;
+  /**
+   * @example
+   * 1
+   */
+  sourceTypeOfOriginalAssistantId?: string;
   /**
    * @example
    * false
@@ -42,9 +42,9 @@ export class CreateRunRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       assistantId: 'assistantId',
-      instructions: 'instructions',
-      metadata: 'metadata',
       originalAssistantId: 'originalAssistantId',
+      sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
+      sourceTypeOfOriginalAssistantId: 'sourceTypeOfOriginalAssistantId',
       stream: 'stream',
       threadId: 'threadId',
     };
@@ -53,18 +53,15 @@ export class CreateRunRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       assistantId: 'string',
-      instructions: 'string',
-      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       originalAssistantId: 'string',
+      sourceIdOfOriginalAssistantId: 'string',
+      sourceTypeOfOriginalAssistantId: 'string',
       stream: 'boolean',
       threadId: 'string',
     };
   }
 
   validate() {
-    if(this.metadata) {
-      $dara.Model.validateMap(this.metadata);
-    }
     super.validate();
   }
 

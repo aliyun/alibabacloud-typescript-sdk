@@ -22,19 +22,22 @@ export class RetrieveRunRequest extends $dara.Model {
    */
   runId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * threadId123
+   * agentKey1
    */
-  threadId?: string;
+  sourceIdOfOriginalAssistantId?: string;
+  /**
+   * @example
+   * 1
+   */
+  sourceTypeOfOriginalAssistantId?: string;
   static names(): { [key: string]: string } {
     return {
       assistantId: 'assistantId',
       originalAssistantId: 'originalAssistantId',
       runId: 'runId',
-      threadId: 'threadId',
+      sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
+      sourceTypeOfOriginalAssistantId: 'sourceTypeOfOriginalAssistantId',
     };
   }
 
@@ -43,7 +46,8 @@ export class RetrieveRunRequest extends $dara.Model {
       assistantId: 'string',
       originalAssistantId: 'string',
       runId: 'string',
-      threadId: 'string',
+      sourceIdOfOriginalAssistantId: 'string',
+      sourceTypeOfOriginalAssistantId: 'string',
     };
   }
 

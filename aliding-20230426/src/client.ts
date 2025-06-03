@@ -2866,20 +2866,20 @@ export default class Client extends OpenApi {
       body["assistantId"] = request.assistantId;
     }
 
-    if (!$dara.isNull(request.content)) {
-      body["content"] = request.content;
-    }
-
-    if (!$dara.isNull(request.metadata)) {
-      body["metadata"] = request.metadata;
+    if (!$dara.isNull(request.messages)) {
+      body["messages"] = request.messages;
     }
 
     if (!$dara.isNull(request.originalAssistantId)) {
       body["originalAssistantId"] = request.originalAssistantId;
     }
 
-    if (!$dara.isNull(request.role)) {
-      body["role"] = request.role;
+    if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
+      body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
+      body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId;
     }
 
     if (!$dara.isNull(request.threadId)) {
@@ -3416,16 +3416,16 @@ export default class Client extends OpenApi {
       body["assistantId"] = request.assistantId;
     }
 
-    if (!$dara.isNull(request.instructions)) {
-      body["instructions"] = request.instructions;
-    }
-
-    if (!$dara.isNull(request.metadata)) {
-      body["metadata"] = request.metadata;
-    }
-
     if (!$dara.isNull(request.originalAssistantId)) {
       body["originalAssistantId"] = request.originalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
+      body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
+      body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId;
     }
 
     if (!$dara.isNull(request.stream)) {
@@ -4048,12 +4048,16 @@ export default class Client extends OpenApi {
       body["assistantId"] = request.assistantId;
     }
 
-    if (!$dara.isNull(request.metadata)) {
-      body["metadata"] = request.metadata;
-    }
-
     if (!$dara.isNull(request.originalAssistantId)) {
       body["originalAssistantId"] = request.originalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
+      body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
+      body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId;
     }
 
     let realHeaders : {[key: string ]: string} = { };
@@ -6732,16 +6736,8 @@ export default class Client extends OpenApi {
       body["assistantId"] = request.assistantId;
     }
 
-    if (!$dara.isNull(request.content)) {
-      body["content"] = request.content;
-    }
-
-    if (!$dara.isNull(request.id)) {
-      body["id"] = request.id;
-    }
-
-    if (!$dara.isNull(request.metadata)) {
-      body["metadata"] = request.metadata;
+    if (!$dara.isNull(request.messages)) {
+      body["messages"] = request.messages;
     }
 
     if (!$dara.isNull(request.originalAssistantId)) {
@@ -6750,6 +6746,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.protocol)) {
       body["protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
+      body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
+      body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId;
     }
 
     if (!$dara.isNull(request.threadId)) {
@@ -11962,16 +11966,24 @@ export default class Client extends OpenApi {
       body["assistantId"] = request.assistantId;
     }
 
-    if (!$dara.isNull(request.content)) {
-      body["content"] = request.content;
+    if (!$dara.isNull(request.messages)) {
+      body["messages"] = request.messages;
     }
 
-    if (!$dara.isNull(request.history)) {
-      body["history"] = request.history;
+    if (!$dara.isNull(request.originalAssistantId)) {
+      body["originalAssistantId"] = request.originalAssistantId;
     }
 
     if (!$dara.isNull(request.sessionId)) {
       body["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
+      body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
+      body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId;
     }
 
     if (!$dara.isNull(request.stream)) {
@@ -12678,12 +12690,20 @@ export default class Client extends OpenApi {
       body["order"] = request.order;
     }
 
-    if (!$dara.isNull(request.originalAssistantid)) {
-      body["originalAssistantid"] = request.originalAssistantid;
+    if (!$dara.isNull(request.originalAssistantId)) {
+      body["originalAssistantId"] = request.originalAssistantId;
     }
 
     if (!$dara.isNull(request.runId)) {
       body["runId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
+      body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
+      body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId;
     }
 
     if (!$dara.isNull(request.threadId)) {
@@ -16134,8 +16154,12 @@ export default class Client extends OpenApi {
       body["runId"] = request.runId;
     }
 
-    if (!$dara.isNull(request.threadId)) {
-      body["threadId"] = request.threadId;
+    if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
+      body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
+      body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId;
     }
 
     let realHeaders : {[key: string ]: string} = { };

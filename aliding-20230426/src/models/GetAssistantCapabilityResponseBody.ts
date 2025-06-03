@@ -21,16 +21,6 @@ export class GetAssistantCapabilityResponseBody extends $dara.Model {
   capabilityAssessment?: GetAssistantCapabilityResponseBodyCapabilityAssessment;
   /**
    * @example
-   * id1
-   */
-  id?: string;
-  /**
-   * @example
-   * {}
-   */
-  metadata?: { [key: string]: any };
-  /**
-   * @example
    * requestId
    */
   requestId?: string;
@@ -39,8 +29,6 @@ export class GetAssistantCapabilityResponseBody extends $dara.Model {
       assistantDescription: 'assistantDescription',
       canHandle: 'canHandle',
       capabilityAssessment: 'capabilityAssessment',
-      id: 'id',
-      metadata: 'metadata',
       requestId: 'requestId',
     };
   }
@@ -50,8 +38,6 @@ export class GetAssistantCapabilityResponseBody extends $dara.Model {
       assistantDescription: 'string',
       canHandle: 'boolean',
       capabilityAssessment: GetAssistantCapabilityResponseBodyCapabilityAssessment,
-      id: 'string',
-      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       requestId: 'string',
     };
   }
@@ -59,9 +45,6 @@ export class GetAssistantCapabilityResponseBody extends $dara.Model {
   validate() {
     if(this.capabilityAssessment && typeof (this.capabilityAssessment as any).validate === 'function') {
       (this.capabilityAssessment as any).validate();
-    }
-    if(this.metadata) {
-      $dara.Model.validateMap(this.metadata);
     }
     super.validate();
   }

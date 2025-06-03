@@ -1,7 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { InvokeAssistantRequestContent } from "./InvokeAssistantRequestContent";
-import { InvokeAssistantRequestHistory } from "./InvokeAssistantRequestHistory";
+import { InvokeAssistantRequestMessages } from "./InvokeAssistantRequestMessages";
 
 
 export class InvokeAssistantRequest extends $dara.Model {
@@ -16,26 +15,28 @@ export class InvokeAssistantRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * [
-   *     {
-   *         "type": "text",
-   *         "text": "你好"
-   *     }
-   * ]
    */
-  content?: InvokeAssistantRequestContent[];
+  messages?: InvokeAssistantRequestMessages[];
   /**
    * @example
-   * []
+   * assistantId2
    */
-  history?: InvokeAssistantRequestHistory[];
+  originalAssistantId?: string;
   /**
    * @example
    * sessionId1
    */
   sessionId?: string;
+  /**
+   * @example
+   * agentKey1
+   */
+  sourceIdOfOriginalAssistantId?: string;
+  /**
+   * @example
+   * 1
+   */
+  sourceTypeOfOriginalAssistantId?: string;
   /**
    * @example
    * false
@@ -44,9 +45,11 @@ export class InvokeAssistantRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       assistantId: 'assistantId',
-      content: 'content',
-      history: 'history',
+      messages: 'messages',
+      originalAssistantId: 'originalAssistantId',
       sessionId: 'sessionId',
+      sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
+      sourceTypeOfOriginalAssistantId: 'sourceTypeOfOriginalAssistantId',
       stream: 'stream',
     };
   }
@@ -54,19 +57,18 @@ export class InvokeAssistantRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       assistantId: 'string',
-      content: { 'type': 'array', 'itemType': InvokeAssistantRequestContent },
-      history: { 'type': 'array', 'itemType': InvokeAssistantRequestHistory },
+      messages: { 'type': 'array', 'itemType': InvokeAssistantRequestMessages },
+      originalAssistantId: 'string',
       sessionId: 'string',
+      sourceIdOfOriginalAssistantId: 'string',
+      sourceTypeOfOriginalAssistantId: 'string',
       stream: 'boolean',
     };
   }
 
   validate() {
-    if(Array.isArray(this.content)) {
-      $dara.Model.validateArray(this.content);
-    }
-    if(Array.isArray(this.history)) {
-      $dara.Model.validateArray(this.history);
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
     }
     super.validate();
   }

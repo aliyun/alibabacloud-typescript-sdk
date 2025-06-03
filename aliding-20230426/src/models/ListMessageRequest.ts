@@ -23,14 +23,24 @@ export class ListMessageRequest extends $dara.Model {
   order?: string;
   /**
    * @example
-   * assistantId
+   * assistantId2
    */
-  originalAssistantid?: string;
+  originalAssistantId?: string;
   /**
    * @example
    * runId123
    */
   runId?: string;
+  /**
+   * @example
+   * agentKey1
+   */
+  sourceIdOfOriginalAssistantId?: string;
+  /**
+   * @example
+   * 1
+   */
+  sourceTypeOfOriginalAssistantId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -44,8 +54,10 @@ export class ListMessageRequest extends $dara.Model {
       assistantId: 'assistantId',
       limit: 'limit',
       order: 'order',
-      originalAssistantid: 'originalAssistantid',
+      originalAssistantId: 'originalAssistantId',
       runId: 'runId',
+      sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
+      sourceTypeOfOriginalAssistantId: 'sourceTypeOfOriginalAssistantId',
       threadId: 'threadId',
     };
   }
@@ -55,8 +67,10 @@ export class ListMessageRequest extends $dara.Model {
       assistantId: 'string',
       limit: 'number',
       order: 'string',
-      originalAssistantid: 'string',
+      originalAssistantId: 'string',
       runId: 'string',
+      sourceIdOfOriginalAssistantId: 'string',
+      sourceTypeOfOriginalAssistantId: 'string',
       threadId: 'string',
     };
   }

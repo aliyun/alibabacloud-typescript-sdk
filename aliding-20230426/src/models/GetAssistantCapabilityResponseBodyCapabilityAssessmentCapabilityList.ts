@@ -15,11 +15,6 @@ export class GetAssistantCapabilityResponseBodyCapabilityAssessmentCapabilityLis
   description?: string;
   /**
    * @example
-   * {}
-   */
-  metadata?: { [key: string]: any };
-  /**
-   * @example
    * 能力名称
    */
   name?: string;
@@ -27,7 +22,6 @@ export class GetAssistantCapabilityResponseBodyCapabilityAssessmentCapabilityLis
     return {
       capabilityOverview: 'capabilityOverview',
       description: 'description',
-      metadata: 'metadata',
       name: 'name',
     };
   }
@@ -36,15 +30,11 @@ export class GetAssistantCapabilityResponseBodyCapabilityAssessmentCapabilityLis
     return {
       capabilityOverview: 'string',
       description: 'string',
-      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       name: 'string',
     };
   }
 
   validate() {
-    if(this.metadata) {
-      $dara.Model.validateMap(this.metadata);
-    }
     super.validate();
   }
 

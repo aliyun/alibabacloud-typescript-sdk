@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateMessageRequestContent } from "./CreateMessageRequestContent";
+import { CreateMessageRequestMessages } from "./CreateMessageRequestMessages";
 
 
 export class CreateMessageRequest extends $dara.Model {
@@ -15,29 +15,23 @@ export class CreateMessageRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 你好！
    */
-  content?: CreateMessageRequestContent[];
-  /**
-   * @example
-   * {}
-   */
-  metadata?: { [key: string]: any };
+  messages?: CreateMessageRequestMessages[];
   /**
    * @example
    * assistantId
    */
   originalAssistantId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * user
+   * agentKey1
    */
-  role?: string;
+  sourceIdOfOriginalAssistantId?: string;
+  /**
+   * @example
+   * 1
+   */
+  sourceTypeOfOriginalAssistantId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -49,10 +43,10 @@ export class CreateMessageRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       assistantId: 'assistantId',
-      content: 'content',
-      metadata: 'metadata',
+      messages: 'messages',
       originalAssistantId: 'originalAssistantId',
-      role: 'role',
+      sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
+      sourceTypeOfOriginalAssistantId: 'sourceTypeOfOriginalAssistantId',
       threadId: 'threadId',
     };
   }
@@ -60,20 +54,17 @@ export class CreateMessageRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       assistantId: 'string',
-      content: { 'type': 'array', 'itemType': CreateMessageRequestContent },
-      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      messages: { 'type': 'array', 'itemType': CreateMessageRequestMessages },
       originalAssistantId: 'string',
-      role: 'string',
+      sourceIdOfOriginalAssistantId: 'string',
+      sourceTypeOfOriginalAssistantId: 'string',
       threadId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.content)) {
-      $dara.Model.validateArray(this.content);
-    }
-    if(this.metadata) {
-      $dara.Model.validateMap(this.metadata);
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
     }
     super.validate();
   }

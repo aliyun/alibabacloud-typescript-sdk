@@ -13,34 +13,34 @@ export class CreateThreadRequest extends $dara.Model {
   assistantId?: string;
   /**
    * @example
-   * {}
-   */
-  metadata?: { [key: string]: any };
-  /**
-   * @example
    * assistantId
    */
   originalAssistantId?: string;
+  /**
+   * @example
+   * agentKey1
+   */
+  sourceIdOfOriginalAssistantId?: string;
+  sourceTypeOfOriginalAssistantId?: number;
   static names(): { [key: string]: string } {
     return {
       assistantId: 'assistantId',
-      metadata: 'metadata',
       originalAssistantId: 'originalAssistantId',
+      sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
+      sourceTypeOfOriginalAssistantId: 'sourceTypeOfOriginalAssistantId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       assistantId: 'string',
-      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       originalAssistantId: 'string',
+      sourceIdOfOriginalAssistantId: 'string',
+      sourceTypeOfOriginalAssistantId: 'number',
     };
   }
 
   validate() {
-    if(this.metadata) {
-      $dara.Model.validateMap(this.metadata);
-    }
     super.validate();
   }
 

@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetAssistantCapabilityRequestContent } from "./GetAssistantCapabilityRequestContent";
+import { GetAssistantCapabilityRequestMessages } from "./GetAssistantCapabilityRequestMessages";
 
 
 export class GetAssistantCapabilityRequest extends $dara.Model {
@@ -15,21 +15,8 @@ export class GetAssistantCapabilityRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * []
    */
-  content?: GetAssistantCapabilityRequestContent[];
-  /**
-   * @example
-   * id1
-   */
-  id?: string;
-  /**
-   * @example
-   * {}
-   */
-  metadata?: { [key: string]: any };
+  messages?: GetAssistantCapabilityRequestMessages[];
   /**
    * @example
    * originalAssistantId1
@@ -40,6 +27,16 @@ export class GetAssistantCapabilityRequest extends $dara.Model {
    * cfp
    */
   protocol?: string;
+  /**
+   * @example
+   * agentKey1
+   */
+  sourceIdOfOriginalAssistantId?: string;
+  /**
+   * @example
+   * 1
+   */
+  sourceTypeOfOriginalAssistantId?: string;
   /**
    * @example
    * threadId
@@ -53,11 +50,11 @@ export class GetAssistantCapabilityRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       assistantId: 'assistantId',
-      content: 'content',
-      id: 'id',
-      metadata: 'metadata',
+      messages: 'messages',
       originalAssistantId: 'originalAssistantId',
       protocol: 'protocol',
+      sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
+      sourceTypeOfOriginalAssistantId: 'sourceTypeOfOriginalAssistantId',
       threadId: 'threadId',
       timeout: 'timeout',
     };
@@ -66,22 +63,19 @@ export class GetAssistantCapabilityRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       assistantId: 'string',
-      content: { 'type': 'array', 'itemType': GetAssistantCapabilityRequestContent },
-      id: 'string',
-      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      messages: { 'type': 'array', 'itemType': GetAssistantCapabilityRequestMessages },
       originalAssistantId: 'string',
       protocol: 'string',
+      sourceIdOfOriginalAssistantId: 'string',
+      sourceTypeOfOriginalAssistantId: 'string',
       threadId: 'string',
       timeout: 'number',
     };
   }
 
   validate() {
-    if(Array.isArray(this.content)) {
-      $dara.Model.validateArray(this.content);
-    }
-    if(this.metadata) {
-      $dara.Model.validateMap(this.metadata);
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
     }
     super.validate();
   }

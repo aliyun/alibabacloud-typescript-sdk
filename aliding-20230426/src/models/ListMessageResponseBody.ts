@@ -1,19 +1,10 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListMessageResponseBodyData } from "./ListMessageResponseBodyData";
+import { ListMessageResponseBodyMessages } from "./ListMessageResponseBodyMessages";
 
 
 export class ListMessageResponseBody extends $dara.Model {
-  /**
-   * @example
-   * []
-   */
-  data?: ListMessageResponseBodyData[];
-  /**
-   * @example
-   * list
-   */
-  object?: string;
+  messages?: ListMessageResponseBodyMessages[];
   /**
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
@@ -21,23 +12,21 @@ export class ListMessageResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      data: 'data',
-      object: 'object',
+      messages: 'messages',
       requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'array', 'itemType': ListMessageResponseBodyData },
-      object: 'string',
+      messages: { 'type': 'array', 'itemType': ListMessageResponseBodyMessages },
       requestId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
     }
     super.validate();
   }

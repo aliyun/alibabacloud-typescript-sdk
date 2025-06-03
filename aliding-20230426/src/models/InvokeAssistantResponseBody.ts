@@ -1,14 +1,10 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { InvokeAssistantResponseBodyContent } from "./InvokeAssistantResponseBodyContent";
+import { InvokeAssistantResponseBodyMessages } from "./InvokeAssistantResponseBodyMessages";
 
 
 export class InvokeAssistantResponseBody extends $dara.Model {
-  /**
-   * @example
-   * []
-   */
-  content?: InvokeAssistantResponseBodyContent[];
+  messages?: InvokeAssistantResponseBodyMessages[];
   /**
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
@@ -26,7 +22,7 @@ export class InvokeAssistantResponseBody extends $dara.Model {
   streamEnd?: boolean;
   static names(): { [key: string]: string } {
     return {
-      content: 'content',
+      messages: 'messages',
       requestId: 'requestId',
       sessionId: 'sessionId',
       streamEnd: 'streamEnd',
@@ -35,7 +31,7 @@ export class InvokeAssistantResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      content: { 'type': 'array', 'itemType': InvokeAssistantResponseBodyContent },
+      messages: { 'type': 'array', 'itemType': InvokeAssistantResponseBodyMessages },
       requestId: 'string',
       sessionId: 'string',
       streamEnd: 'boolean',
@@ -43,8 +39,8 @@ export class InvokeAssistantResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.content)) {
-      $dara.Model.validateArray(this.content);
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
     }
     super.validate();
   }
