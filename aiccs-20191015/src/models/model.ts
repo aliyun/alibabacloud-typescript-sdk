@@ -70,6 +70,7 @@ export { InsertAiOutboundPhoneNumsResponseBodyDataFailInfo } from './InsertAiOut
 export { InsertAiOutboundPhoneNumsResponseBodyData } from './InsertAiOutboundPhoneNumsResponseBodyData';
 export { ListAgentBySkillGroupIdResponseBodyData } from './ListAgentBySkillGroupIdResponseBodyData';
 export { ListAiccsRobotResponseBodyData } from './ListAiccsRobotResponseBodyData';
+export { ListAvailableTtsResponseBodyData } from './ListAvailableTtsResponseBodyData';
 export { ListChatRecordDetailResponseBodyResultDataDataMessageList } from './ListChatRecordDetailResponseBodyResultDataDataMessageList';
 export { ListChatRecordDetailResponseBodyResultDataData } from './ListChatRecordDetailResponseBodyResultDataData';
 export { ListChatRecordDetailResponseBodyResultData } from './ListChatRecordDetailResponseBodyResultData';
@@ -425,6 +426,9 @@ export { ListAgentBySkillGroupIdResponse } from './ListAgentBySkillGroupIdRespon
 export { ListAiccsRobotRequest } from './ListAiccsRobotRequest';
 export { ListAiccsRobotResponseBody } from './ListAiccsRobotResponseBody';
 export { ListAiccsRobotResponse } from './ListAiccsRobotResponse';
+export { ListAvailableTtsRequest } from './ListAvailableTtsRequest';
+export { ListAvailableTtsResponseBody } from './ListAvailableTtsResponseBody';
+export { ListAvailableTtsResponse } from './ListAvailableTtsResponse';
 export { ListChatRecordDetailRequest } from './ListChatRecordDetailRequest';
 export { ListChatRecordDetailResponseBody } from './ListChatRecordDetailResponseBody';
 export { ListChatRecordDetailResponse } from './ListChatRecordDetailResponse';

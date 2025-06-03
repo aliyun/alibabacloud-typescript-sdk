@@ -5310,6 +5310,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取tts音色列表
+   * 
+   * @param request - ListAvailableTtsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAvailableTtsResponse
+   */
+  async listAvailableTtsWithOptions(request: $_model.ListAvailableTtsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAvailableTtsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ttsVoiceCode)) {
+      query["TtsVoiceCode"] = request.ttsVoiceCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAvailableTts",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAvailableTtsResponse>(await this.callApi(params, req, runtime), new $_model.ListAvailableTtsResponse({}));
+  }
+
+  /**
+   * 获取tts音色列表
+   * 
+   * @param request - ListAvailableTtsRequest
+   * @returns ListAvailableTtsResponse
+   */
+  async listAvailableTts(request: $_model.ListAvailableTtsRequest): Promise<$_model.ListAvailableTtsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAvailableTtsWithOptions(request, runtime);
+  }
+
+  /**
    * 根据时间段查询在线会话详情，包含会话内容，时间段范围最长不超过1天
    * 
    * @param request - ListChatRecordDetailRequest
