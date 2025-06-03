@@ -6,8 +6,20 @@ import { GetFileResponseBodyDataResourceDownloadLink } from "./GetFileResponseBo
 
 
 export class GetFileResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The basic information about the file.
+   */
   file?: GetFileResponseBodyDataFile;
+  /**
+   * @remarks
+   * The scheduling configurations of the file.
+   */
   nodeConfiguration?: GetFileResponseBodyDataNodeConfiguration;
+  /**
+   * @remarks
+   * The download URL of the resource.
+   */
   resourceDownloadLink?: GetFileResponseBodyDataResourceDownloadLink;
   static names(): { [key: string]: string } {
     return {

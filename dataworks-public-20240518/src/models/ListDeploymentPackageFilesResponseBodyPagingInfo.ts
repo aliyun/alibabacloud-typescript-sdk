@@ -4,18 +4,31 @@ import { ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFiles 
 
 
 export class ListDeploymentPackageFilesResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the versions of the files to be deployed.
+   */
   deploymentPackageFiles?: ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFiles[];
   /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */

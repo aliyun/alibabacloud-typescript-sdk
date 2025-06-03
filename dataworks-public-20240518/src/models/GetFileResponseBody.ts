@@ -4,28 +4,50 @@ import { GetFileResponseBodyData } from "./GetFileResponseBodyData";
 
 
 export class GetFileResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the file.
+   */
   data?: GetFileResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The connection does not exist.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0000-ABCD-EFG****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */

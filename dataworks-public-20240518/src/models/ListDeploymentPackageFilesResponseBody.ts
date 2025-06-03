@@ -4,8 +4,15 @@ import { ListDeploymentPackageFilesResponseBodyPagingInfo } from "./ListDeployme
 
 
 export class ListDeploymentPackageFilesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListDeploymentPackageFilesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0000-ABCD-EFG****
    */

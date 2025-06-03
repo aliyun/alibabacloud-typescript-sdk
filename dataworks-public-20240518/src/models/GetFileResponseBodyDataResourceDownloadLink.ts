@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFileResponseBodyDataResourceDownloadLink extends $dara.Model {
   /**
+   * @remarks
+   * The download URL of the resource.
+   * 
    * @example
    * http://xx
    */

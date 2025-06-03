@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetIDEEventDetailResponseBodyEventDetailCommittedFileNodeConfigurationOutputList extends $dara.Model {
   /**
+   * @remarks
+   * The output name of the current file.
+   * 
+   * This parameter corresponds to the Output Name parameter under Output Name of Current Node in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
    * @example
    * dw_project.002_out
    */
   output?: string;
   /**
+   * @remarks
+   * The output table name of the current file.
+   * 
+   * This parameter corresponds to the Output Table Name parameter under Output Name of Current Node in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
    * @example
    * ods_user_info_d
    */

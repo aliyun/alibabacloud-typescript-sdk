@@ -7,9 +7,27 @@ import { GetIDEEventDetailResponseBodyEventDetailTableModel } from "./GetIdeeven
 
 
 export class GetIDEEventDetailResponseBodyEventDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The data snapshot when the file is committed and deployed.
+   * 
+   * This parameter is valid only if the message type is IDE_FILE_SUBMIT_BEFORE or IDE_FILE_DEPLOY_BEFORE.
+   */
   committedFile?: GetIDEEventDetailResponseBodyEventDetailCommittedFile;
+  /**
+   * @remarks
+   * The data snapshot when the file is deleted. This parameter is valid only if the message type is IDE_FILE_DELETE_BEFORE.
+   */
   deletedFile?: GetIDEEventDetailResponseBodyEventDetailDeletedFile;
+  /**
+   * @remarks
+   * The data snapshot when the code in the file is run. This parameter is valid only if the message type is IDE_FILE_EXECUTE_BEFORE.
+   */
   fileExecutionCommand?: GetIDEEventDetailResponseBodyEventDetailFileExecutionCommand;
+  /**
+   * @remarks
+   * The data snapshot when the table is committed and deployed. This parameter is valid only if the message type is IDE_TABLE_SUBMIT_BEFORE or IDE_TABLE_DEPLOY_BEFORE.
+   */
   tableModel?: GetIDEEventDetailResponseBodyEventDetailTableModel;
   static names(): { [key: string]: string } {
     return {

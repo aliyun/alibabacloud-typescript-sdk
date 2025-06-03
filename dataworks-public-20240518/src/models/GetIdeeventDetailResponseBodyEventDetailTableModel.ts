@@ -4,33 +4,58 @@ import { GetIDEEventDetailResponseBodyEventDetailTableModelColumns } from "./Get
 
 
 export class GetIDEEventDetailResponseBodyEventDetailTableModel extends $dara.Model {
+  /**
+   * @remarks
+   * The columns in the table.
+   */
   columns?: GetIDEEventDetailResponseBodyEventDetailTableModelColumns[];
   /**
+   * @remarks
+   * The remarks of the table.
+   * 
    * @example
    * A new table
    */
   comment?: string;
   /**
+   * @remarks
+   * The name of the data source to which the table belongs.
+   * 
    * @example
    * odps_source
    */
   dataSourceName?: string;
   /**
+   * @remarks
+   * The environment in which the table is used. Valid values:
+   * 
+   * *   DEV
+   * *   PROD
+   * 
    * @example
    * DEV
    */
   env?: string;
   /**
+   * @remarks
+   * The lifecycle of the table. Unit: day.
+   * 
    * @example
    * 7
    */
   lifeCycle?: number;
   /**
+   * @remarks
+   * The path of the table.
+   * 
    * @example
    * hdfs://path/to/object
    */
   location?: string;
   /**
+   * @remarks
+   * The name of the table.
+   * 
    * @example
    * tb_hello
    */

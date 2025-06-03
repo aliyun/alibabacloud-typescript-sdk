@@ -4,8 +4,17 @@ import { GetIDEEventDetailResponseBodyEventDetail } from "./GetIdeeventDetailRes
 
 
 export class GetIDEEventDetailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data snapshot that is generated when an extension point event is triggered.
+   * 
+   * The fields contained in data snapshots vary based on the types of the triggered extension point events. For more information, see the description of the fields.
+   */
   eventDetail?: GetIDEEventDetailResponseBodyEventDetail;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8abcb91f-d266-4073-b907-2ed670378ed1
    */

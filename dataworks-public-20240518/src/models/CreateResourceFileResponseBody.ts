@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateResourceFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the file that is created.
+   * 
    * @example
    * 1000001
    */
   data?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0000-ABCD-EFG
    */

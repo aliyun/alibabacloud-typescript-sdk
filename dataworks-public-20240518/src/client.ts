@@ -2013,7 +2013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 支持用户指定自己的文件（比如jar，py，arhive，file等）创建数据开发资源文件
+   * Creates a resource file in DataStudio. The following types are supported: JAR, Archive, File, and Python.
    * 
    * @param request - CreateResourceFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2088,7 +2088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 支持用户指定自己的文件（比如jar，py，arhive，file等）创建数据开发资源文件
+   * Creates a resource file in DataStudio. The following types are supported: JAR, Archive, File, and Python.
    * 
    * @param request - CreateResourceFileRequest
    * @returns CreateResourceFileResponse
@@ -4804,6 +4804,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a file.
+   * 
    * @param request - GetFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFileResponse
@@ -4845,6 +4847,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a file.
+   * 
    * @param request - GetFileRequest
    * @returns GetFileResponse
    */
@@ -4854,6 +4858,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a file version.
+   * 
    * @param request - GetFileVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFileVersionResponse
@@ -4895,6 +4901,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a file version.
+   * 
    * @param request - GetFileVersionRequest
    * @returns GetFileVersionResponse
    */
@@ -4992,7 +5000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取扩展点触发时的数据快照
+   * Queries the data snapshot of an extension point based on the ID of a message in DataWorks OpenEvent when the related extension point event is triggered.
    * 
    * @param request - GetIDEEventDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5027,7 +5035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取扩展点触发时的数据快照
+   * Queries the data snapshot of an extension point based on the ID of a message in DataWorks OpenEvent when the related extension point event is triggered.
    * 
    * @param request - GetIDEEventDetailRequest
    * @returns GetIDEEventDetailResponse
@@ -7117,7 +7125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取待发布的文件版本列表
+   * Queries a list of versions of files to be deployed.
    * 
    * @param tmpReq - ListDeploymentPackageFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7198,7 +7206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取待发布的文件版本列表
+   * Queries a list of versions of files to be deployed.
    * 
    * @param request - ListDeploymentPackageFilesRequest
    * @returns ListDeploymentPackageFilesResponse
