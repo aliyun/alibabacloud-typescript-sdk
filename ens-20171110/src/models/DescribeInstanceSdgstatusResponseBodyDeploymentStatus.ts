@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceSDGStatusResponseBodyDeploymentStatus extends $dara.Model {
+  blockRwSplitSize?: number;
+  cacheSize?: number;
   /**
    * @remarks
    * The ID of the edge node.
@@ -61,6 +63,8 @@ export class DescribeInstanceSDGStatusResponseBodyDeploymentStatus extends $dara
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      blockRwSplitSize: 'BlockRwSplitSize',
+      cacheSize: 'CacheSize',
       ensRegionId: 'EnsRegionId',
       instanceId: 'InstanceId',
       mountType: 'MountType',
@@ -73,6 +77,8 @@ export class DescribeInstanceSDGStatusResponseBodyDeploymentStatus extends $dara
 
   static types(): { [key: string]: any } {
     return {
+      blockRwSplitSize: 'number',
+      cacheSize: 'number',
       ensRegionId: 'string',
       instanceId: 'string',
       mountType: 'string',

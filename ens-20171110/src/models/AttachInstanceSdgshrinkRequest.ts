@@ -10,6 +10,7 @@ export class AttachInstanceSDGShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   instanceIdsShrink?: string;
+  loadOptShrink?: string;
   /**
    * @remarks
    * The ID of the SDG.
@@ -23,6 +24,7 @@ export class AttachInstanceSDGShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceIdsShrink: 'InstanceIds',
+      loadOptShrink: 'LoadOpt',
       SDGId: 'SDGId',
     };
   }
@@ -30,6 +32,7 @@ export class AttachInstanceSDGShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceIdsShrink: 'string',
+      loadOptShrink: 'string',
       SDGId: 'string',
     };
   }

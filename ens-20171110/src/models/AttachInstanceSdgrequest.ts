@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AttachInstanceSDGRequestLoadOpt } from "./AttachInstanceSdgrequestLoadOpt";
 
 
 export class AttachInstanceSDGRequest extends $dara.Model {
@@ -10,6 +11,7 @@ export class AttachInstanceSDGRequest extends $dara.Model {
    * This parameter is required.
    */
   instanceIds?: string[];
+  loadOpt?: AttachInstanceSDGRequestLoadOpt;
   /**
    * @remarks
    * The ID of the SDG.
@@ -23,6 +25,7 @@ export class AttachInstanceSDGRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceIds: 'InstanceIds',
+      loadOpt: 'LoadOpt',
       SDGId: 'SDGId',
     };
   }
@@ -30,6 +33,7 @@ export class AttachInstanceSDGRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceIds: { 'type': 'array', 'itemType': 'string' },
+      loadOpt: AttachInstanceSDGRequestLoadOpt,
       SDGId: 'string',
     };
   }
@@ -37,6 +41,9 @@ export class AttachInstanceSDGRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.instanceIds)) {
       $dara.Model.validateArray(this.instanceIds);
+    }
+    if(this.loadOpt && typeof (this.loadOpt as any).validate === 'function') {
+      (this.loadOpt as any).validate();
     }
     super.validate();
   }

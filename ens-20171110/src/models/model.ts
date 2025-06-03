@@ -4,6 +4,7 @@ export { AddBackendServersRequestBackendServers } from './AddBackendServersReque
 export { AddBackendServersResponseBodyBackendServersBackendServer } from './AddBackendServersResponseBodyBackendServersBackendServer';
 export { AddBackendServersResponseBodyBackendServers } from './AddBackendServersResponseBodyBackendServers';
 export { AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet } from './AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet';
+export { AttachInstanceSDGRequestLoadOpt } from './AttachInstanceSdgrequestLoadOpt';
 export { AttachInstanceSDGResponseBodyDataResultFailedItems } from './AttachInstanceSdgresponseBodyDataResultFailedItems';
 export { AttachInstanceSDGResponseBodyDataResult } from './AttachInstanceSdgresponseBodyDataResult';
 export { AttachInstanceSDGResponseBodyData } from './AttachInstanceSdgresponseBodyData';

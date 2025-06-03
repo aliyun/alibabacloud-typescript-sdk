@@ -536,9 +536,17 @@ export default class Client extends OpenApi {
       request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
     }
 
+    if (!$dara.isNull(tmpReq.loadOpt)) {
+      request.loadOptShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.loadOpt, "LoadOpt", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.instanceIdsShrink)) {
       query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.loadOptShrink)) {
+      query["LoadOpt"] = request.loadOptShrink;
     }
 
     if (!$dara.isNull(request.SDGId)) {

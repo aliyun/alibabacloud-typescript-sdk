@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus extends $dara.Model {
+  blockRwSplitSize?: number;
+  cacheSize?: number;
   /**
    * @remarks
    * The ID of the AIC instance.
@@ -64,6 +66,8 @@ export class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus extends $da
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      blockRwSplitSize: 'BlockRwSplitSize',
+      cacheSize: 'CacheSize',
       instanceId: 'InstanceId',
       mountType: 'MountType',
       phase: 'Phase',
@@ -75,6 +79,8 @@ export class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus extends $da
 
   static types(): { [key: string]: any } {
     return {
+      blockRwSplitSize: 'number',
+      cacheSize: 'number',
       instanceId: 'string',
       mountType: 'string',
       phase: 'string',
