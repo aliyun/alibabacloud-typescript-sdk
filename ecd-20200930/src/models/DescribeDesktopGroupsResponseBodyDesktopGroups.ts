@@ -333,6 +333,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
    * pg-53iyi2aar0nd6c8qj
    */
   policyGroupId?: string;
+  policyGroupIdList?: string[];
   /**
    * @remarks
    * The name of the applied policy.
@@ -341,6 +342,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
    * test-policy
    */
   policyGroupName?: string;
+  policyGroupNameList?: string[];
   /**
    * @remarks
    * The protocol type.
@@ -522,7 +524,9 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       ownType: 'OwnType',
       payType: 'PayType',
       policyGroupId: 'PolicyGroupId',
+      policyGroupIdList: 'PolicyGroupIdList',
       policyGroupName: 'PolicyGroupName',
+      policyGroupNameList: 'PolicyGroupNameList',
       protocolType: 'ProtocolType',
       ratioThreshold: 'RatioThreshold',
       resetType: 'ResetType',
@@ -578,7 +582,9 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       ownType: 'number',
       payType: 'string',
       policyGroupId: 'string',
+      policyGroupIdList: { 'type': 'array', 'itemType': 'string' },
       policyGroupName: 'string',
+      policyGroupNameList: { 'type': 'array', 'itemType': 'string' },
       protocolType: 'string',
       ratioThreshold: 'number',
       resetType: 'number',
@@ -599,6 +605,12 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   validate() {
     if(Array.isArray(this.countPerStatus)) {
       $dara.Model.validateArray(this.countPerStatus);
+    }
+    if(Array.isArray(this.policyGroupIdList)) {
+      $dara.Model.validateArray(this.policyGroupIdList);
+    }
+    if(Array.isArray(this.policyGroupNameList)) {
+      $dara.Model.validateArray(this.policyGroupNameList);
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
