@@ -1,0 +1,38 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class DescribePubUserListBySubUserResponseBodyPubUserDetailListOnlinePeriods extends $dara.Model {
+  /**
+   * @example
+   * 1614936817
+   */
+  joinTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
+  leaveTs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      joinTs: 'JoinTs',
+      leaveTs: 'LeaveTs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      joinTs: 'number',
+      leaveTs: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
