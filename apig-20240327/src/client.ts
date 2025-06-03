@@ -2405,6 +2405,10 @@ export default class Client extends OpenApi {
       query["gatewayType"] = request.gatewayType;
     }
 
+    if (!$dara.isNull(request.includeBuiltinAiGateway)) {
+      query["includeBuiltinAiGateway"] = request.includeBuiltinAiGateway;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }

@@ -23,6 +23,7 @@ export class ListPluginsRequest extends $dara.Model {
    * AI
    */
   gatewayType?: string;
+  includeBuiltinAiGateway?: boolean;
   /**
    * @example
    * 1
@@ -54,6 +55,7 @@ export class ListPluginsRequest extends $dara.Model {
       attachResourceType: 'attachResourceType',
       gatewayId: 'gatewayId',
       gatewayType: 'gatewayType',
+      includeBuiltinAiGateway: 'includeBuiltinAiGateway',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       pluginClassId: 'pluginClassId',
@@ -68,6 +70,7 @@ export class ListPluginsRequest extends $dara.Model {
       attachResourceType: 'string',
       gatewayId: 'string',
       gatewayType: 'string',
+      includeBuiltinAiGateway: 'boolean',
       pageNumber: 'number',
       pageSize: 'number',
       pluginClassId: 'string',
