@@ -34,6 +34,7 @@ export class DescribeCustomScenePoliciesResponseBodyDataModule extends $dara.Mod
    * 1234****
    */
   policyId?: number;
+  siteIds?: string;
   /**
    * @remarks
    * The time when the policy takes effect.
@@ -73,6 +74,7 @@ export class DescribeCustomScenePoliciesResponseBodyDataModule extends $dara.Mod
       name: 'Name',
       objects: 'Objects',
       policyId: 'PolicyId',
+      siteIds: 'SiteIds',
       startTime: 'StartTime',
       status: 'Status',
       template: 'Template',
@@ -85,6 +87,7 @@ export class DescribeCustomScenePoliciesResponseBodyDataModule extends $dara.Mod
       name: 'string',
       objects: { 'type': 'array', 'itemType': 'string' },
       policyId: 'number',
+      siteIds: 'string',
       startTime: 'string',
       status: 'string',
       template: 'string',

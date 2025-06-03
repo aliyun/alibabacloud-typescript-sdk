@@ -33,6 +33,7 @@ export class CreateCustomScenePolicyRequest extends $dara.Model {
    * 7096621098****
    */
   objects?: string;
+  siteIds?: string;
   /**
    * @remarks
    * The time when the policy takes effect.
@@ -62,6 +63,7 @@ export class CreateCustomScenePolicyRequest extends $dara.Model {
       endTime: 'EndTime',
       name: 'Name',
       objects: 'Objects',
+      siteIds: 'SiteIds',
       startTime: 'StartTime',
       template: 'Template',
     };
@@ -72,6 +74,7 @@ export class CreateCustomScenePolicyRequest extends $dara.Model {
       endTime: 'string',
       name: 'string',
       objects: 'string',
+      siteIds: 'string',
       startTime: 'string',
       template: 'string',
     };

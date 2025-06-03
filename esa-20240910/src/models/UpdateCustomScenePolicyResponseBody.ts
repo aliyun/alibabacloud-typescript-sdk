@@ -42,6 +42,7 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
   requestId?: string;
+  siteIds?: string;
   /**
    * @remarks
    * The time when the policy takes effect.
@@ -69,6 +70,7 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
       objects: 'Objects',
       policyId: 'PolicyId',
       requestId: 'RequestId',
+      siteIds: 'SiteIds',
       startTime: 'StartTime',
       template: 'Template',
     };
@@ -81,6 +83,7 @@ export class UpdateCustomScenePolicyResponseBody extends $dara.Model {
       objects: { 'type': 'array', 'itemType': 'string' },
       policyId: 'number',
       requestId: 'string',
+      siteIds: 'string',
       startTime: 'string',
       template: 'string',
     };

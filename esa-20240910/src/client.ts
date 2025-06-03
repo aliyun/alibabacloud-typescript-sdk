@@ -1485,6 +1485,10 @@ export default class Client extends OpenApi {
       query["Objects"] = request.objects;
     }
 
+    if (!$dara.isNull(request.siteIds)) {
+      query["SiteIds"] = request.siteIds;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -1917,6 +1921,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.httpsForceCode)) {
       query["HttpsForceCode"] = request.httpsForceCode;
+    }
+
+    if (!$dara.isNull(request.httpsNoSniDeny)) {
+      query["HttpsNoSniDeny"] = request.httpsNoSniDeny;
+    }
+
+    if (!$dara.isNull(request.httpsSniVerify)) {
+      query["HttpsSniVerify"] = request.httpsSniVerify;
+    }
+
+    if (!$dara.isNull(request.httpsSniWhitelist)) {
+      query["HttpsSniWhitelist"] = request.httpsSniWhitelist;
     }
 
     if (!$dara.isNull(request.rule)) {
@@ -14200,6 +14216,10 @@ export default class Client extends OpenApi {
       query["PolicyId"] = request.policyId;
     }
 
+    if (!$dara.isNull(request.siteIds)) {
+      query["SiteIds"] = request.siteIds;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -14592,6 +14612,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.httpsForceCode)) {
       query["HttpsForceCode"] = request.httpsForceCode;
+    }
+
+    if (!$dara.isNull(request.httpsNoSniDeny)) {
+      query["HttpsNoSniDeny"] = request.httpsNoSniDeny;
+    }
+
+    if (!$dara.isNull(request.httpsSniVerify)) {
+      query["HttpsSniVerify"] = request.httpsSniVerify;
+    }
+
+    if (!$dara.isNull(request.httpsSniWhitelist)) {
+      query["HttpsSniWhitelist"] = request.httpsSniWhitelist;
     }
 
     if (!$dara.isNull(request.rule)) {

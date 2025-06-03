@@ -29,8 +29,6 @@ export class UpdateCustomScenePolicyRequest extends $dara.Model {
    * @remarks
    * The IDs of the websites that you want to associate with the policy. Separate multiple IDs with commas (,).
    * 
-   * This parameter is required.
-   * 
    * @example
    * 123456****
    */
@@ -45,6 +43,7 @@ export class UpdateCustomScenePolicyRequest extends $dara.Model {
    * 1
    */
   policyId?: number;
+  siteIds?: string;
   /**
    * @remarks
    * The time when the policy takes effect.
@@ -75,6 +74,7 @@ export class UpdateCustomScenePolicyRequest extends $dara.Model {
       name: 'Name',
       objects: 'Objects',
       policyId: 'PolicyId',
+      siteIds: 'SiteIds',
       startTime: 'StartTime',
       template: 'Template',
     };
@@ -86,6 +86,7 @@ export class UpdateCustomScenePolicyRequest extends $dara.Model {
       name: 'string',
       objects: 'string',
       policyId: 'number',
+      siteIds: 'string',
       startTime: 'string',
       template: 'string',
     };

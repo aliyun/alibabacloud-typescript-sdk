@@ -127,6 +127,9 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
    * 301
    */
   httpsForceCode?: string;
+  httpsNoSniDeny?: string;
+  httpsSniVerify?: string;
+  httpsSniWhitelist?: string;
   /**
    * @remarks
    * Request ID.
@@ -193,6 +196,9 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
       hstsPreload: 'HstsPreload',
       httpsForce: 'HttpsForce',
       httpsForceCode: 'HttpsForceCode',
+      httpsNoSniDeny: 'HttpsNoSniDeny',
+      httpsSniVerify: 'HttpsSniVerify',
+      httpsSniWhitelist: 'HttpsSniWhitelist',
       requestId: 'RequestId',
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
@@ -216,6 +222,9 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
       hstsPreload: 'string',
       httpsForce: 'string',
       httpsForceCode: 'string',
+      httpsNoSniDeny: 'string',
+      httpsSniVerify: 'string',
+      httpsSniWhitelist: 'string',
       requestId: 'string',
       rule: 'string',
       ruleEnable: 'string',

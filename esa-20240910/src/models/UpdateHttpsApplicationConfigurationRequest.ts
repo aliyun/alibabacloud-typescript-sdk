@@ -111,6 +111,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
    * 301
    */
   httpsForceCode?: string;
+  httpsNoSniDeny?: string;
+  httpsSniVerify?: string;
+  httpsSniWhitelist?: string;
   /**
    * @remarks
    * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
@@ -163,6 +166,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
       hstsPreload: 'HstsPreload',
       httpsForce: 'HttpsForce',
       httpsForceCode: 'HttpsForceCode',
+      httpsNoSniDeny: 'HttpsNoSniDeny',
+      httpsSniVerify: 'HttpsSniVerify',
+      httpsSniWhitelist: 'HttpsSniWhitelist',
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
@@ -184,6 +190,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
       hstsPreload: 'string',
       httpsForce: 'string',
       httpsForceCode: 'string',
+      httpsNoSniDeny: 'string',
+      httpsSniVerify: 'string',
+      httpsSniWhitelist: 'string',
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
