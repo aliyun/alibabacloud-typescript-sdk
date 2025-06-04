@@ -907,6 +907,10 @@ export default class Client extends OpenApi {
       query["DestinationSnapshotName"] = request.destinationSnapshotName;
     }
 
+    if (!$dara.isNull(request.instanceBillingCycle)) {
+      query["InstanceBillingCycle"] = request.instanceBillingCycle;
+    }
+
     if (!$dara.isNull(request.snapshotId)) {
       query["SnapshotId"] = request.snapshotId;
     }

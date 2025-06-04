@@ -26,6 +26,7 @@ export class CopySnapshotShrinkRequest extends $dara.Model {
    * testSnapshotName
    */
   destinationSnapshotName?: string;
+  instanceBillingCycle?: string;
   /**
    * @remarks
    * The ID of the source snapshot.
@@ -41,6 +42,7 @@ export class CopySnapshotShrinkRequest extends $dara.Model {
       destinationRegionIdsShrink: 'DestinationRegionIds',
       destinationSnapshotDescription: 'DestinationSnapshotDescription',
       destinationSnapshotName: 'DestinationSnapshotName',
+      instanceBillingCycle: 'InstanceBillingCycle',
       snapshotId: 'SnapshotId',
     };
   }
@@ -50,6 +52,7 @@ export class CopySnapshotShrinkRequest extends $dara.Model {
       destinationRegionIdsShrink: 'string',
       destinationSnapshotDescription: 'string',
       destinationSnapshotName: 'string',
+      instanceBillingCycle: 'string',
       snapshotId: 'string',
     };
   }
