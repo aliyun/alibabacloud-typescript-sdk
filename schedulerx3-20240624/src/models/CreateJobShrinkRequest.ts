@@ -41,9 +41,6 @@ export class CreateJobShrinkRequest extends $dara.Model {
    */
   executorBlockStrategy?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * testJobVoidHandler
    */
@@ -91,6 +88,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
    * 1
    */
   routeStrategy?: number;
+  script?: string;
   /**
    * @example
    * 1701310327000
@@ -138,6 +136,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
       parameters: 'Parameters',
       priority: 'Priority',
       routeStrategy: 'RouteStrategy',
+      script: 'Script',
       startTime: 'StartTime',
       status: 'Status',
       timeExpression: 'TimeExpression',
@@ -165,6 +164,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
       parameters: 'string',
       priority: 'number',
       routeStrategy: 'number',
+      script: 'string',
       startTime: 'number',
       status: 'number',
       timeExpression: 'string',

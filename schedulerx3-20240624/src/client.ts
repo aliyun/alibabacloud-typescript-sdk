@@ -243,6 +243,10 @@ export default class Client extends OpenApi {
       body["RouteStrategy"] = request.routeStrategy;
     }
 
+    if (!$dara.isNull(request.script)) {
+      body["Script"] = request.script;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       body["StartTime"] = request.startTime;
     }
@@ -569,6 +573,60 @@ export default class Client extends OpenApi {
   async getDesigateInfo(request: $_model.GetDesigateInfoRequest): Promise<$_model.GetDesigateInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDesigateInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取任务执行的详细信息
+   * 
+   * @param request - GetJobExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobExecutionResponse
+   */
+  async getJobExecutionWithOptions(request: $_model.GetJobExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetJobExecutionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.jobExecutionId)) {
+      query["JobExecutionId"] = request.jobExecutionId;
+    }
+
+    if (!$dara.isNull(request.mseSessionId)) {
+      query["MseSessionId"] = request.mseSessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetJobExecution",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetJobExecutionResponse>(await this.callApi(params, req, runtime), new $_model.GetJobExecutionResponse({}));
+  }
+
+  /**
+   * 获取任务执行的详细信息
+   * 
+   * @param request - GetJobExecutionRequest
+   * @returns GetJobExecutionResponse
+   */
+  async getJobExecution(request: $_model.GetJobExecutionRequest): Promise<$_model.GetJobExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getJobExecutionWithOptions(request, runtime);
   }
 
   /**
@@ -1018,6 +1076,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取任务列表
+   * 
    * @param request - ListJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListJobsResponse
@@ -1043,6 +1103,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取任务列表
+   * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
    */
@@ -1847,6 +1909,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.routeStrategy)) {
       body["RouteStrategy"] = request.routeStrategy;
+    }
+
+    if (!$dara.isNull(request.script)) {
+      body["Script"] = request.script;
     }
 
     if (!$dara.isNull(request.startTime)) {

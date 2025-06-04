@@ -94,6 +94,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
    * 1
    */
   routeStrategy?: number;
+  script?: string;
   /**
    * @example
    * 1
@@ -150,6 +151,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       parameters: 'Parameters',
       priority: 'Priority',
       routeStrategy: 'RouteStrategy',
+      script: 'Script',
       status: 'Status',
       timeExpression: 'TimeExpression',
       timeType: 'TimeType',
@@ -185,6 +187,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       parameters: 'string',
       priority: 'number',
       routeStrategy: 'number',
+      script: 'string',
       status: 'number',
       timeExpression: 'string',
       timeType: 'number',

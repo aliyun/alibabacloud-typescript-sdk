@@ -87,6 +87,7 @@ export class UpdateJobRequest extends $dara.Model {
    * 1
    */
   routeStrategy?: number;
+  script?: string;
   /**
    * @example
    * 1716902187
@@ -126,6 +127,7 @@ export class UpdateJobRequest extends $dara.Model {
       parameters: 'Parameters',
       priority: 'Priority',
       routeStrategy: 'RouteStrategy',
+      script: 'Script',
       startTime: 'StartTime',
       timeExpression: 'TimeExpression',
       timeType: 'TimeType',
@@ -152,6 +154,7 @@ export class UpdateJobRequest extends $dara.Model {
       parameters: 'string',
       priority: 'number',
       routeStrategy: 'number',
+      script: 'string',
       startTime: 'number',
       timeExpression: 'string',
       timeType: 'number',
