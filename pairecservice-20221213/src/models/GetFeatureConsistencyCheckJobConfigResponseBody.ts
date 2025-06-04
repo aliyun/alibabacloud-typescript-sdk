@@ -138,6 +138,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
    * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */
   requestId?: string;
+  resourceConfig?: string;
   /**
    * @example
    * 0.89
@@ -239,6 +240,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
       predictWorkerCpu: 'PredictWorkerCpu',
       predictWorkerMemory: 'PredictWorkerMemory',
       requestId: 'RequestId',
+      resourceConfig: 'ResourceConfig',
       sampleRate: 'SampleRate',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
@@ -299,6 +301,7 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $dara.Model
       predictWorkerCpu: 'number',
       predictWorkerMemory: 'number',
       requestId: 'string',
+      resourceConfig: 'string',
       sampleRate: 'string',
       sceneId: 'string',
       sceneName: 'string',

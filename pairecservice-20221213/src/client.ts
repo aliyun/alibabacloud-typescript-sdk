@@ -1323,6 +1323,10 @@ export default class Client extends OpenApi {
       body["PredictWorkerMemory"] = request.predictWorkerMemory;
     }
 
+    if (!$dara.isNull(request.resourceConfig)) {
+      body["ResourceConfig"] = request.resourceConfig;
+    }
+
     if (!$dara.isNull(request.sampleRate)) {
       body["SampleRate"] = request.sampleRate;
     }
@@ -7347,6 +7351,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.predictWorkerMemory)) {
       body["PredictWorkerMemory"] = request.predictWorkerMemory;
+    }
+
+    if (!$dara.isNull(request.resourceConfig)) {
+      body["ResourceConfig"] = request.resourceConfig;
     }
 
     if (!$dara.isNull(request.sampleRate)) {

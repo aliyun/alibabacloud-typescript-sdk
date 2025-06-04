@@ -124,6 +124,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
   predictWorkerCount?: number;
   predictWorkerCpu?: number;
   predictWorkerMemory?: number;
+  resourceConfig?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -216,6 +217,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
       predictWorkerCount: 'PredictWorkerCount',
       predictWorkerCpu: 'PredictWorkerCpu',
       predictWorkerMemory: 'PredictWorkerMemory',
+      resourceConfig: 'ResourceConfig',
       sampleRate: 'SampleRate',
       sceneId: 'SceneId',
       securityGroupId: 'SecurityGroupId',
@@ -266,6 +268,7 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $dara.Model {
       predictWorkerCount: 'number',
       predictWorkerCpu: 'number',
       predictWorkerMemory: 'number',
+      resourceConfig: 'string',
       sampleRate: 'number',
       sceneId: 'string',
       securityGroupId: 'string',

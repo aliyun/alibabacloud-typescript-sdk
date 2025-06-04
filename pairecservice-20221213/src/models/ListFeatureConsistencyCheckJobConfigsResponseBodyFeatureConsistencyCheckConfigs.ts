@@ -138,6 +138,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   predictWorkerCount?: number;
   predictWorkerCpu?: number;
   predictWorkerMemory?: number;
+  resourceConfig?: string;
   /**
    * @example
    * 0.89
@@ -239,6 +240,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
       predictWorkerCount: 'PredictWorkerCount',
       predictWorkerCpu: 'PredictWorkerCpu',
       predictWorkerMemory: 'PredictWorkerMemory',
+      resourceConfig: 'ResourceConfig',
       sampleRate: 'SampleRate',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
@@ -299,6 +301,7 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
       predictWorkerCount: 'number',
       predictWorkerCpu: 'number',
       predictWorkerMemory: 'number',
+      resourceConfig: 'string',
       sampleRate: 'string',
       sceneId: 'string',
       sceneName: 'string',
