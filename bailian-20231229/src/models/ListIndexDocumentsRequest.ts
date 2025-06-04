@@ -23,6 +23,7 @@ export class ListIndexDocumentsRequest extends $dara.Model {
    * FINISH
    */
   documentStatus?: string;
+  enableNameLike?: string;
   /**
    * @remarks
    * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
@@ -53,6 +54,7 @@ export class ListIndexDocumentsRequest extends $dara.Model {
     return {
       documentName: 'DocumentName',
       documentStatus: 'DocumentStatus',
+      enableNameLike: 'EnableNameLike',
       indexId: 'IndexId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -63,6 +65,7 @@ export class ListIndexDocumentsRequest extends $dara.Model {
     return {
       documentName: 'string',
       documentStatus: 'string',
+      enableNameLike: 'string',
       indexId: 'string',
       pageNumber: 'number',
       pageSize: 'number',

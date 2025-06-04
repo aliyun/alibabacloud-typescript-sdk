@@ -154,8 +154,6 @@ export class CreateIndexShrinkRequest extends $dara.Model {
    * 
    * >  If you want to create an empty knowledge base, you can use an empty category. Set this parameter to DATA_CENTER_CATEGORY. And specify the ID of an empty category for the `CategoryIds` parameter.
    * 
-   * This parameter is required.
-   * 
    * @example
    * DATA_CENTER_FILE
    * 

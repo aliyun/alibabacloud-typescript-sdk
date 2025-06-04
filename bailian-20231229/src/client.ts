@@ -1409,6 +1409,10 @@ export default class Client extends OpenApi {
       query["DocumentStatus"] = request.documentStatus;
     }
 
+    if (!$dara.isNull(request.enableNameLike)) {
+      query["EnableNameLike"] = request.enableNameLike;
+    }
+
     if (!$dara.isNull(request.indexId)) {
       query["IndexId"] = request.indexId;
     }
