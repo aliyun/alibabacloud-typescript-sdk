@@ -588,6 +588,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量取消大模型解决方案Ai外呼明细任务
+   * 
+   * @param tmpReq - CancelAiCallDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelAiCallDetailsResponse
+   */
+  async cancelAiCallDetailsWithOptions(tmpReq: $_model.CancelAiCallDetailsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelAiCallDetailsResponse> {
+    tmpReq.validate();
+    let request = new $_model.CancelAiCallDetailsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.detailIdList)) {
+      request.detailIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.detailIdList, "DetailIdList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.phoneNumbers)) {
+      request.phoneNumbersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.phoneNumbers, "PhoneNumbers", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.batchId)) {
+      query["BatchId"] = request.batchId;
+    }
+
+    if (!$dara.isNull(request.detailIdListShrink)) {
+      query["DetailIdList"] = request.detailIdListShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneNumbersShrink)) {
+      query["PhoneNumbers"] = request.phoneNumbersShrink;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelAiCallDetails",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelAiCallDetailsResponse>(await this.callApi(params, req, runtime), new $_model.CancelAiCallDetailsResponse({}));
+  }
+
+  /**
+   * 批量取消大模型解决方案Ai外呼明细任务
+   * 
+   * @param request - CancelAiCallDetailsRequest
+   * @returns CancelAiCallDetailsResponse
+   */
+  async cancelAiCallDetails(request: $_model.CancelAiCallDetailsRequest): Promise<$_model.CancelAiCallDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelAiCallDetailsWithOptions(request, runtime);
+  }
+
+  /**
    * 删除智能外呼任务
    * 
    * @param request - CancelTaskRequest
@@ -802,6 +878,114 @@ export default class Client extends OpenApi {
   async createAgent(request: $_model.CreateAgentRequest): Promise<$_model.CreateAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建任务
+   * 
+   * @param tmpReq - CreateAiCallTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAiCallTaskResponse
+   */
+  async createAiCallTaskWithOptions(tmpReq: $_model.CreateAiCallTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAiCallTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAiCallTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.callDay)) {
+      request.callDayShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callDay, "CallDay", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.callRetryReason)) {
+      request.callRetryReasonShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callRetryReason, "CallRetryReason", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.callTime)) {
+      request.callTimeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callTime, "CallTime", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.callDayShrink)) {
+      query["CallDay"] = request.callDayShrink;
+    }
+
+    if (!$dara.isNull(request.callRetryInterval)) {
+      query["CallRetryInterval"] = request.callRetryInterval;
+    }
+
+    if (!$dara.isNull(request.callRetryReasonShrink)) {
+      query["CallRetryReason"] = request.callRetryReasonShrink;
+    }
+
+    if (!$dara.isNull(request.callRetryTimes)) {
+      query["CallRetryTimes"] = request.callRetryTimes;
+    }
+
+    if (!$dara.isNull(request.callTimeShrink)) {
+      query["CallTime"] = request.callTimeShrink;
+    }
+
+    if (!$dara.isNull(request.missCallRetry)) {
+      query["MissCallRetry"] = request.missCallRetry;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startType)) {
+      query["StartType"] = request.startType;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.taskStartTime)) {
+      query["TaskStartTime"] = request.taskStartTime;
+    }
+
+    if (!$dara.isNull(request.virtualNumber)) {
+      query["VirtualNumber"] = request.virtualNumber;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAiCallTask",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAiCallTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateAiCallTaskResponse({}));
+  }
+
+  /**
+   * 创建任务
+   * 
+   * @param request - CreateAiCallTaskRequest
+   * @returns CreateAiCallTaskResponse
+   */
+  async createAiCallTask(request: $_model.CreateAiCallTaskRequest): Promise<$_model.CreateAiCallTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAiCallTaskWithOptions(request, runtime);
   }
 
   /**
@@ -5054,6 +5238,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导入任务号码数据
+   * 
+   * @param tmpReq - ImportTaskNumberDatasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportTaskNumberDatasResponse
+   */
+  async importTaskNumberDatasWithOptions(tmpReq: $_model.ImportTaskNumberDatasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportTaskNumberDatasResponse> {
+    tmpReq.validate();
+    let request = new $_model.ImportTaskNumberDatasShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.phoneNumberList)) {
+      request.phoneNumberListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.phoneNumberList, "PhoneNumberList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.dataType)) {
+      query["DataType"] = request.dataType;
+    }
+
+    if (!$dara.isNull(request.ossFileName)) {
+      query["OssFileName"] = request.ossFileName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.phoneNumberListShrink)) {
+      body["PhoneNumberList"] = request.phoneNumberListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportTaskNumberDatas",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportTaskNumberDatasResponse>(await this.callApi(params, req, runtime), new $_model.ImportTaskNumberDatasResponse({}));
+  }
+
+  /**
+   * 导入任务号码数据
+   * 
+   * @param request - ImportTaskNumberDatasRequest
+   * @returns ImportTaskNumberDatasResponse
+   */
+  async importTaskNumberDatas(request: $_model.ImportTaskNumberDatasRequest): Promise<$_model.ImportTaskNumberDatasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.importTaskNumberDatasWithOptions(request, runtime);
+  }
+
+  /**
    * 智能外呼任务导入号码
    * 
    * @param tmpReq - InsertAiOutboundPhoneNumsRequest
@@ -6260,6 +6518,240 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询明细记录
+   * 
+   * @param request - QueryAiCallDetailPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAiCallDetailPageResponse
+   */
+  async queryAiCallDetailPageWithOptions(request: $_model.QueryAiCallDetailPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAiCallDetailPageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.batchId)) {
+      query["BatchId"] = request.batchId;
+    }
+
+    if (!$dara.isNull(request.callResult)) {
+      query["CallResult"] = request.callResult;
+    }
+
+    if (!$dara.isNull(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!$dara.isNull(request.endCallingTime)) {
+      query["EndCallingTime"] = request.endCallingTime;
+    }
+
+    if (!$dara.isNull(request.endImportedTime)) {
+      query["EndImportedTime"] = request.endImportedTime;
+    }
+
+    if (!$dara.isNull(request.majorIntent)) {
+      query["MajorIntent"] = request.majorIntent;
+    }
+
+    if (!$dara.isNull(request.maxConversationDuration)) {
+      query["MaxConversationDuration"] = request.maxConversationDuration;
+    }
+
+    if (!$dara.isNull(request.minConversationDuration)) {
+      query["MinConversationDuration"] = request.minConversationDuration;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startCallingTime)) {
+      query["StartCallingTime"] = request.startCallingTime;
+    }
+
+    if (!$dara.isNull(request.startImportedTime)) {
+      query["StartImportedTime"] = request.startImportedTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAiCallDetailPage",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAiCallDetailPageResponse>(await this.callApi(params, req, runtime), new $_model.QueryAiCallDetailPageResponse({}));
+  }
+
+  /**
+   * 查询明细记录
+   * 
+   * @param request - QueryAiCallDetailPageRequest
+   * @returns QueryAiCallDetailPageResponse
+   */
+  async queryAiCallDetailPage(request: $_model.QueryAiCallDetailPageRequest): Promise<$_model.QueryAiCallDetailPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAiCallDetailPageWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询任务详情
+   * 
+   * @param request - QueryAiCallTaskDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAiCallTaskDetailResponse
+   */
+  async queryAiCallTaskDetailWithOptions(request: $_model.QueryAiCallTaskDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAiCallTaskDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAiCallTaskDetail",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAiCallTaskDetailResponse>(await this.callApi(params, req, runtime), new $_model.QueryAiCallTaskDetailResponse({}));
+  }
+
+  /**
+   * 查询任务详情
+   * 
+   * @param request - QueryAiCallTaskDetailRequest
+   * @returns QueryAiCallTaskDetailResponse
+   */
+  async queryAiCallTaskDetail(request: $_model.QueryAiCallTaskDetailRequest): Promise<$_model.QueryAiCallTaskDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAiCallTaskDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询任务列表
+   * 
+   * @param request - QueryAiCallTaskPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAiCallTaskPageResponse
+   */
+  async queryAiCallTaskPageWithOptions(request: $_model.QueryAiCallTaskPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAiCallTaskPageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAiCallTaskPage",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAiCallTaskPageResponse>(await this.callApi(params, req, runtime), new $_model.QueryAiCallTaskPageResponse({}));
+  }
+
+  /**
+   * 查询任务列表
+   * 
+   * @param request - QueryAiCallTaskPageRequest
+   * @returns QueryAiCallTaskPageResponse
+   */
+  async queryAiCallTaskPage(request: $_model.QueryAiCallTaskPageRequest): Promise<$_model.QueryAiCallTaskPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAiCallTaskPageWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - QueryHotlineInQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryHotlineInQueueResponse
@@ -7366,6 +7858,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动任务
+   * 
+   * @param request - StartAiCallTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartAiCallTaskResponse
+   */
+  async startAiCallTaskWithOptions(request: $_model.StartAiCallTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartAiCallTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartAiCallTask",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartAiCallTaskResponse>(await this.callApi(params, req, runtime), new $_model.StartAiCallTaskResponse({}));
+  }
+
+  /**
+   * 启动任务
+   * 
+   * @param request - StartAiCallTaskRequest
+   * @returns StartAiCallTaskResponse
+   */
+  async startAiCallTask(request: $_model.StartAiCallTaskRequest): Promise<$_model.StartAiCallTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startAiCallTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 启动智能外呼任务
    * 
    * @param request - StartAiOutboundTaskRequest
@@ -7752,6 +8298,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 停止任务
+   * 
+   * @param request - StopAiCallTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopAiCallTaskResponse
+   */
+  async stopAiCallTaskWithOptions(request: $_model.StopAiCallTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopAiCallTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopAiCallTask",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopAiCallTaskResponse>(await this.callApi(params, req, runtime), new $_model.StopAiCallTaskResponse({}));
+  }
+
+  /**
+   * 停止任务
+   * 
+   * @param request - StopAiCallTaskRequest
+   * @returns StopAiCallTaskResponse
+   */
+  async stopAiCallTask(request: $_model.StopAiCallTaskRequest): Promise<$_model.StopAiCallTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopAiCallTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 手动暂停智能外呼任务
    * 
    * @param request - StopAiOutboundTaskRequest
@@ -8119,6 +8719,114 @@ export default class Client extends OpenApi {
   async updateAgent(request: $_model.UpdateAgentRequest): Promise<$_model.UpdateAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新AI外呼任务配置
+   * 
+   * @param tmpReq - UpdateAiCallTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAiCallTaskResponse
+   */
+  async updateAiCallTaskWithOptions(tmpReq: $_model.UpdateAiCallTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAiCallTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateAiCallTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.callDay)) {
+      request.callDayShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callDay, "CallDay", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.callRetryReason)) {
+      request.callRetryReasonShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callRetryReason, "CallRetryReason", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.callTime)) {
+      request.callTimeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callTime, "CallTime", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.callDayShrink)) {
+      query["CallDay"] = request.callDayShrink;
+    }
+
+    if (!$dara.isNull(request.callRetryInterval)) {
+      query["CallRetryInterval"] = request.callRetryInterval;
+    }
+
+    if (!$dara.isNull(request.callRetryReasonShrink)) {
+      query["CallRetryReason"] = request.callRetryReasonShrink;
+    }
+
+    if (!$dara.isNull(request.callRetryTimes)) {
+      query["CallRetryTimes"] = request.callRetryTimes;
+    }
+
+    if (!$dara.isNull(request.callTimeShrink)) {
+      query["CallTime"] = request.callTimeShrink;
+    }
+
+    if (!$dara.isNull(request.missCallRetry)) {
+      query["MissCallRetry"] = request.missCallRetry;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startType)) {
+      query["StartType"] = request.startType;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.taskStartTime)) {
+      query["TaskStartTime"] = request.taskStartTime;
+    }
+
+    if (!$dara.isNull(request.virtualNumber)) {
+      query["VirtualNumber"] = request.virtualNumber;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAiCallTask",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAiCallTaskResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAiCallTaskResponse({}));
+  }
+
+  /**
+   * 更新AI外呼任务配置
+   * 
+   * @param request - UpdateAiCallTaskRequest
+   * @returns UpdateAiCallTaskResponse
+   */
+  async updateAiCallTask(request: $_model.UpdateAiCallTaskRequest): Promise<$_model.UpdateAiCallTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAiCallTaskWithOptions(request, runtime);
   }
 
   /**
