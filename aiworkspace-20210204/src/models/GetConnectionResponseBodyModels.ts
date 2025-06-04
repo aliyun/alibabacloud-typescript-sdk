@@ -3,18 +3,38 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetConnectionResponseBodyModels extends $dara.Model {
+  /**
+   * @remarks
+   * The display name of the model.
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The model identifier.
+   * 
    * @example
    * model_001
    */
   model?: string;
   /**
+   * @remarks
+   * The model type. Valid values:
+   * 
+   * *   LLM
+   * *   Embedding
+   * *   ReRank
+   * 
    * @example
    * LLM
    */
   modelType?: string;
   /**
+   * @remarks
+   * Indicates whether a tool can be called by using ToolCall. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */

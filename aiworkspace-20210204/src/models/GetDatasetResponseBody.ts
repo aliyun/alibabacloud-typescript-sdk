@@ -54,6 +54,7 @@ export class GetDatasetResponseBody extends $dara.Model {
    * The description.
    */
   description?: string;
+  edition?: string;
   /**
    * @remarks
    * The creation time.
@@ -296,6 +297,7 @@ export class GetDatasetResponseBody extends $dara.Model {
       dataType: 'DataType',
       datasetId: 'DatasetId',
       description: 'Description',
+      edition: 'Edition',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       importInfo: 'ImportInfo',
@@ -328,6 +330,7 @@ export class GetDatasetResponseBody extends $dara.Model {
       dataType: 'string',
       datasetId: 'string',
       description: 'string',
+      edition: 'string',
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       importInfo: 'string',

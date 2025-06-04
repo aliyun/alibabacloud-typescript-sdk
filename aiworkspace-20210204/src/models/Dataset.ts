@@ -32,6 +32,11 @@ export class Dataset extends $dara.Model {
   description?: string;
   /**
    * @example
+   * BASIC
+   */
+  edition?: string;
+  /**
+   * @example
    * 2021-01-30T12:51:33.028Z
    */
   gmtCreateTime?: string;
@@ -121,6 +126,7 @@ export class Dataset extends $dara.Model {
       dataType: 'DataType',
       datasetId: 'DatasetId',
       description: 'Description',
+      edition: 'Edition',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       importInfo: 'ImportInfo',
@@ -151,6 +157,7 @@ export class Dataset extends $dara.Model {
       dataType: 'string',
       datasetId: 'string',
       description: 'string',
+      edition: 'string',
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       importInfo: 'string',

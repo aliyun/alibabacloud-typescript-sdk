@@ -63,6 +63,7 @@ export class CreateDatasetRequest extends $dara.Model {
    * The description of the dataset. Descriptions are used to differentiate datasets.
    */
   description?: string;
+  edition?: string;
   /**
    * @remarks
    * The dataset configurations to be imported to a storage, such as OSS, NAS, or Cloud Parallel File Storage (CPFS).
@@ -279,6 +280,7 @@ export class CreateDatasetRequest extends $dara.Model {
       dataSourceType: 'DataSourceType',
       dataType: 'DataType',
       description: 'Description',
+      edition: 'Edition',
       importInfo: 'ImportInfo',
       labels: 'Labels',
       mountAccessReadWriteRoleIdList: 'MountAccessReadWriteRoleIdList',
@@ -307,6 +309,7 @@ export class CreateDatasetRequest extends $dara.Model {
       dataSourceType: 'string',
       dataType: 'string',
       description: 'string',
+      edition: 'string',
       importInfo: 'string',
       labels: { 'type': 'array', 'itemType': Label },
       mountAccessReadWriteRoleIdList: { 'type': 'array', 'itemType': 'string' },

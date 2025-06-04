@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateConnectionRequestResourceMeta extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ld-uf69****9nqjjes
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   */
   instanceName?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateConnectionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The connection ID.
+   * 
    * @example
    * conn-pai9m***mi47
    */
   connectionId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */

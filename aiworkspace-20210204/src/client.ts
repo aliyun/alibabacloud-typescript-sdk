@@ -380,7 +380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建连接
+   * Creates a connection. This API is used to connect Platform for AI (PAI) to customer models and databases in LangStudio and multimodal dataset search scenarios.
    * 
    * @param request - CreateConnectionRequest
    * @param headers - map
@@ -445,7 +445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建连接
+   * Creates a connection. This API is used to connect Platform for AI (PAI) to customer models and databases in LangStudio and multimodal dataset search scenarios.
    * 
    * @param request - CreateConnectionRequest
    * @returns CreateConnectionResponse
@@ -489,6 +489,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.edition)) {
+      body["Edition"] = request.edition;
     }
 
     if (!$dara.isNull(request.importInfo)) {
@@ -2558,7 +2562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取连接
+   * Obtains the connection details.
    * 
    * @param request - GetConnectionRequest
    * @param headers - map
@@ -2591,7 +2595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取连接
+   * Obtains the connection details.
    * 
    * @param request - GetConnectionRequest
    * @returns GetConnectionResponse
@@ -5645,6 +5649,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.edition)) {
+      body["Edition"] = request.edition;
     }
 
     if (!$dara.isNull(request.mountAccessReadWriteRoleIdList)) {

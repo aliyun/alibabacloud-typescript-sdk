@@ -8,9 +8,10 @@ export class UpdateDatasetRequest extends $dara.Model {
    * The description of the dataset.
    */
   description?: string;
+  edition?: string;
   /**
    * @remarks
-   * The list of role names in the workspace that have read and write permissions on the mounted database. The names start with PAI are basic role names and the names start with role- are custom role names. If the list contains asterisks (\\*), all roles have read and write permissions.
+   * The list of role names in the workspace that have read and write permissions on the mounted database. The names starting with PAI are basic role names, and the names starting with role- are custom role names. If the list contains asterisks (\\*), all roles have read and write permissions.
    * 
    * *   If you set the value to ["PAI.AlgoOperator", "role-hiuwpd01ncrokkgp21"], the account of the specified role is granted the read and write permissions.
    * *   If you set the value to ["\\*"], all accounts are granted the read and write permissions.
@@ -27,7 +28,7 @@ export class UpdateDatasetRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The extended field, which is a JSON string. When you use the dataset in Deep Learning Containers (DLC), you can configure the mountPath field to specify the default mount path of the dataset.
+   * The extended field, which is a JSON string. When you use the dataset in Deep Learning Containers (DLC), you can set mountPath to specify the default mount path of the dataset.
    * 
    * @example
    * {
@@ -38,6 +39,7 @@ export class UpdateDatasetRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      edition: 'Edition',
       mountAccessReadWriteRoleIdList: 'MountAccessReadWriteRoleIdList',
       name: 'Name',
       options: 'Options',
@@ -47,6 +49,7 @@ export class UpdateDatasetRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      edition: 'string',
       mountAccessReadWriteRoleIdList: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
       options: 'string',

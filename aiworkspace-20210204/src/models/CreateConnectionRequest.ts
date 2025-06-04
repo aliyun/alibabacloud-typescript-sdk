@@ -6,17 +6,27 @@ import { CreateConnectionRequestResourceMeta } from "./CreateConnectionRequestRe
 
 export class CreateConnectionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The accessibility of the workspace. Valid values:
+   * 
+   * *   PRIVATE: The workspace is accessible only to you and the administrator of the workspace. This is the default value.
+   * *   PUBLIC: The workspace is accessible to all users in the workspace.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
   /**
    * @remarks
+   * The connection configurations, in key-value pairs. The key varies based on the connection type. For more information, see the supplementary notes below the request parameters.
+   * 
    * This parameter is required.
    */
   configs?: { [key: string]: string };
   /**
    * @remarks
+   * The connection name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24,15 +34,47 @@ export class CreateConnectionRequest extends $dara.Model {
    */
   connectionName?: string;
   /**
+   * @remarks
+   * The connection type. Valid values:
+   * 
+   * *   DashScopeConnection: Alibaba Cloud Model Studio connection
+   * *   OpenLLMConnection: open source model connection
+   * *   MilvusConnection: Milvus connection
+   * *   OpenSearchConnection: OpenSearch connection
+   * *   LindormConnection: Lindorm connection
+   * *   ElasticsearchConnection: Elasticsearch connection
+   * *   HologresConnection: Hologres connection
+   * *   RDSConnection: RDS connection
+   * *   CustomConnection: custom connection
+   * 
    * @example
    * DashScopeConnection
    */
   connectionType?: string;
+  /**
+   * @remarks
+   * The connection description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The models, which apply to model service connections.
+   */
   models?: CreateConnectionRequestModels[];
+  /**
+   * @remarks
+   * The instance resource information of the connection, which applies to database connections.
+   */
   resourceMeta?: CreateConnectionRequestResourceMeta;
+  /**
+   * @remarks
+   * The configuration to be encrypted. Examples: the database logon account and password and the key of the model service.
+   */
   secrets?: { [key: string]: string };
   /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 123**45
    */
