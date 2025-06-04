@@ -398,6 +398,10 @@ export default class Client extends OpenApi {
       query["Tags"] = request.tags;
     }
 
+    if (!$dara.isNull(request.taintResources)) {
+      query["TaintResources"] = request.taintResources;
+    }
+
     if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
@@ -4938,6 +4942,10 @@ export default class Client extends OpenApi {
       query["StackPolicyURL"] = request.stackPolicyURL;
     }
 
+    if (!$dara.isNull(request.taintResources)) {
+      query["TaintResources"] = request.taintResources;
+    }
+
     if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
@@ -5617,6 +5625,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tags)) {
       query["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.taintResources)) {
+      query["TaintResources"] = request.taintResources;
     }
 
     if (!$dara.isNull(request.templateId)) {

@@ -110,6 +110,7 @@ export class PreviewStackRequest extends $dara.Model {
    * oss://ros-stack-policy/demo
    */
   stackPolicyURL?: string;
+  taintResources?: string[];
   templateBody?: string;
   /**
    * @remarks
@@ -185,6 +186,7 @@ export class PreviewStackRequest extends $dara.Model {
       stackName: 'StackName',
       stackPolicyBody: 'StackPolicyBody',
       stackPolicyURL: 'StackPolicyURL',
+      taintResources: 'TaintResources',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateScratchId: 'TemplateScratchId',
@@ -207,6 +209,7 @@ export class PreviewStackRequest extends $dara.Model {
       stackName: 'string',
       stackPolicyBody: 'string',
       stackPolicyURL: 'string',
+      taintResources: { 'type': 'array', 'itemType': 'string' },
       templateBody: 'string',
       templateId: 'string',
       templateScratchId: 'string',
@@ -220,6 +223,9 @@ export class PreviewStackRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.parameters)) {
       $dara.Model.validateArray(this.parameters);
+    }
+    if(Array.isArray(this.taintResources)) {
+      $dara.Model.validateArray(this.taintResources);
     }
     super.validate();
   }

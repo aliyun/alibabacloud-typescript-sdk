@@ -243,6 +243,7 @@ export class CreateChangeSetRequest extends $dara.Model {
    */
   stackPolicyURL?: string;
   tags?: CreateChangeSetRequestTags[];
+  taintResources?: string[];
   templateBody?: string;
   /**
    * @remarks
@@ -342,6 +343,7 @@ export class CreateChangeSetRequest extends $dara.Model {
       stackPolicyDuringUpdateURL: 'StackPolicyDuringUpdateURL',
       stackPolicyURL: 'StackPolicyURL',
       tags: 'Tags',
+      taintResources: 'TaintResources',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateScratchId: 'TemplateScratchId',
@@ -374,6 +376,7 @@ export class CreateChangeSetRequest extends $dara.Model {
       stackPolicyDuringUpdateURL: 'string',
       stackPolicyURL: 'string',
       tags: { 'type': 'array', 'itemType': CreateChangeSetRequestTags },
+      taintResources: { 'type': 'array', 'itemType': 'string' },
       templateBody: 'string',
       templateId: 'string',
       templateScratchId: 'string',
@@ -396,6 +399,9 @@ export class CreateChangeSetRequest extends $dara.Model {
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.taintResources)) {
+      $dara.Model.validateArray(this.taintResources);
     }
     super.validate();
   }

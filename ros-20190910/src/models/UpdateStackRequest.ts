@@ -192,6 +192,7 @@ export class UpdateStackRequest extends $dara.Model {
    * The value of tag N that you want to add to the template.
    */
   tags?: UpdateStackRequestTags[];
+  taintResources?: string[];
   templateBody?: string;
   /**
    * @remarks
@@ -263,6 +264,7 @@ export class UpdateStackRequest extends $dara.Model {
       stackPolicyDuringUpdateURL: 'StackPolicyDuringUpdateURL',
       stackPolicyURL: 'StackPolicyURL',
       tags: 'Tags',
+      taintResources: 'TaintResources',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateURL: 'TemplateURL',
@@ -290,6 +292,7 @@ export class UpdateStackRequest extends $dara.Model {
       stackPolicyDuringUpdateURL: 'string',
       stackPolicyURL: 'string',
       tags: { 'type': 'array', 'itemType': UpdateStackRequestTags },
+      taintResources: { 'type': 'array', 'itemType': 'string' },
       templateBody: 'string',
       templateId: 'string',
       templateURL: 'string',
@@ -308,6 +311,9 @@ export class UpdateStackRequest extends $dara.Model {
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.taintResources)) {
+      $dara.Model.validateArray(this.taintResources);
     }
     super.validate();
   }
