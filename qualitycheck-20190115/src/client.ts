@@ -536,10 +536,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI CreateSkillGroupConfig is deprecated
+   * 
    * @param request - CreateSkillGroupConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSkillGroupConfigResponse
    */
+  // Deprecated
   async createSkillGroupConfigWithOptions(request: $_model.CreateSkillGroupConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSkillGroupConfigResponse> {
     request.validate();
     let query = { };
@@ -569,9 +572,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI CreateSkillGroupConfig is deprecated
+   * 
    * @param request - CreateSkillGroupConfigRequest
    * @returns CreateSkillGroupConfigResponse
    */
+  // Deprecated
   async createSkillGroupConfig(request: $_model.CreateSkillGroupConfigRequest): Promise<$_model.CreateSkillGroupConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createSkillGroupConfigWithOptions(request, runtime);
@@ -1218,10 +1224,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI DeleteSkillGroupConfig is deprecated
+   * 
    * @param request - DeleteSkillGroupConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSkillGroupConfigResponse
    */
+  // Deprecated
   async deleteSkillGroupConfigWithOptions(request: $_model.DeleteSkillGroupConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSkillGroupConfigResponse> {
     request.validate();
     let query = { };
@@ -1251,9 +1260,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI DeleteSkillGroupConfig is deprecated
+   * 
    * @param request - DeleteSkillGroupConfigRequest
    * @returns DeleteSkillGroupConfigResponse
    */
+  // Deprecated
   async deleteSkillGroupConfig(request: $_model.DeleteSkillGroupConfigRequest): Promise<$_model.DeleteSkillGroupConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSkillGroupConfigWithOptions(request, runtime);
@@ -2112,6 +2124,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取质检任务配置详情
+   * 
+   * @param request - GetSchemeTaskConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSchemeTaskConfigResponse
+   */
+  async getSchemeTaskConfigWithOptions(request: $_model.GetSchemeTaskConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSchemeTaskConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.jsonStr)) {
+      query["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSchemeTaskConfig",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSchemeTaskConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetSchemeTaskConfigResponse({}));
+  }
+
+  /**
+   * 获取质检任务配置详情
+   * 
+   * @param request - GetSchemeTaskConfigRequest
+   * @returns GetSchemeTaskConfigResponse
+   */
+  async getSchemeTaskConfig(request: $_model.GetSchemeTaskConfigRequest): Promise<$_model.GetSchemeTaskConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSchemeTaskConfigWithOptions(request, runtime);
+  }
+
+  /**
    * @deprecated OpenAPI GetScoreInfo is deprecated
    * 
    * @param request - GetScoreInfoRequest
@@ -2160,10 +2218,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI GetSkillGroupConfig is deprecated
+   * 
    * @param request - GetSkillGroupConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSkillGroupConfigResponse
    */
+  // Deprecated
   async getSkillGroupConfigWithOptions(request: $_model.GetSkillGroupConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSkillGroupConfigResponse> {
     request.validate();
     let query = { };
@@ -2193,9 +2254,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI GetSkillGroupConfig is deprecated
+   * 
    * @param request - GetSkillGroupConfigRequest
    * @returns GetSkillGroupConfigResponse
    */
+  // Deprecated
   async getSkillGroupConfig(request: $_model.GetSkillGroupConfigRequest): Promise<$_model.GetSkillGroupConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSkillGroupConfigWithOptions(request, runtime);
@@ -2862,10 +2926,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI ListSkillGroupConfig is deprecated
+   * 
    * @param request - ListSkillGroupConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSkillGroupConfigResponse
    */
+  // Deprecated
   async listSkillGroupConfigWithOptions(request: $_model.ListSkillGroupConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSkillGroupConfigResponse> {
     request.validate();
     let query = { };
@@ -2895,9 +2962,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI ListSkillGroupConfig is deprecated
+   * 
    * @param request - ListSkillGroupConfigRequest
    * @returns ListSkillGroupConfigResponse
    */
+  // Deprecated
   async listSkillGroupConfig(request: $_model.ListSkillGroupConfigRequest): Promise<$_model.ListSkillGroupConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listSkillGroupConfigWithOptions(request, runtime);
@@ -3916,10 +3986,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI UpdateSkillGroupConfig is deprecated
+   * 
    * @param request - UpdateSkillGroupConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSkillGroupConfigResponse
    */
+  // Deprecated
   async updateSkillGroupConfigWithOptions(request: $_model.UpdateSkillGroupConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSkillGroupConfigResponse> {
     request.validate();
     let query = { };
@@ -3949,9 +4022,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI UpdateSkillGroupConfig is deprecated
+   * 
    * @param request - UpdateSkillGroupConfigRequest
    * @returns UpdateSkillGroupConfigResponse
    */
+  // Deprecated
   async updateSkillGroupConfig(request: $_model.UpdateSkillGroupConfigRequest): Promise<$_model.UpdateSkillGroupConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSkillGroupConfigWithOptions(request, runtime);
