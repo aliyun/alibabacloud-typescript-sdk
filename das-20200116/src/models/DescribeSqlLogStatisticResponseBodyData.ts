@@ -51,6 +51,7 @@ export class DescribeSqlLogStatisticResponseBodyData extends $dara.Model {
    * 1712568564928
    */
   timestamp?: number;
+  totalSqlSize?: number;
   static names(): { [key: string]: string } {
     return {
       coldSqlSize: 'ColdSqlSize',
@@ -59,6 +60,7 @@ export class DescribeSqlLogStatisticResponseBodyData extends $dara.Model {
       hotSqlSize: 'HotSqlSize',
       importSqlSize: 'ImportSqlSize',
       timestamp: 'Timestamp',
+      totalSqlSize: 'TotalSqlSize',
     };
   }
 
@@ -70,6 +72,7 @@ export class DescribeSqlLogStatisticResponseBodyData extends $dara.Model {
       hotSqlSize: 'number',
       importSqlSize: 'number',
       timestamp: 'number',
+      totalSqlSize: 'number',
     };
   }
 

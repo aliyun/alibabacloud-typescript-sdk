@@ -54,6 +54,7 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
    * The filter parameters.
    */
   filters?: DescribeSqlLogTasksResponseBodyDataListFilters[];
+  innerResult?: string;
   /**
    * @remarks
    * The ID of the database instance.
@@ -153,6 +154,7 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
       end: 'End',
       expire: 'Expire',
       filters: 'Filters',
+      innerResult: 'InnerResult',
       instanceId: 'InstanceId',
       logCount: 'LogCount',
       name: 'Name',
@@ -174,6 +176,7 @@ export class DescribeSqlLogTasksResponseBodyDataList extends $dara.Model {
       end: 'number',
       expire: 'boolean',
       filters: { 'type': 'array', 'itemType': DescribeSqlLogTasksResponseBodyDataListFilters },
+      innerResult: 'string',
       instanceId: 'string',
       logCount: 'number',
       name: 'string',
