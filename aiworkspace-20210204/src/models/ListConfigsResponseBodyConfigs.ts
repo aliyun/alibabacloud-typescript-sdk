@@ -26,6 +26,8 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
    * oss://***
    */
   configValue?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
   /**
    * @remarks
    * The tags of the configuration item.
@@ -35,6 +37,8 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
     return {
       configKey: 'ConfigKey',
       configValue: 'ConfigValue',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
       labels: 'Labels',
     };
   }
@@ -43,6 +47,8 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
     return {
       configKey: 'string',
       configValue: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
       labels: { 'type': 'array', 'itemType': ListConfigsResponseBodyConfigsLabels },
     };
   }

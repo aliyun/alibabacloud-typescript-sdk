@@ -41,6 +41,8 @@ export class GetConfigResponseBody extends $dara.Model {
    * oss://***
    */
   configValue?: string;
+  gmtCreateTime?: string;
+  gmtModifiedTime?: string;
   /**
    * @remarks
    * The tags of the configuration item.
@@ -67,6 +69,8 @@ export class GetConfigResponseBody extends $dara.Model {
       categoryName: 'CategoryName',
       configKey: 'ConfigKey',
       configValue: 'ConfigValue',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
       labels: 'Labels',
       requestId: 'RequestId',
       workspaceId: 'WorkspaceId',
@@ -78,6 +82,8 @@ export class GetConfigResponseBody extends $dara.Model {
       categoryName: 'string',
       configKey: 'string',
       configValue: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
       labels: { 'type': 'array', 'itemType': GetConfigResponseBodyLabels },
       requestId: 'string',
       workspaceId: 'string',
