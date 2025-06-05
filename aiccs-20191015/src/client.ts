@@ -6752,6 +6752,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询通话详情信息
+   * 
+   * @param request - QueryConversationDetailInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryConversationDetailInfoResponse
+   */
+  async queryConversationDetailInfoWithOptions(request: $_model.QueryConversationDetailInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryConversationDetailInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.batchId)) {
+      query["BatchId"] = request.batchId;
+    }
+
+    if (!$dara.isNull(request.detailId)) {
+      query["DetailId"] = request.detailId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryConversationDetailInfo",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryConversationDetailInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryConversationDetailInfoResponse({}));
+  }
+
+  /**
+   * 查询通话详情信息
+   * 
+   * @param request - QueryConversationDetailInfoRequest
+   * @returns QueryConversationDetailInfoResponse
+   */
+  async queryConversationDetailInfo(request: $_model.QueryConversationDetailInfoRequest): Promise<$_model.QueryConversationDetailInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryConversationDetailInfoWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - QueryHotlineInQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryHotlineInQueueResponse
