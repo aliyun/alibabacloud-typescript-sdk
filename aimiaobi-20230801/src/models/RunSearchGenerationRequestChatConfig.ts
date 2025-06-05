@@ -4,6 +4,7 @@ import { RunSearchGenerationRequestChatConfigSearchParam } from "./RunSearchGene
 
 
 export class RunSearchGenerationRequestChatConfig extends $dara.Model {
+  enableThinking?: boolean;
   /**
    * @example
    * concise
@@ -18,6 +19,7 @@ export class RunSearchGenerationRequestChatConfig extends $dara.Model {
   searchParam?: RunSearchGenerationRequestChatConfigSearchParam;
   static names(): { [key: string]: string } {
     return {
+      enableThinking: 'EnableThinking',
       generateLevel: 'GenerateLevel',
       generateTechnology: 'GenerateTechnology',
       searchModels: 'SearchModels',
@@ -27,6 +29,7 @@ export class RunSearchGenerationRequestChatConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableThinking: 'boolean',
       generateLevel: 'string',
       generateTechnology: 'string',
       searchModels: { 'type': 'array', 'itemType': 'string' },

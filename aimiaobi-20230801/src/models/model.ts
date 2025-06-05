@@ -91,6 +91,8 @@ export { GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamplesArticl
 export { GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamples } from './GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamples';
 export { GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSources } from './GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSources';
 export { GetPropertiesResponseBodyDataIntelligentSearchConfig } from './GetPropertiesResponseBodyDataIntelligentSearchConfig';
+export { GetPropertiesResponseBodyDataMiaosouConfigModelInfos } from './GetPropertiesResponseBodyDataMiaosouConfigModelInfos';
+export { GetPropertiesResponseBodyDataMiaosouConfig } from './GetPropertiesResponseBodyDataMiaosouConfig';
 export { GetPropertiesResponseBodyDataSearchSourceList } from './GetPropertiesResponseBodyDataSearchSourceList';
 export { GetPropertiesResponseBodyDataSearchSources } from './GetPropertiesResponseBodyDataSearchSources';
 export { GetPropertiesResponseBodyDataUserInfo } from './GetPropertiesResponseBodyDataUserInfo';
