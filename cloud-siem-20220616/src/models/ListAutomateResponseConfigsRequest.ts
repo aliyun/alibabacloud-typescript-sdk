@@ -73,6 +73,7 @@ export class ListAutomateResponseConfigsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  responseRuleType?: string;
   /**
    * @remarks
    * The ID of the account that you switch from the management account.
@@ -127,6 +128,7 @@ export class ListAutomateResponseConfigsRequest extends $dara.Model {
       pageSize: 'PageSize',
       playbookUuid: 'PlaybookUuid',
       regionId: 'RegionId',
+      responseRuleType: 'ResponseRuleType',
       roleFor: 'RoleFor',
       roleType: 'RoleType',
       ruleName: 'RuleName',
@@ -144,6 +146,7 @@ export class ListAutomateResponseConfigsRequest extends $dara.Model {
       pageSize: 'number',
       playbookUuid: 'string',
       regionId: 'string',
+      responseRuleType: 'string',
       roleFor: 'number',
       roleType: 'number',
       ruleName: 'string',

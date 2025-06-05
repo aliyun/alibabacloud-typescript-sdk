@@ -3475,6 +3475,10 @@ export default class Client extends OpenApi {
       body["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.responseRuleType)) {
+      body["ResponseRuleType"] = request.responseRuleType;
+    }
+
     if (!$dara.isNull(request.roleFor)) {
       body["RoleFor"] = request.roleFor;
     }

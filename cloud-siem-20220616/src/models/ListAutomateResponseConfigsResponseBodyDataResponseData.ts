@@ -91,6 +91,7 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
    * 123
    */
   id?: number;
+  responseRuleType?: string;
   /**
    * @remarks
    * The name of the automated response rule.
@@ -129,6 +130,7 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       id: 'Id',
+      responseRuleType: 'ResponseRuleType',
       ruleName: 'RuleName',
       status: 'Status',
       subUserId: 'SubUserId',
@@ -146,6 +148,7 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
       gmtCreate: 'string',
       gmtModified: 'string',
       id: 'number',
+      responseRuleType: 'string',
       ruleName: 'string',
       status: 'number',
       subUserId: 'number',
