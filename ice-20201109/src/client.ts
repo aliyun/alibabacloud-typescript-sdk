@@ -2215,6 +2215,216 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建自定义实体
+   * 
+   * @param request - CreateRecognitionEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRecognitionEntityResponse
+   */
+  async createRecognitionEntityWithOptions(request: $_model.CreateRecognitionEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRecognitionEntityResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!$dara.isNull(request.entityInfo)) {
+      query["EntityInfo"] = request.entityInfo;
+    }
+
+    if (!$dara.isNull(request.entityName)) {
+      query["EntityName"] = request.entityName;
+    }
+
+    if (!$dara.isNull(request.libId)) {
+      query["LibId"] = request.libId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRecognitionEntity",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRecognitionEntityResponse>(await this.callApi(params, req, runtime), new $_model.CreateRecognitionEntityResponse({}));
+  }
+
+  /**
+   * 创建自定义实体
+   * 
+   * @param request - CreateRecognitionEntityRequest
+   * @returns CreateRecognitionEntityResponse
+   */
+  async createRecognitionEntity(request: $_model.CreateRecognitionEntityRequest): Promise<$_model.CreateRecognitionEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRecognitionEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建自定义库。
+   * 
+   * @param request - CreateRecognitionLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRecognitionLibResponse
+   */
+  async createRecognitionLibWithOptions(request: $_model.CreateRecognitionLibRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRecognitionLibResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!$dara.isNull(request.libDescription)) {
+      query["LibDescription"] = request.libDescription;
+    }
+
+    if (!$dara.isNull(request.libName)) {
+      query["LibName"] = request.libName;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRecognitionLib",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRecognitionLibResponse>(await this.callApi(params, req, runtime), new $_model.CreateRecognitionLibResponse({}));
+  }
+
+  /**
+   * 创建自定义库。
+   * 
+   * @param request - CreateRecognitionLibRequest
+   * @returns CreateRecognitionLibResponse
+   */
+  async createRecognitionLib(request: $_model.CreateRecognitionLibRequest): Promise<$_model.CreateRecognitionLibResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRecognitionLibWithOptions(request, runtime);
+  }
+
+  /**
+   * 注册自定义实体照片
+   * 
+   * @param request - CreateRecognitionSampleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRecognitionSampleResponse
+   */
+  async createRecognitionSampleWithOptions(request: $_model.CreateRecognitionSampleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRecognitionSampleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!$dara.isNull(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!$dara.isNull(request.imageUrl)) {
+      query["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!$dara.isNull(request.labelPrompt)) {
+      query["LabelPrompt"] = request.labelPrompt;
+    }
+
+    if (!$dara.isNull(request.libId)) {
+      query["LibId"] = request.libId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRecognitionSample",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRecognitionSampleResponse>(await this.callApi(params, req, runtime), new $_model.CreateRecognitionSampleResponse({}));
+  }
+
+  /**
+   * 注册自定义实体照片
+   * 
+   * @param request - CreateRecognitionSampleRequest
+   * @returns CreateRecognitionSampleResponse
+   */
+  async createRecognitionSample(request: $_model.CreateRecognitionSampleRequest): Promise<$_model.CreateRecognitionSampleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRecognitionSampleWithOptions(request, runtime);
+  }
+
+  /**
    * 创建搜索索引
    * 
    * @remarks
@@ -4392,6 +4602,204 @@ export default class Client extends OpenApi {
   async deleteProgram(request: $_model.DeleteProgramRequest): Promise<$_model.DeleteProgramResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteProgramWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除自定义库实体
+   * 
+   * @param request - DeleteRecognitionEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRecognitionEntityResponse
+   */
+  async deleteRecognitionEntityWithOptions(request: $_model.DeleteRecognitionEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRecognitionEntityResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!$dara.isNull(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!$dara.isNull(request.libId)) {
+      query["LibId"] = request.libId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRecognitionEntity",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRecognitionEntityResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRecognitionEntityResponse({}));
+  }
+
+  /**
+   * 删除自定义库实体
+   * 
+   * @param request - DeleteRecognitionEntityRequest
+   * @returns DeleteRecognitionEntityResponse
+   */
+  async deleteRecognitionEntity(request: $_model.DeleteRecognitionEntityRequest): Promise<$_model.DeleteRecognitionEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRecognitionEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除自定义库
+   * 
+   * @param request - DeleteRecognitionLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRecognitionLibResponse
+   */
+  async deleteRecognitionLibWithOptions(request: $_model.DeleteRecognitionLibRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRecognitionLibResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!$dara.isNull(request.libId)) {
+      query["LibId"] = request.libId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRecognitionLib",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRecognitionLibResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRecognitionLibResponse({}));
+  }
+
+  /**
+   * 删除自定义库
+   * 
+   * @param request - DeleteRecognitionLibRequest
+   * @returns DeleteRecognitionLibResponse
+   */
+  async deleteRecognitionLib(request: $_model.DeleteRecognitionLibRequest): Promise<$_model.DeleteRecognitionLibResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRecognitionLibWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除自定义实体照片
+   * 
+   * @param request - DeleteRecognitionSampleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRecognitionSampleResponse
+   */
+  async deleteRecognitionSampleWithOptions(request: $_model.DeleteRecognitionSampleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRecognitionSampleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!$dara.isNull(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!$dara.isNull(request.libId)) {
+      query["LibId"] = request.libId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sampleId)) {
+      query["SampleId"] = request.sampleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRecognitionSample",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRecognitionSampleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRecognitionSampleResponse({}));
+  }
+
+  /**
+   * 删除自定义实体照片
+   * 
+   * @param request - DeleteRecognitionSampleRequest
+   * @returns DeleteRecognitionSampleResponse
+   */
+  async deleteRecognitionSample(request: $_model.DeleteRecognitionSampleRequest): Promise<$_model.DeleteRecognitionSampleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRecognitionSampleWithOptions(request, runtime);
   }
 
   /**
@@ -10890,6 +11298,216 @@ export default class Client extends OpenApi {
   async listPublicMediaBasicInfos(request: $_model.ListPublicMediaBasicInfosRequest): Promise<$_model.ListPublicMediaBasicInfosResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listPublicMediaBasicInfosWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取自定义库下实体列表
+   * 
+   * @param request - ListRecognitionEntitiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRecognitionEntitiesResponse
+   */
+  async listRecognitionEntitiesWithOptions(request: $_model.ListRecognitionEntitiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRecognitionEntitiesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!$dara.isNull(request.libId)) {
+      query["LibId"] = request.libId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRecognitionEntities",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRecognitionEntitiesResponse>(await this.callApi(params, req, runtime), new $_model.ListRecognitionEntitiesResponse({}));
+  }
+
+  /**
+   * 获取自定义库下实体列表
+   * 
+   * @param request - ListRecognitionEntitiesRequest
+   * @returns ListRecognitionEntitiesResponse
+   */
+  async listRecognitionEntities(request: $_model.ListRecognitionEntitiesRequest): Promise<$_model.ListRecognitionEntitiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRecognitionEntitiesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取自定义库列表
+   * 
+   * @param request - ListRecognitionLibsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRecognitionLibsResponse
+   */
+  async listRecognitionLibsWithOptions(request: $_model.ListRecognitionLibsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRecognitionLibsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRecognitionLibs",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRecognitionLibsResponse>(await this.callApi(params, req, runtime), new $_model.ListRecognitionLibsResponse({}));
+  }
+
+  /**
+   * 获取自定义库列表
+   * 
+   * @param request - ListRecognitionLibsRequest
+   * @returns ListRecognitionLibsResponse
+   */
+  async listRecognitionLibs(request: $_model.ListRecognitionLibsRequest): Promise<$_model.ListRecognitionLibsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRecognitionLibsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取自定义库实体的图片列表
+   * 
+   * @param request - ListRecognitionSamplesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRecognitionSamplesResponse
+   */
+  async listRecognitionSamplesWithOptions(request: $_model.ListRecognitionSamplesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRecognitionSamplesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
+    if (!$dara.isNull(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!$dara.isNull(request.libId)) {
+      query["LibId"] = request.libId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRecognitionSamples",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRecognitionSamplesResponse>(await this.callApi(params, req, runtime), new $_model.ListRecognitionSamplesResponse({}));
+  }
+
+  /**
+   * 获取自定义库实体的图片列表
+   * 
+   * @param request - ListRecognitionSamplesRequest
+   * @returns ListRecognitionSamplesResponse
+   */
+  async listRecognitionSamples(request: $_model.ListRecognitionSamplesRequest): Promise<$_model.ListRecognitionSamplesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRecognitionSamplesWithOptions(request, runtime);
   }
 
   /**
