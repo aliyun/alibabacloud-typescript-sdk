@@ -120,6 +120,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * {\\"foo\\": \\"bar\\"}
    */
   labels?: CreateInstanceRequestLabels[];
+  oversoldType?: string;
   /**
    * @remarks
    * The priority based on which resources are allocated to instances. Valid values: 1 to 9.
@@ -209,6 +210,7 @@ export class CreateInstanceRequest extends $dara.Model {
       imageUrl: 'ImageUrl',
       instanceName: 'InstanceName',
       labels: 'Labels',
+      oversoldType: 'OversoldType',
       priority: 'Priority',
       requestedResource: 'RequestedResource',
       resourceId: 'ResourceId',
@@ -236,6 +238,7 @@ export class CreateInstanceRequest extends $dara.Model {
       imageUrl: 'string',
       instanceName: 'string',
       labels: { 'type': 'array', 'itemType': CreateInstanceRequestLabels },
+      oversoldType: 'string',
       priority: 'number',
       requestedResource: CreateInstanceRequestRequestedResource,
       resourceId: 'string',

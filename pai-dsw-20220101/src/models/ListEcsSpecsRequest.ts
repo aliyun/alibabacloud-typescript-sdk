@@ -43,6 +43,7 @@ export class ListEcsSpecsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  resourceType?: string;
   /**
    * @remarks
    * The field by which the query results are sorted. Set the value to gmtCreate.
@@ -57,6 +58,7 @@ export class ListEcsSpecsRequest extends $dara.Model {
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceType: 'ResourceType',
       sortBy: 'SortBy',
     };
   }
@@ -67,6 +69,7 @@ export class ListEcsSpecsRequest extends $dara.Model {
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceType: 'string',
       sortBy: 'string',
     };
   }

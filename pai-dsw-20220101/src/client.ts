@@ -149,6 +149,10 @@ export default class Client extends OpenApi {
       body["Labels"] = request.labels;
     }
 
+    if (!$dara.isNull(request.oversoldType)) {
+      body["OversoldType"] = request.oversoldType;
+    }
+
     if (!$dara.isNull(request.priority)) {
       body["Priority"] = request.priority;
     }
@@ -1082,6 +1086,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     if (!$dara.isNull(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
@@ -1534,6 +1542,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.oversoldType)) {
+      body["OversoldType"] = request.oversoldType;
     }
 
     if (!$dara.isNull(request.priority)) {

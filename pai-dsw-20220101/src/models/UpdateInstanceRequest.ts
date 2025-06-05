@@ -145,6 +145,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * training_data
    */
   instanceName?: string;
+  oversoldType?: string;
   /**
    * @remarks
    * The priority based on which resources are allocated to instances. Valid values: 1 to 9.
@@ -216,6 +217,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       imageId: 'ImageId',
       imageUrl: 'ImageUrl',
       instanceName: 'InstanceName',
+      oversoldType: 'OversoldType',
       priority: 'Priority',
       requestedResource: 'RequestedResource',
       userId: 'UserId',
@@ -243,6 +245,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       imageId: 'string',
       imageUrl: 'string',
       instanceName: 'string',
+      oversoldType: 'string',
       priority: 'number',
       requestedResource: UpdateInstanceRequestRequestedResource,
       userId: 'string',
