@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListFunctionsRequest extends $dara.Model {
+  name?: string;
   /**
    * @remarks
    * The ID of the owner of the UDF. This parameter specifies a filter condition.
@@ -58,6 +59,7 @@ export class ListFunctionsRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      name: 'Name',
       owner: 'Owner',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -68,6 +70,7 @@ export class ListFunctionsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      name: 'string',
       owner: 'string',
       pageNumber: 'number',
       pageSize: 'number',

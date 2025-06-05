@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWorkflowDefinitionsRequest extends $dara.Model {
+  name?: string;
   /**
    * @remarks
    * The ID of the Alibaba Cloud account used by the workspace administrator. You can log on to the Alibaba Cloud Management Console and view the ID on the Security Settings page.
@@ -54,6 +55,7 @@ export class ListWorkflowDefinitionsRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      name: 'Name',
       owner: 'Owner',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -64,6 +66,7 @@ export class ListWorkflowDefinitionsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      name: 'string',
       owner: 'string',
       pageNumber: 'number',
       pageSize: 'number',

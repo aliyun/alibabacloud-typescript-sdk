@@ -11,6 +11,7 @@ export class ListNodesRequest extends $dara.Model {
    * 860438872620113XXXX
    */
   containerId?: number;
+  name?: string;
   /**
    * @remarks
    * The page number.
@@ -80,6 +81,7 @@ export class ListNodesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       containerId: 'ContainerId',
+      name: 'Name',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       projectId: 'ProjectId',
@@ -92,6 +94,7 @@ export class ListNodesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       containerId: 'number',
+      name: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       projectId: 'number',
