@@ -1,0 +1,44 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class DescribeContainerGroupPriceResponseBodyPriceInfoPriceDetailInfosDetailInfoRulesRule extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the rule.
+   * 
+   * @example
+   * Receive a 15% discount on a 1-year subscription
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * 123456
+   */
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      ruleId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
