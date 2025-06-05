@@ -2,34 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InvokeSkillShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
-  paramsShrink?: string;
+export class AuthorizeSkillHeadersAccountContext extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * a1d033dd-xxxx-49cf-b49b-2068081bb551
+   * 012345
    */
-  skillId?: string;
-  stream?: boolean;
+  accountId?: string;
   static names(): { [key: string]: string } {
     return {
-      paramsShrink: 'Params',
-      skillId: 'SkillId',
-      stream: 'Stream',
+      accountId: 'accountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      paramsShrink: 'string',
-      skillId: 'string',
-      stream: 'boolean',
+      accountId: 'string',
     };
   }
 

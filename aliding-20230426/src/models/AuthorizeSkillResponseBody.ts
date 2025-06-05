@@ -2,34 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InvokeSkillShrinkRequest extends $dara.Model {
+export class AuthorizeSkillResponseBody extends $dara.Model {
   /**
    * @example
    * {}
    */
-  paramsShrink?: string;
+  data?: any;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * a1d033dd-xxxx-49cf-b49b-2068081bb551
+   * A348BA5D-FFD4-57E4-9450-23A14D72F331
    */
-  skillId?: string;
-  stream?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      paramsShrink: 'Params',
-      skillId: 'SkillId',
-      stream: 'Stream',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      paramsShrink: 'string',
-      skillId: 'string',
-      stream: 'boolean',
+      data: 'any',
+      requestId: 'string',
     };
   }
 
