@@ -617,6 +617,9 @@ export { ModifyAccountDescriptionResponse } from './ModifyAccountDescriptionResp
 export { ModifyBackupPolicyRequest } from './ModifyBackupPolicyRequest';
 export { ModifyBackupPolicyResponseBody } from './ModifyBackupPolicyResponseBody';
 export { ModifyBackupPolicyResponse } from './ModifyBackupPolicyResponse';
+export { ModifyCollectionRequest } from './ModifyCollectionRequest';
+export { ModifyCollectionResponseBody } from './ModifyCollectionResponseBody';
+export { ModifyCollectionResponse } from './ModifyCollectionResponse';
 export { ModifyDBInstanceConfigRequest } from './ModifyDbinstanceConfigRequest';
 export { ModifyDBInstanceConfigResponseBody } from './ModifyDbinstanceConfigResponseBody';
 export { ModifyDBInstanceConfigResponse } from './ModifyDbinstanceConfigResponse';

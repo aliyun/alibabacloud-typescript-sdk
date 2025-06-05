@@ -9825,6 +9825,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新Collection
+   * 
+   * @param request - ModifyCollectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCollectionResponse
+   */
+  async modifyCollectionWithOptions(request: $_model.ModifyCollectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCollectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.metadata)) {
+      query["Metadata"] = request.metadata;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCollection",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyCollectionResponse>(await this.callApi(params, req, runtime), new $_model.ModifyCollectionResponse({}));
+  }
+
+  /**
+   * 更新Collection
+   * 
+   * @param request - ModifyCollectionRequest
+   * @returns ModifyCollectionResponse
+   */
+  async modifyCollection(request: $_model.ModifyCollectionRequest): Promise<$_model.ModifyCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCollectionWithOptions(request, runtime);
+  }
+
+  /**
    * Changes the threshold of computing resources and the wait period of idle resources for an AnalyticDB for PostgreSQL instance in Serverless automatic scheduling mode.
    * 
    * @param request - ModifyDBInstanceConfigRequest
