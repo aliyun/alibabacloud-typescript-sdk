@@ -1,0 +1,55 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { VehicleMetaVerifyResponseBodyResultObject } from "./VehicleMetaVerifyResponseBodyResultObject";
+
+
+export class VehicleMetaVerifyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8FC3D6AC-9FED-4311-8DA7-C4BF4*****
+   */
+  requestId?: string;
+  resultObject?: VehicleMetaVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: VehicleMetaVerifyResponseBodyResultObject,
+    };
+  }
+
+  validate() {
+    if(this.resultObject && typeof (this.resultObject as any).validate === 'function') {
+      (this.resultObject as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
