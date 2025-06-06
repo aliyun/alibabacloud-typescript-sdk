@@ -40,6 +40,7 @@ export class CreateWmExtractTaskRequest extends $dara.Model {
    * test-****.pdf
    */
   filename?: string;
+  isClientEmbed?: boolean;
   /**
    * @remarks
    * The watermark parameter for videos that specifies whether to use the long video watermark SDK. Default value: false. Valid values:
@@ -98,6 +99,7 @@ export class CreateWmExtractTaskRequest extends $dara.Model {
       documentIsCapture: 'DocumentIsCapture',
       fileUrl: 'FileUrl',
       filename: 'Filename',
+      isClientEmbed: 'IsClientEmbed',
       videoIsLong: 'VideoIsLong',
       videoSpeed: 'VideoSpeed',
       wmInfoSize: 'WmInfoSize',
@@ -111,6 +113,7 @@ export class CreateWmExtractTaskRequest extends $dara.Model {
       documentIsCapture: 'boolean',
       fileUrl: 'string',
       filename: 'string',
+      isClientEmbed: 'boolean',
       videoIsLong: 'boolean',
       videoSpeed: 'string',
       wmInfoSize: 'number',

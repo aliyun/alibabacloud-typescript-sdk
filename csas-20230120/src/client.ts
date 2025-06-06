@@ -420,6 +420,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建加速对象
+   * 
+   * @param request - CreateEnterpriseAccelerateTargetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEnterpriseAccelerateTargetResponse
+   */
+  async createEnterpriseAccelerateTargetWithOptions(request: $_model.CreateEnterpriseAccelerateTargetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEnterpriseAccelerateTargetResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.eapId)) {
+      body["EapId"] = request.eapId;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.target)) {
+      bodyFlat["Target"] = request.target;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateEnterpriseAccelerateTarget",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateEnterpriseAccelerateTargetResponse>(await this.callApi(params, req, runtime), new $_model.CreateEnterpriseAccelerateTargetResponse({}));
+  }
+
+  /**
+   * 创建加速对象
+   * 
+   * @param request - CreateEnterpriseAccelerateTargetRequest
+   * @returns CreateEnterpriseAccelerateTargetResponse
+   */
+  async createEnterpriseAccelerateTarget(request: $_model.CreateEnterpriseAccelerateTargetRequest): Promise<$_model.CreateEnterpriseAccelerateTargetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createEnterpriseAccelerateTargetWithOptions(request, runtime);
+  }
+
+  /**
    * 创建自定义身份源部门
    * 
    * @param request - CreateIdpDepartmentRequest
@@ -1049,6 +1100,10 @@ export default class Client extends OpenApi {
       query["CsvControl"] = request.csvControlShrink;
     }
 
+    if (!$dara.isNull(request.isClientEmbed)) {
+      query["IsClientEmbed"] = request.isClientEmbed;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.documentIsCapture)) {
       body["DocumentIsCapture"] = request.documentIsCapture;
@@ -1286,6 +1341,99 @@ export default class Client extends OpenApi {
   async deleteDynamicRoute(request: $_model.DeleteDynamicRouteRequest): Promise<$_model.DeleteDynamicRouteResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDynamicRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除加速策略
+   * 
+   * @param request - DeleteEnterpriseAcceleratePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEnterpriseAcceleratePolicyResponse
+   */
+  async deleteEnterpriseAcceleratePolicyWithOptions(request: $_model.DeleteEnterpriseAcceleratePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEnterpriseAcceleratePolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.eapId)) {
+      body["EapId"] = request.eapId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteEnterpriseAcceleratePolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteEnterpriseAcceleratePolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEnterpriseAcceleratePolicyResponse({}));
+  }
+
+  /**
+   * 删除加速策略
+   * 
+   * @param request - DeleteEnterpriseAcceleratePolicyRequest
+   * @returns DeleteEnterpriseAcceleratePolicyResponse
+   */
+  async deleteEnterpriseAcceleratePolicy(request: $_model.DeleteEnterpriseAcceleratePolicyRequest): Promise<$_model.DeleteEnterpriseAcceleratePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteEnterpriseAcceleratePolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除加速对象
+   * 
+   * @param request - DeleteEnterpriseAccelerateTargetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEnterpriseAccelerateTargetResponse
+   */
+  async deleteEnterpriseAccelerateTargetWithOptions(request: $_model.DeleteEnterpriseAccelerateTargetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEnterpriseAccelerateTargetResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.eapId)) {
+      body["EapId"] = request.eapId;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.target)) {
+      bodyFlat["Target"] = request.target;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteEnterpriseAccelerateTarget",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteEnterpriseAccelerateTargetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEnterpriseAccelerateTargetResponse({}));
+  }
+
+  /**
+   * 删除加速对象
+   * 
+   * @param request - DeleteEnterpriseAccelerateTargetRequest
+   * @returns DeleteEnterpriseAccelerateTargetResponse
+   */
+  async deleteEnterpriseAccelerateTarget(request: $_model.DeleteEnterpriseAccelerateTargetRequest): Promise<$_model.DeleteEnterpriseAccelerateTargetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteEnterpriseAccelerateTargetWithOptions(request, runtime);
   }
 
   /**
@@ -1738,6 +1886,90 @@ export default class Client extends OpenApi {
   async detachPolicy2ApprovalProcess(request: $_model.DetachPolicy2ApprovalProcessRequest): Promise<$_model.DetachPolicy2ApprovalProcessResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.detachPolicy2ApprovalProcessWithOptions(request, runtime);
+  }
+
+  /**
+   * 禁用加速策略
+   * 
+   * @param request - DisableEnterpriseAcceleratePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableEnterpriseAcceleratePolicyResponse
+   */
+  async disableEnterpriseAcceleratePolicyWithOptions(request: $_model.DisableEnterpriseAcceleratePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableEnterpriseAcceleratePolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.eapId)) {
+      body["EapId"] = request.eapId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableEnterpriseAcceleratePolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableEnterpriseAcceleratePolicyResponse>(await this.callApi(params, req, runtime), new $_model.DisableEnterpriseAcceleratePolicyResponse({}));
+  }
+
+  /**
+   * 禁用加速策略
+   * 
+   * @param request - DisableEnterpriseAcceleratePolicyRequest
+   * @returns DisableEnterpriseAcceleratePolicyResponse
+   */
+  async disableEnterpriseAcceleratePolicy(request: $_model.DisableEnterpriseAcceleratePolicyRequest): Promise<$_model.DisableEnterpriseAcceleratePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableEnterpriseAcceleratePolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用加速策略
+   * 
+   * @param request - EnableEnterpriseAcceleratePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableEnterpriseAcceleratePolicyResponse
+   */
+  async enableEnterpriseAcceleratePolicyWithOptions(request: $_model.EnableEnterpriseAcceleratePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableEnterpriseAcceleratePolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.eapId)) {
+      body["EapId"] = request.eapId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableEnterpriseAcceleratePolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableEnterpriseAcceleratePolicyResponse>(await this.callApi(params, req, runtime), new $_model.EnableEnterpriseAcceleratePolicyResponse({}));
+  }
+
+  /**
+   * 启用加速策略
+   * 
+   * @param request - EnableEnterpriseAcceleratePolicyRequest
+   * @returns EnableEnterpriseAcceleratePolicyResponse
+   */
+  async enableEnterpriseAcceleratePolicy(request: $_model.EnableEnterpriseAcceleratePolicyRequest): Promise<$_model.EnableEnterpriseAcceleratePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableEnterpriseAcceleratePolicyWithOptions(request, runtime);
   }
 
   /**
@@ -2402,6 +2634,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量导入加速对象异步任务
+   * 
+   * @param request - ImportEnterpriseAccelerateTargetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportEnterpriseAccelerateTargetsResponse
+   */
+  async importEnterpriseAccelerateTargetsWithOptions(request: $_model.ImportEnterpriseAccelerateTargetsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportEnterpriseAccelerateTargetsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.eapId)) {
+      body["EapId"] = request.eapId;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportEnterpriseAccelerateTargets",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportEnterpriseAccelerateTargetsResponse>(await this.callApi(params, req, runtime), new $_model.ImportEnterpriseAccelerateTargetsResponse({}));
+  }
+
+  /**
+   * 批量导入加速对象异步任务
+   * 
+   * @param request - ImportEnterpriseAccelerateTargetsRequest
+   * @returns ImportEnterpriseAccelerateTargetsResponse
+   */
+  async importEnterpriseAccelerateTargets(request: $_model.ImportEnterpriseAccelerateTargetsRequest): Promise<$_model.ImportEnterpriseAccelerateTargetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.importEnterpriseAccelerateTargetsWithOptions(request, runtime);
+  }
+
+  /**
    * 批量查询内网访问策略的应用
    * 
    * @param request - ListApplicationsForPrivateAccessPolicyRequest
@@ -2744,7 +3022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询动态策略处置流程
+   * Batch Query Dynamic Policy Disposal Processes
    * 
    * @param request - ListDynamicDisposalProcessesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2771,7 +3049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询动态策略处置流程
+   * Batch Query Dynamic Policy Disposal Processes
    * 
    * @param request - ListDynamicDisposalProcessesRequest
    * @returns ListDynamicDisposalProcessesResponse
@@ -2849,6 +3127,120 @@ export default class Client extends OpenApi {
   async listDynamicRoutes(request: $_model.ListDynamicRoutesRequest): Promise<$_model.ListDynamicRoutesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDynamicRoutesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询加速策略日志列表
+   * 
+   * @param request - ListEnterpriseAccelerateLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEnterpriseAccelerateLogsResponse
+   */
+  async listEnterpriseAccelerateLogsWithOptions(request: $_model.ListEnterpriseAccelerateLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListEnterpriseAccelerateLogsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListEnterpriseAccelerateLogs",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListEnterpriseAccelerateLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListEnterpriseAccelerateLogsResponse({}));
+  }
+
+  /**
+   * 查询加速策略日志列表
+   * 
+   * @param request - ListEnterpriseAccelerateLogsRequest
+   * @returns ListEnterpriseAccelerateLogsResponse
+   */
+  async listEnterpriseAccelerateLogs(request: $_model.ListEnterpriseAccelerateLogsRequest): Promise<$_model.ListEnterpriseAccelerateLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listEnterpriseAccelerateLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询加速策略列表
+   * 
+   * @param request - ListEnterpriseAcceleratePoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEnterpriseAcceleratePoliciesResponse
+   */
+  async listEnterpriseAcceleratePoliciesWithOptions(request: $_model.ListEnterpriseAcceleratePoliciesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListEnterpriseAcceleratePoliciesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListEnterpriseAcceleratePolicies",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListEnterpriseAcceleratePoliciesResponse>(await this.callApi(params, req, runtime), new $_model.ListEnterpriseAcceleratePoliciesResponse({}));
+  }
+
+  /**
+   * 查询加速策略列表
+   * 
+   * @param request - ListEnterpriseAcceleratePoliciesRequest
+   * @returns ListEnterpriseAcceleratePoliciesResponse
+   */
+  async listEnterpriseAcceleratePolicies(request: $_model.ListEnterpriseAcceleratePoliciesRequest): Promise<$_model.ListEnterpriseAcceleratePoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listEnterpriseAcceleratePoliciesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询加速对象列表
+   * 
+   * @param request - ListEnterpriseAccelerateTargetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEnterpriseAccelerateTargetsResponse
+   */
+  async listEnterpriseAccelerateTargetsWithOptions(request: $_model.ListEnterpriseAccelerateTargetsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListEnterpriseAccelerateTargetsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListEnterpriseAccelerateTargets",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListEnterpriseAccelerateTargetsResponse>(await this.callApi(params, req, runtime), new $_model.ListEnterpriseAccelerateTargetsResponse({}));
+  }
+
+  /**
+   * 查询加速对象列表
+   * 
+   * @param request - ListEnterpriseAccelerateTargetsRequest
+   * @returns ListEnterpriseAccelerateTargetsResponse
+   */
+  async listEnterpriseAccelerateTargets(request: $_model.ListEnterpriseAccelerateTargetsRequest): Promise<$_model.ListEnterpriseAccelerateTargetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listEnterpriseAccelerateTargetsWithOptions(request, runtime);
   }
 
   /**
@@ -3907,6 +4299,88 @@ export default class Client extends OpenApi {
   async lookupWmInfoMapping(request: $_model.LookupWmInfoMappingRequest): Promise<$_model.LookupWmInfoMappingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.lookupWmInfoMappingWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改加速策略
+   * 
+   * @param request - ModifyEnterpriseAcceleratePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyEnterpriseAcceleratePolicyResponse
+   */
+  async modifyEnterpriseAcceleratePolicyWithOptions(request: $_model.ModifyEnterpriseAcceleratePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyEnterpriseAcceleratePolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accelerationType)) {
+      body["AccelerationType"] = request.accelerationType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.eapId)) {
+      body["EapId"] = request.eapId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.onTls)) {
+      body["OnTls"] = request.onTls;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.showInClient)) {
+      body["ShowInClient"] = request.showInClient;
+    }
+
+    if (!$dara.isNull(request.upstreamHost)) {
+      body["UpstreamHost"] = request.upstreamHost;
+    }
+
+    if (!$dara.isNull(request.upstreamPort)) {
+      body["UpstreamPort"] = request.upstreamPort;
+    }
+
+    if (!$dara.isNull(request.upstreamType)) {
+      body["UpstreamType"] = request.upstreamType;
+    }
+
+    if (!$dara.isNull(request.userAttributeGroup)) {
+      body["UserAttributeGroup"] = request.userAttributeGroup;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyEnterpriseAcceleratePolicy",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyEnterpriseAcceleratePolicyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyEnterpriseAcceleratePolicyResponse({}));
+  }
+
+  /**
+   * 修改加速策略
+   * 
+   * @param request - ModifyEnterpriseAcceleratePolicyRequest
+   * @returns ModifyEnterpriseAcceleratePolicyResponse
+   */
+  async modifyEnterpriseAcceleratePolicy(request: $_model.ModifyEnterpriseAcceleratePolicyRequest): Promise<$_model.ModifyEnterpriseAcceleratePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyEnterpriseAcceleratePolicyWithOptions(request, runtime);
   }
 
   /**

@@ -15,6 +15,7 @@ export class DisposalContent extends $dara.Model {
    */
   alertTitle?: string;
   alertTitleEn?: string;
+  nacDemotionPolicyIds?: string[];
   noticeContent?: string;
   noticeContentEn?: string;
   /**
@@ -32,6 +33,7 @@ export class DisposalContent extends $dara.Model {
       alertContentEn: 'AlertContentEn',
       alertTitle: 'AlertTitle',
       alertTitleEn: 'AlertTitleEn',
+      nacDemotionPolicyIds: 'NacDemotionPolicyIds',
       noticeContent: 'NoticeContent',
       noticeContentEn: 'NoticeContentEn',
       notifyActions: 'NotifyActions',
@@ -45,6 +47,7 @@ export class DisposalContent extends $dara.Model {
       alertContentEn: 'string',
       alertTitle: 'string',
       alertTitleEn: 'string',
+      nacDemotionPolicyIds: { 'type': 'array', 'itemType': 'string' },
       noticeContent: 'string',
       noticeContentEn: 'string',
       notifyActions: { 'type': 'array', 'itemType': 'string' },
@@ -53,6 +56,9 @@ export class DisposalContent extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.nacDemotionPolicyIds)) {
+      $dara.Model.validateArray(this.nacDemotionPolicyIds);
+    }
     if(Array.isArray(this.notifyActions)) {
       $dara.Model.validateArray(this.notifyActions);
     }

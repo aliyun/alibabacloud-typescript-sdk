@@ -4,13 +4,23 @@ import { ListDynamicDisposalProcessesResponseBodyDisposalProcesses } from "./Lis
 
 
 export class ListDynamicDisposalProcessesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of disposal processes.
+   */
   disposalProcesses?: ListDynamicDisposalProcessesResponseBodyDisposalProcesses[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BE4FB974-11BC-5453-9BE1-1606A73EACA6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of dynamic disposal processes.
+   * 
    * @example
    * 1
    */
