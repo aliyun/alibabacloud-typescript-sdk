@@ -4,6 +4,7 @@ import { Backend } from "./Backend";
 import { HttpRouteDomainInfos } from "./HttpRouteDomainInfos";
 import { HttpRouteEnvironmentInfo } from "./HttpRouteEnvironmentInfo";
 import { HttpRouteMatch } from "./HttpRouteMatch";
+import { HttpRouteMcpServerInfo } from "./HttpRouteMcpServerInfo";
 
 
 export class HttpRoute extends $dara.Model {
@@ -15,6 +16,7 @@ export class HttpRoute extends $dara.Model {
   environmentInfo?: HttpRouteEnvironmentInfo;
   gatewayStatus?: { [key: string]: string };
   match?: HttpRouteMatch;
+  mcpServerInfo?: HttpRouteMcpServerInfo;
   name?: string;
   routeId?: string;
   updateTimestamp?: number;
@@ -28,6 +30,7 @@ export class HttpRoute extends $dara.Model {
       environmentInfo: 'environmentInfo',
       gatewayStatus: 'gatewayStatus',
       match: 'match',
+      mcpServerInfo: 'mcpServerInfo',
       name: 'name',
       routeId: 'routeId',
       updateTimestamp: 'updateTimestamp',
@@ -44,6 +47,7 @@ export class HttpRoute extends $dara.Model {
       environmentInfo: HttpRouteEnvironmentInfo,
       gatewayStatus: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       match: HttpRouteMatch,
+      mcpServerInfo: HttpRouteMcpServerInfo,
       name: 'string',
       routeId: 'string',
       updateTimestamp: 'number',
@@ -65,6 +69,9 @@ export class HttpRoute extends $dara.Model {
     }
     if(this.match && typeof (this.match as any).validate === 'function') {
       (this.match as any).validate();
+    }
+    if(this.mcpServerInfo && typeof (this.mcpServerInfo as any).validate === 'function') {
+      (this.mcpServerInfo as any).validate();
     }
     super.validate();
   }

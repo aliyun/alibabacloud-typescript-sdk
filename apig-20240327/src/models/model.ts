@@ -41,6 +41,8 @@ export { HttpRouteDomainInfos } from './HttpRouteDomainInfos';
 export { HttpRouteEnvironmentInfoGatewayInfo } from './HttpRouteEnvironmentInfoGatewayInfo';
 export { HttpRouteEnvironmentInfoSubDomains } from './HttpRouteEnvironmentInfoSubDomains';
 export { HttpRouteEnvironmentInfo } from './HttpRouteEnvironmentInfo';
+export { HttpRouteMcpServerInfoMcpRouteConfig } from './HttpRouteMcpServerInfoMcpRouteConfig';
+export { HttpRouteMcpServerInfo } from './HttpRouteMcpServerInfo';
 export { HttpRouteMatchHeaders } from './HttpRouteMatchHeaders';
 export { HttpRouteMatchPath } from './HttpRouteMatchPath';
 export { HttpRouteMatchQueryParams } from './HttpRouteMatchQueryParams';
