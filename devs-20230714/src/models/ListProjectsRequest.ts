@@ -1,0 +1,51 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class ListProjectsRequest extends $dara.Model {
+  /**
+   * @example
+   * spring-boot
+   */
+  keyword?: string;
+  labelSelector?: string[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'keyword',
+      labelSelector: 'labelSelector',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      labelSelector: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.labelSelector)) {
+      $dara.Model.validateArray(this.labelSelector);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
