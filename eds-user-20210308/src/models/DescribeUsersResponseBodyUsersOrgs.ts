@@ -19,10 +19,12 @@ export class DescribeUsersResponseBodyUsersOrgs extends $dara.Model {
    * Organization 1
    */
   orgName?: string;
+  orgNamePath?: string;
   static names(): { [key: string]: string } {
     return {
       orgId: 'OrgId',
       orgName: 'OrgName',
+      orgNamePath: 'OrgNamePath',
     };
   }
 
@@ -30,6 +32,7 @@ export class DescribeUsersResponseBodyUsersOrgs extends $dara.Model {
     return {
       orgId: 'string',
       orgName: 'string',
+      orgNamePath: 'string',
     };
   }
 

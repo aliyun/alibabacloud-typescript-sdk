@@ -792,6 +792,10 @@ export default class Client extends OpenApi {
       query["NextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.bizType)) {
       body["BizType"] = request.bizType;

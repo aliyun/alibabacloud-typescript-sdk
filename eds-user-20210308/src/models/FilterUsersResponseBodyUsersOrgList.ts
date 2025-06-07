@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class FilterUsersResponseBodyUsersOrgList extends $dara.Model {
   orgId?: string;
   orgName?: string;
+  orgNamePath?: string;
   static names(): { [key: string]: string } {
     return {
       orgId: 'OrgId',
       orgName: 'OrgName',
+      orgNamePath: 'OrgNamePath',
     };
   }
 
@@ -16,6 +18,7 @@ export class FilterUsersResponseBodyUsersOrgList extends $dara.Model {
     return {
       orgId: 'string',
       orgName: 'string',
+      orgNamePath: 'string',
     };
   }
 

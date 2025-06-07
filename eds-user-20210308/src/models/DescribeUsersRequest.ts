@@ -63,6 +63,7 @@ export class DescribeUsersRequest extends $dara.Model {
   orgId?: string;
   showExtras?: { [key: string]: any };
   solutionId?: string;
+  status?: number;
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
@@ -78,6 +79,7 @@ export class DescribeUsersRequest extends $dara.Model {
       orgId: 'OrgId',
       showExtras: 'ShowExtras',
       solutionId: 'SolutionId',
+      status: 'Status',
     };
   }
 
@@ -96,6 +98,7 @@ export class DescribeUsersRequest extends $dara.Model {
       orgId: 'string',
       showExtras: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       solutionId: 'string',
+      status: 'number',
     };
   }
 

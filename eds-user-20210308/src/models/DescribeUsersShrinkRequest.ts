@@ -63,6 +63,7 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
   orgId?: string;
   showExtrasShrink?: string;
   solutionId?: string;
+  status?: number;
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
@@ -78,6 +79,7 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
       orgId: 'OrgId',
       showExtrasShrink: 'ShowExtras',
       solutionId: 'SolutionId',
+      status: 'Status',
     };
   }
 
@@ -96,6 +98,7 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
       orgId: 'string',
       showExtrasShrink: 'string',
       solutionId: 'string',
+      status: 'number',
     };
   }
 
