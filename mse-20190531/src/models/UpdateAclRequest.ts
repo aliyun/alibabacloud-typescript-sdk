@@ -30,11 +30,13 @@ export class UpdateAclRequest extends $dara.Model {
    * mse-cn-78v1l83****
    */
   instanceId?: string;
+  networkType?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       aclEntryList: 'AclEntryList',
       instanceId: 'InstanceId',
+      networkType: 'NetworkType',
     };
   }
 
@@ -43,6 +45,7 @@ export class UpdateAclRequest extends $dara.Model {
       acceptLanguage: 'string',
       aclEntryList: 'string',
       instanceId: 'string',
+      networkType: 'string',
     };
   }
 
