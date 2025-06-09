@@ -230,6 +230,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Associates a Network Load Balancer (NLB) instance with an application.
+   * 
+   * @param request - BindNlbRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindNlbResponse
+   */
+  async bindNlbWithOptions(request: $_model.BindNlbRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BindNlbResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.listeners)) {
+      query["Listeners"] = request.listeners;
+    }
+
+    if (!$dara.isNull(request.nlbId)) {
+      query["NlbId"] = request.nlbId;
+    }
+
+    if (!$dara.isNull(request.zoneMappings)) {
+      query["ZoneMappings"] = request.zoneMappings;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BindNlb",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/app/nlb`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BindNlbResponse>(await this.callApi(params, req, runtime), new $_model.BindNlbResponse({}));
+  }
+
+  /**
+   * Associates a Network Load Balancer (NLB) instance with an application.
+   * 
+   * @param request - BindNlbRequest
+   * @returns BindNlbResponse
+   */
+  async bindNlb(request: $_model.BindNlbRequest): Promise<$_model.BindNlbResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.bindNlbWithOptions(request, headers, runtime);
+  }
+
+  /**
    * @param request - BindSlbRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2997,6 +3058,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeApplicationInstancesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries the Network Load Balancer (NLB) instances bound to an application and their listeners.
+   * 
+   * @param request - DescribeApplicationNlbsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationNlbsResponse
+   */
+  async describeApplicationNlbsWithOptions(request: $_model.DescribeApplicationNlbsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationNlbsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApplicationNlbs",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/app/nlb`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApplicationNlbsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApplicationNlbsResponse({}));
+  }
+
+  /**
+   * Queries the Network Load Balancer (NLB) instances bound to an application and their listeners.
+   * 
+   * @param request - DescribeApplicationNlbsRequest
+   * @returns DescribeApplicationNlbsResponse
+   */
+  async describeApplicationNlbs(request: $_model.DescribeApplicationNlbsRequest): Promise<$_model.DescribeApplicationNlbsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeApplicationNlbsWithOptions(request, headers, runtime);
   }
 
   /**

@@ -53,12 +53,14 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
    * The points in time when the auto scaling policy is triggered within one day.
    */
   schedules?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesTimerSchedules[];
+  timeZone?: string;
   static names(): { [key: string]: string } {
     return {
       beginDate: 'BeginDate',
       endDate: 'EndDate',
       period: 'Period',
       schedules: 'Schedules',
+      timeZone: 'TimeZone',
     };
   }
 
@@ -68,6 +70,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
       endDate: 'string',
       period: 'string',
       schedules: { 'type': 'array', 'itemType': DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesTimerSchedules },
+      timeZone: 'string',
     };
   }
 

@@ -43,6 +43,7 @@ export { AbortAndRollbackChangeOrderResponseBodyData } from './AbortAndRollbackC
 export { AbortChangeOrderResponseBodyData } from './AbortChangeOrderResponseBodyData';
 export { BatchStartApplicationsResponseBodyData } from './BatchStartApplicationsResponseBodyData';
 export { BatchStopApplicationsResponseBodyData } from './BatchStopApplicationsResponseBodyData';
+export { BindNlbResponseBodyData } from './BindNlbResponseBodyData';
 export { BindSlbResponseBodyData } from './BindSlbResponseBodyData';
 export { ConfirmPipelineBatchResponseBodyData } from './ConfirmPipelineBatchResponseBodyData';
 export { CreateApplicationResponseBodyData } from './CreateApplicationResponseBodyData';
@@ -90,6 +91,7 @@ export { DescribeApplicationImageResponseBodyData } from './DescribeApplicationI
 export { DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus } from './DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus';
 export { DescribeApplicationInstancesResponseBodyDataInstances } from './DescribeApplicationInstancesResponseBodyDataInstances';
 export { DescribeApplicationInstancesResponseBodyData } from './DescribeApplicationInstancesResponseBodyData';
+export { DescribeApplicationNlbsResponseBodyData } from './DescribeApplicationNlbsResponseBodyData';
 export { DescribeApplicationScalingRuleResponseBodyDataMetricMetrics } from './DescribeApplicationScalingRuleResponseBodyDataMetricMetrics';
 export { DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusCurrentMetrics } from './DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusCurrentMetrics';
 export { DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusNextScaleMetrics } from './DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusNextScaleMetrics';
@@ -430,6 +432,8 @@ export { WebTLSConfig } from './WebTlsconfig';
 export { WebTrafficConfig } from './WebTrafficConfig';
 export { WebVersionStatus } from './WebVersionStatus';
 export { WebWAFConfig } from './WebWafconfig';
+export { DataInstancesValue } from './DataInstancesValue';
+export { DataInstancesValueListenersValue } from './DataInstancesValueListenersValue';
 export { AbortAndRollbackChangeOrderRequest } from './AbortAndRollbackChangeOrderRequest';
 export { AbortAndRollbackChangeOrderResponseBody } from './AbortAndRollbackChangeOrderResponseBody';
 export { AbortAndRollbackChangeOrderResponse } from './AbortAndRollbackChangeOrderResponse';
@@ -442,6 +446,9 @@ export { BatchStartApplicationsResponse } from './BatchStartApplicationsResponse
 export { BatchStopApplicationsRequest } from './BatchStopApplicationsRequest';
 export { BatchStopApplicationsResponseBody } from './BatchStopApplicationsResponseBody';
 export { BatchStopApplicationsResponse } from './BatchStopApplicationsResponse';
+export { BindNlbRequest } from './BindNlbRequest';
+export { BindNlbResponseBody } from './BindNlbResponseBody';
+export { BindNlbResponse } from './BindNlbResponse';
 export { BindSlbRequest } from './BindSlbRequest';
 export { BindSlbResponseBody } from './BindSlbResponseBody';
 export { BindSlbResponse } from './BindSlbResponse';
@@ -544,6 +551,9 @@ export { DescribeApplicationImageResponse } from './DescribeApplicationImageResp
 export { DescribeApplicationInstancesRequest } from './DescribeApplicationInstancesRequest';
 export { DescribeApplicationInstancesResponseBody } from './DescribeApplicationInstancesResponseBody';
 export { DescribeApplicationInstancesResponse } from './DescribeApplicationInstancesResponse';
+export { DescribeApplicationNlbsRequest } from './DescribeApplicationNlbsRequest';
+export { DescribeApplicationNlbsResponseBody } from './DescribeApplicationNlbsResponseBody';
+export { DescribeApplicationNlbsResponse } from './DescribeApplicationNlbsResponse';
 export { DescribeApplicationScalingRuleRequest } from './DescribeApplicationScalingRuleRequest';
 export { DescribeApplicationScalingRuleResponseBody } from './DescribeApplicationScalingRuleResponseBody';
 export { DescribeApplicationScalingRuleResponse } from './DescribeApplicationScalingRuleResponse';
