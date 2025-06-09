@@ -425,6 +425,160 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCatalogSummaryResponse
+   */
+  async getCatalogSummaryWithOptions(catalogId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCatalogSummaryResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCatalogSummary",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/storage-summary/${$dara.URL.percentEncode(catalogId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCatalogSummaryResponse>(await this.callApi(params, req, runtime), new $_model.GetCatalogSummaryResponse({}));
+  }
+
+  /**
+   * 查看表
+   * @returns GetCatalogSummaryResponse
+   */
+  async getCatalogSummary(catalogId: string): Promise<$_model.GetCatalogSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCatalogSummaryWithOptions(catalogId, headers, runtime);
+  }
+
+  /**
+   * 查看表
+   * 
+   * @param request - GetCatalogSummaryTrendRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCatalogSummaryTrendResponse
+   */
+  async getCatalogSummaryTrendWithOptions(catalogId: string, request: $_model.GetCatalogSummaryTrendRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCatalogSummaryTrendResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["startDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCatalogSummaryTrend",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/storage-summary/${$dara.URL.percentEncode(catalogId)}/trend`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCatalogSummaryTrendResponse>(await this.callApi(params, req, runtime), new $_model.GetCatalogSummaryTrendResponse({}));
+  }
+
+  /**
+   * 查看表
+   * 
+   * @param request - GetCatalogSummaryTrendRequest
+   * @returns GetCatalogSummaryTrendResponse
+   */
+  async getCatalogSummaryTrend(catalogId: string, request: $_model.GetCatalogSummaryTrendRequest): Promise<$_model.GetCatalogSummaryTrendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCatalogSummaryTrendWithOptions(catalogId, request, headers, runtime);
+  }
+
+  /**
+   * 获取数据湖Catalog的临时访问凭证
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCatalogTokenResponse
+   */
+  async getCatalogTokenWithOptions(catalog: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCatalogTokenResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCatalogToken",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/catalogs/${$dara.URL.percentEncode(catalog)}/token`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCatalogTokenResponse>(await this.callApi(params, req, runtime), new $_model.GetCatalogTokenResponse({}));
+  }
+
+  /**
+   * 获取数据湖Catalog的临时访问凭证
+   * @returns GetCatalogTokenResponse
+   */
+  async getCatalogToken(catalog: string): Promise<$_model.GetCatalogTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCatalogTokenWithOptions(catalog, headers, runtime);
+  }
+
+  /**
+   * 查看表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatabaseSummaryResponse
+   */
+  async getDatabaseSummaryWithOptions(catalogId: string, database: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatabaseSummaryResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDatabaseSummary",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/storage-summary/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDatabaseSummaryResponse>(await this.callApi(params, req, runtime), new $_model.GetDatabaseSummaryResponse({}));
+  }
+
+  /**
+   * 查看表
+   * @returns GetDatabaseSummaryResponse
+   */
+  async getDatabaseSummary(catalogId: string, database: string): Promise<$_model.GetDatabaseSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDatabaseSummaryWithOptions(catalogId, database, headers, runtime);
+  }
+
+  /**
    * 查询 DLF 当前地域开通状态
    * 
    * @param headers - map
@@ -502,6 +656,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRoleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查看表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableSummaryResponse
+   */
+  async getTableSummaryWithOptions(catalogId: string, database: string, table: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableSummaryResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTableSummary",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/storage-summary/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/tables/${$dara.URL.percentEncode(table)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableSummaryResponse>(await this.callApi(params, req, runtime), new $_model.GetTableSummaryResponse({}));
+  }
+
+  /**
+   * 查看表
+   * @returns GetTableSummaryResponse
+   */
+  async getTableSummary(catalogId: string, database: string, table: string): Promise<$_model.GetTableSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTableSummaryWithOptions(catalogId, database, table, headers, runtime);
   }
 
   /**
@@ -649,6 +838,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCatalogsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查看表
+   * 
+   * @param request - ListPartitionSummariesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPartitionSummariesResponse
+   */
+  async listPartitionSummariesWithOptions(catalogId: string, database: string, table: string, request: $_model.ListPartitionSummariesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPartitionSummariesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    if (!$dara.isNull(request.partitionNamePattern)) {
+      query["partitionNamePattern"] = request.partitionNamePattern;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPartitionSummaries",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/storage-summary/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/tables/${$dara.URL.percentEncode(table)}/partitions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPartitionSummariesResponse>(await this.callApi(params, req, runtime), new $_model.ListPartitionSummariesResponse({}));
+  }
+
+  /**
+   * 查看表
+   * 
+   * @param request - ListPartitionSummariesRequest
+   * @returns ListPartitionSummariesResponse
+   */
+  async listPartitionSummaries(catalogId: string, database: string, table: string, request: $_model.ListPartitionSummariesRequest): Promise<$_model.ListPartitionSummariesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPartitionSummariesWithOptions(catalogId, database, table, request, headers, runtime);
   }
 
   /**
