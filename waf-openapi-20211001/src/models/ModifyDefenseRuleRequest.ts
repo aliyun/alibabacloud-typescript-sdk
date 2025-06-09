@@ -36,6 +36,7 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resource?: string;
   /**
    * @remarks
    * The ID of the Alibaba Cloud resource group.
@@ -62,6 +63,7 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
       defenseScene: 'DefenseScene',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
+      resource: 'Resource',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       rules: 'Rules',
       templateId: 'TemplateId',
@@ -73,6 +75,7 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
       defenseScene: 'string',
       instanceId: 'string',
       regionId: 'string',
+      resource: 'string',
       resourceManagerResourceGroupId: 'string',
       rules: 'string',
       templateId: 'number',

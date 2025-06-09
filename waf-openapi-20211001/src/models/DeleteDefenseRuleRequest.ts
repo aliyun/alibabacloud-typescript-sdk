@@ -26,6 +26,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resource?: string;
   /**
    * @remarks
    * The ID of the resource group.
@@ -56,6 +57,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
     return {
       instanceId: 'InstanceId',
       regionId: 'RegionId',
+      resource: 'Resource',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       ruleIds: 'RuleIds',
       templateId: 'TemplateId',
@@ -66,6 +68,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
     return {
       instanceId: 'string',
       regionId: 'string',
+      resource: 'string',
       resourceManagerResourceGroupId: 'string',
       ruleIds: 'string',
       templateId: 'number',

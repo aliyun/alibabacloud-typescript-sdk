@@ -38,6 +38,7 @@ export class DescribeDefenseRuleResponseBodyRule extends $dara.Model {
    * 1665196746000
    */
   gmtModified?: number;
+  resource?: string;
   /**
    * @remarks
    * The ID of the protection rule.
@@ -79,6 +80,7 @@ export class DescribeDefenseRuleResponseBodyRule extends $dara.Model {
       defenseOrigin: 'DefenseOrigin',
       defenseScene: 'DefenseScene',
       gmtModified: 'GmtModified',
+      resource: 'Resource',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
       status: 'Status',
@@ -92,6 +94,7 @@ export class DescribeDefenseRuleResponseBodyRule extends $dara.Model {
       defenseOrigin: 'string',
       defenseScene: 'string',
       gmtModified: 'number',
+      resource: 'string',
       ruleId: 'number',
       ruleName: 'string',
       status: 'number',

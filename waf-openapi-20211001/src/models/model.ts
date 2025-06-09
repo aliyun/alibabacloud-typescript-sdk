@@ -10,6 +10,8 @@ export { CreateDomainRequestRedirect } from './CreateDomainRequestRedirect';
 export { CreateDomainRequestTag } from './CreateDomainRequestTag';
 export { CreateDomainShrinkRequestTag } from './CreateDomainShrinkRequestTag';
 export { CreateDomainResponseBodyDomainInfo } from './CreateDomainResponseBodyDomainInfo';
+export { DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResourcesDetails } from './DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResourcesDetails';
+export { DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResources } from './DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResources';
 export { DescribeApiExportsResponseBodyApiExports } from './DescribeApiExportsResponseBodyApiExports';
 export { DescribeApisecAbnormalDomainStatisticResponseBodyData } from './DescribeApisecAbnormalDomainStatisticResponseBodyData';
 export { DescribeApisecAbnormalsResponseBodyData } from './DescribeApisecAbnormalsResponseBodyData';
@@ -232,6 +234,9 @@ export { DeleteMajorProtectionBlackIpResponse } from './DeleteMajorProtectionBla
 export { DeleteMemberAccountRequest } from './DeleteMemberAccountRequest';
 export { DeleteMemberAccountResponseBody } from './DeleteMemberAccountResponseBody';
 export { DeleteMemberAccountResponse } from './DeleteMemberAccountResponse';
+export { DescribeAbnormalCloudResourcesRequest } from './DescribeAbnormalCloudResourcesRequest';
+export { DescribeAbnormalCloudResourcesResponseBody } from './DescribeAbnormalCloudResourcesResponseBody';
+export { DescribeAbnormalCloudResourcesResponse } from './DescribeAbnormalCloudResourcesResponse';
 export { DescribeAccountDelegatedStatusRequest } from './DescribeAccountDelegatedStatusRequest';
 export { DescribeAccountDelegatedStatusResponseBody } from './DescribeAccountDelegatedStatusResponseBody';
 export { DescribeAccountDelegatedStatusResponse } from './DescribeAccountDelegatedStatusResponse';
@@ -653,6 +658,9 @@ export { ModifyResourceLogStatusResponse } from './ModifyResourceLogStatusRespon
 export { ModifyTemplateResourcesRequest } from './ModifyTemplateResourcesRequest';
 export { ModifyTemplateResourcesResponseBody } from './ModifyTemplateResourcesResponseBody';
 export { ModifyTemplateResourcesResponse } from './ModifyTemplateResourcesResponse';
+export { ReCreateCloudResourceRequest } from './ReCreateCloudResourceRequest';
+export { ReCreateCloudResourceResponseBody } from './ReCreateCloudResourceResponseBody';
+export { ReCreateCloudResourceResponse } from './ReCreateCloudResourceResponse';
 export { ReleaseInstanceRequest } from './ReleaseInstanceRequest';
 export { ReleaseInstanceResponseBody } from './ReleaseInstanceResponseBody';
 export { ReleaseInstanceResponse } from './ReleaseInstanceResponse';

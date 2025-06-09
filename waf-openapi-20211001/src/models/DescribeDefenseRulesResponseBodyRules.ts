@@ -57,6 +57,7 @@ export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
    * 1665460629000
    */
   gmtModified?: number;
+  resource?: string;
   /**
    * @remarks
    * The ID of the protection rule.
@@ -104,6 +105,7 @@ export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
       externalInfo: 'ExternalInfo',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      resource: 'Resource',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
       ruleType: 'RuleType',
@@ -123,6 +125,7 @@ export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
       externalInfo: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
+      resource: 'string',
       ruleId: 'number',
       ruleName: 'string',
       ruleType: 'string',

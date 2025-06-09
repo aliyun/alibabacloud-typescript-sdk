@@ -455,6 +455,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
     if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
       query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
     }
@@ -1229,6 +1233,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
     if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
       query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
     }
@@ -1499,6 +1507,56 @@ export default class Client extends OpenApi {
   async deleteMemberAccount(request: $_model.DeleteMemberAccountRequest): Promise<$_model.DeleteMemberAccountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMemberAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询异常的云产品接入资源
+   * 
+   * @param request - DescribeAbnormalCloudResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAbnormalCloudResourcesResponse
+   */
+  async describeAbnormalCloudResourcesWithOptions(request: $_model.DescribeAbnormalCloudResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAbnormalCloudResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAbnormalCloudResources",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAbnormalCloudResourcesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAbnormalCloudResourcesResponse({}));
+  }
+
+  /**
+   * 查询异常的云产品接入资源
+   * 
+   * @param request - DescribeAbnormalCloudResourcesRequest
+   * @returns DescribeAbnormalCloudResourcesResponse
+   */
+  async describeAbnormalCloudResources(request: $_model.DescribeAbnormalCloudResourcesRequest): Promise<$_model.DescribeAbnormalCloudResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAbnormalCloudResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -3829,6 +3887,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resource)) {
+      query["Resource"] = request.resource;
     }
 
     if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
@@ -9157,6 +9219,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
     if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
       query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
     }
@@ -10311,6 +10377,68 @@ export default class Client extends OpenApi {
   async modifyTemplateResources(request: $_model.ModifyTemplateResourcesRequest): Promise<$_model.ModifyTemplateResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyTemplateResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 重新接入云产品
+   * 
+   * @param request - ReCreateCloudResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReCreateCloudResourceResponse
+   */
+  async reCreateCloudResourceWithOptions(request: $_model.ReCreateCloudResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReCreateCloudResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceInstanceId)) {
+      query["ResourceInstanceId"] = request.resourceInstanceId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceProduct)) {
+      query["ResourceProduct"] = request.resourceProduct;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReCreateCloudResource",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReCreateCloudResourceResponse>(await this.callApi(params, req, runtime), new $_model.ReCreateCloudResourceResponse({}));
+  }
+
+  /**
+   * 重新接入云产品
+   * 
+   * @param request - ReCreateCloudResourceRequest
+   * @returns ReCreateCloudResourceResponse
+   */
+  async reCreateCloudResource(request: $_model.ReCreateCloudResourceRequest): Promise<$_model.ReCreateCloudResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.reCreateCloudResourceWithOptions(request, runtime);
   }
 
   /**
