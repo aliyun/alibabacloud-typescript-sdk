@@ -2468,6 +2468,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建工作流实例
+   * 
    * @param tmpReq - CreateWorkflowInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateWorkflowInstancesResponse
@@ -2547,6 +2549,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建工作流实例
+   * 
    * @param request - CreateWorkflowInstancesRequest
    * @returns CreateWorkflowInstancesResponse
    */
@@ -10557,6 +10561,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates a workflow.
+   * 
    * @param request - UpdateBusinessRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateBusinessResponse
@@ -10606,6 +10612,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates a workflow.
+   * 
    * @param request - UpdateBusinessRequest
    * @returns UpdateBusinessResponse
    */

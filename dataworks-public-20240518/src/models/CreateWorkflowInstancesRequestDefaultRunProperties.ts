@@ -68,6 +68,7 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
    * 2
    */
   parallelism?: number;
+  priority?: number;
   /**
    * @remarks
    * The root task IDs.
@@ -97,6 +98,7 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
       mode: 'Mode',
       order: 'Order',
       parallelism: 'Parallelism',
+      priority: 'Priority',
       rootTaskIds: 'RootTaskIds',
       runPolicy: 'RunPolicy',
       runtimeResource: 'RuntimeResource',
@@ -114,6 +116,7 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
       mode: 'string',
       order: 'string',
       parallelism: 'number',
+      priority: 'number',
       rootTaskIds: { 'type': 'array', 'itemType': 'number' },
       runPolicy: CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy,
       runtimeResource: 'string',
