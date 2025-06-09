@@ -59,12 +59,14 @@ export class GetHotTopicBroadcastResponseBodyDataData extends $dara.Model {
    * 22
    */
   outputToken?: number;
+  pubTime?: string;
   summary?: GetHotTopicBroadcastResponseBodyDataDataSummary;
   /**
    * @example
    * 热点话题文本摘要
    */
   textSummary?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -80,8 +82,10 @@ export class GetHotTopicBroadcastResponseBodyDataData extends $dara.Model {
       locations: 'Locations',
       news: 'News',
       outputToken: 'OutputToken',
+      pubTime: 'PubTime',
       summary: 'Summary',
       textSummary: 'TextSummary',
+      url: 'Url',
     };
   }
 
@@ -100,8 +104,10 @@ export class GetHotTopicBroadcastResponseBodyDataData extends $dara.Model {
       locations: { 'type': 'array', 'itemType': 'string' },
       news: { 'type': 'array', 'itemType': GetHotTopicBroadcastResponseBodyDataDataNews },
       outputToken: 'number',
+      pubTime: 'string',
       summary: GetHotTopicBroadcastResponseBodyDataDataSummary,
       textSummary: 'string',
+      url: 'string',
     };
   }
 
