@@ -988,6 +988,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 图片要素核验获取认证结果
+   * 
+   * @param request - DescribeCardVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCardVerifyResponse
+   */
+  async describeCardVerifyWithOptions(request: $_model.DescribeCardVerifyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCardVerifyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certifyId)) {
+      query["CertifyId"] = request.certifyId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCardVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCardVerifyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCardVerifyResponse({}));
+  }
+
+  /**
+   * 图片要素核验获取认证结果
+   * 
+   * @param request - DescribeCardVerifyRequest
+   * @returns DescribeCardVerifyResponse
+   */
+  async describeCardVerify(request: $_model.DescribeCardVerifyRequest): Promise<$_model.DescribeCardVerifyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCardVerifyWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DescribeDeviceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDeviceInfoResponse
@@ -1825,6 +1867,84 @@ export default class Client extends OpenApi {
 
     let id2MetaVerifyWithOCRResp = await this.id2MetaVerifyWithOCRWithOptions(id2MetaVerifyWithOCRReq, runtime);
     return id2MetaVerifyWithOCRResp;
+  }
+
+  /**
+   * 图片核验发起认证请求
+   * 
+   * @param request - InitCardVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitCardVerifyResponse
+   */
+  async initCardVerifyWithOptions(request: $_model.InitCardVerifyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InitCardVerifyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callbackToken)) {
+      query["CallbackToken"] = request.callbackToken;
+    }
+
+    if (!$dara.isNull(request.callbackUrl)) {
+      query["CallbackUrl"] = request.callbackUrl;
+    }
+
+    if (!$dara.isNull(request.cardPageNumber)) {
+      query["CardPageNumber"] = request.cardPageNumber;
+    }
+
+    if (!$dara.isNull(request.cardType)) {
+      query["CardType"] = request.cardType;
+    }
+
+    if (!$dara.isNull(request.docScanMode)) {
+      query["DocScanMode"] = request.docScanMode;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.metaInfo)) {
+      query["MetaInfo"] = request.metaInfo;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.pictureSave)) {
+      query["PictureSave"] = request.pictureSave;
+    }
+
+    if (!$dara.isNull(request.verifyMeta)) {
+      query["VerifyMeta"] = request.verifyMeta;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InitCardVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InitCardVerifyResponse>(await this.callApi(params, req, runtime), new $_model.InitCardVerifyResponse({}));
+  }
+
+  /**
+   * 图片核验发起认证请求
+   * 
+   * @param request - InitCardVerifyRequest
+   * @returns InitCardVerifyResponse
+   */
+  async initCardVerify(request: $_model.InitCardVerifyRequest): Promise<$_model.InitCardVerifyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.initCardVerifyWithOptions(request, runtime);
   }
 
   /**
