@@ -24,6 +24,7 @@ export { CreateClusterRequestOperationPolicyClusterAutoUpgrade } from './CreateC
 export { CreateClusterRequestOperationPolicy } from './CreateClusterRequestOperationPolicy';
 export { CreateClusterRequestWorkerDataDisks } from './CreateClusterRequestWorkerDataDisks';
 export { CreateClusterNodePoolRequestAutoScaling } from './CreateClusterNodePoolRequestAutoScaling';
+export { CreateClusterNodePoolRequestEfloNodeGroup } from './CreateClusterNodePoolRequestEfloNodeGroup';
 export { CreateClusterNodePoolRequestInterconnectConfig } from './CreateClusterNodePoolRequestInterconnectConfig';
 export { CreateClusterNodePoolRequestKubernetesConfig } from './CreateClusterNodePoolRequestKubernetesConfig';
 export { CreateClusterNodePoolRequestManagementAutoRepairPolicy } from './CreateClusterNodePoolRequestManagementAutoRepairPolicy';
@@ -191,6 +192,7 @@ export { UpdateUserPermissionsRequestBody } from './UpdateUserPermissionsRequest
 export { UpgradeClusterRequestRollingPolicy } from './UpgradeClusterRequestRollingPolicy';
 export { UpgradeClusterAddonsRequestBody } from './UpgradeClusterAddonsRequestBody';
 export { UpgradeClusterNodepoolRequestRollingPolicy } from './UpgradeClusterNodepoolRequestRollingPolicy';
+export { InstanceMetadataOptions } from './InstanceMetadataOptions';
 export { Addon } from './Addon';
 export { ContainerdConfig } from './ContainerdConfig';
 export { DataDisk } from './DataDisk';

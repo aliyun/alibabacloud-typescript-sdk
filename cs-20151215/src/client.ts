@@ -1247,6 +1247,10 @@ export default class Client extends OpenApi {
       body["count"] = request.count;
     }
 
+    if (!$dara.isNull(request.efloNodeGroup)) {
+      body["eflo_node_group"] = request.efloNodeGroup;
+    }
+
     if (!$dara.isNull(request.hostNetwork)) {
       body["host_network"] = request.hostNetwork;
     }

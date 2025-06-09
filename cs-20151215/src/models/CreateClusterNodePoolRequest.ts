@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { CreateClusterNodePoolRequestAutoScaling } from "./CreateClusterNodePoolRequestAutoScaling";
+import { CreateClusterNodePoolRequestEfloNodeGroup } from "./CreateClusterNodePoolRequestEfloNodeGroup";
 import { CreateClusterNodePoolRequestInterconnectConfig } from "./CreateClusterNodePoolRequestInterconnectConfig";
 import { CreateClusterNodePoolRequestKubernetesConfig } from "./CreateClusterNodePoolRequestKubernetesConfig";
 import { CreateClusterNodePoolRequestManagement } from "./CreateClusterNodePoolRequestManagement";
@@ -28,6 +29,7 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
    * @deprecated
    */
   count?: number;
+  efloNodeGroup?: CreateClusterNodePoolRequestEfloNodeGroup;
   /**
    * @remarks
    * Specifies whether to set the network type of the pod to host network.
@@ -116,6 +118,7 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
     return {
       autoScaling: 'auto_scaling',
       count: 'count',
+      efloNodeGroup: 'eflo_node_group',
       hostNetwork: 'host_network',
       interconnectConfig: 'interconnect_config',
       interconnectMode: 'interconnect_mode',
@@ -134,6 +137,7 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
     return {
       autoScaling: CreateClusterNodePoolRequestAutoScaling,
       count: 'number',
+      efloNodeGroup: CreateClusterNodePoolRequestEfloNodeGroup,
       hostNetwork: 'boolean',
       interconnectConfig: CreateClusterNodePoolRequestInterconnectConfig,
       interconnectMode: 'string',
@@ -151,6 +155,9 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
   validate() {
     if(this.autoScaling && typeof (this.autoScaling as any).validate === 'function') {
       (this.autoScaling as any).validate();
+    }
+    if(this.efloNodeGroup && typeof (this.efloNodeGroup as any).validate === 'function') {
+      (this.efloNodeGroup as any).validate();
     }
     if(this.interconnectConfig && typeof (this.interconnectConfig as any).validate === 'function') {
       (this.interconnectConfig as any).validate();
