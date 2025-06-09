@@ -3,13 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentInstanceConfigsRequest extends $dara.Model {
-  attributes?: string;
   configType?: string;
   offset?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
-      attributes: 'attributes',
       configType: 'configType',
       offset: 'offset',
       size: 'size',
@@ -18,7 +16,6 @@ export class ListAgentInstanceConfigsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      attributes: 'string',
       configType: 'string',
       offset: 'number',
       size: 'number',

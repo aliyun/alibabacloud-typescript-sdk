@@ -33,7 +33,7 @@ export class ListDownloadJobsResponseBodyResults extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * 任务执行细节
+   * The execution details.
    */
   executionDetails?: ListDownloadJobsResponseBodyResultsExecutionDetails;
   /**

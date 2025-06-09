@@ -3,11 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteAgentInstanceConfigRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  attributes?: string;
+  attributes?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
       attributes: 'attributes',
@@ -16,11 +12,14 @@ export class DeleteAgentInstanceConfigRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      attributes: 'string',
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
 
   validate() {
+    if(this.attributes) {
+      $dara.Model.validateMap(this.attributes);
+    }
     super.validate();
   }
 

@@ -11,7 +11,7 @@ export class ListDownloadJobsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The log download tasks.
+   * Array, to return a list of log download tasks.
    */
   results?: ListDownloadJobsResponseBodyResults[];
   /**

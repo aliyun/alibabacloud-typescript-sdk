@@ -1,13 +1,10 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AgentInstanceConfigGrayConfigs } from "./AgentInstanceConfigGrayConfigs";
 
 
 export class CreateAgentInstanceConfigRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  attributes?: string;
+  attributes?: { [key: string]: string };
   /**
    * @remarks
    * This parameter is required.
@@ -18,7 +15,7 @@ export class CreateAgentInstanceConfigRequest extends $dara.Model {
    * This parameter is required.
    */
   configType?: string;
-  grayConfigs?: string;
+  grayConfigs?: AgentInstanceConfigGrayConfigs[];
   static names(): { [key: string]: string } {
     return {
       attributes: 'attributes',
@@ -30,14 +27,20 @@ export class CreateAgentInstanceConfigRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      attributes: 'string',
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       config: 'string',
       configType: 'string',
-      grayConfigs: 'string',
+      grayConfigs: { 'type': 'array', 'itemType': AgentInstanceConfigGrayConfigs },
     };
   }
 
   validate() {
+    if(this.attributes) {
+      $dara.Model.validateMap(this.attributes);
+    }
+    if(Array.isArray(this.grayConfigs)) {
+      $dara.Model.validateArray(this.grayConfigs);
+    }
     super.validate();
   }
 

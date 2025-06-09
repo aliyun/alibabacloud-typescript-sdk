@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetAgentInstanceConfigRequest extends $dara.Model {
-  attributes?: { [key: string]: string };
+export class AgentInstanceConfigGrayConfigs extends $dara.Model {
+  condition?: string;
+  content?: string;
   static names(): { [key: string]: string } {
     return {
-      attributes: 'attributes',
+      condition: 'condition',
+      content: 'content',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      condition: 'string',
+      content: 'string',
     };
   }
 
   validate() {
-    if(this.attributes) {
-      $dara.Model.validateMap(this.attributes);
-    }
     super.validate();
   }
 

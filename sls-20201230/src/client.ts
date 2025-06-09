@@ -2024,16 +2024,22 @@ export default class Client extends OpenApi {
   /**
    * DeleteAgentInstanceConfig
    * 
-   * @param request - DeleteAgentInstanceConfigRequest
+   * @param tmpReq - DeleteAgentInstanceConfigRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAgentInstanceConfigResponse
    */
-  async deleteAgentInstanceConfigWithOptions(configType: string, request: $_model.DeleteAgentInstanceConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentInstanceConfigResponse> {
-    request.validate();
+  async deleteAgentInstanceConfigWithOptions(configType: string, tmpReq: $_model.DeleteAgentInstanceConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentInstanceConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteAgentInstanceConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.attributes)) {
+      request.attributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attributes, "attributes", "json");
+    }
+
     let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.attributes)) {
-      query["attributes"] = request.attributes;
+    if (!$dara.isNull(request.attributesShrink)) {
+      query["attributes"] = request.attributesShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3512,16 +3518,22 @@ export default class Client extends OpenApi {
   /**
    * GetAgentInstanceConfig
    * 
-   * @param request - GetAgentInstanceConfigRequest
+   * @param tmpReq - GetAgentInstanceConfigRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAgentInstanceConfigResponse
    */
-  async getAgentInstanceConfigWithOptions(configType: string, request: $_model.GetAgentInstanceConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentInstanceConfigResponse> {
-    request.validate();
+  async getAgentInstanceConfigWithOptions(configType: string, tmpReq: $_model.GetAgentInstanceConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentInstanceConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetAgentInstanceConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.attributes)) {
+      request.attributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attributes, "attributes", "json");
+    }
+
     let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.attributes)) {
-      query["attributes"] = request.attributes;
+    if (!$dara.isNull(request.attributesShrink)) {
+      query["attributes"] = request.attributesShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -5677,10 +5689,6 @@ export default class Client extends OpenApi {
   async listAgentInstanceConfigsWithOptions(request: $_model.ListAgentInstanceConfigsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentInstanceConfigsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.attributes)) {
-      query["attributes"] = request.attributes;
-    }
-
     if (!$dara.isNull(request.configType)) {
       query["configType"] = request.configType;
     }
@@ -6321,7 +6329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举下载任务
+   * Queries a list of log download tasks in a project.
    * 
    * @param request - ListDownloadJobsRequest
    * @param headers - map
@@ -6365,7 +6373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举下载任务
+   * Queries a list of log download tasks in a project.
    * 
    * @param request - ListDownloadJobsRequest
    * @returns ListDownloadJobsResponse
@@ -8693,16 +8701,22 @@ export default class Client extends OpenApi {
   /**
    * UpdateAgentInstanceConfig
    * 
-   * @param request - UpdateAgentInstanceConfigRequest
+   * @param tmpReq - UpdateAgentInstanceConfigRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAgentInstanceConfigResponse
    */
-  async updateAgentInstanceConfigWithOptions(configType: string, request: $_model.UpdateAgentInstanceConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgentInstanceConfigResponse> {
-    request.validate();
+  async updateAgentInstanceConfigWithOptions(configType: string, tmpReq: $_model.UpdateAgentInstanceConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgentInstanceConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateAgentInstanceConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.attributes)) {
+      request.attributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attributes, "attributes", "json");
+    }
+
     let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.attributes)) {
-      query["attributes"] = request.attributes;
+    if (!$dara.isNull(request.attributesShrink)) {
+      query["attributes"] = request.attributesShrink;
     }
 
     let body : {[key: string ]: any} = { };
