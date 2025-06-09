@@ -8,6 +8,7 @@ import { DynamicMount } from "./DynamicMount";
 import { CreateInstanceRequestLabels } from "./CreateInstanceRequestLabels";
 import { CreateInstanceRequestRequestedResource } from "./CreateInstanceRequestRequestedResource";
 import { CreateInstanceRequestTag } from "./CreateInstanceRequestTag";
+import { CreateInstanceRequestUserCommand } from "./CreateInstanceRequestUserCommand";
 import { CreateInstanceRequestUserVpc } from "./CreateInstanceRequestUserVpc";
 
 
@@ -153,6 +154,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * The tags.
    */
   tag?: CreateInstanceRequestTag[];
+  userCommand?: CreateInstanceRequestUserCommand;
   /**
    * @remarks
    * The ID of the instance owner. Valid values: Alibaba Cloud account and RAM user.
@@ -215,6 +217,7 @@ export class CreateInstanceRequest extends $dara.Model {
       requestedResource: 'RequestedResource',
       resourceId: 'ResourceId',
       tag: 'Tag',
+      userCommand: 'UserCommand',
       userId: 'UserId',
       userVpc: 'UserVpc',
       workspaceId: 'WorkspaceId',
@@ -243,6 +246,7 @@ export class CreateInstanceRequest extends $dara.Model {
       requestedResource: CreateInstanceRequestRequestedResource,
       resourceId: 'string',
       tag: { 'type': 'array', 'itemType': CreateInstanceRequestTag },
+      userCommand: CreateInstanceRequestUserCommand,
       userId: 'string',
       userVpc: CreateInstanceRequestUserVpc,
       workspaceId: 'string',
@@ -277,6 +281,9 @@ export class CreateInstanceRequest extends $dara.Model {
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
+    }
+    if(this.userCommand && typeof (this.userCommand as any).validate === 'function') {
+      (this.userCommand as any).validate();
     }
     if(this.userVpc && typeof (this.userVpc as any).validate === 'function') {
       (this.userVpc as any).validate();

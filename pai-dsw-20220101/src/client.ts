@@ -169,6 +169,10 @@ export default class Client extends OpenApi {
       body["Tag"] = request.tag;
     }
 
+    if (!$dara.isNull(request.userCommand)) {
+      body["UserCommand"] = request.userCommand;
+    }
+
     if (!$dara.isNull(request.userId)) {
       body["UserId"] = request.userId;
     }
@@ -1508,8 +1512,16 @@ export default class Client extends OpenApi {
       body["DisassociateDriver"] = request.disassociateDriver;
     }
 
+    if (!$dara.isNull(request.disassociateEnvironmentVariables)) {
+      body["DisassociateEnvironmentVariables"] = request.disassociateEnvironmentVariables;
+    }
+
     if (!$dara.isNull(request.disassociateForwardInfos)) {
       body["DisassociateForwardInfos"] = request.disassociateForwardInfos;
+    }
+
+    if (!$dara.isNull(request.disassociateUserCommand)) {
+      body["DisassociateUserCommand"] = request.disassociateUserCommand;
     }
 
     if (!$dara.isNull(request.disassociateVpc)) {
@@ -1526,6 +1538,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ecsSpec)) {
       body["EcsSpec"] = request.ecsSpec;
+    }
+
+    if (!$dara.isNull(request.environmentVariables)) {
+      body["EnvironmentVariables"] = request.environmentVariables;
     }
 
     if (!$dara.isNull(request.imageAuth)) {
@@ -1554,6 +1570,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.requestedResource)) {
       body["RequestedResource"] = request.requestedResource;
+    }
+
+    if (!$dara.isNull(request.userCommand)) {
+      body["UserCommand"] = request.userCommand;
     }
 
     if (!$dara.isNull(request.userId)) {

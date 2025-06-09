@@ -6,6 +6,7 @@ import { CredentialConfig } from "./CredentialConfig";
 import { UpdateInstanceRequestDatasets } from "./UpdateInstanceRequestDatasets";
 import { DynamicMount } from "./DynamicMount";
 import { UpdateInstanceRequestRequestedResource } from "./UpdateInstanceRequestRequestedResource";
+import { UpdateInstanceRequestUserCommand } from "./UpdateInstanceRequestUserCommand";
 import { UpdateInstanceRequestUserVpc } from "./UpdateInstanceRequestUserVpc";
 
 
@@ -73,6 +74,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * false
    */
   disassociateDriver?: boolean;
+  disassociateEnvironmentVariables?: boolean;
   /**
    * @remarks
    * Specifies whether to delete the associated forward information.
@@ -81,6 +83,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * false
    */
   disassociateForwardInfos?: boolean;
+  disassociateUserCommand?: boolean;
   /**
    * @remarks
    * Specifies whether to delete the associated user VPC.
@@ -110,6 +113,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * ecs.c6.large
    */
   ecsSpec?: string;
+  environmentVariables?: { [key: string]: any };
   /**
    * @remarks
    * The Base64-encoded account and password for the user‘s private image. The password will be hidden.
@@ -165,6 +169,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * {"CPU":"4","Memory":"8Gi","SharedMemory":"4Gi","GPU":"1","GPUType":"Tesla-V100-16G"}
    */
   requestedResource?: UpdateInstanceRequestRequestedResource;
+  userCommand?: UpdateInstanceRequestUserCommand;
   /**
    * @remarks
    * the User ID of the instance.
@@ -208,11 +213,14 @@ export class UpdateInstanceRequest extends $dara.Model {
       disassociateCredential: 'DisassociateCredential',
       disassociateDatasets: 'DisassociateDatasets',
       disassociateDriver: 'DisassociateDriver',
+      disassociateEnvironmentVariables: 'DisassociateEnvironmentVariables',
       disassociateForwardInfos: 'DisassociateForwardInfos',
+      disassociateUserCommand: 'DisassociateUserCommand',
       disassociateVpc: 'DisassociateVpc',
       driver: 'Driver',
       dynamicMount: 'DynamicMount',
       ecsSpec: 'EcsSpec',
+      environmentVariables: 'EnvironmentVariables',
       imageAuth: 'ImageAuth',
       imageId: 'ImageId',
       imageUrl: 'ImageUrl',
@@ -220,6 +228,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       oversoldType: 'OversoldType',
       priority: 'Priority',
       requestedResource: 'RequestedResource',
+      userCommand: 'UserCommand',
       userId: 'UserId',
       userVpc: 'UserVpc',
       workspaceSource: 'WorkspaceSource',
@@ -236,11 +245,14 @@ export class UpdateInstanceRequest extends $dara.Model {
       disassociateCredential: 'boolean',
       disassociateDatasets: 'boolean',
       disassociateDriver: 'boolean',
+      disassociateEnvironmentVariables: 'boolean',
       disassociateForwardInfos: 'boolean',
+      disassociateUserCommand: 'boolean',
       disassociateVpc: 'boolean',
       driver: 'string',
       dynamicMount: DynamicMount,
       ecsSpec: 'string',
+      environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       imageAuth: 'string',
       imageId: 'string',
       imageUrl: 'string',
@@ -248,6 +260,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       oversoldType: 'string',
       priority: 'number',
       requestedResource: UpdateInstanceRequestRequestedResource,
+      userCommand: UpdateInstanceRequestUserCommand,
       userId: 'string',
       userVpc: UpdateInstanceRequestUserVpc,
       workspaceSource: 'string',
@@ -270,8 +283,14 @@ export class UpdateInstanceRequest extends $dara.Model {
     if(this.dynamicMount && typeof (this.dynamicMount as any).validate === 'function') {
       (this.dynamicMount as any).validate();
     }
+    if(this.environmentVariables) {
+      $dara.Model.validateMap(this.environmentVariables);
+    }
     if(this.requestedResource && typeof (this.requestedResource as any).validate === 'function') {
       (this.requestedResource as any).validate();
+    }
+    if(this.userCommand && typeof (this.userCommand as any).validate === 'function') {
+      (this.userCommand as any).validate();
     }
     if(this.userVpc && typeof (this.userVpc as any).validate === 'function') {
       (this.userVpc as any).validate();

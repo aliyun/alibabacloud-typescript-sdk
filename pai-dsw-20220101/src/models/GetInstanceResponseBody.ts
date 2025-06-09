@@ -381,6 +381,7 @@ export class GetInstanceResponseBody extends $dara.Model {
    * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/tty/
    */
   terminalUrl?: string;
+  userCommandId?: string;
   /**
    * @remarks
    * The user ID.
@@ -479,6 +480,7 @@ export class GetInstanceResponseBody extends $dara.Model {
       success: 'Success',
       tags: 'Tags',
       terminalUrl: 'TerminalUrl',
+      userCommandId: 'UserCommandId',
       userId: 'UserId',
       userName: 'UserName',
       userVpc: 'UserVpc',
@@ -534,6 +536,7 @@ export class GetInstanceResponseBody extends $dara.Model {
       success: 'boolean',
       tags: { 'type': 'array', 'itemType': GetInstanceResponseBodyTags },
       terminalUrl: 'string',
+      userCommandId: 'string',
       userId: 'string',
       userName: 'string',
       userVpc: GetInstanceResponseBodyUserVpc,
