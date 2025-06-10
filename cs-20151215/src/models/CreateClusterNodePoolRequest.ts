@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { CreateClusterNodePoolRequestAutoMode } from "./CreateClusterNodePoolRequestAutoMode";
 import { CreateClusterNodePoolRequestAutoScaling } from "./CreateClusterNodePoolRequestAutoScaling";
 import { CreateClusterNodePoolRequestEfloNodeGroup } from "./CreateClusterNodePoolRequestEfloNodeGroup";
 import { CreateClusterNodePoolRequestInterconnectConfig } from "./CreateClusterNodePoolRequestInterconnectConfig";
@@ -12,6 +13,7 @@ import { CreateClusterNodePoolRequestTeeConfig } from "./CreateClusterNodePoolRe
 
 
 export class CreateClusterNodePoolRequest extends $dara.Model {
+  autoMode?: CreateClusterNodePoolRequestAutoMode;
   /**
    * @remarks
    * The configurations of auto scaling.
@@ -116,6 +118,7 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
   teeConfig?: CreateClusterNodePoolRequestTeeConfig;
   static names(): { [key: string]: string } {
     return {
+      autoMode: 'auto_mode',
       autoScaling: 'auto_scaling',
       count: 'count',
       efloNodeGroup: 'eflo_node_group',
@@ -135,6 +138,7 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoMode: CreateClusterNodePoolRequestAutoMode,
       autoScaling: CreateClusterNodePoolRequestAutoScaling,
       count: 'number',
       efloNodeGroup: CreateClusterNodePoolRequestEfloNodeGroup,
@@ -153,6 +157,9 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.autoMode && typeof (this.autoMode as any).validate === 'function') {
+      (this.autoMode as any).validate();
+    }
     if(this.autoScaling && typeof (this.autoScaling as any).validate === 'function') {
       (this.autoScaling as any).validate();
     }

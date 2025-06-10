@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { Addon } from "./Addon";
 import { CreateClusterRequestAuditLogConfig } from "./CreateClusterRequestAuditLogConfig";
+import { CreateClusterRequestAutoMode } from "./CreateClusterRequestAutoMode";
 import { CreateClusterRequestControlPlaneConfig } from "./CreateClusterRequestControlPlaneConfig";
 import { MaintenanceWindow } from "./MaintenanceWindow";
 import { Nodepool } from "./Nodepool";
@@ -59,6 +60,7 @@ export class CreateClusterRequest extends $dara.Model {
    */
   apiAudiences?: string;
   auditLogConfig?: CreateClusterRequestAuditLogConfig;
+  autoMode?: CreateClusterRequestAutoMode;
   /**
    * @remarks
    * [**Deprecated**]
@@ -1255,6 +1257,7 @@ export class CreateClusterRequest extends $dara.Model {
       addons: 'addons',
       apiAudiences: 'api_audiences',
       auditLogConfig: 'audit_log_config',
+      autoMode: 'auto_mode',
       autoRenew: 'auto_renew',
       autoRenewPeriod: 'auto_renew_period',
       chargeType: 'charge_type',
@@ -1359,6 +1362,7 @@ export class CreateClusterRequest extends $dara.Model {
       addons: { 'type': 'array', 'itemType': Addon },
       apiAudiences: 'string',
       auditLogConfig: CreateClusterRequestAuditLogConfig,
+      autoMode: CreateClusterRequestAutoMode,
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
       chargeType: 'string',
@@ -1466,6 +1470,9 @@ export class CreateClusterRequest extends $dara.Model {
     }
     if(this.auditLogConfig && typeof (this.auditLogConfig as any).validate === 'function') {
       (this.auditLogConfig as any).validate();
+    }
+    if(this.autoMode && typeof (this.autoMode as any).validate === 'function') {
+      (this.autoMode as any).validate();
     }
     if(this.controlPlaneConfig && typeof (this.controlPlaneConfig as any).validate === 'function') {
       (this.controlPlaneConfig as any).validate();

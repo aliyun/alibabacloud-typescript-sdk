@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeClusterDetailResponseBodyAutoMode } from "./DescribeClusterDetailResponseBodyAutoMode";
 import { DescribeClusterDetailResponseBodyControlPlaneConfig } from "./DescribeClusterDetailResponseBodyControlPlaneConfig";
 import { MaintenanceWindow } from "./MaintenanceWindow";
 import { DescribeClusterDetailResponseBodyOperationPolicy } from "./DescribeClusterDetailResponseBodyOperationPolicy";
@@ -7,6 +8,7 @@ import { Tag } from "./Tag";
 
 
 export class DescribeClusterDetailResponseBody extends $dara.Model {
+  autoMode?: DescribeClusterDetailResponseBodyAutoMode;
   /**
    * @remarks
    * The domain name of the cluster.
@@ -358,6 +360,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoMode: 'auto_mode',
       clusterDomain: 'cluster_domain',
       clusterId: 'cluster_id',
       clusterSpec: 'cluster_spec',
@@ -403,6 +406,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoMode: DescribeClusterDetailResponseBodyAutoMode,
       clusterDomain: 'string',
       clusterId: 'string',
       clusterSpec: 'string',
@@ -447,6 +451,9 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.autoMode && typeof (this.autoMode as any).validate === 'function') {
+      (this.autoMode as any).validate();
+    }
     if(this.controlPlaneConfig && typeof (this.controlPlaneConfig as any).validate === 'function') {
       (this.controlPlaneConfig as any).validate();
     }

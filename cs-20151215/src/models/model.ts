@@ -19,10 +19,12 @@ export { AttachInstancesResponseBodyList } from './AttachInstancesResponseBodyLi
 export { CheckServiceRoleRequestRoles } from './CheckServiceRoleRequestRoles';
 export { CheckServiceRoleResponseBodyRoles } from './CheckServiceRoleResponseBodyRoles';
 export { CreateClusterRequestAuditLogConfig } from './CreateClusterRequestAuditLogConfig';
+export { CreateClusterRequestAutoMode } from './CreateClusterRequestAutoMode';
 export { CreateClusterRequestControlPlaneConfig } from './CreateClusterRequestControlPlaneConfig';
 export { CreateClusterRequestOperationPolicyClusterAutoUpgrade } from './CreateClusterRequestOperationPolicyClusterAutoUpgrade';
 export { CreateClusterRequestOperationPolicy } from './CreateClusterRequestOperationPolicy';
 export { CreateClusterRequestWorkerDataDisks } from './CreateClusterRequestWorkerDataDisks';
+export { CreateClusterNodePoolRequestAutoMode } from './CreateClusterNodePoolRequestAutoMode';
 export { CreateClusterNodePoolRequestAutoScaling } from './CreateClusterNodePoolRequestAutoScaling';
 export { CreateClusterNodePoolRequestEfloNodeGroup } from './CreateClusterNodePoolRequestEfloNodeGroup';
 export { CreateClusterNodePoolRequestInterconnectConfig } from './CreateClusterNodePoolRequestInterconnectConfig';
@@ -46,6 +48,7 @@ export { DeleteClusterRequestDeleteOptions } from './DeleteClusterRequestDeleteO
 export { DescribeAddonResponseBodyNewerVersions } from './DescribeAddonResponseBodyNewerVersions';
 export { DescribeAddonsResponseBodyComponentGroupsItems } from './DescribeAddonsResponseBodyComponentGroupsItems';
 export { DescribeAddonsResponseBodyComponentGroups } from './DescribeAddonsResponseBodyComponentGroups';
+export { DescribeClusterDetailResponseBodyAutoMode } from './DescribeClusterDetailResponseBodyAutoMode';
 export { DescribeClusterDetailResponseBodyControlPlaneConfig } from './DescribeClusterDetailResponseBodyControlPlaneConfig';
 export { DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade } from './DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade';
 export { DescribeClusterDetailResponseBodyOperationPolicy } from './DescribeClusterDetailResponseBodyOperationPolicy';

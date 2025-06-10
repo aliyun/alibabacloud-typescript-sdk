@@ -707,6 +707,10 @@ export default class Client extends OpenApi {
       body["audit_log_config"] = request.auditLogConfig;
     }
 
+    if (!$dara.isNull(request.autoMode)) {
+      body["auto_mode"] = request.autoMode;
+    }
+
     if (!$dara.isNull(request.autoRenew)) {
       body["auto_renew"] = request.autoRenew;
     }
@@ -1239,6 +1243,10 @@ export default class Client extends OpenApi {
   async createClusterNodePoolWithOptions(ClusterId: string, request: $_model.CreateClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateClusterNodePoolResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoMode)) {
+      body["auto_mode"] = request.autoMode;
+    }
+
     if (!$dara.isNull(request.autoScaling)) {
       body["auto_scaling"] = request.autoScaling;
     }
