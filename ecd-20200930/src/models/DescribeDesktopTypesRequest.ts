@@ -180,6 +180,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
    * FastBuy
    */
   scope?: string;
+  scopeSet?: string[];
   /**
    * @remarks
    * The sorting order.
@@ -226,6 +227,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
       orderType: 'OrderType',
       regionId: 'RegionId',
       scope: 'Scope',
+      scopeSet: 'ScopeSet',
       sortType: 'SortType',
       supportMinSessionCount: 'SupportMinSessionCount',
       zoneId: 'ZoneId',
@@ -249,6 +251,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
       orderType: 'string',
       regionId: 'string',
       scope: 'string',
+      scopeSet: { 'type': 'array', 'itemType': 'string' },
       sortType: 'string',
       supportMinSessionCount: 'number',
       zoneId: 'string',
@@ -258,6 +261,9 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.desktopTypeIdList)) {
       $dara.Model.validateArray(this.desktopTypeIdList);
+    }
+    if(Array.isArray(this.scopeSet)) {
+      $dara.Model.validateArray(this.scopeSet);
     }
     super.validate();
   }

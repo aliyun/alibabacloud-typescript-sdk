@@ -6782,6 +6782,10 @@ export default class Client extends OpenApi {
       query["Scope"] = request.scope;
     }
 
+    if (!$dara.isNull(request.scopeSet)) {
+      query["ScopeSet"] = request.scopeSet;
+    }
+
     if (!$dara.isNull(request.sortType)) {
       query["SortType"] = request.sortType;
     }
