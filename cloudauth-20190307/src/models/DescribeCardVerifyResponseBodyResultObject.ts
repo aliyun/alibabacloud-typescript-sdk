@@ -9,6 +9,7 @@ export class DescribeCardVerifyResponseBodyResultObject extends $dara.Model {
    */
   bizCode?: string;
   cardInfo?: string;
+  faceDetail?: string;
   ocrCardInfo?: string;
   /**
    * @example
@@ -22,6 +23,7 @@ export class DescribeCardVerifyResponseBodyResultObject extends $dara.Model {
     return {
       bizCode: 'BizCode',
       cardInfo: 'CardInfo',
+      faceDetail: 'FaceDetail',
       ocrCardInfo: 'OcrCardInfo',
       pictureInfo: 'PictureInfo',
     };
@@ -31,6 +33,7 @@ export class DescribeCardVerifyResponseBodyResultObject extends $dara.Model {
     return {
       bizCode: 'string',
       cardInfo: 'string',
+      faceDetail: 'string',
       ocrCardInfo: 'string',
       pictureInfo: 'string',
     };
