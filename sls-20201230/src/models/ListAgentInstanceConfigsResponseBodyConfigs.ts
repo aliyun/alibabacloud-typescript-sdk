@@ -3,7 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentInstanceConfigsResponseBodyConfigs extends $dara.Model {
-  attributes?: string;
+  attributes?: { [key: string]: string };
   configType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14,12 +14,15 @@ export class ListAgentInstanceConfigsResponseBodyConfigs extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      attributes: 'string',
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       configType: 'string',
     };
   }
 
   validate() {
+    if(this.attributes) {
+      $dara.Model.validateMap(this.attributes);
+    }
     super.validate();
   }
 
