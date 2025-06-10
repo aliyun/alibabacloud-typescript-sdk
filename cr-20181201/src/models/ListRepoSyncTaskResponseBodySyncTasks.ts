@@ -6,11 +6,22 @@ import { ListRepoSyncTaskResponseBodySyncTasksImageTo } from "./ListRepoSyncTask
 
 export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
   /**
+   * @remarks
+   * The time when the synchronization task was created.
+   * 
    * @example
    * 1572839126000
    */
   createTime?: number;
   /**
+   * @remarks
+   * Indicates whether the synchronization task is performed across Alibaba Cloud accounts. Valid values:
+   * 
+   * *   `true`: The image synchronization task is performed across accounts.
+   * *   `false`: The image synchronization task is performed within the same account.
+   * 
+   * Default value: `false`.
+   * 
    * @example
    * true
    */
@@ -23,29 +34,54 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
    * true
    */
   customLink?: boolean;
+  /**
+   * @remarks
+   * The information about the source image.
+   */
   imageFrom?: ListRepoSyncTaskResponseBodySyncTasksImageFrom;
+  /**
+   * @remarks
+   * The information about the destination image.
+   */
   imageTo?: ListRepoSyncTaskResponseBodySyncTasksImageTo;
   /**
+   * @remarks
+   * The time when the synchronization task was last modified.
+   * 
    * @example
    * 1572839133000
    */
   modifedTime?: number;
   /**
+   * @remarks
+   * The ID of the image synchronization batch tasks, which is the same as the value of SyncRecordId in the request.
+   * 
+   * >  If an image meets multiple synchronization rules and multiple synchronization tasks are generated for the image, these synchronization tasks use the same SyncBatchTaskId.
+   * 
    * @example
    * 15DEEB56-9271-4FDD-AC4D-C3A5CC2C****
    */
   syncBatchTaskId?: string;
   /**
+   * @remarks
+   * The ID of the synchronization rule.
+   * 
    * @example
    * crsr-7lph66uloi6h****
    */
   syncRuleId?: string;
   /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
    * @example
    * rst-4kfd7fk6pohk****
    */
   syncTaskId?: string;
   /**
+   * @remarks
+   * Indicates whether the synchronization transfer acceleration feature is enabled for the synchronization task.
+   * 
    * @example
    * true
    */
@@ -56,11 +92,11 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
    * 
    * >  The system uses this parameter to return an error message if the synchronization task fails.
    * 
-   * Valid values:
+   * Valid value:
    * 
-   * *   OSS_POLICY_UNAUTHORIZED: Container Registry is not granted permissions to use Object Storage Service (OSS).
+   * *   OSS_POLICY_UNAUTHORIZED: Container Registry is not granted permissions to access Object Storage Service (OSS).
    * *   TAG_CONFLICT: The destination repository contains an image that has the same tag as the source image, and image tag immutability is enabled for the destination repository.
-   * *   UNSUPPORTED_FORMAT: The manifest and config formats of the image to be synchronized are not supported.
+   * *   UNSUPPORTED_FORMAT: The manifest or config format of the image to be synchronized is not supported.
    * *   INTERNAL_ERROR: The synchronization task failed due to internal issues on the server.
    * *   NETWORK_ERROR: The synchronization task failed due to unstable network connection.
    * *   DATA_LENGTH_EXCEEDED: The manifest or config of the image is oversized.
@@ -78,6 +114,14 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
    */
   taskStatus?: string;
   /**
+   * @remarks
+   * The policy that is configured to trigger the synchronization task. Valid values:
+   * 
+   * *   `PASSIVE`: automatically triggers the synchronization task.
+   * *   `INITIATIVE`: manually triggers the synchronization task.
+   * 
+   * Default value: `PASSIVE`.
+   * 
    * @example
    * PASSIVE
    */

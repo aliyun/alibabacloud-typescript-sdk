@@ -50,11 +50,29 @@ export class GetInstanceResponseBody extends $dara.Model {
    */
   instanceSpecification?: string;
   /**
+   * @remarks
+   * The status of the instance. Valid values:
+   * 
+   * *   `PENDING`: The instance is being initialized.
+   * *   `INIT_ERROR`: The instance failed to be initialized.
+   * *   `STARTING`: The instance is being started.
+   * *   `RUNNING`: The instance is running.
+   * *   `STOPPING`: The instance is being stopped.
+   * *   `STOPPED`: The instance is stopped.
+   * *   `DELETING`: The instance is being deleted.
+   * *   `DELETED`: The instance is deleted.
+   * 
    * @example
    * RUNNING
    */
   instanceStatus?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   `true`: The request is successful.
+   * *   `false`: The request fails.
+   * 
    * @example
    * true
    */

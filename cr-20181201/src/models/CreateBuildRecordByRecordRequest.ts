@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBuildRecordByRecordRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the image building record.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateBuildRecordByRecordRequest extends $dara.Model {
   buildRecordId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateBuildRecordByRecordRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the image repository.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRepoTagScanStatusRequest extends $dara.Model {
   /**
+   * @remarks
+   * The image digest.
+   * 
    * @example
    * 67bfbcc12b67936ec7f867927817cbb071832b873dbcaed312a1930ba5f1d529
    */
   digest?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,17 +22,26 @@ export class GetRepoTagScanStatusRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the image repository.
+   * 
    * @example
    * crr-uf082u9dg8do****
    */
   repoId?: string;
   /**
+   * @remarks
+   * The ID of the image scan task.
+   * 
    * @example
    * 838152F9-F725-5A52-A344-8972D65AC045
    */
   scanTaskId?: string;
   scanType?: string;
   /**
+   * @remarks
+   * The image tag.
+   * 
    * @example
    * 1
    */

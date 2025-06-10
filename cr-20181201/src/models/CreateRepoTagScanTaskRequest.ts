@@ -13,7 +13,7 @@ export class CreateRepoTagScanTaskRequest extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the Container Registry instance.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class CreateRepoTagScanTaskRequest extends $dara.Model {
   scanType?: string;
   /**
    * @remarks
-   * The version of the image.
+   * The image version.
    * 
    * This parameter is required.
    * 

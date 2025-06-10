@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListNamespaceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The namespace name.
    * 
    * @example
    * test-namespace
@@ -23,7 +23,10 @@ export class ListNamespaceRequest extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The status of the namespace. Valid values:
+   * 
+   * *   `NORMAL`
+   * *   `DELETING`
    * 
    * @example
    * NORMAL
@@ -31,7 +34,7 @@ export class ListNamespaceRequest extends $dara.Model {
   namespaceStatus?: string;
   /**
    * @remarks
-   * The list of namespaces.
+   * The page number.
    * 
    * @example
    * 1
@@ -39,7 +42,7 @@ export class ListNamespaceRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The number of entries per page.
    * 
    * @example
    * 30

@@ -13,7 +13,7 @@ export class CreateRepoTagScanTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the API request is successful. Valid values:
    * 
    * *   `true`: The request is successful.
    * *   `false`: The request fails.
@@ -24,7 +24,7 @@ export class CreateRepoTagScanTaskResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BC648259-91A7-4502-BED3-EDF64361FA83

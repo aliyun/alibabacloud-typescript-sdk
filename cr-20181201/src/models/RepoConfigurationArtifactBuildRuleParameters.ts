@@ -2,7 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetArtifactBuildRuleResponseBodyParameters extends $dara.Model {
+/**
+ */
+export class RepoConfigurationArtifactBuildRuleParameters extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   imageIndexOnly?: boolean;
   priorityFile?: string;
   static names(): { [key: string]: string } {

@@ -5,26 +5,41 @@ import { ListRepoSyncTaskResponseBodySyncTasks } from "./ListRepoSyncTaskRespons
 
 export class ListRepoSyncTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * success
    */
   code?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   isSuccess?: boolean;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7640819A-FB5B-4E25-A227-97717F62****
    */
@@ -35,6 +50,9 @@ export class ListRepoSyncTaskResponseBody extends $dara.Model {
    */
   syncTasks?: ListRepoSyncTaskResponseBodySyncTasks[];
   /**
+   * @remarks
+   * The total number of the queried synchronization tasks.
+   * 
    * @example
    * 1
    */

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { RepoConfiguration } from "./RepoConfiguration";
 
 
 export class CreateNamespaceRequest extends $dara.Model {
@@ -11,15 +12,18 @@ export class CreateNamespaceRequest extends $dara.Model {
    * true
    */
   autoCreateRepo?: boolean;
+  defaultRepoConfiguration?: RepoConfiguration;
   /**
    * @remarks
-   * The default type of the repository that is automatically created. Valid values:
+   * The default type of the repositories that are automatically created in the namespace. Valid values:
    * 
-   * *   `PUBLIC`: a public repository
-   * *   `PRIVATE`: a private repository
+   * *   `PUBLIC`: public repositories
+   * *   `PRIVATE`: private repositories.
    * 
    * @example
    * PUBLIC
+   * 
+   * @deprecated
    */
   defaultRepoType?: string;
   /**
@@ -45,6 +49,7 @@ export class CreateNamespaceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
+      defaultRepoConfiguration: 'DefaultRepoConfiguration',
       defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
@@ -54,6 +59,7 @@ export class CreateNamespaceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoCreateRepo: 'boolean',
+      defaultRepoConfiguration: RepoConfiguration,
       defaultRepoType: 'string',
       instanceId: 'string',
       namespaceName: 'string',
@@ -61,6 +67,9 @@ export class CreateNamespaceRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.defaultRepoConfiguration && typeof (this.defaultRepoConfiguration as any).validate === 'function') {
+      (this.defaultRepoConfiguration as any).validate();
+    }
     super.validate();
   }
 

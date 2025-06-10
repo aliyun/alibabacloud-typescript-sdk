@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoSyncTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,21 +14,33 @@ export class ListRepoSyncTaskRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The repository name.
+   * 
    * @example
    * test
    */
   repoName?: string;
   /**
+   * @remarks
+   * The name of the namespace to which the repository belongs.
+   * 
    * @example
    * ns
    */
@@ -42,6 +56,9 @@ export class ListRepoSyncTaskRequest extends $dara.Model {
    */
   syncRecordId?: string;
   /**
+   * @remarks
+   * The image tag.
+   * 
    * @example
    * nginx
    */

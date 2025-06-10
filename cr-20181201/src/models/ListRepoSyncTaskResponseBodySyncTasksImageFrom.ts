@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRepoSyncTaskResponseBodySyncTasksImageFrom extends $dara.Model {
   /**
+   * @remarks
+   * The image tag.
+   * 
    * @example
    * v0.1
    */
   imageTag?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * cri-kmsiwlxxdcva****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * The repository name.
+   * 
    * @example
    * test
    */
   repoName?: string;
   /**
+   * @remarks
+   * The namespace to which the repository belongs.
+   * 
    * @example
    * test
    */

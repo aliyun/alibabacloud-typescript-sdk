@@ -1,9 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RepoConfiguration } from "./RepoConfiguration";
 
 
-export class UpdateNamespaceRequest extends $dara.Model {
+export class UpdateNamespaceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to automatically create a repository when an image is pushed to the namespace.
@@ -12,7 +11,7 @@ export class UpdateNamespaceRequest extends $dara.Model {
    * true
    */
   autoCreateRepo?: boolean;
-  defaultRepoConfiguration?: RepoConfiguration;
+  defaultRepoConfigurationShrink?: string;
   /**
    * @remarks
    * The default type of the repository. Valid values:
@@ -49,7 +48,7 @@ export class UpdateNamespaceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
-      defaultRepoConfiguration: 'DefaultRepoConfiguration',
+      defaultRepoConfigurationShrink: 'DefaultRepoConfiguration',
       defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
@@ -59,7 +58,7 @@ export class UpdateNamespaceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoCreateRepo: 'boolean',
-      defaultRepoConfiguration: RepoConfiguration,
+      defaultRepoConfigurationShrink: 'string',
       defaultRepoType: 'string',
       instanceId: 'string',
       namespaceName: 'string',
@@ -67,9 +66,6 @@ export class UpdateNamespaceRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.defaultRepoConfiguration && typeof (this.defaultRepoConfiguration as any).validate === 'function') {
-      (this.defaultRepoConfiguration as any).validate();
-    }
     super.validate();
   }
 

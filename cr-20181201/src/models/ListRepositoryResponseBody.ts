@@ -5,32 +5,54 @@ import { ListRepositoryResponseBodyRepositories } from "./ListRepositoryResponse
 
 export class ListRepositoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return value.
+   * 
    * @example
    * success
    */
   code?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   isSuccess?: boolean;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The information about the repositories.
+   */
   repositories?: ListRepositoryResponseBodyRepositories[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5241C090-DA69-4B0F-8E3F-2F24FDE1110E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of the queried image repositories.
+   * 
    * @example
    * 1
    */

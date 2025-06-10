@@ -898,15 +898,25 @@ export default class Client extends OpenApi {
   /**
    * Creates a namespace of image repositories.
    * 
-   * @param request - CreateNamespaceRequest
+   * @param tmpReq - CreateNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateNamespaceResponse
    */
-  async createNamespaceWithOptions(request: $_model.CreateNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNamespaceResponse> {
-    request.validate();
+  async createNamespaceWithOptions(tmpReq: $_model.CreateNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNamespaceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateNamespaceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.defaultRepoConfiguration)) {
+      request.defaultRepoConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.defaultRepoConfiguration, "DefaultRepoConfiguration", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.autoCreateRepo)) {
       query["AutoCreateRepo"] = request.autoCreateRepo;
+    }
+
+    if (!$dara.isNull(request.defaultRepoConfigurationShrink)) {
+      query["DefaultRepoConfiguration"] = request.defaultRepoConfigurationShrink;
     }
 
     if (!$dara.isNull(request.defaultRepoType)) {
@@ -4070,7 +4080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * cri-94klsruryslx****
+   * Queries namespaces in a Container Registry instance.
    * 
    * @param request - ListNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4117,7 +4127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * cri-94klsruryslx****
+   * Queries namespaces in a Container Registry instance.
    * 
    * @param request - ListNamespaceRequest
    * @returns ListNamespaceResponse
@@ -4356,7 +4366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Indicates whether automatic link is used.
+   * Queries image synchronization tasks in an image repository.
    * 
    * @param request - ListRepoSyncTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4411,7 +4421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Indicates whether automatic link is used.
+   * Queries image synchronization tasks in an image repository.
    * 
    * @param request - ListRepoSyncTaskRequest
    * @returns ListRepoSyncTaskResponse
@@ -5452,15 +5462,25 @@ export default class Client extends OpenApi {
   /**
    * Updates a namespace.
    * 
-   * @param request - UpdateNamespaceRequest
+   * @param tmpReq - UpdateNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateNamespaceResponse
    */
-  async updateNamespaceWithOptions(request: $_model.UpdateNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNamespaceResponse> {
-    request.validate();
+  async updateNamespaceWithOptions(tmpReq: $_model.UpdateNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNamespaceResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateNamespaceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.defaultRepoConfiguration)) {
+      request.defaultRepoConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.defaultRepoConfiguration, "DefaultRepoConfiguration", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.autoCreateRepo)) {
       query["AutoCreateRepo"] = request.autoCreateRepo;
+    }
+
+    if (!$dara.isNull(request.defaultRepoConfigurationShrink)) {
+      query["DefaultRepoConfiguration"] = request.defaultRepoConfigurationShrink;
     }
 
     if (!$dara.isNull(request.defaultRepoType)) {

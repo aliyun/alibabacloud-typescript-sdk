@@ -1,3 +1,4 @@
+export { RepoConfigurationArtifactBuildRuleParameters } from './RepoConfigurationArtifactBuildRuleParameters';
 export { GetArtifactBuildRuleResponseBodyParameters } from './GetArtifactBuildRuleResponseBodyParameters';
 export { GetArtifactBuildTaskResponseBodySourceArtifact } from './GetArtifactBuildTaskResponseBodySourceArtifact';
 export { GetArtifactBuildTaskResponseBodyTargetArtifact } from './GetArtifactBuildTaskResponseBodyTargetArtifact';
@@ -55,6 +56,7 @@ export { ListTagResourcesRequestTag } from './ListTagResourcesRequestTag';
 export { ListTagResourcesResponseBodyTagResourcesTagResource } from './ListTagResourcesResponseBodyTagResourcesTagResource';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBodyTagResources';
 export { TagResourcesRequestTag } from './TagResourcesRequestTag';
+export { RepoConfiguration } from './RepoConfiguration';
 export { CancelArtifactBuildTaskRequest } from './CancelArtifactBuildTaskRequest';
 export { CancelArtifactBuildTaskResponseBody } from './CancelArtifactBuildTaskResponseBody';
 export { CancelArtifactBuildTaskResponse } from './CancelArtifactBuildTaskResponse';
@@ -102,6 +104,7 @@ export { CreateInstanceVpcEndpointLinkedVpcRequest } from './CreateInstanceVpcEn
 export { CreateInstanceVpcEndpointLinkedVpcResponseBody } from './CreateInstanceVpcEndpointLinkedVpcResponseBody';
 export { CreateInstanceVpcEndpointLinkedVpcResponse } from './CreateInstanceVpcEndpointLinkedVpcResponse';
 export { CreateNamespaceRequest } from './CreateNamespaceRequest';
+export { CreateNamespaceShrinkRequest } from './CreateNamespaceShrinkRequest';
 export { CreateNamespaceResponseBody } from './CreateNamespaceResponseBody';
 export { CreateNamespaceResponse } from './CreateNamespaceResponse';
 export { CreateRepoBuildRuleRequest } from './CreateRepoBuildRuleRequest';
@@ -360,6 +363,7 @@ export { UpdateInstanceEndpointStatusRequest } from './UpdateInstanceEndpointSta
 export { UpdateInstanceEndpointStatusResponseBody } from './UpdateInstanceEndpointStatusResponseBody';
 export { UpdateInstanceEndpointStatusResponse } from './UpdateInstanceEndpointStatusResponse';
 export { UpdateNamespaceRequest } from './UpdateNamespaceRequest';
+export { UpdateNamespaceShrinkRequest } from './UpdateNamespaceShrinkRequest';
 export { UpdateNamespaceResponseBody } from './UpdateNamespaceResponseBody';
 export { UpdateNamespaceResponse } from './UpdateNamespaceResponse';
 export { UpdateRepoBuildRuleRequest } from './UpdateRepoBuildRuleRequest';

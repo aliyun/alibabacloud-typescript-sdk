@@ -5,22 +5,41 @@ import { ListNamespaceResponseBodyNamespaces } from "./ListNamespaceResponseBody
 
 export class ListNamespaceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * success
    */
   code?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   `true`: The request is successful.
+   * *   `false`: The request fails.
+   * 
    * @example
    * true
    */
   isSuccess?: boolean;
+  /**
+   * @remarks
+   * The queried namespaces.
+   */
   namespaces?: ListNamespaceResponseBodyNamespaces[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
@@ -34,6 +53,9 @@ export class ListNamespaceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of the queried namespaces.
+   * 
    * @example
    * 1
    */
