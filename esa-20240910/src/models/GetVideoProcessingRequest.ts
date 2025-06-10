@@ -2,40 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateCnameFlatteningRequest extends $dara.Model {
+export class GetVideoProcessingRequest extends $dara.Model {
   /**
    * @remarks
-   * The CNAME flattening mode. Valid values:
-   * 
-   * *   flatten_all: flattens all CNAMEs.
-   * *   flatten_at_root: flattens only the root domain. Default: flatten_at_root
-   * 
    * This parameter is required.
    * 
    * @example
-   * flatten_all
+   * 23321557***
    */
-  flattenMode?: string;
+  configId?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 123456****
+   * 23282348***
    */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
-      flattenMode: 'FlattenMode',
+      configId: 'ConfigId',
       siteId: 'SiteId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      flattenMode: 'string',
+      configId: 'number',
       siteId: 'number',
     };
   }

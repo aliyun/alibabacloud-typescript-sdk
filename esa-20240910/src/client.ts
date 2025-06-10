@@ -3690,6 +3690,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增站点视频处理配置
+   * 
+   * @param request - CreateVideoProcessingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVideoProcessingResponse
+   */
+  async createVideoProcessingWithOptions(request: $_model.CreateVideoProcessingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVideoProcessingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flvSeekEnd)) {
+      query["FlvSeekEnd"] = request.flvSeekEnd;
+    }
+
+    if (!$dara.isNull(request.flvSeekStart)) {
+      query["FlvSeekStart"] = request.flvSeekStart;
+    }
+
+    if (!$dara.isNull(request.flvVideoSeekMode)) {
+      query["FlvVideoSeekMode"] = request.flvVideoSeekMode;
+    }
+
+    if (!$dara.isNull(request.mp4SeekEnd)) {
+      query["Mp4SeekEnd"] = request.mp4SeekEnd;
+    }
+
+    if (!$dara.isNull(request.mp4SeekStart)) {
+      query["Mp4SeekStart"] = request.mp4SeekStart;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    if (!$dara.isNull(request.videoSeekEnable)) {
+      query["VideoSeekEnable"] = request.videoSeekEnable;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVideoProcessing",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVideoProcessingResponse>(await this.callApi(params, req, runtime), new $_model.CreateVideoProcessingResponse({}));
+  }
+
+  /**
+   * 新增站点视频处理配置
+   * 
+   * @param request - CreateVideoProcessingRequest
+   * @returns CreateVideoProcessingResponse
+   */
+  async createVideoProcessing(request: $_model.CreateVideoProcessingRequest): Promise<$_model.CreateVideoProcessingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVideoProcessingWithOptions(request, runtime);
+  }
+
+  /**
    * Create WAF Rule
    * 
    * @param tmpReq - CreateWafRuleRequest
@@ -5829,6 +5915,52 @@ export default class Client extends OpenApi {
   async deleteUserDeliveryTask(request: $_model.DeleteUserDeliveryTaskRequest): Promise<$_model.DeleteUserDeliveryTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteUserDeliveryTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除站点视频处理配置
+   * 
+   * @param request - DeleteVideoProcessingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVideoProcessingResponse
+   */
+  async deleteVideoProcessingWithOptions(request: $_model.DeleteVideoProcessingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVideoProcessingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVideoProcessing",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVideoProcessingResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVideoProcessingResponse({}));
+  }
+
+  /**
+   * 删除站点视频处理配置
+   * 
+   * @param request - DeleteVideoProcessingRequest
+   * @returns DeleteVideoProcessingResponse
+   */
+  async deleteVideoProcessing(request: $_model.DeleteVideoProcessingRequest): Promise<$_model.DeleteVideoProcessingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVideoProcessingWithOptions(request, runtime);
   }
 
   /**
@@ -9612,6 +9744,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询站点视频处理配置详情
+   * 
+   * @param request - GetVideoProcessingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoProcessingResponse
+   */
+  async getVideoProcessingWithOptions(request: $_model.GetVideoProcessingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoProcessingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoProcessing",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoProcessingResponse>(await this.callApi(params, req, runtime), new $_model.GetVideoProcessingResponse({}));
+  }
+
+  /**
+   * 查询站点视频处理配置详情
+   * 
+   * @param request - GetVideoProcessingRequest
+   * @returns GetVideoProcessingResponse
+   */
+  async getVideoProcessing(request: $_model.GetVideoProcessingRequest): Promise<$_model.GetVideoProcessingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVideoProcessingWithOptions(request, runtime);
+  }
+
+  /**
    * This interface is used to obtain the application key (AppKey) for the BOT behavior detection feature in the site\\"s Web Application Firewall (WAF). The key is typically used for authentication and data exchange with the WAF service.
    * 
    * @param request - GetWafBotAppKeyRequest
@@ -11942,6 +12120,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询站点视频处理配置列表
+   * 
+   * @param request - ListVideoProcessingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVideoProcessingsResponse
+   */
+  async listVideoProcessingsWithOptions(request: $_model.ListVideoProcessingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVideoProcessingsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.configType)) {
+      query["ConfigType"] = request.configType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVideoProcessings",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVideoProcessingsResponse>(await this.callApi(params, req, runtime), new $_model.ListVideoProcessingsResponse({}));
+  }
+
+  /**
+   * 查询站点视频处理配置列表
+   * 
+   * @param request - ListVideoProcessingsRequest
+   * @returns ListVideoProcessingsResponse
+   */
+  async listVideoProcessings(request: $_model.ListVideoProcessingsRequest): Promise<$_model.ListVideoProcessingsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVideoProcessingsWithOptions(request, runtime);
+  }
+
+  /**
    * List WAF Managed Rules
    * 
    * @param tmpReq - ListWafManagedRulesRequest
@@ -14025,7 +14269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify site CNAME flattening configuration
+   * Modifies the CNAME flattening configuration of a website.
    * 
    * @param request - UpdateCnameFlatteningRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14060,7 +14304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify site CNAME flattening configuration
+   * Modifies the CNAME flattening configuration of a website.
    * 
    * @param request - UpdateCnameFlatteningRequest
    * @returns UpdateCnameFlatteningResponse
@@ -15677,6 +15921,10 @@ export default class Client extends OpenApi {
       query["Ttl"] = request.ttl;
     }
 
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16598,6 +16846,92 @@ export default class Client extends OpenApi {
   async updateUserDeliveryTaskStatus(request: $_model.UpdateUserDeliveryTaskStatusRequest): Promise<$_model.UpdateUserDeliveryTaskStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateUserDeliveryTaskStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改站点视频处理配置
+   * 
+   * @param request - UpdateVideoProcessingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVideoProcessingResponse
+   */
+  async updateVideoProcessingWithOptions(request: $_model.UpdateVideoProcessingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVideoProcessingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.flvSeekEnd)) {
+      query["FlvSeekEnd"] = request.flvSeekEnd;
+    }
+
+    if (!$dara.isNull(request.flvSeekStart)) {
+      query["FlvSeekStart"] = request.flvSeekStart;
+    }
+
+    if (!$dara.isNull(request.flvVideoSeekMode)) {
+      query["FlvVideoSeekMode"] = request.flvVideoSeekMode;
+    }
+
+    if (!$dara.isNull(request.mp4SeekEnd)) {
+      query["Mp4SeekEnd"] = request.mp4SeekEnd;
+    }
+
+    if (!$dara.isNull(request.mp4SeekStart)) {
+      query["Mp4SeekStart"] = request.mp4SeekStart;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.videoSeekEnable)) {
+      query["VideoSeekEnable"] = request.videoSeekEnable;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVideoProcessing",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVideoProcessingResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVideoProcessingResponse({}));
+  }
+
+  /**
+   * 修改站点视频处理配置
+   * 
+   * @param request - UpdateVideoProcessingRequest
+   * @returns UpdateVideoProcessingResponse
+   */
+  async updateVideoProcessing(request: $_model.UpdateVideoProcessingRequest): Promise<$_model.UpdateVideoProcessingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateVideoProcessingWithOptions(request, runtime);
   }
 
   /**

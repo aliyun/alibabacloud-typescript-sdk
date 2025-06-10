@@ -2,13 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateCnameFlatteningResponseBody extends $dara.Model {
+export class UpdateVideoProcessingResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
-   * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
+   * 3558df77-8a7a-4060-a900-2d7949403836
    */
   requestId?: string;
   static names(): { [key: string]: string } {

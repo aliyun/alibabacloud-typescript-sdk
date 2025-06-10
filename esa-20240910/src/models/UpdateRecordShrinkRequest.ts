@@ -96,6 +96,7 @@ export class UpdateRecordShrinkRequest extends $dara.Model {
    * 30
    */
   ttl?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       authConfShrink: 'AuthConf',
@@ -107,6 +108,7 @@ export class UpdateRecordShrinkRequest extends $dara.Model {
       recordId: 'RecordId',
       sourceType: 'SourceType',
       ttl: 'Ttl',
+      type: 'Type',
     };
   }
 
@@ -121,6 +123,7 @@ export class UpdateRecordShrinkRequest extends $dara.Model {
       recordId: 'number',
       sourceType: 'string',
       ttl: 'number',
+      type: 'string',
     };
   }
 

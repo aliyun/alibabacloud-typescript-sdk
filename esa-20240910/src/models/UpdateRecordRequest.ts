@@ -98,6 +98,7 @@ export class UpdateRecordRequest extends $dara.Model {
    * 30
    */
   ttl?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       authConf: 'AuthConf',
@@ -109,6 +110,7 @@ export class UpdateRecordRequest extends $dara.Model {
       recordId: 'RecordId',
       sourceType: 'SourceType',
       ttl: 'Ttl',
+      type: 'Type',
     };
   }
 
@@ -123,6 +125,7 @@ export class UpdateRecordRequest extends $dara.Model {
       recordId: 'number',
       sourceType: 'string',
       ttl: 'number',
+      type: 'string',
     };
   }
 
