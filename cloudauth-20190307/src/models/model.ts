@@ -3,6 +3,7 @@ export { BankMetaVerifyResponseBodyResultObject } from './BankMetaVerifyResponse
 export { CompareFaceVerifyResponseBodyResultObject } from './CompareFaceVerifyResponseBodyResultObject';
 export { CompareFacesResponseBodyData } from './CompareFacesResponseBodyData';
 export { ContrastFaceVerifyResponseBodyResultObject } from './ContrastFaceVerifyResponseBodyResultObject';
+export { CredentialProductVerifyV2ResponseBodyResultObject } from './CredentialProductVerifyV2responseBodyResultObject';
 export { CredentialVerifyRequestMerchantDetail } from './CredentialVerifyRequestMerchantDetail';
 export { CredentialVerifyResponseBodyResultObjectVlResult } from './CredentialVerifyResponseBodyResultObjectVlResult';
 export { CredentialVerifyResponseBodyResultObject } from './CredentialVerifyResponseBodyResultObject';
@@ -76,6 +77,10 @@ export { CreateAuthKeyResponse } from './CreateAuthKeyResponse';
 export { CreateVerifySettingRequest } from './CreateVerifySettingRequest';
 export { CreateVerifySettingResponseBody } from './CreateVerifySettingResponseBody';
 export { CreateVerifySettingResponse } from './CreateVerifySettingResponse';
+export { CredentialProductVerifyV2Request } from './CredentialProductVerifyV2request';
+export { CredentialProductVerifyV2AdvanceRequest } from './CredentialProductVerifyV2advanceRequest';
+export { CredentialProductVerifyV2ResponseBody } from './CredentialProductVerifyV2responseBody';
+export { CredentialProductVerifyV2Response } from './CredentialProductVerifyV2response';
 export { CredentialVerifyRequest } from './CredentialVerifyRequest';
 export { CredentialVerifyShrinkRequest } from './CredentialVerifyShrinkRequest';
 export { CredentialVerifyResponseBody } from './CredentialVerifyResponseBody';
