@@ -18866,6 +18866,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param tmpReq - UpdateConvExtensionRequest
+   * @param tmpHeader - UpdateConvExtensionHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConvExtensionResponse
+   */
+  async updateConvExtensionWithOptions(tmpReq: $_model.UpdateConvExtensionRequest, tmpHeader: $_model.UpdateConvExtensionHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateConvExtensionResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateConvExtensionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.UpdateConvExtensionShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.staffIdList)) {
+      request.staffIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.staffIdList, "StaffIdList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.mobileUrl)) {
+      body["MobileUrl"] = request.mobileUrl;
+    }
+
+    if (!$dara.isNull(request.pcUrl)) {
+      body["PcUrl"] = request.pcUrl;
+    }
+
+    if (!$dara.isNull(request.staffIdListShrink)) {
+      body["StaffIdList"] = request.staffIdListShrink;
+    }
+
+    if (!$dara.isNull(request.systemUid)) {
+      body["SystemUid"] = request.systemUid;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConvExtension",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/conversation/updateConvExtension`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateConvExtensionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateConvExtensionResponse({}));
+  }
+
+  /**
+   * @param request - UpdateConvExtensionRequest
+   * @returns UpdateConvExtensionResponse
+   */
+  async updateConvExtension(request: $_model.UpdateConvExtensionRequest): Promise<$_model.UpdateConvExtensionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.UpdateConvExtensionHeaders({ });
+    return await this.updateConvExtensionWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 更新表单数据
    * 
    * @param request - UpdateFormDataRequest
