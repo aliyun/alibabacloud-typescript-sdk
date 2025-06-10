@@ -2108,6 +2108,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取指定机器基本信息
+   * 
+   * @param request - ReadSchedulerxDesignateInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReadSchedulerxDesignateInfoResponse
+   */
+  async readSchedulerxDesignateInfoWithOptions(request: $_model.ReadSchedulerxDesignateInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReadSchedulerxDesignateInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.namespaceSource)) {
+      query["NamespaceSource"] = request.namespaceSource;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReadSchedulerxDesignateInfo",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReadSchedulerxDesignateInfoResponse>(await this.callApi(params, req, runtime), new $_model.ReadSchedulerxDesignateInfoResponse({}));
+  }
+
+  /**
+   * 获取指定机器基本信息
+   * 
+   * @param request - ReadSchedulerxDesignateInfoRequest
+   * @returns ReadSchedulerxDesignateInfoResponse
+   */
+  async readSchedulerxDesignateInfo(request: $_model.ReadSchedulerxDesignateInfoRequest): Promise<$_model.ReadSchedulerxDesignateInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.readSchedulerxDesignateInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Reruns a job to obtain the historical data of the job. You can call this operation only in the professional edition.
    * 
    * @param request - RerunJobRequest
