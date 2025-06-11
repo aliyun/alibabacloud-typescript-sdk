@@ -5061,6 +5061,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 编辑指定guid的元数据业务知识
+   * 
+   * @param request - EditMetaKnowledgeAssetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EditMetaKnowledgeAssetResponse
+   */
+  async editMetaKnowledgeAssetWithOptions(request: $_model.EditMetaKnowledgeAssetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EditMetaKnowledgeAssetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.assetDescription)) {
+      query["AssetDescription"] = request.assetDescription;
+    }
+
+    if (!$dara.isNull(request.columnName)) {
+      query["ColumnName"] = request.columnName;
+    }
+
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!$dara.isNull(request.tableSchemaName)) {
+      query["TableSchemaName"] = request.tableSchemaName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EditMetaKnowledgeAsset",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EditMetaKnowledgeAssetResponse>(await this.callApi(params, req, runtime), new $_model.EditMetaKnowledgeAssetResponse({}));
+  }
+
+  /**
+   * 编辑指定guid的元数据业务知识
+   * 
+   * @param request - EditMetaKnowledgeAssetRequest
+   * @returns EditMetaKnowledgeAssetResponse
+   */
+  async editMetaKnowledgeAsset(request: $_model.EditMetaKnowledgeAssetRequest): Promise<$_model.EditMetaKnowledgeAssetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.editMetaKnowledgeAssetWithOptions(request, runtime);
+  }
+
+  /**
    * You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
    * 
    * @remarks
@@ -8342,6 +8400,56 @@ export default class Client extends OpenApi {
   async getTableDesignProjectInfo(request: $_model.GetTableDesignProjectInfoRequest): Promise<$_model.GetTableDesignProjectInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getTableDesignProjectInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取指定guid的元数据知识
+   * 
+   * @param request - GetTableKnowledgeInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableKnowledgeInfoResponse
+   */
+  async getTableKnowledgeInfoWithOptions(request: $_model.GetTableKnowledgeInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableKnowledgeInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!$dara.isNull(request.tableSchemaName)) {
+      query["TableSchemaName"] = request.tableSchemaName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTableKnowledgeInfo",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableKnowledgeInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetTableKnowledgeInfoResponse({}));
+  }
+
+  /**
+   * 获取指定guid的元数据知识
+   * 
+   * @param request - GetTableKnowledgeInfoRequest
+   * @returns GetTableKnowledgeInfoResponse
+   */
+  async getTableKnowledgeInfo(request: $_model.GetTableKnowledgeInfoRequest): Promise<$_model.GetTableKnowledgeInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTableKnowledgeInfoWithOptions(request, runtime);
   }
 
   /**
@@ -12216,6 +12324,60 @@ export default class Client extends OpenApi {
   async listStandardGroups(request: $_model.ListStandardGroupsRequest): Promise<$_model.ListStandardGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listStandardGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取表字段信息
+   * 
+   * @param request - ListTableColumnsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTableColumnsResponse
+   */
+  async listTableColumnsWithOptions(request: $_model.ListTableColumnsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTableColumnsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!$dara.isNull(request.tableSchemaName)) {
+      query["TableSchemaName"] = request.tableSchemaName;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTableColumns",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTableColumnsResponse>(await this.callApi(params, req, runtime), new $_model.ListTableColumnsResponse({}));
+  }
+
+  /**
+   * 获取表字段信息
+   * 
+   * @param request - ListTableColumnsRequest
+   * @returns ListTableColumnsResponse
+   */
+  async listTableColumns(request: $_model.ListTableColumnsRequest): Promise<$_model.ListTableColumnsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTableColumnsWithOptions(request, runtime);
   }
 
   /**

@@ -3,14 +3,50 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDifyAttributeResponseBodyRoot extends $dara.Model {
+  /**
+   * @example
+   * 92748163-af62-4ca4-ad85-1****
+   */
   appUuid?: string;
+  /**
+   * @example
+   * 1
+   */
   replicas?: string;
+  /**
+   * @example
+   * 4CU
+   */
   resourceQuota?: string;
+  /**
+   * @example
+   * sg-bp1ik7t5d5f24b****
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * DEPLOYED
+   */
   status?: string;
+  /**
+   * @example
+   * vsw-bp1tzpv5jfsuoqy****
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * vpc-bp1n16nsg8z1kn6****
+   */
   vpcId?: string;
+  /**
+   * @example
+   * 339170706****
+   */
   workspaceId?: string;
+  /**
+   * @example
+   * cn-hangzhou-j
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

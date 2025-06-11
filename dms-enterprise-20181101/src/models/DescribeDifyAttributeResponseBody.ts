@@ -4,12 +4,36 @@ import { DescribeDifyAttributeResponseBodyRoot } from "./DescribeDifyAttributeRe
 
 
 export class DescribeDifyAttributeResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * UnknownError
+   */
   errorCode?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * UnknownError
+   */
   message?: string;
+  /**
+   * @example
+   * 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
+   */
   requestId?: string;
   root?: DescribeDifyAttributeResponseBodyRoot;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
