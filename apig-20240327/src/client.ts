@@ -2379,6 +2379,83 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取挂载列表
+   * 
+   * @param request - ListPluginAttachmentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPluginAttachmentsResponse
+   */
+  async listPluginAttachmentsWithOptions(request: $_model.ListPluginAttachmentsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPluginAttachmentsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attachResourceId)) {
+      query["attachResourceId"] = request.attachResourceId;
+    }
+
+    if (!$dara.isNull(request.attachResourceType)) {
+      query["attachResourceType"] = request.attachResourceType;
+    }
+
+    if (!$dara.isNull(request.attachResourceTypes)) {
+      query["attachResourceTypes"] = request.attachResourceTypes;
+    }
+
+    if (!$dara.isNull(request.environmentId)) {
+      query["environmentId"] = request.environmentId;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["pluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.withParentResource)) {
+      query["withParentResource"] = request.withParentResource;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPluginAttachments",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugin-attachments`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPluginAttachmentsResponse>(await this.callApi(params, req, runtime), new $_model.ListPluginAttachmentsResponse({}));
+  }
+
+  /**
+   * 获取挂载列表
+   * 
+   * @param request - ListPluginAttachmentsRequest
+   * @returns ListPluginAttachmentsResponse
+   */
+  async listPluginAttachments(request: $_model.ListPluginAttachmentsRequest): Promise<$_model.ListPluginAttachmentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPluginAttachmentsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * ListPlugins
    * 
    * @param request - ListPluginsRequest

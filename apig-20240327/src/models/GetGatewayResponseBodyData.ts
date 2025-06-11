@@ -58,6 +58,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
    * gw-cq2vundlhtg***
    */
   gatewayId?: string;
+  gatewayType?: string;
   /**
    * @remarks
    * List of entry addresses for the gateway.
@@ -170,6 +171,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       environments: 'environments',
       expireTimestamp: 'expireTimestamp',
       gatewayId: 'gatewayId',
+      gatewayType: 'gatewayType',
       loadBalancers: 'loadBalancers',
       name: 'name',
       replicas: 'replicas',
@@ -195,6 +197,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       environments: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataEnvironments },
       expireTimestamp: 'number',
       gatewayId: 'string',
+      gatewayType: 'string',
       loadBalancers: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataLoadBalancers },
       name: 'string',
       replicas: 'string',
