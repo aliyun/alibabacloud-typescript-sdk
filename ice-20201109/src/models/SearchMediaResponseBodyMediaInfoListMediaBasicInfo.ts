@@ -109,6 +109,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
    * 2020-12-01T19:48Z
    */
   modifiedTime?: string;
+  namespace?: string;
   /**
    * @remarks
    * The custom ID of the media asset. The ID is a string that contains 6 to 64 characters. Only letters, digits, hyphens (-), and underscores (_) are supported. Each custom ID is unique.
@@ -178,6 +179,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
    * userData
    */
   userData?: string;
+  visionDescription?: string;
   static names(): { [key: string]: string } {
     return {
       biz: 'Biz',
@@ -194,6 +196,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
       mediaTags: 'MediaTags',
       mediaType: 'MediaType',
       modifiedTime: 'ModifiedTime',
+      namespace: 'Namespace',
       referenceId: 'ReferenceId',
       snapshots: 'Snapshots',
       source: 'Source',
@@ -203,6 +206,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
       transcodeStatus: 'TranscodeStatus',
       uploadSource: 'UploadSource',
       userData: 'UserData',
+      visionDescription: 'VisionDescription',
     };
   }
 
@@ -222,6 +226,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
       mediaTags: 'string',
       mediaType: 'string',
       modifiedTime: 'string',
+      namespace: 'string',
       referenceId: 'string',
       snapshots: 'string',
       source: 'string',
@@ -231,6 +236,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
       transcodeStatus: 'string',
       uploadSource: 'string',
       userData: 'string',
+      visionDescription: 'string',
     };
   }
 

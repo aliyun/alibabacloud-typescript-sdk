@@ -32,6 +32,7 @@ export class SearchMediaByFaceRequest extends $dara.Model {
    * video
    */
   mediaType?: string;
+  namespace?: string;
   /**
    * @remarks
    * The page number. Default value: 1.
@@ -71,6 +72,7 @@ export class SearchMediaByFaceRequest extends $dara.Model {
       entityId: 'EntityId',
       faceSearchToken: 'FaceSearchToken',
       mediaType: 'MediaType',
+      namespace: 'Namespace',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       personImageUrl: 'PersonImageUrl',
@@ -83,6 +85,7 @@ export class SearchMediaByFaceRequest extends $dara.Model {
       entityId: 'string',
       faceSearchToken: 'string',
       mediaType: 'string',
+      namespace: 'string',
       pageNo: 'number',
       pageSize: 'number',
       personImageUrl: 'string',

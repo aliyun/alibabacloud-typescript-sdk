@@ -16,6 +16,7 @@ export class SearchMediaByHybridRequest extends $dara.Model {
    * video
    */
   mediaType?: string;
+  namespace?: string;
   /**
    * @example
    * 1
@@ -36,6 +37,7 @@ export class SearchMediaByHybridRequest extends $dara.Model {
     return {
       mediaId: 'MediaId',
       mediaType: 'MediaType',
+      namespace: 'Namespace',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       searchLibName: 'SearchLibName',
@@ -47,6 +49,7 @@ export class SearchMediaByHybridRequest extends $dara.Model {
     return {
       mediaId: 'string',
       mediaType: 'string',
+      namespace: 'string',
       pageNo: 'number',
       pageSize: 'number',
       searchLibName: 'string',

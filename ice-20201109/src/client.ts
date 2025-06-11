@@ -8790,6 +8790,10 @@ export default class Client extends OpenApi {
   async insertMediaToSearchLibWithOptions(request: $_model.InsertMediaToSearchLibRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InsertMediaToSearchLibResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.imagesInput)) {
+      query["ImagesInput"] = request.imagesInput;
+    }
+
     if (!$dara.isNull(request.input)) {
       query["Input"] = request.input;
     }
@@ -13513,6 +13517,10 @@ export default class Client extends OpenApi {
       query["MultimodalSearchType"] = request.multimodalSearchType;
     }
 
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
     if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
@@ -13593,6 +13601,10 @@ export default class Client extends OpenApi {
       query["MediaType"] = request.mediaType;
     }
 
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
     if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
@@ -13658,6 +13670,10 @@ export default class Client extends OpenApi {
       query["MediaType"] = request.mediaType;
     }
 
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
     if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
@@ -13717,6 +13733,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.mediaType)) {
       query["MediaType"] = request.mediaType;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
     }
 
     if (!$dara.isNull(request.pageNo)) {

@@ -83,6 +83,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
    * 480
    */
   height?: string;
+  imagesInput?: string;
   /**
    * @remarks
    * The time when the file was last modified.
@@ -119,6 +120,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
       fileUrl: 'FileUrl',
       formatName: 'FormatName',
       height: 'Height',
+      imagesInput: 'ImagesInput',
       modifiedTime: 'ModifiedTime',
       region: 'Region',
       width: 'Width',
@@ -137,6 +139,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
       fileUrl: 'string',
       formatName: 'string',
       height: 'string',
+      imagesInput: 'string',
       modifiedTime: 'string',
       region: 'string',
       width: 'string',

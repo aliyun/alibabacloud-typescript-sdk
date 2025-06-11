@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InsertMediaToSearchLibRequest extends $dara.Model {
+  imagesInput?: string;
   /**
    * @remarks
    * The URL of the video, audio, or image file that you want to import to the search library.
@@ -57,6 +58,7 @@ export class InsertMediaToSearchLibRequest extends $dara.Model {
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
+      imagesInput: 'ImagesInput',
       input: 'Input',
       mediaId: 'MediaId',
       mediaType: 'MediaType',
@@ -67,6 +69,7 @@ export class InsertMediaToSearchLibRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      imagesInput: 'string',
       input: 'string',
       mediaId: 'string',
       mediaType: 'string',

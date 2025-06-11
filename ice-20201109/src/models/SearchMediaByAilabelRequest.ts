@@ -37,6 +37,7 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
    * Ocr
    */
   multimodalSearchType?: string;
+  namespace?: string;
   /**
    * @remarks
    * The page number. Default value: 1.
@@ -94,6 +95,7 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
       mediaId: 'MediaId',
       mediaType: 'MediaType',
       multimodalSearchType: 'MultimodalSearchType',
+      namespace: 'Namespace',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       searchLibName: 'SearchLibName',
@@ -109,6 +111,7 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
       mediaId: 'string',
       mediaType: 'string',
       multimodalSearchType: 'string',
+      namespace: 'string',
       pageNo: 'number',
       pageSize: 'number',
       searchLibName: 'string',

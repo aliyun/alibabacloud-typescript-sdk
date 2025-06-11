@@ -16,6 +16,7 @@ export class SearchMediaByMultimodalRequest extends $dara.Model {
    * video
    */
   mediaType?: string;
+  namespace?: string;
   /**
    * @remarks
    * The page number. Default value: 1.
@@ -48,6 +49,7 @@ export class SearchMediaByMultimodalRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       mediaType: 'MediaType',
+      namespace: 'Namespace',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       searchLibName: 'SearchLibName',
@@ -58,6 +60,7 @@ export class SearchMediaByMultimodalRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       mediaType: 'string',
+      namespace: 'string',
       pageNo: 'number',
       pageSize: 'number',
       searchLibName: 'string',
