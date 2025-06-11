@@ -13359,6 +13359,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.allowInsertWithFilter)) {
+      query["AllowInsertWithFilter"] = request.allowInsertWithFilter;
+    }
+
     if (!$dara.isNull(request.collection)) {
       query["Collection"] = request.collection;
     }

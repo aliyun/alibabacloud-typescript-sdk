@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpsertChunksShrinkRequest extends $dara.Model {
+  allowInsertWithFilter?: boolean;
   /**
    * @remarks
    * Document collection name.
@@ -78,6 +79,7 @@ export class UpsertChunksShrinkRequest extends $dara.Model {
   textChunksShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      allowInsertWithFilter: 'AllowInsertWithFilter',
       collection: 'Collection',
       DBInstanceId: 'DBInstanceId',
       fileName: 'FileName',
@@ -92,6 +94,7 @@ export class UpsertChunksShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowInsertWithFilter: 'boolean',
       collection: 'string',
       DBInstanceId: 'string',
       fileName: 'string',
