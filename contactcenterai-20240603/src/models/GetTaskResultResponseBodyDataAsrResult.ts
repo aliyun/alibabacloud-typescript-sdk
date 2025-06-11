@@ -7,6 +7,7 @@ export class GetTaskResultResponseBodyDataAsrResult extends $dara.Model {
   emotionValue?: number;
   end?: number;
   role?: string;
+  roleName?: string;
   speechRate?: number;
   words?: string;
   static names(): { [key: string]: string } {
@@ -15,6 +16,7 @@ export class GetTaskResultResponseBodyDataAsrResult extends $dara.Model {
       emotionValue: 'emotionValue',
       end: 'end',
       role: 'role',
+      roleName: 'roleName',
       speechRate: 'speechRate',
       words: 'words',
     };
@@ -26,6 +28,7 @@ export class GetTaskResultResponseBodyDataAsrResult extends $dara.Model {
       emotionValue: 'number',
       end: 'number',
       role: 'string',
+      roleName: 'string',
       speechRate: 'number',
       words: 'string',
     };
