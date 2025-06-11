@@ -447,6 +447,10 @@ export default class Client extends OpenApi {
       query["DefenseScene"] = request.defenseScene;
     }
 
+    if (!$dara.isNull(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -1225,6 +1229,10 @@ export default class Client extends OpenApi {
   async deleteDefenseRuleWithOptions(request: $_model.DeleteDefenseRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDefenseRuleResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -3881,6 +3889,10 @@ export default class Client extends OpenApi {
   async describeDefenseRuleWithOptions(request: $_model.DescribeDefenseRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDefenseRuleResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -9209,6 +9221,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.defenseScene)) {
       query["DefenseScene"] = request.defenseScene;
+    }
+
+    if (!$dara.isNull(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
     }
 
     if (!$dara.isNull(request.instanceId)) {

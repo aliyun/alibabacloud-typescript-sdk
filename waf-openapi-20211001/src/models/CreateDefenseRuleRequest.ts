@@ -24,6 +24,7 @@ export class CreateDefenseRuleRequest extends $dara.Model {
    * waf_group
    */
   defenseScene?: string;
+  defenseType?: string;
   /**
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
@@ -72,6 +73,7 @@ export class CreateDefenseRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       defenseScene: 'DefenseScene',
+      defenseType: 'DefenseType',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resource: 'Resource',
@@ -84,6 +86,7 @@ export class CreateDefenseRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       defenseScene: 'string',
+      defenseType: 'string',
       instanceId: 'string',
       regionId: 'string',
       resource: 'string',
