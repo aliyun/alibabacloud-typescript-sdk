@@ -1,0 +1,60 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class ModifyTenantTagsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the OceanBase cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ob317v4uif****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"Key": "xxx", "Value", "xxx"}]
+   */
+  tags?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * t33h8y08k****
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      tags: 'Tags',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      tags: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
