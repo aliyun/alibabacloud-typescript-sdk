@@ -1,0 +1,44 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class GetConversationalAutomationResponseBodyDataCommands extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the command.
+   * 
+   * @example
+   * description
+   */
+  commandDescription?: string;
+  /**
+   * @remarks
+   * The name of the command.
+   * 
+   * @example
+   * common1
+   */
+  commandName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commandDescription: 'CommandDescription',
+      commandName: 'CommandName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandDescription: 'string',
+      commandName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
