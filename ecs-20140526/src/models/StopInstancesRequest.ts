@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class StopInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The batch operation mode. Valid values:
+   * Specifies the batch operation mode. Valid values:
    * 
-   * *   AllTogether: In this mode, if all instances are stopped, a success message is returned. If an instance fails the verification, all instances fail to stop and an error message is returned.
-   * *   SuccessFirst: In this mode, each instance is separately stopped. The response contains the operation results for each instance.
+   * *   AllTogether: The batch operation is successful only after all operations are successful. If any operation fails, the batch operation is considered failed, and all operations that have been performed are undone to restore the instances to the status before the batch operation.
+   * *   SuccessFirst: allows each operation in a batch to be independently executed. If an operation fails, other operations can continue and confirm success. In this mode, successful operations are committed and failed operations are marked as failed, but the execution results of other operations are not affected.
    * 
    * Default value: AllTogether.
    * 
@@ -18,9 +18,9 @@ export class StopInstancesRequest extends $dara.Model {
   batchOptimization?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to send a precheck request. Valid values:
    * 
-   * *   true: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and instance status. If the request fails the dry run, an error message is returned. If the request passes the dry run, `DRYRUN.SUCCESS` is returned.
+   * *   true: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and instance status. If the check fails, the corresponding error message is returned. If the request passes the dry run, `DRYRUN.SUCCESS` is returned.
    * 
    * >  If you set `BatchOptimization` to `SuccessFirst` and `DryRun` to true, only `DRYRUN.SUCCESS` is returned, regardless of whether the request passes the dry run.
    * 
@@ -36,8 +36,13 @@ export class StopInstancesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to forcefully stop instances. Valid values:
    * 
-   * *   true. This operation is equivalent to the typical power-off operation. Cache data that is not written to storage devices on instances is lost.
-   * *   false.
+   * *   true: forcefully stops the ECS instance.
+   * 
+   *     **
+   * 
+   *     **Alert** Force Stop: forcefully stops the instance. A force stop is equivalent to a physical shutdown and may cause data loss if instance data has not been written to disks.
+   * 
+   * *   false: normally stops the ECS instance.
    * 
    * Default value: false.
    * 
@@ -71,12 +76,23 @@ export class StopInstancesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The stop mode of the pay-as-you-go instance. Valid values:
+   * The stop mode. Valid values:
    * 
-   * *   StopCharging: economical mode. For information about how `StopCharging` takes effect, see the "Prerequisites" section in [Economical mode](https://help.aliyun.com/document_detail/63353.html).
-   * *   KeepCharging: standard mode. After the instance is stopped in standard mode, you continue to be charged for it.
+   * *   StopCharging: economical mode. After the economical mode is enabled, billing for the following resources of the instance stops: computing resources (vCPUs and memory), image licenses, and public bandwidth of the static public IP address (if any) that uses the pay-by-bandwidth metering method. Billing for the following resources of the instance continues: system disk, data disks, and public bandwidth of the elastic IP address (EIP) (if any) that uses the pay-by-bandwidth metering method. For more information, see [Economical mode](https://help.aliyun.com/document_detail/63353.html).
    * 
-   * Default value: If the prerequisites required for enabling economical mode are met and you have enabled the mode in the ECS console, the default value is [StopCharging](~~63353#default~~). For more information, see the "Enable economical mode" section in `Economical mode`. Otherwise, the default value is `KeepCharging`.
+   *     **
+   * 
+   *     **Note**
+   * 
+   * *   If the instance does not support the **economical** mode, the system stops the instance and does not report errors during the operation call. The economical mode cannot be enabled for instances of the classic network type, instances that use local disks, and instances that use persistent memory.
+   * 
+   * *   The instance may fail to restart due to the reclaimed computing resources or insufficient resources. Try again later or change the instance type of the instance.
+   * 
+   * *   If an EIP is associated with the instance before the instance is stopped, the EIP remains unchanged after the instance is restarted. If a static public IP address is associated with the instance, the static public IP address may change, but the private IP address does not change.
+   * 
+   * *   KeepCharging: standard mode. After the instance is stopped in standard mode, you continue to be charged for the instance. After the instance is stopped in standard mode, you continue to be charged for the instance.
+   * 
+   * Default value: If the conditions for [enabling the economical mode for an instance in a VPC](~~63353#default~~) are met and you have enabled this mode in the ECS console, the default value is `StopCharging`. Otherwise, the default value is `KeepCharging`.
    * 
    * @example
    * KeepCharging

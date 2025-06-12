@@ -64,7 +64,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchTemplateConfig extend
   instanceType?: string;
   /**
    * @remarks
-   * The maximum price of preemptible instances in extended configuration N.
+   * The maximum price of spot instances in extended configuration N.
    * 
    * >  If you specify one or more `LaunchTemplateConfig.N.*` parameters, you must also specify `LaunchTemplateConfig.N.MaxPrice`.
    * 

@@ -28,6 +28,7 @@ export class DescribeTerminalSessionsResponseBodySessionsSessionConnectionsConne
    * 2024-01-19T09:16:46Z
    */
   endTime?: string;
+  failedDetail?: string;
   /**
    * @remarks
    * The instance ID.
@@ -63,6 +64,7 @@ export class DescribeTerminalSessionsResponseBodySessionsSessionConnectionsConne
     return {
       closedReason: 'ClosedReason',
       endTime: 'EndTime',
+      failedDetail: 'FailedDetail',
       instanceId: 'InstanceId',
       startTime: 'StartTime',
       status: 'Status',
@@ -73,6 +75,7 @@ export class DescribeTerminalSessionsResponseBodySessionsSessionConnectionsConne
     return {
       closedReason: 'string',
       endTime: 'string',
+      failedDetail: 'string',
       instanceId: 'string',
       startTime: 'string',
       status: 'string',

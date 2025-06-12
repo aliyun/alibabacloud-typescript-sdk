@@ -28,8 +28,8 @@ export class DescribeRegionsRequest extends $dara.Model {
    * 
    * - PrePaid: subscription. If you set this parameter to PrePaid, make sure that you have sufficient balance or credits in your account. Otherwise, the InvalidPayMethod error code is returned.
    * - PostPaid: pay-as-you-go.
-   * SpotWithPriceLimit: preemptible instance for which a maximum hourly price is specified.
-   * - SpotAsPriceGo: preemptible instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+   * SpotWithPriceLimit: spot instance for which a maximum hourly price is specified.
+   * - SpotAsPriceGo: spot instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
    * 
    * Default value: PostPaid.
    * 

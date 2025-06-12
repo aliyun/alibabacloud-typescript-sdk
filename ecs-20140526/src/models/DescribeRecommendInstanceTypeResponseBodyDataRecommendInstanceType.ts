@@ -15,7 +15,7 @@ export class DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceType 
   commodityCode?: string;
   /**
    * @remarks
-   * The billing method of the instance.
+   * The billing method of the instances.
    * 
    * @example
    * PostPaid
@@ -23,12 +23,12 @@ export class DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceType 
   instanceChargeType?: string;
   /**
    * @remarks
-   * The name of the instance type.
+   * The details of the instance type.
    */
   instanceType?: DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceTypeInstanceType;
   /**
    * @remarks
-   * The network type of the instance.
+   * The network type of the ECS instances.
    * 
    * @example
    * vpc
@@ -44,7 +44,7 @@ export class DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceType 
   priority?: number;
   /**
    * @remarks
-   * The region ID of the instance type.
+   * The ID of the region in which the instance type is available.
    * 
    * @example
    * cn-hangzhou
@@ -52,7 +52,7 @@ export class DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceType 
   regionId?: string;
   /**
    * @remarks
-   * The scenarios in which the instance type is recommended.
+   * The scenario in which the instance type is recommended.
    * 
    * @example
    * CREATE
@@ -60,7 +60,7 @@ export class DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceType 
   scene?: string;
   /**
    * @remarks
-   * The bidding policy for the preemptible instance.
+   * The bidding policy for the spot instances.
    * 
    * @example
    * NoSpot
@@ -76,7 +76,7 @@ export class DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceType 
   zoneId?: string;
   /**
    * @remarks
-   * The details of the zones where the instance types resides.
+   * The details of the zones in which the instance type is available.
    */
   zones?: DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceTypeZones;
   static names(): { [key: string]: string } {

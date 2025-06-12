@@ -51,7 +51,7 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
    * The type of supplemental instances. When the sum of the `PayAsYouGoTargetCapacity` and `SpotTargetCapacity` values is smaller than the `TotalTargetCapacity` value, the auto provisioning group creates instances of the specified type to meet the total target capacity. Valid values:
    * 
    * *   PayAsYouGo: pay-as-you-go
-   * *   Spot: preemptible instance
+   * *   Spot: spot instance
    * 
    * Default value: Spot.
    * 
@@ -113,7 +113,7 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
   launchTemplateVersion?: string;
   /**
    * @remarks
-   * The maximum price of preemptible instances in the auto provisioning group.
+   * The maximum price of spot instances in the auto provisioning group.
    * 
    * >  When both `MaxSpotPrice` and `LaunchTemplateConfig.N.MaxPrice` are specified, the smaller one of the two parameter values is used.
    * 
@@ -191,7 +191,7 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
   resourcePoolOptions?: CreateAutoProvisioningGroupRequestResourcePoolOptions;
   /**
    * @remarks
-   * The policy for creating preemptible instances. Valid values:
+   * The policy for creating spot instances. Valid values:
    * 
    * *   lowest-price: cost optimization policy. The auto provisioning group selects the lowest-priced instance type to create instances.
    * *   diversified: balanced distribution policy. The auto provisioning group creates instances in zones that are specified in extended configurations and then evenly distributes the instances across the zones.
@@ -205,10 +205,10 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
   spotAllocationStrategy?: string;
   /**
    * @remarks
-   * The operation to be performed on the preemptible instance when it is interrupted. Valid values:
+   * The operation to be performed on the spot instance when it is interrupted. Valid values:
    * 
-   * *   stop: stops the preemptible instance.
-   * *   terminate: releases the preemptible instance.
+   * *   stop: stops the spot instance.
+   * *   terminate: releases the spot instance.
    * 
    * Default value: terminate.
    * 
@@ -218,7 +218,7 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
   spotInstanceInterruptionBehavior?: string;
   /**
    * @remarks
-   * The number of preemptible instances of the lowest-priced instance type to be created by the auto provisioning group. This parameter takes effect when `SpotAllocationStrategy` is set to `lowest-price`.
+   * The number of spot instances of the lowest-priced instance type to be created by the auto provisioning group. This parameter takes effect when `SpotAllocationStrategy` is set to `lowest-price`.
    * 
    * The value must be smaller than the N value specified in `LaunchTemplateConfig.N`.
    * 
@@ -228,7 +228,7 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
   spotInstancePoolsToUseCount?: number;
   /**
    * @remarks
-   * The target capacity of preemptible instances in the auto provisioning group. The value must be less than or equal to the `TotalTargetCapacity` value.
+   * The target capacity of spot instances in the auto provisioning group. The value must be less than or equal to the `TotalTargetCapacity` value.
    * 
    * @example
    * 20
@@ -274,7 +274,7 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
    * @remarks
    * The total target capacity of the auto provisioning group. The value must be a positive integer.
    * 
-   * The total target capacity of the auto provisioning group must be greater than or equal to the sum of the target capacity of pay-as-you-go instances specified by `PayAsYouGoTargetCapacity` and the target capacity of preemptible instances specified by `SpotTargetCapacity`.
+   * The total target capacity of the auto provisioning group must be greater than or equal to the sum of the target capacity of pay-as-you-go instances specified by `PayAsYouGoTargetCapacity` and the target capacity of spot instances specified by `SpotTargetCapacity`.
    * 
    * This parameter is required.
    * 

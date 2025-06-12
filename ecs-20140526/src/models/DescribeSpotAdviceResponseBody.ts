@@ -6,9 +6,9 @@ import { DescribeSpotAdviceResponseBodyAvailableSpotZones } from "./DescribeSpot
 export class DescribeSpotAdviceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about preemptible instances in the zones of the specified region.
+   * Details about spot instances in the zones of the specified region.
    * 
-   * >  The return values are sorted based on the historical percentages of average preemptible instance prices relative to pay-as-you-go instance prices for instance types.
+   * >  The return values are sorted based on the historical percentages of average spot instance prices relative to pay-as-you-go instance prices for instance types.
    */
   availableSpotZones?: DescribeSpotAdviceResponseBodyAvailableSpotZones;
   /**

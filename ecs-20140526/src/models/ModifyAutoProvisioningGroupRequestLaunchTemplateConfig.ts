@@ -13,7 +13,7 @@ export class ModifyAutoProvisioningGroupRequestLaunchTemplateConfig extends $dar
   instanceType?: string;
   /**
    * @remarks
-   * The maximum price of preemptible instances in extended configuration N.
+   * The maximum price of spot instances in extended configuration N.
    * 
    * @example
    * 3

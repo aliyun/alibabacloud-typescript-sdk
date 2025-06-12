@@ -6,7 +6,7 @@ import { DescribeSpotPriceHistoryResponseBodySpotPrices } from "./DescribeSpotPr
 export class DescribeSpotPriceHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the preemptible instance.
+   * The instance type of the spot instance.
    * 
    * @example
    * CNY
@@ -14,7 +14,7 @@ export class DescribeSpotPriceHistoryResponseBody extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The network type of the preemptible instance.
+   * The network type of the spot instance.
    * 
    * @example
    * 1000
@@ -22,7 +22,7 @@ export class DescribeSpotPriceHistoryResponseBody extends $dara.Model {
   nextOffset?: number;
   /**
    * @remarks
-   * The instance type of the preemptible instance.
+   * The instance type of the spot instance.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -30,7 +30,7 @@ export class DescribeSpotPriceHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The zone ID of the preemptible instance.
+   * The zone ID of the spot instance.
    */
   spotPrices?: DescribeSpotPriceHistoryResponseBodySpotPrices;
   static names(): { [key: string]: string } {

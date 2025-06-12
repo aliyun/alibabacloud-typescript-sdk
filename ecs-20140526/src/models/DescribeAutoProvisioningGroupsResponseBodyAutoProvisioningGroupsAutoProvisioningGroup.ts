@@ -77,7 +77,7 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
   launchTemplateVersion?: string;
   /**
    * @remarks
-   * The maximum price of preemptible instances in the auto provisioning group.
+   * The maximum price of spot  instances in the auto provisioning group.
    * 
    * >  When both the MaxSpotPrice and LaunchTemplateConfig.N.MaxPrice parameters are specified, the smaller one of the two parameter values is used.
    * 
@@ -110,7 +110,7 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
   resourceGroupId?: string;
   /**
    * @remarks
-   * The policy related to preemptible instances.
+   * The policy related to spot instances.
    */
   spotOptions?: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupSpotOptions;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSpotPriceHistoryResponseBodySpotPricesSpotPriceType extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the preemptible instance.
+   * The instance type of the spot instance.
    * 
    * @example
    * ecs.g5.large
@@ -13,7 +13,7 @@ export class DescribeSpotPriceHistoryResponseBodySpotPricesSpotPriceType extends
   instanceType?: string;
   /**
    * @remarks
-   * Details about the price history of the preemptible instance.
+   * Details about the price history of the spot instance.
    * 
    * @example
    * optimized
@@ -21,7 +21,7 @@ export class DescribeSpotPriceHistoryResponseBodySpotPricesSpotPriceType extends
   ioOptimized?: string;
   /**
    * @remarks
-   * Queries the price history of a preemptible instance within the last 30 days.
+   * Queries the price history of a spot instance within the last 30 days.
    * 
    * @example
    * vpc
@@ -29,7 +29,7 @@ export class DescribeSpotPriceHistoryResponseBodySpotPricesSpotPriceType extends
   networkType?: string;
   /**
    * @remarks
-   * The price for a pay-as-you-go instance that has the same configuration as the specified preemptible instance.
+   * The price for a pay-as-you-go instance that has the same configuration as the specified spot instance.
    * 
    * @example
    * 0.354
@@ -37,7 +37,7 @@ export class DescribeSpotPriceHistoryResponseBodySpotPricesSpotPriceType extends
   originPrice?: number;
   /**
    * @remarks
-   * The price for a pay-as-you-go instance that has the same configurations as the preemptible instance.
+   * The price for a pay-as-you-go instance that has the same configurations as the spot instance.
    * 
    * @example
    * 0.036

@@ -45,7 +45,7 @@ export class DescribeAutoProvisioningGroupInstancesResponseBodyInstancesInstance
   ioOptimized?: boolean;
   /**
    * @remarks
-   * Indicates whether the instance is a preemptible instance.
+   * Indicates whether the instance is a spot instance.
    * 
    * @example
    * true

@@ -8,7 +8,7 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
    * The type of supplemental instances. When the sum of the `PayAsYouGoTargetCapacity` and `SpotTargetCapacity` values is less than the `TotalTargetCapacity` value, the auto provisioning group creates instances of the specified billing method to meet the target capacity. Valid values:
    * 
    * *   PayAsYouGo: pay-as-you-go instances.
-   * *   Spot: preemptible instances.
+   * *   Spot: spot instances.
    * 
    * @example
    * Spot
@@ -24,7 +24,7 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
   payAsYouGoTargetCapacity?: number;
   /**
    * @remarks
-   * The target capacity of preemptible instances that the auto provisioning group provisions.
+   * The target capacity of spot instances that the auto provisioning group provisions.
    * 
    * @example
    * 20

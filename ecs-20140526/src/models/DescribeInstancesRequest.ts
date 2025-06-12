@@ -205,7 +205,7 @@ export class DescribeInstancesRequest extends $dara.Model {
    * 
    * *   financial: The instance is locked due to overdue payments.
    * *   security: The instance is locked due to security reasons.
-   * *   recycling: The preemptible instance is locked and pending release.
+   * *   recycling: The spot instance is locked and pending release.
    * *   dedicatedhostfinancial: The instance is locked due to overdue payments for the dedicated host.
    * *   refunded: The instance is locked because a refund is made for the instance.
    * 

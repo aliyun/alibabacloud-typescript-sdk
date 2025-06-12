@@ -259,12 +259,12 @@ export class DescribePriceRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
+   * The protection period of the spot instance. Unit: hours. Default value: 1. Valid values:
    * 
-   * *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-   * *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+   * *   1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+   * *   0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
    * 
-   * Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Preemptible instances are billed by second. We recommend that you specify a protection period based on your business requirements.
+   * Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Spot instances are billed by second. We recommend that you specify a protection period based on your business requirements.
    * 
    * >  This parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
    * 
@@ -277,8 +277,8 @@ export class DescribePriceRequest extends $dara.Model {
    * The bidding policy for the pay-as-you-go instance. Valid values:
    * 
    * *   NoSpot: The instance is a regular pay-as-you-go instance.
-   * *   SpotWithPriceLimit: The instance is created as a preemptible instance that has a user-defined maximum hourly price.
-   * *   SpotAsPriceGo: The instance is created as a preemptible instance whose bid price is based on the market price at the time of purchase. The market price can be up to the pay-as-you-go price.
+   * *   SpotWithPriceLimit: The instance is created as a spot instance that has a user-defined maximum hourly price.
+   * *   SpotAsPriceGo: The instance is created as a spot instance whose bid price is based on the market price at the time of purchase. The market price can be up to the pay-as-you-go price.
    * 
    * Default value: NoSpot.
    * 
@@ -300,7 +300,7 @@ export class DescribePriceRequest extends $dara.Model {
    * @remarks
    * The zone ID.
    * 
-   * > Prices of preemptible instances vary based on zones. When you query the price of a preemptible instance, specify ZoneId.
+   * > Prices of spot instances vary based on zones. When you query the price of a spot instance, specify ZoneId.
    * 
    * @example
    * cn-hagzhou-i

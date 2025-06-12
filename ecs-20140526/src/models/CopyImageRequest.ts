@@ -4,6 +4,13 @@ import { CopyImageRequestTag } from "./CopyImageRequestTag";
 
 
 export class CopyImageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that you want to use to ensure the idempotence of the request. You can use the client to generate the value, but you ensure sure that the value is unique among different requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
   /**
    * @remarks
@@ -29,6 +36,18 @@ export class CopyImageRequest extends $dara.Model {
    * cn-shanghai
    */
   destinationRegionId?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Specifies whether to check the image used by the instance supports hot migration. Valid values:
+   * 
+   * *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks

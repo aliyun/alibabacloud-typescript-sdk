@@ -17,7 +17,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceOperationLocksLockRea
    * 
    * *   financial: The instance was locked due to overdue payments.
    * *   security: The instance was locked due to security reasons.
-   * *   recycling: The preemptible instance was locked and pending release.
+   * *   recycling: The spot instance was locked and pending release.
    * *   dedicatedhostfinancial: The instance was locked due to overdue payments for the dedicated host.
    * *   refunded: The instance was locked because a refund was made for the instance.
    * 

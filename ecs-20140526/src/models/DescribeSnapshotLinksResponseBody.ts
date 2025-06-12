@@ -4,6 +4,13 @@ import { DescribeSnapshotLinksResponseBodySnapshotLinks } from "./DescribeSnapsh
 
 
 export class DescribeSnapshotLinksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a****
+   */
   nextToken?: string;
   /**
    * @remarks

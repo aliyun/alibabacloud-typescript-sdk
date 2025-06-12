@@ -29,7 +29,7 @@ export class StopInstancesResponseBodyInstanceResponsesInstanceResponse extends 
   instanceId?: string;
   /**
    * @remarks
-   * The error message returned for the instance. A return value of success indicates that the operation was successful. For more information, see the "Error codes" section of this topic.
+   * The error message returned for the instance. The return value `success` indicates that the operation is successful. For more information, see the "Error codes" section of this topic.
    * 
    * @example
    * success

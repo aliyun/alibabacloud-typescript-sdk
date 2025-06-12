@@ -394,12 +394,12 @@ export class CreateAutoProvisioningGroupRequestLaunchConfiguration extends $dara
   periodUnit?: string;
   /**
    * @remarks
-   * The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values: Valid values:
+   * The protection period of the spot instance. Unit: hours. Default value: 1. Valid values: Valid values:
    * 
-   * *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-   * *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+   * *   1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+   * *   0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
    * 
-   * Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. The preemptible instance is billed by second. We recommend that you specify an appropriate protection period based on your business requirements.
+   * Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. The spot instance is billed by second. We recommend that you specify an appropriate protection period based on your business requirements.
    * 
    * When you specify this parameter, take note of the following items:
    * 
@@ -411,7 +411,7 @@ export class CreateAutoProvisioningGroupRequestLaunchConfiguration extends $dara
   spotDuration?: number;
   /**
    * @remarks
-   * The interruption event of the preemptible instances. Valid values:
+   * The interruption event of the spot instances. Valid values:
    * 
    * *   Terminate: The instance is released.
    * *   Stop: The instance is stopped in economical mode.

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of vCPUs of the instance.
+   * The number of vCPU cores of the instance type.
    * 
-   * > If you specify both `Cores` and `Memory`, the system returns all instance types that match the values of the parameters.
+   * >  If you specify both `Cores` and `Memory`, the system returns all instance types that match the values of the parameters.
    * 
    * @example
    * 2
@@ -15,7 +15,7 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   cores?: number;
   /**
    * @remarks
-   * The billing method of the ECS instance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
+   * The billing method of ECS instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
    * 
    * *   PrePaid: subscription
    * *   PostPaid: pay-as-you-go
@@ -30,9 +30,9 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
    * @remarks
    * The level of the instance family. Valid values:
    * 
-   * *   EntryLevel
-   * *   EnterpriseLevel
-   * *   CreditEntryLevel For more information, see [Burstable instance families](https://help.aliyun.com/document_detail/59977.html).
+   * *   EntryLevel: entry level.
+   * *   EnterpriseLevel: enterprise level.
+   * *   CreditEntryLevel: credit-based entry level. For more information, see [Burstable instance families](https://help.aliyun.com/document_detail/59977.html).
    * 
    * @example
    * EnterpriseLevel
@@ -40,9 +40,9 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   instanceFamilyLevel?: string;
   /**
    * @remarks
-   * The instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent instance type list.
+   * The instance type. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent instance type list.
    * 
-   * > If you specify `InstanceType`, the `Cores` and `Memory` parameters are ignored.
+   * >  If you specify `InstanceType`, you cannot specify `Cores` or `Memory`.
    * 
    * @example
    * ecs.hfg6.large
@@ -50,7 +50,7 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Specifies the instance families from which the alternative instance types are selected. You can specify up to 10 instance families.
+   * The instance families from which the alternative instance types are selected. You can specify up to 10 instance families.
    * 
    * @example
    * ecs.hfg6
@@ -58,10 +58,10 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   instanceTypeFamily?: string[];
   /**
    * @remarks
-   * Specifies whether the instance is I/O optimized. The IoOptimized parameter cannot be specified when the instance is not I/O optimized. Valid values:
+   * Specifies whether instances of the instance type are I/O optimized. You cannot specify IoOptimized if the instance type supports only non-I/O optimized instances. Valid values:
    * 
-   * *   optimized: The instance is I/O optimized.
-   * *   none: The instance is not I/O optimized.
+   * *   optimized: The instances are I/O optimized.
+   * *   none: The instances are non-I/O optimized.
    * 
    * Default value: optimized.
    * 
@@ -73,7 +73,7 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   ioOptimized?: string;
   /**
    * @remarks
-   * The maximum hourly price for pay-as-you-go instances or preemptible instances.
+   * The maximum hourly price for pay-as-you-go instances or spot instances.
    * 
    * >  This parameter takes effect only when `SpotStrategy` is set to `SpotWithPriceLimit`.
    * 
@@ -83,9 +83,9 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   maxPrice?: number;
   /**
    * @remarks
-   * The memory size of the instance. Unit: GiB.
+   * The memory size of the instance type. Unit: GiB.
    * 
-   * > If you specify both `Cores` and `Memory`, the system returns all instance types that match the values of the parameters.
+   * >  If you specify both `Cores` and `Memory`, the system returns all instance types that match the values of the parameters.
    * 
    * @example
    * 8.0
@@ -93,7 +93,7 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The network type of the instance. Valid values:
+   * The network type of ECS instances. Valid values:
    * 
    * *   classic
    * *   vpc
@@ -136,7 +136,7 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies the scenarios in which instance types are recommended. Valid values:
+   * The scenario in which instance types are recommended. Valid values:
    * 
    * *   UPGRADE: instance type upgrade or downgrade
    * *   CREATE: instance creation
@@ -149,11 +149,11 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The bidding policy of the preemptible instance. Valid values:
+   * The bidding policy of spot instances. Valid values:
    * 
-   * *   NoSpot: The instance is a regular pay-as-you-go instance.
-   * *   SpotWithPriceLimit: The instance is a preemptible instance for which you can specify the maximum hourly price.
-   * *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+   * *   NoSpot: The instances are regular pay-as-you-go instances.
+   * *   SpotWithPriceLimit: The instances are created as spot instances for which you can specify the maximum hourly price.
+   * *   SpotAsPriceGo: The instances are spot instances for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
    * 
    * >  If you specify `SpotStrategy`, you must set `InstanceChargeType` to `PostPaid`.
    * 
@@ -168,8 +168,8 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
    * The category of the system disk. Valid values:
    * 
    * *   cloud_efficiency: ultra disk
-   * *   cloud_ssd: SSD
-   * *   cloud_essd: ESSD
+   * *   cloud_ssd: standard SSD
+   * *   cloud_essd: Enterprise SSD (ESSD)
    * *   cloud: basic disk
    * 
    * For non-I/O optimized instances, the default value is cloud.
@@ -184,7 +184,7 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
    * @remarks
    * The zone ID. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
    * 
-   * We recommend that you set the value of ZoneMatchMode to Include, which is the default value. This way, the system recommends instance types that are available in the zone specified by the ZoneId parameter based on priority. The system also recommends instance types that are available in other zones within the same region.
+   * We recommend that you set ZoneMatchMode to Include, which is the default value. This way, the system recommends instance types that are available in the zone specified by ZoneId based on the priority policy. The system also recommends instance types that are available in other zones within the same region.
    * 
    * @example
    * cn-hangzhou-f
@@ -194,10 +194,10 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to recommend only instance types in the zone specified by ZoneId. Valid values:
    * 
-   * *   Strict: recommends only instance types that are available in zones specified by the ZoneId parameter.
-   * *   Include: recommends instance types that are available in zones specified by the ZoneId parameter and other zones within the same region.
+   * *   Strict: recommends only instance types that are available in the zone specified by ZoneId.
+   * *   Include: recommends instance types that are available in the zone specified by ZoneId and instance types that are available in other zones within the same region.
    * 
-   * If `ZoneId` is specified, the default value of this parameter is Strict. This value indicates that only alternative instance types in the zone specified by ZoneId are recommended.
+   * If `ZoneId` is specified, the default value of this parameter is Strict, which indicates that only instance types in the zone specified by ZoneId are recommended.
    * 
    * @example
    * Strict

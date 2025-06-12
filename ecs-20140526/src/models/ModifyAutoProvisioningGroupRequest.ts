@@ -25,7 +25,7 @@ export class ModifyAutoProvisioningGroupRequest extends $dara.Model {
    * The type of supplemental instances. When the sum of the PayAsYouGoTargetCapacity and SpotTargetCapacity values is smaller than the TotalTargetCapacity value, the auto-provisioning group creates instances of the specified type to meet the target capacity. Valid values:
    * 
    * *   PayAsYouGo: pay-as-you-go instances
-   * *   Spot: preemptible instances
+   * *   Spot: spot instances
    * 
    * @example
    * Spot
@@ -49,7 +49,7 @@ export class ModifyAutoProvisioningGroupRequest extends $dara.Model {
   launchTemplateConfig?: ModifyAutoProvisioningGroupRequestLaunchTemplateConfig[];
   /**
    * @remarks
-   * The maximum price of preemptible instances in the auto-provisioning group.
+   * The maximum price of spot instances in the auto-provisioning group.
    * 
    * > When both the MaxSpotPrice and LaunchTemplateConfig.N.MaxPrice parameters are specified, the smaller one of the two parameter values is used. The LaunchTemplateConfig.N.MaxPrice parameter is specified when the auto-provisioning group is created, and cannot be modified.
    * 
@@ -81,7 +81,7 @@ export class ModifyAutoProvisioningGroupRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The target capacity of preemptible instances in the auto-provisioning group. Valid values: Set this parameter to a value smaller than the TotalTargetCapacity value.
+   * The target capacity of spot instances in the auto-provisioning group. Valid values: Set this parameter to a value smaller than the TotalTargetCapacity value.
    * 
    * @example
    * 30
@@ -102,7 +102,7 @@ export class ModifyAutoProvisioningGroupRequest extends $dara.Model {
    * @remarks
    * The total target capacity of the auto-provisioning group. The value must be a positive integer.
    * 
-   * The total target capacity of the auto-provisioning group must be greater than or equal to the sum of the target capacity of pay-as-you-go instances specified by the PayAsYouGoTargetCapacity parameter as well as the target capacity of preemptible instances specified by the SpotTargetCapacity parameter.
+   * The total target capacity of the auto-provisioning group must be greater than or equal to the sum of the target capacity of pay-as-you-go instances specified by the PayAsYouGoTargetCapacity parameter as well as the target capacity of spot instances specified by the SpotTargetCapacity parameter.
    * 
    * @example
    * 70

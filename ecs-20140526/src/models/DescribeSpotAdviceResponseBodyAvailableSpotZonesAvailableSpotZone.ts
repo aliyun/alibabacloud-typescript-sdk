@@ -6,7 +6,7 @@ import { DescribeSpotAdviceResponseBodyAvailableSpotZonesAvailableSpotZoneAvaila
 export class DescribeSpotAdviceResponseBodyAvailableSpotZonesAvailableSpotZone extends $dara.Model {
   /**
    * @remarks
-   * Details about preemptible instances in the previous 30 days, including the release rate of preemptible instances and percentages of average preemptible instance prices relative to pay-as-you-go instance prices.
+   * Details about spot instances in the previous 30 days, including the release rate of spot instances and percentages of average spot instance prices relative to pay-as-you-go instance prices.
    */
   availableSpotResources?: DescribeSpotAdviceResponseBodyAvailableSpotZonesAvailableSpotZoneAvailableSpotResources;
   /**

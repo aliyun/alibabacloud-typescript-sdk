@@ -23,7 +23,7 @@ export class CreateInstanceRequestPrivatePoolOptions extends $dara.Model {
    * 
    * In the following scenarios, the PrivatePoolOptions.MatchCriteria parameter can be set only to `None` or left empty:
    * 
-   * *   Create a preemptible instance.
+   * *   Create a spot instance.
    * *   Create an instance in the classic network.
    * *   Create an instance on a dedicated host.
    * 

@@ -89,9 +89,9 @@ export class CreateInstanceRequest extends $dara.Model {
    * @remarks
    * The ID of the dedicated host on which to create the instance.
    * 
-   * You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the list of dedicated host IDs
+   * You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the list of dedicated host IDs.
    * 
-   * If you specify `DedicatedHostId`, the `SpotStrategy` and `SpotPriceLimit` parameters are ignored. This is because preemptible instances cannot be created on dedicated hosts.
+   * > Spot instances (spot instances) cannot be created on dedicated hosts. If you specify DedicatedHostId, SpotStrategy and SpotPriceLimit are automatically ignored.
    * 
    * @example
    * dh-bp67acfmxazb4p****
@@ -436,12 +436,12 @@ export class CreateInstanceRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
+   * The protection period of the spot instance. Unit: hours. Default value: 1. Valid values:
    * 
-   * *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-   * *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+   * *   1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+   * *   0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
    * 
-   * Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Preemptible instances are billed by second. We recommend that you specify an appropriate protection period based on your business requirements.
+   * Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Spot instances are billed by second. We recommend that you specify an appropriate protection period based on your business requirements.
    * 
    * >  This parameter takes effect only if the SpotStrategy parameter is set to SpotWithPriceLimit or SpotAsPriceGo.
    * 
@@ -451,7 +451,7 @@ export class CreateInstanceRequest extends $dara.Model {
   spotDuration?: number;
   /**
    * @remarks
-   * The interruption mode of the preemptible instance. Valid values:
+   * The interruption mode of the spot instance. Valid values:
    * 
    * *   Terminate: The instance is released.
    * 
@@ -478,8 +478,8 @@ export class CreateInstanceRequest extends $dara.Model {
    * The bidding policy for the pay-as-you-go instance. This parameter is valid only if you set `InstanceChargeType` to `PostPaid`. Valid values:
    * 
    * *   NoSpot (default): The instance is created as a regular pay-as-you-go instance.
-   * *   SpotWithPriceLimit: The instance is a preemptible instance for which you specify the maximum hourly price.
-   * *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+   * *   SpotWithPriceLimit: The instance is a spot instance for which you specify the maximum hourly price.
+   * *   SpotAsPriceGo: The instance is a spot instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
    * 
    * @example
    * NoSpot

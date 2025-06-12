@@ -27,6 +27,7 @@ export class StartTerminalSessionRequest extends $dara.Model {
   instanceId?: string[];
   ownerAccount?: string;
   ownerId?: number;
+  passwordName?: string;
   /**
    * @remarks
    * The port number of the ECS instance. The port is used to forward data. After this parameter is configured, Cloud Assistant Agent forwards data to the specified port. For example, you can set this parameter to 22 for data forwarding over SSH.
@@ -74,6 +75,7 @@ export class StartTerminalSessionRequest extends $dara.Model {
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      passwordName: 'PasswordName',
       portNumber: 'PortNumber',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -90,6 +92,7 @@ export class StartTerminalSessionRequest extends $dara.Model {
       instanceId: { 'type': 'array', 'itemType': 'string' },
       ownerAccount: 'string',
       ownerId: 'number',
+      passwordName: 'string',
       portNumber: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',

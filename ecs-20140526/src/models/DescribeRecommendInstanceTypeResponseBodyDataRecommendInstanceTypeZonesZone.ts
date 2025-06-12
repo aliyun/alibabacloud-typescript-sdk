@@ -6,12 +6,12 @@ import { DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceTypeZones
 export class DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceTypeZonesZone extends $dara.Model {
   /**
    * @remarks
-   * The details of network types of instance types.
+   * The details of the network types of the instance type.
    */
   networkTypes?: DescribeRecommendInstanceTypeResponseBodyDataRecommendInstanceTypeZonesZoneNetworkTypes;
   /**
    * @remarks
-   * The ID of the zone where the instance type is available.
+   * The ID of the zone in which the instance type is available.
    * 
    * @example
    * cn-hangzhou-h

@@ -217,7 +217,7 @@ export class DescribeDisksRequest extends $dara.Model {
    * 
    * *   financial: The disk is locked due to overdue payments.
    * *   security: The disk is locked due to security reasons.
-   * *   recycling: The preemptible instance is locked and pending release.
+   * *   recycling: The spot instance is locked and pending release.
    * *   dedicatedhostfinancial: The instance is locked due to overdue payments for the dedicated host.
    * 
    * @example

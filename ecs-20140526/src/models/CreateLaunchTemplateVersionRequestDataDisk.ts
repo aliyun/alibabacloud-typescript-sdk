@@ -29,7 +29,7 @@ export class CreateLaunchTemplateVersionRequestDataDisk extends $dara.Model {
    * *   cloud: basic disk
    * *   cloud_efficiency: utra disk
    * *   cloud_ssd: standard SSD
-   * *   cloud_auto: Enterprise SSD (ESSD) AutoPL disk.
+   * *   cloud_auto: ESSD AutoPL disk
    * *   cloud_essd: ESSD
    * *   cloud_essd_entry: ESSD Entry disk
    * 
@@ -75,7 +75,7 @@ export class CreateLaunchTemplateVersionRequestDataDisk extends $dara.Model {
   device?: string;
   /**
    * @remarks
-   * The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * testDataDiskName

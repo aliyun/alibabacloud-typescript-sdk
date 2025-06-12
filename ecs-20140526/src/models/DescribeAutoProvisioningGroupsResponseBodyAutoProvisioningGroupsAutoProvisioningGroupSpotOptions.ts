@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupSpotOptions extends $dara.Model {
   /**
    * @remarks
-   * The policy for creating preemptible instances. Valid values:
+   * The policy for creating spot instances. Valid values:
    * 
    * *   lowest-price: cost optimization policy. This policy indicates that the lowest-priced instance type is used to create instances.
    * *   diversified: balanced distribution policy. This policy indicates that instances are created evenly across multiple zones specified in the extended configuration.
@@ -16,10 +16,10 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
   allocationStrategy?: string;
   /**
    * @remarks
-   * The action to be performed after the excess preemptible instances are stopped. Valid values:
+   * The action to be performed after the excess spot instances are stopped. Valid values:
    * 
-   * *   stop: retains the excess preemptible instances in the stopped state.
-   * *   terminate: releases the excess preemptible instances.
+   * *   stop: retains the excess spot instances in the stopped state.
+   * *   terminate: releases the excess spot instances.
    * 
    * @example
    * stop
