@@ -30,6 +30,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 合作伙伴操作应用
+   * 
+   * @param request - OperateAppInstanceForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateAppInstanceForPartnerResponse
+   */
+  async operateAppInstanceForPartnerWithOptions(request: $_model.OperateAppInstanceForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateAppInstanceForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.operateEvent)) {
+      query["OperateEvent"] = request.operateEvent;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateAppInstanceForPartner",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateAppInstanceForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.OperateAppInstanceForPartnerResponse({}));
+  }
+
+  /**
+   * 合作伙伴操作应用
+   * 
+   * @param request - OperateAppInstanceForPartnerRequest
+   * @returns OperateAppInstanceForPartnerResponse
+   */
+  async operateAppInstanceForPartner(request: $_model.OperateAppInstanceForPartnerRequest): Promise<$_model.OperateAppInstanceForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateAppInstanceForPartnerWithOptions(request, runtime);
+  }
+
+  /**
    * 合作伙伴操作应用服务
    * 
    * @param request - OperateAppServiceForPartnerRequest
