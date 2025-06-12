@@ -1,0 +1,59 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class DeleteDocumentsRequest extends $dara.Model {
+  documentIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 0630E5DF-CEB0-445B-8626-D5C7481181C3
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentIds: 'DocumentIds',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentIds: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      requestId: 'string',
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.documentIds)) {
+      $dara.Model.validateArray(this.documentIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
