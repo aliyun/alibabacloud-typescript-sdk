@@ -18,11 +18,13 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM extends $dara.
    * ZWNobyAiMTIzNCIgPiBgZGF0ZSArJXNg
    */
   script?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
       image: 'Image',
       prologScript: 'PrologScript',
       script: 'Script',
+      userName: 'UserName',
     };
   }
 
@@ -31,6 +33,7 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM extends $dara.
       image: 'string',
       prologScript: 'string',
       script: 'string',
+      userName: 'string',
     };
   }
 

@@ -10,6 +10,7 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $dara.Model 
    */
   cores?: number;
   disks?: GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks[];
+  instanceTypes?: string[];
   /**
    * @example
    * 4
@@ -19,6 +20,7 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $dara.Model 
     return {
       cores: 'Cores',
       disks: 'Disks',
+      instanceTypes: 'InstanceTypes',
       memory: 'Memory',
     };
   }
@@ -27,6 +29,7 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $dara.Model 
     return {
       cores: 'number',
       disks: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks },
+      instanceTypes: { 'type': 'array', 'itemType': 'string' },
       memory: 'number',
     };
   }
@@ -34,6 +37,9 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $dara.Model 
   validate() {
     if(Array.isArray(this.disks)) {
       $dara.Model.validateArray(this.disks);
+    }
+    if(Array.isArray(this.instanceTypes)) {
+      $dara.Model.validateArray(this.instanceTypes);
     }
     super.validate();
   }

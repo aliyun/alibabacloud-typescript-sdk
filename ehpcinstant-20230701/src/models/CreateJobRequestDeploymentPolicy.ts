@@ -12,12 +12,16 @@ export class CreateJobRequestDeploymentPolicy extends $dara.Model {
   allocationSpec?: string;
   level?: string;
   network?: CreateJobRequestDeploymentPolicyNetwork;
+  pool?: string;
+  priority?: number;
   tag?: CreateJobRequestDeploymentPolicyTag[];
   static names(): { [key: string]: string } {
     return {
       allocationSpec: 'AllocationSpec',
       level: 'Level',
       network: 'Network',
+      pool: 'Pool',
+      priority: 'Priority',
       tag: 'Tag',
     };
   }
@@ -27,6 +31,8 @@ export class CreateJobRequestDeploymentPolicy extends $dara.Model {
       allocationSpec: 'string',
       level: 'string',
       network: CreateJobRequestDeploymentPolicyNetwork,
+      pool: 'string',
+      priority: 'number',
       tag: { 'type': 'array', 'itemType': CreateJobRequestDeploymentPolicyTag },
     };
   }

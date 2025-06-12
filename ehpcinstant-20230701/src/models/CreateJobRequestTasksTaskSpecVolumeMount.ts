@@ -13,6 +13,7 @@ export class CreateJobRequestTasksTaskSpecVolumeMount extends $dara.Model {
    * /mnt
    */
   mountPath?: string;
+  readOnly?: boolean;
   /**
    * @example
    * alicloud/nas
@@ -22,6 +23,7 @@ export class CreateJobRequestTasksTaskSpecVolumeMount extends $dara.Model {
     return {
       mountOptions: 'MountOptions',
       mountPath: 'MountPath',
+      readOnly: 'ReadOnly',
       volumeDriver: 'VolumeDriver',
     };
   }
@@ -30,6 +32,7 @@ export class CreateJobRequestTasksTaskSpecVolumeMount extends $dara.Model {
     return {
       mountOptions: 'string',
       mountPath: 'string',
+      readOnly: 'boolean',
       volumeDriver: 'string',
     };
   }

@@ -5,6 +5,7 @@ import { CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars } fro
 
 export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $dara.Model {
   appId?: string;
+  arg?: string[];
   command?: string[];
   environmentVars?: CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars[];
   /**
@@ -23,6 +24,7 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $dara.Mo
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      arg: 'Arg',
       command: 'Command',
       environmentVars: 'EnvironmentVars',
       image: 'Image',
@@ -33,6 +35,7 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $dara.Mo
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      arg: { 'type': 'array', 'itemType': 'string' },
       command: { 'type': 'array', 'itemType': 'string' },
       environmentVars: { 'type': 'array', 'itemType': CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars },
       image: 'string',
@@ -41,6 +44,9 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $dara.Mo
   }
 
   validate() {
+    if(Array.isArray(this.arg)) {
+      $dara.Model.validateArray(this.arg);
+    }
     if(Array.isArray(this.command)) {
       $dara.Model.validateArray(this.command);
     }

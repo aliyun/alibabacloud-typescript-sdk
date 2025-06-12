@@ -12,6 +12,7 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorVM extends $dara.Model {
    * m-xxxx
    */
   image?: string;
+  password?: string;
   /**
    * @example
    * ZWNobyBoZWxsbyBlY3Mh
@@ -26,6 +27,7 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorVM extends $dara.Model {
     return {
       appId: 'AppId',
       image: 'Image',
+      password: 'Password',
       prologScript: 'PrologScript',
       script: 'Script',
     };
@@ -35,6 +37,7 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorVM extends $dara.Model {
     return {
       appId: 'string',
       image: 'string',
+      password: 'string',
       prologScript: 'string',
       script: 'string',
     };
