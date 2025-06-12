@@ -1044,6 +1044,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导出-自定义数据源-选题视角分析任务结果
+   * 
+   * @param request - ExportCustomSourceAnalysisTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportCustomSourceAnalysisTaskResponse
+   */
+  async exportCustomSourceAnalysisTaskWithOptions(request: $_model.ExportCustomSourceAnalysisTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExportCustomSourceAnalysisTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExportCustomSourceAnalysisTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExportCustomSourceAnalysisTaskResponse>(await this.callApi(params, req, runtime), new $_model.ExportCustomSourceAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 导出-自定义数据源-选题视角分析任务结果
+   * 
+   * @param request - ExportCustomSourceAnalysisTaskRequest
+   * @returns ExportCustomSourceAnalysisTaskResponse
+   */
+  async exportCustomSourceAnalysisTask(request: $_model.ExportCustomSourceAnalysisTaskRequest): Promise<$_model.ExportCustomSourceAnalysisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.exportCustomSourceAnalysisTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 文档管理-导出。
    * 
    * @param request - ExportGeneratedContentRequest
@@ -1661,6 +1707,52 @@ export default class Client extends OpenApi {
   async getCustomHotTopicBroadcastJob(request: $_model.GetCustomHotTopicBroadcastJobRequest): Promise<$_model.GetCustomHotTopicBroadcastJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getCustomHotTopicBroadcastJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取自定义数据源-选题视角分析任务结果
+   * 
+   * @param request - GetCustomSourceTopicAnalysisTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomSourceTopicAnalysisTaskResponse
+   */
+  async getCustomSourceTopicAnalysisTaskWithOptions(request: $_model.GetCustomSourceTopicAnalysisTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomSourceTopicAnalysisTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCustomSourceTopicAnalysisTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCustomSourceTopicAnalysisTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetCustomSourceTopicAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 获取自定义数据源-选题视角分析任务结果
+   * 
+   * @param request - GetCustomSourceTopicAnalysisTaskRequest
+   * @returns GetCustomSourceTopicAnalysisTaskResponse
+   */
+  async getCustomSourceTopicAnalysisTask(request: $_model.GetCustomSourceTopicAnalysisTaskRequest): Promise<$_model.GetCustomSourceTopicAnalysisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCustomSourceTopicAnalysisTaskWithOptions(request, runtime);
   }
 
   /**
@@ -7775,6 +7867,70 @@ export default class Client extends OpenApi {
   async submitCustomHotTopicBroadcastJob(request: $_model.SubmitCustomHotTopicBroadcastJobRequest): Promise<$_model.SubmitCustomHotTopicBroadcastJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitCustomHotTopicBroadcastJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 从自定义数据源提交选题热点分析
+   * 
+   * @param tmpReq - SubmitCustomSourceTopicAnalysisRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitCustomSourceTopicAnalysisResponse
+   */
+  async submitCustomSourceTopicAnalysisWithOptions(tmpReq: $_model.SubmitCustomSourceTopicAnalysisRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitCustomSourceTopicAnalysisResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitCustomSourceTopicAnalysisShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.news)) {
+      request.newsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.news, "News", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.maxTopicSize)) {
+      body["MaxTopicSize"] = request.maxTopicSize;
+    }
+
+    if (!$dara.isNull(request.newsShrink)) {
+      body["News"] = request.newsShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitCustomSourceTopicAnalysis",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitCustomSourceTopicAnalysisResponse>(await this.callApi(params, req, runtime), new $_model.SubmitCustomSourceTopicAnalysisResponse({}));
+  }
+
+  /**
+   * 从自定义数据源提交选题热点分析
+   * 
+   * @param request - SubmitCustomSourceTopicAnalysisRequest
+   * @returns SubmitCustomSourceTopicAnalysisResponse
+   */
+  async submitCustomSourceTopicAnalysis(request: $_model.SubmitCustomSourceTopicAnalysisRequest): Promise<$_model.SubmitCustomSourceTopicAnalysisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitCustomSourceTopicAnalysisWithOptions(request, runtime);
   }
 
   /**
