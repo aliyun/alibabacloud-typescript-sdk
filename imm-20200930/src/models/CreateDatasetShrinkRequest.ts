@@ -1,9 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { WorkflowParameter } from "./WorkflowParameter";
 
 
-export class CreateDatasetRequest extends $dara.Model {
+export class CreateDatasetShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of bindings for the dataset. Valid values: 1 to 10. Default value: 10.
@@ -84,7 +83,7 @@ export class CreateDatasetRequest extends $dara.Model {
    * Official:AllFunction
    */
   templateId?: string;
-  workflowParameters?: WorkflowParameter[];
+  workflowParametersShrink?: string;
   static names(): { [key: string]: string } {
     return {
       datasetMaxBindCount: 'DatasetMaxBindCount',
@@ -96,7 +95,7 @@ export class CreateDatasetRequest extends $dara.Model {
       description: 'Description',
       projectName: 'ProjectName',
       templateId: 'TemplateId',
-      workflowParameters: 'WorkflowParameters',
+      workflowParametersShrink: 'WorkflowParameters',
     };
   }
 
@@ -111,14 +110,11 @@ export class CreateDatasetRequest extends $dara.Model {
       description: 'string',
       projectName: 'string',
       templateId: 'string',
-      workflowParameters: { 'type': 'array', 'itemType': WorkflowParameter },
+      workflowParametersShrink: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.workflowParameters)) {
-      $dara.Model.validateArray(this.workflowParameters);
-    }
     super.validate();
   }
 

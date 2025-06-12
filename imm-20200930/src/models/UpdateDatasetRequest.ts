@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { WorkflowParameter } from "./WorkflowParameter";
 
 
 export class UpdateDatasetRequest extends $dara.Model {
@@ -54,6 +55,7 @@ export class UpdateDatasetRequest extends $dara.Model {
    * Official:AllFunction
    */
   templateId?: string;
+  workflowParameters?: WorkflowParameter[];
   static names(): { [key: string]: string } {
     return {
       datasetMaxBindCount: 'DatasetMaxBindCount',
@@ -65,6 +67,7 @@ export class UpdateDatasetRequest extends $dara.Model {
       description: 'Description',
       projectName: 'ProjectName',
       templateId: 'TemplateId',
+      workflowParameters: 'WorkflowParameters',
     };
   }
 
@@ -79,10 +82,14 @@ export class UpdateDatasetRequest extends $dara.Model {
       description: 'string',
       projectName: 'string',
       templateId: 'string',
+      workflowParameters: { 'type': 'array', 'itemType': WorkflowParameter },
     };
   }
 
   validate() {
+    if(Array.isArray(this.workflowParameters)) {
+      $dara.Model.validateArray(this.workflowParameters);
+    }
     super.validate();
   }
 

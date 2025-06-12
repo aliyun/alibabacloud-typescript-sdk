@@ -1251,12 +1251,18 @@ export default class Client extends OpenApi {
    * *   A project has an upper limit on the number of datasets that can be created in the project. You can call the [GetProjcet](https://help.aliyun.com/document_detail/478155.html) operation to query the dataset limit of the project.
    * *   After creating a dataset, you can call the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) operation to index metadata. Metadata indexing enhances [data retrieval efficiency and statistics collection](https://help.aliyun.com/document_detail/478175.html), and enables intelligent data management.
    * 
-   * @param request - CreateDatasetRequest
+   * @param tmpReq - CreateDatasetRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDatasetResponse
    */
-  async createDatasetWithOptions(request: $_model.CreateDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDatasetResponse> {
-    request.validate();
+  async createDatasetWithOptions(tmpReq: $_model.CreateDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDatasetResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDatasetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.workflowParameters)) {
+      request.workflowParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowParameters, "WorkflowParameters", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.datasetMaxBindCount)) {
       query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
@@ -1292,6 +1298,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.workflowParametersShrink)) {
+      query["WorkflowParameters"] = request.workflowParametersShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -7725,12 +7735,18 @@ export default class Client extends OpenApi {
   /**
    * Updates a dataset.
    * 
-   * @param request - UpdateDatasetRequest
+   * @param tmpReq - UpdateDatasetRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDatasetResponse
    */
-  async updateDatasetWithOptions(request: $_model.UpdateDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDatasetResponse> {
-    request.validate();
+  async updateDatasetWithOptions(tmpReq: $_model.UpdateDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDatasetResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateDatasetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.workflowParameters)) {
+      request.workflowParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workflowParameters, "WorkflowParameters", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.datasetMaxBindCount)) {
       query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
@@ -7766,6 +7782,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.workflowParametersShrink)) {
+      query["WorkflowParameters"] = request.workflowParametersShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

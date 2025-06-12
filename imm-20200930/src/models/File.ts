@@ -7,6 +7,7 @@ import { CroppingSuggestion } from "./CroppingSuggestion";
 import { Element } from "./Element";
 import { Figure } from "./Figure";
 import { ImageScore } from "./ImageScore";
+import { Insights } from "./Insights";
 import { Label } from "./Label";
 import { OCRContents } from "./Ocrcontents";
 import { SceneElement } from "./SceneElement";
@@ -52,6 +53,11 @@ export class File extends $dara.Model {
   imageHeight?: number;
   imageScore?: ImageScore;
   imageWidth?: number;
+  /**
+   * **if can be null:**
+   * true
+   */
+  insights?: Insights;
   labels?: Label[];
   language?: string;
   latLong?: string;
@@ -137,6 +143,7 @@ export class File extends $dara.Model {
       imageHeight: 'ImageHeight',
       imageScore: 'ImageScore',
       imageWidth: 'ImageWidth',
+      insights: 'Insights',
       labels: 'Labels',
       language: 'Language',
       latLong: 'LatLong',
@@ -225,6 +232,7 @@ export class File extends $dara.Model {
       imageHeight: 'number',
       imageScore: ImageScore,
       imageWidth: 'number',
+      insights: Insights,
       labels: { 'type': 'array', 'itemType': Label },
       language: 'string',
       latLong: 'string',
@@ -298,6 +306,9 @@ export class File extends $dara.Model {
     }
     if(this.imageScore && typeof (this.imageScore as any).validate === 'function') {
       (this.imageScore as any).validate();
+    }
+    if(this.insights && typeof (this.insights as any).validate === 'function') {
+      (this.insights as any).validate();
     }
     if(Array.isArray(this.labels)) {
       $dara.Model.validateArray(this.labels);
