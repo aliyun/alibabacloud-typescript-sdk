@@ -6,6 +6,11 @@ export class DeviceRegisterRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
    * 
    * @example
    * 2a64edd96296880f55aa61987b
@@ -14,31 +19,17 @@ export class DeviceRegisterRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * el3SzmCU2p0x4RBc
-   */
-  productKey?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1748312544852
    */
   requestTime?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 3spKwUgUpAGsXbbrHKnpVJPlI9wamoyhh96uqJuSyCKyJ7oscLAHRcz15dSzLG5L+ywFgYXSQNqdRtsn/Ri0j7pD0IuoKt9R7EnNo/U6viPvWD3Ldp3ehDDtOFtSrpUg6LTedvGtUWYU4x/zSD2jgCXijEdZCCMGCypcheMHRXfInYWF1xFtnCEXJfxtrBrnCk1p/pW3JSmdHJzmInnUEO3dWbNe3A==
    */
   signature?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'appId',
       nonce: 'nonce',
-      productKey: 'productKey',
       requestTime: 'requestTime',
       signature: 'signature',
     };
@@ -46,8 +37,8 @@ export class DeviceRegisterRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       nonce: 'string',
-      productKey: 'string',
       requestTime: 'string',
       signature: 'string',
     };

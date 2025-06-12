@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTokenResponseBodyData extends $dara.Model {
+  appId?: string;
   /**
    * @example
    * 5b504f84b69b9a73d3a21a2cff05e190
@@ -13,11 +14,6 @@ export class GetTokenResponseBodyData extends $dara.Model {
    * b79d692c315d6bfb28312edf15
    */
   nonce?: string;
-  /**
-   * @example
-   * el3SzmCU2p0x4RBc
-   */
-  productKey?: string;
   /**
    * @example
    * 127.0.0.1
@@ -35,9 +31,9 @@ export class GetTokenResponseBodyData extends $dara.Model {
   signature?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'appId',
       deviceName: 'deviceName',
       nonce: 'nonce',
-      productKey: 'productKey',
       requestIp: 'requestIp',
       responseTime: 'responseTime',
       signature: 'signature',
@@ -46,9 +42,9 @@ export class GetTokenResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       deviceName: 'string',
       nonce: 'string',
-      productKey: 'string',
       requestIp: 'string',
       responseTime: 'string',
       signature: 'string',

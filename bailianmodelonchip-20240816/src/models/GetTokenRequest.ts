@@ -6,6 +6,11 @@ export class GetTokenRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
    * 
    * @example
    * 5b504f84b69b9a73d3a21a2cff05e190
@@ -19,14 +24,6 @@ export class GetTokenRequest extends $dara.Model {
    * 2a64edd96296880f55aa61987b
    */
   nonce?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * el3SzmCU2p0x4RBc
-   */
-  productKey?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -58,9 +55,9 @@ export class GetTokenRequest extends $dara.Model {
   tokenType?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'appId',
       deviceName: 'deviceName',
       nonce: 'nonce',
-      productKey: 'productKey',
       requestTime: 'requestTime',
       signature: 'signature',
       tokenKey: 'tokenKey',
@@ -70,9 +67,9 @@ export class GetTokenRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       deviceName: 'string',
       nonce: 'string',
-      productKey: 'string',
       requestTime: 'string',
       signature: 'string',
       tokenKey: 'string',

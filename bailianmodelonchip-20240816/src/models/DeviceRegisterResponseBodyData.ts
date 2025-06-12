@@ -2,7 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
+/**
+ */
 export class DeviceRegisterResponseBodyData extends $dara.Model {
+  appId?: string;
   /**
    * @example
    * 991fa52b7935aaa33536e05d4f4b5003
@@ -15,11 +18,6 @@ export class DeviceRegisterResponseBodyData extends $dara.Model {
   nonce?: string;
   /**
    * @example
-   * el3SzmCU2p0x4RBc
-   */
-  productKey?: string;
-  /**
-   * @example
    * 1748312544852
    */
   responseTime?: string;
@@ -30,9 +28,9 @@ export class DeviceRegisterResponseBodyData extends $dara.Model {
   signature?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'appId',
       deviceName: 'deviceName',
       nonce: 'nonce',
-      productKey: 'productKey',
       responseTime: 'responseTime',
       signature: 'signature',
     };
@@ -40,9 +38,9 @@ export class DeviceRegisterResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       deviceName: 'string',
       nonce: 'string',
-      productKey: 'string',
       responseTime: 'string',
       signature: 'string',
     };
