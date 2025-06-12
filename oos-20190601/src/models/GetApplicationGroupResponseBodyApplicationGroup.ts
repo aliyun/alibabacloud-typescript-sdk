@@ -67,6 +67,8 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $dara.Model
    * ApplicationGroup
    */
   description?: string;
+  errorDetail?: string;
+  errorType?: string;
   /**
    * @remarks
    * The tag key.
@@ -141,6 +143,8 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $dara.Model
       deployParameters: 'DeployParameters',
       deployRegionId: 'DeployRegionId',
       description: 'Description',
+      errorDetail: 'ErrorDetail',
+      errorType: 'ErrorType',
       importTagKey: 'ImportTagKey',
       importTagValue: 'ImportTagValue',
       name: 'Name',
@@ -162,6 +166,8 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $dara.Model
       deployParameters: 'string',
       deployRegionId: 'string',
       description: 'string',
+      errorDetail: 'string',
+      errorType: 'string',
       importTagKey: 'string',
       importTagValue: 'string',
       name: 'string',
