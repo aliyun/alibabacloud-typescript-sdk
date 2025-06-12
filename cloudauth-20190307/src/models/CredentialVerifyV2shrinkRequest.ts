@@ -23,6 +23,7 @@ export class CredentialVerifyV2ShrinkRequest extends $dara.Model {
    * 4****************1
    */
   identifyNum?: string;
+  imageContext?: string;
   imageFile?: string;
   /**
    * @example
@@ -59,6 +60,7 @@ export class CredentialVerifyV2ShrinkRequest extends $dara.Model {
       credName: 'CredName',
       credType: 'CredType',
       identifyNum: 'IdentifyNum',
+      imageContext: 'ImageContext',
       imageFile: 'ImageFile',
       imageUrl: 'ImageUrl',
       isCheck: 'IsCheck',
@@ -78,6 +80,7 @@ export class CredentialVerifyV2ShrinkRequest extends $dara.Model {
       credName: 'string',
       credType: 'string',
       identifyNum: 'string',
+      imageContext: 'string',
       imageFile: 'string',
       imageUrl: 'string',
       isCheck: 'string',

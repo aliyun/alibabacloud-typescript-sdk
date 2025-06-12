@@ -916,6 +916,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.imageContext)) {
+      body["ImageContext"] = request.imageContext;
+    }
+
     if (!$dara.isNull(request.imageFile)) {
       body["ImageFile"] = request.imageFile;
     }

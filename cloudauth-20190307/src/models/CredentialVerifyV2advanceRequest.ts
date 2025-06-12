@@ -25,6 +25,7 @@ export class CredentialVerifyV2AdvanceRequest extends $dara.Model {
    * 4****************1
    */
   identifyNum?: string;
+  imageContext?: string;
   imageFileObject?: Readable;
   /**
    * @example
@@ -61,6 +62,7 @@ export class CredentialVerifyV2AdvanceRequest extends $dara.Model {
       credName: 'CredName',
       credType: 'CredType',
       identifyNum: 'IdentifyNum',
+      imageContext: 'ImageContext',
       imageFileObject: 'ImageFile',
       imageUrl: 'ImageUrl',
       isCheck: 'IsCheck',
@@ -80,6 +82,7 @@ export class CredentialVerifyV2AdvanceRequest extends $dara.Model {
       credName: 'string',
       credType: 'string',
       identifyNum: 'string',
+      imageContext: 'string',
       imageFileObject: 'Readable',
       imageUrl: 'string',
       isCheck: 'string',
