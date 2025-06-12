@@ -3291,8 +3291,14 @@ export default class Client extends OpenApi {
    */
   async installUserPluginsWithOptions(InstanceId: string, request: $_model.InstallUserPluginsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InstallUserPluginsResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.force)) {
+      query["force"] = request.force;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: request.body,
     });
     let params = new $OpenApiUtil.Params({
@@ -4665,6 +4671,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.size)) {
       query["size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
     }
 
     if (!$dara.isNull(request.tags)) {
@@ -8377,6 +8387,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       query["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.force)) {
+      query["force"] = request.force;
     }
 
     if (!$dara.isNull(request.updateStrategy)) {

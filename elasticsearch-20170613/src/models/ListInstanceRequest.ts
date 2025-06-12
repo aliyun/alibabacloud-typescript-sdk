@@ -70,6 +70,7 @@ export class ListInstanceRequest extends $dara.Model {
    * 10
    */
   size?: number;
+  status?: string;
   /**
    * @remarks
    * The header of the response.
@@ -104,6 +105,7 @@ export class ListInstanceRequest extends $dara.Model {
       paymentType: 'paymentType',
       resourceGroupId: 'resourceGroupId',
       size: 'size',
+      status: 'status',
       tags: 'tags',
       vpcId: 'vpcId',
       zoneId: 'zoneId',
@@ -120,6 +122,7 @@ export class ListInstanceRequest extends $dara.Model {
       paymentType: 'string',
       resourceGroupId: 'string',
       size: 'number',
+      status: 'string',
       tags: 'string',
       vpcId: 'string',
       zoneId: 'string',

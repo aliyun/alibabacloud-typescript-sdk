@@ -4,15 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class InstallUserPluginsRequest extends $dara.Model {
   body?: string;
+  force?: boolean;
   static names(): { [key: string]: string } {
     return {
       body: 'body',
+      force: 'force',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       body: 'string',
+      force: 'boolean',
     };
   }
 

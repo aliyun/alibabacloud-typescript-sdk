@@ -12,11 +12,13 @@ export class UpdateInstanceSettingsRequest extends $dara.Model {
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF****
    */
   clientToken?: string;
+  force?: boolean;
   updateStrategy?: string;
   static names(): { [key: string]: string } {
     return {
       body: 'body',
       clientToken: 'clientToken',
+      force: 'force',
       updateStrategy: 'updateStrategy',
     };
   }
@@ -25,6 +27,7 @@ export class UpdateInstanceSettingsRequest extends $dara.Model {
     return {
       body: 'string',
       clientToken: 'string',
+      force: 'boolean',
       updateStrategy: 'string',
     };
   }
