@@ -11,6 +11,7 @@ export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs ext
    * cn-shanghai
    */
   region?: string;
+  status?: string;
   /**
    * @remarks
    * The ID of the VPC peer.
@@ -22,6 +23,7 @@ export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs ext
   static names(): { [key: string]: string } {
     return {
       region: 'Region',
+      status: 'Status',
       vpcId: 'VpcId',
     };
   }
@@ -29,6 +31,7 @@ export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs ext
   static types(): { [key: string]: any } {
     return {
       region: 'string',
+      status: 'string',
       vpcId: 'string',
     };
   }

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGatewayResponseBody extends $dara.Model {
+  chargeType?: string;
   /**
    * @remarks
    * The time when the private gateway was created. The time is displayed in UTC.
@@ -150,6 +151,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      chargeType: 'ChargeType',
       createTime: 'CreateTime',
       externalClusterId: 'ExternalClusterId',
       gatewayId: 'GatewayId',
@@ -170,6 +172,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      chargeType: 'string',
       createTime: 'string',
       externalClusterId: 'string',
       gatewayId: 'string',
