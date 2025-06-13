@@ -52,6 +52,7 @@ export class GetTrackListByMailFromAndTagNameResponseBody extends $dara.Model {
    * 4
    */
   total?: number;
+  totalPages?: string;
   /**
    * @remarks
    * Tracking data records
@@ -65,6 +66,7 @@ export class GetTrackListByMailFromAndTagNameResponseBody extends $dara.Model {
       pageSize: 'PageSize',
       requestId: 'RequestId',
       total: 'Total',
+      totalPages: 'TotalPages',
       trackList: 'TrackList',
     };
   }
@@ -77,6 +79,7 @@ export class GetTrackListByMailFromAndTagNameResponseBody extends $dara.Model {
       pageSize: 'number',
       requestId: 'string',
       total: 'number',
+      totalPages: 'string',
       trackList: GetTrackListByMailFromAndTagNameResponseBodyTrackList,
     };
   }

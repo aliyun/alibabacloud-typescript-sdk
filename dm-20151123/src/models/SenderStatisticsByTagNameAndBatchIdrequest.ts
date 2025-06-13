@@ -11,6 +11,8 @@ export class SenderStatisticsByTagNameAndBatchIDRequest extends $dara.Model {
    * xxx
    */
   accountName?: string;
+  dedicatedIp?: string;
+  dedicatedIpPoolId?: string;
   /**
    * @remarks
    * End time, which cannot exceed 7 days from the start time, in the format yyyy-MM-dd.
@@ -21,6 +23,7 @@ export class SenderStatisticsByTagNameAndBatchIDRequest extends $dara.Model {
    * 2019-09-29
    */
   endTime?: string;
+  esp?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -45,7 +48,10 @@ export class SenderStatisticsByTagNameAndBatchIDRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
+      dedicatedIp: 'DedicatedIp',
+      dedicatedIpPoolId: 'DedicatedIpPoolId',
       endTime: 'EndTime',
+      esp: 'Esp',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -57,7 +63,10 @@ export class SenderStatisticsByTagNameAndBatchIDRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
+      dedicatedIp: 'string',
+      dedicatedIpPoolId: 'string',
       endTime: 'string',
+      esp: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',

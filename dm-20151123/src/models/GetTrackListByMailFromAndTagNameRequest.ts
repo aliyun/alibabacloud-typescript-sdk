@@ -13,6 +13,8 @@ export class GetTrackListByMailFromAndTagNameRequest extends $dara.Model {
    * e-service@amegroups.cn
    */
   accountName?: string;
+  dedicatedIp?: string;
+  dedicatedIpPoolId?: string;
   /**
    * @remarks
    * End time, with a span from the start time that cannot exceed 15 days. Format: yyyy-MM-dd.
@@ -23,6 +25,7 @@ export class GetTrackListByMailFromAndTagNameRequest extends $dara.Model {
    * 2019-09-29
    */
   endTime?: string;
+  esp?: string;
   /**
    * @remarks
    * For the first query, set to 0; for subsequent queries, fixed at 1. 1 indicates pagination in ascending order by time. (This field is deprecated)
@@ -95,7 +98,10 @@ export class GetTrackListByMailFromAndTagNameRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
+      dedicatedIp: 'DedicatedIp',
+      dedicatedIpPoolId: 'DedicatedIpPoolId',
       endTime: 'EndTime',
+      esp: 'Esp',
       offset: 'Offset',
       offsetCreateTime: 'OffsetCreateTime',
       offsetCreateTimeDesc: 'OffsetCreateTimeDesc',
@@ -113,7 +119,10 @@ export class GetTrackListByMailFromAndTagNameRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
+      dedicatedIp: 'string',
+      dedicatedIpPoolId: 'string',
       endTime: 'string',
+      esp: 'string',
       offset: 'string',
       offsetCreateTime: 'string',
       offsetCreateTimeDesc: 'string',

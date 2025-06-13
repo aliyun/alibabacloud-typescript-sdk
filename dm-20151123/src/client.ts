@@ -1299,8 +1299,20 @@ export default class Client extends OpenApi {
       query["AccountName"] = request.accountName;
     }
 
+    if (!$dara.isNull(request.dedicatedIp)) {
+      query["DedicatedIp"] = request.dedicatedIp;
+    }
+
+    if (!$dara.isNull(request.dedicatedIpPoolId)) {
+      query["DedicatedIpPoolId"] = request.dedicatedIpPoolId;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.esp)) {
+      query["Esp"] = request.esp;
     }
 
     if (!$dara.isNull(request.offset)) {
@@ -1389,8 +1401,20 @@ export default class Client extends OpenApi {
       query["AccountName"] = request.accountName;
     }
 
+    if (!$dara.isNull(request.dedicatedIp)) {
+      query["DedicatedIp"] = request.dedicatedIp;
+    }
+
+    if (!$dara.isNull(request.dedicatedIpPoolId)) {
+      query["DedicatedIpPoolId"] = request.dedicatedIpPoolId;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.esp)) {
+      query["Esp"] = request.esp;
     }
 
     if (!$dara.isNull(request.offset)) {
@@ -2433,8 +2457,20 @@ export default class Client extends OpenApi {
       query["AccountName"] = request.accountName;
     }
 
+    if (!$dara.isNull(request.dedicatedIp)) {
+      query["DedicatedIp"] = request.dedicatedIp;
+    }
+
+    if (!$dara.isNull(request.dedicatedIpPoolId)) {
+      query["DedicatedIpPoolId"] = request.dedicatedIpPoolId;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.esp)) {
+      query["Esp"] = request.esp;
     }
 
     if (!$dara.isNull(request.ownerId)) {
