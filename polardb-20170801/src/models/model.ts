@@ -87,6 +87,7 @@ export { DescribeGlobalDatabaseNetworksResponseBodyItemsLabels } from './Describ
 export { DescribeGlobalDatabaseNetworksResponseBodyItems } from './DescribeGlobalDatabaseNetworksResponseBodyItems';
 export { DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup } from './DescribeGlobalSecurityIpgroupResponseBodyGlobalSecurityIpgroup';
 export { DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel } from './DescribeGlobalSecurityIpgroupRelationResponseBodyGlobalSecurityIpgroupRel';
+export { DescribeHALogsResponseBodyHaLogItems } from './DescribeHalogsResponseBodyHaLogItems';
 export { DescribeHistoryTasksResponseBodyItems } from './DescribeHistoryTasksResponseBodyItems';
 export { DescribeLicenseOrdersResponseBodyItems } from './DescribeLicenseOrdersResponseBodyItems';
 export { DescribeMaskingRulesResponseBodyData } from './DescribeMaskingRulesResponseBodyData';
@@ -357,6 +358,9 @@ export { DescribeGlobalSecurityIPGroupResponse } from './DescribeGlobalSecurityI
 export { DescribeGlobalSecurityIPGroupRelationRequest } from './DescribeGlobalSecurityIpgroupRelationRequest';
 export { DescribeGlobalSecurityIPGroupRelationResponseBody } from './DescribeGlobalSecurityIpgroupRelationResponseBody';
 export { DescribeGlobalSecurityIPGroupRelationResponse } from './DescribeGlobalSecurityIpgroupRelationResponse';
+export { DescribeHALogsRequest } from './DescribeHalogsRequest';
+export { DescribeHALogsResponseBody } from './DescribeHalogsResponseBody';
+export { DescribeHALogsResponse } from './DescribeHalogsResponse';
 export { DescribeHistoryTasksRequest } from './DescribeHistoryTasksRequest';
 export { DescribeHistoryTasksResponseBody } from './DescribeHistoryTasksResponseBody';
 export { DescribeHistoryTasksResponse } from './DescribeHistoryTasksResponse';
@@ -552,6 +556,9 @@ export { ModifyPendingMaintenanceActionResponse } from './ModifyPendingMaintenan
 export { OpenAITaskRequest } from './OpenAitaskRequest';
 export { OpenAITaskResponseBody } from './OpenAitaskResponseBody';
 export { OpenAITaskResponse } from './OpenAitaskResponse';
+export { ReactivateDBClusterBackupRequest } from './ReactivateDbclusterBackupRequest';
+export { ReactivateDBClusterBackupResponseBody } from './ReactivateDbclusterBackupResponseBody';
+export { ReactivateDBClusterBackupResponse } from './ReactivateDbclusterBackupResponse';
 export { RefreshDBClusterStorageUsageRequest } from './RefreshDbclusterStorageUsageRequest';
 export { RefreshDBClusterStorageUsageResponseBody } from './RefreshDbclusterStorageUsageResponseBody';
 export { RefreshDBClusterStorageUsageResponse } from './RefreshDbclusterStorageUsageResponse';

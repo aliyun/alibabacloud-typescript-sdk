@@ -5910,6 +5910,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例高可用相关日志
+   * 
+   * @param request - DescribeHALogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHALogsResponse
+   */
+  async describeHALogsWithOptions(request: $_model.DescribeHALogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHALogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNodeId)) {
+      query["DBNodeId"] = request.DBNodeId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.logType)) {
+      query["LogType"] = request.logType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHALogs",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeHALogsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeHALogsResponse({}));
+  }
+
+  /**
+   * 查询实例高可用相关日志
+   * 
+   * @param request - DescribeHALogsRequest
+   * @returns DescribeHALogsResponse
+   */
+  async describeHALogs(request: $_model.DescribeHALogsRequest): Promise<$_model.DescribeHALogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHALogsWithOptions(request, runtime);
+  }
+
+  /**
    * 任务中心任务列表
    * 
    * @param request - DescribeHistoryTasksRequest
@@ -10915,6 +10981,48 @@ export default class Client extends OpenApi {
   async openAITask(request: $_model.OpenAITaskRequest): Promise<$_model.OpenAITaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.openAITaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Reactivates the backup feature.
+   * 
+   * @param request - ReactivateDBClusterBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReactivateDBClusterBackupResponse
+   */
+  async reactivateDBClusterBackupWithOptions(request: $_model.ReactivateDBClusterBackupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReactivateDBClusterBackupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReactivateDBClusterBackup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReactivateDBClusterBackupResponse>(await this.callApi(params, req, runtime), new $_model.ReactivateDBClusterBackupResponse({}));
+  }
+
+  /**
+   * Reactivates the backup feature.
+   * 
+   * @param request - ReactivateDBClusterBackupRequest
+   * @returns ReactivateDBClusterBackupResponse
+   */
+  async reactivateDBClusterBackup(request: $_model.ReactivateDBClusterBackupRequest): Promise<$_model.ReactivateDBClusterBackupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.reactivateDBClusterBackupWithOptions(request, runtime);
   }
 
   /**
