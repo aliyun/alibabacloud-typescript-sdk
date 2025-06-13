@@ -4,12 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListEnterpriseAcceleratePoliciesRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   name?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 10
    */

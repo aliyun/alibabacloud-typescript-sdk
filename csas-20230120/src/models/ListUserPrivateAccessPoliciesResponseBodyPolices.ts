@@ -35,6 +35,8 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $dara.Mode
    * 1
    */
   priority?: number;
+  trustedProcessGroupIds?: string[];
+  trustedSoftwareIds?: string[];
   /**
    * @example
    * Custom
@@ -49,6 +51,8 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $dara.Mode
       policyAction: 'PolicyAction',
       policyId: 'PolicyId',
       priority: 'Priority',
+      trustedProcessGroupIds: 'TrustedProcessGroupIds',
+      trustedSoftwareIds: 'TrustedSoftwareIds',
       userGroupMode: 'UserGroupMode',
     };
   }
@@ -62,6 +66,8 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $dara.Mode
       policyAction: 'string',
       policyId: 'string',
       priority: 'number',
+      trustedProcessGroupIds: { 'type': 'array', 'itemType': 'string' },
+      trustedSoftwareIds: { 'type': 'array', 'itemType': 'string' },
       userGroupMode: 'string',
     };
   }
@@ -69,6 +75,12 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $dara.Mode
   validate() {
     if(Array.isArray(this.customUserAttributes)) {
       $dara.Model.validateArray(this.customUserAttributes);
+    }
+    if(Array.isArray(this.trustedProcessGroupIds)) {
+      $dara.Model.validateArray(this.trustedProcessGroupIds);
+    }
+    if(Array.isArray(this.trustedSoftwareIds)) {
+      $dara.Model.validateArray(this.trustedSoftwareIds);
     }
     super.validate();
   }

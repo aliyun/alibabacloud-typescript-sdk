@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateEnterpriseAccelerateTargetRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * eap-eec34d4b12fcca61
    */
   eapId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   target?: string[];
   static names(): { [key: string]: string } {
     return {

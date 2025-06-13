@@ -119,6 +119,9 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
    * dag-d3f64e8bdd4a****
    */
   triggerTemplateId?: string;
+  trustedProcessGroupIds?: string[];
+  trustedProcessStatus?: string;
+  trustedSoftwareIds?: string[];
   /**
    * @remarks
    * The IDs of user groups in the private access policy. If the value of UserGroupMode is **Normal**, this parameter is returned.
@@ -151,6 +154,9 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
       status: 'Status',
       tagIds: 'TagIds',
       triggerTemplateId: 'TriggerTemplateId',
+      trustedProcessGroupIds: 'TrustedProcessGroupIds',
+      trustedProcessStatus: 'TrustedProcessStatus',
+      trustedSoftwareIds: 'TrustedSoftwareIds',
       userGroupIds: 'UserGroupIds',
       userGroupMode: 'UserGroupMode',
     };
@@ -172,6 +178,9 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
       status: 'string',
       tagIds: { 'type': 'array', 'itemType': 'string' },
       triggerTemplateId: 'string',
+      trustedProcessGroupIds: { 'type': 'array', 'itemType': 'string' },
+      trustedProcessStatus: 'string',
+      trustedSoftwareIds: { 'type': 'array', 'itemType': 'string' },
       userGroupIds: { 'type': 'array', 'itemType': 'string' },
       userGroupMode: 'string',
     };
@@ -186,6 +195,12 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
     }
     if(Array.isArray(this.tagIds)) {
       $dara.Model.validateArray(this.tagIds);
+    }
+    if(Array.isArray(this.trustedProcessGroupIds)) {
+      $dara.Model.validateArray(this.trustedProcessGroupIds);
+    }
+    if(Array.isArray(this.trustedSoftwareIds)) {
+      $dara.Model.validateArray(this.trustedSoftwareIds);
     }
     if(Array.isArray(this.userGroupIds)) {
       $dara.Model.validateArray(this.userGroupIds);

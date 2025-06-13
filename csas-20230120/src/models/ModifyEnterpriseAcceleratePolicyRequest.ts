@@ -31,20 +31,33 @@ export class ModifyEnterpriseAcceleratePolicyRequest extends $dara.Model {
    */
   showInClient?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 12.34.56.XX
    */
   upstreamHost?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 1000
    */
   upstreamPort?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * ga
    */
   upstreamType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userAttributeGroup?: string;
   static names(): { [key: string]: string } {
     return {

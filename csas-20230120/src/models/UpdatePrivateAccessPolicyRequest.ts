@@ -52,6 +52,17 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
    */
   tagIds?: string[];
   triggerTemplateId?: string;
+  /**
+   * **if can be null:**
+   * false
+   */
+  trustedProcessGroupIds?: string[];
+  trustedProcessStatus?: string;
+  /**
+   * **if can be null:**
+   * false
+   */
+  trustedSoftwareIds?: string[];
   userGroupIds?: string[];
   /**
    * @remarks
@@ -78,6 +89,9 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
       status: 'Status',
       tagIds: 'TagIds',
       triggerTemplateId: 'TriggerTemplateId',
+      trustedProcessGroupIds: 'TrustedProcessGroupIds',
+      trustedProcessStatus: 'TrustedProcessStatus',
+      trustedSoftwareIds: 'TrustedSoftwareIds',
       userGroupIds: 'UserGroupIds',
       userGroupMode: 'UserGroupMode',
     };
@@ -98,6 +112,9 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
       status: 'string',
       tagIds: { 'type': 'array', 'itemType': 'string' },
       triggerTemplateId: 'string',
+      trustedProcessGroupIds: { 'type': 'array', 'itemType': 'string' },
+      trustedProcessStatus: 'string',
+      trustedSoftwareIds: { 'type': 'array', 'itemType': 'string' },
       userGroupIds: { 'type': 'array', 'itemType': 'string' },
       userGroupMode: 'string',
     };
@@ -112,6 +129,12 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
     }
     if(Array.isArray(this.tagIds)) {
       $dara.Model.validateArray(this.tagIds);
+    }
+    if(Array.isArray(this.trustedProcessGroupIds)) {
+      $dara.Model.validateArray(this.trustedProcessGroupIds);
+    }
+    if(Array.isArray(this.trustedSoftwareIds)) {
+      $dara.Model.validateArray(this.trustedSoftwareIds);
     }
     if(Array.isArray(this.userGroupIds)) {
       $dara.Model.validateArray(this.userGroupIds);

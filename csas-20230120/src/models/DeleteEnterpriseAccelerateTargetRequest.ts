@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteEnterpriseAccelerateTargetRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * eap-ed1f0e392a28a4e6
    */
   eapId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   target?: string[];
   static names(): { [key: string]: string } {
     return {

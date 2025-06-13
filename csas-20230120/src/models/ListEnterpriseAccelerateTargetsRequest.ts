@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListEnterpriseAccelerateTargetsRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * eap-424ba3f47660425c
    */
   eapId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 10
    */

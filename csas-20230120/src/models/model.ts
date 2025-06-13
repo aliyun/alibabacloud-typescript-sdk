@@ -212,6 +212,8 @@ export { OpenStructSaseUserSimple } from './OpenStructSaseUserSimple';
 export { PAL7Config } from './Pal7config';
 export { PAL7ConfigReplaceRule } from './Pal7configReplaceRule';
 export { PAL7ConfigRewriteOp } from './Pal7configRewriteOp';
+export { ProcessGroup } from './ProcessGroup';
+export { ProcessItem } from './ProcessItem';
 export { RecoveryContent } from './RecoveryContent';
 export { RiskSceneConfig } from './RiskSceneConfig';
 export { Rule } from './Rule';

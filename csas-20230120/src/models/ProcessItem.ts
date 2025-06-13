@@ -2,24 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteEnterpriseAcceleratePolicyRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eap-6edfb9d722ef8429
-   */
-  eapId?: string;
+export class ProcessItem extends $dara.Model {
+  bundleId?: string;
+  devType?: string;
+  directory?: string;
+  process?: string;
   static names(): { [key: string]: string } {
     return {
-      eapId: 'EapId',
+      bundleId: 'BundleId',
+      devType: 'DevType',
+      directory: 'Directory',
+      process: 'Process',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eapId: 'string',
+      bundleId: 'string',
+      devType: 'string',
+      directory: 'string',
+      process: 'string',
     };
   }
 

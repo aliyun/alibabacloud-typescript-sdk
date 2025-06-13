@@ -674,6 +674,18 @@ export default class Client extends OpenApi {
       body["TriggerTemplateId"] = request.triggerTemplateId;
     }
 
+    if (!$dara.isNull(request.trustedProcessGroupIds)) {
+      bodyFlat["TrustedProcessGroupIds"] = request.trustedProcessGroupIds;
+    }
+
+    if (!$dara.isNull(request.trustedProcessStatus)) {
+      body["TrustedProcessStatus"] = request.trustedProcessStatus;
+    }
+
+    if (!$dara.isNull(request.trustedSoftwareIds)) {
+      bodyFlat["TrustedSoftwareIds"] = request.trustedSoftwareIds;
+    }
+
     if (!$dara.isNull(request.userGroupIds)) {
       bodyFlat["UserGroupIds"] = request.userGroupIds;
     }
@@ -5178,6 +5190,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.triggerTemplateId)) {
       body["TriggerTemplateId"] = request.triggerTemplateId;
+    }
+
+    if (!$dara.isNull(request.trustedProcessGroupIds)) {
+      bodyFlat["TrustedProcessGroupIds"] = request.trustedProcessGroupIds;
+    }
+
+    if (!$dara.isNull(request.trustedProcessStatus)) {
+      body["TrustedProcessStatus"] = request.trustedProcessStatus;
+    }
+
+    if (!$dara.isNull(request.trustedSoftwareIds)) {
+      bodyFlat["TrustedSoftwareIds"] = request.trustedSoftwareIds;
     }
 
     if (!$dara.isNull(request.userGroupIds)) {

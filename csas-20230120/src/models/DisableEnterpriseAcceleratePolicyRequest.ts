@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DisableEnterpriseAcceleratePolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * eap-d50b45aa7dc04aef
    */
