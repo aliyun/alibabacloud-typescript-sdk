@@ -13,6 +13,7 @@ export class ModifyDiskDefaultKMSKeyIdRequest extends $dara.Model {
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
    */
   KMSKeyId?: string;
+  ownerId?: number;
   /**
    * @remarks
    * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) operation to query the most recent region list.
@@ -27,6 +28,7 @@ export class ModifyDiskDefaultKMSKeyIdRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       KMSKeyId: 'KMSKeyId',
+      ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -35,6 +37,7 @@ export class ModifyDiskDefaultKMSKeyIdRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       KMSKeyId: 'string',
+      ownerId: 'number',
       regionId: 'string',
       resourceOwnerId: 'number',
     };

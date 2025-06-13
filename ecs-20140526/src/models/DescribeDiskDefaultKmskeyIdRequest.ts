@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDiskDefaultKMSKeyIdRequest extends $dara.Model {
+  ownerId?: number;
   /**
    * @remarks
    * The ID of the region. You can call the DescribeRegions operation to query the most recent region list.
@@ -16,6 +17,7 @@ export class DescribeDiskDefaultKMSKeyIdRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -23,6 +25,7 @@ export class DescribeDiskDefaultKMSKeyIdRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ownerId: 'number',
       regionId: 'string',
       resourceOwnerId: 'number',
     };

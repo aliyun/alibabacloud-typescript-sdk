@@ -12448,6 +12448,10 @@ export default class Client extends OpenApi {
   async describeDiskDefaultKMSKeyIdWithOptions(request: $_model.DescribeDiskDefaultKMSKeyIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDiskDefaultKMSKeyIdResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -12494,6 +12498,10 @@ export default class Client extends OpenApi {
   async describeDiskEncryptionByDefaultStatusWithOptions(request: $_model.DescribeDiskEncryptionByDefaultStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDiskEncryptionByDefaultStatusResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -21675,6 +21683,10 @@ export default class Client extends OpenApi {
   async disableDiskEncryptionByDefaultWithOptions(request: $_model.DisableDiskEncryptionByDefaultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableDiskEncryptionByDefaultResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -24765,6 +24777,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.KMSKeyId)) {
       query["KMSKeyId"] = request.KMSKeyId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -31498,6 +31514,10 @@ export default class Client extends OpenApi {
   async resetDiskDefaultKMSKeyIdWithOptions(request: $_model.ResetDiskDefaultKMSKeyIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetDiskDefaultKMSKeyIdResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }

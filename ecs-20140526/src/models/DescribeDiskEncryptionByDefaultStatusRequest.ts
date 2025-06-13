@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDiskEncryptionByDefaultStatusRequest extends $dara.Model {
+  ownerId?: number;
   /**
    * @remarks
    * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) operation to query the most recent region list.
@@ -16,6 +17,7 @@ export class DescribeDiskEncryptionByDefaultStatusRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -23,6 +25,7 @@ export class DescribeDiskEncryptionByDefaultStatusRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ownerId: 'number',
       regionId: 'string',
       resourceOwnerId: 'number',
     };
