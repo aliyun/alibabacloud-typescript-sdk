@@ -1336,6 +1336,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取异步导出文档任务结果
+   * 
+   * @param request - FetchExportWordTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchExportWordTaskResponse
+   */
+  async fetchExportWordTaskWithOptions(request: $_model.FetchExportWordTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FetchExportWordTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FetchExportWordTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FetchExportWordTaskResponse>(await this.callApi(params, req, runtime), new $_model.FetchExportWordTaskResponse({}));
+  }
+
+  /**
+   * 获取异步导出文档任务结果
+   * 
+   * @param request - FetchExportWordTaskRequest
+   * @returns FetchExportWordTaskResponse
+   */
+  async fetchExportWordTask(request: $_model.FetchExportWordTaskRequest): Promise<$_model.FetchExportWordTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.fetchExportWordTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 获取图片任务执行结果
    * 
    * @param tmpReq - FetchImageTaskRequest
@@ -1391,6 +1439,54 @@ export default class Client extends OpenApi {
   async fetchImageTask(request: $_model.FetchImageTaskRequest): Promise<$_model.FetchImageTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.fetchImageTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 生成内容导出文档任务
+   * 
+   * @param request - GenerateExportWordTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateExportWordTaskResponse
+   */
+  async generateExportWordTaskWithOptions(request: $_model.GenerateExportWordTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateExportWordTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.generatedContentId)) {
+      body["GeneratedContentId"] = request.generatedContentId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateExportWordTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateExportWordTaskResponse>(await this.callApi(params, req, runtime), new $_model.GenerateExportWordTaskResponse({}));
+  }
+
+  /**
+   * 生成内容导出文档任务
+   * 
+   * @param request - GenerateExportWordTaskRequest
+   * @returns GenerateExportWordTaskResponse
+   */
+  async generateExportWordTask(request: $_model.GenerateExportWordTaskRequest): Promise<$_model.GenerateExportWordTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateExportWordTaskWithOptions(request, runtime);
   }
 
   /**
