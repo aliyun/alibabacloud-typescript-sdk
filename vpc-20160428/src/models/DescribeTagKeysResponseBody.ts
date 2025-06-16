@@ -1,0 +1,58 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { DescribeTagKeysResponseBodyTagKeys } from "./DescribeTagKeysResponseBodyTagKeys";
+
+
+export class DescribeTagKeysResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The token that is used for the next query. Valid values:
+   * 
+   * *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
+   * *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+   * 
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DE65F6B7-7566-4802-9007-96F2494AC512
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The list of tag keys.
+   */
+  tagKeys?: DescribeTagKeysResponseBodyTagKeys;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagKeys: 'TagKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagKeys: DescribeTagKeysResponseBodyTagKeys,
+    };
+  }
+
+  validate() {
+    if(this.tagKeys && typeof (this.tagKeys as any).validate === 'function') {
+      (this.tagKeys as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
