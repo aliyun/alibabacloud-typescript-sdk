@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePrivateAccessPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of this request.
+   * 
    * @example
    * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
    */

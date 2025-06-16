@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetPrivateAccessPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * Intranet access policy ID. The value can be obtained from:
+   * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Query multiple intranet access policies in bulk.
+   * - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): Create an intranet access policy.
+   * 
    * This parameter is required.
    * 
    * @example

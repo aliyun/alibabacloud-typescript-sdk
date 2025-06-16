@@ -4,53 +4,149 @@ import { GetPrivateAccessPolicyResponseBodyPolicyCustomUserAttributes } from "./
 
 
 export class GetPrivateAccessPolicyResponseBodyPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of application IDs for the private access policy. This field has a value when the application type is Application.
+   */
   applicationIds?: string[];
   /**
+   * @remarks
+   * The application type of the private access policy. Possible values:
+   * - **Application**: Application.
+   * - **Tag**: Tag.
+   * 
    * @example
    * Application
    */
   applicationType?: string;
   /**
+   * @remarks
+   * Intranet access policy creation time.
+   * 
    * @example
    * 2021-07-29 11:26:02
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Collection of custom user group attributes. Multiple custom user group attributes are combined with an OR relationship and take effect as a set.
+   */
   customUserAttributes?: GetPrivateAccessPolicyResponseBodyPolicyCustomUserAttributes[];
+  /**
+   * @remarks
+   * Intranet access policy description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The action to take if the security baseline is not met. Possible values:
+   * 
+   * - **Block**: Block.
+   * - **Observe**: Observe.
+   * 
+   * @example
+   * Block
+   */
   deviceAttributeAction?: string;
+  /**
+   * @remarks
+   * The ID of the security baseline policy.
+   * 
+   * @example
+   * dag-d3f64e8bdd4a****
+   */
   deviceAttributeId?: string;
   /**
+   * @remarks
+   * Intranet access policy name.
+   * 
    * @example
    * private_access_policy_name
    */
   name?: string;
   /**
+   * @remarks
+   * Intranet access policy action. Values:
+   * - **Block**: Block.
+   * - **Allow**: Allow.
+   * 
    * @example
    * Allow
    */
   policyAction?: string;
   /**
+   * @remarks
+   * Intranet access policy ID.
+   * 
    * @example
    * pa-policy-63b2f1844b86****
    */
   policyId?: string;
   /**
+   * @remarks
+   * Intranet access policy priority. A value of 1 indicates the highest priority.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * Intranet access policy status. Values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
+   * 
    * @example
    * Enabled
    */
   status?: string;
+  /**
+   * @remarks
+   * A collection of tag IDs for the private access policy. This field has a value when the application type is Tag.
+   */
   tagIds?: string[];
+  /**
+   * @remarks
+   * The trigger template ID.
+   * 
+   * @example
+   * dag-d3f64e8bdd4a****
+   */
   triggerTemplateId?: string;
+  /**
+   * @remarks
+   * A list of trusted process group IDs.
+   */
   trustedProcessGroupIds?: string[];
+  /**
+   * @remarks
+   * The status of the trusted process switch. Possible values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
+   * 
+   * @example
+   * Enabled
+   */
   trustedProcessStatus?: string;
+  /**
+   * @remarks
+   * A list of trusted software IDs.
+   */
   trustedSoftwareIds?: string[];
+  /**
+   * @remarks
+   * Collection of user group IDs for the intranet access policy. This field is populated when the user group type is Normal.
+   */
   userGroupIds?: string[];
   /**
+   * @remarks
+   * User group type for the intranet access policy. Values:
+   * - **Normal**: Normal user group.
+   * - **Custom**: Custom user group.
+   * 
    * @example
    * Normal
    */

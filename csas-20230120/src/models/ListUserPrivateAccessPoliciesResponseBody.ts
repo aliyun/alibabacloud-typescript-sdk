@@ -4,16 +4,23 @@ import { ListUserPrivateAccessPoliciesResponseBodyPolices } from "./ListUserPriv
 
 
 export class ListUserPrivateAccessPoliciesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of authorized policies.
+   */
   polices?: ListUserPrivateAccessPoliciesResponseBodyPolices[];
   /**
    * @remarks
-   * Id of the request
+   * ID of the request.
    * 
    * @example
    * 9D852F87-AFB5-51B8-AACD-F7D0EFB8277D
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of authorized policies.
+   * 
    * @example
    * 20
    */

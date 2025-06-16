@@ -1,9 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateWmBaseImageRequestImageControl } from "./CreateWmBaseImageRequestImageControl";
 
 
-export class CreateWmBaseImageRequest extends $dara.Model {
+export class CreateWmBaseImageShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -12,7 +11,7 @@ export class CreateWmBaseImageRequest extends $dara.Model {
    * 1080
    */
   height?: number;
-  imageControl?: CreateWmBaseImageRequestImageControl;
+  imageControlShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -63,7 +62,7 @@ export class CreateWmBaseImageRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       height: 'Height',
-      imageControl: 'ImageControl',
+      imageControlShrink: 'ImageControl',
       opacity: 'Opacity',
       scale: 'Scale',
       width: 'Width',
@@ -77,7 +76,7 @@ export class CreateWmBaseImageRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       height: 'number',
-      imageControl: CreateWmBaseImageRequestImageControl,
+      imageControlShrink: 'string',
       opacity: 'number',
       scale: 'number',
       width: 'number',
@@ -89,9 +88,6 @@ export class CreateWmBaseImageRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.imageControl && typeof (this.imageControl as any).validate === 'function') {
-      (this.imageControl as any).validate();
-    }
     super.validate();
   }
 

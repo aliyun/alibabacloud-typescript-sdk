@@ -28,6 +28,9 @@ export { CreateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount } from 
 export { CreateRegistrationPolicyResponseBodyPolicyLimitDetail } from './CreateRegistrationPolicyResponseBodyPolicyLimitDetail';
 export { CreateRegistrationPolicyResponseBodyPolicy } from './CreateRegistrationPolicyResponseBodyPolicy';
 export { CreateUserGroupRequestAttributes } from './CreateUserGroupRequestAttributes';
+export { CreateWmBaseImageRequestImageControlLogoVisibleControl } from './CreateWmBaseImageRequestImageControlLogoVisibleControl';
+export { CreateWmBaseImageRequestImageControlTextVisibleControl } from './CreateWmBaseImageRequestImageControlTextVisibleControl';
+export { CreateWmBaseImageRequestImageControl } from './CreateWmBaseImageRequestImageControl';
 export { CreateWmBaseImageResponseBodyData } from './CreateWmBaseImageResponseBodyData';
 export { CreateWmEmbedTaskRequestCsvControl } from './CreateWmEmbedTaskRequestCsvControl';
 export { CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl } from './CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl';
@@ -262,6 +265,7 @@ export { CreateUserGroupRequest } from './CreateUserGroupRequest';
 export { CreateUserGroupResponseBody } from './CreateUserGroupResponseBody';
 export { CreateUserGroupResponse } from './CreateUserGroupResponse';
 export { CreateWmBaseImageRequest } from './CreateWmBaseImageRequest';
+export { CreateWmBaseImageShrinkRequest } from './CreateWmBaseImageShrinkRequest';
 export { CreateWmBaseImageResponseBody } from './CreateWmBaseImageResponseBody';
 export { CreateWmBaseImageResponse } from './CreateWmBaseImageResponse';
 export { CreateWmEmbedTaskRequest } from './CreateWmEmbedTaskRequest';

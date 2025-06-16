@@ -927,15 +927,25 @@ export default class Client extends OpenApi {
   /**
    * 创建数字水印暗水印透明底图
    * 
-   * @param request - CreateWmBaseImageRequest
+   * @param tmpReq - CreateWmBaseImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateWmBaseImageResponse
    */
-  async createWmBaseImageWithOptions(request: $_model.CreateWmBaseImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWmBaseImageResponse> {
-    request.validate();
+  async createWmBaseImageWithOptions(tmpReq: $_model.CreateWmBaseImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWmBaseImageResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateWmBaseImageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.imageControl)) {
+      request.imageControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageControl, "ImageControl", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.height)) {
       body["Height"] = request.height;
+    }
+
+    if (!$dara.isNull(request.imageControlShrink)) {
+      body["ImageControl"] = request.imageControlShrink;
     }
 
     if (!$dara.isNull(request.opacity)) {
@@ -2418,7 +2428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询内网访问策略详情
+   * Query Intranet Access Policy Details
    * 
    * @param request - GetPrivateAccessPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2445,7 +2455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询内网访问策略详情
+   * Query Intranet Access Policy Details
    * 
    * @param request - GetPrivateAccessPolicyRequest
    * @returns GetPrivateAccessPolicyResponse
@@ -4200,7 +4210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表查询用户零信任策略
+   * List query of user zero trust policies
    * 
    * @param request - ListUserPrivateAccessPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4227,7 +4237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表查询用户零信任策略
+   * List query of user zero trust policies
    * 
    * @param request - ListUserPrivateAccessPoliciesRequest
    * @returns ListUserPrivateAccessPoliciesResponse
@@ -5130,7 +5140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改内网访问策略
+   * Modify Private Access Policy
    * 
    * @param request - UpdatePrivateAccessPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5234,7 +5244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改内网访问策略
+   * Modify Private Access Policy
    * 
    * @param request - UpdatePrivateAccessPolicyRequest
    * @returns UpdatePrivateAccessPolicyResponse

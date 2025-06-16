@@ -119,8 +119,25 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
    * dag-d3f64e8bdd4a****
    */
   triggerTemplateId?: string;
+  /**
+   * @remarks
+   * List of trusted process group IDs.
+   */
   trustedProcessGroupIds?: string[];
+  /**
+   * @remarks
+   * Trusted process switch status. Values: 
+   * - **Enabled**: On.
+   * - **Disabled**: Off.
+   * 
+   * @example
+   * Enabled
+   */
   trustedProcessStatus?: string;
+  /**
+   * @remarks
+   * List of trusted software IDs.
+   */
   trustedSoftwareIds?: string[];
   /**
    * @remarks
