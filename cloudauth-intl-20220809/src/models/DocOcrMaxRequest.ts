@@ -18,6 +18,7 @@ export class DocOcrMaxRequest extends $dara.Model {
    * https://***********.oss-cn-hangzhou.aliyuncs.com/1669520556530-expo/default/face/20221127114236530_w3kx2e6t.jpg
    */
   idOcrPictureUrl?: string;
+  idSpoof?: string;
   /**
    * @example
    * 0
@@ -59,6 +60,7 @@ export class DocOcrMaxRequest extends $dara.Model {
       docType: 'DocType',
       idOcrPictureBase64: 'IdOcrPictureBase64',
       idOcrPictureUrl: 'IdOcrPictureUrl',
+      idSpoof: 'IdSpoof',
       idThreshold: 'IdThreshold',
       merchantBizId: 'MerchantBizId',
       merchantUserId: 'MerchantUserId',
@@ -75,6 +77,7 @@ export class DocOcrMaxRequest extends $dara.Model {
       docType: 'string',
       idOcrPictureBase64: 'string',
       idOcrPictureUrl: 'string',
+      idSpoof: 'string',
       idThreshold: 'string',
       merchantBizId: 'string',
       merchantUserId: 'string',

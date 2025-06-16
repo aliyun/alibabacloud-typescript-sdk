@@ -67,6 +67,11 @@ export class InitializeRequest extends $dara.Model {
    * *
    */
   ocr?: string;
+  /**
+   * @example
+   * 1
+   */
+  pages?: string;
   procedurePriority?: string;
   /**
    * @example
@@ -117,6 +122,7 @@ export class InitializeRequest extends $dara.Model {
       metaInfo: 'MetaInfo',
       model: 'Model',
       ocr: 'Ocr',
+      pages: 'Pages',
       procedurePriority: 'ProcedurePriority',
       productCode: 'ProductCode',
       productFlow: 'ProductFlow',
@@ -158,6 +164,7 @@ export class InitializeRequest extends $dara.Model {
       metaInfo: 'string',
       model: 'string',
       ocr: 'string',
+      pages: 'string',
       procedurePriority: 'string',
       productCode: 'string',
       productFlow: 'string',

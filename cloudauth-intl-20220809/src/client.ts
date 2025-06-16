@@ -648,6 +648,10 @@ export default class Client extends OpenApi {
       body["IdOcrPictureUrl"] = request.idOcrPictureUrl;
     }
 
+    if (!$dara.isNull(request.idSpoof)) {
+      body["IdSpoof"] = request.idSpoof;
+    }
+
     if (!$dara.isNull(request.idThreshold)) {
       body["IdThreshold"] = request.idThreshold;
     }
@@ -1278,6 +1282,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ocr)) {
       query["Ocr"] = request.ocr;
+    }
+
+    if (!$dara.isNull(request.pages)) {
+      query["Pages"] = request.pages;
     }
 
     if (!$dara.isNull(request.procedurePriority)) {
