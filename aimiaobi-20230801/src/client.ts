@@ -1044,6 +1044,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导出智能审核报告
+   * 
+   * @param request - ExportAuditContentResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportAuditContentResultResponse
+   */
+  async exportAuditContentResultWithOptions(request: $_model.ExportAuditContentResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExportAuditContentResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExportAuditContentResult",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExportAuditContentResultResponse>(await this.callApi(params, req, runtime), new $_model.ExportAuditContentResultResponse({}));
+  }
+
+  /**
+   * 导出智能审核报告
+   * 
+   * @param request - ExportAuditContentResultRequest
+   * @returns ExportAuditContentResultResponse
+   */
+  async exportAuditContentResult(request: $_model.ExportAuditContentResultRequest): Promise<$_model.ExportAuditContentResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.exportAuditContentResultWithOptions(request, runtime);
+  }
+
+  /**
    * 导出-自定义数据源-选题视角分析任务结果
    * 
    * @param request - ExportCustomSourceAnalysisTaskRequest
@@ -2728,6 +2774,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询智能审核结果
+   * 
+   * @param request - GetSmartAuditResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSmartAuditResultResponse
+   */
+  async getSmartAuditResultWithOptions(request: $_model.GetSmartAuditResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSmartAuditResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSmartAuditResult",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSmartAuditResultResponse>(await this.callApi(params, req, runtime), new $_model.GetSmartAuditResultResponse({}));
+  }
+
+  /**
+   * 查询智能审核结果
+   * 
+   * @param request - GetSmartAuditResultRequest
+   * @returns GetSmartAuditResultResponse
+   */
+  async getSmartAuditResult(request: $_model.GetSmartAuditResultRequest): Promise<$_model.GetSmartAuditResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSmartAuditResultWithOptions(request, runtime);
+  }
+
+  /**
    * 查询一键成片剪辑任务
    * 
    * @param request - GetSmartClipTaskRequest
@@ -3301,6 +3393,56 @@ export default class Client extends OpenApi {
   async listAsyncTasks(request: $_model.ListAsyncTasksRequest): Promise<$_model.ListAsyncTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAsyncTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取审核维度列表
+   * 
+   * @param request - ListAuditContentErrorTypesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuditContentErrorTypesResponse
+   */
+  async listAuditContentErrorTypesWithOptions(request: $_model.ListAuditContentErrorTypesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAuditContentErrorTypesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAuditContentErrorTypes",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAuditContentErrorTypesResponse>(await this.callApi(params, req, runtime), new $_model.ListAuditContentErrorTypesResponse({}));
+  }
+
+  /**
+   * 获取审核维度列表
+   * 
+   * @param request - ListAuditContentErrorTypesRequest
+   * @returns ListAuditContentErrorTypesResponse
+   */
+  async listAuditContentErrorTypes(request: $_model.ListAuditContentErrorTypesRequest): Promise<$_model.ListAuditContentErrorTypesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAuditContentErrorTypesWithOptions(request, runtime);
   }
 
   /**
@@ -8251,6 +8393,62 @@ export default class Client extends OpenApi {
   async submitEnterpriseVocAnalysisTask(request: $_model.SubmitEnterpriseVocAnalysisTaskRequest): Promise<$_model.SubmitEnterpriseVocAnalysisTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitEnterpriseVocAnalysisTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交智能审核
+   * 
+   * @param tmpReq - SubmitSmartAuditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSmartAuditResponse
+   */
+  async submitSmartAuditWithOptions(tmpReq: $_model.SubmitSmartAuditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitSmartAuditResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitSmartAuditShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.subCodes)) {
+      request.subCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subCodes, "SubCodes", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.subCodesShrink)) {
+      body["SubCodes"] = request.subCodesShrink;
+    }
+
+    if (!$dara.isNull(request.text)) {
+      body["Text"] = request.text;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitSmartAudit",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitSmartAuditResponse>(await this.callApi(params, req, runtime), new $_model.SubmitSmartAuditResponse({}));
+  }
+
+  /**
+   * 提交智能审核
+   * 
+   * @param request - SubmitSmartAuditRequest
+   * @returns SubmitSmartAuditResponse
+   */
+  async submitSmartAudit(request: $_model.SubmitSmartAuditRequest): Promise<$_model.SubmitSmartAuditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitSmartAuditWithOptions(request, runtime);
   }
 
   /**
