@@ -89,6 +89,7 @@ export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
    * OOS Common Parameter Name：aliyun/services/computenest/images/aliyun_3_2104_python_3_11
    */
   sourceImageId?: string;
+  systemDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
       buildArgs: 'BuildArgs',
@@ -99,6 +100,7 @@ export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
       regionId: 'RegionId',
       sourceContainerImage: 'SourceContainerImage',
       sourceImageId: 'SourceImageId',
+      systemDiskSize: 'SystemDiskSize',
     };
   }
 
@@ -112,6 +114,7 @@ export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
       regionId: 'string',
       sourceContainerImage: 'string',
       sourceImageId: 'string',
+      systemDiskSize: 'number',
     };
   }
 
