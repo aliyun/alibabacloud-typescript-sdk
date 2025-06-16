@@ -11,6 +11,7 @@ export class GetDhcpOptionsSetResponseBody extends $dara.Model {
    * The information about the virtual private cloud (VPC) that is associated with the DHCP options set.
    */
   associateVpcs?: GetDhcpOptionsSetResponseBodyAssociateVpcs[];
+  creationTime?: string;
   /**
    * @remarks
    * The configuration information about the DHCP options set.
@@ -85,6 +86,7 @@ export class GetDhcpOptionsSetResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       associateVpcs: 'AssociateVpcs',
+      creationTime: 'CreationTime',
       dhcpOptions: 'DhcpOptions',
       dhcpOptionsSetDescription: 'DhcpOptionsSetDescription',
       dhcpOptionsSetId: 'DhcpOptionsSetId',
@@ -100,6 +102,7 @@ export class GetDhcpOptionsSetResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       associateVpcs: { 'type': 'array', 'itemType': GetDhcpOptionsSetResponseBodyAssociateVpcs },
+      creationTime: 'string',
       dhcpOptions: GetDhcpOptionsSetResponseBodyDhcpOptions,
       dhcpOptionsSetDescription: 'string',
       dhcpOptionsSetId: 'string',

@@ -13,6 +13,7 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets extends $dara.Model 
    * 2
    */
   associateVpcCount?: number;
+  creationTime?: string;
   /**
    * @remarks
    * The configuration information about the DHCP options set.
@@ -79,6 +80,7 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets extends $dara.Model 
   static names(): { [key: string]: string } {
     return {
       associateVpcCount: 'AssociateVpcCount',
+      creationTime: 'CreationTime',
       dhcpOptions: 'DhcpOptions',
       dhcpOptionsSetDescription: 'DhcpOptionsSetDescription',
       dhcpOptionsSetId: 'DhcpOptionsSetId',
@@ -93,6 +95,7 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       associateVpcCount: 'number',
+      creationTime: 'string',
       dhcpOptions: ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsDhcpOptions,
       dhcpOptionsSetDescription: 'string',
       dhcpOptionsSetId: 'string',
