@@ -67,6 +67,7 @@ export class GetLoadBalancerResponseBodyMonitor extends $dara.Model {
    * GET
    */
   method?: string;
+  monitoringRegion?: string;
   /**
    * @remarks
    * Path.
@@ -108,6 +109,7 @@ export class GetLoadBalancerResponseBodyMonitor extends $dara.Model {
       header: 'Header',
       interval: 'Interval',
       method: 'Method',
+      monitoringRegion: 'MonitoringRegion',
       path: 'Path',
       port: 'Port',
       timeout: 'Timeout',
@@ -124,6 +126,7 @@ export class GetLoadBalancerResponseBodyMonitor extends $dara.Model {
       header: 'any',
       interval: 'number',
       method: 'string',
+      monitoringRegion: 'string',
       path: 'string',
       port: 'number',
       timeout: 'number',

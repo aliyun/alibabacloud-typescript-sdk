@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLoadBalancerRequestRandomSteering extends $dara.Model {
   /**
    * @remarks
-   * The default round-robin weight, used for all pools that do not have a specific weight set. Value range: integers between 0-100.
+   * Default round-robin weight, used for all pools that do not have a separately specified weight. Value range: integers between 0-100.
    * 
    * @example
    * 50
@@ -13,7 +13,7 @@ export class UpdateLoadBalancerRequestRandomSteering extends $dara.Model {
   defaultWeight?: number;
   /**
    * @remarks
-   * Weight configuration for each backend server pool, where the key is the pool ID and the value is the weight coefficient. The weight coefficient represents the proportion of relative traffic distribution.
+   * Weight configuration for each backend server pool, where the key is the pool ID and the value is the weight factor. The weight factor represents the proportion of relative traffic distribution.
    */
   poolWeights?: { [key: string]: number };
   static names(): { [key: string]: string } {

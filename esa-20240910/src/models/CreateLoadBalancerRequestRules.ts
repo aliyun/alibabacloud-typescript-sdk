@@ -83,7 +83,7 @@ export class CreateLoadBalancerRequestRules extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter does not need to be set when adding global configurations.
+   * The name of the rule. This parameter does not need to be set when adding global configurations.
    * 
    * @example
    * rule_1
@@ -91,7 +91,7 @@ export class CreateLoadBalancerRequestRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The execution order of the rule. It can be left blank, in which case the rules will be executed in the order they appear in the list. If specified, it should be an integer greater than 0, with higher values indicating a higher priority for execution.
+   * The execution order of the rule. It can be left blank, in which case the rules will be executed in the order they appear in the list. If specified, it must be a positive integer, with higher values indicating higher priority.
    * 
    * @example
    * 1

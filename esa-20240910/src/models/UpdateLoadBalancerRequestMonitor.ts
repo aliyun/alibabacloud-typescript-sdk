@@ -67,6 +67,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
    * GET
    */
   method?: string;
+  monitoringRegion?: string;
   /**
    * @remarks
    * Monitor check path, such as /healthcheck, which is the HTTP request path.
@@ -93,7 +94,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * Monitor protocol type, such as HTTP, used for health checks. When set to \\"off\\", no check is performed.
+   * Monitor protocol type, such as HTTP, used for health checks. When set to \\"off\\", no checks are performed.
    * 
    * @example
    * HTTP
@@ -108,6 +109,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
       header: 'Header',
       interval: 'Interval',
       method: 'Method',
+      monitoringRegion: 'MonitoringRegion',
       path: 'Path',
       port: 'Port',
       timeout: 'Timeout',
@@ -124,6 +126,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
       header: 'any',
       interval: 'number',
       method: 'string',
+      monitoringRegion: 'string',
       path: 'string',
       port: 'number',
       timeout: 'number',

@@ -62,7 +62,7 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
    * @remarks
    * Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding global configurations. There are two usage scenarios:
    * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
    * 
    * @example
    * http.request.method eq "GET"
@@ -88,7 +88,7 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The execution order of the rule. It can be left empty, in which case the rules will be executed in the order they appear in the list. If specified, it must be a positive integer, with higher values indicating higher priority.
+   * The execution order of the rule. It can be left blank, in which case the rules will be executed in the order they appear in the list. If specified, it must be a positive integer, with higher values indicating higher priority.
    * 
    * @example
    * 1

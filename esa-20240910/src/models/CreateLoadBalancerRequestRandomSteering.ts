@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLoadBalancerRequestRandomSteering extends $dara.Model {
   /**
    * @remarks
-   * Default weight for round-robin, used for all pools that do not have a specific weight set. The value range is an integer between 0 and 100.
+   * Default weight for all pools that do not have individual weights specified. The value range is an integer between 0 and 100.
    * 
    * @example
    * 50

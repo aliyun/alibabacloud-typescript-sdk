@@ -26,7 +26,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
    * Detailed description of the load balancer, for easier management and identification.
    * 
    * @example
-   * 测试负载均衡器描述
+   * Load balancer description
    */
   description?: string;
   /**
@@ -135,7 +135,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
    * @remarks
    * Load balancing strategy.
    * 
-   * - geo: Geographic strategy.
+   * - geo: Geographical strategy.
    * - random: Weighted round-robin.
    * - order: Primary and backup method.
    * 
@@ -147,7 +147,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   steeringPolicy?: string;
   /**
    * @remarks
-   * Address pools corresponding to secondary regions. When multiple secondary regions share a set of address pools, the keys can be concatenated with commas.
+   * Address pools corresponding to secondary regions. When multiple secondary regions share the same set of address pools, the keys can be concatenated with commas.
    * 
    * @example
    * {"AL,MO": [92298024898****],"CN-SH,CN-SX,CN-SC":[92304347804****,92843536908****]}

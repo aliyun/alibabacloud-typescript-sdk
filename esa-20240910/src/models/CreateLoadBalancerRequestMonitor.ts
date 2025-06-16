@@ -21,7 +21,7 @@ export class CreateLoadBalancerRequestMonitor extends $dara.Model {
   consecutiveUp?: number;
   /**
    * @remarks
-   * Expected status codes, such as `200,202`, indicating successful HTTP responses.
+   * Expected status codes, such as `200,202`, which are successful HTTP responses.
    * 
    * @example
    * 200
@@ -40,7 +40,7 @@ export class CreateLoadBalancerRequestMonitor extends $dara.Model {
   followRedirects?: boolean;
   /**
    * @remarks
-   * Header information included in the probe, which is the HTTP header.
+   * Header information included in the probe, which is an HTTP header.
    * 
    * @example
    * {
@@ -53,7 +53,7 @@ export class CreateLoadBalancerRequestMonitor extends $dara.Model {
   header?: any;
   /**
    * @remarks
-   * Monitoring interval, such as `60` seconds, representing the frequency of checks.
+   * Monitoring interval, such as `60` seconds, which is the frequency of checks.
    * 
    * @example
    * 60
@@ -67,9 +67,10 @@ export class CreateLoadBalancerRequestMonitor extends $dara.Model {
    * GET
    */
   method?: string;
+  monitoringRegion?: string;
   /**
    * @remarks
-   * Monitor check path, such as `/healthcheck`, which is the HTTP request path.
+   * Monitor check path, such as `/healthcheck`, which is an HTTP request path.
    * 
    * @example
    * /health
@@ -116,6 +117,7 @@ export class CreateLoadBalancerRequestMonitor extends $dara.Model {
       header: 'Header',
       interval: 'Interval',
       method: 'Method',
+      monitoringRegion: 'MonitoringRegion',
       path: 'Path',
       port: 'Port',
       timeout: 'Timeout',
@@ -132,6 +134,7 @@ export class CreateLoadBalancerRequestMonitor extends $dara.Model {
       header: 'any',
       interval: 'number',
       method: 'string',
+      monitoringRegion: 'string',
       path: 'string',
       port: 'number',
       timeout: 'number',

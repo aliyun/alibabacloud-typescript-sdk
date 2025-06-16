@@ -24,7 +24,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
    * Name of the managed rule.
    * 
    * @example
-   * SQL注入
+   * SQL injection
    */
   name?: string;
   /**

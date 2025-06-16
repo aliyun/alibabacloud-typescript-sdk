@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLoadBalancerRequestAdaptiveRouting extends $dara.Model {
   /**
    * @remarks
-   * Whether to failover across pools.
+   * Whether to fallback across pools.
    * 
    * - true: Yes.
    * - false: No.

@@ -9,7 +9,7 @@ import { UpdateLoadBalancerRequestRules } from "./UpdateLoadBalancerRequestRules
 export class UpdateLoadBalancerRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration for failover across pools.
+   * Configuration for fallback across pools.
    */
   adaptiveRouting?: UpdateLoadBalancerRequestAdaptiveRouting;
   /**
@@ -22,7 +22,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
    * Detailed description of the load balancer, for easier management and identification.
    * 
    * @example
-   * 负载均衡器描述
+   * Load balancer description
    */
   description?: string;
   /**
@@ -119,7 +119,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   steeringPolicy?: string;
   /**
    * @remarks
-   * Address pool corresponding to the secondary region. When multiple secondary regions share the same address pool, the keys can be concatenated with commas.
+   * Address pool corresponding to the secondary region. When multiple secondary regions share the same address pool, the regions can be concatenated with commas as the key.
    * 
    * @example
    * {"AL,MO": [92298024898****],"CN-SH,CN-SX,CN-SC":[92304347804****,92843536908****]}
