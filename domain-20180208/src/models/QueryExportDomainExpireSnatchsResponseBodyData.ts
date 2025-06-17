@@ -31,11 +31,13 @@ export class QueryExportDomainExpireSnatchsResponseBodyData extends $dara.Model 
   productId?: string;
   publishTime?: string;
   regDate?: string;
+  renewPrice?: number;
   reserved?: boolean;
   rmbPrice?: number;
   s360Weight?: number;
   seoAttributes?: string;
   shortName?: string;
+  snatchNo?: string;
   snatchTypeDesc?: string;
   sougouAntiLink?: number;
   sougouIndex?: number;
@@ -72,11 +74,13 @@ export class QueryExportDomainExpireSnatchsResponseBodyData extends $dara.Model 
       productId: 'ProductId',
       publishTime: 'PublishTime',
       regDate: 'RegDate',
+      renewPrice: 'RenewPrice',
       reserved: 'Reserved',
       rmbPrice: 'RmbPrice',
       s360Weight: 'S360Weight',
       seoAttributes: 'SeoAttributes',
       shortName: 'ShortName',
+      snatchNo: 'SnatchNo',
       snatchTypeDesc: 'SnatchTypeDesc',
       sougouAntiLink: 'SougouAntiLink',
       sougouIndex: 'SougouIndex',
@@ -116,11 +120,13 @@ export class QueryExportDomainExpireSnatchsResponseBodyData extends $dara.Model 
       productId: 'string',
       publishTime: 'string',
       regDate: 'string',
+      renewPrice: 'number',
       reserved: 'boolean',
       rmbPrice: 'number',
       s360Weight: 'number',
       seoAttributes: 'string',
       shortName: 'string',
+      snatchNo: 'string',
       snatchTypeDesc: 'string',
       sougouAntiLink: 'number',
       sougouIndex: 'number',

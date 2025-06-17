@@ -1,3 +1,6 @@
+export { BatchIntrudeDomainsResponseBodyDataFailureList } from './BatchIntrudeDomainsResponseBodyDataFailureList';
+export { BatchIntrudeDomainsResponseBodyDataSuccessList } from './BatchIntrudeDomainsResponseBodyDataSuccessList';
+export { BatchIntrudeDomainsResponseBodyData } from './BatchIntrudeDomainsResponseBodyData';
 export { ChangeAuctionRequestAuctionListBidRecords } from './ChangeAuctionRequestAuctionListBidRecords';
 export { ChangeAuctionRequestAuctionList } from './ChangeAuctionRequestAuctionList';
 export { CheckDomainStatusResponseBodyModule } from './CheckDomainStatusResponseBodyModule';
@@ -16,6 +19,10 @@ export { SelectedDomainListResponseBodyModule } from './SelectedDomainListRespon
 export { AcceptDemandRequest } from './AcceptDemandRequest';
 export { AcceptDemandResponseBody } from './AcceptDemandResponseBody';
 export { AcceptDemandResponse } from './AcceptDemandResponse';
+export { BatchIntrudeDomainsRequest } from './BatchIntrudeDomainsRequest';
+export { BatchIntrudeDomainsShrinkRequest } from './BatchIntrudeDomainsShrinkRequest';
+export { BatchIntrudeDomainsResponseBody } from './BatchIntrudeDomainsResponseBody';
+export { BatchIntrudeDomainsResponse } from './BatchIntrudeDomainsResponse';
 export { BidDomainRequest } from './BidDomainRequest';
 export { BidDomainResponseBody } from './BidDomainResponseBody';
 export { BidDomainResponse } from './BidDomainResponse';
@@ -71,6 +78,9 @@ export { QueryDomainTransferStatusResponse } from './QueryDomainTransferStatusRe
 export { QueryExchangeRateRequest } from './QueryExchangeRateRequest';
 export { QueryExchangeRateResponseBody } from './QueryExchangeRateResponseBody';
 export { QueryExchangeRateResponse } from './QueryExchangeRateResponse';
+export { QueryExportAuctionDetailRequest } from './QueryExportAuctionDetailRequest';
+export { QueryExportAuctionDetailResponseBody } from './QueryExportAuctionDetailResponseBody';
+export { QueryExportAuctionDetailResponse } from './QueryExportAuctionDetailResponse';
 export { QueryExportDomainExpireSnatchsRequest } from './QueryExportDomainExpireSnatchsRequest';
 export { QueryExportDomainExpireSnatchsResponseBody } from './QueryExportDomainExpireSnatchsResponseBody';
 export { QueryExportDomainExpireSnatchsResponse } from './QueryExportDomainExpireSnatchsResponse';

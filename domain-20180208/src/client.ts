@@ -72,6 +72,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 闯入接口
+   * 
+   * @param tmpReq - BatchIntrudeDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchIntrudeDomainsResponse
+   */
+  async batchIntrudeDomainsWithOptions(tmpReq: $_model.BatchIntrudeDomainsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchIntrudeDomainsResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchIntrudeDomainsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.domainNames)) {
+      request.domainNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.domainNames, "DomainNames", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.domainNamesShrink)) {
+      query["DomainNames"] = request.domainNamesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchIntrudeDomains",
+      version: "2018-02-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchIntrudeDomainsResponse>(await this.callApi(params, req, runtime), new $_model.BatchIntrudeDomainsResponse({}));
+  }
+
+  /**
+   * 闯入接口
+   * 
+   * @param request - BatchIntrudeDomainsRequest
+   * @returns BatchIntrudeDomainsResponse
+   */
+  async batchIntrudeDomains(request: $_model.BatchIntrudeDomainsRequest): Promise<$_model.BatchIntrudeDomainsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchIntrudeDomainsWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - BidDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BidDomainResponse
@@ -897,6 +945,48 @@ export default class Client extends OpenApi {
   async queryExchangeRate(request: $_model.QueryExchangeRateRequest): Promise<$_model.QueryExchangeRateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryExchangeRateWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询竞价商品详情
+   * 
+   * @param request - QueryExportAuctionDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryExportAuctionDetailResponse
+   */
+  async queryExportAuctionDetailWithOptions(request: $_model.QueryExportAuctionDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryExportAuctionDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.auctionId)) {
+      query["AuctionId"] = request.auctionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryExportAuctionDetail",
+      version: "2018-02-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryExportAuctionDetailResponse>(await this.callApi(params, req, runtime), new $_model.QueryExportAuctionDetailResponse({}));
+  }
+
+  /**
+   * 查询竞价商品详情
+   * 
+   * @param request - QueryExportAuctionDetailRequest
+   * @returns QueryExportAuctionDetailResponse
+   */
+  async queryExportAuctionDetail(request: $_model.QueryExportAuctionDetailRequest): Promise<$_model.QueryExportAuctionDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryExportAuctionDetailWithOptions(request, runtime);
   }
 
   /**
