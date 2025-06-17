@@ -11,6 +11,7 @@ export class GetMediaConvertJobResponseBodyJobConfig extends $dara.Model {
    * The inputs of the transcoding task.
    */
   inputs?: MediaConvertInput[];
+  jobName?: string;
   /**
    * @remarks
    * The output group configurations.
@@ -24,6 +25,7 @@ export class GetMediaConvertJobResponseBodyJobConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       inputs: 'Inputs',
+      jobName: 'JobName',
       outputGroups: 'OutputGroups',
       outputs: 'Outputs',
     };
@@ -32,6 +34,7 @@ export class GetMediaConvertJobResponseBodyJobConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       inputs: { 'type': 'array', 'itemType': MediaConvertInput },
+      jobName: 'string',
       outputGroups: { 'type': 'array', 'itemType': MediaConvertOutputGroup },
       outputs: { 'type': 'array', 'itemType': MediaConvertOutput },
     };

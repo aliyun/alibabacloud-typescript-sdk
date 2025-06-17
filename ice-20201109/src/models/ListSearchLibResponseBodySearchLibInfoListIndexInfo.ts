@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSearchLibResponseBodySearchLibInfoListIndexInfo extends $dara.Model {
+  /**
+   * @example
+   * Normal
+   */
   indexReadiness?: string;
+  /**
+   * @example
+   * Active
+   */
   indexStatus?: string;
+  /**
+   * @example
+   * face
+   */
   indexType?: string;
   static names(): { [key: string]: string } {
     return {

@@ -35,7 +35,7 @@ export class ListSearchLibResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * 总数。
+   * The total number of entries returned.
    * 
    * @example
    * 8

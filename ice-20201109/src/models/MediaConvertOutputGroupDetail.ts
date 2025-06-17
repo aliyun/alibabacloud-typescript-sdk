@@ -5,6 +5,8 @@ import { MediaConvertOutputDetail } from "./MediaConvertOutputDetail";
 
 export class MediaConvertOutputGroupDetail extends $dara.Model {
   code?: string;
+  createTime?: string;
+  finishTime?: string;
   message?: string;
   name?: string;
   outputs?: MediaConvertOutputDetail[];
@@ -13,6 +15,8 @@ export class MediaConvertOutputGroupDetail extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      createTime: 'CreateTime',
+      finishTime: 'FinishTime',
       message: 'Message',
       name: 'Name',
       outputs: 'Outputs',
@@ -24,6 +28,8 @@ export class MediaConvertOutputGroupDetail extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      createTime: 'string',
+      finishTime: 'string',
       message: 'string',
       name: 'string',
       outputs: { 'type': 'array', 'itemType': MediaConvertOutputDetail },

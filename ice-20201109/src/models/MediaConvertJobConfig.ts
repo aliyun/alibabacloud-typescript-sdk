@@ -5,22 +5,10 @@ import { MediaConvertOutputGroup } from "./MediaConvertOutputGroup";
 import { MediaConvertOutput } from "./MediaConvertOutput";
 
 
-export class SubmitMediaConvertJobResponseBodyJobConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The inputs of the transcoding task.
-   */
+export class MediaConvertJobConfig extends $dara.Model {
   inputs?: MediaConvertInput[];
   jobName?: string;
-  /**
-   * @remarks
-   * The output group configurations.
-   */
   outputGroups?: MediaConvertOutputGroup[];
-  /**
-   * @remarks
-   * The output configurations.
-   */
   outputs?: MediaConvertOutput[];
   static names(): { [key: string]: string } {
     return {
