@@ -282,6 +282,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * VPC
    */
   instanceNetworkType?: string;
+  instanceSpec?: string;
   /**
    * @remarks
    * Lock mode, with the following values:
@@ -661,6 +662,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       hostType: 'HostType',
       idleTime: 'IdleTime',
       instanceNetworkType: 'InstanceNetworkType',
+      instanceSpec: 'InstanceSpec',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
       maintainEndTime: 'MaintainEndTime',
@@ -734,6 +736,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       hostType: 'string',
       idleTime: 'number',
       instanceNetworkType: 'string',
+      instanceSpec: 'string',
       lockMode: 'string',
       lockReason: 'string',
       maintainEndTime: 'string',
