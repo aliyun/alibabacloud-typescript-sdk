@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceLogRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the sidecar container. You can call the [DescribeApplicationInstances](https://help.aliyun.com/document_detail/2834847.html) to obtain the ID.
+   * 
+   * @example
+   * sidecar-test-01
+   */
   containerId?: string;
   /**
    * @remarks

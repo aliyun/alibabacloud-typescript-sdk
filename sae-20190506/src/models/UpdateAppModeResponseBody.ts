@@ -1,19 +1,13 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeApplicationScalingRuleResponseBodyData } from "./DescribeApplicationScalingRuleResponseBodyData";
 
 
-export class DescribeApplicationScalingRuleResponseBody extends $dara.Model {
+export class UpdateAppModeResponseBody extends $dara.Model {
   /**
    * @example
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: DescribeApplicationScalingRuleResponseBodyData;
   errorCode?: string;
   /**
    * @example
@@ -22,29 +16,25 @@ export class DescribeApplicationScalingRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
-   * 73404D3D-EE4F-4CB2-B197-5C46F6A1****
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
    * @example
    * true
    */
-  success?: boolean;
+  success?: string;
   /**
-   * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
-   * 
    * @example
-   * 0b57ff7e16243300839193068e****
+   * 0a98a02315955564772843261e****
    */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      data: 'Data',
       errorCode: 'ErrorCode',
       message: 'Message',
       requestId: 'RequestId',
@@ -56,19 +46,15 @@ export class DescribeApplicationScalingRuleResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: DescribeApplicationScalingRuleResponseBodyData,
       errorCode: 'string',
       message: 'string',
       requestId: 'string',
-      success: 'boolean',
+      success: 'string',
       traceId: 'string',
     };
   }
 
   validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
     super.validate();
   }
 

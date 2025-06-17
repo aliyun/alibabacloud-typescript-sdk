@@ -6,7 +6,7 @@ import { ListApplicationsResponseBodyDataApplications } from "./ListApplications
 export class ListApplicationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The applications.
+   * The queried applications.
    */
   applications?: ListApplicationsResponseBodyDataApplications[];
   /**

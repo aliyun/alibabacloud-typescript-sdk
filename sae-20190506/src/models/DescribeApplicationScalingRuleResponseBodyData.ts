@@ -35,11 +35,27 @@ export class DescribeApplicationScalingRuleResponseBodyData extends $dara.Model 
    */
   metric?: DescribeApplicationScalingRuleResponseBodyDataMetric;
   /**
+   * @remarks
+   * The ratio of the minimum number of available instances to the current number of instances. Valid values:
+   * 
+   * *   **-1** (default value): The minimum number of available instances is not determined based on this parameter.
+   * *   **0 to 100**: The minimum number of available instances is calculated by using the following formula: Number of existing instances × Value of MinReadyInstanceRatio × 100%. The calculation result is rounded up to the nearest integer. For example, if the number of existing instances is 5 and MinReadyInstanceRatio is set to 50, the minimum number of available instances is 3.
+   * 
+   * >  If the **MinReadyInstanceRatio** and **MinReadyInstanceRatio** parameters are configured and the **MinReadyInstanceRatio** parameter is set to a number from 0 to 100, the value of the MinReadyInstanceRatio parameter takes precedence. For example, if the **MinReadyInstances** parameter is set to **5**, and the **MinReadyInstanceRatio** parameter is set to **50**, the minimum number of available instances is set to the nearest integer rounded up from the calculated result of the following formula: Nmber of existing instances × **50**.
+   * 
    * @example
    * -1
    */
   minReadyInstanceRatio?: number;
   /**
+   * @remarks
+   * The minimum number of available instances. Valid values:
+   * 
+   * *   If you set the value to **0**, business is interrupted when the application is updated.
+   * *   If you set this property to -1, the system calculates a recommended value as the minimum number of available instances by using the following formula: Recommended value = Number of existing instances × 25%. The calculation result is rounded up to the nearest integer. For example, if the number of existing instances is 5, the recommended value is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
+   * 
+   * >  To ensure business continuity, make sure that at least one instance is available during application deployment and rollback.
+   * 
    * @example
    * 1
    */

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
   activeCpu?: number;
   /**
    * @remarks
@@ -16,6 +20,10 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
   ephemeralStorage?: number;
   gpuA10?: number;
   gpuPpu810e?: number;
+  /**
+   * @example
+   * 10
+   */
   idleCpu?: number;
   /**
    * @remarks

@@ -325,6 +325,10 @@ export class DeployApplicationRequest extends $dara.Model {
    * {\\"instanceId\\":\\"mse-cn-zvp2bh6h70r\\",\\"namespace\\":\\"4c0aa74f-57cb-423c-b6af-5d9f2d0e3dbd\\"}
    */
   microRegistrationConfig?: string;
+  /**
+   * @example
+   * {"enable": true,"mseLosslessRule": {"delayTime": 0,"enable": false,"notice": false,"warmupTime": 120}}
+   */
   microserviceEngineConfig?: string;
   /**
    * @remarks
@@ -390,6 +394,10 @@ export class DeployApplicationRequest extends $dara.Model {
    * 10d3b4****
    */
   nasId?: string;
+  /**
+   * @example
+   * pro
+   */
   newSaeVersion?: string;
   /**
    * @remarks
@@ -589,6 +597,10 @@ export class DeployApplicationRequest extends $dara.Model {
    * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
    */
   slsConfigs?: string;
+  /**
+   * @example
+   * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
+   */
   startupProbe?: string;
   swimlanePvtzDiscoverySvc?: string;
   /**

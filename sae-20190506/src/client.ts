@@ -356,6 +356,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Confirms whether to start the next batch.
+   * 
    * @param request - ConfirmPipelineBatchRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -391,6 +393,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Confirms whether to start the next batch.
+   * 
    * @param request - ConfirmPipelineBatchRequest
    * @returns ConfirmPipelineBatchResponse
    */
@@ -3106,7 +3110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specified auto scaling policy of an application.
+   * Queries an Auto Scaling policy of an application.
    * 
    * @param request - DescribeApplicationScalingRuleRequest
    * @param headers - map
@@ -3143,7 +3147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specified auto scaling policy of an application.
+   * Queries an Auto Scaling policy of an application.
    * 
    * @param request - DescribeApplicationScalingRuleRequest
    * @returns DescribeApplicationScalingRuleResponse
@@ -3615,6 +3619,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the logs of a sidecar container instance.
+   * 
    * @param request - DescribeInstanceLogRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3650,6 +3656,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the logs of a sidecar container instance.
+   * 
    * @param request - DescribeInstanceLogRequest
    * @returns DescribeInstanceLogResponse
    */
@@ -5403,7 +5411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of microservices
+   * Queries the list of microservices.
    * 
    * @param request - ListAppServicesRequest
    * @param headers - map
@@ -5468,7 +5476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of microservices
+   * Queries the list of microservices.
    * 
    * @param request - ListAppServicesRequest
    * @returns ListAppServicesResponse
@@ -7662,6 +7670,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 应用闲置模式更新
+   * 
+   * @param request - UpdateAppModeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAppModeResponse
+   */
+  async updateAppModeWithOptions(request: $_model.UpdateAppModeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAppModeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.enableIdle)) {
+      query["EnableIdle"] = request.enableIdle;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAppMode",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/app/updateAppMode`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAppModeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAppModeResponse({}));
+  }
+
+  /**
+   * 应用闲置模式更新
+   * 
+   * @param request - UpdateAppModeRequest
+   * @returns UpdateAppModeResponse
+   */
+  async updateAppMode(request: $_model.UpdateAppModeRequest): Promise<$_model.UpdateAppModeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAppModeWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Updates the security group of an application.
    * 
    * @param request - UpdateAppSecurityGroupRequest
@@ -7886,7 +7943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a ConfigMap.
+   * Updates a ConfigMap instance.
    * 
    * @param request - UpdateConfigMapRequest
    * @param headers - map
@@ -7929,7 +7986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a ConfigMap.
+   * Updates a ConfigMap instance.
    * 
    * @param request - UpdateConfigMapRequest
    * @returns UpdateConfigMapResponse
