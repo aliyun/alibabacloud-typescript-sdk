@@ -81,6 +81,8 @@ export { DescribeHybridCloudServerRegionsResponseBodyRegions } from './DescribeH
 export { DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines } from './DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines';
 export { DescribeHybridCloudUserResponseBodyUserInfo } from './DescribeHybridCloudUserResponseBodyUserInfo';
 export { DescribeInstanceResponseBodyDetails } from './DescribeInstanceResponseBodyDetails';
+export { DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions } from './DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions';
+export { DescribeIpAbroadCountryInfosResponseBodyAbroadInfos } from './DescribeIpAbroadCountryInfosResponseBodyAbroadInfos';
 export { DescribeMajorProtectionBlackIpsResponseBodyIpList } from './DescribeMajorProtectionBlackIpsResponseBodyIpList';
 export { DescribeMemberAccountsResponseBodyAccountInfos } from './DescribeMemberAccountsResponseBodyAccountInfos';
 export { DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions } from './DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions';
@@ -408,6 +410,9 @@ export { DescribeHybridCloudUserResponse } from './DescribeHybridCloudUserRespon
 export { DescribeInstanceRequest } from './DescribeInstanceRequest';
 export { DescribeInstanceResponseBody } from './DescribeInstanceResponseBody';
 export { DescribeInstanceResponse } from './DescribeInstanceResponse';
+export { DescribeIpAbroadCountryInfosRequest } from './DescribeIpAbroadCountryInfosRequest';
+export { DescribeIpAbroadCountryInfosResponseBody } from './DescribeIpAbroadCountryInfosResponseBody';
+export { DescribeIpAbroadCountryInfosResponse } from './DescribeIpAbroadCountryInfosResponse';
 export { DescribeMajorProtectionBlackIpsRequest } from './DescribeMajorProtectionBlackIpsRequest';
 export { DescribeMajorProtectionBlackIpsResponseBody } from './DescribeMajorProtectionBlackIpsResponseBody';
 export { DescribeMajorProtectionBlackIpsResponse } from './DescribeMajorProtectionBlackIpsResponse';

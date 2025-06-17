@@ -5242,6 +5242,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取支持的海外IP区域封禁支持的国际及地域。
+   * 
+   * @param request - DescribeIpAbroadCountryInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIpAbroadCountryInfosResponse
+   */
+  async describeIpAbroadCountryInfosWithOptions(request: $_model.DescribeIpAbroadCountryInfosRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeIpAbroadCountryInfosResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.abroadRegion)) {
+      query["AbroadRegion"] = request.abroadRegion;
+    }
+
+    if (!$dara.isNull(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeIpAbroadCountryInfos",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeIpAbroadCountryInfosResponse>(await this.callApi(params, req, runtime), new $_model.DescribeIpAbroadCountryInfosResponse({}));
+  }
+
+  /**
+   * 获取支持的海外IP区域封禁支持的国际及地域。
+   * 
+   * @param request - DescribeIpAbroadCountryInfosRequest
+   * @returns DescribeIpAbroadCountryInfosResponse
+   */
+  async describeIpAbroadCountryInfos(request: $_model.DescribeIpAbroadCountryInfosRequest): Promise<$_model.DescribeIpAbroadCountryInfosResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeIpAbroadCountryInfosWithOptions(request, runtime);
+  }
+
+  /**
    * Queries IP addresses in an IP address blacklist for major event protection by page.
    * 
    * @param request - DescribeMajorProtectionBlackIpsRequest
