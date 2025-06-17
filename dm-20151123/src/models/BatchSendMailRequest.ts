@@ -45,6 +45,7 @@ export class BatchSendMailRequest extends $dara.Model {
    * }
    */
   headers?: string;
+  ipPoolId?: string;
   ownerId?: number;
   /**
    * @remarks
@@ -125,6 +126,7 @@ export class BatchSendMailRequest extends $dara.Model {
       addressType: 'AddressType',
       clickTrace: 'ClickTrace',
       headers: 'Headers',
+      ipPoolId: 'IpPoolId',
       ownerId: 'OwnerId',
       receiversName: 'ReceiversName',
       replyAddress: 'ReplyAddress',
@@ -144,6 +146,7 @@ export class BatchSendMailRequest extends $dara.Model {
       addressType: 'number',
       clickTrace: 'string',
       headers: 'string',
+      ipPoolId: 'string',
       ownerId: 'number',
       receiversName: 'string',
       replyAddress: 'string',

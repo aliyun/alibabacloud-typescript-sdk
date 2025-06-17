@@ -19,6 +19,8 @@ export class QueryTaskByParamResponseBodyDataTask extends $dara.Model {
    * 2022-04-18T10:36Z
    */
   createTime?: string;
+  ipPoolId?: string;
+  ipPoolName?: string;
   /**
    * @remarks
    * Receiver\\"s name.
@@ -79,6 +81,8 @@ export class QueryTaskByParamResponseBodyDataTask extends $dara.Model {
     return {
       addressType: 'AddressType',
       createTime: 'CreateTime',
+      ipPoolId: 'IpPoolId',
+      ipPoolName: 'IpPoolName',
       receiversName: 'ReceiversName',
       requestCount: 'RequestCount',
       tagName: 'TagName',
@@ -93,6 +97,8 @@ export class QueryTaskByParamResponseBodyDataTask extends $dara.Model {
     return {
       addressType: 'string',
       createTime: 'string',
+      ipPoolId: 'string',
+      ipPoolName: 'string',
       receiversName: 'string',
       requestCount: 'string',
       tagName: 'string',

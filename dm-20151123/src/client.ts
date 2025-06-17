@@ -163,6 +163,10 @@ export default class Client extends OpenApi {
       query["Headers"] = request.headers;
     }
 
+    if (!$dara.isNull(request.ipPoolId)) {
+      query["IpPoolId"] = request.ipPoolId;
+    }
+
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -2689,6 +2693,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.htmlBody)) {
       query["HtmlBody"] = request.htmlBody;
+    }
+
+    if (!$dara.isNull(request.ipPoolId)) {
+      query["IpPoolId"] = request.ipPoolId;
     }
 
     if (!$dara.isNull(request.ownerId)) {

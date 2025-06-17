@@ -68,6 +68,7 @@ export class SingleSendMailRequest extends $dara.Model {
    * body
    */
   htmlBody?: string;
+  ipPoolId?: string;
   ownerId?: number;
   /**
    * @remarks
@@ -179,6 +180,7 @@ export class SingleSendMailRequest extends $dara.Model {
       fromAlias: 'FromAlias',
       headers: 'Headers',
       htmlBody: 'HtmlBody',
+      ipPoolId: 'IpPoolId',
       ownerId: 'OwnerId',
       replyAddress: 'ReplyAddress',
       replyAddressAlias: 'ReplyAddressAlias',
@@ -202,6 +204,7 @@ export class SingleSendMailRequest extends $dara.Model {
       fromAlias: 'string',
       headers: 'string',
       htmlBody: 'string',
+      ipPoolId: 'string',
       ownerId: 'number',
       replyAddress: 'string',
       replyAddressAlias: 'string',
