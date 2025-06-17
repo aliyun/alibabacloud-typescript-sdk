@@ -69,6 +69,13 @@ export class ListLniPrivateIpAddressRequest extends $dara.Model {
    * cn-wulanchabu
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmzzka6bnjvbi
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {

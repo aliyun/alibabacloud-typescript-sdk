@@ -53,6 +53,13 @@ export class ListLeniPrivateIpAddressesRequest extends $dara.Model {
    * cn-wulanchabu
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmynvzeknccpy
+   */
   resourceGroupId?: string;
   /**
    * @remarks

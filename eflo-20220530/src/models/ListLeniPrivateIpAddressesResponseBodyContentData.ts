@@ -67,6 +67,7 @@ export class ListLeniPrivateIpAddressesResponseBodyContentData extends $dara.Mod
    * cn-wulanchabu
    */
   regionId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The task status.
@@ -85,6 +86,7 @@ export class ListLeniPrivateIpAddressesResponseBodyContentData extends $dara.Mod
       message: 'Message',
       privateIpAddress: 'PrivateIpAddress',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
     };
   }
@@ -99,6 +101,7 @@ export class ListLeniPrivateIpAddressesResponseBodyContentData extends $dara.Mod
       message: 'string',
       privateIpAddress: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
     };
   }

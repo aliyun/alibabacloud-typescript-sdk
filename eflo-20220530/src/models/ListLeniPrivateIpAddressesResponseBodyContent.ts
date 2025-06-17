@@ -9,6 +9,13 @@ export class ListLeniPrivateIpAddressesResponseBodyContent extends $dara.Model {
    * The response parameters.
    */
   data?: ListLeniPrivateIpAddressesResponseBodyContentData[];
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmzzka6bnjvbi
+   */
   resourceGroupId?: string;
   /**
    * @remarks

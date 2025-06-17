@@ -11,6 +11,13 @@ export class GetNodeInfoForPodResponseBodyContent extends $dara.Model {
    * cluster-****
    */
   clusterId?: string;
+  /**
+   * @remarks
+   * Lingjun Hdeni Network Interface IPV6 address Quota
+   * 
+   * @example
+   * 10
+   */
   hdeniIpv6SipQuota?: number;
   /**
    * @remarks
@@ -20,7 +27,21 @@ export class GetNodeInfoForPodResponseBodyContent extends $dara.Model {
    * 10
    */
   hdeniQuota?: number;
+  /**
+   * @remarks
+   * Lingjun Hdeni Network Interface IPV4 address Quota
+   * 
+   * @example
+   * 10
+   */
   hdeniSipQuota?: number;
+  /**
+   * @remarks
+   * Lingjun Elastic Network Interface IPV6 address Quota
+   * 
+   * @example
+   * 10
+   */
   leniIpv6SipQuota?: number;
   /**
    * @remarks

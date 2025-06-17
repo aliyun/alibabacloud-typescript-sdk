@@ -9,6 +9,13 @@ export class ListLniPrivateIpAddressResponseBodyContent extends $dara.Model {
    * The returned result.
    */
   data?: ListLniPrivateIpAddressResponseBodyContentData[];
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
   resourceGroupId?: string;
   /**
    * @remarks

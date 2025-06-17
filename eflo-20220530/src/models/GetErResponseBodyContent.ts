@@ -102,6 +102,10 @@ export class GetErResponseBodyContent extends $dara.Model {
    * Available
    */
   status?: string;
+  /**
+   * @remarks
+   * List of Tags
+   */
   tags?: GetErResponseBodyContentTags[];
   /**
    * @remarks

@@ -100,6 +100,10 @@ export class ListErsResponseBodyContentData extends $dara.Model {
    * Available
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: ListErsResponseBodyContentDataTags[];
   /**
    * @remarks

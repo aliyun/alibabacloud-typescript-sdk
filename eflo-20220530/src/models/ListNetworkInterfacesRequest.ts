@@ -62,6 +62,13 @@ export class ListNetworkInterfacesRequest extends $dara.Model {
    * cn-wulanchabu
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-acfmzzka6bnjvbi
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -71,6 +78,10 @@ export class ListNetworkInterfacesRequest extends $dara.Model {
    * subnet-anhtskts
    */
   subnetId?: string;
+  /**
+   * @remarks
+   * The list of tags
+   */
   tag?: ListNetworkInterfacesRequestTag[];
   /**
    * @remarks

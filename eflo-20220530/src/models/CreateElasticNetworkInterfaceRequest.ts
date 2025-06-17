@@ -46,6 +46,13 @@ export class CreateElasticNetworkInterfaceRequest extends $dara.Model {
    * cn-wulanchabu
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The Resource GroupId.
+   * 
+   * @example
+   * rg-acfmxhucx5ewuwy
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -55,6 +62,10 @@ export class CreateElasticNetworkInterfaceRequest extends $dara.Model {
    * sg-wz9fj2s3o21nw2****
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The resource tags.
+   */
   tag?: CreateElasticNetworkInterfaceRequestTag[];
   /**
    * @remarks

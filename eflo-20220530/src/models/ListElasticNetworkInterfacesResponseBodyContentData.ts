@@ -92,6 +92,13 @@ export class ListElasticNetworkInterfacesResponseBodyContentData extends $dara.M
    * cn-wulanchabu
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -109,6 +116,10 @@ export class ListElasticNetworkInterfacesResponseBodyContentData extends $dara.M
    * Available
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: ListElasticNetworkInterfacesResponseBodyContentDataTags[];
   /**
    * @remarks

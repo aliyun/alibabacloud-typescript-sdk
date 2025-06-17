@@ -67,6 +67,13 @@ export class GetLniPrivateIpAddressResponseBodyContent extends $dara.Model {
    * cn-wulanchabu
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-aek2l4sq6l7unhi
+   */
   resourceGroupId?: string;
   /**
    * @remarks

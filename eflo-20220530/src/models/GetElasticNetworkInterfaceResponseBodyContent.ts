@@ -112,6 +112,13 @@ export class GetElasticNetworkInterfaceResponseBodyContent extends $dara.Model {
    * cn-wulanchabu
    */
   regionId?: string;
+  /**
+   * @remarks
+   * 资源组实例ID
+   * 
+   * @example
+   * rg-acfmzzka6bnjvbi
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -137,6 +144,10 @@ export class GetElasticNetworkInterfaceResponseBodyContent extends $dara.Model {
    * Available
    */
   status?: string;
+  /**
+   * @remarks
+   * The details of the resource tags.
+   */
   tags?: GetElasticNetworkInterfaceResponseBodyContentTags[];
   /**
    * @remarks

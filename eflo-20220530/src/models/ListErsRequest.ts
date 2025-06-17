@@ -92,6 +92,10 @@ export class ListErsRequest extends $dara.Model {
    * rg-acfmwfm33rlt6zi
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * List of tags.
+   */
   tag?: ListErsRequestTag[];
   static names(): { [key: string]: string } {
     return {

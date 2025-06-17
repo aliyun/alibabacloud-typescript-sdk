@@ -98,6 +98,13 @@ export class ListNetworkInterfacesResponseBodyContentData extends $dara.Model {
    * cn-wulanchabu
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Resource group instance ID
+   * 
+   * @example
+   * rg-1234567890
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -120,6 +127,10 @@ export class ListNetworkInterfacesResponseBodyContentData extends $dara.Model {
    * Lingjun subnet (Subnet) basic information.
    */
   subnetBaseInfo?: ListNetworkInterfacesResponseBodyContentDataSubnetBaseInfo;
+  /**
+   * @remarks
+   * List of tags.
+   */
   tags?: ListNetworkInterfacesResponseBodyContentDataTags[];
   /**
    * @remarks

@@ -50,6 +50,10 @@ export class CreateErRequest extends $dara.Model {
    * rg-acfmyuzlx2iihcy
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * List of tags.
+   */
   tag?: CreateErRequestTag[];
   static names(): { [key: string]: string } {
     return {

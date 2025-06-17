@@ -67,6 +67,7 @@ export class ListLniPrivateIpAddressResponseBodyContentData extends $dara.Model 
    * cn-wulanchabu
    */
   regionId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The status of the intervention entry. Valid value:
@@ -85,6 +86,7 @@ export class ListLniPrivateIpAddressResponseBodyContentData extends $dara.Model 
       networkInterfaceId: 'NetworkInterfaceId',
       privateIpAddress: 'PrivateIpAddress',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
     };
   }
@@ -99,6 +101,7 @@ export class ListLniPrivateIpAddressResponseBodyContentData extends $dara.Model 
       networkInterfaceId: 'string',
       privateIpAddress: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
     };
   }

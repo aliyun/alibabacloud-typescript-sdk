@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListElasticNetworkInterfacesResponseBodyContentDataTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-test
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * Tag value.
+   * 
+   * @example
+   * key-value
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
