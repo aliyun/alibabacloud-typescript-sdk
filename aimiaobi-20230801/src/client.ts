@@ -90,6 +90,256 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 生成剪辑视频
+   * 
+   * @param tmpReq - AsyncCreateClipsTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AsyncCreateClipsTaskResponse
+   */
+  async asyncCreateClipsTaskWithOptions(tmpReq: $_model.AsyncCreateClipsTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AsyncCreateClipsTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.AsyncCreateClipsTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.colorWords)) {
+      request.colorWordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.colorWords, "ColorWords", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.colorWordsShrink)) {
+      body["ColorWords"] = request.colorWordsShrink;
+    }
+
+    if (!$dara.isNull(request.height)) {
+      body["Height"] = request.height;
+    }
+
+    if (!$dara.isNull(request.musicUrl)) {
+      body["MusicUrl"] = request.musicUrl;
+    }
+
+    if (!$dara.isNull(request.musicVolume)) {
+      body["MusicVolume"] = request.musicVolume;
+    }
+
+    if (!$dara.isNull(request.subtitleFontSize)) {
+      body["SubtitleFontSize"] = request.subtitleFontSize;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.voiceStyle)) {
+      body["VoiceStyle"] = request.voiceStyle;
+    }
+
+    if (!$dara.isNull(request.voiceVolume)) {
+      body["VoiceVolume"] = request.voiceVolume;
+    }
+
+    if (!$dara.isNull(request.width)) {
+      body["Width"] = request.width;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AsyncCreateClipsTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AsyncCreateClipsTaskResponse>(await this.callApi(params, req, runtime), new $_model.AsyncCreateClipsTaskResponse({}));
+  }
+
+  /**
+   * 生成剪辑视频
+   * 
+   * @param request - AsyncCreateClipsTaskRequest
+   * @returns AsyncCreateClipsTaskResponse
+   */
+  async asyncCreateClipsTask(request: $_model.AsyncCreateClipsTaskRequest): Promise<$_model.AsyncCreateClipsTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.asyncCreateClipsTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 智能剪辑timeline
+   * 
+   * @param request - AsyncCreateClipsTimeLineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AsyncCreateClipsTimeLineResponse
+   */
+  async asyncCreateClipsTimeLineWithOptions(request: $_model.AsyncCreateClipsTimeLineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AsyncCreateClipsTimeLineResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.processPrompt)) {
+      body["ProcessPrompt"] = request.processPrompt;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AsyncCreateClipsTimeLine",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AsyncCreateClipsTimeLineResponse>(await this.callApi(params, req, runtime), new $_model.AsyncCreateClipsTimeLineResponse({}));
+  }
+
+  /**
+   * 智能剪辑timeline
+   * 
+   * @param request - AsyncCreateClipsTimeLineRequest
+   * @returns AsyncCreateClipsTimeLineResponse
+   */
+  async asyncCreateClipsTimeLine(request: $_model.AsyncCreateClipsTimeLineRequest): Promise<$_model.AsyncCreateClipsTimeLineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.asyncCreateClipsTimeLineWithOptions(request, runtime);
+  }
+
+  /**
+   * 编辑剪辑任务的timeline
+   * 
+   * @param tmpReq - AsyncEditTimelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AsyncEditTimelineResponse
+   */
+  async asyncEditTimelineWithOptions(tmpReq: $_model.AsyncEditTimelineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AsyncEditTimelineResponse> {
+    tmpReq.validate();
+    let request = new $_model.AsyncEditTimelineShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.timelines)) {
+      request.timelinesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timelines, "Timelines", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoClips)) {
+      body["AutoClips"] = request.autoClips;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.timelinesShrink)) {
+      body["Timelines"] = request.timelinesShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AsyncEditTimeline",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AsyncEditTimelineResponse>(await this.callApi(params, req, runtime), new $_model.AsyncEditTimelineResponse({}));
+  }
+
+  /**
+   * 编辑剪辑任务的timeline
+   * 
+   * @param request - AsyncEditTimelineRequest
+   * @returns AsyncEditTimelineResponse
+   */
+  async asyncEditTimeline(request: $_model.AsyncEditTimelineRequest): Promise<$_model.AsyncEditTimelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.asyncEditTimelineWithOptions(request, runtime);
+  }
+
+  /**
+   * 上传剪辑素材
+   * 
+   * @param tmpReq - AsyncUploadVideoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AsyncUploadVideoResponse
+   */
+  async asyncUploadVideoWithOptions(tmpReq: $_model.AsyncUploadVideoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AsyncUploadVideoResponse> {
+    tmpReq.validate();
+    let request = new $_model.AsyncUploadVideoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sourceVideos)) {
+      request.sourceVideosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceVideos, "SourceVideos", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.anlysisPrompt)) {
+      body["AnlysisPrompt"] = request.anlysisPrompt;
+    }
+
+    if (!$dara.isNull(request.sourceVideosShrink)) {
+      body["SourceVideos"] = request.sourceVideosShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AsyncUploadVideo",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AsyncUploadVideoResponse>(await this.callApi(params, req, runtime), new $_model.AsyncUploadVideoResponse({}));
+  }
+
+  /**
+   * 上传剪辑素材
+   * 
+   * @param request - AsyncUploadVideoRequest
+   * @returns AsyncUploadVideoResponse
+   */
+  async asyncUploadVideo(request: $_model.AsyncUploadVideoRequest): Promise<$_model.AsyncUploadVideoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.asyncUploadVideoWithOptions(request, runtime);
+  }
+
+  /**
    * 取消异步任务
    * 
    * @param request - CancelAsyncTaskRequest
@@ -1757,6 +2007,52 @@ export default class Client extends OpenApi {
   async generateViewPoint(request: $_model.GenerateViewPointRequest): Promise<$_model.GenerateViewPointResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.generateViewPointWithOptions(request, runtime);
+  }
+
+  /**
+   * 获得剪辑任务状态
+   * 
+   * @param request - GetAutoClipsTaskInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAutoClipsTaskInfoResponse
+   */
+  async getAutoClipsTaskInfoWithOptions(request: $_model.GetAutoClipsTaskInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAutoClipsTaskInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAutoClipsTaskInfo",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAutoClipsTaskInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetAutoClipsTaskInfoResponse({}));
+  }
+
+  /**
+   * 获得剪辑任务状态
+   * 
+   * @param request - GetAutoClipsTaskInfoRequest
+   * @returns GetAutoClipsTaskInfoResponse
+   */
+  async getAutoClipsTaskInfo(request: $_model.GetAutoClipsTaskInfoRequest): Promise<$_model.GetAutoClipsTaskInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAutoClipsTaskInfoWithOptions(request, runtime);
   }
 
   /**
