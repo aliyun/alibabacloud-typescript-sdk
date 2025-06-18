@@ -28,6 +28,7 @@ export class ListContactFlowsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  searchPattern?: string;
   sortOrder?: string;
   /**
    * @example
@@ -40,6 +41,7 @@ export class ListContactFlowsRequest extends $dara.Model {
       orderByField: 'OrderByField',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      searchPattern: 'SearchPattern',
       sortOrder: 'SortOrder',
       type: 'Type',
     };
@@ -51,6 +53,7 @@ export class ListContactFlowsRequest extends $dara.Model {
       orderByField: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      searchPattern: 'string',
       sortOrder: 'string',
       type: 'string',
     };

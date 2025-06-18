@@ -11,6 +11,7 @@ export class DeleteContactFlowRequest extends $dara.Model {
    * 0f87c997-b0c1-41d4-9e9e-1b791de6ad1f
    */
   contactFlowId?: string;
+  force?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -22,6 +23,7 @@ export class DeleteContactFlowRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       contactFlowId: 'ContactFlowId',
+      force: 'Force',
       instanceId: 'InstanceId',
     };
   }
@@ -29,6 +31,7 @@ export class DeleteContactFlowRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       contactFlowId: 'string',
+      force: 'boolean',
       instanceId: 'string',
     };
   }

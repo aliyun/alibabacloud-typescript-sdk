@@ -2324,6 +2324,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * -
+   * 
    * @param request - DeleteContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteContactFlowResponse
@@ -2333,6 +2335,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.contactFlowId)) {
       query["ContactFlowId"] = request.contactFlowId;
+    }
+
+    if (!$dara.isNull(request.force)) {
+      query["Force"] = request.force;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -2357,6 +2363,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * -
+   * 
    * @param request - DeleteContactFlowRequest
    * @returns DeleteContactFlowResponse
    */
@@ -6704,6 +6712,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * -
+   * 
    * @param request - ListContactFlowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListContactFlowsResponse
@@ -6725,6 +6735,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
     }
 
     if (!$dara.isNull(request.sortOrder)) {
@@ -6753,6 +6767,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * -
+   * 
    * @param request - ListContactFlowsRequest
    * @returns ListContactFlowsResponse
    */
