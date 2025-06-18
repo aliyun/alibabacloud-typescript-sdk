@@ -6,6 +6,7 @@ import { CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters }
 import { CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters } from "./CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters";
 import { CreateEventStreamingRequestSinkSinkDashVectorParameters } from "./CreateEventStreamingRequestSinkSinkDashVectorParameters";
 import { CreateEventStreamingRequestSinkSinkDataHubParameters } from "./CreateEventStreamingRequestSinkSinkDataHubParameters";
+import { CreateEventStreamingRequestSinkSinkDorisParameters } from "./CreateEventStreamingRequestSinkSinkDorisParameters";
 import { CreateEventStreamingRequestSinkSinkFcParameters } from "./CreateEventStreamingRequestSinkSinkFcParameters";
 import { CreateEventStreamingRequestSinkSinkFnfParameters } from "./CreateEventStreamingRequestSinkSinkFnfParameters";
 import { CreateEventStreamingRequestSinkSinkKafkaParameters } from "./CreateEventStreamingRequestSinkSinkKafkaParameters";
@@ -29,6 +30,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
    * The parameters that are configured if you specify DataHub as the event target.
    */
   sinkDataHubParameters?: CreateEventStreamingRequestSinkSinkDataHubParameters;
+  sinkDorisParameters?: CreateEventStreamingRequestSinkSinkDorisParameters;
   /**
    * @remarks
    * The parameters that are configured if you specify Function Compute as the event target.
@@ -79,6 +81,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
       sinkDashVectorParameters: 'SinkDashVectorParameters',
       sinkDataHubParameters: 'SinkDataHubParameters',
+      sinkDorisParameters: 'SinkDorisParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
@@ -100,6 +103,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
       sinkCustomizedKafkaParameters: CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters,
       sinkDashVectorParameters: CreateEventStreamingRequestSinkSinkDashVectorParameters,
       sinkDataHubParameters: CreateEventStreamingRequestSinkSinkDataHubParameters,
+      sinkDorisParameters: CreateEventStreamingRequestSinkSinkDorisParameters,
       sinkFcParameters: CreateEventStreamingRequestSinkSinkFcParameters,
       sinkFnfParameters: CreateEventStreamingRequestSinkSinkFnfParameters,
       sinkKafkaParameters: CreateEventStreamingRequestSinkSinkKafkaParameters,
@@ -131,6 +135,9 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
     }
     if(this.sinkDataHubParameters && typeof (this.sinkDataHubParameters as any).validate === 'function') {
       (this.sinkDataHubParameters as any).validate();
+    }
+    if(this.sinkDorisParameters && typeof (this.sinkDorisParameters as any).validate === 'function') {
+      (this.sinkDorisParameters as any).validate();
     }
     if(this.sinkFcParameters && typeof (this.sinkFcParameters as any).validate === 'function') {
       (this.sinkFcParameters as any).validate();

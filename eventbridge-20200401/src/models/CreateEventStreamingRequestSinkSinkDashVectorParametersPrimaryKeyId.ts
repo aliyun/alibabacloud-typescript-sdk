@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateEventStreamingRequestSinkSinkDashVectorParametersPrimaryKeyId extends $dara.Model {
+  /**
+   * @example
+   * JSONPATH
+   */
   form?: string;
+  /**
+   * @example
+   * ${ID}
+   */
   template?: string;
+  /**
+   * @example
+   * $.data.requestId
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

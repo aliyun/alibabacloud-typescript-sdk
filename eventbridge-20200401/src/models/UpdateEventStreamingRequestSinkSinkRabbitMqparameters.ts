@@ -14,7 +14,7 @@ import { UpdateEventStreamingRequestSinkSinkRabbitMQParametersVirtualHostName } 
 export class UpdateEventStreamingRequestSinkSinkRabbitMQParameters extends $dara.Model {
   /**
    * @remarks
-   * The message content.
+   * The message body.
    */
   body?: UpdateEventStreamingRequestSinkSinkRabbitMQParametersBody;
   /**
@@ -34,7 +34,7 @@ export class UpdateEventStreamingRequestSinkSinkRabbitMQParameters extends $dara
   messageId?: UpdateEventStreamingRequestSinkSinkRabbitMQParametersMessageId;
   /**
    * @remarks
-   * The properties that you want to use to filter messages.
+   * The attributes that you want to use to filter messages.
    */
   properties?: UpdateEventStreamingRequestSinkSinkRabbitMQParametersProperties;
   /**
@@ -49,7 +49,7 @@ export class UpdateEventStreamingRequestSinkSinkRabbitMQParameters extends $dara
   routingKey?: UpdateEventStreamingRequestSinkSinkRabbitMQParametersRoutingKey;
   /**
    * @remarks
-   * The type of the resource to which events are delivered.
+   * The type of the resource to which you want to deliver events.
    */
   targetType?: UpdateEventStreamingRequestSinkSinkRabbitMQParametersTargetType;
   /**

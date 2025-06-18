@@ -8,13 +8,41 @@ import { GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParame
 export class GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParameters extends $dara.Model {
   consumeTimestamp?: GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp;
   group?: GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersGroup;
+  /**
+   * @example
+   * 192.168.1.1:9876
+   */
   instanceEndpoint?: string;
+  /**
+   * @example
+   * ****
+   */
   instancePassword?: string;
+  /**
+   * @example
+   * admin
+   */
   instanceUsername?: string;
+  /**
+   * @example
+   * PrivateNetwork
+   */
   networkType?: string;
+  /**
+   * @example
+   * sg-2ze5bmpw6adn0q******
+   */
   securityGroupId?: string;
   topic?: GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersTopic;
+  /**
+   * @example
+   * vsw-uf62oqt1twuevrt******
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * vpc-2zeccak5pb0j3ay******
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

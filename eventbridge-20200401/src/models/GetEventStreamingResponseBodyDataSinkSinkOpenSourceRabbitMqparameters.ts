@@ -7,21 +7,69 @@ import { GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersRo
 
 
 export class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParameters extends $dara.Model {
+  /**
+   * @example
+   * ACL
+   */
   authType?: string;
   body?: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersBody;
+  /**
+   * @example
+   * 192.168.1.1:9876
+   */
   endpoint?: string;
+  /**
+   * @example
+   * my-exchange
+   */
   exchange?: string;
   messageId?: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersMessageId;
+  /**
+   * @example
+   * PublicNetwork
+   */
   networkType?: string;
+  /**
+   * @example
+   * ****
+   */
   password?: string;
   properties?: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersProperties;
+  /**
+   * @example
+   * my-queue
+   */
   queueName?: string;
   routingKey?: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersRoutingKey;
+  /**
+   * @example
+   * sg-uf6of9452b2pba82c ****
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * Exchange
+   */
   targetType?: string;
+  /**
+   * @example
+   * admin
+   */
   username?: string;
+  /**
+   * @example
+   * vsw-uf6of9452b2pba82c ****
+   */
   vSwitchIds?: string;
+  /**
+   * @example
+   * vhost1
+   */
   virtualHostName?: string;
+  /**
+   * @example
+   * vpc-uf6of9452b2pba82c ****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

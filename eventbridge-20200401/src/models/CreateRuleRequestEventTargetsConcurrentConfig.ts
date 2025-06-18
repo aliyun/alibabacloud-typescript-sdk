@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRuleRequestEventTargetsConcurrentConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The concurrency.
+   * 
+   * @example
+   * 2
+   */
   concurrency?: number;
   static names(): { [key: string]: string } {
     return {

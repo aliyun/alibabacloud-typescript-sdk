@@ -35,9 +35,10 @@ export class ListRulesResponseBodyDataRules extends $dara.Model {
   eventBusName?: string;
   /**
    * @remarks
-   * The event pattern, in JSON format. Valid values: stringEqual pattern stringExpression pattern Each field can have a maximum of five expressions in the map data structure.
+   * The event pattern, in JSON format. Valid values:
    * 
-   * Each field can have a maximum of five expressions in the map data structure.
+   * *   **stringEqual**: Up to five expressions in the map data structure can be specified in each field.
+   * *   **stringExpression**: Up to five expressions in the map data structure can be specified in each field.
    * 
    * @example
    * {\\"source\\":[\\"acs.oss\\"],\\"type\\":[\\"oss:BucketQueried:GetBucketStat\\"]}
@@ -61,7 +62,10 @@ export class ListRulesResponseBodyDataRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The status of the event rule. Valid values: ENABLE: The event rule is enabled. It is the default state of the event rule. DISABLE: The event rule is disabled.
+   * The status of the event rule. Valid values:
+   * 
+   * *   **ENABLE** (default)
+   * *   **DISABLE**
    * 
    * @example
    * ENABLE

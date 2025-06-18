@@ -11,8 +11,20 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
    * ACL
    */
   authType?: string;
+  /**
+   * @example
+   * JSON
+   */
   bodyDataType?: string;
+  /**
+   * @example
+   * index > 10
+   */
   filterSql?: string;
+  /**
+   * @example
+   * Tag
+   */
   filterType?: string;
   /**
    * @remarks
@@ -97,6 +109,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
    * vpc-bp1a4gmlk31hy***l3ss
    */
   instanceVpcId?: string;
+  /**
+   * @example
+   * PublicNetwork
+   */
   network?: string;
   /**
    * @remarks
@@ -114,6 +130,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
    * cn-chengdu
    */
   regionId?: string;
+  /**
+   * @example
+   * sg-m5edtu24f12345****
+   */
   securityGroupId?: string;
   /**
    * @remarks
@@ -139,7 +159,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
    * topic_add_anima
    */
   topic?: string;
+  /**
+   * @example
+   * vsw-m5ev8asdc6h12345****
+   */
   vSwitchIds?: string;
+  /**
+   * @example
+   * vpc-m5e3sv4b12345****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey extends $dara.Model {
+  /**
+   * @remarks
+   * The method that you want to use to transform events. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template based on which you want events to be transformed.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
+   */
   template?: string;
+  /**
+   * @remarks
+   * The routing key.
+   * 
+   * @example
+   * {"Form": "CONSTANT", "Value": "my-routing-key"}
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

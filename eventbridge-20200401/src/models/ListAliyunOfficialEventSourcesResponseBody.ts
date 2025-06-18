@@ -14,7 +14,7 @@ export class ListAliyunOfficialEventSourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: ListAliyunOfficialEventSourcesResponseBodyData;
   /**

@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTargetsResponseBodyDataTargetsConcurrentConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of concurrent events allowed in the event target.
+   * 
+   * @example
+   * 10
+   */
   concurrency?: number;
   static names(): { [key: string]: string } {
     return {

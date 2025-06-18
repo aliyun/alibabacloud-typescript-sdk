@@ -6,10 +6,14 @@ import { PutTargetsRequestTargetsParamList } from "./PutTargetsRequestTargetsPar
 
 
 export class PutTargetsRequestTargets extends $dara.Model {
+  /**
+   * @remarks
+   * The concurrency configuration.
+   */
   concurrentConfig?: PutTargetsRequestTargetsConcurrentConfig;
   /**
    * @remarks
-   * The dead-letter queue. Events that are not processed or whose maximum retries have been exceeded are written to the dead-letter queue. The dead-letter queue feature supports the following queue types: Message Queue for Apache RocketMQ, Message Service, Message Queue for Apache Kafka, and event bus.
+   * The dead-letter queue. Events that are not processed or whose maximum retries are exceeded are written to the dead-letter queue. You can use queues in ApsaraMQ for RocketMQ, Simple Message Queue (SMQ, formerly MNS), and ApsaraMQ for Kafka as dead-letter queues. You can also use event buses in EventBridge as dead-letter queues.
    */
   deadLetterQueue?: PutTargetsRequestTargetsDeadLetterQueue;
   /**
@@ -24,9 +28,8 @@ export class PutTargetsRequestTargets extends $dara.Model {
    * @remarks
    * The fault tolerance policy. Valid values:
    * 
-   * * **ALL**: ignores the error. Fault tolerance is allowed. If an error occurs, event processing is not blocked. If the message exceeds the number of retries specified by the retry policy, the message is delivered to a dead-letter queue or discarded based on your configurations.
-   * 
-   * * **NONE**: does not ignore the error. Fault tolerance is prohibited. If an error occurs and the message exceeds the number of retries specified by the retry policy, event processing is blocked.
+   * *   **ALL**: allows fault tolerance. If an error occurs, event processing is not blocked. If the message exceeds the number of retries specified by the retry policy, the message is delivered to a dead-letter queue or discarded based on your configurations.
+   * *   **NONE**: prohibits fault tolerance. If an error occurs and the message exceeds the number of retries specified by the retry policy, event processing is blocked.
    * 
    * @example
    * ALL
@@ -34,7 +37,7 @@ export class PutTargetsRequestTargets extends $dara.Model {
   errorsTolerance?: string;
   /**
    * @remarks
-   * The ID of the custom event target.
+   * The ID of the event target.
    * 
    * This parameter is required.
    * 
@@ -49,11 +52,10 @@ export class PutTargetsRequestTargets extends $dara.Model {
   paramList?: PutTargetsRequestTargetsParamList[];
   /**
    * @remarks
-   * The retry policy for pushing the event. Valid values:
+   * The retry policy to be used to push events. Valid values:
    * 
-   * * **BACKOFF_RETRY**: backoff retry. A failed event can be retried up to three times. The interval between two consecutive retries is a random value from 10 to 20. Unit: seconds.
-   * 
-   * * **EXPONENTIAL_DECAY_RETRY**: exponential decay retry. The request can be retried up to 176 times. The interval between two consecutive retries exponentially increases to 512 seconds, and the total retry time is one day. The specific retry intervals are 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 512, ..., and 512 seconds. The interval of 512 seconds can be used up to one hundred and sixty-seven times in total.
+   * *   **BACKOFF_RETRY**: backoff retry. A failed event can be retried up to three times. The interval between two consecutive retries is a random value from 10 seconds to 20 seconds.
+   * *   **EXPONENTIAL_DECAY_RETRY**: exponential decay retry. A failed event can be retried up to 176 times. The interval between two consecutive retries exponentially increases to a maximum of 512 seconds. The total retry time is 1 day. The specific retry intervals are 1, 2, 4, 8, 16, 32, 64, 128, 256, and 512 seconds. The interval of 512 seconds is used for 167 retries.
    * 
    * @example
    * BACKOFFRETRY
@@ -61,7 +63,7 @@ export class PutTargetsRequestTargets extends $dara.Model {
   pushRetryStrategy?: string;
   /**
    * @remarks
-   * The type of the event target. For more information, see [Event target parameters.](https://www.alibabacloud.com/help/en/eventbridge/latest/event-target-parameters)
+   * The type of the event target. For more information, see [Event target parameters](https://help.aliyun.com/document_detail/185887.html).
    * 
    * This parameter is required.
    * 

@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters extends $dara.Model {
+  /**
+   * @example
+   * bucket_abc
+   */
   bucketName?: string;
+  /**
+   * @example
+   * \\n
+   */
   delimiter?: string;
+  /**
+   * @example
+   * TextLoader
+   */
   loadFormat?: string;
+  /**
+   * @example
+   * single
+   */
   loadMode?: string;
+  /**
+   * @example
+   * fun/document/
+   */
   prefix?: string;
+  /**
+   * @example
+   * eventbridge_oss_role
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {

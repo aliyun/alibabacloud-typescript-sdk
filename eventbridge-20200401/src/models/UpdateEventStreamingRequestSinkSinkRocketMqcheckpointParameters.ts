@@ -6,10 +6,39 @@ import { UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic } 
 
 
 export class UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The timestamp that specifies the time from which messages are consumed.
+   */
   consumeTimestamp?: UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp;
+  /**
+   * @remarks
+   * The ID of the consumer group.
+   */
   group?: UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup;
+  /**
+   * @remarks
+   * The ID of the ApsaraMQ for RocketMQ instance.
+   * 
+   * @example
+   * MQ_INST_164901546557****_BAAN****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The instance type. Valid values:
+   * 
+   * *   Cloud_4: ApsaraMQ for RocketMQ 4.0 instance
+   * *   Cloud_5: ApsaraMQ for RocketMQ 5.0 instance
+   * 
+   * @example
+   * Cloud_4
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The name of the topic on the ApsaraMQ for RocketMQ instance.
+   */
   topic?: UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersTopic;
   static names(): { [key: string]: string } {
     return {

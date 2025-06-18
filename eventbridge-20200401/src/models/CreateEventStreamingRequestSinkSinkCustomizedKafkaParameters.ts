@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters extends $dara.Model {
+  /**
+   * @example
+   * 90be1f96-4229-4535-bb76-34b4f6fb2b71
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {

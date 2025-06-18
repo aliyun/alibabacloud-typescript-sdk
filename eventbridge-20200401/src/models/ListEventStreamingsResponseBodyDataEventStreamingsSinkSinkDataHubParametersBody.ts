@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersBody extends $dara.Model {
+  /**
+   * @example
+   * ORIGINAL
+   */
   form?: string;
   template?: string;
   value?: string;

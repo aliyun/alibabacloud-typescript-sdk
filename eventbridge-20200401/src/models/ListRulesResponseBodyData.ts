@@ -14,7 +14,7 @@ export class ListRulesResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The rules.
+   * The event rules.
    */
   rules?: ListRulesResponseBodyDataRules[];
   /**

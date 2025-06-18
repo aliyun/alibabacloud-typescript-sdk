@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersRoutingKey extends $dara.Model {
+  /**
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @example
+   * The value of ${key} is ${value}!
+   */
   template?: string;
+  /**
+   * @example
+   * {"Form": "CONSTANT", "Value": "my-routing-key"}
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,8 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEventStreamingRequestSinkSinkDataHubParametersBody extends $dara.Model {
+  /**
+   * @remarks
+   * The method that you want to use to transform events.
+   * 
+   * @example
+   * ORIGINAL
+   */
   form?: string;
+  /**
+   * @remarks
+   * None.
+   */
   template?: string;
+  /**
+   * @remarks
+   * The data is of the BLOB type, and a template is defined for the record.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

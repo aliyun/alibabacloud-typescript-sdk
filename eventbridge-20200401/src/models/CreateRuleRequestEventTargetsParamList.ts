@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRuleRequestEventTargetsParamList extends $dara.Model {
   /**
    * @remarks
-   * The format that is used by the event target parameter. For more information, see [Limits.](https://www.alibabacloud.com/help/en/eventbridge/latest/limits)
+   * The format of input parameters for the event target. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
    * TEMPLATE
@@ -13,7 +13,7 @@ export class CreateRuleRequestEventTargetsParamList extends $dara.Model {
   form?: string;
   /**
    * @remarks
-   * The resource parameter of the event target. For more information, see [Limits](https://www.alibabacloud.com/help/en/eventbridge/latest/limits)
+   * The resource key of the event target. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
    * body
@@ -21,7 +21,7 @@ export class CreateRuleRequestEventTargetsParamList extends $dara.Model {
   resourceKey?: string;
   /**
    * @remarks
-   * The template that is used by the event target parameter.
+   * The structure of the template for the event target.
    * 
    * @example
    * The value of ${key} is ${value}!

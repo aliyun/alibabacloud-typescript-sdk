@@ -18,7 +18,7 @@ export class UpdateEventStreamingRequestSinkSinkPrometheusParametersVpcId extend
   template?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the Managed Service for Prometheus instance belongs.
+   * The VPC ID.
    * 
    * @example
    * vpc-adw1awdw*****

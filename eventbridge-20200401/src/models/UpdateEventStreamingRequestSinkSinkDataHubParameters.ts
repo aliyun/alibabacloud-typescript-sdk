@@ -11,13 +11,51 @@ import { UpdateEventStreamingRequestSinkSinkDataHubParametersTopicType } from ".
 
 
 export class UpdateEventStreamingRequestSinkSinkDataHubParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The data is of the BLOB type, and a template is defined for the record.
+   */
   body?: UpdateEventStreamingRequestSinkSinkDataHubParametersBody;
+  /**
+   * @remarks
+   * The key-value pair of custom logs. This parameter takes effect only if you set ContentType to KeyValue. Each key-value pair is in the Key_n, Value_n format.
+   */
   contentSchema?: UpdateEventStreamingRequestSinkSinkDataHubParametersContentSchema;
+  /**
+   * @remarks
+   * The data format. Valid values:
+   * 
+   * *   JSON
+   * *   KeyValue
+   */
   contentType?: UpdateEventStreamingRequestSinkSinkDataHubParametersContentType;
+  /**
+   * @remarks
+   * The name of the DataHub project.
+   */
   project?: UpdateEventStreamingRequestSinkSinkDataHubParametersProject;
+  /**
+   * @remarks
+   * The role name.
+   */
   roleName?: UpdateEventStreamingRequestSinkSinkDataHubParametersRoleName;
+  /**
+   * @remarks
+   * The name of the DataHub topic.
+   */
   topic?: UpdateEventStreamingRequestSinkSinkDataHubParametersTopic;
+  /**
+   * @remarks
+   * The data is of the TUBLE type, and a schema is defined for the DataHub topic.
+   */
   topicSchema?: UpdateEventStreamingRequestSinkSinkDataHubParametersTopicSchema;
+  /**
+   * @remarks
+   * The data type of the DataHub topic. Valid values:
+   * 
+   * *   TUPLE
+   * *   BLOB
+   */
   topicType?: UpdateEventStreamingRequestSinkSinkDataHubParametersTopicType;
   static names(): { [key: string]: string } {
     return {

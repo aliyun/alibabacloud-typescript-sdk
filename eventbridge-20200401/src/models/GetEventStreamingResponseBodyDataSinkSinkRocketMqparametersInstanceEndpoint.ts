@@ -3,8 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersInstanceEndpoint extends $dara.Model {
+  /**
+   * @example
+   * CONSTANT
+   */
   form?: string;
   template?: string;
+  /**
+   * @example
+   * vbr-8vbsvkkbpf3vb0zef****
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

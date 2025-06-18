@@ -3,8 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersVector extends $dara.Model {
+  /**
+   * @example
+   * JSONPATH
+   */
   form?: string;
   template?: string;
+  /**
+   * @example
+   * $.data.messageBody
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

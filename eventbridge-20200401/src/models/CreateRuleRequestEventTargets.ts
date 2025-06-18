@@ -6,10 +6,14 @@ import { CreateRuleRequestEventTargetsParamList } from "./CreateRuleRequestEvent
 
 
 export class CreateRuleRequestEventTargets extends $dara.Model {
+  /**
+   * @remarks
+   * The concurrency configuration.
+   */
   concurrentConfig?: CreateRuleRequestEventTargetsConcurrentConfig;
   /**
    * @remarks
-   * The dead-letter queue. Events that are not processed or whose maximum retries are exceeded are written to the dead-letter queue. The dead-letter queue feature is supported by the following queue types: Message Queue for Apache RocketMQ, Message Service (MNS), Message Queue for Apache Kafka, and EventBridge.
+   * The dead-letter queue. Events that are not processed or whose maximum number of retries is exceeded are written to the dead-letter queue. You can use queues in ApsaraMQ for RocketMQ, Simple Message Queue (SMQ, formerly MNS), and ApsaraMQ for Kafka as dead-letter queues. You can also use event buses in EventBridge as dead-letter queues.
    */
   deadLetterQueue?: CreateRuleRequestEventTargetsDeadLetterQueue;
   /**
@@ -22,7 +26,7 @@ export class CreateRuleRequestEventTargets extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The fault tolerance policy. Valid values: ALL: allows fault tolerance. If an error occurs, the event processing is not blocked. If the message fails to be sent after the maximum number of retries specified by the retry policy is reached, the message is delivered to the dead-letter queue or discarded based on your configurations. NONE: does not allow fault tolerance. If an error occurs and the message fails to be sent after the maximum number of retries specified by the retry policy is reached, the event processing is blocked.
+   * The fault tolerance policy. Valid values: ALL and NONE. The value ALL specifies that fault tolerance is allowed. If an error occurs in an event, event processing is not blocked. If the event fails to be sent after the maximum number of retries specified by the retry policy is reached, the event is delivered to the dead-letter queue or discarded based on your configurations. The value NONE specifies that fault tolerance is not allowed. If an error occurs in an event and the event fails to be sent after the maximum number of retries specified by the retry policy is reached, event processing is blocked.
    * 
    * @example
    * ALL
@@ -30,7 +34,7 @@ export class CreateRuleRequestEventTargets extends $dara.Model {
   errorsTolerance?: string;
   /**
    * @remarks
-   * The ID of the custom event target.
+   * The ID of the event target.
    * 
    * This parameter is required.
    * 
@@ -45,7 +49,7 @@ export class CreateRuleRequestEventTargets extends $dara.Model {
   paramList?: CreateRuleRequestEventTargetsParamList[];
   /**
    * @remarks
-   * The retry policy that is used to push events. Valid values: BACKOFF_RETRY: backoff retry. If an event failed to be pushed, it can be retried up to three times. The interval between two consecutive retries is a random value between 10 and 20 seconds. EXPONENTIAL_DECAY_RETRY: exponential decay retry. If an event failed to be pushed, it can be retried up to 176 times. The interval between two consecutive retries exponentially increases to 512 seconds, and the total retry time is one day. The specific retry intervals are 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 512, ..., and 512 seconds. The interval of 512 seconds is used for 167 retries.
+   * The retry policy that you want to use to push failed events. Valid values: BACKOFF_RETRY and EXPONENTIAL_DECAY_RETRY. BACKOFF_RETRY: A failed event can be retried up to three times. The interval between two consecutive retries is a random value from 10 seconds to 20 seconds. EXPONENTIAL_DECAY_RETRY: A failed event can be retried up to 176 times. The interval between two consecutive retries exponentially increases to a maximum of 512 seconds. The total retry time is 1 day. The specific retry intervals are 1, 2, 4, 8, 16, 32, 64, 128, 256, and 512 seconds. The interval of 512 seconds is used for 167 retries.
    * 
    * @example
    * BACKOFF_RETRY
@@ -53,7 +57,7 @@ export class CreateRuleRequestEventTargets extends $dara.Model {
   pushRetryStrategy?: string;
   /**
    * @remarks
-   * The type of the event target. For more information, see [Event target parameters.](https://www.alibabacloud.com/help/en/eventbridge/latest/event-target-parameters)
+   * The type of the event target. For more information, see [Event target parameters](https://help.aliyun.com/document_detail/185887.html).
    * 
    * This parameter is required.
    * 

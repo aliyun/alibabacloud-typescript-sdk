@@ -31,7 +31,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   filterPattern?: string;
   /**
    * @remarks
-   * The configurations of the runtime environment.
+   * The parameters that are configured for the runtime environment.
    */
   runOptionsShrink?: string;
   /**

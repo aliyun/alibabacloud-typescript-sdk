@@ -19,6 +19,10 @@ import { GetEventStreamingResponseBodyDataSourceSourceSLSParameters } from "./Ge
 
 
 export class GetEventStreamingResponseBodyDataSource extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters that are returned if Apache RocketMQ (Offset Data) is specified as the event source.
+   */
   sourceApacheRocketMQCheckpointParameters?: GetEventStreamingResponseBodyDataSourceSourceApacheRocketMQCheckpointParameters;
   sourceCustomizedKafkaConnectorParameters?: GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaConnectorParameters;
   sourceCustomizedKafkaParameters?: GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaParameters;

@@ -7,14 +7,71 @@ import { UpdateEventStreamingRequestSinkSinkDashVectorParametersVector } from ".
 
 
 export class UpdateEventStreamingRequestSinkSinkDashVectorParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The API key that you want to create in the DashVector console.
+   * 
+   * @example
+   * Q34nExQH7sQ****
+   */
   apiKey?: string;
+  /**
+   * @remarks
+   * The collection name.
+   * 
+   * @example
+   * collection1
+   */
   collection?: string;
+  /**
+   * @remarks
+   * The parameters in the Schema field of the table when data is inserted into DashVector. After the event content is transformed, the data must be in JSON format.
+   */
   dashVectorSchemaParameters?: UpdateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters;
+  /**
+   * @remarks
+   * The ID of the DashVector instance.
+   * 
+   * @example
+   * vrs-cn-lbj3ru1***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The network type. Valid values:
+   * 
+   * *   PrivateNetwork
+   * *   PublicNetwork
+   * 
+   * @example
+   * PublicNetwork
+   */
   network?: string;
+  /**
+   * @remarks
+   * The type of operation that you want to perform on the DashVector database. Valid values:
+   * 
+   * *   Delete
+   * *   Upsert
+   * 
+   * @example
+   * Upsert
+   */
   operation?: string;
+  /**
+   * @remarks
+   * The partition. Default value: default.
+   */
   partition?: UpdateEventStreamingRequestSinkSinkDashVectorParametersPartition;
+  /**
+   * @remarks
+   * The ID of the primary key that you want to use when you insert or delete records. If you do not specify this parameter, a random primary key ID is returned.
+   */
   primaryKeyId?: UpdateEventStreamingRequestSinkSinkDashVectorParametersPrimaryKeyId;
+  /**
+   * @remarks
+   * The vector that is recorded when data is inserted into DashVector.
+   */
   vector?: UpdateEventStreamingRequestSinkSinkDashVectorParametersVector;
   static names(): { [key: string]: string } {
     return {

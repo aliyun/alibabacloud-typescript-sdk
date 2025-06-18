@@ -3,8 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParametersGroup extends $dara.Model {
+  /**
+   * @example
+   * CONSTANT
+   */
   form?: string;
   template?: string;
+  /**
+   * @remarks
+   * Group ID
+   * 
+   * @example
+   * GID_EVENTBRIDGE_1736234******
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

@@ -8,7 +8,15 @@ import { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheck
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParameters extends $dara.Model {
   consumeTimestamp?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersConsumeTimestamp;
   group?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersGroup;
+  /**
+   * @example
+   * MQ_INST_1825725063814405_BZ******
+   */
   instanceId?: string;
+  /**
+   * @example
+   * Cloud_5
+   */
   instanceType?: string;
   topic?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersTopic;
   static names(): { [key: string]: string } {

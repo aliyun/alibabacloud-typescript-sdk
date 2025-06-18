@@ -18,6 +18,10 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
    * *   If you set this parameter to all, a response is returned when data is written to the leader and synchronized to the followers. In this mode, the performance is low, but the risk of data loss is also low. Data loss occurs if the leader and the followers fail at the same time.
    */
   acks?: UpdateEventStreamingRequestSinkSinkKafkaParametersAcks;
+  /**
+   * @remarks
+   * The metadata added to messages in the ApsaraMQ for Kafka instance.
+   */
   headers?: UpdateEventStreamingRequestSinkSinkKafkaParametersHeaders;
   /**
    * @remarks

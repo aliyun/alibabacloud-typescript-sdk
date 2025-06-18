@@ -7,21 +7,72 @@ import { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRab
 
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters extends $dara.Model {
+  /**
+   * @example
+   * ACL
+   */
   authType?: string;
   body?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersBody;
+  /**
+   * @example
+   * 192.168.1.1:9876
+   */
   endpoint?: string;
+  /**
+   * @example
+   * my_exchange
+   */
   exchange?: string;
   messageId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersMessageId;
+  /**
+   * @example
+   * PrivateNetwork
+   */
   networkType?: string;
+  /**
+   * @example
+   * ****
+   */
   password?: string;
   properties?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersProperties;
+  /**
+   * @example
+   * my_queue
+   */
   queueName?: string;
   routingKey?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersRoutingKey;
+  /**
+   * @example
+   * sg-2vcgdxz7o1n9zapp****
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * exchange
+   */
   targetType?: string;
+  /**
+   * @example
+   * admin
+   */
   username?: string;
+  /**
+   * @example
+   * vsw-wz9qqeovkwjxlu9uc****
+   */
   vSwitchIds?: string;
+  /**
+   * @example
+   * Vhost1
+   */
   virtualHostName?: string;
+  /**
+   * @remarks
+   * VPC ID。
+   * 
+   * @example
+   * vpc-2zehizpoendb3****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

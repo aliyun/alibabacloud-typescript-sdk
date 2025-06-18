@@ -30,6 +30,25 @@ export class UpdateEventStreamingRequest extends $dara.Model {
    * The rule that is used to filter events. If you leave this parameter empty, all events are matched.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *     "source": [
+   *         {
+   *             "prefix": "acs:mns"
+   *         }
+   *     ],
+   *     "type": [
+   *         {
+   *             "prefix": "mns:Queue"
+   *         }
+   *     ],
+   *     "subject": [
+   *         {
+   *             "prefix": "acs:mns:cn-hangzhou:123456789098****:queues/zeus"
+   *         }
+   *     ]
+   * }
    */
   filterPattern?: string;
   /**

@@ -8,7 +8,7 @@ import { EventCenterQueryEventsRequestBodyParametersOrders } from "./EventCenter
 export class EventCenterQueryEventsRequestBodyParameters extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to further split the data set based on the column name.
+   * Specifies whether to further split the dataset based on the column name.
    */
   breakdowns?: string[];
   /**
@@ -76,7 +76,7 @@ export class EventCenterQueryEventsRequestBodyParameters extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The time range during which events are queried. Unit: milliseconds. Minimum value: 1000.
+   * The time range during which events are queried. Minimum value: 1000. Unit: milliseconds.
    * 
    * @example
    * 1000000

@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * The method that you want to use to transform events. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * None.
+   */
   template?: string;
+  /**
+   * @remarks
+   * The network type. Valid values:
+   * 
+   * *   PublicNetwork
+   * *   PrivateNetwork
+   * 
+   * @example
+   * PublicNetwork
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

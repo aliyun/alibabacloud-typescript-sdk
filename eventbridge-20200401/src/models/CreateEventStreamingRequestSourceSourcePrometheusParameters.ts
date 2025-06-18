@@ -28,6 +28,10 @@ export class CreateEventStreamingRequestSourceSourcePrometheusParameters extends
    * __name__=.*
    */
   labels?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   roleName?: string;
   static names(): { [key: string]: string } {

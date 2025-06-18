@@ -18,7 +18,7 @@ export class UpdateEventStreamingRequestSinkSinkRabbitMQParametersTargetType ext
   template?: string;
   /**
    * @remarks
-   * The type of the resource to which events are delivered. Valid values:
+   * The type of the resource to which you want to deliver events. Valid values:
    * 
    * *   Exchange
    * *   Queue

@@ -18,7 +18,10 @@ export class UpdateEventStreamingRequestSinkSinkPrometheusParametersNetworkType 
   template?: string;
   /**
    * @remarks
-   * The network type.
+   * The network type. Valid values:
+   * 
+   * *   PublicNetwork
+   * *   PrivateNetwork
    * 
    * @example
    * PrivateNetwork

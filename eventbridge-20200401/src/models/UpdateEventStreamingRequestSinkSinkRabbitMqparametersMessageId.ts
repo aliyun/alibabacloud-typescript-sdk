@@ -21,7 +21,7 @@ export class UpdateEventStreamingRequestSinkSinkRabbitMQParametersMessageId exte
   template?: string;
   /**
    * @remarks
-   * The value before transformation.
+   * The value before event transformation.
    * 
    * @example
    * {

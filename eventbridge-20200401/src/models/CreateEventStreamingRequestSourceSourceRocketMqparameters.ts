@@ -11,6 +11,10 @@ export class CreateEventStreamingRequestSourceSourceRocketMQParameters extends $
    * ACL
    */
   authType?: string;
+  /**
+   * @example
+   * JSON
+   */
   bodyDataType?: string;
   /**
    * @remarks

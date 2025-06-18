@@ -5,6 +5,10 @@ import { ListTargetsResponseBodyDataTargetsParamList } from "./ListTargetsRespon
 
 
 export class ListTargetsResponseBodyDataTargets extends $dara.Model {
+  /**
+   * @remarks
+   * The concurrency configuration.
+   */
   concurrentConfig?: ListTargetsResponseBodyDataTargetsConcurrentConfig;
   /**
    * @remarks

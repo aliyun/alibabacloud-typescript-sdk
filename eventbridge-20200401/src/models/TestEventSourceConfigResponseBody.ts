@@ -5,22 +5,41 @@ import { TestEventSourceConfigResponseBodyData } from "./TestEventSourceConfigRe
 
 export class TestEventSourceConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. Valid values:
+   * 
+   * *   Success: The request was successful.
+   * *   Other codes indicate that the request failed. For information about error codes, see Error codes.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * The update result.
+   */
   data?: TestEventSourceConfigResponseBodyData[];
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FF942675-F937-549C-A942-EB94FFE28DD3
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. If the operation was successful, the value true is returned.
+   * 
    * @example
    * true
    */

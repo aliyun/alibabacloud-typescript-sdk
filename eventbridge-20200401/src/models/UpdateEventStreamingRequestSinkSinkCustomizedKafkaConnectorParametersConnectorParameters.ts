@@ -3,7 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParametersConnectorParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The connector configurations.
+   * 
+   * @example
+   * {
+   *           "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
+   *           "tasks.max": "1",
+   *           "topics": "sourceA,sourceB"
+   *         }
+   */
   config?: { [key: string]: any };
+  /**
+   * @remarks
+   * The connector name.
+   * 
+   * @example
+   * mongo-sink
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {

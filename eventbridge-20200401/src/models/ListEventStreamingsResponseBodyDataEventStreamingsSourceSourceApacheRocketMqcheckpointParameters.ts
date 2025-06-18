@@ -3,14 +3,49 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheRocketMQCheckpointParameters extends $dara.Model {
+  /**
+   * @example
+   * 192.168.1.1:9876
+   */
   instanceEndpoint?: string;
+  /**
+   * @example
+   * ****
+   */
   instancePassword?: string;
+  /**
+   * @example
+   * admin
+   */
   instanceUsername?: string;
+  /**
+   * @example
+   * PrivateNetwork
+   */
   networkType?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * sg-mw43*****
+   */
   securityGroupId?: string;
   topics?: string[];
+  /**
+   * @example
+   * vsw-dwaafds****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * VPC ID。
+   * 
+   * @example
+   * vpc-adw1awdw*****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

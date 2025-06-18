@@ -18,7 +18,7 @@ export class UpdateEventStreamingRequestSinkSinkMNSParametersQueueName extends $
   template?: string;
   /**
    * @remarks
-   * The name of the MNS queue.
+   * The name of the SMQ queue.
    * 
    * @example
    * MyQueue

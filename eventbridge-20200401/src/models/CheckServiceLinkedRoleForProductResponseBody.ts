@@ -9,6 +9,10 @@ export class CheckServiceLinkedRoleForProductResponseBody extends $dara.Model {
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CheckServiceLinkedRoleForProductResponseBodyData;
   /**
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutTargetsRequestTargetsParamList extends $dara.Model {
   /**
    * @remarks
-   * The method that is used to deliver events to the event target. For more information,see [Event target parameters.](https://www.alibabacloud.com/help/en/eventbridge/latest/event-target-parameters)
+   * The format of input parameters for the event target. For more information, see [Event target parameters](https://help.aliyun.com/document_detail/185887.html).
    * 
    * @example
    * TEMPLATE
@@ -13,7 +13,7 @@ export class PutTargetsRequestTargetsParamList extends $dara.Model {
   form?: string;
   /**
    * @remarks
-   * The resource parameter of the event target. For more information,see [Event target parameters.](https://www.alibabacloud.com/help/en/eventbridge/latest/event-target-parameters)
+   * The resource key of the event target. For more information, see [Event target parameters](https://help.aliyun.com/document_detail/185887.html).
    * 
    * @example
    * body
@@ -21,7 +21,7 @@ export class PutTargetsRequestTargetsParamList extends $dara.Model {
   resourceKey?: string;
   /**
    * @remarks
-   * The template based on which events are delivered to the event target.
+   * The structure of the template for the event target.
    * 
    * @example
    * The value of ${key} is ${value}!
@@ -29,7 +29,7 @@ export class PutTargetsRequestTargetsParamList extends $dara.Model {
   template?: string;
   /**
    * @remarks
-   * The value of the event target parameter.
+   * The event target.
    * 
    * @example
    * {\\"key\\"=\\"value\\"}

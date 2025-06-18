@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersRoutingKey extends $dara.Model {
+  /**
+   * @example
+   * JSONPATH
+   */
   form?: string;
+  /**
+   * @example
+   * The value of ${key} is ${value}!
+   */
   template?: string;
+  /**
+   * @example
+   * housekeeping
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

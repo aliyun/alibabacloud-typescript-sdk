@@ -4,8 +4,23 @@ import { GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParame
 
 
 export class GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParameters extends $dara.Model {
+  /**
+   * @example
+   * "https://examplebucket.oss-cn-hangzhou.aliyuncs.com/testDoc/Old_Homebrew/2024-06-26%2022%3A34%3A08/opt/homebrew/homebrew/Library/Homebrew/test/support/fixtures/cask/AppWithBinary.zip?OSSAccessKeyId=ri&Expires=1725539627&Signature=rb8q3OpV******"
+   */
   connectorPackageUrl?: string;
   connectorParameters?: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParametersConnectorParameters;
+  /**
+   * @example
+   * {
+   *         "group.id": "connect-eb-cluster-KAFKA_CONNECTORC",
+   *         "offset.storage.topic": "connect-eb-offset-KAFKA_CONNECTOR_yjqC8K5ewC",
+   *         "config.storage.topic": "connect-eb-config-KAFKA_CONNECTOR_yjqC8K5ewC",
+   *         "status.storage.topic": "connect-eb-status-KAFKA_CONNECTOR_yjqC8K5ewC",
+   *         "consumer.group.id": "connector-eb-cluster-KAFKA_CONNECTOR_yjqC8K5ewC-mongo-sink",
+   *         "bootstrap.servers": "alikafka-post:9092"
+   *       }
+   */
   workerParameters?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

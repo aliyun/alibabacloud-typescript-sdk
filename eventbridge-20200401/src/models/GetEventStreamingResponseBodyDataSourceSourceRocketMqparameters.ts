@@ -8,8 +8,20 @@ export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters ext
    * ACL
    */
   authType?: string;
+  /**
+   * @example
+   * Json
+   */
   bodyDataType?: string;
+  /**
+   * @example
+   * index > 10
+   */
   filterSql?: string;
+  /**
+   * @example
+   * Tag
+   */
   filterType?: string;
   /**
    * @remarks
@@ -67,6 +79,10 @@ export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters ext
    * vpc-m5e3sv4b12345****
    */
   instanceVpcId?: string;
+  /**
+   * @example
+   * PublicNetwork
+   */
   network?: string;
   /**
    * @remarks
@@ -84,6 +100,10 @@ export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters ext
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * sg-m5edtu24f12345****
+   */
   securityGroupId?: string;
   /**
    * @remarks
@@ -109,7 +129,15 @@ export class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters ext
    * topic_add_anima
    */
   topic?: string;
+  /**
+   * @example
+   * vsw-m5ev8asdc6h12345****
+   */
   vSwitchIds?: string;
+  /**
+   * @example
+   * vpc-m5e3sv4b12345****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

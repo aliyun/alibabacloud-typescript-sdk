@@ -31,16 +31,25 @@ export class UpdateEventSourceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The configurations of the external data source.
+   * 
+   * @example
+   * {\\"ConsumePosition\\":\\"end\\",\\"LogStore\\":\\"oss_log\\",\\"Project\\":\\"slsaudit-center-5795350335281001-cn-beijing\\",\\"RoleName\\":\\"sls-beijing-tf\\"}
    */
   externalSourceConfigShrink?: string;
   /**
    * @remarks
    * The type of the external data source.
+   * 
+   * @example
+   * SLS
    */
   externalSourceType?: string;
   /**
    * @remarks
    * Specifies whether to connect to an external data source.
+   * 
+   * @example
+   * true
    */
   linkedExternalSource?: boolean;
   /**

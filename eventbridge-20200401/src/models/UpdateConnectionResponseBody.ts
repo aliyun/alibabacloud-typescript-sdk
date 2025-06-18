@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The value Success indicates that the request was successful.
+   * The response code. Valid value: 200, which indicates that the request was successful.
    * 
    * @example
    * Success

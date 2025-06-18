@@ -67,6 +67,10 @@ export class CreateEventStreamingRequestSourceSourceKafkaParameters extends $dar
    * vsw-bp179l3llg3jjxwrq72hh
    */
   vSwitchIds?: string;
+  /**
+   * @example
+   * JSON
+   */
   valueDataType?: string;
   /**
    * @remarks

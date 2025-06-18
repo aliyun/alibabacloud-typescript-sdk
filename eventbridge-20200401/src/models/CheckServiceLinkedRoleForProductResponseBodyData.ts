@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckServiceLinkedRoleForProductResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the service-linked role exists.
+   * 
    * @example
    * true
    */
   checkPass?: boolean;
   /**
+   * @remarks
+   * The name of the service-linked role.
+   * 
    * @example
    * AliyunServiceRoleForEventBridgeConnectVPC
    */

@@ -4,6 +4,10 @@ import { TestEventSourceConfigRequestSourceMySQLParameters } from "./TestEventSo
 
 
 export class TestEventSourceConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters that are configured if you specify MySQL as the event source.
+   */
   sourceMySQLParameters?: TestEventSourceConfigRequestSourceMySQLParameters;
   static names(): { [key: string]: string } {
     return {

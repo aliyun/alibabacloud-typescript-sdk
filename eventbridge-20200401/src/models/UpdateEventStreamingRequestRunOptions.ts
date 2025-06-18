@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { UpdateEventStreamingRequestRunOptionsBatchWindow } from "./UpdateEventStreamingRequestRunOptionsBatchWindow";
+import { UpdateEventStreamingRequestRunOptionsBusinessOption } from "./UpdateEventStreamingRequestRunOptionsBusinessOption";
 import { UpdateEventStreamingRequestRunOptionsDeadLetterQueue } from "./UpdateEventStreamingRequestRunOptionsDeadLetterQueue";
 import { UpdateEventStreamingRequestRunOptionsRetryStrategy } from "./UpdateEventStreamingRequestRunOptionsRetryStrategy";
 
@@ -11,9 +12,10 @@ export class UpdateEventStreamingRequestRunOptions extends $dara.Model {
    * The batch window.
    */
   batchWindow?: UpdateEventStreamingRequestRunOptionsBatchWindow;
+  businessOption?: UpdateEventStreamingRequestRunOptionsBusinessOption;
   /**
    * @remarks
-   * Indicates whether dead-letter queues are enabled. By default, dead-letter queues are disabled. Events that fail to be pushed are discarded after the maximum number of retries that is specified by the retry policy is reached.
+   * Specifies whether to enable dead-letter queues. By default, dead-letter queues are disabled. Events that fail to be pushed are discarded after the maximum number of retries that is specified by the retry policy is reached.
    */
   deadLetterQueue?: UpdateEventStreamingRequestRunOptionsDeadLetterQueue;
   /**
@@ -41,6 +43,7 @@ export class UpdateEventStreamingRequestRunOptions extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       batchWindow: 'BatchWindow',
+      businessOption: 'BusinessOption',
       deadLetterQueue: 'DeadLetterQueue',
       errorsTolerance: 'ErrorsTolerance',
       maximumTasks: 'MaximumTasks',
@@ -52,6 +55,7 @@ export class UpdateEventStreamingRequestRunOptions extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       batchWindow: UpdateEventStreamingRequestRunOptionsBatchWindow,
+      businessOption: UpdateEventStreamingRequestRunOptionsBusinessOption,
       deadLetterQueue: UpdateEventStreamingRequestRunOptionsDeadLetterQueue,
       errorsTolerance: 'string',
       maximumTasks: 'number',
@@ -63,6 +67,9 @@ export class UpdateEventStreamingRequestRunOptions extends $dara.Model {
   validate() {
     if(this.batchWindow && typeof (this.batchWindow as any).validate === 'function') {
       (this.batchWindow as any).validate();
+    }
+    if(this.businessOption && typeof (this.businessOption as any).validate === 'function') {
+      (this.businessOption as any).validate();
     }
     if(this.deadLetterQueue && typeof (this.deadLetterQueue as any).validate === 'function') {
       (this.deadLetterQueue as any).validate();

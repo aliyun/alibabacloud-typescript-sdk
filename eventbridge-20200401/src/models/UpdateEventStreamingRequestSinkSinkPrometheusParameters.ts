@@ -23,6 +23,10 @@ export class UpdateEventStreamingRequestSinkSinkPrometheusParameters extends $da
    * The metric data.
    */
   data?: UpdateEventStreamingRequestSinkSinkPrometheusParametersData;
+  /**
+   * @remarks
+   * The parameters that are configured for the request header.
+   */
   headerParameters?: UpdateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters;
   /**
    * @remarks
@@ -36,7 +40,7 @@ export class UpdateEventStreamingRequestSinkSinkPrometheusParameters extends $da
   password?: UpdateEventStreamingRequestSinkSinkPrometheusParametersPassword;
   /**
    * @remarks
-   * The ID of the security group to which the Managed Service for Prometheus instance belongs.
+   * The ID of the security group.
    */
   securityGroupId?: UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGroupId;
   /**
@@ -51,12 +55,12 @@ export class UpdateEventStreamingRequestSinkSinkPrometheusParameters extends $da
   username?: UpdateEventStreamingRequestSinkSinkPrometheusParametersUsername;
   /**
    * @remarks
-   * The ID of the vSwitch with which the Managed Service for Prometheus instance is associated.
+   * The vSwitch ID.
    */
   vSwitchId?: UpdateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId;
   /**
    * @remarks
-   * The ID of the VPC to which the Managed Service for Prometheus instance belongs.
+   * The VPC ID.
    */
   vpcId?: UpdateEventStreamingRequestSinkSinkPrometheusParametersVpcId;
   static names(): { [key: string]: string } {

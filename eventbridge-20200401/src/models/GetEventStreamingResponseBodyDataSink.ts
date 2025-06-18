@@ -6,6 +6,7 @@ import { GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParame
 import { GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters } from "./GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters";
 import { GetEventStreamingResponseBodyDataSinkSinkDashVectorParameters } from "./GetEventStreamingResponseBodyDataSinkSinkDashVectorParameters";
 import { GetEventStreamingResponseBodyDataSinkSinkDataHubParameters } from "./GetEventStreamingResponseBodyDataSinkSinkDataHubParameters";
+import { GetEventStreamingResponseBodyDataSinkSinkDorisParameters } from "./GetEventStreamingResponseBodyDataSinkSinkDorisParameters";
 import { GetEventStreamingResponseBodyDataSinkSinkFcParameters } from "./GetEventStreamingResponseBodyDataSinkSinkFcParameters";
 import { GetEventStreamingResponseBodyDataSinkSinkFnfParameters } from "./GetEventStreamingResponseBodyDataSinkSinkFnfParameters";
 import { GetEventStreamingResponseBodyDataSinkSinkKafkaParameters } from "./GetEventStreamingResponseBodyDataSinkSinkKafkaParameters";
@@ -18,12 +19,21 @@ import { GetEventStreamingResponseBodyDataSinkSinkSLSParameters } from "./GetEve
 
 
 export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
+  /**
+   * @remarks
+   * Sink Apache RocketMQ Checkpoint Parameters
+   */
   sinkApacheRocketMQCheckpointParameters?: GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParameters;
+  /**
+   * @remarks
+   * Sink BaiLian Parameters
+   */
   sinkBaiLianParameters?: SinkBaiLianParameters;
   sinkCustomizedKafkaConnectorParameters?: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParameters;
   sinkCustomizedKafkaParameters?: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters;
   sinkDashVectorParameters?: GetEventStreamingResponseBodyDataSinkSinkDashVectorParameters;
   sinkDataHubParameters?: GetEventStreamingResponseBodyDataSinkSinkDataHubParameters;
+  sinkDorisParameters?: GetEventStreamingResponseBodyDataSinkSinkDorisParameters;
   /**
    * @remarks
    * The parameters that are returned if the event target is Function Compute.
@@ -44,12 +54,20 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
    * The parameters that are returned if the event target is Message Service (MNS).
    */
   sinkMNSParameters?: GetEventStreamingResponseBodyDataSinkSinkMNSParameters;
+  /**
+   * @remarks
+   * Sink Open Source RabbitMQ Parameters
+   */
   sinkOpenSourceRabbitMQParameters?: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParameters;
   /**
    * @remarks
    * The parameters that are returned if the event target is Message Queue for RabbitMQ.
    */
   sinkRabbitMQParameters?: GetEventStreamingResponseBodyDataSinkSinkRabbitMQParameters;
+  /**
+   * @remarks
+   * Sink RocketMQ Checkpoint Parameters
+   */
   sinkRocketMQCheckpointParameters?: GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParameters;
   /**
    * @remarks
@@ -69,6 +87,7 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
       sinkDashVectorParameters: 'SinkDashVectorParameters',
       sinkDataHubParameters: 'SinkDataHubParameters',
+      sinkDorisParameters: 'SinkDorisParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
@@ -89,6 +108,7 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
       sinkCustomizedKafkaParameters: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters,
       sinkDashVectorParameters: GetEventStreamingResponseBodyDataSinkSinkDashVectorParameters,
       sinkDataHubParameters: GetEventStreamingResponseBodyDataSinkSinkDataHubParameters,
+      sinkDorisParameters: GetEventStreamingResponseBodyDataSinkSinkDorisParameters,
       sinkFcParameters: GetEventStreamingResponseBodyDataSinkSinkFcParameters,
       sinkFnfParameters: GetEventStreamingResponseBodyDataSinkSinkFnfParameters,
       sinkKafkaParameters: GetEventStreamingResponseBodyDataSinkSinkKafkaParameters,
@@ -119,6 +139,9 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
     }
     if(this.sinkDataHubParameters && typeof (this.sinkDataHubParameters as any).validate === 'function') {
       (this.sinkDataHubParameters as any).validate();
+    }
+    if(this.sinkDorisParameters && typeof (this.sinkDorisParameters as any).validate === 'function') {
+      (this.sinkDorisParameters as any).validate();
     }
     if(this.sinkFcParameters && typeof (this.sinkFcParameters as any).validate === 'function') {
       (this.sinkFcParameters as any).validate();

@@ -62,7 +62,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceList extends 
   sourceKafkaParameters?: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceKafkaParameters;
   /**
    * @remarks
-   * The parameters that are returned if Message Service (MNS) is specified as the event source.
+   * The parameters that are returned if Simple Message Queue (formerly MNS) (SMQ) is specified as the event source.
    */
   sourceMNSParameters?: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNSParameters;
   /**

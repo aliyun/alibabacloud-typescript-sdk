@@ -13,7 +13,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNS
   isBase64Decode?: boolean;
   /**
    * @remarks
-   * The name of the MNS queue.
+   * The name of the SMQ queue.
    * 
    * @example
    * queue.openapi-sign-callback
@@ -21,7 +21,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNS
   queueName?: string;
   /**
    * @remarks
-   * The ID of the region where the MNS queue resides.
+   * The ID of the region where the SMQ queue resides.
    * 
    * @example
    * cn-hangzhou

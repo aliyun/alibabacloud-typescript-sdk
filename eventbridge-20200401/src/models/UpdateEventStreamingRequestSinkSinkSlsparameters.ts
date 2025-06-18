@@ -15,7 +15,18 @@ export class UpdateEventStreamingRequestSinkSinkSLSParameters extends $dara.Mode
    * The message body that you want to deliver to Simple Log Service.
    */
   body?: UpdateEventStreamingRequestSinkSinkSLSParametersBody;
+  /**
+   * @remarks
+   * The key-value pair of custom logs. This parameter takes effect only if you set ContentType to KeyValue. Each key-value pair is in the Key_n, Value_n format.
+   */
   contentSchema?: UpdateEventStreamingRequestSinkSinkSLSParametersContentSchema;
+  /**
+   * @remarks
+   * The format of the Simple Log Service data. Valid values:
+   * 
+   * *   JSON
+   * *   KeyValue
+   */
   contentType?: UpdateEventStreamingRequestSinkSinkSLSParametersContentType;
   /**
    * @remarks

@@ -11,9 +11,25 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLet
    * acs:ram::1597871211794192:role/aliyunsaedefaultrole
    */
   arn?: string;
+  /**
+   * @example
+   * PrivateNetwork
+   */
   network?: string;
+  /**
+   * @example
+   * sg-2vcgdxz7o1n9zapp****
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * vsw-m5ev8asdc6h12345****
+   */
   vSwitchIds?: string;
+  /**
+   * @example
+   * vpc-2zehizpoendb3****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

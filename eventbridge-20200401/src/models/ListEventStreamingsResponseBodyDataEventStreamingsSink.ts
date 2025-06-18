@@ -6,6 +6,7 @@ import { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKaf
 import { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters } from "./ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters";
 import { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters } from "./ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters";
 import { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters } from "./ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters";
+import { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters } from "./ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters";
 import { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters } from "./ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters";
 import { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters } from "./ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters";
 import { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters } from "./ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters";
@@ -24,6 +25,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
   sinkCustomizedKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters;
   sinkDashVectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters;
   sinkDataHubParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters;
+  sinkDorisParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters;
   /**
    * @remarks
    * The parameters that are returned if Function Compute is specified as the event target.
@@ -69,6 +71,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
       sinkDashVectorParameters: 'SinkDashVectorParameters',
       sinkDataHubParameters: 'SinkDataHubParameters',
+      sinkDorisParameters: 'SinkDorisParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
@@ -89,6 +92,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
       sinkCustomizedKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters,
       sinkDashVectorParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters,
       sinkDataHubParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters,
+      sinkDorisParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters,
       sinkFcParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters,
       sinkFnfParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters,
       sinkKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters,
@@ -119,6 +123,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
     }
     if(this.sinkDataHubParameters && typeof (this.sinkDataHubParameters as any).validate === 'function') {
       (this.sinkDataHubParameters as any).validate();
+    }
+    if(this.sinkDorisParameters && typeof (this.sinkDorisParameters as any).validate === 'function') {
+      (this.sinkDorisParameters as any).validate();
     }
     if(this.sinkFcParameters && typeof (this.sinkFcParameters as any).validate === 'function') {
       (this.sinkFcParameters as any).validate();

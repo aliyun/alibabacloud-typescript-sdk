@@ -11,9 +11,40 @@ export class UpdateEventStreamingRequestRunOptionsDeadLetterQueue extends $dara.
    * acs:ram::1317334647812936:role/rdstoecsassumekms
    */
   arn?: string;
+  /**
+   * @remarks
+   * The network type of the dead-letter queue. Valid values:
+   * 
+   * *   PrivateNetwork
+   * *   PublicNetwork
+   * 
+   * @example
+   * PrivateNetwork
+   */
   network?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-2vcgdxz7o1n9zapp****
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-m5ev8asdc6h12345****
+   */
   vSwitchIds?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-2zehizpoendb3****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -6,7 +6,7 @@ import { EventCenterQueryEventsRequestBody } from "./EventCenterQueryEventsReque
 export class EventCenterQueryEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters in the request body.
+   * The request body.
    * 
    * This parameter is required.
    */

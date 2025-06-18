@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class TestEventSourceConfigResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The name of the check item.
+   * 
    * @example
    * CHECK_CONNECTION
    */
   checkItem?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Connection established successfully.
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * Indicates whether the check item is executed.
+   * 
    * @example
    * true
    */

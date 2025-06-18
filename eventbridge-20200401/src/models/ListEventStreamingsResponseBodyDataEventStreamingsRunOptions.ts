@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow } from "./ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow";
+import { ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusinessOption } from "./ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusinessOption";
 import { ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLetterQueue } from "./ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLetterQueue";
 import { ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetryStrategy } from "./ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetryStrategy";
 
@@ -11,6 +12,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptions extend
    * The batch window.
    */
   batchWindow?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow;
+  businessOption?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusinessOption;
   /**
    * @remarks
    * Indicates whether dead-letter queues are enabled. By default, dead-letter queues are disabled. Events that fail to be pushed are discarded after the maximum number of retries that is specified by the retry policy is reached.
@@ -41,6 +43,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptions extend
   static names(): { [key: string]: string } {
     return {
       batchWindow: 'BatchWindow',
+      businessOption: 'BusinessOption',
       deadLetterQueue: 'DeadLetterQueue',
       errorsTolerance: 'ErrorsTolerance',
       maximumTasks: 'MaximumTasks',
@@ -52,6 +55,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptions extend
   static types(): { [key: string]: any } {
     return {
       batchWindow: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow,
+      businessOption: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusinessOption,
       deadLetterQueue: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLetterQueue,
       errorsTolerance: 'string',
       maximumTasks: 'number',
@@ -63,6 +67,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptions extend
   validate() {
     if(this.batchWindow && typeof (this.batchWindow as any).validate === 'function') {
       (this.batchWindow as any).validate();
+    }
+    if(this.businessOption && typeof (this.businessOption as any).validate === 'function') {
+      (this.businessOption as any).validate();
     }
     if(this.deadLetterQueue && typeof (this.deadLetterQueue as any).validate === 'function') {
       (this.deadLetterQueue as any).validate();

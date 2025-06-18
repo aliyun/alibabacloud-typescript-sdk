@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEventSourceRequestSourceMNSParameters extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable Base64 decoding. Valid values: true and false.
+   * Specify whether to enable Base64 decoding. Valid values: true and false. If you set this parameter to true, Base64 decoding is enabled.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class CreateEventSourceRequestSourceMNSParameters extends $dara.Model {
   isBase64Decode?: boolean;
   /**
    * @remarks
-   * The name of the MNS queue.
+   * The name of the SMQ queue.
    * 
    * @example
    * MyQueue
@@ -21,7 +21,7 @@ export class CreateEventSourceRequestSourceMNSParameters extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The region where the MNS queue resides. Valid values: cn-qingdao, cn-beijing, cn-zhangjiakou, cn-huhehaote, cn-wulanchabu, cn-hangzhou, cn-shanghai, cn-shenzhen, cn-guangzhou, cn-chengdu, cn-hongkong, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-5, ap-northeast-1, eu-central-1, us-west-1, us-east-1, ap-south-1, me-east-1, and cn-north-2-gov-1.
+   * The ID of the region where the SMQ queue resides. Valid values: cn-qingdao, cn-beijing, cn-zhangjiakou, cn-huhehaote, cn-wulanchabu, cn-hangzhou, cn-shanghai, cn-shenzhen, cn-guangzhou, cn-chengdu, cn-hongkong, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-5, ap-northeast-1, eu-central-1, us-west-1, us-east-1, ap-south-1, me-east-1, and cn-north-2-gov-1.
    * 
    * @example
    * cn-hangzhou

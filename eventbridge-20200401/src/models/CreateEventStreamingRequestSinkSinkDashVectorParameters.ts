@@ -7,11 +7,31 @@ import { CreateEventStreamingRequestSinkSinkDashVectorParametersVector } from ".
 
 
 export class CreateEventStreamingRequestSinkSinkDashVectorParameters extends $dara.Model {
+  /**
+   * @example
+   * Q34nExQH7sQ****
+   */
   apiKey?: string;
+  /**
+   * @example
+   * collection1
+   */
   collection?: string;
   dashVectorSchemaParameters?: CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters;
+  /**
+   * @example
+   * vrs-cn-lbj3ru1***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * PublicNetwork
+   */
   network?: string;
+  /**
+   * @example
+   * Upsert
+   */
   operation?: string;
   partition?: CreateEventStreamingRequestSinkSinkDashVectorParametersPartition;
   primaryKeyId?: CreateEventStreamingRequestSinkSinkDashVectorParametersPrimaryKeyId;

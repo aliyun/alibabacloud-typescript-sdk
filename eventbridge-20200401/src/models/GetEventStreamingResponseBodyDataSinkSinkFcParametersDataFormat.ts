@@ -3,8 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEventStreamingResponseBodyDataSinkSinkFcParametersDataFormat extends $dara.Model {
+  /**
+   * @example
+   * JSONPATH
+   */
   form?: string;
+  /**
+   * @example
+   * $.data.key
+   */
   template?: string;
+  /**
+   * @example
+   * {
+   *       "key": "value"
+   * }
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRuleRequestEventTargetsDeadLetterQueue extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the dead-letter queue. Events that are not processed or whose maximum retries are exceeded are written to the dead-letter queue. The ARN feature is supported by the following queue types: MNS and Message Queue for Apache RocketMQ.
+   * The Alibaba Cloud Resource Name (ARN) of the dead-letter queue. Events that are not processed or whose maximum number of retries is exceeded are written to the dead-letter queue. Queues in SMQ and ApsaraMQ for RocketMQ can be used as dead-letter queues.
    * 
    * @example
    * acs:mns:cn-hangzhou:123456789098****:/queues/rule-deadletterqueue

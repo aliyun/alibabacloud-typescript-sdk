@@ -8,7 +8,15 @@ import { GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersTo
 export class GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParameters extends $dara.Model {
   consumeTimestamp?: GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersConsumeTimestamp;
   group?: GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersGroup;
+  /**
+   * @example
+   * MQ_INST_164901546557****_BAAN****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * Cloud_4
+   */
   instanceType?: string;
   topic?: GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParametersTopic;
   static names(): { [key: string]: string } {

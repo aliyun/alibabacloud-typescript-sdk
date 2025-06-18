@@ -18,7 +18,7 @@ export class UpdateEventStreamingRequestSinkSinkPrometheusParametersSecurityGrou
   template?: string;
   /**
    * @remarks
-   * The ID of the security group to which the Managed Service for Prometheus instance belongs.
+   * The ID of the security group.
    * 
    * @example
    * sg-mw43*****

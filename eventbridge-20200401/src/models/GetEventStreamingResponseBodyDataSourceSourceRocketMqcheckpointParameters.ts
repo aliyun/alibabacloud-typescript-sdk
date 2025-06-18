@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEventStreamingResponseBodyDataSourceSourceRocketMQCheckpointParameters extends $dara.Model {
+  /**
+   * @example
+   * rmp-cn-jte3w******
+   */
   instanceId?: string;
+  /**
+   * @example
+   * Cloud_4
+   */
   instanceType?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   topics?: string[];
   static names(): { [key: string]: string } {

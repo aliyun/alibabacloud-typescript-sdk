@@ -13,13 +13,25 @@ export class GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters e
    * json
    */
   dataType?: string;
+  /**
+   * @example
+   * {"env":"test"}
+   */
   externalLabels?: string;
   /**
    * @example
    * __name__=.*
    */
   labels?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * test-role
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {

@@ -8,7 +8,7 @@ import { UpdateConnectionRequestAuthParametersOAuthParametersOAuthHttpParameters
 export class UpdateConnectionRequestAuthParametersOAuthParametersOAuthHttpParameters extends $dara.Model {
   /**
    * @remarks
-   * The parameters that are configured for the request.
+   * The parameters that are configured for the request body.
    */
   bodyParameters?: UpdateConnectionRequestAuthParametersOAuthParametersOAuthHttpParametersBodyParameters[];
   /**

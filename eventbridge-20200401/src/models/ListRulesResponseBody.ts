@@ -6,7 +6,10 @@ import { ListRulesResponseBodyData } from "./ListRulesResponseBodyData";
 export class ListRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. The value Success indicates that the request is successful.
+   * The response code.
+   * 
+   * *   **Success**: The request was successful.
+   * *   **Other codes**: The request failed. For more information about error codes, see Error codes.
    * 
    * @example
    * Success
@@ -14,7 +17,7 @@ export class ListRulesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: ListRulesResponseBodyData;
   /**

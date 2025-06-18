@@ -11,8 +11,20 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
    * ACL
    */
   authType?: string;
+  /**
+   * @example
+   * Json
+   */
   bodyDataType?: string;
+  /**
+   * @example
+   * index > 10
+   */
   filterSql?: string;
+  /**
+   * @example
+   * Tag
+   */
   filterType?: string;
   /**
    * @remarks
@@ -96,6 +108,10 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
    * vpc-m5e3sv4b12345****
    */
   instanceVpcId?: string;
+  /**
+   * @example
+   * PublicNetwork
+   */
   network?: string;
   /**
    * @remarks
@@ -119,6 +135,10 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @example
+   * sg-m5edtu24f12345****
+   */
   securityGroupId?: string;
   /**
    * @remarks
@@ -144,7 +164,15 @@ export class UpdateEventStreamingRequestSourceSourceRocketMQParameters extends $
    * TOPIC-cainiao-pcs-order-process-inBoundConditionCheck
    */
   topic?: string;
+  /**
+   * @example
+   * vsw-m5ev8asdc6h12345****
+   */
   vSwitchIds?: string;
+  /**
+   * @example
+   * vpc-m5e3sv4b12345****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

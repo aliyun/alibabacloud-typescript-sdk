@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters extends $dara.Model {
+  /**
+   * @example
+   * c83555068b6******ad213f565f209
+   */
   clusterId?: string;
+  /**
+   * @example
+   * JSON
+   */
   dataType?: string;
+  /**
+   * @example
+   * {"source":"prometheus-prod"}
+   */
   externalLabels?: string;
+  /**
+   * @example
+   * __name__=.*
+   */
   labels?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @example
+   * testRole
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {

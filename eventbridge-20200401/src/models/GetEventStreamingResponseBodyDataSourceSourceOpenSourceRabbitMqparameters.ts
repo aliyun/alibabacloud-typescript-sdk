@@ -3,16 +3,60 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQParameters extends $dara.Model {
+  /**
+   * @example
+   * ACL
+   */
   authType?: string;
+  /**
+   * @example
+   * Json
+   */
   bodyDataType?: string;
+  /**
+   * @example
+   * 192.168.1.100:5672
+   */
   endpoint?: string;
+  /**
+   * @example
+   * PrivateNetwork
+   */
   networkType?: string;
+  /**
+   * @example
+   * ******
+   */
   password?: string;
+  /**
+   * @example
+   * demo
+   */
   queueName?: string;
+  /**
+   * @example
+   * sg-2ze65razphjfz3******
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * admin
+   */
   username?: string;
+  /**
+   * @example
+   * vsw-uf65zhil5oukof5******
+   */
   vSwitchIds?: string;
+  /**
+   * @example
+   * eb-connect
+   */
   virtualHostName?: string;
+  /**
+   * @example
+   * vpc-bp1vllc1lnw1v657******
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

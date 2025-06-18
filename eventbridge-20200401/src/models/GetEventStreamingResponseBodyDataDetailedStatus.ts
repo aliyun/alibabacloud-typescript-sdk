@@ -3,9 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEventStreamingResponseBodyDataDetailedStatus extends $dara.Model {
+  /**
+   * @example
+   * 3
+   */
   delayTime?: number;
+  /**
+   * @example
+   * 0
+   */
   diffOffset?: number;
+  /**
+   * @example
+   * {
+   *         "test": "test",
+   *         "test2": 1
+   *       }
+   */
   extensions?: { [key: string]: any };
+  /**
+   * @example
+   * 5
+   */
   TPS?: number;
   static names(): { [key: string]: string } {
     return {

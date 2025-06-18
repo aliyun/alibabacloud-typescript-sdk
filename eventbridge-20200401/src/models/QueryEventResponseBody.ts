@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class QueryEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. The status code 200 indicates that the request was successful.
+   * The response code. Valid values:
+   * 
+   * 200: The request was successful.
+   * 
+   * Other values indicate that the request failed. For information about error codes, see Error codes.
    * 
    * @example
    * 200

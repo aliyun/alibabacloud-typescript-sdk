@@ -14,6 +14,9 @@ export class GetEventStreamingResponseBodyDataSinkSinkRocketMQParametersTopic ex
   /**
    * @remarks
    * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**

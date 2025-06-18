@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEventStreamingResponseBodyDataSourceSourceEventBusParameters extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
   eventBusName?: string;
+  /**
+   * @example
+   * test
+   */
   eventRuleName?: string;
   static names(): { [key: string]: string } {
     return {

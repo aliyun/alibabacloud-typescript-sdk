@@ -11,6 +11,10 @@ export class CreateServiceLinkedRoleForProductResponseBody extends $dara.Model {
    * Success
    */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpCode?: number;
   /**
    * @remarks

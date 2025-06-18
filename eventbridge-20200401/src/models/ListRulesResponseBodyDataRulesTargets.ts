@@ -12,6 +12,12 @@ export class ListRulesResponseBodyDataRulesTargets extends $dara.Model {
    */
   endpoint?: string;
   /**
+   * @remarks
+   * The fault tolerance policy. Valid values:
+   * 
+   * *   **ALL**: Fault tolerance is allowed. If an error occurs in an event, event processing is not blocked. If the event fails to be sent after the maximum number of retries specified by the retry policy is reached, the event is delivered to the dead-letter queue or discarded based on your configurations.
+   * *   **NONE**: Fault tolerance is prohibited. If an error occurs in an event and the event fails to be sent after the maximum number of retries specified by the retry policy is reached, event processing is blocked.
+   * 
    * @example
    * ALL
    */

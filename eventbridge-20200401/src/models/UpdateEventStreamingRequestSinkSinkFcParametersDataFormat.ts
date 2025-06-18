@@ -3,8 +3,36 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEventStreamingRequestSinkSinkFcParametersDataFormat extends $dara.Model {
+  /**
+   * @remarks
+   * The method that you want to use to transform events. Valid values:
+   * 
+   * *   ORIGINAL: complete event
+   * *   JSONPATH: partial event
+   * *   CONSTANT: constant
+   * *   TEMPLATE: template
+   * 
+   * @example
+   * JSONPATH
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template based on which you want events to be transformed.
+   * 
+   * @example
+   * $.data.key
+   */
   template?: string;
+  /**
+   * @remarks
+   * The value before event transformation.
+   * 
+   * @example
+   * {
+   *       "key": "value"
+   * }
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEventStreamingRequestSourceSourceMQTTParameters extends $dara.Model {
+  /**
+   * @example
+   * JSON
+   */
   bodyDataType?: string;
   /**
    * @remarks

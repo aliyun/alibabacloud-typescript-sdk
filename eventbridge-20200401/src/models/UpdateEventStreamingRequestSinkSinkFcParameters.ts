@@ -12,7 +12,7 @@ import { UpdateEventStreamingRequestSinkSinkFcParametersServiceName } from "./Up
 export class UpdateEventStreamingRequestSinkSinkFcParameters extends $dara.Model {
   /**
    * @remarks
-   * The message body that you want to deliver to the function.
+   * The message body that you want to deliver to Function Compute.
    */
   body?: UpdateEventStreamingRequestSinkSinkFcParametersBody;
   /**
@@ -20,6 +20,10 @@ export class UpdateEventStreamingRequestSinkSinkFcParameters extends $dara.Model
    * The delivery concurrency. Minimum value: 1.
    */
   concurrency?: UpdateEventStreamingRequestSinkSinkFcParametersConcurrency;
+  /**
+   * @remarks
+   * The rule that you want to use to transform the format of event content.
+   */
   dataFormat?: UpdateEventStreamingRequestSinkSinkFcParametersDataFormat;
   /**
    * @remarks

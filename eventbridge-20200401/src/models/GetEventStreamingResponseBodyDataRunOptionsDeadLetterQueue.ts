@@ -11,9 +11,25 @@ export class GetEventStreamingResponseBodyDataRunOptionsDeadLetterQueue extends 
    * acs:ram::1550203943326350:role/edskmstoecs
    */
   arn?: string;
+  /**
+   * @example
+   * PrivateNetwork
+   */
   network?: string;
+  /**
+   * @example
+   * sg-2vcgdxz7o1n9zapp****
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * vsw-m5ev8asdc6h12345****
+   */
   vSwitchIds?: string;
+  /**
+   * @example
+   * vpc-2zehizpoendb3****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

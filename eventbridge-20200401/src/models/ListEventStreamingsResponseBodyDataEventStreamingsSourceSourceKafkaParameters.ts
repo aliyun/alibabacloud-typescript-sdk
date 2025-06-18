@@ -67,6 +67,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafka
    * vsw-bp1rmi8rind7eo50cbied
    */
   vSwitchIds?: string;
+  /**
+   * @example
+   * JSON
+   */
   valueDataType?: string;
   /**
    * @remarks

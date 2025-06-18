@@ -3,7 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateEventStreamingRequestSinkSinkPrometheusParametersHeaderParameters extends $dara.Model {
+  /**
+   * @example
+   * TEMPLATE
+   */
   form?: string;
+  /**
+   * @example
+   * {
+   *     "user_name":"${name}"
+   * }
+   */
   template?: string;
   value?: string;
   static names(): { [key: string]: string } {

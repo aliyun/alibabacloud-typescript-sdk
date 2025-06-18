@@ -8,7 +8,7 @@ import { UpdateEventStreamingRequestSinkSinkMNSParametersQueueName } from "./Upd
 export class UpdateEventStreamingRequestSinkSinkMNSParameters extends $dara.Model {
   /**
    * @remarks
-   * The message content.
+   * The message body.
    */
   body?: UpdateEventStreamingRequestSinkSinkMNSParametersBody;
   /**
@@ -18,7 +18,7 @@ export class UpdateEventStreamingRequestSinkSinkMNSParameters extends $dara.Mode
   isBase64Encode?: UpdateEventStreamingRequestSinkSinkMNSParametersIsBase64Encode;
   /**
    * @remarks
-   * The name of the MNS queue.
+   * The name of the SMQ queue.
    */
   queueName?: UpdateEventStreamingRequestSinkSinkMNSParametersQueueName;
   static names(): { [key: string]: string } {

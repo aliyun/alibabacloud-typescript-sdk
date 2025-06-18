@@ -43,11 +43,17 @@ export class CreateEventSourceRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the external data source.
+   * 
+   * @example
+   * RabbitMQ
    */
   externalSourceType?: Buffer;
   /**
    * @remarks
-   * Specifies whether to connect to an external data source.
+   * Specify whether to connect to an external data source.
+   * 
+   * @example
+   * true
    */
   linkedExternalSource?: boolean;
   /**
@@ -62,7 +68,7 @@ export class CreateEventSourceRequest extends $dara.Model {
   sourceKafkaParameters?: CreateEventSourceRequestSourceKafkaParameters;
   /**
    * @remarks
-   * The parameters that are configured if the event source is Message Service (MNS). If you specify MNS as the event source, you must configure RegionId, IsBase64Decode, and QueueName.
+   * The parameters that are configured if you specify Simple Message Queue (formerly MNS) (SMQ) as the event source. If you specify SMQ as the event source, you must configure RegionId, IsBase64Decode, and QueueName.
    */
   sourceMNSParameters?: CreateEventSourceRequestSourceMNSParameters;
   /**

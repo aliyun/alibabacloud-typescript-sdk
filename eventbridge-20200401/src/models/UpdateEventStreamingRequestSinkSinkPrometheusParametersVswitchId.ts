@@ -18,7 +18,7 @@ export class UpdateEventStreamingRequestSinkSinkPrometheusParametersVSwitchId ex
   template?: string;
   /**
    * @remarks
-   * The ID of the vSwitch with which the Managed Service for Prometheus instance is associated.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-dwaafds****

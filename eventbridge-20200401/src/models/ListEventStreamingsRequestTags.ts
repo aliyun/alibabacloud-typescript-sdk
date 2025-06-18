@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEventStreamingsRequestTags extends $dara.Model {
+  /**
+   * @example
+   * mns
+   */
   key?: string;
+  /**
+   * @example
+   * mnstest
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

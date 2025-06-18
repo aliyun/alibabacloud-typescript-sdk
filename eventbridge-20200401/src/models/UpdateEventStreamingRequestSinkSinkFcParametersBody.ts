@@ -21,7 +21,7 @@ export class UpdateEventStreamingRequestSinkSinkFcParametersBody extends $dara.M
   template?: string;
   /**
    * @remarks
-   * The value before transformation.
+   * The value before event transformation.
    * 
    * @example
    * {

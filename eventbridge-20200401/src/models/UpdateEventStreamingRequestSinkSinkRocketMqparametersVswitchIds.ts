@@ -3,8 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds extends $dara.Model {
+  /**
+   * @remarks
+   * The method that you want to use to transform events. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * None.
+   */
   template?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vbr-8vb835n3zf9shwl****mp
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

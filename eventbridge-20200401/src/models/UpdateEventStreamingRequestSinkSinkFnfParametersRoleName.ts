@@ -13,7 +13,7 @@ export class UpdateEventStreamingRequestSinkSinkFnfParametersRoleName extends $d
   form?: string;
   /**
    * @remarks
-   * The template based on which you want to transform events.
+   * The template based on which you want events to be transformed.
    */
   template?: string;
   /**

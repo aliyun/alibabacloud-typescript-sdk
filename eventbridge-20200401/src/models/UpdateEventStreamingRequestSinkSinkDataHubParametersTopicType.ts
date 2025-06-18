@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEventStreamingRequestSinkSinkDataHubParametersTopicType extends $dara.Model {
+  /**
+   * @remarks
+   * The method that you want to use to transform events. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * None.
+   */
   template?: string;
+  /**
+   * @remarks
+   * The data type of the DataHub topic. Valid values:
+   * 
+   * *   TUPLE
+   * *   BLOB
+   * 
+   * @example
+   * TUPLE
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

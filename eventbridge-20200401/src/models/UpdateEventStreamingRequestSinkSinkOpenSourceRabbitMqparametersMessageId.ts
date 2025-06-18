@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId extends $dara.Model {
+  /**
+   * @remarks
+   * The method that you want to use to transform events. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template based on which you want events to be transformed.
+   * 
+   * @example
+   * None
+   */
   template?: string;
+  /**
+   * @remarks
+   * The value of the message ID.
+   * 
+   * @example
+   * 12345
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

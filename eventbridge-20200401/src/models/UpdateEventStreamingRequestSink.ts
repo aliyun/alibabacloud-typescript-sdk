@@ -6,6 +6,7 @@ import { UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters }
 import { UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters } from "./UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters";
 import { UpdateEventStreamingRequestSinkSinkDashVectorParameters } from "./UpdateEventStreamingRequestSinkSinkDashVectorParameters";
 import { UpdateEventStreamingRequestSinkSinkDataHubParameters } from "./UpdateEventStreamingRequestSinkSinkDataHubParameters";
+import { UpdateEventStreamingRequestSinkSinkDorisParameters } from "./UpdateEventStreamingRequestSinkSinkDorisParameters";
 import { UpdateEventStreamingRequestSinkSinkFcParameters } from "./UpdateEventStreamingRequestSinkSinkFcParameters";
 import { UpdateEventStreamingRequestSinkSinkFnfParameters } from "./UpdateEventStreamingRequestSinkSinkFnfParameters";
 import { UpdateEventStreamingRequestSinkSinkKafkaParameters } from "./UpdateEventStreamingRequestSinkSinkKafkaParameters";
@@ -19,12 +20,41 @@ import { UpdateEventStreamingRequestSinkSinkSLSParameters } from "./UpdateEventS
 
 
 export class UpdateEventStreamingRequestSink extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters that are configured if you specify Apache RocketMQ (Offset Data) as the event target.
+   */
   sinkApacheRocketMQCheckpointParameters?: UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters;
+  /**
+   * @remarks
+   * The parameters that are configured if you specify BaiLian as the event target.
+   */
   sinkBaiLianParameters?: SinkBaiLianParameters;
+  /**
+   * @remarks
+   * The parameters that are configured if you specify Kafka Sink Connect as the event target.
+   */
   sinkCustomizedKafkaConnectorParameters?: UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters;
+  /**
+   * @remarks
+   * The parameters that are configured if you specify Kafka Source Connect as the event target.
+   */
   sinkCustomizedKafkaParameters?: UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters;
+  /**
+   * @remarks
+   * The parameters that are configured if you specify DashVector as the event target.
+   */
   sinkDashVectorParameters?: UpdateEventStreamingRequestSinkSinkDashVectorParameters;
+  /**
+   * @remarks
+   * The parameters that are configured if you specify DataHub as the event target.
+   */
   sinkDataHubParameters?: UpdateEventStreamingRequestSinkSinkDataHubParameters;
+  /**
+   * @remarks
+   * The type of the event source.
+   */
+  sinkDorisParameters?: UpdateEventStreamingRequestSinkSinkDorisParameters;
   /**
    * @remarks
    * The parameters that are configured if you specify Function Compute as the event target.
@@ -42,9 +72,13 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
   sinkKafkaParameters?: UpdateEventStreamingRequestSinkSinkKafkaParameters;
   /**
    * @remarks
-   * The parameters that are configured if you specify MNS as the event target.
+   * The parameters that are configured if you specify Simple Message Queue (SMQ, formerly MNS) as the event target.
    */
   sinkMNSParameters?: UpdateEventStreamingRequestSinkSinkMNSParameters;
+  /**
+   * @remarks
+   * The parameters that are configured if you specify open source RabbitMQ as the event target.
+   */
   sinkOpenSourceRabbitMQParameters?: UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters;
   /**
    * @remarks
@@ -56,6 +90,10 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
    * The parameters that are configured if you specify ApsaraMQ for RabbitMQ as the event target.
    */
   sinkRabbitMQParameters?: UpdateEventStreamingRequestSinkSinkRabbitMQParameters;
+  /**
+   * @remarks
+   * The parameters that are configured if you specify ApsaraMQ for RocketMQ (Offset Data) as the event target.
+   */
   sinkRocketMQCheckpointParameters?: UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParameters;
   /**
    * @remarks
@@ -75,6 +113,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
       sinkDashVectorParameters: 'SinkDashVectorParameters',
       sinkDataHubParameters: 'SinkDataHubParameters',
+      sinkDorisParameters: 'SinkDorisParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
@@ -96,6 +135,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
       sinkCustomizedKafkaParameters: UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters,
       sinkDashVectorParameters: UpdateEventStreamingRequestSinkSinkDashVectorParameters,
       sinkDataHubParameters: UpdateEventStreamingRequestSinkSinkDataHubParameters,
+      sinkDorisParameters: UpdateEventStreamingRequestSinkSinkDorisParameters,
       sinkFcParameters: UpdateEventStreamingRequestSinkSinkFcParameters,
       sinkFnfParameters: UpdateEventStreamingRequestSinkSinkFnfParameters,
       sinkKafkaParameters: UpdateEventStreamingRequestSinkSinkKafkaParameters,
@@ -127,6 +167,9 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
     }
     if(this.sinkDataHubParameters && typeof (this.sinkDataHubParameters as any).validate === 'function') {
       (this.sinkDataHubParameters as any).validate();
+    }
+    if(this.sinkDorisParameters && typeof (this.sinkDorisParameters as any).validate === 'function') {
+      (this.sinkDorisParameters as any).validate();
     }
     if(this.sinkFcParameters && typeof (this.sinkFcParameters as any).validate === 'function') {
       (this.sinkFcParameters as any).validate();

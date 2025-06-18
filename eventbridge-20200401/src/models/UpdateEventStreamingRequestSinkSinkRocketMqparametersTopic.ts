@@ -18,7 +18,7 @@ export class UpdateEventStreamingRequestSinkSinkRocketMQParametersTopic extends 
   template?: string;
   /**
    * @remarks
-   * The topic on the ApsaraMQ for RocketMQ instance.
+   * The name of the topic on the ApsaraMQ for RocketMQ instance.
    * 
    * @example
    * Mytopic

@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEventStreamingRequestSinkSinkSLSParametersContentSchema extends $dara.Model {
+  /**
+   * @remarks
+   * The method that you want to use to transform events.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template based on which you want events to be transformed.
+   * 
+   * @example
+   * None
+   */
   template?: string;
+  /**
+   * @remarks
+   * The key-value pair of custom logs.
+   * 
+   * @example
+   * {"Key_1":{"form":"CONSTANT","value":"demoKey"},"Value_1":{"form":"JSONPATH","value":"$.data.value"}}
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

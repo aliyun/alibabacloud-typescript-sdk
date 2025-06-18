@@ -21,31 +21,68 @@ import { UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId } from "./Up
 export class UpdateEventStreamingRequestSinkSinkRocketMQParameters extends $dara.Model {
   /**
    * @remarks
-   * The message content.
+   * The message body.
    */
   body?: UpdateEventStreamingRequestSinkSinkRocketMQParametersBody;
+  /**
+   * @remarks
+   * The type of the message delivery order. This parameter is optional. Default value: Concurrently.
+   */
   deliveryOrderType?: UpdateEventStreamingRequestSinkSinkRocketMQParametersDeliveryOrderType;
+  /**
+   * @remarks
+   * The endpoint that is used to access the instance.
+   */
   instanceEndpoint?: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceEndpoint;
   /**
    * @remarks
    * The ID of the ApsaraMQ for RocketMQ instance.
    */
   instanceId?: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceId;
+  /**
+   * @remarks
+   * The password that is used to access the instance.
+   */
   instancePassword?: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstancePassword;
+  /**
+   * @remarks
+   * The instance type.
+   */
   instanceType?: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceType;
+  /**
+   * @remarks
+   * The username that is used to access the instance.
+   */
   instanceUsername?: UpdateEventStreamingRequestSinkSinkRocketMQParametersInstanceUsername;
   /**
    * @remarks
    * The keys that you want to use to filter messages.
    */
   keys?: UpdateEventStreamingRequestSinkSinkRocketMQParametersKeys;
+  /**
+   * @remarks
+   * The network type. Valid values:
+   * 
+   * *   PublicNetwork
+   * *   PrivateNetwork
+   */
   network?: UpdateEventStreamingRequestSinkSinkRocketMQParametersNetwork;
   /**
    * @remarks
-   * The properties that you want to use to filter messages.
+   * The attributes that you want to use to filter messages.
    */
   properties?: UpdateEventStreamingRequestSinkSinkRocketMQParametersProperties;
+  /**
+   * @remarks
+   * The ID of the security group.
+   */
   securityGroupId?: UpdateEventStreamingRequestSinkSinkRocketMQParametersSecurityGroupId;
+  /**
+   * @remarks
+   * The sharding key.
+   * 
+   * >  If you set DeliveryOrderType to Orderly, this parameter is required. If you specify ApsaraMQ for RocketMQ as the event source, you can leave this parameter empty. In this case, the combined value of BrokerName and QueueId is used as the sharding key.
+   */
   shardingKey?: UpdateEventStreamingRequestSinkSinkRocketMQParametersShardingKey;
   /**
    * @remarks
@@ -54,10 +91,18 @@ export class UpdateEventStreamingRequestSinkSinkRocketMQParameters extends $dara
   tags?: UpdateEventStreamingRequestSinkSinkRocketMQParametersTags;
   /**
    * @remarks
-   * The topic on the ApsaraMQ for RocketMQ instance.
+   * The name of the topic on the ApsaraMQ for RocketMQ instance.
    */
   topic?: UpdateEventStreamingRequestSinkSinkRocketMQParametersTopic;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   */
   vSwitchIds?: UpdateEventStreamingRequestSinkSinkRocketMQParametersVSwitchIds;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   */
   vpcId?: UpdateEventStreamingRequestSinkSinkRocketMQParametersVpcId;
   static names(): { [key: string]: string } {
     return {

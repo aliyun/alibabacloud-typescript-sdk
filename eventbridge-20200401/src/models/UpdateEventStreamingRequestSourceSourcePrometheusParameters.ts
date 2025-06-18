@@ -19,6 +19,10 @@ export class UpdateEventStreamingRequestSourceSourcePrometheusParameters extends
    * json
    */
   dataType?: string;
+  /**
+   * @example
+   * {"env":"test"}
+   */
   externalLabels?: string;
   /**
    * @remarks
@@ -28,7 +32,15 @@ export class UpdateEventStreamingRequestSourceSourcePrometheusParameters extends
    * __name__=.*
    */
   labels?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * test-role
+   */
   roleName?: string;
   static names(): { [key: string]: string } {
     return {

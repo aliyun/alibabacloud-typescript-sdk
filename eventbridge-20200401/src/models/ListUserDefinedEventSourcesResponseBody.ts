@@ -17,7 +17,7 @@ export class ListUserDefinedEventSourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: ListUserDefinedEventSourcesResponseBodyData;
   /**

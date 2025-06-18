@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { GetEventStreamingResponseBodyDataRunOptionsBatchWindow } from "./GetEventStreamingResponseBodyDataRunOptionsBatchWindow";
+import { GetEventStreamingResponseBodyDataRunOptionsBusinessOption } from "./GetEventStreamingResponseBodyDataRunOptionsBusinessOption";
 import { GetEventStreamingResponseBodyDataRunOptionsDeadLetterQueue } from "./GetEventStreamingResponseBodyDataRunOptionsDeadLetterQueue";
 import { GetEventStreamingResponseBodyDataRunOptionsRetryStrategy } from "./GetEventStreamingResponseBodyDataRunOptionsRetryStrategy";
 
@@ -11,6 +12,7 @@ export class GetEventStreamingResponseBodyDataRunOptions extends $dara.Model {
    * The batch window.
    */
   batchWindow?: GetEventStreamingResponseBodyDataRunOptionsBatchWindow;
+  businessOption?: GetEventStreamingResponseBodyDataRunOptionsBusinessOption;
   /**
    * @remarks
    * Indicates whether dead-letter queues are enabled. By default, dead-letter queues are disabled. Messages that fail to be pushed after allowed retries as specified by the retry policy are discarded.
@@ -41,6 +43,7 @@ export class GetEventStreamingResponseBodyDataRunOptions extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       batchWindow: 'BatchWindow',
+      businessOption: 'BusinessOption',
       deadLetterQueue: 'DeadLetterQueue',
       errorsTolerance: 'ErrorsTolerance',
       maximumTasks: 'MaximumTasks',
@@ -52,6 +55,7 @@ export class GetEventStreamingResponseBodyDataRunOptions extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       batchWindow: GetEventStreamingResponseBodyDataRunOptionsBatchWindow,
+      businessOption: GetEventStreamingResponseBodyDataRunOptionsBusinessOption,
       deadLetterQueue: GetEventStreamingResponseBodyDataRunOptionsDeadLetterQueue,
       errorsTolerance: 'string',
       maximumTasks: 'number',
@@ -63,6 +67,9 @@ export class GetEventStreamingResponseBodyDataRunOptions extends $dara.Model {
   validate() {
     if(this.batchWindow && typeof (this.batchWindow as any).validate === 'function') {
       (this.batchWindow as any).validate();
+    }
+    if(this.businessOption && typeof (this.businessOption as any).validate === 'function') {
+      (this.businessOption as any).validate();
     }
     if(this.deadLetterQueue && typeof (this.deadLetterQueue as any).validate === 'function') {
       (this.deadLetterQueue as any).validate();

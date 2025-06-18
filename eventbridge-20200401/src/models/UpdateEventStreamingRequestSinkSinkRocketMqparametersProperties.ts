@@ -13,7 +13,7 @@ export class UpdateEventStreamingRequestSinkSinkRocketMQParametersProperties ext
   form?: string;
   /**
    * @remarks
-   * The template based on which you want to transform events.
+   * The template based on which you want events to be transformed.
    * 
    * @example
    * The value of ${key} is ${value}!
@@ -21,7 +21,7 @@ export class UpdateEventStreamingRequestSinkSinkRocketMQParametersProperties ext
   template?: string;
   /**
    * @remarks
-   * The value before transformation.
+   * The value before event transformation.
    * 
    * @example
    * {

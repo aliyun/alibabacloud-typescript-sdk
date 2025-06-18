@@ -42,7 +42,7 @@ export class GetEventStreamingResponseBodyData extends $dara.Model {
   sink?: GetEventStreamingResponseBodyDataSink;
   /**
    * @remarks
-   * The event provider, which is also known as the event source.
+   * The event source.
    */
   source?: GetEventStreamingResponseBodyDataSource;
   /**

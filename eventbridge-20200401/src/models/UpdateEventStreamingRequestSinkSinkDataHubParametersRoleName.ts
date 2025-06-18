@@ -3,8 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateEventStreamingRequestSinkSinkDataHubParametersRoleName extends $dara.Model {
+  /**
+   * @remarks
+   * The method that you want to use to transform events. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * None.
+   */
   template?: string;
+  /**
+   * @remarks
+   * The role name.
+   * 
+   * @example
+   * test-role
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

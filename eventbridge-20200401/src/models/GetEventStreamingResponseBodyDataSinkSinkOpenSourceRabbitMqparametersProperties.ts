@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersProperties extends $dara.Model {
+  /**
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @example
+   * The value of ${key} is ${value}!
+   */
   template?: string;
+  /**
+   * @example
+   * {"env": "prod"}
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

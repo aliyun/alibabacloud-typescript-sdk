@@ -4,58 +4,93 @@ import * as $dara from '@darabonba/typescript';
 
 export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Model {
   /**
+   * @remarks
+   * The database name.
+   * 
    * @example
    * database1
    */
   databaseName?: string;
   /**
+   * @remarks
+   * The endpoint of the database.
+   * 
    * @example
    * rm-bp1vxxx.mysql.rds.aliyuncs.com
    */
   hostName?: string;
   /**
+   * @remarks
+   * The network type.
+   * 
+   * Valid values:
+   * 
+   * *   PrivateNetwork
+   * *   PublicNetwork
+   * 
    * @example
    * PrivateNetwork
    */
   networkType?: string;
   /**
+   * @remarks
+   * The password that is used for authentication.
+   * 
    * @example
    * 1234xxx
    */
   password?: string;
   /**
+   * @remarks
+   * The port that is used to connect to the database.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the security group.
+   * 
    * @example
    * sg-xxx
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The table name. The name must be prefixed with the database name. ${DatabaseName}.${TableName}
+   * 
    * @example
    * database1.table1
    */
   tableNames?: string;
   /**
+   * @remarks
+   * The username that is used to log on to the database.
+   * 
    * @example
    * user***
    */
   user?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-bp1gb7xxx
    */
   vSwitchIds?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-xxx
