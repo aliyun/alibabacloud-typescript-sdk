@@ -67,6 +67,7 @@ export class ListEntitiesRequest extends $dara.Model {
    * 1
    */
   roleType?: number;
+  tags?: string;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
@@ -80,6 +81,7 @@ export class ListEntitiesRequest extends $dara.Model {
       regionId: 'RegionId',
       roleFor: 'RoleFor',
       roleType: 'RoleType',
+      tags: 'Tags',
     };
   }
 
@@ -96,6 +98,7 @@ export class ListEntitiesRequest extends $dara.Model {
       regionId: 'string',
       roleFor: 'number',
       roleType: 'number',
+      tags: 'string',
     };
   }
 

@@ -4227,6 +4227,10 @@ export default class Client extends OpenApi {
       body["RoleType"] = request.roleType;
     }
 
+    if (!$dara.isNull(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });

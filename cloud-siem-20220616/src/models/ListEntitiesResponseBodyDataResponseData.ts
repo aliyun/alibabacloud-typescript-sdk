@@ -73,6 +73,8 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
    * 85ea4241-798f-4684-a876-65d4f0c3****
    */
   incidentUuid?: string;
+  isAsset?: string;
+  isMalware?: string;
   /**
    * @example
    * aliyun.siem.sas.alert_tag.webshell
@@ -83,6 +85,7 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
    * 113091674488****
    */
   subUserId?: number;
+  tags?: string;
   static names(): { [key: string]: string } {
     return {
       alertNum: 'AlertNum',
@@ -99,8 +102,11 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
       gmtModified: 'GmtModified',
       id: 'Id',
       incidentUuid: 'IncidentUuid',
+      isAsset: 'IsAsset',
+      isMalware: 'IsMalware',
       malwareType: 'MalwareType',
       subUserId: 'SubUserId',
+      tags: 'Tags',
     };
   }
 
@@ -120,8 +126,11 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
       gmtModified: 'string',
       id: 'number',
       incidentUuid: 'string',
+      isAsset: 'string',
+      isMalware: 'string',
       malwareType: 'string',
       subUserId: 'number',
+      tags: 'string',
     };
   }
 
