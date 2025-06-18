@@ -180,6 +180,7 @@ export class ListInstancesResponseBodyInstanceListInstance extends $dara.Model {
    * true
    */
   sellSitd?: boolean;
+  sellTrust?: string;
   /**
    * @remarks
    * The system ID (SID) of the database instance.
@@ -243,6 +244,7 @@ export class ListInstancesResponseBodyInstanceListInstance extends $dara.Model {
       queryTimeout: 'QueryTimeout',
       safeRuleId: 'SafeRuleId',
       sellSitd: 'SellSitd',
+      sellTrust: 'SellTrust',
       sid: 'Sid',
       standardGroup: 'StandardGroup',
       state: 'State',
@@ -274,6 +276,7 @@ export class ListInstancesResponseBodyInstanceListInstance extends $dara.Model {
       queryTimeout: 'number',
       safeRuleId: 'string',
       sellSitd: 'boolean',
+      sellTrust: 'string',
       sid: 'string',
       standardGroup: ListInstancesResponseBodyInstanceListInstanceStandardGroup,
       state: 'string',

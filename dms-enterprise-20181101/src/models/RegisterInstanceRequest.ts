@@ -207,6 +207,7 @@ export class RegisterInstanceRequest extends $dara.Model {
    * 60
    */
   queryTimeout?: number;
+  resourceGroup?: string;
   /**
    * @remarks
    * The name of the security rule set (GroupName) for the database instance. You can call the [ListStandardGroups](https://help.aliyun.com/document_detail/417891.html) or [GetInstance](https://help.aliyun.com/document_detail/141567.html) operation to query the name of the security rule set.
@@ -305,6 +306,7 @@ export class RegisterInstanceRequest extends $dara.Model {
       networkType: 'NetworkType',
       port: 'Port',
       queryTimeout: 'QueryTimeout',
+      resourceGroup: 'ResourceGroup',
       safeRule: 'SafeRule',
       sid: 'Sid',
       skipTest: 'SkipTest',
@@ -336,6 +338,7 @@ export class RegisterInstanceRequest extends $dara.Model {
       networkType: 'string',
       port: 'number',
       queryTimeout: 'number',
+      resourceGroup: 'string',
       safeRule: 'string',
       sid: 'string',
       skipTest: 'boolean',

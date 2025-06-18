@@ -14155,6 +14155,10 @@ export default class Client extends OpenApi {
       query["QueryTimeout"] = request.queryTimeout;
     }
 
+    if (!$dara.isNull(request.resourceGroup)) {
+      query["ResourceGroup"] = request.resourceGroup;
+    }
+
     if (!$dara.isNull(request.safeRule)) {
       query["SafeRule"] = request.safeRule;
     }

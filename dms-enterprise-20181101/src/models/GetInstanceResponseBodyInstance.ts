@@ -181,6 +181,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
    * false
    */
   sellSitd?: string;
+  sellTrust?: string;
   /**
    * @remarks
    * The SID of the database instance.
@@ -247,6 +248,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
       queryTimeout: 'QueryTimeout',
       safeRuleId: 'SafeRuleId',
       sellSitd: 'SellSitd',
+      sellTrust: 'SellTrust',
       sid: 'Sid',
       standardGroup: 'StandardGroup',
       state: 'State',
@@ -278,6 +280,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
       queryTimeout: 'number',
       safeRuleId: 'string',
       sellSitd: 'string',
+      sellTrust: 'string',
       sid: 'string',
       standardGroup: GetInstanceResponseBodyInstanceStandardGroup,
       state: 'string',
