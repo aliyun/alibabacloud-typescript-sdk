@@ -1,30 +1,31 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { IcebergTableMetadata } from "./IcebergTableMetadata";
 
 
-export class Catalog extends $dara.Model {
+export class IcebergTable extends $dara.Model {
   createdAt?: number;
   createdBy?: string;
+  icebergTableMetadata?: IcebergTableMetadata;
   id?: string;
   name?: string;
-  options?: { [key: string]: string };
   owner?: string;
-  status?: string;
-  type?: string;
+  path?: string;
   updatedAt?: number;
   updatedBy?: string;
+  version?: number;
   static names(): { [key: string]: string } {
     return {
       createdAt: 'createdAt',
       createdBy: 'createdBy',
+      icebergTableMetadata: 'icebergTableMetadata',
       id: 'id',
       name: 'name',
-      options: 'options',
       owner: 'owner',
-      status: 'status',
-      type: 'type',
+      path: 'path',
       updatedAt: 'updatedAt',
       updatedBy: 'updatedBy',
+      version: 'version',
     };
   }
 
@@ -32,20 +33,20 @@ export class Catalog extends $dara.Model {
     return {
       createdAt: 'number',
       createdBy: 'string',
+      icebergTableMetadata: IcebergTableMetadata,
       id: 'string',
       name: 'string',
-      options: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       owner: 'string',
-      status: 'string',
-      type: 'string',
+      path: 'string',
       updatedAt: 'number',
       updatedBy: 'string',
+      version: 'number',
     };
   }
 
   validate() {
-    if(this.options) {
-      $dara.Model.validateMap(this.options);
+    if(this.icebergTableMetadata && typeof (this.icebergTableMetadata as any).validate === 'function') {
+      (this.icebergTableMetadata as any).validate();
     }
     super.validate();
   }

@@ -2,15 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class Catalog extends $dara.Model {
+export class Namespace extends $dara.Model {
   createdAt?: number;
   createdBy?: string;
   id?: string;
+  location?: string;
   name?: string;
   options?: { [key: string]: string };
   owner?: string;
-  status?: string;
-  type?: string;
   updatedAt?: number;
   updatedBy?: string;
   static names(): { [key: string]: string } {
@@ -18,11 +17,10 @@ export class Catalog extends $dara.Model {
       createdAt: 'createdAt',
       createdBy: 'createdBy',
       id: 'id',
+      location: 'location',
       name: 'name',
       options: 'options',
       owner: 'owner',
-      status: 'status',
-      type: 'type',
       updatedAt: 'updatedAt',
       updatedBy: 'updatedBy',
     };
@@ -33,11 +31,10 @@ export class Catalog extends $dara.Model {
       createdAt: 'number',
       createdBy: 'string',
       id: 'string',
+      location: 'string',
       name: 'string',
       options: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       owner: 'string',
-      status: 'string',
-      type: 'string',
       updatedAt: 'number',
       updatedBy: 'string',
     };

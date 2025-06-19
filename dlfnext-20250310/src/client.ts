@@ -191,6 +191,10 @@ export default class Client extends OpenApi {
       body["options"] = request.options;
     }
 
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),

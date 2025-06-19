@@ -10,11 +10,13 @@ export class CreateCatalogRequest extends $dara.Model {
   name?: string;
   optimizationConfig?: { [key: string]: string };
   options?: { [key: string]: string };
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'name',
       optimizationConfig: 'optimizationConfig',
       options: 'options',
+      type: 'type',
     };
   }
 
@@ -23,6 +25,7 @@ export class CreateCatalogRequest extends $dara.Model {
       name: 'string',
       optimizationConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       options: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      type: 'string',
     };
   }
 
