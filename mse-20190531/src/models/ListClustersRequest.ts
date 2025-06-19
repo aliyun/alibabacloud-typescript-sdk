@@ -75,6 +75,7 @@ export class ListClustersRequest extends $dara.Model {
    * The list of tags. A maximum number of 20 tags are supported.
    */
   tag?: ListClustersRequestTag[];
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -86,6 +87,7 @@ export class ListClustersRequest extends $dara.Model {
       requestPars: 'RequestPars',
       resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
+      vpcId: 'VpcId',
     };
   }
 
@@ -100,6 +102,7 @@ export class ListClustersRequest extends $dara.Model {
       requestPars: 'string',
       resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': ListClustersRequestTag },
+      vpcId: 'string',
     };
   }
 

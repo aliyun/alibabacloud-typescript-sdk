@@ -8396,6 +8396,10 @@ export default class Client extends OpenApi {
       query["Tag"] = request.tag;
     }
 
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
