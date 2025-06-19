@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateLoadBalancerRequest extends $dara.Model {
+  billingCycle?: string;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. This prevents repeated operations caused by multiple retries.
@@ -46,6 +47,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
    * elb.s2.medium
    */
   loadBalancerSpec?: string;
+  loadBalancerType?: string;
   /**
    * @remarks
    * The network ID of the created ELB instance.
@@ -78,10 +80,12 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      billingCycle: 'BillingCycle',
       clientToken: 'ClientToken',
       ensRegionId: 'EnsRegionId',
       loadBalancerName: 'LoadBalancerName',
       loadBalancerSpec: 'LoadBalancerSpec',
+      loadBalancerType: 'LoadBalancerType',
       networkId: 'NetworkId',
       payType: 'PayType',
       vSwitchId: 'VSwitchId',
@@ -90,10 +94,12 @@ export class CreateLoadBalancerRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      billingCycle: 'string',
       clientToken: 'string',
       ensRegionId: 'string',
       loadBalancerName: 'string',
       loadBalancerSpec: 'string',
+      loadBalancerType: 'string',
       networkId: 'string',
       payType: 'string',
       vSwitchId: 'string',

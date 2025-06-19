@@ -2085,6 +2085,10 @@ export default class Client extends OpenApi {
   async createLoadBalancerWithOptions(request: $_model.CreateLoadBalancerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLoadBalancerResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.billingCycle)) {
+      query["BillingCycle"] = request.billingCycle;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -2099,6 +2103,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.loadBalancerSpec)) {
       query["LoadBalancerSpec"] = request.loadBalancerSpec;
+    }
+
+    if (!$dara.isNull(request.loadBalancerType)) {
+      query["LoadBalancerType"] = request.loadBalancerType;
     }
 
     if (!$dara.isNull(request.networkId)) {

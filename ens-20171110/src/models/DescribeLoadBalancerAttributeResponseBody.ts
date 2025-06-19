@@ -21,6 +21,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
    * ipv4
    */
   addressIPVersion?: string;
+  addressType?: string;
   /**
    * @remarks
    * The list of backend servers.
@@ -103,6 +104,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
    * Active
    */
   loadBalancerStatus?: string;
+  loadBalancerType?: string;
   /**
    * @remarks
    * The ID of the network.
@@ -142,6 +144,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
     return {
       address: 'Address',
       addressIPVersion: 'AddressIPVersion',
+      addressType: 'AddressType',
       backendServers: 'BackendServers',
       bandwidth: 'Bandwidth',
       createTime: 'CreateTime',
@@ -153,6 +156,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
       loadBalancerName: 'LoadBalancerName',
       loadBalancerSpec: 'LoadBalancerSpec',
       loadBalancerStatus: 'LoadBalancerStatus',
+      loadBalancerType: 'LoadBalancerType',
       networkId: 'NetworkId',
       payType: 'PayType',
       requestId: 'RequestId',
@@ -164,6 +168,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
     return {
       address: 'string',
       addressIPVersion: 'string',
+      addressType: 'string',
       backendServers: { 'type': 'array', 'itemType': DescribeLoadBalancerAttributeResponseBodyBackendServers },
       bandwidth: 'number',
       createTime: 'string',
@@ -175,6 +180,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
       loadBalancerName: 'string',
       loadBalancerSpec: 'string',
       loadBalancerStatus: 'string',
+      loadBalancerType: 'string',
       networkId: 'string',
       payType: 'string',
       requestId: 'string',

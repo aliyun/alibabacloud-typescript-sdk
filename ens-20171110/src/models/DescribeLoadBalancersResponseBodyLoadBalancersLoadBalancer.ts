@@ -19,6 +19,7 @@ export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer extends 
    * ipv4
    */
   addressIPVersion?: string;
+  addressType?: string;
   /**
    * @remarks
    * The time when the ELB instance was created. The time is displayed in UTC.
@@ -62,6 +63,7 @@ export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer extends 
    * InActive
    */
   loadBalancerStatus?: string;
+  loadBalancerType?: string;
   /**
    * @remarks
    * The ID of the network.
@@ -93,11 +95,13 @@ export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer extends 
     return {
       address: 'Address',
       addressIPVersion: 'AddressIPVersion',
+      addressType: 'AddressType',
       createTime: 'CreateTime',
       ensRegionId: 'EnsRegionId',
       loadBalancerId: 'LoadBalancerId',
       loadBalancerName: 'LoadBalancerName',
       loadBalancerStatus: 'LoadBalancerStatus',
+      loadBalancerType: 'LoadBalancerType',
       networkId: 'NetworkId',
       payType: 'PayType',
       vSwitchId: 'VSwitchId',
@@ -108,11 +112,13 @@ export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer extends 
     return {
       address: 'string',
       addressIPVersion: 'string',
+      addressType: 'string',
       createTime: 'string',
       ensRegionId: 'string',
       loadBalancerId: 'string',
       loadBalancerName: 'string',
       loadBalancerStatus: 'string',
+      loadBalancerType: 'string',
       networkId: 'string',
       payType: 'string',
       vSwitchId: 'string',

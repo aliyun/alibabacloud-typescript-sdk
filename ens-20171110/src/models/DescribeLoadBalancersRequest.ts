@@ -51,6 +51,7 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
    * InActive
    */
   loadBalancerStatus?: string;
+  loadBalancerType?: string;
   /**
    * @remarks
    * The ID of the network.
@@ -99,6 +100,7 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
       loadBalancerId: 'LoadBalancerId',
       loadBalancerName: 'LoadBalancerName',
       loadBalancerStatus: 'LoadBalancerStatus',
+      loadBalancerType: 'LoadBalancerType',
       networkId: 'NetworkId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -115,6 +117,7 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
       loadBalancerId: 'string',
       loadBalancerName: 'string',
       loadBalancerStatus: 'string',
+      loadBalancerType: 'string',
       networkId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
