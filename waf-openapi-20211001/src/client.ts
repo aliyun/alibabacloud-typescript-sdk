@@ -372,6 +372,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建防护对象
+   * 
+   * @param tmpReq - CreateDefenseResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDefenseResourceResponse
+   */
+  async createDefenseResourceWithOptions(tmpReq: $_model.CreateDefenseResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDefenseResourceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDefenseResourceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.customHeaders)) {
+      request.customHeadersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customHeaders, "CustomHeaders", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.customHeadersShrink)) {
+      query["CustomHeaders"] = request.customHeadersShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.detail)) {
+      query["Detail"] = request.detail;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerUserId)) {
+      query["OwnerUserId"] = request.ownerUserId;
+    }
+
+    if (!$dara.isNull(request.pattern)) {
+      query["Pattern"] = request.pattern;
+    }
+
+    if (!$dara.isNull(request.product)) {
+      query["Product"] = request.product;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!$dara.isNull(request.resourceGroup)) {
+      query["ResourceGroup"] = request.resourceGroup;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOrigin)) {
+      query["ResourceOrigin"] = request.resourceOrigin;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.xffStatus)) {
+      query["XffStatus"] = request.xffStatus;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDefenseResource",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDefenseResourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateDefenseResourceResponse({}));
+  }
+
+  /**
+   * 创建防护对象
+   * 
+   * @param request - CreateDefenseResourceRequest
+   * @returns CreateDefenseResourceResponse
+   */
+  async createDefenseResource(request: $_model.CreateDefenseResourceRequest): Promise<$_model.CreateDefenseResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDefenseResourceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a protected object group.
    * 
    * @param request - CreateDefenseResourceGroupRequest
@@ -1163,6 +1263,60 @@ export default class Client extends OpenApi {
   async deleteCloudResource(request: $_model.DeleteCloudResourceRequest): Promise<$_model.DeleteCloudResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCloudResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除单个防护对象
+   * 
+   * @param request - DeleteDefenseResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDefenseResourceResponse
+   */
+  async deleteDefenseResourceWithOptions(request: $_model.DeleteDefenseResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDefenseResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDefenseResource",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDefenseResourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDefenseResourceResponse({}));
+  }
+
+  /**
+   * 删除单个防护对象
+   * 
+   * @param request - DeleteDefenseResourceRequest
+   * @returns DeleteDefenseResourceResponse
+   */
+  async deleteDefenseResource(request: $_model.DeleteDefenseResourceRequest): Promise<$_model.DeleteDefenseResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDefenseResourceWithOptions(request, runtime);
   }
 
   /**
