@@ -198,6 +198,15 @@ export { CreateRunResponseBodyMessagesContentStructViewParts } from './CreateRun
 export { CreateRunResponseBodyMessagesContentStructView } from './CreateRunResponseBodyMessagesContentStructView';
 export { CreateRunResponseBodyMessagesContentText } from './CreateRunResponseBodyMessagesContentText';
 export { CreateRunResponseBodyMessagesContent } from './CreateRunResponseBodyMessagesContent';
+export { CreateRunResponseBodyMessagesContentStructPartsDataPart } from './CreateRunResponseBodyMessagesContentStructPartsDataPart';
+export { CreateRunResponseBodyMessagesContentStructPartsReasonPart } from './CreateRunResponseBodyMessagesContentStructPartsReasonPart';
+export { CreateRunResponseBodyMessagesContentStructPartsRecommendPartRecommends } from './CreateRunResponseBodyMessagesContentStructPartsRecommendPartRecommends';
+export { CreateRunResponseBodyMessagesContentStructPartsRecommendPart } from './CreateRunResponseBodyMessagesContentStructPartsRecommendPart';
+export { CreateRunResponseBodyMessagesContentStructPartsReferencePartReferences } from './CreateRunResponseBodyMessagesContentStructPartsReferencePartReferences';
+export { CreateRunResponseBodyMessagesContentStructPartsReferencePart } from './CreateRunResponseBodyMessagesContentStructPartsReferencePart';
+export { CreateRunResponseBodyMessagesContentStructPartsTextPart } from './CreateRunResponseBodyMessagesContentStructPartsTextPart';
+export { CreateRunResponseBodyMessagesContentStructParts } from './CreateRunResponseBodyMessagesContentStructParts';
+export { CreateRunResponseBodyMessagesContentStruct } from './CreateRunResponseBodyMessagesContentStruct';
 export { CreateRunResponseBodyMessages } from './CreateRunResponseBodyMessages';
 export { CreateRunResponseBodyRun } from './CreateRunResponseBodyRun';
 export { CreateScenegroupHeadersAccountContext } from './CreateScenegroupHeadersAccountContext';

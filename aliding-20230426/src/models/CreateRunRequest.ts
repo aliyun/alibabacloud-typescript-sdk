@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRunRequest extends $dara.Model {
+  allowStructViewContent?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -41,6 +42,7 @@ export class CreateRunRequest extends $dara.Model {
   threadId?: string;
   static names(): { [key: string]: string } {
     return {
+      allowStructViewContent: 'allowStructViewContent',
       assistantId: 'assistantId',
       originalAssistantId: 'originalAssistantId',
       sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
@@ -52,6 +54,7 @@ export class CreateRunRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowStructViewContent: 'boolean',
       assistantId: 'string',
       originalAssistantId: 'string',
       sourceIdOfOriginalAssistantId: 'string',

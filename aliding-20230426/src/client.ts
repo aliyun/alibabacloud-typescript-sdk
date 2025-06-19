@@ -3478,6 +3478,10 @@ export default class Client extends OpenApi {
   async createRunWithOptions(request: $_model.CreateRunRequest, headers: $_model.CreateRunHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRunResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowStructViewContent)) {
+      body["allowStructViewContent"] = request.allowStructViewContent;
+    }
+
     if (!$dara.isNull(request.assistantId)) {
       body["assistantId"] = request.assistantId;
     }
