@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to block the running of the instance if the analysis fails.
+   * Specifies whether to block the running of the instance if the analysis fails. If you set the Type parameter to SupplementData, this parameter is required.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis extends 
   blocked?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the analysis feature.
+   * Specifies whether to enable the analysis feature. If you set the Type parameter to SupplementData, this parameter is required.
    * 
    * @example
    * true

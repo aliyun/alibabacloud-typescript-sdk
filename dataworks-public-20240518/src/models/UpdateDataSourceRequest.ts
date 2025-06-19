@@ -10,7 +10,7 @@ export class UpdateDataSourceRequest extends $dara.Model {
    * *   Dev: development environment
    * *   Prod: production environment
    * 
-   * The parameters that you need to configure to the data source vary based on the mode in which the data source is added. For more information, see [Data source connection information (ConnectionProperties)](https://help.aliyun.com/document_detail/2852465.html).
+   * The parameters that you need to configure for the data source vary based on the mode in which the data source is added. For more information, see [Data source connection information (ConnectionProperties)](https://help.aliyun.com/document_detail/2852465.html).
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkflowInstancesRequestPeriodsBizDates extends $dara.Model {
   /**
    * @remarks
-   * The end date of the business.
+   * The data timestamp at which data is no longer backfilled. Configure this parameter in the `yyyy-mm-dd` format.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateWorkflowInstancesRequestPeriodsBizDates extends $dara.Model {
   endBizDate?: string;
   /**
    * @remarks
-   * The start business date.
+   * The data timestamp at which the data starts to be backfilled. Configure this parameter in the `yyyy-mm-dd` format.
    * 
    * This parameter is required.
    * 

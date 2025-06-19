@@ -6,16 +6,16 @@ import { CreateWorkflowInstancesRequestPeriodsBizDates } from "./CreateWorkflowI
 export class CreateWorkflowInstancesRequestPeriods extends $dara.Model {
   /**
    * @remarks
-   * The list of business dates. You can specify a multi-segment business date (up to 7 segments).
+   * The data timestamps. You can specify up to seven data timestamps.
    * 
    * This parameter is required.
    */
   bizDates?: CreateWorkflowInstancesRequestPeriodsBizDates[];
   /**
    * @remarks
-   * Specifies the end cycle time. Default value: 23:59:59.
+   * The end time of data backfill. Configure this parameter in the `hh:mm:ss` format. The time must be in the 24-hour clock. Default value: 23:59:59.
    * 
-   * If you enter this field, StartTime and EndTime must be filled in at the same time.
+   * If you configure this parameter, you must also configure the StartTime parameter.
    * 
    * @example
    * 23:59:59
@@ -23,9 +23,9 @@ export class CreateWorkflowInstancesRequestPeriods extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies the start cycle time. Default value: 00:00:00.
+   * The start time of data backfill. Configure this parameter in the `hh:mm:ss` format. The time must be in the 24-hour clock. Default value: 00:00:00.
    * 
-   * If you enter this field, StartTime and EndTime must be filled in at the same time.
+   * If you configure this parameter, you must also configure the EndTime parameter.
    * 
    * @example
    * 00:00:00

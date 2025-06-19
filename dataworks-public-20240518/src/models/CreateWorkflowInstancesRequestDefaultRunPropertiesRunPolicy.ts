@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance finishes running. This parameter is required if you specify the RunPolicy parameter.
+   * The end time of running. Configure this parameter in the `hh:mm:ss` format. The time must be in the 24-hour clock. This parameter is required if you configure the RunPolicy parameter.
    * 
    * @example
    * 23:59:59
@@ -21,7 +21,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends
   immediately?: boolean;
   /**
    * @remarks
-   * The time when the instance starts to run. This parameter is required if you specify the RunPolicy parameter.
+   * The start time of running. Configure this parameter in the `hh:mm:ss` format. The time must be in the 24-hour clock. This parameter is required if you configure the RunPolicy parameter.
    * 
    * @example
    * 00:00:00
@@ -29,7 +29,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends
   startTime?: string;
   /**
    * @remarks
-   * The type of the time period during which the data is backfilled. This parameter is required if you specify the RunPolicy parameter. Valid values:
+   * The type of the time period during which the data is backfilled. This parameter is required if you configure the RunPolicy parameter.
    * 
    * *   Daily
    * *   Weekend

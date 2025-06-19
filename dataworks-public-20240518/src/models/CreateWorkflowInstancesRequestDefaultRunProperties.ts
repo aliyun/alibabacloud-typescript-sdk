@@ -13,7 +13,7 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
   alert?: CreateWorkflowInstancesRequestDefaultRunPropertiesAlert;
   /**
    * @remarks
-   * The analysis of the configurations.
+   * The configurations for analysis. If you set the Type parameter to SupplementData, this parameter is required.
    */
   analysis?: CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis;
   /**
@@ -38,12 +38,12 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
   includeTaskIds?: number[];
   /**
    * @remarks
-   * The data backfill mode. Default value: ManualSelection. Valid values:
+   * The data backfill mode. Default value: ManualSelection. If you set the Type parameter to SupplementData, this parameter is required. Valid values:
    * 
-   * *   General: You can specify only one root task ID. The `IncludeTaskIds` parameter is optional. If you do not specify the IncludeTaskIds parameter, the tasks that are specified by the `RootTaskIds` parameter are included by default.``
-   * *   ManualSelection: You can specify multiple root tasks IDs. The `IncludeTaskIds` parameter is optional. If you do not specify the IncludeTaskIds parameter, the tasks that are specified by the `RootTaskIds` parameter are included by default.``
-   * *   Chain: The value of the `RootTaskIds` parameter is left empty. You must set the `IncludeTaskIds` parameter to the start task ID and the end task ID.
-   * *   AllDownstream: You can specify only one root task ID.``
+   * *   General: You can specify only `one root task ID`. The `IncludeTaskIds` parameter is optional. If you do not configure the IncludeTaskIds parameter, the tasks that are specified by the `RootTaskIds` parameter are included by default.
+   * *   ManualSelection: You can specify `multiple root task IDs`. The `IncludeTaskIds` parameter is optional. If you do not configure the IncludeTaskIds parameter, the tasks that are specified by the `RootTaskIds` parameter are included by default.
+   * *   Chain: If you set the Mode parameter to Chain, you must leave the `RootTaskIds` parameter empty and set the `IncludeTaskIds` parameter to the start task ID and the end task ID.
+   * *   AllDownstream: You can specify only one `root task ID`.
    * 
    * @example
    * ManualSelection
@@ -62,7 +62,7 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
   order?: string;
   /**
    * @remarks
-   * The number of tasks that can be run in parallel. If you specify the value to 2 to 10, the value indicates the number of tasks that can be run in parallel. If you specify the value to 1, the tasks are run one by one.
+   * The number of tasks that can be run in parallel. If you specify a value that ranges from 2 to 10, the value indicates the number of tasks that can be run in parallel. If you set the value to 1, the tasks are run one by one. If you set the Type parameter to SupplementData, this parameter is required.
    * 
    * @example
    * 2
@@ -72,11 +72,16 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
   /**
    * @remarks
    * The root task IDs.
+   * 
+   * *   If you set the Type parameter to SupplementData and the Mode parameter to a value other than Chain, the RootTaskIds parameter is required.
+   * *   If you set the Type parameter to ManualWorkflow, the RootTaskIds parameter is optional. If you do not configure the RootTaskIds parameter, the IDs of the default root nodes of the manually triggered workflow are used.
+   * *   If you set the Type parameter to Manual, the RootTaskIds parameter is required. The RootTaskIds parameter specifies the IDs of the manually triggered tasks that need to be run.
+   * *   If you set the Type parameter to SmokeTest, the RootTaskIds parameter is required. The RootTaskIds parameter specifies the IDs of the test tasks that need to be run.
    */
   rootTaskIds?: number[];
   /**
    * @remarks
-   * The data backfill policy. If you leave this parameter empty, the runtime configuration is used.
+   * The policy for running. If you leave this parameter empty, the runtime configuration is used.
    */
   runPolicy?: CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy;
   /**

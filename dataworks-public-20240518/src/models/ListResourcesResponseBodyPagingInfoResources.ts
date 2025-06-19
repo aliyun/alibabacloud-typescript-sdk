@@ -52,7 +52,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID.
    * 
    * @example
    * 344247

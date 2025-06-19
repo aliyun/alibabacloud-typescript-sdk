@@ -160,6 +160,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * The information about the resource group with which the instance is associated.
    */
   runtimeResource?: ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource;
+  scriptParameters?: string;
   /**
    * @remarks
    * The time when the instance started to run.
@@ -256,6 +257,8 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * Scheduler
    */
   triggerType?: string;
+  waitingResourceTime?: number;
+  waitingTriggerTime?: number;
   /**
    * @remarks
    * The ID of the workflow to which the instance belongs.
@@ -318,6 +321,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
       runNumber: 'RunNumber',
       runtime: 'Runtime',
       runtimeResource: 'RuntimeResource',
+      scriptParameters: 'ScriptParameters',
       startedTime: 'StartedTime',
       status: 'Status',
       taskId: 'TaskId',
@@ -327,6 +331,8 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
       triggerRecurrence: 'TriggerRecurrence',
       triggerTime: 'TriggerTime',
       triggerType: 'TriggerType',
+      waitingResourceTime: 'WaitingResourceTime',
+      waitingTriggerTime: 'WaitingTriggerTime',
       workflowId: 'WorkflowId',
       workflowInstanceId: 'WorkflowInstanceId',
       workflowInstanceType: 'WorkflowInstanceType',
@@ -355,6 +361,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
       runNumber: 'number',
       runtime: ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime,
       runtimeResource: ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource,
+      scriptParameters: 'string',
       startedTime: 'number',
       status: 'string',
       taskId: 'number',
@@ -364,6 +371,8 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
       triggerRecurrence: 'string',
       triggerTime: 'number',
       triggerType: 'string',
+      waitingResourceTime: 'number',
+      waitingTriggerTime: 'number',
       workflowId: 'number',
       workflowInstanceId: 'number',
       workflowInstanceType: 'string',

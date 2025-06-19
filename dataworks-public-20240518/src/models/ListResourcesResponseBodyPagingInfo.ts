@@ -22,7 +22,7 @@ export class ListResourcesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The file resources.
+   * The queried file resources.
    */
   resources?: ListResourcesResponseBodyPagingInfoResources[];
   /**

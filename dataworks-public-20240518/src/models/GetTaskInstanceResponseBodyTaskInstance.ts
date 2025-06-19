@@ -270,6 +270,8 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
    * Scheduler
    */
   triggerType?: string;
+  waitingResourceTime?: number;
+  waitingTriggerTime?: number;
   /**
    * @remarks
    * The ID of the workflow to which the instance belongs.
@@ -343,6 +345,8 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
       triggerRecurrence: 'TriggerRecurrence',
       triggerTime: 'TriggerTime',
       triggerType: 'TriggerType',
+      waitingResourceTime: 'WaitingResourceTime',
+      waitingTriggerTime: 'WaitingTriggerTime',
       workflowId: 'WorkflowId',
       workflowInstanceId: 'WorkflowInstanceId',
       workflowInstanceType: 'WorkflowInstanceType',
@@ -384,6 +388,8 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
       triggerRecurrence: 'string',
       triggerTime: 'number',
       triggerType: 'string',
+      waitingResourceTime: 'number',
+      waitingTriggerTime: 'number',
       workflowId: 'number',
       workflowInstanceId: 'number',
       workflowInstanceType: 'string',

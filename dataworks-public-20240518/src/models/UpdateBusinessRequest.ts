@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBusinessRequest extends $dara.Model {
   /**
    * @remarks
-   * The workflow ID. You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the ID.
+   * The workflow ID.
+   * 
+   * You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +17,9 @@ export class UpdateBusinessRequest extends $dara.Model {
   businessId?: number;
   /**
    * @remarks
-   * The name of the workflow. You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the name.
+   * The name of the workflow.
+   * 
+   * You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the name.
    * 
    * @example
    * MyBusiness
@@ -31,7 +35,9 @@ export class UpdateBusinessRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The owner of the workflow. You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the owner.
+   * The owner of the workflow.
+   * 
+   * You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the owner.
    * 
    * @example
    * 348428****
@@ -39,7 +45,7 @@ export class UpdateBusinessRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID. You must configure either this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Workspace page to obtain the workspace ID. You must configure either this parameter or the `ProjectIdentifier` parameter to determine the DataWorks workspace to which the operation is applied.
    * 
    * @example
    * 10000
@@ -47,7 +53,7 @@ export class UpdateBusinessRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace page to query the workspace name. You must configure either this parameter or the ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
+   * The name of the DataWorks workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Workspace page to obtain the name. You must configure either this parameter or the `ProjectId` parameter to determine the DataWorks workspace to which the operation is applied.
    * 
    * @example
    * dw_project

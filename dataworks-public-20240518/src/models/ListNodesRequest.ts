@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The container ID. This parameter specifies a filter condition.
+   * The container ID, which is a filter condition. If you do not want to use this condition for filtering, you do not need to configure this parameter. The container ID that you specify is unrelated to the resource group ID indicated by the ResourceGroupId parameter.
    * 
    * @example
    * 860438872620113XXXX
@@ -40,13 +40,11 @@ export class ListNodesRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The scheduling type. This parameter specifies a filter condition.
+   * The scheduling type, which is a filter condition. Valid values:
    * 
-   * Valid values:
-   * 
-   * *   Normal: Nodes are scheduled as expected.
-   * *   Pause: Nodes are paused, and the running of their descendant nodes is blocked.
-   * *   Skip: Nodes are dry run. The system does not actually run the nodes but directly prompts that the nodes are successfully run. The running duration of the nodes is 0 seconds. In addition, the nodes do not occupy resources or block the running of their descendant nodes.
+   * *   Normal: The nodes are scheduled as expected.
+   * *   Pause: The nodes are paused, and the running of their descendant nodes is blocked.
+   * *   Skip: The nodes are dry run. The system does not actually run the nodes, but directly returns a success response. The running duration of the nodes is 0 seconds. In addition, the nodes do not occupy resources or block the running of their descendant nodes.
    * 
    * @example
    * Normal
@@ -54,7 +52,7 @@ export class ListNodesRequest extends $dara.Model {
   recurrence?: string;
   /**
    * @remarks
-   * The rerun mode. Valid values:
+   * The rerun property, which is a filter condition. If you do not want to use this condition for filtering, you do not need to configure this parameter. Valid values:
    * 
    * *   Allowed: The nodes can be rerun regardless of whether they are successfully run or fail to run.
    * *   FailureAllowed: The nodes can be rerun only after they fail to run.
@@ -66,9 +64,7 @@ export class ListNodesRequest extends $dara.Model {
   rerunMode?: string;
   /**
    * @remarks
-   * The scene of the node. This parameter determines the location of the node.
-   * 
-   * Valid values:
+   * The location of the nodes in the left-side navigation pane of the Data Studio page, which is a filter condition. If you do not want to use this condition for filtering, you do not need to configure this parameter. Valid values:
    * 
    * *   DataworksProject
    * *   DataworksManualWorkflow

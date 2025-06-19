@@ -28,8 +28,8 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * *   Prod
+   * *   Dev
    * 
    * @example
    * Prod
@@ -47,7 +47,7 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Make up the data cycle settings.
+   * The configuration of the data backfilling period.
    */
   periodsShrink?: string;
   /**
@@ -75,10 +75,10 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   SupplementData The values of the RootTaskIds and IncludeTaskIds parameters vary based on the value of the Mode parameter. For more information, see the Mode parameter in this API operation.
-   * *   ManualWorkflow You must set the WorkflowId parameter to the ID of the manually triggered workflow. The RootTaskIds parameter is optional. If you do not specify the RootTaskIds parameter, the IDs of the default root nodes of the manually triggered workflow are used.
-   * *   Manual You need to specify only the RootTaskIds parameter. The RootTaskIds parameter specifies the IDs of the manually triggered tasks that need to be run.
-   * *   SmokeTest You need to specify only the RootTaskIds parameter. The RootTaskIds parameter specifies the IDs of the test tasks that need to be run.
+   * *   SupplementData: The values of the RootTaskIds and IncludeTaskIds parameters vary based on the value of the Mode parameter. For more information, see the Mode parameter in this API operation.
+   * *   ManualWorkflow: If you set the Type parameter to ManualWorkflow, you must set the WorkflowId parameter to the ID of the manually triggered workflow. The RootTaskIds parameter is optional. If you do not configure the RootTaskIds parameter, the IDs of the default root nodes of the manually triggered workflow are used.
+   * *   Manual: You need to configure only the RootTaskIds parameter. The RootTaskIds parameter specifies the IDs of the manually triggered tasks that need to be run.
+   * *   SmokeTest: You need to configure only the RootTaskIds parameter. The RootTaskIds parameter specifies the IDs of the test tasks that need to be run.
    * 
    * This parameter is required.
    * 

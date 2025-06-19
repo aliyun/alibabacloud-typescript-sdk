@@ -2468,7 +2468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作流实例
+   * Creates a workflow instance, such as a data backfill workflow instance, based on configurations.
    * 
    * @param tmpReq - CreateWorkflowInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2549,7 +2549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作流实例
+   * Creates a workflow instance, such as a data backfill workflow instance, based on configurations.
    * 
    * @param request - CreateWorkflowInstancesRequest
    * @returns CreateWorkflowInstancesResponse
@@ -5470,6 +5470,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询异步重跑工作流实例的结果
+   * 
+   * @param request - GetRerunWorkflowInstancesResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRerunWorkflowInstancesResultResponse
+   */
+  async getRerunWorkflowInstancesResultWithOptions(request: $_model.GetRerunWorkflowInstancesResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRerunWorkflowInstancesResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.operationId)) {
+      query["OperationId"] = request.operationId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRerunWorkflowInstancesResult",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRerunWorkflowInstancesResultResponse>(await this.callApi(params, req, runtime), new $_model.GetRerunWorkflowInstancesResultResponse({}));
+  }
+
+  /**
+   * 查询异步重跑工作流实例的结果
+   * 
+   * @param request - GetRerunWorkflowInstancesResultRequest
+   * @returns GetRerunWorkflowInstancesResultResponse
+   */
+  async getRerunWorkflowInstancesResult(request: $_model.GetRerunWorkflowInstancesResultRequest): Promise<$_model.GetRerunWorkflowInstancesResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRerunWorkflowInstancesResultWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a file resource.
    * 
    * @param request - GetResourceRequest
@@ -5596,7 +5638,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模式详情
+   * Queries the information about a schema in Data Map. You can call this API operation to query the information only about MaxCompute and Hologres schemas.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this API operation to query the information only about MaxCompute and Hologres schemas.
    * 
    * @param request - GetSchemaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5623,7 +5669,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模式详情
+   * Queries the information about a schema in Data Map. You can call this API operation to query the information only about MaxCompute and Hologres schemas.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this API operation to query the information only about MaxCompute and Hologres schemas.
    * 
    * @param request - GetSchemaRequest
    * @returns GetSchemaResponse
@@ -9660,6 +9710,98 @@ export default class Client extends OpenApi {
   async rerunTaskInstances(request: $_model.RerunTaskInstancesRequest): Promise<$_model.RerunTaskInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.rerunTaskInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 重跑工作流实例
+   * 
+   * @param tmpReq - RerunWorkflowInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RerunWorkflowInstancesResponse
+   */
+  async rerunWorkflowInstancesWithOptions(tmpReq: $_model.RerunWorkflowInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RerunWorkflowInstancesResponse> {
+    tmpReq.validate();
+    let request = new $_model.RerunWorkflowInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizdate)) {
+      body["Bizdate"] = request.bizdate;
+    }
+
+    if (!$dara.isNull(request.endTriggerTime)) {
+      body["EndTriggerTime"] = request.endTriggerTime;
+    }
+
+    if (!$dara.isNull(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!$dara.isNull(request.filterShrink)) {
+      body["Filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.startTriggerTime)) {
+      body["StartTriggerTime"] = request.startTriggerTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      body["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RerunWorkflowInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RerunWorkflowInstancesResponse>(await this.callApi(params, req, runtime), new $_model.RerunWorkflowInstancesResponse({}));
+  }
+
+  /**
+   * 重跑工作流实例
+   * 
+   * @param request - RerunWorkflowInstancesRequest
+   * @returns RerunWorkflowInstancesResponse
+   */
+  async rerunWorkflowInstances(request: $_model.RerunWorkflowInstancesRequest): Promise<$_model.RerunWorkflowInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rerunWorkflowInstancesWithOptions(request, runtime);
   }
 
   /**
