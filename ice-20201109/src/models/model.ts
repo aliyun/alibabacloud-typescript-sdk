@@ -1367,6 +1367,9 @@ export { ListLiveTranscodeTemplatesResponse } from './ListLiveTranscodeTemplates
 export { ListMediaBasicInfosRequest } from './ListMediaBasicInfosRequest';
 export { ListMediaBasicInfosResponseBody } from './ListMediaBasicInfosResponseBody';
 export { ListMediaBasicInfosResponse } from './ListMediaBasicInfosResponse';
+export { ListMediaConvertJobsRequest } from './ListMediaConvertJobsRequest';
+export { ListMediaConvertJobsResponseBody } from './ListMediaConvertJobsResponseBody';
+export { ListMediaConvertJobsResponse } from './ListMediaConvertJobsResponse';
 export { ListMediaInfoJobsRequest } from './ListMediaInfoJobsRequest';
 export { ListMediaInfoJobsResponseBody } from './ListMediaInfoJobsResponseBody';
 export { ListMediaInfoJobsResponse } from './ListMediaInfoJobsResponse';

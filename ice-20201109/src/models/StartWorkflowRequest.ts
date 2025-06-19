@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartWorkflowRequest extends $dara.Model {
+  skipInputVerification?: boolean;
   /**
    * @remarks
    * The workflow input. Only media assets are supported.
@@ -29,6 +30,7 @@ export class StartWorkflowRequest extends $dara.Model {
   workflowId?: string;
   static names(): { [key: string]: string } {
     return {
+      skipInputVerification: 'SkipInputVerification',
       taskInput: 'TaskInput',
       userData: 'UserData',
       workflowId: 'WorkflowId',
@@ -37,6 +39,7 @@ export class StartWorkflowRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      skipInputVerification: 'boolean',
       taskInput: 'string',
       userData: 'string',
       workflowId: 'string',

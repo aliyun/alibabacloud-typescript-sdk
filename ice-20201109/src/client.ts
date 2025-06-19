@@ -10677,6 +10677,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询 MediaConvertJob 列表
+   * 
+   * @param request - ListMediaConvertJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMediaConvertJobsResponse
+   */
+  async listMediaConvertJobsWithOptions(request: $_model.ListMediaConvertJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMediaConvertJobsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endOfCreateTime)) {
+      query["EndOfCreateTime"] = request.endOfCreateTime;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.nextPageToken)) {
+      query["NextPageToken"] = request.nextPageToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startOfCreateTime)) {
+      query["StartOfCreateTime"] = request.startOfCreateTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMediaConvertJobs",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMediaConvertJobsResponse>(await this.callApi(params, req, runtime), new $_model.ListMediaConvertJobsResponse({}));
+  }
+
+  /**
+   * 查询 MediaConvertJob 列表
+   * 
+   * @param request - ListMediaConvertJobsRequest
+   * @returns ListMediaConvertJobsResponse
+   */
+  async listMediaConvertJobs(request: $_model.ListMediaConvertJobsRequest): Promise<$_model.ListMediaConvertJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMediaConvertJobsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of media information analysis jobs.
    * 
    * @param request - ListMediaInfoJobsRequest
@@ -14850,6 +14916,10 @@ export default class Client extends OpenApi {
   async startWorkflowWithOptions(request: $_model.StartWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartWorkflowResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.skipInputVerification)) {
+      query["SkipInputVerification"] = request.skipInputVerification;
+    }
+
     if (!$dara.isNull(request.taskInput)) {
       query["TaskInput"] = request.taskInput;
     }

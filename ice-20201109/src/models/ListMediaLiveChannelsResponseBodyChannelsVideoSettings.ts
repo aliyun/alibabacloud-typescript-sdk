@@ -35,7 +35,10 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettings extends $dar
   videoCodecSetting?: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSetting;
   /**
    * @remarks
-   * 视频转码方式（普通转码、窄带高清转码等）
+   * The video transcoding method. Valid values: NORMAL (regular transcoding) and NBHD (Narrowband HD™ transcoding).
+   * 
+   * @example
+   * NORMAL
    */
   videoCodecType?: string;
   /**
