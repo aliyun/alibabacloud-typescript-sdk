@@ -3901,7 +3901,11 @@ export default class Client extends OpenApi {
    */
   async describeRenderingInstanceWithOptions(request: $_model.DescribeRenderingInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRenderingInstanceResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.renderingInstanceId)) {
+      query["RenderingInstanceId"] = request.renderingInstanceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3910,7 +3914,7 @@ export default class Client extends OpenApi {
       version: "2018-12-12",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -5837,6 +5841,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询命令的执行状态与结果。
+   * 
+   * @param request - GetRenderingInstanceCommandsStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRenderingInstanceCommandsStatusResponse
+   */
+  async getRenderingInstanceCommandsStatusWithOptions(request: $_model.GetRenderingInstanceCommandsStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRenderingInstanceCommandsStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cmdId)) {
+      query["CmdId"] = request.cmdId;
+    }
+
+    if (!$dara.isNull(request.renderingInstanceId)) {
+      query["RenderingInstanceId"] = request.renderingInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRenderingInstanceCommandsStatus",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRenderingInstanceCommandsStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetRenderingInstanceCommandsStatusResponse({}));
+  }
+
+  /**
+   * 查询命令的执行状态与结果。
+   * 
+   * @param request - GetRenderingInstanceCommandsStatusRequest
+   * @returns GetRenderingInstanceCommandsStatusResponse
+   */
+  async getRenderingInstanceCommandsStatus(request: $_model.GetRenderingInstanceCommandsStatusRequest): Promise<$_model.GetRenderingInstanceCommandsStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRenderingInstanceCommandsStatusWithOptions(request, runtime);
+  }
+
+  /**
    * 获取云渲染实例流连接信息，每次流化建联前都需要调用此接口获取最新连接信息
    * 
    * @param request - GetRenderingInstanceStreamingInfoRequest
@@ -6519,6 +6569,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.renderingInstanceId)) {
+      query["RenderingInstanceId"] = request.renderingInstanceId;
     }
 
     if (!$dara.isNull(request.sessionId)) {
@@ -7790,7 +7844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下发shell命令，同步响应。不适用于耗时命令。
+   * 下发shell命令，支持同步/异步响应命令。
    * 
    * @param request - SendRenderingInstanceCommandsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7799,8 +7853,16 @@ export default class Client extends OpenApi {
   async sendRenderingInstanceCommandsWithOptions(request: $_model.SendRenderingInstanceCommandsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendRenderingInstanceCommandsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
     if (!$dara.isNull(request.renderingInstanceId)) {
       query["RenderingInstanceId"] = request.renderingInstanceId;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      query["Timeout"] = request.timeout;
     }
 
     let body : {[key: string ]: any} = { };
@@ -7827,7 +7889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下发shell命令，同步响应。不适用于耗时命令。
+   * 下发shell命令，支持同步/异步响应命令。
    * 
    * @param request - SendRenderingInstanceCommandsRequest
    * @returns SendRenderingInstanceCommandsResponse

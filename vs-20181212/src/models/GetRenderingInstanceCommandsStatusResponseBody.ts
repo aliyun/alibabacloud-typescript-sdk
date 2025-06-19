@@ -2,9 +2,16 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SendRenderingInstanceCommandsResponseBody extends $dara.Model {
-  cmdId?: string;
+export class GetRenderingInstanceCommandsStatusResponseBody extends $dara.Model {
   /**
+   * @example
+   * conn failed!
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
@@ -14,19 +21,26 @@ export class SendRenderingInstanceCommandsResponseBody extends $dara.Model {
    * Thu Jun 27 16:06:26 CST 2024
    */
   result?: string;
+  /**
+   * @example
+   * Success
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      cmdId: 'CmdId',
+      message: 'Message',
       requestId: 'RequestId',
       result: 'Result',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cmdId: 'string',
+      message: 'string',
       requestId: 'string',
       result: 'string',
+      status: 'string',
     };
   }
 

@@ -2,16 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SendRenderingInstanceCommandsRequest extends $dara.Model {
+export class GetRenderingInstanceCommandsStatusRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * date;ls -l /tmp
+   * cmd-81de027b66e442e99c1e0e09a16a0be5
    */
-  commands?: string;
-  mode?: string;
+  cmdId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -20,22 +19,17 @@ export class SendRenderingInstanceCommandsRequest extends $dara.Model {
    * render-9f8c57355d224ad7beaf95e145f22111
    */
   renderingInstanceId?: string;
-  timeout?: number;
   static names(): { [key: string]: string } {
     return {
-      commands: 'Commands',
-      mode: 'Mode',
+      cmdId: 'CmdId',
       renderingInstanceId: 'RenderingInstanceId',
-      timeout: 'Timeout',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      commands: 'string',
-      mode: 'string',
+      cmdId: 'string',
       renderingInstanceId: 'string',
-      timeout: 'number',
     };
   }
 

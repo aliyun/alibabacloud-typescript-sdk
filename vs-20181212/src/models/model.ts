@@ -41,6 +41,8 @@ export { DescribeParentPlatformsResponseBodyPlatforms } from './DescribeParentPl
 export { DescribePresetsResponseBodyPresets } from './DescribePresetsResponseBodyPresets';
 export { DescribePurchasedDevicesResponseBodyDevices } from './DescribePurchasedDevicesResponseBodyDevices';
 export { DescribeRecordsResponseBodyRecords } from './DescribeRecordsResponseBodyRecords';
+export { DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings } from './DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings';
+export { DescribeRenderingInstanceResponseBodyAdditionalIngresses } from './DescribeRenderingInstanceResponseBodyAdditionalIngresses';
 export { DescribeRenderingInstanceResponseBodyConfigInfoConfigurationAttributes } from './DescribeRenderingInstanceResponseBodyConfigInfoConfigurationAttributes';
 export { DescribeRenderingInstanceResponseBodyConfigInfoConfiguration } from './DescribeRenderingInstanceResponseBodyConfigInfoConfiguration';
 export { DescribeRenderingInstanceResponseBodyConfigInfoNetworkConfig } from './DescribeRenderingInstanceResponseBodyConfigInfoNetworkConfig';
@@ -52,6 +54,8 @@ export { DescribeRenderingInstanceConfigurationRequestConfiguration } from './De
 export { DescribeRenderingInstanceConfigurationResponseBodyConfigurationAttributes } from './DescribeRenderingInstanceConfigurationResponseBodyConfigurationAttributes';
 export { DescribeRenderingInstanceConfigurationResponseBodyConfiguration } from './DescribeRenderingInstanceConfigurationResponseBodyConfiguration';
 export { DescribeRenderingInstanceSettingsResponseBodySettings } from './DescribeRenderingInstanceSettingsResponseBodySettings';
+export { DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings } from './DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings';
+export { DescribeRenderingSessionResponseBodyAdditionalIngresses } from './DescribeRenderingSessionResponseBodyAdditionalIngresses';
 export { DescribeRenderingSessionResponseBodyLocation } from './DescribeRenderingSessionResponseBodyLocation';
 export { DescribeRenderingSessionResponseBodyPortMappings } from './DescribeRenderingSessionResponseBodyPortMappings';
 export { DescribeRenderingSessionResponseBodyStateInfo } from './DescribeRenderingSessionResponseBodyStateInfo';
@@ -460,6 +464,9 @@ export { DisassociateRenderingProjectInstancesResponse } from './DisassociateRen
 export { ForbidVsStreamRequest } from './ForbidVsStreamRequest';
 export { ForbidVsStreamResponseBody } from './ForbidVsStreamResponseBody';
 export { ForbidVsStreamResponse } from './ForbidVsStreamResponse';
+export { GetRenderingInstanceCommandsStatusRequest } from './GetRenderingInstanceCommandsStatusRequest';
+export { GetRenderingInstanceCommandsStatusResponseBody } from './GetRenderingInstanceCommandsStatusResponseBody';
+export { GetRenderingInstanceCommandsStatusResponse } from './GetRenderingInstanceCommandsStatusResponse';
 export { GetRenderingInstanceStreamingInfoRequest } from './GetRenderingInstanceStreamingInfoRequest';
 export { GetRenderingInstanceStreamingInfoResponseBody } from './GetRenderingInstanceStreamingInfoResponseBody';
 export { GetRenderingInstanceStreamingInfoResponse } from './GetRenderingInstanceStreamingInfoResponse';

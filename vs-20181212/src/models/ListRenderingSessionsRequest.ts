@@ -31,6 +31,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
    * project-422bc38dfgh5eb44149f135ef76304f63b
    */
   projectId?: string;
+  renderingInstanceId?: string;
   /**
    * @example
    * session-i205217481741918129226
@@ -48,6 +49,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       projectId: 'ProjectId',
+      renderingInstanceId: 'RenderingInstanceId',
       sessionId: 'SessionId',
       state: 'State',
     };
@@ -60,6 +62,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       projectId: 'string',
+      renderingInstanceId: 'string',
       sessionId: 'string',
       state: 'string',
     };

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeRenderingInstanceResponseBodyAdditionalIngresses } from "./DescribeRenderingInstanceResponseBodyAdditionalIngresses";
 import { DescribeRenderingInstanceResponseBodyConfigInfo } from "./DescribeRenderingInstanceResponseBodyConfigInfo";
 import { DescribeRenderingInstanceResponseBodyPortMappings } from "./DescribeRenderingInstanceResponseBodyPortMappings";
 import { DescribeRenderingInstanceResponseBodyRenderingStatus } from "./DescribeRenderingInstanceResponseBodyRenderingStatus";
@@ -7,6 +8,7 @@ import { DescribeRenderingInstanceResponseBodySystemInfo } from "./DescribeRende
 
 
 export class DescribeRenderingInstanceResponseBody extends $dara.Model {
+  additionalIngresses?: DescribeRenderingInstanceResponseBodyAdditionalIngresses[];
   configInfo?: DescribeRenderingInstanceResponseBodyConfigInfo;
   /**
    * @example
@@ -19,6 +21,7 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
    * cn-xxx.ecr.aliyuncs.com
    */
   hostname?: string;
+  isp?: string;
   portMappings?: DescribeRenderingInstanceResponseBodyPortMappings[];
   /**
    * @example
@@ -36,10 +39,12 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
   systemInfo?: DescribeRenderingInstanceResponseBodySystemInfo;
   static names(): { [key: string]: string } {
     return {
+      additionalIngresses: 'AdditionalIngresses',
       configInfo: 'ConfigInfo',
       creationTime: 'CreationTime',
       egressIp: 'EgressIp',
       hostname: 'Hostname',
+      isp: 'Isp',
       portMappings: 'PortMappings',
       renderingInstanceId: 'RenderingInstanceId',
       renderingSpec: 'RenderingSpec',
@@ -52,10 +57,12 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      additionalIngresses: { 'type': 'array', 'itemType': DescribeRenderingInstanceResponseBodyAdditionalIngresses },
       configInfo: DescribeRenderingInstanceResponseBodyConfigInfo,
       creationTime: 'string',
       egressIp: 'string',
       hostname: 'string',
+      isp: 'string',
       portMappings: { 'type': 'array', 'itemType': DescribeRenderingInstanceResponseBodyPortMappings },
       renderingInstanceId: 'string',
       renderingSpec: 'string',
@@ -67,6 +74,9 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.additionalIngresses)) {
+      $dara.Model.validateArray(this.additionalIngresses);
+    }
     if(this.configInfo && typeof (this.configInfo as any).validate === 'function') {
       (this.configInfo as any).validate();
     }

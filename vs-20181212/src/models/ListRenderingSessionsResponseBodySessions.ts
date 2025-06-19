@@ -13,6 +13,7 @@ export class ListRenderingSessionsResponseBodySessions extends $dara.Model {
    * fd6b2134-7954-4754-8915-5fb8b0469622
    */
   clientId?: string;
+  renderingInstanceId?: string;
   /**
    * @example
    * session-i205217481741918129226
@@ -27,6 +28,7 @@ export class ListRenderingSessionsResponseBodySessions extends $dara.Model {
     return {
       appId: 'AppId',
       clientId: 'ClientId',
+      renderingInstanceId: 'RenderingInstanceId',
       sessionId: 'SessionId',
       startTime: 'StartTime',
     };
@@ -36,6 +38,7 @@ export class ListRenderingSessionsResponseBodySessions extends $dara.Model {
     return {
       appId: 'string',
       clientId: 'string',
+      renderingInstanceId: 'string',
       sessionId: 'string',
       startTime: 'string',
     };

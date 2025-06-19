@@ -1,11 +1,13 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeRenderingSessionResponseBodyAdditionalIngresses } from "./DescribeRenderingSessionResponseBodyAdditionalIngresses";
 import { DescribeRenderingSessionResponseBodyLocation } from "./DescribeRenderingSessionResponseBodyLocation";
 import { DescribeRenderingSessionResponseBodyPortMappings } from "./DescribeRenderingSessionResponseBodyPortMappings";
 import { DescribeRenderingSessionResponseBodyStateInfo } from "./DescribeRenderingSessionResponseBodyStateInfo";
 
 
 export class DescribeRenderingSessionResponseBody extends $dara.Model {
+  additionalIngresses?: DescribeRenderingSessionResponseBodyAdditionalIngresses[];
   /**
    * @example
    * cap-b06b26edfhytbn b94a75ae1a79efc90eb
@@ -21,8 +23,10 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
    * 111.45.29.96
    */
   hostname?: string;
+  isp?: string;
   location?: DescribeRenderingSessionResponseBodyLocation;
   portMappings?: DescribeRenderingSessionResponseBodyPortMappings[];
+  renderingInstanceId?: string;
   /**
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -41,11 +45,14 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
   stateInfo?: DescribeRenderingSessionResponseBodyStateInfo;
   static names(): { [key: string]: string } {
     return {
+      additionalIngresses: 'AdditionalIngresses',
       appId: 'AppId',
       clientId: 'ClientId',
       hostname: 'Hostname',
+      isp: 'Isp',
       location: 'Location',
       portMappings: 'PortMappings',
+      renderingInstanceId: 'RenderingInstanceId',
       requestId: 'RequestId',
       sessionId: 'SessionId',
       startTime: 'StartTime',
@@ -55,11 +62,14 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      additionalIngresses: { 'type': 'array', 'itemType': DescribeRenderingSessionResponseBodyAdditionalIngresses },
       appId: 'string',
       clientId: 'string',
       hostname: 'string',
+      isp: 'string',
       location: DescribeRenderingSessionResponseBodyLocation,
       portMappings: { 'type': 'array', 'itemType': DescribeRenderingSessionResponseBodyPortMappings },
+      renderingInstanceId: 'string',
       requestId: 'string',
       sessionId: 'string',
       startTime: 'string',
@@ -68,6 +78,9 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.additionalIngresses)) {
+      $dara.Model.validateArray(this.additionalIngresses);
+    }
     if(this.location && typeof (this.location as any).validate === 'function') {
       (this.location as any).validate();
     }

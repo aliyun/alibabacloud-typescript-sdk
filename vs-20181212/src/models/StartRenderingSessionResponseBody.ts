@@ -18,6 +18,7 @@ export class StartRenderingSessionResponseBody extends $dara.Model {
   isRepeatedRequest?: boolean;
   location?: StartRenderingSessionResponseBodyLocation;
   portMappings?: StartRenderingSessionResponseBodyPortMappings[];
+  renderingInstanceId?: string;
   /**
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -35,6 +36,7 @@ export class StartRenderingSessionResponseBody extends $dara.Model {
       isRepeatedRequest: 'IsRepeatedRequest',
       location: 'Location',
       portMappings: 'PortMappings',
+      renderingInstanceId: 'RenderingInstanceId',
       requestId: 'RequestId',
       sessionId: 'SessionId',
       stateInfo: 'StateInfo',
@@ -47,6 +49,7 @@ export class StartRenderingSessionResponseBody extends $dara.Model {
       isRepeatedRequest: 'boolean',
       location: StartRenderingSessionResponseBodyLocation,
       portMappings: { 'type': 'array', 'itemType': StartRenderingSessionResponseBodyPortMappings },
+      renderingInstanceId: 'string',
       requestId: 'string',
       sessionId: 'string',
       stateInfo: StartRenderingSessionResponseBodyStateInfo,
