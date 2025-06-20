@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAppEventsResponseBodyDataAppEventEntity extends $dara.Model {
+  causeAnalysis?: string;
   /**
    * @remarks
    * The type of the event. Valid values:
@@ -61,6 +62,7 @@ export class ListAppEventsResponseBodyDataAppEventEntity extends $dara.Model {
   reason?: string;
   static names(): { [key: string]: string } {
     return {
+      causeAnalysis: 'CauseAnalysis',
       eventType: 'EventType',
       firstTimestamp: 'FirstTimestamp',
       lastTimestamp: 'LastTimestamp',
@@ -73,6 +75,7 @@ export class ListAppEventsResponseBodyDataAppEventEntity extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      causeAnalysis: 'string',
       eventType: 'string',
       firstTimestamp: 'string',
       lastTimestamp: 'string',
