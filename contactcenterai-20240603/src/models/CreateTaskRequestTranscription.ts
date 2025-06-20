@@ -22,6 +22,7 @@ export class CreateTaskRequestTranscription extends $dara.Model {
    * sss.mp3
    */
   fileName?: string;
+  languageHints?: string;
   level?: string;
   roleIdentification?: boolean;
   /**
@@ -45,6 +46,7 @@ export class CreateTaskRequestTranscription extends $dara.Model {
       autoSplit: 'autoSplit',
       clientChannel: 'clientChannel',
       fileName: 'fileName',
+      languageHints: 'languageHints',
       level: 'level',
       roleIdentification: 'roleIdentification',
       serviceChannel: 'serviceChannel',
@@ -60,6 +62,7 @@ export class CreateTaskRequestTranscription extends $dara.Model {
       autoSplit: 'number',
       clientChannel: 'number',
       fileName: 'string',
+      languageHints: 'string',
       level: 'string',
       roleIdentification: 'boolean',
       serviceChannel: 'number',
