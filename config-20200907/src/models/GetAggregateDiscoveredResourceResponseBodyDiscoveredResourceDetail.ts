@@ -111,6 +111,22 @@ export class GetAggregateDiscoveredResourceResponseBodyDiscoveredResourceDetail 
    * {\\"\\"hc\\"\\":[\\"\\"value2\\"\\"]}
    */
   tags?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-t4n7pokxxxxxxxxxxxxxx
+   */
+  vSwitchId?: string;
+  /**
+   * @example
+   * vpc-t4nhheyvay74fp7n0hxxx
+   * 
+   * **if can be null:**
+   * true
+   */
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
@@ -125,6 +141,8 @@ export class GetAggregateDiscoveredResourceResponseBodyDiscoveredResourceDetail 
       resourceStatus: 'ResourceStatus',
       resourceType: 'ResourceType',
       tags: 'Tags',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
     };
   }
 
@@ -142,6 +160,8 @@ export class GetAggregateDiscoveredResourceResponseBodyDiscoveredResourceDetail 
       resourceStatus: 'string',
       resourceType: 'string',
       tags: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
     };
   }
 

@@ -110,6 +110,28 @@ export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $
    * {\\"\\"hc\\"\\":[\\"\\"value2\\"\\"]}
    */
   tags?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-t4n7pokxxxxxxxxxxxxxx
+   * 
+   * **if can be null:**
+   * true
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-t4nhheyvay74fp7n0hxxx
+   * 
+   * **if can be null:**
+   * true
+   */
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
@@ -124,6 +146,8 @@ export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $
       resourceStatus: 'ResourceStatus',
       resourceType: 'ResourceType',
       tags: 'Tags',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
     };
   }
 
@@ -141,6 +165,8 @@ export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $
       resourceStatus: 'string',
       resourceType: 'string',
       tags: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
     };
   }
 

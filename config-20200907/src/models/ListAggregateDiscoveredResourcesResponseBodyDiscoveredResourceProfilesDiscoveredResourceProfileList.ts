@@ -107,12 +107,34 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
   updateTime?: number;
   /**
    * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-t4n7pokxxxxxxxxxxxxxx
+   * 
+   * **if can be null:**
+   * true
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
    * The build version of the resource.
    * 
    * @example
    * 1
    */
   version?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-t4nhheyvay74fp7n0hxxx
+   * 
+   * **if can be null:**
+   * true
+   */
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
@@ -127,7 +149,9 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
       resourceType: 'ResourceType',
       tags: 'Tags',
       updateTime: 'UpdateTime',
+      vSwitchId: 'VSwitchId',
       version: 'Version',
+      vpcId: 'VpcId',
     };
   }
 
@@ -145,7 +169,9 @@ export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfi
       resourceType: 'string',
       tags: 'string',
       updateTime: 'number',
+      vSwitchId: 'string',
       version: 'number',
+      vpcId: 'string',
     };
   }
 
