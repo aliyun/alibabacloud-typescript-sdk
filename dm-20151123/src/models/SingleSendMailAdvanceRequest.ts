@@ -1,9 +1,9 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SingleSendMailRequestAttachments } from "./SingleSendMailRequestAttachments";
+import { SingleSendMailAdvanceRequestAttachments } from "./SingleSendMailAdvanceRequestAttachments";
 
 
-export class SingleSendMailRequest extends $dara.Model {
+export class SingleSendMailAdvanceRequest extends $dara.Model {
   /**
    * @remarks
    * The sending address configured in the management console.
@@ -28,7 +28,7 @@ export class SingleSendMailRequest extends $dara.Model {
    * 1
    */
   addressType?: number;
-  attachments?: SingleSendMailRequestAttachments[];
+  attachments?: SingleSendMailAdvanceRequestAttachments[];
   /**
    * @remarks
    * 1: Enable data tracking function
@@ -203,7 +203,7 @@ export class SingleSendMailRequest extends $dara.Model {
     return {
       accountName: 'string',
       addressType: 'number',
-      attachments: { 'type': 'array', 'itemType': SingleSendMailRequestAttachments },
+      attachments: { 'type': 'array', 'itemType': SingleSendMailAdvanceRequestAttachments },
       clickTrace: 'string',
       fromAlias: 'string',
       headers: 'string',

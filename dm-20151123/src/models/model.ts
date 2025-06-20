@@ -27,6 +27,8 @@ export { SenderStatisticsByTagNameAndBatchIDResponseBodyDataStat } from './Sende
 export { SenderStatisticsByTagNameAndBatchIDResponseBodyData } from './SenderStatisticsByTagNameAndBatchIdresponseBodyData';
 export { SenderStatisticsDetailByParamResponseBodyDataMailDetail } from './SenderStatisticsDetailByParamResponseBodyDataMailDetail';
 export { SenderStatisticsDetailByParamResponseBodyData } from './SenderStatisticsDetailByParamResponseBodyData';
+export { SingleSendMailRequestAttachments } from './SingleSendMailRequestAttachments';
+export { SingleSendMailAdvanceRequestAttachments } from './SingleSendMailAdvanceRequestAttachments';
 export { UpdateUserRequestUser } from './UpdateUserRequestUser';
 export { AddIpfilterRequest } from './AddIpfilterRequest';
 export { AddIpfilterResponseBody } from './AddIpfilterResponseBody';
@@ -154,6 +156,7 @@ export { SetSuppressionListLevelRequest } from './SetSuppressionListLevelRequest
 export { SetSuppressionListLevelResponseBody } from './SetSuppressionListLevelResponseBody';
 export { SetSuppressionListLevelResponse } from './SetSuppressionListLevelResponse';
 export { SingleSendMailRequest } from './SingleSendMailRequest';
+export { SingleSendMailAdvanceRequest } from './SingleSendMailAdvanceRequest';
 export { SingleSendMailResponseBody } from './SingleSendMailResponseBody';
 export { SingleSendMailResponse } from './SingleSendMailResponse';
 export { UpdateIpProtectionRequest } from './UpdateIpProtectionRequest';
