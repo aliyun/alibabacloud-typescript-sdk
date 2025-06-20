@@ -4,10 +4,6 @@ import { ListMachineNetworkInfoRequestMachineHpnInfo } from "./ListMachineNetwor
 
 
 export class ListMachineNetworkInfoRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Array
-   */
   machineHpnInfo?: ListMachineNetworkInfoRequestMachineHpnInfo[];
   static names(): { [key: string]: string } {
     return {

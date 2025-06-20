@@ -6,7 +6,7 @@ import { CreateVscRequestTag } from "./CreateVscRequestTag";
 export class CreateVscRequest extends $dara.Model {
   /**
    * @remarks
-   * Idempotent parameter
+   * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -14,7 +14,7 @@ export class CreateVscRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class CreateVscRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Resource group ID
+   * The resource group ID.
    * 
    * @example
    * rg-aek2xdkc6icwfha
@@ -32,12 +32,12 @@ export class CreateVscRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Resource tags
+   * The resource tags.
    */
   tag?: CreateVscRequestTag[];
   /**
    * @remarks
-   * User-defined name for vscId, unique on a single compute node
+   * The custom name of the VSC, which is unique on a compute node.
    * 
    * @example
    * test_name
@@ -45,7 +45,7 @@ export class CreateVscRequest extends $dara.Model {
   vscName?: string;
   /**
    * @remarks
-   * Set VSC type, primary/standard, default value is primary
+   * The VSC type. Valid values: primary and standard. Default value: primary.
    * 
    * @example
    * primary

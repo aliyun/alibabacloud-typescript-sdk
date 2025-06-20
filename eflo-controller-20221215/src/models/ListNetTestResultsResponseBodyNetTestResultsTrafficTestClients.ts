@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients extends $dara.Model {
   /**
    * @remarks
-   * Network interface bond port
+   * The bonding of network interface card.
    * 
    * @example
    * bond1
@@ -13,7 +13,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients exte
   bond?: string;
   /**
    * @remarks
-   * IP address.
+   * The IP address.
    * 
    * @example
    * 74.73.100.1
@@ -21,7 +21,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients exte
   IP?: string;
   /**
    * @remarks
-   * Resource ID.
+   * The resource ID.
    * 
    * @example
    * e01-cn-20p36bqet39
@@ -29,7 +29,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients exte
   resourceId?: string;
   /**
    * @remarks
-   * Service name.
+   * The name of the service.
    * 
    * @example
    * prod-gf-cn.juequling.com

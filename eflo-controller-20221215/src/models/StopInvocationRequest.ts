@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopInvocationRequest extends $dara.Model {
   /**
    * @remarks
-   * Command execution ID.
+   * The execution ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class StopInvocationRequest extends $dara.Model {
   invokeId?: string;
   /**
    * @remarks
-   * List of nodes.
+   * The nodes.
    */
   nodeIdList?: string[];
   static names(): { [key: string]: string } {

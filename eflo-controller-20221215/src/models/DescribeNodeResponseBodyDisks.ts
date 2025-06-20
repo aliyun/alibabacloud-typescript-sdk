@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodeResponseBodyDisks extends $dara.Model {
   /**
    * @remarks
-   * The category of the disk.
+   * The disk type. Valid values:
    * 
-   * *   cloud_ssd: all-flash disk.
+   * *   cloud_essd
    * 
    * @example
    * cloud_essd
@@ -15,7 +15,7 @@ export class DescribeNodeResponseBodyDisks extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The ID of the disk.
+   * The disk ID.
    * 
    * @example
    * d-bp1fi88ryk4yah8a6yos
@@ -23,7 +23,7 @@ export class DescribeNodeResponseBodyDisks extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The performance level of the ESSD. Valid values:
+   * The performance level of the ESSD that is used as the system disk. Valid values:
    * 
    * *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
    * *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
@@ -34,7 +34,7 @@ export class DescribeNodeResponseBodyDisks extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The size of the disk. Unit: GiB.
+   * The disk size. Unit: GiB.
    * 
    * @example
    * 100
@@ -42,9 +42,10 @@ export class DescribeNodeResponseBodyDisks extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The type of the disk. Valid values:
+   * The disk type. Valid values:
    * 
    * *   system: system disk
+   * *   data: data disk
    * 
    * @example
    * system

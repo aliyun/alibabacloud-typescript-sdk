@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReimageNodesRequestNodes extends $dara.Model {
   /**
    * @remarks
-   * Hostname
+   * The hostname.
    * 
    * @example
    * 457db5ca-241d-11ed-9fd7-acde48001122
@@ -13,7 +13,7 @@ export class ReimageNodesRequestNodes extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * System image ID
+   * The system image ID.
    * 
    * @example
    * m-8vbf8rpv2nn14y7oybjy
@@ -21,7 +21,7 @@ export class ReimageNodesRequestNodes extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Login password
+   * The logon password.
    * 
    * @example
    * ***
@@ -29,7 +29,7 @@ export class ReimageNodesRequestNodes extends $dara.Model {
   loginPassword?: string;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * e01-cn-zvp2tgykr0b

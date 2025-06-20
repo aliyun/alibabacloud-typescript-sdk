@@ -6,7 +6,7 @@ import { ListFreeNodesResponseBodyNodesTags } from "./ListFreeNodesResponseBodyN
 export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
-   * Product Code
+   * The commodity code.
    * 
    * @example
    * bccluster_eflocomputing_public_cn
@@ -14,7 +14,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * Creation time
+   * The creation time.
    * 
    * @example
    * 1652321554
@@ -22,7 +22,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Expiration time of the machine
+   * The time when the node expires.
    * 
    * @example
    * 1673107200
@@ -30,7 +30,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * Cluster number
+   * The cluster number.
    * 
    * @example
    * A1
@@ -38,7 +38,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * Machine type
+   * The instance type.
    * 
    * @example
    * efg1.nvga1
@@ -46,7 +46,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * e01-cn-7pp2x193801
@@ -54,7 +54,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Node status
+   * The node status.
    * 
    * @example
    * Unused
@@ -62,7 +62,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   operatingState?: string;
   /**
    * @remarks
-   * Resource group ID
+   * The resource group ID.
    * 
    * @example
    * rg-aekzkkbrpl4owgy
@@ -70,7 +70,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Machine SN
+   * The serial number of the node.
    * 
    * @example
    * sn_pozkHBgicd
@@ -78,12 +78,12 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   sn?: string;
   /**
    * @remarks
-   * Tags Info
+   * The tags.
    */
   tags?: ListFreeNodesResponseBodyNodesTags[];
   /**
    * @remarks
-   * Availability zone ID
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-j

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImagesResponseBodyImages extends $dara.Model {
   /**
    * @remarks
-   * Architecture
+   * The architecture.
    * 
    * @example
    * x86_64
@@ -13,7 +13,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   architecture?: string;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * alibaba cloud linux 3 full for H800
@@ -21,7 +21,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Image ID
+   * The image ID.
    * 
    * @example
    * i190951671671438639388
@@ -29,7 +29,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Image name
+   * The image name.
    * 
    * @example
    * CentOS_7.9_x86_64_FULL_20221110
@@ -37,7 +37,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * Image version
+   * The image version.
    * 
    * @example
    * 7.9
@@ -45,7 +45,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   imageVersion?: string;
   /**
    * @remarks
-   * node count
+   * The number of nodes.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * Platform
+   * The platform.
    * 
    * @example
    * ALinux3
@@ -61,7 +61,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * File MD5
+   * The MD5 hash value of the file.
    * 
    * @example
    * 40741292480fc6d778138adcf8c
@@ -69,7 +69,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   releaseFileMd5?: string;
   /**
    * @remarks
-   * Image size
+   * The image size.
    * 
    * @example
    * 5.8G
@@ -77,7 +77,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
   releaseFileSize?: string;
   /**
    * @remarks
-   * image type
+   * The image type.
    * 
    * @example
    * Public

@@ -6,12 +6,12 @@ import { ListImagesResponseBodyImages } from "./ListImagesResponseBodyImages";
 export class ListImagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Image details
+   * The image details.
    */
   images?: ListImagesResponseBodyImages[];
   /**
    * @remarks
-   * NextToken for the next page, include this value when requesting the next page
+   * The token that is used in the next request to retrieve a new page of results.
    * 
    * @example
    * 3a6b93229825ac667104463b56790c91

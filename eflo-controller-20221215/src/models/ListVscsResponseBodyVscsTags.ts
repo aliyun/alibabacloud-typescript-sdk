@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVscsResponseBodyVscsTags extends $dara.Model {
   /**
    * @remarks
-   * Tag key
+   * The tag key.
    * 
    * @example
    * key001
@@ -13,7 +13,7 @@ export class ListVscsResponseBodyVscsTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * Tag value
+   * The tag value.
    * 
    * @example
    * value001

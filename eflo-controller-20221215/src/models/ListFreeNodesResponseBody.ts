@@ -6,7 +6,7 @@ import { ListFreeNodesResponseBodyNodes } from "./ListFreeNodesResponseBodyNodes
 export class ListFreeNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The query token value returned by this call.
+   * The returned pagination token which can be used in the next request to retrieve a new page of results.
    * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
@@ -14,12 +14,12 @@ export class ListFreeNodesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * List of nodes
+   * The nodes.
    */
   nodes?: ListFreeNodesResponseBodyNodes[];
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AA14CB86-70C4-5CB7-9E7B-6CCA77F3512B

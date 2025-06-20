@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to remove all, only effective when TagKey.N is empty. Valid values:
+   * Specifies whether to remove all tags. This parameter takes effect only when TagKey.N is not specified. Valid values:
    * 
-   * - True, remove all
-   * - False, do not remove all
+   * *   True
+   * *   False
    * 
-   * Default is False
+   * Default value: false.
    * 
    * @example
    * False
@@ -18,7 +18,7 @@ export class UntagResourcesRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -28,14 +28,19 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * List of resource IDs
+   * The resource IDs.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * Resource type
+   * The resource type.
+   * 
+   * Valid values:
+   * 
+   * *   Node
+   * *   Cluster
    * 
    * This parameter is required.
    * 
@@ -45,7 +50,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * List of tag keys
+   * The tag keys.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

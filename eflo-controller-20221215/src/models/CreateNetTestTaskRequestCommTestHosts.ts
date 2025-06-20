@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetTestTaskRequestCommTestHosts extends $dara.Model {
   /**
    * @remarks
-   * IP address.
+   * The IP address.
    * 
    * @example
    * 169.253.253.15
@@ -13,7 +13,7 @@ export class CreateNetTestTaskRequestCommTestHosts extends $dara.Model {
   IP?: string;
   /**
    * @remarks
-   * Node ID.
+   * The node ID.
    * 
    * @example
    * e01-tw-bqisacl3z6l
@@ -21,7 +21,7 @@ export class CreateNetTestTaskRequestCommTestHosts extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Resource ID
+   * The resource ID.
    * 
    * @example
    * i111670831721110797708
@@ -29,7 +29,7 @@ export class CreateNetTestTaskRequestCommTestHosts extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * Service name.
+   * The name of the service.
    * 
    * @example
    * VBw

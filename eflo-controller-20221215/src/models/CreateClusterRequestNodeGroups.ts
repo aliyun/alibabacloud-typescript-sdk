@@ -7,7 +7,7 @@ import { CreateClusterRequestNodeGroupsSystemDisk } from "./CreateClusterRequest
 export class CreateClusterRequestNodeGroups extends $dara.Model {
   /**
    * @remarks
-   * Whether file system mounting is supported
+   * Specifies whether to support file system mounting.
    * 
    * @example
    * False
@@ -15,7 +15,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   fileSystemMountEnabled?: boolean;
   /**
    * @remarks
-   * System image ID
+   * The system image ID.
    * 
    * @example
    * i190297201634099844192
@@ -23,7 +23,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The name of the key pair.
+   * The name of the AccessKey pair.
    * 
    * @example
    * sc-key
@@ -32,7 +32,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   loginPassword?: string;
   /**
    * @remarks
-   * Machine type
+   * The instance type.
    * 
    * @example
    * efg1.nvga1
@@ -40,7 +40,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * Node group description
+   * The node group description.
    * 
    * @example
    * Node group description
@@ -48,7 +48,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   nodeGroupDescription?: string;
   /**
    * @remarks
-   * Node group name
+   * The node group name.
    * 
    * @example
    * emr-default
@@ -56,17 +56,17 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   nodeGroupName?: string;
   /**
    * @remarks
-   * Node list
+   * The nodes.
    */
   nodes?: CreateClusterRequestNodeGroupsNodes[];
   /**
    * @remarks
-   * SystemDisk
+   * The system disk information.
    */
   systemDisk?: CreateClusterRequestNodeGroupsSystemDisk;
   /**
    * @remarks
-   * Instance custom data. It needs to be Base64 encoded, and the original data should not exceed 16 KB.
+   * The user data of the instance. The user data must be Base64-encoded. The raw data can be up to 16 KB in size.
    * 
    * @example
    * ZWNobyBoZWxsbyBlY3Mh
@@ -74,7 +74,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * Zone ID
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-i

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SendFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the file. After Base64 encoding, the size cannot exceed 32 KB.
+   * The content of the file. The file must not exceed 32 KB in size after it is encoded in Base64.
    * 
-   * - When the `ContentType` parameter is `PlainText`, this field is plain text.
-   * - When the `ContentType` parameter is `Base64`, this field is Base64 encoded text.
+   * *   If `ContentType` is set to `PlainText`, the value of Content is in plaintext.
+   * *   If `ContentType` is set to `Base64`, the value of Content is Base64-encoded.
    * 
    * This parameter is required.
    * 
@@ -18,11 +18,9 @@ export class SendFileRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The content type of the file.
+   * The content type of the file. Valid values:
    * 
-   * PlainText: Plain text.
-   * Base64: Base64 encoded.
-   * The default value is PlainText.
+   * PlainText Base64 Default value: PlainText.
    * 
    * @example
    * PlainText
@@ -30,7 +28,7 @@ export class SendFileRequest extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * Description information. Supports all character sets, and the length must not exceed 512 characters.
+   * The description of the file. The description can be up to 512 characters in length and can contain any characters.
    * 
    * @example
    * This is a test file.
@@ -38,10 +36,9 @@ export class SendFileRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The group of the file. Applies only to Linux instances, and the default is root. The length must not exceed 64 characters.
+   * The user group of the file. This parameter takes effect only on Linux instances. Default value: root. The value can be up to 64 characters in length.
    * 
-   * Note
-   * When using other groups, ensure that the group exists in the instance.
+   * Note If you want to use a non-root user group, make sure that the user group exists in the instances.
    * 
    * @example
    * test
@@ -49,9 +46,9 @@ export class SendFileRequest extends $dara.Model {
   fileGroup?: string;
   /**
    * @remarks
-   * The permissions of the file. Applies only to Linux instances, and the setting method is the same as the chmod command.
+   * The permissions on the file. This parameter takes effect only on Linux instances. You can configure this parameter in the same way as you configure the chmod command.
    * 
-   * The default value is 0644, which means the user has read and write permissions, while the group and other users have read-only permissions.
+   * Default value: 0644: the owner of the file has the read and write permission. The user group of the file and other users have read-only permission.
    * 
    * @example
    * 0644
@@ -59,7 +56,7 @@ export class SendFileRequest extends $dara.Model {
   fileMode?: string;
   /**
    * @remarks
-   * The owner of the file. Applies only to Linux instances, and the default is root.
+   * The owner of the file. This parameter takes effect only on Linux instances. Default value: root.
    * 
    * @example
    * root
@@ -67,7 +64,7 @@ export class SendFileRequest extends $dara.Model {
   fileOwner?: string;
   /**
    * @remarks
-   * The name of the file. Supports all character sets, and the length must not exceed 255 characters.
+   * The file name. The name can be up to 255 characters in length and can contain any characters.
    * 
    * This parameter is required.
    * 
@@ -77,18 +74,19 @@ export class SendFileRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * List of nodes.
+   * The node list.
    * 
    * This parameter is required.
    */
   nodeIdList?: string[];
   /**
    * @remarks
-   * Whether to overwrite the file if a file with the same name already exists in the target directory.
-   * - true: Overwrite.
-   * - false: Do not overwrite.
+   * Specifies whether to overwrite file with the same name in the destination directory.
    * 
-   * The default value is false.
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
    * 
    * @example
    * True
@@ -96,7 +94,7 @@ export class SendFileRequest extends $dara.Model {
   overwrite?: boolean;
   /**
    * @remarks
-   * The directory in the target Lingjun node where the file will be sent. If it does not exist, it will be automatically created.
+   * The directory in the Lingjun node to which the file is sent. If the specified directory does not exist, the system creates the directory automatically.
    * 
    * This parameter is required.
    * 
@@ -106,12 +104,12 @@ export class SendFileRequest extends $dara.Model {
   targetDir?: string;
   /**
    * @remarks
-   * The timeout for sending the file. Unit: seconds.
+   * The timeout period for the file sending task. Unit: seconds.
    * 
-   * - A timeout may occur due to process reasons, missing modules, or missing Cloud Assistant Agent.
-   * - If the set timeout is less than 10 seconds, to ensure successful delivery, the system will automatically set the timeout to 10 seconds.
+   * *   A timeout error occurs when a file cannot be sent because the process slows down or because a specific module or Cloud Assistant Agent does not exist.
+   * *   If the specified timeout period is less than 10 seconds, the system sets the timeout period to 10 seconds to ensure that the file can be sent.
    * 
-   * The default value is 60.
+   * Default value: 60.
    * 
    * @example
    * 600

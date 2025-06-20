@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetTestResultsResponseBodyNetTestResultsCommTestHosts extends $dara.Model {
   /**
    * @remarks
-   * Node IP
+   * The IP address of the node.
    * 
    * @example
    * 10.51.16.21
@@ -13,7 +13,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsCommTestHosts extends $
   IP?: string;
   /**
    * @remarks
-   * Resource ID
+   * The resource ID.
    * 
    * @example
    * e01-cn-wwo3eteze19
@@ -21,7 +21,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsCommTestHosts extends $
   resourceId?: string;
   /**
    * @remarks
-   * Service name
+   * The name of the service.
    * 
    * @example
    * www.xinjiaoyu.com

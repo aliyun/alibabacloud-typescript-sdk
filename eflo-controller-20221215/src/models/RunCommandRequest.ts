@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunCommandRequest extends $dara.Model {
   /**
    * @remarks
-   * Ensures idempotence of the request. Generate a unique parameter value from your client to ensure that the value is unique across different requests. 
-   * ClientToken supports only ASCII characters and cannot exceed 64 characters. For more information, see How to Ensure Idempotence.
+   * The client token to ensure the idempotency of the request. Use your client to generate the token that is unique among requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see "How to ensure idempotence".
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -14,13 +13,13 @@ export class RunCommandRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Command content. Please note the following:
+   * The command content. Take note of the following:
    * 
-   * - Specify `EnableParameter=true` to enable custom parameters in the command content.
-   * - Define custom parameters using the {{}} format; spaces and newlines within `{{}}` will be ignored.
-   * - The number of custom parameters cannot exceed 20.
-   * - Custom parameter names can only contain a-zA-Z0-9-_, and are case-insensitive.
-   * - A single custom parameter name cannot exceed 64 bytes.
+   * *   When `EnableParameter` is set to true, you can use custom parameters in the command.
+   * *   Define custom parameters in the {{}} format. Within `{{}}`, the spaces and line feeds before and after the parameter names are ignored.
+   * *   You can specify up to 20 custom parameters.
+   * *   A custom parameter name can contain only letters, digits, underscores (_), and hyphens (-). The name is not case-sensitive.
+   * *   Each custom parameter name is up to 64 bytes in length.
    * 
    * @example
    * ZWNobyAxMjM=
@@ -28,7 +27,7 @@ export class RunCommandRequest extends $dara.Model {
   commandContent?: string;
   /**
    * @remarks
-   * Command ID
+   * The ID of the command.
    * 
    * @example
    * c-e996287206324975b5fbe1d***
@@ -36,12 +35,12 @@ export class RunCommandRequest extends $dara.Model {
   commandId?: string;
   /**
    * @remarks
-   * Encoding method for the script content. Valid values:
+   * The encoding mode of the command content. Valid values:
    * 
-   * - PlainText: No encoding, transmitted in plain text.
-   * - Base64: Base64 encoding.
+   * *   PlainText
+   * *   Base64
    * 
-   * Default value: PlainText. If an invalid value is provided, it will be treated as PlainText.
+   * Default value: PlainText. If the specified value of this parameter is invalid, PlainText is used by default.
    * 
    * @example
    * Base64
@@ -49,7 +48,7 @@ export class RunCommandRequest extends $dara.Model {
   contentEncoding?: string;
   /**
    * @remarks
-   * Command description.
+   * The command description.
    * 
    * @example
    * testDescription
@@ -57,7 +56,7 @@ export class RunCommandRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether the command contains custom parameters.
+   * Specifies whether to use custom parameters in the command.
    * 
    * Default value: false.
    * 
@@ -67,30 +66,28 @@ export class RunCommandRequest extends $dara.Model {
   enableParameter?: boolean;
   /**
    * @remarks
-   * Execution time for scheduled commands. Currently, three types of scheduling methods are supported: fixed interval (based on Rate expression), one-time execution at a specific time, and clock-based scheduling (based on Cron expression).
+   * The schedule to run the command. Supported schedule types: at a fixed interval based on a rate expression, run only once at a specific time, or run at specific times based on a cron expression.
    * 
-   * Fixed interval execution: Based on the Rate expression, the command is executed at the set interval. The interval can be set in seconds (s), minutes (m), hours (h), and days (d), suitable for scenarios where tasks need to be executed at fixed intervals. The format is rate(<interval value><interval unit>), such as rate(5m) for every 5 minutes. The following restrictions apply to fixed interval execution:
-   * - The interval should not exceed 7 days and should be no less than 60 seconds, and it must be greater than the timeout of the scheduled task.
-   * - The interval is based on a fixed frequency and is independent of the actual execution time of the task. For example, if the command is set to execute every 5 minutes and the task takes 2 minutes to complete, the next round will start 3 minutes after the completion of the task.
-   * - The task will not be executed immediately upon creation. For example, if the command is set to execute every 5 minutes, it will not be executed immediately upon creation but will start 5 minutes after the task is created.
-   * One-time execution at a specific time: Executes the command once at the specified time and timezone. The format is at(yyyy-MM-dd HH:mm:ss <timezone>), which is at(year-month-day hour:minute:second <timezone>). If no timezone is specified, UTC is used by default. Timezones support the following three formats:
-   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
-   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
-   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
+   * *   To run the command at a fixed interval, use a rate expression to specify the interval. The interval can be in seconds, minutes, hours, or days. This option is suitable for scenarios in which tasks need to be executed at a fixed interval. Format: rate(\\<Execution interval value> \\<Execution interval unit>). For example, rate(5m) means to run the command every 5 minutes. When you specify an interval, take note of the following limits:
    * 
-   * For example, to execute once at 13:15:30 on June 6, 2022, in Shanghai, China, the format would be: at(2022-06-06 13:15:30 Asia/Shanghai); to execute once at 13:15:30 on June 6, 2022, in the GMT-7:00 timezone, the format would be: at(2022-06-06 13:15:30 GMT-7:00).
+   *     *   The interval can be anywhere from 60 seconds to 7 days, but must be longer than the timeout period of the scheduled task.
+   *     *   The interval is the time between two consecutive executions, irrelevant of the time required to run the command. For example, assume that you set the interval to 5 minutes and that it takes 2 minutes to run the command each time. The system waits 3 minutes before running the command again.
+   *     *   The command is not immediately executed after the task is created. For example, assume that you set the interval to 5 minutes. The task begins to be executed 5 minutes after it is created.
    * 
-   * Clock-based scheduling (based on Cron expression): Based on the Cron expression, the command is executed according to the set schedule. The format is <second> <minute> <hour> <day> <month> <weekday> <year (optional)> <timezone>, i.e., <Cron expression> <timezone>. In the specified timezone, the scheduled task execution time is calculated based on the Cron expression and then executed. If no timezone is specified, the system\\"s internal timezone of the instance running the scheduled task is used by default. For more information about Cron expressions, see Cron Expressions. Timezones support the following three formats:
-   * - Full timezone name: e.g., Asia/Shanghai (China/Shanghai time), America/Los_Angeles (America/Los Angeles time), etc.
-   * - Timezone offset from GMT: e.g., GMT+8:00 (UTC+8:00), GMT-7:00 (UTC-7:00). When using the GMT format, leading zeros are not allowed in the hour position.
-   * - Timezone abbreviation: Only UTC (Coordinated Universal Time) is supported.
+   * *   To run a command only once at a specific point in time, specify a point in time and a time zone. Format: at(yyyy-MM-dd HH:mm:ss \\<Time zone>). If you do not specify a time zone, the Coordinated Universal Time (UTC) time zone is used by default. The time zone name supports the following formats: Full name, such as Asia/Shanghai and America/Los_Angeles. The time offset from GMT. Examples: GMT+8:00 (UTC+8) and GMT-7:00 (UTC-7). If you use the GMT format, you cannot add leading zeros to the hour value. The time zone abbreviation. Only UTC is supported. For example, to configure a command to run only once at 13:15:30 on June 6, 2022 (Shanghai time), set the time to at(2022-06-06 13:15:30 Asia/Shanghai). To configure a command to run only once at 13:15:30 on June 6, 2022 (UTC-7), set the time to at(2022-06-06 13:15:30 GMT-7:00).
    * 
-   * For example, to execute the command at 10:15 AM every day in 2022 in Shanghai, China, the format would be 0 15 10 ? * * 2022 Asia/Shanghai; to execute the command every 30 minutes between 10:00 AM and 11:30 AM every day in 2022 in the GMT+8:00 timezone, the format would be 0 0/30 10-11 * * ? 2022 GMT+8:00; to execute the command every 5 minutes between 2:00 PM and 2:55 PM every day in October every two years starting from 2022 in UTC, the format would be 0 0/5 14 * 10 ? 2022/2 UTC.
+   * *   To run a command at designated points in time, use a cron expression to define the schedule. Format: \\<Cron expression> \\<Time zone>. Example: \\<Seconds> \\<Minutes> \\<Hours> \\<Day of the month> \\<Month> \\<Day of the week> \\<Year (optional)> \\<Time zone>. The system calculates the execution times of the command based on the specified cron expression and time zone and runs the command as scheduled. If you do not specify a time zone, the system time zone of the instance is used by default. For more information, see Cron expressions. The time zone name supports the following formats:
+   * 
+   *     *   Full name, such as Asia/Shanghai and America/Los_Angeles.
+   *     *   The time offset from GMT. Examples: GMT+8:00 (UTC+8) and GMT-7:00 (UTC-7). If you use the GMT format, you cannot add leading zeros to the hour value.
+   *     *   The time zone abbreviation. Only UTC is supported.
+   * 
+   *     For example, if you specify a command to run at 10:15:00 every day in 2022 in China/Shanghai time, set the time to 0 15 10 ? \\* \\* 2022 Asia/Shanghai. To configure a command to run every half an hour from 10:00:00 to 11:30:00 every day in 2022 (UTC+8), set the schedule to 0 0/30 10-11 \\* \\* ? 2022 GMT+8:00. To configure a command to run every 5 minutes from 14:00:00 to 14:55:00 every October every two years from 2022 in UTC, set the schedule to 0 0/5 14 \\* 10 ? 2022/2 UTC.
    */
   frequency?: string;
   /**
    * @remarks
-   * Bootstrap for script execution. The length must not exceed 1 KB.
+   * The launcher for script execution. Cannot exceed 1 KB.
    * 
    * @example
    * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
@@ -98,7 +95,7 @@ export class RunCommandRequest extends $dara.Model {
   launcher?: string;
   /**
    * @remarks
-   * Command name.
+   * The command name.
    * 
    * @example
    * testName
@@ -106,21 +103,21 @@ export class RunCommandRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * List of nodes.
+   * The node list.
    */
   nodeIdList?: string[];
   /**
    * @remarks
-   * When the command contains custom parameters, you need to pass in key-value pairs of these custom parameters when executing the command. For example, if the command content is `echo {{name}}`, you can pass in the key-value pair `{"name":"Jack"}` through the `Parameter` parameter. The custom parameter will automatically replace the variable value `name`, resulting in a new command, which actually executes as `echo Jack`.
+   * The key-value pairs of custom parameters to pass in when the command includes custom parameters. For example, the command content is `echo {{name}}`. You can use `Parameters` to pass in the `{"name":"Jack"}` key-value pair. The `name` key of the custom parameter is automatically replaced by the paired Jack value to generate a new command. As a result, the `echo Jack` command is run.
    * 
-   * The number of custom parameters ranges from 0 to 10, and you should note:
+   * You can specify 0 to 10 custom parameters. Take note of the following:
    * 
-   * - Keys cannot be empty strings and support up to 64 characters at most.
-   * - Values can be empty strings.
-   * - When combined with the original command content and Base64 encoded, if the command is saved, the size after Base64 encoding must not exceed 18 KB; if the command is not saved, the size after Base64 encoding must not exceed 24 KB. You can set whether to keep the command via `KeepCommand`.
-   * - The set of custom parameter names must be a subset of the parameter set defined during command creation. For parameters that are not passed in, you can use an empty string as a substitute.
+   * *   The key of a custom parameter can be up to 64 characters in length, and cannot be an empty string.
+   * *   The value of a custom parameter can be an empty string.
+   * *   If you want to retain a command, make sure that the command after Base64 encoding, including custom parameters and original command content, does not exceed 18 KB in size. If you do not want to retain the command, make sure that the command after Base64 encoding does not exceed 24 KB in size. You can set `KeepCommand` to specify whether to retain the command.
+   * *   The specified custom parameter names must be included in the custom parameter names that you specify when you create the command. You can use empty strings to represent the parameters that are not passed in.
    * 
-   * The default value is empty, indicating that the parameter is not set, thus disabling custom parameters.
+   * This parameter is left empty by default, which indicates that the custom parameter feature is disabled.
    * 
    * @example
    * {"name":"Jack", "accessKey":"LTAIdyvdIqaRY****"}
@@ -128,16 +125,17 @@ export class RunCommandRequest extends $dara.Model {
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * Set the command execution mode. Valid values:
+   * The mode to run the command. Valid values:
    * 
-   * - Once: Execute the command immediately.
-   * - Period: Execute the command at a scheduled time. When this parameter is set to `Period`, you must also specify the `Frequency` parameter.
-   * - NextRebootOnly: Automatically execute the command when the instance starts next time.
-   * - EveryReboot: Automatically execute the command every time the instance starts.
+   * *   Once: runs the command immediately.
+   * *   Period: runs the command based on a schedule. When set to `Period`, `Frequency` is required.
+   * *   NextRebootOnly: runs the command the next time the instances is started.
+   * *   EveryReboot: runs the command every time the instance is started.
    * 
    * Default value:
-   * - If the `Frequency` parameter is not specified, the default value is `Once`.
-   * - If the `Frequency` parameter is specified, regardless of whether this parameter is already set, it will be processed as `Period`.
+   * 
+   * *   If you do not specify `Frequency`, the default value is `Once`.
+   * *   If you specify `Frequency`, RepeatMode is set to `Period` regardless of whether a value is already specified.
    * 
    * @example
    * Once
@@ -145,8 +143,9 @@ export class RunCommandRequest extends $dara.Model {
   repeatMode?: string;
   /**
    * @remarks
-   * The mode when stopping a task (manually or due to execution timeout). Possible values:
-   * Process: Stops the current script process. ProcessTree: Stops the current process tree (a collection of the script process and all its child processes).
+   * Indicates how the command task is stopped when a command execution is manually stopped or times out. Valid values:
+   * 
+   * Process: The process of the command is stopped. ProcessTree: The process tree of the command is stopped. In this case, the process of the command and all subprocesses are stopped.
    * 
    * @example
    * ProcessTree
@@ -154,7 +153,7 @@ export class RunCommandRequest extends $dara.Model {
   terminationMode?: string;
   /**
    * @remarks
-   * Timeout for executing the command, in seconds. If the command cannot run due to process issues, missing modules, or the absence of the Cloud Assistant Agent, a timeout will occur. After a timeout, the command process will be forcibly terminated. Default value: 60.
+   * The timeout period for the command. Unit: seconds. A timeout error occurs if the command cannot be run because the process slows down or because a specific module or Cloud Assistant Agent does not exist. When the specified timeout period ends, the command process is forcefully terminated. Default value: 60.
    * 
    * @example
    * 3600
@@ -162,8 +161,7 @@ export class RunCommandRequest extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The username to execute the command in the instance. The length must not exceed 255 characters.
-   *     For Linux systems, the command is executed by the root user by default.
+   * The username that you use to run the command. The name can be up to 255 characters in length. For Linux instances, the root user is used by default.
    * 
    * @example
    * root
@@ -171,9 +169,9 @@ export class RunCommandRequest extends $dara.Model {
   username?: string;
   /**
    * @remarks
-   * You can customize the execution path of the command. The default paths are as follows:
+   * The working path of the command. You can specify a custom path. Default path:
    * 
-   * - Linux instances: The default execution path is under the /home directory of the root user.
+   * Linux instances: By default, the path is in the /home directory of the root user.
    * 
    * @example
    * /home/user

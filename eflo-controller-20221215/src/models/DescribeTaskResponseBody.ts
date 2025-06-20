@@ -6,7 +6,7 @@ import { DescribeTaskResponseBodySteps } from "./DescribeTaskResponseBodySteps";
 export class DescribeTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i119982311660892626523
@@ -14,7 +14,7 @@ export class DescribeTaskResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Cluster Name
+   * The cluster name.
    * 
    * @example
    * Standard_Cluster
@@ -22,7 +22,7 @@ export class DescribeTaskResponseBody extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * Start Time
+   * The create time.
    * 
    * @example
    * 2022-11-30T02:00:00.852Z
@@ -30,7 +30,7 @@ export class DescribeTaskResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Task Failure Message
+   * The error message returned for failed tasks.
    * 
    * @example
    * Releasing [prod_main_mid_26e234cf] in region [cn-beijing] with weight [0]
@@ -38,12 +38,12 @@ export class DescribeTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * List of node IDs
+   * The IDs of the nodes.
    */
   nodeIds?: string[];
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * A7FD7411-9395-52E8-AF42-EB3A4A55446D
@@ -51,12 +51,19 @@ export class DescribeTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Execution Steps
+   * The steps.
    */
   steps?: DescribeTaskResponseBodySteps[];
   /**
    * @remarks
-   * Task State
+   * The task status.
+   * 
+   * Valid values:
+   * 
+   * *   running
+   * *   execution_success
+   * *   execution_fail
+   * *   waiting_to_run
    * 
    * @example
    * running
@@ -64,7 +71,25 @@ export class DescribeTaskResponseBody extends $dara.Model {
   taskState?: string;
   /**
    * @remarks
-   * Task Type
+   * The task type.
+   * 
+   * Valid values:
+   * 
+   * *   reclone_node_sub_task
+   * *   initialize_bare_cluster
+   * *   extend_bare_cluster
+   * *   reclone_node
+   * *   reboot_node
+   * *   extend_ack_edge_cluster
+   * *   extend_cluster
+   * *   initialize_ack_edge_cluster
+   * *   cut_node_sub_task
+   * *   reboot_node_sub_task
+   * *   reclone_ack_edge_node
+   * *   initialize_cluster
+   * *   cut_cluster
+   * *   reclone_bare_node
+   * *   cut_bare_cluster
    * 
    * @example
    * cut_cluster
@@ -72,7 +97,7 @@ export class DescribeTaskResponseBody extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * Update Time
+   * The update time.
    * 
    * @example
    * 2022-11-30T03:40:14.852Z

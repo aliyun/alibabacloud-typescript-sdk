@@ -6,7 +6,7 @@ import { ListVscsShrinkRequestTag } from "./ListVscsShrinkRequestTag";
 export class ListVscsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of data records to be read in this request.
+   * The maximum number of data entries to return.
    * 
    * @example
    * 20
@@ -14,7 +14,7 @@ export class ListVscsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Marks the position to start reading from. If empty, it starts from the beginning.
+   * The token that is used in the next request to retrieve a new page of results. If you leave this parameter empty, the query starts from the beginning.
    * 
    * @example
    * 563d42ae0b17572449ec8c97f7f66069
@@ -22,12 +22,12 @@ export class ListVscsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * List of node IDs
+   * The IDs of the nodes.
    */
   nodeIdsShrink?: string;
   /**
    * @remarks
-   * Resource group ID
+   * The resource group ID.
    * 
    * @example
    * rg-aek2xdkc6icwfha
@@ -35,12 +35,12 @@ export class ListVscsShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * List of tags.
+   * The tags.
    */
   tag?: ListVscsShrinkRequestTag[];
   /**
    * @remarks
-   * Vsc name
+   * The VSC name.
    * 
    * @example
    * test_name

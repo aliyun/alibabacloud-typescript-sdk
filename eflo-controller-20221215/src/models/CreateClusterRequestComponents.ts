@@ -6,12 +6,17 @@ import { CreateClusterRequestComponentsComponentConfig } from "./CreateClusterRe
 export class CreateClusterRequestComponents extends $dara.Model {
   /**
    * @remarks
-   * Component configuration
+   * The component configurations.
    */
   componentConfig?: CreateClusterRequestComponentsComponentConfig;
   /**
    * @remarks
-   * Component type
+   * The component type.
+   * 
+   * Valid values:
+   * 
+   * *   ARMS
+   * *   ACKEdge
    * 
    * @example
    * ACKEdge

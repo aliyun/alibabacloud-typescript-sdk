@@ -6,7 +6,7 @@ import { CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogsLogs } from "./CreateDi
 export class CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogs extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * null
@@ -14,12 +14,12 @@ export class CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogs extends $dara.Mode
   aiInstance?: string;
   /**
    * @remarks
-   * Log object
+   * The logs.
    */
   logs?: CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogsLogs[];
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * e01-tw-p2p2al5u1hn

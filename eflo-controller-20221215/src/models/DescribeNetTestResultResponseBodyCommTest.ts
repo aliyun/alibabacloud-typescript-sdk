@@ -5,30 +5,17 @@ import { DescribeNetTestResultResponseBodyCommTestHosts } from "./DescribeNetTes
 
 export class DescribeNetTestResultResponseBodyCommTest extends $dara.Model {
   /**
-   * @remarks
-   * Number of GPUs
-   * 
    * @example
    * 1
    */
   GPUNum?: string;
-  /**
-   * @remarks
-   * Resource ID
-   */
   hosts?: DescribeNetTestResultResponseBodyCommTestHosts[];
   /**
-   * @remarks
-   * Communication library model
-   * 
    * @example
    * intention_v4
    */
   model?: string;
   /**
-   * @remarks
-   * Communication library test category: ACCL or NCCL
-   * 
    * @example
    * ACCL
    */

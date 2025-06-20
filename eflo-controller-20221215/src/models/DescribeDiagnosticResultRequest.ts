@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiagnosticResultRequest extends $dara.Model {
   /**
    * @remarks
-   * Diagnostic ID
+   * The diagnostic task ID.
    * 
    * @example
    * diag-i151942361720577788844

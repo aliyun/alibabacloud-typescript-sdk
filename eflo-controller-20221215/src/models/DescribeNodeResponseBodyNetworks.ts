@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodeResponseBodyNetworks extends $dara.Model {
   /**
    * @remarks
-   * Network interface port information
+   * The port information of the elastic network interface (ENI).
    * 
    * @example
    * Bond0
@@ -13,7 +13,7 @@ export class DescribeNodeResponseBodyNetworks extends $dara.Model {
   bondName?: string;
   /**
    * @remarks
-   * Machine IP
+   * The IP address of the node.
    * 
    * @example
    * 47.254.235.44
@@ -21,7 +21,7 @@ export class DescribeNodeResponseBodyNetworks extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * Cluster subnet ID
+   * The subnet ID.
    * 
    * @example
    * vsw-uf68v51fldm5egmui5a6k
@@ -29,7 +29,7 @@ export class DescribeNodeResponseBodyNetworks extends $dara.Model {
   subnetId?: string;
   /**
    * @remarks
-   * Cluster network ID
+   * The ID of the cluster network.
    * 
    * @example
    * vpd-xcuhjyrj

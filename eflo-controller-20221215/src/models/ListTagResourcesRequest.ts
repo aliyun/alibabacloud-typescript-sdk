@@ -6,7 +6,7 @@ import { ListTagResourcesRequestTag } from "./ListTagResourcesRequestTag";
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Query token (Token), the value should be the NextToken returned from the previous API call
+   * The token that determines the start position of the query. Set this parameter to the value of the NextToken parameter that is returned from the last call.
    * 
    * @example
    * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
@@ -14,7 +14,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -24,12 +24,20 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * List of resource IDs
+   * The IDs of the resources.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * Resource type
+   * The resource type.
+   * 
+   * Valid values:
+   * 
+   * *   Node
+   * *   Vcc
+   * *   Cluster
+   * *   Subnet
+   * *   Vpd
    * 
    * This parameter is required.
    * 
@@ -39,7 +47,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * List of tags
+   * The tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

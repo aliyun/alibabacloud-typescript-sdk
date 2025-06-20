@@ -6,12 +6,12 @@ import { ListMachineTypesResponseBodyMachineTypes } from "./ListMachineTypesResp
 export class ListMachineTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the machine types
+   * The instance types.
    */
   machineTypes?: ListMachineTypesResponseBodyMachineTypes[];
   /**
    * @remarks
-   * NextToken for the next page, include this value when requesting the next page
+   * The token that is used in the next request to retrieve a new page of results.
    * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
@@ -19,7 +19,7 @@ export class ListMachineTypesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F16BA4D8-FF50-53B6-A026-F443FE31006C

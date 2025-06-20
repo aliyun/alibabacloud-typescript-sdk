@@ -6,7 +6,7 @@ import { DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodesInvo
 export class DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes extends $dara.Model {
   /**
    * @remarks
-   * Record of file distribution for the node.
+   * The file sending records on a node.
    */
   invokeNode?: DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodesInvokeNode[];
   static names(): { [key: string]: string } {

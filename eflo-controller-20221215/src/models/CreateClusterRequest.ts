@@ -9,7 +9,7 @@ import { CreateClusterRequestTag } from "./CreateClusterRequestTag";
 export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster description
+   * The cluster description.
    * 
    * @example
    * Cluster description
@@ -17,7 +17,7 @@ export class CreateClusterRequest extends $dara.Model {
   clusterDescription?: string;
   /**
    * @remarks
-   * Cluster name
+   * The cluster name.
    * 
    * @example
    * Standard_Cluster
@@ -25,7 +25,7 @@ export class CreateClusterRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * Cluster type
+   * The cluster type.
    * 
    * @example
    * Lite
@@ -33,12 +33,12 @@ export class CreateClusterRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * Components (software instances)
+   * The components (software instance).
    */
   components?: CreateClusterRequestComponents[];
   /**
    * @remarks
-   * Cluster number
+   * The cluster number.
    * 
    * @example
    * A1
@@ -46,7 +46,7 @@ export class CreateClusterRequest extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * Whether to allow skipping failed nodes, default value is False
+   * Specifies whether to allow skipping failed nodes. Default value: False.
    * 
    * @example
    * False
@@ -54,22 +54,22 @@ export class CreateClusterRequest extends $dara.Model {
   ignoreFailedNodeTasks?: boolean;
   /**
    * @remarks
-   * Network information
+   * The network information.
    */
   networks?: CreateClusterRequestNetworks;
   /**
    * @remarks
-   * Node VSwitches
+   * The node vSwitch.
    */
   nimizVSwitches?: string[];
   /**
    * @remarks
-   * Node group list
+   * The node groups.
    */
   nodeGroups?: CreateClusterRequestNodeGroups[];
   /**
    * @remarks
-   * Open Eni Jumbo Frame
+   * Specifies whether the elastic network interface (ENI) supports the Jumbo Frames feature.
    * 
    * @example
    * false
@@ -77,7 +77,7 @@ export class CreateClusterRequest extends $dara.Model {
   openEniJumboFrame?: boolean;
   /**
    * @remarks
-   * Resource group ID
+   * The resource group ID.
    * 
    * @example
    * rg-aek2xdkc6icwfha
@@ -85,7 +85,7 @@ export class CreateClusterRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Resource tags
+   * The resource tags.
    */
   tag?: CreateClusterRequestTag[];
   static names(): { [key: string]: string } {

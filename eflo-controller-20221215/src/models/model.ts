@@ -11,6 +11,7 @@ export { CreateClusterRequestNetworksNewVpdInfoVpdSubnets } from './CreateCluste
 export { CreateClusterRequestNetworksNewVpdInfo } from './CreateClusterRequestNetworksNewVpdInfo';
 export { CreateClusterRequestNetworksVpdInfo } from './CreateClusterRequestNetworksVpdInfo';
 export { CreateClusterRequestNetworks } from './CreateClusterRequestNetworks';
+export { CreateClusterRequestNodeGroupsNodesDataDisk } from './CreateClusterRequestNodeGroupsNodesDataDisk';
 export { CreateClusterRequestNodeGroupsNodes } from './CreateClusterRequestNodeGroupsNodes';
 export { CreateClusterRequestNodeGroupsSystemDisk } from './CreateClusterRequestNodeGroupsSystemDisk';
 export { CreateClusterRequestNodeGroups } from './CreateClusterRequestNodeGroups';
@@ -60,6 +61,7 @@ export { ExtendClusterRequestIpAllocationPolicyNodePolicyBonds } from './ExtendC
 export { ExtendClusterRequestIpAllocationPolicyNodePolicy } from './ExtendClusterRequestIpAllocationPolicyNodePolicy';
 export { ExtendClusterRequestIpAllocationPolicy } from './ExtendClusterRequestIpAllocationPolicy';
 export { ExtendClusterRequestNodeGroupsNodeTag } from './ExtendClusterRequestNodeGroupsNodeTag';
+export { ExtendClusterRequestNodeGroupsNodesDataDisk } from './ExtendClusterRequestNodeGroupsNodesDataDisk';
 export { ExtendClusterRequestNodeGroupsNodes } from './ExtendClusterRequestNodeGroupsNodes';
 export { ExtendClusterRequestNodeGroups } from './ExtendClusterRequestNodeGroups';
 export { ListClusterNodesRequestTags } from './ListClusterNodesRequestTags';

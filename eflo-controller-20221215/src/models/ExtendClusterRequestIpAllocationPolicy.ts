@@ -8,17 +8,17 @@ import { ExtendClusterRequestIpAllocationPolicyNodePolicy } from "./ExtendCluste
 export class ExtendClusterRequestIpAllocationPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specify the cluster subnet ID based on the bond name
+   * The bond policy that you specify the cluster subnet ID based on the bond name.
    */
   bondPolicy?: ExtendClusterRequestIpAllocationPolicyBondPolicy;
   /**
    * @remarks
-   * Machine type allocation policy
+   * The allocation policies for the instance type.
    */
   machineTypePolicy?: ExtendClusterRequestIpAllocationPolicyMachineTypePolicy[];
   /**
    * @remarks
-   * Node allocation policy
+   * The node allocation policies.
    */
   nodePolicy?: ExtendClusterRequestIpAllocationPolicyNodePolicy[];
   static names(): { [key: string]: string } {

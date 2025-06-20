@@ -7,12 +7,12 @@ import { ListNetTestResultsResponseBodyNetTestResultsTrafficTestServers } from "
 export class ListNetTestResultsResponseBodyNetTestResultsTrafficTest extends $dara.Model {
   /**
    * @remarks
-   * Clients
+   * The clients.
    */
   clients?: ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients[];
   /**
    * @remarks
-   * Duration of the workflow task, in seconds.
+   * The running duration of the pipeline job. Unit: seconds.
    * 
    * @example
    * 1
@@ -20,8 +20,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTest extends $da
   duration?: number;
   /**
    * @remarks
-   * 协议为RDMA时，填写True/False，
-   * 协议为TCP时，此字段为空。
+   * If the protocol is RDMA, can be True or False. If the protocol is TCP, this field is empty.
    * 
    * @example
    * True
@@ -29,7 +28,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTest extends $da
   GDR?: string;
   /**
    * @remarks
-   * Network protocol, either RDMA or TCP.
+   * The network protocol, which can be RDMA or TCP.
    * 
    * @example
    * TCP
@@ -37,7 +36,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTest extends $da
   protocol?: string;
   /**
    * @remarks
-   * For TCP, enter the number of concurrent connections; for RDMA, enter the configured QP value.
+   * If the protocol is TCP, the number of concurrent connections. If the protocol is RDMA, the configured QP value.
    * 
    * @example
    * RDMA
@@ -45,12 +44,12 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTest extends $da
   QP?: number;
   /**
    * @remarks
-   * This field is empty when the traffic model (TrafficModel) is Fullmesh.
+   * If the TrafficModel is Fullmesh, this parameter is empty.
    */
   servers?: ListNetTestResultsResponseBodyNetTestResultsTrafficTestServers[];
   /**
    * @remarks
-   * Traffic model, either MTON or Fullmesh.
+   * The traffic model, which can be MTON or Fullmesh.
    * 
    * @example
    * Fullmesh

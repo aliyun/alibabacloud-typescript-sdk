@@ -8,17 +8,17 @@ import { CreateClusterRequestNetworksVpdInfo } from "./CreateClusterRequestNetwo
 export class CreateClusterRequestNetworks extends $dara.Model {
   /**
    * @remarks
-   * IP allocation policy
+   * The IP allocation policy.
    */
   ipAllocationPolicy?: CreateClusterRequestNetworksIpAllocationPolicy[];
   /**
    * @remarks
-   * Vpd configuration information
+   * The virtual private domain (VPD) configuration information.
    */
   newVpdInfo?: CreateClusterRequestNetworksNewVpdInfo;
   /**
    * @remarks
-   * Security group ID
+   * The security group ID.
    * 
    * @example
    * sg-bp1d3dvbh9by7j5rujax
@@ -26,7 +26,7 @@ export class CreateClusterRequestNetworks extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * IP version
+   * The IP version.
    * 
    * @example
    * IPv4
@@ -34,7 +34,7 @@ export class CreateClusterRequestNetworks extends $dara.Model {
   tailIpVersion?: string;
   /**
    * @remarks
-   * VSwitch ID
+   * The vSwitch ID.
    * 
    * @example
    * vsw-asjdfklj
@@ -42,7 +42,7 @@ export class CreateClusterRequestNetworks extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VSwitch Zone ID
+   * The ID of the zone to which the vSwitch belongs.
    * 
    * @example
    * cn-shanghai-b
@@ -50,7 +50,7 @@ export class CreateClusterRequestNetworks extends $dara.Model {
   vSwitchZoneId?: string;
   /**
    * @remarks
-   * VPC ID
+   * The VPC ID.
    * 
    * @example
    * vpc-0jl36lqzmc06qogy0t5ll
@@ -58,7 +58,7 @@ export class CreateClusterRequestNetworks extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * Reuse VPD information
+   * The VPD information.
    */
   vpdInfo?: CreateClusterRequestNetworksVpdInfo;
   static names(): { [key: string]: string } {

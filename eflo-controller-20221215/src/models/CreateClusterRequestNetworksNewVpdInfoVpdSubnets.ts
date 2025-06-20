@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterRequestNetworksNewVpdInfoVpdSubnets extends $dara.Model {
   /**
    * @remarks
-   * Subnet CIDR
+   * The subnet CIDR block.
    * 
    * @example
    * 10.0.1.8/24
@@ -13,7 +13,7 @@ export class CreateClusterRequestNetworksNewVpdInfoVpdSubnets extends $dara.Mode
   subnetCidr?: string;
   /**
    * @remarks
-   * Subnet type
+   * The subnet type.
    * 
    * @example
    * 10.0.2.8/24
@@ -21,7 +21,7 @@ export class CreateClusterRequestNetworksNewVpdInfoVpdSubnets extends $dara.Mode
   subnetType?: string;
   /**
    * @remarks
-   * Zone ID
+   * The zone ID.
    * 
    * @example
    * cn-wulanchabu-b

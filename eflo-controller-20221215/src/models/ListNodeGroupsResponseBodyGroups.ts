@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i113952461729854708648
@@ -13,7 +13,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Cluster name
+   * The cluster name.
    * 
    * @example
    * wzq-exclusivelite-71
@@ -21,7 +21,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * Creation time
+   * The creation time.
    * 
    * @example
    * 2024-02-27T13:16:31.599
@@ -29,7 +29,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * created by ga2_prepare
@@ -37,7 +37,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether file storage mounting is supported
+   * Indicates whether file storage mounting is supported.
    * 
    * @example
    * False
@@ -45,7 +45,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   fileSystemMountEnabled?: boolean;
   /**
    * @remarks
-   * Group ID.
+   * The group ID.
    * 
    * @example
    * 238276221
@@ -53,7 +53,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Group name.
+   * The group name.
    * 
    * @example
    * backend-group
@@ -61,7 +61,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Image ID
+   * The image ID.
    * 
    * @example
    * i194015071707321240258
@@ -69,7 +69,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Image name
+   * The image name.
    * 
    * @example
    * CentOS_7.9_x86_64_FULL_20221110
@@ -77,7 +77,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * Machine type
+   * The instance type.
    * 
    * @example
    * efg1.nvga1n
@@ -85,7 +85,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * Number of nodes
+   * The number of nodes.
    * 
    * @example
    * 2
@@ -93,7 +93,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * Update time
+   * The update time.
    * 
    * @example
    * 2023-09-22T00:03:05.114
@@ -101,7 +101,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * availability zone id
+   * The zone ID.
    * 
    * @example
    * cn-shenzhen-c

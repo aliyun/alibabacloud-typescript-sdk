@@ -7,12 +7,12 @@ import { CreateNetTestTaskRequestTrafficTestServers } from "./CreateNetTestTaskR
 export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
   /**
    * @remarks
-   * Resource ID.
+   * The client IDs.
    */
   clients?: CreateNetTestTaskRequestTrafficTestClients[];
   /**
    * @remarks
-   * The duration of the workflow task in seconds.
+   * The running duration of the pipeline job. Unit: seconds.
    * 
    * @example
    * 1
@@ -20,8 +20,7 @@ export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * Enter True/False when the protocol is RDMA, 
-   * this field is empty when the protocol is TCP.
+   * If the protocol is RDMA, enter True or False. If the protocol is TCP, leave this field empty.
    * 
    * @example
    * False
@@ -29,7 +28,7 @@ export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
   GDR?: boolean;
   /**
    * @remarks
-   * Network protocol, either RDMA or TCP.
+   * The network protocol, which can be RDMA or TCP.
    * 
    * @example
    * TCP
@@ -37,7 +36,7 @@ export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * Enter the number of concurrent connections when the protocol is TCP, or enter the configured QP value when the protocol is RDMA.
+   * If the protocol is TCP, enter the number of concurrent connections. If the protocol is RDMA, enter the configured QP value.
    * 
    * @example
    * 1
@@ -45,12 +44,12 @@ export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
   QP?: number;
   /**
    * @remarks
-   * Service list
+   * The services.
    */
   servers?: CreateNetTestTaskRequestTrafficTestServers[];
   /**
    * @remarks
-   * Traffic model, either MTON or Fullmesh.
+   * The traffic model, which can be MTON or Fullmesh.
    * 
    * @example
    * Fullmesh

@@ -6,12 +6,12 @@ import { CreateDiagnosticTaskRequestAiJobLogInfo } from "./CreateDiagnosticTaskR
 export class CreateDiagnosticTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Log information
+   * The log information.
    */
   aiJobLogInfo?: CreateDiagnosticTaskRequestAiJobLogInfo;
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i118913031696573280136
@@ -19,7 +19,7 @@ export class CreateDiagnosticTaskRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Diagnostic type.
+   * The diagnostics type.
    * 
    * @example
    * CheckByAiJobLogs
@@ -27,7 +27,7 @@ export class CreateDiagnosticTaskRequest extends $dara.Model {
   diagnosticType?: string;
   /**
    * @remarks
-   * List of node IDs
+   * The IDs of the nodes.
    */
   nodeIds?: string[];
   static names(): { [key: string]: string } {

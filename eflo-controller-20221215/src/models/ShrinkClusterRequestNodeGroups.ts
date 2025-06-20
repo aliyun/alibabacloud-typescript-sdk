@@ -6,7 +6,7 @@ import { ShrinkClusterRequestNodeGroupsNodes } from "./ShrinkClusterRequestNodeG
 export class ShrinkClusterRequestNodeGroups extends $dara.Model {
   /**
    * @remarks
-   * Node group ID
+   * The node group ID.
    * 
    * @example
    * ng-3b6fbd24b1b845a0
@@ -14,7 +14,7 @@ export class ShrinkClusterRequestNodeGroups extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * List of nodes
+   * The nodes.
    */
   nodes?: ShrinkClusterRequestNodeGroupsNodes[];
   static names(): { [key: string]: string } {

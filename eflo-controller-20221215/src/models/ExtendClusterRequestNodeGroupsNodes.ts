@@ -1,11 +1,13 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ExtendClusterRequestNodeGroupsNodesDataDisk } from "./ExtendClusterRequestNodeGroupsNodesDataDisk";
 
 
 export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
+  dataDisk?: ExtendClusterRequestNodeGroupsNodesDataDisk[];
   /**
    * @remarks
-   * Hostname
+   * The hostname.
    * 
    * @example
    * d044d220-33fd-11ed-86a6
@@ -13,7 +15,7 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * Login Password
+   * The logon password.
    * 
    * @example
    * ***
@@ -21,7 +23,7 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
   loginPassword?: string;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * e01-cn-zvp2zdpy601
@@ -29,7 +31,7 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * VSwitch ID
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp169pi5fj151rrms4sia
@@ -37,7 +39,7 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-0jlasms92fdxqd3wlf8ny
@@ -45,6 +47,7 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      dataDisk: 'DataDisk',
       hostname: 'Hostname',
       loginPassword: 'LoginPassword',
       nodeId: 'NodeId',
@@ -55,6 +58,7 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataDisk: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroupsNodesDataDisk },
       hostname: 'string',
       loginPassword: 'string',
       nodeId: 'string',
@@ -64,6 +68,9 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.dataDisk)) {
+      $dara.Model.validateArray(this.dataDisk);
+    }
     super.validate();
   }
 

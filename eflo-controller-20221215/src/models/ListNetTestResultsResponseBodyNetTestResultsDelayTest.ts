@@ -6,7 +6,7 @@ import { ListNetTestResultsResponseBodyNetTestResultsDelayTestHosts } from "./Li
 export class ListNetTestResultsResponseBodyNetTestResultsDelayTest extends $dara.Model {
   /**
    * @remarks
-   * Resource list
+   * The hosts.
    */
   hosts?: ListNetTestResultsResponseBodyNetTestResultsDelayTestHosts[];
   static names(): { [key: string]: string } {

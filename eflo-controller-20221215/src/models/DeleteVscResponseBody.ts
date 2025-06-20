@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVscResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * The request ID.
    * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54

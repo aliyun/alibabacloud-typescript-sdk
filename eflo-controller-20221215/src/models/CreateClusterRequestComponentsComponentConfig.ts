@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterRequestComponentsComponentConfig extends $dara.Model {
   /**
    * @remarks
-   * Basic component parameters
+   * The basic parameters of the component.
    * 
    * @example
    * {
@@ -43,7 +43,7 @@ export class CreateClusterRequestComponentsComponentConfig extends $dara.Model {
   basicArgs?: any;
   /**
    * @remarks
-   * Node pool configuration, used to establish the correspondence between node groups and node pools. Required when ComponentType is "ACKEdge", otherwise it can be empty.
+   * The node pool configurations, which are used to establish the mappings between node groups and node pools. This parameter is required when ComponentType is set to ACKEdge. Otherwise, this parameter is left empty.
    */
   nodeUnits?: any[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RebootNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i15b480fbd2fcdbc2869cd80
@@ -13,7 +13,7 @@ export class RebootNodesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Whether to allow skipping failed node tasks, default value is False
+   * Specifies whether to allow skipping failed nodes. Default value: False.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class RebootNodesRequest extends $dara.Model {
   ignoreFailedNodeTasks?: boolean;
   /**
    * @remarks
-   * List of nodes
+   * The nodes.
    */
   nodes?: string[];
   static names(): { [key: string]: string } {

@@ -5,11 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filter the returned results based on Chinese, English, and Japanese. For more information, see RFC7231. Valid values:
+   * The natural language that is used to filter responses. For more information, see RFC 7231.
    * 
-   * zh-CN
-   * en-US
-   * Default value: zh-CN
+   * zh-CN en-US Default value: zh-CN.
+   * 
+   * Valid values:
+   * 
+   * *   en-US
+   * *   zh-CN
    * 
    * @example
    * zh-CN

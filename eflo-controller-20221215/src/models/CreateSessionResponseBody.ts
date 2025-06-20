@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * The request ID.
    * 
    * @example
    * 887FA855-89F4-5DB3-B305-C5879EC480E6
@@ -13,7 +13,7 @@ export class CreateSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 节点  ID。
+   * The node ID.
    * 
    * @example
    * 2A59143F1
@@ -21,7 +21,7 @@ export class CreateSessionResponseBody extends $dara.Model {
   serverSn?: string;
   /**
    * @remarks
-   * Session ID.
+   * The session ID.
    * 
    * @example
    * i207023871669364793713
@@ -29,7 +29,7 @@ export class CreateSessionResponseBody extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Session token.
+   * The session credential.
    * 
    * @example
    * 03f53c719015a9ad4f4f55d66cac2dac161b18e8065ca75a3220b89de389c980
@@ -37,7 +37,7 @@ export class CreateSessionResponseBody extends $dara.Model {
   sessionToken?: string;
   /**
    * @remarks
-   * WebSocket address
+   * The WebSocket address.
    * 
    * @example
    * ws://x.x.x.x:xx/calypso_web_console

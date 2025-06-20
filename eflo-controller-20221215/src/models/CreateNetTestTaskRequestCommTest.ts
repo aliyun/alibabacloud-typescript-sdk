@@ -6,7 +6,7 @@ import { CreateNetTestTaskRequestCommTestHosts } from "./CreateNetTestTaskReques
 export class CreateNetTestTaskRequestCommTest extends $dara.Model {
   /**
    * @remarks
-   * Number of GPUs
+   * The number of GPUs.
    * 
    * @example
    * 1
@@ -14,12 +14,12 @@ export class CreateNetTestTaskRequestCommTest extends $dara.Model {
   GPUNum?: number;
   /**
    * @remarks
-   * Resource ID
+   * The host IDs.
    */
   hosts?: CreateNetTestTaskRequestCommTestHosts[];
   /**
    * @remarks
-   * Communication library model
+   * The communication library model.
    * 
    * @example
    * intention_v4
@@ -27,7 +27,7 @@ export class CreateNetTestTaskRequestCommTest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * Communication library test category: ACCL or NCCL
+   * The CommTest type, which can be ACCL or NCCL.
    * 
    * @example
    * ACCL

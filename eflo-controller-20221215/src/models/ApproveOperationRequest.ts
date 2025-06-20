@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApproveOperationRequest extends $dara.Model {
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * e01-cn-zvp2tgykr08
@@ -13,7 +13,11 @@ export class ApproveOperationRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Operation Type
+   * The O\\&M operation type
+   * 
+   * Valid value:
+   * 
+   * *   RepairMachine
    * 
    * @example
    * RepairMachine

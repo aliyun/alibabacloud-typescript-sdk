@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSendFileResultsRequest extends $dara.Model {
   /**
    * @remarks
-   * Command execution ID.
+   * The command execution ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeSendFileResultsRequest extends $dara.Model {
   invokeId?: string;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * e01-cn-zvp2tgykr08

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvokeNode extends $dara.Model {
   /**
    * @remarks
-   * The start time of the command execution.
+   * The start time of the execution.
    * 
    * @example
    * 2023-02-06T07:12:50Z
@@ -13,7 +13,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   creationTime?: string;
   /**
    * @remarks
-   * The length of the text that is truncated and discarded when the length of the `Output` field exceeds 24 KB.
+   * The size of the Output text that was truncated and discarded because the Output value exceeded 24 KB in size.
    * 
    * @example
    * 0
@@ -21,23 +21,25 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   dropped?: number;
   /**
    * @remarks
-   * Reason code for file delivery failure. Possible values:
-   * - Empty: File delivery is normal. 
-   * - NodeNotExists: The specified instance does not exist or has been released. 
-   * - NodeReleased: The instance was released during the file delivery process. 
-   * - NodeNotRunning: The instance was not running when the file delivery task was created. 
-   * - AccountNotExists: The specified account does not exist. 
-   * - ClientNotRunning: The Cloud Assistant Agent is not running. 
-   * - ClientNotResponse: The Cloud Assistant Agent is not responding. 
-   * - ClientIsUpgrading: The Cloud Assistant Agent is currently upgrading. 
-   * - ClientNeedUpgrade: The Cloud Assistant Agent needs to be upgraded. 
-   * - DeliveryTimeout: File sending timed out. 
-   * - FileCreateFail: File creation failed. 
-   * - FileAlreadyExists: A file with the same name already exists at the specified path. 
-   * - FileContentInvalid: The file content is invalid. - FileNameInvalid: The file name is invalid. 
-   * - FilePathInvalid: The file path is invalid. 
-   * - FileAuthorityInvalid: The file permissions are invalid. 
-   * - UserGroupNotExists: The user group specified for file sending does not exist.
+   * The error code returned when the file failed to be sent to the instance. Valid values:
+   * 
+   * *   Null: The file is sent to the instance.
+   * *   NodeNotExists: The specified instance does not exist or has been released.
+   * *   NodeReleased: The instance was released while the file was being sent.
+   * *   NodeNotRunning: The instance was not running while the file sending task was being created.
+   * *   AccountNotExists: The specified account does not exist.
+   * *   ClientNotRunning: Cloud Assistant Agent is not running.
+   * *   ClientNotResponse: Cloud Assistant Agent does not respond.
+   * *   ClientIsUpgrading: Cloud Assistant Agent is being upgraded.
+   * *   ClientNeedUpgrade: Cloud Assistant Agent needs to be upgraded.
+   * *   DeliveryTimeout: The file sending task timed out.
+   * *   FileCreateFail: The file failed to be created.
+   * *   FileAlreadyExists: A file with the same name exists in the specified directory.
+   * *   FileContentInvalid: The file content is invalid.
+   * *   FileNameInvalid: The file name is invalid.
+   * *   FilePathInvalid: The specified directory is invalid.
+   * *   FileAuthorityInvalid: The specified permissions on the file are invalid.
+   * *   UserGroupNotExists: The specified user group does not exist.
    * 
    * @example
    * NodeNotExists
@@ -45,25 +47,26 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   errorCode?: string;
   /**
    * @remarks
-   * Details of the reason for command delivery failure or execution failure, possible values: 
-   * - Empty: The command executed normally. 
-   * - the specified node does not exist: The specified instance does not exist or has been released. 
-   * - the node was released when creating the task: The instance was released during command execution. 
-   * - the node is not running when creating the task: The instance was not in a running state when the command was executed. 
-   * - the command is not applicable: The command is not applicable to the specified instance. 
-   * - the specified account does not exist: The specified account does not exist. 
-   * - the specified directory does not exist: The specified directory does not exist. 
-   * - the cron job expression is invalid: The specified execution time expression is invalid. 
-   * - the aliyun service is not running on the instance: The Cloud Assistant Agent is not running. 
-   * - the aliyun service in the instance does not respond: The Cloud Assistant Agent is not responding. 
-   * - the aliyun service in the node is upgrading now: The Cloud Assistant Agent is currently being upgraded. 
-   * - the aliyun service in the node needs upgrade: The Cloud Assistant Agent needs an upgrade. 
-   * - the command delivery has timed out: Command delivery has timed out. 
-   * - the command execution has timed out: Command execution has timed out. 
-   * - the command execution got an exception: An exception occurred during command execution. 
-   * - the command execution was interrupted: Command execution was interrupted. 
-   *  - the command execution exit code is not zero: Command execution completed with a non-zero exit code. 
-   * - the specified node has been released: The instance was released during file delivery.
+   * The error message returned when the command cannot be sent or run.
+   * 
+   * *   If this parameter is empty, the command was run as expected.
+   * *   the specified node does not exists: The specified instance does not exist or is released.
+   * *   the node has node when create task: The instance is released when the command is being run.
+   * *   the node is not running when create task: The instance is not in the Running state while the command is being run.
+   * *   the command is not applicable: The command is not applicable to the specified instance.
+   * *   the specified account does not exists: The specified account does not exist.
+   * *   the specified directory does not exists: The specified directory does not exist.
+   * *   the cron job expression is invalid: The cron expression that specifies the execution time is invalid.
+   * *   the aliyun service is not running on the instance: Cloud Assistant Agent is not running.
+   * *   the aliyun service in the instance does not response: Cloud Assistant Agent does not respond.
+   * *   the aliyun service in the node is upgrading now: Cloud Assistant Agent is being upgraded.
+   * *   the aliyun service in the node need upgrade: Cloud Assistant Agent needs to be upgraded.
+   * *   the command delivery has been timeout: The request to send the command timed out.
+   * *   the command execution has been timeout: The command execution timed out.
+   * *   the command execution got an exception: An exception occurred when the command is being run.
+   * *   the command execution has been interrupted: The command execution is interrupted.
+   * *   the command execution exit code is not zero: The command execution completes, but the exit code is not 0.
+   * *   the specified node has been released: The instance is released while the file is being sent.
    * 
    * @example
    * the specified node does not exists
@@ -71,8 +74,10 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   errorInfo?: string;
   /**
    * @remarks
-   * The exit code of the command process. Possible values:
-   * - For Linux instances, it is the exit code of the Shell process. - For Windows instances, it is the exit code of the Bat or PowerShell process.
+   * The exit code of the execution. Valid values:
+   * 
+   * *   For Linux instances, the value is the exit code of the shell process.
+   * *   For Windows instances, the value is the exit code of the batch or PowerShell process.
    * 
    * @example
    * 0
@@ -80,7 +85,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   exitCode?: number;
   /**
    * @remarks
-   * Completion time.
+   * The end time of the execution.
    * 
    * @example
    * 2023-02-06T07:12:50Z
@@ -88,25 +93,40 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   finishTime?: string;
   /**
    * @remarks
-   * The command progress status for a single instance. Possible values:
-   * -  Pending: The system is validating or sending the command.
-   * -  Invalid: The specified command type or parameters are incorrect.
-   * -  Aborted: Failed to send the command to the instance. The instance must be running, and the command should be sent within 1 minute.
-   * -  Running: The command is running on the instance.
-   * -  Success:
-   *     -  For a one-time execution command: The command has completed with an exit code of 0.
-   *     -  For a periodic execution command: The last run was successful with an exit code of 0, and the specified period has ended.
-   * -  Failed:
-   *     -  For a one-time execution command: The command has completed with a non-zero exit code.
-   *     -  For a periodic execution command: The last run was successful with a non-zero exit code, and the specified period will be terminated.
-   * -  Error: An exception occurred during command execution, and it cannot continue.
-   * -  Timeout: The command execution timed out.
-   * -  Cancelled: The command execution action has been canceled, and the command was never started.
-   * -  Stopping: The task is being stopped.
-   * -  Terminated: The command was terminated while running.
-   * -  Scheduled:
-   *     -  For a one-time execution command: Not applicable, will not appear.
-   *     -  For a periodic execution command: Waiting to run.
+   * The execution status of the command on a single instance. Valid values:
+   * 
+   * *   Pending: The command was being verified or sent.
+   * 
+   * *   Invalid: The specified command type or parameter is invalid.
+   * 
+   * *   Aborted: The command failed to be sent to the instance. To send a command to an instance, make sure that the instance is in the Running state and the command can be sent to the instance within 1 minute.
+   * 
+   * *   Running: The command is being run on the instance.
+   * 
+   * *   Success:
+   * 
+   *     *   One-time task: The execution was complete, and the exit code was 0.
+   *     *   Recurring execution: The previous occurrence of the execution is complete, and the exit code is 0. The specified recurring period during which the command is run ends.
+   * 
+   * *   Failed:
+   * 
+   *     *   One-time task: The execution was complete, but the exit code was not 0.
+   *     *   Recurring execution: The previous occurrence of the execution is complete, but the exit code is not 0. The specified recurring period during which the command is run is about to end.
+   * 
+   * *   Error: The execution cannot proceed due to an exception.
+   * 
+   * *   Timeout: The execution timed out.
+   * 
+   * *   Cancelled: The execution was canceled before it started.
+   * 
+   * *   Stopping: The command task is being stopped.
+   * 
+   * *   Terminated: The execution was terminated before completion.
+   * 
+   * *   Scheduled:
+   * 
+   *     *   One-time task: The execution state can never be Scheduled.
+   *     *   Recurring execution: The command is waiting to be run.
    * 
    * @example
    * Pending
@@ -114,7 +134,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   invocationStatus?: string;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * e01-cn-lbj36wkp70b
@@ -122,7 +142,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   nodeId?: string;
   /**
    * @remarks
-   * The command progress status of a single instance.
+   * The execution status of the command on a single instance.
    * 
    * @example
    * Finished
@@ -130,10 +150,10 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   nodeInvokeStatus?: string;
   /**
    * @remarks
-   * The output information of the command.
+   * The command output.
    * 
-   * - If `ContentEncoding` is set to `PlainText`, the original output information is returned.
-   * - If `ContentEncoding` is set to `Base64`, the Base64-encoded output information is returned.
+   * *   If ContentEncoding is set to PlainText in the request, the original command output is returned.
+   * *   If ContentEncoding is set to Base64 in the request, the Base64-encoded command output is returned.
    * 
    * @example
    * OutPutTestmsg
@@ -141,9 +161,10 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   output?: string;
   /**
    * @remarks
-   * The number of times the command has been executed on this instance.
-   * -  If the execution mode is one-time, the value is 0 or 1.
-   * -  If the execution mode is periodic, the value is the number of times it has been executed.
+   * The number of times that the command was run on the instance.
+   * 
+   * *   If the command is set to run only once, the value is 0 or 1.
+   * *   If the command is set to run on a schedule, the value is the number of times that the command has been run on the instance.
    * 
    * @example
    * 0
@@ -151,7 +172,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   repeats?: number;
   /**
    * @remarks
-   * Start Time
+   * The start time.
    * 
    * @example
    * 2019-12-20T06:15:55Z
@@ -159,7 +180,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   startTime?: string;
   /**
    * @remarks
-   * The time when `StopInvocation` was called to stop the command execution.
+   * The time when the command task was stopped. If you call the StopInvocation operation to stop the command task, the value of this parameter is the time when the operation is called.
    * 
    * @example
    * 2019-12-20T06:15:55Z
@@ -167,13 +188,14 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   stopTime?: string;
   /**
    * @remarks
-   * Whether the queried command will be automatically executed in the future. The value range is as follows:
-   * - true: The command, when executed by calling `RunCommand` or `InvokeCommand`, has the `RepeatMode` parameter set to `Period`, `NextRebootOnly`, or `EveryReboot`. 
-   * - false: Queries commands in the following two states. 
-   * - When executing a command via `RunCommand` or `InvokeCommand`, the `RepeatMode` parameter is set to `Once`. 
-   * - Commands that have been canceled, stopped, or completed.
+   * Indicates whether the command is to be automatically run. Valid values:
    * 
-   * Default value: false.
+   * *   true: The command is run by calling the `RunCommand` or `InvokeCommand` operation with `RepeatMode` set to `Period`, `NextRebootOnly`, or `EveryReboot`.
+   * 
+   * *   false (default): The command meets the following requirements.
+   * 
+   *     *   The command is run by calling the `RunCommand` or `InvokeCommand` operation with `RepeatMode` set to `Once`.
+   *     *   The command task is canceled, stopped, or completed.
    * 
    * @example
    * false
@@ -181,7 +203,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvo
   timed?: string;
   /**
    * @remarks
-   * Update Time
+   * The update time of the execution.
    * 
    * @example
    * 2023-02-06T07:12:50Z

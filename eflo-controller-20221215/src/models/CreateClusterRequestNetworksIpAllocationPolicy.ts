@@ -8,17 +8,17 @@ import { CreateClusterRequestNetworksIpAllocationPolicyNodePolicy } from "./Crea
 export class CreateClusterRequestNetworksIpAllocationPolicy extends $dara.Model {
   /**
    * @remarks
-   * Bond policy
+   * The bond policy.
    */
   bondPolicy?: CreateClusterRequestNetworksIpAllocationPolicyBondPolicy;
   /**
    * @remarks
-   * Machine type allocation policy
+   * The allocation policy for the instance type.
    */
   machineTypePolicy?: CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy[];
   /**
    * @remarks
-   * Node allocation policy
+   * The node allocation policy.
    */
   nodePolicy?: CreateClusterRequestNetworksIpAllocationPolicyNodePolicy[];
   static names(): { [key: string]: string } {

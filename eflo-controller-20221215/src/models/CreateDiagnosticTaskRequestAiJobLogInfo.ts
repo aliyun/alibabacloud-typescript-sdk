@@ -6,13 +6,14 @@ import { CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogs } from "./CreateDiagno
 export class CreateDiagnosticTaskRequestAiJobLogInfo extends $dara.Model {
   /**
    * @remarks
-   * Task logs
+   * The task logs.
    */
   aiJobLogs?: CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogs[];
   /**
    * @remarks
-   * End time. In timestamp format, unit: seconds.
-   * > Must be on the hour or half-hour mark.
+   * The end time. The value is in the timestamp format. Unit: seconds.
+   * 
+   * >  This timestamp must indicate a point in time that is accurate to the minute.
    * 
    * @example
    * 2024-08-05T10:10:01
@@ -20,8 +21,9 @@ export class CreateDiagnosticTaskRequestAiJobLogInfo extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Start time. In timestamp format, unit: seconds.
-   * > Must be on the hour or half-hour mark.
+   * The start time. The value is in the timestamp format. Unit: seconds.
+   * 
+   * >  This timestamp must indicate a point in time that is accurate to the minute.
    * 
    * @example
    * 2024-10-11T00:00:00Z

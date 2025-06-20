@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopInvocationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * A7FD7411-9395-52E8-AF42-EB3A4A55446D

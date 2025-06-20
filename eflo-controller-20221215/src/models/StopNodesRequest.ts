@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to allow skipping failed node tasks, default value is False.
+   * Specifies whether to allow skipping failed nodes. Default value: False.
    * 
    * @example
    * False
@@ -13,7 +13,7 @@ export class StopNodesRequest extends $dara.Model {
   ignoreFailedNodeTasks?: boolean;
   /**
    * @remarks
-   * List of nodes.
+   * The nodes.
    */
   nodes?: string[];
   static names(): { [key: string]: string } {

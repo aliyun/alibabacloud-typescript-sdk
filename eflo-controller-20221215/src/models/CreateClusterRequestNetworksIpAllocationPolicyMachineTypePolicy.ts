@@ -6,12 +6,12 @@ import { CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds } 
 export class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy extends $dara.Model {
   /**
    * @remarks
-   * Bond information
+   * The bond information.
    */
   bonds?: CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds[];
   /**
    * @remarks
-   * Machine type
+   * The instance type.
    * 
    * @example
    * efg1.nvga8n

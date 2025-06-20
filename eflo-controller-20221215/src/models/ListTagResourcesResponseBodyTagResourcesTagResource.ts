@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
   /**
    * @remarks
-   * Resource ID
+   * The resource ID.
    * 
    * @example
    * i15azeddnvf7uhw2oij57o0
@@ -13,7 +13,12 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.M
   resourceId?: string;
   /**
    * @remarks
-   * Resource type
+   * The resource type.
+   * 
+   * Valid values:
+   * 
+   * *   Node
+   * *   Cluster
    * 
    * @example
    * Cluster
@@ -21,7 +26,7 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.M
   resourceType?: string;
   /**
    * @remarks
-   * Tag key
+   * The tag key.
    * 
    * @example
    * env
@@ -29,7 +34,7 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.M
   tagKey?: string;
   /**
    * @remarks
-   * Tag value
+   * The tag value.
    * 
    * @example
    * dev

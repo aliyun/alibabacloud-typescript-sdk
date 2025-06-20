@@ -6,12 +6,12 @@ import { DescribeInvocationsResponseBodyInvocations } from "./DescribeInvocation
 export class DescribeInvocationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Script execution record object.
+   * The command execution record.
    */
   invocations?: DescribeInvocationsResponseBodyInvocations;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54

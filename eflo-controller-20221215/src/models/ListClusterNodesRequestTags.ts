@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterNodesRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of tag object
+   * The tag key for the node.
    * 
    * @example
    * aa_key
@@ -13,7 +13,7 @@ export class ListClusterNodesRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag object
+   * The tag value for the node.
    * 
    * @example
    * aa_value

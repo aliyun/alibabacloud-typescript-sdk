@@ -6,7 +6,7 @@ import { DescribeTaskResponseBodyStepsSubTasks } from "./DescribeTaskResponseBod
 export class DescribeTaskResponseBodySteps extends $dara.Model {
   /**
    * @remarks
-   * Step Failure Message
+   * The error message of the step.
    * 
    * @example
    * get taskinfo failed
@@ -14,15 +14,32 @@ export class DescribeTaskResponseBodySteps extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Stage Tag
+   * The stage marker.
+   * 
+   * Valid values:
+   * 
+   * *   机器释放: Machine release.
+   * *   节点并发初始化: Node concurrent initialization.
+   * *   节点释放: Node release.
+   * *   机器替换: Machine replacement.
+   * *   节点缩容: Node scale-in.
+   * *   提前续费: Early renewal.
+   * *   物理机清理: Physical machine cleanup.
+   * *   节点清理: Node cleanup.
+   * *   创建K8s集群: Create Kubernetes cluster.
+   * *   网络初始化: Network initialization.
+   * *   节点重启: Node restart.
+   * *   节点退订: Node unsubscribe.
+   * *   集群扩容: Cluster scale-out.
+   * *   异常机器释放: Abnormal machine release.
    * 
    * @example
-   * Node scaling
+   * 节点缩容
    */
   stageTag?: string;
   /**
    * @remarks
-   * Start Time
+   * The start time.
    * 
    * @example
    * 2022-11-30T2:00:00.852Z
@@ -30,7 +47,7 @@ export class DescribeTaskResponseBodySteps extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Step Name
+   * The name of the step.
    * 
    * @example
    * create_vpd
@@ -38,7 +55,12 @@ export class DescribeTaskResponseBodySteps extends $dara.Model {
   stepName?: string;
   /**
    * @remarks
-   * Step Execution State
+   * The step status.
+   * 
+   * Valid values:
+   * 
+   * *   execution_success
+   * *   execution_failed
    * 
    * @example
    * execution_success
@@ -46,7 +68,12 @@ export class DescribeTaskResponseBodySteps extends $dara.Model {
   stepState?: string;
   /**
    * @remarks
-   * Step Type
+   * The type of the step.
+   * 
+   * Valid values:
+   * 
+   * *   normal: A normal step has only one successor step.
+   * *   dispersive: A dispersive step has multiple successor steps.
    * 
    * @example
    * normal
@@ -54,12 +81,12 @@ export class DescribeTaskResponseBodySteps extends $dara.Model {
   stepType?: string;
   /**
    * @remarks
-   * Subtasks
+   * The sub tasks.
    */
   subTasks?: DescribeTaskResponseBodyStepsSubTasks[];
   /**
    * @remarks
-   * Update Time
+   * The update time.
    * 
    * @example
    * 2022-11-30T02:20:14.852Z

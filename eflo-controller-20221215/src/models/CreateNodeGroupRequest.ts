@@ -6,7 +6,7 @@ import { CreateNodeGroupRequestNodeGroup } from "./CreateNodeGroupRequestNodeGro
 export class CreateNodeGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -16,15 +16,9 @@ export class CreateNodeGroupRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Node ID.
-   * 
    * This parameter is required.
    */
   nodeGroup?: CreateNodeGroupRequestNodeGroup;
-  /**
-   * @remarks
-   * Node information
-   */
   nodeUnit?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

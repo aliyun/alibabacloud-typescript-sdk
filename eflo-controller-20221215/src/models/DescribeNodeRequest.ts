@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * This parameter is required.
    * 

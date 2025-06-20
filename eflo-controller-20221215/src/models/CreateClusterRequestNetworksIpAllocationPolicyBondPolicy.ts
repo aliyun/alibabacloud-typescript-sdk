@@ -6,7 +6,7 @@ import { CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds } from ".
 export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicy extends $dara.Model {
   /**
    * @remarks
-   * Default bond cluster subnet
+   * The default bond subnet for the cluster.
    * 
    * @example
    * 172.168.0.0/24
@@ -14,7 +14,7 @@ export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicy extends $d
   bondDefaultSubnet?: string;
   /**
    * @remarks
-   * Bond information
+   * The bond information.
    */
   bonds?: CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds[];
   static names(): { [key: string]: string } {

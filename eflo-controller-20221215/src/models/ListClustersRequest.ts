@@ -6,7 +6,7 @@ import { ListClustersRequestTags } from "./ListClustersRequestTags";
 export class ListClustersRequest extends $dara.Model {
   /**
    * @remarks
-   * Number of items per page for paginated queries, with a default value of 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -14,7 +14,7 @@ export class ListClustersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Query token, which is the value of the NextToken parameter returned by the previous API call.
+   * The token that determines the start position of the query. Set this parameter to the value of the NextToken parameter that is returned from the last call.
    * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
@@ -22,7 +22,7 @@ export class ListClustersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Resource group ID
+   * The resource group ID.
    * 
    * @example
    * rg-aek2bg6wyoox6jq
@@ -30,7 +30,7 @@ export class ListClustersRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * tag info
+   * The tags.
    */
   tags?: ListClustersRequestTags[];
   static names(): { [key: string]: string } {

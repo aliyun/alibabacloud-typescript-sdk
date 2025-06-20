@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Task ID
+   * The task ID.
    * 
    * This parameter is required.
    * 

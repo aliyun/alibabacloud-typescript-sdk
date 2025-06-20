@@ -13,7 +13,7 @@ export class UpdateNodeGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Task ID
+   * The task ID.
    * 
    * @example
    * i15374011238111706

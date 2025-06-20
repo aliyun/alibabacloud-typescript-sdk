@@ -6,7 +6,7 @@ import { ListVscsResponseBodyVscs } from "./ListVscsResponseBodyVscs";
 export class ListVscsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * No return. Please use TotalCount
+   * No response is returned. The TotalCount parameter is used.
    * 
    * @example
    * 0
@@ -14,7 +14,7 @@ export class ListVscsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Indicates the position of the current call return read. An empty value means that the data has been fully read.
+   * The token. It can be used in the next request to retrieve a new page of results. If this parameter is empty, no next page exists.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class ListVscsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * ID of the request
+   * The request ID.
    * 
    * @example
    * 03668372-18FF-5959-98D9-6B36A4643C7A
@@ -32,7 +32,7 @@ export class ListVscsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total count of data under the current request conditions
+   * The total number of VSCs.
    * 
    * @example
    * 3
@@ -40,7 +40,7 @@ export class ListVscsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * VSC list
+   * The VSCs.
    */
   vscs?: ListVscsResponseBodyVscs[];
   static names(): { [key: string]: string } {

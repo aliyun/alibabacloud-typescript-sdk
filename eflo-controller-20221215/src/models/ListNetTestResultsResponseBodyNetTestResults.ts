@@ -8,7 +8,7 @@ import { ListNetTestResultsResponseBodyNetTestResultsTrafficTest } from "./ListN
 export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i110667211718265012218
@@ -16,7 +16,7 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Cluster name
+   * The cluster name.
    * 
    * @example
    * test
@@ -24,12 +24,12 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * To be filled when the network test type is communication library test
+   * Returned when NetTestType is CommTest.
    */
   commTest?: ListNetTestResultsResponseBodyNetTestResultsCommTest;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2024-01-19T02:18:12Z
@@ -37,12 +37,12 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Fill in when the network test type is latency test
+   * Returned when NetTestType is DelayTest.
    */
   delayTest?: ListNetTestResultsResponseBodyNetTestResultsDelayTest;
   /**
    * @remarks
-   * Completion time.
+   * The finish time.
    * 
    * @example
    * 2024-10-30T02:07Z
@@ -50,7 +50,7 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   finishedTime?: string;
   /**
    * @remarks
-   * Type of network test.
+   * The type of the network test.
    * 
    * @example
    * NetDiag
@@ -58,7 +58,7 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   netTestType?: string;
   /**
    * @remarks
-   * Network mode
+   * The network mode.
    * 
    * @example
    * 01
@@ -66,7 +66,7 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   networkMode?: string;
   /**
    * @remarks
-   * Test port number.
+   * The port number.
    * 
    * @example
    * 80
@@ -74,10 +74,10 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * Status of the network test task. Possible values:</br>
-   * - InProgress: Testing in progress.</br>
-   * - Finished: Test completed.</br>
-   * - Failed: Test failed.
+   * The status of the network test task. Valid values:\\
+   * ● InProgress\\
+   * ● Finished\\
+   * ● Failed
    * 
    * @example
    * InProgress
@@ -85,7 +85,7 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Test ID. A unique identifier for the resource test task.
+   * The test ID. The unique identifier of the resource test task.
    * 
    * @example
    * String	i-uf6i0tv2refv8wz*****
@@ -93,7 +93,7 @@ export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   testId?: string;
   /**
    * @remarks
-   * Fill in when the network test type is traffic test.
+   * Returned when NetTestType is TrafficTest.
    */
   trafficTest?: ListNetTestResultsResponseBodyNetTestResultsTrafficTest;
   static names(): { [key: string]: string } {

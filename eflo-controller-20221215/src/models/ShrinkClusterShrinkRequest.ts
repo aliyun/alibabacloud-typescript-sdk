@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ShrinkClusterShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i15dfa12e8f27c44f4a006c2c8bb
@@ -13,7 +13,7 @@ export class ShrinkClusterShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Whether to allow skipping failed node tasks, default value is False
+   * Specifies whether to allow skipping failed nodes. Default value: False.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class ShrinkClusterShrinkRequest extends $dara.Model {
   ignoreFailedNodeTasks?: boolean;
   /**
    * @remarks
-   * Node group information
+   * The node groups.
    */
   nodeGroupsShrink?: string;
   static names(): { [key: string]: string } {

@@ -6,10 +6,10 @@ import { DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodes } from 
 export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.Model {
   /**
    * @remarks
-   * Command content.
+   * The executed command.
    * 
-   * - If `ContentEncoding` is set to `PlainText`, the original script content is returned.
-   * - If `ContentEncoding` is set to `Base64`, the Base64-encoded script content is returned.
+   * *   If ContentEncoding is set to PlainText in the request, the original command content is returned.
+   * *   If ContentEncoding is set to Base64 in the request, the Base64-encoded command content is returned.
    * 
    * @example
    * cnBtIC1xYSB8IGdyZXAgdnNm****
@@ -17,7 +17,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.
   commandContent?: string;
   /**
    * @remarks
-   * Command description.
+   * The command description.
    * 
    * @example
    * testDescription
@@ -25,7 +25,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.
   commandDescription?: string;
   /**
    * @remarks
-   * Command name.
+   * The command name.
    * 
    * @example
    * CommandTestName
@@ -33,7 +33,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.
   commandName?: string;
   /**
    * @remarks
-   * The creation time of the task.
+   * The time when the command task was created.
    * 
    * @example
    * 2020-01-19T09:15:46Z
@@ -41,31 +41,42 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.
   creationTime?: string;
   /**
    * @remarks
-   * The execution time for scheduled commands.
+   * The schedule on which the command was run.
    */
   frequency?: string;
   /**
    * @remarks
-   * The overall execution status of the command, which depends on the common execution status of all instances involved in the call. Possible values:
-   * - Pending: The system is validating or sending the command. If at least one instance has a command execution status of Pending, the overall status is Pending.
-   * - Scheduled: The scheduled command has been sent and is waiting to run. If at least one instance has a command execution status of Scheduled, the overall status is Scheduled.
-   * - Running: The command is running on the instance. If at least one instance has a command execution status of Running, the overall status is Running.
-   * - Success: The command execution status of all instances is Stopped or Success, and at least one instance\\"s command execution status is Success. The overall status is Success.
-   *     - For immediately executed tasks: The command has completed with an exit code of 0.
-   *     - For periodically executed tasks: The most recent execution was successful with an exit code of 0, and the specified times have all been completed.
-   * - Failed: The command execution status of all instances is Stopped or Failed. The overall status is Failed if any of the following conditions apply to the instance\\"s command execution status:
-   *     - Command validation failed (Invalid).
-   *     - Command sending failed (Aborted).
-   *     - Command completed but the exit code is not 0 (Failed).
-   *     - Command execution timed out (Timeout).
-   *     - Command execution encountered an error (Error).
-   * - Stopping: The task is being stopped. If at least one instance has a command execution status of Stopping, the overall status is Stopping.
-   * - Stopped: The task has been stopped. If all instances\\" command execution statuses are Stopped, the overall status is Stopped. The overall status is Stopped if the instance\\"s command execution status is any of the following:
-   *     - The task was canceled (Cancelled).
-   *     - The task was terminated (Terminated).
-   * - PartialFailed: Some instances succeeded and some failed. If the command execution statuses of all instances are Success, Failed, or Stopped, the overall status is PartialFailed.
+   * The overall execution state of the command task. The value of this parameter depends on the execution states of the command task on all the involved instances. Valid values:
    * 
-   * > The `InvokeStatus` in the response parameters is similar in meaning to this parameter, but it is recommended that you check this return value.
+   * *   Pending: The command was being verified or sent. If the execution state on at least one instance is Pending, the overall execution state is Pending.
+   * 
+   * *   Scheduled: The command that is set to run on a schedule is sent and waiting to be run. If the execution state on at least one instance is Scheduled, the overall execution state is Scheduled.
+   * 
+   * *   Running: The command is being run on the instance. When the execution state on at least one instance is Running, the overall execution state is Running.
+   * 
+   * *   Success: When the execution state on at least one instance is Success and the execution state on the other instances is Stopped or Success, the overall execution state is Success.
+   * 
+   *     *   One-time task: The execution is complete, and the exit code is 0.
+   *     *   Scheduled task: The last execution was complete, the exit code was 0, and the specified period ended.
+   * 
+   * *   Failed: When the execution state on all instances is Stopped or Failed, the overall execution state is Failed. When the execution state on an instance is one of the following values, Failed is returned as the overall execution state:
+   * 
+   *     *   Invalid: The command is invalid.
+   *     *   Aborted: The command failed to be sent.
+   *     *   Failed: The execution was complete, but the exit code was not 0.
+   *     *   Timeout: The execution timed out.
+   *     *   Error: An error occurred while the command was being run.
+   * 
+   * *   Stopping: The command task is being stopped. When the execution state on at least one instance is Stopping, the overall execution state is Stopping.
+   * 
+   * *   Stopped: The task was stopped. When the execution state on all instances is Stopped, the overall execution state is Stopped. When the execution state on an instance is one of the following values, Stopped is returned as the overall execution state:
+   * 
+   *     *   Cancelled: The task was canceled.
+   *     *   Terminated: The task was terminated.
+   * 
+   * *   PartialFailed: The execution was complete on some instances and failed on other instances. When the execution state is Success on some instances and is Failed or Stopped on the other instances, the overall execution state is PartialFailed.
+   * 
+   * >  The value of the `InvokeStatus` response parameter is similar to the value of InvocationStatus. We recommend that you ignore InvokeStatus and check the value of InvocationStatus.
    * 
    * @example
    * Success
@@ -73,7 +84,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.
   invocationStatus?: string;
   /**
    * @remarks
-   * Command execution ID.
+   * The execution ID.
    * 
    * @example
    * t-ind3k9ytvvduoe8
@@ -81,24 +92,33 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.
   invokeId?: string;
   /**
    * @remarks
-   * Command execution records.
+   * The command execution records.
    */
   invokeNodes?: DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodes;
   /**
    * @remarks
-   * The overall execution status of the command. The overall execution status depends on the common execution status of one or more instances in the execution. Possible values: 
-   * - Running:
-   *     - For scheduled execution: The execution status remains ongoing until the scheduled command is manually stopped.
-   *     - For single execution: If there is any command process running, the overall execution status is ongoing.
-   * - Finished:
-   *     - For scheduled execution: The command process cannot be completed.
-   *     - For single execution: All instances have completed execution, or some instances\\" command processes are manually stopped and the rest have completed.
-   * - Failed:
-   *     - For scheduled execution: The command process cannot fail.
-   *     - For single execution: All instances have failed to execute.
-   * - Stopped: The command has been stopped.
-   * - Stopping: The command is being stopped.
-   * - PartialFailed: Partial failure; if the `InstanceId` parameter is set, this does not apply.
+   * The overall execution status of the command task. The value of this parameter depends on the execution states of the command task on all involved instances. Valid values:
+   * 
+   * *   Running:
+   * 
+   *     *   Scheduled task: Before you stop the scheduled execution of the command, the overall execution state is always Running.
+   *     *   One-time task: If the command is being run on instances, the overall execution state is Running.
+   * 
+   * *   Finished:
+   * 
+   *     *   Scheduled task: The overall execution state can never be Finished.
+   *     *   One-time task: The execution is complete on all instances, or the execution is stopped on some instances and is complete on the other instances.
+   * 
+   * *   Failed:
+   * 
+   *     *   Scheduled task: The overall execution state can never be Failed.
+   *     *   One-time task: The execution failed on all instances.
+   * 
+   * *   Stopped: The task is stopped.
+   * 
+   * *   Stopping: The task is being stopped.
+   * 
+   * *   PartialFailed: The task fails on some instances. If you specify both this parameter and `InstanceId`, this parameter does not take effect.
    * 
    * @example
    * Running
@@ -106,7 +126,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.
   invokeStatus?: string;
   /**
    * @remarks
-   * Custom parameters in the command.
+   * The custom parameters in the command.
    * 
    * @example
    * {}
@@ -114,12 +134,12 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.
   parameters?: string;
   /**
    * @remarks
-   * 命令执行的方式。可能值：
+   * The execution mode of the command. Valid values:
    * 
-   * Once：立即执行命令。
-   * Period：定时执行命令。
-   * NextRebootOnly：当实例下一次启动时，自动执行命令。
-   * EveryReboot：实例每一次启动都将自动执行命令。
+   * *   Once: The command is run immediately.
+   * *   Period: The command is run on a schedule.
+   * *   NextRebootOnly: The command is run the next time the instances start.
+   * *   EveryReboot: runs the command every time the instances start.
    * 
    * @example
    * Once
@@ -127,7 +147,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.
   repeatMode?: string;
   /**
    * @remarks
-   * Timeout for executing the command, in seconds.
+   * The timeout period for the command execution. Unit: seconds.
    * 
    * @example
    * 60
@@ -135,7 +155,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.
   timeout?: number;
   /**
    * @remarks
-   * Username for executing the command.
+   * The username that is used to run the command.
    * 
    * @example
    * root

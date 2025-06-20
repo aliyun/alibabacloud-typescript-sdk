@@ -7,7 +7,7 @@ import { ListClusterNodesResponseBodyNodesTags } from "./ListClusterNodesRespons
 export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
-   * product code
+   * The commodity code.
    * 
    * @example
    * bcccluster
@@ -15,7 +15,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * Creation time
+   * The creation time.
    * 
    * @example
    * 1642472468000
@@ -23,7 +23,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Machine expiration time
+   * The time when the node expires.
    * 
    * @example
    * 1762185600000
@@ -31,7 +31,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * whether or not support file system mount
+   * Indicates whether file storage mounting is supported.
    * 
    * @example
    * False
@@ -39,7 +39,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   fileSystemMountEnabled?: boolean;
   /**
    * @remarks
-   * Hostname
+   * The hostname.
    * 
    * @example
    * 72432f80-273e-11ed-b57a-acde48001122
@@ -47,7 +47,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * Hpn Zone
+   * The cluster number.
    * 
    * @example
    * A1
@@ -55,7 +55,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * System image ID
+   * The system image ID.
    * 
    * @example
    * i190297201669099844192
@@ -63,7 +63,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * image name
+   * The image name.
    * 
    * @example
    * Alinux3_x86_AMD_R_Host_D3_E3_24.13.00_UEFI_N_250121
@@ -71,7 +71,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * Machine type
+   * The node type.
    * 
    * @example
    * cn-wulanchabu-b11
@@ -79,12 +79,12 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * Network information
+   * The network information.
    */
   networks?: ListClusterNodesResponseBodyNodesNetworks[];
   /**
    * @remarks
-   * Node group ID
+   * The node group ID.
    * 
    * @example
    * ng-e9b74f4d450cf18d
@@ -92,7 +92,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * Node group name
+   * The node group name.
    * 
    * @example
    * emr_master
@@ -100,7 +100,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   nodeGroupName?: string;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * e01-cn-2r42tmj4z02
@@ -108,7 +108,23 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Node status
+   * The node status.
+   * 
+   * Valid values:
+   * 
+   * *   Extending
+   * *   UnusedNodeStopped
+   * *   UnusedNodeStopping
+   * *   Unused
+   * *   Using
+   * *   ReleaseLocking
+   * *   Operating
+   * *   Cutting
+   * *   ClusterNodeStopped
+   * *   UnusedNodeRecovering
+   * *   ClusterNodeStopping
+   * *   ClusterNodeRecovering
+   * *   Replacing
    * 
    * @example
    * Extending
@@ -116,7 +132,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   operatingState?: string;
   /**
    * @remarks
-   * Machine SN
+   * The serial number of the node.
    * 
    * @example
    * sn_tOuUk
@@ -124,12 +140,12 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   sn?: string;
   /**
    * @remarks
-   * tag information
+   * The tags.
    */
   tags?: ListClusterNodesResponseBodyNodesTags[];
   /**
    * @remarks
-   * task id
+   * The job ID.
    * 
    * @example
    * i28ddkdkkdkdd
@@ -145,7 +161,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID
+   * The VPC ID.
    * 
    * @example
    * vpc-0jltf9vinjz3if3lltdy7
@@ -153,7 +169,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * Zone ID
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-b

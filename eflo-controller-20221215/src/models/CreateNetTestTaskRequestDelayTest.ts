@@ -6,7 +6,7 @@ import { CreateNetTestTaskRequestDelayTestHosts } from "./CreateNetTestTaskReque
 export class CreateNetTestTaskRequestDelayTest extends $dara.Model {
   /**
    * @remarks
-   * 输入测试节点的hosts
+   * The hosts of the test node.
    */
   hosts?: CreateNetTestTaskRequestDelayTestHosts[];
   static names(): { [key: string]: string } {

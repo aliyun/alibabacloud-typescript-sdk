@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodeGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i119982311660892626523
@@ -13,12 +13,13 @@ export class ListNodeGroupsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Number of items per page in a paginated query. The maximum value is 100.
+   * The number of entries per page. Maximum value: 100.
    * 
    * Default value:
    * 
-   * - If no value is set or the set value is less than 20, the default value is 20.
-   * - If the set value is greater than 100, the default value is 100.
+   * • If you do not configure this parameter or if you set this parameter to a value less than 20, the default value is 20.
+   * 
+   * • If you set this parameter to a value greater than 100, the default value is 100.
    * 
    * @example
    * 20
@@ -26,7 +27,7 @@ export class ListNodeGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * NextToken for the next page, include this value when requesting the next page
+   * The token that is used in the next request to retrieve a new page of results.
    * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
@@ -34,7 +35,7 @@ export class ListNodeGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Node group ID
+   * The node group ID.
    * 
    * @example
    * ng-ec3c96ff0aa4c60d

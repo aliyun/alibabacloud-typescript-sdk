@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVscRequest extends $dara.Model {
   /**
    * @remarks
-   * Idempotent parameter
+   * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13,7 +13,7 @@ export class DeleteVscRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The VscId to be deleted
+   * The ID of the VSC that you want to delete.
    * 
    * This parameter is required.
    * 

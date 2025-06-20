@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetTestTaskRequestTrafficTestClients extends $dara.Model {
   /**
    * @remarks
-   * Network card bond interface
+   * The bonding of network interface card.
    * 
    * @example
    * bond1
@@ -13,7 +13,7 @@ export class CreateNetTestTaskRequestTrafficTestClients extends $dara.Model {
   bond?: string;
   /**
    * @remarks
-   * Node IP
+   * The IP address of the node.
    * 
    * @example
    * 192.168.1.1
@@ -21,7 +21,7 @@ export class CreateNetTestTaskRequestTrafficTestClients extends $dara.Model {
   IP?: string;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * e01-tw-w5elqg7pw18
@@ -29,7 +29,7 @@ export class CreateNetTestTaskRequestTrafficTestClients extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Resource ID
+   * The resource ID.
    * 
    * @example
    * e01-cn-20s41p6cx01
@@ -37,7 +37,7 @@ export class CreateNetTestTaskRequestTrafficTestClients extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * Service name.
+   * The name of the service.
    * 
    * @example
    * xMv

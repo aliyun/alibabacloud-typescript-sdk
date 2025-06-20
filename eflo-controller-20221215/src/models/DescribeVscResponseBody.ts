@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVscResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the compute node where the Vsc is located
+   * The ID of the compute node in which the VSC resides.
    * 
    * @example
    * e01-cn-kvw44e6dn04
@@ -13,7 +13,7 @@ export class DescribeVscResponseBody extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * ID of the request
+   * The request ID.
    * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
@@ -21,7 +21,7 @@ export class DescribeVscResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Resource Group ID
+   * The resource group ID.
    * 
    * @example
    * rg-aek2k3rqlvv6ytq
@@ -29,7 +29,13 @@ export class DescribeVscResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Status of the Vsc
+   * The VSC status.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * *   Normal
+   * *   Deleting
    * 
    * @example
    * Normal
@@ -37,7 +43,7 @@ export class DescribeVscResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Vsc ID
+   * The VSC ID.
    * 
    * @example
    * vsc-001
@@ -45,7 +51,7 @@ export class DescribeVscResponseBody extends $dara.Model {
   vscId?: string;
   /**
    * @remarks
-   * Custom name of the Vsc
+   * The custom name of the VSC.
    * 
    * @example
    * test_name
@@ -53,7 +59,7 @@ export class DescribeVscResponseBody extends $dara.Model {
   vscName?: string;
   /**
    * @remarks
-   * Vsc type
+   * The VSC type.
    * 
    * @example
    * primary

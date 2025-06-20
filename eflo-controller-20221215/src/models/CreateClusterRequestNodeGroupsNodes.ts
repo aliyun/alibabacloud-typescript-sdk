@@ -1,11 +1,13 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { CreateClusterRequestNodeGroupsNodesDataDisk } from "./CreateClusterRequestNodeGroupsNodesDataDisk";
 
 
 export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
+  dataDisk?: CreateClusterRequestNodeGroupsNodesDataDisk[];
   /**
    * @remarks
-   * Hostname
+   * The hostname.
    * 
    * @example
    * 8d13b784-17a9-11ed-bc7b-acde48001122
@@ -13,7 +15,7 @@ export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * Login password
+   * The logon password.
    * 
    * @example
    * ***
@@ -21,7 +23,7 @@ export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
   loginPassword?: string;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * e01poc-cn-i7m2wnivf0d
@@ -29,7 +31,7 @@ export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Virtual switch ID
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp169pi5fj151rrms4sia
@@ -37,7 +39,7 @@ export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-0jlasms92fdxqd3wlf8ny
@@ -45,6 +47,7 @@ export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      dataDisk: 'DataDisk',
       hostname: 'Hostname',
       loginPassword: 'LoginPassword',
       nodeId: 'NodeId',
@@ -55,6 +58,7 @@ export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataDisk: { 'type': 'array', 'itemType': CreateClusterRequestNodeGroupsNodesDataDisk },
       hostname: 'string',
       loginPassword: 'string',
       nodeId: 'string',
@@ -64,6 +68,9 @@ export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.dataDisk)) {
+      $dara.Model.validateArray(this.dataDisk);
+    }
     super.validate();
   }
 

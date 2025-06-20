@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiagnosticResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i118913031696573280136
@@ -13,7 +13,7 @@ export class DescribeDiagnosticResultResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Device creation time.
+   * The creation time.
    * 
    * @example
    * 2024-06-15T10:17:56
@@ -21,7 +21,7 @@ export class DescribeDiagnosticResultResponseBody extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * Diagnostic ID
+   * The diagnostic task ID.
    * 
    * @example
    * diag-i155363241720059671316
@@ -29,12 +29,12 @@ export class DescribeDiagnosticResultResponseBody extends $dara.Model {
   diagnosticId?: string;
   /**
    * @remarks
-   * Diagnostic Information
+   * The diagnostic information.
    */
   diagnosticResults?: any[];
   /**
    * @remarks
-   * Diagnostic State
+   * The diagnostic status.
    * 
    * @example
    * Fault
@@ -42,7 +42,7 @@ export class DescribeDiagnosticResultResponseBody extends $dara.Model {
   diagnosticState?: string;
   /**
    * @remarks
-   * Diagnostic Type
+   * The type of the diagnostic task.
    * 
    * @example
    * CheckByAiJobLogs
@@ -50,7 +50,7 @@ export class DescribeDiagnosticResultResponseBody extends $dara.Model {
   diagnosticType?: string;
   /**
    * @remarks
-   * End time of node anomaly issues. Represented according to the ISO8601 standard, in a timezone-aware format, formatted as yyyy-MM-ddTHH:mm:ss+0800
+   * The end time of the instance exception. The time format with time zone based on the ISO8601 standard. The format is yyyy-MM-ddTHH:mm:ss +0800.
    * 
    * @example
    * 2024-06-11T10:00:30
@@ -58,12 +58,12 @@ export class DescribeDiagnosticResultResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * List of Node IDs
+   * The node IDs.
    */
   nodeIds?: string[];
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 8F065DDD-6996-5973-9691-9EC57BD0072E

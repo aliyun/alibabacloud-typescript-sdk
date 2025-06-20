@@ -7,7 +7,7 @@ import { DescribeNodeResponseBodyNetworks } from "./DescribeNodeResponseBodyNetw
 export class DescribeNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i116913051662373010974
@@ -15,7 +15,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Cluster name
+   * The cluster name.
    * 
    * @example
    * Standard_Cluster
@@ -23,7 +23,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * Creation time
+   * The creation time.
    * 
    * @example
    * 2022-09-30T03:35:53Z
@@ -31,12 +31,12 @@ export class DescribeNodeResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Disk infos
+   * The disks.
    */
   disks?: DescribeNodeResponseBodyDisks[];
   /**
    * @remarks
-   * Expiration time
+   * The expiration time.
    * 
    * @example
    * 2022-06-23T16:00:00Z
@@ -44,7 +44,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * Whether file storage mounting is supported
+   * Indicates whether file storage mounting is supported.
    * 
    * @example
    * False
@@ -52,7 +52,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   fileSystemMountEnabled?: boolean;
   /**
    * @remarks
-   * Hostname
+   * The hostname.
    * 
    * @example
    * 31d38530-241e-11ed-bc63-acde48001122
@@ -60,7 +60,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * Cluster number
+   * The cluster number.
    * 
    * @example
    * A1
@@ -68,7 +68,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * Image ID
+   * The image ID.
    * 
    * @example
    * i190297201634099844192
@@ -76,7 +76,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Image name
+   * The image name.
    * 
    * @example
    * Centos7.9_all_0811
@@ -84,7 +84,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * Machine type
+   * The instance type.
    * 
    * @example
    * efg1.nvga1
@@ -92,12 +92,12 @@ export class DescribeNodeResponseBody extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * Network information
+   * The network information.
    */
   networks?: DescribeNodeResponseBodyNetworks[];
   /**
    * @remarks
-   * Node group ID
+   * The node group ID.
    * 
    * @example
    * ng-ec3c96ff0aa4c60d
@@ -105,7 +105,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * Node group name
+   * The node group name.
    * 
    * @example
    * emr-default
@@ -113,7 +113,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   nodeGroupName?: string;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * e01-cn-zvp2tgykr08
@@ -121,7 +121,23 @@ export class DescribeNodeResponseBody extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Node status
+   * The node status.
+   * 
+   * Valid values:
+   * 
+   * *   Extending
+   * *   UnusedNodeStopped
+   * *   UnusedNodeStopping
+   * *   Unused
+   * *   Using
+   * *   ReleaseLocking
+   * *   Operating
+   * *   Cutting
+   * *   ClusterNodeStopped
+   * *   UnusedNodeRecovering
+   * *   ClusterNodeStopping
+   * *   ClusterNodeRecovering
+   * *   Replacing
    * 
    * @example
    * Using
@@ -129,7 +145,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   operatingState?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * AC4F0004-7BCE-52E0-891B-CAC7D64E3368
@@ -137,7 +153,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Resource group ID
+   * The resource group ID.
    * 
    * @example
    * rg-acfmywpvugkh7kq
@@ -145,7 +161,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Unique machine identifier
+   * The serial number of the node.
    * 
    * @example
    * sag42ckf4jx
@@ -153,7 +169,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   sn?: string;
   /**
    * @remarks
-   * The script by user defined
+   * The custom script.
    * 
    * @example
    * #!/bin/bash
@@ -163,7 +179,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * Zone ID
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-i

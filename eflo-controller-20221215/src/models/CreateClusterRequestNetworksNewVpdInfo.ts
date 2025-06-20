@@ -6,7 +6,7 @@ import { CreateClusterRequestNetworksNewVpdInfoVpdSubnets } from "./CreateCluste
 export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   /**
    * @remarks
-   * Cloud Enterprise Network ID
+   * The ID of the Cloud Enterprise Network (CEN) instance.
    * 
    * @example
    * cen-1gb1eftc5qp2ao75fo
@@ -14,7 +14,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * Cloud link CIDR
+   * The CIDR block for Cloud Link.
    * 
    * @example
    * 172.16.0.0/24
@@ -22,7 +22,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   cloudLinkCidr?: string;
   /**
    * @remarks
-   * Cloud link ID
+   * The Cloud Link ID.
    * 
    * @example
    * vcc-cn-c4dtycm5i08
@@ -30,7 +30,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   cloudLinkId?: string;
   /**
    * @remarks
-   * VPC
+   * The VPC.
    * 
    * @example
    * vpc-0jl2x45apm6odc2c10h25
@@ -38,7 +38,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   monitorVpcId?: string;
   /**
    * @remarks
-   * VPC switch
+   * The vSwitch.
    * 
    * @example
    * vsw-0jl2w3ffbghkss0x2foff
@@ -46,7 +46,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   monitorVswitchId?: string;
   /**
    * @remarks
-   * Cluster Network Segment
+   * The CIDR block for the cluster.
    * 
    * @example
    * 192.168.0.0/16
@@ -54,7 +54,7 @@ export class CreateClusterRequestNetworksNewVpdInfo extends $dara.Model {
   vpdCidr?: string;
   /**
    * @remarks
-   * Cluster subnets
+   * The cluster subnet.
    */
   vpdSubnets?: CreateClusterRequestNetworksNewVpdInfoVpdSubnets[];
   static names(): { [key: string]: string } {

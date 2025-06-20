@@ -6,12 +6,12 @@ import { CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds } from ".
 export class CreateClusterRequestNetworksIpAllocationPolicyNodePolicy extends $dara.Model {
   /**
    * @remarks
-   * Bond information
+   * The bond information.
    */
   bonds?: CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds[];
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * e01-cn-2r42vq62001

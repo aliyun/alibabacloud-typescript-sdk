@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMachineNetworkInfoShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Array
-   */
   machineHpnInfoShrink?: string;
   static names(): { [key: string]: string } {
     return {

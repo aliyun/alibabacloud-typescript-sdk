@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RebootNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
@@ -13,7 +13,7 @@ export class RebootNodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Task Id
+   * The job ID.
    * 
    * @example
    * i158475611663639202234

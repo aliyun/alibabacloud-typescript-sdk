@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReimageNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 15FBCD9B-C93F-54E8-A168-AADE7E66DAD2
@@ -13,7 +13,7 @@ export class ReimageNodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Task ID
+   * The job ID.
    * 
    * @example
    * i158782151663841517926

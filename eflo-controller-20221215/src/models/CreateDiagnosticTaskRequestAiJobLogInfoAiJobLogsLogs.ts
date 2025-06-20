@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogsLogs extends $dara.Model {
   /**
    * @remarks
-   * Sent date, in the format yyyymmdd.
+   * The sending date in the yyyymmdd format.
    * 
    * @example
    * 2024-08-05T10:10:01
@@ -13,7 +13,7 @@ export class CreateDiagnosticTaskRequestAiJobLogInfoAiJobLogsLogs extends $dara.
   datetime?: string;
   /**
    * @remarks
-   * Log content
+   * The log content.
    * 
    * @example
    * success

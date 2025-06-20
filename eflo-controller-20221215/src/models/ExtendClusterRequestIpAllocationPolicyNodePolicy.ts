@@ -6,12 +6,12 @@ import { ExtendClusterRequestIpAllocationPolicyNodePolicyBonds } from "./ExtendC
 export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $dara.Model {
   /**
    * @remarks
-   * Bond information
+   * The bonds.
    */
   bonds?: ExtendClusterRequestIpAllocationPolicyNodePolicyBonds[];
   /**
    * @remarks
-   * Host name
+   * The hostname.
    * 
    * @example
    * i22c11282.eu95sqa
@@ -19,7 +19,7 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $dara.Mode
   hostname?: string;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * i-3fdodw2

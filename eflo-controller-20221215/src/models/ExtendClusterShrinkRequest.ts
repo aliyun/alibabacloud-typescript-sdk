@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExtendClusterShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i15b480fbd2fcdbc2869cd80
@@ -13,7 +13,7 @@ export class ExtendClusterShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Whether to allow skipping failed node tasks, default value is False
+   * Specifies whether to allow skipping failed nodes. Default value: False.
    * 
    * @example
    * False
@@ -21,17 +21,17 @@ export class ExtendClusterShrinkRequest extends $dara.Model {
   ignoreFailedNodeTasks?: boolean;
   /**
    * @remarks
-   * IP allocation policy combination: Each policy can only choose one type, and multiple policies can be combined
+   * The combined policies for assigning IP addresses: Only one policy type can be selected for each policy, and multiple policies can be combined.
    */
   ipAllocationPolicyShrink?: string;
   /**
    * @remarks
-   * Node Group
+   * The node groups.
    */
   nodeGroupsShrink?: string;
   /**
    * @remarks
-   * VSwitch availability zone ID
+   * The ID of the zone to which the vSwitch belongs.
    * 
    * @example
    * cn-shanghai-b
@@ -39,7 +39,7 @@ export class ExtendClusterShrinkRequest extends $dara.Model {
   vSwitchZoneId?: string;
   /**
    * @remarks
-   * List of cluster subnets
+   * The subnets of the cluster.
    */
   vpdSubnetsShrink?: string;
   static names(): { [key: string]: string } {

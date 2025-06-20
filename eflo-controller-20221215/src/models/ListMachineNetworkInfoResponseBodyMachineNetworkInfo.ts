@@ -4,57 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMachineNetworkInfoResponseBodyMachineNetworkInfo extends $dara.Model {
   /**
-   * @remarks
-   * Cluster network
-   * 
    * @example
    * vpc/acl
    */
   clusterNet?: string;
   /**
-   * @remarks
-   * Whether jumbo frame capability is enabled
-   * 
    * @example
    * true
    */
   enableJumboFrame?: boolean;
   /**
-   * @remarks
-   * Cluster ID
-   * 
    * @example
    * B1
    */
   hpnZone?: string;
   /**
-   * @remarks
-   * Whether it is in DPU mode
-   * 
    * @example
    * true
    */
   isDpuMode?: boolean;
   /**
-   * @remarks
-   * Machine type
-   * 
    * @example
    * efg1.nvga8n
    */
   machineType?: string;
   /**
-   * @remarks
-   * Network architecture
-   * 
    * @example
    * XX-7.0
    */
   netArch?: string;
   /**
-   * @remarks
-   * 地域ID。
-   * 
    * @example
    * cn-heyuan
    */

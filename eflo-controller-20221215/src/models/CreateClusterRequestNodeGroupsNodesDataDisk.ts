@@ -2,39 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateClusterRequestNodeGroupsSystemDisk extends $dara.Model {
-  /**
-   * @remarks
-   * The disk category. Valid values:
-   * 
-   * *   cloud_essd
-   * 
-   * @example
-   * cloud_essd
-   */
+export class CreateClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   category?: string;
-  /**
-   * @remarks
-   * The performance level of the ESSD that is used as the system disk. Valid values:
-   * 
-   * *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-   * *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
-   * 
-   * @example
-   * PL1
-   */
+  deleteWithNode?: boolean;
   performanceLevel?: string;
-  /**
-   * @remarks
-   * Unit: GB
-   * 
-   * @example
-   * 20
-   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
+      deleteWithNode: 'DeleteWithNode',
       performanceLevel: 'PerformanceLevel',
       size: 'Size',
     };
@@ -43,6 +19,7 @@ export class CreateClusterRequestNodeGroupsSystemDisk extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      deleteWithNode: 'boolean',
       performanceLevel: 'string',
       size: 'number',
     };

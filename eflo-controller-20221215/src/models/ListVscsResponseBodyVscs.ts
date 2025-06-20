@@ -6,7 +6,7 @@ import { ListVscsResponseBodyVscsTags } from "./ListVscsResponseBodyVscsTags";
 export class ListVscsResponseBodyVscs extends $dara.Model {
   /**
    * @remarks
-   * Lingjun node ID
+   * The ID of the Lingjun node.
    * 
    * @example
    * e01-cn-fzh47xd7u08
@@ -14,7 +14,7 @@ export class ListVscsResponseBodyVscs extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Resource group ID
+   * The resource group ID.
    * 
    * @example
    * rg-acfm2zkwhkns57i
@@ -22,7 +22,13 @@ export class ListVscsResponseBodyVscs extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Status of Vsc
+   * The VSC status.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * *   Normal
+   * *   Deleting
    * 
    * @example
    * Normal
@@ -30,12 +36,12 @@ export class ListVscsResponseBodyVscs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Tags
+   * The tags.
    */
   tags?: ListVscsResponseBodyVscsTags[];
   /**
    * @remarks
-   * Vsc ID
+   * The VSC ID.
    * 
    * @example
    * vsc-001
@@ -43,7 +49,7 @@ export class ListVscsResponseBodyVscs extends $dara.Model {
   vscId?: string;
   /**
    * @remarks
-   * Customized name of Vsc
+   * The custom name of the VSC.
    * 
    * @example
    * test_name
@@ -51,7 +57,7 @@ export class ListVscsResponseBodyVscs extends $dara.Model {
   vscName?: string;
   /**
    * @remarks
-   * Vsc type, primary/standard
+   * The VSC type. Valid values: primary and standard.
    * 
    * @example
    * primary

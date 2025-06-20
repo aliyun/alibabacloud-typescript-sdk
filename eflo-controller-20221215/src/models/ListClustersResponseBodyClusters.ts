@@ -6,7 +6,7 @@ import { ListClustersResponseBodyClustersTags } from "./ListClustersResponseBody
 export class ListClustersResponseBodyClusters extends $dara.Model {
   /**
    * @remarks
-   * Cluster description
+   * The cluster description.
    * 
    * @example
    * PPU-cluster2 bz
@@ -14,7 +14,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterDescription?: string;
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i137590131672134915401
@@ -22,7 +22,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Cluster name
+   * The cluster name.
    * 
    * @example
    * cnp_test_cluster
@@ -30,7 +30,13 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * Cluster type
+   * The cluster type.
+   * 
+   * Valid values:
+   * 
+   * *   AckEdgePro
+   * *   ExclusiveBareCluster
+   * *   Lite
    * 
    * @example
    * AckEdgePro
@@ -38,7 +44,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * Component information
+   * The component information.
    * 
    * @example
    * {}
@@ -46,7 +52,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   components?: any;
   /**
    * @remarks
-   * IP version of the computing network
+   * The IP type of the computing network.
    * 
    * @example
    * IPv4
@@ -54,7 +60,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   computingIpVersion?: string;
   /**
    * @remarks
-   * Creation time
+   * The creation time.
    * 
    * @example
    * 1672134938
@@ -62,7 +68,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Cluster number
+   * The cluster number.
    * 
    * @example
    * B1
@@ -70,7 +76,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * Number of nodes
+   * The number of nodes.
    * 
    * @example
    * 12
@@ -78,7 +84,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * Number of node groups
+   * The number of node groups.
    * 
    * @example
    * 2
@@ -86,7 +92,14 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   nodeGroupCount?: number;
   /**
    * @remarks
-   * Cluster status
+   * The cluster status.
+   * 
+   * Valid values:
+   * 
+   * *   running
+   * *   expanding
+   * *   shrinking
+   * *   initializing
    * 
    * @example
    * initializing
@@ -94,7 +107,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   operatingState?: string;
   /**
    * @remarks
-   * Resource group ID
+   * The resource group ID.
    * 
    * @example
    * rg-aek2ajbjoloa23q
@@ -102,12 +115,12 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * tag information
+   * The tags.
    */
   tags?: ListClustersResponseBodyClustersTags[];
   /**
    * @remarks
-   * Task ID
+   * The job ID.
    * 
    * @example
    * i156365121663149566024
@@ -115,7 +128,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Update time
+   * The update time.
    * 
    * @example
    * 1672134968
@@ -123,7 +136,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * VPC ID
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-0jlx4hol2bjboafzmffvd

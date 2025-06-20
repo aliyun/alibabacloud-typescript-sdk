@@ -6,12 +6,12 @@ import { DescribeRegionsResponseBodyRegions } from "./DescribeRegionsResponseBod
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of region information.
+   * The regions.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 1D2FBB36-C39B-5EBB-9928-FCC1A236D65D

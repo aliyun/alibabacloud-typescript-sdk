@@ -6,8 +6,6 @@ import { CreateNodeGroupRequestNodeGroupSystemDisk } from "./CreateNodeGroupRequ
 export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   /**
    * @remarks
-   * Availability Zone
-   * 
    * This parameter is required.
    * 
    * @example
@@ -16,7 +14,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   az?: string;
   /**
    * @remarks
-   * Whether file storage mounting is supported
+   * Indicates whether file storage mounting is supported.
    * 
    * @example
    * False
@@ -24,8 +22,6 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   fileSystemMountEnabled?: boolean;
   /**
    * @remarks
-   * Image ID.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -33,9 +29,6 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
    */
   imageId?: string;
   /**
-   * @remarks
-   * The name of the key pair.
-   * 
    * @example
    * test-keypair
    */
@@ -43,7 +36,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   loginPassword?: string;
   /**
    * @remarks
-   * Machine type
+   * The instance type.
    * 
    * This parameter is required.
    * 
@@ -52,32 +45,20 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
    */
   machineType?: string;
   /**
-   * @remarks
-   * Node group description
-   * 
    * @example
    * describe for node group
    */
   nodeGroupDescription?: string;
   /**
    * @remarks
-   * Node group name
-   * 
    * This parameter is required.
    * 
    * @example
    * PAI-LINGJUN
    */
   nodeGroupName?: string;
-  /**
-   * @remarks
-   * SystemDisk
-   */
   systemDisk?: CreateNodeGroupRequestNodeGroupSystemDisk;
   /**
-   * @remarks
-   * user data
-   * 
    * @example
    * #!/bin/bash
    * uptime

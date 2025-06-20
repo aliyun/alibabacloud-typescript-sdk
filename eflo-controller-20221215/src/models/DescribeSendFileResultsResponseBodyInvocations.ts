@@ -6,7 +6,7 @@ import { DescribeSendFileResultsResponseBodyInvocationsInvocation } from "./Desc
 export class DescribeSendFileResultsResponseBodyInvocations extends $dara.Model {
   /**
    * @remarks
-   * Command execution ID.
+   * The command execution ID.
    */
   invocation?: DescribeSendFileResultsResponseBodyInvocationsInvocation[];
   static names(): { [key: string]: string } {

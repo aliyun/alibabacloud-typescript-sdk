@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTaskResponseBodyStepsSubTasks extends $dara.Model {
   /**
    * @remarks
-   * Creation Time
+   * The creation time.
    * 
    * @example
    * 2022-11-30T2:00:00.852Z
@@ -13,7 +13,7 @@ export class DescribeTaskResponseBodyStepsSubTasks extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Subtask Failure Message
+   * The error message returned for failed sub tasks.
    * 
    * @example
    * Releasing [prod_main_mid_26e234cf] in region [cn-beijing] with weight [0]
@@ -21,7 +21,7 @@ export class DescribeTaskResponseBodyStepsSubTasks extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Task ID
+   * The task ID.
    * 
    * @example
    * i158805051661047928377
@@ -29,7 +29,7 @@ export class DescribeTaskResponseBodyStepsSubTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Task Execution State
+   * The task status.
    * 
    * @example
    * running
@@ -37,7 +37,25 @@ export class DescribeTaskResponseBodyStepsSubTasks extends $dara.Model {
   taskState?: string;
   /**
    * @remarks
-   * Task Type
+   * The task type.
+   * 
+   * Valid values:
+   * 
+   * *   reclone_node_sub_task
+   * *   initialize_bare_cluster
+   * *   extend_bare_cluster
+   * *   reclone_node
+   * *   reboot_node
+   * *   extend_ack_edge_cluster
+   * *   extend_cluster
+   * *   initialize_ack_edge_cluster
+   * *   cut_node_sub_task
+   * *   reboot_node_sub_task
+   * *   reclone_ack_edge_node
+   * *   initialize_cluster
+   * *   cut_cluster
+   * *   reclone_bare_node
+   * *   cut_bare_cluster
    * 
    * @example
    * cut_node_sub_task
@@ -45,7 +63,7 @@ export class DescribeTaskResponseBodyStepsSubTasks extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * Update Time
+   * The update time.
    * 
    * @example
    * 2022-11-30T02:20:14.852Z

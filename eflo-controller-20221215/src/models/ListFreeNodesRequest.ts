@@ -6,7 +6,7 @@ import { ListFreeNodesRequestTags } from "./ListFreeNodesRequestTags";
 export class ListFreeNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster number
+   * The cluster number.
    * 
    * @example
    * A1
@@ -14,7 +14,7 @@ export class ListFreeNodesRequest extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * Machine type
+   * The instance type.
    * 
    * @example
    * mock-machine-type2
@@ -22,7 +22,7 @@ export class ListFreeNodesRequest extends $dara.Model {
   machineType?: string;
   /**
    * @remarks
-   * Number of items per page for paginated queries, default is 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -30,7 +30,7 @@ export class ListFreeNodesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Query token (Token), the value should be the NextToken parameter value returned from the previous API call.
+   * The token that determines the start position of the query. Set this parameter to the value of the NextToken parameter that is returned from the last call.
    * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
@@ -38,12 +38,12 @@ export class ListFreeNodesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * return array of operating states
+   * The types of the returned nodes that are not used.
    */
   operatingStates?: string[];
   /**
    * @remarks
-   * Resource group ID
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxno4vh5muoq
@@ -51,7 +51,7 @@ export class ListFreeNodesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Tag information
+   * The tags.
    */
   tags?: ListFreeNodesRequestTags[];
   static names(): { [key: string]: string } {

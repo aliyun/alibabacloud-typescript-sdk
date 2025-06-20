@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFreeNodesRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of tag object
+   * The tag key.
    * 
    * @example
    * key_aa
@@ -13,7 +13,7 @@ export class ListFreeNodesRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag object
+   * The tag value.
    * 
    * @example
    * value_aa

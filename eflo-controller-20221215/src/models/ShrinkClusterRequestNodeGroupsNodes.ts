@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ShrinkClusterRequestNodeGroupsNodes extends $dara.Model {
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * e01poc-cn-zmb2ypjdc01

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImagesRequest extends $dara.Model {
   /**
    * @remarks
-   * Architecture
+   * The architecture.
    * 
    * @example
    * x86_64
@@ -13,7 +13,7 @@ export class ListImagesRequest extends $dara.Model {
   architecture?: string;
   /**
    * @remarks
-   * Image version
+   * The image version.
    * 
    * @example
    * 7.9
@@ -21,7 +21,7 @@ export class ListImagesRequest extends $dara.Model {
   imageVersion?: string;
   /**
    * @remarks
-   * Platform
+   * The platform.
    * 
    * @example
    * ALinux3

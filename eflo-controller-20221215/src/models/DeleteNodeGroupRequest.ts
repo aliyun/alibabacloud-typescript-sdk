@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNodeGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i114444141733395242745
@@ -13,7 +13,7 @@ export class DeleteNodeGroupRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Node Group ID
+   * The node group ID.
    * 
    * @example
    * i121824791737080429819

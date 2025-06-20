@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   /**
    * @remarks
-   * Machine network interface name
+   * The name of the network port for the node.
    * 
    * @example
    * bond0
@@ -13,7 +13,7 @@ export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   bondName?: string;
   /**
    * @remarks
-   * IP address within the VPC
+   * The IP address of the node in the virtual private cloud (VPC).
    * 
    * @example
    * 192.168.22.2
@@ -21,7 +21,7 @@ export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * VPC subnet ID
+   * The subnet ID.
    * 
    * @example
    * subnet-fwekrvg9
@@ -29,7 +29,7 @@ export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   subnetId?: string;
   /**
    * @remarks
-   * VPC ID
+   * The VPC ID.
    * 
    * @example
    * vpd-eoiy88ju

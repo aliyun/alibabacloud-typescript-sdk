@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds extends $dara.Model {
   /**
    * @remarks
-   * Bond name
+   * The bond name.
    * 
    * @example
    * bond0
@@ -13,7 +13,7 @@ export class CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds exten
   name?: string;
   /**
    * @remarks
-   * IP source cluster subnet
+   * The cluster subnet from which the IP address originates.
    * 
    * @example
    * 172.16.0.0/24

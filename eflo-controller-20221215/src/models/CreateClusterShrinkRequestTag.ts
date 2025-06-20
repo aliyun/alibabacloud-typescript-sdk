@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * Key
+   * The tag key.
    * 
    * @example
    * env-name
@@ -13,7 +13,7 @@ export class CreateClusterShrinkRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Value
+   * The tag value.
    * 
    * @example
    * dev

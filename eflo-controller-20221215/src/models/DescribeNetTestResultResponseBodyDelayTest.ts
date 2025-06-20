@@ -4,10 +4,6 @@ import { DescribeNetTestResultResponseBodyDelayTestHosts } from "./DescribeNetTe
 
 
 export class DescribeNetTestResultResponseBodyDelayTest extends $dara.Model {
-  /**
-   * @remarks
-   * Input the hosts of the test nodes
-   */
   hosts?: DescribeNetTestResultResponseBodyDelayTestHosts[];
   static names(): { [key: string]: string } {
     return {

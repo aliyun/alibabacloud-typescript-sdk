@@ -6,7 +6,7 @@ import { DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvokeNo
 export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodes extends $dara.Model {
   /**
    * @remarks
-   * Command execution records for nodes.
+   * The command execution records of the node.
    */
   invokeNode?: DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvokeNode[];
   static names(): { [key: string]: string } {

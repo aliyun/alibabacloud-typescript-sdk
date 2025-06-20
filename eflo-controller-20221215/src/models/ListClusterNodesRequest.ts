@@ -6,7 +6,7 @@ import { ListClusterNodesRequestTags } from "./ListClusterNodesRequestTags";
 export class ListClusterNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class ListClusterNodesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Number of items per page in a paginated query, with a default value of 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -24,7 +24,7 @@ export class ListClusterNodesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Query token (Token), which is the value of the NextToken parameter returned by the previous API call.
+   * The token that determines the start position of the query. Set this parameter to the value of the NextToken parameter that is returned from the last call.
    * 
    * @example
    * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
@@ -32,7 +32,7 @@ export class ListClusterNodesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Node group ID
+   * The node group ID.
    * 
    * @example
    * ng-ec3c96ff0aa4c60d
@@ -40,7 +40,7 @@ export class ListClusterNodesRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * resource group id
+   * The resource group ID.
    * 
    * @example
    * rg-xxkxkllss
@@ -48,7 +48,7 @@ export class ListClusterNodesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * tag information
+   * The tags.
    */
   tags?: ListClusterNodesRequestTags[];
   static names(): { [key: string]: string } {

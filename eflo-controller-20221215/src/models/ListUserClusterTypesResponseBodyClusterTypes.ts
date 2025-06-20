@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUserClusterTypesResponseBodyClusterTypes extends $dara.Model {
   /**
-   * @remarks
-   * 访问类型。
-   * 
    * @example
    * Public
    */
   accessType?: string;
   /**
-   * @remarks
-   * Type name
-   * 
    * @example
    * AckEdgePro
    */

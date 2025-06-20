@@ -4,14 +4,10 @@ import { ListMachineNetworkInfoResponseBodyMachineNetworkInfo } from "./ListMach
 
 
 export class ListMachineNetworkInfoResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Array
-   */
   machineNetworkInfo?: ListMachineNetworkInfoResponseBodyMachineNetworkInfo[];
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateNodeGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether file storage mounting is supported
+   * Whether file storage mounting is supported.
    * 
    * @example
    * True
@@ -13,7 +13,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   fileSystemMountEnabled?: boolean;
   /**
    * @remarks
-   * The default image ID of a node group remains unchanged if not explicitly set.
+   * The default image ID of the node group. if you do not set this parameter, the image ID will not change.
    * 
    * @example
    * i123847249284734
@@ -34,7 +34,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   loginPassword?: string;
   /**
    * @remarks
-   * Node group name
+   * The node group name
    * 
    * @example
    * test-update
@@ -42,7 +42,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   newNodeGroupName?: string;
   /**
    * @remarks
-   * Node group ID
+   * The node group ID.
    * 
    * @example
    * i120021051733814190732
@@ -50,7 +50,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * user data
+   * The custom script.
    * 
    * @example
    * #!/bin/bash

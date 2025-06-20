@@ -6,13 +6,12 @@ import { ListNetTestResultsResponseBodyNetTestResults } from "./ListNetTestResul
 export class ListNetTestResultsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 分页查询时每页行数。最大值为100。
+   * The number of entries to return on each page. Maximum value: 100.
    * 
-   * 默认值：
+   * Default value:
    * 
-   * •当不设置值或设置的值小于20时，默认值为20。
-   * 
-   * •当设置的值大于100时，默认值为100。
+   * *   If you do not configure this parameter or if you set this parameter to a value less than 20, the default value is 20.
+   * *   If you set this parameter to a value that is greater than 100, the default value is 100.
    * 
    * @example
    * 20
@@ -20,12 +19,12 @@ export class ListNetTestResultsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * List of nodes
+   * The results.
    */
   netTestResults?: ListNetTestResultsResponseBodyNetTestResults[];
   /**
    * @remarks
-   * NextToken for the next page, to be included in the request for the next page
+   * The token that is used in the next request to retrieve a new page of results.
    * 
    * @example
    * 3a6b93229825ac667104463b56790c91
@@ -33,7 +32,7 @@ export class ListNetTestResultsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * ID of the request
+   * The request ID.
    * 
    * @example
    * 3C683243-7915-57FB-9570-A2932C1C0F78

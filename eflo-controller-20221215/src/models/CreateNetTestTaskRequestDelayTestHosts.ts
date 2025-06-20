@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetTestTaskRequestDelayTestHosts extends $dara.Model {
   /**
    * @remarks
-   * Network interface bond port
+   * The bonding of network interface card.
    * 
    * @example
    * bond1
@@ -13,7 +13,7 @@ export class CreateNetTestTaskRequestDelayTestHosts extends $dara.Model {
   bond?: string;
   /**
    * @remarks
-   * Node IP
+   * The IP address of the node.
    * 
    * @example
    * 125.210.225.48
@@ -21,7 +21,7 @@ export class CreateNetTestTaskRequestDelayTestHosts extends $dara.Model {
   IP?: string;
   /**
    * @remarks
-   * Node ID.
+   * The node ID.
    * 
    * @example
    * e01-cn-fou43an0a05
@@ -29,7 +29,7 @@ export class CreateNetTestTaskRequestDelayTestHosts extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Resource ID
+   * The resource ID.
    * 
    * @example
    * e01-cn-bcd3u1aee06
@@ -37,7 +37,7 @@ export class CreateNetTestTaskRequestDelayTestHosts extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * Service name.
+   * The name of the service.
    * 
    * @example
    * NQU

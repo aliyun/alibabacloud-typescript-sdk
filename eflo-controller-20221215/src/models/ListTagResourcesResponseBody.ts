@@ -6,7 +6,7 @@ import { ListTagResourcesResponseBodyTagResources } from "./ListTagResourcesResp
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * NextToken for the next page, include this returned value when requesting the next page
+   * The token that is used in the next request to retrieve a new page of results.
    * 
    * @example
    * AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
@@ -14,7 +14,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 8F208B6D-4C42-5FD3-B6BE-E826E92A44DD
@@ -22,7 +22,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Tagged resources.
+   * The tags.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {

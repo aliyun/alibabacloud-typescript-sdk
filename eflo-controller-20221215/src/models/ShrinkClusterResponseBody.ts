@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ShrinkClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * CC9FEF89-9BE5-5E03-845E-238B48D7599B
@@ -13,7 +13,7 @@ export class ShrinkClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * task id
+   * The job ID.
    * 
    * @example
    * i159136551662516768776

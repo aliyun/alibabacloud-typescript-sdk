@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Approve Operation
+   * Approves an O\\&M operation.
    * 
    * @param request - ApproveOperationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65,7 +65,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Approve Operation
+   * Approves an O\\&M operation.
    * 
    * @param request - ApproveOperationRequest
    * @returns ApproveOperationResponse
@@ -76,7 +76,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Target Resource Group
+   * Moves a resource from one resource group to another.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -119,7 +119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Target Resource Group
+   * Moves a resource from one resource group to another.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -130,10 +130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disconnect Connection
-   * 
-   * @remarks
-   * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
+   * 断开连接
    * 
    * @param request - CloseSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -168,10 +165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disconnect Connection
-   * 
-   * @remarks
-   * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
+   * 断开连接
    * 
    * @param request - CloseSessionRequest
    * @returns CloseSessionResponse
@@ -182,7 +176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a large-scale computing cluster
+   * Creates a Lingjun cluster.
    * 
    * @param tmpReq - CreateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -277,7 +271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a large-scale computing cluster
+   * Creates a Lingjun cluster.
    * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
@@ -288,7 +282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Diagnostic Task Creation Interface
+   * Creates a diagnostics task.
    * 
    * @param tmpReq - CreateDiagnosticTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -341,7 +335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Diagnostic Task Creation Interface
+   * Creates a diagnostics task.
    * 
    * @param request - CreateDiagnosticTaskRequest
    * @returns CreateDiagnosticTaskResponse
@@ -352,10 +346,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Network Test Task
+   * Creates a network test task.
    * 
    * @remarks
-   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param tmpReq - CreateNetTestTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -428,10 +422,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Network Test Task
+   * Creates a network test task.
    * 
    * @remarks
-   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param request - CreateNetTestTaskRequest
    * @returns CreateNetTestTaskResponse
@@ -442,10 +436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Node Group under Cluster
-   * 
-   * @remarks
-   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status
+   * 创建集群下的节点分组
    * 
    * @param tmpReq - CreateNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -494,10 +485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Node Group under Cluster
-   * 
-   * @remarks
-   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status
+   * 创建集群下的节点分组
    * 
    * @param request - CreateNodeGroupRequest
    * @returns CreateNodeGroupResponse
@@ -508,10 +496,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Web Terminal Session
+   * Creates a Web Terminal session.
    * 
    * @remarks
-   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param request - CreateSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -550,10 +538,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Web Terminal Session
+   * Creates a Web Terminal session.
    * 
    * @remarks
-   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param request - CreateSessionRequest
    * @returns CreateSessionResponse
@@ -564,7 +552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Vsc
+   * Creates a virtual storage channel (VSC).
    * 
    * @param request - CreateVscRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -617,7 +605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Vsc
+   * Creates a virtual storage channel (VSC).
    * 
    * @param request - CreateVscRequest
    * @returns CreateVscResponse
@@ -628,7 +616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete cluster instance
+   * Deletes a Lingjun cluster.
    * 
    * @param request - DeleteClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -659,7 +647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete cluster instance
+   * Deletes a Lingjun cluster.
    * 
    * @param request - DeleteClusterRequest
    * @returns DeleteClusterResponse
@@ -670,10 +658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Node Group
-   * 
-   * @remarks
-   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
+   * 删除节点分组
    * 
    * @param request - DeleteNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -708,10 +693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Node Group
-   * 
-   * @remarks
-   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
+   * 删除节点分组
    * 
    * @param request - DeleteNodeGroupRequest
    * @returns DeleteNodeGroupResponse
@@ -722,7 +704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Vsc
+   * Deletes a virtual storage channel (VSC).
    * 
    * @param request - DeleteVscRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -759,7 +741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Vsc
+   * Deletes a virtual storage channel (VSC).
    * 
    * @param request - DeleteVscRequest
    * @returns DeleteVscResponse
@@ -812,10 +794,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Diagnostic Task Query Interface
+   * Queries the results of a diagnostic task.
    * 
    * @remarks
-   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
+   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param request - DescribeDiagnosticResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -846,10 +828,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Diagnostic Task Query Interface
+   * Queries the results of a diagnostic task.
    * 
    * @remarks
-   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
+   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param request - DescribeDiagnosticResultRequest
    * @returns DescribeDiagnosticResultResponse
@@ -860,7 +842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list and status of operations assistant command executions
+   * Queries the execution list and status of O\\&M Assistant commands.
    * 
    * @param request - DescribeInvocationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -903,7 +885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list and status of operations assistant command executions
+   * Queries the execution list and status of O\\&M Assistant commands.
    * 
    * @param request - DescribeInvocationsRequest
    * @returns DescribeInvocationsResponse
@@ -914,10 +896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Network Test Result
-   * 
-   * @remarks
-   * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
+   * 查询网络测试结果
    * 
    * @param request - DescribeNetTestResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -948,10 +927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Network Test Result
-   * 
-   * @remarks
-   * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
+   * 查询网络测试结果
    * 
    * @param request - DescribeNetTestResultRequest
    * @returns DescribeNetTestResultResponse
@@ -962,7 +938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query node list
+   * Queries a list of nodes.
    * 
    * @param request - DescribeNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -993,7 +969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query node list
+   * Queries a list of nodes.
    * 
    * @param request - DescribeNodeRequest
    * @returns DescribeNodeResponse
@@ -1004,7 +980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Region List
+   * Queries a list of regions.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1035,7 +1011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Region List
+   * Queries a list of regions.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -1046,7 +1022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list and status of files sent by the operation assistant
+   * Queries the files that are sent by an O\\&M assistant and the status of the files.
    * 
    * @param request - DescribeSendFileResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1081,7 +1057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list and status of files sent by the operation assistant
+   * Queries the files that are sent by an O\\&M assistant and the status of the files.
    * 
    * @param request - DescribeSendFileResultsRequest
    * @returns DescribeSendFileResultsResponse
@@ -1092,7 +1068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Task Details
+   * Queries the details of a task.
    * 
    * @param request - DescribeTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1123,7 +1099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Task Details
+   * Queries the details of a task.
    * 
    * @param request - DescribeTaskRequest
    * @returns DescribeTaskResponse
@@ -1134,7 +1110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get details of a single Vsc
+   * Queries information about a virtual storage channel (VSC).
    * 
    * @param request - DescribeVscRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1165,7 +1141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get details of a single Vsc
+   * Queries information about a virtual storage channel (VSC).
    * 
    * @param request - DescribeVscRequest
    * @returns DescribeVscResponse
@@ -1176,7 +1152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Available Zones
+   * Queries a list of zones.
    * 
    * @param request - DescribeZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1207,7 +1183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Available Zones
+   * Queries a list of zones.
    * 
    * @param request - DescribeZonesRequest
    * @returns DescribeZonesResponse
@@ -1218,7 +1194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cluster Scaling
+   * Scales out a cluster.
    * 
    * @param tmpReq - ExtendClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1283,7 +1259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cluster Scaling
+   * Scales out a cluster.
    * 
    * @param request - ExtendClusterRequest
    * @returns ExtendClusterResponse
@@ -1294,7 +1270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of host groups under the cluster, and list of hosts under each group
+   * Queries a list of nodes in a cluster.
    * 
    * @param request - ListClusterNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1347,7 +1323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of host groups under the cluster, and list of hosts under each group
+   * Queries a list of nodes in a cluster.
    * 
    * @param request - ListClusterNodesRequest
    * @returns ListClusterNodesResponse
@@ -1358,7 +1334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the list of cluster instances
+   * Queries a list of clusters.
    * 
    * @param request - ListClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1403,7 +1379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the list of cluster instances
+   * Queries a list of clusters.
    * 
    * @param request - ListClustersRequest
    * @returns ListClustersResponse
@@ -1414,10 +1390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Diagnostic Tasks
-   * 
-   * @remarks
-   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+   * 诊断任务列表
    * 
    * @param request - ListDiagnosticResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1460,10 +1433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Diagnostic Tasks
-   * 
-   * @remarks
-   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+   * 诊断任务列表
    * 
    * @param request - ListDiagnosticResultsRequest
    * @returns ListDiagnosticResultsResponse
@@ -1474,7 +1444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Available Physical Machines
+   * Queries a list of nodes that are not used.
    * 
    * @param request - ListFreeNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1531,7 +1501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Available Physical Machines
+   * Queries a list of nodes that are not used.
    * 
    * @param request - ListFreeNodesRequest
    * @returns ListFreeNodesResponse
@@ -1542,7 +1512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of images available to the user
+   * Lists available images.
    * 
    * @param request - ListImagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1581,7 +1551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of images available to the user
+   * Lists available images.
    * 
    * @param request - ListImagesRequest
    * @returns ListImagesResponse
@@ -1592,10 +1562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query machine network configuration using HPNZone and machine type
-   * 
-   * @remarks
-   * An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status
+   * 使用HPNZone和机型查询机型网络配置
    * 
    * @param tmpReq - ListMachineNetworkInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1632,10 +1599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query machine network configuration using HPNZone and machine type
-   * 
-   * @remarks
-   * An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status
+   * 使用HPNZone和机型查询机型网络配置
    * 
    * @param request - ListMachineNetworkInfoRequest
    * @returns ListMachineNetworkInfoResponse
@@ -1646,7 +1610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of machine types available to the user
+   * Queries a list of instance types that are available to users.
    * 
    * @param request - ListMachineTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1677,7 +1641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of machine types available to the user
+   * Queries a list of instance types that are available to users.
    * 
    * @param request - ListMachineTypesRequest
    * @returns ListMachineTypesResponse
@@ -1688,10 +1652,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Network Test List
+   * Lists the results of network test results.
    * 
    * @remarks
-   * An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status.
+   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param request - ListNetTestResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1734,10 +1698,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Network Test List
+   * Lists the results of network test results.
    * 
    * @remarks
-   * An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status.
+   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param request - ListNetTestResultsRequest
    * @returns ListNetTestResultsResponse
@@ -1748,7 +1712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Node Group Information Under the Cluster
+   * Queries node groups in a cluster.
    * 
    * @param request - ListNodeGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1791,7 +1755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Node Group Information Under the Cluster
+   * Queries node groups in a cluster.
    * 
    * @param request - ListNodeGroupsRequest
    * @returns ListNodeGroupsResponse
@@ -1802,7 +1766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Resource Tags
+   * Queries the tags of resources.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1849,7 +1813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Resource Tags
+   * Queries the tags of resources.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -1860,10 +1824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the cluster types available to the user
-   * 
-   * @remarks
-   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
+   * 查询用户可以使用的集群类型
    * 
    * @param request - ListUserClusterTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1886,10 +1847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the cluster types available to the user
-   * 
-   * @remarks
-   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
+   * 查询用户可以使用的集群类型
    * @returns ListUserClusterTypesResponse
    */
   async listUserClusterTypes(): Promise<$_model.ListUserClusterTypesResponse> {
@@ -1898,7 +1856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Vsc List
+   * Queries a list of virtual storage channels (VSC).
    * 
    * @param tmpReq - ListVscsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1957,7 +1915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Vsc List
+   * Queries a list of virtual storage channels (VSC).
    * 
    * @param request - ListVscsRequest
    * @returns ListVscsResponse
@@ -1968,7 +1926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reboot Machine
+   * Restarts nodes.
    * 
    * @param tmpReq - RebootNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2013,7 +1971,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reboot Machine
+   * Restarts nodes.
    * 
    * @param request - RebootNodesRequest
    * @returns RebootNodesResponse
@@ -2024,7 +1982,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Machine Reinstallation
+   * Reinstall a node.
    * 
    * @param tmpReq - ReimageNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2073,7 +2031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Machine Reinstallation
+   * Reinstall a node.
    * 
    * @param request - ReimageNodesRequest
    * @returns ReimageNodesResponse
@@ -2084,7 +2042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Execute a Shell script on one or more Lingjun machines
+   * Runs a Shell script on one or more Lingjun nodes.
    * 
    * @param tmpReq - RunCommandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2185,7 +2143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Execute a Shell script on one or more Lingjun machines
+   * Runs a Shell script on one or more Lingjun nodes.
    * 
    * @param request - RunCommandRequest
    * @returns RunCommandResponse
@@ -2196,7 +2154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Send a remote file to one or more Lingjun machines
+   * Sends a file to one or more Lingjun nodes.
    * 
    * @param tmpReq - SendFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2273,7 +2231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Send a remote file to one or more Lingjun machines
+   * Sends a file to one or more Lingjun nodes.
    * 
    * @param request - SendFileRequest
    * @returns SendFileResponse
@@ -2284,7 +2242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shrink
+   * Scales in a cluster.
    * 
    * @param tmpReq - ShrinkClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2329,7 +2287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shrink
+   * Scales in a cluster.
    * 
    * @param request - ShrinkClusterRequest
    * @returns ShrinkClusterResponse
@@ -2340,7 +2298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stop the operation assistant command process
+   * Stops the O\\&M assistant command execution.
    * 
    * @param tmpReq - StopInvocationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2381,7 +2339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stop the operation assistant command process
+   * Stops the O\\&M assistant command execution.
    * 
    * @param request - StopInvocationRequest
    * @returns StopInvocationResponse
@@ -2392,7 +2350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shut down the nodes
+   * Stops nodes.
    * 
    * @param tmpReq - StopNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2433,7 +2391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shut down the nodes
+   * Stops nodes.
    * 
    * @param request - StopNodesRequest
    * @returns StopNodesResponse
@@ -2444,7 +2402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag User Resources
+   * Tags resources.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2487,7 +2445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tag User Resources
+   * Tags resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -2498,7 +2456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove user tags from resources
+   * Deletes a custom tag from a resource.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2545,7 +2503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove user tags from resources
+   * Deletes a custom tag from a resource.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -2556,10 +2514,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Node Group
+   * Updates a node group.
    * 
    * @remarks
-   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
+   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param request - UpdateNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2614,10 +2572,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Node Group
+   * Updates a node group.
    * 
    * @remarks
-   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
+   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
    * 
    * @param request - UpdateNodeGroupRequest
    * @returns UpdateNodeGroupResponse

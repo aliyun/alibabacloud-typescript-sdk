@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMachineTypesRequest extends $dara.Model {
   /**
    * @remarks
-   * Machine name
+   * The name of the instance type.
    * 
    * @example
    * efg1.nvga1

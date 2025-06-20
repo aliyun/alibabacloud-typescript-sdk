@@ -6,7 +6,7 @@ import { DescribeZonesResponseBodyZones } from "./DescribeZonesResponseBodyZones
 export class DescribeZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * E9116F2D-82F8-501E-9ADB-2BE0C02B6A84
@@ -14,7 +14,7 @@ export class DescribeZonesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of available zones
+   * The list of zones.
    */
   zones?: DescribeZonesResponseBodyZones[];
   static names(): { [key: string]: string } {

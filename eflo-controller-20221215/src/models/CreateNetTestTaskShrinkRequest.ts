@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetTestTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i119982311660892626523
@@ -13,7 +13,7 @@ export class CreateNetTestTaskShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Cluster name
+   * The cluster name.
    * 
    * @example
    * Eflo-YJ-Test-Cluster
@@ -21,18 +21,17 @@ export class CreateNetTestTaskShrinkRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * Required when the test type is communication library testing
+   * Specify when NetTestType is CommTest.
    */
   commTestShrink?: string;
   /**
    * @remarks
-   * Fill in this field when the network test type is delay testing.
+   * Specify when NetTestType is DelayTest.
    */
   delayTestShrink?: string;
   /**
    * @remarks
-   * Network test type.
-   * For example: DelayTest for latency testing, TrafficTest for traffic testing, CommTest for communication library testing.
+   * The type of the network test. Valid values: DelayTest, TrafficTest, and CommTest.
    * 
    * @example
    * DelayTest
@@ -40,7 +39,7 @@ export class CreateNetTestTaskShrinkRequest extends $dara.Model {
   netTestType?: string;
   /**
    * @remarks
-   * Network mode
+   * The network mode.
    * 
    * @example
    * 2
@@ -48,7 +47,7 @@ export class CreateNetTestTaskShrinkRequest extends $dara.Model {
   networkMode?: string;
   /**
    * @remarks
-   * Test port number.
+   * The port number.
    * 
    * @example
    * 23604
@@ -56,7 +55,7 @@ export class CreateNetTestTaskShrinkRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * This field is empty if the TrafficModel is Fullmesh.
+   * If the TrafficModel is Fullmesh, leave this parameter empty.
    */
   trafficTestShrink?: string;
   static names(): { [key: string]: string } {

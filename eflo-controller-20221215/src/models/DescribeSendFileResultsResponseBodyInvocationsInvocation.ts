@@ -6,10 +6,9 @@ import { DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes } f
 export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $dara.Model {
   /**
    * @remarks
-   * Output information after command execution.
+   * The command output.
    * 
-   * If ContentEncoding is specified as PlainText, the original output information is returned.
-   * If ContentEncoding is specified as Base64, the Base64 encoded output information is returned.
+   * If ContentEncoding is set to PlainText in the request, the original command output is returned. If ContentEncoding is set to Base64 in the request, the Base64-encoded command output is returned.
    * 
    * @example
    * Base64
@@ -17,11 +16,9 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $d
   content?: string;
   /**
    * @remarks
-   * File content type.
+   * The content type of the file.
    * 
-   * PlainText: Plain text.
-   * Base64: Base64 encoding.
-   * The default value is PlainText.
+   * PlainText: The file content is not encoded. Base64: The file content is encoded in Base64. Default value: PlainText.
    * 
    * @example
    * PlainText
@@ -29,7 +26,7 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $d
   contentType?: string;
   /**
    * @remarks
-   * Creation time of the distribution.
+   * The time when the file sending task was created.
    * 
    * @example
    * 2023-04-10T10:53:46.156+08:00
@@ -37,10 +34,10 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $d
   creationTime?: string;
   /**
    * @remarks
-   * Command description.
+   * The command description.
    * 
    * @example
-   * 描述信息。
+   * Description
    */
   description?: string;
   /**
@@ -53,7 +50,7 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $d
   fileGroup?: string;
   /**
    * @remarks
-   * File permissions.
+   * The permissions on the file.
    * 
    * @example
    * 0644
@@ -69,18 +66,23 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $d
   fileOwner?: string;
   /**
    * @remarks
-   * Overall status of the file distribution. The overall status depends on the common execution status of all instances involved in this distribution, possible values are:
+   * The overall sending status of the file. The overall sending status of the file varies based on the sending status of the file on all destination instances. Valid values:
    * 
-   * - Pending: The system is verifying or distributing the file. If at least one instance has a file distribution status of Pending, the overall execution status will be Pending.
-   * - Running: The file is being distributed on the instance. If at least one instance has a file distribution status of Running, the overall execution status will be Running.
-   * - Success: All instances have a file distribution status of Success, then the overall execution status will be Success.
-   * - Failed: All instances have a file distribution status of Failed, then the overall execution status will be Failed. If any of the following conditions occur for the file distribution status on an instance, the return value will be Failed:
-   *     - The specified file parameters are incorrect, verification failed (Invalid).
-   *     - Failed to distribute the file to the instance (Aborted).
-   *     - The file creation failed within the instance (Failed).
-   *     - The file distribution timed out (Timeout).
-   *     - An exception occurred during file distribution and could not continue (Error).
-   * - PartialFailed: Some instances successfully received the file while others failed. If the file distribution status of all instances is either Success or Failed, the overall execution status will be PartialFailed.
+   * *   Pending: The file is being verified or sent. If the sending state of the file on at least one instance is Pending, the overall sending state of the file is Pending.
+   * 
+   * *   Running: The file is being sent to the instance. If the sending state of the file on at least one instance is Running, the overall sending state of the file is Running.
+   * 
+   * *   Success: If the sending state of the file on all instances is Success, the overall sending state of the file is Success.
+   * 
+   * *   Failed: If the sending state of the file on all instances is Failed, the overall sending state of the file is Failed. If the sending state of the file on one or more instances is one of the following values, the overall sending state of the file is Failed:
+   * 
+   *     *   Invalid: The file is invalid.
+   *     *   Aborted: The file failed to be sent to the instances.
+   *     *   Failed: The file failed to be created on the instances.
+   *     *   Timeout: The file sending task timed out.
+   *     *   Error: An error occurred and interrupted the file sending task.
+   * 
+   * *   PartialFailed: The file sending task was completed on some instances but failed on other instances. If the sending state of the file is Success on some instances and is Failed on other instances, the overall sending state of the file is PartialFailed.
    * 
    * @example
    * Pending
@@ -88,12 +90,12 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $d
   invocationStatus?: string;
   /**
    * @remarks
-   * Record of file distribution.
+   * The file sending records.
    */
   invokeNodes?: DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes;
   /**
    * @remarks
-   * Name of the file distribution.
+   * The name of the file sending task.
    * 
    * @example
    * test
@@ -101,7 +103,7 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $d
   name?: string;
   /**
    * @remarks
-   * Number of nodes
+   * The number of nodes.
    * 
    * @example
    * 3
@@ -109,11 +111,12 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $d
   nodeCount?: number;
   /**
    * @remarks
-   * Whether to overwrite the file if a file with the same name already exists in the target directory.
-   * - true: Overwrite.
-   * - false: Do not overwrite.
+   * Indicates whether a file was overwritten in the destination directory if the file has the same name as the sent file.
    * 
-   * The default value is false.
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
    * 
    * @example
    * true
@@ -121,7 +124,7 @@ export class DescribeSendFileResultsResponseBodyInvocationsInvocation extends $d
   overwrite?: boolean;
   /**
    * @remarks
-   * Target path.
+   * The destination directory.
    * 
    * @example
    * /home/user

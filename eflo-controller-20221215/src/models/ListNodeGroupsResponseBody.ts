@@ -6,12 +6,12 @@ import { ListNodeGroupsResponseBodyGroups } from "./ListNodeGroupsResponseBodyGr
 export class ListNodeGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cluster group information
+   * The node groups.
    */
   groups?: ListNodeGroupsResponseBodyGroups[];
   /**
    * @remarks
-   * NextToken for the next page, include this value when requesting the next page
+   * The token that is used in the next request to retrieve a new page of results.
    * 
    * @example
    * 563d42ae0b17572449ec8c97f7f66069
@@ -19,7 +19,7 @@ export class ListNodeGroupsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * ID of the request
+   * The request ID.
    * 
    * @example
    * 887FA855-89F4-5DB3-B305-C5879EC480E6

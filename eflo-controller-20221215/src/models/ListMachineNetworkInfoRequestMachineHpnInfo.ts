@@ -4,25 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMachineNetworkInfoRequestMachineHpnInfo extends $dara.Model {
   /**
-   * @remarks
-   * Cluster ID
-   * 
    * @example
    * C1
    */
   hpnZone?: string;
   /**
-   * @remarks
-   * Machine type
-   * 
    * @example
    * efg2.C48cNHmcn
    */
   machineType?: string;
   /**
-   * @remarks
-   * Region ID
-   * 
    * @example
    * cn-heyuan
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   /**
    * @remarks
-   * Number of bonds
+   * The number of bonds.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   bondNum?: number;
   /**
    * @remarks
-   * CPU information
+   * The CPU information.
    * 
    * @example
    * 2x Intel Icelake 8369B 32C CPU
@@ -21,7 +21,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   cpuInfo?: string;
   /**
    * @remarks
-   * Disk information
+   * The disk information.
    * 
    * @example
    * 2x 480GB SATA SSD
@@ -29,7 +29,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   diskInfo?: string;
   /**
    * @remarks
-   * GPU information
+   * The GPU information.
    * 
    * @example
    * 8x NVIDIA SXM4 80GB A100 GPU
@@ -37,7 +37,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   gpuInfo?: string;
   /**
    * @remarks
-   * Memory information
+   * The storage information.
    * 
    * @example
    * 32x 64GB DDR4 3200 Memory
@@ -45,7 +45,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   memoryInfo?: string;
   /**
    * @remarks
-   * Machine name
+   * The name of the instance type.
    * 
    * @example
    * efg1.nvga1
@@ -53,7 +53,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Network information
+   * The network information.
    * 
    * @example
    * 2x 100Gbps DP NIC
@@ -61,7 +61,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   networkInfo?: string;
   /**
    * @remarks
-   * Number of nodes
+   * The number of nodes.
    * 
    * @example
    * 10
@@ -69,7 +69,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   nodeCount?: string;
   /**
    * @remarks
-   * Number of CPU cores
+   * The number of vCPUs.
    * 
    * @example
    * 48
@@ -77,7 +77,7 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   totalCpuCore?: number;
   /**
    * @remarks
-   * Type of machine
+   * The access type.
    * 
    * @example
    * Public

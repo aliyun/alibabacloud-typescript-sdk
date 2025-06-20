@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CloseSessionResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 07AA3A1F-321E-50D8-B834-88C411331C94
    */
   requestId?: string;
   /**
-   * @remarks
-   * Session ID.
-   * 
    * @example
    * i206495551737511455528
    */

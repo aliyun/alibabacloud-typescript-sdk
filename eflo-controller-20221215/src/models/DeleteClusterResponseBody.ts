@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request Id
+   * The request ID.
    * 
    * @example
    * 0FC4A1C7-421C-5EAB-9361-4C0338EFA287

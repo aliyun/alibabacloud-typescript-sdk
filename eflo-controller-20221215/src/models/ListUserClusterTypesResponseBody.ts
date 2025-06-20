@@ -4,15 +4,8 @@ import { ListUserClusterTypesResponseBodyClusterTypes } from "./ListUserClusterT
 
 
 export class ListUserClusterTypesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * List of cluster types. The number of array elements N ranges from 1 to 100.
-   */
   clusterTypes?: ListUserClusterTypesResponseBodyClusterTypes[];
   /**
-   * @remarks
-   * The NextToken for the next page. Include this value when requesting the next page.
-   * 
    * @example
    * 3a6b93229825ac667104463b56790c91
    */

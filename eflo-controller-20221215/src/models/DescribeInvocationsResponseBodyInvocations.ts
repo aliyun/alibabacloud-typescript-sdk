@@ -6,7 +6,7 @@ import { DescribeInvocationsResponseBodyInvocationsInvocation } from "./Describe
 export class DescribeInvocationsResponseBodyInvocations extends $dara.Model {
   /**
    * @remarks
-   * File delivery record.
+   * The file sending records.
    */
   invocation?: DescribeInvocationsResponseBodyInvocationsInvocation[];
   static names(): { [key: string]: string } {

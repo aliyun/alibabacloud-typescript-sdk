@@ -4,33 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNetTestResultResponseBodyTrafficTestServers extends $dara.Model {
   /**
-   * @remarks
-   * Network card bond interface
-   * 
    * @example
    * bond1
    */
   bond?: string;
   /**
-   * @remarks
-   * Node IP
-   * 
    * @example
    * 47.121.110.190
    */
   IP?: string;
   /**
-   * @remarks
-   * Resource ID
-   * 
    * @example
    * e01-cn-wwo3etaqu0b
    */
   resourceId?: string;
   /**
-   * @remarks
-   * Service name
-   * 
    * @example
    * xMv
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterRequestNetworksVpdInfo extends $dara.Model {
   /**
    * @remarks
-   * VPC ID
+   * The VPC ID.
    * 
    * @example
    * vpd-vfuz6ejv
@@ -13,7 +13,7 @@ export class CreateClusterRequestNetworksVpdInfo extends $dara.Model {
   vpdId?: string;
   /**
    * @remarks
-   * List of cluster subnet IDs
+   * The IDs of the subnets for a cluster.
    */
   vpdSubnets?: string[];
   static names(): { [key: string]: string } {

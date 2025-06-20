@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApproveOperationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error Message
+   * The error message.
    * 
    * @example
    * Resource not found
@@ -13,7 +13,7 @@ export class ApproveOperationResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 8F065DDD-6996-5973-9691-9EC57BD0072E

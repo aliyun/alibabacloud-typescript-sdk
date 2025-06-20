@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVscRequestTag extends $dara.Model {
   /**
    * @remarks
-   * Resource tag key
+   * The resource tag key.
    * 
    * @example
    * key001
@@ -13,7 +13,7 @@ export class CreateVscRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Resource tag value
+   * The resource tag value.
    * 
    * @example
    * value001

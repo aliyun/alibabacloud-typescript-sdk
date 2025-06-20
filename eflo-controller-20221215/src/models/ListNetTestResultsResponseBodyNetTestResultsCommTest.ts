@@ -6,7 +6,7 @@ import { ListNetTestResultsResponseBodyNetTestResultsCommTestHosts } from "./Lis
 export class ListNetTestResultsResponseBodyNetTestResultsCommTest extends $dara.Model {
   /**
    * @remarks
-   * Number of GPUs
+   * The number of GPUs.
    * 
    * @example
    * 4
@@ -14,12 +14,12 @@ export class ListNetTestResultsResponseBodyNetTestResultsCommTest extends $dara.
   GPUNum?: string;
   /**
    * @remarks
-   * Input hosts for the test nodes
+   * The hosts of the test node.
    */
   hosts?: ListNetTestResultsResponseBodyNetTestResultsCommTestHosts[];
   /**
    * @remarks
-   * Communication library model
+   * The communication library model.
    * 
    * @example
    * AllToAll
@@ -27,7 +27,7 @@ export class ListNetTestResultsResponseBodyNetTestResultsCommTest extends $dara.
   model?: string;
   /**
    * @remarks
-   * Communication library test category: ACCL or NCCL
+   * The CommTest type, which can be ACCL or NCCL.
    * 
    * @example
    * ACCL

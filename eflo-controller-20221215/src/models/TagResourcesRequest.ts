@@ -6,7 +6,7 @@ import { TagResourcesRequestTag } from "./TagResourcesRequestTag";
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -16,14 +16,22 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * List of resource IDs
+   * The IDs of the resources.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * Resource type
+   * The resource type.
+   * 
+   * Valid values:
+   * 
+   * *   Node
+   * *   Vcc
+   * *   Cluster
+   * *   Vpd
+   * *   Subnet
    * 
    * This parameter is required.
    * 
@@ -33,7 +41,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Tags
+   * The tags.
    * 
    * This parameter is required.
    */

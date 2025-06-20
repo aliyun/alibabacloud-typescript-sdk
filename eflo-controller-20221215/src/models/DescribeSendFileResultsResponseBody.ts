@@ -6,12 +6,12 @@ import { DescribeSendFileResultsResponseBodyInvocations } from "./DescribeSendFi
 export class DescribeSendFileResultsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Record of file distribution.
+   * The file sending records.
    */
   invocations?: DescribeSendFileResultsResponseBodyInvocations;
   /**
    * @remarks
-   * ID of the request
+   * The request ID.
    * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
@@ -19,7 +19,7 @@ export class DescribeSendFileResultsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of commands.
+   * The total number of the commands.
    * 
    * @example
    * 1

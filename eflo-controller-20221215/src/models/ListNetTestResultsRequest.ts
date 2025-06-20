@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetTestResultsRequest extends $dara.Model {
   /**
    * @remarks
-   * Number of items per page in a paginated query. The maximum value is 100.
+   * The number of entries to return on each page. Maximum value: 100.
    * 
    * Default value:
    * 
-   * - If no value is set or the set value is less than 20, the default is 20.
-   * 
-   * - If the set value is greater than 100, the default is 100.
+   * *   If you do not configure this parameter or if you set this parameter to a value less than 20, the default value is 20.
+   * *   If you set this parameter to a value that is greater than 100, the default value is 100.
    * 
    * @example
    * 20
@@ -19,7 +18,7 @@ export class ListNetTestResultsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Type of network test.
+   * The type of the network test.
    * 
    * @example
    * DelayTest
@@ -27,7 +26,7 @@ export class ListNetTestResultsRequest extends $dara.Model {
   netTestType?: string;
   /**
    * @remarks
-   * Query token (Token), which should be the value of the NextToken parameter returned from the previous API call.
+   * The token that determines the start position of the query. Set this parameter to the value of the NextToken parameter that is returned from the last call.
    * 
    * @example
    * 3a6b93229825ac667104463b56790c91
@@ -35,7 +34,7 @@ export class ListNetTestResultsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Resource group ID
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxno4vh5muoq

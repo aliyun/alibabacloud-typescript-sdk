@@ -6,12 +6,12 @@ import { ListClustersResponseBodyClusters } from "./ListClustersResponseBodyClus
 export class ListClustersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cluster information
+   * The clusters.
    */
   clusters?: ListClustersResponseBodyClusters[];
   /**
    * @remarks
-   * The query token value returned by this call.
+   * The returned pagination token which can be used in the next request to retrieve a new page of results.
    * 
    * @example
    * f4f9a292c17072a2
@@ -19,7 +19,7 @@ export class ListClustersResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 2FE2B22C-CF9D-59DE-BF63-DC9B9B33A9D1

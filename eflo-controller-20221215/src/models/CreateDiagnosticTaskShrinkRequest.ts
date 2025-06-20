@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDiagnosticTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Log information
+   * The log information.
    */
   aiJobLogInfoShrink?: string;
   /**
    * @remarks
-   * Cluster ID
+   * The cluster ID.
    * 
    * @example
    * i118913031696573280136
@@ -18,7 +18,7 @@ export class CreateDiagnosticTaskShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Diagnostic type.
+   * The diagnostics type.
    * 
    * @example
    * CheckByAiJobLogs
@@ -26,7 +26,7 @@ export class CreateDiagnosticTaskShrinkRequest extends $dara.Model {
   diagnosticType?: string;
   /**
    * @remarks
-   * List of node IDs
+   * The IDs of the nodes.
    */
   nodeIdsShrink?: string;
   static names(): { [key: string]: string } {

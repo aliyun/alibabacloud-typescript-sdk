@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * e01-cn-kvw44e6dn04
@@ -13,17 +13,15 @@ export class CreateSessionRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Session type corresponding to the session package.
+   * The type of the session corresponding to the session package.
    * 
    * @example
-   * N	两种：
-   * Sol：基于串口[默认]
-   * Assistant：基于云助手
+   * Valid values: Sol (default): based on serial port Assistant: based on cloud assistant
    */
   sessionType?: string;
   /**
    * @remarks
-   * Initiation time, 13-digit timestamp.
+   * The start time. The value is a 13-digit timestamp.
    * 
    * @example
    * 1669340937156
