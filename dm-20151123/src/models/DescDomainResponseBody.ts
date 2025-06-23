@@ -69,6 +69,7 @@ export class DescDomainResponseBody extends $dara.Model {
    * aliyun-cn-hangzhou._domainkey.hangzhou26
    */
   dkimRR?: string;
+  dkimRsaLength?: number;
   /**
    * @remarks
    * DMARC verification flag, indicating whether the DMARC record set by the user in DNS has passed validation, 0: Passed, 1: Not passed
@@ -250,6 +251,7 @@ export class DescDomainResponseBody extends $dara.Model {
       dkimAuthStatus: 'DkimAuthStatus',
       dkimPublicKey: 'DkimPublicKey',
       dkimRR: 'DkimRR',
+      dkimRsaLength: 'DkimRsaLength',
       dmarcAuthStatus: 'DmarcAuthStatus',
       dmarcHostRecord: 'DmarcHostRecord',
       dmarcRecord: 'DmarcRecord',
@@ -284,6 +286,7 @@ export class DescDomainResponseBody extends $dara.Model {
       dkimAuthStatus: 'string',
       dkimPublicKey: 'string',
       dkimRR: 'string',
+      dkimRsaLength: 'number',
       dmarcAuthStatus: 'number',
       dmarcHostRecord: 'string',
       dmarcRecord: 'string',

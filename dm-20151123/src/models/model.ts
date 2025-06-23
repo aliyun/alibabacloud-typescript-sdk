@@ -39,6 +39,9 @@ export { ApproveReplyMailAddressResponse } from './ApproveReplyMailAddressRespon
 export { BatchSendMailRequest } from './BatchSendMailRequest';
 export { BatchSendMailResponseBody } from './BatchSendMailResponseBody';
 export { BatchSendMailResponse } from './BatchSendMailResponse';
+export { ChangeDomainDkimRecordRequest } from './ChangeDomainDkimRecordRequest';
+export { ChangeDomainDkimRecordResponseBody } from './ChangeDomainDkimRecordResponseBody';
+export { ChangeDomainDkimRecordResponse } from './ChangeDomainDkimRecordResponse';
 export { CheckDomainRequest } from './CheckDomainRequest';
 export { CheckDomainResponseBody } from './CheckDomainResponseBody';
 export { CheckDomainResponse } from './CheckDomainResponse';

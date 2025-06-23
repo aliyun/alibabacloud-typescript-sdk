@@ -240,6 +240,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改域名DKIM记录
+   * 
+   * @param request - ChangeDomainDkimRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeDomainDkimRecordResponse
+   */
+  async changeDomainDkimRecordWithOptions(request: $_model.ChangeDomainDkimRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeDomainDkimRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dkimRsaLength)) {
+      query["DkimRsaLength"] = request.dkimRsaLength;
+    }
+
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeDomainDkimRecord",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeDomainDkimRecordResponse>(await this.callApi(params, req, runtime), new $_model.ChangeDomainDkimRecordResponse({}));
+  }
+
+  /**
+   * 修改域名DKIM记录
+   * 
+   * @param request - ChangeDomainDkimRecordRequest
+   * @returns ChangeDomainDkimRecordResponse
+   */
+  async changeDomainDkimRecord(request: $_model.ChangeDomainDkimRecordRequest): Promise<$_model.ChangeDomainDkimRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.changeDomainDkimRecordWithOptions(request, runtime);
+  }
+
+  /**
    * Check Domain Status
    * 
    * @param request - CheckDomainRequest
