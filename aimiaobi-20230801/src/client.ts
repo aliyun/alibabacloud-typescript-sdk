@@ -90,7 +90,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成剪辑视频
+   * 生成剪辑视频任务
    * 
    * @param tmpReq - AsyncCreateClipsTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -163,7 +163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成剪辑视频
+   * 生成剪辑视频任务
    * 
    * @param request - AsyncCreateClipsTaskRequest
    * @returns AsyncCreateClipsTaskResponse
