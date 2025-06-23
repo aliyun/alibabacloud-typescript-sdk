@@ -17,13 +17,11 @@ export class DescribePackageDeductionsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * CorePackage
    */
   resourceType?: string;
+  resourceTypes?: string[];
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -33,6 +31,7 @@ export class DescribePackageDeductionsRequest extends $dara.Model {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       resourceType: 'ResourceType',
+      resourceTypes: 'ResourceTypes',
       startTime: 'StartTime',
     };
   }
@@ -45,6 +44,7 @@ export class DescribePackageDeductionsRequest extends $dara.Model {
       pageNum: 'number',
       pageSize: 'number',
       resourceType: 'string',
+      resourceTypes: { 'type': 'array', 'itemType': 'string' },
       startTime: 'number',
     };
   }
@@ -55,6 +55,9 @@ export class DescribePackageDeductionsRequest extends $dara.Model {
     }
     if(Array.isArray(this.packageIds)) {
       $dara.Model.validateArray(this.packageIds);
+    }
+    if(Array.isArray(this.resourceTypes)) {
+      $dara.Model.validateArray(this.resourceTypes);
     }
     super.validate();
   }

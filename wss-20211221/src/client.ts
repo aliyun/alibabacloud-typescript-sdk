@@ -90,6 +90,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询物流地址
+   * 
    * @param request - DescribeDeliveryAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDeliveryAddressResponse
@@ -111,6 +113,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询物流地址
    * @returns DescribeDeliveryAddressResponse
    */
   async describeDeliveryAddress(): Promise<$_model.DescribeDeliveryAddressResponse> {
@@ -119,6 +122,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量询价
+   * 
    * @param request - DescribeMultiPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeMultiPriceResponse
@@ -160,6 +165,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量询价
+   * 
    * @param request - DescribeMultiPriceRequest
    * @returns DescribeMultiPriceResponse
    */
@@ -202,6 +209,10 @@ export default class Client extends OpenApi {
       query["ResourceType"] = request.resourceType;
     }
 
+    if (!$dara.isNull(request.resourceTypes)) {
+      query["ResourceTypes"] = request.resourceTypes;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -235,6 +246,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新实例属性
+   * 
    * @param request - ModifyInstancePropertiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyInstancePropertiesResponse
@@ -280,6 +293,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新实例属性
+   * 
    * @param request - ModifyInstancePropertiesRequest
    * @returns ModifyInstancePropertiesResponse
    */
