@@ -27,6 +27,7 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
    * The custom headers.
    */
   headerParam?: { [key: string]: HttpDeliveryHeaderParamValue };
+  lastLogSplit?: boolean;
   /**
    * @remarks
    * The prefix of the log delivery package.
@@ -43,6 +44,8 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
    * cdnVersion:1.0
    */
   logBodySuffix?: string;
+  logSplit?: boolean;
+  logSplitWords?: string;
   /**
    * @remarks
    * The maximum size of data for each delivery. Unit: MB.
@@ -98,8 +101,11 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
       compress: 'Compress',
       destUrl: 'DestUrl',
       headerParam: 'HeaderParam',
+      lastLogSplit: 'LastLogSplit',
       logBodyPrefix: 'LogBodyPrefix',
       logBodySuffix: 'LogBodySuffix',
+      logSplit: 'LogSplit',
+      logSplitWords: 'LogSplitWords',
       maxBatchMB: 'MaxBatchMB',
       maxBatchSize: 'MaxBatchSize',
       maxRetry: 'MaxRetry',
@@ -115,8 +121,11 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
       compress: 'string',
       destUrl: 'string',
       headerParam: { 'type': 'map', 'keyType': 'string', 'valueType': HttpDeliveryHeaderParamValue },
+      lastLogSplit: 'boolean',
       logBodyPrefix: 'string',
       logBodySuffix: 'string',
+      logSplit: 'boolean',
+      logSplitWords: 'string',
       maxBatchMB: 'number',
       maxBatchSize: 'number',
       maxRetry: 'number',

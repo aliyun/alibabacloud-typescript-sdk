@@ -66,6 +66,8 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
    * []
    */
   filterRules?: string;
+  filterVer?: string;
+  rawRule?: string;
   /**
    * @remarks
    * The request ID.
@@ -125,6 +127,8 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
       discardRate: 'DiscardRate',
       fieldList: 'FieldList',
       filterRules: 'FilterRules',
+      filterVer: 'FilterVer',
+      rawRule: 'RawRule',
       requestId: 'RequestId',
       sinkConfig: 'SinkConfig',
       siteId: 'SiteId',
@@ -142,6 +146,8 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
       discardRate: 'number',
       fieldList: 'string',
       filterRules: 'string',
+      filterVer: 'string',
+      rawRule: 'string',
       requestId: 'string',
       sinkConfig: 'any',
       siteId: 'number',

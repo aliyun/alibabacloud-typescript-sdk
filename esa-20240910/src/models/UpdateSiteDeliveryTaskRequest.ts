@@ -34,6 +34,7 @@ export class UpdateSiteDeliveryTaskRequest extends $dara.Model {
    * ClientIP,UserAgent
    */
   fieldName?: string;
+  filterVer?: string;
   /**
    * @remarks
    * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
@@ -57,6 +58,7 @@ export class UpdateSiteDeliveryTaskRequest extends $dara.Model {
       businessType: 'BusinessType',
       discardRate: 'DiscardRate',
       fieldName: 'FieldName',
+      filterVer: 'FilterVer',
       siteId: 'SiteId',
       taskName: 'TaskName',
     };
@@ -67,6 +69,7 @@ export class UpdateSiteDeliveryTaskRequest extends $dara.Model {
       businessType: 'string',
       discardRate: 'number',
       fieldName: 'string',
+      filterVer: 'string',
       siteId: 'number',
       taskName: 'string',
     };

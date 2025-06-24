@@ -3471,6 +3471,10 @@ export default class Client extends OpenApi {
       body["FieldName"] = request.fieldName;
     }
 
+    if (!$dara.isNull(request.filterVer)) {
+      body["FilterVer"] = request.filterVer;
+    }
+
     if (!$dara.isNull(request.httpDeliveryShrink)) {
       body["HttpDelivery"] = request.httpDeliveryShrink;
     }
@@ -3560,6 +3564,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建网页监测配置
+   * 
+   * @param request - CreateUrlObservationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUrlObservationResponse
+   */
+  async createUrlObservationWithOptions(request: $_model.CreateUrlObservationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateUrlObservationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sdkType)) {
+      query["SdkType"] = request.sdkType;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateUrlObservation",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateUrlObservationResponse>(await this.callApi(params, req, runtime), new $_model.CreateUrlObservationResponse({}));
+  }
+
+  /**
+   * 创建网页监测配置
+   * 
+   * @param request - CreateUrlObservationRequest
+   * @returns CreateUrlObservationResponse
+   */
+  async createUrlObservation(request: $_model.CreateUrlObservationRequest): Promise<$_model.CreateUrlObservationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createUrlObservationWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a log delivery task to ship logs to the specified destination.
    * 
    * @remarks
@@ -3624,6 +3678,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.fieldName)) {
       body["FieldName"] = request.fieldName;
+    }
+
+    if (!$dara.isNull(request.filterVer)) {
+      body["FilterVer"] = request.filterVer;
     }
 
     if (!$dara.isNull(request.httpDeliveryShrink)) {
@@ -5861,6 +5919,52 @@ export default class Client extends OpenApi {
   async deleteSiteOriginClientCertificate(request: $_model.DeleteSiteOriginClientCertificateRequest): Promise<$_model.DeleteSiteOriginClientCertificateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSiteOriginClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除网页监测配置
+   * 
+   * @param request - DeleteUrlObservationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUrlObservationResponse
+   */
+  async deleteUrlObservationWithOptions(request: $_model.DeleteUrlObservationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUrlObservationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteUrlObservation",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteUrlObservationResponse>(await this.callApi(params, req, runtime), new $_model.DeleteUrlObservationResponse({}));
+  }
+
+  /**
+   * 删除网页监测配置
+   * 
+   * @param request - DeleteUrlObservationRequest
+   * @returns DeleteUrlObservationResponse
+   */
+  async deleteUrlObservation(request: $_model.DeleteUrlObservationRequest): Promise<$_model.DeleteUrlObservationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteUrlObservationWithOptions(request, runtime);
   }
 
   /**
@@ -10318,6 +10422,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量查询IP是否为VIP
+   * 
+   * @param request - ListESAIPInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListESAIPInfoResponse
+   */
+  async listESAIPInfoWithOptions(request: $_model.ListESAIPInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListESAIPInfoResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListESAIPInfo",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListESAIPInfoResponse>(await this.callApi(params, req, runtime), new $_model.ListESAIPInfoResponse({}));
+  }
+
+  /**
+   * 批量查询IP是否为VIP
+   * 
+   * @param request - ListESAIPInfoRequest
+   * @returns ListESAIPInfoResponse
+   */
+  async listESAIPInfo(request: $_model.ListESAIPInfoRequest): Promise<$_model.ListESAIPInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listESAIPInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Lists domain names that are associated with a containerized application.
    * 
    * @param request - ListEdgeContainerAppRecordsRequest
@@ -11991,6 +12133,60 @@ export default class Client extends OpenApi {
   async listUploadTasks(request: $_model.ListUploadTasksRequest): Promise<$_model.ListUploadTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listUploadTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询网页观测配置列表
+   * 
+   * @param request - ListUrlObservationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUrlObservationsResponse
+   */
+  async listUrlObservationsWithOptions(request: $_model.ListUrlObservationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUrlObservationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUrlObservations",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUrlObservationsResponse>(await this.callApi(params, req, runtime), new $_model.ListUrlObservationsResponse({}));
+  }
+
+  /**
+   * 查询网页观测配置列表
+   * 
+   * @param request - ListUrlObservationsRequest
+   * @returns ListUrlObservationsResponse
+   */
+  async listUrlObservations(request: $_model.ListUrlObservationsRequest): Promise<$_model.ListUrlObservationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUrlObservationsWithOptions(request, runtime);
   }
 
   /**
@@ -13950,6 +14146,68 @@ export default class Client extends OpenApi {
   async stopScheduledPreloadExecution(request: $_model.StopScheduledPreloadExecutionRequest): Promise<$_model.StopScheduledPreloadExecutionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopScheduledPreloadExecutionWithOptions(request, runtime);
+  }
+
+  /**
+   * Adds one or more tags to resources.
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagResources",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
+  }
+
+  /**
+   * Adds one or more tags to resources.
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -16486,6 +16744,10 @@ export default class Client extends OpenApi {
       body["FieldName"] = request.fieldName;
     }
 
+    if (!$dara.isNull(request.filterVer)) {
+      body["FilterVer"] = request.filterVer;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       body["SiteId"] = request.siteId;
     }
@@ -16745,6 +17007,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新网页监测配置
+   * 
+   * @param request - UpdateUrlObservationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUrlObservationResponse
+   */
+  async updateUrlObservationWithOptions(request: $_model.UpdateUrlObservationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateUrlObservationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.sdkType)) {
+      query["SdkType"] = request.sdkType;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateUrlObservation",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateUrlObservationResponse>(await this.callApi(params, req, runtime), new $_model.UpdateUrlObservationResponse({}));
+  }
+
+  /**
+   * 更新网页监测配置
+   * 
+   * @param request - UpdateUrlObservationRequest
+   * @returns UpdateUrlObservationResponse
+   */
+  async updateUrlObservation(request: $_model.UpdateUrlObservationRequest): Promise<$_model.UpdateUrlObservationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateUrlObservationWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
    * 
    * @param request - UpdateUserDeliveryTaskRequest
@@ -16768,6 +17080,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.fieldName)) {
       body["FieldName"] = request.fieldName;
+    }
+
+    if (!$dara.isNull(request.filterVer)) {
+      body["FilterVer"] = request.filterVer;
     }
 
     if (!$dara.isNull(request.taskName)) {

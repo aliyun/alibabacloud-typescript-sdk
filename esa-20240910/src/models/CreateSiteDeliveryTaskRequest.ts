@@ -30,8 +30,6 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
    * *   cn: the Chinese mainland.
    * *   oversea: outside the Chinese mainland.
    * 
-   * This parameter is required.
-   * 
    * @example
    * cn
    */
@@ -71,6 +69,7 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
    * user_agent,ip_adress,ip_port
    */
   fieldName?: string;
+  filterVer?: string;
   /**
    * @remarks
    * The configurations for delivery to an HTTP server.
@@ -123,6 +122,7 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
       deliveryType: 'DeliveryType',
       discardRate: 'DiscardRate',
       fieldName: 'FieldName',
+      filterVer: 'FilterVer',
       httpDelivery: 'HttpDelivery',
       kafkaDelivery: 'KafkaDelivery',
       ossDelivery: 'OssDelivery',
@@ -140,6 +140,7 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
       deliveryType: 'string',
       discardRate: 'number',
       fieldName: 'string',
+      filterVer: 'string',
       httpDelivery: CreateSiteDeliveryTaskRequestHttpDelivery,
       kafkaDelivery: CreateSiteDeliveryTaskRequestKafkaDelivery,
       ossDelivery: CreateSiteDeliveryTaskRequestOssDelivery,

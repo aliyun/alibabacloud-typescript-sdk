@@ -34,7 +34,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
    * @example
    * \\n
    */
-  lastLogSplit?: string;
+  lastLogSplit?: boolean;
   /**
    * @remarks
    * The prefix of the log delivery package.
@@ -58,7 +58,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
    * @example
    * true
    */
-  logSplit?: string;
+  logSplit?: boolean;
   /**
    * @remarks
    * The log separator.
@@ -67,14 +67,6 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
    * \\n
    */
   logSplitWords?: string;
-  /**
-   * @remarks
-   * The maximum backoff time. Unit: milliseconds.
-   * 
-   * @example
-   * 1000
-   */
-  maxBackoffMS?: number;
   /**
    * @remarks
    * The maximum size of data for each delivery. Unit: MB.
@@ -101,25 +93,9 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   maxRetry?: number;
   /**
    * @remarks
-   * The minimum backoff time. Unit: milliseconds.
-   * 
-   * @example
-   * 100
-   */
-  minBackoffMS?: number;
-  /**
-   * @remarks
    * The custom query parameters.
    */
   queryParam?: { [key: string]: HttpDeliveryQueryParamValue };
-  /**
-   * @remarks
-   * The response field key used for success check.
-   * 
-   * @example
-   * err_code
-   */
-  responseBodyKey?: string;
   /**
    * @remarks
    * Specifies whether to use server authentication.
@@ -133,14 +109,6 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
    * The authentication configurations.
    */
   standardAuthParam?: CreateUserDeliveryTaskRequestHttpDeliveryStandardAuthParam;
-  /**
-   * @remarks
-   * The custom code for a success.
-   * 
-   * @example
-   * 200
-   */
-  successCode?: number;
   /**
    * @remarks
    * The timeout period. Unit: seconds.
@@ -159,16 +127,12 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
       logBodySuffix: 'LogBodySuffix',
       logSplit: 'LogSplit',
       logSplitWords: 'LogSplitWords',
-      maxBackoffMS: 'MaxBackoffMS',
       maxBatchMB: 'MaxBatchMB',
       maxBatchSize: 'MaxBatchSize',
       maxRetry: 'MaxRetry',
-      minBackoffMS: 'MinBackoffMS',
       queryParam: 'QueryParam',
-      responseBodyKey: 'ResponseBodyKey',
       standardAuthOn: 'StandardAuthOn',
       standardAuthParam: 'StandardAuthParam',
-      successCode: 'SuccessCode',
       transformTimeout: 'TransformTimeout',
     };
   }
@@ -178,21 +142,17 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
       compress: 'string',
       destUrl: 'string',
       headerParam: { 'type': 'map', 'keyType': 'string', 'valueType': HttpDeliveryHeaderParamValue },
-      lastLogSplit: 'string',
+      lastLogSplit: 'boolean',
       logBodyPrefix: 'string',
       logBodySuffix: 'string',
-      logSplit: 'string',
+      logSplit: 'boolean',
       logSplitWords: 'string',
-      maxBackoffMS: 'number',
       maxBatchMB: 'number',
       maxBatchSize: 'number',
       maxRetry: 'number',
-      minBackoffMS: 'number',
       queryParam: { 'type': 'map', 'keyType': 'string', 'valueType': HttpDeliveryQueryParamValue },
-      responseBodyKey: 'string',
       standardAuthOn: 'boolean',
       standardAuthParam: CreateUserDeliveryTaskRequestHttpDeliveryStandardAuthParam,
-      successCode: 'number',
       transformTimeout: 'number',
     };
   }

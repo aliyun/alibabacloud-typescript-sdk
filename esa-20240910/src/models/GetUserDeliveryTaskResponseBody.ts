@@ -67,6 +67,8 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
    * [{"ClientSSLProtocol": {"equals": ["TLSv1.3"]}}]
    */
   filterRules?: string;
+  filterVer?: string;
+  rawRule?: string;
   /**
    * @remarks
    * The request ID.
@@ -108,6 +110,8 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
       discardRate: 'DiscardRate',
       fieldList: 'FieldList',
       filterRules: 'FilterRules',
+      filterVer: 'FilterVer',
+      rawRule: 'RawRule',
       requestId: 'RequestId',
       sinkConfig: 'SinkConfig',
       status: 'Status',
@@ -124,6 +128,8 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
       discardRate: 'number',
       fieldList: 'string',
       filterRules: 'string',
+      filterVer: 'string',
+      rawRule: 'string',
       requestId: 'string',
       sinkConfig: 'any',
       status: 'string',

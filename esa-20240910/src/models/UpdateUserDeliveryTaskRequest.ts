@@ -35,6 +35,7 @@ export class UpdateUserDeliveryTaskRequest extends $dara.Model {
    * ClientRequestID,ClientRequestHost
    */
   fieldName?: string;
+  filterVer?: string;
   /**
    * @remarks
    * The name of the delivery task.
@@ -51,6 +52,7 @@ export class UpdateUserDeliveryTaskRequest extends $dara.Model {
       details: 'Details',
       discardRate: 'DiscardRate',
       fieldName: 'FieldName',
+      filterVer: 'FilterVer',
       taskName: 'TaskName',
     };
   }
@@ -61,6 +63,7 @@ export class UpdateUserDeliveryTaskRequest extends $dara.Model {
       details: 'string',
       discardRate: 'number',
       fieldName: 'string',
+      filterVer: 'string',
       taskName: 'string',
     };
   }

@@ -25,8 +25,6 @@ export class CreateUserDeliveryTaskShrinkRequest extends $dara.Model {
    * *   cn: the Chinese mainland.
    * *   sg: outside the Chinese mainland.
    * 
-   * This parameter is required.
-   * 
    * @example
    * cn
    */
@@ -67,6 +65,7 @@ export class CreateUserDeliveryTaskShrinkRequest extends $dara.Model {
    * user_agent,ip_address,ip_port
    */
   fieldName?: string;
+  filterVer?: string;
   /**
    * @remarks
    * The configurations for delivery to an HTTP server.
@@ -110,6 +109,7 @@ export class CreateUserDeliveryTaskShrinkRequest extends $dara.Model {
       details: 'Details',
       discardRate: 'DiscardRate',
       fieldName: 'FieldName',
+      filterVer: 'FilterVer',
       httpDeliveryShrink: 'HttpDelivery',
       kafkaDeliveryShrink: 'KafkaDelivery',
       ossDeliveryShrink: 'OssDelivery',
@@ -127,6 +127,7 @@ export class CreateUserDeliveryTaskShrinkRequest extends $dara.Model {
       details: 'string',
       discardRate: 'number',
       fieldName: 'string',
+      filterVer: 'string',
       httpDeliveryShrink: 'string',
       kafkaDeliveryShrink: 'string',
       ossDeliveryShrink: 'string',
