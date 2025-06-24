@@ -30,6 +30,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提交创建Logo任务
+   * 
+   * @param request - CreateLogoTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLogoTaskResponse
+   */
+  async createLogoTaskWithOptions(request: $_model.CreateLogoTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLogoTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.negativePrompt)) {
+      query["NegativePrompt"] = request.negativePrompt;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      query["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLogoTask",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLogoTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateLogoTaskResponse({}));
+  }
+
+  /**
+   * 提交创建Logo任务
+   * 
+   * @param request - CreateLogoTaskRequest
+   * @returns CreateLogoTaskResponse
+   */
+  async createLogoTask(request: $_model.CreateLogoTaskRequest): Promise<$_model.CreateLogoTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createLogoTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Logo创建任务
+   * 
+   * @param request - GetCreateLogoTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCreateLogoTaskResponse
+   */
+  async getCreateLogoTaskWithOptions(request: $_model.GetCreateLogoTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCreateLogoTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCreateLogoTask",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCreateLogoTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetCreateLogoTaskResponse({}));
+  }
+
+  /**
+   * 查询Logo创建任务
+   * 
+   * @param request - GetCreateLogoTaskRequest
+   * @returns GetCreateLogoTaskResponse
+   */
+  async getCreateLogoTask(request: $_model.GetCreateLogoTaskRequest): Promise<$_model.GetCreateLogoTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCreateLogoTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 合作伙伴操作应用
    * 
    * @param request - OperateAppInstanceForPartnerRequest

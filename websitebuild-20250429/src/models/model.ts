@@ -1,3 +1,10 @@
+export { GetCreateLogoTaskResponseBodyTask } from './GetCreateLogoTaskResponseBodyTask';
+export { CreateLogoTaskRequest } from './CreateLogoTaskRequest';
+export { CreateLogoTaskResponseBody } from './CreateLogoTaskResponseBody';
+export { CreateLogoTaskResponse } from './CreateLogoTaskResponse';
+export { GetCreateLogoTaskRequest } from './GetCreateLogoTaskRequest';
+export { GetCreateLogoTaskResponseBody } from './GetCreateLogoTaskResponseBody';
+export { GetCreateLogoTaskResponse } from './GetCreateLogoTaskResponse';
 export { OperateAppInstanceForPartnerRequest } from './OperateAppInstanceForPartnerRequest';
 export { OperateAppInstanceForPartnerResponseBody } from './OperateAppInstanceForPartnerResponseBody';
 export { OperateAppInstanceForPartnerResponse } from './OperateAppInstanceForPartnerResponse';

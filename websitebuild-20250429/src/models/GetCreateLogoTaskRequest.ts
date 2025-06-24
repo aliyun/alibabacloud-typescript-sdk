@@ -2,24 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class OperateAppInstanceForPartnerRequest extends $dara.Model {
-  extend?: string;
+export class GetCreateLogoTaskRequest extends $dara.Model {
   /**
    * @example
-   * SERVICE_DELIVERY_PROCESS
+   * 20051349
    */
-  operateEvent?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      extend: 'Extend',
-      operateEvent: 'OperateEvent',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      extend: 'string',
-      operateEvent: 'string',
+      taskId: 'string',
     };
   }
 
