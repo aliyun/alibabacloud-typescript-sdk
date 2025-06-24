@@ -12,6 +12,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
   baseAppId?: string;
   cpu?: number;
   instances?: number;
+  isStateful?: boolean;
   mem?: number;
   mseEnabled?: boolean;
   namespaceId?: string;
@@ -33,6 +34,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
       baseAppId: 'BaseAppId',
       cpu: 'Cpu',
       instances: 'Instances',
+      isStateful: 'IsStateful',
       mem: 'Mem',
       mseEnabled: 'MseEnabled',
       namespaceId: 'NamespaceId',
@@ -57,6 +59,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
       baseAppId: 'string',
       cpu: 'number',
       instances: 'number',
+      isStateful: 'boolean',
       mem: 'number',
       mseEnabled: 'boolean',
       namespaceId: 'string',

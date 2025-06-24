@@ -70,6 +70,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
    * 2
    */
   instances?: number;
+  isStateful?: boolean;
   /**
    * @remarks
    * The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
@@ -124,6 +125,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
    * The tags of the application.
    */
   tags?: ListApplicationsResponseBodyDataApplicationsTags[];
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       appDeletingStatus: 'AppDeletingStatus',
@@ -138,6 +140,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
       enableIdle: 'EnableIdle',
       imageUrl: 'ImageUrl',
       instances: 'Instances',
+      isStateful: 'IsStateful',
       mem: 'Mem',
       mseEnabled: 'MseEnabled',
       mseNamespaceId: 'MseNamespaceId',
@@ -149,6 +152,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
       regionId: 'RegionId',
       runningInstances: 'RunningInstances',
       tags: 'Tags',
+      vpcId: 'VpcId',
     };
   }
 
@@ -166,6 +170,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
       enableIdle: 'string',
       imageUrl: 'string',
       instances: 'number',
+      isStateful: 'boolean',
       mem: 'number',
       mseEnabled: 'boolean',
       mseNamespaceId: 'string',
@@ -177,6 +182,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
       regionId: 'string',
       runningInstances: 'number',
       tags: { 'type': 'array', 'itemType': ListApplicationsResponseBodyDataApplicationsTags },
+      vpcId: 'string',
     };
   }
 
