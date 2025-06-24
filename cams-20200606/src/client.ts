@@ -30,6 +30,142 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * AddChatGroup
+   * 
+   * @param request - AddChatGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddChatGroupResponse
+   */
+  async addChatGroupWithOptions(request: $_model.AddChatGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddChatGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessNumber)) {
+      query["BusinessNumber"] = request.businessNumber;
+    }
+
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.subject)) {
+      query["Subject"] = request.subject;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddChatGroup",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddChatGroupResponse>(await this.callApi(params, req, runtime), new $_model.AddChatGroupResponse({}));
+  }
+
+  /**
+   * AddChatGroup
+   * 
+   * @param request - AddChatGroupRequest
+   * @returns AddChatGroupResponse
+   */
+  async addChatGroup(request: $_model.AddChatGroupRequest): Promise<$_model.AddChatGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addChatGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * AddChatGroupInviteLink
+   * 
+   * @param request - AddChatGroupInviteLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddChatGroupInviteLinkResponse
+   */
+  async addChatGroupInviteLinkWithOptions(request: $_model.AddChatGroupInviteLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddChatGroupInviteLinkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessNumber)) {
+      query["BusinessNumber"] = request.businessNumber;
+    }
+
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddChatGroupInviteLink",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddChatGroupInviteLinkResponse>(await this.callApi(params, req, runtime), new $_model.AddChatGroupInviteLinkResponse({}));
+  }
+
+  /**
+   * AddChatGroupInviteLink
+   * 
+   * @param request - AddChatGroupInviteLinkRequest
+   * @returns AddChatGroupInviteLinkResponse
+   */
+  async addChatGroupInviteLink(request: $_model.AddChatGroupInviteLinkRequest): Promise<$_model.AddChatGroupInviteLinkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addChatGroupInviteLinkWithOptions(request, runtime);
+  }
+
+  /**
    * Adds a phone number for a WhatsApp Business account (WABA).
    * 
    * @param request - AddChatappPhoneNumberRequest
@@ -1013,6 +1149,214 @@ export default class Client extends OpenApi {
   async createPhoneMessageQrdl(request: $_model.CreatePhoneMessageQrdlRequest): Promise<$_model.CreatePhoneMessageQrdlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createPhoneMessageQrdlWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteChatGroup
+   * 
+   * @param request - DeleteChatGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteChatGroupResponse
+   */
+  async deleteChatGroupWithOptions(request: $_model.DeleteChatGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteChatGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessNumber)) {
+      query["BusinessNumber"] = request.businessNumber;
+    }
+
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteChatGroup",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteChatGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteChatGroupResponse({}));
+  }
+
+  /**
+   * DeleteChatGroup
+   * 
+   * @param request - DeleteChatGroupRequest
+   * @returns DeleteChatGroupResponse
+   */
+  async deleteChatGroup(request: $_model.DeleteChatGroupRequest): Promise<$_model.DeleteChatGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteChatGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteChatGroupInviteLink
+   * 
+   * @param request - DeleteChatGroupInviteLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteChatGroupInviteLinkResponse
+   */
+  async deleteChatGroupInviteLinkWithOptions(request: $_model.DeleteChatGroupInviteLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteChatGroupInviteLinkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessNumber)) {
+      query["BusinessNumber"] = request.businessNumber;
+    }
+
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteChatGroupInviteLink",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteChatGroupInviteLinkResponse>(await this.callApi(params, req, runtime), new $_model.DeleteChatGroupInviteLinkResponse({}));
+  }
+
+  /**
+   * DeleteChatGroupInviteLink
+   * 
+   * @param request - DeleteChatGroupInviteLinkRequest
+   * @returns DeleteChatGroupInviteLinkResponse
+   */
+  async deleteChatGroupInviteLink(request: $_model.DeleteChatGroupInviteLinkRequest): Promise<$_model.DeleteChatGroupInviteLinkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteChatGroupInviteLinkWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteChatGroupParticipants
+   * 
+   * @param tmpReq - DeleteChatGroupParticipantsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteChatGroupParticipantsResponse
+   */
+  async deleteChatGroupParticipantsWithOptions(tmpReq: $_model.DeleteChatGroupParticipantsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteChatGroupParticipantsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteChatGroupParticipantsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.list)) {
+      request.listShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.list, "List", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.businessNumber)) {
+      query["BusinessNumber"] = request.businessNumber;
+    }
+
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.listShrink)) {
+      query["List"] = request.listShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteChatGroupParticipants",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteChatGroupParticipantsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteChatGroupParticipantsResponse({}));
+  }
+
+  /**
+   * DeleteChatGroupParticipants
+   * 
+   * @param request - DeleteChatGroupParticipantsRequest
+   * @returns DeleteChatGroupParticipantsResponse
+   */
+  async deleteChatGroupParticipants(request: $_model.DeleteChatGroupParticipantsRequest): Promise<$_model.DeleteChatGroupParticipantsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteChatGroupParticipantsWithOptions(request, runtime);
   }
 
   /**
@@ -2388,6 +2732,162 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListChatGroup
+   * 
+   * @param tmpReq - ListChatGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChatGroupResponse
+   */
+  async listChatGroupWithOptions(tmpReq: $_model.ListChatGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListChatGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListChatGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.page)) {
+      request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.businessNumber)) {
+      query["BusinessNumber"] = request.businessNumber;
+    }
+
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.groupStatus)) {
+      query["GroupStatus"] = request.groupStatus;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageShrink)) {
+      query["Page"] = request.pageShrink;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.subject)) {
+      query["Subject"] = request.subject;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChatGroup",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListChatGroupResponse>(await this.callApi(params, req, runtime), new $_model.ListChatGroupResponse({}));
+  }
+
+  /**
+   * ListChatGroup
+   * 
+   * @param request - ListChatGroupRequest
+   * @returns ListChatGroupResponse
+   */
+  async listChatGroup(request: $_model.ListChatGroupRequest): Promise<$_model.ListChatGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listChatGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * ListChatGroupParticipants
+   * 
+   * @param tmpReq - ListChatGroupParticipantsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChatGroupParticipantsResponse
+   */
+  async listChatGroupParticipantsWithOptions(tmpReq: $_model.ListChatGroupParticipantsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListChatGroupParticipantsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListChatGroupParticipantsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.page)) {
+      request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.businessNumber)) {
+      query["BusinessNumber"] = request.businessNumber;
+    }
+
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageShrink)) {
+      query["Page"] = request.pageShrink;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChatGroupParticipants",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListChatGroupParticipantsResponse>(await this.callApi(params, req, runtime), new $_model.ListChatGroupParticipantsResponse({}));
+  }
+
+  /**
+   * ListChatGroupParticipants
+   * 
+   * @param request - ListChatGroupParticipantsRequest
+   * @returns ListChatGroupParticipantsResponse
+   */
+  async listChatGroupParticipants(request: $_model.ListChatGroupParticipantsRequest): Promise<$_model.ListChatGroupParticipantsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listChatGroupParticipantsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries message templates.
    * 
    * @remarks
@@ -3635,6 +4135,10 @@ export default class Client extends OpenApi {
       body["ProductAction"] = request.productActionShrink;
     }
 
+    if (!$dara.isNull(request.recipientType)) {
+      body["RecipientType"] = request.recipientType;
+    }
+
     if (!$dara.isNull(request.tag)) {
       body["Tag"] = request.tag;
     }
@@ -3921,6 +4425,84 @@ export default class Client extends OpenApi {
   async updateAccountWebhook(request: $_model.UpdateAccountWebhookRequest): Promise<$_model.UpdateAccountWebhookResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAccountWebhookWithOptions(request, runtime);
+  }
+
+  /**
+   * UpdateChatGroup
+   * 
+   * @param request - UpdateChatGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateChatGroupResponse
+   */
+  async updateChatGroupWithOptions(request: $_model.UpdateChatGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateChatGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessNumber)) {
+      query["BusinessNumber"] = request.businessNumber;
+    }
+
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.profilePictureFile)) {
+      query["ProfilePictureFile"] = request.profilePictureFile;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.subject)) {
+      query["Subject"] = request.subject;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateChatGroup",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateChatGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateChatGroupResponse({}));
+  }
+
+  /**
+   * UpdateChatGroup
+   * 
+   * @param request - UpdateChatGroupRequest
+   * @returns UpdateChatGroupResponse
+   */
+  async updateChatGroup(request: $_model.UpdateChatGroupRequest): Promise<$_model.UpdateChatGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateChatGroupWithOptions(request, runtime);
   }
 
   /**

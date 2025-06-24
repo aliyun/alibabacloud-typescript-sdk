@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatappMigrationVerifiedRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the user under the independent software vendor (ISV) account.
+   * The space ID of the RAM user within the independent software vendor (ISV) account.
    * 
    * This parameter is required.
    * 

@@ -204,6 +204,7 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
    * The information about the products included in the WhatsApp catalog message or multi-product message (MPM).
    */
   productActionShrink?: string;
+  recipientType?: string;
   /**
    * @remarks
    * The tag information of the Viber message.
@@ -299,6 +300,7 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
       messageType: 'MessageType',
       payloadShrink: 'Payload',
       productActionShrink: 'ProductAction',
+      recipientType: 'RecipientType',
       tag: 'Tag',
       taskId: 'TaskId',
       templateCode: 'TemplateCode',
@@ -330,6 +332,7 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
       messageType: 'string',
       payloadShrink: 'string',
       productActionShrink: 'string',
+      recipientType: 'string',
       tag: 'string',
       taskId: 'string',
       templateCode: 'string',

@@ -1,49 +1,31 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ChatappMigrationVerifiedResponseBodyData } from "./ChatappMigrationVerifiedResponseBodyData";
+import { ListChatGroupResponseBodyData } from "./ListChatGroupResponseBodyData";
 
 
-export class ChatappMigrationVerifiedResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details about the access denial.
-   * 
-   * @example
-   * None
-   */
+export class ListChatGroupResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
-   * @remarks
-   * The HTTP status code returned.
-   * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
-   * 
    * @example
    * OK
    */
   code?: string;
+  data?: ListChatGroupResponseBodyData;
   /**
-   * @remarks
-   * The returned data.
-   */
-  data?: ChatappMigrationVerifiedResponseBodyData;
-  /**
-   * @remarks
-   * The error message returned.
-   * 
    * @example
-   * SUCCESS
+   * 示例值示例值
    */
   message?: string;
   /**
-   * @remarks
-   * The ID of the request.
-   * 
    * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
+   * 示例值示例值
    */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
@@ -51,6 +33,7 @@ export class ChatappMigrationVerifiedResponseBody extends $dara.Model {
       data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -58,9 +41,10 @@ export class ChatappMigrationVerifiedResponseBody extends $dara.Model {
     return {
       accessDeniedDetail: 'string',
       code: 'string',
-      data: ChatappMigrationVerifiedResponseBodyData,
+      data: ListChatGroupResponseBodyData,
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
