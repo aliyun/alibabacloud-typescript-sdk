@@ -5592,7 +5592,23 @@ export default class Client extends OpenApi {
    */
   async getQueryOptimizeExecErrorSampleWithOptions(request: $_model.GetQueryOptimizeExecErrorSampleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQueryOptimizeExecErrorSampleResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.sqlId)) {
+      query["SqlId"] = request.sqlId;
+    }
+
+    if (!$dara.isNull(request.time)) {
+      query["Time"] = request.time;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5601,7 +5617,7 @@ export default class Client extends OpenApi {
       version: "2020-01-16",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -5757,7 +5773,71 @@ export default class Client extends OpenApi {
    */
   async getQueryOptimizeShareUrlWithOptions(request: $_model.GetQueryOptimizeShareUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQueryOptimizeShareUrlResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.asc)) {
+      query["Asc"] = request.asc;
+    }
+
+    if (!$dara.isNull(request.dbNames)) {
+      query["DbNames"] = request.dbNames;
+    }
+
+    if (!$dara.isNull(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.keywords)) {
+      query["Keywords"] = request.keywords;
+    }
+
+    if (!$dara.isNull(request.logicalOperator)) {
+      query["LogicalOperator"] = request.logicalOperator;
+    }
+
+    if (!$dara.isNull(request.onlyOptimizedSql)) {
+      query["OnlyOptimizedSql"] = request.onlyOptimizedSql;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.rules)) {
+      query["Rules"] = request.rules;
+    }
+
+    if (!$dara.isNull(request.sqlIds)) {
+      query["SqlIds"] = request.sqlIds;
+    }
+
+    if (!$dara.isNull(request.tagNames)) {
+      query["TagNames"] = request.tagNames;
+    }
+
+    if (!$dara.isNull(request.time)) {
+      query["Time"] = request.time;
+    }
+
+    if (!$dara.isNull(request.user)) {
+      query["User"] = request.user;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5766,7 +5846,7 @@ export default class Client extends OpenApi {
       version: "2020-01-16",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -5811,7 +5891,23 @@ export default class Client extends OpenApi {
    */
   async getQueryOptimizeSolutionWithOptions(request: $_model.GetQueryOptimizeSolutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQueryOptimizeSolutionResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ruleIds)) {
+      query["RuleIds"] = request.ruleIds;
+    }
+
+    if (!$dara.isNull(request.sqlId)) {
+      query["SqlId"] = request.sqlId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5820,7 +5916,7 @@ export default class Client extends OpenApi {
       version: "2020-01-16",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -5865,7 +5961,19 @@ export default class Client extends OpenApi {
    */
   async getQueryOptimizeTagWithOptions(request: $_model.GetQueryOptimizeTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQueryOptimizeTagResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.sqlId)) {
+      query["SqlId"] = request.sqlId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5874,7 +5982,7 @@ export default class Client extends OpenApi {
       version: "2020-01-16",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
