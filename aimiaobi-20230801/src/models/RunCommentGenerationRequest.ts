@@ -22,6 +22,7 @@ export class RunCommentGenerationRequest extends $dara.Model {
    * {"short":"50","long":“50”}
    */
   lengthRange?: { [key: string]: any };
+  modelId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -67,6 +68,7 @@ export class RunCommentGenerationRequest extends $dara.Model {
       extraInfo: 'ExtraInfo',
       length: 'Length',
       lengthRange: 'LengthRange',
+      modelId: 'ModelId',
       numComments: 'NumComments',
       sentiment: 'Sentiment',
       sessionId: 'SessionId',
@@ -83,6 +85,7 @@ export class RunCommentGenerationRequest extends $dara.Model {
       extraInfo: 'string',
       length: 'string',
       lengthRange: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      modelId: 'string',
       numComments: 'string',
       sentiment: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       sessionId: 'string',

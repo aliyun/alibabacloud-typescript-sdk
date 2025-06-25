@@ -12,6 +12,7 @@ export class RunDocBrainmapRequest extends $dara.Model {
    * 12345
    */
   docId?: string;
+  modelName?: string;
   nodeNumber?: number;
   prompt?: string;
   /**
@@ -36,6 +37,7 @@ export class RunDocBrainmapRequest extends $dara.Model {
     return {
       cleanCache: 'CleanCache',
       docId: 'DocId',
+      modelName: 'ModelName',
       nodeNumber: 'NodeNumber',
       prompt: 'Prompt',
       sessionId: 'SessionId',
@@ -49,6 +51,7 @@ export class RunDocBrainmapRequest extends $dara.Model {
     return {
       cleanCache: 'boolean',
       docId: 'string',
+      modelName: 'string',
       nodeNumber: 'number',
       prompt: 'string',
       sessionId: 'string',

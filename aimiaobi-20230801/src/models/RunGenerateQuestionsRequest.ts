@@ -8,6 +8,7 @@ export class RunGenerateQuestionsRequest extends $dara.Model {
    * oOgIwodFANW1u5MnqxysOh1rtld3xn
    */
   docId?: string;
+  modelName?: string;
   referenceContent?: string;
   /**
    * @example
@@ -25,6 +26,7 @@ export class RunGenerateQuestionsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       docId: 'DocId',
+      modelName: 'ModelName',
       referenceContent: 'ReferenceContent',
       sessionId: 'SessionId',
       workspaceId: 'WorkspaceId',
@@ -34,6 +36,7 @@ export class RunGenerateQuestionsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       docId: 'string',
+      modelName: 'string',
       referenceContent: 'string',
       sessionId: 'string',
       workspaceId: 'string',

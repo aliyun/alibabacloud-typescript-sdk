@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunDocWashingRequest extends $dara.Model {
+  modelId?: string;
   prompt?: string;
   /**
    * @remarks
@@ -28,6 +29,7 @@ export class RunDocWashingRequest extends $dara.Model {
   writingTypeRefDoc?: string;
   static names(): { [key: string]: string } {
     return {
+      modelId: 'ModelId',
       prompt: 'Prompt',
       referenceContent: 'ReferenceContent',
       sessionId: 'SessionId',
@@ -41,6 +43,7 @@ export class RunDocWashingRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      modelId: 'string',
       prompt: 'string',
       referenceContent: 'string',
       sessionId: 'string',

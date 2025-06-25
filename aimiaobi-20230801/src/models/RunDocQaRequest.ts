@@ -7,6 +7,7 @@ export class RunDocQaRequest extends $dara.Model {
   categoryIds?: string[];
   conversationContexts?: RunDocQaRequestConversationContexts[];
   docIds?: string[];
+  modelName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -42,6 +43,7 @@ export class RunDocQaRequest extends $dara.Model {
       categoryIds: 'CategoryIds',
       conversationContexts: 'ConversationContexts',
       docIds: 'DocIds',
+      modelName: 'ModelName',
       query: 'Query',
       referenceContent: 'ReferenceContent',
       searchSource: 'SearchSource',
@@ -55,6 +57,7 @@ export class RunDocQaRequest extends $dara.Model {
       categoryIds: { 'type': 'array', 'itemType': 'string' },
       conversationContexts: { 'type': 'array', 'itemType': RunDocQaRequestConversationContexts },
       docIds: { 'type': 'array', 'itemType': 'string' },
+      modelName: 'string',
       query: 'string',
       referenceContent: 'string',
       searchSource: 'string',

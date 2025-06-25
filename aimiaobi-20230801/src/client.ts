@@ -6001,6 +6001,10 @@ export default class Client extends OpenApi {
       body["LengthRange"] = request.lengthRangeShrink;
     }
 
+    if (!$dara.isNull(request.modelId)) {
+      body["ModelId"] = request.modelId;
+    }
+
     if (!$dara.isNull(request.numComments)) {
       body["NumComments"] = request.numComments;
     }
@@ -6265,6 +6269,10 @@ export default class Client extends OpenApi {
       body["DocId"] = request.docId;
     }
 
+    if (!$dara.isNull(request.modelName)) {
+      body["ModelName"] = request.modelName;
+    }
+
     if (!$dara.isNull(request.nodeNumber)) {
       body["NodeNumber"] = request.nodeNumber;
     }
@@ -6341,6 +6349,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.keyPointPrompt)) {
       body["KeyPointPrompt"] = request.keyPointPrompt;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      body["ModelName"] = request.modelName;
     }
 
     if (!$dara.isNull(request.sessionId)) {
@@ -6423,6 +6435,10 @@ export default class Client extends OpenApi {
       body["DocIds"] = request.docIdsShrink;
     }
 
+    if (!$dara.isNull(request.modelName)) {
+      body["ModelName"] = request.modelName;
+    }
+
     if (!$dara.isNull(request.query)) {
       body["Query"] = request.query;
     }
@@ -6483,6 +6499,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.docId)) {
       body["DocId"] = request.docId;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      body["ModelName"] = request.modelName;
     }
 
     if (!$dara.isNull(request.prompt)) {
@@ -6609,6 +6629,10 @@ export default class Client extends OpenApi {
       body["DocId"] = request.docId;
     }
 
+    if (!$dara.isNull(request.modelName)) {
+      body["ModelName"] = request.modelName;
+    }
+
     if (!$dara.isNull(request.recommendContent)) {
       body["RecommendContent"] = request.recommendContent;
     }
@@ -6663,6 +6687,10 @@ export default class Client extends OpenApi {
   async runDocWashingWithOptions(request: $_model.RunDocWashingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunDocWashingResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelId)) {
+      body["ModelId"] = request.modelId;
+    }
+
     if (!$dara.isNull(request.prompt)) {
       body["Prompt"] = request.prompt;
     }
@@ -6783,6 +6811,10 @@ export default class Client extends OpenApi {
       body["DocId"] = request.docId;
     }
 
+    if (!$dara.isNull(request.modelName)) {
+      body["ModelName"] = request.modelName;
+    }
+
     if (!$dara.isNull(request.referenceContent)) {
       body["ReferenceContent"] = request.referenceContent;
     }
@@ -6835,6 +6867,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.docId)) {
       body["DocId"] = request.docId;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      body["ModelName"] = request.modelName;
     }
 
     if (!$dara.isNull(request.prompt)) {
@@ -6959,6 +6995,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.keyPointPrompt)) {
       body["KeyPointPrompt"] = request.keyPointPrompt;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      body["ModelName"] = request.modelName;
     }
 
     if (!$dara.isNull(request.sessionId)) {

@@ -6,6 +6,7 @@ export class RunDocQaShrinkRequest extends $dara.Model {
   categoryIdsShrink?: string;
   conversationContextsShrink?: string;
   docIdsShrink?: string;
+  modelName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -41,6 +42,7 @@ export class RunDocQaShrinkRequest extends $dara.Model {
       categoryIdsShrink: 'CategoryIds',
       conversationContextsShrink: 'ConversationContexts',
       docIdsShrink: 'DocIds',
+      modelName: 'ModelName',
       query: 'Query',
       referenceContent: 'ReferenceContent',
       searchSource: 'SearchSource',
@@ -54,6 +56,7 @@ export class RunDocQaShrinkRequest extends $dara.Model {
       categoryIdsShrink: 'string',
       conversationContextsShrink: 'string',
       docIdsShrink: 'string',
+      modelName: 'string',
       query: 'string',
       referenceContent: 'string',
       searchSource: 'string',

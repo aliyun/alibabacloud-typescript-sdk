@@ -11,6 +11,7 @@ export class RunDocSmartCardRequest extends $dara.Model {
    * 84ufBYEeLMZOjRFo84HJ7ySL3Efr55
    */
   docId?: string;
+  modelName?: string;
   prompt?: string;
   /**
    * @remarks
@@ -31,6 +32,7 @@ export class RunDocSmartCardRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       docId: 'DocId',
+      modelName: 'ModelName',
       prompt: 'Prompt',
       sessionId: 'SessionId',
       workspaceId: 'WorkspaceId',
@@ -40,6 +42,7 @@ export class RunDocSmartCardRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       docId: 'string',
+      modelName: 'string',
       prompt: 'string',
       sessionId: 'string',
       workspaceId: 'string',

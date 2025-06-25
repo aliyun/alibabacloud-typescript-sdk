@@ -9,6 +9,7 @@ export class RunMultiDocIntroductionShrinkRequest extends $dara.Model {
    */
   docIdsShrink?: string;
   keyPointPrompt?: string;
+  modelName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -30,6 +31,7 @@ export class RunMultiDocIntroductionShrinkRequest extends $dara.Model {
     return {
       docIdsShrink: 'DocIds',
       keyPointPrompt: 'KeyPointPrompt',
+      modelName: 'ModelName',
       sessionId: 'SessionId',
       summaryPrompt: 'SummaryPrompt',
       workspaceId: 'WorkspaceId',
@@ -40,6 +42,7 @@ export class RunMultiDocIntroductionShrinkRequest extends $dara.Model {
     return {
       docIdsShrink: 'string',
       keyPointPrompt: 'string',
+      modelName: 'string',
       sessionId: 'string',
       summaryPrompt: 'string',
       workspaceId: 'string',

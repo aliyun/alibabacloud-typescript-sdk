@@ -9,6 +9,7 @@ export class RunDocTranslationRequest extends $dara.Model {
    * 12345
    */
   docId?: string;
+  modelName?: string;
   recommendContent?: string;
   /**
    * @remarks
@@ -36,6 +37,7 @@ export class RunDocTranslationRequest extends $dara.Model {
     return {
       cleanCache: 'CleanCache',
       docId: 'DocId',
+      modelName: 'ModelName',
       recommendContent: 'RecommendContent',
       sessionId: 'SessionId',
       transType: 'TransType',
@@ -47,6 +49,7 @@ export class RunDocTranslationRequest extends $dara.Model {
     return {
       cleanCache: 'boolean',
       docId: 'string',
+      modelName: 'string',
       recommendContent: 'string',
       sessionId: 'string',
       transType: 'string',

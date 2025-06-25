@@ -14,6 +14,7 @@ export class RunDocIntroductionRequest extends $dara.Model {
   docId?: string;
   introductionPrompt?: string;
   keyPointPrompt?: string;
+  modelName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -38,6 +39,7 @@ export class RunDocIntroductionRequest extends $dara.Model {
       docId: 'DocId',
       introductionPrompt: 'IntroductionPrompt',
       keyPointPrompt: 'KeyPointPrompt',
+      modelName: 'ModelName',
       sessionId: 'SessionId',
       summaryPrompt: 'SummaryPrompt',
       workspaceId: 'WorkspaceId',
@@ -51,6 +53,7 @@ export class RunDocIntroductionRequest extends $dara.Model {
       docId: 'string',
       introductionPrompt: 'string',
       keyPointPrompt: 'string',
+      modelName: 'string',
       sessionId: 'string',
       summaryPrompt: 'string',
       workspaceId: 'string',

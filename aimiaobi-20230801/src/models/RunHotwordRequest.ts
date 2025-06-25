@@ -8,6 +8,7 @@ export class RunHotwordRequest extends $dara.Model {
    * 84ufBYEeLMZOjRFo84HJ7ySL3Efr55
    */
   docId?: string;
+  modelName?: string;
   prompt?: string;
   referenceContent?: string;
   /**
@@ -26,6 +27,7 @@ export class RunHotwordRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       docId: 'DocId',
+      modelName: 'ModelName',
       prompt: 'Prompt',
       referenceContent: 'ReferenceContent',
       sessionId: 'SessionId',
@@ -36,6 +38,7 @@ export class RunHotwordRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       docId: 'string',
+      modelName: 'string',
       prompt: 'string',
       referenceContent: 'string',
       sessionId: 'string',

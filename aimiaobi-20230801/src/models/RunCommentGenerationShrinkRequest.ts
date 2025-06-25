@@ -22,6 +22,7 @@ export class RunCommentGenerationShrinkRequest extends $dara.Model {
    * {"short":"50","long":“50”}
    */
   lengthRangeShrink?: string;
+  modelId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -67,6 +68,7 @@ export class RunCommentGenerationShrinkRequest extends $dara.Model {
       extraInfo: 'ExtraInfo',
       length: 'Length',
       lengthRangeShrink: 'LengthRange',
+      modelId: 'ModelId',
       numComments: 'NumComments',
       sentimentShrink: 'Sentiment',
       sessionId: 'SessionId',
@@ -83,6 +85,7 @@ export class RunCommentGenerationShrinkRequest extends $dara.Model {
       extraInfo: 'string',
       length: 'string',
       lengthRangeShrink: 'string',
+      modelId: 'string',
       numComments: 'string',
       sentimentShrink: 'string',
       sessionId: 'string',
