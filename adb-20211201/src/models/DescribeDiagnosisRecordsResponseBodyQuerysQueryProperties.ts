@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties extends $dara.Model {
+  /**
+   * @example
+   * max_select_items_count
+   */
   name?: string;
+  /**
+   * @example
+   * 1024
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

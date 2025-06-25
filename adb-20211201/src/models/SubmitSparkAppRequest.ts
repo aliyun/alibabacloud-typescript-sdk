@@ -41,7 +41,7 @@ export class SubmitSparkAppRequest extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * 
    * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
    * 

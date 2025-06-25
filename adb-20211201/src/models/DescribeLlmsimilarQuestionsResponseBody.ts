@@ -4,13 +4,23 @@ import { DescribeLLMSimilarQuestionsResponseBodyItems } from "./DescribeLlmsimil
 
 
 export class DescribeLLMSimilarQuestionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The queried similar questions.
+   */
   items?: DescribeLLMSimilarQuestionsResponseBodyItems[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 96A55627-28E9-5E47-B8F6-D786BE551349
    */
   requestId?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * 4847
    */

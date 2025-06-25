@@ -5,20 +5,39 @@ import { DescribeAdbMySqlTableMetaResponseBodyTableMeta } from "./DescribeAdbMyS
 
 export class DescribeAdbMySqlTableMetaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2FED790E-FB61-4721-8C1C-07C627FA5A19
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The queried table metadata.
+   */
   tableMeta?: DescribeAdbMySqlTableMetaResponseBodyTableMeta;
   static names(): { [key: string]: string } {
     return {

@@ -15,9 +15,9 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   clientIp?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
    * 
    * This parameter is required.
    * 

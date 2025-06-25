@@ -5,32 +5,54 @@ import { DescribeTableStatisticsResponseBodyItems } from "./DescribeTableStatist
 
 export class DescribeTableStatisticsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * am-****************
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The queried table statistics.
+   */
   items?: DescribeTableStatisticsResponseBodyItems;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C4433FF-5D3A-4C3E-A19C-6D93B2******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The names of databases.
+   * 
    * @example
    * [\\"adb_platform\\", \\"adb_ai\\", \\"adb_data\\"]
    */
   schemaNames?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 693
    */

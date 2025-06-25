@@ -105,6 +105,10 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
    * 48ACU
    */
   maxComputeResource?: string;
+  /**
+   * @remarks
+   * A reserved parameter.
+   */
   maxGpuQuantity?: number;
   /**
    * @remarks
@@ -125,6 +129,10 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
    * 0ACU
    */
   minComputeResource?: string;
+  /**
+   * @remarks
+   * A reserved parameter.
+   */
   minGpuQuantity?: number;
   rayConfig?: CreateDBResourceGroupRequestRayConfig;
   /**
@@ -142,7 +150,15 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
    * The job resubmission rules.
    */
   rules?: CreateDBResourceGroupRequestRules[];
+  /**
+   * @remarks
+   * A reserved parameter.
+   */
   specName?: string;
+  /**
+   * @remarks
+   * A reserved parameter.
+   */
   targetResourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {

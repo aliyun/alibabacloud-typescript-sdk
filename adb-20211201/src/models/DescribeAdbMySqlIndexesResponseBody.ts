@@ -5,32 +5,64 @@ import { DescribeAdbMySqlIndexesResponseBodyIndexes } from "./DescribeAdbMySqlIn
 
 export class DescribeAdbMySqlIndexesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of indexes.````
+   * 
    * @example
    * 10
    */
   indexCount?: number;
+  /**
+   * @remarks
+   * The queried indexes.
+   */
   indexes?: DescribeAdbMySqlIndexesResponseBodyIndexes[];
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F0983B43-B2EC-536A-8791-142B5CF1E9B6
    */
   requestId?: string;
   /**
+   * @remarks
+   * The name of the database.
+   * 
+   * **
+   * 
+   * ****\\
+   * 
    * @example
    * adb_demo
    */
   schema?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The name of the table.
+   * 
    * @example
    * test
    */

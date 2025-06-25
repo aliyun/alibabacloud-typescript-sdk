@@ -6,7 +6,7 @@ import { DatabaseSummaryModel } from "./DatabaseSummaryModel";
 export class GetDatabaseObjectsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The queried database.
+   * The queried databases.
    */
   databaseSummaryModels?: DatabaseSummaryModel[];
   /**

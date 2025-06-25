@@ -3,12 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDBResourceGroupRequestRayConfigWorkerGroups extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   allocateUnit?: string;
+  /**
+   * @example
+   * test
+   */
   groupName?: string;
+  /**
+   * @example
+   * 2
+   */
   maxWorkerQuantity?: number;
+  /**
+   * @example
+   * 1
+   */
   minWorkerQuantity?: number;
+  /**
+   * @example
+   * 100G
+   */
   workerDiskCapacity?: string;
+  /**
+   * @example
+   * xlarge
+   */
   workerSpecName?: string;
+  /**
+   * @example
+   * GPU
+   */
   workerSpecType?: string;
   static names(): { [key: string]: string } {
     return {

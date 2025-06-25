@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSQLWebSocketDomainRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,10 @@ export class DescribeSQLWebSocketDomainRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The region ID
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example

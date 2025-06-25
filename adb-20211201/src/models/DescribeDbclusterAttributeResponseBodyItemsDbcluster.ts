@@ -5,6 +5,8 @@ import { DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfo } from "./
 
 
 export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.Model {
+  AINodeNumber?: number;
+  AINodeSpec?: string;
   /**
    * @remarks
    * The cache size of the ClickHouse wide table engine. Unit: GB. If a value of -1 is returned, the ClickHouse wide table engine is disabled. If a value other than -1 is returned, this parameter indicates the disk cache size.
@@ -392,6 +394,8 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      AINodeNumber: 'AINodeNumber',
+      AINodeSpec: 'AINodeSpec',
       clickhouseEngineCacheSize: 'ClickhouseEngineCacheSize',
       clickhouseEngineEnabled: 'ClickhouseEngineEnabled',
       commodityCode: 'CommodityCode',
@@ -443,6 +447,8 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
 
   static types(): { [key: string]: any } {
     return {
+      AINodeNumber: 'number',
+      AINodeSpec: 'string',
       clickhouseEngineCacheSize: 'number',
       clickhouseEngineEnabled: 'boolean',
       commodityCode: 'string',

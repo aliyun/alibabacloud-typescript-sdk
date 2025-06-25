@@ -19,7 +19,7 @@ export class KillProcessRequest extends $dara.Model {
    * @remarks
    * The query ID.
    * 
-   * >  You can call the [DescribeProcessList](https://help.aliyun.com/document_detail/143382.html) operation to query the IDs of queries that are being executed.
+   * >  You can call the [DescribeProcessList](https://help.aliyun.com/document_detail/612277.html) operation to query the IDs of queries that are being executed.
    * 
    * @example
    * 202011191048151921681492420315100****

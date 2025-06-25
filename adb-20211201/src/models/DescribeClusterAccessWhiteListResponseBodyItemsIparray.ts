@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterAccessWhiteListResponseBodyItemsIPArray extends $dara.Model {
   /**
    * @remarks
-   * The attribute of the whitelist.
+   * The attribute of the IP address whitelist.
    * 
-   * > Whitelists with the **hidden** attribute are not displayed in the console. Those whitelists are used to access Data Transmission Service (DTS) and PolarDB.
+   * >  The IP address whitelists that have the **hidden** attribute are not displayed in the console. These IP address whitelists are used to access services such as Data Transmission Service (DTS) and PolarDB.
    * 
    * @example
    * hidden

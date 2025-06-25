@@ -3,21 +3,46 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLLMSimilarQuestionsResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The answer to the similar question.
+   */
   answer?: string;
   /**
+   * @remarks
+   * The ID of the similar question.
+   * 
    * @example
    * 2389899
    */
   id?: string;
   /**
+   * @remarks
+   * The similarity of the similar question.
+   * 
    * @example
    * 0.58
    */
   score?: number;
+  /**
+   * @remarks
+   * The source of the similar question.
+   */
   source?: string;
+  /**
+   * @remarks
+   * The summary of the similar question.
+   */
   summary?: string;
+  /**
+   * @remarks
+   * The content of the similar question.
+   */
   title?: string;
   /**
+   * @remarks
+   * The URL of the answer to the similar question.
+   * 
    * @example
    * www.aliyun.com/product
    */

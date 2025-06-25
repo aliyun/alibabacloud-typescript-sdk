@@ -7,7 +7,7 @@ export class ModifyClusterAccessWhiteListRequest extends $dara.Model {
    * @remarks
    * The attribute of the IP address whitelist. By default, this parameter is empty.
    * 
-   * > Whitelists with the hidden attribute are not displayed in the console. Those whitelists are used to access Data Transmission Service (DTS) and PolarDB.
+   * >  IP address whitelists with the hidden attribute are not displayed in the console. Those whitelists are used to access Data Transmission Service (DTS) and PolarDB.
    * 
    * @example
    * hidden

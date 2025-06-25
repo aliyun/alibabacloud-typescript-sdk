@@ -27,22 +27,13 @@ export class DescribeDBClustersRequest extends $dara.Model {
   DBClusterIds?: string;
   /**
    * @remarks
-   * The state of the cluster. Valid values:
+   * The status of the cluster. Valid values:
    * 
    * *   **Preparing**
-   * 
-   * <!---->
-   * 
    * *   **Creating**
    * *   **Running**
    * *   **Deleting**
-   * 
-   * <!---->
-   * 
    * *   **Restoring**
-   * 
-   * <!---->
-   * 
    * *   **ClassChanging**
    * *   **NetAddressCreating**
    * *   **NetAddressDeleting**
@@ -54,11 +45,11 @@ export class DescribeDBClustersRequest extends $dara.Model {
   DBClusterStatus?: string;
   /**
    * @remarks
-   * The database engine version of the cluster. Valid values:
+   * The version number corresponding to the edition of the cluster. Valid values:
    * 
-   * *   3.0: Data Warehouse Edition.
-   * *   5.0 (default): Data Lakehouse Edition, Enterprise Edition, and Basic Edition.
-   * *   All: Data Warehouse Edition, Data Lakehouse Edition, Enterprise Edition, and Basic Edition.
+   * *   **3.0**: Data Warehouse Edition.
+   * *   **5.0** (default): includes Data Lakehouse Edition, Enterprise Edition, and Basic Edition.
+   * *   **All**: all editions, including Data Warehouse Edition, Data Lakehouse Edition, Enterprise Edition, and Basic Edition.
    * 
    * @example
    * 5.0
@@ -88,10 +79,10 @@ export class DescribeDBClustersRequest extends $dara.Model {
    * @remarks
    * The edition of the cluster. Valid values:
    * 
-   * *   EnterpriseVersion: Enterprise Edition.
-   * *   BasicVersion: Basic Edition.
+   * *   **EnterpriseVersion**: Enterprise Edition.
+   * *   **BasicVersion**: Basic Edition.
    * 
-   * If you leave this parameter empty, the information about clusters of all editions is returned.
+   * >  If you leave this parameter empty, the information about clusters of all editions is returned.
    * 
    * @example
    * BasicVersion

@@ -6,7 +6,7 @@ import { GetDatabaseObjectsResponseBodyData } from "./GetDatabaseObjectsResponse
 export class GetDatabaseObjectsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried databases.
+   * The returned data.
    */
   data?: GetDatabaseObjectsResponseBodyData;
   /**

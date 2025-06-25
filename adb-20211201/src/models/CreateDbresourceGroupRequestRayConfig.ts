@@ -4,7 +4,15 @@ import { CreateDBResourceGroupRequestRayConfigWorkerGroups } from "./CreateDbres
 
 
 export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
+  /**
+   * @example
+   * BASIC
+   */
   category?: string;
+  /**
+   * @example
+   * xlarge
+   */
   headSpec?: string;
   workerGroups?: CreateDBResourceGroupRequestRayConfigWorkerGroups[];
   static names(): { [key: string]: string } {

@@ -25,7 +25,10 @@ export class SubmitResultExportJobRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The export type.
+   * The type of the result set export job.
+   * 
+   * @example
+   * SLS
    */
   exportType?: string;
   /**

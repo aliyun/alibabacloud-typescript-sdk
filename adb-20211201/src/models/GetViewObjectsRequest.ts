@@ -102,6 +102,10 @@ export class GetViewObjectsRequest extends $dara.Model {
    * adb_demo
    */
   schemaName?: string;
+  /**
+   * @example
+   * true
+   */
   showMvBaseTable?: boolean;
   static names(): { [key: string]: string } {
     return {

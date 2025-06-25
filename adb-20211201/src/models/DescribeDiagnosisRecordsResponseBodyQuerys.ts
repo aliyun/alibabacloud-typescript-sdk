@@ -62,6 +62,10 @@ export class DescribeDiagnosisRecordsResponseBodyQuerys extends $dara.Model {
    * 1
    */
   outputRows?: number;
+  /**
+   * @example
+   * -5575924945138******
+   */
   patternId?: string;
   /**
    * @remarks
@@ -79,6 +83,12 @@ export class DescribeDiagnosisRecordsResponseBodyQuerys extends $dara.Model {
    * 2021093000414401000000023503151******
    */
   processId?: string;
+  /**
+   * @remarks
+   * The query properties.
+   * 
+   * >  For information about common properties, see [Config and hint configuration parameters](https://help.aliyun.com/document_detail/408955.html).
+   */
   queryProperties?: DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties[];
   /**
    * @remarks

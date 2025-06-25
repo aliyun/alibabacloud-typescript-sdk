@@ -6,7 +6,7 @@ import { GetTableColumnsResponseBodyData } from "./GetTableColumnsResponseBodyDa
 export class GetTableColumnsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried data.
+   * The returned data.
    */
   data?: GetTableColumnsResponseBodyData;
   /**

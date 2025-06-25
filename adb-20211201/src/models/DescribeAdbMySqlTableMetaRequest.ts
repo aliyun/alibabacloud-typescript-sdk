@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAdbMySqlTableMetaRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * 
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,10 @@ export class DescribeAdbMySqlTableMetaRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +29,8 @@ export class DescribeAdbMySqlTableMetaRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +39,10 @@ export class DescribeAdbMySqlTableMetaRequest extends $dara.Model {
   schema?: string;
   /**
    * @remarks
+   * The name of the table.
+   * 
+   * >  If you leave this parameter empty, the information about all the current tables in the cluster is returned.
+   * 
    * This parameter is required.
    * 
    * @example

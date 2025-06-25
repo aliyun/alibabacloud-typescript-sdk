@@ -29,7 +29,10 @@ export class DescribeSparkAppDiagnosisInfoRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The execution language of the Spark application.
+   * The language in which you want to display the results. Valid values:
+   * 
+   * *   en: English.
+   * *   zh (default): Chinese.
    * 
    * This parameter is required.
    * 

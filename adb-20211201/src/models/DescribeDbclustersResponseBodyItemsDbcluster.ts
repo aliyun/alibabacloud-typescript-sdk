@@ -72,7 +72,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The network type of the cluster. **VPC** is returned.
+   * The network type of the cluster. Only **VPC** is supported.
    * 
    * @example
    * VPC
@@ -83,19 +83,10 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
    * The status of the cluster. Valid values:
    * 
    * *   **Preparing**
-   * 
-   * <!---->
-   * 
    * *   **Creating**
    * *   **Running**
    * *   **Deleting**
-   * 
-   * <!---->
-   * 
    * *   **Restoring**
-   * 
-   * <!---->
-   * 
    * *   **ClassChanging**
    * *   **NetAddressCreating**
    * *   **NetAddressDeleting**
@@ -139,7 +130,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
   DBNodeStorage?: number;
   /**
    * @remarks
-   * The engine version of the AnalyticDB for MySQL Data Lakehouse Edition cluster. **5.0** is returned.
+   * The version number corresponding to the edition of the cluster. Only **5.0** is supported.
    * 
    * @example
    * 5.0
@@ -297,8 +288,8 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
    * @remarks
    * The service type of the cluster. Valid values:
    * 
-   * *   LegacyForm
-   * *   IntegrationForm
+   * *   **LegacyForm**
+   * *   **IntegrationForm**
    * 
    * @example
    * IntegrationForm
@@ -378,12 +369,12 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
   tags?: DescribeDBClustersResponseBodyItemsDBClusterTags;
   /**
    * @remarks
-   * The job progress.
+   * The information about the job.
    */
   taskInfo?: DescribeDBClustersResponseBodyItemsDBClusterTaskInfo;
   /**
    * @remarks
-   * The ID of the cluster that resides in the VPC.
+   * The VPC endpoint.
    * 
    * @example
    * am-bp163885f8q21****-controller

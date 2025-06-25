@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceGroupSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * The Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster ID.
    * 
    * This parameter is required.
    * 
