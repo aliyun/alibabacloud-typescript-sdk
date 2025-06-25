@@ -2202,6 +2202,10 @@ export default class Client extends OpenApi {
       query["CameraRedirect"] = request.cameraRedirect;
     }
 
+    if (!$dara.isNull(request.clientControlMenu)) {
+      query["ClientControlMenu"] = request.clientControlMenu;
+    }
+
     if (!$dara.isNull(request.clientType)) {
       query["ClientType"] = request.clientType;
     }
@@ -2212,6 +2216,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.colorEnhancement)) {
       query["ColorEnhancement"] = request.colorEnhancement;
+    }
+
+    if (!$dara.isNull(request.cpdDriveClipboard)) {
+      query["CpdDriveClipboard"] = request.cpdDriveClipboard;
     }
 
     if (!$dara.isNull(request.cpuDownGradeDuration)) {
@@ -2284,6 +2292,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.fileMigrate)) {
       query["FileMigrate"] = request.fileMigrate;
+    }
+
+    if (!$dara.isNull(request.fileTransferAddress)) {
+      query["FileTransferAddress"] = request.fileTransferAddress;
+    }
+
+    if (!$dara.isNull(request.fileTransferSpeed)) {
+      query["FileTransferSpeed"] = request.fileTransferSpeed;
+    }
+
+    if (!$dara.isNull(request.fileTransferSpeedLocation)) {
+      query["FileTransferSpeedLocation"] = request.fileTransferSpeedLocation;
     }
 
     if (!$dara.isNull(request.gpuAcceleration)) {
@@ -2462,6 +2482,10 @@ export default class Client extends OpenApi {
       query["ScopeValue"] = request.scopeValue;
     }
 
+    if (!$dara.isNull(request.screenDisplayMode)) {
+      query["ScreenDisplayMode"] = request.screenDisplayMode;
+    }
+
     if (!$dara.isNull(request.sessionMaxRateKbps)) {
       query["SessionMaxRateKbps"] = request.sessionMaxRateKbps;
     }
@@ -2492,6 +2516,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.usbSupplyRedirectRule)) {
       query["UsbSupplyRedirectRule"] = request.usbSupplyRedirectRule;
+    }
+
+    if (!$dara.isNull(request.useTime)) {
+      query["UseTime"] = request.useTime;
     }
 
     if (!$dara.isNull(request.videoEncAvgKbps)) {
@@ -11741,6 +11769,10 @@ export default class Client extends OpenApi {
       query["CameraRedirect"] = request.cameraRedirect;
     }
 
+    if (!$dara.isNull(request.clientControlMenu)) {
+      query["ClientControlMenu"] = request.clientControlMenu;
+    }
+
     if (!$dara.isNull(request.clientType)) {
       query["ClientType"] = request.clientType;
     }
@@ -11751,6 +11783,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.colorEnhancement)) {
       query["ColorEnhancement"] = request.colorEnhancement;
+    }
+
+    if (!$dara.isNull(request.cpdDriveClipboard)) {
+      query["CpdDriveClipboard"] = request.cpdDriveClipboard;
     }
 
     if (!$dara.isNull(request.cpuDownGradeDuration)) {
@@ -11823,6 +11859,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.fileMigrate)) {
       query["FileMigrate"] = request.fileMigrate;
+    }
+
+    if (!$dara.isNull(request.fileTransferAddress)) {
+      query["FileTransferAddress"] = request.fileTransferAddress;
+    }
+
+    if (!$dara.isNull(request.fileTransferSpeed)) {
+      query["FileTransferSpeed"] = request.fileTransferSpeed;
+    }
+
+    if (!$dara.isNull(request.fileTransferSpeedLocation)) {
+      query["FileTransferSpeedLocation"] = request.fileTransferSpeedLocation;
     }
 
     if (!$dara.isNull(request.gpuAcceleration)) {
@@ -12013,6 +12061,10 @@ export default class Client extends OpenApi {
       query["ScopeValue"] = request.scopeValue;
     }
 
+    if (!$dara.isNull(request.screenDisplayMode)) {
+      query["ScreenDisplayMode"] = request.screenDisplayMode;
+    }
+
     if (!$dara.isNull(request.sessionMaxRateKbps)) {
       query["SessionMaxRateKbps"] = request.sessionMaxRateKbps;
     }
@@ -12043,6 +12095,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.usbSupplyRedirectRule)) {
       query["UsbSupplyRedirectRule"] = request.usbSupplyRedirectRule;
+    }
+
+    if (!$dara.isNull(request.useTime)) {
+      query["UseTime"] = request.useTime;
     }
 
     if (!$dara.isNull(request.videoEncAvgKbps)) {
@@ -14292,7 +14348,7 @@ export default class Client extends OpenApi {
    * Modifies the basic information of a custom cloud computer template, including the template name and template description.
    * 
    * @remarks
-   * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](~~ModifyTemplate~~) operation.
+   * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
    * 
    * @param request - ModifyTemplateBaseInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14334,7 +14390,7 @@ export default class Client extends OpenApi {
    * Modifies the basic information of a custom cloud computer template, including the template name and template description.
    * 
    * @remarks
-   * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](~~ModifyTemplate~~) operation.
+   * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
    * 
    * @param request - ModifyTemplateBaseInfoRequest
    * @returns ModifyTemplateBaseInfoResponse

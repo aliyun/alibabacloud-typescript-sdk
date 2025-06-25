@@ -57,6 +57,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * on
    */
   cameraRedirect?: string;
+  clientControlMenu?: string;
   /**
    * @remarks
    * The logon method control rules to limit the type of the Alibaba Cloud Workspace client used by end users to connect to cloud computers.
@@ -90,6 +91,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * off
    */
   colorEnhancement?: string;
+  cpdDriveClipboard?: string;
   /**
    * @remarks
    * The CPU underclocking duration. Valid values: 30 to 120. Unit: seconds.
@@ -256,6 +258,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * null
    */
   fileTransfer?: string;
+  fileTransferAddress?: string;
+  fileTransferSpeed?: string;
+  fileTransferSpeedLocation?: string;
   /**
    * @remarks
    * Indicates whether the Image Quality Control feature is enabled. If you have high requirements on the performance and user experience in scenarios such as professional design, we recommend that you enable this feature.
@@ -728,6 +733,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * This parameter is required when the `Scope` parameter is set to `IP`.````
    */
   scopeValue?: string[];
+  screenDisplayMode?: string;
   /**
    * @remarks
    * Indicates whether the Smooth Enhancement switch is turned on.
@@ -791,6 +797,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * The USB redirection rule.
    */
   usbSupplyRedirectRule?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule[];
+  useTime?: string;
   /**
    * @remarks
    * The average bitrate for video encoding. Valid values: 1000 to 50000.
@@ -1035,9 +1042,11 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       authorizeAccessPolicyRules: 'AuthorizeAccessPolicyRules',
       authorizeSecurityPolicyRules: 'AuthorizeSecurityPolicyRules',
       cameraRedirect: 'CameraRedirect',
+      clientControlMenu: 'ClientControlMenu',
       clientTypes: 'ClientTypes',
       clipboard: 'Clipboard',
       colorEnhancement: 'ColorEnhancement',
+      cpdDriveClipboard: 'CpdDriveClipboard',
       cpuDownGradeDuration: 'CpuDownGradeDuration',
       cpuProcessors: 'CpuProcessors',
       cpuProtectedMode: 'CpuProtectedMode',
@@ -1058,6 +1067,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       endUserGroupCoordinate: 'EndUserGroupCoordinate',
       fileMigrate: 'FileMigrate',
       fileTransfer: 'FileTransfer',
+      fileTransferAddress: 'FileTransferAddress',
+      fileTransferSpeed: 'FileTransferSpeed',
+      fileTransferSpeedLocation: 'FileTransferSpeedLocation',
       gpuAcceleration: 'GpuAcceleration',
       html5Access: 'Html5Access',
       html5FileTransfer: 'Html5FileTransfer',
@@ -1107,12 +1119,14 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       safeMenu: 'SafeMenu',
       scope: 'Scope',
       scopeValue: 'ScopeValue',
+      screenDisplayMode: 'ScreenDisplayMode',
       smoothEnhancement: 'SmoothEnhancement',
       statusMonitor: 'StatusMonitor',
       streamingMode: 'StreamingMode',
       targetFps: 'TargetFps',
       usbRedirect: 'UsbRedirect',
       usbSupplyRedirectRule: 'UsbSupplyRedirectRule',
+      useTime: 'UseTime',
       videoEncAvgKbps: 'VideoEncAvgKbps',
       videoEncMaxQP: 'VideoEncMaxQP',
       videoEncMinQP: 'VideoEncMinQP',
@@ -1145,9 +1159,11 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       authorizeAccessPolicyRules: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules },
       authorizeSecurityPolicyRules: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules },
       cameraRedirect: 'string',
+      clientControlMenu: 'string',
       clientTypes: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes },
       clipboard: 'string',
       colorEnhancement: 'string',
+      cpdDriveClipboard: 'string',
       cpuDownGradeDuration: 'number',
       cpuProcessors: { 'type': 'array', 'itemType': 'string' },
       cpuProtectedMode: 'string',
@@ -1168,6 +1184,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       endUserGroupCoordinate: 'string',
       fileMigrate: 'string',
       fileTransfer: 'string',
+      fileTransferAddress: 'string',
+      fileTransferSpeed: 'string',
+      fileTransferSpeedLocation: 'string',
       gpuAcceleration: 'string',
       html5Access: 'string',
       html5FileTransfer: 'string',
@@ -1217,12 +1236,14 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       safeMenu: 'string',
       scope: 'string',
       scopeValue: { 'type': 'array', 'itemType': 'string' },
+      screenDisplayMode: 'string',
       smoothEnhancement: 'string',
       statusMonitor: 'string',
       streamingMode: 'string',
       targetFps: 'number',
       usbRedirect: 'string',
       usbSupplyRedirectRule: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule },
+      useTime: 'string',
       videoEncAvgKbps: 'number',
       videoEncMaxQP: 'number',
       videoEncMinQP: 'number',

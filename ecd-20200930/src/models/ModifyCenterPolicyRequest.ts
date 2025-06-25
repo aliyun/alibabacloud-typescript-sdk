@@ -80,6 +80,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * on
    */
   cameraRedirect?: string;
+  clientControlMenu?: string;
   /**
    * @remarks
    * The types of Alibaba Cloud Workspace clients that end users can use to connect to cloud computers.
@@ -113,6 +114,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * off
    */
   colorEnhancement?: string;
+  cpdDriveClipboard?: string;
   /**
    * @remarks
    * The CPU underclocking duration. Valid values: 30 to 120. Unit: seconds.
@@ -296,6 +298,9 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * off
    */
   fileMigrate?: string;
+  fileTransferAddress?: string;
+  fileTransferSpeed?: string;
+  fileTransferSpeedLocation?: string;
   /**
    * @remarks
    * Specifies whether to enable Image Quality Control. This feature is highly recommended for professional design scenarios where performance and user experience are critical.
@@ -754,6 +759,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * The effective scopes. This parameter is required when `Scope` is set to `IP`. If `Scope` is set to `IP`, this parameter doesn\\"t take effect.
    */
   scopeValue?: string[];
+  screenDisplayMode?: string;
   /**
    * @remarks
    * The bandwidth peak allowed for sessions. Unit: Kbit/s. Valid values: 2000 to 100000.
@@ -842,6 +848,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * The USB redirection rules.
    */
   usbSupplyRedirectRule?: ModifyCenterPolicyRequestUsbSupplyRedirectRule[];
+  useTime?: string;
   /**
    * @remarks
    * The average bitrate for video encoding. Unit: Kbit/s. Valid values: 1000 to 50000.
@@ -1093,9 +1100,11 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       authorizeSecurityPolicyRule: 'AuthorizeSecurityPolicyRule',
       businessType: 'BusinessType',
       cameraRedirect: 'CameraRedirect',
+      clientControlMenu: 'ClientControlMenu',
       clientType: 'ClientType',
       clipboard: 'Clipboard',
       colorEnhancement: 'ColorEnhancement',
+      cpdDriveClipboard: 'CpdDriveClipboard',
       cpuDownGradeDuration: 'CpuDownGradeDuration',
       cpuProcessors: 'CpuProcessors',
       cpuProtectedMode: 'CpuProtectedMode',
@@ -1114,6 +1123,9 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       endUserApplyAdminCoordinate: 'EndUserApplyAdminCoordinate',
       endUserGroupCoordinate: 'EndUserGroupCoordinate',
       fileMigrate: 'FileMigrate',
+      fileTransferAddress: 'FileTransferAddress',
+      fileTransferSpeed: 'FileTransferSpeed',
+      fileTransferSpeedLocation: 'FileTransferSpeedLocation',
       gpuAcceleration: 'GpuAcceleration',
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
@@ -1161,6 +1173,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       safeMenu: 'SafeMenu',
       scope: 'Scope',
       scopeValue: 'ScopeValue',
+      screenDisplayMode: 'ScreenDisplayMode',
       sessionMaxRateKbps: 'SessionMaxRateKbps',
       smoothEnhancement: 'SmoothEnhancement',
       statusMonitor: 'StatusMonitor',
@@ -1169,6 +1182,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       taskbar: 'Taskbar',
       usbRedirect: 'UsbRedirect',
       usbSupplyRedirectRule: 'UsbSupplyRedirectRule',
+      useTime: 'UseTime',
       videoEncAvgKbps: 'VideoEncAvgKbps',
       videoEncMaxQP: 'VideoEncMaxQP',
       videoEncMinQP: 'VideoEncMinQP',
@@ -1202,9 +1216,11 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       authorizeSecurityPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule },
       businessType: 'number',
       cameraRedirect: 'string',
+      clientControlMenu: 'string',
       clientType: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestClientType },
       clipboard: 'string',
       colorEnhancement: 'string',
+      cpdDriveClipboard: 'string',
       cpuDownGradeDuration: 'number',
       cpuProcessors: { 'type': 'array', 'itemType': 'string' },
       cpuProtectedMode: 'string',
@@ -1223,6 +1239,9 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       endUserApplyAdminCoordinate: 'string',
       endUserGroupCoordinate: 'string',
       fileMigrate: 'string',
+      fileTransferAddress: 'string',
+      fileTransferSpeed: 'string',
+      fileTransferSpeedLocation: 'string',
       gpuAcceleration: 'string',
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
@@ -1270,6 +1289,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       safeMenu: 'string',
       scope: 'string',
       scopeValue: { 'type': 'array', 'itemType': 'string' },
+      screenDisplayMode: 'string',
       sessionMaxRateKbps: 'number',
       smoothEnhancement: 'string',
       statusMonitor: 'string',
@@ -1278,6 +1298,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       taskbar: 'string',
       usbRedirect: 'string',
       usbSupplyRedirectRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestUsbSupplyRedirectRule },
+      useTime: 'string',
       videoEncAvgKbps: 'number',
       videoEncMaxQP: 'number',
       videoEncMinQP: 'number',

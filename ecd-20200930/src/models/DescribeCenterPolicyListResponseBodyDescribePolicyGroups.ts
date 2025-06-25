@@ -47,6 +47,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * on
    */
   cameraRedirect?: string;
+  clientControlMenu?: string;
   /**
    * @remarks
    * The logon method control rules.
@@ -68,6 +69,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * off
    */
   colorEnhancement?: string;
+  cpdDriveClipboard?: string;
   /**
    * @remarks
    * The CPU underclocking duration. Valid values: 30 to 120. Unit: seconds.
@@ -204,6 +206,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * off
    */
   endUserGroupCoordinate?: string;
+  fileTransferAddress?: string;
+  fileTransferSpeed?: string;
+  fileTransferSpeedLocation?: string;
   /**
    * @remarks
    * Indicates whether image quality control is enabled. For optimal computer performance and user experience in professional design scenarios, we recommend enabling this feature.
@@ -560,6 +565,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * The effective scopes specified by CIDR blocks.
    */
   scopeValue?: string[];
+  screenDisplayMode?: string;
   /**
    * @remarks
    * Indicates whether smoothness enhancement is enabled for daily office use.
@@ -615,6 +621,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * The USB redirection rules.
    */
   usbSupplyRedirectRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule[];
+  useTime?: string;
   /**
    * @remarks
    * The average bitrate for video encoding. Unit: Kbit/s. Valid values: 1000 to 50000.
@@ -782,9 +789,11 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       authorizeAccessPolicyRules: 'AuthorizeAccessPolicyRules',
       authorizeSecurityPolicyRules: 'AuthorizeSecurityPolicyRules',
       cameraRedirect: 'CameraRedirect',
+      clientControlMenu: 'ClientControlMenu',
       clientTypes: 'ClientTypes',
       clipboard: 'Clipboard',
       colorEnhancement: 'ColorEnhancement',
+      cpdDriveClipboard: 'CpdDriveClipboard',
       cpuDownGradeDuration: 'CpuDownGradeDuration',
       cpuProcessors: 'CpuProcessors',
       cpuProtectedMode: 'CpuProtectedMode',
@@ -803,6 +812,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       domainResolveRuleType: 'DomainResolveRuleType',
       endUserApplyAdminCoordinate: 'EndUserApplyAdminCoordinate',
       endUserGroupCoordinate: 'EndUserGroupCoordinate',
+      fileTransferAddress: 'FileTransferAddress',
+      fileTransferSpeed: 'FileTransferSpeed',
+      fileTransferSpeedLocation: 'FileTransferSpeedLocation',
       gpuAcceleration: 'GpuAcceleration',
       html5Access: 'Html5Access',
       html5FileTransfer: 'Html5FileTransfer',
@@ -850,6 +862,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       safeMenu: 'SafeMenu',
       scope: 'Scope',
       scopeValue: 'ScopeValue',
+      screenDisplayMode: 'ScreenDisplayMode',
       smoothEnhancement: 'SmoothEnhancement',
       statusMonitor: 'StatusMonitor',
       streamingMode: 'StreamingMode',
@@ -857,6 +870,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       taskbar: 'Taskbar',
       usbRedirect: 'UsbRedirect',
       usbSupplyRedirectRule: 'UsbSupplyRedirectRule',
+      useTime: 'UseTime',
       videoEncAvgKbps: 'VideoEncAvgKbps',
       videoEncMaxQP: 'VideoEncMaxQP',
       videoEncMinQP: 'VideoEncMinQP',
@@ -887,9 +901,11 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       authorizeAccessPolicyRules: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules },
       authorizeSecurityPolicyRules: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules },
       cameraRedirect: 'string',
+      clientControlMenu: 'string',
       clientTypes: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes },
       clipboard: 'string',
       colorEnhancement: 'string',
+      cpdDriveClipboard: 'string',
       cpuDownGradeDuration: 'number',
       cpuProcessors: { 'type': 'array', 'itemType': 'string' },
       cpuProtectedMode: 'string',
@@ -908,6 +924,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       domainResolveRuleType: 'string',
       endUserApplyAdminCoordinate: 'string',
       endUserGroupCoordinate: 'string',
+      fileTransferAddress: 'string',
+      fileTransferSpeed: 'string',
+      fileTransferSpeedLocation: 'string',
       gpuAcceleration: 'string',
       html5Access: 'string',
       html5FileTransfer: 'string',
@@ -955,6 +974,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       safeMenu: 'string',
       scope: 'string',
       scopeValue: { 'type': 'array', 'itemType': 'string' },
+      screenDisplayMode: 'string',
       smoothEnhancement: 'string',
       statusMonitor: 'string',
       streamingMode: 'string',
@@ -962,6 +982,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       taskbar: 'string',
       usbRedirect: 'string',
       usbSupplyRedirectRule: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule },
+      useTime: 'string',
       videoEncAvgKbps: 'number',
       videoEncMaxQP: 'number',
       videoEncMinQP: 'number',
