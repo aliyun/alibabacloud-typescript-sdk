@@ -296,6 +296,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Uploads a certificate that uses an internationally accepted algorithm for a domain name added to Web Application Firewall (WAF) in CNAME record mode.
+   * 
+   * @param request - CreateCertsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCertsResponse
+   */
+  async createCertsWithOptions(request: $_model.CreateCertsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCertsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certContent)) {
+      query["CertContent"] = request.certContent;
+    }
+
+    if (!$dara.isNull(request.certKey)) {
+      query["CertKey"] = request.certKey;
+    }
+
+    if (!$dara.isNull(request.certName)) {
+      query["CertName"] = request.certName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCerts",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCertsResponse>(await this.callApi(params, req, runtime), new $_model.CreateCertsResponse({}));
+  }
+
+  /**
+   * Uploads a certificate that uses an internationally accepted algorithm for a domain name added to Web Application Firewall (WAF) in CNAME record mode.
+   * 
+   * @param request - CreateCertsRequest
+   * @returns CreateCertsResponse
+   */
+  async createCerts(request: $_model.CreateCertsRequest): Promise<$_model.CreateCertsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCertsWithOptions(request, runtime);
+  }
+
+  /**
    * Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
    * 
    * @param tmpReq - CreateCloudResourceRequest
@@ -4481,6 +4543,52 @@ export default class Client extends OpenApi {
   async describeDomainDetail(request: $_model.DescribeDomainDetailRequest): Promise<$_model.DescribeDomainDetailResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDomainDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询域名已使用的端口
+   * 
+   * @param request - DescribeDomainUsedPortsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainUsedPortsResponse
+   */
+  async describeDomainUsedPortsWithOptions(request: $_model.DescribeDomainUsedPortsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDomainUsedPortsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDomainUsedPorts",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDomainUsedPortsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDomainUsedPortsResponse({}));
+  }
+
+  /**
+   * 查询域名已使用的端口
+   * 
+   * @param request - DescribeDomainUsedPortsRequest
+   * @returns DescribeDomainUsedPortsResponse
+   */
+  async describeDomainUsedPorts(request: $_model.DescribeDomainUsedPortsRequest): Promise<$_model.DescribeDomainUsedPortsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDomainUsedPortsWithOptions(request, runtime);
   }
 
   /**
