@@ -198,6 +198,10 @@ export default class Client extends OpenApi {
       request.instancesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instances, "Instances", "json");
     }
 
+    if (!$dara.isNull(tmpReq.processVariables)) {
+      request.processVariablesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.processVariables, "ProcessVariables", "json");
+    }
+
     if (!$dara.isNull(tmpReq.variables)) {
       request.variablesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.variables, "Variables", "json");
     }
@@ -221,6 +225,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.processVariablesShrink)) {
+      body["ProcessVariables"] = request.processVariablesShrink;
     }
 
     if (!$dara.isNull(request.resourceGroupId)) {

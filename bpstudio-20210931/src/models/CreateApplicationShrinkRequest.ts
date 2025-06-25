@@ -45,6 +45,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * cadt-application
    */
   name?: string;
+  processVariablesShrink?: string;
   /**
    * @remarks
    * The ID of the resource group to which the application you want to create belongs.
@@ -78,6 +79,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       configurationShrink: 'Configuration',
       instancesShrink: 'Instances',
       name: 'Name',
+      processVariablesShrink: 'ProcessVariables',
       resourceGroupId: 'ResourceGroupId',
       templateId: 'TemplateId',
       variablesShrink: 'Variables',
@@ -91,6 +93,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       configurationShrink: 'string',
       instancesShrink: 'string',
       name: 'string',
+      processVariablesShrink: 'string',
       resourceGroupId: 'string',
       templateId: 'string',
       variablesShrink: 'string',

@@ -46,6 +46,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * cadt-application
    */
   name?: string;
+  processVariables?: { [key: string]: any };
   /**
    * @remarks
    * The ID of the resource group to which the application you want to create belongs.
@@ -79,6 +80,7 @@ export class CreateApplicationRequest extends $dara.Model {
       configuration: 'Configuration',
       instances: 'Instances',
       name: 'Name',
+      processVariables: 'ProcessVariables',
       resourceGroupId: 'ResourceGroupId',
       templateId: 'TemplateId',
       variables: 'Variables',
@@ -92,6 +94,7 @@ export class CreateApplicationRequest extends $dara.Model {
       configuration: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       instances: { 'type': 'array', 'itemType': CreateApplicationRequestInstances },
       name: 'string',
+      processVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       resourceGroupId: 'string',
       templateId: 'string',
       variables: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -104,6 +107,9 @@ export class CreateApplicationRequest extends $dara.Model {
     }
     if(Array.isArray(this.instances)) {
       $dara.Model.validateArray(this.instances);
+    }
+    if(this.processVariables) {
+      $dara.Model.validateMap(this.processVariables);
     }
     if(this.variables) {
       $dara.Model.validateMap(this.variables);
