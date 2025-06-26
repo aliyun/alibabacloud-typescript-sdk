@@ -20,6 +20,59 @@ export default class Client extends OpenApi {
 
 
   /**
+   * 创建语音转录异步任务
+   * 
+   * @param request - CreateAudioAsrTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAudioAsrTaskResponse
+   */
+  async createAudioAsrTaskWithOptions(workspaceName: string, serviceId: string, request: $_model.CreateAudioAsrTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAudioAsrTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.input)) {
+      body["input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.output)) {
+      body["output"] = request.output;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      body["parameters"] = request.parameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAudioAsrTask",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/audio-asr/${serviceId}/async`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAudioAsrTaskResponse>(await this.execute(params, req, runtime), new $_model.CreateAudioAsrTaskResponse({}));
+  }
+
+  /**
+   * 创建语音转录异步任务
+   * 
+   * @param request - CreateAudioAsrTaskRequest
+   * @returns CreateAudioAsrTaskResponse
+   */
+  async createAudioAsrTask(workspaceName: string, serviceId: string, request: $_model.CreateAudioAsrTaskRequest): Promise<$_model.CreateAudioAsrTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAudioAsrTaskWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
    * 创建文档解析异步提取任务
    * 
    * @param request - CreateDocumentAnalyzeTaskRequest
@@ -115,6 +168,104 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createImageAnalyzeTaskWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建语音转录异步任务
+   * 
+   * @param request - CreateVideoSnapshotTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVideoSnapshotTaskResponse
+   */
+  async createVideoSnapshotTaskWithOptions(workspaceName: string, serviceId: string, request: $_model.CreateVideoSnapshotTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVideoSnapshotTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.input)) {
+      body["input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.output)) {
+      body["output"] = request.output;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      body["parameters"] = request.parameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVideoSnapshotTask",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/video-snapshot/${serviceId}/async`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVideoSnapshotTaskResponse>(await this.execute(params, req, runtime), new $_model.CreateVideoSnapshotTaskResponse({}));
+  }
+
+  /**
+   * 创建语音转录异步任务
+   * 
+   * @param request - CreateVideoSnapshotTaskRequest
+   * @returns CreateVideoSnapshotTaskResponse
+   */
+  async createVideoSnapshotTask(workspaceName: string, serviceId: string, request: $_model.CreateVideoSnapshotTaskRequest): Promise<$_model.CreateVideoSnapshotTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createVideoSnapshotTaskWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取视频截帧异步提取任务状态
+   * 
+   * @param request - GetAudioAsrTaskStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAudioAsrTaskStatusResponse
+   */
+  async getAudioAsrTaskStatusWithOptions(workspaceName: string, serviceId: string, request: $_model.GetAudioAsrTaskStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAudioAsrTaskStatusResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["task_id"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAudioAsrTaskStatus",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/audio-asr/${serviceId}/async/task-status`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAudioAsrTaskStatusResponse>(await this.execute(params, req, runtime), new $_model.GetAudioAsrTaskStatusResponse({}));
+  }
+
+  /**
+   * 获取视频截帧异步提取任务状态
+   * 
+   * @param request - GetAudioAsrTaskStatusRequest
+   * @returns GetAudioAsrTaskStatusResponse
+   */
+  async getAudioAsrTaskStatus(workspaceName: string, serviceId: string, request: $_model.GetAudioAsrTaskStatusRequest): Promise<$_model.GetAudioAsrTaskStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAudioAsrTaskStatusWithOptions(workspaceName, serviceId, request, headers, runtime);
   }
 
   /**
@@ -665,6 +816,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取视频截帧异步提取任务状态
+   * 
+   * @param request - GetVideoSnapshotTaskStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoSnapshotTaskStatusResponse
+   */
+  async getVideoSnapshotTaskStatusWithOptions(workspaceName: string, serviceId: string, request: $_model.GetVideoSnapshotTaskStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoSnapshotTaskStatusResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["task_id"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoSnapshotTaskStatus",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/video-snapshot/${serviceId}/async/task-status`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoSnapshotTaskStatusResponse>(await this.execute(params, req, runtime), new $_model.GetVideoSnapshotTaskStatusResponse({}));
+  }
+
+  /**
+   * 获取视频截帧异步提取任务状态
+   * 
+   * @param request - GetVideoSnapshotTaskStatusRequest
+   * @returns GetVideoSnapshotTaskStatusResponse
+   */
+  async getVideoSnapshotTaskStatus(workspaceName: string, serviceId: string, request: $_model.GetVideoSnapshotTaskStatusRequest): Promise<$_model.GetVideoSnapshotTaskStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getVideoSnapshotTaskStatusWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
    * 联网搜索
    * 
    * @param request - GetWebSearchRequest
@@ -675,8 +871,20 @@ export default class Client extends OpenApi {
   async getWebSearchWithOptions(workspaceName: string, serviceId: string, request: $_model.GetWebSearchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWebSearchResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contentType)) {
+      body["content_type"] = request.contentType;
+    }
+
+    if (!$dara.isNull(request.history)) {
+      body["history"] = request.history;
+    }
+
     if (!$dara.isNull(request.query)) {
       body["query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.queryRewrite)) {
+      body["query_rewrite"] = request.queryRewrite;
     }
 
     if (!$dara.isNull(request.topK)) {

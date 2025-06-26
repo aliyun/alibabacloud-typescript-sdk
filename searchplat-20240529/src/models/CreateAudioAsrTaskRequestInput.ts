@@ -2,17 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateDocumentAnalyzeTaskRequestDocument extends $dara.Model {
+/**
+ */
+export class CreateAudioAsrTaskRequestInput extends $dara.Model {
   content?: string;
   fileName?: string;
-  fileType?: string;
-  url?: string;
+  oss?: string;
   static names(): { [key: string]: string } {
     return {
       content: 'content',
       fileName: 'file_name',
-      fileType: 'file_type',
-      url: 'url',
+      oss: 'oss',
     };
   }
 
@@ -20,8 +20,7 @@ export class CreateDocumentAnalyzeTaskRequestDocument extends $dara.Model {
     return {
       content: 'string',
       fileName: 'string',
-      fileType: 'string',
-      url: 'string',
+      oss: 'string',
     };
   }
 
