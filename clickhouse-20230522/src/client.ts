@@ -1,7669 +1,11 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class CreateAccountRequestDmlAuthSetting extends $dara.Model {
-  /**
-   * @remarks
-   * The databases on which you want to grant permissions. Separate multiple databases with commas (,).
-   */
-  allowDatabases?: string[];
-  /**
-   * @remarks
-   * The dictionaries on which you want to grant permissions. Separate multiple dictionaries with commas (,).
-   */
-  allowDictionaries?: string[];
-  /**
-   * @remarks
-   * Specifies whether to grant the DDL permissions to the database account. Valid values:
-   * 
-   * *   **true**: The account has the permissions to execute DDL statements.
-   * *   **false**: The account does not have the permissions to execute DDL statements.
-   * 
-   * @example
-   * true
-   */
-  ddlAuthority?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to grant the DML permissions to the database account. Valid values:
-   * 
-   * *   **0**: The account has the permissions to read data from the database, write data to the database, and modify the settings of the database.
-   * *   **1**: The account only has the permissions to read data from the database.
-   * *   **2**: The account only has the permissions to read data from the database and modify the settings of the database.
-   * 
-   * @example
-   * 0
-   */
-  dmlAuthority?: number;
-  static names(): { [key: string]: string } {
-    return {
-      allowDatabases: 'AllowDatabases',
-      allowDictionaries: 'AllowDictionaries',
-      ddlAuthority: 'DdlAuthority',
-      dmlAuthority: 'DmlAuthority',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      allowDatabases: { 'type': 'array', 'itemType': 'string' },
-      allowDictionaries: { 'type': 'array', 'itemType': 'string' },
-      ddlAuthority: 'boolean',
-      dmlAuthority: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.allowDatabases)) {
-      $dara.Model.validateArray(this.allowDatabases);
-    }
-    if(Array.isArray(this.allowDictionaries)) {
-      $dara.Model.validateArray(this.allowDictionaries);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccountResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database account.
-   * 
-   * @example
-   * test1
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      DBInstanceId: 'DBInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      DBInstanceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * testdb001
-   */
-  DBName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      DBName: 'DBName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      DBName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBInstanceRequestMultiZone extends $dara.Model {
-  /**
-   * @remarks
-   * The vSwitch IDs.
-   */
-  vSwitchIds?: string[];
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      vSwitchIds: 'VSwitchIds',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      zoneId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.vSwitchIds)) {
-      $dara.Model.validateArray(this.vSwitchIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBInstanceResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The endpoint.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****-clickhouse.clickhouseserver.rds.aliyuncs.com
-   */
-  connectionString?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The order ID.
-   * 
-   * @example
-   * 21154955706****
-   */
-  orderId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      connectionString: 'ConnectionString',
-      DBInstanceId: 'DBInstanceId',
-      orderId: 'OrderId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectionString: 'string',
-      DBInstanceId: 'string',
-      orderId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccountResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the account.
-   * 
-   * @example
-   * test1
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      DBInstanceId: 'DBInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      DBInstanceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * testdb001
-   */
-  DBName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      DBName: 'DBName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      DBName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBInstanceResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccountAuthorityResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database account.
-   * 
-   * @example
-   * test1
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The databases on which permissions are granted.
-   */
-  allowDatabases?: string[];
-  /**
-   * @remarks
-   * The dictionaries on which permissions are granted.
-   */
-  allowDictionaries?: string[];
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * Indicates whether the DDL permissions are granted to the database account. Valid values:
-   * 
-   * *   **true**: The account has the permissions to execute DDL statements.
-   * *   **false**: The account does not have the permissions to execute DDL statements.
-   * 
-   * @example
-   * true
-   */
-  ddlAuthority?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the DML permissions are granted to the database account. Valid values:
-   * 
-   * *   0: The account has the permissions to read data from the database, write data to the database, and modify the settings of the database.
-   * *   1: The account only has the permissions to read data from the database.
-   * *   2: The account only has the permissions to read data from the database and modify the settings of the database.
-   * 
-   * @example
-   * 0
-   */
-  dmlAuthority?: number;
-  /**
-   * @remarks
-   * All databases.
-   */
-  totalDatabases?: string[];
-  /**
-   * @remarks
-   * The database.
-   */
-  totalDictionaries?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      allowDatabases: 'AllowDatabases',
-      allowDictionaries: 'AllowDictionaries',
-      DBInstanceId: 'DBInstanceId',
-      ddlAuthority: 'DdlAuthority',
-      dmlAuthority: 'DmlAuthority',
-      totalDatabases: 'TotalDatabases',
-      totalDictionaries: 'TotalDictionaries',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      allowDatabases: { 'type': 'array', 'itemType': 'string' },
-      allowDictionaries: { 'type': 'array', 'itemType': 'string' },
-      DBInstanceId: 'string',
-      ddlAuthority: 'boolean',
-      dmlAuthority: 'number',
-      totalDatabases: { 'type': 'array', 'itemType': 'string' },
-      totalDictionaries: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.allowDatabases)) {
-      $dara.Model.validateArray(this.allowDatabases);
-    }
-    if(Array.isArray(this.allowDictionaries)) {
-      $dara.Model.validateArray(this.allowDictionaries);
-    }
-    if(Array.isArray(this.totalDatabases)) {
-      $dara.Model.validateArray(this.totalDatabases);
-    }
-    if(Array.isArray(this.totalDictionaries)) {
-      $dara.Model.validateArray(this.totalDictionaries);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccountsResponseBodyDataAccounts extends $dara.Model {
-  /**
-   * @remarks
-   * The username of the database account.
-   * 
-   * @example
-   * test
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The type of the database account. Valid values:
-   * 
-   * *   **1**: standard account
-   * *   **6**: privileged account
-   * 
-   * @example
-   * NormalAccount
-   */
-  accountType?: string;
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * Used for test
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The state of the database account. Valid values:
-   * 
-   * *   **0**: The database account is being created.
-   * *   **1**: The database account is in use.
-   * *   **3**: The database account is being deleted.
-   * 
-   * @example
-   * 1
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      accountType: 'AccountType',
-      description: 'Description',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      accountType: 'string',
-      description: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccountsResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The database accounts.
-   */
-  accounts?: DescribeAccountsResponseBodyDataAccounts[];
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values:
-   * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
-   * 
-   * @example
-   * 30
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accounts: 'Accounts',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accounts: { 'type': 'array', 'itemType': DescribeAccountsResponseBodyDataAccounts },
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.accounts)) {
-      $dara.Model.validateArray(this.accounts);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceAttributeResponseBodyDataMultiZones extends $dara.Model {
-  /**
-   * @remarks
-   * The vSwitch IDs.
-   */
-  vSwitchIds?: string[];
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      vSwitchIds: 'VSwitchIds',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      zoneId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.vSwitchIds)) {
-      $dara.Model.validateArray(this.vSwitchIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceAttributeResponseBodyDataNodes extends $dara.Model {
-  /**
-   * @remarks
-   * The node status.
-   * 
-   * @example
-   * active
-   */
-  nodeStatus?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nodeStatus: 'NodeStatus',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodeStatus: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceAttributeResponseBodyDataTags extends $dara.Model {
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * @example
-   * id
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag.
-   * 
-   * @example
-   * ck
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account.
-   * 
-   * @example
-   * 140692647406****
-   */
-  aliUid?: number;
-  /**
-   * @remarks
-   * The channel ID.
-   * 
-   * @example
-   * PD39050615820269****
-   */
-  bid?: string;
-  /**
-   * @remarks
-   * The billing method. Enterprise Edition clusters use the pay-as-you-go billing method.
-   * 
-   * @example
-   * PrePaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
-   * 
-   * @example
-   * 2023-09-14T08:14:48Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * Indicates whether the release protection feature is enabled for the cluster.
-   * 
-   * @example
-   * 0/1
-   */
-  deletionProtection?: boolean;
-  /**
-   * @remarks
-   * The deployment mode of the cluster. Valid values: single_az and multi_az.
-   * 
-   * *   single_az: indicates that the server nodes are deployed in the primary zone. The ID of the primary zone is specified by the ZoneID parameter.
-   * *   multi_az: indicates that the server nodes are deployed in multiple zones. The information about the zones is specified by the MultiZones parameter.
-   * 
-   * The keeper nodes are deployed in multiple zones.
-   * 
-   * @example
-   * single_az
-   */
-  deploySchema?: string;
-  /**
-   * @remarks
-   * The cluster description.
-   * 
-   * @example
-   * Used for test
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The disabled database ports. Multiple database ports are separated by commas (,).
-   * 
-   * @example
-   * 9001,8123
-   */
-  disabledPorts?: string;
-  /**
-   * @remarks
-   * The engine type.
-   * 
-   * @example
-   * clickhouse
-   */
-  engine?: string;
-  /**
-   * @remarks
-   * The minor engine version of the cluster.
-   * 
-   * @example
-   * 23.8.1.41495_6
-   */
-  engineMinorVersion?: string;
-  /**
-   * @remarks
-   * The engine version.
-   * 
-   * @example
-   * 23.8
-   */
-  engineVersion?: string;
-  /**
-   * @remarks
-   * The time when the cluster expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
-   * 
-   * >  Pay-as-you-go clusters never expire. If the cluster is a pay-as-you-go cluster, an empty string is returned for this parameter.
-   * 
-   * @example
-   * 2024-04-17T08:14:48Z
-   */
-  expireTime?: string;
-  /**
-   * @remarks
-   * The latest minor engine version.
-   * 
-   * @example
-   * 23.8.1.41495_6
-   */
-  latestEngineMinorVersion?: string;
-  /**
-   * @remarks
-   * The lock mode of the cluster.
-   * 
-   * @example
-   * 0
-   */
-  lockMode?: string;
-  /**
-   * @remarks
-   * The reason why the cluster was locked.
-   * 
-   * @example
-   * nolock
-   */
-  lockReason?: string;
-  /**
-   * @remarks
-   * The end time of the maintenance window.
-   * 
-   * @example
-   * 21:00
-   */
-  maintainEndTime?: string;
-  /**
-   * @remarks
-   * The start time of the maintenance window.
-   * 
-   * @example
-   * 12:00
-   */
-  maintainStartTime?: string;
-  /**
-   * @remarks
-   * The information about the zones.
-   */
-  multiZones?: DescribeDBInstanceAttributeResponseBodyDataMultiZones[];
-  /**
-   * @remarks
-   * The nodes.
-   */
-  nodes?: DescribeDBInstanceAttributeResponseBodyDataNodes[];
-  /**
-   * @remarks
-   * The size of the object storage space.
-   * 
-   * @example
-   * 13
-   */
-  objectStoreSize?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * rg-acfmzygvt54****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The maximum capacity for elastic scaling.
-   * 
-   * @example
-   * 32
-   */
-  scaleMax?: number;
-  /**
-   * @remarks
-   * The minimum capacity for elastic scaling.
-   * 
-   * @example
-   * 8
-   */
-  scaleMin?: number;
-  /**
-   * @remarks
-   * The cluster status.
-   * 
-   * @example
-   * active
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The size of the storage space. Unit: GB.
-   * 
-   * @example
-   * 12
-   */
-  storageSize?: number;
-  /**
-   * @remarks
-   * The storage type.
-   * 
-   * @example
-   * 100
-   */
-  storageType?: string;
-  /**
-   * @remarks
-   * The details of the tags.
-   */
-  tags?: DescribeDBInstanceAttributeResponseBodyDataTags[];
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-uf67ij56zm9x4uc6hmilg
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * The virtual private cloud (VPC) ID.
-   * 
-   * @example
-   * vpc-wz9duj8xd6r1gzhsg*****
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      bid: 'Bid',
-      chargeType: 'ChargeType',
-      createTime: 'CreateTime',
-      DBInstanceId: 'DBInstanceId',
-      deletionProtection: 'DeletionProtection',
-      deploySchema: 'DeploySchema',
-      description: 'Description',
-      disabledPorts: 'DisabledPorts',
-      engine: 'Engine',
-      engineMinorVersion: 'EngineMinorVersion',
-      engineVersion: 'EngineVersion',
-      expireTime: 'ExpireTime',
-      latestEngineMinorVersion: 'LatestEngineMinorVersion',
-      lockMode: 'LockMode',
-      lockReason: 'LockReason',
-      maintainEndTime: 'MaintainEndTime',
-      maintainStartTime: 'MaintainStartTime',
-      multiZones: 'MultiZones',
-      nodes: 'Nodes',
-      objectStoreSize: 'ObjectStoreSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      scaleMax: 'ScaleMax',
-      scaleMin: 'ScaleMin',
-      status: 'Status',
-      storageSize: 'StorageSize',
-      storageType: 'StorageType',
-      tags: 'Tags',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'number',
-      bid: 'string',
-      chargeType: 'string',
-      createTime: 'string',
-      DBInstanceId: 'string',
-      deletionProtection: 'boolean',
-      deploySchema: 'string',
-      description: 'string',
-      disabledPorts: 'string',
-      engine: 'string',
-      engineMinorVersion: 'string',
-      engineVersion: 'string',
-      expireTime: 'string',
-      latestEngineMinorVersion: 'string',
-      lockMode: 'string',
-      lockReason: 'string',
-      maintainEndTime: 'string',
-      maintainStartTime: 'string',
-      multiZones: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDataMultiZones },
-      nodes: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDataNodes },
-      objectStoreSize: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      scaleMax: 'number',
-      scaleMin: 'number',
-      status: 'string',
-      storageSize: 'number',
-      storageType: 'string',
-      tags: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDataTags },
-      vSwitchId: 'string',
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.multiZones)) {
-      $dara.Model.validateArray(this.multiZones);
-    }
-    if(Array.isArray(this.nodes)) {
-      $dara.Model.validateArray(this.nodes);
-    }
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceDataSourcesResponseBodyDataColumns extends $dara.Model {
-  /**
-   * @remarks
-   * The column name.
-   * 
-   * @example
-   * c31
-   */
-  columnName?: string;
-  /**
-   * @remarks
-   * The description of the database account.
-   * 
-   * @example
-   * Used for test
-   */
-  comment?: string;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * dbtest
-   */
-  DBName?: string;
-  /**
-   * @remarks
-   * Indicates whether the column is the primary key of the table. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * false
-   */
-  primaryKey?: string;
-  /**
-   * @remarks
-   * The table name.
-   * 
-   * @example
-   * tableTest
-   */
-  tableName?: string;
-  /**
-   * @remarks
-   * The type of the stored data.
-   * 
-   * @example
-   * UInt64
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      columnName: 'ColumnName',
-      comment: 'Comment',
-      DBName: 'DBName',
-      primaryKey: 'PrimaryKey',
-      tableName: 'TableName',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columnName: 'string',
-      comment: 'string',
-      DBName: 'string',
-      primaryKey: 'string',
-      tableName: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceDataSourcesResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The columns.
-   */
-  columns?: DescribeDBInstanceDataSourcesResponseBodyDataColumns[];
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The account.
-   * 
-   * @example
-   * default
-   */
-  schemas?: string;
-  /**
-   * @remarks
-   * The tables.
-   */
-  tables?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      columns: 'Columns',
-      DBInstanceId: 'DBInstanceId',
-      schemas: 'Schemas',
-      tables: 'Tables',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columns: { 'type': 'array', 'itemType': DescribeDBInstanceDataSourcesResponseBodyDataColumns },
-      DBInstanceId: 'string',
-      schemas: 'string',
-      tables: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.columns)) {
-      $dara.Model.validateArray(this.columns);
-    }
-    if(Array.isArray(this.tables)) {
-      $dara.Model.validateArray(this.tables);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstancesResponseBodyDataDBInstancesTags extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * tag
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model {
-  /**
-   * @remarks
-   * The user ID.
-   * 
-   * @example
-   * 1294****
-   */
-  aliUid?: string;
-  /**
-   * @remarks
-   * The channel ID.
-   * 
-   * @example
-   * 186681****
-   */
-  bid?: string;
-  /**
-   * @remarks
-   * The billing method. Valid values:
-   * 
-   * *   PrePaid: subscription
-   * *   PostPaid: pay-as-you-go
-   * 
-   * @example
-   * PostPaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The time when the cluster was created.
-   * 
-   * @example
-   * 2022-12-04 21:16:15
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-xxxxxxx
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * Indicates whether the release protection feature is enabled for the cluster.
-   * 
-   * @example
-   * False
-   */
-  deletionProtection?: string;
-  /**
-   * @remarks
-   * The cluster description.
-   * 
-   * @example
-   * test_desc
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The engine type.
-   * 
-   * @example
-   * clickhouse
-   */
-  engine?: string;
-  /**
-   * @remarks
-   * The engine version.
-   * 
-   * @example
-   * 22.8
-   */
-  engineVersion?: string;
-  /**
-   * @remarks
-   * The time when the cluster expires.
-   * 
-   * @example
-   * 2024-02-16 11:51:06
-   */
-  expireTime?: string;
-  /**
-   * @remarks
-   * The lock mode.
-   * 
-   * @example
-   * 0
-   */
-  lockMode?: string;
-  /**
-   * @remarks
-   * The reason why the cluster was locked.
-   * 
-   * @example
-   * null
-   */
-  lockReason?: string;
-  /**
-   * @remarks
-   * The end time of the maintenance window.
-   * 
-   * @example
-   * 04:00:00Z
-   */
-  maintainEndTime?: string;
-  /**
-   * @remarks
-   * The start time of the maintenance window.
-   * 
-   * @example
-   * 00:00Z
-   */
-  maintainStartTime?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-acfmzy****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The maximum capacity for elastic scaling.
-   * 
-   * @example
-   * 13
-   */
-  scaleMax?: number;
-  /**
-   * @remarks
-   * The minimum capacity for elastic scaling.
-   * 
-   * @example
-   * 1
-   */
-  scaleMin?: number;
-  /**
-   * @remarks
-   * The cluster status.
-   * 
-   * @example
-   * active
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
-  tags?: DescribeDBInstancesResponseBodyDataDBInstancesTags[];
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-8vb5mw****
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * The virtual private cloud (VPC) ID.
-   * 
-   * @example
-   * vpc-uf6kg****
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-i
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      bid: 'Bid',
-      chargeType: 'ChargeType',
-      createTime: 'CreateTime',
-      DBInstanceId: 'DBInstanceId',
-      deletionProtection: 'DeletionProtection',
-      description: 'Description',
-      engine: 'Engine',
-      engineVersion: 'EngineVersion',
-      expireTime: 'ExpireTime',
-      lockMode: 'LockMode',
-      lockReason: 'LockReason',
-      maintainEndTime: 'MaintainEndTime',
-      maintainStartTime: 'MaintainStartTime',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      scaleMax: 'ScaleMax',
-      scaleMin: 'ScaleMin',
-      status: 'Status',
-      tags: 'Tags',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'string',
-      bid: 'string',
-      chargeType: 'string',
-      createTime: 'string',
-      DBInstanceId: 'string',
-      deletionProtection: 'string',
-      description: 'string',
-      engine: 'string',
-      engineVersion: 'string',
-      expireTime: 'string',
-      lockMode: 'string',
-      lockReason: 'string',
-      maintainEndTime: 'string',
-      maintainStartTime: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      scaleMax: 'number',
-      scaleMin: 'number',
-      status: 'string',
-      tags: { 'type': 'array', 'itemType': DescribeDBInstancesResponseBodyDataDBInstancesTags },
-      vSwitchId: 'string',
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstancesResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The clusters.
-   */
-  DBInstances?: DescribeDBInstancesResponseBodyDataDBInstances[];
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 30
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstances: 'DBInstances',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstances: { 'type': 'array', 'itemType': DescribeDBInstancesResponseBodyDataDBInstances },
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.DBInstances)) {
-      $dara.Model.validateArray(this.DBInstances);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEndpointsResponseBodyDataEndpointsPorts extends $dara.Model {
-  /**
-   * @remarks
-   * The port used to connect to the cluster. Valid values:
-   * 
-   * *   8123: This value is returned when the value of Protocol is HttpPort.
-   * *   8443: This value is returned when the value of Protocol is HttpsPort.
-   * *   9000: This value is returned when the value of Protocol is TcpPort.
-   * 
-   * @example
-   * 8123
-   */
-  port?: number;
-  /**
-   * @remarks
-   * The protocol type. Valid values:
-   * 
-   * *   HttpPort
-   * *   HttpsPort
-   * *   TcpPort
-   * 
-   * @example
-   * HttpPort
-   */
-  protocol?: string;
-  static names(): { [key: string]: string } {
-    return {
-      port: 'Port',
-      protocol: 'Protocol',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      port: 'number',
-      protocol: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
-  /**
-   * @remarks
-   * The endpoint of the cluster.
-   * 
-   * @example
-   * cc-****-clickhouse.clickhouseserver.pre.rds.aliyuncs.com
-   */
-  connectionString?: string;
-  /**
-   * @remarks
-   * The IP address.
-   * 
-   * @example
-   * 172.30.XX.XX
-   */
-  IPAddress?: string;
-  /**
-   * @remarks
-   * The network type of the endpoint. Valid values:
-   * 
-   * *   VPC
-   * *   PUBLIC
-   * 
-   * @example
-   * VPC
-   */
-  netType?: string;
-  /**
-   * @remarks
-   * The details of the ports.
-   */
-  ports?: DescribeEndpointsResponseBodyDataEndpointsPorts[];
-  /**
-   * @remarks
-   * The state of the cluster.
-   * 
-   * @example
-   * active
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-0xi8829****
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * The ID of the virtual private cloud (VPC).
-   * 
-   * @example
-   * vpc-uf61z****
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * The VPC ID.
-   * 
-   * @example
-   * vpc-uf61z****
-   */
-  vpcInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      connectionString: 'ConnectionString',
-      IPAddress: 'IPAddress',
-      netType: 'NetType',
-      ports: 'Ports',
-      status: 'Status',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-      vpcInstanceId: 'VpcInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectionString: 'string',
-      IPAddress: 'string',
-      netType: 'string',
-      ports: { 'type': 'array', 'itemType': DescribeEndpointsResponseBodyDataEndpointsPorts },
-      status: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
-      vpcInstanceId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.ports)) {
-      $dara.Model.validateArray(this.ports);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEndpointsResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the endpoints.
-   */
-  endpoints?: DescribeEndpointsResponseBodyDataEndpoints[];
-  /**
-   * @remarks
-   * The network type of the cluster. Valid values:
-   * 
-   * *   **VPC**
-   * *   **PUBLIC**
-   * 
-   * @example
-   * VPC
-   */
-  instanceNetworkType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endpoints: 'Endpoints',
-      instanceNetworkType: 'InstanceNetworkType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endpoints: { 'type': 'array', 'itemType': DescribeEndpointsResponseBodyDataEndpoints },
-      instanceNetworkType: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.endpoints)) {
-      $dara.Model.validateArray(this.endpoints);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProcessListResponseBodyDataResultSet extends $dara.Model {
-  /**
-   * @remarks
-   * The address to which the query statement is sent.
-   * 
-   * @example
-   * 0:0:0:0:0:ffff:1edd65ea
-   */
-  initialAddress?: string;
-  /**
-   * @remarks
-   * The query ID.
-   * 
-   * @example
-   * \\"79f7e40b-87e2-4ef4-b6df-21889a3a030e\\"
-   */
-  initialQueryId?: string;
-  /**
-   * @remarks
-   * The user who executes the query statement.
-   * 
-   * @example
-   * bany
-   */
-  initialUser?: string;
-  /**
-   * @remarks
-   * The query statement that is running.
-   * 
-   * @example
-   * select * from test
-   */
-  query?: string;
-  /**
-   * @remarks
-   * The minimum query duration. Minimum value: **1000**. Unit: milliseconds.
-   * 
-   * @example
-   * 1000
-   */
-  queryDurationMs?: number;
-  /**
-   * @remarks
-   * The beginning of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2023-07-23T10:13:23Z
-   */
-  queryStartTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      initialAddress: 'InitialAddress',
-      initialQueryId: 'InitialQueryId',
-      initialUser: 'InitialUser',
-      query: 'Query',
-      queryDurationMs: 'QueryDurationMs',
-      queryStartTime: 'QueryStartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      initialAddress: 'string',
-      initialQueryId: 'string',
-      initialUser: 'string',
-      query: 'string',
-      queryDurationMs: 'number',
-      queryStartTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProcessListResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-xxxx
-   */
-  DBInstanceID?: number;
-  /**
-   * @remarks
-   * The cluster name.
-   * 
-   * @example
-   * test
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * The result sets.
-   */
-  resultSet?: DescribeProcessListResponseBodyDataResultSet[];
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceID: 'DBInstanceID',
-      DBInstanceName: 'DBInstanceName',
-      resultSet: 'ResultSet',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceID: 'number',
-      DBInstanceName: 'string',
-      resultSet: { 'type': 'array', 'itemType': DescribeProcessListResponseBodyDataResultSet },
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.resultSet)) {
-      $dara.Model.validateArray(this.resultSet);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSecurityIPListResponseBodyDataGroupItems extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the whitelist.
-   * 
-   * @example
-   * default
-   */
-  groupName?: string;
-  /**
-   * @remarks
-   * The tag of the whitelist.
-   * 
-   * @example
-   * test
-   */
-  groupTag?: string;
-  /**
-   * @remarks
-   * The IP addresses and CIDR blocks in the whitelist.
-   * 
-   * @example
-   * 127.0.XX.XX
-   */
-  securityIPList?: string;
-  /**
-   * @remarks
-   * The IP address type.
-   * 
-   * @example
-   * ipv4
-   */
-  securityIPType?: string;
-  /**
-   * @remarks
-   * The network type of the whitelist.
-   * 
-   * @example
-   * mix
-   */
-  whitelistNetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      groupTag: 'GroupTag',
-      securityIPList: 'SecurityIPList',
-      securityIPType: 'SecurityIPType',
-      whitelistNetType: 'WhitelistNetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      groupTag: 'string',
-      securityIPList: 'string',
-      securityIPType: 'string',
-      whitelistNetType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSecurityIPListResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceID?: number;
-  /**
-   * @remarks
-   * The cluster name.
-   * 
-   * @example
-   * TestCluster
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * The details about the whitelists.
-   */
-  groupItems?: DescribeSecurityIPListResponseBodyDataGroupItems[];
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceID: 'DBInstanceID',
-      DBInstanceName: 'DBInstanceName',
-      groupItems: 'GroupItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceID: 'number',
-      DBInstanceName: 'string',
-      groupItems: { 'type': 'array', 'itemType': DescribeSecurityIPListResponseBodyDataGroupItems },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.groupItems)) {
-      $dara.Model.validateArray(this.groupItems);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogRecordsResponseBodyDataResultSet extends $dara.Model {
-  /**
-   * @remarks
-   * The address to which the query statement is sent.
-   * 
-   * @example
-   * 0:0:0:0:0:ffff:1edd65ea
-   */
-  initialAddress?: string;
-  /**
-   * @remarks
-   * The query ID.
-   * 
-   * @example
-   * \\"ae915a3ad30e77e67a7215d05b658cc6\\"
-   */
-  initialQueryId?: string;
-  /**
-   * @remarks
-   * The user who executes the query statement.
-   * 
-   * @example
-   * bany
-   */
-  initialUser?: string;
-  /**
-   * @remarks
-   * The peak memory usage for the query. Unit: bytes.
-   * 
-   * @example
-   * 4941696
-   */
-  memoryUsage?: number;
-  /**
-   * @remarks
-   * The query statement that is running.
-   * 
-   * @example
-   * select * from test
-   */
-  query?: string;
-  /**
-   * @remarks
-   * The execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
-   * 
-   * @example
-   * 3000
-   */
-  queryDurationMs?: number;
-  /**
-   * @remarks
-   * The beginning of the time range to query. The time is in the yyyy-MM-dd hh:mm:ss format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2023-09-11 16:00:00
-   */
-  queryStartTime?: string;
-  /**
-   * @remarks
-   * The size of the data that is scanned. Unit: bytes.
-   * 
-   * @example
-   * 4507128020832
-   */
-  readBytes?: number;
-  /**
-   * @remarks
-   * The number of read rows.
-   * 
-   * @example
-   * 10
-   */
-  readRows?: number;
-  /**
-   * @remarks
-   * The size of the result data. Unit: bytes.
-   * 
-   * @example
-   * 10
-   */
-  resultBytes?: number;
-  /**
-   * @remarks
-   * The type of the slow query logs.
-   * 
-   * @example
-   * ExceptionWhileProcessing
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      initialAddress: 'InitialAddress',
-      initialQueryId: 'InitialQueryId',
-      initialUser: 'InitialUser',
-      memoryUsage: 'MemoryUsage',
-      query: 'Query',
-      queryDurationMs: 'QueryDurationMs',
-      queryStartTime: 'QueryStartTime',
-      readBytes: 'ReadBytes',
-      readRows: 'ReadRows',
-      resultBytes: 'ResultBytes',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      initialAddress: 'string',
-      initialQueryId: 'string',
-      initialUser: 'string',
-      memoryUsage: 'number',
-      query: 'string',
-      queryDurationMs: 'number',
-      queryStartTime: 'string',
-      readBytes: 'number',
-      readRows: 'number',
-      resultBytes: 'number',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogRecordsResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z32****
-   */
-  DBInstanceID?: number;
-  /**
-   * @remarks
-   * The cluster name.
-   * 
-   * @example
-   * TestCluster
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * The result sets.
-   */
-  resultSet?: DescribeSlowLogRecordsResponseBodyDataResultSet[];
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceID: 'DBInstanceID',
-      DBInstanceName: 'DBInstanceName',
-      resultSet: 'ResultSet',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceID: 'number',
-      DBInstanceName: 'string',
-      resultSet: { 'type': 'array', 'itemType': DescribeSlowLogRecordsResponseBodyDataResultSet },
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.resultSet)) {
-      $dara.Model.validateArray(this.resultSet);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogTrendResponseBodyDataResultSet extends $dara.Model {
-  /**
-   * @remarks
-   * The average execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
-   * 
-   * @example
-   * 2000
-   */
-  avgQueryDurationMs?: number;
-  /**
-   * @remarks
-   * The total number of SQL queries within the specified time range.
-   * 
-   * @example
-   * 1
-   */
-  cnt?: number;
-  /**
-   * @remarks
-   * The maximum execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
-   * 
-   * @example
-   * 3000
-   */
-  maxQueryDurationMs?: number;
-  /**
-   * @remarks
-   * The minimum execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
-   * 
-   * @example
-   * 1000
-   */
-  minQueryDurationMs?: number;
-  /**
-   * @remarks
-   * The beginning of the time range to query. The time is in the yyyy-MM-dd hh:mm:ss format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2023-04-13 17:48:00
-   */
-  queryStartTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      avgQueryDurationMs: 'AvgQueryDurationMs',
-      cnt: 'Cnt',
-      maxQueryDurationMs: 'MaxQueryDurationMs',
-      minQueryDurationMs: 'MinQueryDurationMs',
-      queryStartTime: 'QueryStartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      avgQueryDurationMs: 'number',
-      cnt: 'number',
-      maxQueryDurationMs: 'number',
-      minQueryDurationMs: 'number',
-      queryStartTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogTrendResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceID?: number;
-  /**
-   * @remarks
-   * The cluster name.
-   * 
-   * @example
-   * clusterTest
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * The result sets.
-   */
-  resultSet?: DescribeSlowLogTrendResponseBodyDataResultSet[];
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceID: 'DBInstanceID',
-      DBInstanceName: 'DBInstanceName',
-      resultSet: 'ResultSet',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceID: 'number',
-      DBInstanceName: 'string',
-      resultSet: { 'type': 'array', 'itemType': DescribeSlowLogTrendResponseBodyDataResultSet },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.resultSet)) {
-      $dara.Model.validateArray(this.resultSet);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class KillProcessResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The number of queries that are terminated.
-   * 
-   * @example
-   * 1
-   */
-  count?: number;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-xxxxxxx
-   */
-  DBInstanceID?: number;
-  /**
-   * @remarks
-   * The cluster name.
-   * 
-   * @example
-   * cc-xxxxxxx
-   */
-  DBInstanceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      DBInstanceID: 'DBInstanceID',
-      DBInstanceName: 'DBInstanceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      DBInstanceID: 'number',
-      DBInstanceName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountAuthorityRequestDmlAuthSetting extends $dara.Model {
-  /**
-   * @remarks
-   * The databases on which you want to grant permissions. Separate multiple databases with commas (,).
-   */
-  allowDatabases?: string[];
-  /**
-   * @remarks
-   * The dictionaries on which you want to grant permissions. Separate multiple dictionaries with commas (,).
-   */
-  allowDictionaries?: string[];
-  /**
-   * @remarks
-   * Specifies whether to grant the DDL permissions to the database account. Valid values:
-   * 
-   * *   **true**: The account has the permissions to execute DDL statements.
-   * *   **false**: The account does not have the permissions to execute DDL statements.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * true
-   */
-  ddlAuthority?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to grant the DML permissions to the database account. Valid values:
-   * 
-   * *   **0**: The account has the permissions to read data from the database, write data to the database, and modify the settings of the database.
-   * *   **1**: The account only has the permissions to read data from the database.
-   * *   **2**: The account only has the permissions to read data from the database and modify the settings of the database.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  dmlAuthority?: number;
-  static names(): { [key: string]: string } {
-    return {
-      allowDatabases: 'AllowDatabases',
-      allowDictionaries: 'AllowDictionaries',
-      ddlAuthority: 'DdlAuthority',
-      dmlAuthority: 'DmlAuthority',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowDatabases: { 'type': 'array', 'itemType': 'string' },
-      allowDictionaries: { 'type': 'array', 'itemType': 'string' },
-      ddlAuthority: 'boolean',
-      dmlAuthority: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.allowDatabases)) {
-      $dara.Model.validateArray(this.allowDatabases);
-    }
-    if(Array.isArray(this.allowDictionaries)) {
-      $dara.Model.validateArray(this.allowDictionaries);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountAuthorityResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database account.
-   * 
-   * @example
-   * test1
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      DBInstanceId: 'DBInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      DBInstanceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountDescriptionResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database account.
-   * 
-   * @example
-   * testuser
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-xxxxx
-   */
-  DBInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      DBInstanceId: 'DBInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      DBInstanceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceClassResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-xxxxxxx
-   */
-  DBInstanceID?: number;
-  /**
-   * @remarks
-   * The cluster name.
-   * 
-   * @example
-   * cc-xxxxxxx
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * The maximum capacity for elastic scaling.
-   * 
-   * @example
-   * 32
-   */
-  scaleMax?: number;
-  /**
-   * @remarks
-   * The minimum capacity for elastic scaling.
-   * 
-   * @example
-   * 2
-   */
-  scaleMin?: number;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * 10000****
-   */
-  taskId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceID: 'DBInstanceID',
-      DBInstanceName: 'DBInstanceName',
-      scaleMax: 'ScaleMax',
-      scaleMin: 'ScaleMin',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceID: 'number',
-      DBInstanceName: 'string',
-      scaleMax: 'number',
-      scaleMin: 'number',
-      taskId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceConnectionStringResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The endpoint of the cluster.
-   * 
-   * @example
-   * cc-2ze34****-clickhouse..clickhouseserver.pre.rds.aliyuncs.com
-   */
-  connectionString?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-xxxxx
-   */
-  DBInstanceID?: number;
-  /**
-   * @remarks
-   * The cluster name.
-   * 
-   * @example
-   * cc-xxxxx
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * The disabled database ports.
-   * 
-   * @example
-   * 9001,8123
-   */
-  disabledPorts?: string;
-  static names(): { [key: string]: string } {
-    return {
-      connectionString: 'ConnectionString',
-      DBInstanceID: 'DBInstanceID',
-      DBInstanceName: 'DBInstanceName',
-      disabledPorts: 'DisabledPorts',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectionString: 'string',
-      DBInstanceID: 'number',
-      DBInstanceName: 'string',
-      disabledPorts: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySecurityIPListResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-xxxx
-   */
-  DBInstanceID?: number;
-  /**
-   * @remarks
-   * The cluster name.
-   * 
-   * @example
-   * cc-xxxx
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * The name of the whitelist.
-   * 
-   * @example
-   * test
-   */
-  groupName?: string;
-  /**
-   * @remarks
-   * The tag of the whitelist.
-   * 
-   * @example
-   * test
-   */
-  groupTag?: string;
-  /**
-   * @remarks
-   * The IP addresses and CIDR blocks in the whitelist.
-   * 
-   * @example
-   * 192.168.0.0/24,172.16.0.0/24
-   */
-  securityIPList?: string;
-  /**
-   * @remarks
-   * The IP address type.
-   * 
-   * @example
-   * ipv4
-   */
-  securityIPType?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * 1
-   */
-  taskId?: number;
-  /**
-   * @remarks
-   * The network type of the whitelist.
-   * 
-   * @example
-   * mix
-   */
-  whitelistNetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceID: 'DBInstanceID',
-      DBInstanceName: 'DBInstanceName',
-      groupName: 'GroupName',
-      groupTag: 'GroupTag',
-      securityIPList: 'SecurityIPList',
-      securityIPType: 'SecurityIPType',
-      taskId: 'TaskId',
-      whitelistNetType: 'WhitelistNetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceID: 'number',
-      DBInstanceName: 'string',
-      groupName: 'string',
-      groupTag: 'string',
-      securityIPList: 'string',
-      securityIPType: 'string',
-      taskId: 'number',
-      whitelistNetType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetAccountPasswordResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the account.
-   * 
-   * @example
-   * test1
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      DBInstanceId: 'DBInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      DBInstanceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartDBInstanceResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceID?: number;
-  /**
-   * @remarks
-   * The cluster name.
-   * 
-   * @example
-   * test1
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * 100001080
-   */
-  taskId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceID: 'DBInstanceID',
-      DBInstanceName: 'DBInstanceName',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceID: 'number',
-      DBInstanceName: 'string',
-      taskId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDBInstanceResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceID?: number;
-  /**
-   * @remarks
-   * The cluster name.
-   * 
-   * @example
-   * test1
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * 100000837
-   */
-  taskId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceID: 'DBInstanceID',
-      DBInstanceName: 'DBInstanceName',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceID: 'number',
-      DBInstanceName: 'string',
-      taskId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDBInstanceResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceID?: number;
-  /**
-   * @remarks
-   * The cluster name.
-   * 
-   * @example
-   * test1
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * 100000785
-   */
-  taskId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceID: 'DBInstanceID',
-      DBInstanceName: 'DBInstanceName',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceID: 'number',
-      DBInstanceName: 'string',
-      taskId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeMinorVersionResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * cc-uf6x229yeq166****
-   */
-  DBInstanceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccountRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test1
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The type of the database account. Valid values:
-   * 
-   * *   **NormalAccount**: standard account
-   * *   **SuperAccount**: privileged account
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * NormalAccount
-   */
-  accountType?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The description of the account.
-   * 
-   * @example
-   * Used for account
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The information about permissions.
-   */
-  dmlAuthSetting?: CreateAccountRequestDmlAuthSetting;
-  /**
-   * @remarks
-   * The password of the database account. The password must meet the following requirements:
-   * 
-   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * - The following special characters are supported: ! @ # $ % ^ & * ( ) _ + - =
-   * - The password must be 8 to 32 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a1b2c3d4@
-   */
-  password?: string;
-  /**
-   * @remarks
-   * The code of the cloud service.
-   * 
-   * @example
-   * clickhouse
-   */
-  product?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      accountType: 'AccountType',
-      DBInstanceId: 'DBInstanceId',
-      description: 'Description',
-      dmlAuthSetting: 'DmlAuthSetting',
-      password: 'Password',
-      product: 'Product',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      accountType: 'string',
-      DBInstanceId: 'string',
-      description: 'string',
-      dmlAuthSetting: CreateAccountRequestDmlAuthSetting,
-      password: 'string',
-      product: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.dmlAuthSetting && typeof (this.dmlAuthSetting as any).validate === 'function') {
-      (this.dmlAuthSetting as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccountShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test1
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The type of the database account. Valid values:
-   * 
-   * *   **NormalAccount**: standard account
-   * *   **SuperAccount**: privileged account
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * NormalAccount
-   */
-  accountType?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The description of the account.
-   * 
-   * @example
-   * Used for account
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The information about permissions.
-   */
-  dmlAuthSettingShrink?: string;
-  /**
-   * @remarks
-   * The password of the database account. The password must meet the following requirements:
-   * 
-   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * - The following special characters are supported: ! @ # $ % ^ & * ( ) _ + - =
-   * - The password must be 8 to 32 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a1b2c3d4@
-   */
-  password?: string;
-  /**
-   * @remarks
-   * The code of the cloud service.
-   * 
-   * @example
-   * clickhouse
-   */
-  product?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      accountType: 'AccountType',
-      DBInstanceId: 'DBInstanceId',
-      description: 'Description',
-      dmlAuthSettingShrink: 'DmlAuthSetting',
-      password: 'Password',
-      product: 'Product',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      accountType: 'string',
-      DBInstanceId: 'string',
-      description: 'string',
-      dmlAuthSettingShrink: 'string',
-      password: 'string',
-      product: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccountResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: CreateAccountResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 2FED790E-FB61-4721-8C1C-07C627FA5A19
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateAccountResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccountResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAccountResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Database remark information.
-   * 
-   * @example
-   * test
-   */
-  comment?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The database name. The name must meet the following requirements:
-   * 
-   * *   The name can contain lowercase letters, digits, underscores (_), and hyphens (-).
-   * *   The name must start with a lowercase letter and end with a lowercase letter or digit.
-   * *   The name can be up to 64 characters in length.
-   * 
-   * >  An underscore (_) is counted as two characters.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * testdb001
-   */
-  DBName?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      comment: 'Comment',
-      DBInstanceId: 'DBInstanceId',
-      DBName: 'DBName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comment: 'string',
-      DBInstanceId: 'string',
-      DBName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: CreateDBResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 94F92113-FF63-5E57-8401-6FE123AD11DD
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateDBResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDBResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDBResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The backup set ID.
-   * 
-   * @example
-   * 1
-   */
-  backupSetId?: string;
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token. Make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-   * 
-   * @example
-   * AB
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The cluster description.
-   * 
-   * @example
-   * Used for test
-   */
-  DBInstanceDescription?: string;
-  /**
-   * @remarks
-   * The deployment status of the cluster.
-   * 
-   * @example
-   * multi_az
-   */
-  deploySchema?: string;
-  /**
-   * @remarks
-   * The engine type.
-   * 
-   * Valid values:
-   * 
-   * *   clickhouse
-   * 
-   * @example
-   * clickhouse
-   */
-  engine?: string;
-  /**
-   * @remarks
-   * The engine version.
-   * 
-   * @example
-   * 23.8
-   */
-  engineVersion?: string;
-  /**
-   * @remarks
-   * The configurations of multi-zone deployment.
-   */
-  multiZone?: CreateDBInstanceRequestMultiZone[];
-  /**
-   * @remarks
-   * The region ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The maximum capacity for auto scaling.
-   * 
-   * @example
-   * 32
-   */
-  scaleMax?: string;
-  /**
-   * @remarks
-   * The minimum capacity for auto scaling.
-   * 
-   * @example
-   * 8
-   */
-  scaleMin?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-2ze1*********
-   */
-  sourceDBInstanceId?: string;
-  /**
-   * @remarks
-   * The virtual private cloud (VPC) ID.
-   * 
-   * @example
-   * vpc-uf6xmupdn7v6ui9f****
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-uf632qye9oqt4x4sr****
-   */
-  vswitchId?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backupSetId: 'BackupSetId',
-      clientToken: 'ClientToken',
-      DBInstanceDescription: 'DBInstanceDescription',
-      deploySchema: 'DeploySchema',
-      engine: 'Engine',
-      engineVersion: 'EngineVersion',
-      multiZone: 'MultiZone',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      scaleMax: 'ScaleMax',
-      scaleMin: 'ScaleMin',
-      sourceDBInstanceId: 'SourceDBInstanceId',
-      vpcId: 'VpcId',
-      vswitchId: 'VswitchId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backupSetId: 'string',
-      clientToken: 'string',
-      DBInstanceDescription: 'string',
-      deploySchema: 'string',
-      engine: 'string',
-      engineVersion: 'string',
-      multiZone: { 'type': 'array', 'itemType': CreateDBInstanceRequestMultiZone },
-      regionId: 'string',
-      resourceGroupId: 'string',
-      scaleMax: 'string',
-      scaleMin: 'string',
-      sourceDBInstanceId: 'string',
-      vpcId: 'string',
-      vswitchId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.multiZone)) {
-      $dara.Model.validateArray(this.multiZone);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBInstanceShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The backup set ID.
-   * 
-   * @example
-   * 1
-   */
-  backupSetId?: string;
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token. Make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-   * 
-   * @example
-   * AB
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The cluster description.
-   * 
-   * @example
-   * Used for test
-   */
-  DBInstanceDescription?: string;
-  /**
-   * @remarks
-   * The deployment status of the cluster.
-   * 
-   * @example
-   * multi_az
-   */
-  deploySchema?: string;
-  /**
-   * @remarks
-   * The engine type.
-   * 
-   * Valid values:
-   * 
-   * *   clickhouse
-   * 
-   * @example
-   * clickhouse
-   */
-  engine?: string;
-  /**
-   * @remarks
-   * The engine version.
-   * 
-   * @example
-   * 23.8
-   */
-  engineVersion?: string;
-  /**
-   * @remarks
-   * The configurations of multi-zone deployment.
-   */
-  multiZoneShrink?: string;
-  /**
-   * @remarks
-   * The region ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The maximum capacity for auto scaling.
-   * 
-   * @example
-   * 32
-   */
-  scaleMax?: string;
-  /**
-   * @remarks
-   * The minimum capacity for auto scaling.
-   * 
-   * @example
-   * 8
-   */
-  scaleMin?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-2ze1*********
-   */
-  sourceDBInstanceId?: string;
-  /**
-   * @remarks
-   * The virtual private cloud (VPC) ID.
-   * 
-   * @example
-   * vpc-uf6xmupdn7v6ui9f****
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-uf632qye9oqt4x4sr****
-   */
-  vswitchId?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backupSetId: 'BackupSetId',
-      clientToken: 'ClientToken',
-      DBInstanceDescription: 'DBInstanceDescription',
-      deploySchema: 'DeploySchema',
-      engine: 'Engine',
-      engineVersion: 'EngineVersion',
-      multiZoneShrink: 'MultiZone',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      scaleMax: 'ScaleMax',
-      scaleMin: 'ScaleMin',
-      sourceDBInstanceId: 'SourceDBInstanceId',
-      vpcId: 'VpcId',
-      vswitchId: 'VswitchId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backupSetId: 'string',
-      clientToken: 'string',
-      DBInstanceDescription: 'string',
-      deploySchema: 'string',
-      engine: 'string',
-      engineVersion: 'string',
-      multiZoneShrink: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      scaleMax: 'string',
-      scaleMin: 'string',
-      sourceDBInstanceId: 'string',
-      vpcId: 'string',
-      vswitchId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBInstanceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  data?: CreateDBInstanceResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * F5178C10-1407-4987-9133-DE4DC9119F75
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateDBInstanceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBInstanceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDBInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDBInstanceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEndpointRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The prefix of the new endpoint. The prefix of the ConnectionString parameter.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****-clickhouse.clickhouseserver.rds.aliyuncs.com
-   */
-  connectionPrefix?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The network type.
-   * 
-   * Valid values:
-   * 
-   * *   Public
-   * 
-   * @example
-   * Public
-   */
-  DBInstanceNetType?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      connectionPrefix: 'ConnectionPrefix',
-      DBInstanceId: 'DBInstanceId',
-      DBInstanceNetType: 'DBInstanceNetType',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectionPrefix: 'string',
-      DBInstanceId: 'string',
-      DBInstanceNetType: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEndpointResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 2FED790E-FB61-4721-8C1C-07C627FA5A19
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEndpointResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateEndpointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateEndpointResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccountRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The destination database account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The code of the cloud service.
-   * 
-   * @example
-   * clickhouse
-   */
-  product?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      DBInstanceId: 'DBInstanceId',
-      product: 'Product',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      DBInstanceId: 'string',
-      product: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccountResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: DeleteAccountResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 21D06907-CEA5-561D-B6B1-198BCCE99ED1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeleteAccountResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccountResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAccountResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The name of the destination database.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * testdb001
-   */
-  DBName?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      DBName: 'DBName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      DBName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: DeleteDBResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 06798FEE-BEF2-5FAF-A30D-728973BBE97C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeleteDBResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDBResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDBResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the destination cluster.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBInstanceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: DeleteDBInstanceResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeleteDBInstanceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBInstanceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDBInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDBInstanceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEndpointRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The prefix of the endpoint, which indicates the prefix of the value of the ConnectionString parameter.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****-clickhouse.clickhouseserver.rds.aliyuncs.com
-   */
-  connectionString?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  DBInstanceNetType?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      connectionString: 'ConnectionString',
-      DBInstanceId: 'DBInstanceId',
-      DBInstanceNetType: 'DBInstanceNetType',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectionString: 'string',
-      DBInstanceId: 'string',
-      DBInstanceNetType: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEndpointResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * F5178C10-1407-4987-9133-DE4DC9119F75
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEndpointResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteEndpointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteEndpointResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccountAuthorityRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test1
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The region ID
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      DBInstanceId: 'DBInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      DBInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccountAuthorityResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned result.
-   */
-  data?: DescribeAccountAuthorityResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * F5178C10-1407-4987-9133-DE4DC9119F75
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeAccountAuthorityResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccountAuthorityResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeAccountAuthorityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeAccountAuthorityResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccountsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: string;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values:
-   * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
-   * 
-   * @example
-   * 30
-   */
-  pageSize?: string;
-  /**
-   * @remarks
-   * The code of the cloud service.
-   * 
-   * @example
-   * clickhouse
-   */
-  product?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      product: 'Product',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
-      product: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccountsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The result returned.
-   */
-  data?: DescribeAccountsResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * F5178C10-1407-4987-9133-DE4DC9119F75
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeAccountsResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccountsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeAccountsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeAccountsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceAttributeRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * Valid values:
-   * 
-   * *   cn-beijing
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The result returned.
-   */
-  data?: DescribeDBInstanceAttributeResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 2FED790E-FB61-4721-8C1C-07C627FA5A19
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeDBInstanceAttributeResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceAttributeResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDBInstanceAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBInstanceAttributeResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceDataSourcesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * dbtest
-   */
-  DBName?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The table name.
-   * 
-   * @example
-   * tableTest
-   */
-  tableName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      DBName: 'DBName',
-      regionId: 'RegionId',
-      tableName: 'TableName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      DBName: 'string',
-      regionId: 'string',
-      tableName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceDataSourcesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned result.
-   */
-  data?: DescribeDBInstanceDataSourcesResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * F543E6CC-6868-523D-8D28-0E92CF977ED2
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeDBInstanceDataSourcesResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceDataSourcesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDBInstanceDataSourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBInstanceDataSourcesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstancesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster IDs. Separate multiple cluster IDs with commas (,).
-   * 
-   * @example
-   * cc-xxxxx,cx-xxxx
-   */
-  DBInstanceIds?: string;
-  /**
-   * @remarks
-   * The cluster status.
-   * 
-   * @example
-   * active
-   */
-  DBInstanceStatus?: string;
-  /**
-   * @remarks
-   * The cluster description.
-   * 
-   * @example
-   * test
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 30
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-4690g37929****
-   */
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceIds: 'DBInstanceIds',
-      DBInstanceStatus: 'DBInstanceStatus',
-      description: 'Description',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceIds: 'string',
-      DBInstanceStatus: 'string',
-      description: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned result.
-   */
-  data?: DescribeDBInstancesResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * xxx-xxx-xxx
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeDBInstancesResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstancesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDBInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBInstancesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEndpointsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-xxxxx
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEndpointsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned result.
-   */
-  data?: DescribeEndpointsResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * xxx-xxx-xxx
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeEndpointsResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEndpointsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeEndpointsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeEndpointsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProcessListRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-xxxxx
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The query ID.
-   * 
-   * @example
-   * 1
-   */
-  initialQueryId?: string;
-  /**
-   * @remarks
-   * The user who executes the query statement.
-   * 
-   * @example
-   * testuser
-   */
-  initialUser?: string;
-  /**
-   * @remarks
-   * The keyword of the query statement.
-   * 
-   * @example
-   * SELECT
-   */
-  keyword?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 30
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The execution duration of slow SQL queries. Minimum value: 1000. Unit: milliseconds.
-   * 
-   * @example
-   * 1000
-   */
-  queryDurationMs?: string;
-  /**
-   * @remarks
-   * Specifies the columns by which the query results are sorted in descending order.
-   * 
-   * *   0: The query results are sorted by the query_duration_ms column.
-   * *   1: The query results are sorted by the query_duration_ms and query_start_time columns.
-   * *   2: The query results are sorted by the query_duration_ms, query_start_time, and user columns.
-   * 
-   * @example
-   * id
-   */
-  queryOrder?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      initialQueryId: 'InitialQueryId',
-      initialUser: 'InitialUser',
-      keyword: 'Keyword',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      queryDurationMs: 'QueryDurationMs',
-      queryOrder: 'QueryOrder',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      initialQueryId: 'string',
-      initialUser: 'string',
-      keyword: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      queryDurationMs: 'string',
-      queryOrder: 'number',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProcessListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: DescribeProcessListResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * xxx-xxx-xxx
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeProcessListResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProcessListResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeProcessListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeProcessListResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSecurityIPListRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSecurityIPListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: DescribeSecurityIPListResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeSecurityIPListResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSecurityIPListResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSecurityIPListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSecurityIPListResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogRecordsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The end of the time range to query. Specify the time in the yyyy-MM-dd hh:mm:ss format. The time must be in UTC.
-   * 
-   * @example
-   * 2023-09-15 16:00:00
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values:
-   * 
-   * *   30 (default)
-   * *   50
-   * *   100
-   * 
-   * @example
-   * 30
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
-   * 
-   * @example
-   * 3000
-   */
-  queryDurationMs?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-dd hh:mm:ss format. The time must be in UTC.
-   * 
-   * @example
-   * 2023-09-11 16:00:00
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      queryDurationMs: 'QueryDurationMs',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      endTime: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      queryDurationMs: 'string',
-      regionId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: DescribeSlowLogRecordsResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * DF203CC8-5F68-5E3F-8050-3C77DD65731A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeSlowLogRecordsResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogRecordsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSlowLogRecordsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSlowLogRecordsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogTrendRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The end of the time range to query. Specify the time in the yyyy-MM-dd hh:mm:ss format. The time must be in UTC.
-   * 
-   * @example
-   * 2023-06-07 10:03:00
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The code of the cloud service.
-   * 
-   * @example
-   * clickhouse
-   */
-  product?: string;
-  /**
-   * @remarks
-   * The execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
-   * 
-   * @example
-   * 3000
-   */
-  queryDurationMs?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The start of the time range to query. Specify the time in the yyyy-MM-dd hh:mm:ss format. The time must be in UTC.
-   * 
-   * @example
-   * 2023-04-13 17:48:00
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      endTime: 'EndTime',
-      product: 'Product',
-      queryDurationMs: 'QueryDurationMs',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      endTime: 'string',
-      product: 'string',
-      queryDurationMs: 'string',
-      regionId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogTrendResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned result.
-   */
-  data?: DescribeSlowLogTrendResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 7D3ECB0E-98CA-5E08-A9CA-F70C5A1E9BDF
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeSlowLogTrendResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogTrendResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSlowLogTrendResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSlowLogTrendResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class KillProcessRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-xxxxxxx
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The query ID.
-   * 
-   * @example
-   * 1
-   */
-  initialQueryId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      initialQueryId: 'InitialQueryId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      initialQueryId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class KillProcessResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: KillProcessResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * xxx-xxx-xxx
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: KillProcessResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class KillProcessResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: KillProcessResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: KillProcessResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountAuthorityRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test1
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The information about permissions.
-   * 
-   * This parameter is required.
-   */
-  dmlAuthSetting?: ModifyAccountAuthorityRequestDmlAuthSetting;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      DBInstanceId: 'DBInstanceId',
-      dmlAuthSetting: 'DmlAuthSetting',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      DBInstanceId: 'string',
-      dmlAuthSetting: ModifyAccountAuthorityRequestDmlAuthSetting,
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.dmlAuthSetting && typeof (this.dmlAuthSetting as any).validate === 'function') {
-      (this.dmlAuthSetting as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountAuthorityShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test1
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The information about permissions.
-   * 
-   * This parameter is required.
-   */
-  dmlAuthSettingShrink?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      DBInstanceId: 'DBInstanceId',
-      dmlAuthSettingShrink: 'DmlAuthSetting',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      DBInstanceId: 'string',
-      dmlAuthSettingShrink: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountAuthorityResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The result returned.
-   */
-  data?: ModifyAccountAuthorityResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 05321590-BB65-4720-8CB6-8218E041CDD0
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ModifyAccountAuthorityResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountAuthorityResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyAccountAuthorityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyAccountAuthorityResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountDescriptionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * testuser
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-xxxxxxx
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The description of the account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      DBInstanceId: 'DBInstanceId',
-      description: 'Description',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      DBInstanceId: 'string',
-      description: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountDescriptionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: ModifyAccountDescriptionResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * xxx-xxx-xxx
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ModifyAccountDescriptionResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountDescriptionResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyAccountDescriptionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyAccountDescriptionResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceAttributeRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The configuration that you want to modify.
-   * 
-   * *   MaintainTime: the O\\&M time
-   * *   DBInstanceDescription: the cluster name
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * DBInstanceDescription
-   */
-  attributeType?: string;
-  /**
-   * @remarks
-   * The new value of the configuration.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  attributeValue?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-xxxxx
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The code of the cloud service.
-   * 
-   * @example
-   * clickhouse
-   */
-  product?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attributeType: 'AttributeType',
-      attributeValue: 'AttributeValue',
-      DBInstanceId: 'DBInstanceId',
-      product: 'Product',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributeType: 'string',
-      attributeValue: 'string',
-      DBInstanceId: 'string',
-      product: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceAttributeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * xxx-xxx-xxx
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceAttributeResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDBInstanceAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDBInstanceAttributeResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceClassRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-xxxxxxx
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The maximum capacity for elastic scaling.
-   * 
-   * @example
-   * 32
-   */
-  scaleMax?: number;
-  /**
-   * @remarks
-   * The minimum capacity for elastic scaling.
-   * 
-   * @example
-   * 2
-   */
-  scaleMin?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      regionId: 'RegionId',
-      scaleMax: 'ScaleMax',
-      scaleMin: 'ScaleMin',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      regionId: 'string',
-      scaleMax: 'number',
-      scaleMin: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceClassResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned result.
-   */
-  data?: ModifyDBInstanceClassResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * xxx-xxx-xxx
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ModifyDBInstanceClassResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceClassResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDBInstanceClassResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDBInstanceClassResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The endpoint of the cluster.
-   * 
-   * @example
-   * cc-2ze34****-clickhouse..clickhouseserver.pre.rds.aliyuncs.com
-   */
-  connectionString?: string;
-  /**
-   * @remarks
-   * The prefix of the endpoint that is used to connect to the database.
-   * 
-   * @example
-   * cc-****-clickhouse
-   */
-  connectionStringPrefix?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-xxxxx
-   */
-  DBInstanceId?: string;
-  DBInstanceNetType?: string;
-  /**
-   * @remarks
-   * *   The database ports that you want to disable. Separate multiple ports with commas (,).
-   * 
-   * *   This parameter is supported only for clusters whose minor engine version is 24.10.1.11098_1 or later.
-   * 
-   *     **
-   * 
-   *     **Note** If you create a cluster whose minor engine version is earlier than 24.10.1.11098_1 and you update the minor engine version to 24.10.1.11098_1 or later, the cluster still does not support this parameter.
-   * 
-   * @example
-   * 9001,8123
-   */
-  disablePorts?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      connectionString: 'ConnectionString',
-      connectionStringPrefix: 'ConnectionStringPrefix',
-      DBInstanceId: 'DBInstanceId',
-      DBInstanceNetType: 'DBInstanceNetType',
-      disablePorts: 'DisablePorts',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectionString: 'string',
-      connectionStringPrefix: 'string',
-      DBInstanceId: 'string',
-      DBInstanceNetType: 'string',
-      disablePorts: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceConnectionStringResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: ModifyDBInstanceConnectionStringResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * xxx-xxx-xxx
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ModifyDBInstanceConnectionStringResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceConnectionStringResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDBInstanceConnectionStringResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDBInstanceConnectionStringResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySecurityIPListRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-xxxxx
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The name of the whitelist whose settings you want to modify.
-   * 
-   * @example
-   * test
-   */
-  groupName?: string;
-  /**
-   * @remarks
-   * The modification mode.
-   * 
-   * *   0: overwrites the original IP addresses and CIDR blocks in the whitelist.
-   * *   1: adds the IP addresses and CIDR blocks to the whitelist.
-   * *   2: removes the IP addresses and CIDR blocks from the whitelist.
-   * 
-   * >  We recommend that you set the value to 0.
-   * 
-   * @example
-   * 0
-   */
-  modifyMode?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The IP addresses and CIDR blocks in the whitelist.
-   * 
-   * @example
-   * 192.168.0.0/24,172.16.0.0/24
-   */
-  securityIPList?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      groupName: 'GroupName',
-      modifyMode: 'ModifyMode',
-      regionId: 'RegionId',
-      securityIPList: 'SecurityIPList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      groupName: 'string',
-      modifyMode: 'string',
-      regionId: 'string',
-      securityIPList: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySecurityIPListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned result.
-   */
-  data?: ModifySecurityIPListResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * xxx-xxx-xxx
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ModifySecurityIPListResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySecurityIPListResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifySecurityIPListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifySecurityIPListResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetAccountPasswordRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test1
-   */
-  account?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The password of the database account. The password must meet the following requirements:
-   * 
-   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * - The following special characters are supported: ! @ # $ % ^ & * ( ) _ + - =
-   * - The password must be 8 to 32 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 123456Aa
-   */
-  password?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * @example
-   * clickhouse
-   */
-  product?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      DBInstanceId: 'DBInstanceId',
-      password: 'Password',
-      product: 'Product',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      DBInstanceId: 'string',
-      password: 'string',
-      product: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetAccountPasswordResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The result returned.
-   */
-  data?: ResetAccountPasswordResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 5A6A077A-577C-536E-AC13-8E715D7A34C8
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ResetAccountPasswordResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetAccountPasswordResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ResetAccountPasswordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ResetAccountPasswordResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartDBInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartDBInstanceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: RestartDBInstanceResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RestartDBInstanceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartDBInstanceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RestartDBInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RestartDBInstanceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDBInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDBInstanceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: StartDBInstanceResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * F5178C10-1407-4987-9133-DE4DC9119F76
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: StartDBInstanceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDBInstanceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartDBInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartDBInstanceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDBInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp100p4q1g9z3****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDBInstanceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: StopDBInstanceResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 2FED790E-FB61-4721-8C1C-07C627FA5A19
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: StopDBInstanceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDBInstanceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopDBInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopDBInstanceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeMinorVersionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cc-bp1jyis8p15we****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The update time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
-   * >  If you set SwitchTimeMode to SpecifyTime, you must configure this parameter to specify the update time.
-   * 
-   * @example
-   * 2023-01-09T05:00:00Z
-   */
-  switchTime?: string;
-  /**
-   * @remarks
-   * Specifies whether to update the minor engine version of the cluster immediately. Valid values:
-   * 
-   * *   **Immediate**: The system immediately performs the update.
-   * *   **MaintainTime**: The system performs the update during the specified maintenance window.
-   * *   **SpecifyTime**: The system performs the update at a specified time.
-   * 
-   * @example
-   * Immediate
-   */
-  switchTimeMode?: string;
-  /**
-   * @remarks
-   * The minor engine version to which you want to update.
-   * 
-   * >  By default, TargetMinorVersion is not set and the minor engine version of the cluster is updated to the latest version.
-   * 
-   * @example
-   * 23.8.1.41495_6
-   */
-  targetMinorVersion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      regionId: 'RegionId',
-      switchTime: 'SwitchTime',
-      switchTimeMode: 'SwitchTimeMode',
-      targetMinorVersion: 'TargetMinorVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      regionId: 'string',
-      switchTime: 'string',
-      switchTimeMode: 'string',
-      targetMinorVersion: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeMinorVersionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned result.
-   */
-  data?: UpgradeMinorVersionResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * FE242962-6DA3-5FC8-9691-37B62A3210F7
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: UpgradeMinorVersionResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeMinorVersionResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpgradeMinorVersionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpgradeMinorVersionResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
@@ -7740,9 +82,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAccountResponse
    */
-  async createAccountWithOptions(tmpReq: CreateAccountRequest, runtime: $dara.RuntimeOptions): Promise<CreateAccountResponse> {
+  async createAccountWithOptions(tmpReq: $_model.CreateAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAccountResponse> {
     tmpReq.validate();
-    let request = new CreateAccountShrinkRequest({ });
+    let request = new $_model.CreateAccountShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.dmlAuthSetting)) {
       request.dmlAuthSettingShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dmlAuthSetting, "DmlAuthSetting", "json");
@@ -7795,12 +137,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
-    } else {
-      return $dara.cast<CreateAccountResponse>(await this.execute(params, req, runtime), new CreateAccountResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateAccountResponse>(await this.callApi(params, req, runtime), new $_model.CreateAccountResponse({}));
   }
 
   /**
@@ -7809,9 +146,67 @@ export default class Client extends OpenApi {
    * @param request - CreateAccountRequest
    * @returns CreateAccountResponse
    */
-  async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
+  async createAccount(request: $_model.CreateAccountRequest): Promise<$_model.CreateAccountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a backup policy for a specified ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * 
+   * @param request - CreateBackupPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBackupPolicyResponse
+   */
+  async createBackupPolicyWithOptions(request: $_model.CreateBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBackupPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupRetentionPeriod)) {
+      query["BackupRetentionPeriod"] = request.backupRetentionPeriod;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.preferredBackupPeriod)) {
+      query["PreferredBackupPeriod"] = request.preferredBackupPeriod;
+    }
+
+    if (!$dara.isNull(request.preferredBackupTime)) {
+      query["PreferredBackupTime"] = request.preferredBackupTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBackupPolicy",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBackupPolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreateBackupPolicyResponse({}));
+  }
+
+  /**
+   * Creates a backup policy for a specified ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+   * 
+   * @param request - CreateBackupPolicyRequest
+   * @returns CreateBackupPolicyResponse
+   */
+  async createBackupPolicy(request: $_model.CreateBackupPolicyRequest): Promise<$_model.CreateBackupPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBackupPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -7821,7 +216,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDBResponse
    */
-  async createDBWithOptions(request: CreateDBRequest, runtime: $dara.RuntimeOptions): Promise<CreateDBResponse> {
+  async createDBWithOptions(request: $_model.CreateDBRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDBResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.comment)) {
@@ -7854,12 +249,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateDBResponse>(await this.callApi(params, req, runtime), new CreateDBResponse({}));
-    } else {
-      return $dara.cast<CreateDBResponse>(await this.execute(params, req, runtime), new CreateDBResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateDBResponse>(await this.callApi(params, req, runtime), new $_model.CreateDBResponse({}));
   }
 
   /**
@@ -7868,7 +258,7 @@ export default class Client extends OpenApi {
    * @param request - CreateDBRequest
    * @returns CreateDBResponse
    */
-  async createDB(request: CreateDBRequest): Promise<CreateDBResponse> {
+  async createDB(request: $_model.CreateDBRequest): Promise<$_model.CreateDBResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDBWithOptions(request, runtime);
   }
@@ -7880,9 +270,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDBInstanceResponse
    */
-  async createDBInstanceWithOptions(tmpReq: CreateDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<CreateDBInstanceResponse> {
+  async createDBInstanceWithOptions(tmpReq: $_model.CreateDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDBInstanceResponse> {
     tmpReq.validate();
-    let request = new CreateDBInstanceShrinkRequest({ });
+    let request = new $_model.CreateDBInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.multiZone)) {
       request.multiZoneShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.multiZone, "MultiZone", "json");
@@ -7963,12 +353,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateDBInstanceResponse({}));
-    } else {
-      return $dara.cast<CreateDBInstanceResponse>(await this.execute(params, req, runtime), new CreateDBInstanceResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateDBInstanceResponse>(await this.callApi(params, req, runtime), new $_model.CreateDBInstanceResponse({}));
   }
 
   /**
@@ -7977,7 +362,7 @@ export default class Client extends OpenApi {
    * @param request - CreateDBInstanceRequest
    * @returns CreateDBInstanceResponse
    */
-  async createDBInstance(request: CreateDBInstanceRequest): Promise<CreateDBInstanceResponse> {
+  async createDBInstance(request: $_model.CreateDBInstanceRequest): Promise<$_model.CreateDBInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDBInstanceWithOptions(request, runtime);
   }
@@ -7989,7 +374,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateEndpointResponse
    */
-  async createEndpointWithOptions(request: CreateEndpointRequest, runtime: $dara.RuntimeOptions): Promise<CreateEndpointResponse> {
+  async createEndpointWithOptions(request: $_model.CreateEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEndpointResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.connectionPrefix)) {
@@ -8022,12 +407,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateEndpointResponse>(await this.callApi(params, req, runtime), new CreateEndpointResponse({}));
-    } else {
-      return $dara.cast<CreateEndpointResponse>(await this.execute(params, req, runtime), new CreateEndpointResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateEndpointResponse>(await this.callApi(params, req, runtime), new $_model.CreateEndpointResponse({}));
   }
 
   /**
@@ -8036,7 +416,7 @@ export default class Client extends OpenApi {
    * @param request - CreateEndpointRequest
    * @returns CreateEndpointResponse
    */
-  async createEndpoint(request: CreateEndpointRequest): Promise<CreateEndpointResponse> {
+  async createEndpoint(request: $_model.CreateEndpointRequest): Promise<$_model.CreateEndpointResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createEndpointWithOptions(request, runtime);
   }
@@ -8048,7 +428,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAccountResponse
    */
-  async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAccountResponse> {
+  async deleteAccountWithOptions(request: $_model.DeleteAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAccountResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.account)) {
@@ -8081,12 +461,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
-    } else {
-      return $dara.cast<DeleteAccountResponse>(await this.execute(params, req, runtime), new DeleteAccountResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteAccountResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAccountResponse({}));
   }
 
   /**
@@ -8095,9 +470,55 @@ export default class Client extends OpenApi {
    * @param request - DeleteAccountRequest
    * @returns DeleteAccountResponse
    */
-  async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
+  async deleteAccount(request: $_model.DeleteAccountRequest): Promise<$_model.DeleteAccountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改备份策略
+   * 
+   * @param request - DeleteBackupPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBackupPolicyResponse
+   */
+  async deleteBackupPolicyWithOptions(request: $_model.DeleteBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBackupPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBackupPolicy",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBackupPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBackupPolicyResponse({}));
+  }
+
+  /**
+   * 修改备份策略
+   * 
+   * @param request - DeleteBackupPolicyRequest
+   * @returns DeleteBackupPolicyResponse
+   */
+  async deleteBackupPolicy(request: $_model.DeleteBackupPolicyRequest): Promise<$_model.DeleteBackupPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBackupPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -8107,7 +528,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDBResponse
    */
-  async deleteDBWithOptions(request: DeleteDBRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDBResponse> {
+  async deleteDBWithOptions(request: $_model.DeleteDBRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDBResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -8136,12 +557,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteDBResponse>(await this.callApi(params, req, runtime), new DeleteDBResponse({}));
-    } else {
-      return $dara.cast<DeleteDBResponse>(await this.execute(params, req, runtime), new DeleteDBResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteDBResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDBResponse({}));
   }
 
   /**
@@ -8150,7 +566,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteDBRequest
    * @returns DeleteDBResponse
    */
-  async deleteDB(request: DeleteDBRequest): Promise<DeleteDBResponse> {
+  async deleteDB(request: $_model.DeleteDBRequest): Promise<$_model.DeleteDBResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDBWithOptions(request, runtime);
   }
@@ -8162,7 +578,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDBInstanceResponse
    */
-  async deleteDBInstanceWithOptions(request: DeleteDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDBInstanceResponse> {
+  async deleteDBInstanceWithOptions(request: $_model.DeleteDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDBInstanceResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -8187,12 +603,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteDBInstanceResponse>(await this.callApi(params, req, runtime), new DeleteDBInstanceResponse({}));
-    } else {
-      return $dara.cast<DeleteDBInstanceResponse>(await this.execute(params, req, runtime), new DeleteDBInstanceResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteDBInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDBInstanceResponse({}));
   }
 
   /**
@@ -8201,7 +612,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteDBInstanceRequest
    * @returns DeleteDBInstanceResponse
    */
-  async deleteDBInstance(request: DeleteDBInstanceRequest): Promise<DeleteDBInstanceResponse> {
+  async deleteDBInstance(request: $_model.DeleteDBInstanceRequest): Promise<$_model.DeleteDBInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDBInstanceWithOptions(request, runtime);
   }
@@ -8213,7 +624,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteEndpointResponse
    */
-  async deleteEndpointWithOptions(request: DeleteEndpointRequest, runtime: $dara.RuntimeOptions): Promise<DeleteEndpointResponse> {
+  async deleteEndpointWithOptions(request: $_model.DeleteEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEndpointResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.connectionString)) {
@@ -8246,12 +657,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteEndpointResponse>(await this.callApi(params, req, runtime), new DeleteEndpointResponse({}));
-    } else {
-      return $dara.cast<DeleteEndpointResponse>(await this.execute(params, req, runtime), new DeleteEndpointResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteEndpointResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEndpointResponse({}));
   }
 
   /**
@@ -8260,7 +666,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteEndpointRequest
    * @returns DeleteEndpointResponse
    */
-  async deleteEndpoint(request: DeleteEndpointRequest): Promise<DeleteEndpointResponse> {
+  async deleteEndpoint(request: $_model.DeleteEndpointRequest): Promise<$_model.DeleteEndpointResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteEndpointWithOptions(request, runtime);
   }
@@ -8272,7 +678,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAccountAuthorityResponse
    */
-  async describeAccountAuthorityWithOptions(request: DescribeAccountAuthorityRequest, runtime: $dara.RuntimeOptions): Promise<DescribeAccountAuthorityResponse> {
+  async describeAccountAuthorityWithOptions(request: $_model.DescribeAccountAuthorityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAccountAuthorityResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.account)) {
@@ -8301,12 +707,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeAccountAuthorityResponse>(await this.callApi(params, req, runtime), new DescribeAccountAuthorityResponse({}));
-    } else {
-      return $dara.cast<DescribeAccountAuthorityResponse>(await this.execute(params, req, runtime), new DescribeAccountAuthorityResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeAccountAuthorityResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAccountAuthorityResponse({}));
   }
 
   /**
@@ -8315,7 +716,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeAccountAuthorityRequest
    * @returns DescribeAccountAuthorityResponse
    */
-  async describeAccountAuthority(request: DescribeAccountAuthorityRequest): Promise<DescribeAccountAuthorityResponse> {
+  async describeAccountAuthority(request: $_model.DescribeAccountAuthorityRequest): Promise<$_model.DescribeAccountAuthorityResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAccountAuthorityWithOptions(request, runtime);
   }
@@ -8327,7 +728,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAccountsResponse
    */
-  async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeAccountsResponse> {
+  async describeAccountsWithOptions(request: $_model.DescribeAccountsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAccountsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -8364,12 +765,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeAccountsResponse>(await this.callApi(params, req, runtime), new DescribeAccountsResponse({}));
-    } else {
-      return $dara.cast<DescribeAccountsResponse>(await this.execute(params, req, runtime), new DescribeAccountsResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeAccountsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAccountsResponse({}));
   }
 
   /**
@@ -8378,9 +774,121 @@ export default class Client extends OpenApi {
    * @param request - DescribeAccountsRequest
    * @returns DescribeAccountsResponse
    */
-  async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
+  async describeAccounts(request: $_model.DescribeAccountsRequest): Promise<$_model.DescribeAccountsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAccountsWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建备份策略
+   * 
+   * @param request - DescribeBackupPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupPolicyResponse
+   */
+  async describeBackupPolicyWithOptions(request: $_model.DescribeBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBackupPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBackupPolicy",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBackupPolicyResponse({}));
+  }
+
+  /**
+   * 创建备份策略
+   * 
+   * @param request - DescribeBackupPolicyRequest
+   * @returns DescribeBackupPolicyResponse
+   */
+  async describeBackupPolicy(request: $_model.DescribeBackupPolicyRequest): Promise<$_model.DescribeBackupPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBackupPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询备份集
+   * 
+   * @param request - DescribeBackupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupsResponse
+   */
+  async describeBackupsWithOptions(request: $_model.DescribeBackupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBackupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBackups",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBackupsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBackupsResponse({}));
+  }
+
+  /**
+   * 查询备份集
+   * 
+   * @param request - DescribeBackupsRequest
+   * @returns DescribeBackupsResponse
+   */
+  async describeBackups(request: $_model.DescribeBackupsRequest): Promise<$_model.DescribeBackupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBackupsWithOptions(request, runtime);
   }
 
   /**
@@ -8390,7 +898,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstanceAttributeResponse
    */
-  async describeDBInstanceAttributeWithOptions(request: DescribeDBInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDBInstanceAttributeResponse> {
+  async describeDBInstanceAttributeWithOptions(request: $_model.DescribeDBInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBInstanceAttributeResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -8415,12 +923,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeDBInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceAttributeResponse({}));
-    } else {
-      return $dara.cast<DescribeDBInstanceAttributeResponse>(await this.execute(params, req, runtime), new DescribeDBInstanceAttributeResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeDBInstanceAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBInstanceAttributeResponse({}));
   }
 
   /**
@@ -8429,9 +932,85 @@ export default class Client extends OpenApi {
    * @param request - DescribeDBInstanceAttributeRequest
    * @returns DescribeDBInstanceAttributeResponse
    */
-  async describeDBInstanceAttribute(request: DescribeDBInstanceAttributeRequest): Promise<DescribeDBInstanceAttributeResponse> {
+  async describeDBInstanceAttribute(request: $_model.DescribeDBInstanceAttributeRequest): Promise<$_model.DescribeDBInstanceAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBInstanceAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例参数配置
+   * 
+   * @param request - DescribeDBInstanceConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBInstanceConfigResponse
+   */
+  async describeDBInstanceConfigWithOptions(request: $_model.DescribeDBInstanceConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBInstanceConfigResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBInstanceConfig",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBInstanceConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBInstanceConfigResponse({}));
+  }
+
+  /**
+   * 查询实例参数配置
+   * 
+   * @param request - DescribeDBInstanceConfigRequest
+   * @returns DescribeDBInstanceConfigResponse
+   */
+  async describeDBInstanceConfig(request: $_model.DescribeDBInstanceConfigRequest): Promise<$_model.DescribeDBInstanceConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBInstanceConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例参数配置记录
+   * 
+   * @param request - DescribeDBInstanceConfigChangeLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBInstanceConfigChangeLogResponse
+   */
+  async describeDBInstanceConfigChangeLogWithOptions(request: $_model.DescribeDBInstanceConfigChangeLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBInstanceConfigChangeLogResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBInstanceConfigChangeLog",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBInstanceConfigChangeLogResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBInstanceConfigChangeLogResponse({}));
+  }
+
+  /**
+   * 查询实例参数配置记录
+   * 
+   * @param request - DescribeDBInstanceConfigChangeLogRequest
+   * @returns DescribeDBInstanceConfigChangeLogResponse
+   */
+  async describeDBInstanceConfigChangeLog(request: $_model.DescribeDBInstanceConfigChangeLogRequest): Promise<$_model.DescribeDBInstanceConfigChangeLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBInstanceConfigChangeLogWithOptions(request, runtime);
   }
 
   /**
@@ -8441,7 +1020,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstanceDataSourcesResponse
    */
-  async describeDBInstanceDataSourcesWithOptions(request: DescribeDBInstanceDataSourcesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDBInstanceDataSourcesResponse> {
+  async describeDBInstanceDataSourcesWithOptions(request: $_model.DescribeDBInstanceDataSourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBInstanceDataSourcesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -8474,12 +1053,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeDBInstanceDataSourcesResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceDataSourcesResponse({}));
-    } else {
-      return $dara.cast<DescribeDBInstanceDataSourcesResponse>(await this.execute(params, req, runtime), new DescribeDBInstanceDataSourcesResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeDBInstanceDataSourcesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBInstanceDataSourcesResponse({}));
   }
 
   /**
@@ -8488,7 +1062,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeDBInstanceDataSourcesRequest
    * @returns DescribeDBInstanceDataSourcesResponse
    */
-  async describeDBInstanceDataSources(request: DescribeDBInstanceDataSourcesRequest): Promise<DescribeDBInstanceDataSourcesResponse> {
+  async describeDBInstanceDataSources(request: $_model.DescribeDBInstanceDataSourcesRequest): Promise<$_model.DescribeDBInstanceDataSourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBInstanceDataSourcesWithOptions(request, runtime);
   }
@@ -8500,7 +1074,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstancesResponse
    */
-  async describeDBInstancesWithOptions(request: DescribeDBInstancesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
+  async describeDBInstancesWithOptions(request: $_model.DescribeDBInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBInstancesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceIds)) {
@@ -8545,12 +1119,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeDBInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesResponse({}));
-    } else {
-      return $dara.cast<DescribeDBInstancesResponse>(await this.execute(params, req, runtime), new DescribeDBInstancesResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeDBInstancesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBInstancesResponse({}));
   }
 
   /**
@@ -8559,7 +1128,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeDBInstancesRequest
    * @returns DescribeDBInstancesResponse
    */
-  async describeDBInstances(request: DescribeDBInstancesRequest): Promise<DescribeDBInstancesResponse> {
+  async describeDBInstances(request: $_model.DescribeDBInstancesRequest): Promise<$_model.DescribeDBInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBInstancesWithOptions(request, runtime);
   }
@@ -8571,7 +1140,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEndpointsResponse
    */
-  async describeEndpointsWithOptions(request: DescribeEndpointsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeEndpointsResponse> {
+  async describeEndpointsWithOptions(request: $_model.DescribeEndpointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEndpointsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -8596,12 +1165,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeEndpointsResponse>(await this.callApi(params, req, runtime), new DescribeEndpointsResponse({}));
-    } else {
-      return $dara.cast<DescribeEndpointsResponse>(await this.execute(params, req, runtime), new DescribeEndpointsResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeEndpointsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEndpointsResponse({}));
   }
 
   /**
@@ -8610,7 +1174,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeEndpointsRequest
    * @returns DescribeEndpointsResponse
    */
-  async describeEndpoints(request: DescribeEndpointsRequest): Promise<DescribeEndpointsResponse> {
+  async describeEndpoints(request: $_model.DescribeEndpointsRequest): Promise<$_model.DescribeEndpointsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeEndpointsWithOptions(request, runtime);
   }
@@ -8622,7 +1186,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProcessListResponse
    */
-  async describeProcessListWithOptions(request: DescribeProcessListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeProcessListResponse> {
+  async describeProcessListWithOptions(request: $_model.DescribeProcessListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeProcessListResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -8675,12 +1239,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeProcessListResponse>(await this.callApi(params, req, runtime), new DescribeProcessListResponse({}));
-    } else {
-      return $dara.cast<DescribeProcessListResponse>(await this.execute(params, req, runtime), new DescribeProcessListResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeProcessListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeProcessListResponse({}));
   }
 
   /**
@@ -8689,7 +1248,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeProcessListRequest
    * @returns DescribeProcessListResponse
    */
-  async describeProcessList(request: DescribeProcessListRequest): Promise<DescribeProcessListResponse> {
+  async describeProcessList(request: $_model.DescribeProcessListRequest): Promise<$_model.DescribeProcessListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeProcessListWithOptions(request, runtime);
   }
@@ -8701,7 +1260,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSecurityIPListResponse
    */
-  async describeSecurityIPListWithOptions(request: DescribeSecurityIPListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSecurityIPListResponse> {
+  async describeSecurityIPListWithOptions(request: $_model.DescribeSecurityIPListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSecurityIPListResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -8726,12 +1285,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeSecurityIPListResponse>(await this.callApi(params, req, runtime), new DescribeSecurityIPListResponse({}));
-    } else {
-      return $dara.cast<DescribeSecurityIPListResponse>(await this.execute(params, req, runtime), new DescribeSecurityIPListResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeSecurityIPListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSecurityIPListResponse({}));
   }
 
   /**
@@ -8740,7 +1294,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeSecurityIPListRequest
    * @returns DescribeSecurityIPListResponse
    */
-  async describeSecurityIPList(request: DescribeSecurityIPListRequest): Promise<DescribeSecurityIPListResponse> {
+  async describeSecurityIPList(request: $_model.DescribeSecurityIPListRequest): Promise<$_model.DescribeSecurityIPListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSecurityIPListWithOptions(request, runtime);
   }
@@ -8752,7 +1306,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSlowLogRecordsResponse
    */
-  async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
+  async describeSlowLogRecordsWithOptions(request: $_model.DescribeSlowLogRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSlowLogRecordsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -8797,12 +1351,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeSlowLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogRecordsResponse({}));
-    } else {
-      return $dara.cast<DescribeSlowLogRecordsResponse>(await this.execute(params, req, runtime), new DescribeSlowLogRecordsResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeSlowLogRecordsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSlowLogRecordsResponse({}));
   }
 
   /**
@@ -8811,7 +1360,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeSlowLogRecordsRequest
    * @returns DescribeSlowLogRecordsResponse
    */
-  async describeSlowLogRecords(request: DescribeSlowLogRecordsRequest): Promise<DescribeSlowLogRecordsResponse> {
+  async describeSlowLogRecords(request: $_model.DescribeSlowLogRecordsRequest): Promise<$_model.DescribeSlowLogRecordsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSlowLogRecordsWithOptions(request, runtime);
   }
@@ -8823,7 +1372,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSlowLogTrendResponse
    */
-  async describeSlowLogTrendWithOptions(request: DescribeSlowLogTrendRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSlowLogTrendResponse> {
+  async describeSlowLogTrendWithOptions(request: $_model.DescribeSlowLogTrendRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSlowLogTrendResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -8864,12 +1413,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeSlowLogTrendResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogTrendResponse({}));
-    } else {
-      return $dara.cast<DescribeSlowLogTrendResponse>(await this.execute(params, req, runtime), new DescribeSlowLogTrendResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeSlowLogTrendResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSlowLogTrendResponse({}));
   }
 
   /**
@@ -8878,7 +1422,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeSlowLogTrendRequest
    * @returns DescribeSlowLogTrendResponse
    */
-  async describeSlowLogTrend(request: DescribeSlowLogTrendRequest): Promise<DescribeSlowLogTrendResponse> {
+  async describeSlowLogTrend(request: $_model.DescribeSlowLogTrendRequest): Promise<$_model.DescribeSlowLogTrendResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSlowLogTrendWithOptions(request, runtime);
   }
@@ -8890,7 +1434,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns KillProcessResponse
    */
-  async killProcessWithOptions(request: KillProcessRequest, runtime: $dara.RuntimeOptions): Promise<KillProcessResponse> {
+  async killProcessWithOptions(request: $_model.KillProcessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.KillProcessResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -8919,12 +1463,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<KillProcessResponse>(await this.callApi(params, req, runtime), new KillProcessResponse({}));
-    } else {
-      return $dara.cast<KillProcessResponse>(await this.execute(params, req, runtime), new KillProcessResponse({}));
-    }
-
+    return $dara.cast<$_model.KillProcessResponse>(await this.callApi(params, req, runtime), new $_model.KillProcessResponse({}));
   }
 
   /**
@@ -8933,7 +1472,7 @@ export default class Client extends OpenApi {
    * @param request - KillProcessRequest
    * @returns KillProcessResponse
    */
-  async killProcess(request: KillProcessRequest): Promise<KillProcessResponse> {
+  async killProcess(request: $_model.KillProcessRequest): Promise<$_model.KillProcessResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.killProcessWithOptions(request, runtime);
   }
@@ -8945,9 +1484,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAccountAuthorityResponse
    */
-  async modifyAccountAuthorityWithOptions(tmpReq: ModifyAccountAuthorityRequest, runtime: $dara.RuntimeOptions): Promise<ModifyAccountAuthorityResponse> {
+  async modifyAccountAuthorityWithOptions(tmpReq: $_model.ModifyAccountAuthorityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAccountAuthorityResponse> {
     tmpReq.validate();
-    let request = new ModifyAccountAuthorityShrinkRequest({ });
+    let request = new $_model.ModifyAccountAuthorityShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.dmlAuthSetting)) {
       request.dmlAuthSettingShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dmlAuthSetting, "DmlAuthSetting", "json");
@@ -8984,12 +1523,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyAccountAuthorityResponse>(await this.callApi(params, req, runtime), new ModifyAccountAuthorityResponse({}));
-    } else {
-      return $dara.cast<ModifyAccountAuthorityResponse>(await this.execute(params, req, runtime), new ModifyAccountAuthorityResponse({}));
-    }
-
+    return $dara.cast<$_model.ModifyAccountAuthorityResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAccountAuthorityResponse({}));
   }
 
   /**
@@ -8998,7 +1532,7 @@ export default class Client extends OpenApi {
    * @param request - ModifyAccountAuthorityRequest
    * @returns ModifyAccountAuthorityResponse
    */
-  async modifyAccountAuthority(request: ModifyAccountAuthorityRequest): Promise<ModifyAccountAuthorityResponse> {
+  async modifyAccountAuthority(request: $_model.ModifyAccountAuthorityRequest): Promise<$_model.ModifyAccountAuthorityResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAccountAuthorityWithOptions(request, runtime);
   }
@@ -9010,7 +1544,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAccountDescriptionResponse
    */
-  async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
+  async modifyAccountDescriptionWithOptions(request: $_model.ModifyAccountDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAccountDescriptionResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.account)) {
@@ -9043,12 +1577,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyAccountDescriptionResponse({}));
-    } else {
-      return $dara.cast<ModifyAccountDescriptionResponse>(await this.execute(params, req, runtime), new ModifyAccountDescriptionResponse({}));
-    }
-
+    return $dara.cast<$_model.ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAccountDescriptionResponse({}));
   }
 
   /**
@@ -9057,9 +1586,67 @@ export default class Client extends OpenApi {
    * @param request - ModifyAccountDescriptionRequest
    * @returns ModifyAccountDescriptionResponse
    */
-  async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
+  async modifyAccountDescription(request: $_model.ModifyAccountDescriptionRequest): Promise<$_model.ModifyAccountDescriptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改备份策略
+   * 
+   * @param request - ModifyBackupPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBackupPolicyResponse
+   */
+  async modifyBackupPolicyWithOptions(request: $_model.ModifyBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyBackupPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupRetentionPeriod)) {
+      query["BackupRetentionPeriod"] = request.backupRetentionPeriod;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.preferredBackupPeriod)) {
+      query["PreferredBackupPeriod"] = request.preferredBackupPeriod;
+    }
+
+    if (!$dara.isNull(request.preferredBackupTime)) {
+      query["PreferredBackupTime"] = request.preferredBackupTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyBackupPolicy",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyBackupPolicyResponse({}));
+  }
+
+  /**
+   * 修改备份策略
+   * 
+   * @param request - ModifyBackupPolicyRequest
+   * @returns ModifyBackupPolicyResponse
+   */
+  async modifyBackupPolicy(request: $_model.ModifyBackupPolicyRequest): Promise<$_model.ModifyBackupPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyBackupPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -9069,7 +1656,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDBInstanceAttributeResponse
    */
-  async modifyDBInstanceAttributeWithOptions(request: ModifyDBInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDBInstanceAttributeResponse> {
+  async modifyDBInstanceAttributeWithOptions(request: $_model.ModifyDBInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBInstanceAttributeResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.attributeType)) {
@@ -9106,12 +1693,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyDBInstanceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceAttributeResponse({}));
-    } else {
-      return $dara.cast<ModifyDBInstanceAttributeResponse>(await this.execute(params, req, runtime), new ModifyDBInstanceAttributeResponse({}));
-    }
-
+    return $dara.cast<$_model.ModifyDBInstanceAttributeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBInstanceAttributeResponse({}));
   }
 
   /**
@@ -9120,7 +1702,7 @@ export default class Client extends OpenApi {
    * @param request - ModifyDBInstanceAttributeRequest
    * @returns ModifyDBInstanceAttributeResponse
    */
-  async modifyDBInstanceAttribute(request: ModifyDBInstanceAttributeRequest): Promise<ModifyDBInstanceAttributeResponse> {
+  async modifyDBInstanceAttribute(request: $_model.ModifyDBInstanceAttributeRequest): Promise<$_model.ModifyDBInstanceAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDBInstanceAttributeWithOptions(request, runtime);
   }
@@ -9132,7 +1714,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDBInstanceClassResponse
    */
-  async modifyDBInstanceClassWithOptions(request: ModifyDBInstanceClassRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDBInstanceClassResponse> {
+  async modifyDBInstanceClassWithOptions(request: $_model.ModifyDBInstanceClassRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBInstanceClassResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -9165,12 +1747,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyDBInstanceClassResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceClassResponse({}));
-    } else {
-      return $dara.cast<ModifyDBInstanceClassResponse>(await this.execute(params, req, runtime), new ModifyDBInstanceClassResponse({}));
-    }
-
+    return $dara.cast<$_model.ModifyDBInstanceClassResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBInstanceClassResponse({}));
   }
 
   /**
@@ -9179,9 +1756,59 @@ export default class Client extends OpenApi {
    * @param request - ModifyDBInstanceClassRequest
    * @returns ModifyDBInstanceClassResponse
    */
-  async modifyDBInstanceClass(request: ModifyDBInstanceClassRequest): Promise<ModifyDBInstanceClassResponse> {
+  async modifyDBInstanceClass(request: $_model.ModifyDBInstanceClassRequest): Promise<$_model.ModifyDBInstanceClassResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDBInstanceClassWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改实例参数配置
+   * 
+   * @param request - ModifyDBInstanceConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBInstanceConfigResponse
+   */
+  async modifyDBInstanceConfigWithOptions(request: $_model.ModifyDBInstanceConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBInstanceConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBInstanceConfig",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDBInstanceConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBInstanceConfigResponse({}));
+  }
+
+  /**
+   * 修改实例参数配置
+   * 
+   * @param request - ModifyDBInstanceConfigRequest
+   * @returns ModifyDBInstanceConfigResponse
+   */
+  async modifyDBInstanceConfig(request: $_model.ModifyDBInstanceConfigRequest): Promise<$_model.ModifyDBInstanceConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBInstanceConfigWithOptions(request, runtime);
   }
 
   /**
@@ -9191,7 +1818,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDBInstanceConnectionStringResponse
    */
-  async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
+  async modifyDBInstanceConnectionStringWithOptions(request: $_model.ModifyDBInstanceConnectionStringRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBInstanceConnectionStringResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.connectionString)) {
@@ -9232,12 +1859,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyDBInstanceConnectionStringResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConnectionStringResponse({}));
-    } else {
-      return $dara.cast<ModifyDBInstanceConnectionStringResponse>(await this.execute(params, req, runtime), new ModifyDBInstanceConnectionStringResponse({}));
-    }
-
+    return $dara.cast<$_model.ModifyDBInstanceConnectionStringResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBInstanceConnectionStringResponse({}));
   }
 
   /**
@@ -9246,7 +1868,7 @@ export default class Client extends OpenApi {
    * @param request - ModifyDBInstanceConnectionStringRequest
    * @returns ModifyDBInstanceConnectionStringResponse
    */
-  async modifyDBInstanceConnectionString(request: ModifyDBInstanceConnectionStringRequest): Promise<ModifyDBInstanceConnectionStringResponse> {
+  async modifyDBInstanceConnectionString(request: $_model.ModifyDBInstanceConnectionStringRequest): Promise<$_model.ModifyDBInstanceConnectionStringResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDBInstanceConnectionStringWithOptions(request, runtime);
   }
@@ -9258,7 +1880,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifySecurityIPListResponse
    */
-  async modifySecurityIPListWithOptions(request: ModifySecurityIPListRequest, runtime: $dara.RuntimeOptions): Promise<ModifySecurityIPListResponse> {
+  async modifySecurityIPListWithOptions(request: $_model.ModifySecurityIPListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySecurityIPListResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -9295,12 +1917,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifySecurityIPListResponse>(await this.callApi(params, req, runtime), new ModifySecurityIPListResponse({}));
-    } else {
-      return $dara.cast<ModifySecurityIPListResponse>(await this.execute(params, req, runtime), new ModifySecurityIPListResponse({}));
-    }
-
+    return $dara.cast<$_model.ModifySecurityIPListResponse>(await this.callApi(params, req, runtime), new $_model.ModifySecurityIPListResponse({}));
   }
 
   /**
@@ -9309,7 +1926,7 @@ export default class Client extends OpenApi {
    * @param request - ModifySecurityIPListRequest
    * @returns ModifySecurityIPListResponse
    */
-  async modifySecurityIPList(request: ModifySecurityIPListRequest): Promise<ModifySecurityIPListResponse> {
+  async modifySecurityIPList(request: $_model.ModifySecurityIPListRequest): Promise<$_model.ModifySecurityIPListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifySecurityIPListWithOptions(request, runtime);
   }
@@ -9321,7 +1938,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResetAccountPasswordResponse
    */
-  async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $dara.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
+  async resetAccountPasswordWithOptions(request: $_model.ResetAccountPasswordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetAccountPasswordResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.account)) {
@@ -9358,12 +1975,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new ResetAccountPasswordResponse({}));
-    } else {
-      return $dara.cast<ResetAccountPasswordResponse>(await this.execute(params, req, runtime), new ResetAccountPasswordResponse({}));
-    }
-
+    return $dara.cast<$_model.ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new $_model.ResetAccountPasswordResponse({}));
   }
 
   /**
@@ -9372,7 +1984,7 @@ export default class Client extends OpenApi {
    * @param request - ResetAccountPasswordRequest
    * @returns ResetAccountPasswordResponse
    */
-  async resetAccountPassword(request: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
+  async resetAccountPassword(request: $_model.ResetAccountPasswordRequest): Promise<$_model.ResetAccountPasswordResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resetAccountPasswordWithOptions(request, runtime);
   }
@@ -9384,7 +1996,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RestartDBInstanceResponse
    */
-  async restartDBInstanceWithOptions(request: RestartDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<RestartDBInstanceResponse> {
+  async restartDBInstanceWithOptions(request: $_model.RestartDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartDBInstanceResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -9409,12 +2021,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RestartDBInstanceResponse>(await this.callApi(params, req, runtime), new RestartDBInstanceResponse({}));
-    } else {
-      return $dara.cast<RestartDBInstanceResponse>(await this.execute(params, req, runtime), new RestartDBInstanceResponse({}));
-    }
-
+    return $dara.cast<$_model.RestartDBInstanceResponse>(await this.callApi(params, req, runtime), new $_model.RestartDBInstanceResponse({}));
   }
 
   /**
@@ -9423,7 +2030,7 @@ export default class Client extends OpenApi {
    * @param request - RestartDBInstanceRequest
    * @returns RestartDBInstanceResponse
    */
-  async restartDBInstance(request: RestartDBInstanceRequest): Promise<RestartDBInstanceResponse> {
+  async restartDBInstance(request: $_model.RestartDBInstanceRequest): Promise<$_model.RestartDBInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.restartDBInstanceWithOptions(request, runtime);
   }
@@ -9435,7 +2042,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartDBInstanceResponse
    */
-  async startDBInstanceWithOptions(request: StartDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<StartDBInstanceResponse> {
+  async startDBInstanceWithOptions(request: $_model.StartDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartDBInstanceResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -9460,12 +2067,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartDBInstanceResponse>(await this.callApi(params, req, runtime), new StartDBInstanceResponse({}));
-    } else {
-      return $dara.cast<StartDBInstanceResponse>(await this.execute(params, req, runtime), new StartDBInstanceResponse({}));
-    }
-
+    return $dara.cast<$_model.StartDBInstanceResponse>(await this.callApi(params, req, runtime), new $_model.StartDBInstanceResponse({}));
   }
 
   /**
@@ -9474,7 +2076,7 @@ export default class Client extends OpenApi {
    * @param request - StartDBInstanceRequest
    * @returns StartDBInstanceResponse
    */
-  async startDBInstance(request: StartDBInstanceRequest): Promise<StartDBInstanceResponse> {
+  async startDBInstance(request: $_model.StartDBInstanceRequest): Promise<$_model.StartDBInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startDBInstanceWithOptions(request, runtime);
   }
@@ -9486,7 +2088,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopDBInstanceResponse
    */
-  async stopDBInstanceWithOptions(request: StopDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<StopDBInstanceResponse> {
+  async stopDBInstanceWithOptions(request: $_model.StopDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopDBInstanceResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -9511,12 +2113,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopDBInstanceResponse>(await this.callApi(params, req, runtime), new StopDBInstanceResponse({}));
-    } else {
-      return $dara.cast<StopDBInstanceResponse>(await this.execute(params, req, runtime), new StopDBInstanceResponse({}));
-    }
-
+    return $dara.cast<$_model.StopDBInstanceResponse>(await this.callApi(params, req, runtime), new $_model.StopDBInstanceResponse({}));
   }
 
   /**
@@ -9525,7 +2122,7 @@ export default class Client extends OpenApi {
    * @param request - StopDBInstanceRequest
    * @returns StopDBInstanceResponse
    */
-  async stopDBInstance(request: StopDBInstanceRequest): Promise<StopDBInstanceResponse> {
+  async stopDBInstance(request: $_model.StopDBInstanceRequest): Promise<$_model.StopDBInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopDBInstanceWithOptions(request, runtime);
   }
@@ -9537,7 +2134,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpgradeMinorVersionResponse
    */
-  async upgradeMinorVersionWithOptions(request: UpgradeMinorVersionRequest, runtime: $dara.RuntimeOptions): Promise<UpgradeMinorVersionResponse> {
+  async upgradeMinorVersionWithOptions(request: $_model.UpgradeMinorVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeMinorVersionResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
@@ -9574,12 +2171,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpgradeMinorVersionResponse>(await this.callApi(params, req, runtime), new UpgradeMinorVersionResponse({}));
-    } else {
-      return $dara.cast<UpgradeMinorVersionResponse>(await this.execute(params, req, runtime), new UpgradeMinorVersionResponse({}));
-    }
-
+    return $dara.cast<$_model.UpgradeMinorVersionResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeMinorVersionResponse({}));
   }
 
   /**
@@ -9588,7 +2180,7 @@ export default class Client extends OpenApi {
    * @param request - UpgradeMinorVersionRequest
    * @returns UpgradeMinorVersionResponse
    */
-  async upgradeMinorVersion(request: UpgradeMinorVersionRequest): Promise<UpgradeMinorVersionResponse> {
+  async upgradeMinorVersion(request: $_model.UpgradeMinorVersionRequest): Promise<$_model.UpgradeMinorVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.upgradeMinorVersionWithOptions(request, runtime);
   }
