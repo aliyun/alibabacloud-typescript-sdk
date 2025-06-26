@@ -1204,6 +1204,10 @@ export default class Client extends OpenApi {
       query["CallbackUrl"] = request.callbackUrl;
     }
 
+    if (!$dara.isNull(request.chameleonFrameEnable)) {
+      query["ChameleonFrameEnable"] = request.chameleonFrameEnable;
+    }
+
     if (!$dara.isNull(request.crop)) {
       query["Crop"] = request.crop;
     }

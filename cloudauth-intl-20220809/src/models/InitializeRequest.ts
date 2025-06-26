@@ -7,6 +7,7 @@ export class InitializeRequest extends $dara.Model {
   authorize?: string;
   callbackToken?: string;
   callbackUrl?: string;
+  chameleonFrameEnable?: string;
   /**
    * @example
    * *
@@ -101,6 +102,7 @@ export class InitializeRequest extends $dara.Model {
       authorize: 'Authorize',
       callbackToken: 'CallbackToken',
       callbackUrl: 'CallbackUrl',
+      chameleonFrameEnable: 'ChameleonFrameEnable',
       crop: 'Crop',
       dateOfBirth: 'DateOfBirth',
       dateOfExpiry: 'DateOfExpiry',
@@ -143,6 +145,7 @@ export class InitializeRequest extends $dara.Model {
       authorize: 'string',
       callbackToken: 'string',
       callbackUrl: 'string',
+      chameleonFrameEnable: 'string',
       crop: 'string',
       dateOfBirth: 'string',
       dateOfExpiry: 'string',
