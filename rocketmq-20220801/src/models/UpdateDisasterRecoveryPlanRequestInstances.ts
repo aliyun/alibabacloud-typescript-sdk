@@ -15,6 +15,7 @@ export class UpdateDisasterRecoveryPlanRequestInstances extends $dara.Model {
    * NO_AUTH
    */
   authType?: string;
+  consumerGroupId?: string;
   /**
    * @remarks
    * The instance endpoint. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ.
@@ -120,6 +121,7 @@ export class UpdateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       authType: 'authType',
+      consumerGroupId: 'consumerGroupId',
       endpointUrl: 'endpointUrl',
       instanceId: 'instanceId',
       instanceRole: 'instanceRole',
@@ -138,6 +140,7 @@ export class UpdateDisasterRecoveryPlanRequestInstances extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       authType: 'string',
+      consumerGroupId: 'string',
       endpointUrl: 'string',
       instanceId: 'string',
       instanceRole: 'string',

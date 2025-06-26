@@ -12,6 +12,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataListInstances extends $dar
    * NO_AUTH
    */
   authType?: string;
+  consumerGroupId?: string;
   /**
    * @remarks
    * Endpoint URL
@@ -110,6 +111,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataListInstances extends $dar
   static names(): { [key: string]: string } {
     return {
       authType: 'authType',
+      consumerGroupId: 'consumerGroupId',
       endpointUrl: 'endpointUrl',
       instanceId: 'instanceId',
       instanceRole: 'instanceRole',
@@ -128,6 +130,7 @@ export class ListDisasterRecoveryPlansResponseBodyDataListInstances extends $dar
   static types(): { [key: string]: any } {
     return {
       authType: 'string',
+      consumerGroupId: 'string',
       endpointUrl: 'string',
       instanceId: 'string',
       instanceRole: 'string',

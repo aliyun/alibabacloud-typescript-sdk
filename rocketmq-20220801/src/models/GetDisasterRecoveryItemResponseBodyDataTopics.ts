@@ -9,6 +9,8 @@ export class GetDisasterRecoveryItemResponseBodyDataTopics extends $dara.Model {
    * 
    * @example
    * xxx_reserve_group
+   * 
+   * @deprecated
    */
   consumerGroupId?: string;
   /**

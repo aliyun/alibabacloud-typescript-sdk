@@ -9,6 +9,8 @@ export class ListDisasterRecoveryItemsResponseBodyDataListTopics extends $dara.M
    * 
    * @example
    * group-test
+   * 
+   * @deprecated
    */
   consumerGroupId?: string;
   /**

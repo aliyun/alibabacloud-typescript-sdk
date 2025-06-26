@@ -11,6 +11,8 @@ export class AddDisasterRecoveryItemRequestTopics extends $dara.Model {
    * 
    * @example
    * GID_xxx
+   * 
+   * @deprecated
    */
   consumerGroupId?: string;
   /**

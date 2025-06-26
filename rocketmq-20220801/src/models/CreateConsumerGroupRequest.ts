@@ -6,14 +6,19 @@ import { CreateConsumerGroupRequestConsumeRetryPolicy } from "./CreateConsumerGr
 export class CreateConsumerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * consume retry policy
+   * The consumption retry policy of the consumer group. For more information, see [Consumption retry](https://help.aliyun.com/document_detail/440356.html).
    * 
    * This parameter is required.
    */
   consumeRetryPolicy?: CreateConsumerGroupRequestConsumeRetryPolicy;
   /**
    * @remarks
-   * The dynamic error message.
+   * The message delivery method of the consumer group.
+   * 
+   * Valid values:
+   * 
+   * *   Concurrently: concurrent delivery
+   * *   Orderly: ordered delivery
    * 
    * This parameter is required.
    * 
@@ -23,7 +28,7 @@ export class CreateConsumerGroupRequest extends $dara.Model {
   deliveryOrderType?: string;
   /**
    * @remarks
-   * Maximum received message tps
+   * The maximum number of messages that can be processed by consumers per second.
    * 
    * @example
    * 300
@@ -31,7 +36,7 @@ export class CreateConsumerGroupRequest extends $dara.Model {
   maxReceiveTps?: number;
   /**
    * @remarks
-   * The HTTP status code.
+   * The description of the consumer group.
    * 
    * @example
    * This is the remark for test.

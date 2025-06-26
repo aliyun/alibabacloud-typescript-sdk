@@ -14,6 +14,7 @@ export class GetDisasterRecoveryPlanResponseBodyDataInstances extends $dara.Mode
    * ACL_AUTH
    */
   authType?: string;
+  consumerGroupId?: string;
   /**
    * @remarks
    * Endpoint URL, not required for instanceType of ALIYUN_ROCKETMQ, but required for EXTERNAL_ROCKETMQ
@@ -116,6 +117,7 @@ export class GetDisasterRecoveryPlanResponseBodyDataInstances extends $dara.Mode
   static names(): { [key: string]: string } {
     return {
       authType: 'authType',
+      consumerGroupId: 'consumerGroupId',
       endpointUrl: 'endpointUrl',
       instanceId: 'instanceId',
       instanceRole: 'instanceRole',
@@ -134,6 +136,7 @@ export class GetDisasterRecoveryPlanResponseBodyDataInstances extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       authType: 'string',
+      consumerGroupId: 'string',
       endpointUrl: 'string',
       instanceId: 'string',
       instanceRole: 'string',
