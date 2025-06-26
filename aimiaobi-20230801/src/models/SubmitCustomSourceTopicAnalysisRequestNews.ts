@@ -11,6 +11,7 @@ export class SubmitCustomSourceTopicAnalysisRequestNews extends $dara.Model {
    * 2024-01-22 10:29:00
    */
   pubTime?: string;
+  source?: string;
   title?: string;
   /**
    * @example
@@ -22,6 +23,7 @@ export class SubmitCustomSourceTopicAnalysisRequestNews extends $dara.Model {
       comments: 'Comments',
       content: 'Content',
       pubTime: 'PubTime',
+      source: 'Source',
       title: 'Title',
       url: 'Url',
     };
@@ -32,6 +34,7 @@ export class SubmitCustomSourceTopicAnalysisRequestNews extends $dara.Model {
       comments: { 'type': 'array', 'itemType': SubmitCustomSourceTopicAnalysisRequestNewsComments },
       content: 'string',
       pubTime: 'string',
+      source: 'string',
       title: 'string',
       url: 'string',
     };

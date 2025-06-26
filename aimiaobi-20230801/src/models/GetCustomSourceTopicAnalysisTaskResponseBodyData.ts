@@ -30,6 +30,8 @@ export class GetCustomSourceTopicAnalysisTaskResponseBodyData extends $dara.Mode
    * SUCCESSED
    */
   status?: string;
+  rt?: number;
+  usages?: { [key: string]: number };
   static names(): { [key: string]: string } {
     return {
       clusterCount: 'ClusterCount',
@@ -38,6 +40,8 @@ export class GetCustomSourceTopicAnalysisTaskResponseBodyData extends $dara.Mode
       maxClusteredTopicNewsSize: 'MaxClusteredTopicNewsSize',
       parsedNewsSize: 'ParsedNewsSize',
       status: 'Status',
+      rt: 'rt',
+      usages: 'usages',
     };
   }
 
@@ -49,12 +53,17 @@ export class GetCustomSourceTopicAnalysisTaskResponseBodyData extends $dara.Mode
       maxClusteredTopicNewsSize: 'number',
       parsedNewsSize: 'number',
       status: 'string',
+      rt: 'number',
+      usages: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
     };
   }
 
   validate() {
     if(Array.isArray(this.clusterResults)) {
       $dara.Model.validateArray(this.clusterResults);
+    }
+    if(this.usages) {
+      $dara.Model.validateMap(this.usages);
     }
     super.validate();
   }

@@ -8454,11 +8454,19 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.SubmitCustomSourceTopicAnalysisShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.analysisTypes)) {
+      request.analysisTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.analysisTypes, "AnalysisTypes", "json");
+    }
+
     if (!$dara.isNull(tmpReq.news)) {
       request.newsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.news, "News", "json");
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.analysisTypesShrink)) {
+      body["AnalysisTypes"] = request.analysisTypesShrink;
+    }
+
     if (!$dara.isNull(request.fileType)) {
       body["FileType"] = request.fileType;
     }

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitCustomSourceTopicAnalysisShrinkRequest extends $dara.Model {
+  analysisTypesShrink?: string;
   /**
    * @example
    * json
@@ -29,6 +30,7 @@ export class SubmitCustomSourceTopicAnalysisShrinkRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      analysisTypesShrink: 'AnalysisTypes',
       fileType: 'FileType',
       fileUrl: 'FileUrl',
       maxTopicSize: 'MaxTopicSize',
@@ -39,6 +41,7 @@ export class SubmitCustomSourceTopicAnalysisShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      analysisTypesShrink: 'string',
       fileType: 'string',
       fileUrl: 'string',
       maxTopicSize: 'number',

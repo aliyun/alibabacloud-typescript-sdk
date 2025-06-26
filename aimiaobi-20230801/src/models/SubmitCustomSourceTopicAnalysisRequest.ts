@@ -4,6 +4,7 @@ import { SubmitCustomSourceTopicAnalysisRequestNews } from "./SubmitCustomSource
 
 
 export class SubmitCustomSourceTopicAnalysisRequest extends $dara.Model {
+  analysisTypes?: string[];
   /**
    * @example
    * json
@@ -30,6 +31,7 @@ export class SubmitCustomSourceTopicAnalysisRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      analysisTypes: 'AnalysisTypes',
       fileType: 'FileType',
       fileUrl: 'FileUrl',
       maxTopicSize: 'MaxTopicSize',
@@ -40,6 +42,7 @@ export class SubmitCustomSourceTopicAnalysisRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      analysisTypes: { 'type': 'array', 'itemType': 'string' },
       fileType: 'string',
       fileUrl: 'string',
       maxTopicSize: 'number',
@@ -49,6 +52,9 @@ export class SubmitCustomSourceTopicAnalysisRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.analysisTypes)) {
+      $dara.Model.validateArray(this.analysisTypes);
+    }
     if(Array.isArray(this.news)) {
       $dara.Model.validateArray(this.news);
     }
