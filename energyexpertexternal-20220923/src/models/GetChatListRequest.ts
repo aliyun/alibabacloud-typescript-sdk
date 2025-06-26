@@ -10,7 +10,7 @@ export class GetChatListRequest extends $dara.Model {
    * @example
    * 1
    */
-  currentPage?: string;
+  currentPage?: number;
   /**
    * @remarks
    * Page size.
@@ -18,7 +18,7 @@ export class GetChatListRequest extends $dara.Model {
    * @example
    * 10
    */
-  pageSize?: string;
+  pageSize?: number;
   /**
    * @remarks
    * Q&A session ID, used to record multiple Q&As for the same user.
@@ -39,8 +39,8 @@ export class GetChatListRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      currentPage: 'string',
-      pageSize: 'string',
+      currentPage: 'number',
+      pageSize: 'number',
       sessionId: 'string',
     };
   }

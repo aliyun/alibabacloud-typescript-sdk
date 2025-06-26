@@ -1202,7 +1202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get document parsing/extraction result
+   * [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
    * 
    * @param request - GetDocumentAnalyzeResultRequest
    * @param headers - map
@@ -1235,7 +1235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get document parsing/extraction result
+   * [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
    * 
    * @param request - GetDocumentAnalyzeResultRequest
    * @returns GetDocumentAnalyzeResultResponse
@@ -2505,7 +2505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Online Document Q\\&A
+   * [Important] This api is no longer maintained, please use the Chat api.
    * 
    * @param request - SendDocumentAskQuestionRequest
    * @param headers - map
@@ -2546,7 +2546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Online Document Q\\&A
+   * [Important] This api is no longer maintained, please use the Chat api.
    * 
    * @param request - SendDocumentAskQuestionRequest
    * @returns SendDocumentAskQuestionResponse
@@ -2943,7 +2943,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get document extraction result
+   * [Important] The api is no longer maintained, please use the following api: 
+   * Document parsing using SubmitDocParsingTask. 
+   * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
    * 
    * @param request - SubmitDocumentAnalyzeJobRequest
    * @param headers - map
@@ -2992,7 +2994,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get document extraction result
+   * [Important] The api is no longer maintained, please use the following api: 
+   * Document parsing using SubmitDocParsingTask. 
+   * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
    * 
    * @param request - SubmitDocumentAnalyzeJobRequest
    * @returns SubmitDocumentAnalyzeJobResponse

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendDocumentAskQuestionRequest extends $dara.Model {
   /**
    * @remarks
-   * Folder ID, used to specify the range of documents for the query. If it is empty, it indicates that all documents under the tenant will be queried.
+   * Folder ID, used to specify the range of documents for the query. If it is empty, it indicates that all documents under the default folder will be queried.
    * 
    * @example
    * 1a851c4a-1d65-11ef-99a7-ssfsfdd
