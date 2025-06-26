@@ -2115,6 +2115,10 @@ export default class Client extends OpenApi {
       body["userContent"] = request.userContent;
     }
 
+    if (!$dara.isNull(request.userInputs)) {
+      body["userInputs"] = request.userInputs;
+    }
+
     if (!$dara.isNull(request.versionId)) {
       body["versionId"] = request.versionId;
     }

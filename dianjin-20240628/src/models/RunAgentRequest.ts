@@ -36,6 +36,7 @@ export class RunAgentRequest extends $dara.Model {
    * This parameter is required.
    */
   userContent?: string;
+  userInputs?: { [key: string]: any };
   /**
    * @example
    * w4paqoezm2
@@ -49,6 +50,7 @@ export class RunAgentRequest extends $dara.Model {
       threadId: 'threadId',
       useDraft: 'useDraft',
       userContent: 'userContent',
+      userInputs: 'userInputs',
       versionId: 'versionId',
     };
   }
@@ -61,11 +63,15 @@ export class RunAgentRequest extends $dara.Model {
       threadId: 'string',
       useDraft: 'boolean',
       userContent: 'string',
+      userInputs: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       versionId: 'string',
     };
   }
 
   validate() {
+    if(this.userInputs) {
+      $dara.Model.validateMap(this.userInputs);
+    }
     super.validate();
   }
 
