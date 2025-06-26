@@ -19,6 +19,7 @@ export class ListJobRunsRequest extends $dara.Model {
    * The range of end time.
    */
   endTime?: ListJobRunsRequestEndTime;
+  isWorkflow?: string;
   /**
    * @remarks
    * The job run ID.
@@ -105,6 +106,7 @@ export class ListJobRunsRequest extends $dara.Model {
     return {
       creator: 'creator',
       endTime: 'endTime',
+      isWorkflow: 'isWorkflow',
       jobRunDeploymentId: 'jobRunDeploymentId',
       jobRunId: 'jobRunId',
       maxResults: 'maxResults',
@@ -123,6 +125,7 @@ export class ListJobRunsRequest extends $dara.Model {
     return {
       creator: 'string',
       endTime: ListJobRunsRequestEndTime,
+      isWorkflow: 'string',
       jobRunDeploymentId: 'string',
       jobRunId: 'string',
       maxResults: 'number',

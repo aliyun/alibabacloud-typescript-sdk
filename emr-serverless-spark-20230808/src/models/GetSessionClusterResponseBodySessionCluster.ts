@@ -22,6 +22,7 @@ export class GetSessionClusterResponseBodySessionCluster extends $dara.Model {
    * Indicates whether automatic termination is enabled.
    */
   autoStopConfiguration?: GetSessionClusterResponseBodySessionClusterAutoStopConfiguration;
+  connectionToken?: string;
   /**
    * @remarks
    * The version of the Spark engine.
@@ -195,6 +196,7 @@ export class GetSessionClusterResponseBodySessionCluster extends $dara.Model {
       applicationConfigs: 'applicationConfigs',
       autoStartConfiguration: 'autoStartConfiguration',
       autoStopConfiguration: 'autoStopConfiguration',
+      connectionToken: 'connectionToken',
       displayReleaseVersion: 'displayReleaseVersion',
       domain: 'domain',
       domainInner: 'domainInner',
@@ -224,6 +226,7 @@ export class GetSessionClusterResponseBodySessionCluster extends $dara.Model {
       applicationConfigs: { 'type': 'array', 'itemType': GetSessionClusterResponseBodySessionClusterApplicationConfigs },
       autoStartConfiguration: GetSessionClusterResponseBodySessionClusterAutoStartConfiguration,
       autoStopConfiguration: GetSessionClusterResponseBodySessionClusterAutoStopConfiguration,
+      connectionToken: 'string',
       displayReleaseVersion: 'string',
       domain: 'string',
       domainInner: 'string',

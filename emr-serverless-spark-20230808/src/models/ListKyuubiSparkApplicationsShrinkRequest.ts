@@ -27,6 +27,7 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
    * 20
    */
   maxResults?: number;
+  minDuration?: number;
   /**
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results.
@@ -35,6 +36,9 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
    * 1
    */
   nextToken?: string;
+  orderByShrink?: string;
+  resourceQueueId?: string;
+  sort?: string;
   /**
    * @remarks
    * The range of start time.
@@ -45,7 +49,11 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
       applicationId: 'applicationId',
       applicationName: 'applicationName',
       maxResults: 'maxResults',
+      minDuration: 'minDuration',
       nextToken: 'nextToken',
+      orderByShrink: 'orderBy',
+      resourceQueueId: 'resourceQueueId',
+      sort: 'sort',
       startTimeShrink: 'startTime',
     };
   }
@@ -55,7 +63,11 @@ export class ListKyuubiSparkApplicationsShrinkRequest extends $dara.Model {
       applicationId: 'string',
       applicationName: 'string',
       maxResults: 'number',
+      minDuration: 'number',
       nextToken: 'string',
+      orderByShrink: 'string',
+      resourceQueueId: 'string',
+      sort: 'string',
       startTimeShrink: 'string',
     };
   }

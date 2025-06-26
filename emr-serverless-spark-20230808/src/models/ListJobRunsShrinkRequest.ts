@@ -16,6 +16,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
    * The range of end time.
    */
   endTimeShrink?: string;
+  isWorkflow?: string;
   /**
    * @remarks
    * The job run ID.
@@ -102,6 +103,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
     return {
       creator: 'creator',
       endTimeShrink: 'endTime',
+      isWorkflow: 'isWorkflow',
       jobRunDeploymentId: 'jobRunDeploymentId',
       jobRunId: 'jobRunId',
       maxResults: 'maxResults',
@@ -120,6 +122,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
     return {
       creator: 'string',
       endTimeShrink: 'string',
+      isWorkflow: 'string',
       jobRunDeploymentId: 'string',
       jobRunId: 'string',
       maxResults: 'number',

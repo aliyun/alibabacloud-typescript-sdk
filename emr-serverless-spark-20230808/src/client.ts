@@ -974,6 +974,10 @@ export default class Client extends OpenApi {
       query["endTime"] = request.endTimeShrink;
     }
 
+    if (!$dara.isNull(request.isWorkflow)) {
+      query["isWorkflow"] = request.isWorkflow;
+    }
+
     if (!$dara.isNull(request.jobRunDeploymentId)) {
       query["jobRunDeploymentId"] = request.jobRunDeploymentId;
     }
@@ -1049,6 +1053,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListKyuubiServices
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKyuubiServicesResponse
+   */
+  async listKyuubiServicesWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListKyuubiServicesResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKyuubiServices",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/kyuubi/${$dara.URL.percentEncode(workspaceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKyuubiServicesResponse>(await this.callApi(params, req, runtime), new $_model.ListKyuubiServicesResponse({}));
+  }
+
+  /**
+   * ListKyuubiServices
+   * @returns ListKyuubiServicesResponse
+   */
+  async listKyuubiServices(workspaceId: string): Promise<$_model.ListKyuubiServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listKyuubiServicesWithOptions(workspaceId, headers, runtime);
+  }
+
+  /**
    * Queries the applications that are submitted by using a Kyuubi gateway.
    * 
    * @param tmpReq - ListKyuubiSparkApplicationsRequest
@@ -1060,6 +1099,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ListKyuubiSparkApplicationsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.orderBy)) {
+      request.orderByShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.orderBy, "orderBy", "json");
+    }
+
     if (!$dara.isNull(tmpReq.startTime)) {
       request.startTimeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.startTime, "startTime", "json");
     }
@@ -1077,8 +1120,24 @@ export default class Client extends OpenApi {
       query["maxResults"] = request.maxResults;
     }
 
+    if (!$dara.isNull(request.minDuration)) {
+      query["minDuration"] = request.minDuration;
+    }
+
     if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderByShrink)) {
+      query["orderBy"] = request.orderByShrink;
+    }
+
+    if (!$dara.isNull(request.resourceQueueId)) {
+      query["resourceQueueId"] = request.resourceQueueId;
+    }
+
+    if (!$dara.isNull(request.sort)) {
+      query["sort"] = request.sort;
     }
 
     if (!$dara.isNull(request.startTimeShrink)) {
@@ -1113,6 +1172,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listKyuubiSparkApplicationsWithOptions(workspaceId, kyuubiServiceId, request, headers, runtime);
+  }
+
+  /**
+   * 列出compute的token
+   * 
+   * @param request - ListKyuubiTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKyuubiTokenResponse
+   */
+  async listKyuubiTokenWithOptions(workspaceId: string, kyuubiServiceId: string, request: $_model.ListKyuubiTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListKyuubiTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKyuubiToken",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/kyuubiService/${$dara.URL.percentEncode(kyuubiServiceId)}/token`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKyuubiTokenResponse>(await this.callApi(params, req, runtime), new $_model.ListKyuubiTokenResponse({}));
+  }
+
+  /**
+   * 列出compute的token
+   * 
+   * @param request - ListKyuubiTokenRequest
+   * @returns ListKyuubiTokenResponse
+   */
+  async listKyuubiToken(workspaceId: string, kyuubiServiceId: string, request: $_model.ListKyuubiTokenRequest): Promise<$_model.ListKyuubiTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listKyuubiTokenWithOptions(workspaceId, kyuubiServiceId, request, headers, runtime);
   }
 
   /**

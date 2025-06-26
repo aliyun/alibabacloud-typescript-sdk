@@ -28,6 +28,7 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
    * 20
    */
   maxResults?: number;
+  minDuration?: number;
   /**
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results.
@@ -36,6 +37,9 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
    * 1
    */
   nextToken?: string;
+  orderBy?: string[];
+  resourceQueueId?: string;
+  sort?: string;
   /**
    * @remarks
    * The range of start time.
@@ -46,7 +50,11 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
       applicationId: 'applicationId',
       applicationName: 'applicationName',
       maxResults: 'maxResults',
+      minDuration: 'minDuration',
       nextToken: 'nextToken',
+      orderBy: 'orderBy',
+      resourceQueueId: 'resourceQueueId',
+      sort: 'sort',
       startTime: 'startTime',
     };
   }
@@ -56,12 +64,19 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
       applicationId: 'string',
       applicationName: 'string',
       maxResults: 'number',
+      minDuration: 'number',
       nextToken: 'string',
+      orderBy: { 'type': 'array', 'itemType': 'string' },
+      resourceQueueId: 'string',
+      sort: 'string',
       startTime: ListKyuubiSparkApplicationsRequestStartTime,
     };
   }
 
   validate() {
+    if(Array.isArray(this.orderBy)) {
+      $dara.Model.validateArray(this.orderBy);
+    }
     if(this.startTime && typeof (this.startTime as any).validate === 'function') {
       (this.startTime as any).validate();
     }
