@@ -6,7 +6,7 @@ import { GetGatewayResponseBodyData } from "./GetGatewayResponseBodyData";
 export class GetGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -14,12 +14,12 @@ export class GetGatewayResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The returned data.
    */
   data?: GetGatewayResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message returned.
    * 
    * @example
    * success
@@ -27,7 +27,7 @@ export class GetGatewayResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0F138FFC-6E2B-56C1-9BAB-A67462E339D1

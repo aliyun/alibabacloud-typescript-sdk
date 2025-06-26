@@ -2,20 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ApiKeyIdentityConfigApikeySource extends $dara.Model {
-  source?: string;
-  value?: string;
+export class AgentServiceConfigDifyConfig extends $dara.Model {
+  apiKey?: string;
+  botType?: string;
   static names(): { [key: string]: string } {
     return {
-      source: 'source',
-      value: 'value',
+      apiKey: 'apiKey',
+      botType: 'botType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      source: 'string',
-      value: 'string',
+      apiKey: 'string',
+      botType: 'string',
     };
   }
 

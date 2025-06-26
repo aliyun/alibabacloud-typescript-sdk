@@ -2,20 +2,22 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ApiKeyIdentityConfigApikeySource extends $dara.Model {
-  source?: string;
-  value?: string;
+/**
+ */
+export class AgentServiceConfigDashScopeConfigAppCredentials extends $dara.Model {
+  apiKey?: string;
+  appId?: string;
   static names(): { [key: string]: string } {
     return {
-      source: 'source',
-      value: 'value',
+      apiKey: 'apiKey',
+      appId: 'appId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      source: 'string',
-      value: 'string',
+      apiKey: 'string',
+      appId: 'string',
     };
   }
 

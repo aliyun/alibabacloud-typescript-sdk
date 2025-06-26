@@ -6,7 +6,7 @@ import { GetGatewayResponseBodyDataLoadBalancersPorts } from "./GetGatewayRespon
 export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   /**
    * @remarks
-   * The address of the load balancer.
+   * The load balancer IP address.
    * 
    * @example
    * nlb-xoh3pghr***.cn-hangzhou.nlb.aliyuncs.com
@@ -14,9 +14,10 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The IP version of the protocol:
-   * - ipv4: IPv4 type.
-   * - ipv6: IPv6 type.
+   * The IP version of the address. Valid values:
+   * 
+   * *   ipv4
+   * *   ipv6
    * 
    * @example
    * ipv4
@@ -24,9 +25,10 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * Load balancer address type:
-   * - Internet: Public.
-   * - Intranet: Private.
+   * The load balancer address type. Valid values:
+   * 
+   * *   Internet
+   * *   Intranet
    * 
    * @example
    * Internet
@@ -34,7 +36,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   addressType?: string;
   /**
    * @remarks
-   * Whether it is the default entry address for the gateway.
+   * Indicates whether the address is the default ingress address of the instance.
    * 
    * @example
    * true
@@ -42,7 +44,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   gatewayDefault?: boolean;
   /**
    * @remarks
-   * Load balancer ID.
+   * The load balancer ID.
    * 
    * @example
    * nlb-xoh3pghru7c***
@@ -50,8 +52,9 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The provision mode of the load balancer for the gateway:
-   * - Managed: Managed by the Cloud Native API Gateway.
+   * The mode in which the load balancer is provided. Valid values:
+   * 
+   * *   Managed: Cloud-native API Gateway manages and provides the load balancer.
    * 
    * @example
    * Managed
@@ -59,14 +62,15 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * List of listening ports.
+   * The list of listened ports.
    */
   ports?: GetGatewayResponseBodyDataLoadBalancersPorts[];
   /**
    * @remarks
-   * The status of the load balancer:
-   * - Ready: Available.
-   * - NotCreate: Not associated with an instance.
+   * The load balancer status. Valid values:
+   * 
+   * *   Ready: The load balancer is available.
+   * *   NotCreate: The load balancer is not associated with the instance.
    * 
    * @example
    * Ready
@@ -74,9 +78,10 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of load balancer:
-   * - NLB: Network Load Balancer.
-   * - CLB: Classic Load Balancer.
+   * The load balancer type. Valid values:
+   * 
+   * *   NLB: Network Load Balancer
+   * *   CLB: Classic Load Balancer
    * 
    * @example
    * NLB

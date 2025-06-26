@@ -8,12 +8,12 @@ export class GetGatewayResponseBodyDataEnvironments extends $dara.Model {
    * The environment alias.
    * 
    * @example
-   * 默认环境
+   * Default environment
    */
   alias?: string;
   /**
    * @remarks
-   * Environment ID.
+   * The environment ID.
    * 
    * @example
    * env-cp9uhudlht***
@@ -21,7 +21,7 @@ export class GetGatewayResponseBodyDataEnvironments extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The environment name。
+   * The environment name.
    * 
    * @example
    * default-gw-cp9ugg5***

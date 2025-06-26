@@ -6,20 +6,20 @@ import { GetGatewayResponseBodyDataZonesVSwitch } from "./GetGatewayResponseBody
 export class GetGatewayResponseBodyDataZones extends $dara.Model {
   /**
    * @remarks
-   * Availability zone name.
+   * The zone name.
    * 
    * @example
-   * 杭州可用区E
+   * HangzhouZoneE
    */
   name?: string;
   /**
    * @remarks
-   * Virtual switch.
+   * The vSwitch information.
    */
   vSwitch?: GetGatewayResponseBodyDataZonesVSwitch;
   /**
    * @remarks
-   * Availability zone ID.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-e

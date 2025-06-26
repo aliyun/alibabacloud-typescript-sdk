@@ -12,9 +12,10 @@ import { GetGatewayResponseBodyDataZones } from "./GetGatewayResponseBodyDataZon
 export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Charge type
-   * - POSTPAY: Postpaid (pay-as-you-go)
-   * - PREPAY: Prepaid (subscription)
+   * The billing method. Valid values:
+   * 
+   * *   POSTPAY: pay-as-you-go
+   * *   PREPAY: subscription
    * 
    * @example
    * POSTPAY
@@ -22,8 +23,9 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Source of gateway creation:
-   * - Console: Console.
+   * The creation source of the instance. Valid values:
+   * 
+   * *   Console
    * 
    * @example
    * Console
@@ -31,7 +33,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   createFrom?: string;
   /**
    * @remarks
-   * Creation timestamp. Unit: milliseconds.
+   * The creation timestamp. Unit: milliseconds.
    * 
    * @example
    * 1719386834548
@@ -39,12 +41,12 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * List of environments associated with the gateway.
+   * The list of environments associated with the instance.
    */
   environments?: GetGatewayResponseBodyDataEnvironments[];
   /**
    * @remarks
-   * Expiration timestamp for subscription. Unit: milliseconds.
+   * The time when the instance expires. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1719386834548
@@ -52,21 +54,30 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   expireTimestamp?: number;
   /**
    * @remarks
-   * Gateway ID.
+   * The instance ID.
    * 
    * @example
    * gw-cq2vundlhtg***
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * the gateway type, which is categorized into the following two types:
+   * - API: indicates an API gateway
+   * - AI: Indicates an AI gateway
+   * 
+   * @example
+   * API
+   */
   gatewayType?: string;
   /**
    * @remarks
-   * List of entry addresses for the gateway.
+   * The ingress addresses of the instance.
    */
   loadBalancers?: GetGatewayResponseBodyDataLoadBalancers[];
   /**
    * @remarks
-   * Gateway name.
+   * The instance name.
    * 
    * @example
    * itemcenter-gateway
@@ -74,7 +85,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Number of gateway instance nodes.
+   * The node quantity of the instance.
    * 
    * @example
    * 2
@@ -82,7 +93,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   replicas?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aek2s3cvc4jzfxi
@@ -90,13 +101,14 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The security group of the gateway.
+   * The security group of the instance.
    */
   securityGroup?: GetGatewayResponseBodyDataSecurityGroup;
   /**
    * @remarks
-   * Gateway specification:
-   * - apigw.small.x1: Small specification.
+   * The instance specification. Valid values:
+   * 
+   * *   apigw.small.x1
    * 
    * @example
    * apigw.small.x1
@@ -104,16 +116,17 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * Gateway status:
-   * - Running: Running.
-   * - Creating: Creating.
-   * - CreateFailed: Creation failed.
-   * - Upgrading: Upgrading.
-   * - UpgradeFailed: Upgrade failed.
-   * - Restarting: Restarting.
-   * - RestartFailed: Restart failed.
-   * - Deleting: Deleting.
-   * - DeleteFailed: Deletion failed.
+   * The instance state. Valid values:
+   * 
+   * *   Running: The instance is running.
+   * *   Creating: The instance is being created.
+   * *   CreateFailed: The instance failed to be created.
+   * *   Upgrading: The instance is being upgraded.
+   * *   UpgradeFailed: The instance failed to be upgraded.
+   * *   Restarting: The instance is being restarted.
+   * *   RestartFailed: The instance failed to be restarted.
+   * *   Deleting: The instance is being released.
+   * *   DeleteFailed: The instance failed to be released.
    * 
    * @example
    * Running
@@ -126,7 +139,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   tags?: GetGatewayResponseBodyDataTags[];
   /**
    * @remarks
-   * Target version of the gateway. When it is inconsistent with the current version, an upgrade can be performed.
+   * The destination version of the instance. If the value is inconsistent with the version value, you can upgrade the instance.
    * 
    * @example
    * 2.0.2
@@ -134,7 +147,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   targetVersion?: string;
   /**
    * @remarks
-   * Update timestamp. Unit: milliseconds.
+   * The last update timestamp. Unit: milliseconds.
    * 
    * @example
    * 1719386834548
@@ -142,12 +155,12 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   updateTimestamp?: number;
   /**
    * @remarks
-   * The virtual switch associated with the gateway.
+   * The vSwitch associated with the instance.
    */
   vSwitch?: GetGatewayResponseBodyDataVSwitch;
   /**
    * @remarks
-   * Gateway version.
+   * The instance version.
    * 
    * @example
    * 2.0.2
@@ -155,12 +168,12 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The VPC (Virtual Private Cloud) associated with the gateway.
+   * The VPC associated with the instance.
    */
   vpc?: GetGatewayResponseBodyDataVpc;
   /**
    * @remarks
-   * List of availability zones associated with the gateway.
+   * The list of zones associated with the instance.
    */
   zones?: GetGatewayResponseBodyDataZones[];
   static names(): { [key: string]: string } {

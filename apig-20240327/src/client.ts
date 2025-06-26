@@ -322,6 +322,10 @@ export default class Client extends OpenApi {
   async createHttpApiWithOptions(request: $_model.CreateHttpApiRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateHttpApiResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentProtocols)) {
+      body["agentProtocols"] = request.agentProtocols;
+    }
+
     if (!$dara.isNull(request.aiProtocols)) {
       body["aiProtocols"] = request.aiProtocols;
     }
@@ -1135,6 +1139,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除服务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceResponse
+   */
+  async deleteServiceWithOptions(serviceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteService",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/services/${$dara.URL.percentEncode(serviceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteServiceResponse({}));
+  }
+
+  /**
+   * 删除服务
+   * @returns DeleteServiceResponse
+   */
+  async deleteService(serviceId: string): Promise<$_model.DeleteServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteServiceWithOptions(serviceId, headers, runtime);
+  }
+
+  /**
    * Deploy HttpApi
    * 
    * @param request - DeployHttpApiRequest
@@ -1402,7 +1441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get a gateway.
+   * Queries the basic information about an instance, such as the virtual private cloud (VPC) and vSwitch to which the instance belongs and its ingress.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1427,7 +1466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get a gateway.
+   * Queries the basic information about an instance, such as the virtual private cloud (VPC) and vSwitch to which the instance belongs and its ingress.
    * @returns GetGatewayResponse
    */
   async getGateway(gatewayId: string): Promise<$_model.GetGatewayResponse> {
@@ -3087,6 +3126,10 @@ export default class Client extends OpenApi {
   async updateHttpApiWithOptions(httpApiId: string, request: $_model.UpdateHttpApiRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateHttpApiResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentProtocols)) {
+      body["agentProtocols"] = request.agentProtocols;
+    }
+
     if (!$dara.isNull(request.aiProtocols)) {
       body["aiProtocols"] = request.aiProtocols;
     }

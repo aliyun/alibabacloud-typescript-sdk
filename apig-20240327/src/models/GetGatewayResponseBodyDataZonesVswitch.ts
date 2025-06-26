@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayResponseBodyDataZonesVSwitch extends $dara.Model {
   /**
    * @remarks
-   * Virtual switch name.
+   * The vSwitch name.
    * 
    * @example
-   * 杭州VPC虚拟交换机
+   * HangzhouVPCvSwitch
    */
   name?: string;
   /**
    * @remarks
-   * Virtual switch ID.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1c7ggkj***

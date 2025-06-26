@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayResponseBodyDataLoadBalancersPorts extends $dara.Model {
   /**
    * @remarks
-   * Port number.
+   * The port number.
    * 
    * @example
    * 443
@@ -13,9 +13,10 @@ export class GetGatewayResponseBodyDataLoadBalancersPorts extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * Protocol:
-   * - TCP
-   * - UDP
+   * The protocol. Valid values:
+   * 
+   * *   TCP
+   * *   UDP
    * 
    * @example
    * TCP

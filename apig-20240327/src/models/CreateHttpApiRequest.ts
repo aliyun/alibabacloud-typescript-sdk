@@ -7,6 +7,7 @@ import { HttpApiVersionConfig } from "./HttpApiVersionConfig";
 
 
 export class CreateHttpApiRequest extends $dara.Model {
+  agentProtocols?: string[];
   /**
    * @remarks
    * The AI API protocols. Valid value:
@@ -93,6 +94,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   versionConfig?: HttpApiVersionConfig;
   static names(): { [key: string]: string } {
     return {
+      agentProtocols: 'agentProtocols',
       aiProtocols: 'aiProtocols',
       authConfig: 'authConfig',
       basePath: 'basePath',
@@ -110,6 +112,7 @@ export class CreateHttpApiRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentProtocols: { 'type': 'array', 'itemType': 'string' },
       aiProtocols: { 'type': 'array', 'itemType': 'string' },
       authConfig: AuthConfig,
       basePath: 'string',
@@ -126,6 +129,9 @@ export class CreateHttpApiRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.agentProtocols)) {
+      $dara.Model.validateArray(this.agentProtocols);
+    }
     if(Array.isArray(this.aiProtocols)) {
       $dara.Model.validateArray(this.aiProtocols);
     }

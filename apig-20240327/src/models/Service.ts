@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AgentServiceConfig } from "./AgentServiceConfig";
 import { AiServiceConfig } from "./AiServiceConfig";
 import { ServiceHealthCheck } from "./ServiceHealthCheck";
 import { ServicePorts } from "./ServicePorts";
@@ -7,6 +8,7 @@ import { ServicePorts } from "./ServicePorts";
 
 export class Service extends $dara.Model {
   addresses?: string[];
+  agentServiceConfig?: AgentServiceConfig;
   aiServiceConfig?: AiServiceConfig;
   createTimestamp?: number;
   /**
@@ -46,6 +48,7 @@ export class Service extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       addresses: 'addresses',
+      agentServiceConfig: 'agentServiceConfig',
       aiServiceConfig: 'aiServiceConfig',
       createTimestamp: 'createTimestamp',
       gatewayId: 'gatewayId',
@@ -68,6 +71,7 @@ export class Service extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       addresses: { 'type': 'array', 'itemType': 'string' },
+      agentServiceConfig: AgentServiceConfig,
       aiServiceConfig: AiServiceConfig,
       createTimestamp: 'number',
       gatewayId: 'string',
@@ -90,6 +94,9 @@ export class Service extends $dara.Model {
   validate() {
     if(Array.isArray(this.addresses)) {
       $dara.Model.validateArray(this.addresses);
+    }
+    if(this.agentServiceConfig && typeof (this.agentServiceConfig as any).validate === 'function') {
+      (this.agentServiceConfig as any).validate();
     }
     if(this.aiServiceConfig && typeof (this.aiServiceConfig as any).validate === 'function') {
       (this.aiServiceConfig as any).validate();

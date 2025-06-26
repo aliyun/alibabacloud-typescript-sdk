@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayResponseBodyDataVpc extends $dara.Model {
   /**
    * @remarks
-   * VPC gateway name.
+   * The VPC name.
    * 
    * @example
-   * 杭州VPC
+   * HangzhouVPC
    */
   name?: string;
   /**
    * @remarks
-   * VPC network ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1llj52lvj6xc***

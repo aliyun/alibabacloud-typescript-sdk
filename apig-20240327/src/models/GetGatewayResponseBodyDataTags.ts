@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayResponseBodyDataTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource.
+   * The tag key.
    * 
    * @example
    * owner
@@ -13,7 +13,7 @@ export class GetGatewayResponseBodyDataTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource.
+   * The tag value.
    * 
    * @example
    * zhangsan

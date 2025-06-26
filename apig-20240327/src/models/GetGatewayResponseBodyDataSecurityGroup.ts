@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayResponseBodyDataSecurityGroup extends $dara.Model {
   /**
    * @remarks
-   * Security group name.
+   * The security group name.
    * 
    * @example
    * APIG-sg-gw-cq7ke5ll***
@@ -13,7 +13,7 @@ export class GetGatewayResponseBodyDataSecurityGroup extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Security group ID.
+   * The security group ID.
    * 
    * @example
    * sg-bp16tafq9***

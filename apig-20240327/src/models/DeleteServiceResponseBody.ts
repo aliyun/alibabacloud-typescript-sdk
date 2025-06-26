@@ -2,34 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetGatewayResponseBodyDataVSwitch extends $dara.Model {
+export class DeleteServiceResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The vSwitch name.
-   * 
    * @example
-   * HangzhouVPCvSwitch
+   * Ok
    */
-  name?: string;
+  code?: string;
   /**
-   * @remarks
-   * The vSwitch ID.
-   * 
    * @example
-   * vsw-bp1c7ggkj***
+   * success
    */
-  vSwitchId?: string;
+  message?: string;
+  /**
+   * @example
+   * 3C3B9A12-3868-5EB9-8BEA-F99E03DD125C
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      name: 'name',
-      vSwitchId: 'vSwitchId',
+      code: 'code',
+      message: 'message',
+      requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
-      vSwitchId: 'string',
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
     };
   }
 
