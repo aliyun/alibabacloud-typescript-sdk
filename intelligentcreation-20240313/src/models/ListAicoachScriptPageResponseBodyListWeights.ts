@@ -9,6 +9,7 @@ export class ListAICoachScriptPageResponseBodyListWeights extends $dara.Model {
    */
   assessmentPoint?: number;
   assessmentPointEnabled?: boolean;
+  customReplyRuleEnabled?: boolean;
   /**
    * @example
    * 30
@@ -32,6 +33,7 @@ export class ListAICoachScriptPageResponseBodyListWeights extends $dara.Model {
     return {
       assessmentPoint: 'assessmentPoint',
       assessmentPointEnabled: 'assessmentPointEnabled',
+      customReplyRuleEnabled: 'customReplyRuleEnabled',
       expressiveness: 'expressiveness',
       expressivenessEnabled: 'expressivenessEnabled',
       pointDeductionRule: 'pointDeductionRule',
@@ -46,6 +48,7 @@ export class ListAICoachScriptPageResponseBodyListWeights extends $dara.Model {
     return {
       assessmentPoint: 'number',
       assessmentPointEnabled: 'boolean',
+      customReplyRuleEnabled: 'boolean',
       expressiveness: 'number',
       expressivenessEnabled: 'boolean',
       pointDeductionRule: 'number',

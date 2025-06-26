@@ -19,6 +19,12 @@ export { GetAICoachCheatDetectionResponseBodyVoiceCheatOriginalList } from './Ge
 export { GetAICoachCheatDetectionResponseBodyVoiceCheat } from './GetAicoachCheatDetectionResponseBodyVoiceCheat';
 export { GetAICoachScriptResponseBodyCheckCheatConfig } from './GetAicoachScriptResponseBodyCheckCheatConfig';
 export { GetAICoachScriptResponseBodyCompleteStrategy } from './GetAicoachScriptResponseBodyCompleteStrategy';
+export { GetAICoachScriptResponseBodyCustomReplyRulesActionParameters } from './GetAicoachScriptResponseBodyCustomReplyRulesActionParameters';
+export { GetAICoachScriptResponseBodyCustomReplyRulesAction } from './GetAicoachScriptResponseBodyCustomReplyRulesAction';
+export { GetAICoachScriptResponseBodyCustomReplyRulesMainConditionParameters } from './GetAicoachScriptResponseBodyCustomReplyRulesMainConditionParameters';
+export { GetAICoachScriptResponseBodyCustomReplyRulesMainCondition } from './GetAicoachScriptResponseBodyCustomReplyRulesMainCondition';
+export { GetAICoachScriptResponseBodyCustomReplyRulesSubCondition } from './GetAicoachScriptResponseBodyCustomReplyRulesSubCondition';
+export { GetAICoachScriptResponseBodyCustomReplyRules } from './GetAicoachScriptResponseBodyCustomReplyRules';
 export { GetAICoachScriptResponseBodyExpressivenessList } from './GetAicoachScriptResponseBodyExpressivenessList';
 export { GetAICoachScriptResponseBodyPointDeductionRuleList } from './GetAicoachScriptResponseBodyPointDeductionRuleList';
 export { GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesKeywordValues } from './GetAicoachScriptResponseBodyPointsAnswerListAnswerValuesKeywordValues';
@@ -36,6 +42,12 @@ export { GetTextTemplateResponseBodyAvailableIndustryTextModeTypesTextStyles } f
 export { GetTextTemplateResponseBodyAvailableIndustryTextModeTypes } from './GetTextTemplateResponseBodyAvailableIndustryTextModeTypes';
 export { GetTextTemplateResponseBodyAvailableIndustry } from './GetTextTemplateResponseBodyAvailableIndustry';
 export { ListAICoachScriptPageResponseBodyListCompleteStrategy } from './ListAicoachScriptPageResponseBodyListCompleteStrategy';
+export { ListAICoachScriptPageResponseBodyListCustomReplyRulesActionParameters } from './ListAicoachScriptPageResponseBodyListCustomReplyRulesActionParameters';
+export { ListAICoachScriptPageResponseBodyListCustomReplyRulesAction } from './ListAicoachScriptPageResponseBodyListCustomReplyRulesAction';
+export { ListAICoachScriptPageResponseBodyListCustomReplyRulesMainConditionParameters } from './ListAicoachScriptPageResponseBodyListCustomReplyRulesMainConditionParameters';
+export { ListAICoachScriptPageResponseBodyListCustomReplyRulesMainCondition } from './ListAicoachScriptPageResponseBodyListCustomReplyRulesMainCondition';
+export { ListAICoachScriptPageResponseBodyListCustomReplyRulesSubCondition } from './ListAicoachScriptPageResponseBodyListCustomReplyRulesSubCondition';
+export { ListAICoachScriptPageResponseBodyListCustomReplyRules } from './ListAicoachScriptPageResponseBodyListCustomReplyRules';
 export { ListAICoachScriptPageResponseBodyListSampleDialogueList } from './ListAicoachScriptPageResponseBodyListSampleDialogueList';
 export { ListAICoachScriptPageResponseBodyListScoreConfigLevels } from './ListAicoachScriptPageResponseBodyListScoreConfigLevels';
 export { ListAICoachScriptPageResponseBodyListScoreConfig } from './ListAicoachScriptPageResponseBodyListScoreConfig';
@@ -177,6 +189,9 @@ export { GetAICoachTaskSessionHistoryResponse } from './GetAicoachTaskSessionHis
 export { GetAICoachTaskSessionReportRequest } from './GetAicoachTaskSessionReportRequest';
 export { GetAICoachTaskSessionReportResponseBody } from './GetAicoachTaskSessionReportResponseBody';
 export { GetAICoachTaskSessionReportResponse } from './GetAicoachTaskSessionReportResponse';
+export { GetAICoachTaskSessionResourceUsageRequest } from './GetAicoachTaskSessionResourceUsageRequest';
+export { GetAICoachTaskSessionResourceUsageResponseBody } from './GetAicoachTaskSessionResourceUsageResponseBody';
+export { GetAICoachTaskSessionResourceUsageResponse } from './GetAicoachTaskSessionResourceUsageResponse';
 export { GetIllustrationResponse } from './GetIllustrationResponse';
 export { GetIllustrationTaskResponse } from './GetIllustrationTaskResponse';
 export { GetOssUploadTokenRequest } from './GetOssUploadTokenRequest';

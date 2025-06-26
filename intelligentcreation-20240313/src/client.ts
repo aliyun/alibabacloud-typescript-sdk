@@ -1628,6 +1628,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取对练会话资源使用情况
+   * 
+   * @param request - GetAICoachTaskSessionResourceUsageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAICoachTaskSessionResourceUsageResponse
+   */
+  async getAICoachTaskSessionResourceUsageWithOptions(request: $_model.GetAICoachTaskSessionResourceUsageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAICoachTaskSessionResourceUsageResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAICoachTaskSessionResourceUsage",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/getSessionResourceUsage`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAICoachTaskSessionResourceUsageResponse>(await this.callApi(params, req, runtime), new $_model.GetAICoachTaskSessionResourceUsageResponse({}));
+  }
+
+  /**
+   * 获取对练会话资源使用情况
+   * 
+   * @param request - GetAICoachTaskSessionResourceUsageRequest
+   * @returns GetAICoachTaskSessionResourceUsageResponse
+   */
+  async getAICoachTaskSessionResourceUsage(request: $_model.GetAICoachTaskSessionResourceUsageRequest): Promise<$_model.GetAICoachTaskSessionResourceUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAICoachTaskSessionResourceUsageWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询配图
    * 
    * @param headers - map

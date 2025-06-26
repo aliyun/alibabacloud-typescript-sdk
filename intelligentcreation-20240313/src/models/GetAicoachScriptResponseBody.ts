@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { GetAICoachScriptResponseBodyCheckCheatConfig } from "./GetAicoachScriptResponseBodyCheckCheatConfig";
 import { GetAICoachScriptResponseBodyCompleteStrategy } from "./GetAicoachScriptResponseBodyCompleteStrategy";
+import { GetAICoachScriptResponseBodyCustomReplyRules } from "./GetAicoachScriptResponseBodyCustomReplyRules";
 import { GetAICoachScriptResponseBodyExpressivenessList } from "./GetAicoachScriptResponseBodyExpressivenessList";
 import { GetAICoachScriptResponseBodyPointDeductionRuleList } from "./GetAicoachScriptResponseBodyPointDeductionRuleList";
 import { GetAICoachScriptResponseBodyPoints } from "./GetAicoachScriptResponseBodyPoints";
@@ -25,6 +26,7 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
    * https://demo.com
    */
   coverUrl?: string;
+  customReplyRules?: GetAICoachScriptResponseBodyCustomReplyRules[];
   /**
    * @example
    * 500
@@ -136,6 +138,7 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
       closingRemarks: 'closingRemarks',
       completeStrategy: 'completeStrategy',
       coverUrl: 'coverUrl',
+      customReplyRules: 'customReplyRules',
       dialogueInputTextLimit: 'dialogueInputTextLimit',
       dialogueTextFlag: 'dialogueTextFlag',
       dialogueTipFlag: 'dialogueTipFlag',
@@ -178,6 +181,7 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
       closingRemarks: 'string',
       completeStrategy: GetAICoachScriptResponseBodyCompleteStrategy,
       coverUrl: 'string',
+      customReplyRules: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyCustomReplyRules },
       dialogueInputTextLimit: 'number',
       dialogueTextFlag: 'boolean',
       dialogueTipFlag: 'boolean',
@@ -218,6 +222,9 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
     }
     if(this.completeStrategy && typeof (this.completeStrategy as any).validate === 'function') {
       (this.completeStrategy as any).validate();
+    }
+    if(Array.isArray(this.customReplyRules)) {
+      $dara.Model.validateArray(this.customReplyRules);
     }
     if(this.expressiveness) {
       $dara.Model.validateMap(this.expressiveness);

@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { ListAICoachScriptPageResponseBodyListCompleteStrategy } from "./ListAicoachScriptPageResponseBodyListCompleteStrategy";
+import { ListAICoachScriptPageResponseBodyListCustomReplyRules } from "./ListAicoachScriptPageResponseBodyListCustomReplyRules";
 import { ListAICoachScriptPageResponseBodyListSampleDialogueList } from "./ListAicoachScriptPageResponseBodyListSampleDialogueList";
 import { ListAICoachScriptPageResponseBodyListScoreConfig } from "./ListAicoachScriptPageResponseBodyListScoreConfig";
 import { ListAICoachScriptPageResponseBodyListWeights } from "./ListAicoachScriptPageResponseBodyListWeights";
@@ -16,6 +17,7 @@ export class ListAICoachScriptPageResponseBodyList extends $dara.Model {
    * https://oss-ata.alibaba.com/front/live/banner1.png
    */
   coverUrl?: string;
+  customReplyRules?: ListAICoachScriptPageResponseBodyListCustomReplyRules[];
   dialogueTextFlag?: boolean;
   dialogueTipFlag?: boolean;
   evaluateReportFlag?: boolean;
@@ -74,6 +76,7 @@ export class ListAICoachScriptPageResponseBodyList extends $dara.Model {
       closingRemarks: 'closingRemarks',
       completeStrategy: 'completeStrategy',
       coverUrl: 'coverUrl',
+      customReplyRules: 'customReplyRules',
       dialogueTextFlag: 'dialogueTextFlag',
       dialogueTipFlag: 'dialogueTipFlag',
       evaluateReportFlag: 'evaluateReportFlag',
@@ -107,6 +110,7 @@ export class ListAICoachScriptPageResponseBodyList extends $dara.Model {
       closingRemarks: 'string',
       completeStrategy: ListAICoachScriptPageResponseBodyListCompleteStrategy,
       coverUrl: 'string',
+      customReplyRules: { 'type': 'array', 'itemType': ListAICoachScriptPageResponseBodyListCustomReplyRules },
       dialogueTextFlag: 'boolean',
       dialogueTipFlag: 'boolean',
       evaluateReportFlag: 'boolean',
@@ -136,6 +140,9 @@ export class ListAICoachScriptPageResponseBodyList extends $dara.Model {
   validate() {
     if(this.completeStrategy && typeof (this.completeStrategy as any).validate === 'function') {
       (this.completeStrategy as any).validate();
+    }
+    if(Array.isArray(this.customReplyRules)) {
+      $dara.Model.validateArray(this.customReplyRules);
     }
     if(this.expressiveness) {
       $dara.Model.validateMap(this.expressiveness);

@@ -19,6 +19,7 @@ export class GetAICoachScriptResponseBodyWeights extends $dara.Model {
    */
   assessmentPoint?: number;
   assessmentPointEnabled?: boolean;
+  customReplyRuleEnabled?: boolean;
   /**
    * @example
    * 10
@@ -56,6 +57,7 @@ export class GetAICoachScriptResponseBodyWeights extends $dara.Model {
       abilityEvaluationEnabled: 'abilityEvaluationEnabled',
       assessmentPoint: 'assessmentPoint',
       assessmentPointEnabled: 'assessmentPointEnabled',
+      customReplyRuleEnabled: 'customReplyRuleEnabled',
       expressiveness: 'expressiveness',
       expressivenessEnabled: 'expressivenessEnabled',
       pointDeductionRule: 'pointDeductionRule',
@@ -72,6 +74,7 @@ export class GetAICoachScriptResponseBodyWeights extends $dara.Model {
       abilityEvaluationEnabled: 'boolean',
       assessmentPoint: 'number',
       assessmentPointEnabled: 'boolean',
+      customReplyRuleEnabled: 'boolean',
       expressiveness: 'number',
       expressivenessEnabled: 'boolean',
       pointDeductionRule: 'number',
