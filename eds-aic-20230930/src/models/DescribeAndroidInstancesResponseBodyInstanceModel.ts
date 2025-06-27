@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 import { DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy } from "./DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy";
 import { DescribeAndroidInstancesResponseBodyInstanceModelDisks } from "./DescribeAndroidInstancesResponseBodyInstanceModelDisks";
 import { DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig } from "./DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig";
+import { DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo } from "./DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo";
 import { DescribeAndroidInstancesResponseBodyInstanceModelTags } from "./DescribeAndroidInstancesResponseBodyInstanceModelTags";
 
 
@@ -199,6 +200,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * p-0btrd5zj8epo****
    */
   persistentAppInstanceId?: string;
+  phoneDataInfo?: DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo;
   /**
    * @remarks
    * The ID of the policy.
@@ -297,6 +299,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       networkInterfaceIpv6Address: 'NetworkInterfaceIpv6Address',
       officeSiteId: 'OfficeSiteId',
       persistentAppInstanceId: 'PersistentAppInstanceId',
+      phoneDataInfo: 'PhoneDataInfo',
       policyGroupId: 'PolicyGroupId',
       publicIpAddress: 'PublicIpAddress',
       publicIpv6Address: 'PublicIpv6Address',
@@ -340,6 +343,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       networkInterfaceIpv6Address: 'string',
       officeSiteId: 'string',
       persistentAppInstanceId: 'string',
+      phoneDataInfo: DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo,
       policyGroupId: 'string',
       publicIpAddress: 'string',
       publicIpv6Address: 'string',
@@ -363,6 +367,9 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
     }
     if(this.displayConfig && typeof (this.displayConfig as any).validate === 'function') {
       (this.displayConfig as any).validate();
+    }
+    if(this.phoneDataInfo && typeof (this.phoneDataInfo as any).validate === 'function') {
+      (this.phoneDataInfo as any).validate();
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);

@@ -24,11 +24,13 @@ export { DescribeAndroidInstancesRequestTag } from './DescribeAndroidInstancesRe
 export { DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy } from './DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy';
 export { DescribeAndroidInstancesResponseBodyInstanceModelDisks } from './DescribeAndroidInstancesResponseBodyInstanceModelDisks';
 export { DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig } from './DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig';
+export { DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo } from './DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo';
 export { DescribeAndroidInstancesResponseBodyInstanceModelTags } from './DescribeAndroidInstancesResponseBodyInstanceModelTags';
 export { DescribeAndroidInstancesResponseBodyInstanceModel } from './DescribeAndroidInstancesResponseBodyInstanceModel';
 export { DescribeAppsResponseBodyData } from './DescribeAppsResponseBodyData';
 export { DescribeBackupFilesResponseBodyData } from './DescribeBackupFilesResponseBodyData';
 export { DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos } from './DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos';
+export { DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo } from './DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo';
 export { DescribeCloudPhoneNodesResponseBodyNodeModel } from './DescribeCloudPhoneNodesResponseBodyNodeModel';
 export { DescribeDisplayConfigResponseBodyDisplayConfigModel } from './DescribeDisplayConfigResponseBodyDisplayConfigModel';
 export { DescribeImageListResponseBodyData } from './DescribeImageListResponseBodyData';
@@ -101,6 +103,9 @@ export { DeleteAndroidInstanceGroupResponse } from './DeleteAndroidInstanceGroup
 export { DeleteAppsRequest } from './DeleteAppsRequest';
 export { DeleteAppsResponseBody } from './DeleteAppsResponseBody';
 export { DeleteAppsResponse } from './DeleteAppsResponse';
+export { DeleteBackupFileRequest } from './DeleteBackupFileRequest';
+export { DeleteBackupFileResponseBody } from './DeleteBackupFileResponseBody';
+export { DeleteBackupFileResponse } from './DeleteBackupFileResponse';
 export { DeleteCloudPhoneNodesRequest } from './DeleteCloudPhoneNodesRequest';
 export { DeleteCloudPhoneNodesResponseBody } from './DeleteCloudPhoneNodesResponseBody';
 export { DeleteCloudPhoneNodesResponse } from './DeleteCloudPhoneNodesResponse';

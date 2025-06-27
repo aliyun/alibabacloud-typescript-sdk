@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos } from "./DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos";
+import { DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo } from "./DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo";
 
 
 export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
@@ -86,6 +87,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
    * 25
    */
   phoneCount?: number;
+  phoneDataInfo?: DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo;
   /**
    * @remarks
    * The region ID.
@@ -156,6 +158,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       nodeId: 'NodeId',
       nodeName: 'NodeName',
       phoneCount: 'PhoneCount',
+      phoneDataInfo: 'PhoneDataInfo',
       regionId: 'RegionId',
       resolutionHeight: 'ResolutionHeight',
       resolutionWidth: 'ResolutionWidth',
@@ -180,6 +183,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       nodeId: 'string',
       nodeName: 'string',
       phoneCount: 'number',
+      phoneDataInfo: DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo,
       regionId: 'string',
       resolutionHeight: 'number',
       resolutionWidth: 'number',
@@ -193,6 +197,9 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   validate() {
     if(Array.isArray(this.networkInfos)) {
       $dara.Model.validateArray(this.networkInfos);
+    }
+    if(this.phoneDataInfo && typeof (this.phoneDataInfo as any).validate === 'function') {
+      (this.phoneDataInfo as any).validate();
     }
     super.validate();
   }
