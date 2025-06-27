@@ -616,6 +616,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 同步检测接口
+   * 
+   * @param request - MultiModalGuardRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MultiModalGuardResponse
+   */
+  async multiModalGuardWithOptions(request: $_model.MultiModalGuardRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MultiModalGuardResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.service)) {
+      body["Service"] = request.service;
+    }
+
+    if (!$dara.isNull(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MultiModalGuard",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MultiModalGuardResponse>(await this.callApi(params, req, runtime), new $_model.MultiModalGuardResponse({}));
+  }
+
+  /**
+   * 同步检测接口
+   * 
+   * @param request - MultiModalGuardRequest
+   * @returns MultiModalGuardResponse
+   */
+  async multiModalGuard(request: $_model.MultiModalGuardRequest): Promise<$_model.MultiModalGuardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.multiModalGuardWithOptions(request, runtime);
+  }
+
+  /**
    * Provides moderation services for multiple business scenarios and identifies various violation risks.
    * 
    * @remarks
