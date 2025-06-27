@@ -3410,6 +3410,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 使用SSE接口流式调用大模型
+   * 
+   * @param request - LlmStreamChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LlmStreamChatResponse
+   */
+  async llmStreamChatWithOptions(request: $_model.LlmStreamChatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LlmStreamChatResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.messages)) {
+      body["Messages"] = request.messages;
+    }
+
+    if (!$dara.isNull(request.temperature)) {
+      body["Temperature"] = request.temperature;
+    }
+
+    if (!$dara.isNull(request.topP)) {
+      body["TopP"] = request.topP;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LlmStreamChat",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.LlmStreamChatResponse>(await this.callApi(params, req, runtime), new $_model.LlmStreamChatResponse({}));
+  }
+
+  /**
+   * 使用SSE接口流式调用大模型
+   * 
+   * @param request - LlmStreamChatRequest
+   * @returns LlmStreamChatResponse
+   */
+  async llmStreamChat(request: $_model.LlmStreamChatRequest): Promise<$_model.LlmStreamChatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.llmStreamChatWithOptions(request, runtime);
+  }
+
+  /**
    * 更新代答库
    * 
    * @param request - ModifyAnswerLibRequest
@@ -4152,6 +4202,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.serviceCode)) {
       body["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.serviceConfig)) {
+      body["ServiceConfig"] = request.serviceConfig;
     }
 
     if (!$dara.isNull(request.videoConfig)) {

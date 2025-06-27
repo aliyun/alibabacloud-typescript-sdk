@@ -44,6 +44,7 @@ export class GetServiceConfResponseBody extends $dara.Model {
    * baselineCheck
    */
   serviceCode?: string;
+  serviceType?: string;
   /**
    * @example
    * True
@@ -68,6 +69,7 @@ export class GetServiceConfResponseBody extends $dara.Model {
       requestId: 'RequestId',
       resourceType: 'ResourceType',
       serviceCode: 'ServiceCode',
+      serviceType: 'ServiceType',
       success: 'Success',
       uid: 'Uid',
     };
@@ -84,6 +86,7 @@ export class GetServiceConfResponseBody extends $dara.Model {
       requestId: 'string',
       resourceType: 'string',
       serviceCode: 'string',
+      serviceType: 'string',
       success: 'boolean',
       uid: 'string',
     };

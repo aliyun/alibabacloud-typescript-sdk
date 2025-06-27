@@ -44,6 +44,7 @@ export class UpdateServiceConfigRequest extends $dara.Model {
    * baselineCheck
    */
   serviceCode?: string;
+  serviceConfig?: string;
   /**
    * @example
    * {}
@@ -60,6 +61,7 @@ export class UpdateServiceConfigRequest extends $dara.Model {
       scene: 'Scene',
       sceneConfig: 'SceneConfig',
       serviceCode: 'ServiceCode',
+      serviceConfig: 'ServiceConfig',
       videoConfig: 'VideoConfig',
     };
   }
@@ -75,6 +77,7 @@ export class UpdateServiceConfigRequest extends $dara.Model {
       scene: 'string',
       sceneConfig: 'string',
       serviceCode: 'string',
+      serviceConfig: 'string',
       videoConfig: 'string',
     };
   }

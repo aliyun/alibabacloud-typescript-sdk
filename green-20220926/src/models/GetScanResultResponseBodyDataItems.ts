@@ -48,6 +48,8 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
    * 2023-08-11 09:00:19
    */
   gmtCreate?: string;
+  guardFileUrls?: string[];
+  guardImageUrls?: string[];
   imageLabels?: { [key: string]: any }[];
   /**
    * @example
@@ -67,6 +69,8 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
    * nonLabel
    */
   labels?: string;
+  maliciousFileLevel?: string;
+  maliciousUrlLevel?: string;
   manualOnly?: boolean;
   noLabels?: string[];
   /**
@@ -173,10 +177,14 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
       extra: 'Extra',
       frameCount: 'FrameCount',
       gmtCreate: 'GmtCreate',
+      guardFileUrls: 'GuardFileUrls',
+      guardImageUrls: 'GuardImageUrls',
       imageLabels: 'ImageLabels',
       imageService: 'ImageService',
       imageUrl: 'ImageUrl',
       labels: 'Labels',
+      maliciousFileLevel: 'MaliciousFileLevel',
+      maliciousUrlLevel: 'MaliciousUrlLevel',
       manualOnly: 'ManualOnly',
       noLabels: 'NoLabels',
       offset: 'Offset',
@@ -226,10 +234,14 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
       extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       frameCount: 'number',
       gmtCreate: 'string',
+      guardFileUrls: { 'type': 'array', 'itemType': 'string' },
+      guardImageUrls: { 'type': 'array', 'itemType': 'string' },
       imageLabels: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       imageService: 'string',
       imageUrl: 'string',
       labels: 'string',
+      maliciousFileLevel: 'string',
+      maliciousUrlLevel: 'string',
       manualOnly: 'boolean',
       noLabels: { 'type': 'array', 'itemType': 'string' },
       offset: 'number',
@@ -267,6 +279,12 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   validate() {
     if(this.extra) {
       $dara.Model.validateMap(this.extra);
+    }
+    if(Array.isArray(this.guardFileUrls)) {
+      $dara.Model.validateArray(this.guardFileUrls);
+    }
+    if(Array.isArray(this.guardImageUrls)) {
+      $dara.Model.validateArray(this.guardImageUrls);
     }
     if(Array.isArray(this.imageLabels)) {
       $dara.Model.validateArray(this.imageLabels);
