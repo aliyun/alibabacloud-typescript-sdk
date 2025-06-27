@@ -1,0 +1,118 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class GetNisNetworkRankingShrinkRequest extends $dara.Model {
+  accountIds?: string[];
+  /**
+   * @example
+   * 1684373600099
+   */
+  beginTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * in
+   */
+  direction?: string;
+  /**
+   * @example
+   * 1684379093000
+   */
+  endTime?: number;
+  filterShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Protocol
+   */
+  groupBy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bps
+   */
+  orderBy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionNo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AccessInternetIpV4
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * desc
+   */
+  sort?: string;
+  /**
+   * @example
+   * 10
+   */
+  topN?: number;
+  /**
+   * @example
+   * false
+   */
+  useCrossAccount?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      beginTime: 'BeginTime',
+      direction: 'Direction',
+      endTime: 'EndTime',
+      filterShrink: 'Filter',
+      groupBy: 'GroupBy',
+      orderBy: 'OrderBy',
+      regionNo: 'RegionNo',
+      resourceType: 'ResourceType',
+      sort: 'Sort',
+      topN: 'TopN',
+      useCrossAccount: 'UseCrossAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      beginTime: 'number',
+      direction: 'string',
+      endTime: 'number',
+      filterShrink: 'string',
+      groupBy: 'string',
+      orderBy: 'string',
+      regionNo: 'string',
+      resourceType: 'string',
+      sort: 'string',
+      topN: 'number',
+      useCrossAccount: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
