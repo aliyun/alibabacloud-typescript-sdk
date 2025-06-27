@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetrics } from "./DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetrics";
 import { DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatus } from "./DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatus";
+import { DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics } from "./DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics";
 import { DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleDownRules } from "./DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleDownRules";
 import { DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleUpRules } from "./DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleUpRules";
 
@@ -15,6 +16,7 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
    * 3
    */
   maxReplicas?: number;
+  metricSource?: string;
   /**
    * @remarks
    * The list of metrics that are used to trigger the auto scaling policy.
@@ -33,6 +35,9 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
    * 1
    */
   minReplicas?: number;
+  prometheusMetrics?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics[];
+  prometheusToken?: string;
+  prometheusUrl?: string;
   /**
    * @remarks
    * Rules that determine the application scale-in.
@@ -46,9 +51,13 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   static names(): { [key: string]: string } {
     return {
       maxReplicas: 'MaxReplicas',
+      metricSource: 'MetricSource',
       metrics: 'Metrics',
       metricsStatus: 'MetricsStatus',
       minReplicas: 'MinReplicas',
+      prometheusMetrics: 'PrometheusMetrics',
+      prometheusToken: 'PrometheusToken',
+      prometheusUrl: 'PrometheusUrl',
       scaleDownRules: 'ScaleDownRules',
       scaleUpRules: 'ScaleUpRules',
     };
@@ -57,9 +66,13 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   static types(): { [key: string]: any } {
     return {
       maxReplicas: 'number',
+      metricSource: 'string',
       metrics: { 'type': 'array', 'itemType': DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetrics },
       metricsStatus: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatus,
       minReplicas: 'number',
+      prometheusMetrics: { 'type': 'array', 'itemType': DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricPrometheusMetrics },
+      prometheusToken: 'string',
+      prometheusUrl: 'string',
       scaleDownRules: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleDownRules,
       scaleUpRules: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleUpRules,
     };
@@ -71,6 +84,9 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
     }
     if(this.metricsStatus && typeof (this.metricsStatus as any).validate === 'function') {
       (this.metricsStatus as any).validate();
+    }
+    if(Array.isArray(this.prometheusMetrics)) {
+      $dara.Model.validateArray(this.prometheusMetrics);
     }
     if(this.scaleDownRules && typeof (this.scaleDownRules as any).validate === 'function') {
       (this.scaleDownRules as any).validate();
