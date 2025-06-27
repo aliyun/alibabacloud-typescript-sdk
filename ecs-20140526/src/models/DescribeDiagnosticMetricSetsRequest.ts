@@ -43,10 +43,6 @@ export class DescribeDiagnosticMetricSetsRequest extends $dara.Model {
    * @remarks
    * The resource type supported by the diagnostic metric set.
    * 
-   * Valid values:
-   * 
-   * *   instance
-   * 
    * @example
    * instance
    */
@@ -55,8 +51,8 @@ export class DescribeDiagnosticMetricSetsRequest extends $dara.Model {
    * @remarks
    * The type of the diagnostic metric set. Valid values:
    * 
-   * *   User: user-defined diagnostic metric set
-   * *   Common: common diagnostic metric set
+   * *   User: custom diagnostic metric set
+   * *   Common: public diagnostic metric set
    * 
    * Default value: User.
    * 

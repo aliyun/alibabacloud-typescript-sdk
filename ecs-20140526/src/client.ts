@@ -5234,6 +5234,10 @@ export default class Client extends OpenApi {
       query["ImageId"] = request.imageId;
     }
 
+    if (!$dara.isNull(request.imageOptions)) {
+      query["ImageOptions"] = request.imageOptions;
+    }
+
     if (!$dara.isNull(request.imageOwnerAlias)) {
       query["ImageOwnerAlias"] = request.imageOwnerAlias;
     }
@@ -5498,6 +5502,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.imageId)) {
       query["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.imageOptions)) {
+      query["ImageOptions"] = request.imageOptions;
     }
 
     if (!$dara.isNull(request.imageOwnerAlias)) {

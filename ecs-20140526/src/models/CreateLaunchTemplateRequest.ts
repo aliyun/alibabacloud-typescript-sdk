@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { CreateLaunchTemplateRequestSystemDisk } from "./CreateLaunchTemplateRequestSystemDisk";
 import { CreateLaunchTemplateRequestDataDisk } from "./CreateLaunchTemplateRequestDataDisk";
+import { CreateLaunchTemplateRequestImageOptions } from "./CreateLaunchTemplateRequestImageOptions";
 import { CreateLaunchTemplateRequestNetworkInterface } from "./CreateLaunchTemplateRequestNetworkInterface";
 import { CreateLaunchTemplateRequestTag } from "./CreateLaunchTemplateRequestTag";
 import { CreateLaunchTemplateRequestTemplateTag } from "./CreateLaunchTemplateRequestTemplateTag";
@@ -163,6 +164,11 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
    * win2008r2_64_ent_sp1_en-us_40G_alibase_20170915.vhd
    */
   imageId?: string;
+  /**
+   * @remarks
+   * Details about the image options.
+   */
+  imageOptions?: CreateLaunchTemplateRequestImageOptions;
   /**
    * @remarks
    * The source of the image. Valid values:
@@ -508,6 +514,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
       httpPutResponseHopLimit: 'HttpPutResponseHopLimit',
       httpTokens: 'HttpTokens',
       imageId: 'ImageId',
+      imageOptions: 'ImageOptions',
       imageOwnerAlias: 'ImageOwnerAlias',
       instanceChargeType: 'InstanceChargeType',
       instanceName: 'InstanceName',
@@ -566,6 +573,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
       httpPutResponseHopLimit: 'number',
       httpTokens: 'string',
       imageId: 'string',
+      imageOptions: CreateLaunchTemplateRequestImageOptions,
       imageOwnerAlias: 'string',
       instanceChargeType: 'string',
       instanceName: 'string',
@@ -613,6 +621,9 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
     }
     if(Array.isArray(this.dataDisk)) {
       $dara.Model.validateArray(this.dataDisk);
+    }
+    if(this.imageOptions && typeof (this.imageOptions as any).validate === 'function') {
+      (this.imageOptions as any).validate();
     }
     if(Array.isArray(this.networkInterface)) {
       $dara.Model.validateArray(this.networkInterface);

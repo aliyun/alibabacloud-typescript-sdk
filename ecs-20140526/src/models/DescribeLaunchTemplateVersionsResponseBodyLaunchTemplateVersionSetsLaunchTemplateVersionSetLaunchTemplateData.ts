@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSystemDisk } from "./DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSystemDisk";
 import { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataDataDisks } from "./DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataDataDisks";
+import { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataImageOptions } from "./DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataImageOptions";
 import { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataNetworkInterfaces } from "./DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataNetworkInterfaces";
 import { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityGroupIds } from "./DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityGroupIds";
 import { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataTags } from "./DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataTags";
@@ -151,6 +152,11 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
    * m-bp67acfmxazb4p****
    */
   imageId?: string;
+  /**
+   * @remarks
+   * Details about the image options.
+   */
+  imageOptions?: DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataImageOptions;
   /**
    * @remarks
    * The source of the image. Valid values:
@@ -419,6 +425,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
       httpPutResponseHopLimit: 'HttpPutResponseHopLimit',
       httpTokens: 'HttpTokens',
       imageId: 'ImageId',
+      imageOptions: 'ImageOptions',
       imageOwnerAlias: 'ImageOwnerAlias',
       instanceChargeType: 'InstanceChargeType',
       instanceName: 'InstanceName',
@@ -468,6 +475,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
       httpPutResponseHopLimit: 'number',
       httpTokens: 'string',
       imageId: 'string',
+      imageOptions: DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataImageOptions,
       imageOwnerAlias: 'string',
       instanceChargeType: 'string',
       instanceName: 'string',
@@ -506,6 +514,9 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
     }
     if(this.dataDisks && typeof (this.dataDisks as any).validate === 'function') {
       (this.dataDisks as any).validate();
+    }
+    if(this.imageOptions && typeof (this.imageOptions as any).validate === 'function') {
+      (this.imageOptions as any).validate();
     }
     if(this.networkInterfaces && typeof (this.networkInterfaces as any).validate === 'function') {
       (this.networkInterfaces as any).validate();

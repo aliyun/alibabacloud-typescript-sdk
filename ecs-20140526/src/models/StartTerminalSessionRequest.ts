@@ -14,6 +14,12 @@ export class StartTerminalSessionRequest extends $dara.Model {
    */
   commandLine?: string;
   /**
+   * @remarks
+   * The network type of the WebSocket URL required to connect to the instance. Valid values:
+   * 
+   * *   Internet (default)
+   * *   Intranet
+   * 
    * @example
    * Intranet
    */
