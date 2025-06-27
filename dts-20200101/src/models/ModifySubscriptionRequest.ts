@@ -9,8 +9,6 @@ export class ModifySubscriptionRequest extends $dara.Model {
    * 
    * >  You can call the [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html) operation to query the original objects of the task.
    * 
-   * This parameter is required.
-   * 
    * @example
    * {"dtstest":{"name":"dtstest","all":true}}
    */
@@ -31,6 +29,7 @@ export class ModifySubscriptionRequest extends $dara.Model {
    * boss6pn1w******
    */
   dtsJobId?: string;
+  modifyType?: string;
   /**
    * @remarks
    * The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
@@ -39,6 +38,7 @@ export class ModifySubscriptionRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  reserved?: string;
   /**
    * @remarks
    * Resource group ID.
@@ -54,8 +54,6 @@ export class ModifySubscriptionRequest extends $dara.Model {
    * *   **true**: yes
    * *   **false**: no
    * 
-   * This parameter is required.
-   * 
    * @example
    * true
    */
@@ -67,8 +65,6 @@ export class ModifySubscriptionRequest extends $dara.Model {
    * *   **true**: yes
    * *   **false**: no
    * 
-   * This parameter is required.
-   * 
    * @example
    * true
    */
@@ -78,7 +74,9 @@ export class ModifySubscriptionRequest extends $dara.Model {
       dbList: 'DbList',
       dtsInstanceId: 'DtsInstanceId',
       dtsJobId: 'DtsJobId',
+      modifyType: 'ModifyType',
       regionId: 'RegionId',
+      reserved: 'Reserved',
       resourceGroupId: 'ResourceGroupId',
       subscriptionDataTypeDDL: 'SubscriptionDataTypeDDL',
       subscriptionDataTypeDML: 'SubscriptionDataTypeDML',
@@ -90,7 +88,9 @@ export class ModifySubscriptionRequest extends $dara.Model {
       dbList: 'string',
       dtsInstanceId: 'string',
       dtsJobId: 'string',
+      modifyType: 'string',
       regionId: 'string',
+      reserved: 'string',
       resourceGroupId: 'string',
       subscriptionDataTypeDDL: 'boolean',
       subscriptionDataTypeDML: 'boolean',

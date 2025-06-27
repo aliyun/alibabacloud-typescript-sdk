@@ -6953,8 +6953,16 @@ export default class Client extends OpenApi {
       query["DtsJobId"] = request.dtsJobId;
     }
 
+    if (!$dara.isNull(request.modifyType)) {
+      query["ModifyType"] = request.modifyType;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reserved)) {
+      query["Reserved"] = request.reserved;
     }
 
     if (!$dara.isNull(request.resourceGroupId)) {
