@@ -160,6 +160,10 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * The information about the resource group with which the instance is associated.
    */
   runtimeResource?: ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource;
+  /**
+   * @example
+   * para1=val1 para2=val2
+   */
   scriptParameters?: string;
   /**
    * @remarks
@@ -257,7 +261,15 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * Scheduler
    */
   triggerType?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
   waitingResourceTime?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
   waitingTriggerTime?: number;
   /**
    * @remarks

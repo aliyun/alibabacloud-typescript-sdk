@@ -5,10 +5,17 @@ import { GetRerunWorkflowInstancesResultResponseBodyResult } from "./GetRerunWor
 
 export class GetRerunWorkflowInstancesResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID, used for log tracing and troubleshooting.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the workflow instance rerun.
+   */
   result?: GetRerunWorkflowInstancesResultResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

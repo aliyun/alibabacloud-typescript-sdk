@@ -16,6 +16,8 @@ export class ListEntitiesInMetaCollectionRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
+   * The collection ID.
+   * 
    * This parameter is required.
    * 
    * @example

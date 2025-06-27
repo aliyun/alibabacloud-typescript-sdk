@@ -270,7 +270,15 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
    * Scheduler
    */
   triggerType?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
   waitingResourceTime?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
   waitingTriggerTime?: number;
   /**
    * @remarks

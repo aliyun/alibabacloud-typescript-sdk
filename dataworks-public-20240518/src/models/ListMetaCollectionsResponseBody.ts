@@ -4,6 +4,10 @@ import { ListMetaCollectionsResponseBodyData } from "./ListMetaCollectionsRespon
 
 
 export class ListMetaCollectionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data.
+   */
   data?: ListMetaCollectionsResponseBodyData;
   /**
    * @remarks

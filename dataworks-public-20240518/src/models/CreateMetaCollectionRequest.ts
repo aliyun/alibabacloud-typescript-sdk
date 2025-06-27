@@ -17,6 +17,9 @@ export class CreateMetaCollectionRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the collection of an ancestor node.
+   * 
    * @example
    * category.123
    */

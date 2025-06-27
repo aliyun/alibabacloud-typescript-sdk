@@ -35,6 +35,9 @@ export class ListMetaCollectionsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the collection of an ancestor node.
+   * 
    * @example
    * category.123
    */
@@ -46,6 +49,12 @@ export class ListMetaCollectionsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
+   * The type of the collection. Valid values:
+   * 
+   * *   Category
+   * *   Album
+   * *   AlbumCategory
+   * 
    * This parameter is required.
    * 
    * @example

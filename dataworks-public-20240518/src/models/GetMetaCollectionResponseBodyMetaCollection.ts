@@ -16,6 +16,9 @@ export class GetMetaCollectionResponseBodyMetaCollection extends $dara.Model {
   createUser?: string;
   description?: string;
   /**
+   * @remarks
+   * The collection ID.
+   * 
    * @example
    * category.123
    */
@@ -31,6 +34,9 @@ export class GetMetaCollectionResponseBodyMetaCollection extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the collection of the ancestor node. This parameter can be left empty.
+   * 
    * @example
    * category.12
    */

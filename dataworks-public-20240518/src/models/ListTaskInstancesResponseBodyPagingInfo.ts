@@ -22,7 +22,7 @@ export class ListTaskInstancesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The instances.
+   * The list of task instances.
    */
   taskInstances?: ListTaskInstancesResponseBodyPagingInfoTaskInstances[];
   /**

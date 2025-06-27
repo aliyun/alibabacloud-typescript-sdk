@@ -30,6 +30,8 @@ export class ListPartitionsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
+   * The ID of the table to which the partitions belong. You can call the ListTables operation to query the ID. For more information, see [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
+   * 
    * This parameter is required.
    * 
    * @example

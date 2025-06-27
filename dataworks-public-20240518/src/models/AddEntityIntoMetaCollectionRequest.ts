@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddEntityIntoMetaCollectionRequest extends $dara.Model {
   /**
    * @remarks
+   * The entity ID. Currently, entities can only be tables. You can call the ListTables operation to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AddEntityIntoMetaCollectionRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The collection ID. You can call the ListMetaCollections operation to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example

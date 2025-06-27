@@ -30,6 +30,26 @@ export class ListDatabasesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The parent entity ID. For more information, see [description of concepts related to metadata entities.](https://help.aliyun.com/document_detail/2880092.html)
+   * 
+   * The type of the parent entity can be found in the response of the ListCrawlerTypes operation.
+   * 
+   * *   If the parent entity is a catalog, the format of `ParentMetaEntityId` follows the response of the ListCatalogs API.
+   * *   If the parent entity is a metadata crawler, the format of `ParentMetaEntityId` is `${CrawlerType}:${Instance ID or encoded URL}.`
+   * 
+   * ParentMetaEntityId format examples
+   * 
+   * `dlf-catalog::catalog_id`
+   * 
+   * `holo:instance_id`
+   * 
+   * `mysql:(instance_id|encoded_jdbc_url)`
+   * 
+   * > \\
+   * `catalog_id`: The DLF catalog ID.\\
+   * `instance_id`: The instance ID, required for the data source registered in instance mode.\\
+   * `encoded_jdbc_url`: The JDBC connection string that has been URL encoded, required for the data source registered via a connection string.
+   * 
    * This parameter is required.
    * 
    * @example

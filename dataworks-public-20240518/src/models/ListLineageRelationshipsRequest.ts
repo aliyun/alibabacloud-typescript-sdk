@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListLineageRelationshipsRequest extends $dara.Model {
   /**
    * @remarks
+   * The destination entity ID. For more information, see the table ID or field ID in the response returned by the ListTables or ListColumns operation. You can also specify a custom entity ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +45,8 @@ export class ListLineageRelationshipsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
+   * The source entity ID. For more information, see the table ID or field ID in the response returned by the ListTables or ListColumns operation. You can also specify a custom entity ID.
+   * 
    * This parameter is required.
    * 
    * @example

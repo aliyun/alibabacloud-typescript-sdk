@@ -11,6 +11,9 @@ export class ListEntitiesInMetaCollectionResponseBodyPagingInfoEntities extends 
   createTime?: number;
   description?: string;
   /**
+   * @remarks
+   * The entity ID. Entities can only be tables. This parameter is left empty if the entity is deleted.
+   * 
    * @example
    * dlf-table:123456789:test_catalog:test_database::test_table
    */
@@ -26,6 +29,9 @@ export class ListEntitiesInMetaCollectionResponseBodyPagingInfoEntities extends 
    */
   name?: string;
   /**
+   * @remarks
+   * The type of the entity.
+   * 
    * @example
    * dlf-table
    */

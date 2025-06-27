@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateMetaCollectionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The collection administrator IDs. This parameter is available only for data albums. The administrator must be an account within the same tenant.
+   */
   administrators?: string[];
   /**
    * @example
@@ -11,6 +15,8 @@ export class UpdateMetaCollectionRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The collection ID.
+   * 
    * This parameter is required.
    * 
    * @example

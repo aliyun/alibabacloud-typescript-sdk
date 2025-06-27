@@ -4,6 +4,10 @@ import { ListEntitiesInMetaCollectionResponseBodyPagingInfoEntities } from "./Li
 
 
 export class ListEntitiesInMetaCollectionResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The entities in the collection.
+   */
   entities?: ListEntitiesInMetaCollectionResponseBodyPagingInfoEntities[];
   /**
    * @example

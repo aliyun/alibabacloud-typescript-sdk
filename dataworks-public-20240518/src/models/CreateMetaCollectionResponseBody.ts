@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateMetaCollectionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the created collection.
+   * 
    * @example
    * category.123
    */

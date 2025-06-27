@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMetaCollectionRequest extends $dara.Model {
   /**
    * @remarks
+   * The collection ID.
+   * 
    * This parameter is required.
    * 
    * @example

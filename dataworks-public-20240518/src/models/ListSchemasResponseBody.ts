@@ -4,13 +4,23 @@ import { ListSchemasResponseBodyPagingInfo } from "./ListSchemasResponseBodyPagi
 
 
 export class ListSchemasResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListSchemasResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 235BBA5E-3428-XXXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Model {
   administrators?: string[];
   /**
+   * @remarks
+   * The time when the collection was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1668568601000
    */
@@ -16,11 +19,17 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
   createUser?: string;
   description?: string;
   /**
+   * @remarks
+   * The ID of the collection.
+   * 
    * @example
    * category.123
    */
   id?: string;
   /**
+   * @remarks
+   * The time when the collection was modified. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1668568601000
    */
@@ -31,6 +40,9 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the collection of the ancestor node. This parameter can be left empty.
+   * 
    * @example
    * category.1
    */

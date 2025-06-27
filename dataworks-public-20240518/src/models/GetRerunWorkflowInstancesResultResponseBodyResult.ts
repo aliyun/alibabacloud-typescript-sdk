@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRerunWorkflowInstancesResultResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The failure message. Returned if the rerun fails.
+   * 
+   * @example
+   * Invalid Param xxx
+   */
   failureMessage?: string;
   /**
+   * @remarks
+   * The status. NotRun Success Failure
+   * 
    * @example
    * Success
    */

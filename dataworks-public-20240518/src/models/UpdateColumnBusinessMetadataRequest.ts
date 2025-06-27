@@ -10,6 +10,8 @@ export class UpdateColumnBusinessMetadataRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The column ID. You can call the ListColumns operation to query the ID. For more information, see [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
+   * 
    * This parameter is required.
    * 
    * @example

@@ -99,6 +99,10 @@ export class ListTaskInstancesRequest extends $dara.Model {
    * Id Desc
    */
   sortBy?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   /**
    * @remarks

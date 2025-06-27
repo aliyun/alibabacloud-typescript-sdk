@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateMetaCollectionShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The collection administrator IDs. This parameter is available only for data albums. The administrator must be an account within the same tenant.
+   */
   administratorsShrink?: string;
   /**
    * @example
@@ -11,6 +15,8 @@ export class UpdateMetaCollectionShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The collection ID.
+   * 
    * This parameter is required.
    * 
    * @example

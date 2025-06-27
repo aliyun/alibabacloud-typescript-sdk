@@ -4,6 +4,10 @@ import { ListEntitiesInMetaCollectionResponseBodyPagingInfo } from "./ListEntiti
 
 
 export class ListEntitiesInMetaCollectionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListEntitiesInMetaCollectionResponseBodyPagingInfo;
   /**
    * @remarks

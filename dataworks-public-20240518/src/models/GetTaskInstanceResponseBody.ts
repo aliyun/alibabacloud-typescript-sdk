@@ -14,7 +14,7 @@ export class GetTaskInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the instance.
+   * The details of the task instance.
    */
   taskInstance?: GetTaskInstanceResponseBodyTaskInstance;
   static names(): { [key: string]: string } {

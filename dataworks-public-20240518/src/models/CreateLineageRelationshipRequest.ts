@@ -7,6 +7,10 @@ import { LineageTask } from "./LineageTask";
 export class CreateLineageRelationshipRequest extends $dara.Model {
   dstEntity?: LineageEntity;
   srcEntity?: LineageEntity;
+  /**
+   * @remarks
+   * The task information.
+   */
   task?: LineageTask;
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetRerunWorkflowInstancesResultRequest extends $dara.Model {
   /**
    * @remarks
+   * The operation ID used to asynchronously query the result of the workflow instance rerun. This value is obtained from the RerunWorkflowInstances operation.
+   * 
    * This parameter is required.
    * 
    * @example

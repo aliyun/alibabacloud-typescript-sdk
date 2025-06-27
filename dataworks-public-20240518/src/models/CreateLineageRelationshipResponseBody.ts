@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateLineageRelationshipResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The lineage ID.
+   * 
    * @example
    * 110xxxx:custom-table.xxxxx:maxcompute-table.project.test_big_lineage_080901:custom-sqlxx.00001
    */

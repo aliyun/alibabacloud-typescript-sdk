@@ -6,7 +6,7 @@ import { ListTaskInstancesResponseBodyPagingInfo } from "./ListTaskInstancesResp
 export class ListTaskInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The pagination details.
    */
   pagingInfo?: ListTaskInstancesResponseBodyPagingInfo;
   /**

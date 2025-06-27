@@ -4,6 +4,10 @@ import { GetMetaCollectionResponseBodyMetaCollection } from "./GetMetaCollection
 
 
 export class GetMetaCollectionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the collection.
+   */
   metaCollection?: GetMetaCollectionResponseBodyMetaCollection;
   /**
    * @remarks

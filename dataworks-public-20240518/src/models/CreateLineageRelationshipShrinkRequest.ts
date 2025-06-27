@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLineageRelationshipShrinkRequest extends $dara.Model {
   dstEntityShrink?: string;
   srcEntityShrink?: string;
+  /**
+   * @remarks
+   * The task information.
+   */
   taskShrink?: string;
   static names(): { [key: string]: string } {
     return {

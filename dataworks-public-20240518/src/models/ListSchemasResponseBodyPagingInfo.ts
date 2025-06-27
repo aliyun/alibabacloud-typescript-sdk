@@ -10,10 +10,17 @@ export class ListSchemasResponseBodyPagingInfo extends $dara.Model {
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The schemas.
+   */
   schemas?: Schema[];
   /**
    * @example

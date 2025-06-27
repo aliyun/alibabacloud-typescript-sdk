@@ -1440,7 +1440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册血缘关系
+   * Creates a lineage between a source entity and a destination entity. Either the source or destination entity must be a custom entity.
    * 
    * @param tmpReq - CreateLineageRelationshipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1493,7 +1493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册血缘关系
+   * Creates a lineage between a source entity and a destination entity. Either the source or destination entity must be a custom entity.
    * 
    * @param request - CreateLineageRelationshipRequest
    * @returns CreateLineageRelationshipResponse
@@ -1504,7 +1504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建集合
+   * Creates a collection in Data Map. Collections include categories, subcategories, data albums, and categories that are created in the data albums.
    * 
    * @param request - CreateMetaCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1547,7 +1547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建集合
+   * Creates a collection in Data Map. Collections include categories, subcategories, data albums, and categories that are created in the data albums.
    * 
    * @param request - CreateMetaCollectionRequest
    * @returns CreateMetaCollectionResponse
@@ -5126,7 +5126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 请求collection详情
+   * Queries the information about a collection in Data Map. Collections include categories and data albums.
    * 
    * @param request - GetMetaCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5153,7 +5153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 请求collection详情
+   * Queries the information about a collection in Data Map. Collections include categories and data albums.
    * 
    * @param request - GetMetaCollectionRequest
    * @returns GetMetaCollectionResponse
@@ -5470,7 +5470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询异步重跑工作流实例的结果
+   * Query the result of asynchronous workflow instance reruns.
    * 
    * @param request - GetRerunWorkflowInstancesResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5501,7 +5501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询异步重跑工作流实例的结果
+   * Query the result of asynchronous workflow instance reruns.
    * 
    * @param request - GetRerunWorkflowInstancesResultRequest
    * @returns GetRerunWorkflowInstancesResultResponse
@@ -7431,7 +7431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询集合中的实体列表
+   * Queries a list of entities in a collection in Data Map. Collections include categories and data albums. Entities can only be tables.
    * 
    * @param request - ListEntitiesInMetaCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7458,7 +7458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询集合中的实体列表
+   * Queries a list of entities in a collection in Data Map. Collections include categories and data albums. Entities can only be tables.
    * 
    * @param request - ListEntitiesInMetaCollectionRequest
    * @returns ListEntitiesInMetaCollectionResponse
@@ -7751,7 +7751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实体血缘
+   * Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
    * 
    * @param request - ListLineagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7778,7 +7778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实体血缘
+   * Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
    * 
    * @param request - ListLineagesRequest
    * @returns ListLineagesResponse
@@ -7789,7 +7789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Collection列表
+   * Queries a list of collections in Data Map. Collections include categories and data albums.
    * 
    * @param request - ListMetaCollectionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7816,7 +7816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Collection列表
+   * Queries a list of collections in Data Map. Collections include categories and data albums.
    * 
    * @param request - ListMetaCollectionsRequest
    * @returns ListMetaCollectionsResponse
@@ -8439,7 +8439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模式列表
+   * Queries a list of schemas in a database or a MaxCompute project in Data Map. Only schemas of the MaxCompute and Hologres metadata crawler types are supported.
    * 
    * @param tmpReq - ListSchemasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8472,7 +8472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模式列表
+   * Queries a list of schemas in a database or a MaxCompute project in Data Map. Only schemas of the MaxCompute and Hologres metadata crawler types are supported.
    * 
    * @param request - ListSchemasRequest
    * @returns ListSchemasResponse
@@ -9713,7 +9713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重跑工作流实例
+   * Reruns workflow instances.
    * 
    * @param tmpReq - RerunWorkflowInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9794,7 +9794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重跑工作流实例
+   * Reruns workflow instances.
    * 
    * @param request - RerunWorkflowInstancesRequest
    * @returns RerunWorkflowInstancesResponse
@@ -11657,7 +11657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新集合
+   * Updates the information about a collection in Data Map, including the collection name, description, and administrator. Collections include categories and data albums. If you want to update the information about a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
    * 
    * @param tmpReq - UpdateMetaCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11706,7 +11706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新集合
+   * Updates the information about a collection in Data Map, including the collection name, description, and administrator. Collections include categories and data albums. If you want to update the information about a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
    * 
    * @param request - UpdateMetaCollectionRequest
    * @returns UpdateMetaCollectionResponse
@@ -12074,7 +12074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据表业务元数据
+   * Updates the business metadata of a table in Data Map. Currently, only the usage notes of a table can be updated.
    * 
    * @param request - UpdateTableBusinessMetadataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12109,7 +12109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据表业务元数据
+   * Updates the business metadata of a table in Data Map. Currently, only the usage notes of a table can be updated.
    * 
    * @param request - UpdateTableBusinessMetadataRequest
    * @returns UpdateTableBusinessMetadataResponse

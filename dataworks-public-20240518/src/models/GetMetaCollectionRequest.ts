@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetaCollectionRequest extends $dara.Model {
   /**
    * @remarks
+   * The collection ID.
+   * 
    * This parameter is required.
    * 
    * @example
