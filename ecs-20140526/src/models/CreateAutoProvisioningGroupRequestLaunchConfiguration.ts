@@ -5,6 +5,7 @@ import { CreateAutoProvisioningGroupRequestLaunchConfigurationDataDisk } from ".
 import { CreateAutoProvisioningGroupRequestLaunchConfigurationSystemDisk } from "./CreateAutoProvisioningGroupRequestLaunchConfigurationSystemDisk";
 import { CreateAutoProvisioningGroupRequestLaunchConfigurationTag } from "./CreateAutoProvisioningGroupRequestLaunchConfigurationTag";
 import { CreateAutoProvisioningGroupRequestLaunchConfigurationImageOptions } from "./CreateAutoProvisioningGroupRequestLaunchConfigurationImageOptions";
+import { CreateAutoProvisioningGroupRequestLaunchConfigurationSchedulerOptions } from "./CreateAutoProvisioningGroupRequestLaunchConfigurationSchedulerOptions";
 
 
 export class CreateAutoProvisioningGroupRequestLaunchConfiguration extends $dara.Model {
@@ -392,6 +393,7 @@ export class CreateAutoProvisioningGroupRequestLaunchConfiguration extends $dara
    * Month
    */
   periodUnit?: string;
+  schedulerOptions?: CreateAutoProvisioningGroupRequestLaunchConfigurationSchedulerOptions;
   /**
    * @remarks
    * The protection period of the spot instance. Unit: hours. Default value: 1. Valid values: Valid values:
@@ -466,6 +468,7 @@ export class CreateAutoProvisioningGroupRequestLaunchConfiguration extends $dara
       imageOptions: 'ImageOptions',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      schedulerOptions: 'SchedulerOptions',
       spotDuration: 'SpotDuration',
       spotInterruptionBehavior: 'SpotInterruptionBehavior',
     };
@@ -509,6 +512,7 @@ export class CreateAutoProvisioningGroupRequestLaunchConfiguration extends $dara
       imageOptions: CreateAutoProvisioningGroupRequestLaunchConfigurationImageOptions,
       period: 'number',
       periodUnit: 'string',
+      schedulerOptions: CreateAutoProvisioningGroupRequestLaunchConfigurationSchedulerOptions,
       spotDuration: 'number',
       spotInterruptionBehavior: 'string',
     };
@@ -535,6 +539,9 @@ export class CreateAutoProvisioningGroupRequestLaunchConfiguration extends $dara
     }
     if(this.imageOptions && typeof (this.imageOptions as any).validate === 'function') {
       (this.imageOptions as any).validate();
+    }
+    if(this.schedulerOptions && typeof (this.schedulerOptions as any).validate === 'function') {
+      (this.schedulerOptions as any).validate();
     }
     super.validate();
   }

@@ -23,6 +23,7 @@ export { CreateAutoProvisioningGroupRequestLaunchConfigurationDataDisk } from '.
 export { CreateAutoProvisioningGroupRequestLaunchConfigurationSystemDisk } from './CreateAutoProvisioningGroupRequestLaunchConfigurationSystemDisk';
 export { CreateAutoProvisioningGroupRequestLaunchConfigurationTag } from './CreateAutoProvisioningGroupRequestLaunchConfigurationTag';
 export { CreateAutoProvisioningGroupRequestLaunchConfigurationImageOptions } from './CreateAutoProvisioningGroupRequestLaunchConfigurationImageOptions';
+export { CreateAutoProvisioningGroupRequestLaunchConfigurationSchedulerOptions } from './CreateAutoProvisioningGroupRequestLaunchConfigurationSchedulerOptions';
 export { CreateAutoProvisioningGroupRequestLaunchConfiguration } from './CreateAutoProvisioningGroupRequestLaunchConfiguration';
 export { CreateAutoProvisioningGroupRequestDataDiskConfig } from './CreateAutoProvisioningGroupRequestDataDiskConfig';
 export { CreateAutoProvisioningGroupRequestLaunchTemplateConfig } from './CreateAutoProvisioningGroupRequestLaunchTemplateConfig';
@@ -36,6 +37,7 @@ export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk } f
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSystemDisk } from './CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSystemDisk';
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationTag } from './CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationTag';
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions } from './CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions';
+export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions } from './CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions';
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration } from './CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration';
 export { CreateAutoProvisioningGroupShrinkRequestDataDiskConfig } from './CreateAutoProvisioningGroupShrinkRequestDataDiskConfig';
 export { CreateAutoProvisioningGroupShrinkRequestLaunchTemplateConfig } from './CreateAutoProvisioningGroupShrinkRequestLaunchTemplateConfig';

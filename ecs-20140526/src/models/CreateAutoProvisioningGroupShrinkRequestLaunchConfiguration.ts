@@ -5,6 +5,7 @@ import { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk } f
 import { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSystemDisk } from "./CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSystemDisk";
 import { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationTag } from "./CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationTag";
 import { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions } from "./CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions";
+import { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions } from "./CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions";
 
 
 export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends $dara.Model {
@@ -392,6 +393,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
    * Month
    */
   periodUnit?: string;
+  schedulerOptions?: CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions;
   /**
    * @remarks
    * The protection period of the spot instance. Unit: hours. Default value: 1. Valid values: Valid values:
@@ -466,6 +468,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
       imageOptions: 'ImageOptions',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      schedulerOptions: 'SchedulerOptions',
       spotDuration: 'SpotDuration',
       spotInterruptionBehavior: 'SpotInterruptionBehavior',
     };
@@ -509,6 +512,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
       imageOptions: CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions,
       period: 'number',
       periodUnit: 'string',
+      schedulerOptions: CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions,
       spotDuration: 'number',
       spotInterruptionBehavior: 'string',
     };
@@ -535,6 +539,9 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
     }
     if(this.imageOptions && typeof (this.imageOptions as any).validate === 'function') {
       (this.imageOptions as any).validate();
+    }
+    if(this.schedulerOptions && typeof (this.schedulerOptions as any).validate === 'function') {
+      (this.schedulerOptions as any).validate();
     }
     super.validate();
   }
