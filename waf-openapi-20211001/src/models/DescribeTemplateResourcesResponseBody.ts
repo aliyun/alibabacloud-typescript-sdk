@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTemplateResourcesResponseBody extends $dara.Model {
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The ID of the request.
@@ -16,17 +18,24 @@ export class DescribeTemplateResourcesResponseBody extends $dara.Model {
    * An array of protected objects or protected object groups that are associated to the protection rule template.
    */
   resources?: string[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       requestId: 'RequestId',
       resources: 'Resources',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
+      nextToken: 'string',
       requestId: 'string',
       resources: { 'type': 'array', 'itemType': 'string' },
+      totalCount: 'number',
     };
   }
 

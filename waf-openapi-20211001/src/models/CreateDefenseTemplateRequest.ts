@@ -98,6 +98,8 @@ export class CreateDefenseTemplateRequest extends $dara.Model {
    * user_default
    */
   templateType?: string;
+  unbindResourceGroups?: string[];
+  unbindResources?: string[];
   static names(): { [key: string]: string } {
     return {
       defenseScene: 'DefenseScene',
@@ -109,6 +111,8 @@ export class CreateDefenseTemplateRequest extends $dara.Model {
       templateOrigin: 'TemplateOrigin',
       templateStatus: 'TemplateStatus',
       templateType: 'TemplateType',
+      unbindResourceGroups: 'UnbindResourceGroups',
+      unbindResources: 'UnbindResources',
     };
   }
 
@@ -123,10 +127,18 @@ export class CreateDefenseTemplateRequest extends $dara.Model {
       templateOrigin: 'string',
       templateStatus: 'number',
       templateType: 'string',
+      unbindResourceGroups: { 'type': 'array', 'itemType': 'string' },
+      unbindResources: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.unbindResourceGroups)) {
+      $dara.Model.validateArray(this.unbindResourceGroups);
+    }
+    if(Array.isArray(this.unbindResources)) {
+      $dara.Model.validateArray(this.unbindResources);
+    }
     super.validate();
   }
 

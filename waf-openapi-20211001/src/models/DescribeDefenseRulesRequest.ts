@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDefenseRulesRequest extends $dara.Model {
+  defenseType?: string;
   /**
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
@@ -73,6 +74,7 @@ export class DescribeDefenseRulesRequest extends $dara.Model {
   ruleType?: string;
   static names(): { [key: string]: string } {
     return {
+      defenseType: 'DefenseType',
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -85,6 +87,7 @@ export class DescribeDefenseRulesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      defenseType: 'string',
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',

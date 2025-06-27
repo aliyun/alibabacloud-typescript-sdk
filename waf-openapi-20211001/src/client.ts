@@ -713,6 +713,14 @@ export default class Client extends OpenApi {
       query["TemplateType"] = request.templateType;
     }
 
+    if (!$dara.isNull(request.unbindResourceGroups)) {
+      query["UnbindResourceGroups"] = request.unbindResourceGroups;
+    }
+
+    if (!$dara.isNull(request.unbindResources)) {
+      query["UnbindResources"] = request.unbindResources;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3956,6 +3964,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询防护对象和所属资源的关系
+   * 
+   * @param request - DescribeDefenseResourceOwnerUidRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDefenseResourceOwnerUidResponse
+   */
+  async describeDefenseResourceOwnerUidWithOptions(request: $_model.DescribeDefenseResourceOwnerUidRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDefenseResourceOwnerUidResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceNames)) {
+      query["ResourceNames"] = request.resourceNames;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDefenseResourceOwnerUid",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDefenseResourceOwnerUidResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDefenseResourceOwnerUidResponse({}));
+  }
+
+  /**
+   * 查询防护对象和所属资源的关系
+   * 
+   * @param request - DescribeDefenseResourceOwnerUidRequest
+   * @returns DescribeDefenseResourceOwnerUidResponse
+   */
+  async describeDefenseResourceOwnerUid(request: $_model.DescribeDefenseResourceOwnerUidRequest): Promise<$_model.DescribeDefenseResourceOwnerUidResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDefenseResourceOwnerUidWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the protection templates that are associated with a protected object or protected object group.
    * 
    * @param request - DescribeDefenseResourceTemplatesRequest
@@ -4171,6 +4233,10 @@ export default class Client extends OpenApi {
   async describeDefenseRulesWithOptions(request: $_model.DescribeDefenseRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDefenseRulesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -7953,8 +8019,20 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resource)) {
+      query["Resource"] = request.resource;
     }
 
     if (!$dara.isNull(request.resourceManagerResourceGroupId)) {

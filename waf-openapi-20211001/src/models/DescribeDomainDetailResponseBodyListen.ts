@@ -10,7 +10,7 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
    * @example
    * 123
    */
-  certId?: number;
+  certId?: string;
   /**
    * @remarks
    * The type of the cipher suites. Valid values:
@@ -187,7 +187,7 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      certId: 'number',
+      certId: 'string',
       cipherSuite: 'number',
       customCiphers: { 'type': 'array', 'itemType': 'string' },
       enableTLSv3: 'boolean',

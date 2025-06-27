@@ -44,6 +44,7 @@ export { DescribeDefenseResourceResponseBodyResourceResponseHeaders } from './De
 export { DescribeDefenseResourceResponseBodyResource } from './DescribeDefenseResourceResponseBodyResource';
 export { DescribeDefenseResourceGroupResponseBodyGroup } from './DescribeDefenseResourceGroupResponseBodyGroup';
 export { DescribeDefenseResourceGroupsResponseBodyGroups } from './DescribeDefenseResourceGroupsResponseBodyGroups';
+export { DescribeDefenseResourceOwnerUidResponseBodyOwnerInfos } from './DescribeDefenseResourceOwnerUidResponseBodyOwnerInfos';
 export { DescribeDefenseResourceTemplatesResponseBodyTemplates } from './DescribeDefenseResourceTemplatesResponseBodyTemplates';
 export { DescribeDefenseResourcesRequestTag } from './DescribeDefenseResourcesRequestTag';
 export { DescribeDefenseResourcesResponseBodyResourcesResponseHeaders } from './DescribeDefenseResourcesResponseBodyResourcesResponseHeaders';
@@ -347,6 +348,9 @@ export { DescribeDefenseResourceGroupsResponse } from './DescribeDefenseResource
 export { DescribeDefenseResourceNamesRequest } from './DescribeDefenseResourceNamesRequest';
 export { DescribeDefenseResourceNamesResponseBody } from './DescribeDefenseResourceNamesResponseBody';
 export { DescribeDefenseResourceNamesResponse } from './DescribeDefenseResourceNamesResponse';
+export { DescribeDefenseResourceOwnerUidRequest } from './DescribeDefenseResourceOwnerUidRequest';
+export { DescribeDefenseResourceOwnerUidResponseBody } from './DescribeDefenseResourceOwnerUidResponseBody';
+export { DescribeDefenseResourceOwnerUidResponse } from './DescribeDefenseResourceOwnerUidResponse';
 export { DescribeDefenseResourceTemplatesRequest } from './DescribeDefenseResourceTemplatesRequest';
 export { DescribeDefenseResourceTemplatesResponseBody } from './DescribeDefenseResourceTemplatesResponseBody';
 export { DescribeDefenseResourceTemplatesResponse } from './DescribeDefenseResourceTemplatesResponse';

@@ -15,6 +15,8 @@ export class DescribeTemplateResourcesRequest extends $dara.Model {
    * waf_cdnsdf3****
    */
   instanceId?: string;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The region where the WAF instance resides. Valid values:
@@ -26,6 +28,7 @@ export class DescribeTemplateResourcesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resource?: string;
   /**
    * @remarks
    * The ID of the Alibaba Cloud resource group.
@@ -60,7 +63,10 @@ export class DescribeTemplateResourcesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       regionId: 'RegionId',
+      resource: 'Resource',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       resourceType: 'ResourceType',
       templateId: 'TemplateId',
@@ -70,7 +76,10 @@ export class DescribeTemplateResourcesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       regionId: 'string',
+      resource: 'string',
       resourceManagerResourceGroupId: 'string',
       resourceType: 'string',
       templateId: 'number',
