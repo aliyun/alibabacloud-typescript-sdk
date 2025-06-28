@@ -2,11 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyDBResourceGroupRequest extends $dara.Model {
+export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
   /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-   * 
    * @example
    * 123e4567-e89b-12d3-a456-t7241****
    */
@@ -44,15 +41,30 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The engine of the resource group. Valid values:
+   * 
+   * *   **AnalyticDB** (default)
+   * *   **SparkWarehouse**
+   * 
+   * @example
+   * AnalyticDB
+   */
+  engine?: string;
+  /**
+   * @remarks
    * The Spark application configuration parameters that can be applied to all Spark jobs executed in the resource group. If you want to configure parameters for a specific Spark job, you can specify values for the parameters in the code editor when you submit the job.
    * 
    * @example
    * {\\"spark.adb.version\\":\\"3.5\\"}
    */
-  engineParams?: { [key: string]: any };
+  engineParamsShrink?: string;
   /**
    * @remarks
    * The name of the resource group.
+   * 
+   * *   The name can be up to 255 characters in length.
+   * *   The name must start with an uppercase letter or a digit.
+   * *   The name can contain uppercase letters, digits, hyphens (-), and underscores (_).
    * 
    * This parameter is required.
    * 
@@ -68,10 +80,8 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    * *   **batch**
    * *   **job**
    * 
-   * >  For more information, see [Query execution modes](https://help.aliyun.com/document_detail/189502.html).
-   * 
    * @example
-   * batch
+   * interactive
    */
   groupType?: string;
   /**
@@ -79,7 +89,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    * The maximum number of compute clusters that are allowed in the resource group. Maximum value: 10.
    * 
    * @example
-   * 4
+   * 2
    */
   maxClusterCount?: number;
   /**
@@ -90,7 +100,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    * *   When GroupType is set to job, set this parameter to a value in increments of 8ACU.
    * 
    * @example
-   * 48ACU
+   * 32ACU
    */
   maxComputeResource?: string;
   /**
@@ -120,16 +130,11 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    * *   Make sure that the amount of resources of the nodes (Number of nodes × 16 cores and 64 GB memory) is less than or equal to the amount of unused resources of the cluster.
    * 
    * @example
-   * 1
+   * 2
    */
   nodeNum?: number;
   ownerAccount?: string;
   ownerId?: number;
-  /**
-   * @remarks
-   * The database accounts with which to associate the resource group. They can be standard accounts or privileged accounts.
-   */
-  poolUserList?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -138,7 +143,8 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
       clusterMode: 'ClusterMode',
       clusterSizeResource: 'ClusterSizeResource',
       DBClusterId: 'DBClusterId',
-      engineParams: 'EngineParams',
+      engine: 'Engine',
+      engineParamsShrink: 'EngineParams',
       groupName: 'GroupName',
       groupType: 'GroupType',
       maxClusterCount: 'MaxClusterCount',
@@ -148,7 +154,6 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
       nodeNum: 'NodeNum',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
-      poolUserList: 'PoolUserList',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -160,7 +165,8 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
       clusterMode: 'string',
       clusterSizeResource: 'string',
       DBClusterId: 'string',
-      engineParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      engine: 'string',
+      engineParamsShrink: 'string',
       groupName: 'string',
       groupType: 'string',
       maxClusterCount: 'number',
@@ -170,19 +176,12 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
       nodeNum: 'number',
       ownerAccount: 'string',
       ownerId: 'number',
-      poolUserList: { 'type': 'array', 'itemType': 'string' },
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
   }
 
   validate() {
-    if(this.engineParams) {
-      $dara.Model.validateMap(this.engineParams);
-    }
-    if(Array.isArray(this.poolUserList)) {
-      $dara.Model.validateArray(this.poolUserList);
-    }
     super.validate();
   }
 

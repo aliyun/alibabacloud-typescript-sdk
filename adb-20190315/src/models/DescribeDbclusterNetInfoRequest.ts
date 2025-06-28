@@ -13,6 +13,7 @@ export class DescribeDBClusterNetInfoRequest extends $dara.Model {
    * am-bp1xxxxxxxx47
    */
   DBClusterId?: string;
+  engine?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -28,6 +29,7 @@ export class DescribeDBClusterNetInfoRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      engine: 'Engine',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -39,6 +41,7 @@ export class DescribeDBClusterNetInfoRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      engine: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',

@@ -213,6 +213,7 @@ export { CreateDBClusterRequest } from './CreateDbclusterRequest';
 export { CreateDBClusterResponseBody } from './CreateDbclusterResponseBody';
 export { CreateDBClusterResponse } from './CreateDbclusterResponse';
 export { CreateDBResourceGroupRequest } from './CreateDbresourceGroupRequest';
+export { CreateDBResourceGroupShrinkRequest } from './CreateDbresourceGroupShrinkRequest';
 export { CreateDBResourceGroupResponseBody } from './CreateDbresourceGroupResponseBody';
 export { CreateDBResourceGroupResponse } from './CreateDbresourceGroupResponse';
 export { CreateDBResourcePoolRequest } from './CreateDbresourcePoolRequest';

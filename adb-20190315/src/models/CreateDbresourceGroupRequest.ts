@@ -3,7 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDBResourceGroupRequest extends $dara.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-t7241****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The working mode of the resource group. Valid values:
+   * 
+   * *   **Disable** (default)
+   * *   **AutoScale**
+   * 
+   * @example
+   * AutoScale
+   */
+  clusterMode?: string;
+  /**
+   * @remarks
+   * The resource specifications of a single compute cluster. Unit: ACU.
+   * 
+   * @example
+   * 16ACU
+   */
+  clusterSizeResource?: string;
   /**
    * @remarks
    * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
@@ -16,6 +39,25 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
    * am-bp1ub9grke1****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The engine of the resource group. Valid values:
+   * 
+   * *   **AnalyticDB** (default)
+   * *   **SparkWarehouse**
+   * 
+   * @example
+   * AnalyticDB
+   */
+  engine?: string;
+  /**
+   * @remarks
+   * The Spark application configuration parameters that can be applied to all Spark jobs executed in the resource group. If you want to configure parameters for a specific Spark job, you can specify values for the parameters in the code editor when you submit the job.
+   * 
+   * @example
+   * {\\"spark.adb.version\\":\\"3.5\\"}
+   */
+  engineParams?: { [key: string]: any };
   /**
    * @remarks
    * The name of the resource group.
@@ -36,11 +78,50 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
    * 
    * *   **interactive** (default)
    * *   **batch**
+   * *   **job**
    * 
    * @example
    * interactive
    */
   groupType?: string;
+  /**
+   * @remarks
+   * The maximum number of compute clusters that are allowed in the resource group. Maximum value: 10.
+   * 
+   * @example
+   * 2
+   */
+  maxClusterCount?: number;
+  /**
+   * @remarks
+   * The maximum amount of reserved computing resources, which refers to the amount of resources that are not allocated in the cluster. Unit: ACU.
+   * 
+   * *   When GroupType is set to interactive, set this parameter to a value in increments of 16ACU.
+   * *   When GroupType is set to job, set this parameter to a value in increments of 8ACU.
+   * 
+   * @example
+   * 32ACU
+   */
+  maxComputeResource?: string;
+  /**
+   * @remarks
+   * The minimum number of compute clusters that are required in the resource group. Minimum value: 1.
+   * 
+   * @example
+   * 1
+   */
+  minClusterCount?: number;
+  /**
+   * @remarks
+   * The minimum amount of reserved computing resources. Unit: AnalyticDB compute unit (ACU).
+   * 
+   * *   When GroupType is set to interactive, set this parameter to 16ACU.
+   * *   When GroupType is set to job, set this parameter to 0ACU.
+   * 
+   * @example
+   * 0ACU
+   */
+  minComputeResource?: string;
   /**
    * @remarks
    * The number of nodes. Default value: 0.
@@ -59,9 +140,17 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      clusterMode: 'ClusterMode',
+      clusterSizeResource: 'ClusterSizeResource',
       DBClusterId: 'DBClusterId',
+      engine: 'Engine',
+      engineParams: 'EngineParams',
       groupName: 'GroupName',
       groupType: 'GroupType',
+      maxClusterCount: 'MaxClusterCount',
+      maxComputeResource: 'MaxComputeResource',
+      minClusterCount: 'MinClusterCount',
+      minComputeResource: 'MinComputeResource',
       nodeNum: 'NodeNum',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -73,9 +162,17 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      clusterMode: 'string',
+      clusterSizeResource: 'string',
       DBClusterId: 'string',
+      engine: 'string',
+      engineParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       groupName: 'string',
       groupType: 'string',
+      maxClusterCount: 'number',
+      maxComputeResource: 'string',
+      minClusterCount: 'number',
+      minComputeResource: 'string',
       nodeNum: 'number',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -85,6 +182,9 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.engineParams) {
+      $dara.Model.validateMap(this.engineParams);
+    }
     super.validate();
   }
 

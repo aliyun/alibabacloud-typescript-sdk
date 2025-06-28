@@ -13,6 +13,25 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * The working mode of the resource group. Valid values:
+   * 
+   * *   **Disable** (default)
+   * *   **AutoScale**
+   * 
+   * @example
+   * AutoScale
+   */
+  clusterMode?: string;
+  /**
+   * @remarks
+   * The resource specifications of a single compute cluster. Unit: ACU.
+   * 
+   * @example
+   * 16ACU
+   */
+  clusterSizeResource?: string;
+  /**
+   * @remarks
    * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
    * 
    * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
@@ -23,6 +42,14 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
    * am-bp1ub9grke1****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The Spark application configuration parameters that can be applied to all Spark jobs executed in the resource group. If you want to configure parameters for a specific Spark job, you can specify values for the parameters in the code editor when you submit the job.
+   * 
+   * @example
+   * {\\"spark.adb.version\\":\\"3.5\\"}
+   */
+  engineParamsShrink?: string;
   /**
    * @remarks
    * The name of the resource group.
@@ -37,8 +64,9 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
    * @remarks
    * The query execution mode. Valid values:
    * 
-   * *   **interactive**
+   * *   **interactive** (default)
    * *   **batch**
+   * *   **job**
    * 
    * >  For more information, see [Query execution modes](https://help.aliyun.com/document_detail/189502.html).
    * 
@@ -46,6 +74,44 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
    * batch
    */
   groupType?: string;
+  /**
+   * @remarks
+   * The maximum number of compute clusters that are allowed in the resource group. Maximum value: 10.
+   * 
+   * @example
+   * 4
+   */
+  maxClusterCount?: number;
+  /**
+   * @remarks
+   * The maximum amount of reserved computing resources, which refers to the amount of resources that are not allocated in the cluster. Unit: ACU.
+   * 
+   * *   When GroupType is set to interactive, set this parameter to a value in increments of 16ACU.
+   * *   When GroupType is set to job, set this parameter to a value in increments of 8ACU.
+   * 
+   * @example
+   * 48ACU
+   */
+  maxComputeResource?: string;
+  /**
+   * @remarks
+   * The minimum number of compute clusters that are required in the resource group. Minimum value: 1.
+   * 
+   * @example
+   * 1
+   */
+  minClusterCount?: number;
+  /**
+   * @remarks
+   * The minimum amount of reserved computing resources. Unit: AnalyticDB compute unit (ACU).
+   * 
+   * *   When GroupType is set to interactive, set this parameter to 16ACU.
+   * *   When GroupType is set to job, set this parameter to 0ACU.
+   * 
+   * @example
+   * 0ACU
+   */
+  minComputeResource?: string;
   /**
    * @remarks
    * The number of nodes. Default value: 0.
@@ -69,9 +135,16 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      clusterMode: 'ClusterMode',
+      clusterSizeResource: 'ClusterSizeResource',
       DBClusterId: 'DBClusterId',
+      engineParamsShrink: 'EngineParams',
       groupName: 'GroupName',
       groupType: 'GroupType',
+      maxClusterCount: 'MaxClusterCount',
+      maxComputeResource: 'MaxComputeResource',
+      minClusterCount: 'MinClusterCount',
+      minComputeResource: 'MinComputeResource',
       nodeNum: 'NodeNum',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -84,9 +157,16 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      clusterMode: 'string',
+      clusterSizeResource: 'string',
       DBClusterId: 'string',
+      engineParamsShrink: 'string',
       groupName: 'string',
       groupType: 'string',
+      maxClusterCount: 'number',
+      maxComputeResource: 'string',
+      minClusterCount: 'number',
+      minComputeResource: 'string',
       nodeNum: 'number',
       ownerAccount: 'string',
       ownerId: 'number',

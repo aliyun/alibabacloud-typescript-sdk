@@ -14,7 +14,7 @@ export class DescribeDBResourceGroupResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The queried resource groups.
+   * The queried resource group.
    */
   groupsInfo?: DescribeDBResourceGroupResponseBodyGroupsInfo[];
   /**

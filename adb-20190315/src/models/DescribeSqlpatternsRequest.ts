@@ -129,6 +129,7 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
    * 2021-09-30T00:10:00Z
    */
   startTime?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
@@ -140,6 +141,7 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       startTime: 'StartTime',
+      userName: 'UserName',
     };
   }
 
@@ -154,6 +156,7 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
       pageSize: 'number',
       regionId: 'string',
       startTime: 'string',
+      userName: 'string',
     };
   }
 

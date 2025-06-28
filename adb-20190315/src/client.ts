@@ -860,25 +860,50 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a resource group for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * Creates a resource group for an AnalyticDB for MySQL cluster.
    * 
    * @remarks
-   * ## Precautions
-   * This operation is applicable only for elastic clusters of 32 cores or more.
+   * This operation is suitable for the following editions:
+   * *   **Enterprise Edition**.
+   * *   **Basic Edition**.
+   * *   **Data Lakehouse Edition**.
+   * *   **Data Warehouse Edition in elastic mode**: 32 cores and 128 GB or more.
    * 
-   * @param request - CreateDBResourceGroupRequest
+   * @param tmpReq - CreateDBResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDBResourceGroupResponse
    */
-  async createDBResourceGroupWithOptions(request: $_model.CreateDBResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDBResourceGroupResponse> {
-    request.validate();
+  async createDBResourceGroupWithOptions(tmpReq: $_model.CreateDBResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDBResourceGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDBResourceGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.engineParams)) {
+      request.engineParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.engineParams, "EngineParams", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.clusterMode)) {
+      query["ClusterMode"] = request.clusterMode;
+    }
+
+    if (!$dara.isNull(request.clusterSizeResource)) {
+      query["ClusterSizeResource"] = request.clusterSizeResource;
+    }
+
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
+    if (!$dara.isNull(request.engineParamsShrink)) {
+      query["EngineParams"] = request.engineParamsShrink;
     }
 
     if (!$dara.isNull(request.groupName)) {
@@ -887,6 +912,22 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.groupType)) {
       query["GroupType"] = request.groupType;
+    }
+
+    if (!$dara.isNull(request.maxClusterCount)) {
+      query["MaxClusterCount"] = request.maxClusterCount;
+    }
+
+    if (!$dara.isNull(request.maxComputeResource)) {
+      query["MaxComputeResource"] = request.maxComputeResource;
+    }
+
+    if (!$dara.isNull(request.minClusterCount)) {
+      query["MinClusterCount"] = request.minClusterCount;
+    }
+
+    if (!$dara.isNull(request.minComputeResource)) {
+      query["MinComputeResource"] = request.minComputeResource;
     }
 
     if (!$dara.isNull(request.nodeNum)) {
@@ -927,11 +968,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a resource group for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * Creates a resource group for an AnalyticDB for MySQL cluster.
    * 
    * @remarks
-   * ## Precautions
-   * This operation is applicable only for elastic clusters of 32 cores or more.
+   * This operation is suitable for the following editions:
+   * *   **Enterprise Edition**.
+   * *   **Basic Edition**.
+   * *   **Data Lakehouse Edition**.
+   * *   **Data Warehouse Edition in elastic mode**: 32 cores and 128 GB or more.
    * 
    * @param request - CreateDBResourceGroupRequest
    * @returns CreateDBResourceGroupResponse
@@ -3237,6 +3281,10 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!$dara.isNull(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -3772,11 +3820,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a resource group for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * Queries the information about a resource group for an AnalyticDB for MySQL cluster.
    * 
    * @remarks
-   * ###
-   * You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+   * This operation is suitable for the following editions:
+   * *   **Enterprise Edition**.
+   * *   **Basic Edition**.
+   * *   **Data Lakehouse Edition**.
+   * *   **Data Warehouse Edition in elastic mode**: 32 cores and 128 GB or more.
    * 
    * @param request - DescribeDBResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3827,11 +3878,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a resource group for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * Queries the information about a resource group for an AnalyticDB for MySQL cluster.
    * 
    * @remarks
-   * ###
-   * You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+   * This operation is suitable for the following editions:
+   * *   **Enterprise Edition**.
+   * *   **Basic Edition**.
+   * *   **Data Lakehouse Edition**.
+   * *   **Data Warehouse Edition in elastic mode**: 32 cores and 128 GB or more.
    * 
    * @param request - DescribeDBResourceGroupRequest
    * @returns DescribeDBResourceGroupResponse
@@ -6099,6 +6153,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -9163,9 +9221,11 @@ export default class Client extends OpenApi {
    * Modifies the number of nodes or the query execution mode for a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
    * 
    * @remarks
-   * ## Precautions
-   * *   This operation is applicable only for elastic clusters of 32 cores or more.
-   * *   The number of nodes cannot be changed for the default resource group USER_DEFAULT.
+   * This operation is suitable for the following editions:
+   * *   **Enterprise Edition**.
+   * *   **Basic Edition**.
+   * *   **Data Lakehouse Edition**.
+   * *   **Data Warehouse Edition in elastic mode**: 32 cores and 128 GB or more. The number of nodes cannot be modified for the default resource group USER_DEFAULT.
    * 
    * @param tmpReq - ModifyDBResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9175,6 +9235,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ModifyDBResourceGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.engineParams)) {
+      request.engineParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.engineParams, "EngineParams", "json");
+    }
+
     if (!$dara.isNull(tmpReq.poolUserList)) {
       request.poolUserListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.poolUserList, "PoolUserList", "json");
     }
@@ -9184,8 +9248,20 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.clusterMode)) {
+      query["ClusterMode"] = request.clusterMode;
+    }
+
+    if (!$dara.isNull(request.clusterSizeResource)) {
+      query["ClusterSizeResource"] = request.clusterSizeResource;
+    }
+
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.engineParamsShrink)) {
+      query["EngineParams"] = request.engineParamsShrink;
     }
 
     if (!$dara.isNull(request.groupName)) {
@@ -9194,6 +9270,22 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.groupType)) {
       query["GroupType"] = request.groupType;
+    }
+
+    if (!$dara.isNull(request.maxClusterCount)) {
+      query["MaxClusterCount"] = request.maxClusterCount;
+    }
+
+    if (!$dara.isNull(request.maxComputeResource)) {
+      query["MaxComputeResource"] = request.maxComputeResource;
+    }
+
+    if (!$dara.isNull(request.minClusterCount)) {
+      query["MinClusterCount"] = request.minClusterCount;
+    }
+
+    if (!$dara.isNull(request.minComputeResource)) {
+      query["MinComputeResource"] = request.minComputeResource;
     }
 
     if (!$dara.isNull(request.nodeNum)) {
@@ -9241,9 +9333,11 @@ export default class Client extends OpenApi {
    * Modifies the number of nodes or the query execution mode for a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
    * 
    * @remarks
-   * ## Precautions
-   * *   This operation is applicable only for elastic clusters of 32 cores or more.
-   * *   The number of nodes cannot be changed for the default resource group USER_DEFAULT.
+   * This operation is suitable for the following editions:
+   * *   **Enterprise Edition**.
+   * *   **Basic Edition**.
+   * *   **Data Lakehouse Edition**.
+   * *   **Data Warehouse Edition in elastic mode**: 32 cores and 128 GB or more. The number of nodes cannot be modified for the default resource group USER_DEFAULT.
    * 
    * @param request - ModifyDBResourceGroupRequest
    * @returns ModifyDBResourceGroupResponse
