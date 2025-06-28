@@ -263,6 +263,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * connect
    */
   sessionStatus?: string;
+  streamMode?: number;
   /**
    * @remarks
    * The tags.
@@ -308,6 +309,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       regionId: 'RegionId',
       renderingType: 'RenderingType',
       sessionStatus: 'SessionStatus',
+      streamMode: 'StreamMode',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
@@ -352,6 +354,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       regionId: 'string',
       renderingType: 'string',
       sessionStatus: 'string',
+      streamMode: 'number',
       tags: { 'type': 'array', 'itemType': DescribeAndroidInstancesResponseBodyInstanceModelTags },
       vSwitchId: 'string',
       zoneId: 'string',

@@ -702,6 +702,10 @@ export default class Client extends OpenApi {
       query["ServerType"] = request.serverType;
     }
 
+    if (!$dara.isNull(request.streamMode)) {
+      query["StreamMode"] = request.streamMode;
+    }
+
     if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -2252,6 +2256,10 @@ export default class Client extends OpenApi {
   async disconnectAndroidInstanceWithOptions(request: $_model.DisconnectAndroidInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisconnectAndroidInstanceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.endUserId)) {
+      query["EndUserId"] = request.endUserId;
+    }
+
     if (!$dara.isNull(request.instanceIds)) {
       query["InstanceIds"] = request.instanceIds;
     }
@@ -2937,7 +2945,19 @@ export default class Client extends OpenApi {
    */
   async modifyCloudPhoneNodeWithOptions(request: $_model.ModifyCloudPhoneNodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCloudPhoneNodeResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.newNodeName)) {
+      query["NewNodeName"] = request.newNodeName;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.streamMode)) {
+      query["StreamMode"] = request.streamMode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2946,7 +2966,7 @@ export default class Client extends OpenApi {
       version: "2023-09-30",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",

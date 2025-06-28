@@ -19,10 +19,12 @@ export class ModifyCloudPhoneNodeRequest extends $dara.Model {
    * cpn-0ugbptfu473fy****
    */
   nodeId?: string;
+  streamMode?: number;
   static names(): { [key: string]: string } {
     return {
       newNodeName: 'NewNodeName',
       nodeId: 'NodeId',
+      streamMode: 'StreamMode',
     };
   }
 
@@ -30,6 +32,7 @@ export class ModifyCloudPhoneNodeRequest extends $dara.Model {
     return {
       newNodeName: 'string',
       nodeId: 'string',
+      streamMode: 'number',
     };
   }
 

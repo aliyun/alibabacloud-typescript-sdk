@@ -3,19 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DisconnectAndroidInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
+  endUserId?: string;
   instanceIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      endUserId: 'EndUserId',
       instanceIds: 'InstanceIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endUserId: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
     };
   }

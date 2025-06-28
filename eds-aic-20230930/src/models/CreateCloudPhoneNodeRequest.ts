@@ -165,6 +165,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
    * cpm.gn6.gx1
    */
   serverType?: string;
+  streamMode?: number;
   /**
    * @remarks
    * The resource tags.
@@ -197,6 +198,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
       resolutionWidth: 'ResolutionWidth',
       serverShareDataVolume: 'ServerShareDataVolume',
       serverType: 'ServerType',
+      streamMode: 'StreamMode',
       tag: 'Tag',
       vSwitchId: 'VSwitchId',
     };
@@ -221,6 +223,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
       resolutionWidth: 'number',
       serverShareDataVolume: 'number',
       serverType: 'string',
+      streamMode: 'number',
       tag: { 'type': 'array', 'itemType': CreateCloudPhoneNodeRequestTag },
       vSwitchId: 'string',
     };
