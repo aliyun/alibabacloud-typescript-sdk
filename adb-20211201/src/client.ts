@@ -6994,6 +6994,10 @@ export default class Client extends OpenApi {
       query["StartTime"] = request.startTime;
     }
 
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
