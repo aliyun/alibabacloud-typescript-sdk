@@ -1,8 +1,10 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { ACS } from "./Acs";
+import { EniCacheConfig } from "./EniCacheConfig";
 import { OversoldUsageConfig } from "./OversoldUsageConfig";
 import { WorkspaceSpecs } from "./WorkspaceSpecs";
+import { SandboxCacheConfig } from "./SandboxCacheConfig";
 import { SelfQuotaPreemptionConfig } from "./SelfQuotaPreemptionConfig";
 import { SubQuotaPreemptionConfig } from "./SubQuotaPreemptionConfig";
 import { UserVpc } from "./UserVpc";
@@ -23,8 +25,10 @@ export class QuotaConfig extends $dara.Model {
   enableGPUShare?: boolean;
   enablePreemptSubquotaWorkloads?: boolean;
   enableSubQuotaPreemption?: boolean;
+  eniCacheConfig?: EniCacheConfig;
   oversoldUsageInfo?: OversoldUsageConfig;
   resourceSpecs?: WorkspaceSpecs[];
+  sandboxCacheConfig?: SandboxCacheConfig;
   selfQuotaPreemptionConfig?: SelfQuotaPreemptionConfig;
   subQuotaPreemptionConfig?: SubQuotaPreemptionConfig;
   supportGPUDrivers?: string[];
@@ -42,8 +46,10 @@ export class QuotaConfig extends $dara.Model {
       enableGPUShare: 'EnableGPUShare',
       enablePreemptSubquotaWorkloads: 'EnablePreemptSubquotaWorkloads',
       enableSubQuotaPreemption: 'EnableSubQuotaPreemption',
+      eniCacheConfig: 'EniCacheConfig',
       oversoldUsageInfo: 'OversoldUsageInfo',
       resourceSpecs: 'ResourceSpecs',
+      sandboxCacheConfig: 'SandboxCacheConfig',
       selfQuotaPreemptionConfig: 'SelfQuotaPreemptionConfig',
       subQuotaPreemptionConfig: 'SubQuotaPreemptionConfig',
       supportGPUDrivers: 'SupportGPUDrivers',
@@ -60,8 +66,10 @@ export class QuotaConfig extends $dara.Model {
       enableGPUShare: 'boolean',
       enablePreemptSubquotaWorkloads: 'boolean',
       enableSubQuotaPreemption: 'boolean',
+      eniCacheConfig: EniCacheConfig,
       oversoldUsageInfo: OversoldUsageConfig,
       resourceSpecs: { 'type': 'array', 'itemType': WorkspaceSpecs },
+      sandboxCacheConfig: SandboxCacheConfig,
       selfQuotaPreemptionConfig: SelfQuotaPreemptionConfig,
       subQuotaPreemptionConfig: SubQuotaPreemptionConfig,
       supportGPUDrivers: { 'type': 'array', 'itemType': 'string' },
@@ -74,11 +82,17 @@ export class QuotaConfig extends $dara.Model {
     if(this.ACS && typeof (this.ACS as any).validate === 'function') {
       (this.ACS as any).validate();
     }
+    if(this.eniCacheConfig && typeof (this.eniCacheConfig as any).validate === 'function') {
+      (this.eniCacheConfig as any).validate();
+    }
     if(this.oversoldUsageInfo && typeof (this.oversoldUsageInfo as any).validate === 'function') {
       (this.oversoldUsageInfo as any).validate();
     }
     if(Array.isArray(this.resourceSpecs)) {
       $dara.Model.validateArray(this.resourceSpecs);
+    }
+    if(this.sandboxCacheConfig && typeof (this.sandboxCacheConfig as any).validate === 'function') {
+      (this.sandboxCacheConfig as any).validate();
     }
     if(this.selfQuotaPreemptionConfig && typeof (this.selfQuotaPreemptionConfig as any).validate === 'function') {
       (this.selfQuotaPreemptionConfig as any).validate();

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MachineGroup extends $dara.Model {
+  cpu?: number;
   creatorID?: string;
   /**
    * @example
@@ -17,11 +18,15 @@ export class MachineGroup extends $dara.Model {
   gmtExpiredTime?: string;
   gmtModifiedTime?: string;
   gmtStartedTime?: string;
+  gpu?: number;
+  gpuMemory?: number;
+  gpuType?: string;
   /**
    * @example
    * mg1
    */
   machineGroupID?: string;
+  memory?: number;
   orderInstanceId?: string;
   paymentDuration?: string;
   paymentDurationUnit?: string;
@@ -29,10 +34,12 @@ export class MachineGroup extends $dara.Model {
   reasonCode?: string;
   reasonMessage?: string;
   resourceGroupID?: string;
+  resourceType?: string;
   status?: string;
   supportedDrivers?: string[];
   static names(): { [key: string]: string } {
     return {
+      cpu: 'Cpu',
       creatorID: 'CreatorID',
       defaultDriver: 'DefaultDriver',
       diskCapacity: 'DiskCapacity',
@@ -43,7 +50,11 @@ export class MachineGroup extends $dara.Model {
       gmtExpiredTime: 'GmtExpiredTime',
       gmtModifiedTime: 'GmtModifiedTime',
       gmtStartedTime: 'GmtStartedTime',
+      gpu: 'Gpu',
+      gpuMemory: 'GpuMemory',
+      gpuType: 'GpuType',
       machineGroupID: 'MachineGroupID',
+      memory: 'Memory',
       orderInstanceId: 'OrderInstanceId',
       paymentDuration: 'PaymentDuration',
       paymentDurationUnit: 'PaymentDurationUnit',
@@ -51,6 +62,7 @@ export class MachineGroup extends $dara.Model {
       reasonCode: 'ReasonCode',
       reasonMessage: 'ReasonMessage',
       resourceGroupID: 'ResourceGroupID',
+      resourceType: 'ResourceType',
       status: 'Status',
       supportedDrivers: 'SupportedDrivers',
     };
@@ -58,6 +70,7 @@ export class MachineGroup extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cpu: 'number',
       creatorID: 'string',
       defaultDriver: 'string',
       diskCapacity: 'number',
@@ -68,7 +81,11 @@ export class MachineGroup extends $dara.Model {
       gmtExpiredTime: 'string',
       gmtModifiedTime: 'string',
       gmtStartedTime: 'string',
+      gpu: 'number',
+      gpuMemory: 'number',
+      gpuType: 'string',
       machineGroupID: 'string',
+      memory: 'number',
       orderInstanceId: 'string',
       paymentDuration: 'string',
       paymentDurationUnit: 'string',
@@ -76,6 +93,7 @@ export class MachineGroup extends $dara.Model {
       reasonCode: 'string',
       reasonMessage: 'string',
       resourceGroupID: 'string',
+      resourceType: 'string',
       status: 'string',
       supportedDrivers: { 'type': 'array', 'itemType': 'string' },
     };

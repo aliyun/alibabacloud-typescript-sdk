@@ -28,6 +28,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  resourceGroupIDs?: string;
   /**
    * @example
    * Lingjun
@@ -55,6 +56,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceGroupIDs: 'ResourceGroupIDs',
       resourceType: 'ResourceType',
       showAll: 'ShowAll',
       sortBy: 'SortBy',
@@ -69,6 +71,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupIDs: 'string',
       resourceType: 'string',
       showAll: 'boolean',
       sortBy: 'string',
