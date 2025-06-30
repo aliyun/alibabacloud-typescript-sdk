@@ -73,6 +73,10 @@ export class ModuleItemListSubItemsRefundChangeRuleOfferPenaltyInfoMapValue exte
    * 0
    */
   timeUnitCode?: number;
+  title?: string;
+  depTime?: string;
+  segmentNumber?: string;
+  descInfos?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
       struct: 'struct',
@@ -89,6 +93,10 @@ export class ModuleItemListSubItemsRefundChangeRuleOfferPenaltyInfoMapValue exte
       startTime: 'start_time',
       endTime: 'end_time',
       timeUnitCode: 'time_unit_code',
+      title: 'title',
+      depTime: 'dep_time',
+      segmentNumber: 'segment_number',
+      descInfos: 'desc_infos',
     };
   }
 
@@ -108,10 +116,17 @@ export class ModuleItemListSubItemsRefundChangeRuleOfferPenaltyInfoMapValue exte
       startTime: 'number',
       endTime: 'number',
       timeUnitCode: 'number',
+      title: 'string',
+      depTime: 'string',
+      segmentNumber: 'string',
+      descInfos: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
 
   validate() {
+    if(this.descInfos) {
+      $dara.Model.validateMap(this.descInfos);
+    }
     super.validate();
   }
 

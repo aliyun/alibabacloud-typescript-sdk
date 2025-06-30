@@ -5,24 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class IntlFlightOrderCancelRequest extends $dara.Model {
   /**
    * @example
-   * TRAVEL
+   * 10001
    */
-  isvName?: string;
-  memo?: string;
+  btripUserId?: string;
   /**
    * @example
-   * 1012000000000000
+   * ZHANG/SAN
+   */
+  buyerName?: string;
+  isvName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
    */
   orderId?: string;
-  /**
-   * @example
-   * F11374007131319304192
-   */
   outOrderId?: string;
   static names(): { [key: string]: string } {
     return {
+      btripUserId: 'btrip_user_id',
+      buyerName: 'buyer_name',
       isvName: 'isv_name',
-      memo: 'memo',
       orderId: 'order_id',
       outOrderId: 'out_order_id',
     };
@@ -30,8 +32,9 @@ export class IntlFlightOrderCancelRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      btripUserId: 'string',
+      buyerName: 'string',
       isvName: 'string',
-      memo: 'string',
       orderId: 'string',
       outOrderId: 'string',
     };

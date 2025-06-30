@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Model {
+  adjustTime?: string;
   /**
    * @example
    * 34534543545345
@@ -31,6 +32,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
    * 13:51:43
    */
   arrTime?: string;
+  baseLocation?: string;
   /**
    * @example
    * 2022-05-15T22:27Z
@@ -65,6 +67,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
    * 2391-CN90.150
    */
   costCenterNumber?: string;
+  costDepartment?: string;
   /**
    * @example
    * 1
@@ -75,6 +78,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
    * 12.7
    */
   couponPrice?: number;
+  customContent?: string;
   deductibleTax?: number;
   depCityCode?: string;
   department?: string;
@@ -116,6 +120,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
   index?: string;
   invoiceTitle?: string;
   levelName?: string;
+  mappingCompanyCode?: string;
   memo?: string;
   /**
    * @example
@@ -139,17 +144,21 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
    * 0
    */
   personSettleFee?: number;
+  position?: string;
+  positionLevel?: string;
   /**
    * @example
    * 4988580
    */
   primaryId?: number;
+  processorOaCode?: string;
   /**
    * @example
    * 23423432423
    */
   projectCode?: string;
   projectName?: string;
+  protocolDiscountFee?: number;
   providerName?: string;
   /**
    * @example
@@ -232,6 +241,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
     return {
+      adjustTime: 'adjust_time',
       alipayTradeNo: 'alipay_trade_no',
       applyArrCityCode: 'apply_arr_city_code',
       applyArrCityName: 'apply_arr_city_name',
@@ -244,6 +254,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       arrDate: 'arr_date',
       arrLocation: 'arr_location',
       arrTime: 'arr_time',
+      baseLocation: 'base_location',
       billRecordTime: 'bill_record_time',
       billingEntity: 'billing_entity',
       bookModel: 'book_model',
@@ -258,8 +269,10 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       categoryDesc: 'category_desc',
       costCenter: 'cost_center',
       costCenterNumber: 'cost_center_number',
+      costDepartment: 'cost_department',
       coupon: 'coupon',
       couponPrice: 'coupon_price',
+      customContent: 'custom_content',
       deductibleTax: 'deductible_tax',
       depCityCode: 'dep_city_code',
       department: 'department',
@@ -277,6 +290,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       index: 'index',
       invoiceTitle: 'invoice_title',
       levelName: 'level_name',
+      mappingCompanyCode: 'mapping_company_code',
       memo: 'memo',
       orderId: 'order_id',
       orderPrice: 'order_price',
@@ -284,9 +298,13 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       paymentDepartmentId: 'payment_department_id',
       paymentDepartmentName: 'payment_department_name',
       personSettleFee: 'person_settle_fee',
+      position: 'position',
+      positionLevel: 'position_level',
       primaryId: 'primary_id',
+      processorOaCode: 'processor_oa_code',
       projectCode: 'project_code',
       projectName: 'project_name',
+      protocolDiscountFee: 'protocol_discount_fee',
       providerName: 'provider_name',
       realDriveDistance: 'real_drive_distance',
       realFromAddr: 'real_from_addr',
@@ -325,6 +343,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
 
   static types(): { [key: string]: any } {
     return {
+      adjustTime: 'string',
       alipayTradeNo: 'string',
       applyArrCityCode: 'string',
       applyArrCityName: 'string',
@@ -337,6 +356,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       arrDate: 'string',
       arrLocation: 'string',
       arrTime: 'string',
+      baseLocation: 'string',
       billRecordTime: 'string',
       billingEntity: 'string',
       bookModel: 'string',
@@ -351,8 +371,10 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       categoryDesc: 'string',
       costCenter: 'string',
       costCenterNumber: 'string',
+      costDepartment: 'string',
       coupon: 'number',
       couponPrice: 'number',
+      customContent: 'string',
       deductibleTax: 'number',
       depCityCode: 'string',
       department: 'string',
@@ -370,6 +392,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       index: 'string',
       invoiceTitle: 'string',
       levelName: 'string',
+      mappingCompanyCode: 'string',
       memo: 'string',
       orderId: 'string',
       orderPrice: 'number',
@@ -377,9 +400,13 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       paymentDepartmentId: 'string',
       paymentDepartmentName: 'string',
       personSettleFee: 'number',
+      position: 'string',
+      positionLevel: 'string',
       primaryId: 'number',
+      processorOaCode: 'string',
       projectCode: 'string',
       projectName: 'string',
+      protocolDiscountFee: 'number',
       providerName: 'string',
       realDriveDistance: 'string',
       realFromAddr: 'string',

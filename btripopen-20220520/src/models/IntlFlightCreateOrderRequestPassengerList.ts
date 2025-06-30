@@ -1,7 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { IntlFlightCreateOrderRequestPassengerListCertInfo } from "./IntlFlightCreateOrderRequestPassengerListCertInfo";
-import { IntlFlightCreateOrderRequestPassengerListSubsidiaryCertInfoList } from "./IntlFlightCreateOrderRequestPassengerListSubsidiaryCertInfoList";
 
 
 export class IntlFlightCreateOrderRequestPassengerList extends $dara.Model {
@@ -10,57 +9,46 @@ export class IntlFlightCreateOrderRequestPassengerList extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2020-01-01
+   * 1998-12-28
    */
   birthday?: string;
-  /**
-   * @example
-   * 100/12131231
-   */
-  cascadeDeptMask?: string;
-  cascadeDeptName?: string;
   /**
    * @remarks
    * This parameter is required.
    */
   certInfo?: IntlFlightCreateOrderRequestPassengerListCertInfo;
-  costCenterName?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 312434
+   * ZHANG/SAN
    */
-  costCenterNumber?: string;
+  fullName?: string;
   /**
-   * @example
-   * 12131231
-   */
-  deptId?: string;
-  deptName?: string;
-  /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 0
    */
   gender?: number;
   /**
    * @example
-   * 10001313
-   */
-  invoiceId?: string;
-  invoiceTitle?: string;
-  /**
-   * @example
-   * ZNW0525
+   * L5000924
    */
   jobNo?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 086
+   * 中国大陆
    */
-  mobileCountryCode?: string;
   nationality?: string;
   /**
-   * @example
-   * CN
+   * @remarks
+   * This parameter is required.
    */
   nationalityCode?: string;
   /**
@@ -68,30 +56,23 @@ export class IntlFlightCreateOrderRequestPassengerList extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 0
-   */
-  passengerType?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 18012341234
+   * 13100008888
    */
   phone?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 10123143
+   * 0
    */
-  projectCode?: string;
-  projectTitle?: string;
-  subsidiaryCertInfoList?: IntlFlightCreateOrderRequestPassengerListSubsidiaryCertInfoList[];
+  type?: number;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 13123123212
+   * 12292812036903456
    */
   userId?: string;
   /**
@@ -102,25 +83,14 @@ export class IntlFlightCreateOrderRequestPassengerList extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       birthday: 'birthday',
-      cascadeDeptMask: 'cascade_dept_mask',
-      cascadeDeptName: 'cascade_dept_name',
       certInfo: 'cert_info',
-      costCenterName: 'cost_center_name',
-      costCenterNumber: 'cost_center_number',
-      deptId: 'dept_id',
-      deptName: 'dept_name',
+      fullName: 'full_name',
       gender: 'gender',
-      invoiceId: 'invoice_id',
-      invoiceTitle: 'invoice_title',
       jobNo: 'job_no',
-      mobileCountryCode: 'mobile_country_code',
       nationality: 'nationality',
       nationalityCode: 'nationality_code',
-      passengerType: 'passenger_type',
       phone: 'phone',
-      projectCode: 'project_code',
-      projectTitle: 'project_title',
-      subsidiaryCertInfoList: 'subsidiary_cert_info_list',
+      type: 'type',
       userId: 'user_id',
       userType: 'user_type',
     };
@@ -129,25 +99,14 @@ export class IntlFlightCreateOrderRequestPassengerList extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       birthday: 'string',
-      cascadeDeptMask: 'string',
-      cascadeDeptName: 'string',
       certInfo: IntlFlightCreateOrderRequestPassengerListCertInfo,
-      costCenterName: 'string',
-      costCenterNumber: 'string',
-      deptId: 'string',
-      deptName: 'string',
+      fullName: 'string',
       gender: 'number',
-      invoiceId: 'string',
-      invoiceTitle: 'string',
       jobNo: 'string',
-      mobileCountryCode: 'string',
       nationality: 'string',
       nationalityCode: 'string',
-      passengerType: 'number',
       phone: 'string',
-      projectCode: 'string',
-      projectTitle: 'string',
-      subsidiaryCertInfoList: { 'type': 'array', 'itemType': IntlFlightCreateOrderRequestPassengerListSubsidiaryCertInfoList },
+      type: 'number',
       userId: 'string',
       userType: 'number',
     };
@@ -156,9 +115,6 @@ export class IntlFlightCreateOrderRequestPassengerList extends $dara.Model {
   validate() {
     if(this.certInfo && typeof (this.certInfo as any).validate === 'function') {
       (this.certInfo as any).validate();
-    }
-    if(Array.isArray(this.subsidiaryCertInfoList)) {
-      $dara.Model.validateArray(this.subsidiaryCertInfoList);
     }
     super.validate();
   }

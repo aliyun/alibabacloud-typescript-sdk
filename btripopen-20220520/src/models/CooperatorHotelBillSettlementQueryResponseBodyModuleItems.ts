@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
+  adjustTime?: string;
   /**
    * @example
    * 124
@@ -31,6 +32,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
    * 1.0
    */
   averageNights?: number;
+  baseLocation?: string;
   /**
    * @example
    * 2023-01-01 00:00:00
@@ -110,6 +112,8 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
    * 123
    */
   costCenterNumber?: string;
+  costDepartment?: string;
+  customContent?: string;
   department?: string;
   /**
    * @example
@@ -144,6 +148,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
   isEarlyDeparture?: string;
   isNegotiation?: string;
   isShareStr?: string;
+  mappingCompanyCode?: string;
   /**
    * @example
    * 2
@@ -182,11 +187,14 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
    * 10.0
    */
   personSettlePrice?: number;
+  position?: string;
+  positionLevel?: string;
   /**
    * @example
    * 72328485
    */
   primaryId?: number;
+  processorOaCode?: string;
   /**
    * @example
    * acs
@@ -292,6 +300,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
     return {
+      adjustTime: 'adjust_time',
       alipayTradeNo: 'alipay_trade_no',
       applyArrCityCode: 'apply_arr_city_code',
       applyArrCityName: 'apply_arr_city_name',
@@ -300,6 +309,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
       averageNights: 'average_nights',
+      baseLocation: 'base_location',
       billRecordTime: 'bill_record_time',
       bookChannel: 'book_channel',
       bookMode: 'book_mode',
@@ -327,6 +337,8 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       corpTotalFee: 'corp_total_fee',
       costCenter: 'cost_center',
       costCenterNumber: 'cost_center_number',
+      costDepartment: 'cost_department',
+      customContent: 'custom_content',
       department: 'department',
       departmentId: 'department_id',
       exceedReason: 'exceed_reason',
@@ -341,6 +353,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       isEarlyDeparture: 'is_early_departure',
       isNegotiation: 'is_negotiation',
       isShareStr: 'is_share_str',
+      mappingCompanyCode: 'mapping_company_code',
       nights: 'nights',
       orderId: 'order_id',
       orderPrice: 'order_price',
@@ -351,7 +364,10 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       paymentDepartmentName: 'payment_department_name',
       personRefundFee: 'person_refund_fee',
       personSettlePrice: 'person_settle_price',
+      position: 'position',
+      positionLevel: 'position_level',
       primaryId: 'primary_id',
+      processorOaCode: 'processor_oa_code',
       projectCode: 'project_code',
       projectName: 'project_name',
       promotionFee: 'promotion_fee',
@@ -388,6 +404,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
 
   static types(): { [key: string]: any } {
     return {
+      adjustTime: 'string',
       alipayTradeNo: 'string',
       applyArrCityCode: 'string',
       applyArrCityName: 'string',
@@ -396,6 +413,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       applyExtendField: 'string',
       applyId: 'string',
       averageNights: 'number',
+      baseLocation: 'string',
       billRecordTime: 'string',
       bookChannel: 'string',
       bookMode: 'string',
@@ -423,6 +441,8 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       corpTotalFee: 'number',
       costCenter: 'string',
       costCenterNumber: 'string',
+      costDepartment: 'string',
+      customContent: 'string',
       department: 'string',
       departmentId: 'string',
       exceedReason: 'string',
@@ -437,6 +457,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       isEarlyDeparture: 'string',
       isNegotiation: 'string',
       isShareStr: 'string',
+      mappingCompanyCode: 'string',
       nights: 'number',
       orderId: 'string',
       orderPrice: 'number',
@@ -447,7 +468,10 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       paymentDepartmentName: 'string',
       personRefundFee: 'number',
       personSettlePrice: 'number',
+      position: 'string',
+      positionLevel: 'string',
       primaryId: 'number',
+      processorOaCode: 'string',
       projectCode: 'string',
       projectName: 'string',
       promotionFee: 'number',

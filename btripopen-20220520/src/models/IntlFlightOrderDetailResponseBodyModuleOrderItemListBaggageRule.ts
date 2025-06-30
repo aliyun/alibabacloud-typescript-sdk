@@ -1,11 +1,11 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModuleOrderItemListBaggageRuleBaggageInfoMapValue } from "./ModuleOrderItemListBaggageRuleBaggageInfoMapValue";
+import { ModuleOrderItemListBaggageRuleOfferBaggageInfoMapValue } from "./ModuleOrderItemListBaggageRuleOfferBaggageInfoMapValue";
 
 
 export class IntlFlightOrderDetailResponseBodyModuleOrderItemListBaggageRule extends $dara.Model {
   baggageDigest?: string;
-  baggageInfoMap?: { [key: string]: ModuleOrderItemListBaggageRuleBaggageInfoMapValue[] };
+  offerBaggageInfoMap?: { [key: string]: ModuleOrderItemListBaggageRuleOfferBaggageInfoMapValue[] };
   /**
    * @example
    * true
@@ -14,7 +14,7 @@ export class IntlFlightOrderDetailResponseBodyModuleOrderItemListBaggageRule ext
   static names(): { [key: string]: string } {
     return {
       baggageDigest: 'baggage_digest',
-      baggageInfoMap: 'baggage_info_map',
+      offerBaggageInfoMap: 'offer_baggage_info_map',
       structuredBaggage: 'structured_baggage',
     };
   }
@@ -22,14 +22,14 @@ export class IntlFlightOrderDetailResponseBodyModuleOrderItemListBaggageRule ext
   static types(): { [key: string]: any } {
     return {
       baggageDigest: 'string',
-      baggageInfoMap: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': ModuleOrderItemListBaggageRuleBaggageInfoMapValue } },
+      offerBaggageInfoMap: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': ModuleOrderItemListBaggageRuleOfferBaggageInfoMapValue } },
       structuredBaggage: 'boolean',
     };
   }
 
   validate() {
-    if(this.baggageInfoMap) {
-      $dara.Model.validateMap(this.baggageInfoMap);
+    if(this.offerBaggageInfoMap) {
+      $dara.Model.validateMap(this.offerBaggageInfoMap);
     }
     super.validate();
   }

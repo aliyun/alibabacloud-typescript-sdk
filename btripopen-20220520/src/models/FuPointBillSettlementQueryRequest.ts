@@ -13,6 +13,7 @@ export class FuPointBillSettlementQueryRequest extends $dara.Model {
    * cooperator_alibtrip
    */
   cooperatorId?: string;
+  orderId?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -53,6 +54,7 @@ export class FuPointBillSettlementQueryRequest extends $dara.Model {
     return {
       billBatch: 'bill_batch',
       cooperatorId: 'cooperator_id',
+      orderId: 'order_id',
       pageNo: 'page_no',
       pageSize: 'page_size',
       periodEnd: 'period_end',
@@ -66,6 +68,7 @@ export class FuPointBillSettlementQueryRequest extends $dara.Model {
     return {
       billBatch: 'string',
       cooperatorId: 'string',
+      orderId: 'number',
       pageNo: 'number',
       pageSize: 'number',
       periodEnd: 'string',

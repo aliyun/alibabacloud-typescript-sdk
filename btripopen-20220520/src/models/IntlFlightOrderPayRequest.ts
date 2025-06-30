@@ -3,51 +3,47 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightOrderPayRequest extends $dara.Model {
-  extParams?: { [key: string]: any };
   /**
    * @example
-   * TRAVEL
+   * 10001
    */
+  btripUserId?: string;
+  /**
+   * @example
+   * ZHANG/SAN
+   */
+  buyerName?: string;
   isvName?: string;
   /**
-   * @example
-   * 1002145190081005400
+   * @remarks
+   * This parameter is required.
    */
   orderId?: string;
-  /**
-   * @example
-   * F11372878673688133632
-   */
+  orderPrice?: number;
   outOrderId?: string;
-  /**
-   * @example
-   * 15500
-   */
-  totalPrice?: number;
   static names(): { [key: string]: string } {
     return {
-      extParams: 'ext_params',
+      btripUserId: 'btrip_user_id',
+      buyerName: 'buyer_name',
       isvName: 'isv_name',
       orderId: 'order_id',
+      orderPrice: 'order_price',
       outOrderId: 'out_order_id',
-      totalPrice: 'total_price',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      extParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      btripUserId: 'string',
+      buyerName: 'string',
       isvName: 'string',
       orderId: 'string',
+      orderPrice: 'number',
       outOrderId: 'string',
-      totalPrice: 'number',
     };
   }
 
   validate() {
-    if(this.extParams) {
-      $dara.Model.validateMap(this.extParams);
-    }
     super.validate();
   }
 

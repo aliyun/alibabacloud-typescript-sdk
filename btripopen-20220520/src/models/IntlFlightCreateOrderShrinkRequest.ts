@@ -3,75 +3,58 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightCreateOrderShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * fcoid_deb6372db8194f1c94c23bc4fadc508d
-   */
   asyncCreateOrderKey?: string;
+  asyncCreateOrderMode?: boolean;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * false
+   * 10001
    */
-  asyncCreateOrderMode?: boolean;
+  btripUserId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ZHANG/SAN
+   */
+  buyerName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   contactInfoShrink?: string;
-  costCenterShrink?: string;
   extraInfoShrink?: string;
-  /**
-   * @example
-   * open12k0lclldfdc7v10E2HaRrOr00
-   */
   isvName?: string;
+  orderPrice?: number;
   /**
-   * @example
-   * chinese
-   */
-  language?: string;
-  /**
-   * @example
-   * 56319a175bdf4b1898190bd7edb603b5_0
+   * @remarks
+   * This parameter is required.
    */
   otaItemId?: string;
-  /**
-   * @example
-   * F11380075736888770560
-   */
   outOrderId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   passengerListShrink?: string;
-  /**
-   * @example
-   * fcoid_deb6372db8194f1c94c23bc4fadc508d
-   */
   renderKey?: string;
-  /**
-   * @example
-   * 120000
-   */
-  totalPriceCent?: number;
-  /**
-   * @example
-   * 12341234
-   */
-  userId?: string;
-  userName?: string;
   static names(): { [key: string]: string } {
     return {
       asyncCreateOrderKey: 'async_create_order_key',
       asyncCreateOrderMode: 'async_create_order_mode',
+      btripUserId: 'btrip_user_id',
+      buyerName: 'buyer_name',
       contactInfoShrink: 'contact_info',
-      costCenterShrink: 'cost_center',
       extraInfoShrink: 'extra_info',
       isvName: 'isv_name',
-      language: 'language',
+      orderPrice: 'order_price',
       otaItemId: 'ota_item_id',
       outOrderId: 'out_order_id',
       passengerListShrink: 'passenger_list',
       renderKey: 'render_key',
-      totalPriceCent: 'total_price_cent',
-      userId: 'user_id',
-      userName: 'user_name',
     };
   }
 
@@ -79,18 +62,16 @@ export class IntlFlightCreateOrderShrinkRequest extends $dara.Model {
     return {
       asyncCreateOrderKey: 'string',
       asyncCreateOrderMode: 'boolean',
+      btripUserId: 'string',
+      buyerName: 'string',
       contactInfoShrink: 'string',
-      costCenterShrink: 'string',
       extraInfoShrink: 'string',
       isvName: 'string',
-      language: 'string',
+      orderPrice: 'number',
       otaItemId: 'string',
       outOrderId: 'string',
       passengerListShrink: 'string',
       renderKey: 'string',
-      totalPriceCent: 'number',
-      userId: 'string',
-      userName: 'string',
     };
   }
 

@@ -3,20 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightOrderPayResponseBodyModule extends $dara.Model {
-  /**
-   * @example
-   * 51000
-   */
-  price?: number;
+  actualPayPrice?: number;
+  payStatus?: number;
   static names(): { [key: string]: string } {
     return {
-      price: 'price',
+      actualPayPrice: 'actual_pay_price',
+      payStatus: 'pay_status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      price: 'number',
+      actualPayPrice: 'number',
+      payStatus: 'number',
     };
   }
 

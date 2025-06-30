@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Model {
+  adjustTime?: string;
   /**
    * @example
    * 2021123432260
@@ -36,6 +37,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
    * 1.0
    */
   averageNights?: number;
+  baseLocation?: string;
   /**
    * @example
    * 2022-07-20T10:40Z
@@ -110,12 +112,14 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
    * 8b7f3cd-24324-097
    */
   costCenterNumber?: string;
+  costDepartment?: string;
   country?: string;
   /**
    * @example
    * 1454567
    */
   countryCode?: string;
+  customContent?: string;
   deductibleTax?: number;
   department?: string;
   departmentId?: string;
@@ -156,6 +160,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
    * 132143534543
    */
   mainApplyId?: string;
+  mappingCompanyCode?: string;
   /**
    * @example
    * 2
@@ -195,11 +200,14 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
    * 88.96
    */
   personSettlePrice?: number;
+  position?: string;
+  positionLevel?: string;
   /**
    * @example
    * 4564547
    */
   primaryId?: number;
+  processorOaCode?: string;
   /**
    * @example
    * 2345235435
@@ -322,6 +330,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
     return {
+      adjustTime: 'adjust_time',
       alipayTradeNo: 'alipay_trade_no',
       amountCurrency: 'amount_currency',
       applyArrCityCode: 'apply_arr_city_code',
@@ -331,6 +340,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
       averageNights: 'average_nights',
+      baseLocation: 'base_location',
       billRecordTime: 'bill_record_time',
       bookMode: 'book_mode',
       bookReason: 'book_reason',
@@ -353,8 +363,10 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       corpTotalFee: 'corp_total_fee',
       costCenter: 'cost_center',
       costCenterNumber: 'cost_center_number',
+      costDepartment: 'cost_department',
       country: 'country',
       countryCode: 'country_code',
+      customContent: 'custom_content',
       deductibleTax: 'deductible_tax',
       department: 'department',
       departmentId: 'department_id',
@@ -371,6 +383,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       isNegotiation: 'is_negotiation',
       isShareStr: 'is_share_str',
       mainApplyId: 'main_apply_id',
+      mappingCompanyCode: 'mapping_company_code',
       nights: 'nights',
       orderId: 'order_id',
       orderPrice: 'order_price',
@@ -382,7 +395,10 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       paymentDepartmentName: 'payment_department_name',
       personRefundFee: 'person_refund_fee',
       personSettlePrice: 'person_settle_price',
+      position: 'position',
+      positionLevel: 'position_level',
       primaryId: 'primary_id',
+      processorOaCode: 'processor_oa_code',
       projectCode: 'project_code',
       projectName: 'project_name',
       promotionFee: 'promotion_fee',
@@ -420,6 +436,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
 
   static types(): { [key: string]: any } {
     return {
+      adjustTime: 'string',
       alipayTradeNo: 'string',
       amountCurrency: 'string',
       applyArrCityCode: 'string',
@@ -429,6 +446,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       applyExtendField: 'string',
       applyId: 'string',
       averageNights: 'number',
+      baseLocation: 'string',
       billRecordTime: 'string',
       bookMode: 'string',
       bookReason: 'string',
@@ -451,8 +469,10 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       corpTotalFee: 'number',
       costCenter: 'string',
       costCenterNumber: 'string',
+      costDepartment: 'string',
       country: 'string',
       countryCode: 'string',
+      customContent: 'string',
       deductibleTax: 'number',
       department: 'string',
       departmentId: 'string',
@@ -469,6 +489,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       isNegotiation: 'string',
       isShareStr: 'string',
       mainApplyId: 'string',
+      mappingCompanyCode: 'string',
       nights: 'number',
       orderId: 'string',
       orderPrice: 'number',
@@ -480,7 +501,10 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       paymentDepartmentName: 'string',
       personRefundFee: 'number',
       personSettlePrice: 'number',
+      position: 'string',
+      positionLevel: 'string',
       primaryId: 'number',
+      processorOaCode: 'string',
       projectCode: 'string',
       projectName: 'string',
       promotionFee: 'number',

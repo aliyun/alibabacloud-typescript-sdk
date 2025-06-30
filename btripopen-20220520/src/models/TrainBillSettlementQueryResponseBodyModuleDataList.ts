@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Model {
+  adjustTime?: string;
   /**
    * @example
    * 2021123432260
@@ -37,6 +38,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
    * 12:30
    */
   arrTime?: string;
+  baseLocation?: string;
   /**
    * @example
    * 2022-05-15T22:27Z
@@ -78,11 +80,13 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
    * T85
    */
   costCenterNumber?: string;
+  costDepartment?: string;
   /**
    * @example
    * 0
    */
   coupon?: number;
+  customContent?: string;
   deductibleTax?: number;
   depCityCode?: string;
   depCityName?: string;
@@ -116,6 +120,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
   invoiceTitle?: string;
   isTransferOrder?: string;
   longTicketNo?: string;
+  mappingCompanyCode?: string;
   maxCabin?: string;
   /**
    * @example
@@ -135,12 +140,15 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
   overApplyId?: string;
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
+  position?: string;
+  positionLevel?: string;
   /**
    * @example
    * 4740293
    */
   primaryId?: number;
   printTicketPrice?: number;
+  processorOaCode?: string;
   /**
    * @example
    * 2345235435
@@ -241,6 +249,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
     return {
+      adjustTime: 'adjust_time',
       alipayTradeNo: 'alipay_trade_no',
       applyArrCityCode: 'apply_arr_city_code',
       applyArrCityName: 'apply_arr_city_name',
@@ -255,6 +264,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       arrStationLocation: 'arr_station_location',
       arrStationLocationCode: 'arr_station_location_code',
       arrTime: 'arr_time',
+      baseLocation: 'base_location',
       billRecordTime: 'bill_record_time',
       bookTime: 'book_time',
       bookerId: 'booker_id',
@@ -272,7 +282,9 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       coachNo: 'coach_no',
       costCenter: 'cost_center',
       costCenterNumber: 'cost_center_number',
+      costDepartment: 'cost_department',
       coupon: 'coupon',
+      customContent: 'custom_content',
       deductibleTax: 'deductible_tax',
       depCityCode: 'dep_city_code',
       depCityName: 'dep_city_name',
@@ -290,6 +302,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       invoiceTitle: 'invoice_title',
       isTransferOrder: 'is_transfer_order',
       longTicketNo: 'long_ticket_no',
+      mappingCompanyCode: 'mapping_company_code',
       maxCabin: 'max_cabin',
       orderId: 'order_id',
       orderPrice: 'order_price',
@@ -297,8 +310,11 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       overApplyId: 'over_apply_id',
       paymentDepartmentId: 'payment_department_id',
       paymentDepartmentName: 'payment_department_name',
+      position: 'position',
+      positionLevel: 'position_level',
       primaryId: 'primary_id',
       printTicketPrice: 'print_ticket_price',
+      processorOaCode: 'processor_oa_code',
       projectCode: 'project_code',
       projectName: 'project_name',
       refundAffiliateNo: 'refund_affiliate_no',
@@ -343,6 +359,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
 
   static types(): { [key: string]: any } {
     return {
+      adjustTime: 'string',
       alipayTradeNo: 'string',
       applyArrCityCode: 'string',
       applyArrCityName: 'string',
@@ -357,6 +374,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       arrStationLocation: 'string',
       arrStationLocationCode: 'string',
       arrTime: 'string',
+      baseLocation: 'string',
       billRecordTime: 'string',
       bookTime: 'string',
       bookerId: 'string',
@@ -374,7 +392,9 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       coachNo: 'string',
       costCenter: 'string',
       costCenterNumber: 'string',
+      costDepartment: 'string',
       coupon: 'number',
+      customContent: 'string',
       deductibleTax: 'number',
       depCityCode: 'string',
       depCityName: 'string',
@@ -392,6 +412,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       invoiceTitle: 'string',
       isTransferOrder: 'string',
       longTicketNo: 'string',
+      mappingCompanyCode: 'string',
       maxCabin: 'string',
       orderId: 'string',
       orderPrice: 'number',
@@ -399,8 +420,11 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       overApplyId: 'string',
       paymentDepartmentId: 'string',
       paymentDepartmentName: 'string',
+      position: 'string',
+      positionLevel: 'string',
       primaryId: 'number',
       printTicketPrice: 'number',
+      processorOaCode: 'string',
       projectCode: 'string',
       projectName: 'string',
       refundAffiliateNo: 'string',

@@ -9,23 +9,23 @@ export class ModuleFlightItemListBestPriceItemShoppingItemMapValueCabinQuantityL
    * @example
    * 0
    */
-  segmentIndex?: number;
+  journeyIndex?: number;
   /**
    * @example
    * 0
    */
-  journeyIndex?: number;
+  segmentIndex?: number;
   static names(): { [key: string]: string } {
     return {
-      segmentIndex: 'segment_index',
       journeyIndex: 'journey_index',
+      segmentIndex: 'segment_index',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      segmentIndex: 'number',
       journeyIndex: 'number',
+      segmentIndex: 'number',
     };
   }
 

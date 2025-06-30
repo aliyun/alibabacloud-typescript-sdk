@@ -10,19 +10,15 @@ export class IntlFlightCreateOrderResponseBodyModule extends $dara.Model {
   asyncCreateOrderKey?: string;
   /**
    * @example
-   * 2023-08-10 17:42:32
-   */
-  latestPayTime?: string;
-  /**
-   * @example
    * 1003038197806523003
    */
-  orderId?: number;
+  orderId?: string;
   /**
    * @example
    * F11378244642107293696
    */
   outOrderId?: string;
+  payLatestTime?: string;
   /**
    * @example
    * 0
@@ -41,9 +37,9 @@ export class IntlFlightCreateOrderResponseBodyModule extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       asyncCreateOrderKey: 'async_create_order_key',
-      latestPayTime: 'latest_pay_time',
       orderId: 'order_id',
       outOrderId: 'out_order_id',
+      payLatestTime: 'pay_latest_time',
       payStatus: 'pay_status',
       status: 'status',
       totalPrice: 'total_price',
@@ -53,9 +49,9 @@ export class IntlFlightCreateOrderResponseBodyModule extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       asyncCreateOrderKey: 'string',
-      latestPayTime: 'string',
-      orderId: 'number',
+      orderId: 'string',
       outOrderId: 'string',
+      payLatestTime: 'string',
       payStatus: 'number',
       status: 'number',
       totalPrice: 'number',

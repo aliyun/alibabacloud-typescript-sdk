@@ -4,11 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class IntlFlightInventoryPriceCheckRequestPassengerListCertInfo extends $dara.Model {
   /**
-   * @example
-   * CN
-   */
-  certNation?: string;
-  /**
    * @remarks
    * This parameter is required.
    * 
@@ -30,30 +25,25 @@ export class IntlFlightInventoryPriceCheckRequestPassengerListCertInfo extends $
    */
   certValidDate?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * ZHANG/SAN
+   * 中国大陆
    */
-  name?: string;
+  issuePlace?: string;
   static names(): { [key: string]: string } {
     return {
-      certNation: 'cert_nation',
       certNo: 'cert_no',
       certType: 'cert_type',
       certValidDate: 'cert_valid_date',
-      name: 'name',
+      issuePlace: 'issue_place',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certNation: 'string',
       certNo: 'string',
       certType: 'number',
       certValidDate: 'string',
-      name: 'string',
+      issuePlace: 'string',
     };
   }
 

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
+  adjustTime?: string;
   /**
    * @example
    * 123aaa
@@ -89,6 +90,7 @@ export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Mod
    * cs1
    */
   costCenterNumber?: string;
+  costDepartment?: string;
   /**
    * @example
    * 0.11
@@ -120,6 +122,7 @@ export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Mod
    */
   location?: string;
   makeInvoice?: string;
+  mappingCompanyCode?: string;
   /**
    * @example
    * 4801105714092
@@ -148,6 +151,7 @@ export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Mod
    * 93746933
    */
   primaryId?: number;
+  processorOaCode?: string;
   /**
    * @example
    * acs
@@ -255,6 +259,7 @@ export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Mod
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
     return {
+      adjustTime: 'adjust_time',
       alipayId: 'alipay_id',
       alipayTradeNo: 'alipay_trade_no',
       applyArrCityCode: 'apply_arr_city_code',
@@ -281,6 +286,7 @@ export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Mod
       categoryOrderSettlePrice: 'category_order_settle_price',
       costCenter: 'cost_center',
       costCenterNumber: 'cost_center_number',
+      costDepartment: 'cost_department',
       deductibleTax: 'deductible_tax',
       department: 'department',
       departmentId: 'department_id',
@@ -292,6 +298,7 @@ export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Mod
       invoiceTitle: 'invoice_title',
       location: 'location',
       makeInvoice: 'make_invoice',
+      mappingCompanyCode: 'mapping_company_code',
       orderId: 'order_id',
       orderStatusDesc: 'order_status_desc',
       originCategory: 'origin_category',
@@ -300,6 +307,7 @@ export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Mod
       paymentDepartmentId: 'payment_department_id',
       paymentDepartmentName: 'payment_department_name',
       primaryId: 'primary_id',
+      processorOaCode: 'processor_oa_code',
       projectCode: 'project_code',
       projectName: 'project_name',
       purchaseOrderId: 'purchase_order_id',
@@ -335,6 +343,7 @@ export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
+      adjustTime: 'string',
       alipayId: 'string',
       alipayTradeNo: 'string',
       applyArrCityCode: 'string',
@@ -361,6 +370,7 @@ export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Mod
       categoryOrderSettlePrice: 'string',
       costCenter: 'string',
       costCenterNumber: 'string',
+      costDepartment: 'string',
       deductibleTax: 'number',
       department: 'string',
       departmentId: 'string',
@@ -372,6 +382,7 @@ export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Mod
       invoiceTitle: 'string',
       location: 'string',
       makeInvoice: 'string',
+      mappingCompanyCode: 'string',
       orderId: 'string',
       orderStatusDesc: 'string',
       originCategory: 'string',
@@ -380,6 +391,7 @@ export class FuPointBillSettlementQueryResponseBodyModuleItems extends $dara.Mod
       paymentDepartmentId: 'string',
       paymentDepartmentName: 'string',
       primaryId: 'number',
+      processorOaCode: 'string',
       projectCode: 'string',
       projectName: 'string',
       purchaseOrderId: 'string',

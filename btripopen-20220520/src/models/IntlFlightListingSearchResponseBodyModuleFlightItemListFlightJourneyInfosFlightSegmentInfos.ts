@@ -4,7 +4,7 @@ import { IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInf
 import { IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosArrAirportInfo } from "./IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosArrAirportInfo";
 import { IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo } from "./IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo";
 import { IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo } from "./IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo";
-import { IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfo } from "./IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfo";
+import { IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfoList } from "./IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfoList";
 
 
 export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfos extends $dara.Model {
@@ -21,7 +21,6 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
    * 2023-08-13 09:45
    */
   arrTime?: string;
-  baggageDesc?: string;
   depAirportInfo?: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo;
   /**
    * @example
@@ -49,7 +48,7 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
   flightNo?: string;
   flightShareInfo?: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo;
   flightSize?: string;
-  flightStopInfo?: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfo;
+  flightStopInfoList?: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfoList[];
   /**
    * @example
    * 320
@@ -57,16 +56,6 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
   flightType?: string;
   manufacturer?: string;
   mealDesc?: string;
-  /**
-   * @example
-   * 100099
-   */
-  miles?: number;
-  /**
-   * @example
-   * 80.20%
-   */
-  onTimeRate?: string;
   /**
    * @example
    * 0
@@ -95,12 +84,6 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
    */
   stop?: boolean;
   totalTime?: string;
-  transferTime?: string;
-  /**
-   * @example
-   * 150
-   */
-  transferTimeNumber?: number;
   static names(): { [key: string]: string } {
     return {
       airlineInfo: 'airline_info',
@@ -108,7 +91,6 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
       arrCityCode: 'arr_city_code',
       arrCityName: 'arr_city_name',
       arrTime: 'arr_time',
-      baggageDesc: 'baggage_desc',
       depAirportInfo: 'dep_airport_info',
       depCityCode: 'dep_city_code',
       depCityName: 'dep_city_name',
@@ -117,12 +99,10 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
       flightNo: 'flight_no',
       flightShareInfo: 'flight_share_info',
       flightSize: 'flight_size',
-      flightStopInfo: 'flight_stop_info',
+      flightStopInfoList: 'flight_stop_info_list',
       flightType: 'flight_type',
       manufacturer: 'manufacturer',
       mealDesc: 'meal_desc',
-      miles: 'miles',
-      onTimeRate: 'on_time_rate',
       oneMore: 'one_more',
       oneMoreShow: 'one_more_show',
       segmentIndex: 'segment_index',
@@ -131,8 +111,6 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
       shortFlightSize: 'short_flight_size',
       stop: 'stop',
       totalTime: 'total_time',
-      transferTime: 'transfer_time',
-      transferTimeNumber: 'transfer_time_number',
     };
   }
 
@@ -143,7 +121,6 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
       arrCityCode: 'string',
       arrCityName: 'string',
       arrTime: 'string',
-      baggageDesc: 'string',
       depAirportInfo: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosDepAirportInfo,
       depCityCode: 'string',
       depCityName: 'string',
@@ -152,12 +129,10 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
       flightNo: 'string',
       flightShareInfo: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightShareInfo,
       flightSize: 'string',
-      flightStopInfo: IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfo,
+      flightStopInfoList: { 'type': 'array', 'itemType': IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourneyInfosFlightSegmentInfosFlightStopInfoList },
       flightType: 'string',
       manufacturer: 'string',
       mealDesc: 'string',
-      miles: 'number',
-      onTimeRate: 'string',
       oneMore: 'number',
       oneMoreShow: 'string',
       segmentIndex: 'number',
@@ -166,8 +141,6 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
       shortFlightSize: 'string',
       stop: 'boolean',
       totalTime: 'string',
-      transferTime: 'string',
-      transferTimeNumber: 'number',
     };
   }
 
@@ -184,8 +157,8 @@ export class IntlFlightListingSearchResponseBodyModuleFlightItemListFlightJourne
     if(this.flightShareInfo && typeof (this.flightShareInfo as any).validate === 'function') {
       (this.flightShareInfo as any).validate();
     }
-    if(this.flightStopInfo && typeof (this.flightStopInfo as any).validate === 'function') {
-      (this.flightStopInfo as any).validate();
+    if(Array.isArray(this.flightStopInfoList)) {
+      $dara.Model.validateArray(this.flightStopInfoList);
     }
     super.validate();
   }

@@ -10,6 +10,7 @@ export class ElectronicItineraryGetApplyResultResponseBodyModuleApplyTicketList 
   failedCode?: number;
   failedReason?: string;
   itineraryStatus?: number;
+  remark?: string;
   /**
    * @example
    * 781-6605285563
@@ -20,6 +21,7 @@ export class ElectronicItineraryGetApplyResultResponseBodyModuleApplyTicketList 
       failedCode: 'failed_code',
       failedReason: 'failed_reason',
       itineraryStatus: 'itinerary_status',
+      remark: 'remark',
       ticketNo: 'ticket_no',
     };
   }
@@ -29,6 +31,7 @@ export class ElectronicItineraryGetApplyResultResponseBodyModuleApplyTicketList 
       failedCode: 'number',
       failedReason: 'string',
       itineraryStatus: 'number',
+      remark: 'string',
       ticketNo: 'string',
     };
   }

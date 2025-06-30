@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { IntlFlightOtaSearchResponseBodyModuleItemListSubItemsBaggageRule } from "./IntlFlightOtaSearchResponseBodyModuleItemListSubItemsBaggageRule";
 import { IntlFlightOtaSearchResponseBodyModuleItemListSubItemsRefundChangeRule } from "./IntlFlightOtaSearchResponseBodyModuleItemListSubItemsRefundChangeRule";
+import { IntlFlightOtaSearchResponseBodyModuleItemListSubItemsSegmentPositionList } from "./IntlFlightOtaSearchResponseBodyModuleItemListSubItemsSegmentPositionList";
 import { ModuleItemListSubItemsShoppingItemMapValue } from "./ModuleItemListSubItemsShoppingItemMapValue";
 
 
@@ -9,6 +10,7 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItems extends $dara
   baggageRule?: IntlFlightOtaSearchResponseBodyModuleItemListSubItemsBaggageRule;
   refundChangeRule?: IntlFlightOtaSearchResponseBodyModuleItemListSubItemsRefundChangeRule;
   segmentKeys?: string[];
+  segmentPositionList?: IntlFlightOtaSearchResponseBodyModuleItemListSubItemsSegmentPositionList[];
   shoppingItemMap?: { [key: string]: ModuleItemListSubItemsShoppingItemMapValue };
   /**
    * @example
@@ -20,6 +22,7 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItems extends $dara
       baggageRule: 'baggage_rule',
       refundChangeRule: 'refund_change_rule',
       segmentKeys: 'segment_keys',
+      segmentPositionList: 'segment_position_list',
       shoppingItemMap: 'shopping_item_map',
       uniqKey: 'uniq_key',
     };
@@ -30,6 +33,7 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItems extends $dara
       baggageRule: IntlFlightOtaSearchResponseBodyModuleItemListSubItemsBaggageRule,
       refundChangeRule: IntlFlightOtaSearchResponseBodyModuleItemListSubItemsRefundChangeRule,
       segmentKeys: { 'type': 'array', 'itemType': 'string' },
+      segmentPositionList: { 'type': 'array', 'itemType': IntlFlightOtaSearchResponseBodyModuleItemListSubItemsSegmentPositionList },
       shoppingItemMap: { 'type': 'map', 'keyType': 'string', 'valueType': ModuleItemListSubItemsShoppingItemMapValue },
       uniqKey: 'string',
     };
@@ -44,6 +48,9 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItems extends $dara
     }
     if(Array.isArray(this.segmentKeys)) {
       $dara.Model.validateArray(this.segmentKeys);
+    }
+    if(Array.isArray(this.segmentPositionList)) {
+      $dara.Model.validateArray(this.segmentPositionList);
     }
     if(this.shoppingItemMap) {
       $dara.Model.validateMap(this.shoppingItemMap);

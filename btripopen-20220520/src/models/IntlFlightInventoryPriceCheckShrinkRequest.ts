@@ -4,15 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class IntlFlightInventoryPriceCheckShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10001
+   */
+  btripUserId?: string;
+  /**
+   * @example
+   * ZHANG/SAN
+   */
+  buyerName?: string;
+  /**
    * @example
    * ZJTD
    */
   isvName?: string;
-  /**
-   * @example
-   * chinese
-   */
-  language?: string;
   /**
    * @example
    * 102000
@@ -31,33 +39,25 @@ export class IntlFlightInventoryPriceCheckShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   passengerListShrink?: string;
-  /**
-   * @example
-   * 12412341234
-   */
-  userId?: string;
-  userName?: string;
   static names(): { [key: string]: string } {
     return {
+      btripUserId: 'btrip_user_id',
+      buyerName: 'buyer_name',
       isvName: 'isv_name',
-      language: 'language',
       orderPrice: 'order_price',
       otaItemId: 'ota_item_id',
       passengerListShrink: 'passenger_list',
-      userId: 'user_id',
-      userName: 'user_name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      btripUserId: 'string',
+      buyerName: 'string',
       isvName: 'string',
-      language: 'string',
       orderPrice: 'number',
       otaItemId: 'string',
       passengerListShrink: 'string',
-      userId: 'string',
-      userName: 'string',
     };
   }
 

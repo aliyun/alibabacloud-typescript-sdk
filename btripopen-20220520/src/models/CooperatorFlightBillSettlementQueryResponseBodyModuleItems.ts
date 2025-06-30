@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
+  adjustTime?: string;
   /**
    * @example
    * 1
@@ -64,6 +65,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    * 12:00:00
    */
   arrTime?: string;
+  baseLocation?: string;
   /**
    * @example
    * 2023-01-01 00:00:00
@@ -144,11 +146,13 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    * cs1
    */
   costCenterNumber?: string;
+  costDepartment?: string;
   /**
    * @example
    * 0.0
    */
   coupon?: number;
+  customContent?: string;
   /**
    * @example
    * JHG
@@ -223,6 +227,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    * 100.0
    */
   itineraryPrice?: number;
+  mappingCompanyCode?: string;
   /**
    * @example
    * 100
@@ -287,12 +292,15 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    * 100.0
    */
   personSettlePrice?: number;
+  position?: string;
+  positionLevel?: string;
   preBookTip?: string;
   /**
    * @example
    * 60399513
    */
   primaryId?: number;
+  processorOaCode?: string;
   /**
    * @example
    * acs
@@ -403,6 +411,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
   voyageName?: string;
   static names(): { [key: string]: string } {
     return {
+      adjustTime: 'adjust_time',
       advanceDay: 'advance_day',
       airlineCorpCode: 'airline_corp_code',
       airlineCorpName: 'airline_corp_name',
@@ -420,6 +429,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       arrDate: 'arr_date',
       arrStation: 'arr_station',
       arrTime: 'arr_time',
+      baseLocation: 'base_location',
       billRecordTime: 'bill_record_time',
       bookChannel: 'book_channel',
       bookMode: 'book_mode',
@@ -444,7 +454,9 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       corpSettlePrice: 'corp_settle_price',
       costCenter: 'cost_center',
       costCenterNumber: 'cost_center_number',
+      costDepartment: 'cost_department',
       coupon: 'coupon',
+      customContent: 'custom_content',
       depAirportCode: 'dep_airport_code',
       depCityCode: 'dep_city_code',
       department: 'department',
@@ -467,6 +479,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       itemType: 'item_type',
       itineraryNum: 'itinerary_num',
       itineraryPrice: 'itinerary_price',
+      mappingCompanyCode: 'mapping_company_code',
       mileage: 'mileage',
       mostDifferenceDeptTime: 'most_difference_dept_time',
       mostDifferenceDiscount: 'most_difference_discount',
@@ -483,8 +496,11 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       paymentDepartmentId: 'payment_department_id',
       paymentDepartmentName: 'payment_department_name',
       personSettlePrice: 'person_settle_price',
+      position: 'position',
+      positionLevel: 'position_level',
       preBookTip: 'pre_book_tip',
       primaryId: 'primary_id',
+      processorOaCode: 'processor_oa_code',
       projectCode: 'project_code',
       projectName: 'project_name',
       refundFee: 'refund_fee',
@@ -522,6 +538,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
 
   static types(): { [key: string]: any } {
     return {
+      adjustTime: 'string',
       advanceDay: 'number',
       airlineCorpCode: 'string',
       airlineCorpName: 'string',
@@ -539,6 +556,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       arrDate: 'string',
       arrStation: 'string',
       arrTime: 'string',
+      baseLocation: 'string',
       billRecordTime: 'string',
       bookChannel: 'string',
       bookMode: 'string',
@@ -563,7 +581,9 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       corpSettlePrice: 'number',
       costCenter: 'string',
       costCenterNumber: 'string',
+      costDepartment: 'string',
       coupon: 'number',
+      customContent: 'string',
       depAirportCode: 'string',
       depCityCode: 'string',
       department: 'string',
@@ -586,6 +606,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       itemType: 'string',
       itineraryNum: 'string',
       itineraryPrice: 'number',
+      mappingCompanyCode: 'string',
       mileage: 'number',
       mostDifferenceDeptTime: 'string',
       mostDifferenceDiscount: 'string',
@@ -602,8 +623,11 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       paymentDepartmentId: 'string',
       paymentDepartmentName: 'string',
       personSettlePrice: 'number',
+      position: 'string',
+      positionLevel: 'string',
       preBookTip: 'string',
       primaryId: 'number',
+      processorOaCode: 'string',
       projectCode: 'string',
       projectName: 'string',
       refundFee: 'number',

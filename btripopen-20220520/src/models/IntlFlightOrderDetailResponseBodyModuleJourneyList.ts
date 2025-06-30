@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { IntlFlightOrderDetailResponseBodyModuleJourneyListSegmentList } from "./IntlFlightOrderDetailResponseBodyModuleJourneyListSegmentList";
+import { IntlFlightOrderDetailResponseBodyModuleJourneyListFlightSegmentInfos } from "./IntlFlightOrderDetailResponseBodyModuleJourneyListFlightSegmentInfos";
 
 
 export class IntlFlightOrderDetailResponseBodyModuleJourneyList extends $dara.Model {
@@ -10,28 +10,21 @@ export class IntlFlightOrderDetailResponseBodyModuleJourneyList extends $dara.Mo
    */
   arrCityCode?: string;
   arrCityName?: string;
+  arrTime?: string;
   /**
    * @example
    * SHA
    */
   depCityCode?: string;
   depCityName?: string;
-  /**
-   * @example
-   * 2024-07-06
-   */
-  depDate?: string;
+  depTime?: string;
+  duration?: number;
+  flightSegmentInfos?: IntlFlightOrderDetailResponseBodyModuleJourneyListFlightSegmentInfos[];
   /**
    * @example
    * 0
    */
   journeyIndex?: number;
-  segmentList?: IntlFlightOrderDetailResponseBodyModuleJourneyListSegmentList[];
-  /**
-   * @example
-   * 0
-   */
-  transferCount?: number;
   /**
    * @example
    * 0
@@ -41,12 +34,13 @@ export class IntlFlightOrderDetailResponseBodyModuleJourneyList extends $dara.Mo
     return {
       arrCityCode: 'arr_city_code',
       arrCityName: 'arr_city_name',
+      arrTime: 'arr_time',
       depCityCode: 'dep_city_code',
       depCityName: 'dep_city_name',
-      depDate: 'dep_date',
+      depTime: 'dep_time',
+      duration: 'duration',
+      flightSegmentInfos: 'flight_segment_infos',
       journeyIndex: 'journey_index',
-      segmentList: 'segment_list',
-      transferCount: 'transfer_count',
       transferTime: 'transfer_time',
     };
   }
@@ -55,19 +49,20 @@ export class IntlFlightOrderDetailResponseBodyModuleJourneyList extends $dara.Mo
     return {
       arrCityCode: 'string',
       arrCityName: 'string',
+      arrTime: 'string',
       depCityCode: 'string',
       depCityName: 'string',
-      depDate: 'string',
+      depTime: 'string',
+      duration: 'number',
+      flightSegmentInfos: { 'type': 'array', 'itemType': IntlFlightOrderDetailResponseBodyModuleJourneyListFlightSegmentInfos },
       journeyIndex: 'number',
-      segmentList: { 'type': 'array', 'itemType': IntlFlightOrderDetailResponseBodyModuleJourneyListSegmentList },
-      transferCount: 'number',
       transferTime: 'number',
     };
   }
 
   validate() {
-    if(Array.isArray(this.segmentList)) {
-      $dara.Model.validateArray(this.segmentList);
+    if(Array.isArray(this.flightSegmentInfos)) {
+      $dara.Model.validateArray(this.flightSegmentInfos);
     }
     super.validate();
   }

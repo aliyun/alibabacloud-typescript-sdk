@@ -4,18 +4,22 @@ import { IntlFlightInventoryPriceCheckResponseBodyModule } from "./IntlFlightInv
 
 
 export class IntlFlightInventoryPriceCheckResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
+  code?: string;
+  /**
+   * @example
+   * 成功
+   */
+  message?: string;
   module?: IntlFlightInventoryPriceCheckResponseBodyModule;
   /**
    * @example
    * 92359A00-85D8-16C4-AED0-249618DEEC17
    */
   requestId?: string;
-  /**
-   * @example
-   * 0
-   */
-  resultCode?: string;
-  resultMsg?: string;
   /**
    * @example
    * true
@@ -28,10 +32,10 @@ export class IntlFlightInventoryPriceCheckResponseBody extends $dara.Model {
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'code',
+      message: 'message',
       module: 'module',
       requestId: 'requestId',
-      resultCode: 'result_code',
-      resultMsg: 'result_msg',
       success: 'success',
       traceId: 'traceId',
     };
@@ -39,10 +43,10 @@ export class IntlFlightInventoryPriceCheckResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      message: 'string',
       module: IntlFlightInventoryPriceCheckResponseBodyModule,
       requestId: 'string',
-      resultCode: 'string',
-      resultMsg: 'string',
       success: 'boolean',
       traceId: 'string',
     };

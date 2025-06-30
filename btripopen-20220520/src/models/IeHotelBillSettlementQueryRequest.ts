@@ -9,6 +9,7 @@ export class IeHotelBillSettlementQueryRequest extends $dara.Model {
    * 12
    */
   category?: number;
+  orderId?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -38,6 +39,7 @@ export class IeHotelBillSettlementQueryRequest extends $dara.Model {
     return {
       billBatch: 'bill_batch',
       category: 'category',
+      orderId: 'order_id',
       pageNo: 'page_no',
       pageSize: 'page_size',
       periodEnd: 'period_end',
@@ -51,6 +53,7 @@ export class IeHotelBillSettlementQueryRequest extends $dara.Model {
     return {
       billBatch: 'string',
       category: 'number',
+      orderId: 'number',
       pageNo: 'number',
       pageSize: 'number',
       periodEnd: 'string',

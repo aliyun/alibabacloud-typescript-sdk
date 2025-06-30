@@ -18,11 +18,6 @@ export class IntlFlightListingSearchRequestSearchJourneysSelectedFlights extends
   arrCityCode?: string;
   /**
    * @example
-   * 0
-   */
-  cabinType?: number;
-  /**
-   * @example
    * SZX
    */
   depAirportCode?: string;
@@ -59,7 +54,6 @@ export class IntlFlightListingSearchRequestSearchJourneysSelectedFlights extends
     return {
       arrAirportCode: 'arr_airport_code',
       arrCityCode: 'arr_city_code',
-      cabinType: 'cabin_type',
       depAirportCode: 'dep_airport_code',
       depCityCode: 'dep_city_code',
       flightTime: 'flight_time',
@@ -72,7 +66,6 @@ export class IntlFlightListingSearchRequestSearchJourneysSelectedFlights extends
     return {
       arrAirportCode: 'string',
       arrCityCode: 'string',
-      cabinType: 'number',
       depAirportCode: 'string',
       depCityCode: 'string',
       flightTime: 'string',

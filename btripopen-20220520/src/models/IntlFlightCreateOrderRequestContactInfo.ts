@@ -6,9 +6,6 @@ export class IntlFlightCreateOrderRequestContactInfo extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * XXX@aliyun.com
    */
   contactEmail?: string;
   /**
@@ -19,25 +16,13 @@ export class IntlFlightCreateOrderRequestContactInfo extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 13812341234
    */
   contactPhone?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * true
-   */
-  sendMsgToPassenger?: boolean;
   static names(): { [key: string]: string } {
     return {
       contactEmail: 'contact_email',
       contactName: 'contact_name',
       contactPhone: 'contact_phone',
-      sendMsgToPassenger: 'send_msg_to_passenger',
     };
   }
 
@@ -46,7 +31,6 @@ export class IntlFlightCreateOrderRequestContactInfo extends $dara.Model {
       contactEmail: 'string',
       contactName: 'string',
       contactPhone: 'string',
-      sendMsgToPassenger: 'boolean',
     };
   }
 

@@ -4,18 +4,18 @@ import { IntlFlightOrderCancelResponseBodyModule } from "./IntlFlightOrderCancel
 
 
 export class IntlFlightOrderCancelResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SUCCESS
+   */
+  code?: string;
+  /**
+   * @example
+   * 成功
+   */
+  message?: string;
   module?: IntlFlightOrderCancelResponseBodyModule;
-  /**
-   * @example
-   * A3F8DCAB-8301-5770-BD9F-71B0BF9E1A6E
-   */
   requestId?: string;
-  /**
-   * @example
-   * 0
-   */
-  resultCode?: string;
-  resultMsg?: string;
   /**
    * @example
    * true
@@ -23,26 +23,26 @@ export class IntlFlightOrderCancelResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @example
-   * 21041ce316577904808056433edbb2
+   * 210bc4b116835992457938931db4de
    */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'code',
+      message: 'message',
       module: 'module',
-      requestId: 'request_id',
-      resultCode: 'result_code',
-      resultMsg: 'result_msg',
+      requestId: 'requestId',
       success: 'success',
-      traceId: 'trace_id',
+      traceId: 'traceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      message: 'string',
       module: IntlFlightOrderCancelResponseBodyModule,
       requestId: 'string',
-      resultCode: 'string',
-      resultMsg: 'string',
       success: 'boolean',
       traceId: 'string',
     };

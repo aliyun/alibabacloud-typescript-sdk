@@ -4,16 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class IntlFlightCreateOrderRequestPassengerListCertInfo extends $dara.Model {
   /**
-   * @example
-   * CN
-   */
-  certNation?: string;
-  /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * H123456
+   * E1234567
    */
   certNo?: string;
   /**
@@ -25,8 +20,11 @@ export class IntlFlightCreateOrderRequestPassengerListCertInfo extends $dara.Mod
    */
   certType?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 2030-01-01
+   * 2029-12-31
    */
   certValidDate?: string;
   /**
@@ -34,26 +32,24 @@ export class IntlFlightCreateOrderRequestPassengerListCertInfo extends $dara.Mod
    * This parameter is required.
    * 
    * @example
-   * ZHANG/SAN
+   * 中国大陆
    */
-  name?: string;
+  issuePlace?: string;
   static names(): { [key: string]: string } {
     return {
-      certNation: 'cert_nation',
       certNo: 'cert_no',
       certType: 'cert_type',
       certValidDate: 'cert_valid_date',
-      name: 'name',
+      issuePlace: 'issue_place',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certNation: 'string',
       certNo: 'string',
       certType: 'number',
       certValidDate: 'string',
-      name: 'string',
+      issuePlace: 'string',
     };
   }
 

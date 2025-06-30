@@ -4,7 +4,7 @@ import { IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInf
 import { IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosArrAirportInfo } from "./IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosArrAirportInfo";
 import { IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosDepAirportInfo } from "./IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosDepAirportInfo";
 import { IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfo } from "./IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfo";
-import { IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfo } from "./IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfo";
+import { IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfoList } from "./IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfoList";
 import { IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosLuggageDirectInfo } from "./IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosLuggageDirectInfo";
 import { IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosSegmentVisaRemark } from "./IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosSegmentVisaRemark";
 
@@ -23,7 +23,6 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
    * 2023-08-13 09:45
    */
   arrTime?: string;
-  baggageDesc?: string;
   depAirportInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosDepAirportInfo;
   /**
    * @example
@@ -48,7 +47,7 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
   flightNo?: string;
   flightShareInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfo;
   flightSize?: string;
-  flightStopInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfo;
+  flightStopInfoList?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfoList[];
   /**
    * @example
    * 320
@@ -57,16 +56,6 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
   luggageDirectInfo?: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosLuggageDirectInfo;
   manufacturer?: string;
   mealDesc?: string;
-  /**
-   * @example
-   * 1200
-   */
-  miles?: number;
-  /**
-   * @example
-   * 80%
-   */
-  onTimeRate?: string;
   /**
    * @example
    * 0
@@ -96,12 +85,6 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
    */
   stop?: boolean;
   totalTime?: string;
-  transferTime?: string;
-  /**
-   * @example
-   * 120
-   */
-  transferTimeNumber?: number;
   static names(): { [key: string]: string } {
     return {
       airlineInfo: 'airline_info',
@@ -109,7 +92,6 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
       arrCityCode: 'arr_city_code',
       arrCityName: 'arr_city_name',
       arrTime: 'arr_time',
-      baggageDesc: 'baggage_desc',
       depAirportInfo: 'dep_airport_info',
       depCityCode: 'dep_city_code',
       depCityName: 'dep_city_name',
@@ -118,13 +100,11 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
       flightNo: 'flight_no',
       flightShareInfo: 'flight_share_info',
       flightSize: 'flight_size',
-      flightStopInfo: 'flight_stop_info',
+      flightStopInfoList: 'flight_stop_info_list',
       flightType: 'flight_type',
       luggageDirectInfo: 'luggage_direct_info',
       manufacturer: 'manufacturer',
       mealDesc: 'meal_desc',
-      miles: 'miles',
-      onTimeRate: 'on_time_rate',
       oneMore: 'one_more',
       oneMoreShow: 'one_more_show',
       segmentIndex: 'segment_index',
@@ -134,8 +114,6 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
       shortFlightSize: 'short_flight_size',
       stop: 'stop',
       totalTime: 'total_time',
-      transferTime: 'transfer_time',
-      transferTimeNumber: 'transfer_time_number',
     };
   }
 
@@ -146,7 +124,6 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
       arrCityCode: 'string',
       arrCityName: 'string',
       arrTime: 'string',
-      baggageDesc: 'string',
       depAirportInfo: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosDepAirportInfo,
       depCityCode: 'string',
       depCityName: 'string',
@@ -155,13 +132,11 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
       flightNo: 'string',
       flightShareInfo: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightShareInfo,
       flightSize: 'string',
-      flightStopInfo: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfo,
+      flightStopInfoList: { 'type': 'array', 'itemType': IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosFlightStopInfoList },
       flightType: 'string',
       luggageDirectInfo: IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosLuggageDirectInfo,
       manufacturer: 'string',
       mealDesc: 'string',
-      miles: 'number',
-      onTimeRate: 'string',
       oneMore: 'number',
       oneMoreShow: 'string',
       segmentIndex: 'number',
@@ -171,8 +146,6 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
       shortFlightSize: 'string',
       stop: 'boolean',
       totalTime: 'string',
-      transferTime: 'string',
-      transferTimeNumber: 'number',
     };
   }
 
@@ -189,8 +162,8 @@ export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmen
     if(this.flightShareInfo && typeof (this.flightShareInfo as any).validate === 'function') {
       (this.flightShareInfo as any).validate();
     }
-    if(this.flightStopInfo && typeof (this.flightStopInfo as any).validate === 'function') {
-      (this.flightStopInfo as any).validate();
+    if(Array.isArray(this.flightStopInfoList)) {
+      $dara.Model.validateArray(this.flightStopInfoList);
     }
     if(this.luggageDirectInfo && typeof (this.luggageDirectInfo as any).validate === 'function') {
       (this.luggageDirectInfo as any).validate();

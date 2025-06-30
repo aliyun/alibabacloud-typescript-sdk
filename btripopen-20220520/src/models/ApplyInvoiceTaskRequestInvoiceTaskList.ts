@@ -67,6 +67,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $dara.Model {
    * 0
    */
   trainInvoiceFee?: string;
+  vacationNormalInvoiceFee?: string;
   vasMallSpecialInvoiceFee?: string;
   /**
    * @example
@@ -97,6 +98,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $dara.Model {
       telephone: 'telephone',
       trainAccelerationPackageInvoiceFee: 'train_acceleration_package_invoice_fee',
       trainInvoiceFee: 'train_invoice_fee',
+      vacationNormalInvoiceFee: 'vacation_normal_invoice_fee',
       vasMallSpecialInvoiceFee: 'vas_mall_special_invoice_fee',
       vehicleInvoiceFee: 'vehicle_invoice_fee',
       vehicleNormalInvoiceFee: 'vehicle_normal_invoice_fee',
@@ -126,6 +128,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $dara.Model {
       telephone: 'string',
       trainAccelerationPackageInvoiceFee: 'string',
       trainInvoiceFee: 'string',
+      vacationNormalInvoiceFee: 'string',
       vasMallSpecialInvoiceFee: 'string',
       vehicleInvoiceFee: 'string',
       vehicleNormalInvoiceFee: 'string',

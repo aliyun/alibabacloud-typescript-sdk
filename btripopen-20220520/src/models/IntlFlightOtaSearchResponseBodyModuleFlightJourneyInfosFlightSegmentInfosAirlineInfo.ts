@@ -3,40 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IntlFlightOtaSearchResponseBodyModuleFlightJourneyInfosFlightSegmentInfosAirlineInfo extends $dara.Model {
-  airlineChineseName?: string;
-  airlineChineseShortName?: string;
   /**
    * @example
    * MU
    */
   airlineCode?: string;
-  /**
-   * @example
-   * https://gw.alicdn.com/tfs/TB15EXDFHY1gK0jSZTEXXXDQVXa-450-450.png_80x80.jpg
-   */
-  airlineIcon?: string;
-  /**
-   * @example
-   * false
-   */
-  cheapFlight?: boolean;
+  airlineName?: string;
+  shortName?: string;
   static names(): { [key: string]: string } {
     return {
-      airlineChineseName: 'airline_chinese_name',
-      airlineChineseShortName: 'airline_chinese_short_name',
       airlineCode: 'airline_code',
-      airlineIcon: 'airline_icon',
-      cheapFlight: 'cheap_flight',
+      airlineName: 'airline_name',
+      shortName: 'short_name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      airlineChineseName: 'string',
-      airlineChineseShortName: 'string',
       airlineCode: 'string',
-      airlineIcon: 'string',
-      cheapFlight: 'boolean',
+      airlineName: 'string',
+      shortName: 'string',
     };
   }
 

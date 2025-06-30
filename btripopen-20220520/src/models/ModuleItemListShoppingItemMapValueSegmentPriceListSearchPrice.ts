@@ -7,12 +7,12 @@ export class ModuleItemListShoppingItemMapValueSegmentPriceListSearchPrice exten
    * @example
    * 120000
    */
-  ticketPrice?: number;
+  sellPrice?: number;
   /**
    * @example
    * 120000
    */
-  sellPrice?: number;
+  ticketPrice?: number;
   /**
    * @example
    * 6000
@@ -20,16 +20,16 @@ export class ModuleItemListShoppingItemMapValueSegmentPriceListSearchPrice exten
   tax?: number;
   static names(): { [key: string]: string } {
     return {
-      ticketPrice: 'ticket_price',
       sellPrice: 'sell_price',
+      ticketPrice: 'ticket_price',
       tax: 'tax',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ticketPrice: 'number',
       sellPrice: 'number',
+      ticketPrice: 'number',
       tax: 'number',
     };
   }

@@ -6,21 +6,20 @@ import { IntlFlightCreateOrderResponseBodyModule } from "./IntlFlightCreateOrder
 export class IntlFlightCreateOrderResponseBody extends $dara.Model {
   /**
    * @example
-   * 200
+   * SUCCESS
    */
-  httpStatusCode?: number;
+  code?: string;
+  /**
+   * @example
+   * 成功
+   */
+  message?: string;
   module?: IntlFlightCreateOrderResponseBodyModule;
   /**
    * @example
    * C61ECFF6-606B-5F66-B81D-D77369043A5F
    */
   requestId?: string;
-  /**
-   * @example
-   * 0
-   */
-  resultCode?: string;
-  resultMsg?: string;
   /**
    * @example
    * true
@@ -33,11 +32,10 @@ export class IntlFlightCreateOrderResponseBody extends $dara.Model {
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
-      httpStatusCode: 'http_status_code',
+      code: 'code',
+      message: 'message',
       module: 'module',
       requestId: 'requestId',
-      resultCode: 'result_code',
-      resultMsg: 'result_msg',
       success: 'success',
       traceId: 'traceId',
     };
@@ -45,11 +43,10 @@ export class IntlFlightCreateOrderResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      httpStatusCode: 'number',
+      code: 'string',
+      message: 'string',
       module: IntlFlightCreateOrderResponseBodyModule,
       requestId: 'string',
-      resultCode: 'string',
-      resultMsg: 'string',
       success: 'boolean',
       traceId: 'string',
     };

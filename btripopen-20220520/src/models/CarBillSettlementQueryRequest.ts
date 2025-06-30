@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class CarBillSettlementQueryRequest extends $dara.Model {
   billBatch?: string;
+  orderId?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -35,6 +36,7 @@ export class CarBillSettlementQueryRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       billBatch: 'bill_batch',
+      orderId: 'order_id',
       pageNo: 'page_no',
       pageSize: 'page_size',
       periodEnd: 'period_end',
@@ -47,6 +49,7 @@ export class CarBillSettlementQueryRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       billBatch: 'string',
+      orderId: 'number',
       pageNo: 'number',
       pageSize: 'number',
       periodEnd: 'string',

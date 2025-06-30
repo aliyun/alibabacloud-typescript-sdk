@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model {
+  adjustTime?: string;
   applyExtendField?: string;
   /**
    * @example
@@ -52,6 +53,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model 
    * cs1
    */
   costCenterNumber?: string;
+  costDepartment?: string;
   department?: string;
   /**
    * @example
@@ -75,6 +77,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model 
    * 123
    */
   mainApplyId?: string;
+  mappingCompanyCode?: string;
   /**
    * @example
    * XXXX
@@ -120,6 +123,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model 
    * 60698599
    */
   primaryId?: number;
+  processorOaCode?: string;
   /**
    * @example
    * acs
@@ -202,6 +206,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model 
   voucherTypeDesc?: string;
   static names(): { [key: string]: string } {
     return {
+      adjustTime: 'adjust_time',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
       billRecordTime: 'bill_record_time',
@@ -219,6 +224,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model 
       corpSettleFee: 'corp_settle_fee',
       costCenter: 'cost_center',
       costCenterNumber: 'cost_center_number',
+      costDepartment: 'cost_department',
       department: 'department',
       departmentId: 'department_id',
       feeType: 'fee_type',
@@ -226,6 +232,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model 
       index: 'index',
       invoiceTitle: 'invoice_title',
       mainApplyId: 'main_apply_id',
+      mappingCompanyCode: 'mapping_company_code',
       mealAddress: 'meal_address',
       mealCity: 'meal_city',
       mealCityCode: 'meal_city_code',
@@ -239,6 +246,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model 
       orderStatusDesc: 'order_status_desc',
       personSettlePrice: 'person_settle_price',
       primaryId: 'primary_id',
+      processorOaCode: 'processor_oa_code',
       projectCode: 'project_code',
       projectName: 'project_name',
       remark: 'remark',
@@ -268,6 +276,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      adjustTime: 'string',
       applyExtendField: 'string',
       applyId: 'string',
       billRecordTime: 'string',
@@ -285,6 +294,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model 
       corpSettleFee: 'number',
       costCenter: 'string',
       costCenterNumber: 'string',
+      costDepartment: 'string',
       department: 'string',
       departmentId: 'string',
       feeType: 'string',
@@ -292,6 +302,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model 
       index: 'string',
       invoiceTitle: 'string',
       mainApplyId: 'string',
+      mappingCompanyCode: 'string',
       mealAddress: 'string',
       mealCity: 'string',
       mealCityCode: 'string',
@@ -305,6 +316,7 @@ export class MealBillSettlementQueryResponseBodyModuleItems extends $dara.Model 
       orderStatusDesc: 'string',
       personSettlePrice: 'number',
       primaryId: 'number',
+      processorOaCode: 'string',
       projectCode: 'string',
       projectName: 'string',
       remark: 'string',

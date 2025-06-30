@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.Model {
+  adjustTime?: string;
   /**
    * @example
    * 1
@@ -52,6 +53,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
    * 13:30:00
    */
   arrTime?: string;
+  baseLocation?: string;
   /**
    * @example
    * 2020-12-23T20:18Z
@@ -114,11 +116,13 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
    * 48b7f3cd-8a4f-4df9-ae2c-883e008cf097
    */
   costCenterNumber?: string;
+  costDepartment?: string;
   /**
    * @example
    * 1
    */
   coupon?: number;
+  customContent?: string;
   deductibleTax?: number;
   /**
    * @example
@@ -182,6 +186,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
    * 460
    */
   itineraryPrice?: number;
+  mappingCompanyCode?: string;
   mileage?: string;
   /**
    * @example
@@ -234,12 +239,15 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
   paymentDepartmentId?: string;
   paymentDepartmentName?: string;
   personSettlePrice?: number;
+  position?: string;
+  positionLevel?: string;
   preBookTip?: string;
   /**
    * @example
    * 4564547
    */
   primaryId?: number;
+  processorOaCode?: string;
   /**
    * @example
    * 45623234
@@ -340,6 +348,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
   voyageName?: string;
   static names(): { [key: string]: string } {
     return {
+      adjustTime: 'adjust_time',
       advanceDay: 'advance_day',
       airlineCorpCode: 'airline_corp_code',
       airlineCorpName: 'airline_corp_name',
@@ -357,6 +366,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       arrDate: 'arr_date',
       arrStation: 'arr_station',
       arrTime: 'arr_time',
+      baseLocation: 'base_location',
       billRecordTime: 'bill_record_time',
       bookChannel: 'book_channel',
       bookMode: 'book_mode',
@@ -379,7 +389,9 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       corpSettlePrice: 'corp_settle_price',
       costCenter: 'cost_center',
       costCenterNumber: 'cost_center_number',
+      costDepartment: 'cost_department',
       coupon: 'coupon',
+      customContent: 'custom_content',
       deductibleTax: 'deductible_tax',
       depAirportCode: 'dep_airport_code',
       depCityCode: 'dep_city_code',
@@ -403,6 +415,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       itemType: 'item_type',
       itineraryNum: 'itinerary_num',
       itineraryPrice: 'itinerary_price',
+      mappingCompanyCode: 'mapping_company_code',
       mileage: 'mileage',
       mostDifferenceDeptTime: 'most_difference_dept_time',
       mostDifferenceDiscount: 'most_difference_discount',
@@ -419,8 +432,11 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       paymentDepartmentId: 'payment_department_id',
       paymentDepartmentName: 'payment_department_name',
       personSettlePrice: 'person_settle_price',
+      position: 'position',
+      positionLevel: 'position_level',
       preBookTip: 'pre_book_tip',
       primaryId: 'primary_id',
+      processorOaCode: 'processor_oa_code',
       projectCode: 'project_code',
       projectName: 'project_name',
       refundAffiliateNo: 'refund_affiliate_no',
@@ -461,6 +477,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
 
   static types(): { [key: string]: any } {
     return {
+      adjustTime: 'string',
       advanceDay: 'number',
       airlineCorpCode: 'string',
       airlineCorpName: 'string',
@@ -478,6 +495,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       arrDate: 'string',
       arrStation: 'string',
       arrTime: 'string',
+      baseLocation: 'string',
       billRecordTime: 'string',
       bookChannel: 'string',
       bookMode: 'string',
@@ -500,7 +518,9 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       corpSettlePrice: 'number',
       costCenter: 'string',
       costCenterNumber: 'string',
+      costDepartment: 'string',
       coupon: 'number',
+      customContent: 'string',
       deductibleTax: 'number',
       depAirportCode: 'string',
       depCityCode: 'string',
@@ -524,6 +544,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       itemType: 'string',
       itineraryNum: 'string',
       itineraryPrice: 'number',
+      mappingCompanyCode: 'string',
       mileage: 'string',
       mostDifferenceDeptTime: 'string',
       mostDifferenceDiscount: 'string',
@@ -540,8 +561,11 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       paymentDepartmentId: 'string',
       paymentDepartmentName: 'string',
       personSettlePrice: 'number',
+      position: 'string',
+      positionLevel: 'string',
       preBookTip: 'string',
       primaryId: 'number',
+      processorOaCode: 'string',
       projectCode: 'string',
       projectName: 'string',
       refundAffiliateNo: 'string',

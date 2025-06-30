@@ -19,12 +19,16 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
    */
   depTime?: string;
   department?: string;
+  feeTypeShowCode?: number;
   /**
    * @example
    * 71
    */
   id?: string;
+  invoiceDate?: string;
+  invoiceMaterial?: number;
   invoiceTitle?: string;
+  ofdUrl?: string;
   /**
    * @example
    * 3137168772101111000
@@ -36,12 +40,15 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
    */
   ossUrl?: string;
   passenger?: string;
+  pdfUrl?: string;
   /**
    * @example
    * 100
    */
   price?: string;
   project?: string;
+  purchaserName?: string;
+  purchaserTaxNo?: string;
   seat?: string;
   seatNo?: string;
   /**
@@ -85,13 +92,20 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
       depStation: 'dep_station',
       depTime: 'dep_time',
       department: 'department',
+      feeTypeShowCode: 'fee_type_show_code',
       id: 'id',
+      invoiceDate: 'invoice_date',
+      invoiceMaterial: 'invoice_material',
       invoiceTitle: 'invoice_title',
+      ofdUrl: 'ofd_url',
       orderId: 'order_id',
       ossUrl: 'oss_url',
       passenger: 'passenger',
+      pdfUrl: 'pdf_url',
       price: 'price',
       project: 'project',
+      purchaserName: 'purchaser_name',
+      purchaserTaxNo: 'purchaser_tax_no',
       seat: 'seat',
       seatNo: 'seat_no',
       serialNumber: 'serial_number',
@@ -112,13 +126,20 @@ export class TrainTicketScanQueryResponseBodyModuleItems extends $dara.Model {
       depStation: 'string',
       depTime: 'string',
       department: 'string',
+      feeTypeShowCode: 'number',
       id: 'string',
+      invoiceDate: 'string',
+      invoiceMaterial: 'number',
       invoiceTitle: 'string',
+      ofdUrl: 'string',
       orderId: 'number',
       ossUrl: 'string',
       passenger: 'string',
+      pdfUrl: 'string',
       price: 'string',
       project: 'string',
+      purchaserName: 'string',
+      purchaserTaxNo: 'string',
       seat: 'string',
       seatNo: 'string',
       serialNumber: 'string',

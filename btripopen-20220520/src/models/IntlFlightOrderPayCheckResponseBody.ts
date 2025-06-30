@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class IntlFlightOrderPayCheckResponseBody extends $dara.Model {
   /**
    * @example
-   * 9BCDD5DE-E6CB-5C25-93B9-9BE178A0AA56
+   * SUCCESS
    */
-  requestId?: string;
+  code?: string;
   /**
    * @example
-   * 0
+   * 成功
    */
-  resultCode?: string;
-  resultMsg?: string;
+  message?: string;
+  requestId?: string;
   /**
    * @example
    * true
@@ -21,24 +21,24 @@ export class IntlFlightOrderPayCheckResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @example
-   * 21041ce316577904808056433edbb2
+   * 210bc4b116835992457938931db4de
    */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'request_id',
-      resultCode: 'result_code',
-      resultMsg: 'result_msg',
+      code: 'code',
+      message: 'message',
+      requestId: 'requestId',
       success: 'success',
-      traceId: 'trace_id',
+      traceId: 'traceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      message: 'string',
       requestId: 'string',
-      resultCode: 'string',
-      resultMsg: 'string',
       success: 'boolean',
       traceId: 'string',
     };

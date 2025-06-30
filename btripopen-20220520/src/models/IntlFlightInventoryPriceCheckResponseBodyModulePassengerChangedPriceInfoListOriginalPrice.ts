@@ -5,16 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class IntlFlightInventoryPriceCheckResponseBodyModulePassengerChangedPriceInfoListOriginalPrice extends $dara.Model {
   /**
    * @example
-   * 9000
-   */
-  buildPrice?: number;
-  /**
-   * @example
-   * 5000
-   */
-  oilPrice?: number;
-  /**
-   * @example
    * 12000
    */
   taxPrice?: number;
@@ -25,8 +15,6 @@ export class IntlFlightInventoryPriceCheckResponseBodyModulePassengerChangedPric
   ticketPrice?: number;
   static names(): { [key: string]: string } {
     return {
-      buildPrice: 'build_price',
-      oilPrice: 'oil_price',
       taxPrice: 'tax_price',
       ticketPrice: 'ticket_price',
     };
@@ -34,8 +22,6 @@ export class IntlFlightInventoryPriceCheckResponseBodyModulePassengerChangedPric
 
   static types(): { [key: string]: any } {
     return {
-      buildPrice: 'number',
-      oilPrice: 'number',
       taxPrice: 'number',
       ticketPrice: 'number',
     };

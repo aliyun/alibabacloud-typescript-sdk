@@ -14,8 +14,10 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItemsRefundChangeRu
    * true
    */
   changeFeeInd?: boolean;
+  changeRuleDesc?: string;
   offerPenaltyInfoMap?: { [key: string]: ModuleItemListSubItemsRefundChangeRuleOfferPenaltyInfoMapValue[] };
   refundChangeDigest?: string;
+  refundRuleDesc?: string;
   /**
    * @example
    * false
@@ -25,8 +27,10 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItemsRefundChangeRu
     return {
       cancelFeeInd: 'cancel_fee_ind',
       changeFeeInd: 'change_fee_ind',
+      changeRuleDesc: 'change_rule_desc',
       offerPenaltyInfoMap: 'offer_penalty_info_map',
       refundChangeDigest: 'refund_change_digest',
+      refundRuleDesc: 'refund_rule_desc',
       structuredRefund: 'structured_refund',
     };
   }
@@ -35,8 +39,10 @@ export class IntlFlightOtaSearchResponseBodyModuleItemListSubItemsRefundChangeRu
     return {
       cancelFeeInd: 'boolean',
       changeFeeInd: 'boolean',
+      changeRuleDesc: 'string',
       offerPenaltyInfoMap: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': ModuleItemListSubItemsRefundChangeRuleOfferPenaltyInfoMapValue } },
       refundChangeDigest: 'string',
+      refundRuleDesc: 'string',
       structuredRefund: 'boolean',
     };
   }

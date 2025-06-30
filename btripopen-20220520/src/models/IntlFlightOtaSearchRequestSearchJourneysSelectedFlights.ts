@@ -18,11 +18,6 @@ export class IntlFlightOtaSearchRequestSearchJourneysSelectedFlights extends $da
   arrCityCode?: string;
   /**
    * @example
-   * 0
-   */
-  cabinType?: number;
-  /**
-   * @example
    * KOW
    */
   depAirportCode?: string;
@@ -59,7 +54,6 @@ export class IntlFlightOtaSearchRequestSearchJourneysSelectedFlights extends $da
     return {
       arrAirportCode: 'arr_airport_code',
       arrCityCode: 'arr_city_code',
-      cabinType: 'cabin_type',
       depAirportCode: 'dep_airport_code',
       depCityCode: 'dep_city_code',
       flightTime: 'flight_time',
@@ -72,7 +66,6 @@ export class IntlFlightOtaSearchRequestSearchJourneysSelectedFlights extends $da
     return {
       arrAirportCode: 'string',
       arrCityCode: 'string',
-      cabinType: 'number',
       depAirportCode: 'string',
       depCityCode: 'string',
       flightTime: 'string',
