@@ -5,15 +5,7 @@ import { CreateDIJobRequestTableMappingsTransformationRules } from "./CreateDijo
 
 
 export class CreateDIJobRequestTableMappings extends $dara.Model {
-  /**
-   * @remarks
-   * The list of rules used to select synchronization objects in the source.
-   */
   sourceObjectSelectionRules?: CreateDIJobRequestTableMappingsSourceObjectSelectionRules[];
-  /**
-   * @remarks
-   * The list of transformation rules that you want to apply to the synchronization objects selected from the source. Each entry in the list defines a transformation rule.
-   */
   transformationRules?: CreateDIJobRequestTableMappingsTransformationRules[];
   static names(): { [key: string]: string } {
     return {

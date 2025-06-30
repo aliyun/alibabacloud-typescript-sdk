@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDIJobRequestDestinationDataSourceSettings extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the data source.
-   * 
-   * @example
-   * holo_datasource_1
-   */
   dataSourceName?: string;
   static names(): { [key: string]: string } {
     return {

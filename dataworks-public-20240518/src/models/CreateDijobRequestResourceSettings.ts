@@ -6,20 +6,8 @@ import { CreateDIJobRequestResourceSettingsScheduleResourceSettings } from "./Cr
 
 
 export class CreateDIJobRequestResourceSettings extends $dara.Model {
-  /**
-   * @remarks
-   * The resource settings for batch synchronization.
-   */
   offlineResourceSettings?: CreateDIJobRequestResourceSettingsOfflineResourceSettings;
-  /**
-   * @remarks
-   * The resource settings for real-time synchronization.
-   */
   realtimeResourceSettings?: CreateDIJobRequestResourceSettingsRealtimeResourceSettings;
-  /**
-   * @remarks
-   * The resource settings for scheduling.
-   */
   scheduleResourceSettings?: CreateDIJobRequestResourceSettingsScheduleResourceSettings;
   static names(): { [key: string]: string } {
     return {

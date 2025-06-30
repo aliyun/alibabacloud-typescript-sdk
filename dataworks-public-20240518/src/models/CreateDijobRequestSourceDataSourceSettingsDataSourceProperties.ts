@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties extends $dara.Model {
-  /**
-   * @remarks
-   * The encoding format of the database.
-   * 
-   * @example
-   * UTF-8
-   */
   encoding?: string;
-  /**
-   * @remarks
-   * The time zone.
-   * 
-   * @example
-   * GMT+8
-   */
   timezone?: string;
   static names(): { [key: string]: string } {
     return {

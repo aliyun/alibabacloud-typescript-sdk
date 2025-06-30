@@ -594,16 +594,72 @@ export default class Client extends OpenApi {
       request.transformationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transformationRules, "TransformationRules", "json");
     }
 
-    let query = OpenApiUtil.query(request.toMap());
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.destinationDataSourceSettingsShrink)) {
+      body["DestinationDataSourceSettings"] = request.destinationDataSourceSettingsShrink;
+    }
+
+    if (!$dara.isNull(request.destinationDataSourceType)) {
+      body["DestinationDataSourceType"] = request.destinationDataSourceType;
+    }
+
+    if (!$dara.isNull(request.jobName)) {
+      body["JobName"] = request.jobName;
+    }
+
+    if (!$dara.isNull(request.jobSettingsShrink)) {
+      body["JobSettings"] = request.jobSettingsShrink;
+    }
+
+    if (!$dara.isNull(request.jobType)) {
+      body["JobType"] = request.jobType;
+    }
+
+    if (!$dara.isNull(request.migrationType)) {
+      body["MigrationType"] = request.migrationType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.resourceSettingsShrink)) {
+      body["ResourceSettings"] = request.resourceSettingsShrink;
+    }
+
+    if (!$dara.isNull(request.sourceDataSourceSettingsShrink)) {
+      body["SourceDataSourceSettings"] = request.sourceDataSourceSettingsShrink;
+    }
+
+    if (!$dara.isNull(request.sourceDataSourceType)) {
+      body["SourceDataSourceType"] = request.sourceDataSourceType;
+    }
+
+    if (!$dara.isNull(request.tableMappingsShrink)) {
+      body["TableMappings"] = request.tableMappingsShrink;
+    }
+
+    if (!$dara.isNull(request.transformationRulesShrink)) {
+      body["TransformationRules"] = request.transformationRulesShrink;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateDIJob",
       version: "2024-05-18",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -10888,16 +10944,50 @@ export default class Client extends OpenApi {
       request.transformationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transformationRules, "TransformationRules", "json");
     }
 
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.DIJobId)) {
+      body["DIJobId"] = request.DIJobId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.jobSettingsShrink)) {
+      body["JobSettings"] = request.jobSettingsShrink;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.resourceSettingsShrink)) {
+      body["ResourceSettings"] = request.resourceSettingsShrink;
+    }
+
+    if (!$dara.isNull(request.tableMappingsShrink)) {
+      body["TableMappings"] = request.tableMappingsShrink;
+    }
+
+    if (!$dara.isNull(request.transformationRulesShrink)) {
+      body["TransformationRules"] = request.transformationRulesShrink;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateDIJob",
       version: "2024-05-18",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",

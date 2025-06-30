@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateDIJobRequestJobSettingsColumnDataTypeSettings extends $dara.Model {
-  /**
-   * @remarks
-   * The data type of the destination field. Valid values: bigint, boolean, string, text, datetime, timestamp, decimal, and binary. Different types of data sources support different data types.
-   * 
-   * @example
-   * text
-   */
   destinationDataType?: string;
-  /**
-   * @remarks
-   * The data type of the source field. Valid values: Valid values: bigint, boolean, string, text, datetime, timestamp, decimal, and binary. Different types of data sources support different data types.
-   * 
-   * @example
-   * bigint
-   */
   sourceDataType?: string;
   static names(): { [key: string]: string } {
     return {

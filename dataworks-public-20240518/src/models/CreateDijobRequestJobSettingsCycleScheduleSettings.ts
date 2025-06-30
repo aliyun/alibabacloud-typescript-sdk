@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDIJobRequestJobSettingsCycleScheduleSettings extends $dara.Model {
-  /**
-   * @remarks
-   * The synchronization type that requires periodic scheduling. Valid values:
-   * 
-   * *   Full: full synchronization
-   * *   OfflineIncremental: batch incremental synchronization
-   * 
-   * @example
-   * Full
-   */
   cycleMigrationType?: string;
-  /**
-   * @remarks
-   * The scheduling parameters.
-   * 
-   * @example
-   * bizdate=$bizdate
-   */
   scheduleParameters?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,18 +4,7 @@ import { CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties } from "
 
 
 export class CreateDIJobRequestSourceDataSourceSettings extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the data source.
-   * 
-   * @example
-   * mysql_datasource_1
-   */
   dataSourceName?: string;
-  /**
-   * @remarks
-   * The properties of the data source.
-   */
   dataSourceProperties?: CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties;
   static names(): { [key: string]: string } {
     return {
