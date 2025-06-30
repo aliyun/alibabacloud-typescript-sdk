@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { GetSmsSignResponseBodyAuditInfo } from "./GetSmsSignResponseBodyAuditInfo";
+import { GetSmsSignResponseBodySignIspRegisterDetailList } from "./GetSmsSignResponseBodySignIspRegisterDetailList";
 
 
 export class GetSmsSignResponseBody extends $dara.Model {
@@ -94,6 +95,7 @@ export class GetSmsSignResponseBody extends $dara.Model {
    * SIGN_100000077042023_17174665*****_ZM2kG
    */
   signCode?: string;
+  signIspRegisterDetailList?: GetSmsSignResponseBodySignIspRegisterDetailList[];
   /**
    * @remarks
    * SMS signature name.
@@ -164,6 +166,7 @@ export class GetSmsSignResponseBody extends $dara.Model {
       remark: 'Remark',
       requestId: 'RequestId',
       signCode: 'SignCode',
+      signIspRegisterDetailList: 'SignIspRegisterDetailList',
       signName: 'SignName',
       signStatus: 'SignStatus',
       signTag: 'SignTag',
@@ -188,6 +191,7 @@ export class GetSmsSignResponseBody extends $dara.Model {
       remark: 'string',
       requestId: 'string',
       signCode: 'string',
+      signIspRegisterDetailList: { 'type': 'array', 'itemType': GetSmsSignResponseBodySignIspRegisterDetailList },
       signName: 'string',
       signStatus: 'number',
       signTag: 'string',
@@ -202,6 +206,9 @@ export class GetSmsSignResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.fileUrlList)) {
       $dara.Model.validateArray(this.fileUrlList);
+    }
+    if(Array.isArray(this.signIspRegisterDetailList)) {
+      $dara.Model.validateArray(this.signIspRegisterDetailList);
     }
     super.validate();
   }

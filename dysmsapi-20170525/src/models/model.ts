@@ -13,6 +13,8 @@ export { GetOSSInfoForCardTemplateResponseBodyData } from './GetOssinfoForCardTe
 export { GetOSSInfoForUploadFileResponseBodyModel } from './GetOssinfoForUploadFileResponseBodyModel';
 export { GetQualificationOssInfoResponseBodyData } from './GetQualificationOssInfoResponseBodyData';
 export { GetSmsSignResponseBodyAuditInfo } from './GetSmsSignResponseBodyAuditInfo';
+export { GetSmsSignResponseBodySignIspRegisterDetailListRegisterStatusReasons } from './GetSmsSignResponseBodySignIspRegisterDetailListRegisterStatusReasons';
+export { GetSmsSignResponseBodySignIspRegisterDetailList } from './GetSmsSignResponseBodySignIspRegisterDetailList';
 export { GetSmsTemplateResponseBodyAuditInfo } from './GetSmsTemplateResponseBodyAuditInfo';
 export { GetSmsTemplateResponseBodyFileUrlList } from './GetSmsTemplateResponseBodyFileUrlList';
 export { GetSmsTemplateResponseBodyMoreDataFileUrlList } from './GetSmsTemplateResponseBodyMoreDataFileUrlList';
