@@ -31,6 +31,7 @@ export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  simpleUserGroupId?: string;
   userGroupName?: string;
   userOuPath?: string;
   static names(): { [key: string]: string } {
@@ -39,6 +40,7 @@ export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
       desktopGroupIds: 'DesktopGroupIds',
       endUserIds: 'EndUserIds',
       regionId: 'RegionId',
+      simpleUserGroupId: 'SimpleUserGroupId',
       userGroupName: 'UserGroupName',
       userOuPath: 'UserOuPath',
     };
@@ -50,6 +52,7 @@ export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
       desktopGroupIds: { 'type': 'array', 'itemType': 'string' },
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      simpleUserGroupId: 'string',
       userGroupName: 'string',
       userOuPath: 'string',
     };

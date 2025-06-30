@@ -30,6 +30,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
    * testName
    */
   desktopGroupName?: string;
+  desktopType?: string;
   /**
    * @remarks
    * The IDs of the users who can access the cloud computer share.
@@ -200,6 +201,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
       desktopGroupId: 'DesktopGroupId',
       desktopGroupIds: 'DesktopGroupIds',
       desktopGroupName: 'DesktopGroupName',
+      desktopType: 'DesktopType',
       endUserIds: 'EndUserIds',
       excludedEndUserIds: 'ExcludedEndUserIds',
       imageId: 'ImageId',
@@ -224,6 +226,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
       desktopGroupId: 'string',
       desktopGroupIds: { 'type': 'array', 'itemType': 'string' },
       desktopGroupName: 'string',
+      desktopType: 'string',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       excludedEndUserIds: { 'type': 'array', 'itemType': 'string' },
       imageId: { 'type': 'array', 'itemType': 'string' },

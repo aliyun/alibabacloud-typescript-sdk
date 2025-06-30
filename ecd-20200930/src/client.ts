@@ -300,6 +300,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.simpleUserGroupId)) {
+      query["SimpleUserGroupId"] = request.simpleUserGroupId;
+    }
+
     if (!$dara.isNull(request.userGroupName)) {
       query["UserGroupName"] = request.userGroupName;
     }
@@ -3070,6 +3074,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sessionType)) {
       query["SessionType"] = request.sessionType;
+    }
+
+    if (!$dara.isNull(request.simpleUserGroupId)) {
+      query["SimpleUserGroupId"] = request.simpleUserGroupId;
     }
 
     if (!$dara.isNull(request.snapshotPolicyId)) {
@@ -6337,6 +6345,10 @@ export default class Client extends OpenApi {
       query["DesktopGroupName"] = request.desktopGroupName;
     }
 
+    if (!$dara.isNull(request.desktopType)) {
+      query["DesktopType"] = request.desktopType;
+    }
+
     if (!$dara.isNull(request.endUserIds)) {
       query["EndUserIds"] = request.endUserIds;
     }
@@ -7250,6 +7262,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询EIP监控
+   * 
    * @param request - DescribeFlowMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeFlowMetricResponse
@@ -7303,6 +7317,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询EIP监控
+   * 
    * @param request - DescribeFlowMetricRequest
    * @returns DescribeFlowMetricResponse
    */
@@ -14864,6 +14880,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.simpleUserGroupId)) {
+      query["SimpleUserGroupId"] = request.simpleUserGroupId;
     }
 
     if (!$dara.isNull(request.userGroupName)) {

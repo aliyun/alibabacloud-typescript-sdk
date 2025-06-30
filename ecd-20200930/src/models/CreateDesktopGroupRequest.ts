@@ -509,6 +509,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
    * SingleSession
    */
   sessionType?: string;
+  simpleUserGroupId?: string;
   /**
    * @remarks
    * The ID of the automatic snapshot policy.
@@ -651,6 +652,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
       resetType: 'ResetType',
       scaleStrategyId: 'ScaleStrategyId',
       sessionType: 'SessionType',
+      simpleUserGroupId: 'SimpleUserGroupId',
       snapshotPolicyId: 'SnapshotPolicyId',
       stopDuration: 'StopDuration',
       systemDiskCategory: 'SystemDiskCategory',
@@ -715,6 +717,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
       resetType: 'number',
       scaleStrategyId: 'string',
       sessionType: 'string',
+      simpleUserGroupId: 'string',
       snapshotPolicyId: 'string',
       stopDuration: 'number',
       systemDiskCategory: 'string',

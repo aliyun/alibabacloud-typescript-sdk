@@ -396,6 +396,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
    * 0
    */
   resetType?: number;
+  simpleUserGroupId?: string;
   /**
    * @remarks
    * The status of the cloud computer share.
@@ -530,6 +531,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       protocolType: 'ProtocolType',
       ratioThreshold: 'RatioThreshold',
       resetType: 'ResetType',
+      simpleUserGroupId: 'SimpleUserGroupId',
       status: 'Status',
       stopDuration: 'StopDuration',
       subnetId: 'SubnetId',
@@ -588,6 +590,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       protocolType: 'string',
       ratioThreshold: 'number',
       resetType: 'number',
+      simpleUserGroupId: 'string',
       status: 'number',
       stopDuration: 'number',
       subnetId: 'string',
