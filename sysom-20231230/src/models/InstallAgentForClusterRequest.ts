@@ -18,12 +18,14 @@ export class InstallAgentForClusterRequest extends $dara.Model {
    * c9d7f3fc3d42942afbcb65c1100ffb19d
    */
   clusterId?: string;
+  configId?: string;
   grayscaleConfig?: string;
   static names(): { [key: string]: string } {
     return {
       agentId: 'agent_id',
       agentVersion: 'agent_version',
       clusterId: 'cluster_id',
+      configId: 'config_id',
       grayscaleConfig: 'grayscale_config',
     };
   }
@@ -33,6 +35,7 @@ export class InstallAgentForClusterRequest extends $dara.Model {
       agentId: 'string',
       agentVersion: 'string',
       clusterId: 'string',
+      configId: 'string',
       grayscaleConfig: 'string',
     };
   }

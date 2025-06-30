@@ -8,6 +8,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
   pageSize?: number;
   pluginId?: string;
   pluginVersion?: string;
+  region?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16,6 +17,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
       pageSize: 'pageSize',
       pluginId: 'plugin_id',
       pluginVersion: 'plugin_version',
+      region: 'region',
       status: 'status',
     };
   }
@@ -27,6 +29,7 @@ export class ListAgentInstallRecordsRequest extends $dara.Model {
       pageSize: 'number',
       pluginId: 'string',
       pluginVersion: 'string',
+      region: 'string',
       status: 'string',
     };
   }

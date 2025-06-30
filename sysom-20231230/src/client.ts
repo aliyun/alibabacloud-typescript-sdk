@@ -1464,6 +1464,10 @@ export default class Client extends OpenApi {
       body["cluster_id"] = request.clusterId;
     }
 
+    if (!$dara.isNull(request.configId)) {
+      body["config_id"] = request.configId;
+    }
+
     if (!$dara.isNull(request.grayscaleConfig)) {
       body["grayscale_config"] = request.grayscaleConfig;
     }
@@ -1708,6 +1712,10 @@ export default class Client extends OpenApi {
       query["plugin_version"] = request.pluginVersion;
     }
 
+    if (!$dara.isNull(request.region)) {
+      query["region"] = request.region;
+    }
+
     if (!$dara.isNull(request.status)) {
       query["status"] = request.status;
     }
@@ -1810,6 +1818,10 @@ export default class Client extends OpenApi {
   async listClusterAgentInstallRecordsWithOptions(request: $_model.ListClusterAgentInstallRecordsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListClusterAgentInstallRecordsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentConfigId)) {
+      query["agent_config_id"] = request.agentConfigId;
+    }
+
     if (!$dara.isNull(request.clusterId)) {
       query["cluster_id"] = request.clusterId;
     }

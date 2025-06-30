@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
+  agentConfigId?: string;
   /**
    * @example
    * cbd80af02b9d6454ebdc579c5e022d0c8
@@ -30,6 +31,7 @@ export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
   pluginVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      agentConfigId: 'agent_config_id',
       clusterId: 'cluster_id',
       current: 'current',
       pageSize: 'pageSize',
@@ -40,6 +42,7 @@ export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentConfigId: 'string',
       clusterId: 'string',
       current: 'number',
       pageSize: 'number',

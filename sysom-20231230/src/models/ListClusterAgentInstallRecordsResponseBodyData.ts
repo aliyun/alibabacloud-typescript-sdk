@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model {
+  agentConfigId?: string;
+  agentConfigName?: string;
   /**
    * @example
    * cbf7a37bc905d4682a3338b3744810269
@@ -31,6 +33,8 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
   updatedAt?: string;
   static names(): { [key: string]: string } {
     return {
+      agentConfigId: 'agent_config_id',
+      agentConfigName: 'agent_config_name',
       clusterId: 'cluster_id',
       createdAt: 'created_at',
       grayscaleConfig: 'grayscale_config',
@@ -42,6 +46,8 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      agentConfigId: 'string',
+      agentConfigName: 'string',
       clusterId: 'string',
       createdAt: 'string',
       grayscaleConfig: 'string',
