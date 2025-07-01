@@ -121,6 +121,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
    * 1234
    */
   workflowId?: number;
+  workflowParameters?: string;
   static names(): { [key: string]: string } {
     return {
       bizDate: 'BizDate',
@@ -137,6 +138,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
       status: 'Status',
       type: 'Type',
       workflowId: 'WorkflowId',
+      workflowParameters: 'WorkflowParameters',
     };
   }
 
@@ -156,6 +158,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
       status: 'string',
       type: 'string',
       workflowId: 'number',
+      workflowParameters: 'string',
     };
   }
 

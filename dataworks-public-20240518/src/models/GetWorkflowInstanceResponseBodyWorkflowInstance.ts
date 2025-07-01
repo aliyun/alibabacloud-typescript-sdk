@@ -133,6 +133,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * 1234
    */
   workflowId?: number;
+  workflowParameters?: string;
   static names(): { [key: string]: string } {
     return {
       bizDate: 'BizDate',
@@ -149,6 +150,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
       status: 'Status',
       type: 'Type',
       workflowId: 'WorkflowId',
+      workflowParameters: 'WorkflowParameters',
     };
   }
 
@@ -168,6 +170,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
       status: 'string',
       type: 'string',
       workflowId: 'number',
+      workflowParameters: 'string',
     };
   }
 
