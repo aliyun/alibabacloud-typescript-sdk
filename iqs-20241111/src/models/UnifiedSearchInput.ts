@@ -7,6 +7,7 @@ export class UnifiedSearchInput extends $dara.Model {
   category?: string;
   contents?: RequestContents;
   engineType?: string;
+  location?: string;
   query?: string;
   timeRange?: string;
   static names(): { [key: string]: string } {
@@ -14,6 +15,7 @@ export class UnifiedSearchInput extends $dara.Model {
       category: 'category',
       contents: 'contents',
       engineType: 'engineType',
+      location: 'location',
       query: 'query',
       timeRange: 'timeRange',
     };
@@ -24,6 +26,7 @@ export class UnifiedSearchInput extends $dara.Model {
       category: 'string',
       contents: RequestContents,
       engineType: 'string',
+      location: 'string',
       query: 'string',
       timeRange: 'string',
     };
