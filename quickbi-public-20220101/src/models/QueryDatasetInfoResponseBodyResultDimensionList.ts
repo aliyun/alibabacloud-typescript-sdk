@@ -40,6 +40,12 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model
    */
   expression?: string;
   /**
+   * @remarks
+   * Expression for the flattened calculation dimensions.
+   * 
+   * @example
+   * example_expression
+   * 
    * **if can be null:**
    * true
    */
@@ -53,6 +59,9 @@ export class QueryDatasetInfoResponseBodyResultDimensionList extends $dara.Model
    */
   factColumn?: string;
   /**
+   * @remarks
+   * The description of the field.
+   * 
    * @example
    * hhhh
    */

@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryAuditLogRequest extends $dara.Model {
   /**
+   * **if can be null:**
+   * true
+   */
+  accessSourceFlag?: string;
+  /**
    * @remarks
    * End date of the query, format ("yyyyMMdd").
    * 
@@ -63,6 +68,11 @@ export class QueryAuditLogRequest extends $dara.Model {
    */
   startDate?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  userAccessDevice?: string;
+  /**
    * @remarks
    * Workspace ID, the ID of the workspace to which the logs to be queried belong.
    * 
@@ -72,24 +82,28 @@ export class QueryAuditLogRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessSourceFlag: 'AccessSourceFlag',
       endDate: 'EndDate',
       logType: 'LogType',
       operatorId: 'OperatorId',
       operatorTypes: 'OperatorTypes',
       resourceType: 'ResourceType',
       startDate: 'StartDate',
+      userAccessDevice: 'UserAccessDevice',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessSourceFlag: 'string',
       endDate: 'string',
       logType: 'string',
       operatorId: 'string',
       operatorTypes: 'string',
       resourceType: 'string',
       startDate: 'string',
+      userAccessDevice: 'string',
       workspaceId: 'string',
     };
   }

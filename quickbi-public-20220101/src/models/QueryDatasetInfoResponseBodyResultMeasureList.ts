@@ -32,6 +32,12 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $dara.Model {
    */
   expression?: string;
   /**
+   * @remarks
+   * Expression for flattened computation metrics.
+   * 
+   * @example
+   * example_expression
+   * 
    * **if can be null:**
    * true
    */
@@ -48,8 +54,11 @@ export class QueryDatasetInfoResponseBodyResultMeasureList extends $dara.Model {
    */
   factColumn?: string;
   /**
+   * @remarks
+   * The description of the field.
+   * 
    * @example
-   * hhhh
+   * asadsda
    */
   fieldDescription?: string;
   /**

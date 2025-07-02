@@ -2901,6 +2901,10 @@ export default class Client extends OpenApi {
   async queryAuditLogWithOptions(request: $_model.QueryAuditLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAuditLogResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.accessSourceFlag)) {
+      query["AccessSourceFlag"] = request.accessSourceFlag;
+    }
+
     if (!$dara.isNull(request.endDate)) {
       query["EndDate"] = request.endDate;
     }
@@ -2923,6 +2927,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startDate)) {
       query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.userAccessDevice)) {
+      query["UserAccessDevice"] = request.userAccessDevice;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -3461,8 +3469,8 @@ export default class Client extends OpenApi {
 
   /**
    * Indicates whether the table is a custom SQL table. Valid values:
-   * *   true: custom SQL table
-   * *   false: non-custom SQL table
+   * \\*   true: custom SQL table
+   * \\*   false: non-custom SQL table
    * 
    * @param request - QueryDatasetInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3494,8 +3502,8 @@ export default class Client extends OpenApi {
 
   /**
    * Indicates whether the table is a custom SQL table. Valid values:
-   * *   true: custom SQL table
-   * *   false: non-custom SQL table
+   * \\*   true: custom SQL table
+   * \\*   false: non-custom SQL table
    * 
    * @param request - QueryDatasetInfoRequest
    * @returns QueryDatasetInfoResponse
@@ -5056,7 +5064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Management of Smart Q\\&A Authorizations
+   * Batch Management of Smart Q\\\\\\&A Authorizations
    * 
    * @remarks
    * Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
@@ -5110,7 +5118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Management of Smart Q\\&A Authorizations
+   * Batch Management of Smart Q\\\\\\&A Authorizations
    * 
    * @remarks
    * Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.

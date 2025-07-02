@@ -18,7 +18,7 @@ export class CreateTicket4CopilotRequest extends $dara.Model {
    * 
    * - 1: Alibaba Cloud Primary Account
    * 
-   * - 3: QuickBI Self-built Account
+   * - 3: Quick BI Self-built Account
    * 
    * - 4: DingTalk
    * 

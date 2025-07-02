@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SmartqAuthorizeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Array of dataset IDs, separated by English commas. <notice>This parameter will be converted to the corresponding question resource ID for authorization. Therefore, if the input cubeId does not correspond to any question resource, an error indicating that the question resource does not exist will be reported. Please ensure the correctness of the cubeId.</notice>
+   * 
+   * @example
+   * wasdasd*******1235235sd,ASDAS*********ASDAW123
+   */
   cubeIds?: string;
   /**
    * @remarks

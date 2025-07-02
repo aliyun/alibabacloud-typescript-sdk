@@ -17,7 +17,7 @@ export class QueryDatasetInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The dataset information.
    */
   result?: QueryDatasetInfoResponseBodyResult;
   /**

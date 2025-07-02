@@ -43,7 +43,7 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * If it is a custom SQL table, this is the specific SQL.
+   * A list of all dimensions in the dataset.
    */
   dimensionList?: QueryDatasetInfoResponseBodyResultDimensionList[];
   /**
@@ -96,9 +96,19 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
   gmtModify?: string;
   /**
    * @remarks
-   * The unique ID of the table to which the table belongs, which corresponds to the UniqueId of the CubeTypeList.
+   * A list of all measures for the dataset.
    */
   measureList?: QueryDatasetInfoResponseBodyResultMeasureList[];
+  /**
+   * @remarks
+   * Whether to enable extraction acceleration. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   openOfflineAcceleration?: boolean;
   /**
    * @remarks
