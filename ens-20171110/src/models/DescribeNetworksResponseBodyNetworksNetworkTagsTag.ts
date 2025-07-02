@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworksResponseBodyNetworksNetworkTagsTag extends $dara.Model {
   /**
    * @remarks
-   * 标签键。
+   * The key of the tag.
    * 
    * @example
    * TestKey
@@ -27,7 +27,7 @@ export class DescribeNetworksResponseBodyNetworksNetworkTagsTag extends $dara.Mo
   tagValue?: string;
   /**
    * @remarks
-   * 标签值。
+   * The bandwidth.
    * 
    * @example
    * TestValue

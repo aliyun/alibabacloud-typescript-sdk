@@ -3,35 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * 标签键
-   * 
-   * @example
-   * TestKey
-   */
   key?: string;
   /**
-   * @example
-   * TestKey
-   * 
    * @deprecated
    */
   tagKey?: string;
   /**
-   * @example
-   * TestValue
-   * 
    * @deprecated
    */
   tagValue?: string;
-  /**
-   * @remarks
-   * 标签值。
-   * 
-   * @example
-   * TestValue
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

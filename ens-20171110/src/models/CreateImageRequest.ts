@@ -51,12 +51,10 @@ export class CreateImageRequest extends $dara.Model {
   targetOSSRegionId?: string;
   /**
    * @remarks
-   * 创建镜像是否包含数据盘。
+   * Specifies whether to include data disk snapshots in the custom image.
    * 
    * @example
-   * 取值
-   * true：附带数据盘
-   * false：默认值，不附带数据盘
+   * Value true false (default)
    */
   withDataDisks?: boolean;
   static names(): { [key: string]: string } {

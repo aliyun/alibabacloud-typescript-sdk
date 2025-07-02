@@ -985,6 +985,10 @@ export default class Client extends OpenApi {
       query["ImageId"] = request.imageId;
     }
 
+    if (!$dara.isNull(request.instanceBillingCycle)) {
+      query["InstanceBillingCycle"] = request.instanceBillingCycle;
+    }
+
     if (!$dara.isNull(request.instanceType)) {
       query["InstanceType"] = request.instanceType;
     }

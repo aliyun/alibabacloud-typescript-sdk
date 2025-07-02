@@ -7,6 +7,9 @@ export class DescribeEnsEipAddressesResponseBody extends $dara.Model {
   /**
    * @remarks
    * Details of the EIPs.
+   * 
+   * @example
+   * [\\"106.14.194.193\\"]
    */
   eipAddresses?: DescribeEnsEipAddressesResponseBodyEipAddresses;
   /**

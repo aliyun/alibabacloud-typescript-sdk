@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag extends $dara.Model {
   /**
    * @remarks
-   * 标签键。
+   * The tag key.
    * 
    * @example
    * TestKey
@@ -27,7 +27,7 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag extends $dara.
   tagValue?: string;
   /**
    * @remarks
-   * 标签值。
+   * The request error rate.
    * 
    * @example
    * TestValue

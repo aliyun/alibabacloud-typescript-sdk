@@ -73,6 +73,7 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
    * yourImage ID
    */
   imageId?: string;
+  instanceBillingCycle?: string;
   /**
    * @remarks
    * The specification of the Android in Container (AIC) instance. Examples:
@@ -141,8 +142,6 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
    * *   If you set PeriodUnit to Day, you can set Period only to 3.
    * *   If you set PeriodUnit to Month, you can set Period to a value within the range of [1,9], or set the value to 12.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1
    */
@@ -154,8 +153,6 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
    * *   If you leave PeriodUnit empty, the instance is purchased on a monthly basis. Valid values: Day and Month.
    * *   If you set PeriodUnit to Day, you can set Period only to 3.
    * *   If you set PeriodUnit to Month, you can set Period to a value within the range of [1,9], or set the value to 12.
-   * 
-   * This parameter is required.
    * 
    * @example
    * Month
@@ -215,6 +212,7 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
       environmentVar: 'EnvironmentVar',
       frequency: 'Frequency',
       imageId: 'ImageId',
+      instanceBillingCycle: 'InstanceBillingCycle',
       instanceType: 'InstanceType',
       keyPairName: 'KeyPairName',
       nameSpace: 'NameSpace',
@@ -238,6 +236,7 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
       environmentVar: 'string',
       frequency: 'number',
       imageId: 'string',
+      instanceBillingCycle: 'string',
       instanceType: 'string',
       keyPairName: 'string',
       nameSpace: 'string',
