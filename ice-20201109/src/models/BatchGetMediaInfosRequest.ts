@@ -15,6 +15,7 @@ export class BatchGetMediaInfosRequest extends $dara.Model {
    * FileInfo,DynamicMetaData
    */
   additionType?: string;
+  authTimeout?: number;
   /**
    * @remarks
    * The IDs of the media assets that you want to query. Separate the IDs with commas (,).
@@ -26,6 +27,7 @@ export class BatchGetMediaInfosRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       additionType: 'AdditionType',
+      authTimeout: 'AuthTimeout',
       mediaIds: 'MediaIds',
     };
   }
@@ -33,6 +35,7 @@ export class BatchGetMediaInfosRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       additionType: 'string',
+      authTimeout: 'number',
       mediaIds: 'string',
     };
   }

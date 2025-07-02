@@ -11,7 +11,21 @@ export class GetMediaLiveInputResponseBodyInputInputInfos extends $dara.Model {
    * rtmp://domain/app/stream
    */
   destHost?: string;
+  /**
+   * @remarks
+   * The ID of the flow from MediaConnect.
+   * 
+   * @example
+   * ******81-9693-40dc-bbab-db5e49******
+   */
   flowId?: string;
+  /**
+   * @remarks
+   * The output name of the MediaConnect flow.
+   * 
+   * @example
+   * myFlowOutputName
+   */
   flowOutputName?: string;
   /**
    * @remarks

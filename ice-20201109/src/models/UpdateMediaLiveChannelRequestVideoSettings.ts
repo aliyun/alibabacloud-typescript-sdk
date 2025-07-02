@@ -6,7 +6,12 @@ import { UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSetting } from "./U
 export class UpdateMediaLiveChannelRequestVideoSettings extends $dara.Model {
   /**
    * @remarks
-   * The height of the output. Valid values: 0 to 2000. If you set it to 0 or leave it empty, the height automatically adapts to the specified width to maintain the original aspect ratio.
+   * The height of the output. If you set it to 0 or leave it empty, the height automatically adapts to the specified width to maintain the original aspect ratio.
+   * 
+   * Valid values:
+   * 
+   * *   For regular transcoding, the larger dimension cannot exceed 3840 px, and the smaller one cannot exceed 2160 px.
+   * *   For Narrowband HD™ transcoding, the larger dimension cannot exceed 1920 px, and the smaller one cannot exceed 1080 px.
    * 
    * @example
    * 720
@@ -35,10 +40,27 @@ export class UpdateMediaLiveChannelRequestVideoSettings extends $dara.Model {
    * The video encoding settings.
    */
   videoCodecSetting?: UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSetting;
+  /**
+   * @remarks
+   * The video transcoding method. Valid values:
+   * 
+   * *   NORMAL: regular transcoding
+   * *   NBHD: Narrowband HD™ transcoding
+   * 
+   * If not specified, regular transcoding is used by default.
+   * 
+   * @example
+   * NORMAL
+   */
   videoCodecType?: string;
   /**
    * @remarks
-   * The width of the output. Valid values: 0 to 2000. If you set it to 0 or leave it empty, the width automatically adapts to the specified height to maintain the original aspect ratio.
+   * The width of the output. If you set it to 0 or leave it empty, the width automatically adapts to the specified height to maintain the original aspect ratio.
+   * 
+   * Valid values:
+   * 
+   * *   For regular transcoding, the larger dimension cannot exceed 3840 px, and the smaller one cannot exceed 2160 px.
+   * *   For Narrowband HD™ transcoding, the larger dimension cannot exceed 1920 px, and the smaller one cannot exceed 1080 px.
    * 
    * @example
    * 1280

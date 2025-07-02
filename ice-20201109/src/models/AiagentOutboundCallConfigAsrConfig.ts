@@ -6,12 +6,14 @@ export class AIAgentOutboundCallConfigAsrConfig extends $dara.Model {
   asrHotWords?: string[];
   asrLanguageId?: string;
   asrMaxSilence?: number;
+  customParams?: string;
   vadLevel?: number;
   static names(): { [key: string]: string } {
     return {
       asrHotWords: 'AsrHotWords',
       asrLanguageId: 'AsrLanguageId',
       asrMaxSilence: 'AsrMaxSilence',
+      customParams: 'CustomParams',
       vadLevel: 'VadLevel',
     };
   }
@@ -21,6 +23,7 @@ export class AIAgentOutboundCallConfigAsrConfig extends $dara.Model {
       asrHotWords: { 'type': 'array', 'itemType': 'string' },
       asrLanguageId: 'string',
       asrMaxSilence: 'number',
+      customParams: 'string',
       vadLevel: 'number',
     };
   }

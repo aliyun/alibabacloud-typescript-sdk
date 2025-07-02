@@ -3,11 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateMediaLiveInputRequestInputSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the flow from MediaConnect. This parameter is required when Type is set to MEDIA_CONNECT.
+   * 
+   * @example
+   * ******81-9693-40dc-bbab-db5e49******
+   */
   flowId?: string;
+  /**
+   * @remarks
+   * The output name of the MediaConnect flow. This parameter is required when Type is set to MEDIA_CONNECT.
+   * 
+   * @example
+   * myFlowOutputName
+   */
   flowOutputName?: string;
   /**
    * @remarks
-   * The source URL where the stream is pulled from. This parameter is required for PULL inputs.
+   * The source URL from which the stream is pulled. This parameter is required for PULL inputs.
    * 
    * @example
    * rtmp://domain/app/stream

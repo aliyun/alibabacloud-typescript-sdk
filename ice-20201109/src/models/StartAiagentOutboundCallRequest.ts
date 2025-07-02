@@ -29,6 +29,7 @@ export class StartAIAgentOutboundCallRequest extends $dara.Model {
    */
   callerNumber?: string;
   config?: AIAgentOutboundCallConfig;
+  imsAIAgentFreeObCall?: string;
   /**
    * @example
    * f213fbc005e4f309379701645f4****
@@ -41,6 +42,7 @@ export class StartAIAgentOutboundCallRequest extends $dara.Model {
       calledNumber: 'CalledNumber',
       callerNumber: 'CallerNumber',
       config: 'Config',
+      imsAIAgentFreeObCall: 'ImsAIAgentFreeObCall',
       sessionId: 'SessionId',
       userData: 'UserData',
     };
@@ -52,6 +54,7 @@ export class StartAIAgentOutboundCallRequest extends $dara.Model {
       calledNumber: 'string',
       callerNumber: 'string',
       config: AIAgentOutboundCallConfig,
+      imsAIAgentFreeObCall: 'string',
       sessionId: 'string',
       userData: 'string',
     };

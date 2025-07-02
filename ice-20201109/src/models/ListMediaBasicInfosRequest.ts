@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMediaBasicInfosRequest extends $dara.Model {
+  authTimeout?: number;
   /**
    * @remarks
    * The business type of the media asset. Valid values:
@@ -141,6 +142,7 @@ export class ListMediaBasicInfosRequest extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      authTimeout: 'AuthTimeout',
       businessType: 'BusinessType',
       endTime: 'EndTime',
       includeFileBasicInfo: 'IncludeFileBasicInfo',
@@ -157,6 +159,7 @@ export class ListMediaBasicInfosRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authTimeout: 'number',
       businessType: 'string',
       endTime: 'string',
       includeFileBasicInfo: 'boolean',

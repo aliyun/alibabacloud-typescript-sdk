@@ -3,15 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AIAgentOutboundCallConfigTurnDetectionConfig extends $dara.Model {
+  mode?: string;
+  semanticWaitDuration?: number;
   turnEndWords?: string[];
   static names(): { [key: string]: string } {
     return {
+      mode: 'Mode',
+      semanticWaitDuration: 'SemanticWaitDuration',
       turnEndWords: 'TurnEndWords',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      mode: 'string',
+      semanticWaitDuration: 'number',
       turnEndWords: { 'type': 'array', 'itemType': 'string' },
     };
   }

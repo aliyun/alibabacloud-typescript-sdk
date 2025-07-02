@@ -30,7 +30,7 @@ export class CreateMediaLiveInputShrinkRequest extends $dara.Model {
   securityGroupIdsShrink?: string;
   /**
    * @remarks
-   * The input type. Valid values: RTMP_PUSH, RTMP_PULL, SRT_PUSH, and SRT_PULL.
+   * The input type. Valid values: RTMP_PUSH, RTMP_PULL, SRT_PUSH, SRT_PULL, and MEDIA_CONNECT.
    * 
    * This parameter is required.
    * 

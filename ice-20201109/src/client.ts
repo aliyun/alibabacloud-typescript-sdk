@@ -766,6 +766,10 @@ export default class Client extends OpenApi {
       query["AdditionType"] = request.additionType;
     }
 
+    if (!$dara.isNull(request.authTimeout)) {
+      query["AuthTimeout"] = request.authTimeout;
+    }
+
     if (!$dara.isNull(request.mediaIds)) {
       query["MediaIds"] = request.mediaIds;
     }
@@ -7389,6 +7393,10 @@ export default class Client extends OpenApi {
   async getMediaInfoWithOptions(request: $_model.GetMediaInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMediaInfoResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authTimeout)) {
+      query["AuthTimeout"] = request.authTimeout;
+    }
+
     if (!$dara.isNull(request.inputURL)) {
       query["InputURL"] = request.inputURL;
     }
@@ -7809,6 +7817,10 @@ export default class Client extends OpenApi {
   async getPlayInfoWithOptions(request: $_model.GetPlayInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPlayInfoResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authTimeout)) {
+      query["AuthTimeout"] = request.authTimeout;
+    }
+
     if (!$dara.isNull(request.inputURL)) {
       query["InputURL"] = request.inputURL;
     }
@@ -8988,12 +9000,20 @@ export default class Client extends OpenApi {
   async listAIAgentPhoneNumberWithOptions(request: $_model.ListAIAgentPhoneNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAIAgentPhoneNumberResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.number)) {
+      query["Number"] = request.number;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -10601,6 +10621,10 @@ export default class Client extends OpenApi {
   async listMediaBasicInfosWithOptions(request: $_model.ListMediaBasicInfosRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMediaBasicInfosResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authTimeout)) {
+      query["AuthTimeout"] = request.authTimeout;
+    }
+
     if (!$dara.isNull(request.businessType)) {
       query["BusinessType"] = request.businessType;
     }
@@ -14704,6 +14728,10 @@ export default class Client extends OpenApi {
       query["Config"] = request.configShrink;
     }
 
+    if (!$dara.isNull(request.imsAIAgentFreeObCall)) {
+      query["ImsAIAgentFreeObCall"] = request.imsAIAgentFreeObCall;
+    }
+
     if (!$dara.isNull(request.sessionId)) {
       query["SessionId"] = request.sessionId;
     }
@@ -16013,7 +16041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交高光提取任务
+   * Submits a highlight extraction task.
    * 
    * @param request - SubmitHighlightExtractionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16058,7 +16086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交高光提取任务
+   * Submits a highlight extraction task.
    * 
    * @param request - SubmitHighlightExtractionJobRequest
    * @returns SubmitHighlightExtractionJobResponse
@@ -16979,7 +17007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交高燃混剪任务
+   * Submits a task to automatically recognize the highlight segments in the video input and compile them into a dramatic and engaging clip.
    * 
    * @param request - SubmitScreenMediaHighlightsJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17024,7 +17052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交高燃混剪任务
+   * Submits a task to automatically recognize the highlight segments in the video input and compile them into a dramatic and engaging clip.
    * 
    * @param request - SubmitScreenMediaHighlightsJobRequest
    * @returns SubmitScreenMediaHighlightsJobResponse

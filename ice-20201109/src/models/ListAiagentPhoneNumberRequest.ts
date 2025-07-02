@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAIAgentPhoneNumberRequest extends $dara.Model {
+  number?: string;
   /**
    * @example
    * 1
@@ -13,17 +14,22 @@ export class ListAIAgentPhoneNumberRequest extends $dara.Model {
    * 50
    */
   pageSize?: number;
+  status?: number;
   static names(): { [key: string]: string } {
     return {
+      number: 'Number',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      number: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      status: 'number',
     };
   }
 

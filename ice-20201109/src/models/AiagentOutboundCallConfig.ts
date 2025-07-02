@@ -11,6 +11,7 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
   asrConfig?: AIAgentOutboundCallConfigAsrConfig;
   enableIntelligentSegment?: boolean;
   greeting?: string;
+  greetingDelay?: number;
   interruptConfig?: AIAgentOutboundCallConfigInterruptConfig;
   llmConfig?: AIAgentOutboundCallConfigLlmConfig;
   ttsConfig?: AIAgentOutboundCallConfigTtsConfig;
@@ -20,6 +21,7 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
       asrConfig: 'AsrConfig',
       enableIntelligentSegment: 'EnableIntelligentSegment',
       greeting: 'Greeting',
+      greetingDelay: 'GreetingDelay',
       interruptConfig: 'InterruptConfig',
       llmConfig: 'LlmConfig',
       ttsConfig: 'TtsConfig',
@@ -32,6 +34,7 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
       asrConfig: AIAgentOutboundCallConfigAsrConfig,
       enableIntelligentSegment: 'boolean',
       greeting: 'string',
+      greetingDelay: 'number',
       interruptConfig: AIAgentOutboundCallConfigInterruptConfig,
       llmConfig: AIAgentOutboundCallConfigLlmConfig,
       ttsConfig: AIAgentOutboundCallConfigTtsConfig,

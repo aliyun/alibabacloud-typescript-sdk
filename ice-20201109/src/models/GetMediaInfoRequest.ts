@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMediaInfoRequest extends $dara.Model {
+  authTimeout?: number;
   /**
    * @remarks
    * The input URL of the media asset in another service. The URL must be registered in the IMS content library and bound to the ID of the media asset in IMS.
@@ -49,6 +50,7 @@ export class GetMediaInfoRequest extends $dara.Model {
   returnDetailedInfo?: string;
   static names(): { [key: string]: string } {
     return {
+      authTimeout: 'AuthTimeout',
       inputURL: 'InputURL',
       mediaId: 'MediaId',
       outputType: 'OutputType',
@@ -58,6 +60,7 @@ export class GetMediaInfoRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authTimeout: 'number',
       inputURL: 'string',
       mediaId: 'string',
       outputType: 'string',

@@ -6,6 +6,7 @@ import { AIAgentConfigInterruptConfig } from "./AiagentConfigInterruptConfig";
 import { AIAgentConfigLlmConfig } from "./AiagentConfigLlmConfig";
 import { AIAgentConfigTtsConfig } from "./AiagentConfigTtsConfig";
 import { AIAgentConfigTurnDetectionConfig } from "./AiagentConfigTurnDetectionConfig";
+import { AIAgentConfigVcrConfig } from "./AiagentConfigVcrConfig";
 import { AIAgentConfigVoiceprintConfig } from "./AiagentConfigVoiceprintConfig";
 
 
@@ -26,6 +27,7 @@ export class AIAgentConfig extends $dara.Model {
   turnDetectionConfig?: AIAgentConfigTurnDetectionConfig;
   userOfflineTimeout?: number;
   userOnlineTimeout?: number;
+  vcrConfig?: AIAgentConfigVcrConfig;
   voiceprintConfig?: AIAgentConfigVoiceprintConfig;
   volume?: number;
   wakeUpQuery?: string;
@@ -48,6 +50,7 @@ export class AIAgentConfig extends $dara.Model {
       turnDetectionConfig: 'TurnDetectionConfig',
       userOfflineTimeout: 'UserOfflineTimeout',
       userOnlineTimeout: 'UserOnlineTimeout',
+      vcrConfig: 'VcrConfig',
       voiceprintConfig: 'VoiceprintConfig',
       volume: 'Volume',
       wakeUpQuery: 'WakeUpQuery',
@@ -73,6 +76,7 @@ export class AIAgentConfig extends $dara.Model {
       turnDetectionConfig: AIAgentConfigTurnDetectionConfig,
       userOfflineTimeout: 'number',
       userOnlineTimeout: 'number',
+      vcrConfig: AIAgentConfigVcrConfig,
       voiceprintConfig: AIAgentConfigVoiceprintConfig,
       volume: 'number',
       wakeUpQuery: 'string',
@@ -98,6 +102,9 @@ export class AIAgentConfig extends $dara.Model {
     }
     if(this.turnDetectionConfig && typeof (this.turnDetectionConfig as any).validate === 'function') {
       (this.turnDetectionConfig as any).validate();
+    }
+    if(this.vcrConfig && typeof (this.vcrConfig as any).validate === 'function') {
+      (this.vcrConfig as any).validate();
     }
     if(this.voiceprintConfig && typeof (this.voiceprintConfig as any).validate === 'function') {
       (this.voiceprintConfig as any).validate();

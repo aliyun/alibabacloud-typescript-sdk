@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitHighlightExtractionJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token used to ensure the idempotency of the request.
+   * 
    * @example
    * ****12e8864746a0a398****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The input configuration.
+   * 
    * @example
    * {
    * 	"MediaArray": [{
@@ -30,6 +36,9 @@ export class SubmitHighlightExtractionJobRequest extends $dara.Model {
    */
   inputConfig?: string;
   /**
+   * @remarks
+   * The output configuration.
+   * 
    * @example
    * {
    * 	"NeedExport": true,
@@ -42,6 +51,10 @@ export class SubmitHighlightExtractionJobRequest extends $dara.Model {
    * }
    */
   outputConfig?: string;
+  /**
+   * @remarks
+   * The user-defined data, including the business and callback configurations. For more information, see [UserData](~~357745#section-urj-v3f-0s1~~).
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {

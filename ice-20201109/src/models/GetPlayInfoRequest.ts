@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPlayInfoRequest extends $dara.Model {
+  authTimeout?: number;
   /**
    * @remarks
    * The input URL that you specified for the media asset when you registered the media asset. For more information, see [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html).
@@ -22,6 +23,7 @@ export class GetPlayInfoRequest extends $dara.Model {
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
+      authTimeout: 'AuthTimeout',
       inputURL: 'InputURL',
       mediaId: 'MediaId',
     };
@@ -29,6 +31,7 @@ export class GetPlayInfoRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authTimeout: 'number',
       inputURL: 'string',
       mediaId: 'string',
     };

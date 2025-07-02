@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitScreenMediaHighlightsJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The editing configuration. For detailed parameters, see [EditingConfig](~~2863940#9b05519d46e0x~~).
+   * 
    * @example
    * {
    * 	"MediaConfig": {
@@ -17,6 +20,9 @@ export class SubmitScreenMediaHighlightsJobRequest extends $dara.Model {
    */
   editingConfig?: string;
   /**
+   * @remarks
+   * The input configuration. For detailed parameters, see [InputConfig](~~2863940#dda38bf6ec2pk~~).
+   * 
    * @example
    * {
    * 	"MediaArray": [
@@ -27,6 +33,9 @@ export class SubmitScreenMediaHighlightsJobRequest extends $dara.Model {
    */
   inputConfig?: string;
   /**
+   * @remarks
+   * The output configuration. For detailed parameters, see [OutputConfig](~~2863940#4111a373d0xbz~~).
+   * 
    * @example
    * {
    *   "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
@@ -36,6 +45,10 @@ export class SubmitScreenMediaHighlightsJobRequest extends $dara.Model {
    * }
    */
   outputConfig?: string;
+  /**
+   * @remarks
+   * The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html).
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {

@@ -31,7 +31,7 @@ export class CreateMediaLiveInputRequest extends $dara.Model {
   securityGroupIds?: string[];
   /**
    * @remarks
-   * The input type. Valid values: RTMP_PUSH, RTMP_PULL, SRT_PUSH, and SRT_PULL.
+   * The input type. Valid values: RTMP_PUSH, RTMP_PULL, SRT_PUSH, SRT_PULL, and MEDIA_CONNECT.
    * 
    * This parameter is required.
    * 
