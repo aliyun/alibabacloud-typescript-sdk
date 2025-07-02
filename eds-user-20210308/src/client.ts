@@ -217,6 +217,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建角色.
+   * 
+   * @param request - CreateGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGroupResponse
+   */
+  async createGroupWithOptions(request: $_model.CreateGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.parentGroupId)) {
+      query["ParentGroupId"] = request.parentGroupId;
+    }
+
+    if (!$dara.isNull(request.solutionId)) {
+      query["SolutionId"] = request.solutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateGroup",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateGroupResponse({}));
+  }
+
+  /**
+   * 创建角色.
+   * 
+   * @param request - CreateGroupRequest
+   * @returns CreateGroupResponse
+   */
+  async createGroup(request: $_model.CreateGroupRequest): Promise<$_model.CreateGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createGroupWithOptions(request, runtime);
+  }
+
+  /**
    * 创建组织
    * 
    * @param request - CreateOrgRequest
@@ -524,6 +578,110 @@ export default class Client extends OpenApi {
   async deleteUserPropertyValue(request: $_model.DeleteUserPropertyValueRequest): Promise<$_model.DeleteUserPropertyValueResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteUserPropertyValueWithOptions(request, runtime);
+  }
+
+  /**
+   * 全量同步初始化
+   * 
+   * @param request - DescribeGroupUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGroupUserResponse
+   */
+  async describeGroupUserWithOptions(request: $_model.DescribeGroupUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGroupUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.solutionId)) {
+      query["SolutionId"] = request.solutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeGroupUser",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeGroupUserResponse>(await this.callApi(params, req, runtime), new $_model.DescribeGroupUserResponse({}));
+  }
+
+  /**
+   * 全量同步初始化
+   * 
+   * @param request - DescribeGroupUserRequest
+   * @returns DescribeGroupUserResponse
+   */
+  async describeGroupUser(request: $_model.DescribeGroupUserRequest): Promise<$_model.DescribeGroupUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeGroupUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 全量同步初始化.
+   * 
+   * @param request - DescribeGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGroupsResponse
+   */
+  async describeGroupsWithOptions(request: $_model.DescribeGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGroupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.solutionId)) {
+      query["SolutionId"] = request.solutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeGroups",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeGroupsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeGroupsResponse({}));
+  }
+
+  /**
+   * 全量同步初始化.
+   * 
+   * @param request - DescribeGroupsRequest
+   * @returns DescribeGroupsResponse
+   */
+  async describeGroups(request: $_model.DescribeGroupsRequest): Promise<$_model.DescribeGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeGroupsWithOptions(request, runtime);
   }
 
   /**
@@ -1215,6 +1373,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改角色.
+   * 
+   * @param request - ModifyGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyGroupResponse
+   */
+  async modifyGroupWithOptions(request: $_model.ModifyGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.newGroupName)) {
+      query["NewGroupName"] = request.newGroupName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyGroup",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModifyGroupResponse({}));
+  }
+
+  /**
+   * 修改角色.
+   * 
+   * @param request - ModifyGroupRequest
+   * @returns ModifyGroupResponse
+   */
+  async modifyGroup(request: $_model.ModifyGroupRequest): Promise<$_model.ModifyGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyGroupWithOptions(request, runtime);
+  }
+
+  /**
    * 修改组织
    * 
    * @param request - ModifyOrgRequest
@@ -1357,6 +1561,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移动用户组织
+   * 
+   * @param request - MoveUserOrgRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveUserOrgResponse
+   */
+  async moveUserOrgWithOptions(request: $_model.MoveUserOrgRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MoveUserOrgResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endUserIds)) {
+      body["EndUserIds"] = request.endUserIds;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      body["OrgId"] = request.orgId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MoveUserOrg",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MoveUserOrgResponse>(await this.callApi(params, req, runtime), new $_model.MoveUserOrgResponse({}));
+  }
+
+  /**
+   * 移动用户组织
+   * 
+   * @param request - MoveUserOrgRequest
+   * @returns MoveUserOrgResponse
+   */
+  async moveUserOrg(request: $_model.MoveUserOrgRequest): Promise<$_model.MoveUserOrgResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.moveUserOrgWithOptions(request, runtime);
+  }
+
+  /**
    * 查询edu同步信息
    * 
    * @param request - QuerySyncStatusByAliUidRequest
@@ -1386,6 +1636,48 @@ export default class Client extends OpenApi {
   async querySyncStatusByAliUid(): Promise<$_model.QuerySyncStatusByAliUidResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.querySyncStatusByAliUidWithOptions(runtime);
+  }
+
+  /**
+   * 删除角色.
+   * 
+   * @param request - RemoveGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveGroupResponse
+   */
+  async removeGroupWithOptions(request: $_model.RemoveGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveGroup",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveGroupResponse>(await this.callApi(params, req, runtime), new $_model.RemoveGroupResponse({}));
+  }
+
+  /**
+   * 删除角色.
+   * 
+   * @param request - RemoveGroupRequest
+   * @returns RemoveGroupResponse
+   */
+  async removeGroup(request: $_model.RemoveGroupRequest): Promise<$_model.RemoveGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeGroupWithOptions(request, runtime);
   }
 
   /**
@@ -1840,6 +2132,98 @@ export default class Client extends OpenApi {
   async updateProperty(request: $_model.UpdatePropertyRequest): Promise<$_model.UpdatePropertyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePropertyWithOptions(request, runtime);
+  }
+
+  /**
+   * 用户批量分配角色
+   * 
+   * @param request - UserBatchJoinGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UserBatchJoinGroupResponse
+   */
+  async userBatchJoinGroupWithOptions(request: $_model.UserBatchJoinGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UserBatchJoinGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endUserIds)) {
+      body["EndUserIds"] = request.endUserIds;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UserBatchJoinGroup",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UserBatchJoinGroupResponse>(await this.callApi(params, req, runtime), new $_model.UserBatchJoinGroupResponse({}));
+  }
+
+  /**
+   * 用户批量分配角色
+   * 
+   * @param request - UserBatchJoinGroupRequest
+   * @returns UserBatchJoinGroupResponse
+   */
+  async userBatchJoinGroup(request: $_model.UserBatchJoinGroupRequest): Promise<$_model.UserBatchJoinGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.userBatchJoinGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 用户批量移出角色
+   * 
+   * @param request - UserBatchQuitGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UserBatchQuitGroupResponse
+   */
+  async userBatchQuitGroupWithOptions(request: $_model.UserBatchQuitGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UserBatchQuitGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endUserIds)) {
+      body["EndUserIds"] = request.endUserIds;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UserBatchQuitGroup",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UserBatchQuitGroupResponse>(await this.callApi(params, req, runtime), new $_model.UserBatchQuitGroupResponse({}));
+  }
+
+  /**
+   * 用户批量移出角色
+   * 
+   * @param request - UserBatchQuitGroupRequest
+   * @returns UserBatchQuitGroupResponse
+   */
+  async userBatchQuitGroup(request: $_model.UserBatchQuitGroupRequest): Promise<$_model.UserBatchQuitGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.userBatchQuitGroupWithOptions(request, runtime);
   }
 
 }
