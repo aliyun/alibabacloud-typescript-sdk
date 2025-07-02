@@ -1,8352 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class ActivateDeviceRequest extends $tea.Model {
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      uuid: 'Uuid',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ActivateDeviceResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ActivateDeviceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ActivateDeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ActivateDeviceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDeviceFromSNRequest extends $tea.Model {
-  alias?: string;
-  customProperty?: string;
-  groupId?: string;
-  labelContents?: string;
-  secureNetworkType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  serialNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alias: 'Alias',
-      customProperty: 'CustomProperty',
-      groupId: 'GroupId',
-      labelContents: 'LabelContents',
-      secureNetworkType: 'SecureNetworkType',
-      serialNo: 'SerialNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alias: 'string',
-      customProperty: 'string',
-      groupId: 'string',
-      labelContents: 'string',
-      secureNetworkType: 'string',
-      serialNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDeviceFromSNResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDeviceFromSNResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddDeviceFromSNResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddDeviceFromSNResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDeviceSeatsAndLabelsRequest extends $tea.Model {
-  isUnique?: boolean;
-  label?: string;
-  labelList?: string[];
-  seatName?: string;
-  serialNo?: string;
-  tenantId?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isUnique: 'IsUnique',
-      label: 'Label',
-      labelList: 'LabelList',
-      seatName: 'SeatName',
-      serialNo: 'SerialNo',
-      tenantId: 'TenantId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isUnique: 'boolean',
-      label: 'string',
-      labelList: { 'type': 'array', 'itemType': 'string' },
-      seatName: 'string',
-      serialNo: 'string',
-      tenantId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDeviceSeatsAndLabelsResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDeviceSeatsAndLabelsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddDeviceSeatsAndLabelsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddDeviceSeatsAndLabelsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDevicesFromCSVRequest extends $tea.Model {
-  fileName?: string;
-  fileType?: number;
-  seatCol?: number;
-  siteId?: string;
-  siteName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileType: 'FileType',
-      seatCol: 'SeatCol',
-      siteId: 'SiteId',
-      siteName: 'SiteName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileType: 'number',
-      seatCol: 'number',
-      siteId: 'string',
-      siteName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDevicesFromCSVResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDevicesFromCSVResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddDevicesFromCSVResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddDevicesFromCSVResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddLabelsRequest extends $tea.Model {
-  labelContents?: string;
-  static names(): { [key: string]: string } {
-    return {
-      labelContents: 'LabelContents',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labelContents: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddLabelsResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddLabelsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddLabelsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddLabelsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddOrUpdateDeviceSeatsRequest extends $tea.Model {
-  fileName?: string;
-  userCustomId?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      userCustomId: 'UserCustomId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      userCustomId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddOrUpdateDeviceSeatsResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddOrUpdateDeviceSeatsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddOrUpdateDeviceSeatsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddOrUpdateDeviceSeatsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddTerminalRequest extends $tea.Model {
-  alias?: string;
-  serialNumber?: string;
-  terminalGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alias: 'Alias',
-      serialNumber: 'SerialNumber',
-      terminalGroupId: 'TerminalGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alias: 'string',
-      serialNumber: 'string',
-      terminalGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddTerminalResponseBody extends $tea.Model {
-  code?: string;
-  httpStatusCode?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddTerminalResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddTerminalResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddTerminalResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddTerminalsRequest extends $tea.Model {
-  addTerminalParams?: AddTerminalsRequestAddTerminalParams[];
-  static names(): { [key: string]: string } {
-    return {
-      addTerminalParams: 'AddTerminalParams',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addTerminalParams: { 'type': 'array', 'itemType': AddTerminalsRequestAddTerminalParams },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddTerminalsResponseBody extends $tea.Model {
-  code?: string;
-  data?: AddTerminalsResponseBodyData[];
-  httpStatusCode?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': AddTerminalsResponseBodyData },
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddTerminalsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddTerminalsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddTerminalsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachEndUsersRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  endUserIds?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  serialNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endUserIds: 'EndUserIds',
-      serialNo: 'SerialNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endUserIds: 'string',
-      serialNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachEndUsersResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachEndUsersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AttachEndUsersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AttachEndUsersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachLabelRequest extends $tea.Model {
-  labelContent?: string;
-  labelId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  serialNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      labelContent: 'LabelContent',
-      labelId: 'LabelId',
-      serialNo: 'SerialNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labelContent: 'string',
-      labelId: 'string',
-      serialNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachLabelResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachLabelResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AttachLabelResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AttachLabelResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachLabelsRequest extends $tea.Model {
-  labelIds?: string;
-  serialNo?: string;
-  serialNoList?: string;
-  static names(): { [key: string]: string } {
-    return {
-      labelIds: 'LabelIds',
-      serialNo: 'SerialNo',
-      serialNoList: 'SerialNoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labelIds: 'string',
-      serialNo: 'string',
-      serialNoList: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachLabelsResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachLabelsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AttachLabelsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AttachLabelsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindAccountLessLoginUserRequest extends $tea.Model {
-  endUserId?: string;
-  serialNumber?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endUserId: 'EndUserId',
-      serialNumber: 'SerialNumber',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endUserId: 'string',
-      serialNumber: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindAccountLessLoginUserResponseBody extends $tea.Model {
-  code?: string;
-  httpStatusCode?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindAccountLessLoginUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BindAccountLessLoginUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BindAccountLessLoginUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindPasswordFreeLoginUserRequest extends $tea.Model {
-  endUserId?: string;
-  serialNumber?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endUserId: 'EndUserId',
-      serialNumber: 'SerialNumber',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endUserId: 'string',
-      serialNumber: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindPasswordFreeLoginUserResponseBody extends $tea.Model {
-  code?: string;
-  httpStatusCode?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindPasswordFreeLoginUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BindPasswordFreeLoginUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BindPasswordFreeLoginUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckUuidValidRequest extends $tea.Model {
-  bluetooth?: string;
-  buildId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  chipId?: string;
-  clientId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  customId?: string;
-  etherMac?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  serialNo?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  uuid?: string;
-  wlan?: string;
-  wosAppVersion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bluetooth: 'Bluetooth',
-      buildId: 'BuildId',
-      chipId: 'ChipId',
-      clientId: 'ClientId',
-      customId: 'CustomId',
-      etherMac: 'EtherMac',
-      serialNo: 'SerialNo',
-      uuid: 'Uuid',
-      wlan: 'Wlan',
-      wosAppVersion: 'WosAppVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bluetooth: 'string',
-      buildId: 'string',
-      chipId: 'string',
-      clientId: 'string',
-      customId: 'string',
-      etherMac: 'string',
-      serialNo: 'string',
-      uuid: 'string',
-      wlan: 'string',
-      wosAppVersion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckUuidValidResponseBody extends $tea.Model {
-  code?: string;
-  data?: CheckUuidValidResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: CheckUuidValidResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckUuidValidResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckUuidValidResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckUuidValidResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppOtaTaskRequest extends $tea.Model {
-  appVersionUid?: string;
-  channel?: string;
-  clientIdList?: string[];
-  clientType?: number;
-  creator?: string;
-  description?: string;
-  forceUpgrade?: number;
-  label?: string;
-  name?: string;
-  project?: string;
-  regions?: string[];
-  status?: number;
-  taskType?: number;
-  tenantId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appVersionUid: 'AppVersionUid',
-      channel: 'Channel',
-      clientIdList: 'ClientIdList',
-      clientType: 'ClientType',
-      creator: 'Creator',
-      description: 'Description',
-      forceUpgrade: 'ForceUpgrade',
-      label: 'Label',
-      name: 'Name',
-      project: 'Project',
-      regions: 'Regions',
-      status: 'Status',
-      taskType: 'TaskType',
-      tenantId: 'TenantId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appVersionUid: 'string',
-      channel: 'string',
-      clientIdList: { 'type': 'array', 'itemType': 'string' },
-      clientType: 'number',
-      creator: 'string',
-      description: 'string',
-      forceUpgrade: 'number',
-      label: 'string',
-      name: 'string',
-      project: 'string',
-      regions: { 'type': 'array', 'itemType': 'string' },
-      status: 'number',
-      taskType: 'number',
-      tenantId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppOtaTaskResponseBody extends $tea.Model {
-  code?: string;
-  data?: CreateAppOtaTaskResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: CreateAppOtaTaskResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppOtaTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateAppOtaTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAppOtaTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppOtaVersionRequest extends $tea.Model {
-  appVersion?: string;
-  arch?: string;
-  channel?: string;
-  clientType?: number;
-  creator?: string;
-  downloadUrl?: string;
-  md5?: string;
-  os?: string;
-  osType?: string;
-  otaType?: number;
-  project?: string;
-  releaseNote?: string;
-  releaseNoteEn?: string;
-  releaseNoteJp?: string;
-  size?: number;
-  snapshotId?: string;
-  snapshotRegionId?: string;
-  status?: number;
-  versionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appVersion: 'AppVersion',
-      arch: 'Arch',
-      channel: 'Channel',
-      clientType: 'ClientType',
-      creator: 'Creator',
-      downloadUrl: 'DownloadUrl',
-      md5: 'Md5',
-      os: 'Os',
-      osType: 'OsType',
-      otaType: 'OtaType',
-      project: 'Project',
-      releaseNote: 'ReleaseNote',
-      releaseNoteEn: 'ReleaseNoteEn',
-      releaseNoteJp: 'ReleaseNoteJp',
-      size: 'Size',
-      snapshotId: 'SnapshotId',
-      snapshotRegionId: 'SnapshotRegionId',
-      status: 'Status',
-      versionType: 'VersionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appVersion: 'string',
-      arch: 'string',
-      channel: 'string',
-      clientType: 'number',
-      creator: 'string',
-      downloadUrl: 'string',
-      md5: 'string',
-      os: 'string',
-      osType: 'string',
-      otaType: 'number',
-      project: 'string',
-      releaseNote: 'string',
-      releaseNoteEn: 'string',
-      releaseNoteJp: 'string',
-      size: 'number',
-      snapshotId: 'string',
-      snapshotRegionId: 'string',
-      status: 'number',
-      versionType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppOtaVersionResponseBody extends $tea.Model {
-  code?: string;
-  data?: CreateAppOtaVersionResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: CreateAppOtaVersionResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppOtaVersionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateAppOtaVersionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAppOtaVersionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppOtaVersionsRequest extends $tea.Model {
-  versionUidList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      versionUidList: 'VersionUidList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      versionUidList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppOtaVersionsResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppOtaVersionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteAppOtaVersionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAppOtaVersionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDevicesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  force?: string;
-  serialNos?: string;
-  uuids?: string;
-  static names(): { [key: string]: string } {
-    return {
-      force: 'Force',
-      serialNos: 'SerialNos',
-      uuids: 'Uuids',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      force: 'string',
-      serialNos: 'string',
-      uuids: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDevicesResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDevicesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDevicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDevicesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteLabelRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  force?: string;
-  labelContent?: string;
-  labelId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      force: 'Force',
-      labelContent: 'LabelContent',
-      labelId: 'LabelId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      force: 'string',
-      labelContent: 'string',
-      labelId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteLabelResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteLabelResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteLabelResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteLabelResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAppOtaVersionRequest extends $tea.Model {
-  appVersion?: string;
-  channel?: string;
-  clientType?: number;
-  creator?: string;
-  project?: string;
-  status?: number;
-  versionUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appVersion: 'AppVersion',
-      channel: 'Channel',
-      clientType: 'ClientType',
-      creator: 'Creator',
-      project: 'Project',
-      status: 'Status',
-      versionUid: 'VersionUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appVersion: 'string',
-      channel: 'string',
-      clientType: 'number',
-      creator: 'string',
-      project: 'string',
-      status: 'number',
-      versionUid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAppOtaVersionResponseBody extends $tea.Model {
-  code?: string;
-  data?: DescribeAppOtaVersionResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: DescribeAppOtaVersionResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAppOtaVersionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeAppOtaVersionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeAppOtaVersionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeviceSeatsRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  serialNo?: string;
-  serialNoList?: string[];
-  siteId?: string;
-  tenantId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      serialNo: 'SerialNo',
-      serialNoList: 'SerialNoList',
-      siteId: 'SiteId',
-      tenantId: 'TenantId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      serialNo: 'string',
-      serialNoList: { 'type': 'array', 'itemType': 'string' },
-      siteId: 'string',
-      tenantId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeviceSeatsResponseBody extends $tea.Model {
-  code?: string;
-  data?: DescribeDeviceSeatsResponseBodyData[];
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': DescribeDeviceSeatsResponseBodyData },
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeviceSeatsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDeviceSeatsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDeviceSeatsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeviceVersionDetailRequest extends $tea.Model {
-  model?: string;
-  networkType?: string;
-  region?: string;
-  versionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      model: 'Model',
-      networkType: 'NetworkType',
-      region: 'Region',
-      versionName: 'VersionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      model: 'string',
-      networkType: 'string',
-      region: 'string',
-      versionName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeviceVersionDetailResponseBody extends $tea.Model {
-  code?: string;
-  data?: DescribeDeviceVersionDetailResponseBodyData[];
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': DescribeDeviceVersionDetailResponseBodyData },
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeviceVersionDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDeviceVersionDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDeviceVersionDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSnLabelCountsRequest extends $tea.Model {
-  labelList?: string[];
-  tenantId?: string;
-  zoneId?: string;
-  zoneName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      labelList: 'LabelList',
-      tenantId: 'TenantId',
-      zoneId: 'ZoneId',
-      zoneName: 'ZoneName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labelList: { 'type': 'array', 'itemType': 'string' },
-      tenantId: 'string',
-      zoneId: 'string',
-      zoneName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSnLabelCountsResponseBody extends $tea.Model {
-  code?: string;
-  data?: DescribeSnLabelCountsResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: DescribeSnLabelCountsResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSnLabelCountsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSnLabelCountsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSnLabelCountsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkZonesRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  tenantId?: string;
-  zoneIdList?: string[];
-  zoneNameList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      tenantId: 'TenantId',
-      zoneIdList: 'ZoneIdList',
-      zoneNameList: 'ZoneNameList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      tenantId: 'string',
-      zoneIdList: { 'type': 'array', 'itemType': 'string' },
-      zoneNameList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkZonesResponseBody extends $tea.Model {
-  code?: string;
-  data?: DescribeWorkZonesResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: DescribeWorkZonesResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkZonesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeWorkZonesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeWorkZonesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachEndUsersRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  endUserIds?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  serialNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endUserIds: 'EndUserIds',
-      serialNo: 'SerialNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endUserIds: 'string',
-      serialNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachEndUsersResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachEndUsersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetachEndUsersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetachEndUsersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachLabelRequest extends $tea.Model {
-  labelContent?: string;
-  labelId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  serialNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      labelContent: 'LabelContent',
-      labelId: 'LabelId',
-      serialNo: 'SerialNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labelContent: 'string',
-      labelId: 'string',
-      serialNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachLabelResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachLabelResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetachLabelResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetachLabelResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachLabelsRequest extends $tea.Model {
-  labelIds?: string;
-  serialNo?: string;
-  serialNoList?: string;
-  static names(): { [key: string]: string } {
-    return {
-      labelIds: 'LabelIds',
-      serialNo: 'SerialNo',
-      serialNoList: 'SerialNoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labelIds: 'string',
-      serialNo: 'string',
-      serialNoList: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachLabelsResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachLabelsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetachLabelsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetachLabelsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateOssUrlRequest extends $tea.Model {
-  objectNameList?: string[];
-  sessionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      objectNameList: 'ObjectNameList',
-      sessionId: 'SessionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      objectNameList: { 'type': 'array', 'itemType': 'string' },
-      sessionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateOssUrlResponseBody extends $tea.Model {
-  data?: GenerateOssUrlResponseBodyData[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': GenerateOssUrlResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateOssUrlResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GenerateOssUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GenerateOssUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppOtaLatestVersionRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  baseVersion?: string;
-  clientType?: number;
-  clientUid?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  osType?: string;
-  project?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseVersion: 'BaseVersion',
-      clientType: 'ClientType',
-      clientUid: 'ClientUid',
-      osType: 'OsType',
-      project: 'Project',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseVersion: 'string',
-      clientType: 'number',
-      clientUid: 'string',
-      osType: 'string',
-      project: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppOtaLatestVersionResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetAppOtaLatestVersionResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetAppOtaLatestVersionResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppOtaLatestVersionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAppOtaLatestVersionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAppOtaLatestVersionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceConfigsRequest extends $tea.Model {
-  deviceId?: string;
-  networkType?: string;
-  region?: string;
-  serialNo?: string;
-  urclVersion?: string;
-  userCustomId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-      networkType: 'NetworkType',
-      region: 'Region',
-      serialNo: 'SerialNo',
-      urclVersion: 'UrclVersion',
-      userCustomId: 'UserCustomId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: 'string',
-      networkType: 'string',
-      region: 'string',
-      serialNo: 'string',
-      urclVersion: 'string',
-      userCustomId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceConfigsResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetDeviceConfigsResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetDeviceConfigsResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceConfigsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDeviceConfigsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDeviceConfigsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaAutoStatusRequest extends $tea.Model {
-  clientType?: number;
-  static names(): { [key: string]: string } {
-    return {
-      clientType: 'ClientType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientType: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaAutoStatusResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetDeviceOtaAutoStatusResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetDeviceOtaAutoStatusResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaAutoStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDeviceOtaAutoStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDeviceOtaAutoStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaInfoRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  baseVersion?: string;
-  channel?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  deviceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  model?: string;
-  networkType?: string;
-  osVersion?: string;
-  region?: string;
-  regionId?: string;
-  targetVersionType?: string;
-  tenantId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseVersion: 'BaseVersion',
-      channel: 'Channel',
-      deviceId: 'DeviceId',
-      model: 'Model',
-      networkType: 'NetworkType',
-      osVersion: 'OsVersion',
-      region: 'Region',
-      regionId: 'RegionId',
-      targetVersionType: 'TargetVersionType',
-      tenantId: 'TenantId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseVersion: 'string',
-      channel: 'string',
-      deviceId: 'string',
-      model: 'string',
-      networkType: 'string',
-      osVersion: 'string',
-      region: 'string',
-      regionId: 'string',
-      targetVersionType: 'string',
-      tenantId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaInfoResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetDeviceOtaInfoResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetDeviceOtaInfoResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDeviceOtaInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDeviceOtaInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaInfoTestRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  baseVersion?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  deviceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  model?: string;
-  tenantId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseVersion: 'BaseVersion',
-      deviceId: 'DeviceId',
-      model: 'Model',
-      tenantId: 'TenantId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseVersion: 'string',
-      deviceId: 'string',
-      model: 'string',
-      tenantId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaInfoTestResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetDeviceOtaInfoTestResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetDeviceOtaInfoTestResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaInfoTestResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDeviceOtaInfoTestResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDeviceOtaInfoTestResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaTaskVersionInfoRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaTaskVersionInfoResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetDeviceOtaTaskVersionInfoResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetDeviceOtaTaskVersionInfoResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaTaskVersionInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDeviceOtaTaskVersionInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDeviceOtaTaskVersionInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceUpgradeStatusRequest extends $tea.Model {
-  appVersion?: string;
-  clientUid?: string;
-  project?: string;
-  taskUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appVersion: 'AppVersion',
-      clientUid: 'ClientUid',
-      project: 'Project',
-      taskUid: 'TaskUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appVersion: 'string',
-      clientUid: 'string',
-      project: 'string',
-      taskUid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceUpgradeStatusResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetDeviceUpgradeStatusResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetDeviceUpgradeStatusResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceUpgradeStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDeviceUpgradeStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDeviceUpgradeStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetExportDeviceInfoOssUrlRequest extends $tea.Model {
-  tenantId?: string;
-  zoneId?: string;
-  zoneName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tenantId: 'TenantId',
-      zoneId: 'ZoneId',
-      zoneName: 'ZoneName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tenantId: 'string',
-      zoneId: 'string',
-      zoneName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetExportDeviceInfoOssUrlResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetExportDeviceInfoOssUrlResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetExportDeviceInfoOssUrlResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetExportDeviceInfoOssUrlResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetExportDeviceInfoOssUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetExportDeviceInfoOssUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFbOssConfigRequest extends $tea.Model {
-  dirPrefix?: string;
-  isDedicatedLine?: number;
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dirPrefix: 'DirPrefix',
-      isDedicatedLine: 'IsDedicatedLine',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dirPrefix: 'string',
-      isDedicatedLine: 'number',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFbOssConfigResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetFbOssConfigResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetFbOssConfigResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFbOssConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFbOssConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFbOssConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOssConfigRequest extends $tea.Model {
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOssConfigResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetOssConfigResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetOssConfigResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOssConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetOssConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetOssConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVersionDownloadUrlRequest extends $tea.Model {
-  versionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      versionName: 'VersionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      versionName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVersionDownloadUrlResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetVersionDownloadUrlResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetVersionDownloadUrlResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVersionDownloadUrlResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetVersionDownloadUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetVersionDownloadUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceOtaTaskByTenantRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceOtaTaskByTenantResponseBody extends $tea.Model {
-  code?: string;
-  data?: ListDeviceOtaTaskByTenantResponseBodyData;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListDeviceOtaTaskByTenantResponseBodyData,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceOtaTaskByTenantResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListDeviceOtaTaskByTenantResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDeviceOtaTaskByTenantResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceSeatsRequest extends $tea.Model {
-  label?: string;
-  seatNo?: string;
-  serialNoList?: string[];
-  tenantId?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      label: 'Label',
-      seatNo: 'SeatNo',
-      serialNoList: 'SerialNoList',
-      tenantId: 'TenantId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      label: 'string',
-      seatNo: 'string',
-      serialNoList: { 'type': 'array', 'itemType': 'string' },
-      tenantId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceSeatsResponseBody extends $tea.Model {
-  code?: string;
-  data?: ListDeviceSeatsResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListDeviceSeatsResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceSeatsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListDeviceSeatsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDeviceSeatsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicesRequest extends $tea.Model {
-  alias?: string;
-  buildId?: string;
-  clientType?: number;
-  deviceGroupId?: string;
-  deviceIpV4?: string;
-  deviceName?: string;
-  deviceOS?: string;
-  devicePlatform?: string;
-  endUserId?: string;
-  labelContent?: string;
-  labelId?: string;
-  locationInfo?: string;
-  model?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  serialNo?: string;
-  userType?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alias: 'Alias',
-      buildId: 'BuildId',
-      clientType: 'ClientType',
-      deviceGroupId: 'DeviceGroupId',
-      deviceIpV4: 'DeviceIpV4',
-      deviceName: 'DeviceName',
-      deviceOS: 'DeviceOS',
-      devicePlatform: 'DevicePlatform',
-      endUserId: 'EndUserId',
-      labelContent: 'LabelContent',
-      labelId: 'LabelId',
-      locationInfo: 'LocationInfo',
-      model: 'Model',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      serialNo: 'SerialNo',
-      userType: 'UserType',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alias: 'string',
-      buildId: 'string',
-      clientType: 'number',
-      deviceGroupId: 'string',
-      deviceIpV4: 'string',
-      deviceName: 'string',
-      deviceOS: 'string',
-      devicePlatform: 'string',
-      endUserId: 'string',
-      labelContent: 'string',
-      labelId: 'string',
-      locationInfo: 'string',
-      model: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      serialNo: 'string',
-      userType: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicesResponseBody extends $tea.Model {
-  code?: string;
-  data?: ListDevicesResponseBodyData[];
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': ListDevicesResponseBodyData },
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListDevicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDevicesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFbIssueLabelsResponseBody extends $tea.Model {
-  code?: string;
-  data?: ListFbIssueLabelsResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListFbIssueLabelsResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFbIssueLabelsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListFbIssueLabelsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListFbIssueLabelsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFbIssueLabelsByLCRequest extends $tea.Model {
-  caller?: string;
-  languageType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caller: 'Caller',
-      languageType: 'LanguageType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caller: 'string',
-      languageType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFbIssueLabelsByLCResponseBody extends $tea.Model {
-  code?: string;
-  data?: ListFbIssueLabelsByLCResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListFbIssueLabelsByLCResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFbIssueLabelsByLCResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListFbIssueLabelsByLCResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListFbIssueLabelsByLCResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLabelsRequest extends $tea.Model {
-  labelContent?: string;
-  labelId?: string;
-  maxResults?: number;
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      labelContent: 'LabelContent',
-      labelId: 'LabelId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labelContent: 'string',
-      labelId: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLabelsResponseBody extends $tea.Model {
-  code?: string;
-  data?: ListLabelsResponseBodyData[];
-  message?: string;
-  nextToken?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': ListLabelsResponseBodyData },
-      message: 'string',
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLabelsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListLabelsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListLabelsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTenantDeviceOtaInfoRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  taskId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      taskId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTenantDeviceOtaInfoResponseBody extends $tea.Model {
-  code?: string;
-  data?: ListTenantDeviceOtaInfoResponseBodyData;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListTenantDeviceOtaInfoResponseBodyData,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTenantDeviceOtaInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTenantDeviceOtaInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTenantDeviceOtaInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTerminalRequest extends $tea.Model {
-  alias?: string;
-  buildId?: string;
-  clientType?: number;
-  inManage?: boolean;
-  ipv4?: string;
-  locationInfo?: string;
-  maxResults?: number;
-  model?: string;
-  nextToken?: string;
-  searchKeyword?: string;
-  serialNumber?: string;
-  terminalGroupId?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alias: 'Alias',
-      buildId: 'BuildId',
-      clientType: 'ClientType',
-      inManage: 'InManage',
-      ipv4: 'Ipv4',
-      locationInfo: 'LocationInfo',
-      maxResults: 'MaxResults',
-      model: 'Model',
-      nextToken: 'NextToken',
-      searchKeyword: 'SearchKeyword',
-      serialNumber: 'SerialNumber',
-      terminalGroupId: 'TerminalGroupId',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alias: 'string',
-      buildId: 'string',
-      clientType: 'number',
-      inManage: 'boolean',
-      ipv4: 'string',
-      locationInfo: 'string',
-      maxResults: 'number',
-      model: 'string',
-      nextToken: 'string',
-      searchKeyword: 'string',
-      serialNumber: 'string',
-      terminalGroupId: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTerminalResponseBody extends $tea.Model {
-  code?: string;
-  data?: ListTerminalResponseBodyData[];
-  httpStatusCode?: number;
-  message?: string;
-  nextToken?: string;
-  requestId?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': ListTerminalResponseBodyData },
-      httpStatusCode: 'number',
-      message: 'string',
-      nextToken: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTerminalResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTerminalResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTerminalResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTerminalsRequest extends $tea.Model {
-  inManage?: boolean;
-  /**
-   * @example
-   * 200
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * AAAAAdEdsXbwG2ZlbWCzN4wTTg6wQvfp7u1BJl4bxCAby41POSaYAlCvfULQpkAnb0ff****
-   */
-  nextToken?: string;
-  passwordFreeLoginUser?: string;
-  /**
-   * @example
-   * DemoDevice
-   */
-  searchKeyword?: string;
-  serialNumbers?: string[];
-  /**
-   * @example
-   * tg-default
-   */
-  terminalGroupId?: string;
-  uuids?: string[];
-  withBindUser?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      inManage: 'InManage',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      passwordFreeLoginUser: 'PasswordFreeLoginUser',
-      searchKeyword: 'SearchKeyword',
-      serialNumbers: 'SerialNumbers',
-      terminalGroupId: 'TerminalGroupId',
-      uuids: 'Uuids',
-      withBindUser: 'WithBindUser',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inManage: 'boolean',
-      maxResults: 'number',
-      nextToken: 'string',
-      passwordFreeLoginUser: 'string',
-      searchKeyword: 'string',
-      serialNumbers: { 'type': 'array', 'itemType': 'string' },
-      terminalGroupId: 'string',
-      uuids: { 'type': 'array', 'itemType': 'string' },
-      withBindUser: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTerminalsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * TERMINAL_NOT_FOUND
-   */
-  code?: string;
-  data?: ListTerminalsResponseBodyData[];
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * terminal not found
-   */
-  message?: string;
-  /**
-   * @example
-   * AAAAAdEdsXbwG2ZlbWCzN4wTTg6wQvfp7u1BJl4bxCAby41POSaYAlCvfULQpkAnb0ff****
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * C5DCE54A-B266-522E-A6ED-468AF45F5AAA
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 20
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': ListTerminalsResponseBodyData },
-      httpStatusCode: 'number',
-      message: 'string',
-      nextToken: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTerminalsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTerminalsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTerminalsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTrustDevicesRequest extends $tea.Model {
-  labelContent?: string;
-  labelId?: string;
-  serialNo?: string;
-  userCustomId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      labelContent: 'LabelContent',
-      labelId: 'LabelId',
-      serialNo: 'SerialNo',
-      userCustomId: 'UserCustomId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labelContent: 'string',
-      labelId: 'string',
-      serialNo: 'string',
-      userCustomId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTrustDevicesResponseBody extends $tea.Model {
-  code?: string;
-  data?: ListTrustDevicesResponseBodyData[];
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': ListTrustDevicesResponseBodyData },
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTrustDevicesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTrustDevicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTrustDevicesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserFbAcIssuesRequest extends $tea.Model {
-  account?: string;
-  clientVersion?: string;
-  errorMessage?: string;
-  instanceId?: string;
-  issueId?: string;
-  label?: string;
-  reservedA?: string;
-  reservedB?: string;
-  userEmail?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      clientVersion: 'ClientVersion',
-      errorMessage: 'ErrorMessage',
-      instanceId: 'InstanceId',
-      issueId: 'IssueId',
-      label: 'Label',
-      reservedA: 'ReservedA',
-      reservedB: 'ReservedB',
-      userEmail: 'UserEmail',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      clientVersion: 'string',
-      errorMessage: 'string',
-      instanceId: 'string',
-      issueId: 'string',
-      label: 'string',
-      reservedA: 'string',
-      reservedB: 'string',
-      userEmail: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserFbAcIssuesResponseBody extends $tea.Model {
-  code?: string;
-  data?: ListUserFbAcIssuesResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListUserFbAcIssuesResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserFbAcIssuesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserFbAcIssuesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserFbAcIssuesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserFbIssuesRequest extends $tea.Model {
-  appId?: string;
-  clientId?: string;
-  clientModel?: string;
-  clientSn?: string;
-  customerId?: string;
-  description?: string;
-  desktopId?: string;
-  errorCode?: string;
-  errorMsg?: string;
-  fbType?: number;
-  issueId?: number;
-  issueLabel?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  status?: number;
-  title?: string;
-  userEmail?: string;
-  userId?: string;
-  wasRead?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      clientId: 'ClientId',
-      clientModel: 'ClientModel',
-      clientSn: 'ClientSn',
-      customerId: 'CustomerId',
-      description: 'Description',
-      desktopId: 'DesktopId',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      fbType: 'FbType',
-      issueId: 'IssueId',
-      issueLabel: 'IssueLabel',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      status: 'Status',
-      title: 'Title',
-      userEmail: 'UserEmail',
-      userId: 'UserId',
-      wasRead: 'WasRead',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      clientId: 'string',
-      clientModel: 'string',
-      clientSn: 'string',
-      customerId: 'string',
-      description: 'string',
-      desktopId: 'string',
-      errorCode: 'string',
-      errorMsg: 'string',
-      fbType: 'number',
-      issueId: 'number',
-      issueLabel: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      status: 'number',
-      title: 'string',
-      userEmail: 'string',
-      userId: 'string',
-      wasRead: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserFbIssuesResponseBody extends $tea.Model {
-  code?: string;
-  data?: ListUserFbIssuesResponseBodyData;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListUserFbIssuesResponseBodyData,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserFbIssuesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserFbIssuesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserFbIssuesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDevicesSecureNetworkTypeRequest extends $tea.Model {
-  allDevices?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  secureNetworkType?: string;
-  serialNos?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allDevices: 'AllDevices',
-      secureNetworkType: 'SecureNetworkType',
-      serialNos: 'SerialNos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allDevices: 'number',
-      secureNetworkType: 'string',
-      serialNos: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDevicesSecureNetworkTypeResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDevicesSecureNetworkTypeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDevicesSecureNetworkTypeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDevicesSecureNetworkTypeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySecureNetworkTypeRequest extends $tea.Model {
-  secureNetworkType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  serialNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      secureNetworkType: 'SecureNetworkType',
-      serialNo: 'SerialNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      secureNetworkType: 'string',
-      serialNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySecureNetworkTypeResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySecureNetworkTypeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifySecureNetworkTypeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifySecureNetworkTypeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterDeviceRequest extends $tea.Model {
-  bluetooth?: string;
-  buildId?: string;
-  chipId?: string;
-  clientId?: string;
-  clientType?: number;
-  cpu?: string;
-  customId?: string;
-  etherMac?: string;
-  memory?: string;
-  model?: string;
-  serialNo?: string;
-  storage?: string;
-  token?: string;
-  wlan?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bluetooth: 'Bluetooth',
-      buildId: 'BuildId',
-      chipId: 'ChipId',
-      clientId: 'ClientId',
-      clientType: 'ClientType',
-      cpu: 'Cpu',
-      customId: 'CustomId',
-      etherMac: 'EtherMac',
-      memory: 'Memory',
-      model: 'Model',
-      serialNo: 'SerialNo',
-      storage: 'Storage',
-      token: 'Token',
-      wlan: 'Wlan',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bluetooth: 'string',
-      buildId: 'string',
-      chipId: 'string',
-      clientId: 'string',
-      clientType: 'number',
-      cpu: 'string',
-      customId: 'string',
-      etherMac: 'string',
-      memory: 'string',
-      model: 'string',
-      serialNo: 'string',
-      storage: 'string',
-      token: 'string',
-      wlan: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterDeviceResponseBody extends $tea.Model {
-  code?: string;
-  data?: RegisterDeviceResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: RegisterDeviceResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterDeviceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RegisterDeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RegisterDeviceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportAppOtaInfoRequest extends $tea.Model {
-  baseVersion?: string;
-  clientType?: number;
-  clientUid?: string;
-  note?: string;
-  osType?: string;
-  project?: string;
-  status?: number;
-  targetVersion?: string;
-  taskUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseVersion: 'BaseVersion',
-      clientType: 'ClientType',
-      clientUid: 'ClientUid',
-      note: 'Note',
-      osType: 'OsType',
-      project: 'Project',
-      status: 'Status',
-      targetVersion: 'TargetVersion',
-      taskUid: 'TaskUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseVersion: 'string',
-      clientType: 'number',
-      clientUid: 'string',
-      note: 'string',
-      osType: 'string',
-      project: 'string',
-      status: 'number',
-      targetVersion: 'string',
-      taskUid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportAppOtaInfoResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportAppOtaInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReportAppOtaInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReportAppOtaInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportDeviceOtaInfoRequest extends $tea.Model {
-  baseVersion?: string;
-  deviceId?: string;
-  model?: string;
-  note?: string;
-  status?: number;
-  targetVersion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseVersion: 'BaseVersion',
-      deviceId: 'DeviceId',
-      model: 'Model',
-      note: 'Note',
-      status: 'Status',
-      targetVersion: 'TargetVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseVersion: 'string',
-      deviceId: 'string',
-      model: 'string',
-      note: 'string',
-      status: 'number',
-      targetVersion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportDeviceOtaInfoResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportDeviceOtaInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReportDeviceOtaInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReportDeviceOtaInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportUserFbAcIssueRequest extends $tea.Model {
-  account?: string;
-  clientVersion?: string;
-  errorMsg?: string;
-  fileList?: ReportUserFbAcIssueRequestFileList[];
-  instanceId?: string;
-  labels?: string;
-  reservedA?: string;
-  reservedB?: string;
-  userEmail?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      clientVersion: 'ClientVersion',
-      errorMsg: 'ErrorMsg',
-      fileList: 'FileList',
-      instanceId: 'InstanceId',
-      labels: 'Labels',
-      reservedA: 'ReservedA',
-      reservedB: 'ReservedB',
-      userEmail: 'UserEmail',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      clientVersion: 'string',
-      errorMsg: 'string',
-      fileList: { 'type': 'array', 'itemType': ReportUserFbAcIssueRequestFileList },
-      instanceId: 'string',
-      labels: 'string',
-      reservedA: 'string',
-      reservedB: 'string',
-      userEmail: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportUserFbAcIssueShrinkRequest extends $tea.Model {
-  account?: string;
-  clientVersion?: string;
-  errorMsg?: string;
-  fileListShrink?: string;
-  instanceId?: string;
-  labels?: string;
-  reservedA?: string;
-  reservedB?: string;
-  userEmail?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      clientVersion: 'ClientVersion',
-      errorMsg: 'ErrorMsg',
-      fileListShrink: 'FileList',
-      instanceId: 'InstanceId',
-      labels: 'Labels',
-      reservedA: 'ReservedA',
-      reservedB: 'ReservedB',
-      userEmail: 'UserEmail',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      clientVersion: 'string',
-      errorMsg: 'string',
-      fileListShrink: 'string',
-      instanceId: 'string',
-      labels: 'string',
-      reservedA: 'string',
-      reservedB: 'string',
-      userEmail: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportUserFbAcIssueResponseBody extends $tea.Model {
-  code?: string;
-  data?: ReportUserFbAcIssueResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ReportUserFbAcIssueResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportUserFbAcIssueResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReportUserFbAcIssueResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReportUserFbAcIssueResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportUserFbIssueRequest extends $tea.Model {
-  appId?: string;
-  clientId?: string;
-  clientModel?: string;
-  clientOsName?: string;
-  clientSn?: string;
-  clientVersion?: string;
-  customerId?: string;
-  description?: string;
-  desktopId?: string;
-  desktopType?: number;
-  errorCode?: string;
-  errorMsg?: string;
-  fbType?: number;
-  fileList?: ReportUserFbIssueRequestFileList[];
-  issueLabel?: string;
-  occurTime?: number;
-  reservedA?: string;
-  reservedB?: string;
-  telNo?: string;
-  title?: string;
-  userEmail?: string;
-  userId?: string;
-  userName?: string;
-  workspaceId?: string;
-  wyId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      clientId: 'ClientId',
-      clientModel: 'ClientModel',
-      clientOsName: 'ClientOsName',
-      clientSn: 'ClientSn',
-      clientVersion: 'ClientVersion',
-      customerId: 'CustomerId',
-      description: 'Description',
-      desktopId: 'DesktopId',
-      desktopType: 'DesktopType',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      fbType: 'FbType',
-      fileList: 'FileList',
-      issueLabel: 'IssueLabel',
-      occurTime: 'OccurTime',
-      reservedA: 'ReservedA',
-      reservedB: 'ReservedB',
-      telNo: 'TelNo',
-      title: 'Title',
-      userEmail: 'UserEmail',
-      userId: 'UserId',
-      userName: 'UserName',
-      workspaceId: 'WorkspaceId',
-      wyId: 'WyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      clientId: 'string',
-      clientModel: 'string',
-      clientOsName: 'string',
-      clientSn: 'string',
-      clientVersion: 'string',
-      customerId: 'string',
-      description: 'string',
-      desktopId: 'string',
-      desktopType: 'number',
-      errorCode: 'string',
-      errorMsg: 'string',
-      fbType: 'number',
-      fileList: { 'type': 'array', 'itemType': ReportUserFbIssueRequestFileList },
-      issueLabel: 'string',
-      occurTime: 'number',
-      reservedA: 'string',
-      reservedB: 'string',
-      telNo: 'string',
-      title: 'string',
-      userEmail: 'string',
-      userId: 'string',
-      userName: 'string',
-      workspaceId: 'string',
-      wyId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportUserFbIssueShrinkRequest extends $tea.Model {
-  appId?: string;
-  clientId?: string;
-  clientModel?: string;
-  clientOsName?: string;
-  clientSn?: string;
-  clientVersion?: string;
-  customerId?: string;
-  description?: string;
-  desktopId?: string;
-  desktopType?: number;
-  errorCode?: string;
-  errorMsg?: string;
-  fbType?: number;
-  fileListShrink?: string;
-  issueLabel?: string;
-  occurTime?: number;
-  reservedA?: string;
-  reservedB?: string;
-  telNo?: string;
-  title?: string;
-  userEmail?: string;
-  userId?: string;
-  userName?: string;
-  workspaceId?: string;
-  wyId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      clientId: 'ClientId',
-      clientModel: 'ClientModel',
-      clientOsName: 'ClientOsName',
-      clientSn: 'ClientSn',
-      clientVersion: 'ClientVersion',
-      customerId: 'CustomerId',
-      description: 'Description',
-      desktopId: 'DesktopId',
-      desktopType: 'DesktopType',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      fbType: 'FbType',
-      fileListShrink: 'FileList',
-      issueLabel: 'IssueLabel',
-      occurTime: 'OccurTime',
-      reservedA: 'ReservedA',
-      reservedB: 'ReservedB',
-      telNo: 'TelNo',
-      title: 'Title',
-      userEmail: 'UserEmail',
-      userId: 'UserId',
-      userName: 'UserName',
-      workspaceId: 'WorkspaceId',
-      wyId: 'WyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      clientId: 'string',
-      clientModel: 'string',
-      clientOsName: 'string',
-      clientSn: 'string',
-      clientVersion: 'string',
-      customerId: 'string',
-      description: 'string',
-      desktopId: 'string',
-      desktopType: 'number',
-      errorCode: 'string',
-      errorMsg: 'string',
-      fbType: 'number',
-      fileListShrink: 'string',
-      issueLabel: 'string',
-      occurTime: 'number',
-      reservedA: 'string',
-      reservedB: 'string',
-      telNo: 'string',
-      title: 'string',
-      userEmail: 'string',
-      userId: 'string',
-      userName: 'string',
-      workspaceId: 'string',
-      wyId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportUserFbIssueResponseBody extends $tea.Model {
-  code?: string;
-  data?: ReportUserFbIssueResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ReportUserFbIssueResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportUserFbIssueResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReportUserFbIssueResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReportUserFbIssueResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendOpsMessageToTerminalsRequest extends $tea.Model {
-  delay?: boolean;
-  msg?: string;
-  opsAction?: string;
-  uuids?: string[];
-  waitForAck?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      delay: 'Delay',
-      msg: 'Msg',
-      opsAction: 'OpsAction',
-      uuids: 'Uuids',
-      waitForAck: 'WaitForAck',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      delay: 'boolean',
-      msg: 'string',
-      opsAction: 'string',
-      uuids: { 'type': 'array', 'itemType': 'string' },
-      waitForAck: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendOpsMessageToTerminalsResponseBody extends $tea.Model {
-  code?: string;
-  httpStatusCode?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendOpsMessageToTerminalsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SendOpsMessageToTerminalsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SendOpsMessageToTerminalsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDeviceOtaAutoStatusRequest extends $tea.Model {
-  autoUpdate?: number;
-  autoUpdateTimeSchedule?: string;
-  clientType?: number;
-  forceUpgrade?: number;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoUpdate: 'AutoUpdate',
-      autoUpdateTimeSchedule: 'AutoUpdateTimeSchedule',
-      clientType: 'ClientType',
-      forceUpgrade: 'ForceUpgrade',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoUpdate: 'number',
-      autoUpdateTimeSchedule: 'string',
-      clientType: 'number',
-      forceUpgrade: 'number',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDeviceOtaAutoStatusResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDeviceOtaAutoStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetDeviceOtaAutoStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetDeviceOtaAutoStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDeviceOtaTaskStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  operationStatus?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  taskId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      operationStatus: 'OperationStatus',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      operationStatus: 'number',
-      taskId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDeviceOtaTaskStatusResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDeviceOtaTaskStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetDeviceOtaTaskStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetDeviceOtaTaskStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindAccountLessLoginUserRequest extends $tea.Model {
-  serialNumber?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serialNumber: 'SerialNumber',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serialNumber: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindAccountLessLoginUserResponseBody extends $tea.Model {
-  code?: string;
-  httpStatusCode?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindAccountLessLoginUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnbindAccountLessLoginUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnbindAccountLessLoginUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindDeviceSeatsRequest extends $tea.Model {
-  serialNoList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      serialNoList: 'SerialNoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serialNoList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindDeviceSeatsShrinkRequest extends $tea.Model {
-  serialNoListShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serialNoListShrink: 'SerialNoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serialNoListShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindDeviceSeatsResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindDeviceSeatsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnbindDeviceSeatsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnbindDeviceSeatsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindPasswordFreeLoginUserRequest extends $tea.Model {
-  serialNumber?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serialNumber: 'SerialNumber',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serialNumber: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindPasswordFreeLoginUserResponseBody extends $tea.Model {
-  code?: string;
-  httpStatusCode?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindPasswordFreeLoginUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnbindPasswordFreeLoginUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnbindPasswordFreeLoginUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAliasRequest extends $tea.Model {
-  alias?: string;
-  serialNo?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alias: 'Alias',
-      serialNo: 'SerialNo',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alias: 'string',
-      serialNo: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAliasResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAliasResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateAliasResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateAliasResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeviceBindedEndUserRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  serialNo?: string;
-  sourceAdEndUsers?: UpdateDeviceBindedEndUserRequestSourceAdEndUsers[];
-  sourceEndUserIds?: string;
-  targetAdEndUsers?: UpdateDeviceBindedEndUserRequestTargetAdEndUsers[];
-  targetEndUserIds?: string;
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serialNo: 'SerialNo',
-      sourceAdEndUsers: 'SourceAdEndUsers',
-      sourceEndUserIds: 'SourceEndUserIds',
-      targetAdEndUsers: 'TargetAdEndUsers',
-      targetEndUserIds: 'TargetEndUserIds',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serialNo: 'string',
-      sourceAdEndUsers: { 'type': 'array', 'itemType': UpdateDeviceBindedEndUserRequestSourceAdEndUsers },
-      sourceEndUserIds: 'string',
-      targetAdEndUsers: { 'type': 'array', 'itemType': UpdateDeviceBindedEndUserRequestTargetAdEndUsers },
-      targetEndUserIds: 'string',
-      userType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeviceBindedEndUserResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeviceBindedEndUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateDeviceBindedEndUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateDeviceBindedEndUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLabelRequest extends $tea.Model {
-  labelContent?: string;
-  labelId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      labelContent: 'LabelContent',
-      labelId: 'LabelId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labelContent: 'string',
-      labelId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLabelResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLabelResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateLabelResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateLabelResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTerminalPolicyRequest extends $tea.Model {
-  backgroundModeTitle?: string;
-  displayLayout?: string;
-  displayResolution?: string;
-  displayScaleRatio?: string;
-  enableAutoLockScreen?: number;
-  enableAutoLogin?: number;
-  enableBackgroundMode?: number;
-  enableBluetooth?: number;
-  enableModifyPassword?: number;
-  enableScheduledReboot?: number;
-  enableScheduledShutdown?: number;
-  enableSwitchPersonal?: number;
-  enableWlan?: number;
-  idleTimeout?: number;
-  idleTimeoutAction?: number;
-  name?: string;
-  powerButtonDefine?: number;
-  powerButtonDefineForAs?: number;
-  powerButtonDefineForNs?: number;
-  powerOnBehavior?: number;
-  scheduledReboot?: string;
-  scheduledShutdown?: string;
-  settingLock?: number;
-  terminalPolicyId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backgroundModeTitle: 'BackgroundModeTitle',
-      displayLayout: 'DisplayLayout',
-      displayResolution: 'DisplayResolution',
-      displayScaleRatio: 'DisplayScaleRatio',
-      enableAutoLockScreen: 'EnableAutoLockScreen',
-      enableAutoLogin: 'EnableAutoLogin',
-      enableBackgroundMode: 'EnableBackgroundMode',
-      enableBluetooth: 'EnableBluetooth',
-      enableModifyPassword: 'EnableModifyPassword',
-      enableScheduledReboot: 'EnableScheduledReboot',
-      enableScheduledShutdown: 'EnableScheduledShutdown',
-      enableSwitchPersonal: 'EnableSwitchPersonal',
-      enableWlan: 'EnableWlan',
-      idleTimeout: 'IdleTimeout',
-      idleTimeoutAction: 'IdleTimeoutAction',
-      name: 'Name',
-      powerButtonDefine: 'PowerButtonDefine',
-      powerButtonDefineForAs: 'PowerButtonDefineForAs',
-      powerButtonDefineForNs: 'PowerButtonDefineForNs',
-      powerOnBehavior: 'PowerOnBehavior',
-      scheduledReboot: 'ScheduledReboot',
-      scheduledShutdown: 'ScheduledShutdown',
-      settingLock: 'SettingLock',
-      terminalPolicyId: 'TerminalPolicyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backgroundModeTitle: 'string',
-      displayLayout: 'string',
-      displayResolution: 'string',
-      displayScaleRatio: 'string',
-      enableAutoLockScreen: 'number',
-      enableAutoLogin: 'number',
-      enableBackgroundMode: 'number',
-      enableBluetooth: 'number',
-      enableModifyPassword: 'number',
-      enableScheduledReboot: 'number',
-      enableScheduledShutdown: 'number',
-      enableSwitchPersonal: 'number',
-      enableWlan: 'number',
-      idleTimeout: 'number',
-      idleTimeoutAction: 'number',
-      name: 'string',
-      powerButtonDefine: 'number',
-      powerButtonDefineForAs: 'number',
-      powerButtonDefineForNs: 'number',
-      powerOnBehavior: 'number',
-      scheduledReboot: 'string',
-      scheduledShutdown: 'string',
-      settingLock: 'number',
-      terminalPolicyId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTerminalPolicyResponseBody extends $tea.Model {
-  code?: string;
-  httpStatusCode?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTerminalPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateTerminalPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateTerminalPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddTerminalsRequestAddTerminalParams extends $tea.Model {
-  alias?: string;
-  clientType?: number;
-  serialNumber?: string;
-  terminalGroupId?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alias: 'Alias',
-      clientType: 'ClientType',
-      serialNumber: 'SerialNumber',
-      terminalGroupId: 'TerminalGroupId',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alias: 'string',
-      clientType: 'number',
-      serialNumber: 'string',
-      terminalGroupId: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddTerminalsResponseBodyData extends $tea.Model {
-  errorCode?: string;
-  serialNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      serialNumber: 'SerialNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      serialNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckUuidValidResponseBodyData extends $tea.Model {
-  newUpgrade?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      newUpgrade: 'NewUpgrade',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      newUpgrade: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppOtaTaskResponseBodyData extends $tea.Model {
-  taskUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskUid: 'TaskUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskUid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppOtaVersionResponseBodyData extends $tea.Model {
-  versionUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      versionUid: 'VersionUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      versionUid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAppOtaVersionResponseBodyDataAppOtaInfoDTOList extends $tea.Model {
-  appVersion?: string;
-  channel?: string;
-  downloadUrl?: string;
-  fullDownloadUrl?: string;
-  gmtCreate?: string;
-  md5?: string;
-  osType?: string;
-  otaType?: number;
-  project?: string;
-  protocolType?: string;
-  releaseNote?: string;
-  releaseNoteEn?: string;
-  sessionType?: string;
-  size?: number;
-  status?: number;
-  versionCode?: number;
-  versionType?: string;
-  versionUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appVersion: 'AppVersion',
-      channel: 'Channel',
-      downloadUrl: 'DownloadUrl',
-      fullDownloadUrl: 'FullDownloadUrl',
-      gmtCreate: 'GmtCreate',
-      md5: 'Md5',
-      osType: 'OsType',
-      otaType: 'OtaType',
-      project: 'Project',
-      protocolType: 'ProtocolType',
-      releaseNote: 'ReleaseNote',
-      releaseNoteEn: 'ReleaseNoteEn',
-      sessionType: 'SessionType',
-      size: 'Size',
-      status: 'Status',
-      versionCode: 'VersionCode',
-      versionType: 'VersionType',
-      versionUid: 'VersionUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appVersion: 'string',
-      channel: 'string',
-      downloadUrl: 'string',
-      fullDownloadUrl: 'string',
-      gmtCreate: 'string',
-      md5: 'string',
-      osType: 'string',
-      otaType: 'number',
-      project: 'string',
-      protocolType: 'string',
-      releaseNote: 'string',
-      releaseNoteEn: 'string',
-      sessionType: 'string',
-      size: 'number',
-      status: 'number',
-      versionCode: 'number',
-      versionType: 'string',
-      versionUid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAppOtaVersionResponseBodyData extends $tea.Model {
-  appOtaInfoDTOList?: DescribeAppOtaVersionResponseBodyDataAppOtaInfoDTOList[];
-  static names(): { [key: string]: string } {
-    return {
-      appOtaInfoDTOList: 'AppOtaInfoDTOList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appOtaInfoDTOList: { 'type': 'array', 'itemType': DescribeAppOtaVersionResponseBodyDataAppOtaInfoDTOList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeviceSeatsResponseBodyData extends $tea.Model {
-  seatCol?: number;
-  seatName?: string;
-  seatNo?: string;
-  seatRow?: number;
-  serialNo?: string;
-  siteId?: string;
-  siteName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      seatCol: 'SeatCol',
-      seatName: 'SeatName',
-      seatNo: 'SeatNo',
-      seatRow: 'SeatRow',
-      serialNo: 'SerialNo',
-      siteId: 'SiteId',
-      siteName: 'SiteName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      seatCol: 'number',
-      seatName: 'string',
-      seatNo: 'string',
-      seatRow: 'number',
-      serialNo: 'string',
-      siteId: 'string',
-      siteName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeviceVersionDetailResponseBodyData extends $tea.Model {
-  androidHorizontalMultiCnImageDownloadUrl?: string;
-  androidHorizontalMultiEnImageDownloadUrl?: string;
-  androidVerticalMultiCnImageDownloadUrl?: string;
-  androidVerticalMultiEnImageDownloadUrl?: string;
-  channel?: string;
-  clientType?: number;
-  cnImageDownloadUrl?: string;
-  creator?: string;
-  downloadUrl?: string;
-  enImageDownloadUrl?: string;
-  md5?: string;
-  model?: string;
-  multiCnImageDownloadUrl?: string;
-  multiEnImageDownloadUrl?: string;
-  releaseNote?: string;
-  releaseNoteEn?: string;
-  size?: number;
-  version?: string;
-  versionCode?: string;
-  versionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidHorizontalMultiCnImageDownloadUrl: 'AndroidHorizontalMultiCnImageDownloadUrl',
-      androidHorizontalMultiEnImageDownloadUrl: 'AndroidHorizontalMultiEnImageDownloadUrl',
-      androidVerticalMultiCnImageDownloadUrl: 'AndroidVerticalMultiCnImageDownloadUrl',
-      androidVerticalMultiEnImageDownloadUrl: 'AndroidVerticalMultiEnImageDownloadUrl',
-      channel: 'Channel',
-      clientType: 'ClientType',
-      cnImageDownloadUrl: 'CnImageDownloadUrl',
-      creator: 'Creator',
-      downloadUrl: 'DownloadUrl',
-      enImageDownloadUrl: 'EnImageDownloadUrl',
-      md5: 'Md5',
-      model: 'Model',
-      multiCnImageDownloadUrl: 'MultiCnImageDownloadUrl',
-      multiEnImageDownloadUrl: 'MultiEnImageDownloadUrl',
-      releaseNote: 'ReleaseNote',
-      releaseNoteEn: 'ReleaseNoteEn',
-      size: 'Size',
-      version: 'Version',
-      versionCode: 'VersionCode',
-      versionType: 'VersionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidHorizontalMultiCnImageDownloadUrl: 'string',
-      androidHorizontalMultiEnImageDownloadUrl: 'string',
-      androidVerticalMultiCnImageDownloadUrl: 'string',
-      androidVerticalMultiEnImageDownloadUrl: 'string',
-      channel: 'string',
-      clientType: 'number',
-      cnImageDownloadUrl: 'string',
-      creator: 'string',
-      downloadUrl: 'string',
-      enImageDownloadUrl: 'string',
-      md5: 'string',
-      model: 'string',
-      multiCnImageDownloadUrl: 'string',
-      multiEnImageDownloadUrl: 'string',
-      releaseNote: 'string',
-      releaseNoteEn: 'string',
-      size: 'number',
-      version: 'string',
-      versionCode: 'string',
-      versionType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSnLabelCountsResponseBodyDataLabelCountDTOList extends $tea.Model {
-  count?: string;
-  label?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      label: 'Label',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'string',
-      label: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSnLabelCountsResponseBodyData extends $tea.Model {
-  labelCountDTOList?: DescribeSnLabelCountsResponseBodyDataLabelCountDTOList[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      labelCountDTOList: 'LabelCountDTOList',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labelCountDTOList: { 'type': 'array', 'itemType': DescribeSnLabelCountsResponseBodyDataLabelCountDTOList },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkZonesResponseBodyDataWorkZoneDTOList extends $tea.Model {
-  seatCol?: number;
-  seatRow?: number;
-  tenantId?: string;
-  zoneId?: string;
-  zoneName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      seatCol: 'SeatCol',
-      seatRow: 'SeatRow',
-      tenantId: 'TenantId',
-      zoneId: 'ZoneId',
-      zoneName: 'ZoneName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      seatCol: 'number',
-      seatRow: 'number',
-      tenantId: 'string',
-      zoneId: 'string',
-      zoneName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWorkZonesResponseBodyData extends $tea.Model {
-  totalCount?: number;
-  workZoneDTOList?: DescribeWorkZonesResponseBodyDataWorkZoneDTOList[];
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      workZoneDTOList: 'WorkZoneDTOList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      workZoneDTOList: { 'type': 'array', 'itemType': DescribeWorkZonesResponseBodyDataWorkZoneDTOList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateOssUrlResponseBodyData extends $tea.Model {
-  downloadUrl?: string;
-  objectName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      downloadUrl: 'DownloadUrl',
-      objectName: 'ObjectName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      downloadUrl: 'string',
-      objectName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppOtaLatestVersionResponseBodyData extends $tea.Model {
-  appVersion?: string;
-  downloadUrl?: string;
-  forceUpgrade?: number;
-  md5?: string;
-  releaseNote?: string;
-  size?: number;
-  taskUid?: string;
-  versionCode?: string;
-  versionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appVersion: 'AppVersion',
-      downloadUrl: 'DownloadUrl',
-      forceUpgrade: 'ForceUpgrade',
-      md5: 'Md5',
-      releaseNote: 'ReleaseNote',
-      size: 'Size',
-      taskUid: 'TaskUid',
-      versionCode: 'VersionCode',
-      versionType: 'VersionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appVersion: 'string',
-      downloadUrl: 'string',
-      forceUpgrade: 'number',
-      md5: 'string',
-      releaseNote: 'string',
-      size: 'number',
-      taskUid: 'string',
-      versionCode: 'string',
-      versionType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceConfigsResponseBodyDataCustomResourcePackage extends $tea.Model {
-  configAboutLogo?: string;
-  desktopWallpaper?: string;
-  loginPageBackground?: string;
-  loginPageLogo?: string;
-  personalCenterLogo?: string;
-  startLogo?: string;
-  startMenuLogo?: string;
-  upgradeLogo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configAboutLogo: 'ConfigAboutLogo',
-      desktopWallpaper: 'DesktopWallpaper',
-      loginPageBackground: 'LoginPageBackground',
-      loginPageLogo: 'LoginPageLogo',
-      personalCenterLogo: 'PersonalCenterLogo',
-      startLogo: 'StartLogo',
-      startMenuLogo: 'StartMenuLogo',
-      upgradeLogo: 'UpgradeLogo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configAboutLogo: 'string',
-      desktopWallpaper: 'string',
-      loginPageBackground: 'string',
-      loginPageLogo: 'string',
-      personalCenterLogo: 'string',
-      startLogo: 'string',
-      startMenuLogo: 'string',
-      upgradeLogo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceConfigsResponseBodyData extends $tea.Model {
-  autoLockScreenTime?: number;
-  autoLogin?: number;
-  autoUpdate?: number;
-  customIdleAction?: number;
-  customPowerOn?: number;
-  customResourcePackage?: GetDeviceConfigsResponseBodyDataCustomResourcePackage;
-  definePowerButton?: number;
-  deviceLock?: number;
-  displayLayout?: string;
-  displayResolution?: string;
-  displayScaleRatio?: string;
-  enableAdb?: number;
-  enableAutoLockScreen?: number;
-  enableBluetooth?: number;
-  enableLockScreenPassword?: number;
-  enableModifyPassword?: number;
-  enableScheduledPowerOff?: number;
-  enableUnlockPassword?: number;
-  enableWlan?: number;
-  idleTime?: number;
-  localUsbPrint?: number;
-  lockPassword?: string;
-  scheduledPowerOff?: string;
-  secureNetworkType?: string;
-  serialNo?: string;
-  sleepTime?: number;
-  urcl?: string;
-  usbStorage?: number;
-  userCustomId?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoLockScreenTime: 'AutoLockScreenTime',
-      autoLogin: 'AutoLogin',
-      autoUpdate: 'AutoUpdate',
-      customIdleAction: 'CustomIdleAction',
-      customPowerOn: 'CustomPowerOn',
-      customResourcePackage: 'CustomResourcePackage',
-      definePowerButton: 'DefinePowerButton',
-      deviceLock: 'DeviceLock',
-      displayLayout: 'DisplayLayout',
-      displayResolution: 'DisplayResolution',
-      displayScaleRatio: 'DisplayScaleRatio',
-      enableAdb: 'EnableAdb',
-      enableAutoLockScreen: 'EnableAutoLockScreen',
-      enableBluetooth: 'EnableBluetooth',
-      enableLockScreenPassword: 'EnableLockScreenPassword',
-      enableModifyPassword: 'EnableModifyPassword',
-      enableScheduledPowerOff: 'EnableScheduledPowerOff',
-      enableUnlockPassword: 'EnableUnlockPassword',
-      enableWlan: 'EnableWlan',
-      idleTime: 'IdleTime',
-      localUsbPrint: 'LocalUsbPrint',
-      lockPassword: 'LockPassword',
-      scheduledPowerOff: 'ScheduledPowerOff',
-      secureNetworkType: 'SecureNetworkType',
-      serialNo: 'SerialNo',
-      sleepTime: 'SleepTime',
-      urcl: 'Urcl',
-      usbStorage: 'UsbStorage',
-      userCustomId: 'UserCustomId',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoLockScreenTime: 'number',
-      autoLogin: 'number',
-      autoUpdate: 'number',
-      customIdleAction: 'number',
-      customPowerOn: 'number',
-      customResourcePackage: GetDeviceConfigsResponseBodyDataCustomResourcePackage,
-      definePowerButton: 'number',
-      deviceLock: 'number',
-      displayLayout: 'string',
-      displayResolution: 'string',
-      displayScaleRatio: 'string',
-      enableAdb: 'number',
-      enableAutoLockScreen: 'number',
-      enableBluetooth: 'number',
-      enableLockScreenPassword: 'number',
-      enableModifyPassword: 'number',
-      enableScheduledPowerOff: 'number',
-      enableUnlockPassword: 'number',
-      enableWlan: 'number',
-      idleTime: 'number',
-      localUsbPrint: 'number',
-      lockPassword: 'string',
-      scheduledPowerOff: 'string',
-      secureNetworkType: 'string',
-      serialNo: 'string',
-      sleepTime: 'number',
-      urcl: 'string',
-      usbStorage: 'number',
-      userCustomId: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaAutoStatusResponseBodyData extends $tea.Model {
-  autoUpdate?: number;
-  autoUpdateTimeSchedule?: string;
-  forceUpgrade?: number;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      autoUpdate: 'AutoUpdate',
-      autoUpdateTimeSchedule: 'AutoUpdateTimeSchedule',
-      forceUpgrade: 'ForceUpgrade',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoUpdate: 'number',
-      autoUpdateTimeSchedule: 'string',
-      forceUpgrade: 'number',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaInfoResponseBodyDataVersion extends $tea.Model {
-  androidHorizontalMultiCnImageDownloadUrl?: string;
-  androidHorizontalMultiEnImageDownloadUrl?: string;
-  androidVerticalMultiCnImageDownloadUrl?: string;
-  androidVerticalMultiEnImageDownloadUrl?: string;
-  cnImageDownloadUrl?: string;
-  creator?: string;
-  customForceUpgrade?: boolean;
-  downloadUrl?: string;
-  enImageDownloadUrl?: string;
-  forceUpgrade?: number;
-  isAppDownloadUrl?: boolean;
-  localDownloadUrl?: string;
-  md5?: string;
-  model?: string;
-  multiCnImageDownloadUrl?: string;
-  multiEnImageDownloadUrl?: string;
-  releaseNote?: string;
-  releaseNoteEn?: string;
-  size?: number;
-  version?: string;
-  versionCode?: string;
-  versionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidHorizontalMultiCnImageDownloadUrl: 'AndroidHorizontalMultiCnImageDownloadUrl',
-      androidHorizontalMultiEnImageDownloadUrl: 'AndroidHorizontalMultiEnImageDownloadUrl',
-      androidVerticalMultiCnImageDownloadUrl: 'AndroidVerticalMultiCnImageDownloadUrl',
-      androidVerticalMultiEnImageDownloadUrl: 'AndroidVerticalMultiEnImageDownloadUrl',
-      cnImageDownloadUrl: 'CnImageDownloadUrl',
-      creator: 'Creator',
-      customForceUpgrade: 'CustomForceUpgrade',
-      downloadUrl: 'DownloadUrl',
-      enImageDownloadUrl: 'EnImageDownloadUrl',
-      forceUpgrade: 'ForceUpgrade',
-      isAppDownloadUrl: 'IsAppDownloadUrl',
-      localDownloadUrl: 'LocalDownloadUrl',
-      md5: 'Md5',
-      model: 'Model',
-      multiCnImageDownloadUrl: 'MultiCnImageDownloadUrl',
-      multiEnImageDownloadUrl: 'MultiEnImageDownloadUrl',
-      releaseNote: 'ReleaseNote',
-      releaseNoteEn: 'ReleaseNoteEn',
-      size: 'Size',
-      version: 'Version',
-      versionCode: 'VersionCode',
-      versionType: 'VersionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidHorizontalMultiCnImageDownloadUrl: 'string',
-      androidHorizontalMultiEnImageDownloadUrl: 'string',
-      androidVerticalMultiCnImageDownloadUrl: 'string',
-      androidVerticalMultiEnImageDownloadUrl: 'string',
-      cnImageDownloadUrl: 'string',
-      creator: 'string',
-      customForceUpgrade: 'boolean',
-      downloadUrl: 'string',
-      enImageDownloadUrl: 'string',
-      forceUpgrade: 'number',
-      isAppDownloadUrl: 'boolean',
-      localDownloadUrl: 'string',
-      md5: 'string',
-      model: 'string',
-      multiCnImageDownloadUrl: 'string',
-      multiEnImageDownloadUrl: 'string',
-      releaseNote: 'string',
-      releaseNoteEn: 'string',
-      size: 'number',
-      version: 'string',
-      versionCode: 'string',
-      versionType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaInfoResponseBodyData extends $tea.Model {
-  version?: GetDeviceOtaInfoResponseBodyDataVersion;
-  static names(): { [key: string]: string } {
-    return {
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      version: GetDeviceOtaInfoResponseBodyDataVersion,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaInfoTestResponseBodyDataVersion extends $tea.Model {
-  creator?: string;
-  downloadUrl?: string;
-  forceUpgrade?: number;
-  localDownloadUrl?: string;
-  md5?: string;
-  model?: string;
-  releaseNote?: string;
-  size?: number;
-  version?: string;
-  versionCode?: string;
-  versionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      creator: 'Creator',
-      downloadUrl: 'DownloadUrl',
-      forceUpgrade: 'ForceUpgrade',
-      localDownloadUrl: 'LocalDownloadUrl',
-      md5: 'Md5',
-      model: 'Model',
-      releaseNote: 'ReleaseNote',
-      size: 'Size',
-      version: 'Version',
-      versionCode: 'VersionCode',
-      versionType: 'VersionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      creator: 'string',
-      downloadUrl: 'string',
-      forceUpgrade: 'number',
-      localDownloadUrl: 'string',
-      md5: 'string',
-      model: 'string',
-      releaseNote: 'string',
-      size: 'number',
-      version: 'string',
-      versionCode: 'string',
-      versionType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaInfoTestResponseBodyData extends $tea.Model {
-  version?: GetDeviceOtaInfoTestResponseBodyDataVersion;
-  static names(): { [key: string]: string } {
-    return {
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      version: GetDeviceOtaInfoTestResponseBodyDataVersion,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceOtaTaskVersionInfoResponseBodyData extends $tea.Model {
-  releaseNote?: string;
-  size?: number;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      releaseNote: 'ReleaseNote',
-      size: 'Size',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      releaseNote: 'string',
-      size: 'number',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceUpgradeStatusResponseBodyDataAppOtaStatusDTOList extends $tea.Model {
-  baseVersion?: string;
-  clientType?: number;
-  clientUid?: string;
-  note?: string;
-  osType?: string;
-  project?: string;
-  status?: number;
-  targetVersion?: string;
-  taskUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseVersion: 'BaseVersion',
-      clientType: 'ClientType',
-      clientUid: 'ClientUid',
-      note: 'Note',
-      osType: 'OsType',
-      project: 'Project',
-      status: 'Status',
-      targetVersion: 'TargetVersion',
-      taskUid: 'TaskUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseVersion: 'string',
-      clientType: 'number',
-      clientUid: 'string',
-      note: 'string',
-      osType: 'string',
-      project: 'string',
-      status: 'number',
-      targetVersion: 'string',
-      taskUid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceUpgradeStatusResponseBodyData extends $tea.Model {
-  appOtaStatusDTOList?: GetDeviceUpgradeStatusResponseBodyDataAppOtaStatusDTOList[];
-  static names(): { [key: string]: string } {
-    return {
-      appOtaStatusDTOList: 'AppOtaStatusDTOList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appOtaStatusDTOList: { 'type': 'array', 'itemType': GetDeviceUpgradeStatusResponseBodyDataAppOtaStatusDTOList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetExportDeviceInfoOssUrlResponseBodyData extends $tea.Model {
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFbOssConfigResponseBodyData extends $tea.Model {
-  accessKeyId?: string;
-  endPoint?: string;
-  ossPolicy?: string;
-  ossSignature?: string;
-  sessionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKeyId: 'AccessKeyId',
-      endPoint: 'EndPoint',
-      ossPolicy: 'OssPolicy',
-      ossSignature: 'OssSignature',
-      sessionId: 'SessionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKeyId: 'string',
-      endPoint: 'string',
-      ossPolicy: 'string',
-      ossSignature: 'string',
-      sessionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOssConfigResponseBodyData extends $tea.Model {
-  accessKeyId?: string;
-  endPoint?: string;
-  ossPolicy?: string;
-  ossSignature?: string;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKeyId: 'AccessKeyId',
-      endPoint: 'EndPoint',
-      ossPolicy: 'OssPolicy',
-      ossSignature: 'OssSignature',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKeyId: 'string',
-      endPoint: 'string',
-      ossPolicy: 'string',
-      ossSignature: 'string',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVersionDownloadUrlResponseBodyData extends $tea.Model {
-  fullDownloadUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fullDownloadUrl: 'FullDownloadUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fullDownloadUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceOtaTaskByTenantResponseBodyDataTenantDeviceOtaTasks extends $tea.Model {
-  model?: string;
-  operationStatus?: number;
-  publishTime?: string;
-  status?: number;
-  taskId?: number;
-  upgradeCount?: number;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      model: 'Model',
-      operationStatus: 'OperationStatus',
-      publishTime: 'PublishTime',
-      status: 'Status',
-      taskId: 'TaskId',
-      upgradeCount: 'UpgradeCount',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      model: 'string',
-      operationStatus: 'number',
-      publishTime: 'string',
-      status: 'number',
-      taskId: 'number',
-      upgradeCount: 'number',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceOtaTaskByTenantResponseBodyData extends $tea.Model {
-  tenantDeviceOtaTasks?: ListDeviceOtaTaskByTenantResponseBodyDataTenantDeviceOtaTasks[];
-  static names(): { [key: string]: string } {
-    return {
-      tenantDeviceOtaTasks: 'TenantDeviceOtaTasks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tenantDeviceOtaTasks: { 'type': 'array', 'itemType': ListDeviceOtaTaskByTenantResponseBodyDataTenantDeviceOtaTasks },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceSeatsResponseBodyDataDeviceSeatDTOList extends $tea.Model {
-  label?: string;
-  seatName?: string;
-  seatNo?: string;
-  serialNo?: string;
-  siteId?: string;
-  siteName?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      label: 'Label',
-      seatName: 'SeatName',
-      seatNo: 'SeatNo',
-      serialNo: 'SerialNo',
-      siteId: 'SiteId',
-      siteName: 'SiteName',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      label: 'string',
-      seatName: 'string',
-      seatNo: 'string',
-      serialNo: 'string',
-      siteId: 'string',
-      siteName: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeviceSeatsResponseBodyData extends $tea.Model {
-  deviceSeatDTOList?: ListDeviceSeatsResponseBodyDataDeviceSeatDTOList[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deviceSeatDTOList: 'DeviceSeatDTOList',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceSeatDTOList: { 'type': 'array', 'itemType': ListDeviceSeatsResponseBodyDataDeviceSeatDTOList },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicesResponseBodyDataConnectConfigs extends $tea.Model {
-  connectScript?: string;
-  peripheralPid?: string;
-  peripheralVid?: string;
-  redirectPolicy?: number;
-  static names(): { [key: string]: string } {
-    return {
-      connectScript: 'ConnectScript',
-      peripheralPid: 'PeripheralPid',
-      peripheralVid: 'PeripheralVid',
-      redirectPolicy: 'RedirectPolicy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectScript: 'string',
-      peripheralPid: 'string',
-      peripheralVid: 'string',
-      redirectPolicy: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicesResponseBodyDataCustomResourcePackage extends $tea.Model {
-  configAboutLogo?: string;
-  desktopWallpaper?: string;
-  loginPageBackground?: string;
-  loginPageLogo?: string;
-  personalCenterLogo?: string;
-  startLogo?: string;
-  startMenuLogo?: string;
-  upgradeLogo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configAboutLogo: 'ConfigAboutLogo',
-      desktopWallpaper: 'DesktopWallpaper',
-      loginPageBackground: 'LoginPageBackground',
-      loginPageLogo: 'LoginPageLogo',
-      personalCenterLogo: 'PersonalCenterLogo',
-      startLogo: 'StartLogo',
-      startMenuLogo: 'StartMenuLogo',
-      upgradeLogo: 'UpgradeLogo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configAboutLogo: 'string',
-      desktopWallpaper: 'string',
-      loginPageBackground: 'string',
-      loginPageLogo: 'string',
-      personalCenterLogo: 'string',
-      startLogo: 'string',
-      startMenuLogo: 'string',
-      upgradeLogo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicesResponseBodyDataEndUserList extends $tea.Model {
-  adDomain?: string;
-  bindTime?: string;
-  directoryId?: string;
-  endUserId?: string;
-  id?: number;
-  serialNo?: string;
-  tenantId?: string;
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      adDomain: 'AdDomain',
-      bindTime: 'BindTime',
-      directoryId: 'DirectoryId',
-      endUserId: 'EndUserId',
-      id: 'Id',
-      serialNo: 'SerialNo',
-      tenantId: 'TenantId',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adDomain: 'string',
-      bindTime: 'string',
-      directoryId: 'string',
-      endUserId: 'string',
-      id: 'number',
-      serialNo: 'string',
-      tenantId: 'string',
-      userType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicesResponseBodyDataLabelList extends $tea.Model {
-  content?: string;
-  gmtCreate?: number;
-  gmtModified?: number;
-  labelId?: string;
-  tenantId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      labelId: 'LabelId',
-      tenantId: 'TenantId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      gmtCreate: 'number',
-      gmtModified: 'number',
-      labelId: 'string',
-      tenantId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicesResponseBodyDataPeripheralConfig extends $tea.Model {
-  defaultPolicy?: number;
-  policyStrategy?: number;
-  usbAndInternalCamera?: number;
-  usbPrinter?: number;
-  usbStorage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      defaultPolicy: 'DefaultPolicy',
-      policyStrategy: 'PolicyStrategy',
-      usbAndInternalCamera: 'UsbAndInternalCamera',
-      usbPrinter: 'UsbPrinter',
-      usbStorage: 'UsbStorage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultPolicy: 'number',
-      policyStrategy: 'number',
-      usbAndInternalCamera: 'number',
-      usbPrinter: 'number',
-      usbStorage: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDevicesResponseBodyData extends $tea.Model {
-  activeTime?: string;
-  alias?: string;
-  autoLockScreenTime?: number;
-  autoLogin?: number;
-  autoType?: string;
-  bluetooth?: string;
-  buildId?: string;
-  clientId?: string;
-  clientType?: string;
-  connectConfigs?: ListDevicesResponseBodyDataConnectConfigs[];
-  customIdleAction?: number;
-  customPowerOn?: number;
-  customProperty?: string;
-  customResourcePackage?: ListDevicesResponseBodyDataCustomResourcePackage;
-  definePowerButton?: number;
-  deviceIpV4?: string;
-  deviceLock?: number;
-  deviceMqttConnectionStatus?: number;
-  deviceName?: string;
-  deviceOS?: string;
-  devicePlatform?: string;
-  displayLayout?: string;
-  displayResolution?: string;
-  displayScaleRatio?: string;
-  enableAdb?: number;
-  enableAutoLockScreen?: number;
-  enableBluetooth?: number;
-  enableLockScreenPassword?: number;
-  enableModifyPassword?: number;
-  enableScheduledPowerOff?: number;
-  enableUnlockPassword?: number;
-  enableWlan?: number;
-  endUserList?: ListDevicesResponseBodyDataEndUserList[];
-  etherMac?: string;
-  gmtModified?: string;
-  gmtSync?: string;
-  id?: number;
-  idleTime?: number;
-  isActive?: string;
-  labelList?: ListDevicesResponseBodyDataLabelList[];
-  lastLoginUser?: string;
-  localUsbPrint?: number;
-  locationInfo?: string;
-  lockPassword?: string;
-  model?: string;
-  orderId?: string;
-  peripheralConfig?: ListDevicesResponseBodyDataPeripheralConfig;
-  scheduledPowerOff?: string;
-  secureNetworkType?: string;
-  serialNo?: string;
-  sleepTime?: number;
-  source?: string;
-  tenantId?: string;
-  usbStorage?: number;
-  uuid?: string;
-  wlan?: string;
-  static names(): { [key: string]: string } {
-    return {
-      activeTime: 'ActiveTime',
-      alias: 'Alias',
-      autoLockScreenTime: 'AutoLockScreenTime',
-      autoLogin: 'AutoLogin',
-      autoType: 'AutoType',
-      bluetooth: 'Bluetooth',
-      buildId: 'BuildId',
-      clientId: 'ClientId',
-      clientType: 'ClientType',
-      connectConfigs: 'ConnectConfigs',
-      customIdleAction: 'CustomIdleAction',
-      customPowerOn: 'CustomPowerOn',
-      customProperty: 'CustomProperty',
-      customResourcePackage: 'CustomResourcePackage',
-      definePowerButton: 'DefinePowerButton',
-      deviceIpV4: 'DeviceIpV4',
-      deviceLock: 'DeviceLock',
-      deviceMqttConnectionStatus: 'DeviceMqttConnectionStatus',
-      deviceName: 'DeviceName',
-      deviceOS: 'DeviceOS',
-      devicePlatform: 'DevicePlatform',
-      displayLayout: 'DisplayLayout',
-      displayResolution: 'DisplayResolution',
-      displayScaleRatio: 'DisplayScaleRatio',
-      enableAdb: 'EnableAdb',
-      enableAutoLockScreen: 'EnableAutoLockScreen',
-      enableBluetooth: 'EnableBluetooth',
-      enableLockScreenPassword: 'EnableLockScreenPassword',
-      enableModifyPassword: 'EnableModifyPassword',
-      enableScheduledPowerOff: 'EnableScheduledPowerOff',
-      enableUnlockPassword: 'EnableUnlockPassword',
-      enableWlan: 'EnableWlan',
-      endUserList: 'EndUserList',
-      etherMac: 'EtherMac',
-      gmtModified: 'GmtModified',
-      gmtSync: 'GmtSync',
-      id: 'Id',
-      idleTime: 'IdleTime',
-      isActive: 'IsActive',
-      labelList: 'LabelList',
-      lastLoginUser: 'LastLoginUser',
-      localUsbPrint: 'LocalUsbPrint',
-      locationInfo: 'LocationInfo',
-      lockPassword: 'LockPassword',
-      model: 'Model',
-      orderId: 'OrderId',
-      peripheralConfig: 'PeripheralConfig',
-      scheduledPowerOff: 'ScheduledPowerOff',
-      secureNetworkType: 'SecureNetworkType',
-      serialNo: 'SerialNo',
-      sleepTime: 'SleepTime',
-      source: 'Source',
-      tenantId: 'TenantId',
-      usbStorage: 'UsbStorage',
-      uuid: 'Uuid',
-      wlan: 'Wlan',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activeTime: 'string',
-      alias: 'string',
-      autoLockScreenTime: 'number',
-      autoLogin: 'number',
-      autoType: 'string',
-      bluetooth: 'string',
-      buildId: 'string',
-      clientId: 'string',
-      clientType: 'string',
-      connectConfigs: { 'type': 'array', 'itemType': ListDevicesResponseBodyDataConnectConfigs },
-      customIdleAction: 'number',
-      customPowerOn: 'number',
-      customProperty: 'string',
-      customResourcePackage: ListDevicesResponseBodyDataCustomResourcePackage,
-      definePowerButton: 'number',
-      deviceIpV4: 'string',
-      deviceLock: 'number',
-      deviceMqttConnectionStatus: 'number',
-      deviceName: 'string',
-      deviceOS: 'string',
-      devicePlatform: 'string',
-      displayLayout: 'string',
-      displayResolution: 'string',
-      displayScaleRatio: 'string',
-      enableAdb: 'number',
-      enableAutoLockScreen: 'number',
-      enableBluetooth: 'number',
-      enableLockScreenPassword: 'number',
-      enableModifyPassword: 'number',
-      enableScheduledPowerOff: 'number',
-      enableUnlockPassword: 'number',
-      enableWlan: 'number',
-      endUserList: { 'type': 'array', 'itemType': ListDevicesResponseBodyDataEndUserList },
-      etherMac: 'string',
-      gmtModified: 'string',
-      gmtSync: 'string',
-      id: 'number',
-      idleTime: 'number',
-      isActive: 'string',
-      labelList: { 'type': 'array', 'itemType': ListDevicesResponseBodyDataLabelList },
-      lastLoginUser: 'string',
-      localUsbPrint: 'number',
-      locationInfo: 'string',
-      lockPassword: 'string',
-      model: 'string',
-      orderId: 'string',
-      peripheralConfig: ListDevicesResponseBodyDataPeripheralConfig,
-      scheduledPowerOff: 'string',
-      secureNetworkType: 'string',
-      serialNo: 'string',
-      sleepTime: 'number',
-      source: 'string',
-      tenantId: 'string',
-      usbStorage: 'number',
-      uuid: 'string',
-      wlan: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFbIssueLabelsResponseBodyData extends $tea.Model {
-  issueLabel?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      issueLabel: 'IssueLabel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      issueLabel: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFbIssueLabelsByLCResponseBodyData extends $tea.Model {
-  issueLabel?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      issueLabel: 'IssueLabel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      issueLabel: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLabelsResponseBodyData extends $tea.Model {
-  content?: string;
-  gmtCreate?: number;
-  gmtModified?: number;
-  id?: number;
-  labelId?: string;
-  tenantId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      labelId: 'LabelId',
-      tenantId: 'TenantId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      gmtCreate: 'number',
-      gmtModified: 'number',
-      id: 'number',
-      labelId: 'string',
-      tenantId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTenantDeviceOtaInfoResponseBodyDataTenantDeviceOtaInfos extends $tea.Model {
-  currentVersion?: string;
-  deviceId?: string;
-  model?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentVersion: 'CurrentVersion',
-      deviceId: 'DeviceId',
-      model: 'Model',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentVersion: 'string',
-      deviceId: 'string',
-      model: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTenantDeviceOtaInfoResponseBodyData extends $tea.Model {
-  tenantDeviceOtaInfos?: ListTenantDeviceOtaInfoResponseBodyDataTenantDeviceOtaInfos[];
-  static names(): { [key: string]: string } {
-    return {
-      tenantDeviceOtaInfos: 'TenantDeviceOtaInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tenantDeviceOtaInfos: { 'type': 'array', 'itemType': ListTenantDeviceOtaInfoResponseBodyDataTenantDeviceOtaInfos },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTerminalResponseBodyData extends $tea.Model {
-  alias?: string;
-  bindUserCount?: number;
-  bindUserId?: string;
-  buildId?: string;
-  clientType?: number;
-  desktopId?: string;
-  inManage?: boolean;
-  ipv4?: string;
-  /**
-   * @deprecated
-   */
-  lastLoginUser?: string;
-  locationInfo?: string;
-  lockSettings?: boolean;
-  loginUser?: string;
-  model?: string;
-  onlineStatus?: boolean;
-  serialNumber?: string;
-  terminalGroupId?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alias: 'Alias',
-      bindUserCount: 'BindUserCount',
-      bindUserId: 'BindUserId',
-      buildId: 'BuildId',
-      clientType: 'ClientType',
-      desktopId: 'DesktopId',
-      inManage: 'InManage',
-      ipv4: 'Ipv4',
-      lastLoginUser: 'LastLoginUser',
-      locationInfo: 'LocationInfo',
-      lockSettings: 'LockSettings',
-      loginUser: 'LoginUser',
-      model: 'Model',
-      onlineStatus: 'OnlineStatus',
-      serialNumber: 'SerialNumber',
-      terminalGroupId: 'TerminalGroupId',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alias: 'string',
-      bindUserCount: 'number',
-      bindUserId: 'string',
-      buildId: 'string',
-      clientType: 'number',
-      desktopId: 'string',
-      inManage: 'boolean',
-      ipv4: 'string',
-      lastLoginUser: 'string',
-      locationInfo: 'string',
-      lockSettings: 'boolean',
-      loginUser: 'string',
-      model: 'string',
-      onlineStatus: 'boolean',
-      serialNumber: 'string',
-      terminalGroupId: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTerminalsResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * DemoDevice
-   */
-  alias?: string;
-  bindUserCount?: number;
-  /**
-   * @example
-   * 7.0.2-RS-20240805.044924
-   */
-  buildId?: string;
-  /**
-   * @example
-   * 1
-   */
-  clientType?: number;
-  /**
-   * @example
-   * ecd-drqmaogzbmbdf****
-   */
-  currentConnectDesktop?: string;
-  /**
-   * @example
-   * alice
-   */
-  currentLoginUser?: string;
-  /**
-   * @example
-   * 192.168.XX.XX
-   */
-  ipv4?: string;
-  lastLoginUser?: string;
-  locationInfo?: string;
-  manageTime?: string;
-  /**
-   * @example
-   * US01
-   */
-  model?: string;
-  /**
-   * @example
-   * true
-   */
-  online?: boolean;
-  /**
-   * @example
-   * alice
-   */
-  passwordFreeLoginUser?: string;
-  publicIpv4?: string;
-  /**
-   * @example
-   * ODN49YQCPQYC****
-   */
-  serialNumber?: string;
-  setPasswordFreeLoginUserTime?: string;
-  /**
-   * @example
-   * tg-default
-   */
-  terminalGroupId?: string;
-  /**
-   * @example
-   * 04873D3898B51A7DF2455C1E1DC9****
-   */
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alias: 'Alias',
-      bindUserCount: 'BindUserCount',
-      buildId: 'BuildId',
-      clientType: 'ClientType',
-      currentConnectDesktop: 'CurrentConnectDesktop',
-      currentLoginUser: 'CurrentLoginUser',
-      ipv4: 'Ipv4',
-      lastLoginUser: 'LastLoginUser',
-      locationInfo: 'LocationInfo',
-      manageTime: 'ManageTime',
-      model: 'Model',
-      online: 'Online',
-      passwordFreeLoginUser: 'PasswordFreeLoginUser',
-      publicIpv4: 'PublicIpv4',
-      serialNumber: 'SerialNumber',
-      setPasswordFreeLoginUserTime: 'SetPasswordFreeLoginUserTime',
-      terminalGroupId: 'TerminalGroupId',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alias: 'string',
-      bindUserCount: 'number',
-      buildId: 'string',
-      clientType: 'number',
-      currentConnectDesktop: 'string',
-      currentLoginUser: 'string',
-      ipv4: 'string',
-      lastLoginUser: 'string',
-      locationInfo: 'string',
-      manageTime: 'string',
-      model: 'string',
-      online: 'boolean',
-      passwordFreeLoginUser: 'string',
-      publicIpv4: 'string',
-      serialNumber: 'string',
-      setPasswordFreeLoginUserTime: 'string',
-      terminalGroupId: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTrustDevicesResponseBodyData extends $tea.Model {
-  model?: string;
-  serialNo?: string;
-  tenantId?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      model: 'Model',
-      serialNo: 'SerialNo',
-      tenantId: 'TenantId',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      model: 'string',
-      serialNo: 'string',
-      tenantId: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserFbAcIssuesResponseBodyDataIssueDataListFileList extends $tea.Model {
-  fileName?: string;
-  fileSize?: number;
-  fileType?: number;
-  sessionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileSize: 'FileSize',
-      fileType: 'FileType',
-      sessionId: 'SessionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileSize: 'number',
-      fileType: 'number',
-      sessionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserFbAcIssuesResponseBodyDataIssueDataList extends $tea.Model {
-  account?: string;
-  clientVersion?: string;
-  errorMessage?: string;
-  fileList?: ListUserFbAcIssuesResponseBodyDataIssueDataListFileList[];
-  gmtCreated?: string;
-  gmtModified?: string;
-  instanceId?: string;
-  issueId?: number;
-  label?: string;
-  reservedA?: string;
-  reservedB?: string;
-  userEmail?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      clientVersion: 'ClientVersion',
-      errorMessage: 'ErrorMessage',
-      fileList: 'FileList',
-      gmtCreated: 'GmtCreated',
-      gmtModified: 'GmtModified',
-      instanceId: 'InstanceId',
-      issueId: 'IssueId',
-      label: 'Label',
-      reservedA: 'ReservedA',
-      reservedB: 'ReservedB',
-      userEmail: 'UserEmail',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      clientVersion: 'string',
-      errorMessage: 'string',
-      fileList: { 'type': 'array', 'itemType': ListUserFbAcIssuesResponseBodyDataIssueDataListFileList },
-      gmtCreated: 'string',
-      gmtModified: 'string',
-      instanceId: 'string',
-      issueId: 'number',
-      label: 'string',
-      reservedA: 'string',
-      reservedB: 'string',
-      userEmail: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserFbAcIssuesResponseBodyData extends $tea.Model {
-  issueDataList?: ListUserFbAcIssuesResponseBodyDataIssueDataList[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      issueDataList: 'IssueDataList',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      issueDataList: { 'type': 'array', 'itemType': ListUserFbAcIssuesResponseBodyDataIssueDataList },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserFbIssuesResponseBodyDataFeedbackIssueDataFileList extends $tea.Model {
-  fileMd5?: string;
-  fileName?: string;
-  fileSize?: number;
-  fileType?: number;
-  ossUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileMd5: 'FileMd5',
-      fileName: 'FileName',
-      fileSize: 'FileSize',
-      fileType: 'FileType',
-      ossUrl: 'OssUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileMd5: 'string',
-      fileName: 'string',
-      fileSize: 'number',
-      fileType: 'number',
-      ossUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserFbIssuesResponseBodyDataFeedbackIssueData extends $tea.Model {
-  appId?: string;
-  clientId?: string;
-  clientModel?: string;
-  clientSn?: string;
-  customerId?: string;
-  description?: string;
-  desktopId?: string;
-  errorCode?: string;
-  errorMsg?: string;
-  fbType?: number;
-  fileList?: ListUserFbIssuesResponseBodyDataFeedbackIssueDataFileList[];
-  gmtCreated?: string;
-  issueId?: number;
-  issueLabel?: string;
-  status?: number;
-  title?: string;
-  userEmail?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      clientId: 'ClientId',
-      clientModel: 'ClientModel',
-      clientSn: 'ClientSn',
-      customerId: 'CustomerId',
-      description: 'Description',
-      desktopId: 'DesktopId',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      fbType: 'FbType',
-      fileList: 'FileList',
-      gmtCreated: 'GmtCreated',
-      issueId: 'IssueId',
-      issueLabel: 'IssueLabel',
-      status: 'Status',
-      title: 'Title',
-      userEmail: 'UserEmail',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      clientId: 'string',
-      clientModel: 'string',
-      clientSn: 'string',
-      customerId: 'string',
-      description: 'string',
-      desktopId: 'string',
-      errorCode: 'string',
-      errorMsg: 'string',
-      fbType: 'number',
-      fileList: { 'type': 'array', 'itemType': ListUserFbIssuesResponseBodyDataFeedbackIssueDataFileList },
-      gmtCreated: 'string',
-      issueId: 'number',
-      issueLabel: 'string',
-      status: 'number',
-      title: 'string',
-      userEmail: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserFbIssuesResponseBodyData extends $tea.Model {
-  count?: string;
-  feedbackIssueData?: ListUserFbIssuesResponseBodyDataFeedbackIssueData[];
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      feedbackIssueData: 'FeedbackIssueData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'string',
-      feedbackIssueData: { 'type': 'array', 'itemType': ListUserFbIssuesResponseBodyDataFeedbackIssueData },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterDeviceResponseBodyData extends $tea.Model {
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportUserFbAcIssueRequestFileList extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  fileName?: string;
-  fileSize?: number;
-  fileType?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  sessionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileSize: 'FileSize',
-      fileType: 'FileType',
-      sessionId: 'SessionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileSize: 'number',
-      fileType: 'number',
-      sessionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportUserFbAcIssueResponseBodyData extends $tea.Model {
-  issueId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      issueId: 'IssueId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      issueId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportUserFbIssueRequestFileList extends $tea.Model {
-  fileMd5?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  fileName?: string;
-  fileSize?: number;
-  fileType?: number;
-  ossUrl?: string;
-  sessionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileMd5: 'FileMd5',
-      fileName: 'FileName',
-      fileSize: 'FileSize',
-      fileType: 'FileType',
-      ossUrl: 'OssUrl',
-      sessionId: 'SessionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileMd5: 'string',
-      fileName: 'string',
-      fileSize: 'number',
-      fileType: 'number',
-      ossUrl: 'string',
-      sessionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportUserFbIssueResponseBodyData extends $tea.Model {
-  issueId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      issueId: 'IssueId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      issueId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeviceBindedEndUserRequestSourceAdEndUsers extends $tea.Model {
-  adDomain?: string;
-  directoryId?: string;
-  endUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      adDomain: 'AdDomain',
-      directoryId: 'DirectoryId',
-      endUserId: 'EndUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adDomain: 'string',
-      directoryId: 'string',
-      endUserId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeviceBindedEndUserRequestTargetAdEndUsers extends $tea.Model {
-  adDomain?: string;
-  directoryId?: string;
-  endUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      adDomain: 'AdDomain',
-      directoryId: 'DirectoryId',
-      endUserId: 'EndUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adDomain: 'string',
-      directoryId: 'string',
-      endUserId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._signatureAlgorithm = "v2";
     this._endpointRule = "";
@@ -8356,15 +19,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -8374,17 +37,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ActivateDeviceResponse
    */
-  async activateDeviceWithOptions(request: ActivateDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ActivateDeviceResponse> {
-    Util.validateModel(request);
+  async activateDeviceWithOptions(request: $_model.ActivateDeviceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ActivateDeviceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ActivateDevice",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -8395,7 +58,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ActivateDeviceResponse>(await this.callApi(params, req, runtime), new ActivateDeviceResponse({}));
+    return $dara.cast<$_model.ActivateDeviceResponse>(await this.callApi(params, req, runtime), new $_model.ActivateDeviceResponse({}));
   }
 
   /**
@@ -8404,8 +67,8 @@ export default class Client extends OpenApi {
    * @param request - ActivateDeviceRequest
    * @returns ActivateDeviceResponse
    */
-  async activateDevice(request: ActivateDeviceRequest): Promise<ActivateDeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async activateDevice(request: $_model.ActivateDeviceRequest): Promise<$_model.ActivateDeviceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.activateDeviceWithOptions(request, runtime);
   }
 
@@ -8416,37 +79,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddDeviceFromSNResponse
    */
-  async addDeviceFromSNWithOptions(request: AddDeviceFromSNRequest, runtime: $Util.RuntimeOptions): Promise<AddDeviceFromSNResponse> {
-    Util.validateModel(request);
+  async addDeviceFromSNWithOptions(request: $_model.AddDeviceFromSNRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddDeviceFromSNResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.alias)) {
+    if (!$dara.isNull(request.alias)) {
       body["Alias"] = request.alias;
     }
 
-    if (!Util.isUnset(request.customProperty)) {
+    if (!$dara.isNull(request.customProperty)) {
       body["CustomProperty"] = request.customProperty;
     }
 
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       body["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.labelContents)) {
+    if (!$dara.isNull(request.labelContents)) {
       body["LabelContents"] = request.labelContents;
     }
 
-    if (!Util.isUnset(request.secureNetworkType)) {
+    if (!$dara.isNull(request.secureNetworkType)) {
       body["SecureNetworkType"] = request.secureNetworkType;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddDeviceFromSN",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -8457,7 +120,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddDeviceFromSNResponse>(await this.callApi(params, req, runtime), new AddDeviceFromSNResponse({}));
+    return $dara.cast<$_model.AddDeviceFromSNResponse>(await this.callApi(params, req, runtime), new $_model.AddDeviceFromSNResponse({}));
   }
 
   /**
@@ -8466,8 +129,8 @@ export default class Client extends OpenApi {
    * @param request - AddDeviceFromSNRequest
    * @returns AddDeviceFromSNResponse
    */
-  async addDeviceFromSN(request: AddDeviceFromSNRequest): Promise<AddDeviceFromSNResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async addDeviceFromSN(request: $_model.AddDeviceFromSNRequest): Promise<$_model.AddDeviceFromSNResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addDeviceFromSNWithOptions(request, runtime);
   }
 
@@ -8478,41 +141,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddDeviceSeatsAndLabelsResponse
    */
-  async addDeviceSeatsAndLabelsWithOptions(request: AddDeviceSeatsAndLabelsRequest, runtime: $Util.RuntimeOptions): Promise<AddDeviceSeatsAndLabelsResponse> {
-    Util.validateModel(request);
+  async addDeviceSeatsAndLabelsWithOptions(request: $_model.AddDeviceSeatsAndLabelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddDeviceSeatsAndLabelsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.isUnique)) {
+    if (!$dara.isNull(request.isUnique)) {
       body["IsUnique"] = request.isUnique;
     }
 
-    if (!Util.isUnset(request.label)) {
+    if (!$dara.isNull(request.label)) {
       body["Label"] = request.label;
     }
 
-    if (!Util.isUnset(request.labelList)) {
+    if (!$dara.isNull(request.labelList)) {
       body["LabelList"] = request.labelList;
     }
 
-    if (!Util.isUnset(request.seatName)) {
+    if (!$dara.isNull(request.seatName)) {
       body["SeatName"] = request.seatName;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       body["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddDeviceSeatsAndLabels",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -8523,7 +186,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddDeviceSeatsAndLabelsResponse>(await this.callApi(params, req, runtime), new AddDeviceSeatsAndLabelsResponse({}));
+    return $dara.cast<$_model.AddDeviceSeatsAndLabelsResponse>(await this.callApi(params, req, runtime), new $_model.AddDeviceSeatsAndLabelsResponse({}));
   }
 
   /**
@@ -8532,8 +195,8 @@ export default class Client extends OpenApi {
    * @param request - AddDeviceSeatsAndLabelsRequest
    * @returns AddDeviceSeatsAndLabelsResponse
    */
-  async addDeviceSeatsAndLabels(request: AddDeviceSeatsAndLabelsRequest): Promise<AddDeviceSeatsAndLabelsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async addDeviceSeatsAndLabels(request: $_model.AddDeviceSeatsAndLabelsRequest): Promise<$_model.AddDeviceSeatsAndLabelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addDeviceSeatsAndLabelsWithOptions(request, runtime);
   }
 
@@ -8544,33 +207,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddDevicesFromCSVResponse
    */
-  async addDevicesFromCSVWithOptions(request: AddDevicesFromCSVRequest, runtime: $Util.RuntimeOptions): Promise<AddDevicesFromCSVResponse> {
-    Util.validateModel(request);
+  async addDevicesFromCSVWithOptions(request: $_model.AddDevicesFromCSVRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddDevicesFromCSVResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.fileName)) {
+    if (!$dara.isNull(request.fileName)) {
       body["FileName"] = request.fileName;
     }
 
-    if (!Util.isUnset(request.fileType)) {
+    if (!$dara.isNull(request.fileType)) {
       body["FileType"] = request.fileType;
     }
 
-    if (!Util.isUnset(request.seatCol)) {
+    if (!$dara.isNull(request.seatCol)) {
       body["SeatCol"] = request.seatCol;
     }
 
-    if (!Util.isUnset(request.siteId)) {
+    if (!$dara.isNull(request.siteId)) {
       body["SiteId"] = request.siteId;
     }
 
-    if (!Util.isUnset(request.siteName)) {
+    if (!$dara.isNull(request.siteName)) {
       body["SiteName"] = request.siteName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddDevicesFromCSV",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -8581,7 +244,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddDevicesFromCSVResponse>(await this.callApi(params, req, runtime), new AddDevicesFromCSVResponse({}));
+    return $dara.cast<$_model.AddDevicesFromCSVResponse>(await this.callApi(params, req, runtime), new $_model.AddDevicesFromCSVResponse({}));
   }
 
   /**
@@ -8590,8 +253,8 @@ export default class Client extends OpenApi {
    * @param request - AddDevicesFromCSVRequest
    * @returns AddDevicesFromCSVResponse
    */
-  async addDevicesFromCSV(request: AddDevicesFromCSVRequest): Promise<AddDevicesFromCSVResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async addDevicesFromCSV(request: $_model.AddDevicesFromCSVRequest): Promise<$_model.AddDevicesFromCSVResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addDevicesFromCSVWithOptions(request, runtime);
   }
 
@@ -8602,17 +265,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddLabelsResponse
    */
-  async addLabelsWithOptions(request: AddLabelsRequest, runtime: $Util.RuntimeOptions): Promise<AddLabelsResponse> {
-    Util.validateModel(request);
+  async addLabelsWithOptions(request: $_model.AddLabelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddLabelsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labelContents)) {
+    if (!$dara.isNull(request.labelContents)) {
       body["LabelContents"] = request.labelContents;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddLabels",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -8623,7 +286,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddLabelsResponse>(await this.callApi(params, req, runtime), new AddLabelsResponse({}));
+    return $dara.cast<$_model.AddLabelsResponse>(await this.callApi(params, req, runtime), new $_model.AddLabelsResponse({}));
   }
 
   /**
@@ -8632,8 +295,8 @@ export default class Client extends OpenApi {
    * @param request - AddLabelsRequest
    * @returns AddLabelsResponse
    */
-  async addLabels(request: AddLabelsRequest): Promise<AddLabelsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async addLabels(request: $_model.AddLabelsRequest): Promise<$_model.AddLabelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addLabelsWithOptions(request, runtime);
   }
 
@@ -8644,25 +307,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddOrUpdateDeviceSeatsResponse
    */
-  async addOrUpdateDeviceSeatsWithOptions(request: AddOrUpdateDeviceSeatsRequest, runtime: $Util.RuntimeOptions): Promise<AddOrUpdateDeviceSeatsResponse> {
-    Util.validateModel(request);
+  async addOrUpdateDeviceSeatsWithOptions(request: $_model.AddOrUpdateDeviceSeatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddOrUpdateDeviceSeatsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.fileName)) {
+    if (!$dara.isNull(request.fileName)) {
       body["FileName"] = request.fileName;
     }
 
-    if (!Util.isUnset(request.userCustomId)) {
+    if (!$dara.isNull(request.userCustomId)) {
       body["UserCustomId"] = request.userCustomId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       body["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddOrUpdateDeviceSeats",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -8673,7 +336,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddOrUpdateDeviceSeatsResponse>(await this.callApi(params, req, runtime), new AddOrUpdateDeviceSeatsResponse({}));
+    return $dara.cast<$_model.AddOrUpdateDeviceSeatsResponse>(await this.callApi(params, req, runtime), new $_model.AddOrUpdateDeviceSeatsResponse({}));
   }
 
   /**
@@ -8682,8 +345,8 @@ export default class Client extends OpenApi {
    * @param request - AddOrUpdateDeviceSeatsRequest
    * @returns AddOrUpdateDeviceSeatsResponse
    */
-  async addOrUpdateDeviceSeats(request: AddOrUpdateDeviceSeatsRequest): Promise<AddOrUpdateDeviceSeatsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async addOrUpdateDeviceSeats(request: $_model.AddOrUpdateDeviceSeatsRequest): Promise<$_model.AddOrUpdateDeviceSeatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addOrUpdateDeviceSeatsWithOptions(request, runtime);
   }
 
@@ -8694,25 +357,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddTerminalResponse
    */
-  async addTerminalWithOptions(request: AddTerminalRequest, runtime: $Util.RuntimeOptions): Promise<AddTerminalResponse> {
-    Util.validateModel(request);
+  async addTerminalWithOptions(request: $_model.AddTerminalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddTerminalResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.alias)) {
+    if (!$dara.isNull(request.alias)) {
       body["Alias"] = request.alias;
     }
 
-    if (!Util.isUnset(request.serialNumber)) {
+    if (!$dara.isNull(request.clientType)) {
+      body["ClientType"] = request.clientType;
+    }
+
+    if (!$dara.isNull(request.mainBizType)) {
+      body["MainBizType"] = request.mainBizType;
+    }
+
+    if (!$dara.isNull(request.serialNumber)) {
       body["SerialNumber"] = request.serialNumber;
     }
 
-    if (!Util.isUnset(request.terminalGroupId)) {
+    if (!$dara.isNull(request.terminalGroupId)) {
       body["TerminalGroupId"] = request.terminalGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.uuid)) {
+      body["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddTerminal",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -8723,7 +398,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddTerminalResponse>(await this.callApi(params, req, runtime), new AddTerminalResponse({}));
+    return $dara.cast<$_model.AddTerminalResponse>(await this.callApi(params, req, runtime), new $_model.AddTerminalResponse({}));
   }
 
   /**
@@ -8732,8 +407,8 @@ export default class Client extends OpenApi {
    * @param request - AddTerminalRequest
    * @returns AddTerminalResponse
    */
-  async addTerminal(request: AddTerminalRequest): Promise<AddTerminalResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async addTerminal(request: $_model.AddTerminalRequest): Promise<$_model.AddTerminalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addTerminalWithOptions(request, runtime);
   }
 
@@ -8744,22 +419,26 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddTerminalsResponse
    */
-  async addTerminalsWithOptions(request: AddTerminalsRequest, runtime: $Util.RuntimeOptions): Promise<AddTerminalsResponse> {
-    Util.validateModel(request);
+  async addTerminalsWithOptions(request: $_model.AddTerminalsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddTerminalsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.addTerminalParams)) {
+    if (!$dara.isNull(request.addTerminalParams)) {
       bodyFlat["AddTerminalParams"] = request.addTerminalParams;
+    }
+
+    if (!$dara.isNull(request.mainBizType)) {
+      body["MainBizType"] = request.mainBizType;
     }
 
     body = {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddTerminals",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -8770,7 +449,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddTerminalsResponse>(await this.callApi(params, req, runtime), new AddTerminalsResponse({}));
+    return $dara.cast<$_model.AddTerminalsResponse>(await this.callApi(params, req, runtime), new $_model.AddTerminalsResponse({}));
   }
 
   /**
@@ -8779,8 +458,8 @@ export default class Client extends OpenApi {
    * @param request - AddTerminalsRequest
    * @returns AddTerminalsResponse
    */
-  async addTerminals(request: AddTerminalsRequest): Promise<AddTerminalsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async addTerminals(request: $_model.AddTerminalsRequest): Promise<$_model.AddTerminalsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addTerminalsWithOptions(request, runtime);
   }
 
@@ -8791,21 +470,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachEndUsersResponse
    */
-  async attachEndUsersWithOptions(request: AttachEndUsersRequest, runtime: $Util.RuntimeOptions): Promise<AttachEndUsersResponse> {
-    Util.validateModel(request);
+  async attachEndUsersWithOptions(request: $_model.AttachEndUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachEndUsersResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endUserIds)) {
+    if (!$dara.isNull(request.endUserIds)) {
       body["EndUserIds"] = request.endUserIds;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AttachEndUsers",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -8816,7 +495,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachEndUsersResponse>(await this.callApi(params, req, runtime), new AttachEndUsersResponse({}));
+    return $dara.cast<$_model.AttachEndUsersResponse>(await this.callApi(params, req, runtime), new $_model.AttachEndUsersResponse({}));
   }
 
   /**
@@ -8825,8 +504,8 @@ export default class Client extends OpenApi {
    * @param request - AttachEndUsersRequest
    * @returns AttachEndUsersResponse
    */
-  async attachEndUsers(request: AttachEndUsersRequest): Promise<AttachEndUsersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async attachEndUsers(request: $_model.AttachEndUsersRequest): Promise<$_model.AttachEndUsersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.attachEndUsersWithOptions(request, runtime);
   }
 
@@ -8837,25 +516,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachLabelResponse
    */
-  async attachLabelWithOptions(request: AttachLabelRequest, runtime: $Util.RuntimeOptions): Promise<AttachLabelResponse> {
-    Util.validateModel(request);
+  async attachLabelWithOptions(request: $_model.AttachLabelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachLabelResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labelContent)) {
+    if (!$dara.isNull(request.labelContent)) {
       body["LabelContent"] = request.labelContent;
     }
 
-    if (!Util.isUnset(request.labelId)) {
+    if (!$dara.isNull(request.labelId)) {
       body["LabelId"] = request.labelId;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AttachLabel",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -8866,7 +545,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachLabelResponse>(await this.callApi(params, req, runtime), new AttachLabelResponse({}));
+    return $dara.cast<$_model.AttachLabelResponse>(await this.callApi(params, req, runtime), new $_model.AttachLabelResponse({}));
   }
 
   /**
@@ -8875,8 +554,8 @@ export default class Client extends OpenApi {
    * @param request - AttachLabelRequest
    * @returns AttachLabelResponse
    */
-  async attachLabel(request: AttachLabelRequest): Promise<AttachLabelResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async attachLabel(request: $_model.AttachLabelRequest): Promise<$_model.AttachLabelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.attachLabelWithOptions(request, runtime);
   }
 
@@ -8887,25 +566,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachLabelsResponse
    */
-  async attachLabelsWithOptions(request: AttachLabelsRequest, runtime: $Util.RuntimeOptions): Promise<AttachLabelsResponse> {
-    Util.validateModel(request);
+  async attachLabelsWithOptions(request: $_model.AttachLabelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachLabelsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labelIds)) {
+    if (!$dara.isNull(request.labelIds)) {
       body["LabelIds"] = request.labelIds;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    if (!Util.isUnset(request.serialNoList)) {
+    if (!$dara.isNull(request.serialNoList)) {
       body["SerialNoList"] = request.serialNoList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AttachLabels",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -8916,7 +595,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachLabelsResponse>(await this.callApi(params, req, runtime), new AttachLabelsResponse({}));
+    return $dara.cast<$_model.AttachLabelsResponse>(await this.callApi(params, req, runtime), new $_model.AttachLabelsResponse({}));
   }
 
   /**
@@ -8925,8 +604,8 @@ export default class Client extends OpenApi {
    * @param request - AttachLabelsRequest
    * @returns AttachLabelsResponse
    */
-  async attachLabels(request: AttachLabelsRequest): Promise<AttachLabelsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async attachLabels(request: $_model.AttachLabelsRequest): Promise<$_model.AttachLabelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.attachLabelsWithOptions(request, runtime);
   }
 
@@ -8937,25 +616,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindAccountLessLoginUserResponse
    */
-  async bindAccountLessLoginUserWithOptions(request: BindAccountLessLoginUserRequest, runtime: $Util.RuntimeOptions): Promise<BindAccountLessLoginUserResponse> {
-    Util.validateModel(request);
+  async bindAccountLessLoginUserWithOptions(request: $_model.BindAccountLessLoginUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindAccountLessLoginUserResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endUserId)) {
+    if (!$dara.isNull(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!Util.isUnset(request.serialNumber)) {
+    if (!$dara.isNull(request.serialNumber)) {
       body["SerialNumber"] = request.serialNumber;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindAccountLessLoginUser",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -8966,7 +645,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindAccountLessLoginUserResponse>(await this.callApi(params, req, runtime), new BindAccountLessLoginUserResponse({}));
+    return $dara.cast<$_model.BindAccountLessLoginUserResponse>(await this.callApi(params, req, runtime), new $_model.BindAccountLessLoginUserResponse({}));
   }
 
   /**
@@ -8975,8 +654,8 @@ export default class Client extends OpenApi {
    * @param request - BindAccountLessLoginUserRequest
    * @returns BindAccountLessLoginUserResponse
    */
-  async bindAccountLessLoginUser(request: BindAccountLessLoginUserRequest): Promise<BindAccountLessLoginUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async bindAccountLessLoginUser(request: $_model.BindAccountLessLoginUserRequest): Promise<$_model.BindAccountLessLoginUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindAccountLessLoginUserWithOptions(request, runtime);
   }
 
@@ -8987,25 +666,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindPasswordFreeLoginUserResponse
    */
-  async bindPasswordFreeLoginUserWithOptions(request: BindPasswordFreeLoginUserRequest, runtime: $Util.RuntimeOptions): Promise<BindPasswordFreeLoginUserResponse> {
-    Util.validateModel(request);
+  async bindPasswordFreeLoginUserWithOptions(request: $_model.BindPasswordFreeLoginUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindPasswordFreeLoginUserResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endUserId)) {
+    if (!$dara.isNull(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!Util.isUnset(request.serialNumber)) {
+    if (!$dara.isNull(request.mainBizType)) {
+      body["MainBizType"] = request.mainBizType;
+    }
+
+    if (!$dara.isNull(request.serialNumber)) {
       body["SerialNumber"] = request.serialNumber;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindPasswordFreeLoginUser",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9016,7 +699,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindPasswordFreeLoginUserResponse>(await this.callApi(params, req, runtime), new BindPasswordFreeLoginUserResponse({}));
+    return $dara.cast<$_model.BindPasswordFreeLoginUserResponse>(await this.callApi(params, req, runtime), new $_model.BindPasswordFreeLoginUserResponse({}));
   }
 
   /**
@@ -9025,8 +708,8 @@ export default class Client extends OpenApi {
    * @param request - BindPasswordFreeLoginUserRequest
    * @returns BindPasswordFreeLoginUserResponse
    */
-  async bindPasswordFreeLoginUser(request: BindPasswordFreeLoginUserRequest): Promise<BindPasswordFreeLoginUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async bindPasswordFreeLoginUser(request: $_model.BindPasswordFreeLoginUserRequest): Promise<$_model.BindPasswordFreeLoginUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindPasswordFreeLoginUserWithOptions(request, runtime);
   }
 
@@ -9037,53 +720,69 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckUuidValidResponse
    */
-  async checkUuidValidWithOptions(request: CheckUuidValidRequest, runtime: $Util.RuntimeOptions): Promise<CheckUuidValidResponse> {
-    Util.validateModel(request);
+  async checkUuidValidWithOptions(request: $_model.CheckUuidValidRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckUuidValidResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.bluetooth)) {
+    if (!$dara.isNull(request.bluetooth)) {
       body["Bluetooth"] = request.bluetooth;
     }
 
-    if (!Util.isUnset(request.buildId)) {
+    if (!$dara.isNull(request.buildId)) {
       body["BuildId"] = request.buildId;
     }
 
-    if (!Util.isUnset(request.chipId)) {
+    if (!$dara.isNull(request.chipId)) {
       body["ChipId"] = request.chipId;
     }
 
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.customId)) {
+    if (!$dara.isNull(request.clientVersion)) {
+      body["ClientVersion"] = request.clientVersion;
+    }
+
+    if (!$dara.isNull(request.customId)) {
       body["CustomId"] = request.customId;
     }
 
-    if (!Util.isUnset(request.etherMac)) {
+    if (!$dara.isNull(request.etherMac)) {
       body["EtherMac"] = request.etherMac;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.loginRegionId)) {
+      body["LoginRegionId"] = request.loginRegionId;
+    }
+
+    if (!$dara.isNull(request.loginToken)) {
+      body["LoginToken"] = request.loginToken;
+    }
+
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    if (!Util.isUnset(request.wlan)) {
+    if (!$dara.isNull(request.wlan)) {
       body["Wlan"] = request.wlan;
     }
 
-    if (!Util.isUnset(request.wosAppVersion)) {
+    if (!$dara.isNull(request.wosAppVersion)) {
       body["WosAppVersion"] = request.wosAppVersion;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckUuidValid",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9094,7 +793,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckUuidValidResponse>(await this.callApi(params, req, runtime), new CheckUuidValidResponse({}));
+    return $dara.cast<$_model.CheckUuidValidResponse>(await this.callApi(params, req, runtime), new $_model.CheckUuidValidResponse({}));
   }
 
   /**
@@ -9103,8 +802,8 @@ export default class Client extends OpenApi {
    * @param request - CheckUuidValidRequest
    * @returns CheckUuidValidResponse
    */
-  async checkUuidValid(request: CheckUuidValidRequest): Promise<CheckUuidValidResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async checkUuidValid(request: $_model.CheckUuidValidRequest): Promise<$_model.CheckUuidValidResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkUuidValidWithOptions(request, runtime);
   }
 
@@ -9115,69 +814,73 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAppOtaTaskResponse
    */
-  async createAppOtaTaskWithOptions(request: CreateAppOtaTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppOtaTaskResponse> {
-    Util.validateModel(request);
+  async createAppOtaTaskWithOptions(request: $_model.CreateAppOtaTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppOtaTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appVersionUid)) {
+    if (!$dara.isNull(request.appVersionUid)) {
       query["AppVersionUid"] = request.appVersionUid;
     }
 
-    if (!Util.isUnset(request.channel)) {
+    if (!$dara.isNull(request.channel)) {
       query["Channel"] = request.channel;
     }
 
-    if (!Util.isUnset(request.clientIdList)) {
+    if (!$dara.isNull(request.clientIdList)) {
       query["ClientIdList"] = request.clientIdList;
     }
 
-    if (!Util.isUnset(request.clientType)) {
+    if (!$dara.isNull(request.clientType)) {
       query["ClientType"] = request.clientType;
     }
 
-    if (!Util.isUnset(request.creator)) {
+    if (!$dara.isNull(request.creator)) {
       query["Creator"] = request.creator;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.forceUpgrade)) {
+    if (!$dara.isNull(request.forceUpgrade)) {
       query["ForceUpgrade"] = request.forceUpgrade;
     }
 
-    if (!Util.isUnset(request.label)) {
+    if (!$dara.isNull(request.label)) {
       query["Label"] = request.label;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.project)) {
+    if (!$dara.isNull(request.project)) {
       query["Project"] = request.project;
     }
 
-    if (!Util.isUnset(request.regions)) {
+    if (!$dara.isNull(request.regions)) {
       query["Regions"] = request.regions;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.taskType)) {
+    if (!$dara.isNull(request.taskType)) {
       query["TaskType"] = request.taskType;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       query["TenantId"] = request.tenantId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.tenantIdList)) {
+      query["TenantIdList"] = request.tenantIdList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAppOtaTask",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9188,7 +891,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAppOtaTaskResponse>(await this.callApi(params, req, runtime), new CreateAppOtaTaskResponse({}));
+    return $dara.cast<$_model.CreateAppOtaTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateAppOtaTaskResponse({}));
   }
 
   /**
@@ -9197,8 +900,8 @@ export default class Client extends OpenApi {
    * @param request - CreateAppOtaTaskRequest
    * @returns CreateAppOtaTaskResponse
    */
-  async createAppOtaTask(request: CreateAppOtaTaskRequest): Promise<CreateAppOtaTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createAppOtaTask(request: $_model.CreateAppOtaTaskRequest): Promise<$_model.CreateAppOtaTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAppOtaTaskWithOptions(request, runtime);
   }
 
@@ -9209,89 +912,93 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAppOtaVersionResponse
    */
-  async createAppOtaVersionWithOptions(request: CreateAppOtaVersionRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppOtaVersionResponse> {
-    Util.validateModel(request);
+  async createAppOtaVersionWithOptions(request: $_model.CreateAppOtaVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppOtaVersionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appVersion)) {
+    if (!$dara.isNull(request.appVersion)) {
       query["AppVersion"] = request.appVersion;
     }
 
-    if (!Util.isUnset(request.arch)) {
+    if (!$dara.isNull(request.arch)) {
       query["Arch"] = request.arch;
     }
 
-    if (!Util.isUnset(request.channel)) {
+    if (!$dara.isNull(request.channel)) {
       query["Channel"] = request.channel;
     }
 
-    if (!Util.isUnset(request.clientType)) {
+    if (!$dara.isNull(request.clientType)) {
       query["ClientType"] = request.clientType;
     }
 
-    if (!Util.isUnset(request.creator)) {
+    if (!$dara.isNull(request.creator)) {
       query["Creator"] = request.creator;
     }
 
-    if (!Util.isUnset(request.downloadUrl)) {
+    if (!$dara.isNull(request.downloadUrl)) {
       query["DownloadUrl"] = request.downloadUrl;
     }
 
-    if (!Util.isUnset(request.md5)) {
+    if (!$dara.isNull(request.md5)) {
       query["Md5"] = request.md5;
     }
 
-    if (!Util.isUnset(request.os)) {
+    if (!$dara.isNull(request.os)) {
       query["Os"] = request.os;
     }
 
-    if (!Util.isUnset(request.osType)) {
+    if (!$dara.isNull(request.osType)) {
       query["OsType"] = request.osType;
     }
 
-    if (!Util.isUnset(request.otaType)) {
+    if (!$dara.isNull(request.otaType)) {
       query["OtaType"] = request.otaType;
     }
 
-    if (!Util.isUnset(request.project)) {
+    if (!$dara.isNull(request.project)) {
       query["Project"] = request.project;
     }
 
-    if (!Util.isUnset(request.releaseNote)) {
+    if (!$dara.isNull(request.relationVersionUids)) {
+      query["RelationVersionUids"] = request.relationVersionUids;
+    }
+
+    if (!$dara.isNull(request.releaseNote)) {
       query["ReleaseNote"] = request.releaseNote;
     }
 
-    if (!Util.isUnset(request.releaseNoteEn)) {
+    if (!$dara.isNull(request.releaseNoteEn)) {
       query["ReleaseNoteEn"] = request.releaseNoteEn;
     }
 
-    if (!Util.isUnset(request.releaseNoteJp)) {
+    if (!$dara.isNull(request.releaseNoteJp)) {
       query["ReleaseNoteJp"] = request.releaseNoteJp;
     }
 
-    if (!Util.isUnset(request.size)) {
+    if (!$dara.isNull(request.size)) {
       query["Size"] = request.size;
     }
 
-    if (!Util.isUnset(request.snapshotId)) {
+    if (!$dara.isNull(request.snapshotId)) {
       query["SnapshotId"] = request.snapshotId;
     }
 
-    if (!Util.isUnset(request.snapshotRegionId)) {
+    if (!$dara.isNull(request.snapshotRegionId)) {
       query["SnapshotRegionId"] = request.snapshotRegionId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.versionType)) {
+    if (!$dara.isNull(request.versionType)) {
       query["VersionType"] = request.versionType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAppOtaVersion",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9302,7 +1009,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAppOtaVersionResponse>(await this.callApi(params, req, runtime), new CreateAppOtaVersionResponse({}));
+    return $dara.cast<$_model.CreateAppOtaVersionResponse>(await this.callApi(params, req, runtime), new $_model.CreateAppOtaVersionResponse({}));
   }
 
   /**
@@ -9311,8 +1018,8 @@ export default class Client extends OpenApi {
    * @param request - CreateAppOtaVersionRequest
    * @returns CreateAppOtaVersionResponse
    */
-  async createAppOtaVersion(request: CreateAppOtaVersionRequest): Promise<CreateAppOtaVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createAppOtaVersion(request: $_model.CreateAppOtaVersionRequest): Promise<$_model.CreateAppOtaVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAppOtaVersionWithOptions(request, runtime);
   }
 
@@ -9323,17 +1030,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAppOtaVersionsResponse
    */
-  async deleteAppOtaVersionsWithOptions(request: DeleteAppOtaVersionsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppOtaVersionsResponse> {
-    Util.validateModel(request);
+  async deleteAppOtaVersionsWithOptions(request: $_model.DeleteAppOtaVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAppOtaVersionsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.versionUidList)) {
+    if (!$dara.isNull(request.versionUidList)) {
       query["VersionUidList"] = request.versionUidList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAppOtaVersions",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9344,7 +1051,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAppOtaVersionsResponse>(await this.callApi(params, req, runtime), new DeleteAppOtaVersionsResponse({}));
+    return $dara.cast<$_model.DeleteAppOtaVersionsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAppOtaVersionsResponse({}));
   }
 
   /**
@@ -9353,8 +1060,8 @@ export default class Client extends OpenApi {
    * @param request - DeleteAppOtaVersionsRequest
    * @returns DeleteAppOtaVersionsResponse
    */
-  async deleteAppOtaVersions(request: DeleteAppOtaVersionsRequest): Promise<DeleteAppOtaVersionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteAppOtaVersions(request: $_model.DeleteAppOtaVersionsRequest): Promise<$_model.DeleteAppOtaVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppOtaVersionsWithOptions(request, runtime);
   }
 
@@ -9365,27 +1072,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDevicesResponse
    */
-  async deleteDevicesWithOptions(request: DeleteDevicesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDevicesResponse> {
-    Util.validateModel(request);
+  async deleteDevicesWithOptions(request: $_model.DeleteDevicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDevicesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.uuids)) {
+    if (!$dara.isNull(request.uuids)) {
       query["Uuids"] = request.uuids;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.force)) {
+    if (!$dara.isNull(request.force)) {
       body["Force"] = request.force;
     }
 
-    if (!Util.isUnset(request.serialNos)) {
+    if (!$dara.isNull(request.serialNos)) {
       body["SerialNos"] = request.serialNos;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDevices",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9396,7 +1103,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDevicesResponse>(await this.callApi(params, req, runtime), new DeleteDevicesResponse({}));
+    return $dara.cast<$_model.DeleteDevicesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDevicesResponse({}));
   }
 
   /**
@@ -9405,8 +1112,8 @@ export default class Client extends OpenApi {
    * @param request - DeleteDevicesRequest
    * @returns DeleteDevicesResponse
    */
-  async deleteDevices(request: DeleteDevicesRequest): Promise<DeleteDevicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteDevices(request: $_model.DeleteDevicesRequest): Promise<$_model.DeleteDevicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDevicesWithOptions(request, runtime);
   }
 
@@ -9417,25 +1124,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteLabelResponse
    */
-  async deleteLabelWithOptions(request: DeleteLabelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLabelResponse> {
-    Util.validateModel(request);
+  async deleteLabelWithOptions(request: $_model.DeleteLabelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLabelResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.force)) {
+    if (!$dara.isNull(request.force)) {
       body["Force"] = request.force;
     }
 
-    if (!Util.isUnset(request.labelContent)) {
+    if (!$dara.isNull(request.labelContent)) {
       body["LabelContent"] = request.labelContent;
     }
 
-    if (!Util.isUnset(request.labelId)) {
+    if (!$dara.isNull(request.labelId)) {
       body["LabelId"] = request.labelId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteLabel",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9446,7 +1153,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteLabelResponse>(await this.callApi(params, req, runtime), new DeleteLabelResponse({}));
+    return $dara.cast<$_model.DeleteLabelResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLabelResponse({}));
   }
 
   /**
@@ -9455,8 +1162,8 @@ export default class Client extends OpenApi {
    * @param request - DeleteLabelRequest
    * @returns DeleteLabelResponse
    */
-  async deleteLabel(request: DeleteLabelRequest): Promise<DeleteLabelResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteLabel(request: $_model.DeleteLabelRequest): Promise<$_model.DeleteLabelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteLabelWithOptions(request, runtime);
   }
 
@@ -9467,41 +1174,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAppOtaVersionResponse
    */
-  async describeAppOtaVersionWithOptions(request: DescribeAppOtaVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppOtaVersionResponse> {
-    Util.validateModel(request);
+  async describeAppOtaVersionWithOptions(request: $_model.DescribeAppOtaVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAppOtaVersionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appVersion)) {
+    if (!$dara.isNull(request.appVersion)) {
       query["AppVersion"] = request.appVersion;
     }
 
-    if (!Util.isUnset(request.channel)) {
+    if (!$dara.isNull(request.channel)) {
       query["Channel"] = request.channel;
     }
 
-    if (!Util.isUnset(request.clientType)) {
+    if (!$dara.isNull(request.clientType)) {
       query["ClientType"] = request.clientType;
     }
 
-    if (!Util.isUnset(request.creator)) {
+    if (!$dara.isNull(request.creator)) {
       query["Creator"] = request.creator;
     }
 
-    if (!Util.isUnset(request.project)) {
+    if (!$dara.isNull(request.nullChannel)) {
+      query["NullChannel"] = request.nullChannel;
+    }
+
+    if (!$dara.isNull(request.otaType)) {
+      query["OtaType"] = request.otaType;
+    }
+
+    if (!$dara.isNull(request.project)) {
       query["Project"] = request.project;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.versionUid)) {
+    if (!$dara.isNull(request.versionUid)) {
       query["VersionUid"] = request.versionUid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeAppOtaVersion",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9512,7 +1227,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeAppOtaVersionResponse>(await this.callApi(params, req, runtime), new DescribeAppOtaVersionResponse({}));
+    return $dara.cast<$_model.DescribeAppOtaVersionResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAppOtaVersionResponse({}));
   }
 
   /**
@@ -9521,8 +1236,8 @@ export default class Client extends OpenApi {
    * @param request - DescribeAppOtaVersionRequest
    * @returns DescribeAppOtaVersionResponse
    */
-  async describeAppOtaVersion(request: DescribeAppOtaVersionRequest): Promise<DescribeAppOtaVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeAppOtaVersion(request: $_model.DescribeAppOtaVersionRequest): Promise<$_model.DescribeAppOtaVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAppOtaVersionWithOptions(request, runtime);
   }
 
@@ -9533,37 +1248,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDeviceSeatsResponse
    */
-  async describeDeviceSeatsWithOptions(request: DescribeDeviceSeatsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeviceSeatsResponse> {
-    Util.validateModel(request);
+  async describeDeviceSeatsWithOptions(request: $_model.DescribeDeviceSeatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDeviceSeatsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    if (!Util.isUnset(request.serialNoList)) {
+    if (!$dara.isNull(request.serialNoList)) {
       body["SerialNoList"] = request.serialNoList;
     }
 
-    if (!Util.isUnset(request.siteId)) {
+    if (!$dara.isNull(request.siteId)) {
       body["SiteId"] = request.siteId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDeviceSeats",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9574,7 +1289,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDeviceSeatsResponse>(await this.callApi(params, req, runtime), new DescribeDeviceSeatsResponse({}));
+    return $dara.cast<$_model.DescribeDeviceSeatsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDeviceSeatsResponse({}));
   }
 
   /**
@@ -9583,8 +1298,8 @@ export default class Client extends OpenApi {
    * @param request - DescribeDeviceSeatsRequest
    * @returns DescribeDeviceSeatsResponse
    */
-  async describeDeviceSeats(request: DescribeDeviceSeatsRequest): Promise<DescribeDeviceSeatsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeDeviceSeats(request: $_model.DescribeDeviceSeatsRequest): Promise<$_model.DescribeDeviceSeatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDeviceSeatsWithOptions(request, runtime);
   }
 
@@ -9595,29 +1310,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDeviceVersionDetailResponse
    */
-  async describeDeviceVersionDetailWithOptions(request: DescribeDeviceVersionDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeviceVersionDetailResponse> {
-    Util.validateModel(request);
+  async describeDeviceVersionDetailWithOptions(request: $_model.DescribeDeviceVersionDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDeviceVersionDetailResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.model)) {
+    if (!$dara.isNull(request.model)) {
       body["Model"] = request.model;
     }
 
-    if (!Util.isUnset(request.networkType)) {
+    if (!$dara.isNull(request.networkType)) {
       body["NetworkType"] = request.networkType;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.versionName)) {
+    if (!$dara.isNull(request.versionName)) {
       body["VersionName"] = request.versionName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDeviceVersionDetail",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9628,7 +1343,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDeviceVersionDetailResponse>(await this.callApi(params, req, runtime), new DescribeDeviceVersionDetailResponse({}));
+    return $dara.cast<$_model.DescribeDeviceVersionDetailResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDeviceVersionDetailResponse({}));
   }
 
   /**
@@ -9637,8 +1352,8 @@ export default class Client extends OpenApi {
    * @param request - DescribeDeviceVersionDetailRequest
    * @returns DescribeDeviceVersionDetailResponse
    */
-  async describeDeviceVersionDetail(request: DescribeDeviceVersionDetailRequest): Promise<DescribeDeviceVersionDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeDeviceVersionDetail(request: $_model.DescribeDeviceVersionDetailRequest): Promise<$_model.DescribeDeviceVersionDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDeviceVersionDetailWithOptions(request, runtime);
   }
 
@@ -9649,29 +1364,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSnLabelCountsResponse
    */
-  async describeSnLabelCountsWithOptions(request: DescribeSnLabelCountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnLabelCountsResponse> {
-    Util.validateModel(request);
+  async describeSnLabelCountsWithOptions(request: $_model.DescribeSnLabelCountsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSnLabelCountsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labelList)) {
+    if (!$dara.isNull(request.labelList)) {
       body["LabelList"] = request.labelList;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       body["ZoneId"] = request.zoneId;
     }
 
-    if (!Util.isUnset(request.zoneName)) {
+    if (!$dara.isNull(request.zoneName)) {
       body["ZoneName"] = request.zoneName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeSnLabelCounts",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9682,7 +1397,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSnLabelCountsResponse>(await this.callApi(params, req, runtime), new DescribeSnLabelCountsResponse({}));
+    return $dara.cast<$_model.DescribeSnLabelCountsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSnLabelCountsResponse({}));
   }
 
   /**
@@ -9691,8 +1406,8 @@ export default class Client extends OpenApi {
    * @param request - DescribeSnLabelCountsRequest
    * @returns DescribeSnLabelCountsResponse
    */
-  async describeSnLabelCounts(request: DescribeSnLabelCountsRequest): Promise<DescribeSnLabelCountsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeSnLabelCounts(request: $_model.DescribeSnLabelCountsRequest): Promise<$_model.DescribeSnLabelCountsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSnLabelCountsWithOptions(request, runtime);
   }
 
@@ -9703,33 +1418,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeWorkZonesResponse
    */
-  async describeWorkZonesWithOptions(request: DescribeWorkZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWorkZonesResponse> {
-    Util.validateModel(request);
+  async describeWorkZonesWithOptions(request: $_model.DescribeWorkZonesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeWorkZonesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.zoneIdList)) {
+    if (!$dara.isNull(request.zoneIdList)) {
       body["ZoneIdList"] = request.zoneIdList;
     }
 
-    if (!Util.isUnset(request.zoneNameList)) {
+    if (!$dara.isNull(request.zoneNameList)) {
       body["ZoneNameList"] = request.zoneNameList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeWorkZones",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9740,7 +1455,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeWorkZonesResponse>(await this.callApi(params, req, runtime), new DescribeWorkZonesResponse({}));
+    return $dara.cast<$_model.DescribeWorkZonesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeWorkZonesResponse({}));
   }
 
   /**
@@ -9749,8 +1464,8 @@ export default class Client extends OpenApi {
    * @param request - DescribeWorkZonesRequest
    * @returns DescribeWorkZonesResponse
    */
-  async describeWorkZones(request: DescribeWorkZonesRequest): Promise<DescribeWorkZonesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeWorkZones(request: $_model.DescribeWorkZonesRequest): Promise<$_model.DescribeWorkZonesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeWorkZonesWithOptions(request, runtime);
   }
 
@@ -9761,21 +1476,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachEndUsersResponse
    */
-  async detachEndUsersWithOptions(request: DetachEndUsersRequest, runtime: $Util.RuntimeOptions): Promise<DetachEndUsersResponse> {
-    Util.validateModel(request);
+  async detachEndUsersWithOptions(request: $_model.DetachEndUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachEndUsersResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endUserIds)) {
+    if (!$dara.isNull(request.endUserIds)) {
       body["EndUserIds"] = request.endUserIds;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetachEndUsers",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9786,7 +1501,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachEndUsersResponse>(await this.callApi(params, req, runtime), new DetachEndUsersResponse({}));
+    return $dara.cast<$_model.DetachEndUsersResponse>(await this.callApi(params, req, runtime), new $_model.DetachEndUsersResponse({}));
   }
 
   /**
@@ -9795,8 +1510,8 @@ export default class Client extends OpenApi {
    * @param request - DetachEndUsersRequest
    * @returns DetachEndUsersResponse
    */
-  async detachEndUsers(request: DetachEndUsersRequest): Promise<DetachEndUsersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async detachEndUsers(request: $_model.DetachEndUsersRequest): Promise<$_model.DetachEndUsersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detachEndUsersWithOptions(request, runtime);
   }
 
@@ -9807,25 +1522,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachLabelResponse
    */
-  async detachLabelWithOptions(request: DetachLabelRequest, runtime: $Util.RuntimeOptions): Promise<DetachLabelResponse> {
-    Util.validateModel(request);
+  async detachLabelWithOptions(request: $_model.DetachLabelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachLabelResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labelContent)) {
+    if (!$dara.isNull(request.labelContent)) {
       body["LabelContent"] = request.labelContent;
     }
 
-    if (!Util.isUnset(request.labelId)) {
+    if (!$dara.isNull(request.labelId)) {
       body["LabelId"] = request.labelId;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetachLabel",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9836,7 +1551,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachLabelResponse>(await this.callApi(params, req, runtime), new DetachLabelResponse({}));
+    return $dara.cast<$_model.DetachLabelResponse>(await this.callApi(params, req, runtime), new $_model.DetachLabelResponse({}));
   }
 
   /**
@@ -9845,8 +1560,8 @@ export default class Client extends OpenApi {
    * @param request - DetachLabelRequest
    * @returns DetachLabelResponse
    */
-  async detachLabel(request: DetachLabelRequest): Promise<DetachLabelResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async detachLabel(request: $_model.DetachLabelRequest): Promise<$_model.DetachLabelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detachLabelWithOptions(request, runtime);
   }
 
@@ -9857,25 +1572,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachLabelsResponse
    */
-  async detachLabelsWithOptions(request: DetachLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DetachLabelsResponse> {
-    Util.validateModel(request);
+  async detachLabelsWithOptions(request: $_model.DetachLabelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachLabelsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labelIds)) {
+    if (!$dara.isNull(request.labelIds)) {
       body["LabelIds"] = request.labelIds;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    if (!Util.isUnset(request.serialNoList)) {
+    if (!$dara.isNull(request.serialNoList)) {
       body["SerialNoList"] = request.serialNoList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetachLabels",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9886,7 +1601,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachLabelsResponse>(await this.callApi(params, req, runtime), new DetachLabelsResponse({}));
+    return $dara.cast<$_model.DetachLabelsResponse>(await this.callApi(params, req, runtime), new $_model.DetachLabelsResponse({}));
   }
 
   /**
@@ -9895,8 +1610,8 @@ export default class Client extends OpenApi {
    * @param request - DetachLabelsRequest
    * @returns DetachLabelsResponse
    */
-  async detachLabels(request: DetachLabelsRequest): Promise<DetachLabelsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async detachLabels(request: $_model.DetachLabelsRequest): Promise<$_model.DetachLabelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detachLabelsWithOptions(request, runtime);
   }
 
@@ -9907,21 +1622,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateOssUrlResponse
    */
-  async generateOssUrlWithOptions(request: GenerateOssUrlRequest, runtime: $Util.RuntimeOptions): Promise<GenerateOssUrlResponse> {
-    Util.validateModel(request);
+  async generateOssUrlWithOptions(request: $_model.GenerateOssUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateOssUrlResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.objectNameList)) {
+    if (!$dara.isNull(request.objectNameList)) {
       body["ObjectNameList"] = request.objectNameList;
     }
 
-    if (!Util.isUnset(request.sessionId)) {
+    if (!$dara.isNull(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GenerateOssUrl",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9932,7 +1647,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateOssUrlResponse>(await this.callApi(params, req, runtime), new GenerateOssUrlResponse({}));
+    return $dara.cast<$_model.GenerateOssUrlResponse>(await this.callApi(params, req, runtime), new $_model.GenerateOssUrlResponse({}));
   }
 
   /**
@@ -9941,8 +1656,8 @@ export default class Client extends OpenApi {
    * @param request - GenerateOssUrlRequest
    * @returns GenerateOssUrlResponse
    */
-  async generateOssUrl(request: GenerateOssUrlRequest): Promise<GenerateOssUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async generateOssUrl(request: $_model.GenerateOssUrlRequest): Promise<$_model.GenerateOssUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.generateOssUrlWithOptions(request, runtime);
   }
 
@@ -9953,33 +1668,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAppOtaLatestVersionResponse
    */
-  async getAppOtaLatestVersionWithOptions(request: GetAppOtaLatestVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetAppOtaLatestVersionResponse> {
-    Util.validateModel(request);
+  async getAppOtaLatestVersionWithOptions(request: $_model.GetAppOtaLatestVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAppOtaLatestVersionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.baseVersion)) {
+    if (!$dara.isNull(request.baseVersion)) {
       query["BaseVersion"] = request.baseVersion;
     }
 
-    if (!Util.isUnset(request.clientType)) {
+    if (!$dara.isNull(request.clientType)) {
       query["ClientType"] = request.clientType;
     }
 
-    if (!Util.isUnset(request.clientUid)) {
+    if (!$dara.isNull(request.clientUid)) {
       query["ClientUid"] = request.clientUid;
     }
 
-    if (!Util.isUnset(request.osType)) {
+    if (!$dara.isNull(request.osType)) {
       query["OsType"] = request.osType;
     }
 
-    if (!Util.isUnset(request.project)) {
+    if (!$dara.isNull(request.project)) {
       query["Project"] = request.project;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAppOtaLatestVersion",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -9990,7 +1705,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAppOtaLatestVersionResponse>(await this.callApi(params, req, runtime), new GetAppOtaLatestVersionResponse({}));
+    return $dara.cast<$_model.GetAppOtaLatestVersionResponse>(await this.callApi(params, req, runtime), new $_model.GetAppOtaLatestVersionResponse({}));
   }
 
   /**
@@ -9999,8 +1714,8 @@ export default class Client extends OpenApi {
    * @param request - GetAppOtaLatestVersionRequest
    * @returns GetAppOtaLatestVersionResponse
    */
-  async getAppOtaLatestVersion(request: GetAppOtaLatestVersionRequest): Promise<GetAppOtaLatestVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getAppOtaLatestVersion(request: $_model.GetAppOtaLatestVersionRequest): Promise<$_model.GetAppOtaLatestVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAppOtaLatestVersionWithOptions(request, runtime);
   }
 
@@ -10011,37 +1726,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeviceConfigsResponse
    */
-  async getDeviceConfigsWithOptions(request: GetDeviceConfigsRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceConfigsResponse> {
-    Util.validateModel(request);
+  async getDeviceConfigsWithOptions(request: $_model.GetDeviceConfigsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeviceConfigsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceId)) {
+    if (!$dara.isNull(request.deviceId)) {
       body["DeviceId"] = request.deviceId;
     }
 
-    if (!Util.isUnset(request.networkType)) {
+    if (!$dara.isNull(request.networkType)) {
       body["NetworkType"] = request.networkType;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    if (!Util.isUnset(request.urclVersion)) {
+    if (!$dara.isNull(request.urclVersion)) {
       body["UrclVersion"] = request.urclVersion;
     }
 
-    if (!Util.isUnset(request.userCustomId)) {
+    if (!$dara.isNull(request.userCustomId)) {
       body["UserCustomId"] = request.userCustomId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDeviceConfigs",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10052,7 +1767,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDeviceConfigsResponse>(await this.callApi(params, req, runtime), new GetDeviceConfigsResponse({}));
+    return $dara.cast<$_model.GetDeviceConfigsResponse>(await this.callApi(params, req, runtime), new $_model.GetDeviceConfigsResponse({}));
   }
 
   /**
@@ -10061,8 +1776,8 @@ export default class Client extends OpenApi {
    * @param request - GetDeviceConfigsRequest
    * @returns GetDeviceConfigsResponse
    */
-  async getDeviceConfigs(request: GetDeviceConfigsRequest): Promise<GetDeviceConfigsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getDeviceConfigs(request: $_model.GetDeviceConfigsRequest): Promise<$_model.GetDeviceConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDeviceConfigsWithOptions(request, runtime);
   }
 
@@ -10073,17 +1788,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeviceOtaAutoStatusResponse
    */
-  async getDeviceOtaAutoStatusWithOptions(request: GetDeviceOtaAutoStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceOtaAutoStatusResponse> {
-    Util.validateModel(request);
+  async getDeviceOtaAutoStatusWithOptions(request: $_model.GetDeviceOtaAutoStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeviceOtaAutoStatusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientType)) {
+    if (!$dara.isNull(request.clientType)) {
       body["ClientType"] = request.clientType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDeviceOtaAutoStatus",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10094,7 +1809,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDeviceOtaAutoStatusResponse>(await this.callApi(params, req, runtime), new GetDeviceOtaAutoStatusResponse({}));
+    return $dara.cast<$_model.GetDeviceOtaAutoStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetDeviceOtaAutoStatusResponse({}));
   }
 
   /**
@@ -10103,8 +1818,8 @@ export default class Client extends OpenApi {
    * @param request - GetDeviceOtaAutoStatusRequest
    * @returns GetDeviceOtaAutoStatusResponse
    */
-  async getDeviceOtaAutoStatus(request: GetDeviceOtaAutoStatusRequest): Promise<GetDeviceOtaAutoStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getDeviceOtaAutoStatus(request: $_model.GetDeviceOtaAutoStatusRequest): Promise<$_model.GetDeviceOtaAutoStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDeviceOtaAutoStatusWithOptions(request, runtime);
   }
 
@@ -10115,53 +1830,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeviceOtaInfoResponse
    */
-  async getDeviceOtaInfoWithOptions(request: GetDeviceOtaInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceOtaInfoResponse> {
-    Util.validateModel(request);
+  async getDeviceOtaInfoWithOptions(request: $_model.GetDeviceOtaInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeviceOtaInfoResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.baseVersion)) {
+    if (!$dara.isNull(request.baseVersion)) {
       body["BaseVersion"] = request.baseVersion;
     }
 
-    if (!Util.isUnset(request.channel)) {
+    if (!$dara.isNull(request.channel)) {
       body["Channel"] = request.channel;
     }
 
-    if (!Util.isUnset(request.deviceId)) {
+    if (!$dara.isNull(request.deviceId)) {
       body["DeviceId"] = request.deviceId;
     }
 
-    if (!Util.isUnset(request.model)) {
+    if (!$dara.isNull(request.model)) {
       body["Model"] = request.model;
     }
 
-    if (!Util.isUnset(request.networkType)) {
+    if (!$dara.isNull(request.networkType)) {
       body["NetworkType"] = request.networkType;
     }
 
-    if (!Util.isUnset(request.osVersion)) {
+    if (!$dara.isNull(request.osVersion)) {
       body["OsVersion"] = request.osVersion;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.targetVersionType)) {
+    if (!$dara.isNull(request.targetVersionType)) {
       body["TargetVersionType"] = request.targetVersionType;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDeviceOtaInfo",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10172,7 +1887,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDeviceOtaInfoResponse>(await this.callApi(params, req, runtime), new GetDeviceOtaInfoResponse({}));
+    return $dara.cast<$_model.GetDeviceOtaInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetDeviceOtaInfoResponse({}));
   }
 
   /**
@@ -10181,8 +1896,8 @@ export default class Client extends OpenApi {
    * @param request - GetDeviceOtaInfoRequest
    * @returns GetDeviceOtaInfoResponse
    */
-  async getDeviceOtaInfo(request: GetDeviceOtaInfoRequest): Promise<GetDeviceOtaInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getDeviceOtaInfo(request: $_model.GetDeviceOtaInfoRequest): Promise<$_model.GetDeviceOtaInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDeviceOtaInfoWithOptions(request, runtime);
   }
 
@@ -10193,29 +1908,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeviceOtaInfoTestResponse
    */
-  async getDeviceOtaInfoTestWithOptions(request: GetDeviceOtaInfoTestRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceOtaInfoTestResponse> {
-    Util.validateModel(request);
+  async getDeviceOtaInfoTestWithOptions(request: $_model.GetDeviceOtaInfoTestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeviceOtaInfoTestResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.baseVersion)) {
+    if (!$dara.isNull(request.baseVersion)) {
       body["BaseVersion"] = request.baseVersion;
     }
 
-    if (!Util.isUnset(request.deviceId)) {
+    if (!$dara.isNull(request.deviceId)) {
       body["DeviceId"] = request.deviceId;
     }
 
-    if (!Util.isUnset(request.model)) {
+    if (!$dara.isNull(request.model)) {
       body["Model"] = request.model;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDeviceOtaInfoTest",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10226,7 +1941,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDeviceOtaInfoTestResponse>(await this.callApi(params, req, runtime), new GetDeviceOtaInfoTestResponse({}));
+    return $dara.cast<$_model.GetDeviceOtaInfoTestResponse>(await this.callApi(params, req, runtime), new $_model.GetDeviceOtaInfoTestResponse({}));
   }
 
   /**
@@ -10235,8 +1950,8 @@ export default class Client extends OpenApi {
    * @param request - GetDeviceOtaInfoTestRequest
    * @returns GetDeviceOtaInfoTestResponse
    */
-  async getDeviceOtaInfoTest(request: GetDeviceOtaInfoTestRequest): Promise<GetDeviceOtaInfoTestResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getDeviceOtaInfoTest(request: $_model.GetDeviceOtaInfoTestRequest): Promise<$_model.GetDeviceOtaInfoTestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDeviceOtaInfoTestWithOptions(request, runtime);
   }
 
@@ -10247,17 +1962,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeviceOtaTaskVersionInfoResponse
    */
-  async getDeviceOtaTaskVersionInfoWithOptions(request: GetDeviceOtaTaskVersionInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceOtaTaskVersionInfoResponse> {
-    Util.validateModel(request);
+  async getDeviceOtaTaskVersionInfoWithOptions(request: $_model.GetDeviceOtaTaskVersionInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeviceOtaTaskVersionInfoResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDeviceOtaTaskVersionInfo",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10268,7 +1983,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDeviceOtaTaskVersionInfoResponse>(await this.callApi(params, req, runtime), new GetDeviceOtaTaskVersionInfoResponse({}));
+    return $dara.cast<$_model.GetDeviceOtaTaskVersionInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetDeviceOtaTaskVersionInfoResponse({}));
   }
 
   /**
@@ -10277,8 +1992,8 @@ export default class Client extends OpenApi {
    * @param request - GetDeviceOtaTaskVersionInfoRequest
    * @returns GetDeviceOtaTaskVersionInfoResponse
    */
-  async getDeviceOtaTaskVersionInfo(request: GetDeviceOtaTaskVersionInfoRequest): Promise<GetDeviceOtaTaskVersionInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getDeviceOtaTaskVersionInfo(request: $_model.GetDeviceOtaTaskVersionInfoRequest): Promise<$_model.GetDeviceOtaTaskVersionInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDeviceOtaTaskVersionInfoWithOptions(request, runtime);
   }
 
@@ -10289,29 +2004,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeviceUpgradeStatusResponse
    */
-  async getDeviceUpgradeStatusWithOptions(request: GetDeviceUpgradeStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceUpgradeStatusResponse> {
-    Util.validateModel(request);
+  async getDeviceUpgradeStatusWithOptions(request: $_model.GetDeviceUpgradeStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeviceUpgradeStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appVersion)) {
+    if (!$dara.isNull(request.appVersion)) {
       query["AppVersion"] = request.appVersion;
     }
 
-    if (!Util.isUnset(request.clientUid)) {
+    if (!$dara.isNull(request.clientUid)) {
       query["ClientUid"] = request.clientUid;
     }
 
-    if (!Util.isUnset(request.project)) {
+    if (!$dara.isNull(request.project)) {
       query["Project"] = request.project;
     }
 
-    if (!Util.isUnset(request.taskUid)) {
+    if (!$dara.isNull(request.taskUid)) {
       query["TaskUid"] = request.taskUid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDeviceUpgradeStatus",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10322,7 +2037,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDeviceUpgradeStatusResponse>(await this.callApi(params, req, runtime), new GetDeviceUpgradeStatusResponse({}));
+    return $dara.cast<$_model.GetDeviceUpgradeStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetDeviceUpgradeStatusResponse({}));
   }
 
   /**
@@ -10331,8 +2046,8 @@ export default class Client extends OpenApi {
    * @param request - GetDeviceUpgradeStatusRequest
    * @returns GetDeviceUpgradeStatusResponse
    */
-  async getDeviceUpgradeStatus(request: GetDeviceUpgradeStatusRequest): Promise<GetDeviceUpgradeStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getDeviceUpgradeStatus(request: $_model.GetDeviceUpgradeStatusRequest): Promise<$_model.GetDeviceUpgradeStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDeviceUpgradeStatusWithOptions(request, runtime);
   }
 
@@ -10343,25 +2058,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetExportDeviceInfoOssUrlResponse
    */
-  async getExportDeviceInfoOssUrlWithOptions(request: GetExportDeviceInfoOssUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetExportDeviceInfoOssUrlResponse> {
-    Util.validateModel(request);
+  async getExportDeviceInfoOssUrlWithOptions(request: $_model.GetExportDeviceInfoOssUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetExportDeviceInfoOssUrlResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       body["ZoneId"] = request.zoneId;
     }
 
-    if (!Util.isUnset(request.zoneName)) {
+    if (!$dara.isNull(request.zoneName)) {
       body["ZoneName"] = request.zoneName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetExportDeviceInfoOssUrl",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10372,7 +2087,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetExportDeviceInfoOssUrlResponse>(await this.callApi(params, req, runtime), new GetExportDeviceInfoOssUrlResponse({}));
+    return $dara.cast<$_model.GetExportDeviceInfoOssUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetExportDeviceInfoOssUrlResponse({}));
   }
 
   /**
@@ -10381,8 +2096,8 @@ export default class Client extends OpenApi {
    * @param request - GetExportDeviceInfoOssUrlRequest
    * @returns GetExportDeviceInfoOssUrlResponse
    */
-  async getExportDeviceInfoOssUrl(request: GetExportDeviceInfoOssUrlRequest): Promise<GetExportDeviceInfoOssUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getExportDeviceInfoOssUrl(request: $_model.GetExportDeviceInfoOssUrlRequest): Promise<$_model.GetExportDeviceInfoOssUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getExportDeviceInfoOssUrlWithOptions(request, runtime);
   }
 
@@ -10393,25 +2108,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFbOssConfigResponse
    */
-  async getFbOssConfigWithOptions(request: GetFbOssConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetFbOssConfigResponse> {
-    Util.validateModel(request);
+  async getFbOssConfigWithOptions(request: $_model.GetFbOssConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFbOssConfigResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dirPrefix)) {
+    if (!$dara.isNull(request.dirPrefix)) {
       body["DirPrefix"] = request.dirPrefix;
     }
 
-    if (!Util.isUnset(request.isDedicatedLine)) {
+    if (!$dara.isNull(request.isDedicatedLine)) {
       body["IsDedicatedLine"] = request.isDedicatedLine;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetFbOssConfig",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10422,7 +2137,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetFbOssConfigResponse>(await this.callApi(params, req, runtime), new GetFbOssConfigResponse({}));
+    return $dara.cast<$_model.GetFbOssConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetFbOssConfigResponse({}));
   }
 
   /**
@@ -10431,8 +2146,8 @@ export default class Client extends OpenApi {
    * @param request - GetFbOssConfigRequest
    * @returns GetFbOssConfigResponse
    */
-  async getFbOssConfig(request: GetFbOssConfigRequest): Promise<GetFbOssConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getFbOssConfig(request: $_model.GetFbOssConfigRequest): Promise<$_model.GetFbOssConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getFbOssConfigWithOptions(request, runtime);
   }
 
@@ -10443,17 +2158,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOssConfigResponse
    */
-  async getOssConfigWithOptions(request: GetOssConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetOssConfigResponse> {
-    Util.validateModel(request);
+  async getOssConfigWithOptions(request: $_model.GetOssConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOssConfigResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetOssConfig",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10464,7 +2179,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetOssConfigResponse>(await this.callApi(params, req, runtime), new GetOssConfigResponse({}));
+    return $dara.cast<$_model.GetOssConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetOssConfigResponse({}));
   }
 
   /**
@@ -10473,8 +2188,8 @@ export default class Client extends OpenApi {
    * @param request - GetOssConfigRequest
    * @returns GetOssConfigResponse
    */
-  async getOssConfig(request: GetOssConfigRequest): Promise<GetOssConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getOssConfig(request: $_model.GetOssConfigRequest): Promise<$_model.GetOssConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getOssConfigWithOptions(request, runtime);
   }
 
@@ -10485,17 +2200,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVersionDownloadUrlResponse
    */
-  async getVersionDownloadUrlWithOptions(request: GetVersionDownloadUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetVersionDownloadUrlResponse> {
-    Util.validateModel(request);
+  async getVersionDownloadUrlWithOptions(request: $_model.GetVersionDownloadUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVersionDownloadUrlResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.versionName)) {
+    if (!$dara.isNull(request.versionName)) {
       query["VersionName"] = request.versionName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetVersionDownloadUrl",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10506,7 +2221,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetVersionDownloadUrlResponse>(await this.callApi(params, req, runtime), new GetVersionDownloadUrlResponse({}));
+    return $dara.cast<$_model.GetVersionDownloadUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetVersionDownloadUrlResponse({}));
   }
 
   /**
@@ -10515,9 +2230,95 @@ export default class Client extends OpenApi {
    * @param request - GetVersionDownloadUrlRequest
    * @returns GetVersionDownloadUrlResponse
    */
-  async getVersionDownloadUrl(request: GetVersionDownloadUrlRequest): Promise<GetVersionDownloadUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getVersionDownloadUrl(request: $_model.GetVersionDownloadUrlRequest): Promise<$_model.GetVersionDownloadUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getVersionDownloadUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用户已绑定的可信设备列表
+   * 
+   * @param request - ListBoundDevicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBoundDevicesResponse
+   */
+  async listBoundDevicesWithOptions(request: $_model.ListBoundDevicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBoundDevicesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.adDomain)) {
+      body["AdDomain"] = request.adDomain;
+    }
+
+    if (!$dara.isNull(request.alias)) {
+      body["Alias"] = request.alias;
+    }
+
+    if (!$dara.isNull(request.clientType)) {
+      body["ClientType"] = request.clientType;
+    }
+
+    if (!$dara.isNull(request.directoryId)) {
+      body["DirectoryId"] = request.directoryId;
+    }
+
+    if (!$dara.isNull(request.endUserId)) {
+      body["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.inManage)) {
+      body["InManage"] = request.inManage;
+    }
+
+    if (!$dara.isNull(request.lastLoginUser)) {
+      body["LastLoginUser"] = request.lastLoginUser;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.serialNo)) {
+      body["SerialNo"] = request.serialNo;
+    }
+
+    if (!$dara.isNull(request.userType)) {
+      body["UserType"] = request.userType;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      body["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBoundDevices",
+      version: "2021-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBoundDevicesResponse>(await this.callApi(params, req, runtime), new $_model.ListBoundDevicesResponse({}));
+  }
+
+  /**
+   * 获取用户已绑定的可信设备列表
+   * 
+   * @param request - ListBoundDevicesRequest
+   * @returns ListBoundDevicesResponse
+   */
+  async listBoundDevices(request: $_model.ListBoundDevicesRequest): Promise<$_model.ListBoundDevicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBoundDevicesWithOptions(request, runtime);
   }
 
   /**
@@ -10527,21 +2328,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDeviceOtaTaskByTenantResponse
    */
-  async listDeviceOtaTaskByTenantWithOptions(request: ListDeviceOtaTaskByTenantRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceOtaTaskByTenantResponse> {
-    Util.validateModel(request);
+  async listDeviceOtaTaskByTenantWithOptions(request: $_model.ListDeviceOtaTaskByTenantRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDeviceOtaTaskByTenantResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDeviceOtaTaskByTenant",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10552,7 +2353,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDeviceOtaTaskByTenantResponse>(await this.callApi(params, req, runtime), new ListDeviceOtaTaskByTenantResponse({}));
+    return $dara.cast<$_model.ListDeviceOtaTaskByTenantResponse>(await this.callApi(params, req, runtime), new $_model.ListDeviceOtaTaskByTenantResponse({}));
   }
 
   /**
@@ -10561,8 +2362,8 @@ export default class Client extends OpenApi {
    * @param request - ListDeviceOtaTaskByTenantRequest
    * @returns ListDeviceOtaTaskByTenantResponse
    */
-  async listDeviceOtaTaskByTenant(request: ListDeviceOtaTaskByTenantRequest): Promise<ListDeviceOtaTaskByTenantResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listDeviceOtaTaskByTenant(request: $_model.ListDeviceOtaTaskByTenantRequest): Promise<$_model.ListDeviceOtaTaskByTenantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDeviceOtaTaskByTenantWithOptions(request, runtime);
   }
 
@@ -10573,33 +2374,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDeviceSeatsResponse
    */
-  async listDeviceSeatsWithOptions(request: ListDeviceSeatsRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceSeatsResponse> {
-    Util.validateModel(request);
+  async listDeviceSeatsWithOptions(request: $_model.ListDeviceSeatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDeviceSeatsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.label)) {
+    if (!$dara.isNull(request.label)) {
       body["Label"] = request.label;
     }
 
-    if (!Util.isUnset(request.seatNo)) {
+    if (!$dara.isNull(request.seatNo)) {
       body["SeatNo"] = request.seatNo;
     }
 
-    if (!Util.isUnset(request.serialNoList)) {
+    if (!$dara.isNull(request.serialNoList)) {
       body["SerialNoList"] = request.serialNoList;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       body["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDeviceSeats",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10610,7 +2411,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDeviceSeatsResponse>(await this.callApi(params, req, runtime), new ListDeviceSeatsResponse({}));
+    return $dara.cast<$_model.ListDeviceSeatsResponse>(await this.callApi(params, req, runtime), new $_model.ListDeviceSeatsResponse({}));
   }
 
   /**
@@ -10619,8 +2420,8 @@ export default class Client extends OpenApi {
    * @param request - ListDeviceSeatsRequest
    * @returns ListDeviceSeatsResponse
    */
-  async listDeviceSeats(request: ListDeviceSeatsRequest): Promise<ListDeviceSeatsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listDeviceSeats(request: $_model.ListDeviceSeatsRequest): Promise<$_model.ListDeviceSeatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDeviceSeatsWithOptions(request, runtime);
   }
 
@@ -10631,87 +2432,91 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDevicesResponse
    */
-  async listDevicesWithOptions(request: ListDevicesRequest, runtime: $Util.RuntimeOptions): Promise<ListDevicesResponse> {
-    Util.validateModel(request);
+  async listDevicesWithOptions(request: $_model.ListDevicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDevicesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientType)) {
+    if (!$dara.isNull(request.clientType)) {
       query["ClientType"] = request.clientType;
     }
 
-    if (!Util.isUnset(request.deviceIpV4)) {
+    if (!$dara.isNull(request.deviceIpV4)) {
       query["DeviceIpV4"] = request.deviceIpV4;
     }
 
-    if (!Util.isUnset(request.deviceName)) {
+    if (!$dara.isNull(request.deviceName)) {
       query["DeviceName"] = request.deviceName;
     }
 
-    if (!Util.isUnset(request.deviceOS)) {
+    if (!$dara.isNull(request.deviceOS)) {
       query["DeviceOS"] = request.deviceOS;
     }
 
-    if (!Util.isUnset(request.devicePlatform)) {
+    if (!$dara.isNull(request.devicePlatform)) {
       query["DevicePlatform"] = request.devicePlatform;
     }
 
-    if (!Util.isUnset(request.locationInfo)) {
+    if (!$dara.isNull(request.lastLoginUser)) {
+      query["LastLoginUser"] = request.lastLoginUser;
+    }
+
+    if (!$dara.isNull(request.locationInfo)) {
       query["LocationInfo"] = request.locationInfo;
     }
 
-    if (!Util.isUnset(request.userType)) {
+    if (!$dara.isNull(request.userType)) {
       query["UserType"] = request.userType;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.alias)) {
+    if (!$dara.isNull(request.alias)) {
       body["Alias"] = request.alias;
     }
 
-    if (!Util.isUnset(request.buildId)) {
+    if (!$dara.isNull(request.buildId)) {
       body["BuildId"] = request.buildId;
     }
 
-    if (!Util.isUnset(request.deviceGroupId)) {
+    if (!$dara.isNull(request.deviceGroupId)) {
       body["DeviceGroupId"] = request.deviceGroupId;
     }
 
-    if (!Util.isUnset(request.endUserId)) {
+    if (!$dara.isNull(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!Util.isUnset(request.labelContent)) {
+    if (!$dara.isNull(request.labelContent)) {
       body["LabelContent"] = request.labelContent;
     }
 
-    if (!Util.isUnset(request.labelId)) {
+    if (!$dara.isNull(request.labelId)) {
       body["LabelId"] = request.labelId;
     }
 
-    if (!Util.isUnset(request.model)) {
+    if (!$dara.isNull(request.model)) {
       body["Model"] = request.model;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDevices",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10722,7 +2527,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDevicesResponse>(await this.callApi(params, req, runtime), new ListDevicesResponse({}));
+    return $dara.cast<$_model.ListDevicesResponse>(await this.callApi(params, req, runtime), new $_model.ListDevicesResponse({}));
   }
 
   /**
@@ -10731,8 +2536,8 @@ export default class Client extends OpenApi {
    * @param request - ListDevicesRequest
    * @returns ListDevicesResponse
    */
-  async listDevices(request: ListDevicesRequest): Promise<ListDevicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listDevices(request: $_model.ListDevicesRequest): Promise<$_model.ListDevicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDevicesWithOptions(request, runtime);
   }
 
@@ -10743,9 +2548,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFbIssueLabelsResponse
    */
-  async listFbIssueLabelsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListFbIssueLabelsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async listFbIssueLabelsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListFbIssueLabelsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "ListFbIssueLabels",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10756,15 +2561,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListFbIssueLabelsResponse>(await this.callApi(params, req, runtime), new ListFbIssueLabelsResponse({}));
+    return $dara.cast<$_model.ListFbIssueLabelsResponse>(await this.callApi(params, req, runtime), new $_model.ListFbIssueLabelsResponse({}));
   }
 
   /**
    * 查询用户问题标签
    * @returns ListFbIssueLabelsResponse
    */
-  async listFbIssueLabels(): Promise<ListFbIssueLabelsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listFbIssueLabels(): Promise<$_model.ListFbIssueLabelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listFbIssueLabelsWithOptions(runtime);
   }
 
@@ -10775,21 +2580,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFbIssueLabelsByLCResponse
    */
-  async listFbIssueLabelsByLCWithOptions(request: ListFbIssueLabelsByLCRequest, runtime: $Util.RuntimeOptions): Promise<ListFbIssueLabelsByLCResponse> {
-    Util.validateModel(request);
+  async listFbIssueLabelsByLCWithOptions(request: $_model.ListFbIssueLabelsByLCRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFbIssueLabelsByLCResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.caller)) {
+    if (!$dara.isNull(request.caller)) {
       body["Caller"] = request.caller;
     }
 
-    if (!Util.isUnset(request.languageType)) {
+    if (!$dara.isNull(request.languageType)) {
       body["LanguageType"] = request.languageType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListFbIssueLabelsByLC",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10800,7 +2605,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListFbIssueLabelsByLCResponse>(await this.callApi(params, req, runtime), new ListFbIssueLabelsByLCResponse({}));
+    return $dara.cast<$_model.ListFbIssueLabelsByLCResponse>(await this.callApi(params, req, runtime), new $_model.ListFbIssueLabelsByLCResponse({}));
   }
 
   /**
@@ -10809,8 +2614,8 @@ export default class Client extends OpenApi {
    * @param request - ListFbIssueLabelsByLCRequest
    * @returns ListFbIssueLabelsByLCResponse
    */
-  async listFbIssueLabelsByLC(request: ListFbIssueLabelsByLCRequest): Promise<ListFbIssueLabelsByLCResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listFbIssueLabelsByLC(request: $_model.ListFbIssueLabelsByLCRequest): Promise<$_model.ListFbIssueLabelsByLCResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listFbIssueLabelsByLCWithOptions(request, runtime);
   }
 
@@ -10821,29 +2626,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListLabelsResponse
    */
-  async listLabelsWithOptions(request: ListLabelsRequest, runtime: $Util.RuntimeOptions): Promise<ListLabelsResponse> {
-    Util.validateModel(request);
+  async listLabelsWithOptions(request: $_model.ListLabelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLabelsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labelContent)) {
+    if (!$dara.isNull(request.labelContent)) {
       body["LabelContent"] = request.labelContent;
     }
 
-    if (!Util.isUnset(request.labelId)) {
+    if (!$dara.isNull(request.labelId)) {
       body["LabelId"] = request.labelId;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["NextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListLabels",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10854,7 +2659,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListLabelsResponse>(await this.callApi(params, req, runtime), new ListLabelsResponse({}));
+    return $dara.cast<$_model.ListLabelsResponse>(await this.callApi(params, req, runtime), new $_model.ListLabelsResponse({}));
   }
 
   /**
@@ -10863,8 +2668,8 @@ export default class Client extends OpenApi {
    * @param request - ListLabelsRequest
    * @returns ListLabelsResponse
    */
-  async listLabels(request: ListLabelsRequest): Promise<ListLabelsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listLabels(request: $_model.ListLabelsRequest): Promise<$_model.ListLabelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listLabelsWithOptions(request, runtime);
   }
 
@@ -10875,25 +2680,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTenantDeviceOtaInfoResponse
    */
-  async listTenantDeviceOtaInfoWithOptions(request: ListTenantDeviceOtaInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListTenantDeviceOtaInfoResponse> {
-    Util.validateModel(request);
+  async listTenantDeviceOtaInfoWithOptions(request: $_model.ListTenantDeviceOtaInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTenantDeviceOtaInfoResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTenantDeviceOtaInfo",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10904,7 +2709,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTenantDeviceOtaInfoResponse>(await this.callApi(params, req, runtime), new ListTenantDeviceOtaInfoResponse({}));
+    return $dara.cast<$_model.ListTenantDeviceOtaInfoResponse>(await this.callApi(params, req, runtime), new $_model.ListTenantDeviceOtaInfoResponse({}));
   }
 
   /**
@@ -10913,8 +2718,8 @@ export default class Client extends OpenApi {
    * @param request - ListTenantDeviceOtaInfoRequest
    * @returns ListTenantDeviceOtaInfoResponse
    */
-  async listTenantDeviceOtaInfo(request: ListTenantDeviceOtaInfoRequest): Promise<ListTenantDeviceOtaInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listTenantDeviceOtaInfo(request: $_model.ListTenantDeviceOtaInfoRequest): Promise<$_model.ListTenantDeviceOtaInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTenantDeviceOtaInfoWithOptions(request, runtime);
   }
 
@@ -10925,65 +2730,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTerminalResponse
    */
-  async listTerminalWithOptions(request: ListTerminalRequest, runtime: $Util.RuntimeOptions): Promise<ListTerminalResponse> {
-    Util.validateModel(request);
+  async listTerminalWithOptions(request: $_model.ListTerminalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTerminalResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.alias)) {
+    if (!$dara.isNull(request.alias)) {
       body["Alias"] = request.alias;
     }
 
-    if (!Util.isUnset(request.buildId)) {
+    if (!$dara.isNull(request.buildId)) {
       body["BuildId"] = request.buildId;
     }
 
-    if (!Util.isUnset(request.clientType)) {
+    if (!$dara.isNull(request.clientType)) {
       body["ClientType"] = request.clientType;
     }
 
-    if (!Util.isUnset(request.inManage)) {
+    if (!$dara.isNull(request.inManage)) {
       body["InManage"] = request.inManage;
     }
 
-    if (!Util.isUnset(request.ipv4)) {
+    if (!$dara.isNull(request.ipv4)) {
       body["Ipv4"] = request.ipv4;
     }
 
-    if (!Util.isUnset(request.locationInfo)) {
+    if (!$dara.isNull(request.locationInfo)) {
       body["LocationInfo"] = request.locationInfo;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.model)) {
+    if (!$dara.isNull(request.model)) {
       body["Model"] = request.model;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.searchKeyword)) {
+    if (!$dara.isNull(request.searchKeyword)) {
       body["SearchKeyword"] = request.searchKeyword;
     }
 
-    if (!Util.isUnset(request.serialNumber)) {
+    if (!$dara.isNull(request.serialNumber)) {
       body["SerialNumber"] = request.serialNumber;
     }
 
-    if (!Util.isUnset(request.terminalGroupId)) {
+    if (!$dara.isNull(request.terminalGroupId)) {
       body["TerminalGroupId"] = request.terminalGroupId;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTerminal",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -10994,7 +2799,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTerminalResponse>(await this.callApi(params, req, runtime), new ListTerminalResponse({}));
+    return $dara.cast<$_model.ListTerminalResponse>(await this.callApi(params, req, runtime), new $_model.ListTerminalResponse({}));
   }
 
   /**
@@ -11003,8 +2808,8 @@ export default class Client extends OpenApi {
    * @param request - ListTerminalRequest
    * @returns ListTerminalResponse
    */
-  async listTerminal(request: ListTerminalRequest): Promise<ListTerminalResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listTerminal(request: $_model.ListTerminalRequest): Promise<$_model.ListTerminalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTerminalWithOptions(request, runtime);
   }
 
@@ -11015,43 +2820,47 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTerminalsResponse
    */
-  async listTerminalsWithOptions(request: ListTerminalsRequest, runtime: $Util.RuntimeOptions): Promise<ListTerminalsResponse> {
-    Util.validateModel(request);
+  async listTerminalsWithOptions(request: $_model.ListTerminalsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTerminalsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.inManage)) {
+    if (!$dara.isNull(request.inManage)) {
       body["InManage"] = request.inManage;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.mainBizType)) {
+      body["MainBizType"] = request.mainBizType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.passwordFreeLoginUser)) {
+    if (!$dara.isNull(request.passwordFreeLoginUser)) {
       body["PasswordFreeLoginUser"] = request.passwordFreeLoginUser;
     }
 
-    if (!Util.isUnset(request.searchKeyword)) {
+    if (!$dara.isNull(request.searchKeyword)) {
       body["SearchKeyword"] = request.searchKeyword;
     }
 
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.serialNumbers)) {
+    if (!$dara.isNull(request.serialNumbers)) {
       bodyFlat["SerialNumbers"] = request.serialNumbers;
     }
 
-    if (!Util.isUnset(request.terminalGroupId)) {
+    if (!$dara.isNull(request.terminalGroupId)) {
       body["TerminalGroupId"] = request.terminalGroupId;
     }
 
-    if (!Util.isUnset(request.uuids)) {
+    if (!$dara.isNull(request.uuids)) {
       bodyFlat["Uuids"] = request.uuids;
     }
 
-    if (!Util.isUnset(request.withBindUser)) {
+    if (!$dara.isNull(request.withBindUser)) {
       body["WithBindUser"] = request.withBindUser;
     }
 
@@ -11059,10 +2868,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTerminals",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -11073,7 +2882,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTerminalsResponse>(await this.callApi(params, req, runtime), new ListTerminalsResponse({}));
+    return $dara.cast<$_model.ListTerminalsResponse>(await this.callApi(params, req, runtime), new $_model.ListTerminalsResponse({}));
   }
 
   /**
@@ -11082,8 +2891,8 @@ export default class Client extends OpenApi {
    * @param request - ListTerminalsRequest
    * @returns ListTerminalsResponse
    */
-  async listTerminals(request: ListTerminalsRequest): Promise<ListTerminalsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listTerminals(request: $_model.ListTerminalsRequest): Promise<$_model.ListTerminalsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTerminalsWithOptions(request, runtime);
   }
 
@@ -11094,29 +2903,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTrustDevicesResponse
    */
-  async listTrustDevicesWithOptions(request: ListTrustDevicesRequest, runtime: $Util.RuntimeOptions): Promise<ListTrustDevicesResponse> {
-    Util.validateModel(request);
+  async listTrustDevicesWithOptions(request: $_model.ListTrustDevicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTrustDevicesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labelContent)) {
+    if (!$dara.isNull(request.labelContent)) {
       body["LabelContent"] = request.labelContent;
     }
 
-    if (!Util.isUnset(request.labelId)) {
+    if (!$dara.isNull(request.labelId)) {
       body["LabelId"] = request.labelId;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    if (!Util.isUnset(request.userCustomId)) {
+    if (!$dara.isNull(request.userCustomId)) {
       body["UserCustomId"] = request.userCustomId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTrustDevices",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -11127,7 +2936,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTrustDevicesResponse>(await this.callApi(params, req, runtime), new ListTrustDevicesResponse({}));
+    return $dara.cast<$_model.ListTrustDevicesResponse>(await this.callApi(params, req, runtime), new $_model.ListTrustDevicesResponse({}));
   }
 
   /**
@@ -11136,9 +2945,95 @@ export default class Client extends OpenApi {
    * @param request - ListTrustDevicesRequest
    * @returns ListTrustDevicesResponse
    */
-  async listTrustDevices(request: ListTrustDevicesRequest): Promise<ListTrustDevicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listTrustDevices(request: $_model.ListTrustDevicesRequest): Promise<$_model.ListTrustDevicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTrustDevicesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用户未绑定的可信设备列表
+   * 
+   * @param request - ListUnbindDevicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUnbindDevicesResponse
+   */
+  async listUnbindDevicesWithOptions(request: $_model.ListUnbindDevicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUnbindDevicesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.adDomain)) {
+      body["AdDomain"] = request.adDomain;
+    }
+
+    if (!$dara.isNull(request.alias)) {
+      body["Alias"] = request.alias;
+    }
+
+    if (!$dara.isNull(request.clientType)) {
+      body["ClientType"] = request.clientType;
+    }
+
+    if (!$dara.isNull(request.directoryId)) {
+      body["DirectoryId"] = request.directoryId;
+    }
+
+    if (!$dara.isNull(request.endUserId)) {
+      body["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.inManage)) {
+      body["InManage"] = request.inManage;
+    }
+
+    if (!$dara.isNull(request.lastLoginUser)) {
+      body["LastLoginUser"] = request.lastLoginUser;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.serialNo)) {
+      body["SerialNo"] = request.serialNo;
+    }
+
+    if (!$dara.isNull(request.userType)) {
+      body["UserType"] = request.userType;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      body["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUnbindDevices",
+      version: "2021-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUnbindDevicesResponse>(await this.callApi(params, req, runtime), new $_model.ListUnbindDevicesResponse({}));
+  }
+
+  /**
+   * 获取用户未绑定的可信设备列表
+   * 
+   * @param request - ListUnbindDevicesRequest
+   * @returns ListUnbindDevicesResponse
+   */
+  async listUnbindDevices(request: $_model.ListUnbindDevicesRequest): Promise<$_model.ListUnbindDevicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUnbindDevicesWithOptions(request, runtime);
   }
 
   /**
@@ -11148,49 +3043,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUserFbAcIssuesResponse
    */
-  async listUserFbAcIssuesWithOptions(request: ListUserFbAcIssuesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserFbAcIssuesResponse> {
-    Util.validateModel(request);
+  async listUserFbAcIssuesWithOptions(request: $_model.ListUserFbAcIssuesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserFbAcIssuesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.account)) {
+    if (!$dara.isNull(request.account)) {
       body["Account"] = request.account;
     }
 
-    if (!Util.isUnset(request.clientVersion)) {
+    if (!$dara.isNull(request.clientVersion)) {
       body["ClientVersion"] = request.clientVersion;
     }
 
-    if (!Util.isUnset(request.errorMessage)) {
+    if (!$dara.isNull(request.errorMessage)) {
       body["ErrorMessage"] = request.errorMessage;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.issueId)) {
+    if (!$dara.isNull(request.issueId)) {
       body["IssueId"] = request.issueId;
     }
 
-    if (!Util.isUnset(request.label)) {
+    if (!$dara.isNull(request.label)) {
       body["Label"] = request.label;
     }
 
-    if (!Util.isUnset(request.reservedA)) {
+    if (!$dara.isNull(request.reservedA)) {
       body["ReservedA"] = request.reservedA;
     }
 
-    if (!Util.isUnset(request.reservedB)) {
+    if (!$dara.isNull(request.reservedB)) {
       body["ReservedB"] = request.reservedB;
     }
 
-    if (!Util.isUnset(request.userEmail)) {
+    if (!$dara.isNull(request.userEmail)) {
       body["UserEmail"] = request.userEmail;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserFbAcIssues",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -11201,7 +3096,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserFbAcIssuesResponse>(await this.callApi(params, req, runtime), new ListUserFbAcIssuesResponse({}));
+    return $dara.cast<$_model.ListUserFbAcIssuesResponse>(await this.callApi(params, req, runtime), new $_model.ListUserFbAcIssuesResponse({}));
   }
 
   /**
@@ -11210,8 +3105,8 @@ export default class Client extends OpenApi {
    * @param request - ListUserFbAcIssuesRequest
    * @returns ListUserFbAcIssuesResponse
    */
-  async listUserFbAcIssues(request: ListUserFbAcIssuesRequest): Promise<ListUserFbAcIssuesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listUserFbAcIssues(request: $_model.ListUserFbAcIssuesRequest): Promise<$_model.ListUserFbAcIssuesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserFbAcIssuesWithOptions(request, runtime);
   }
 
@@ -11222,89 +3117,89 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUserFbIssuesResponse
    */
-  async listUserFbIssuesWithOptions(request: ListUserFbIssuesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserFbIssuesResponse> {
-    Util.validateModel(request);
+  async listUserFbIssuesWithOptions(request: $_model.ListUserFbIssuesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserFbIssuesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.clientModel)) {
+    if (!$dara.isNull(request.clientModel)) {
       body["ClientModel"] = request.clientModel;
     }
 
-    if (!Util.isUnset(request.clientSn)) {
+    if (!$dara.isNull(request.clientSn)) {
       body["ClientSn"] = request.clientSn;
     }
 
-    if (!Util.isUnset(request.customerId)) {
+    if (!$dara.isNull(request.customerId)) {
       body["CustomerId"] = request.customerId;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.desktopId)) {
+    if (!$dara.isNull(request.desktopId)) {
       body["DesktopId"] = request.desktopId;
     }
 
-    if (!Util.isUnset(request.errorCode)) {
+    if (!$dara.isNull(request.errorCode)) {
       body["ErrorCode"] = request.errorCode;
     }
 
-    if (!Util.isUnset(request.errorMsg)) {
+    if (!$dara.isNull(request.errorMsg)) {
       body["ErrorMsg"] = request.errorMsg;
     }
 
-    if (!Util.isUnset(request.fbType)) {
+    if (!$dara.isNull(request.fbType)) {
       body["FbType"] = request.fbType;
     }
 
-    if (!Util.isUnset(request.issueId)) {
+    if (!$dara.isNull(request.issueId)) {
       body["IssueId"] = request.issueId;
     }
 
-    if (!Util.isUnset(request.issueLabel)) {
+    if (!$dara.isNull(request.issueLabel)) {
       body["IssueLabel"] = request.issueLabel;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.title)) {
+    if (!$dara.isNull(request.title)) {
       body["Title"] = request.title;
     }
 
-    if (!Util.isUnset(request.userEmail)) {
+    if (!$dara.isNull(request.userEmail)) {
       body["UserEmail"] = request.userEmail;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.userId)) {
       body["UserId"] = request.userId;
     }
 
-    if (!Util.isUnset(request.wasRead)) {
+    if (!$dara.isNull(request.wasRead)) {
       body["WasRead"] = request.wasRead;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUserFbIssues",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -11315,7 +3210,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserFbIssuesResponse>(await this.callApi(params, req, runtime), new ListUserFbIssuesResponse({}));
+    return $dara.cast<$_model.ListUserFbIssuesResponse>(await this.callApi(params, req, runtime), new $_model.ListUserFbIssuesResponse({}));
   }
 
   /**
@@ -11324,8 +3219,8 @@ export default class Client extends OpenApi {
    * @param request - ListUserFbIssuesRequest
    * @returns ListUserFbIssuesResponse
    */
-  async listUserFbIssues(request: ListUserFbIssuesRequest): Promise<ListUserFbIssuesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listUserFbIssues(request: $_model.ListUserFbIssuesRequest): Promise<$_model.ListUserFbIssuesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserFbIssuesWithOptions(request, runtime);
   }
 
@@ -11336,25 +3231,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDevicesSecureNetworkTypeResponse
    */
-  async modifyDevicesSecureNetworkTypeWithOptions(request: ModifyDevicesSecureNetworkTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDevicesSecureNetworkTypeResponse> {
-    Util.validateModel(request);
+  async modifyDevicesSecureNetworkTypeWithOptions(request: $_model.ModifyDevicesSecureNetworkTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDevicesSecureNetworkTypeResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.allDevices)) {
+    if (!$dara.isNull(request.allDevices)) {
       body["AllDevices"] = request.allDevices;
     }
 
-    if (!Util.isUnset(request.secureNetworkType)) {
+    if (!$dara.isNull(request.secureNetworkType)) {
       body["SecureNetworkType"] = request.secureNetworkType;
     }
 
-    if (!Util.isUnset(request.serialNos)) {
+    if (!$dara.isNull(request.serialNos)) {
       body["SerialNos"] = request.serialNos;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyDevicesSecureNetworkType",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -11365,7 +3260,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyDevicesSecureNetworkTypeResponse>(await this.callApi(params, req, runtime), new ModifyDevicesSecureNetworkTypeResponse({}));
+    return $dara.cast<$_model.ModifyDevicesSecureNetworkTypeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDevicesSecureNetworkTypeResponse({}));
   }
 
   /**
@@ -11374,8 +3269,8 @@ export default class Client extends OpenApi {
    * @param request - ModifyDevicesSecureNetworkTypeRequest
    * @returns ModifyDevicesSecureNetworkTypeResponse
    */
-  async modifyDevicesSecureNetworkType(request: ModifyDevicesSecureNetworkTypeRequest): Promise<ModifyDevicesSecureNetworkTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async modifyDevicesSecureNetworkType(request: $_model.ModifyDevicesSecureNetworkTypeRequest): Promise<$_model.ModifyDevicesSecureNetworkTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDevicesSecureNetworkTypeWithOptions(request, runtime);
   }
 
@@ -11386,21 +3281,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifySecureNetworkTypeResponse
    */
-  async modifySecureNetworkTypeWithOptions(request: ModifySecureNetworkTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecureNetworkTypeResponse> {
-    Util.validateModel(request);
+  async modifySecureNetworkTypeWithOptions(request: $_model.ModifySecureNetworkTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySecureNetworkTypeResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.secureNetworkType)) {
+    if (!$dara.isNull(request.secureNetworkType)) {
       body["SecureNetworkType"] = request.secureNetworkType;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifySecureNetworkType",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -11411,7 +3306,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifySecureNetworkTypeResponse>(await this.callApi(params, req, runtime), new ModifySecureNetworkTypeResponse({}));
+    return $dara.cast<$_model.ModifySecureNetworkTypeResponse>(await this.callApi(params, req, runtime), new $_model.ModifySecureNetworkTypeResponse({}));
   }
 
   /**
@@ -11420,8 +3315,8 @@ export default class Client extends OpenApi {
    * @param request - ModifySecureNetworkTypeRequest
    * @returns ModifySecureNetworkTypeResponse
    */
-  async modifySecureNetworkType(request: ModifySecureNetworkTypeRequest): Promise<ModifySecureNetworkTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async modifySecureNetworkType(request: $_model.ModifySecureNetworkTypeRequest): Promise<$_model.ModifySecureNetworkTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifySecureNetworkTypeWithOptions(request, runtime);
   }
 
@@ -11432,69 +3327,69 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RegisterDeviceResponse
    */
-  async registerDeviceWithOptions(request: RegisterDeviceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDeviceResponse> {
-    Util.validateModel(request);
+  async registerDeviceWithOptions(request: $_model.RegisterDeviceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RegisterDeviceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.bluetooth)) {
+    if (!$dara.isNull(request.bluetooth)) {
       body["Bluetooth"] = request.bluetooth;
     }
 
-    if (!Util.isUnset(request.buildId)) {
+    if (!$dara.isNull(request.buildId)) {
       body["BuildId"] = request.buildId;
     }
 
-    if (!Util.isUnset(request.chipId)) {
+    if (!$dara.isNull(request.chipId)) {
       body["ChipId"] = request.chipId;
     }
 
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.clientType)) {
+    if (!$dara.isNull(request.clientType)) {
       body["ClientType"] = request.clientType;
     }
 
-    if (!Util.isUnset(request.cpu)) {
+    if (!$dara.isNull(request.cpu)) {
       body["Cpu"] = request.cpu;
     }
 
-    if (!Util.isUnset(request.customId)) {
+    if (!$dara.isNull(request.customId)) {
       body["CustomId"] = request.customId;
     }
 
-    if (!Util.isUnset(request.etherMac)) {
+    if (!$dara.isNull(request.etherMac)) {
       body["EtherMac"] = request.etherMac;
     }
 
-    if (!Util.isUnset(request.memory)) {
+    if (!$dara.isNull(request.memory)) {
       body["Memory"] = request.memory;
     }
 
-    if (!Util.isUnset(request.model)) {
+    if (!$dara.isNull(request.model)) {
       body["Model"] = request.model;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    if (!Util.isUnset(request.storage)) {
+    if (!$dara.isNull(request.storage)) {
       body["Storage"] = request.storage;
     }
 
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       body["Token"] = request.token;
     }
 
-    if (!Util.isUnset(request.wlan)) {
+    if (!$dara.isNull(request.wlan)) {
       body["Wlan"] = request.wlan;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RegisterDevice",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -11505,7 +3400,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RegisterDeviceResponse>(await this.callApi(params, req, runtime), new RegisterDeviceResponse({}));
+    return $dara.cast<$_model.RegisterDeviceResponse>(await this.callApi(params, req, runtime), new $_model.RegisterDeviceResponse({}));
   }
 
   /**
@@ -11514,8 +3409,8 @@ export default class Client extends OpenApi {
    * @param request - RegisterDeviceRequest
    * @returns RegisterDeviceResponse
    */
-  async registerDevice(request: RegisterDeviceRequest): Promise<RegisterDeviceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async registerDevice(request: $_model.RegisterDeviceRequest): Promise<$_model.RegisterDeviceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.registerDeviceWithOptions(request, runtime);
   }
 
@@ -11526,49 +3421,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReportAppOtaInfoResponse
    */
-  async reportAppOtaInfoWithOptions(request: ReportAppOtaInfoRequest, runtime: $Util.RuntimeOptions): Promise<ReportAppOtaInfoResponse> {
-    Util.validateModel(request);
+  async reportAppOtaInfoWithOptions(request: $_model.ReportAppOtaInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReportAppOtaInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.baseVersion)) {
+    if (!$dara.isNull(request.baseVersion)) {
       query["BaseVersion"] = request.baseVersion;
     }
 
-    if (!Util.isUnset(request.clientType)) {
+    if (!$dara.isNull(request.clientType)) {
       query["ClientType"] = request.clientType;
     }
 
-    if (!Util.isUnset(request.clientUid)) {
+    if (!$dara.isNull(request.clientUid)) {
       query["ClientUid"] = request.clientUid;
     }
 
-    if (!Util.isUnset(request.note)) {
+    if (!$dara.isNull(request.note)) {
       query["Note"] = request.note;
     }
 
-    if (!Util.isUnset(request.osType)) {
+    if (!$dara.isNull(request.osType)) {
       query["OsType"] = request.osType;
     }
 
-    if (!Util.isUnset(request.project)) {
+    if (!$dara.isNull(request.project)) {
       query["Project"] = request.project;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.targetVersion)) {
+    if (!$dara.isNull(request.targetVersion)) {
       query["TargetVersion"] = request.targetVersion;
     }
 
-    if (!Util.isUnset(request.taskUid)) {
+    if (!$dara.isNull(request.taskUid)) {
       query["TaskUid"] = request.taskUid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReportAppOtaInfo",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -11579,7 +3474,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReportAppOtaInfoResponse>(await this.callApi(params, req, runtime), new ReportAppOtaInfoResponse({}));
+    return $dara.cast<$_model.ReportAppOtaInfoResponse>(await this.callApi(params, req, runtime), new $_model.ReportAppOtaInfoResponse({}));
   }
 
   /**
@@ -11588,8 +3483,8 @@ export default class Client extends OpenApi {
    * @param request - ReportAppOtaInfoRequest
    * @returns ReportAppOtaInfoResponse
    */
-  async reportAppOtaInfo(request: ReportAppOtaInfoRequest): Promise<ReportAppOtaInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async reportAppOtaInfo(request: $_model.ReportAppOtaInfoRequest): Promise<$_model.ReportAppOtaInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.reportAppOtaInfoWithOptions(request, runtime);
   }
 
@@ -11600,37 +3495,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReportDeviceOtaInfoResponse
    */
-  async reportDeviceOtaInfoWithOptions(request: ReportDeviceOtaInfoRequest, runtime: $Util.RuntimeOptions): Promise<ReportDeviceOtaInfoResponse> {
-    Util.validateModel(request);
+  async reportDeviceOtaInfoWithOptions(request: $_model.ReportDeviceOtaInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReportDeviceOtaInfoResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.baseVersion)) {
+    if (!$dara.isNull(request.baseVersion)) {
       body["BaseVersion"] = request.baseVersion;
     }
 
-    if (!Util.isUnset(request.deviceId)) {
+    if (!$dara.isNull(request.deviceId)) {
       body["DeviceId"] = request.deviceId;
     }
 
-    if (!Util.isUnset(request.model)) {
+    if (!$dara.isNull(request.model)) {
       body["Model"] = request.model;
     }
 
-    if (!Util.isUnset(request.note)) {
+    if (!$dara.isNull(request.note)) {
       body["Note"] = request.note;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.targetVersion)) {
+    if (!$dara.isNull(request.targetVersion)) {
       body["TargetVersion"] = request.targetVersion;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReportDeviceOtaInfo",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -11641,7 +3536,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReportDeviceOtaInfoResponse>(await this.callApi(params, req, runtime), new ReportDeviceOtaInfoResponse({}));
+    return $dara.cast<$_model.ReportDeviceOtaInfoResponse>(await this.callApi(params, req, runtime), new $_model.ReportDeviceOtaInfoResponse({}));
   }
 
   /**
@@ -11650,8 +3545,8 @@ export default class Client extends OpenApi {
    * @param request - ReportDeviceOtaInfoRequest
    * @returns ReportDeviceOtaInfoResponse
    */
-  async reportDeviceOtaInfo(request: ReportDeviceOtaInfoRequest): Promise<ReportDeviceOtaInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async reportDeviceOtaInfo(request: $_model.ReportDeviceOtaInfoRequest): Promise<$_model.ReportDeviceOtaInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.reportDeviceOtaInfoWithOptions(request, runtime);
   }
 
@@ -11662,55 +3557,55 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReportUserFbAcIssueResponse
    */
-  async reportUserFbAcIssueWithOptions(tmpReq: ReportUserFbAcIssueRequest, runtime: $Util.RuntimeOptions): Promise<ReportUserFbAcIssueResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ReportUserFbAcIssueShrinkRequest({ });
+  async reportUserFbAcIssueWithOptions(tmpReq: $_model.ReportUserFbAcIssueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReportUserFbAcIssueResponse> {
+    tmpReq.validate();
+    let request = new $_model.ReportUserFbAcIssueShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.fileList)) {
+    if (!$dara.isNull(tmpReq.fileList)) {
       request.fileListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fileList, "FileList", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.account)) {
+    if (!$dara.isNull(request.account)) {
       body["Account"] = request.account;
     }
 
-    if (!Util.isUnset(request.clientVersion)) {
+    if (!$dara.isNull(request.clientVersion)) {
       body["ClientVersion"] = request.clientVersion;
     }
 
-    if (!Util.isUnset(request.errorMsg)) {
+    if (!$dara.isNull(request.errorMsg)) {
       body["ErrorMsg"] = request.errorMsg;
     }
 
-    if (!Util.isUnset(request.fileListShrink)) {
+    if (!$dara.isNull(request.fileListShrink)) {
       body["FileList"] = request.fileListShrink;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.labels)) {
+    if (!$dara.isNull(request.labels)) {
       body["Labels"] = request.labels;
     }
 
-    if (!Util.isUnset(request.reservedA)) {
+    if (!$dara.isNull(request.reservedA)) {
       body["ReservedA"] = request.reservedA;
     }
 
-    if (!Util.isUnset(request.reservedB)) {
+    if (!$dara.isNull(request.reservedB)) {
       body["ReservedB"] = request.reservedB;
     }
 
-    if (!Util.isUnset(request.userEmail)) {
+    if (!$dara.isNull(request.userEmail)) {
       body["UserEmail"] = request.userEmail;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReportUserFbAcIssue",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -11721,7 +3616,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReportUserFbAcIssueResponse>(await this.callApi(params, req, runtime), new ReportUserFbAcIssueResponse({}));
+    return $dara.cast<$_model.ReportUserFbAcIssueResponse>(await this.callApi(params, req, runtime), new $_model.ReportUserFbAcIssueResponse({}));
   }
 
   /**
@@ -11730,8 +3625,8 @@ export default class Client extends OpenApi {
    * @param request - ReportUserFbAcIssueRequest
    * @returns ReportUserFbAcIssueResponse
    */
-  async reportUserFbAcIssue(request: ReportUserFbAcIssueRequest): Promise<ReportUserFbAcIssueResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async reportUserFbAcIssue(request: $_model.ReportUserFbAcIssueRequest): Promise<$_model.ReportUserFbAcIssueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.reportUserFbAcIssueWithOptions(request, runtime);
   }
 
@@ -11742,119 +3637,123 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReportUserFbIssueResponse
    */
-  async reportUserFbIssueWithOptions(tmpReq: ReportUserFbIssueRequest, runtime: $Util.RuntimeOptions): Promise<ReportUserFbIssueResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ReportUserFbIssueShrinkRequest({ });
+  async reportUserFbIssueWithOptions(tmpReq: $_model.ReportUserFbIssueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReportUserFbIssueResponse> {
+    tmpReq.validate();
+    let request = new $_model.ReportUserFbIssueShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.fileList)) {
+    if (!$dara.isNull(tmpReq.fileList)) {
       request.fileListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fileList, "FileList", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientAppVersion)) {
+      body["ClientAppVersion"] = request.clientAppVersion;
+    }
+
+    if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.clientModel)) {
+    if (!$dara.isNull(request.clientModel)) {
       body["ClientModel"] = request.clientModel;
     }
 
-    if (!Util.isUnset(request.clientOsName)) {
+    if (!$dara.isNull(request.clientOsName)) {
       body["ClientOsName"] = request.clientOsName;
     }
 
-    if (!Util.isUnset(request.clientSn)) {
+    if (!$dara.isNull(request.clientSn)) {
       body["ClientSn"] = request.clientSn;
     }
 
-    if (!Util.isUnset(request.clientVersion)) {
+    if (!$dara.isNull(request.clientVersion)) {
       body["ClientVersion"] = request.clientVersion;
     }
 
-    if (!Util.isUnset(request.customerId)) {
+    if (!$dara.isNull(request.customerId)) {
       body["CustomerId"] = request.customerId;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.desktopId)) {
+    if (!$dara.isNull(request.desktopId)) {
       body["DesktopId"] = request.desktopId;
     }
 
-    if (!Util.isUnset(request.desktopType)) {
+    if (!$dara.isNull(request.desktopType)) {
       body["DesktopType"] = request.desktopType;
     }
 
-    if (!Util.isUnset(request.errorCode)) {
+    if (!$dara.isNull(request.errorCode)) {
       body["ErrorCode"] = request.errorCode;
     }
 
-    if (!Util.isUnset(request.errorMsg)) {
+    if (!$dara.isNull(request.errorMsg)) {
       body["ErrorMsg"] = request.errorMsg;
     }
 
-    if (!Util.isUnset(request.fbType)) {
+    if (!$dara.isNull(request.fbType)) {
       body["FbType"] = request.fbType;
     }
 
-    if (!Util.isUnset(request.fileListShrink)) {
+    if (!$dara.isNull(request.fileListShrink)) {
       body["FileList"] = request.fileListShrink;
     }
 
-    if (!Util.isUnset(request.issueLabel)) {
+    if (!$dara.isNull(request.issueLabel)) {
       body["IssueLabel"] = request.issueLabel;
     }
 
-    if (!Util.isUnset(request.occurTime)) {
+    if (!$dara.isNull(request.occurTime)) {
       body["OccurTime"] = request.occurTime;
     }
 
-    if (!Util.isUnset(request.reservedA)) {
+    if (!$dara.isNull(request.reservedA)) {
       body["ReservedA"] = request.reservedA;
     }
 
-    if (!Util.isUnset(request.reservedB)) {
+    if (!$dara.isNull(request.reservedB)) {
       body["ReservedB"] = request.reservedB;
     }
 
-    if (!Util.isUnset(request.telNo)) {
+    if (!$dara.isNull(request.telNo)) {
       body["TelNo"] = request.telNo;
     }
 
-    if (!Util.isUnset(request.title)) {
+    if (!$dara.isNull(request.title)) {
       body["Title"] = request.title;
     }
 
-    if (!Util.isUnset(request.userEmail)) {
+    if (!$dara.isNull(request.userEmail)) {
       body["UserEmail"] = request.userEmail;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.userId)) {
       body["UserId"] = request.userId;
     }
 
-    if (!Util.isUnset(request.userName)) {
+    if (!$dara.isNull(request.userName)) {
       body["UserName"] = request.userName;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    if (!Util.isUnset(request.wyId)) {
+    if (!$dara.isNull(request.wyId)) {
       body["WyId"] = request.wyId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReportUserFbIssue",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -11865,7 +3764,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReportUserFbIssueResponse>(await this.callApi(params, req, runtime), new ReportUserFbIssueResponse({}));
+    return $dara.cast<$_model.ReportUserFbIssueResponse>(await this.callApi(params, req, runtime), new $_model.ReportUserFbIssueResponse({}));
   }
 
   /**
@@ -11874,8 +3773,8 @@ export default class Client extends OpenApi {
    * @param request - ReportUserFbIssueRequest
    * @returns ReportUserFbIssueResponse
    */
-  async reportUserFbIssue(request: ReportUserFbIssueRequest): Promise<ReportUserFbIssueResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async reportUserFbIssue(request: $_model.ReportUserFbIssueRequest): Promise<$_model.ReportUserFbIssueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.reportUserFbIssueWithOptions(request, runtime);
   }
 
@@ -11886,28 +3785,28 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendOpsMessageToTerminalsResponse
    */
-  async sendOpsMessageToTerminalsWithOptions(request: SendOpsMessageToTerminalsRequest, runtime: $Util.RuntimeOptions): Promise<SendOpsMessageToTerminalsResponse> {
-    Util.validateModel(request);
+  async sendOpsMessageToTerminalsWithOptions(request: $_model.SendOpsMessageToTerminalsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendOpsMessageToTerminalsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.delay)) {
+    if (!$dara.isNull(request.delay)) {
       query["Delay"] = request.delay;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.msg)) {
+    if (!$dara.isNull(request.msg)) {
       body["Msg"] = request.msg;
     }
 
-    if (!Util.isUnset(request.opsAction)) {
+    if (!$dara.isNull(request.opsAction)) {
       body["OpsAction"] = request.opsAction;
     }
 
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.uuids)) {
+    if (!$dara.isNull(request.uuids)) {
       bodyFlat["Uuids"] = request.uuids;
     }
 
-    if (!Util.isUnset(request.waitForAck)) {
+    if (!$dara.isNull(request.waitForAck)) {
       body["WaitForAck"] = request.waitForAck;
     }
 
@@ -11915,11 +3814,11 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendOpsMessageToTerminals",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -11930,7 +3829,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendOpsMessageToTerminalsResponse>(await this.callApi(params, req, runtime), new SendOpsMessageToTerminalsResponse({}));
+    return $dara.cast<$_model.SendOpsMessageToTerminalsResponse>(await this.callApi(params, req, runtime), new $_model.SendOpsMessageToTerminalsResponse({}));
   }
 
   /**
@@ -11939,8 +3838,8 @@ export default class Client extends OpenApi {
    * @param request - SendOpsMessageToTerminalsRequest
    * @returns SendOpsMessageToTerminalsResponse
    */
-  async sendOpsMessageToTerminals(request: SendOpsMessageToTerminalsRequest): Promise<SendOpsMessageToTerminalsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async sendOpsMessageToTerminals(request: $_model.SendOpsMessageToTerminalsRequest): Promise<$_model.SendOpsMessageToTerminalsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendOpsMessageToTerminalsWithOptions(request, runtime);
   }
 
@@ -11951,33 +3850,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetDeviceOtaAutoStatusResponse
    */
-  async setDeviceOtaAutoStatusWithOptions(request: SetDeviceOtaAutoStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDeviceOtaAutoStatusResponse> {
-    Util.validateModel(request);
+  async setDeviceOtaAutoStatusWithOptions(request: $_model.SetDeviceOtaAutoStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetDeviceOtaAutoStatusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.autoUpdate)) {
+    if (!$dara.isNull(request.autoUpdate)) {
       body["AutoUpdate"] = request.autoUpdate;
     }
 
-    if (!Util.isUnset(request.autoUpdateTimeSchedule)) {
+    if (!$dara.isNull(request.autoUpdateTimeSchedule)) {
       body["AutoUpdateTimeSchedule"] = request.autoUpdateTimeSchedule;
     }
 
-    if (!Util.isUnset(request.clientType)) {
+    if (!$dara.isNull(request.clientType)) {
       body["ClientType"] = request.clientType;
     }
 
-    if (!Util.isUnset(request.forceUpgrade)) {
+    if (!$dara.isNull(request.forceUpgrade)) {
       body["ForceUpgrade"] = request.forceUpgrade;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetDeviceOtaAutoStatus",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -11988,7 +3887,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetDeviceOtaAutoStatusResponse>(await this.callApi(params, req, runtime), new SetDeviceOtaAutoStatusResponse({}));
+    return $dara.cast<$_model.SetDeviceOtaAutoStatusResponse>(await this.callApi(params, req, runtime), new $_model.SetDeviceOtaAutoStatusResponse({}));
   }
 
   /**
@@ -11997,8 +3896,8 @@ export default class Client extends OpenApi {
    * @param request - SetDeviceOtaAutoStatusRequest
    * @returns SetDeviceOtaAutoStatusResponse
    */
-  async setDeviceOtaAutoStatus(request: SetDeviceOtaAutoStatusRequest): Promise<SetDeviceOtaAutoStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async setDeviceOtaAutoStatus(request: $_model.SetDeviceOtaAutoStatusRequest): Promise<$_model.SetDeviceOtaAutoStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setDeviceOtaAutoStatusWithOptions(request, runtime);
   }
 
@@ -12009,21 +3908,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetDeviceOtaTaskStatusResponse
    */
-  async setDeviceOtaTaskStatusWithOptions(request: SetDeviceOtaTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDeviceOtaTaskStatusResponse> {
-    Util.validateModel(request);
+  async setDeviceOtaTaskStatusWithOptions(request: $_model.SetDeviceOtaTaskStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetDeviceOtaTaskStatusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.operationStatus)) {
+    if (!$dara.isNull(request.operationStatus)) {
       body["OperationStatus"] = request.operationStatus;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetDeviceOtaTaskStatus",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -12034,7 +3933,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetDeviceOtaTaskStatusResponse>(await this.callApi(params, req, runtime), new SetDeviceOtaTaskStatusResponse({}));
+    return $dara.cast<$_model.SetDeviceOtaTaskStatusResponse>(await this.callApi(params, req, runtime), new $_model.SetDeviceOtaTaskStatusResponse({}));
   }
 
   /**
@@ -12043,8 +3942,8 @@ export default class Client extends OpenApi {
    * @param request - SetDeviceOtaTaskStatusRequest
    * @returns SetDeviceOtaTaskStatusResponse
    */
-  async setDeviceOtaTaskStatus(request: SetDeviceOtaTaskStatusRequest): Promise<SetDeviceOtaTaskStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async setDeviceOtaTaskStatus(request: $_model.SetDeviceOtaTaskStatusRequest): Promise<$_model.SetDeviceOtaTaskStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setDeviceOtaTaskStatusWithOptions(request, runtime);
   }
 
@@ -12055,21 +3954,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindAccountLessLoginUserResponse
    */
-  async unbindAccountLessLoginUserWithOptions(request: UnbindAccountLessLoginUserRequest, runtime: $Util.RuntimeOptions): Promise<UnbindAccountLessLoginUserResponse> {
-    Util.validateModel(request);
+  async unbindAccountLessLoginUserWithOptions(request: $_model.UnbindAccountLessLoginUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindAccountLessLoginUserResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.serialNumber)) {
+    if (!$dara.isNull(request.serialNumber)) {
       body["SerialNumber"] = request.serialNumber;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnbindAccountLessLoginUser",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -12080,7 +3979,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnbindAccountLessLoginUserResponse>(await this.callApi(params, req, runtime), new UnbindAccountLessLoginUserResponse({}));
+    return $dara.cast<$_model.UnbindAccountLessLoginUserResponse>(await this.callApi(params, req, runtime), new $_model.UnbindAccountLessLoginUserResponse({}));
   }
 
   /**
@@ -12089,8 +3988,8 @@ export default class Client extends OpenApi {
    * @param request - UnbindAccountLessLoginUserRequest
    * @returns UnbindAccountLessLoginUserResponse
    */
-  async unbindAccountLessLoginUser(request: UnbindAccountLessLoginUserRequest): Promise<UnbindAccountLessLoginUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async unbindAccountLessLoginUser(request: $_model.UnbindAccountLessLoginUserRequest): Promise<$_model.UnbindAccountLessLoginUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindAccountLessLoginUserWithOptions(request, runtime);
   }
 
@@ -12101,23 +4000,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindDeviceSeatsResponse
    */
-  async unbindDeviceSeatsWithOptions(tmpReq: UnbindDeviceSeatsRequest, runtime: $Util.RuntimeOptions): Promise<UnbindDeviceSeatsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new UnbindDeviceSeatsShrinkRequest({ });
+  async unbindDeviceSeatsWithOptions(tmpReq: $_model.UnbindDeviceSeatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindDeviceSeatsResponse> {
+    tmpReq.validate();
+    let request = new $_model.UnbindDeviceSeatsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.serialNoList)) {
+    if (!$dara.isNull(tmpReq.serialNoList)) {
       request.serialNoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serialNoList, "SerialNoList", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.serialNoListShrink)) {
+    if (!$dara.isNull(request.serialNoListShrink)) {
       body["SerialNoList"] = request.serialNoListShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnbindDeviceSeats",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -12128,7 +4027,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnbindDeviceSeatsResponse>(await this.callApi(params, req, runtime), new UnbindDeviceSeatsResponse({}));
+    return $dara.cast<$_model.UnbindDeviceSeatsResponse>(await this.callApi(params, req, runtime), new $_model.UnbindDeviceSeatsResponse({}));
   }
 
   /**
@@ -12137,8 +4036,8 @@ export default class Client extends OpenApi {
    * @param request - UnbindDeviceSeatsRequest
    * @returns UnbindDeviceSeatsResponse
    */
-  async unbindDeviceSeats(request: UnbindDeviceSeatsRequest): Promise<UnbindDeviceSeatsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async unbindDeviceSeats(request: $_model.UnbindDeviceSeatsRequest): Promise<$_model.UnbindDeviceSeatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindDeviceSeatsWithOptions(request, runtime);
   }
 
@@ -12149,21 +4048,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindPasswordFreeLoginUserResponse
    */
-  async unbindPasswordFreeLoginUserWithOptions(request: UnbindPasswordFreeLoginUserRequest, runtime: $Util.RuntimeOptions): Promise<UnbindPasswordFreeLoginUserResponse> {
-    Util.validateModel(request);
+  async unbindPasswordFreeLoginUserWithOptions(request: $_model.UnbindPasswordFreeLoginUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindPasswordFreeLoginUserResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.serialNumber)) {
+    if (!$dara.isNull(request.mainBizType)) {
+      body["MainBizType"] = request.mainBizType;
+    }
+
+    if (!$dara.isNull(request.serialNumber)) {
       body["SerialNumber"] = request.serialNumber;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnbindPasswordFreeLoginUser",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -12174,7 +4077,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnbindPasswordFreeLoginUserResponse>(await this.callApi(params, req, runtime), new UnbindPasswordFreeLoginUserResponse({}));
+    return $dara.cast<$_model.UnbindPasswordFreeLoginUserResponse>(await this.callApi(params, req, runtime), new $_model.UnbindPasswordFreeLoginUserResponse({}));
   }
 
   /**
@@ -12183,8 +4086,8 @@ export default class Client extends OpenApi {
    * @param request - UnbindPasswordFreeLoginUserRequest
    * @returns UnbindPasswordFreeLoginUserResponse
    */
-  async unbindPasswordFreeLoginUser(request: UnbindPasswordFreeLoginUserRequest): Promise<UnbindPasswordFreeLoginUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async unbindPasswordFreeLoginUser(request: $_model.UnbindPasswordFreeLoginUserRequest): Promise<$_model.UnbindPasswordFreeLoginUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindPasswordFreeLoginUserWithOptions(request, runtime);
   }
 
@@ -12195,25 +4098,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAliasResponse
    */
-  async updateAliasWithOptions(request: UpdateAliasRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAliasResponse> {
-    Util.validateModel(request);
+  async updateAliasWithOptions(request: $_model.UpdateAliasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAliasResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.alias)) {
+    if (!$dara.isNull(request.alias)) {
       body["Alias"] = request.alias;
     }
 
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateAlias",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -12224,7 +4127,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAliasResponse>(await this.callApi(params, req, runtime), new UpdateAliasResponse({}));
+    return $dara.cast<$_model.UpdateAliasResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAliasResponse({}));
   }
 
   /**
@@ -12233,8 +4136,8 @@ export default class Client extends OpenApi {
    * @param request - UpdateAliasRequest
    * @returns UpdateAliasResponse
    */
-  async updateAlias(request: UpdateAliasRequest): Promise<UpdateAliasResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateAlias(request: $_model.UpdateAliasRequest): Promise<$_model.UpdateAliasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAliasWithOptions(request, runtime);
   }
 
@@ -12245,37 +4148,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDeviceBindedEndUserResponse
    */
-  async updateDeviceBindedEndUserWithOptions(request: UpdateDeviceBindedEndUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDeviceBindedEndUserResponse> {
-    Util.validateModel(request);
+  async updateDeviceBindedEndUserWithOptions(request: $_model.UpdateDeviceBindedEndUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDeviceBindedEndUserResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.serialNo)) {
+    if (!$dara.isNull(request.serialNo)) {
       body["SerialNo"] = request.serialNo;
     }
 
-    if (!Util.isUnset(request.sourceAdEndUsers)) {
+    if (!$dara.isNull(request.sourceAdEndUsers)) {
       body["SourceAdEndUsers"] = request.sourceAdEndUsers;
     }
 
-    if (!Util.isUnset(request.sourceEndUserIds)) {
+    if (!$dara.isNull(request.sourceEndUserIds)) {
       body["SourceEndUserIds"] = request.sourceEndUserIds;
     }
 
-    if (!Util.isUnset(request.targetAdEndUsers)) {
+    if (!$dara.isNull(request.targetAdEndUsers)) {
       body["TargetAdEndUsers"] = request.targetAdEndUsers;
     }
 
-    if (!Util.isUnset(request.targetEndUserIds)) {
+    if (!$dara.isNull(request.targetEndUserIds)) {
       body["TargetEndUserIds"] = request.targetEndUserIds;
     }
 
-    if (!Util.isUnset(request.userType)) {
+    if (!$dara.isNull(request.userType)) {
       body["UserType"] = request.userType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateDeviceBindedEndUser",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -12286,7 +4189,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDeviceBindedEndUserResponse>(await this.callApi(params, req, runtime), new UpdateDeviceBindedEndUserResponse({}));
+    return $dara.cast<$_model.UpdateDeviceBindedEndUserResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDeviceBindedEndUserResponse({}));
   }
 
   /**
@@ -12295,8 +4198,8 @@ export default class Client extends OpenApi {
    * @param request - UpdateDeviceBindedEndUserRequest
    * @returns UpdateDeviceBindedEndUserResponse
    */
-  async updateDeviceBindedEndUser(request: UpdateDeviceBindedEndUserRequest): Promise<UpdateDeviceBindedEndUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateDeviceBindedEndUser(request: $_model.UpdateDeviceBindedEndUserRequest): Promise<$_model.UpdateDeviceBindedEndUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDeviceBindedEndUserWithOptions(request, runtime);
   }
 
@@ -12307,21 +4210,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateLabelResponse
    */
-  async updateLabelWithOptions(request: UpdateLabelRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLabelResponse> {
-    Util.validateModel(request);
+  async updateLabelWithOptions(request: $_model.UpdateLabelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLabelResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labelContent)) {
+    if (!$dara.isNull(request.labelContent)) {
       body["LabelContent"] = request.labelContent;
     }
 
-    if (!Util.isUnset(request.labelId)) {
+    if (!$dara.isNull(request.labelId)) {
       body["LabelId"] = request.labelId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateLabel",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -12332,7 +4235,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateLabelResponse>(await this.callApi(params, req, runtime), new UpdateLabelResponse({}));
+    return $dara.cast<$_model.UpdateLabelResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLabelResponse({}));
   }
 
   /**
@@ -12341,8 +4244,8 @@ export default class Client extends OpenApi {
    * @param request - UpdateLabelRequest
    * @returns UpdateLabelResponse
    */
-  async updateLabel(request: UpdateLabelRequest): Promise<UpdateLabelResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateLabel(request: $_model.UpdateLabelRequest): Promise<$_model.UpdateLabelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateLabelWithOptions(request, runtime);
   }
 
@@ -12353,109 +4256,186 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateTerminalPolicyResponse
    */
-  async updateTerminalPolicyWithOptions(request: UpdateTerminalPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTerminalPolicyResponse> {
-    Util.validateModel(request);
+  async updateTerminalPolicyWithOptions(request: $_model.UpdateTerminalPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTerminalPolicyResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.backgroundModeTitle)) {
+    if (!$dara.isNull(request.allowManualLockScreen)) {
+      body["AllowManualLockScreen"] = request.allowManualLockScreen;
+    }
+
+    if (!$dara.isNull(request.backgroundModeTitle)) {
       body["BackgroundModeTitle"] = request.backgroundModeTitle;
     }
 
-    if (!Util.isUnset(request.displayLayout)) {
+    if (!$dara.isNull(request.customScreenCastRes)) {
+      body["CustomScreenCastRes"] = request.customScreenCastRes;
+    }
+
+    if (!$dara.isNull(request.displayLayout)) {
       body["DisplayLayout"] = request.displayLayout;
     }
 
-    if (!Util.isUnset(request.displayResolution)) {
+    if (!$dara.isNull(request.displayResolution)) {
       body["DisplayResolution"] = request.displayResolution;
     }
 
-    if (!Util.isUnset(request.displayScaleRatio)) {
+    if (!$dara.isNull(request.displayScaleRatio)) {
       body["DisplayScaleRatio"] = request.displayScaleRatio;
     }
 
-    if (!Util.isUnset(request.enableAutoLockScreen)) {
+    if (!$dara.isNull(request.enableAutoLockScreen)) {
       body["EnableAutoLockScreen"] = request.enableAutoLockScreen;
     }
 
-    if (!Util.isUnset(request.enableAutoLogin)) {
+    if (!$dara.isNull(request.enableAutoLogin)) {
       body["EnableAutoLogin"] = request.enableAutoLogin;
     }
 
-    if (!Util.isUnset(request.enableBackgroundMode)) {
+    if (!$dara.isNull(request.enableBackgroundMode)) {
       body["EnableBackgroundMode"] = request.enableBackgroundMode;
     }
 
-    if (!Util.isUnset(request.enableBluetooth)) {
+    if (!$dara.isNull(request.enableBluetooth)) {
       body["EnableBluetooth"] = request.enableBluetooth;
     }
 
-    if (!Util.isUnset(request.enableModifyPassword)) {
+    if (!$dara.isNull(request.enableControlPanel)) {
+      body["EnableControlPanel"] = request.enableControlPanel;
+    }
+
+    if (!$dara.isNull(request.enableImmersiveMode)) {
+      body["EnableImmersiveMode"] = request.enableImmersiveMode;
+    }
+
+    if (!$dara.isNull(request.enableLockScreenHotKey)) {
+      body["EnableLockScreenHotKey"] = request.enableLockScreenHotKey;
+    }
+
+    if (!$dara.isNull(request.enableModifyPassword)) {
       body["EnableModifyPassword"] = request.enableModifyPassword;
     }
 
-    if (!Util.isUnset(request.enableScheduledReboot)) {
+    if (!$dara.isNull(request.enableScanLogin)) {
+      body["EnableScanLogin"] = request.enableScanLogin;
+    }
+
+    if (!$dara.isNull(request.enableScheduledReboot)) {
       body["EnableScheduledReboot"] = request.enableScheduledReboot;
     }
 
-    if (!Util.isUnset(request.enableScheduledShutdown)) {
+    if (!$dara.isNull(request.enableScheduledShutdown)) {
       body["EnableScheduledShutdown"] = request.enableScheduledShutdown;
     }
 
-    if (!Util.isUnset(request.enableSwitchPersonal)) {
+    if (!$dara.isNull(request.enableSmsLogin)) {
+      body["EnableSmsLogin"] = request.enableSmsLogin;
+    }
+
+    if (!$dara.isNull(request.enableSwitchPersonal)) {
       body["EnableSwitchPersonal"] = request.enableSwitchPersonal;
     }
 
-    if (!Util.isUnset(request.enableWlan)) {
+    if (!$dara.isNull(request.enableWlan)) {
       body["EnableWlan"] = request.enableWlan;
     }
 
-    if (!Util.isUnset(request.idleTimeout)) {
+    if (!$dara.isNull(request.followCloudReboot)) {
+      body["FollowCloudReboot"] = request.followCloudReboot;
+    }
+
+    if (!$dara.isNull(request.followCloudShutdown)) {
+      body["FollowCloudShutdown"] = request.followCloudShutdown;
+    }
+
+    if (!$dara.isNull(request.followTerminalReboot)) {
+      body["FollowTerminalReboot"] = request.followTerminalReboot;
+    }
+
+    if (!$dara.isNull(request.followTerminalShutdown)) {
+      body["FollowTerminalShutdown"] = request.followTerminalShutdown;
+    }
+
+    if (!$dara.isNull(request.forceSetPinCode)) {
+      body["ForceSetPinCode"] = request.forceSetPinCode;
+    }
+
+    if (!$dara.isNull(request.idleTimeout)) {
       body["IdleTimeout"] = request.idleTimeout;
     }
 
-    if (!Util.isUnset(request.idleTimeoutAction)) {
+    if (!$dara.isNull(request.idleTimeoutAction)) {
       body["IdleTimeoutAction"] = request.idleTimeoutAction;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.lockScreenPasswordRequired)) {
+      body["LockScreenPasswordRequired"] = request.lockScreenPasswordRequired;
+    }
+
+    if (!$dara.isNull(request.lockScreenTimeout)) {
+      body["LockScreenTimeout"] = request.lockScreenTimeout;
+    }
+
+    if (!$dara.isNull(request.mainBizType)) {
+      body["MainBizType"] = request.mainBizType;
+    }
+
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.powerButtonDefine)) {
+    if (!$dara.isNull(request.powerButtonDefine)) {
       body["PowerButtonDefine"] = request.powerButtonDefine;
     }
 
-    if (!Util.isUnset(request.powerButtonDefineForAs)) {
+    if (!$dara.isNull(request.powerButtonDefineForAs)) {
       body["PowerButtonDefineForAs"] = request.powerButtonDefineForAs;
     }
 
-    if (!Util.isUnset(request.powerButtonDefineForNs)) {
+    if (!$dara.isNull(request.powerButtonDefineForNs)) {
       body["PowerButtonDefineForNs"] = request.powerButtonDefineForNs;
     }
 
-    if (!Util.isUnset(request.powerOnBehavior)) {
+    if (!$dara.isNull(request.powerOnBehavior)) {
       body["PowerOnBehavior"] = request.powerOnBehavior;
     }
 
-    if (!Util.isUnset(request.scheduledReboot)) {
+    if (!$dara.isNull(request.runningMode)) {
+      body["RunningMode"] = request.runningMode;
+    }
+
+    if (!$dara.isNull(request.scheduledReboot)) {
       body["ScheduledReboot"] = request.scheduledReboot;
     }
 
-    if (!Util.isUnset(request.scheduledShutdown)) {
+    if (!$dara.isNull(request.scheduledShutdown)) {
       body["ScheduledShutdown"] = request.scheduledShutdown;
     }
 
-    if (!Util.isUnset(request.settingLock)) {
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.screenCastResPaths)) {
+      bodyFlat["ScreenCastResPaths"] = request.screenCastResPaths;
+    }
+
+    if (!$dara.isNull(request.settingLock)) {
       body["SettingLock"] = request.settingLock;
     }
 
-    if (!Util.isUnset(request.terminalPolicyId)) {
+    if (!$dara.isNull(request.terminalPolicyId)) {
       body["TerminalPolicyId"] = request.terminalPolicyId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.unlockMethod)) {
+      body["UnlockMethod"] = request.unlockMethod;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateTerminalPolicy",
       version: "2021-04-20",
       protocol: "HTTPS",
@@ -12466,7 +4446,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateTerminalPolicyResponse>(await this.callApi(params, req, runtime), new UpdateTerminalPolicyResponse({}));
+    return $dara.cast<$_model.UpdateTerminalPolicyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTerminalPolicyResponse({}));
   }
 
   /**
@@ -12475,8 +4455,8 @@ export default class Client extends OpenApi {
    * @param request - UpdateTerminalPolicyRequest
    * @returns UpdateTerminalPolicyResponse
    */
-  async updateTerminalPolicy(request: UpdateTerminalPolicyRequest): Promise<UpdateTerminalPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateTerminalPolicy(request: $_model.UpdateTerminalPolicyRequest): Promise<$_model.UpdateTerminalPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTerminalPolicyWithOptions(request, runtime);
   }
 
