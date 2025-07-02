@@ -291,6 +291,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取作业批改结果
+   * 
+   * @param request - GetEssayCorrectionTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEssayCorrectionTaskResponse
+   */
+  async getEssayCorrectionTaskWithOptions(workspaceId: string, request: $_model.GetEssayCorrectionTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetEssayCorrectionTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetEssayCorrectionTask",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/getEssayCorrectionTask`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetEssayCorrectionTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetEssayCorrectionTaskResponse({}));
+  }
+
+  /**
+   * 获取作业批改结果
+   * 
+   * @param request - GetEssayCorrectionTaskRequest
+   * @returns GetEssayCorrectionTaskResponse
+   */
+  async getEssayCorrectionTask(workspaceId: string, request: $_model.GetEssayCorrectionTaskRequest): Promise<$_model.GetEssayCorrectionTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getEssayCorrectionTaskWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 获取挖掘分析任务结果
    * 
    * @param request - GetTagMiningAnalysisTaskRequest
@@ -663,6 +708,75 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runEnterpriseVocAnalysisWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 作业批改
+   * 
+   * @param request - RunEssayCorrectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunEssayCorrectionResponse
+   */
+  async runEssayCorrectionWithOptions(workspaceId: string, request: $_model.RunEssayCorrectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunEssayCorrectionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.answer)) {
+      body["answer"] = request.answer;
+    }
+
+    if (!$dara.isNull(request.grade)) {
+      body["grade"] = request.grade;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.otherReviewPoints)) {
+      body["otherReviewPoints"] = request.otherReviewPoints;
+    }
+
+    if (!$dara.isNull(request.question)) {
+      body["question"] = request.question;
+    }
+
+    if (!$dara.isNull(request.subject)) {
+      body["subject"] = request.subject;
+    }
+
+    if (!$dara.isNull(request.totalScore)) {
+      body["totalScore"] = request.totalScore;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunEssayCorrection",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runEssayCorrection`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunEssayCorrectionResponse>(await this.callApi(params, req, runtime), new $_model.RunEssayCorrectionResponse({}));
+  }
+
+  /**
+   * 作业批改
+   * 
+   * @param request - RunEssayCorrectionRequest
+   * @returns RunEssayCorrectionResponse
+   */
+  async runEssayCorrection(workspaceId: string, request: $_model.RunEssayCorrectionRequest): Promise<$_model.RunEssayCorrectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runEssayCorrectionWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -1048,6 +1162,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runNetworkContentAuditWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 作业批改
+   * 
+   * @param request - RunOcrParseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunOcrParseResponse
+   */
+  async runOcrParseWithOptions(workspaceId: string, request: $_model.RunOcrParseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunOcrParseResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileKey)) {
+      body["fileKey"] = request.fileKey;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      body["url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunOcrParse",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runOcrParse`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunOcrParseResponse>(await this.callApi(params, req, runtime), new $_model.RunOcrParseResponse({}));
+  }
+
+  /**
+   * 作业批改
+   * 
+   * @param request - RunOcrParseRequest
+   * @returns RunOcrParseResponse
+   */
+  async runOcrParse(workspaceId: string, request: $_model.RunOcrParseRequest): Promise<$_model.RunOcrParseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runOcrParseWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -1664,6 +1831,81 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.submitEnterpriseVocAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 提交批改任务
+   * 
+   * @param tmpReq - SubmitEssayCorrectionTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitEssayCorrectionTaskResponse
+   */
+  async submitEssayCorrectionTaskWithOptions(workspaceId: string, tmpReq: $_model.SubmitEssayCorrectionTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitEssayCorrectionTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitEssayCorrectionTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tasks)) {
+      request.tasksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tasks, "tasks", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.grade)) {
+      body["grade"] = request.grade;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.otherReviewPoints)) {
+      body["otherReviewPoints"] = request.otherReviewPoints;
+    }
+
+    if (!$dara.isNull(request.question)) {
+      body["question"] = request.question;
+    }
+
+    if (!$dara.isNull(request.subject)) {
+      body["subject"] = request.subject;
+    }
+
+    if (!$dara.isNull(request.tasksShrink)) {
+      body["tasks"] = request.tasksShrink;
+    }
+
+    if (!$dara.isNull(request.totalScore)) {
+      body["totalScore"] = request.totalScore;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitEssayCorrectionTask",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/submitEssayCorrectionTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitEssayCorrectionTaskResponse>(await this.callApi(params, req, runtime), new $_model.SubmitEssayCorrectionTaskResponse({}));
+  }
+
+  /**
+   * 提交批改任务
+   * 
+   * @param request - SubmitEssayCorrectionTaskRequest
+   * @returns SubmitEssayCorrectionTaskResponse
+   */
+  async submitEssayCorrectionTask(workspaceId: string, request: $_model.SubmitEssayCorrectionTaskRequest): Promise<$_model.SubmitEssayCorrectionTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitEssayCorrectionTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
