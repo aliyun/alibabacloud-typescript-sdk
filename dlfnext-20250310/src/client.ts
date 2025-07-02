@@ -912,6 +912,10 @@ export default class Client extends OpenApi {
       query["database"] = request.database;
     }
 
+    if (!$dara.isNull(request.function)) {
+      query["function"] = request.function;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
     }
@@ -930,6 +934,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.table)) {
       query["table"] = request.table;
+    }
+
+    if (!$dara.isNull(request.view)) {
+      query["view"] = request.view;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

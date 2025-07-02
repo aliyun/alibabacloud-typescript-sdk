@@ -1,3 +1,4 @@
+export { PermissionColumns } from './PermissionColumns';
 export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBodyRegions';
 export { Catalog } from './Catalog';
 export { CatalogSummary } from './CatalogSummary';

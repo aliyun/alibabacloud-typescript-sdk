@@ -8,6 +8,7 @@ export class ListPermissionsRequest extends $dara.Model {
    * database_name
    */
   database?: string;
+  function?: string;
   /**
    * @example
    * 1000
@@ -36,25 +37,30 @@ export class ListPermissionsRequest extends $dara.Model {
    * table_name
    */
   table?: string;
+  view?: string;
   static names(): { [key: string]: string } {
     return {
       database: 'database',
+      function: 'function',
       maxResults: 'maxResults',
       pageToken: 'pageToken',
       principal: 'principal',
       resourceType: 'resourceType',
       table: 'table',
+      view: 'view',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       database: 'string',
+      function: 'string',
       maxResults: 'number',
       pageToken: 'string',
       principal: 'string',
       resourceType: 'string',
       table: 'string',
+      view: 'string',
     };
   }
 
