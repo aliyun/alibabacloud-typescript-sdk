@@ -26,14 +26,6 @@ export class InsertContentWithOptionsRequest extends $dara.Model {
    */
   index?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * union_id
-   */
-  operatorId?: string;
-  /**
    * @example
    * [0,0]
    */
@@ -44,7 +36,6 @@ export class InsertContentWithOptionsRequest extends $dara.Model {
       content: 'Content',
       documentId: 'DocumentId',
       index: 'Index',
-      operatorId: 'OperatorId',
       path: 'Path',
       tenantContext: 'TenantContext',
     };
@@ -55,7 +46,6 @@ export class InsertContentWithOptionsRequest extends $dara.Model {
       content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       documentId: 'string',
       index: 'number',
-      operatorId: 'string',
       path: { 'type': 'array', 'itemType': 'number' },
       tenantContext: InsertContentWithOptionsRequestTenantContext,
     };

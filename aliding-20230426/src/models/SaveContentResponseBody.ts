@@ -11,6 +11,7 @@ export class SaveContentResponseBody extends $dara.Model {
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
+  result?: string;
   /**
    * @example
    * true
@@ -19,6 +20,7 @@ export class SaveContentResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       requestId: 'requestId',
+      result: 'result',
       success: 'success',
     };
   }
@@ -26,6 +28,7 @@ export class SaveContentResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      result: 'string',
       success: 'boolean',
     };
   }

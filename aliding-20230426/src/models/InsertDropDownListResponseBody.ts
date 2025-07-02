@@ -2,34 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateReportResponseBody extends $dara.Model {
+export class InsertDropDownListResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * requestId
-   * 
+   * @example
+   * A3:C3
+   */
+  a1Notation?: string;
+  /**
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  result?: string;
   /**
    * @example
-   * true
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
-  success?: boolean;
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
   static names(): { [key: string]: string } {
     return {
+      a1Notation: 'a1Notation',
       requestId: 'requestId',
-      result: 'result',
-      success: 'success',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      a1Notation: 'string',
       requestId: 'string',
-      result: 'string',
-      success: 'boolean',
+      vendorRequestId: 'string',
+      vendorType: 'string',
     };
   }
 

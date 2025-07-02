@@ -2,51 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InsertContentWithOptionsShrinkRequest extends $dara.Model {
+export class InsertDropDownListShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  optionsShrink?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * content
+   * A3:C3
    */
-  contentShrink?: string;
+  rangeAddress?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * documentId
+   * Sheet1
    */
-  documentId?: string;
-  /**
-   * @example
-   * 1
-   */
-  index?: number;
-  /**
-   * @example
-   * [0,0]
-   */
-  pathShrink?: string;
+  sheetId?: string;
   tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stxxxx
+   */
+  workbookId?: string;
   static names(): { [key: string]: string } {
     return {
-      contentShrink: 'Content',
-      documentId: 'DocumentId',
-      index: 'Index',
-      pathShrink: 'Path',
+      optionsShrink: 'Options',
+      rangeAddress: 'RangeAddress',
+      sheetId: 'SheetId',
       tenantContextShrink: 'TenantContext',
+      workbookId: 'WorkbookId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      contentShrink: 'string',
-      documentId: 'string',
-      index: 'number',
-      pathShrink: 'string',
+      optionsShrink: 'string',
+      rangeAddress: 'string',
+      sheetId: 'string',
       tenantContextShrink: 'string',
+      workbookId: 'string',
     };
   }
 

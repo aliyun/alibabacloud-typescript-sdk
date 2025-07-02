@@ -2,34 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateReportResponseBody extends $dara.Model {
+export class InsertDropDownListHeadersAccountContext extends $dara.Model {
   /**
    * @remarks
-   * requestId
+   * This parameter is required.
    * 
    * @example
-   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   * 012345
    */
-  requestId?: string;
-  result?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
+  accountId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
-      result: 'result',
-      success: 'success',
+      accountId: 'accountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      result: 'string',
-      success: 'boolean',
+      accountId: 'string',
     };
   }
 

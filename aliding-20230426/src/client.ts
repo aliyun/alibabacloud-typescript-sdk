@@ -11720,10 +11720,6 @@ export default class Client extends OpenApi {
       body["Index"] = request.index;
     }
 
-    if (!$dara.isNull(request.operatorId)) {
-      body["OperatorId"] = request.operatorId;
-    }
-
     if (!$dara.isNull(request.pathShrink)) {
       body["Path"] = request.pathShrink;
     }
@@ -11769,6 +11765,92 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.InsertContentWithOptionsHeaders({ });
     return await this.insertContentWithOptionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 插入下拉列表
+   * 
+   * @param tmpReq - InsertDropDownListRequest
+   * @param tmpHeader - InsertDropDownListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InsertDropDownListResponse
+   */
+  async insertDropDownListWithOptions(tmpReq: $_model.InsertDropDownListRequest, tmpHeader: $_model.InsertDropDownListHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.InsertDropDownListResponse> {
+    tmpReq.validate();
+    let request = new $_model.InsertDropDownListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.InsertDropDownListShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.options)) {
+      request.optionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.options, "Options", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.optionsShrink)) {
+      body["Options"] = request.optionsShrink;
+    }
+
+    if (!$dara.isNull(request.rangeAddress)) {
+      body["RangeAddress"] = request.rangeAddress;
+    }
+
+    if (!$dara.isNull(request.sheetId)) {
+      body["SheetId"] = request.sheetId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.workbookId)) {
+      body["WorkbookId"] = request.workbookId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InsertDropDownList",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/insertDropDownList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InsertDropDownListResponse>(await this.callApi(params, req, runtime), new $_model.InsertDropDownListResponse({}));
+  }
+
+  /**
+   * 插入下拉列表
+   * 
+   * @param request - InsertDropDownListRequest
+   * @returns InsertDropDownListResponse
+   */
+  async insertDropDownList(request: $_model.InsertDropDownListRequest): Promise<$_model.InsertDropDownListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.InsertDropDownListHeaders({ });
+    return await this.insertDropDownListWithOptions(request, headers, runtime);
   }
 
   /**

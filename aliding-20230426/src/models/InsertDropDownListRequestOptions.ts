@@ -2,34 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateReportResponseBody extends $dara.Model {
+export class InsertDropDownListRequestOptions extends $dara.Model {
   /**
    * @remarks
-   * requestId
+   * This parameter is required.
    * 
    * @example
-   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   * #FF0000
    */
-  requestId?: string;
-  result?: string;
+  color?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * true
+   * A
    */
-  success?: boolean;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
-      result: 'result',
-      success: 'success',
+      color: 'Color',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      result: 'string',
-      success: 'boolean',
+      color: 'string',
+      value: 'string',
     };
   }
 

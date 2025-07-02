@@ -556,6 +556,9 @@ export { InsertColumnsBeforeHeadersAccountContext } from './InsertColumnsBeforeH
 export { InsertColumnsBeforeRequestTenantContext } from './InsertColumnsBeforeRequestTenantContext';
 export { InsertContentWithOptionsHeadersAccountContext } from './InsertContentWithOptionsHeadersAccountContext';
 export { InsertContentWithOptionsRequestTenantContext } from './InsertContentWithOptionsRequestTenantContext';
+export { InsertDropDownListHeadersAccountContext } from './InsertDropDownListHeadersAccountContext';
+export { InsertDropDownListRequestOptions } from './InsertDropDownListRequestOptions';
+export { InsertDropDownListRequestTenantContext } from './InsertDropDownListRequestTenantContext';
 export { InsertMultiDimTableRecordHeadersAccountContext } from './InsertMultiDimTableRecordHeadersAccountContext';
 export { InsertMultiDimTableRecordRequestRecords } from './InsertMultiDimTableRecordRequestRecords';
 export { InsertMultiDimTableRecordRequestTenantContext } from './InsertMultiDimTableRecordRequestTenantContext';
@@ -1815,6 +1818,12 @@ export { InsertContentWithOptionsRequest } from './InsertContentWithOptionsReque
 export { InsertContentWithOptionsShrinkRequest } from './InsertContentWithOptionsShrinkRequest';
 export { InsertContentWithOptionsResponseBody } from './InsertContentWithOptionsResponseBody';
 export { InsertContentWithOptionsResponse } from './InsertContentWithOptionsResponse';
+export { InsertDropDownListHeaders } from './InsertDropDownListHeaders';
+export { InsertDropDownListShrinkHeaders } from './InsertDropDownListShrinkHeaders';
+export { InsertDropDownListRequest } from './InsertDropDownListRequest';
+export { InsertDropDownListShrinkRequest } from './InsertDropDownListShrinkRequest';
+export { InsertDropDownListResponseBody } from './InsertDropDownListResponseBody';
+export { InsertDropDownListResponse } from './InsertDropDownListResponse';
 export { InsertMultiDimTableRecordHeaders } from './InsertMultiDimTableRecordHeaders';
 export { InsertMultiDimTableRecordShrinkHeaders } from './InsertMultiDimTableRecordShrinkHeaders';
 export { InsertMultiDimTableRecordRequest } from './InsertMultiDimTableRecordRequest';
