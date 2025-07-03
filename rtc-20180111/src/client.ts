@@ -140,6 +140,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建应用智能体模版
+   * 
+   * @param tmpReq - CreateAppAgentTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppAgentTemplateResponse
+   */
+  async createAppAgentTemplateWithOptions(tmpReq: $_model.CreateAppAgentTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppAgentTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAppAgentTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.asrConfig)) {
+      request.asrConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.asrConfig, "AsrConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.llmConfig)) {
+      request.llmConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.llmConfig, "LlmConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.ttsConfig)) {
+      request.ttsConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ttsConfig, "TtsConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.asrConfigShrink)) {
+      query["AsrConfig"] = request.asrConfigShrink;
+    }
+
+    if (!$dara.isNull(request.chatMode)) {
+      query["ChatMode"] = request.chatMode;
+    }
+
+    if (!$dara.isNull(request.greeting)) {
+      query["Greeting"] = request.greeting;
+    }
+
+    if (!$dara.isNull(request.interruptMode)) {
+      query["InterruptMode"] = request.interruptMode;
+    }
+
+    if (!$dara.isNull(request.llmConfigShrink)) {
+      query["LlmConfig"] = request.llmConfigShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ttsConfigShrink)) {
+      query["TtsConfig"] = request.ttsConfigShrink;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAppAgentTemplate",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAppAgentTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateAppAgentTemplateResponse({}));
+  }
+
+  /**
+   * 创建应用智能体模版
+   * 
+   * @param request - CreateAppAgentTemplateRequest
+   * @returns CreateAppAgentTemplateResponse
+   */
+  async createAppAgentTemplate(request: $_model.CreateAppAgentTemplateRequest): Promise<$_model.CreateAppAgentTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAppAgentTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * 新增app自定义布局
    * 
    * @param tmpReq - CreateAppLayoutRequest
@@ -543,6 +631,52 @@ export default class Client extends OpenApi {
   async createMPULayout(request: $_model.CreateMPULayoutRequest): Promise<$_model.CreateMPULayoutResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createMPULayoutWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除应用智能体模版
+   * 
+   * @param request - DeleteAppAgentTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppAgentTemplateResponse
+   */
+  async deleteAppAgentTemplateWithOptions(request: $_model.DeleteAppAgentTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAppAgentTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAppAgentTemplate",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAppAgentTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAppAgentTemplateResponse({}));
+  }
+
+  /**
+   * 删除应用智能体模版
+   * 
+   * @param request - DeleteAppAgentTemplateRequest
+   * @returns DeleteAppAgentTemplateResponse
+   */
+  async deleteAppAgentTemplate(request: $_model.DeleteAppAgentTemplateRequest): Promise<$_model.DeleteAppAgentTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAppAgentTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -1021,6 +1155,106 @@ export default class Client extends OpenApi {
   async describeAllCallback(): Promise<$_model.DescribeAllCallbackResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAllCallbackWithOptions(runtime);
+  }
+
+  /**
+   * 查询应用智能体开关
+   * 
+   * @param request - DescribeAppAgentFunctionStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppAgentFunctionStatusResponse
+   */
+  async describeAppAgentFunctionStatusWithOptions(request: $_model.DescribeAppAgentFunctionStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAppAgentFunctionStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAppAgentFunctionStatus",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAppAgentFunctionStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAppAgentFunctionStatusResponse({}));
+  }
+
+  /**
+   * 查询应用智能体开关
+   * 
+   * @param request - DescribeAppAgentFunctionStatusRequest
+   * @returns DescribeAppAgentFunctionStatusResponse
+   */
+  async describeAppAgentFunctionStatus(request: $_model.DescribeAppAgentFunctionStatusRequest): Promise<$_model.DescribeAppAgentFunctionStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAppAgentFunctionStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 应用智能体模版列表
+   * 
+   * @param request - DescribeAppAgentTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppAgentTemplatesResponse
+   */
+  async describeAppAgentTemplatesWithOptions(request: $_model.DescribeAppAgentTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAppAgentTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAppAgentTemplates",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAppAgentTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAppAgentTemplatesResponse({}));
+  }
+
+  /**
+   * 应用智能体模版列表
+   * 
+   * @param request - DescribeAppAgentTemplatesRequest
+   * @returns DescribeAppAgentTemplatesResponse
+   */
+  async describeAppAgentTemplates(request: $_model.DescribeAppAgentTemplatesRequest): Promise<$_model.DescribeAppAgentTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAppAgentTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -4046,6 +4280,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * GetAgent。
+   * 
+   * @param request - GetAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentResponse
+   */
+  async getAgentWithOptions(request: $_model.GetAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgent",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentResponse({}));
+  }
+
+  /**
+   * GetAgent。
+   * 
+   * @param request - GetAgentRequest
+   * @returns GetAgentResponse
+   */
+  async getAgent(request: $_model.GetAgentRequest): Promise<$_model.GetAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgentWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - GetMPUTaskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMPUTaskStatusResponse
@@ -4139,6 +4423,140 @@ export default class Client extends OpenApi {
   async modifyApp(request: $_model.ModifyAppRequest): Promise<$_model.ModifyAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改应用智能体开关
+   * 
+   * @param request - ModifyAppAgentFunctionStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppAgentFunctionStatusResponse
+   */
+  async modifyAppAgentFunctionStatusWithOptions(request: $_model.ModifyAppAgentFunctionStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAppAgentFunctionStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAppAgentFunctionStatus",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAppAgentFunctionStatusResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAppAgentFunctionStatusResponse({}));
+  }
+
+  /**
+   * 修改应用智能体开关
+   * 
+   * @param request - ModifyAppAgentFunctionStatusRequest
+   * @returns ModifyAppAgentFunctionStatusResponse
+   */
+  async modifyAppAgentFunctionStatus(request: $_model.ModifyAppAgentFunctionStatusRequest): Promise<$_model.ModifyAppAgentFunctionStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAppAgentFunctionStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新应用智能体模版
+   * 
+   * @param tmpReq - ModifyAppAgentTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppAgentTemplateResponse
+   */
+  async modifyAppAgentTemplateWithOptions(tmpReq: $_model.ModifyAppAgentTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAppAgentTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyAppAgentTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.asrConfig)) {
+      request.asrConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.asrConfig, "AsrConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.llmConfig)) {
+      request.llmConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.llmConfig, "LlmConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.ttsConfig)) {
+      request.ttsConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ttsConfig, "TtsConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.asrConfigShrink)) {
+      query["AsrConfig"] = request.asrConfigShrink;
+    }
+
+    if (!$dara.isNull(request.chatMode)) {
+      query["ChatMode"] = request.chatMode;
+    }
+
+    if (!$dara.isNull(request.greeting)) {
+      query["Greeting"] = request.greeting;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.interruptMode)) {
+      query["InterruptMode"] = request.interruptMode;
+    }
+
+    if (!$dara.isNull(request.llmConfigShrink)) {
+      query["LlmConfig"] = request.llmConfigShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ttsConfigShrink)) {
+      query["TtsConfig"] = request.ttsConfigShrink;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAppAgentTemplate",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAppAgentTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAppAgentTemplateResponse({}));
+  }
+
+  /**
+   * 更新应用智能体模版
+   * 
+   * @param request - ModifyAppAgentTemplateRequest
+   * @returns ModifyAppAgentTemplateResponse
+   */
+  async modifyAppAgentTemplate(request: $_model.ModifyAppAgentTemplateRequest): Promise<$_model.ModifyAppAgentTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAppAgentTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -4606,6 +5024,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * NotifyAgent
+   * 
+   * @param request - NotifyAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns NotifyAgentResponse
+   */
+  async notifyAgentWithOptions(request: $_model.NotifyAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.NotifyAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.customAttribute)) {
+      query["CustomAttribute"] = request.customAttribute;
+    }
+
+    if (!$dara.isNull(request.interruptable)) {
+      query["Interruptable"] = request.interruptable;
+    }
+
+    if (!$dara.isNull(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "NotifyAgent",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.NotifyAgentResponse>(await this.callApi(params, req, runtime), new $_model.NotifyAgentResponse({}));
+  }
+
+  /**
+   * NotifyAgent
+   * 
+   * @param request - NotifyAgentRequest
+   * @returns NotifyAgentResponse
+   */
+  async notifyAgent(request: $_model.NotifyAgentRequest): Promise<$_model.NotifyAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.notifyAgentWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - RemoveTerminalsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveTerminalsResponse
@@ -4703,6 +5187,78 @@ export default class Client extends OpenApi {
   async removeUsers(request: $_model.RemoveUsersRequest): Promise<$_model.RemoveUsersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeUsersWithOptions(request, runtime);
+  }
+
+  /**
+   * 启动AI Agent
+   * 
+   * @param tmpReq - StartAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartAgentResponse
+   */
+  async startAgentWithOptions(tmpReq: $_model.StartAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.StartAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.rtcConfig)) {
+      request.rtcConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rtcConfig, "RtcConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.voiceChatConfig)) {
+      request.voiceChatConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.voiceChatConfig, "VoiceChatConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.rtcConfigShrink)) {
+      query["RtcConfig"] = request.rtcConfigShrink;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.voiceChatConfigShrink)) {
+      query["VoiceChatConfig"] = request.voiceChatConfigShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartAgent",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartAgentResponse>(await this.callApi(params, req, runtime), new $_model.StartAgentResponse({}));
+  }
+
+  /**
+   * 启动AI Agent
+   * 
+   * @param request - StartAgentRequest
+   * @returns StartAgentResponse
+   */
+  async startAgent(request: $_model.StartAgentRequest): Promise<$_model.StartAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startAgentWithOptions(request, runtime);
   }
 
   /**
@@ -5393,6 +5949,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 停止AI Agent
+   * 
+   * @param request - StopAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopAgentResponse
+   */
+  async stopAgentWithOptions(request: $_model.StopAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopAgent",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopAgentResponse>(await this.callApi(params, req, runtime), new $_model.StopAgentResponse({}));
+  }
+
+  /**
+   * 停止AI Agent
+   * 
+   * @param request - StopAgentRequest
+   * @returns StopAgentResponse
+   */
+  async stopAgent(request: $_model.StopAgentRequest): Promise<$_model.StopAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopAgentWithOptions(request, runtime);
+  }
+
+  /**
    * 关闭某个事件回调
    * 
    * @param tmpReq - StopCategoryCallbackRequest
@@ -5734,6 +6340,66 @@ export default class Client extends OpenApi {
   async stopStreamingOut(request: $_model.StopStreamingOutRequest): Promise<$_model.StopStreamingOutResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopStreamingOutWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新AI Agent
+   * 
+   * @param tmpReq - UpdateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgentResponse
+   */
+  async updateAgentWithOptions(tmpReq: $_model.UpdateAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.voiceChatConfig)) {
+      request.voiceChatConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.voiceChatConfig, "VoiceChatConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.voiceChatConfigShrink)) {
+      query["VoiceChatConfig"] = request.voiceChatConfigShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAgent",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAgentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAgentResponse({}));
+  }
+
+  /**
+   * 更新AI Agent
+   * 
+   * @param request - UpdateAgentRequest
+   * @returns UpdateAgentResponse
+   */
+  async updateAgent(request: $_model.UpdateAgentRequest): Promise<$_model.UpdateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAgentWithOptions(request, runtime);
   }
 
   /**
