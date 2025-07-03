@@ -2,8 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetImageRequest extends $dara.Model {
-  additionalRegionIds?: string[];
+export class GetImageShrinkRequest extends $dara.Model {
+  additionalRegionIdsShrink?: string;
   imageCategory?: string;
   /**
    * @example
@@ -13,7 +13,7 @@ export class GetImageRequest extends $dara.Model {
   imageType?: string;
   static names(): { [key: string]: string } {
     return {
-      additionalRegionIds: 'AdditionalRegionIds',
+      additionalRegionIdsShrink: 'AdditionalRegionIds',
       imageCategory: 'ImageCategory',
       imageId: 'ImageId',
       imageType: 'ImageType',
@@ -22,7 +22,7 @@ export class GetImageRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      additionalRegionIds: { 'type': 'array', 'itemType': 'string' },
+      additionalRegionIdsShrink: 'string',
       imageCategory: 'string',
       imageId: 'string',
       imageType: 'string',
@@ -30,9 +30,6 @@ export class GetImageRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.additionalRegionIds)) {
-      $dara.Model.validateArray(this.additionalRegionIds);
-    }
     super.validate();
   }
 

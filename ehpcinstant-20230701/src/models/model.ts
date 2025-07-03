@@ -23,6 +23,7 @@ export { DeleteJobsRequestJobSpecTaskSpec } from './DeleteJobsRequestJobSpecTask
 export { DeleteJobsRequestJobSpec } from './DeleteJobsRequestJobSpec';
 export { DescribeJobMetricLastResponseBodyMetrics } from './DescribeJobMetricLastResponseBodyMetrics';
 export { GetAppVersionsResponseBodyAppVersions } from './GetAppVersionsResponseBodyAppVersions';
+export { GetImageResponseBodyImageAdditionalRegionsInfo } from './GetImageResponseBodyImageAdditionalRegionsInfo';
 export { GetImageResponseBodyImageContainerImageSpecRegistryCredential } from './GetImageResponseBodyImageContainerImageSpecRegistryCredential';
 export { GetImageResponseBodyImageContainerImageSpec } from './GetImageResponseBodyImageContainerImageSpec';
 export { GetImageResponseBodyImageDocumentInfo } from './GetImageResponseBodyImageDocumentInfo';
@@ -93,6 +94,7 @@ export { GetAppVersionsRequest } from './GetAppVersionsRequest';
 export { GetAppVersionsResponseBody } from './GetAppVersionsResponseBody';
 export { GetAppVersionsResponse } from './GetAppVersionsResponse';
 export { GetImageRequest } from './GetImageRequest';
+export { GetImageShrinkRequest } from './GetImageShrinkRequest';
 export { GetImageResponseBody } from './GetImageResponseBody';
 export { GetImageResponse } from './GetImageResponse';
 export { GetJobRequest } from './GetJobRequest';

@@ -508,13 +508,23 @@ export default class Client extends OpenApi {
   /**
    * 查询托管侧镜像详情。
    * 
-   * @param request - GetImageRequest
+   * @param tmpReq - GetImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetImageResponse
    */
-  async getImageWithOptions(request: $_model.GetImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetImageResponse> {
-    request.validate();
+  async getImageWithOptions(tmpReq: $_model.GetImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetImageResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetImageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.additionalRegionIds)) {
+      request.additionalRegionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.additionalRegionIds, "AdditionalRegionIds", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.additionalRegionIdsShrink)) {
+      query["AdditionalRegionIds"] = request.additionalRegionIdsShrink;
+    }
+
     if (!$dara.isNull(request.imageCategory)) {
       query["ImageCategory"] = request.imageCategory;
     }

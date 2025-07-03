@@ -1,11 +1,13 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { GetImageResponseBodyImageAdditionalRegionsInfo } from "./GetImageResponseBodyImageAdditionalRegionsInfo";
 import { GetImageResponseBodyImageContainerImageSpec } from "./GetImageResponseBodyImageContainerImageSpec";
 import { GetImageResponseBodyImageDocumentInfo } from "./GetImageResponseBodyImageDocumentInfo";
 import { GetImageResponseBodyImageVMImageSpec } from "./GetImageResponseBodyImageVmimageSpec";
 
 
 export class GetImageResponseBodyImage extends $dara.Model {
+  additionalRegionsInfo?: GetImageResponseBodyImageAdditionalRegionsInfo[];
   appId?: string;
   containerImageSpec?: GetImageResponseBodyImageContainerImageSpec;
   /**
@@ -42,6 +44,7 @@ export class GetImageResponseBodyImage extends $dara.Model {
   version?: string;
   static names(): { [key: string]: string } {
     return {
+      additionalRegionsInfo: 'AdditionalRegionsInfo',
       appId: 'AppId',
       containerImageSpec: 'ContainerImageSpec',
       createTime: 'CreateTime',
@@ -58,6 +61,7 @@ export class GetImageResponseBodyImage extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      additionalRegionsInfo: { 'type': 'array', 'itemType': GetImageResponseBodyImageAdditionalRegionsInfo },
       appId: 'string',
       containerImageSpec: GetImageResponseBodyImageContainerImageSpec,
       createTime: 'string',
@@ -73,6 +77,9 @@ export class GetImageResponseBodyImage extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.additionalRegionsInfo)) {
+      $dara.Model.validateArray(this.additionalRegionsInfo);
+    }
     if(this.containerImageSpec && typeof (this.containerImageSpec as any).validate === 'function') {
       (this.containerImageSpec as any).validate();
     }
