@@ -40,6 +40,7 @@ export class DescribeMetricsDataRequest extends $dara.Model {
    * 5
    */
   limit?: string;
+  metricScope?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -74,6 +75,7 @@ export class DescribeMetricsDataRequest extends $dara.Model {
       instanceId: 'InstanceId',
       labels: 'Labels',
       limit: 'Limit',
+      metricScope: 'MetricScope',
       metrics: 'Metrics',
       replicaType: 'ReplicaType',
       sortMetricKey: 'SortMetricKey',
@@ -89,6 +91,7 @@ export class DescribeMetricsDataRequest extends $dara.Model {
       instanceId: 'string',
       labels: 'string',
       limit: 'string',
+      metricScope: 'string',
       metrics: 'string',
       replicaType: 'string',
       sortMetricKey: 'string',

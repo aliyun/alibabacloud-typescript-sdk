@@ -24,6 +24,11 @@ export class ModifyTenantResourceRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * 10000
+   */
+  iops?: string;
+  /**
    * @remarks
    * The size of the log disk allocated to the tenant, in GB.
    * 
@@ -65,6 +70,7 @@ export class ModifyTenantResourceRequest extends $dara.Model {
     return {
       cpu: 'Cpu',
       instanceId: 'InstanceId',
+      iops: 'Iops',
       logDisk: 'LogDisk',
       memory: 'Memory',
       readOnlyZoneList: 'ReadOnlyZoneList',
@@ -76,6 +82,7 @@ export class ModifyTenantResourceRequest extends $dara.Model {
     return {
       cpu: 'number',
       instanceId: 'string',
+      iops: 'string',
       logDisk: 'number',
       memory: 'number',
       readOnlyZoneList: 'string',

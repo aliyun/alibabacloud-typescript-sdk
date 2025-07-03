@@ -76,6 +76,11 @@ export class DescribeTenantsResponseBodyTenants extends $dara.Model {
    */
   enableReadOnlyReplica?: boolean;
   /**
+   * @example
+   * 10000
+   */
+  iops?: number;
+  /**
    * @remarks
    * The total memory size of the tenant, in GB.
    * 
@@ -193,6 +198,7 @@ export class DescribeTenantsResponseBodyTenants extends $dara.Model {
       deployType: 'DeployType',
       description: 'Description',
       enableReadOnlyReplica: 'EnableReadOnlyReplica',
+      iops: 'Iops',
       mem: 'Mem',
       parameterTemplate: 'ParameterTemplate',
       primaryZone: 'PrimaryZone',
@@ -218,6 +224,7 @@ export class DescribeTenantsResponseBodyTenants extends $dara.Model {
       deployType: 'string',
       description: 'string',
       enableReadOnlyReplica: 'boolean',
+      iops: 'number',
       mem: 'number',
       parameterTemplate: 'string',
       primaryZone: 'string',

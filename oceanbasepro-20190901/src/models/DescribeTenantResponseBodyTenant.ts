@@ -151,6 +151,11 @@ export class DescribeTenantResponseBodyTenant extends $dara.Model {
    */
   instanceType?: string;
   /**
+   * @example
+   * 10000
+   */
+  iops?: number;
+  /**
    * @remarks
    * Indicates whether the table name is case-sensitive. Valid values: 
    * * **1**: The table name is case-insensitive. 
@@ -380,6 +385,7 @@ export class DescribeTenantResponseBodyTenant extends $dara.Model {
       enableReadOnlyReplica: 'EnableReadOnlyReplica',
       enableReadWriteSplit: 'EnableReadWriteSplit',
       instanceType: 'InstanceType',
+      iops: 'Iops',
       lowerCaseTableNames: 'LowerCaseTableNames',
       masterIntranetAddressZone: 'MasterIntranetAddressZone',
       maxParallelQueryDegree: 'MaxParallelQueryDegree',
@@ -424,6 +430,7 @@ export class DescribeTenantResponseBodyTenant extends $dara.Model {
       enableReadOnlyReplica: 'boolean',
       enableReadWriteSplit: 'boolean',
       instanceType: 'string',
+      iops: 'number',
       lowerCaseTableNames: 'number',
       masterIntranetAddressZone: 'string',
       maxParallelQueryDegree: 'number',

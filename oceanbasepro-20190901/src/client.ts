@@ -3118,6 +3118,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.metricScope)) {
+      body["MetricScope"] = request.metricScope;
+    }
+
     if (!$dara.isNull(request.replicaType)) {
       body["ReplicaType"] = request.replicaType;
     }
@@ -5043,6 +5047,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.operatorType)) {
+      body["OperatorType"] = request.operatorType;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -7197,6 +7205,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.iops)) {
+      body["Iops"] = request.iops;
     }
 
     if (!$dara.isNull(request.logDisk)) {

@@ -13,6 +13,7 @@ export class DescribeSqlAuditStatRequest extends $dara.Model {
    * ob317v4uif****
    */
   instanceId?: string;
+  operatorType?: string;
   /**
    * @example
    * 1
@@ -37,6 +38,7 @@ export class DescribeSqlAuditStatRequest extends $dara.Model {
     return {
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      operatorType: 'OperatorType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       startTime: 'StartTime',
@@ -48,6 +50,7 @@ export class DescribeSqlAuditStatRequest extends $dara.Model {
     return {
       endTime: 'string',
       instanceId: 'string',
+      operatorType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       startTime: 'string',

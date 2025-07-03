@@ -13,10 +13,12 @@ export class DescribeSqlAuditStatResponseBody extends $dara.Model {
    * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
    */
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -24,6 +26,7 @@ export class DescribeSqlAuditStatResponseBody extends $dara.Model {
     return {
       data: { 'type': 'array', 'itemType': DescribeSqlAuditStatResponseBodyData },
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 

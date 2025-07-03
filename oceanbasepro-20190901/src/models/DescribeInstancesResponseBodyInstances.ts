@@ -177,6 +177,11 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
    */
   instanceType?: string;
   /**
+   * @example
+   * 10000
+   */
+  iops?: number;
+  /**
    * @remarks
    * The time period in UTC for the daily routine maintenance of the cluster.
    * 
@@ -345,6 +350,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
       instanceName: 'InstanceName',
       instanceRole: 'InstanceRole',
       instanceType: 'InstanceType',
+      iops: 'Iops',
       maintainTime: 'MaintainTime',
       mem: 'Mem',
       migratable: 'Migratable',
@@ -385,6 +391,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
       instanceName: 'string',
       instanceRole: 'string',
       instanceType: 'string',
+      iops: 'number',
       maintainTime: 'string',
       mem: 'number',
       migratable: 'boolean',

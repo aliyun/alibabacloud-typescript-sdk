@@ -221,6 +221,11 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
    */
   instanceRole?: string;
   /**
+   * @example
+   * 10000
+   */
+  iops?: number;
+  /**
    * @remarks
    * Indicates whether the OBServer version is the latest.
    * 
@@ -440,6 +445,7 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       instanceRole: 'InstanceRole',
+      iops: 'Iops',
       isLatestObVersion: 'IsLatestObVersion',
       isTrustEcs: 'IsTrustEcs',
       isolationOptimization: 'IsolationOptimization',
@@ -492,6 +498,7 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
       instanceId: 'string',
       instanceName: 'string',
       instanceRole: 'string',
+      iops: 'number',
       isLatestObVersion: 'boolean',
       isTrustEcs: 'boolean',
       isolationOptimization: 'boolean',
