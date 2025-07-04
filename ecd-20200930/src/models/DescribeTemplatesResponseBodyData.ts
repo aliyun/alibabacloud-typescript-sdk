@@ -7,6 +7,9 @@ import { DescribeTemplatesResponseBodyDataSiteConfigList } from "./DescribeTempl
 
 
 export class DescribeTemplatesResponseBodyData extends $dara.Model {
+  autoPay?: boolean;
+  autoRenew?: boolean;
+  chargeType?: string;
   dataDiskList?: DescribeTemplatesResponseBodyDataDataDiskList[];
   /**
    * @example
@@ -34,11 +37,14 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
    * User
    */
   imageType?: string;
+  period?: number;
+  periodUnit?: string;
   /**
    * @example
    * pg-0caoeogkhz*****
    */
   policyGroupId?: string;
+  postPaidAfterUsedUp?: boolean;
   /**
    * @example
    * CLOUD_DESKTOP
@@ -83,8 +89,12 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
    * bcc-dweha*****
    */
   timerGroupId?: string;
+  userDuration?: string;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      chargeType: 'ChargeType',
       dataDiskList: 'DataDiskList',
       defaultLanguage: 'DefaultLanguage',
       description: 'Description',
@@ -92,7 +102,10 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
       gmtModified: 'GmtModified',
       imageId: 'ImageId',
       imageType: 'ImageType',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
+      postPaidAfterUsedUp: 'PostPaidAfterUsedUp',
       productType: 'ProductType',
       regionConfigList: 'RegionConfigList',
       requestId: 'RequestId',
@@ -105,11 +118,15 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
       templateName: 'TemplateName',
       templateType: 'TemplateType',
       timerGroupId: 'TimerGroupId',
+      userDuration: 'UserDuration',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      chargeType: 'string',
       dataDiskList: { 'type': 'array', 'itemType': DescribeTemplatesResponseBodyDataDataDiskList },
       defaultLanguage: 'string',
       description: 'string',
@@ -117,7 +134,10 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
       gmtModified: 'string',
       imageId: 'string',
       imageType: 'string',
+      period: 'number',
+      periodUnit: 'string',
       policyGroupId: 'string',
+      postPaidAfterUsedUp: 'boolean',
       productType: 'string',
       regionConfigList: { 'type': 'array', 'itemType': DescribeTemplatesResponseBodyDataRegionConfigList },
       requestId: 'string',
@@ -130,6 +150,7 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
       templateName: 'string',
       templateType: 'string',
       timerGroupId: 'string',
+      userDuration: 'string',
     };
   }
 

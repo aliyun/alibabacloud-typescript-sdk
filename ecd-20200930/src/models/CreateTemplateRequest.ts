@@ -7,11 +7,14 @@ import { CreateTemplateRequestSiteConfigList } from "./CreateTemplateRequestSite
 
 
 export class CreateTemplateRequest extends $dara.Model {
+  autoPay?: boolean;
+  autoRenew?: boolean;
   /**
    * @example
    * 1
    */
   bizType?: string;
+  chargeType?: string;
   dataDiskList?: CreateTemplateRequestDataDiskList[];
   /**
    * @example
@@ -24,11 +27,14 @@ export class CreateTemplateRequest extends $dara.Model {
    * desktopimage-windows-server-2022-64-asp
    */
   imageId?: string;
+  period?: number;
+  periodUnit?: string;
   /**
    * @example
    * pg-8hlryfn331******
    */
   policyGroupId?: string;
+  postPaidAfterUsedUp?: boolean;
   /**
    * @example
    * CloudDesktop
@@ -62,14 +68,21 @@ export class CreateTemplateRequest extends $dara.Model {
    * ccg-0caoeogrk9m5****
    */
   timerGroupId?: string;
+  userDuration?: number;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
       bizType: 'BizType',
+      chargeType: 'ChargeType',
       dataDiskList: 'DataDiskList',
       defaultLanguage: 'DefaultLanguage',
       description: 'Description',
       imageId: 'ImageId',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
+      postPaidAfterUsedUp: 'PostPaidAfterUsedUp',
       productType: 'ProductType',
       regionConfigList: 'RegionConfigList',
       resourceGroupId: 'ResourceGroupId',
@@ -79,17 +92,24 @@ export class CreateTemplateRequest extends $dara.Model {
       systemDiskSize: 'SystemDiskSize',
       templateName: 'TemplateName',
       timerGroupId: 'TimerGroupId',
+      userDuration: 'UserDuration',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
       bizType: 'string',
+      chargeType: 'string',
       dataDiskList: { 'type': 'array', 'itemType': CreateTemplateRequestDataDiskList },
       defaultLanguage: 'string',
       description: 'string',
       imageId: 'string',
+      period: 'number',
+      periodUnit: 'string',
       policyGroupId: 'string',
+      postPaidAfterUsedUp: 'boolean',
       productType: 'string',
       regionConfigList: { 'type': 'array', 'itemType': CreateTemplateRequestRegionConfigList },
       resourceGroupId: 'string',
@@ -99,6 +119,7 @@ export class CreateTemplateRequest extends $dara.Model {
       systemDiskSize: 'number',
       templateName: 'string',
       timerGroupId: 'string',
+      userDuration: 'number',
     };
   }
 

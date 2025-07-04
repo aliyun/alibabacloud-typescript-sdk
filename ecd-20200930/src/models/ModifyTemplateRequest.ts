@@ -6,6 +6,9 @@ import { ModifyTemplateRequestSiteConfigList } from "./ModifyTemplateRequestSite
 
 
 export class ModifyTemplateRequest extends $dara.Model {
+  autoPay?: boolean;
+  autoRenew?: boolean;
+  chargeType?: string;
   /**
    * @example
    * zh-CN
@@ -21,11 +24,14 @@ export class ModifyTemplateRequest extends $dara.Model {
    * m-gx2x1dhsmusr2****
    */
   imageId?: string;
+  period?: number;
+  periodUnit?: string;
   /**
    * @example
    * pg-gx2x1dhsmthe9****
    */
   policyGroupId?: string;
+  postPaidAfterUsedUp?: boolean;
   regionConfigList?: ModifyTemplateRequestRegionConfigList[];
   /**
    * @example
@@ -58,12 +64,19 @@ export class ModifyTemplateRequest extends $dara.Model {
    * bcc-dweha*****
    */
   timerGroupId?: string;
+  userDuration?: number;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      chargeType: 'ChargeType',
       defaultLanguage: 'DefaultLanguage',
       description: 'Description',
       imageId: 'ImageId',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
+      postPaidAfterUsedUp: 'PostPaidAfterUsedUp',
       regionConfigList: 'RegionConfigList',
       resourceGroupId: 'ResourceGroupId',
       resourceTagList: 'ResourceTagList',
@@ -73,15 +86,22 @@ export class ModifyTemplateRequest extends $dara.Model {
       templateId: 'TemplateId',
       templateName: 'TemplateName',
       timerGroupId: 'TimerGroupId',
+      userDuration: 'UserDuration',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      chargeType: 'string',
       defaultLanguage: 'string',
       description: 'string',
       imageId: 'string',
+      period: 'number',
+      periodUnit: 'string',
       policyGroupId: 'string',
+      postPaidAfterUsedUp: 'boolean',
       regionConfigList: { 'type': 'array', 'itemType': ModifyTemplateRequestRegionConfigList },
       resourceGroupId: 'string',
       resourceTagList: { 'type': 'array', 'itemType': ModifyTemplateRequestResourceTagList },
@@ -91,6 +111,7 @@ export class ModifyTemplateRequest extends $dara.Model {
       templateId: 'string',
       templateName: 'string',
       timerGroupId: 'string',
+      userDuration: 'number',
     };
   }
 

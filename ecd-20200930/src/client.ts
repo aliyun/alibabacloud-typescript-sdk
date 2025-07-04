@@ -4268,8 +4268,20 @@ export default class Client extends OpenApi {
   async createTemplateWithOptions(request: $_model.CreateTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTemplateResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoPay)) {
+      body["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      body["AutoRenew"] = request.autoRenew;
+    }
+
     if (!$dara.isNull(request.bizType)) {
       body["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      body["ChargeType"] = request.chargeType;
     }
 
     let bodyFlat : {[key: string ]: any} = { };
@@ -4289,8 +4301,20 @@ export default class Client extends OpenApi {
       body["ImageId"] = request.imageId;
     }
 
+    if (!$dara.isNull(request.period)) {
+      body["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      body["PeriodUnit"] = request.periodUnit;
+    }
+
     if (!$dara.isNull(request.policyGroupId)) {
       body["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!$dara.isNull(request.postPaidAfterUsedUp)) {
+      body["PostPaidAfterUsedUp"] = request.postPaidAfterUsedUp;
     }
 
     if (!$dara.isNull(request.productType)) {
@@ -4327,6 +4351,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.timerGroupId)) {
       body["TimerGroupId"] = request.timerGroupId;
+    }
+
+    if (!$dara.isNull(request.userDuration)) {
+      body["UserDuration"] = request.userDuration;
     }
 
     body = {
@@ -14272,12 +14300,19 @@ export default class Client extends OpenApi {
    */
   async modifyTemplateWithOptions(request: $_model.ModifyTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyTemplateResponse> {
     request.validate();
-    let query = { };
-    if (!$dara.isNull(request.siteConfigList)) {
-      query["SiteConfigList"] = request.siteConfigList;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoPay)) {
+      body["AutoPay"] = request.autoPay;
     }
 
-    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      body["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      body["ChargeType"] = request.chargeType;
+    }
+
     if (!$dara.isNull(request.defaultLanguage)) {
       body["DefaultLanguage"] = request.defaultLanguage;
     }
@@ -14290,8 +14325,20 @@ export default class Client extends OpenApi {
       body["ImageId"] = request.imageId;
     }
 
+    if (!$dara.isNull(request.period)) {
+      body["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      body["PeriodUnit"] = request.periodUnit;
+    }
+
     if (!$dara.isNull(request.policyGroupId)) {
       body["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!$dara.isNull(request.postPaidAfterUsedUp)) {
+      body["PostPaidAfterUsedUp"] = request.postPaidAfterUsedUp;
     }
 
     let bodyFlat : {[key: string ]: any} = { };
@@ -14305,6 +14352,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceTagList)) {
       bodyFlat["ResourceTagList"] = request.resourceTagList;
+    }
+
+    if (!$dara.isNull(request.siteConfigList)) {
+      bodyFlat["SiteConfigList"] = request.siteConfigList;
     }
 
     if (!$dara.isNull(request.systemDiskPerformanceLevel)) {
@@ -14327,12 +14378,15 @@ export default class Client extends OpenApi {
       body["TimerGroupId"] = request.timerGroupId;
     }
 
+    if (!$dara.isNull(request.userDuration)) {
+      body["UserDuration"] = request.userDuration;
+    }
+
     body = {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
     let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -15495,6 +15549,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.commandContent)) {
       query["CommandContent"] = request.commandContent;
+    }
+
+    if (!$dara.isNull(request.commandRole)) {
+      query["CommandRole"] = request.commandRole;
     }
 
     if (!$dara.isNull(request.contentEncoding)) {

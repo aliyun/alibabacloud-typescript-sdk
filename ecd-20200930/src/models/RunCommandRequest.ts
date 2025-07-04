@@ -16,6 +16,7 @@ export class RunCommandRequest extends $dara.Model {
    * ipconfig
    */
   commandContent?: string;
+  commandRole?: string;
   /**
    * @remarks
    * The encoding mode of the command content. Valid values:
@@ -80,6 +81,7 @@ export class RunCommandRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       commandContent: 'CommandContent',
+      commandRole: 'CommandRole',
       contentEncoding: 'ContentEncoding',
       desktopId: 'DesktopId',
       endUserId: 'EndUserId',
@@ -92,6 +94,7 @@ export class RunCommandRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       commandContent: 'string',
+      commandRole: 'string',
       contentEncoding: 'string',
       desktopId: { 'type': 'array', 'itemType': 'string' },
       endUserId: 'string',
