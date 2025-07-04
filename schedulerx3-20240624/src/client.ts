@@ -106,6 +106,11 @@ export default class Client extends OpenApi {
       request.vSwitchesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vSwitches, "VSwitches", "json");
     }
 
+    let query = { };
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clusterName)) {
       body["ClusterName"] = request.clusterName;
@@ -128,6 +133,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -668,6 +674,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询任务的线程堆栈
+   * 
+   * @param request - GetJobExecutionThreadDumpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobExecutionThreadDumpResponse
+   */
+  async getJobExecutionThreadDumpWithOptions(request: $_model.GetJobExecutionThreadDumpRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetJobExecutionThreadDumpResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetJobExecutionThreadDump",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetJobExecutionThreadDumpResponse>(await this.callApi(params, req, runtime), new $_model.GetJobExecutionThreadDumpResponse({}));
+  }
+
+  /**
+   * 查询任务的线程堆栈
+   * 
+   * @param request - GetJobExecutionThreadDumpRequest
+   * @returns GetJobExecutionThreadDumpResponse
+   */
+  async getJobExecutionThreadDump(request: $_model.GetJobExecutionThreadDumpRequest): Promise<$_model.GetJobExecutionThreadDumpResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getJobExecutionThreadDumpWithOptions(request, runtime);
+  }
+
+  /**
    * 查询日志
    * 
    * @param request - GetLogRequest
@@ -703,6 +747,44 @@ export default class Client extends OpenApi {
   async getLog(request: $_model.GetLogRequest): Promise<$_model.GetLogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getLogWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询事件
+   * 
+   * @param request - GetLogEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLogEventResponse
+   */
+  async getLogEventWithOptions(request: $_model.GetLogEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLogEventResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLogEvent",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLogEventResponse>(await this.callApi(params, req, runtime), new $_model.GetLogEventResponse({}));
+  }
+
+  /**
+   * 查询事件
+   * 
+   * @param request - GetLogEventRequest
+   * @returns GetLogEventResponse
+   */
+  async getLogEvent(request: $_model.GetLogEventRequest): Promise<$_model.GetLogEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLogEventWithOptions(request, runtime);
   }
 
   /**
@@ -890,6 +972,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取应用列表
+   * 
    * @param request - ListAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAppsResponse
@@ -915,6 +999,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取应用列表
+   * 
    * @param request - ListAppsRequest
    * @returns ListAppsResponse
    */

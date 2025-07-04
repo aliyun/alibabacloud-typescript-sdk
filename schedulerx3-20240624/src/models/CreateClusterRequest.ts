@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { CreateClusterRequestTag } from "./CreateClusterRequestTag";
 import { CreateClusterRequestVSwitches } from "./CreateClusterRequestVswitches";
 
 
@@ -28,6 +29,7 @@ export class CreateClusterRequest extends $dara.Model {
    * xxljob
    */
   engineType?: string;
+  tag?: CreateClusterRequestTag[];
   /**
    * @remarks
    * This parameter is required.
@@ -48,6 +50,7 @@ export class CreateClusterRequest extends $dara.Model {
       clusterName: 'ClusterName',
       clusterSpec: 'ClusterSpec',
       engineType: 'EngineType',
+      tag: 'Tag',
       vSwitches: 'VSwitches',
       vpcId: 'VpcId',
     };
@@ -58,12 +61,16 @@ export class CreateClusterRequest extends $dara.Model {
       clusterName: 'string',
       clusterSpec: 'string',
       engineType: 'string',
+      tag: { 'type': 'array', 'itemType': CreateClusterRequestTag },
       vSwitches: { 'type': 'array', 'itemType': CreateClusterRequestVSwitches },
       vpcId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     if(Array.isArray(this.vSwitches)) {
       $dara.Model.validateArray(this.vSwitches);
     }

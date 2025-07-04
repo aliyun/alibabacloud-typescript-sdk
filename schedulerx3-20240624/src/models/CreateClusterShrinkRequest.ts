@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { CreateClusterShrinkRequestTag } from "./CreateClusterShrinkRequestTag";
 
 
 export class CreateClusterShrinkRequest extends $dara.Model {
@@ -27,6 +28,7 @@ export class CreateClusterShrinkRequest extends $dara.Model {
    * xxljob
    */
   engineType?: string;
+  tag?: CreateClusterShrinkRequestTag[];
   /**
    * @remarks
    * This parameter is required.
@@ -47,6 +49,7 @@ export class CreateClusterShrinkRequest extends $dara.Model {
       clusterName: 'ClusterName',
       clusterSpec: 'ClusterSpec',
       engineType: 'EngineType',
+      tag: 'Tag',
       vSwitchesShrink: 'VSwitches',
       vpcId: 'VpcId',
     };
@@ -57,12 +60,16 @@ export class CreateClusterShrinkRequest extends $dara.Model {
       clusterName: 'string',
       clusterSpec: 'string',
       engineType: 'string',
+      tag: { 'type': 'array', 'itemType': CreateClusterShrinkRequestTag },
       vSwitchesShrink: 'string',
       vpcId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

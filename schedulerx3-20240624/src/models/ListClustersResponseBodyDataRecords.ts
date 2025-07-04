@@ -61,6 +61,7 @@ export class ListClustersResponseBodyDataRecords extends $dara.Model {
    * 1
    */
   status?: number;
+  tags?: { [key: string]: any };
   vSwitches?: ListClustersResponseBodyDataRecordsVSwitches[];
   versionLifecycle?: string;
   /**
@@ -86,6 +87,7 @@ export class ListClustersResponseBodyDataRecords extends $dara.Model {
       productType: 'ProductType',
       spInstanceId: 'SpInstanceId',
       status: 'Status',
+      tags: 'Tags',
       vSwitches: 'VSwitches',
       versionLifecycle: 'VersionLifecycle',
       vpcId: 'VpcId',
@@ -107,6 +109,7 @@ export class ListClustersResponseBodyDataRecords extends $dara.Model {
       productType: 'number',
       spInstanceId: 'string',
       status: 'number',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       vSwitches: { 'type': 'array', 'itemType': ListClustersResponseBodyDataRecordsVSwitches },
       versionLifecycle: 'string',
       vpcId: 'string',
@@ -114,6 +117,9 @@ export class ListClustersResponseBodyDataRecords extends $dara.Model {
   }
 
   validate() {
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
+    }
     if(Array.isArray(this.vSwitches)) {
       $dara.Model.validateArray(this.vSwitches);
     }
