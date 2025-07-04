@@ -257,6 +257,10 @@ export default class Client extends OpenApi {
       query["ExecutorIds"] = request.executorIdsShrink;
     }
 
+    if (!$dara.isNull(request.jobScheduler)) {
+      query["JobScheduler"] = request.jobScheduler;
+    }
+
     if (!$dara.isNull(request.jobSpecShrink)) {
       query["JobSpec"] = request.jobSpecShrink;
     }

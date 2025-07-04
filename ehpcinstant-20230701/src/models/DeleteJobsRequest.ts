@@ -5,10 +5,12 @@ import { DeleteJobsRequestJobSpec } from "./DeleteJobsRequestJobSpec";
 
 export class DeleteJobsRequest extends $dara.Model {
   executorIds?: string[];
+  jobScheduler?: string;
   jobSpec?: DeleteJobsRequestJobSpec[];
   static names(): { [key: string]: string } {
     return {
       executorIds: 'ExecutorIds',
+      jobScheduler: 'JobScheduler',
       jobSpec: 'JobSpec',
     };
   }
@@ -16,6 +18,7 @@ export class DeleteJobsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       executorIds: { 'type': 'array', 'itemType': 'string' },
+      jobScheduler: 'string',
       jobSpec: { 'type': 'array', 'itemType': DeleteJobsRequestJobSpec },
     };
   }
