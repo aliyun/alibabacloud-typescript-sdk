@@ -28,6 +28,8 @@ export class RunLegalAdviceConsultationResponseBody extends $dara.Model {
    */
   success?: boolean;
   usage?: RunLegalAdviceConsultationResponseBodyUsage;
+  contents?: string;
+  extra?: string;
   /**
    * @example
    * 200
@@ -43,6 +45,8 @@ export class RunLegalAdviceConsultationResponseBody extends $dara.Model {
       status: 'Status',
       success: 'Success',
       usage: 'Usage',
+      contents: 'contents',
+      extra: 'extra',
       httpStatusCode: 'httpStatusCode',
     };
   }
@@ -57,6 +61,8 @@ export class RunLegalAdviceConsultationResponseBody extends $dara.Model {
       status: 'string',
       success: 'boolean',
       usage: RunLegalAdviceConsultationResponseBodyUsage,
+      contents: 'string',
+      extra: 'string',
       httpStatusCode: 'string',
     };
   }

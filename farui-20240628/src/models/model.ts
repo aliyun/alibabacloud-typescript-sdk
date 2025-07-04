@@ -14,6 +14,7 @@ export { RunContractRuleGenerationResponseBodyOutputRules } from './RunContractR
 export { RunContractRuleGenerationResponseBodyOutput } from './RunContractRuleGenerationResponseBodyOutput';
 export { RunContractRuleGenerationResponseBodyUsage } from './RunContractRuleGenerationResponseBodyUsage';
 export { RunLegalAdviceConsultationRequestAssistant } from './RunLegalAdviceConsultationRequestAssistant';
+export { RunLegalAdviceConsultationRequestExtra } from './RunLegalAdviceConsultationRequestExtra';
 export { RunLegalAdviceConsultationRequestThreadMessages } from './RunLegalAdviceConsultationRequestThreadMessages';
 export { RunLegalAdviceConsultationRequestThread } from './RunLegalAdviceConsultationRequestThread';
 export { RunLegalAdviceConsultationResponseBodyUsage } from './RunLegalAdviceConsultationResponseBodyUsage';

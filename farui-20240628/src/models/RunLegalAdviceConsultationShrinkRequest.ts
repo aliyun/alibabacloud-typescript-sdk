@@ -9,6 +9,7 @@ export class RunLegalAdviceConsultationShrinkRequest extends $dara.Model {
    */
   appId?: string;
   assistantShrink?: string;
+  extraShrink?: string;
   /**
    * @example
    * true
@@ -19,6 +20,7 @@ export class RunLegalAdviceConsultationShrinkRequest extends $dara.Model {
     return {
       appId: 'appId',
       assistantShrink: 'assistant',
+      extraShrink: 'extra',
       stream: 'stream',
       threadShrink: 'thread',
     };
@@ -28,6 +30,7 @@ export class RunLegalAdviceConsultationShrinkRequest extends $dara.Model {
     return {
       appId: 'string',
       assistantShrink: 'string',
+      extraShrink: 'string',
       stream: 'boolean',
       threadShrink: 'string',
     };
