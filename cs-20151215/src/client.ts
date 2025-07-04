@@ -791,6 +791,10 @@ export default class Client extends OpenApi {
       body["endpoint_public_access"] = request.endpointPublicAccess;
     }
 
+    if (!$dara.isNull(request.extraSans)) {
+      body["extra_sans"] = request.extraSans;
+    }
+
     if (!$dara.isNull(request.formatDisk)) {
       body["format_disk"] = request.formatDisk;
     }
@@ -965,6 +969,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       body["resource_group_id"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.rrsaConfig)) {
+      body["rrsa_config"] = request.rrsaConfig;
     }
 
     if (!$dara.isNull(request.runtime)) {

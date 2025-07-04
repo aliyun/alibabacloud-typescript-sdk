@@ -7,6 +7,7 @@ import { CreateClusterRequestControlPlaneConfig } from "./CreateClusterRequestCo
 import { MaintenanceWindow } from "./MaintenanceWindow";
 import { Nodepool } from "./Nodepool";
 import { CreateClusterRequestOperationPolicy } from "./CreateClusterRequestOperationPolicy";
+import { CreateClusterRequestRrsaConfig } from "./CreateClusterRequestRrsaConfig";
 import { Runtime } from "./Runtime";
 import { Tag } from "./Tag";
 import { Taint } from "./Taint";
@@ -242,6 +243,8 @@ export class CreateClusterRequest extends $dara.Model {
    * 
    * @example
    * cs.aliyun.com
+   * 
+   * @deprecated
    */
   customSan?: string;
   /**
@@ -280,6 +283,8 @@ export class CreateClusterRequest extends $dara.Model {
    * 
    * @example
    * true
+   * 
+   * @deprecated
    */
   enableRrsa?: boolean;
   /**
@@ -305,6 +310,7 @@ export class CreateClusterRequest extends $dara.Model {
    * true
    */
   endpointPublicAccess?: boolean;
+  extraSans?: string[];
   /**
    * @remarks
    * [**Deprecated**] When you configure a node pool, you cannot add existing nodes to the cluster. If you want to add existing nodes, you must first create a node pool and then call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) operation.
@@ -876,6 +882,7 @@ export class CreateClusterRequest extends $dara.Model {
    * rg-acfm3mkrure****
    */
   resourceGroupId?: string;
+  rrsaConfig?: CreateClusterRequestRrsaConfig;
   /**
    * @remarks
    * The container runtime. The default container runtime is Docker. containerd and Sandboxed-Container are also supported.
@@ -1278,6 +1285,7 @@ export class CreateClusterRequest extends $dara.Model {
       enableRrsa: 'enable_rrsa',
       encryptionProviderKey: 'encryption_provider_key',
       endpointPublicAccess: 'endpoint_public_access',
+      extraSans: 'extra_sans',
       formatDisk: 'format_disk',
       imageId: 'image_id',
       imageType: 'image_type',
@@ -1322,6 +1330,7 @@ export class CreateClusterRequest extends $dara.Model {
       rdsInstances: 'rds_instances',
       regionId: 'region_id',
       resourceGroupId: 'resource_group_id',
+      rrsaConfig: 'rrsa_config',
       runtime: 'runtime',
       securityGroupId: 'security_group_id',
       securityHardeningOs: 'security_hardening_os',
@@ -1383,6 +1392,7 @@ export class CreateClusterRequest extends $dara.Model {
       enableRrsa: 'boolean',
       encryptionProviderKey: 'string',
       endpointPublicAccess: 'boolean',
+      extraSans: { 'type': 'array', 'itemType': 'string' },
       formatDisk: 'boolean',
       imageId: 'string',
       imageType: 'string',
@@ -1427,6 +1437,7 @@ export class CreateClusterRequest extends $dara.Model {
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       resourceGroupId: 'string',
+      rrsaConfig: CreateClusterRequestRrsaConfig,
       runtime: Runtime,
       securityGroupId: 'string',
       securityHardeningOs: 'boolean',
@@ -1480,6 +1491,9 @@ export class CreateClusterRequest extends $dara.Model {
     if(Array.isArray(this.controlplaneLogComponents)) {
       $dara.Model.validateArray(this.controlplaneLogComponents);
     }
+    if(Array.isArray(this.extraSans)) {
+      $dara.Model.validateArray(this.extraSans);
+    }
     if(Array.isArray(this.instances)) {
       $dara.Model.validateArray(this.instances);
     }
@@ -1503,6 +1517,9 @@ export class CreateClusterRequest extends $dara.Model {
     }
     if(Array.isArray(this.rdsInstances)) {
       $dara.Model.validateArray(this.rdsInstances);
+    }
+    if(this.rrsaConfig && typeof (this.rrsaConfig as any).validate === 'function') {
+      (this.rrsaConfig as any).validate();
     }
     if(this.runtime && typeof (this.runtime as any).validate === 'function') {
       (this.runtime as any).validate();

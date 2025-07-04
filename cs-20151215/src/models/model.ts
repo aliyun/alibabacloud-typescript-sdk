@@ -23,6 +23,7 @@ export { CreateClusterRequestAutoMode } from './CreateClusterRequestAutoMode';
 export { CreateClusterRequestControlPlaneConfig } from './CreateClusterRequestControlPlaneConfig';
 export { CreateClusterRequestOperationPolicyClusterAutoUpgrade } from './CreateClusterRequestOperationPolicyClusterAutoUpgrade';
 export { CreateClusterRequestOperationPolicy } from './CreateClusterRequestOperationPolicy';
+export { CreateClusterRequestRrsaConfig } from './CreateClusterRequestRrsaConfig';
 export { CreateClusterRequestWorkerDataDisks } from './CreateClusterRequestWorkerDataDisks';
 export { CreateClusterNodePoolRequestAutoMode } from './CreateClusterNodePoolRequestAutoMode';
 export { CreateClusterNodePoolRequestAutoScaling } from './CreateClusterNodePoolRequestAutoScaling';
