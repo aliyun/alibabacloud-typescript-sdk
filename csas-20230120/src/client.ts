@@ -616,7 +616,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建内网访问策略
+   * Create Private Access Policy
+   * 
+   * @remarks
+   * By default, up to 500 private access policies can be created.
    * 
    * @param request - CreatePrivateAccessPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -716,7 +719,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建内网访问策略
+   * Create Private Access Policy
+   * 
+   * @remarks
+   * By default, up to 500 private access policies can be created.
    * 
    * @param request - CreatePrivateAccessPolicyRequest
    * @returns CreatePrivateAccessPolicyResponse
@@ -3610,7 +3616,47 @@ export default class Client extends OpenApi {
    */
   async listPrivateAccessApplicationsWithOptions(request: $_model.ListPrivateAccessApplicationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPrivateAccessApplicationsResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.accessModes)) {
+      query["AccessModes"] = request.accessModes;
+    }
+
+    if (!$dara.isNull(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!$dara.isNull(request.applicationIds)) {
+      query["ApplicationIds"] = request.applicationIds;
+    }
+
+    if (!$dara.isNull(request.connectorId)) {
+      query["ConnectorId"] = request.connectorId;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.tagId)) {
+      query["TagId"] = request.tagId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3619,7 +3665,7 @@ export default class Client extends OpenApi {
       version: "2023-01-20",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",

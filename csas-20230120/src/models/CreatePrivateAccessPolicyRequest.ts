@@ -4,21 +4,59 @@ import { CreatePrivateAccessPolicyRequestCustomUserAttributes } from "./CreatePr
 
 
 export class CreatePrivateAccessPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Set of application IDs for the private access policy. Up to 100 application IDs can be entered. Required when **ApplicationType** is **Application**. Mutually exclusive with **TagIds**.
+   */
   applicationIds?: string[];
   /**
    * @remarks
+   * Application type of the private access policy. Values:
+   * - **Application**: Application.
+   * - **Tag**: Tag.
+   * 
    * This parameter is required.
    * 
    * @example
    * Application
    */
   applicationType?: string;
+  /**
+   * @remarks
+   * Set of custom user groups for the private access policy. Required when the user group type is **Custom**. Mutually exclusive with the user group ID set. Up to 10 custom user groups can be entered.
+   */
   customUserAttributes?: CreatePrivateAccessPolicyRequestCustomUserAttributes[];
+  /**
+   * @remarks
+   * Description of the private access policy. The length is 1 to 128 characters, supporting Chinese and uppercase and lowercase English letters, and can include numbers, periods (.), underscores (_), hyphens (-), and spaces.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The execution policy for not meeting the security baseline. Values:
+   * 
+   * - **Block**: Block.
+   * - **Observe**: Observe.
+   * 
+   * @example
+   * Block
+   */
   deviceAttributeAction?: string;
+  /**
+   * @remarks
+   * The ID of the security baseline policy.
+   * 
+   * @example
+   * dag-d3f64e8bdd4a****
+   */
   deviceAttributeId?: string;
   /**
    * @remarks
+   * Name of the private access policy. The length is 1 to 128 characters, supporting Chinese and uppercase and lowercase English letters, and can include numbers, periods (.), underscores (_), and hyphens (-).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +65,10 @@ export class CreatePrivateAccessPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * Action of the private access policy. Values:
+   * - **Block**: Block.
+   * - **Allow**: Allow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +77,8 @@ export class CreatePrivateAccessPolicyRequest extends $dara.Model {
   policyAction?: string;
   /**
    * @remarks
+   * The priority of the private access policy. The number 1 indicates the highest priority. Range: 1~1000, with the maximum value being the total number of private access policies.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +87,10 @@ export class CreatePrivateAccessPolicyRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
+   * The status of the private access policy. Values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51,19 +99,47 @@ export class CreatePrivateAccessPolicyRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 内网访问标签ID集合。最多可输入100个内网访问标签ID。当**ApplicationType**为**Tag时**，必填。和**ApplicationIds**互斥。
+   * Set of tag IDs for the private access policy. Up to 100 tag IDs can be entered. Required when **ApplicationType** is **Tag**. Mutually exclusive with **ApplicationIds**.
    */
   tagIds?: string[];
+  /**
+   * @remarks
+   * The trigger template ID.
+   * 
+   * @example
+   * dag-d3f64e8bdd4a****
+   */
   triggerTemplateId?: string;
+  /**
+   * @remarks
+   * The ID of the trusted process group.
+   */
   trustedProcessGroupIds?: string[];
+  /**
+   * @remarks
+   * The switch status of the trusted process. Values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
+   * 
+   * @example
+   * Enabled
+   */
   trustedProcessStatus?: string;
+  /**
+   * @remarks
+   * The ID of the trusted software.
+   */
   trustedSoftwareIds?: string[];
+  /**
+   * @remarks
+   * Set of user group IDs for the private access policy. Required when the user group type is **Normal**. Mutually exclusive with the custom user group set. Up to 2000 user group IDs can be entered.
+   */
   userGroupIds?: string[];
   /**
    * @remarks
-   * 内网访问策略的用户组类型。取值：
-   * - **Normal**：普通用户组。
-   * - **Custom**：自定义用户组。
+   * User group type of the private access policy. Values:
+   * - **Normal**: Normal user group.
+   * - **Custom**: Custom user group.
    * 
    * This parameter is required.
    * 
