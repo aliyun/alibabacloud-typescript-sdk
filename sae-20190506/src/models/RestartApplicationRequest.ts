@@ -13,6 +13,16 @@ export class RestartApplicationRequest extends $dara.Model {
    * 0099b7be-5f5b-4512-a7fc-56049ef1****
    */
   appId?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically enable an auto scaling policy for the application. Valid values:
+   * 
+   * *   **true**: enabled.
+   * *   **false**: disabled
+   * 
+   * @example
+   * false
+   */
   autoEnableApplicationScalingRule?: boolean;
   /**
    * @remarks

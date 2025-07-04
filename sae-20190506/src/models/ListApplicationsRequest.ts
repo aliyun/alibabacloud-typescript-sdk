@@ -52,6 +52,7 @@ export class ListApplicationsRequest extends $dara.Model {
    * demo-app
    */
   fieldValue?: string;
+  isStateful?: string;
   /**
    * @remarks
    * 1
@@ -102,6 +103,7 @@ export class ListApplicationsRequest extends $dara.Model {
       currentPage: 'CurrentPage',
       fieldType: 'FieldType',
       fieldValue: 'FieldValue',
+      isStateful: 'IsStateful',
       namespaceId: 'NamespaceId',
       orderBy: 'OrderBy',
       pageSize: 'PageSize',
@@ -117,6 +119,7 @@ export class ListApplicationsRequest extends $dara.Model {
       currentPage: 'number',
       fieldType: 'string',
       fieldValue: 'string',
+      isStateful: 'string',
       namespaceId: 'string',
       orderBy: 'string',
       pageSize: 'number',

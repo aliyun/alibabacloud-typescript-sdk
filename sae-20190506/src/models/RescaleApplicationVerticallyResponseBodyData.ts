@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RescaleApplicationVerticallyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change order.
+   * The ticked ID of updates.
    * 
    * @example
    * ffd8cd45-2b5f-415d-b4d0-1003e80b****

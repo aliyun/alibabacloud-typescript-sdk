@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The version of the container, such as Ali-Tomcat, in which a High-speed Service Framework (HSF) application runs.
+   * The version of the container, such as Ali-Tomcat, in which an application that is developed based on High-speed Service Framework (HSF) is deployed.
    * 
    * @example
    * 3.5.3
@@ -13,7 +13,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   edasContainerVersion?: string;
   /**
    * @remarks
-   * The ID of the group.
+   * The ID of the instance group.
    * 
    * @example
    * b2a8a925-477a-eswa-b823-d5e22500****
@@ -21,7 +21,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the group.
+   * The name of the instance group.
    * 
    * @example
    * _DEFAULT_GROUP
@@ -29,7 +29,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The type of the group.
+   * The type of the instance group.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   groupType?: number;
   /**
    * @remarks
-   * The address of the image. This parameter is required when the **PackageType** parameter is set to **Image**.
+   * The URL of the image. This parameter is returned only if the **PackageType** parameter is set to **Image**.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/demo/nginx:latest
@@ -45,7 +45,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The version of the Java development kit (JDK) on which the deployment package of the application depends. This parameter is invalid when the **PackageType** parameter is set to **Image**.
+   * The version of the JDK on which the deployment package of the application depends. This parameter is not returned if the **PackageType** parameter is set to **Image**.
    * 
    * @example
    * Open JDK 8
@@ -53,11 +53,11 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   jdk?: string;
   /**
    * @remarks
-   * The type of the application deployment package. Valid values:
+   * The type of the deployment package. Valid values:
    * 
-   * *   When you use a Java package, set this value to **FatJar**, **War**, or **Image**.
+   * *   If you deploy a Java application, the value of this parameter can be **FatJar**, **War**, or **Image**.
    * 
-   * *   When you use a PHP package, the following values are valid:
+   * *   If you deploy a PHP application, the value of this parameter can be one of the following values:
    * 
    *     *   **PhpZip**
    *     *   **IMAGE_PHP_5_4**
@@ -81,7 +81,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The address of the deployment package. This parameter is required when the **PackageType** parameter is set to **FatJar**, **War**, or **PhpZip**.
+   * The URL of the deployment package. This parameter is returned only if the **PackageType** parameter is set to **FatJar**, **War**, or **PhpZip**.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/demo/nginx:latest
@@ -89,7 +89,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   packageUrl?: string;
   /**
    * @remarks
-   * The version of the deployment package. This parameter is required when the **PackageType** parameter is set to **FatJar**, **War**, or **PhpZip**. The parameter value will be automatically generated when you use an image to deploy the application and specify the **ImageUrl** parameter.
+   * The version of the deployment package. This parameter is returned only if the **PackageType** parameter is set to **FatJar**, **War**, or **PhpZip**. The value of this parameter is automatically generated only if the **ImageUrl** is returned.
    * 
    * @example
    * 1.0.0
@@ -114,7 +114,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   runningInstances?: number;
   /**
    * @remarks
-   * The version of the Apache Tomcat container on which the deployment package of the application depends. This parameter is invalid when the **PackageType** parameter is set to **Image**.
+   * The version of the Tomcat container on which the deployment package depends. This parameter is not returned if the **PackageType** parameter is set to **Image**.
    * 
    * @example
    * Apache Tomcat 7

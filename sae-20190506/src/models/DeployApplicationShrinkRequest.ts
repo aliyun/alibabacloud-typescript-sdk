@@ -111,6 +111,18 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   configMapMountDesc?: string;
   /**
+   * @remarks
+   * The CPU specifications that are required for each instance. Unit: millicores. This parameter cannot be set to 0. Valid values:
+   * 
+   * *   **500**
+   * *   **1000**
+   * *   **2000**
+   * *   **4000**
+   * *   **8000**
+   * *   **12000**
+   * *   **16000**
+   * *   **32000**
+   * 
    * @example
    * 1000
    */
@@ -127,6 +139,13 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   customHostAlias?: string;
   /**
+   * @remarks
+   * Custom image type. To it to empty string to use pre-built image.
+   * 
+   * - internet: Public network image
+   * 
+   * - intranet: Private network image
+   * 
    * @example
    * internet
    */
@@ -143,6 +162,15 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   deploy?: string;
   /**
+   * @remarks
+   * The version of .NET
+   * 
+   * - .NET 3.1
+   * - .NET 5.0
+   * - .NET 6.0
+   * - .NET 7.0
+   * - .NET 8.0
+   * 
    * @example
    * .NET 3.1
    */
@@ -167,6 +195,13 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   enableAhas?: string;
   /**
+   * @remarks
+   * Enable CPU Burst.
+   * 
+   * true: enable
+   * 
+   * false: disable
+   * 
    * @example
    * true
    */
@@ -183,11 +218,26 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   enableGreyTagRoute?: boolean;
   /**
+   * @remarks
+   * Enable new ARMS features.
+   * 
+   * - true: enable
+   * 
+   * - false: disable
+   * 
    * @example
    * true
    */
   enableNewArms?: boolean;
+  enablePrometheus?: boolean;
   /**
+   * @remarks
+   * Enable Sidecar resource isolation.
+   * 
+   * true: enable
+   * 
+   * false: disable
+   * 
    * @example
    * true
    */
@@ -206,6 +256,13 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    *     *   **name**: the name of the environment variable. You can reference one or all keys. If you want to reference all keys, specify `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
    *     *   **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
    *     *   **configMapId**: the ConfigMap ID.
+   *     *   **key**: the key. If you want to reference all keys, do not configure this parameter.
+   * 
+   * *   Reference secret dictionary
+   * 
+   *     *   **name**: the name of the environment variable. You can reference one or all keys. If you want to reference all keys, specify `sae-sys-secret-all-<Secret dictionary name>`. Example: `sae-sys-secret-all-test1`.
+   *     *   **valueFrom**: the reference of the environment variable. Set the value to `secretRef`.
+   *     *   **secretId**: the secret dictionary ID.
    *     *   **key**: the key. If you want to reference all keys, do not configure this parameter.
    * 
    * @example
@@ -229,6 +286,10 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
    */
   imageUrl?: string;
+  /**
+   * @remarks
+   * Initialize container configuration.
+   */
   initContainersConfigShrink?: string;
   /**
    * @remarks
@@ -302,6 +363,20 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   liveness?: string;
   /**
+   * @remarks
+   * The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
+   * 
+   * *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
+   * *   This parameter is set to **2048** if the Cpu parameter is set to 500, 1000, or 2000.
+   * *   This parameter is set to **4096** if the Cpu parameter is set to 1000, 2000, or 4000.
+   * *   This parameter is set to **8192** if the Cpu parameter is set to 2000, 4000, or 8,000.
+   * *   This parameter is set to **12288** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **16384** if the Cpu parameter is set to 4000, 8000, or 16000.
+   * *   This parameter is set to **24576** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **32768** if the Cpu parameter is set to 16000.
+   * *   This parameter is set to **65536** if the Cpu parameter is set to 8000, 16000, or 32000.
+   * *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
+   * 
    * @example
    * 1024
    */
@@ -319,11 +394,45 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   microRegistration?: string;
   /**
+   * @remarks
+   * Select the edition of Nacos.
+   * 
+   * - 0: SAE built-in Nacos. Unable to get the configuration of SAE built-in Nacos.
+   * 
+   * - 1: Self-built Nacos from users.
+   * 
+   * - 2: MSE enterprise Nacos.
+   * 
    * @example
    * {\\"instanceId\\":\\"mse-cn-zvp2bh6h70r\\",\\"namespace\\":\\"4c0aa74f-57cb-423c-b6af-5d9f2d0e3dbd\\"}
    */
   microRegistrationConfig?: string;
   /**
+   * @remarks
+   * Configure Microservices Governance
+   * 
+   * Whether to enable microservices governance (enable):
+   * - true: Enable
+   * - false: Disable
+   * 
+   * Configure lossless online/offline deployment (mseLosslessRule):
+   * 
+   * delayTime: Delay duration (unit: seconds)
+   * 
+   * enable: Whether to enable lossless deployment
+   * 
+   * - true: Enable
+   * 
+   * - false: Disable
+   * 
+   * notice: Whether to enable notifications
+   * 
+   * - true: Enable
+   * 
+   * - false: Disable
+   * 
+   * warmupTime: Small-traffic warm-up duration (unit: seconds)
+   * 
    * @example
    * {"enable": true,"mseLosslessRule": {"delayTime": 0,"enable": false,"notice": false,"warmupTime": 120}}
    */
@@ -393,6 +502,15 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   nasId?: string;
   /**
+   * @remarks
+   * SAE edition.
+   * 
+   * - lite: the lightweight edition.
+   * 
+   * - std: the standard edition.
+   * 
+   * - pro: the professional edition.
+   * 
    * @example
    * pro
    */
@@ -443,6 +561,28 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   ossMountDescs?: string;
   /**
+   * @remarks
+   * The package type.
+   * 
+   * When using Java, FatJar, War and Image are supported.
+   * When using Python, PythonZip and Image are supported.
+   * When using PHP, the followings are supported:
+   * - PhpZip
+   * - IMAGE_PHP_5_4
+   * - IMAGE_PHP_5_4_ALPINE
+   * - IMAGE_PHP_5_5
+   * - IMAGE_PHP_5_5_ALPINE
+   * - IMAGE_PHP_5_6
+   * - IMAGE_PHP_5_6_ALPINE
+   * - IMAGE_PHP_7_0
+   * - IMAGE_PHP_7_0_ALPINE
+   * - IMAGE_PHP_7_1
+   * - IMAGE_PHP_7_1_ALPINE
+   * - IMAGE_PHP_7_2
+   * - IMAGE_PHP_7_2_ALPINE
+   * - IMAGE_PHP_7_3
+   * - IMAGE_PHP_7_3_ALPINE
+   * 
    * @example
    * FatJar
    */
@@ -464,6 +604,9 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   packageVersion?: string;
   /**
+   * @remarks
+   * The dependent PHP version of PHP package. Image is not supported.
+   * 
    * @example
    * PHP-FPM 7.0
    */
@@ -548,21 +691,40 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   readiness?: string;
   /**
+   * @remarks
+   * The number of instances.
+   * 
    * @example
    * 1
    */
   replicas?: number;
   /**
+   * @remarks
+   * Secret Mount Description
+   * Use the secret dictionaries created in the Namespace Secret Dictionary page to inject information into containers. Parameter descriptions are as follows:
+   * 
+   * - secretId: Secret instance ID. Obtain via the ListSecrets interface.
+   * 
+   * - key: Key-value pair. Note: Set the parameter sae-sys-secret-all to mount all keys.
+   * 
+   * - mountPath: Mount path.
+   * 
    * @example
    * [{“secretId":10,”key":"test","mountPath":"/tmp"}]
    */
   secretMountDesc?: string;
   /**
+   * @remarks
+   * Security group ID.
+   * 
    * @example
    * sg-wz969ngg2e49q5i4****
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The gray-release tag of the application.
+   * 
    * @example
    * {\\"alicloud.service.tag\\":\\"g1\\"}
    */
@@ -596,10 +758,41 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   slsConfigs?: string;
   /**
+   * @remarks
+   * Check Failure: Indicates that the application failed to start. The system will report the exception and automatically restart it.
+   * 
+   * Note: 
+   * 
+   * Supports exec, httpGet, and tcpSocket methods. For specific examples, see Liveness Parameters.
+   * Only one method can be selected for health checks.
+   * 
    * @example
    * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
    */
   startupProbe?: string;
+  /**
+   * @remarks
+   * Configure K8s Service-based Service Registration/Discovery and Full-Chain Grayscale Capabilities
+   * 
+   * - enable: Whether to enable full-link grayscale based on K8s Service (set to "true" to enable; set to "false" to disable).
+   * 
+   * - namespaceId: Namespace ID
+   * 
+   * - portAndProtocol: Listener port and protocol. Format: {"Port:Protocol Type":"Container Port"}
+   * - portProtocols: Define service ports and protocols
+   * port: Port
+   * protocol: Protocol
+   * targetPort: Container port
+   * 
+   * - pvtzDiscoveryName: Service discovery name
+   * 
+   * - serviceId: Service ID
+   * 
+   * - serviceName: Service name
+   * 
+   * @example
+   * {\\"enable\\":\\"false\\",\\"namespaceId\\":\\"cn-beijing:test\\",\\"portAndProtocol\\":{\\"2000:TCP\\":\\"18081\\"},\\"portProtocols\\":[{\\"port\\":2000,\\"protocol\\":\\"TCP\\",\\"targetPort\\":18081}],\\"pvtzDiscoveryName\\":\\"cn-beijing-1421801774382676\\",\\"serviceId\\":\\"3513\\",\\"serviceName\\":\\"demo-gray.test\\"}
+   */
   swimlanePvtzDiscoverySvc?: string;
   /**
    * @remarks
@@ -656,6 +849,9 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   updateStrategy?: string;
   /**
+   * @remarks
+   * The ID of the vSwitch, where the EIP of the application instances resides. The vSwitch must reside in the VPC above.
+   * 
    * @example
    * vsw-bp12mw1f8k3jgygk9****
    */
@@ -703,6 +899,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       enableCpuBurst: 'EnableCpuBurst',
       enableGreyTagRoute: 'EnableGreyTagRoute',
       enableNewArms: 'EnableNewArms',
+      enablePrometheus: 'EnablePrometheus',
       enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
       envs: 'Envs',
       gpuConfig: 'GpuConfig',
@@ -782,6 +979,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       enableCpuBurst: 'boolean',
       enableGreyTagRoute: 'boolean',
       enableNewArms: 'boolean',
+      enablePrometheus: 'boolean',
       enableSidecarResourceIsolated: 'boolean',
       envs: 'string',
       gpuConfig: 'string',

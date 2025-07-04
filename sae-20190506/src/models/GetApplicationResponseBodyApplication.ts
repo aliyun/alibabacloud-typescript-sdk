@@ -57,6 +57,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    * i-8ps2o182102o1jv05bys
    */
   instances?: number;
+  isStateful?: boolean;
   /**
    * @remarks
    * The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
@@ -154,6 +155,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
       baseAppId: 'BaseAppId',
       cpu: 'Cpu',
       instances: 'Instances',
+      isStateful: 'IsStateful',
       mem: 'Mem',
       mseEnabled: 'MseEnabled',
       mseNamespaceId: 'MseNamespaceId',
@@ -173,6 +175,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
       baseAppId: 'string',
       cpu: 'number',
       instances: 'number',
+      isStateful: 'boolean',
       mem: 'number',
       mseEnabled: 'boolean',
       mseNamespaceId: 'string',

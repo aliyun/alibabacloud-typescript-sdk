@@ -21,6 +21,16 @@ export class BindSlbRequest extends $dara.Model {
    * [{"port":80,"targetPort":8080,"protocol":"TCP"}]
    */
   internet?: string;
+  /**
+   * @remarks
+   * The billing method of an Internet-facing SLB instance. The following billing methods are supported:
+   * 
+   * *   **PayBySpec**: Pay-by-specification.
+   * *   **PayByCLCU**: Pay-by-CLCU.
+   * 
+   * @example
+   * PayBySpec
+   */
   internetSlbChargeType?: string;
   /**
    * @remarks
@@ -38,6 +48,16 @@ export class BindSlbRequest extends $dara.Model {
    * [{"port":80,"targetPort":8080,"protocol":"TCP"}]
    */
   intranet?: string;
+  /**
+   * @remarks
+   * The billing method of an Internal-facing SLB instance. The following billing methods are supported:
+   * 
+   * *   **PayBySpec**: Pay-by-specification.
+   * *   **PayByCLCU**: Pay-by-CLCU.
+   * 
+   * @example
+   * PayBySpec
+   */
   intranetSlbChargeType?: string;
   /**
    * @remarks

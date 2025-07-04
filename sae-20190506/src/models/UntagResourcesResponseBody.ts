@@ -7,10 +7,10 @@ export class UntagResourcesResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -18,7 +18,7 @@ export class UntagResourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    * 
    * @example
    * true
@@ -26,15 +26,18 @@ export class UntagResourcesResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The returned message. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -42,7 +45,7 @@ export class UntagResourcesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -53,7 +56,7 @@ export class UntagResourcesResponseBody extends $dara.Model {
    * Indicates whether the tags were removed. Valid values:
    * 
    * *   **true**: The tags were removed.
-   * *   **false**: The tags could not be removed.
+   * *   **false**: The tags failed to be removed.
    * 
    * @example
    * true
@@ -61,7 +64,7 @@ export class UntagResourcesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query details of a request.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****

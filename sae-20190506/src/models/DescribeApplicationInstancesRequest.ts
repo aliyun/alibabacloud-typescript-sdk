@@ -31,6 +31,13 @@ export class DescribeApplicationInstancesRequest extends $dara.Model {
    * b2a8a925-477a-4ed7-b825-d5e22500****
    */
   groupId?: string;
+  /**
+   * @remarks
+   * The ID of the application instance.
+   * 
+   * @example
+   * demo-faaca66c-5959-45cc-b3bf-d26093b2e9c0******
+   */
   instanceId?: string;
   /**
    * @remarks
@@ -40,6 +47,10 @@ export class DescribeApplicationInstancesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @example
+   * 85750d48-6cfc-4dbf-8ea0-840397******
+   */
   pipelineId?: string;
   /**
    * @remarks

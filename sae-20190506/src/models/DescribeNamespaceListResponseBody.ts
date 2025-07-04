@@ -19,7 +19,7 @@ export class DescribeNamespaceListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The namespaces.
+   * The list of namespaces.
    */
   data?: DescribeNamespaceListResponseBodyData[];
   /**

@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchStartApplicationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
-   * 
-   * *   **success** is returned when the request succeeds.
-   * *   An error code is returned when the request fails.
+   * The IDs of the applications that you want to start. Separate multiple IDs with commas (,).
    * 
    * @example
    * ebf491f0-c1a5-45e2-b2c4-710dbe2a****

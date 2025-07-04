@@ -179,6 +179,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
   enableGreyTagRoute?: boolean;
   enableIdle?: boolean;
   enableNewArms?: boolean;
+  enablePrometheus?: boolean;
   /**
    * @remarks
    * The environment variables. Variable description:
@@ -206,6 +207,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    */
   imageUrl?: string;
   initContainersConfig?: DescribeApplicationConfigResponseBodyDataInitContainersConfig[];
+  isStateful?: boolean;
   /**
    * @remarks
    * The arguments in the JAR package. The arguments are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
@@ -713,12 +715,14 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       enableGreyTagRoute: 'EnableGreyTagRoute',
       enableIdle: 'EnableIdle',
       enableNewArms: 'EnableNewArms',
+      enablePrometheus: 'EnablePrometheus',
       envs: 'Envs',
       gpuCount: 'GpuCount',
       gpuType: 'GpuType',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
       initContainersConfig: 'InitContainersConfig',
+      isStateful: 'IsStateful',
       jarStartArgs: 'JarStartArgs',
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
@@ -804,12 +808,14 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       enableGreyTagRoute: 'boolean',
       enableIdle: 'boolean',
       enableNewArms: 'boolean',
+      enablePrometheus: 'boolean',
       envs: 'string',
       gpuCount: 'string',
       gpuType: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
       initContainersConfig: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataInitContainersConfig },
+      isStateful: 'boolean',
       jarStartArgs: 'string',
       jarStartOptions: 'string',
       jdk: 'string',

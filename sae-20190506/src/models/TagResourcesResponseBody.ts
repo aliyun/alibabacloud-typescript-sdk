@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether tags were added to the specified resources successfully. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**: indicates that tags were added to the specified resources successfully.
-   * *   **false**: indicates that tags could not be added to the specified resources.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -16,10 +18,7 @@ export class TagResourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error code.
-   * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * Indicates that the operation was successful.
    * 
    * @example
    * true
@@ -27,17 +26,18 @@ export class TagResourcesResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query the details of a request.
+   * The returned message. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -45,20 +45,26 @@ export class TagResourcesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned message.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether tags were added to the specified resources. Valid values:
+   * 
+   * *   **true**: The tags were added.
+   * *   **false**: The tags failed to be added.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * Indicates that the operation was successful.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****

@@ -6,6 +6,8 @@ import { CreateSecretRequestSecretData } from "./CreateSecretRequestSecretData";
 export class CreateSecretRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the namespace where the Secret resides. If the namespace is the default namespace, you need to only enter the region ID, such as `cn-beijing`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class CreateSecretRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The Secret data.
+   * 
    * This parameter is required.
    */
   secretData?: CreateSecretRequestSecretData;

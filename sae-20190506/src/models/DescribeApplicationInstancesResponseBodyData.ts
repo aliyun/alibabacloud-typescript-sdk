@@ -14,7 +14,7 @@ export class DescribeApplicationInstancesResponseBodyData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of application instances.
+   * The application instances.
    */
   instances?: DescribeApplicationInstancesResponseBodyDataInstances[];
   /**

@@ -29,7 +29,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   appDescription?: string;
   /**
    * @remarks
-   * test
+   * The name of the application. The name can contain digits, letters, and hyphens (-). The name must start with a letter and cannot end with a hyphen (-). It cannot exceed 36 characters in length.
    * 
    * This parameter is required.
    * 
@@ -37,6 +37,13 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * test
    */
   appName?: string;
+  /**
+   * @remarks
+   * Select micro_service, which is the application.
+   * 
+   * @example
+   * micro_service
+   */
   appSource?: string;
   /**
    * @remarks
@@ -48,12 +55,24 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   associateEip?: boolean;
   /**
    * @remarks
-   * true
+   * Specifies whether to automatically configure the network environment. Valid values:
+   * 
+   * *   **true**: SAE automatically configures the network environment when you create the application. If you set this parameter to true, the values of the **NamespaceId**, **VpcId**, **vSwitchId**, and **SecurityGroupId** parameters are ignored.
+   * *   **false**: SAE configures the network environment based on your settings when you create the application.
+   * 
+   * >  If you select **true**, other **NamespaceId** will be ignored.
    * 
    * @example
    * true
    */
   autoConfig?: boolean;
+  /**
+   * @remarks
+   * The ID of the basic application.
+   * 
+   * @example
+   * ee99cce6-1c8e-4bfa-96c3-3e2fa9de8a41
+   */
   baseAppId?: string;
   /**
    * @remarks
@@ -95,6 +114,10 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * [{"hostName":"samplehost","ip":"127.0.0.1"}]
    */
   customHostAlias?: string;
+  /**
+   * @example
+   * internet
+   */
   customImageNetworkType?: string;
   /**
    * @remarks
@@ -104,7 +127,24 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * true
    */
   deploy?: boolean;
+  /**
+   * @example
+   * 50
+   */
   diskSize?: number;
+  /**
+   * @remarks
+   * . NET Framework version number:
+   * 
+   * *   .NET 3.1
+   * *   .NET 5.0
+   * *   .NET 6.0
+   * *   .NET 7.0
+   * *   .NET 8.0
+   * 
+   * @example
+   * .NET 3.1
+   */
   dotnet?: string;
   /**
    * @remarks
@@ -114,13 +154,48 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * 3.5.3
    */
   edasContainerVersion?: string;
+  /**
+   * @example
+   * true
+   */
   enableCpuBurst?: boolean;
+  /**
+   * @example
+   * false
+   */
   enableEbpf?: string;
+  /**
+   * @remarks
+   * Indicates whether to enable the new ARMS feature:
+   * 
+   * *   true: enables this parameter.
+   * *   false: disables this parameter.
+   * 
+   * @example
+   * false
+   */
   enableNewArms?: boolean;
+  enablePrometheus?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableSidecarResourceIsolated?: boolean;
   /**
    * @remarks
-   * [{"name":"envtmp","value":"0"}]
+   * The environment variables. You can configure custom environment variables or reference a ConfigMap. Before you can reference a ConfigMap, you must create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
+   * 
+   * *   Custom configuration
+   * 
+   *     *   **name**: the name of the environment variable.
+   *     *   **value**: the value of the environment variable. The priority of the custom configuration is higher than valueFrom.
+   * 
+   * *   Reference a ConfigMap (valueFrom)
+   * 
+   *     *   **name**: the name of the environment variable. You can reference one or all keys. To reference all keys, specify `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
+   *     *   **valueFrom**: the reference of the environment variable. Valid value: `configMapRef`.
+   *     *   **configMapId**: the ID of the ConfigMap.
+   *     *   **key**: the key. If you want to reference all key values, you do not need to configure this parameter.
    * 
    * @example
    * [{"name":"envtmp","value":"0"}]
@@ -141,6 +216,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    */
   imageUrl?: string;
   initContainersConfigShrink?: string;
+  isStateful?: boolean;
   /**
    * @remarks
    * custom-args
@@ -191,7 +267,18 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * "0"
    */
   microRegistration?: string;
+  /**
+   * @remarks
+   * The Registry configurations.
+   * 
+   * @example
+   * {\\"instanceId\\":\\"mse-cn-zvp2bh6h70r\\",\\"namespace\\":\\"4c0aa74f-57cb-423c-b6af-5d9f2d0e3dbd\\"}
+   */
   microRegistrationConfig?: string;
+  /**
+   * @example
+   * {"enable": true,"mseLosslessRule": {"delayTime": 0,"enable": false,"notice": false,"warmupTime": 120}}
+   */
   microserviceEngineConfig?: string;
   /**
    * @remarks
@@ -230,7 +317,15 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * KSAK****
    */
   nasId?: string;
+  /**
+   * @example
+   * pro
+   */
   newSaeVersion?: string;
+  /**
+   * @example
+   * sae-test
+   */
   oidcRoleName?: string;
   /**
    * @remarks
@@ -365,8 +460,26 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * 1
    */
   replicas?: number;
+  /**
+   * @example
+   * UNLL
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The SAE version. Supported versions:
+   * 
+   * *   **v1**
+   * *   **v2**
+   * 
+   * @example
+   * v1
+   */
   saeVersion?: string;
+  /**
+   * @example
+   * [{“secretId":10,”key":"test","mountPath":"/tmp"}]
+   */
   secretMountDesc?: string;
   /**
    * @remarks
@@ -376,6 +489,13 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * sg-wz969ngg2e49q5i4****
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The canary tag configured for the application.
+   * 
+   * @example
+   * {\\"alicloud.service.tag\\":\\"g1\\"}
+   */
   serviceTags?: string;
   sidecarContainersConfigShrink?: string;
   /**
@@ -386,6 +506,10 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
    */
   slsConfigs?: string;
+  /**
+   * @example
+   * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
+   */
   startupProbe?: string;
   /**
    * @remarks
@@ -466,12 +590,14 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       enableCpuBurst: 'EnableCpuBurst',
       enableEbpf: 'EnableEbpf',
       enableNewArms: 'EnableNewArms',
+      enablePrometheus: 'EnablePrometheus',
       enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
       envs: 'Envs',
       gpuConfig: 'GpuConfig',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
       initContainersConfigShrink: 'InitContainersConfig',
+      isStateful: 'IsStateful',
       jarStartArgs: 'JarStartArgs',
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
@@ -547,12 +673,14 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       enableCpuBurst: 'boolean',
       enableEbpf: 'string',
       enableNewArms: 'boolean',
+      enablePrometheus: 'boolean',
       enableSidecarResourceIsolated: 'boolean',
       envs: 'string',
       gpuConfig: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
       initContainersConfigShrink: 'string',
+      isStateful: 'boolean',
       jarStartArgs: 'string',
       jarStartOptions: 'string',
       jdk: 'string',

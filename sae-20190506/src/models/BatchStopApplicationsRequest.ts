@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class BatchStopApplicationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the application that you want to stop.
+   * 
+   * > If you want to stop multiple applications at the same time, separate the IDs with commas (,).
    * 
    * @example
    * ebf491f0-c1a5-45e2-b2c4-710dbe2a****

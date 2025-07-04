@@ -19,7 +19,7 @@ export class DescribeApplicationInstancesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the application instances.
+   * The details of the application instance.
    */
   data?: DescribeApplicationInstancesResponseBodyData;
   /**

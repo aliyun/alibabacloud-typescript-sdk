@@ -12,6 +12,10 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $dara
    * 1558442609000
    */
   createTimeStamp?: number;
+  /**
+   * @example
+   * False
+   */
   debugStatus?: boolean;
   /**
    * @remarks
@@ -108,6 +112,13 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $dara
    * b2a8a925-477a-4ed7-b825-d5e22500****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The status of the main container.
+   * 
+   * @example
+   * Running
+   */
   mainContainerStatus?: string;
   /**
    * @remarks
@@ -117,8 +128,23 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $dara
    * 1609939496200
    */
   packageVersion?: string;
+  /**
+   * @remarks
+   * The status of the sidecar container.
+   */
   sidecarContainersStatus?: DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus[];
+  /**
+   * @example
+   * 1750061980000
+   */
   timestamp?: number;
+  /**
+   * @remarks
+   * If the health check of an application instance fails, the detailed failure cause or error message is returned. If the health check of an application instance passes, no response is returned.
+   * 
+   * @example
+   * Null
+   */
   unhealthyMessage?: string;
   /**
    * @remarks

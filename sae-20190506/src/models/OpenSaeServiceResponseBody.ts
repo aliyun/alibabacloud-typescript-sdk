@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OpenSaeServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * PushEvent
    * 
    * @example
    * 20485646575****
@@ -13,7 +13,7 @@ export class OpenSaeServiceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * enableWAF
    * 
    * @example
    * 559B4247-C41C-4D9E-B866-B55D378B****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RescaleApplicationVerticallyRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The app ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RescaleApplicationVerticallyRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The destination CPU specification. Unit: millicore.
+   * Target CPU specification. Unit: millicore.
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,17 @@ export class RescaleApplicationVerticallyRequest extends $dara.Model {
    * 1000
    */
   cpu?: string;
+  /**
+   * @remarks
+   * The disk size. Unit: GB.
+   * 
+   * @example
+   * 20
+   */
   diskSize?: string;
   /**
    * @remarks
-   * The destination memory size. Unit: MB.
+   * Target memory specification. Unit: MB.
    * 
    * This parameter is required.
    * 
@@ -34,8 +41,29 @@ export class RescaleApplicationVerticallyRequest extends $dara.Model {
    * 2048
    */
   memory?: string;
+  /**
+   * @remarks
+   * Enable application scale rules automatically.
+   * 
+   * @example
+   * true
+   */
   autoEnableApplicationScalingRule?: boolean;
+  /**
+   * @remarks
+   * The ratio of minimum ready instances.
+   * 
+   * @example
+   * 50
+   */
   minReadyInstanceRatio?: number;
+  /**
+   * @remarks
+   * Minimum ready instances.
+   * 
+   * @example
+   * 1
+   */
   minReadyInstances?: number;
   static names(): { [key: string]: string } {
     return {

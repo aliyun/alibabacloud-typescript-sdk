@@ -16,10 +16,10 @@ export class DescribeNamespaceListRequest extends $dara.Model {
   containCustom?: boolean;
   /**
    * @remarks
-   * Specifies whether to exclude hybrid cloud namespaces from the result. Valid values:
+   * Indicates whether hybrid cloud namespaces are excluded. Valid values:
    * 
-   * - **true**: The system excludes hybrid cloud namespaces from the result.
-   * - **false**: The system does not exclude hybrid cloud namespaces from the result.
+   * *   **true**: Hybrid cloud namespaces are excluded.
+   * *   **false**: Hybrid cloud namespaces are included.
    * 
    * @example
    * true
