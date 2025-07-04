@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class BankMetaVerifyIntlResponseBodyResultObject extends $dara.Model {
   /**
    * @example
