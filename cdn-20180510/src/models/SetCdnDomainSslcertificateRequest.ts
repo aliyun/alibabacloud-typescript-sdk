@@ -48,14 +48,6 @@ export class SetCdnDomainSSLCertificateRequest extends $dara.Model {
    * example.com
    */
   domainName?: string;
-  /**
-   * @remarks
-   * Specifies whether the certificate is issued in canary releases. If you set this parameter to **staging**, the certificate is issued in canary releases. If you do not specify this parameter or set this parameter to other values, the certificate is officially issued.
-   * 
-   * @example
-   * staging
-   */
-  env?: string;
   ownerId?: number;
   /**
    * @remarks
@@ -94,7 +86,6 @@ export class SetCdnDomainSSLCertificateRequest extends $dara.Model {
       certRegion: 'CertRegion',
       certType: 'CertType',
       domainName: 'DomainName',
-      env: 'Env',
       ownerId: 'OwnerId',
       SSLPri: 'SSLPri',
       SSLProtocol: 'SSLProtocol',
@@ -110,7 +101,6 @@ export class SetCdnDomainSSLCertificateRequest extends $dara.Model {
       certRegion: 'string',
       certType: 'string',
       domainName: 'string',
-      env: 'string',
       ownerId: 'number',
       SSLPri: 'string',
       SSLProtocol: 'string',

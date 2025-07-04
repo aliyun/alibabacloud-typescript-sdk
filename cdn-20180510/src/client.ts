@@ -9415,6 +9415,10 @@ export default class Client extends OpenApi {
       query["Area"] = request.area;
     }
 
+    if (!$dara.isNull(request.consistencyHash)) {
+      query["ConsistencyHash"] = request.consistencyHash;
+    }
+
     if (!$dara.isNull(request.l2Preload)) {
       query["L2Preload"] = request.l2Preload;
     }
@@ -9816,10 +9820,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
-    }
-
-    if (!$dara.isNull(request.env)) {
-      query["Env"] = request.env;
     }
 
     if (!$dara.isNull(request.ownerId)) {

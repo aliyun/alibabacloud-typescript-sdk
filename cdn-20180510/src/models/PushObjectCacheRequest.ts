@@ -20,6 +20,7 @@ export class PushObjectCacheRequest extends $dara.Model {
    * domestic
    */
   area?: string;
+  consistencyHash?: boolean;
   /**
    * @remarks
    * Specifies whether to prefetch content to L2 points of presence (POPs). Valid values:
@@ -71,6 +72,7 @@ export class PushObjectCacheRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       area: 'Area',
+      consistencyHash: 'ConsistencyHash',
       l2Preload: 'L2Preload',
       objectPath: 'ObjectPath',
       ownerId: 'OwnerId',
@@ -83,6 +85,7 @@ export class PushObjectCacheRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       area: 'string',
+      consistencyHash: 'boolean',
       l2Preload: 'boolean',
       objectPath: 'string',
       ownerId: 'number',
