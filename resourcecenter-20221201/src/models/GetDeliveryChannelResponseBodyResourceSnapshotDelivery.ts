@@ -5,22 +5,38 @@ import { GetDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties } f
 
 export class GetDeliveryChannelResponseBodyResourceSnapshotDelivery extends $dara.Model {
   /**
+   * @remarks
+   * The custom expression.
+   * 
    * @example
    * select * from resources limit 100;
    */
   customExpression?: string;
   /**
+   * @remarks
+   * The delivery time.
+   * 
    * @example
    * 09:00Z
    */
   deliveryTime?: string;
+  /**
+   * @remarks
+   * The Simple Log Service configurations.
+   */
   slsProperties?: GetDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties;
   /**
+   * @remarks
+   * The ARN of the delivery destination.
+   * 
    * @example
    * acs:oss:cn-hangzhou:1911422487776***:resourcecenter-oss
    */
   targetArn?: string;
   /**
+   * @remarks
+   * The type of the destination.
+   * 
    * @example
    * OSS
    */

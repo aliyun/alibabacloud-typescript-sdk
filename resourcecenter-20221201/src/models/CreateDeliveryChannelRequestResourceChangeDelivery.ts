@@ -4,9 +4,30 @@ import { CreateDeliveryChannelRequestResourceChangeDeliverySlsProperties } from 
 
 
 export class CreateDeliveryChannelRequestResourceChangeDelivery extends $dara.Model {
+  /**
+   * @remarks
+   * The Simple Log Service configurations.
+   */
   slsProperties?: CreateDeliveryChannelRequestResourceChangeDeliverySlsProperties;
+  /**
+   * @remarks
+   * The ARN of the delivery destination.
+   * 
+   * *   If you set `TargetType` to `OSS`, you must set `TargetArn` to the ARN of a bucket whose name is prefixed with resourcecenter-.
+   * *   If you set `TargetType` to `SLS`, you must set `TargetArn` to the ARN of a Logstore whose name is prefixed with resourcecenter-.
+   * 
+   * @example
+   * acs:log:cn-hangzhou: 191142248777****:project/delivery/logstore/resourcecenter-sls
+   */
   targetArn?: string;
   /**
+   * @remarks
+   * The type of the delivery destination.
+   * 
+   * Valid values:
+   * 
+   * *   `SLS`
+   * 
    * @example
    * SLS
    */

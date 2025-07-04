@@ -6,10 +6,20 @@ import { UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery } from
 
 
 export class UpdateMultiAccountDeliveryChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   */
   deliveryChannelDescription?: string;
+  /**
+   * @remarks
+   * The effective scope of the delivery channel.
+   */
   deliveryChannelFilter?: UpdateMultiAccountDeliveryChannelRequestDeliveryChannelFilter;
   /**
    * @remarks
+   * The ID of the delivery channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,11 +27,22 @@ export class UpdateMultiAccountDeliveryChannelRequest extends $dara.Model {
    */
   deliveryChannelId?: string;
   /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
    * @example
    * test-multi-account-delivery-channel
    */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The configurations for delivery of resource configuration change events.
+   */
   resourceChangeDelivery?: UpdateMultiAccountDeliveryChannelRequestResourceChangeDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery of scheduled resource snapshots.
+   */
   resourceSnapshotDelivery?: UpdateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery;
   static names(): { [key: string]: string } {
     return {

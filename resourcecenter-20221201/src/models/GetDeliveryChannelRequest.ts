@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDeliveryChannelRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
    * @example
    * dc-6q79dm4o9***
    */

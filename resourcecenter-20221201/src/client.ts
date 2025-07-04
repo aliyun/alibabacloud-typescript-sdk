@@ -72,7 +72,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建投递渠道
+   * Creates a single-account delivery channel.
+   * 
+   * @remarks
+   * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
+   * Scheduled resource snapshots support the following delivery scenarios:
+   * *   Standard delivery: Leave the ResourceSnapshotDelivery.CustomExpression parameter empty.
+   * *   Custom delivery: Set the ResourceSnapshotDelivery.CustomExpression parameter to an appropriate value.
    * 
    * @param request - CreateDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -119,7 +125,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建投递渠道
+   * Creates a single-account delivery channel.
+   * 
+   * @remarks
+   * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
+   * Scheduled resource snapshots support the following delivery scenarios:
+   * *   Standard delivery: Leave the ResourceSnapshotDelivery.CustomExpression parameter empty.
+   * *   Custom delivery: Set the ResourceSnapshotDelivery.CustomExpression parameter to an appropriate value.
    * 
    * @param request - CreateDeliveryChannelRequest
    * @returns CreateDeliveryChannelResponse
@@ -176,7 +188,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建多账号投递渠道
+   * Creates a multi-account delivery channel.
+   * 
+   * @remarks
+   * In Resource Center, you can create multi-account delivery channels by using the management account of your resource directory or the delegated administrator account of Resource Center to deliver resource configuration change events and scheduled resource snapshots within the members in your resource directory to Object Storage Service (OSS) or Simple Log Service. Then, other Alibaba Cloud services consume standardized resource information from OSS or Simple Log Service.
+   * Scheduled resource snapshots support the following delivery scenarios:
+   * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+   * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
    * 
    * @param request - CreateMultiAccountDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -223,7 +241,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建多账号投递渠道
+   * Creates a multi-account delivery channel.
+   * 
+   * @remarks
+   * In Resource Center, you can create multi-account delivery channels by using the management account of your resource directory or the delegated administrator account of Resource Center to deliver resource configuration change events and scheduled resource snapshots within the members in your resource directory to Object Storage Service (OSS) or Simple Log Service. Then, other Alibaba Cloud services consume standardized resource information from OSS or Simple Log Service.
+   * Scheduled resource snapshots support the following delivery scenarios:
+   * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+   * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
    * 
    * @param request - CreateMultiAccountDeliveryChannelRequest
    * @returns CreateMultiAccountDeliveryChannelResponse
@@ -284,7 +308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除投递渠道
+   * Deletes a single-account delivery channel.
    * 
    * @param request - DeleteDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -315,7 +339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除投递渠道
+   * Deletes a single-account delivery channel.
    * 
    * @param request - DeleteDeliveryChannelRequest
    * @returns DeleteDeliveryChannelResponse
@@ -368,7 +392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除多账号投递渠道
+   * Deletes a multi-account delivery channel.
    * 
    * @param request - DeleteMultiAccountDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -399,7 +423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除多账号投递渠道
+   * Deletes a multi-account delivery channel.
    * 
    * @param request - DeleteMultiAccountDeliveryChannelRequest
    * @returns DeleteMultiAccountDeliveryChannelResponse
@@ -726,7 +750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询投递渠道
+   * Queries the information about a single-account delivery channel.
    * 
    * @param request - GetDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -757,7 +781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询投递渠道
+   * Queries the information about a single-account delivery channel.
    * 
    * @param request - GetDeliveryChannelRequest
    * @returns GetDeliveryChannelResponse
@@ -768,7 +792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询投递渠道统计信息
+   * Queries the statistics on a single-account delivery channel.
    * 
    * @param request - GetDeliveryChannelStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -799,7 +823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询投递渠道统计信息
+   * Queries the statistics on a single-account delivery channel.
    * 
    * @param request - GetDeliveryChannelStatisticsRequest
    * @returns GetDeliveryChannelStatisticsResponse
@@ -852,7 +876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询多账号投递渠道
+   * Queries the information about a multi-account delivery channel.
    * 
    * @param request - GetMultiAccountDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -883,7 +907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询多账号投递渠道
+   * Queries the information about a multi-account delivery channel.
    * 
    * @param request - GetMultiAccountDeliveryChannelRequest
    * @returns GetMultiAccountDeliveryChannelResponse
@@ -894,7 +918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询多账号投递渠道统计信息
+   * Queries the statistics on a multi-account delivery channel.
    * 
    * @param request - GetMultiAccountDeliveryChannelStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -925,7 +949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询多账号投递渠道统计信息
+   * Queries the statistics on a multi-account delivery channel.
    * 
    * @param request - GetMultiAccountDeliveryChannelStatisticsRequest
    * @returns GetMultiAccountDeliveryChannelStatisticsResponse
@@ -1019,6 +1043,56 @@ export default class Client extends OpenApi {
   async getMultiAccountResourceConfiguration(request: $_model.GetMultiAccountResourceConfigurationRequest): Promise<$_model.GetMultiAccountResourceConfigurationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getMultiAccountResourceConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取多账号资源数量
+   * 
+   * @param request - GetMultiAccountResourceCountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMultiAccountResourceCountsResponse
+   */
+  async getMultiAccountResourceCountsWithOptions(request: $_model.GetMultiAccountResourceCountsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMultiAccountResourceCountsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.groupByKey)) {
+      query["GroupByKey"] = request.groupByKey;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMultiAccountResourceCounts",
+      version: "2022-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMultiAccountResourceCountsResponse>(await this.callApi(params, req, runtime), new $_model.GetMultiAccountResourceCountsResponse({}));
+  }
+
+  /**
+   * 获取多账号资源数量
+   * 
+   * @param request - GetMultiAccountResourceCountsRequest
+   * @returns GetMultiAccountResourceCountsResponse
+   */
+  async getMultiAccountResourceCounts(request: $_model.GetMultiAccountResourceCountsRequest): Promise<$_model.GetMultiAccountResourceCountsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMultiAccountResourceCountsWithOptions(request, runtime);
   }
 
   /**
@@ -1192,7 +1266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出投递渠道
+   * Queries a list of single-account delivery channels.
    * 
    * @param request - ListDeliveryChannelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1227,7 +1301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出投递渠道
+   * Queries a list of single-account delivery channels.
    * 
    * @param request - ListDeliveryChannelsRequest
    * @returns ListDeliveryChannelsResponse
@@ -1316,7 +1390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出多账号投递渠道
+   * Queries a list of multi-account delivery channels.
    * 
    * @param request - ListMultiAccountDeliveryChannelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1351,7 +1425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出多账号投递渠道
+   * Queries a list of multi-account delivery channels.
    * 
    * @param request - ListMultiAccountDeliveryChannelsRequest
    * @returns ListMultiAccountDeliveryChannelsResponse
@@ -2042,7 +2116,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新投递渠道
+   * Updates a single-account delivery channel.
+   * 
+   * @remarks
+   * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
+   * Scheduled resource snapshots support the following delivery scenarios:
+   * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+   * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
    * 
    * @param request - UpdateDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2093,7 +2173,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新投递渠道
+   * Updates a single-account delivery channel.
+   * 
+   * @remarks
+   * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
+   * Scheduled resource snapshots support the following delivery scenarios:
+   * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+   * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
    * 
    * @param request - UpdateDeliveryChannelRequest
    * @returns UpdateDeliveryChannelResponse
@@ -2150,7 +2236,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新多账号投递渠道
+   * Updates a multi-account delivery channel.
+   * 
+   * @remarks
+   * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
+   * Scheduled resource snapshots support the following delivery scenarios:
+   * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+   * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
    * 
    * @param request - UpdateMultiAccountDeliveryChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2201,7 +2293,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新多账号投递渠道
+   * Updates a multi-account delivery channel.
+   * 
+   * @remarks
+   * Resource delivery supports the delivery of resource configuration change events and scheduled resource snapshots.
+   * Scheduled resource snapshots support the following delivery scenarios:
+   * *   Standard delivery: Leave the `ResourceSnapshotDelivery.CustomExpression` parameter empty.
+   * *   Custom delivery: Set the `ResourceSnapshotDelivery.CustomExpression` parameter to an appropriate value.
    * 
    * @param request - UpdateMultiAccountDeliveryChannelRequest
    * @returns UpdateMultiAccountDeliveryChannelResponse

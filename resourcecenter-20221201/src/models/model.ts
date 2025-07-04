@@ -25,6 +25,9 @@ export { GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery } fr
 export { GetMultiAccountDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics } from './GetMultiAccountDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics';
 export { GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes } from './GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes';
 export { GetMultiAccountResourceConfigurationResponseBodyTags } from './GetMultiAccountResourceConfigurationResponseBodyTags';
+export { GetMultiAccountResourceCountsRequestFilter } from './GetMultiAccountResourceCountsRequestFilter';
+export { GetMultiAccountResourceCountsResponseBodyFilters } from './GetMultiAccountResourceCountsResponseBodyFilters';
+export { GetMultiAccountResourceCountsResponseBodyResourceCounts } from './GetMultiAccountResourceCountsResponseBodyResourceCounts';
 export { GetResourceConfigurationResponseBodyIpAddressAttributes } from './GetResourceConfigurationResponseBodyIpAddressAttributes';
 export { GetResourceConfigurationResponseBodyTags } from './GetResourceConfigurationResponseBodyTags';
 export { GetResourceCountsRequestFilter } from './GetResourceCountsRequestFilter';
@@ -128,6 +131,9 @@ export { GetMultiAccountResourceCenterServiceStatusResponse } from './GetMultiAc
 export { GetMultiAccountResourceConfigurationRequest } from './GetMultiAccountResourceConfigurationRequest';
 export { GetMultiAccountResourceConfigurationResponseBody } from './GetMultiAccountResourceConfigurationResponseBody';
 export { GetMultiAccountResourceConfigurationResponse } from './GetMultiAccountResourceConfigurationResponse';
+export { GetMultiAccountResourceCountsRequest } from './GetMultiAccountResourceCountsRequest';
+export { GetMultiAccountResourceCountsResponseBody } from './GetMultiAccountResourceCountsResponseBody';
+export { GetMultiAccountResourceCountsResponse } from './GetMultiAccountResourceCountsResponse';
 export { GetResourceCenterServiceStatusResponseBody } from './GetResourceCenterServiceStatusResponseBody';
 export { GetResourceCenterServiceStatusResponse } from './GetResourceCenterServiceStatusResponse';
 export { GetResourceConfigurationRequest } from './GetResourceConfigurationRequest';

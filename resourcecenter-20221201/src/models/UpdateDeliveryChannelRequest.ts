@@ -6,10 +6,20 @@ import { UpdateDeliveryChannelRequestResourceSnapshotDelivery } from "./UpdateDe
 
 
 export class UpdateDeliveryChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   */
   deliveryChannelDescription?: string;
+  /**
+   * @remarks
+   * The effective scope of the delivery channel.
+   */
   deliveryChannelFilter?: UpdateDeliveryChannelRequestDeliveryChannelFilter;
   /**
    * @remarks
+   * The ID of the delivery channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,11 +27,22 @@ export class UpdateDeliveryChannelRequest extends $dara.Model {
    */
   deliveryChannelId?: string;
   /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
    * @example
    * test-delivery-channel
    */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The configurations for delivery of resource configuration change events.
+   */
   resourceChangeDelivery?: UpdateDeliveryChannelRequestResourceChangeDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery of scheduled resource snapshots.
+   */
   resourceSnapshotDelivery?: UpdateDeliveryChannelRequestResourceSnapshotDelivery;
   static names(): { [key: string]: string } {
     return {

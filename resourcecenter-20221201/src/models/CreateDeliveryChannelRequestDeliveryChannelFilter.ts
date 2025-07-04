@@ -5,6 +5,13 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class CreateDeliveryChannelRequestDeliveryChannelFilter extends $dara.Model {
+  /**
+   * @remarks
+   * An array of effective resource types for the delivery channel.
+   * 
+   * *   Example: ["ACS::VPC::VPC", "ACS::ECS::Instance"].
+   * *   If you want to deliver items of all resource types supported by Resource Center, set this parameter to ["ALL"].
+   */
   resourceTypes?: string[];
   static names(): { [key: string]: string } {
     return {

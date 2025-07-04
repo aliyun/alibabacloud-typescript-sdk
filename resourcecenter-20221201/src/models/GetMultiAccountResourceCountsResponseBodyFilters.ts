@@ -2,30 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDeliveryChannelStatisticsRequest extends $dara.Model {
+export class GetMultiAccountResourceCountsResponseBodyFilters extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the delivery channel.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * dc-6q79dm4o9***
+   * RegionId
    */
-  deliveryChannelId?: string;
+  key?: string;
+  values?: string[];
   static names(): { [key: string]: string } {
     return {
-      deliveryChannelId: 'DeliveryChannelId',
+      key: 'Key',
+      values: 'Values',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deliveryChannelId: 'string',
+      key: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
     super.validate();
   }
 

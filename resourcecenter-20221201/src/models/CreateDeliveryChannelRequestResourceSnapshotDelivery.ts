@@ -5,18 +5,46 @@ import { CreateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties } fro
 
 export class CreateDeliveryChannelRequestResourceSnapshotDelivery extends $dara.Model {
   /**
+   * @remarks
+   * The custom expression.
+   * 
    * @example
    * select * from resources limit 100;
    */
   customExpression?: string;
   /**
+   * @remarks
+   * The delivery time.
+   * 
    * @example
    * 09:00Z
    */
   deliveryTime?: string;
+  /**
+   * @remarks
+   * The Simple Log Service configurations.
+   */
   slsProperties?: CreateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the delivery destination.
+   * 
+   * *   If you set `TargetType` to `OSS`, you must set `TargetArn` to the ARN of a bucket whose name is prefixed with resourcecenter-.
+   * *   If you set `TargetType` to `SLS`, you must set `TargetArn` to the ARN of a Logstore whose name is prefixed with resourcecenter-.
+   * 
+   * @example
+   * acs:log:cn-hangzhou: 191142248777****:project/delivery/logstore/resourcecenter-sls
+   */
   targetArn?: string;
   /**
+   * @remarks
+   * The type of the delivery destination.
+   * 
+   * Valid values:
+   * 
+   * *   `OSS` for standard delivery
+   * *   `OSS` or `SLS` for custom delivery
+   * 
    * @example
    * OSS
    */

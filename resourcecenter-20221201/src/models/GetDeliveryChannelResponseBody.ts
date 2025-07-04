@@ -6,24 +6,49 @@ import { GetDeliveryChannelResponseBodyResourceSnapshotDelivery } from "./GetDel
 
 
 export class GetDeliveryChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   */
   deliveryChannelDescription?: string;
+  /**
+   * @remarks
+   * The effective scope of the delivery channel.
+   */
   deliveryChannelFilter?: GetDeliveryChannelResponseBodyDeliveryChannelFilter;
   /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
    * @example
    * dc-6q79dm4o9***
    */
   deliveryChannelId?: string;
   /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
    * @example
    * test-delivery-channel
    */
   deliveryChannelName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 17502A1B-7026-5551-8E1C-CCABD0CBC***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The configurations for delivery of resource configuration change events.
+   */
   resourceChangeDelivery?: GetDeliveryChannelResponseBodyResourceChangeDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery of scheduled resource snapshots.
+   */
   resourceSnapshotDelivery?: GetDeliveryChannelResponseBodyResourceSnapshotDelivery;
   static names(): { [key: string]: string } {
     return {

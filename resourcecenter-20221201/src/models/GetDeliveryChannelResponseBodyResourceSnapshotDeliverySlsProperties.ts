@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties extends $dara.Model {
   /**
+   * @remarks
+   * The ARN of the destination to which large files are delivered.
+   * 
    * @example
    * acs:oss:cn-hangzhou:1911422487776***:resourcecenter-oss
    */

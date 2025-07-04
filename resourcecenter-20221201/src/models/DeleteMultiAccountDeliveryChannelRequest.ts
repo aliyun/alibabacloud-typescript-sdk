@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMultiAccountDeliveryChannelRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery channel.
+   * 
    * This parameter is required.
    * 
    * @example

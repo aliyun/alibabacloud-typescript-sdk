@@ -4,14 +4,23 @@ import { ListDeliveryChannelsResponseBodyDeliveryChannels } from "./ListDelivery
 
 
 export class ListDeliveryChannelsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The delivery channels.
+   */
   deliveryChannels?: ListDeliveryChannelsResponseBodyDeliveryChannels[];
   /**
+   * @remarks
+   * The maximum number of entries per page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19,6 +28,9 @@ export class ListDeliveryChannelsResponseBody extends $dara.Model {
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 17502A1B-7026-5551-8E1C-CCABD0CBC***
    */

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDeliveryChannelResponseBodyDeliveryChannelFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The effective resource types of the delivery channel.
+   */
   resourceTypes?: string[];
   static names(): { [key: string]: string } {
     return {

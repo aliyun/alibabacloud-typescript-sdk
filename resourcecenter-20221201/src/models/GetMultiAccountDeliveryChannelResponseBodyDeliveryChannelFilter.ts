@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The effective account scopes of the delivery channel.
+   */
   accountScopes?: string[];
+  /**
+   * @remarks
+   * The effective resource types of the delivery channel.
+   */
   resourceTypes?: string[];
   static names(): { [key: string]: string } {
     return {

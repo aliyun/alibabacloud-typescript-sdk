@@ -2,26 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDeliveryChannelStatisticsRequest extends $dara.Model {
+export class GetMultiAccountResourceCountsResponseBodyResourceCounts extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the delivery channel.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * dc-6q79dm4o9***
+   * 2
    */
-  deliveryChannelId?: string;
+  count?: number;
+  /**
+   * @example
+   * ACS::ECS::NetworkInterface
+   */
+  groupName?: string;
   static names(): { [key: string]: string } {
     return {
-      deliveryChannelId: 'DeliveryChannelId',
+      count: 'Count',
+      groupName: 'GroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deliveryChannelId: 'string',
+      count: 'number',
+      groupName: 'string',
     };
   }
 

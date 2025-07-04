@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
    * @example
    * dc-6q79dm4o9***
    */
   deliveryChannelId?: string;
   /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
    * @example
    * test-delivery-channel
    */
   deliveryChannelName?: string;
   /**
+   * @remarks
+   * The last delivery time of resource configuration change events.
+   * 
    * @example
    * 2025-06-03T16:05:15Z
    */
   latestChangeDeliveryTime?: string;
   /**
+   * @remarks
+   * The last delivery time of scheduled resource snapshots.
+   * 
    * @example
    * 2025-06-03T16:00:00Z
    */

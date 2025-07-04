@@ -6,24 +6,49 @@ import { GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery } fr
 
 
 export class GetMultiAccountDeliveryChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   */
   deliveryChannelDescription?: string;
+  /**
+   * @remarks
+   * The effective scope of the delivery channel.
+   */
   deliveryChannelFilter?: GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter;
   /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
    * @example
    * dc-6q79dm4o9***
    */
   deliveryChannelId?: string;
   /**
+   * @remarks
+   * The name of the delivery channel.
+   * 
    * @example
    * test-delivery-channel
    */
   deliveryChannelName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE3EAB47-D3A6-5FEA-8353-31C8C0D36***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The configurations for delivery of resource configuration change events.
+   */
   resourceChangeDelivery?: GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery of scheduled resource snapshots.
+   */
   resourceSnapshotDelivery?: GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery;
   static names(): { [key: string]: string } {
     return {

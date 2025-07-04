@@ -4,9 +4,28 @@ import { CreateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProper
 
 
 export class CreateMultiAccountDeliveryChannelRequestResourceChangeDelivery extends $dara.Model {
+  /**
+   * @remarks
+   * The Simple Log Service configurations.
+   */
   slsProperties?: CreateMultiAccountDeliveryChannelRequestResourceChangeDeliverySlsProperties;
+  /**
+   * @remarks
+   * The ARN of the delivery destination. Valid values:
+   * 
+   * *   If you set `TargetType` to `OSS`, you must set `TargetArn` to the ARN of a bucket whose name is prefixed with `resourcecenter-`.
+   * *   If you set `TargetType` to `SLS`, you must set `TargetArn` to the ARN of a Logstore whose name is prefixed with `resourcecenter-`.
+   * 
+   * @example
+   * acs:log:cn-hangzhou: 1911422487776***:project/delivery/logstore/resourcecenter-sls
+   */
   targetArn?: string;
   /**
+   * @remarks
+   * The type of the delivery destination.
+   * 
+   * Set the value to `SLS`.
+   * 
    * @example
    * SLS
    */

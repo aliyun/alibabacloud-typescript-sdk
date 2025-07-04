@@ -4,8 +4,15 @@ import { GetMultiAccountDeliveryChannelStatisticsResponseBodyDeliveryChannelStat
 
 
 export class GetMultiAccountDeliveryChannelStatisticsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The statistics on the delivery channel.
+   */
   deliveryChannelStatistics?: GetMultiAccountDeliveryChannelStatisticsResponseBodyDeliveryChannelStatistics;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 80DF0610-504C-56D7-BDCF-7C92FD687***
    */

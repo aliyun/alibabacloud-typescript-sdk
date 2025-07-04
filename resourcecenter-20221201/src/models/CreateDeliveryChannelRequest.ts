@@ -6,21 +6,37 @@ import { CreateDeliveryChannelRequestResourceSnapshotDelivery } from "./CreateDe
 
 
 export class CreateDeliveryChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   */
   deliveryChannelDescription?: string;
   /**
    * @remarks
+   * The effective scope of the delivery channel.
+   * 
    * This parameter is required.
    */
   deliveryChannelFilter?: CreateDeliveryChannelRequestDeliveryChannelFilter;
   /**
    * @remarks
+   * The name of the delivery channel.
+   * 
    * This parameter is required.
    * 
    * @example
    * test-delivery
    */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The configurations for delivery of resource configuration change events.
+   */
   resourceChangeDelivery?: CreateDeliveryChannelRequestResourceChangeDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery of scheduled resource snapshots.
+   */
   resourceSnapshotDelivery?: CreateDeliveryChannelRequestResourceSnapshotDelivery;
   static names(): { [key: string]: string } {
     return {

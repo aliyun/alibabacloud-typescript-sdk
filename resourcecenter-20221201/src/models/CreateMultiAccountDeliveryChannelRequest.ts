@@ -6,21 +6,37 @@ import { CreateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery } from
 
 
 export class CreateMultiAccountDeliveryChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the delivery channel.
+   */
   deliveryChannelDescription?: string;
   /**
    * @remarks
+   * The effective scope of the delivery channel.
+   * 
    * This parameter is required.
    */
   deliveryChannelFilter?: CreateMultiAccountDeliveryChannelRequestDeliveryChannelFilter;
   /**
    * @remarks
+   * The name of the delivery channel.
+   * 
    * This parameter is required.
    * 
    * @example
    * test-multi-account-delivery
    */
   deliveryChannelName?: string;
+  /**
+   * @remarks
+   * The configurations for delivery of resource configuration change events.
+   */
   resourceChangeDelivery?: CreateMultiAccountDeliveryChannelRequestResourceChangeDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery of scheduled resource snapshots.
+   */
   resourceSnapshotDelivery?: CreateMultiAccountDeliveryChannelRequestResourceSnapshotDelivery;
   static names(): { [key: string]: string } {
     return {

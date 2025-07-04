@@ -4,13 +4,23 @@ import { GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProp
 
 
 export class GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery extends $dara.Model {
+  /**
+   * @remarks
+   * The Simple Log Service configurations.
+   */
   slsProperties?: GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties;
   /**
+   * @remarks
+   * The ARN of the delivery destination.
+   * 
    * @example
    * acs:log:cn-hangzhou: 1911422487776***:project/delivery/logstore/resourcecenter-sls
    */
   targetArn?: string;
   /**
+   * @remarks
+   * The type of the destination.
+   * 
    * @example
    * SLS
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteMultiAccountDeliveryChannelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3C5CDBF6-4DB7-53E9-ADDC-5919E3FAC***
    */
