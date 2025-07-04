@@ -138,6 +138,7 @@ export class DescribeDBInstancesAsCsvResponseBodyItemsDBInstanceAttribute extend
    * 10
    */
   DBInstanceStorage?: number;
+  DBInstanceStorageType?: string;
   /**
    * @remarks
    * The instance type. Valid values:
@@ -374,6 +375,7 @@ export class DescribeDBInstancesAsCsvResponseBodyItemsDBInstanceAttribute extend
       DBInstanceNetType: 'DBInstanceNetType',
       DBInstanceStatus: 'DBInstanceStatus',
       DBInstanceStorage: 'DBInstanceStorage',
+      DBInstanceStorageType: 'DBInstanceStorageType',
       DBInstanceType: 'DBInstanceType',
       DBMaxQuantity: 'DBMaxQuantity',
       engine: 'Engine',
@@ -422,6 +424,7 @@ export class DescribeDBInstancesAsCsvResponseBodyItemsDBInstanceAttribute extend
       DBInstanceNetType: 'string',
       DBInstanceStatus: 'string',
       DBInstanceStorage: 'number',
+      DBInstanceStorageType: 'string',
       DBInstanceType: 'string',
       DBMaxQuantity: 'number',
       engine: 'string',

@@ -46,6 +46,10 @@ export class DescribeRCDisksRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The list of the tags.
+   */
   tag?: DescribeRCDisksRequestTag[];
   static names(): { [key: string]: string } {
     return {

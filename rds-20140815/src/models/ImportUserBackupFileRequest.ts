@@ -13,8 +13,6 @@ export class ImportUserBackupFileRequest extends $dara.Model {
    * *   **Object**: The path of the full backup file that is stored as an object in the OSS bucket. You can call the [GetObject](https://help.aliyun.com/document_detail/31980.html) operation to query the path of the object.
    * *   **Location**: The ID of the region in which the OSS bucket is located. You can call the [GetBucketLocation](https://help.aliyun.com/document_detail/31967.html) operation to query the region of the bucket.
    * 
-   * This parameter is required.
-   * 
    * @example
    * {"Bucket":"test", "Object":"test/test_db_employees.xb","Location":"ap-southeast-1"}
    */
@@ -23,12 +21,11 @@ export class ImportUserBackupFileRequest extends $dara.Model {
    * @remarks
    * The region ID of the OSS bucket where the full backup file of the self-managed MySQL database is located. You can call the DescribeRegions operation to query the most recent region list.
    * 
-   * This parameter is required.
-   * 
    * @example
    * cn-hangzhou
    */
   bucketRegion?: string;
+  buildReplication?: boolean;
   /**
    * @remarks
    * The description of the full backup file.
@@ -53,6 +50,12 @@ export class ImportUserBackupFileRequest extends $dara.Model {
    * 5.7
    */
   engineVersion?: string;
+  masterInfo?: string;
+  /**
+   * @example
+   * oss
+   */
+  mode?: string;
   ownerId?: number;
   /**
    * @remarks
@@ -96,6 +99,7 @@ export class ImportUserBackupFileRequest extends $dara.Model {
    * 30
    */
   retention?: number;
+  sourceInfo?: string;
   /**
    * @remarks
    * The zone ID. You can call the DescribeRegions operation to query the zone ID.
@@ -111,9 +115,12 @@ export class ImportUserBackupFileRequest extends $dara.Model {
     return {
       backupFile: 'BackupFile',
       bucketRegion: 'BucketRegion',
+      buildReplication: 'BuildReplication',
       comment: 'Comment',
       DBInstanceId: 'DBInstanceId',
       engineVersion: 'EngineVersion',
+      masterInfo: 'MasterInfo',
+      mode: 'Mode',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -121,6 +128,7 @@ export class ImportUserBackupFileRequest extends $dara.Model {
       resourceOwnerId: 'ResourceOwnerId',
       restoreSize: 'RestoreSize',
       retention: 'Retention',
+      sourceInfo: 'SourceInfo',
       zoneId: 'ZoneId',
     };
   }
@@ -129,9 +137,12 @@ export class ImportUserBackupFileRequest extends $dara.Model {
     return {
       backupFile: 'string',
       bucketRegion: 'string',
+      buildReplication: 'boolean',
       comment: 'string',
       DBInstanceId: 'string',
       engineVersion: 'string',
+      masterInfo: 'string',
+      mode: 'string',
       ownerId: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -139,6 +150,7 @@ export class ImportUserBackupFileRequest extends $dara.Model {
       resourceOwnerId: 'number',
       restoreSize: 'number',
       retention: 'number',
+      sourceInfo: 'string',
       zoneId: 'string',
     };
   }

@@ -63,6 +63,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * true
    */
   dedicatedHostAttribute?: DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute;
+  deletionProtection?: boolean;
   /**
    * @remarks
    * The ID of the deployment set.
@@ -119,6 +120,8 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * 2024-08-10T00:00:00Z
    */
   expiredTime?: string;
+  gpu?: number;
+  gpuTypes?: string;
   /**
    * @remarks
    * The instance hostname.
@@ -243,6 +246,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * 8192
    */
   memory?: number;
+  nodeType?: string;
   /**
    * @remarks
    * The reasons why the instance is locked.
@@ -312,6 +316,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   stoppedMode?: string;
   systemDisk?: DescribeRCInstanceAttributeResponseBodySystemDisk;
   tags?: DescribeRCInstanceAttributeResponseBodyTags;
+  userData?: string;
   /**
    * @remarks
    * The virtual LAN (VLAN) ID of the instance.
@@ -349,6 +354,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
       dataDisks: 'DataDisks',
       dbType: 'DbType',
       dedicatedHostAttribute: 'DedicatedHostAttribute',
+      deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
       description: 'Description',
       diskType: 'DiskType',
@@ -356,6 +362,8 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
       eipAddress: 'EipAddress',
       enableJumboFrame: 'EnableJumboFrame',
       expiredTime: 'ExpiredTime',
+      gpu: 'Gpu',
+      gpuTypes: 'GpuTypes',
       hostName: 'HostName',
       hostType: 'HostType',
       imageId: 'ImageId',
@@ -371,6 +379,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
       ioOptimized: 'IoOptimized',
       keyPairName: 'KeyPairName',
       memory: 'Memory',
+      nodeType: 'NodeType',
       operationLocks: 'OperationLocks',
       publicIpAddress: 'PublicIpAddress',
       regionId: 'RegionId',
@@ -383,6 +392,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
       stoppedMode: 'StoppedMode',
       systemDisk: 'SystemDisk',
       tags: 'Tags',
+      userData: 'UserData',
       vlanId: 'VlanId',
       vpcAttributes: 'VpcAttributes',
       zoneId: 'ZoneId',
@@ -400,6 +410,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
       dataDisks: DescribeRCInstanceAttributeResponseBodyDataDisks,
       dbType: 'string',
       dedicatedHostAttribute: DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute,
+      deletionProtection: 'boolean',
       deploymentSetId: 'string',
       description: 'string',
       diskType: 'string',
@@ -407,6 +418,8 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
       eipAddress: DescribeRCInstanceAttributeResponseBodyEipAddress,
       enableJumboFrame: 'boolean',
       expiredTime: 'string',
+      gpu: 'number',
+      gpuTypes: 'string',
       hostName: 'string',
       hostType: 'string',
       imageId: 'string',
@@ -422,6 +435,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
       ioOptimized: 'string',
       keyPairName: 'string',
       memory: 'number',
+      nodeType: 'string',
       operationLocks: DescribeRCInstanceAttributeResponseBodyOperationLocks,
       publicIpAddress: DescribeRCInstanceAttributeResponseBodyPublicIpAddress,
       regionId: 'string',
@@ -434,6 +448,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
       stoppedMode: 'string',
       systemDisk: DescribeRCInstanceAttributeResponseBodySystemDisk,
       tags: DescribeRCInstanceAttributeResponseBodyTags,
+      userData: 'string',
       vlanId: 'string',
       vpcAttributes: DescribeRCInstanceAttributeResponseBodyVpcAttributes,
       zoneId: 'string',

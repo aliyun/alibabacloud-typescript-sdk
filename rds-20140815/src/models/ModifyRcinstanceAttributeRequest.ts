@@ -5,6 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRCInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable the release protection feature for the instance. Valid values:
+   * 
+   * - **true**: enables the release protection feature.
+   * - **false** (default): does not enable the release protection feature.
+   * 
+   * @example
+   * false
+   */
+  deletionProtection?: boolean;
+  /**
+   * @remarks
    * The hostname of the instance.
    * 
    * @example
@@ -19,6 +30,7 @@ export class ModifyRCInstanceAttributeRequest extends $dara.Model {
    * rm-uf62br2491p5l****
    */
   instanceId?: string;
+  instanceIds?: string[];
   /**
    * @remarks
    * The new password of the instance.
@@ -49,30 +61,50 @@ export class ModifyRCInstanceAttributeRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the security group to which the instance is added.
+   * 
+   * @example
+   * sg-uf6av412xaxixu****
+   */
   securityGroupId?: string;
+  securityGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      deletionProtection: 'DeletionProtection',
       hostName: 'HostName',
       instanceId: 'InstanceId',
+      instanceIds: 'InstanceIds',
       password: 'Password',
       reboot: 'Reboot',
       regionId: 'RegionId',
       securityGroupId: 'SecurityGroupId',
+      securityGroupIds: 'SecurityGroupIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      deletionProtection: 'boolean',
       hostName: 'string',
       instanceId: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       password: 'string',
       reboot: 'boolean',
       regionId: 'string',
       securityGroupId: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    if(Array.isArray(this.securityGroupIds)) {
+      $dara.Model.validateArray(this.securityGroupIds);
+    }
     super.validate();
   }
 

@@ -14,15 +14,10 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the auto-renewal feature. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * > 
-   * 
-   * *   This parameter is valid only when you change the billing method from pay-as-you-go to subscription.
-   * 
-   * *   All strings except **true** are considered **false**.
+   * * **true**
+   * * **false**
+   * > *   This parameter is valid only when you change the billing method from pay-as-you-go to subscription.
+   * > *   All strings except **true** are considered **false**.
    * 
    * @example
    * true
@@ -31,9 +26,8 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to use a coupon. Valid values:
-   * 
-   * *   **true** (default)
-   * *   **false**
+   * * **true** (default)
+   * * **false**
    * 
    * @example
    * true
@@ -50,8 +44,7 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The custom client token that is used to ensure the idempotence of the request.
-   * 
-   * >  The value can contain ASCII characters and can be up to 64 characters in length.
+   * > The value can contain ASCII characters and can be up to 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOC****
@@ -76,11 +69,6 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The reserved parameter. This parameter is not supported.
-   * 
-   * Valid values:
-   * 
-   * *   PrePaid
-   * *   PostPaid
    * 
    * @example
    * None
@@ -107,9 +95,8 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The new billing method of the instance. Valid values:
-   * 
-   * *   **Prepaid**: subscription.
-   * *   **Postpaid**: pay-as-you-go.
+   * * **Prepaid**: subscription.
+   * * **Postpaid**: pay-as-you-go.
    * 
    * This parameter is required.
    * 
@@ -120,11 +107,9 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The renewal cycle of the instance. Valid values:
-   * 
-   * *   **Year**
-   * *   **Month**
-   * 
-   * >  This parameter must be specified if you set the PayType parameter to **Prepaid**.
+   * * **Year**
+   * * **Month**
+   * > This parameter must be specified if you set the PayType parameter to **Prepaid**.
    * 
    * @example
    * Month
@@ -154,11 +139,10 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The subscription duration of the instance.
+   * *   If you set the **Period** parameter to **Year**, the value of the **UsedTime** parameter ranges from **1** to **5**.
+   * *   If the **Period** parameter is set to **Month**, the value of the **UsedTime** parameter ranges from **1** to **11**.
    * 
-   * *   **If you set the ****Period**** parameter to **Year, the value of the UsedTime parameter ranges from 1 to 5.
-   * *   If the **Period** parameter is set to **Month**, the value of the **UsedTime** parameter ranges from 1 to 11.
-   * 
-   * >  If you set the PayType parameter to **Prepaid**, you must also specify this parameter.
+   * > If you set the **PayType** parameter to **Prepaid**, you must specify this parameter.
    * 
    * @example
    * 2

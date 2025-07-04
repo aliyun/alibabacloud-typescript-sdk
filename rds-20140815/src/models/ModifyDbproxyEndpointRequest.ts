@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBProxyEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * Consistency read timeout, in milliseconds.
+   * The consistency read timeout period. Unit: milliseconds. Default value: **10** Unit: milliseconds. Valid values: **0 to 60000**
    * 
    * @example
    * 10
@@ -21,6 +21,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
    * *   **ConnectionPersist**: connection pooling
    * *   **TransactionReadSqlRouteOptimizeStatus**: transaction splitting
    * *   **AZProximityAccess**: nearest access
+   * *   **CausalConsistRead**: read consistency
    * 
    * Valid status values:
    * 
@@ -206,7 +207,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID of the zone in which the proxy endpoint is specified. The default value is the VPC ID that corresponds to the default terminal of the database proxy. You can call the DescribeDBInstanceAttribute operation to query the default VPC of an instance.
    * 
    * @example
    * vpc-2zeusejj******

@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBackupFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup set ID. You can specify the IDs of up to 100 backup sets at a time. Separate the IDs with commas (,).
-   * 
-   * > *   If the instance runs SQL Server, only the ID of the backup set for an individual database is supported.
-   * > *   You can call the DescribeBackups operation to query the backup set ID.
+   * You can specify only the ID of a backup file whose backup policy is Single-database Backup. You can specify the IDs of up to 100 backup files at a time. Separate the IDs with commas (,). You can call the DescribeBackups operation to query the IDs of data backup files.
    * 
    * @example
    * 29304****
@@ -16,7 +13,7 @@ export class DeleteBackupFileRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * Specifies whether to delete the backup sets that are generated before the specified point in time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The time before which the backup files you want to delete are generated. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2011-06-11T16:00:00Z

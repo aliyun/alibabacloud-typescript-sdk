@@ -7,7 +7,7 @@ import { DescribeDBProxyEndpointResponseBodyEndpointConnectItems } from "./Descr
 export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The consistency read timeout period. Unit: milliseconds. Default value: **10** Unit: milliseconds. Valid values: **0 to 60000**
+   * The timeout period for consistency reads. Unit: milliseconds. Default value: **10**. Valid values: **0** to **60000**.
    * 
    * @example
    * 10

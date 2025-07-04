@@ -31,12 +31,12 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   autoCreateProxy?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the automatic payment feature. Valid values:
+   * Specifies whether to enable automatic payment. Valid values:
    * 
-   * *   **true**: enables the feature. Make sure that your account balance is sufficient.
-   * *   **false**: disables the feature. An unpaid order is generated.
+   * *   **true**: enables the feature. Make sure that your account balance is sufficient when you enable automatic payment.
+   * *   **false**: does not automatically complete the payment. An unpaid order is generated.
    * 
-   * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+   * >  Default value: true. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
    * 
    * @example
    * true
@@ -135,9 +135,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    *     *   **serverless_standard**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run MySQL and PostgreSQL.
    *     *   **serverless_ha**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run SQL Server.
    * 
-   *     **
-   * 
-   *     **Note** This parameter is required if PayType is set to Serverless.
+   * > This parameter is required if PayType is set to Serverless.
    * 
    * @example
    * HighAvailability
@@ -303,11 +301,8 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    *     *   This time zone is not in UTC. For more information, see [Time zones](https://help.aliyun.com/document_detail/297356.html).
    *     *   You can configure this parameter only when the RDS instance uses cloud disks.
    * 
-   * > 
-   * 
-   * *   You can specify the time zone when you create a primary instance. You cannot specify the time zone when you create a read-only instance. Read-only instances inherit the time zone of their primary instance.
-   * 
-   * *   If you do not specify this parameter, the system automatically assigns the default time zone of the region in which the instance resides.
+   * > *   You can specify the time zone when you create a primary instance. You cannot specify the time zone when you create a read-only instance. Read-only instances inherit the time zone of their primary instance.
+   * > *   If you do not specify this parameter, the system automatically assigns the default time zone of the region in which the instance resides.
    * 
    * @example
    * +08:00
@@ -339,9 +334,9 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform a dry run. Default value: false. Valid values:
    * 
-   * *   **true**: performs a dry run but does not create the instance. The system checks items such as the request parameters, request format, service limits, and available resources.
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
    * *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, the instance is created.
    * 
    * @example
@@ -412,20 +407,17 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    * 5.6
    */
   engineVersion?: string;
+  externalReplication?: boolean;
   /**
    * @remarks
    * The network type of the instance. Valid values:
    * 
-   * *   **VPC**
-   * *   **Classic**
+   * *   **VPC**: a virtual private cloud (VPC)
+   * *   **Classic**: the classic network
    * 
-   * > 
-   * 
-   * *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-   * 
-   * *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-   * 
-   * *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+   * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+   * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+   * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
    * 
    * @example
    * Classic
@@ -446,10 +438,10 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   ioAccelerationEnabled?: string;
   /**
    * @remarks
-   * The switch of the 16K atomic write function. Valid values:
+   * Specifies whether to enable the 16K atomic write feature. Valid values:
    * 
-   * *   **optimized**
-   * *   **none** (default)
+   * *   **optimized**: enables the 16K atomic write feature.
+   * *   **none** (default): does not enable the 16K atomic write feature.
    * 
    * >  For more information, see [Use the 16K atomic write feature](https://help.aliyun.com/document_detail/2858761.html).
    * 
@@ -557,7 +549,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The settings of the serverless instance. This parameter is required when you create a serverless instance.
+   * The settings of the serverless instance. These parameters are required only when you create a serverless instance.
    * 
    * >  ApsaraDB RDS for MariaDB does not support serverless instances.
    */
@@ -800,6 +792,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       encryptionKey: 'EncryptionKey',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
+      externalReplication: 'ExternalReplication',
       instanceNetworkType: 'InstanceNetworkType',
       ioAccelerationEnabled: 'IoAccelerationEnabled',
       optimizedWrites: 'OptimizedWrites',
@@ -865,6 +858,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       encryptionKey: 'string',
       engine: 'string',
       engineVersion: 'string',
+      externalReplication: 'boolean',
       instanceNetworkType: 'string',
       ioAccelerationEnabled: 'string',
       optimizedWrites: 'string',

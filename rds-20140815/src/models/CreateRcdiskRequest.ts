@@ -42,7 +42,7 @@ export class CreateRCDiskRequest extends $dara.Model {
    * @remarks
    * The data disk type. Valid values:
    * 
-   * *   **cloud_efficiency**: ultra disk
+   * *   **cloud_efficiency**: ultra disk.
    * *   **cloud_ssd**: standard SSD
    * *   **cloud_essd**: ESSD
    * *   **cloud_auto** (default): Premium ESSD
@@ -61,7 +61,10 @@ export class CreateRCDiskRequest extends $dara.Model {
   diskName?: string;
   /**
    * @remarks
-   * The billing method. Set the value to **Postpaid**, which specifies the pay-as-you-go billing method.
+   * The billing method. Valid values:
+   * 
+   * *   **Postpaid**: pay-as-you-go Pay-as-you-go disks do not require to be attached. You can also attach the pay-as-you-go disk to an instance of any billing method based on your business requirements.
+   * *   **Prepaid**: subscription Subscription disks must be attached to a subscription instance. Set **InstanceId** to the ID of a subscription instance.
    * 
    * @example
    * Postpaid
@@ -69,7 +72,7 @@ export class CreateRCDiskRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The ID of the instance to which you want to attach the disk.
+   * The ID of the instance to which you want to attach the disk. If you set **InstanceChargeType** to **Prepaid**, you must set InstanceId to the ID of a subscription instance.
    * 
    * @example
    * rc-v28c6k3jupp61m2t****
@@ -116,6 +119,13 @@ export class CreateRCDiskRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-ac****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -144,6 +154,7 @@ export class CreateRCDiskRequest extends $dara.Model {
    * @remarks
    * The snapshot that you want to use to create the disk.
    * 
+   * *   The snapshots of RDS Custom instances and the non-shared snapshots of ECS instances are supported.
    * *   If the size of the snapshot specified by **SnapshotId** is greater than the value of **Size**, the size of the created disk is equal to the specified snapshot size. If the snapshot size is less than the **Size** value, the size of the created disk is equal to the **Size** value.
    * *   You cannot create elastic ephemeral disks from snapshots.
    * *   Snapshots that were created on or before July 15, 2013 cannot be used to create disks.
@@ -152,6 +163,10 @@ export class CreateRCDiskRequest extends $dara.Model {
    * rcds-umtnkvevqbu****
    */
   snapshotId?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tag?: CreateRCDiskRequestTag[];
   /**
    * @remarks

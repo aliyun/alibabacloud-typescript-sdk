@@ -71,6 +71,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   instanceType?: string;
   instanceTypeFamily?: string;
   memory?: number;
+  nodeType?: string;
   publicIp?: string;
   /**
    * @remarks
@@ -132,6 +133,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
       instanceType: 'InstanceType',
       instanceTypeFamily: 'InstanceTypeFamily',
       memory: 'Memory',
+      nodeType: 'NodeType',
       publicIp: 'PublicIp',
       regionId: 'RegionId',
       securityGroupId: 'SecurityGroupId',
@@ -163,6 +165,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
       instanceType: 'string',
       instanceTypeFamily: 'string',
       memory: 'number',
+      nodeType: 'string',
       publicIp: 'string',
       regionId: 'string',
       securityGroupId: 'string',

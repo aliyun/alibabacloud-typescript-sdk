@@ -4,11 +4,50 @@ import { DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSet } fro
 
 
 export class DescribeRCInstanceHistoryEventsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details about the instance system event.
+   */
   instanceSystemEventSet?: DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSet[];
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * None
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 866F5EB8-4650-4061-87F0-379F6F968BCE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of instance events.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

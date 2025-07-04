@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeRCSnapshotsRequestTag } from "./DescribeRcsnapshotsRequestTag";
 
 
 export class DescribeRCSnapshotsRequest extends $dara.Model {
@@ -47,6 +48,7 @@ export class DescribeRCSnapshotsRequest extends $dara.Model {
    * ["rcds-bp67acfmxazb4p****", "rcds-bp67acfmxazb5p****", … "rcds-bp67acfmxazb6p****"]
    */
   snapshotIds?: string;
+  tag?: DescribeRCSnapshotsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       diskId: 'DiskId',
@@ -54,6 +56,7 @@ export class DescribeRCSnapshotsRequest extends $dara.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       snapshotIds: 'SnapshotIds',
+      tag: 'Tag',
     };
   }
 
@@ -64,10 +67,14 @@ export class DescribeRCSnapshotsRequest extends $dara.Model {
       pageSize: 'number',
       regionId: 'string',
       snapshotIds: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeRCSnapshotsRequestTag },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

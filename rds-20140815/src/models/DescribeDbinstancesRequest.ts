@@ -219,6 +219,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * Postpaid
    */
   payType?: string;
+  queryAutoRenewal?: boolean;
   /**
    * @remarks
    * The region ID. You can call the DescribeRegions operation to query the most recent region list.
@@ -312,6 +313,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       payType: 'PayType',
+      queryAutoRenewal: 'QueryAutoRenewal',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -350,6 +352,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       payType: 'string',
+      queryAutoRenewal: 'boolean',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',

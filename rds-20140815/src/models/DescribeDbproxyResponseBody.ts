@@ -98,7 +98,7 @@ export class DescribeDBProxyResponseBody extends $dara.Model {
   DBProxyInstanceType?: string;
   /**
    * @remarks
-   * Internal parameters, no need to pay attention.
+   * An internal parameter. You do not need to specify this parameter.
    * 
    * @example
    * 18
@@ -106,7 +106,7 @@ export class DescribeDBProxyResponseBody extends $dara.Model {
   DBProxyKindCode?: string;
   /**
    * @remarks
-   * The proxy node list.
+   * The proxy nodes.
    */
   DBProxyNodes?: DescribeDBProxyResponseBodyDBProxyNodes;
   /**

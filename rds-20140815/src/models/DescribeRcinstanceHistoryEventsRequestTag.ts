@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInstanceHistoryEventsRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag that is added to the resource.
+   * 
+   * @example
+   * TestKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag N of the port list.
+   * 
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

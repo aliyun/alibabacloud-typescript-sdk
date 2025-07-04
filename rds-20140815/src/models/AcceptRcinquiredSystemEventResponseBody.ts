@@ -3,18 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AcceptRCInquiredSystemEventResponseBody extends $dara.Model {
-  orderId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 08A3B71B-FE08-4B03-974F-CC7EA6DB1828
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
       requestId: 'string',
     };
   }

@@ -55,6 +55,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * The information about the data disks.
    */
   dataDiskShrink?: string;
+  deletionProtection?: boolean;
   /**
    * @remarks
    * The deployment set ID.
@@ -249,6 +250,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
       createExtraParam: 'CreateExtraParam',
       createMode: 'CreateMode',
       dataDiskShrink: 'DataDisk',
+      deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
       description: 'Description',
       dryRun: 'DryRun',
@@ -291,6 +293,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
       createExtraParam: 'string',
       createMode: 'string',
       dataDiskShrink: 'string',
+      deletionProtection: 'boolean',
       deploymentSetId: 'string',
       description: 'string',
       dryRun: 'boolean',

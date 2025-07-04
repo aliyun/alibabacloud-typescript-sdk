@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeRCSnapshotsResponseBodySnapshotsTag } from "./DescribeRcsnapshotsResponseBodySnapshotsTag";
 
 
 export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
@@ -77,6 +78,7 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The snapshot ID.
@@ -154,6 +156,7 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
    * progressing
    */
   status?: string;
+  tag?: DescribeRCSnapshotsResponseBodySnapshotsTag[];
   /**
    * @remarks
    * Indicates whether the snapshot is used to create custom images or disks. Valid values:
@@ -177,6 +180,7 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
       instantAccess: 'InstantAccess',
       progress: 'Progress',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       snapshotId: 'SnapshotId',
       snapshotName: 'SnapshotName',
       snapshotType: 'SnapshotType',
@@ -185,6 +189,7 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
       sourceDiskType: 'SourceDiskType',
       sourceStorageType: 'SourceStorageType',
       status: 'Status',
+      tag: 'Tag',
       usage: 'Usage',
     };
   }
@@ -199,6 +204,7 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
       instantAccess: 'boolean',
       progress: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       snapshotId: 'string',
       snapshotName: 'string',
       snapshotType: 'string',
@@ -207,11 +213,15 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
       sourceDiskType: 'string',
       sourceStorageType: 'string',
       status: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeRCSnapshotsResponseBodySnapshotsTag },
       usage: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

@@ -4,6 +4,7 @@ import { DescribeDBInstancesResponseBodyItemsDBInstanceReadOnlyDBInstanceIds } f
 
 
 export class DescribeDBInstancesResponseBodyItemsDBInstance extends $dara.Model {
+  autoRenewal?: boolean;
   blueGreenDeploymentName?: string;
   blueInstanceName?: string;
   /**
@@ -486,6 +487,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $dara.Model 
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoRenewal: 'AutoRenewal',
       blueGreenDeploymentName: 'BlueGreenDeploymentName',
       blueInstanceName: 'BlueInstanceName',
       bpeEnabled: 'BpeEnabled',
@@ -547,6 +549,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      autoRenewal: 'boolean',
       blueGreenDeploymentName: 'string',
       blueInstanceName: 'string',
       bpeEnabled: 'string',

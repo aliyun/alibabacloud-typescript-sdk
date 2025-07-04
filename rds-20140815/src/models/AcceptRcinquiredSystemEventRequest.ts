@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AcceptRCInquiredSystemEventRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the system event.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * e-2zeielxl1qzq8slb****
    * 
    * **if can be null:**
    * true
@@ -13,7 +18,12 @@ export class AcceptRCInquiredSystemEventRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
+   * The region ID of the system event.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    * 
    * **if can be null:**
    * true

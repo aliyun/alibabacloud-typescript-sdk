@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCDisksResponseBodyDisksTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * testkey1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * testvalue1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {

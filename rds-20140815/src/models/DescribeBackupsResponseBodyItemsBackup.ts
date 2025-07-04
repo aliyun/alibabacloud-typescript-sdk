@@ -182,6 +182,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $dara.Model {
    * 8.0
    */
   engineVersion?: string;
+  expectExpireTime?: string;
   /**
    * @remarks
    * The ID of the instance that generates the backup set. This parameter is used to indicate whether the instance that generates the backup set is a primary instance or a secondary instance.
@@ -258,6 +259,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $dara.Model {
       encryption: 'Encryption',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
+      expectExpireTime: 'ExpectExpireTime',
       hostInstanceID: 'HostInstanceID',
       isAvail: 'IsAvail',
       metaStatus: 'MetaStatus',
@@ -287,6 +289,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $dara.Model {
       encryption: 'string',
       engine: 'string',
       engineVersion: 'string',
+      expectExpireTime: 'string',
       hostInstanceID: 'string',
       isAvail: 'number',
       metaStatus: 'string',

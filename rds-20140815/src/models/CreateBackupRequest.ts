@@ -22,6 +22,7 @@ export class CreateBackupRequest extends $dara.Model {
    * Physical
    */
   backupMethod?: string;
+  backupRetentionPeriod?: number;
   /**
    * @remarks
    * The backup policy. Valid values:
@@ -75,6 +76,7 @@ export class CreateBackupRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       backupMethod: 'BackupMethod',
+      backupRetentionPeriod: 'BackupRetentionPeriod',
       backupStrategy: 'BackupStrategy',
       backupType: 'BackupType',
       DBInstanceId: 'DBInstanceId',
@@ -86,6 +88,7 @@ export class CreateBackupRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       backupMethod: 'string',
+      backupRetentionPeriod: 'number',
       backupStrategy: 'string',
       backupType: 'string',
       DBInstanceId: 'string',

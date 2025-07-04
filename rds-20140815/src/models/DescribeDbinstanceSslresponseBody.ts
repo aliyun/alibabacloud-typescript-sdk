@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The method that is used to verify the identities of clients. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
+   * The method that is used to verify the instance. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
    * 
    * *   **cert**
    * *   **prefer**
@@ -37,7 +37,9 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * The time when the public key of the CA that issues client certificates expires. This parameter is supported only when the instance runs PostgreSQL with cloud disks. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. This parameter is not supported now.
+   * The time when the public key of the CA that issues client certificates expires. This parameter is supported only when the instance runs PostgreSQL with cloud disks. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and must be in UTC.
+   * 
+   * This parameter is not supported.
    * 
    * @example
    * -
@@ -61,9 +63,9 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   connectionString?: string;
   /**
    * @remarks
-   * Indicates whether the forceful SSL encryption feature is enabled. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](https://help.aliyun.com/document_detail/95715.html).
+   * Indicates whether the [forceful SSL encryption](https://help.aliyun.com/document_detail/95715.html) feature is enabled. This parameter is supported only for RDS for SQL Server instances.
    * 
-   * *   **1**: enabled
+   * *   **1**: The feature is enabled.
    * *   **0**: The feature is disabled.
    * 
    * @example
@@ -72,11 +74,11 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   forceEncryption?: string;
   /**
    * @remarks
-   * The status of the SSL link. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
+   * The status of the SSL link. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
    * 
-   * *   **success**
-   * *   **setting**
-   * *   **failed**
+   * *   **success**: The SSL link is successfully configured.
+   * *   **setting**: The SSL link is being configured.
+   * *   **failed**: The SSL link failed to be configured.
    * 
    * @example
    * setting
@@ -113,17 +115,19 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the server certificate needs to be updated.
+   * Indicates whether the SSL certificate needs to be updated. Valid values:
    * 
-   * *   Valid values for ApsaraDB RDS for MySQL instances and ApsaraDB RDS for SQL Server instances:
+   * >  An SSL certificate remains valid for one year. Before the used SSL certificate expires, you must update the validity period of the SSL certificate. If you do not update the validity period of the SSL certificate, your application or client that uses encrypted network connections cannot connect to your RDS instance.
    * 
-   *     *   **No**
-   *     *   **Yes**
+   * **RDS instances that run MySQL and SQL Server**
    * 
-   * *   Valid values for ApsaraDB RDS for PostgreSQL instances:
+   * *   **No**: The SSL certificate does not need to be updated.
+   * *   **Yes**: The SSL certificate needs to be updated.
    * 
-   *     *   **0**: no
-   *     *   **1**: yes
+   * **RDS instances that run PostgreSQL**
+   * 
+   * *   **0**: The SSL certificate does not need to be updated.
+   * *   **1**: The SSL certificate needs to be updated.
    * 
    * @example
    * Yes
@@ -155,17 +159,17 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   SSLCreateTime?: string;
   /**
    * @remarks
-   * Indicates whether SSL encryption is enabled.
+   * Indicates whether SSL encryption is enabled. Valid values:
    * 
-   * *   Valid values for ApsaraDB RDS for MySQL instances and ApsaraDB RDS for SQL Server instances:
+   * **RDS instances that run MySQL and SQL Server**
    * 
-   *     *   **Yes**
-   *     *   **No**
+   * *   **Yes**: SSL encryption is enabled.
+   * *   **No**: SSL encryption is disabled.
    * 
-   * *   Valid values for ApsaraDB RDS for PostgreSQL instances:
+   * **RDS instances that run PostgreSQL**
    * 
-   *     *   **on**: enabled
-   *     *   **off**: disabled
+   * *   **on**: SSL encryption is enabled.
+   * *   **off**: SSL encryption is disabled.
    * 
    * @example
    * Yes
@@ -173,7 +177,7 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   SSLEnabled?: string;
   /**
    * @remarks
-   * The time when the server certificate expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the SSL certificate expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and must be in UTC.
    * 
    * @example
    * 2022-10-11T08:16:43Z
@@ -205,7 +209,7 @@ export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
   serverKey?: string;
   /**
    * @remarks
-   * The minimum Transport Layer Security (TLS) version. Valid values: 1.0, 1.1, and 1.2. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](https://help.aliyun.com/document_detail/95715.html).
+   * The [minimum Transport Layer Security (TLS) version](https://help.aliyun.com/document_detail/95715.html). Valid values: 1.0, 1.1, and 1.2. This parameter is supported only for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1.1

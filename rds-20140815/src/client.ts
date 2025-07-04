@@ -77,7 +77,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 接受并授权执行系统事件操作
+   * Accepts the default operation for a system event in the Inquiring state and authorizes the system to perform the default operation.
    * 
    * @param request - AcceptRCInquiredSystemEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -112,7 +112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 接受并授权执行系统事件操作
+   * Accepts the default operation for a system event in the Inquiring state and authorizes the system to perform the default operation.
    * 
    * @param request - AcceptRCInquiredSystemEventRequest
    * @returns AcceptRCInquiredSystemEventResponse
@@ -2151,6 +2151,10 @@ export default class Client extends OpenApi {
       query["BackupMethod"] = request.backupMethod;
     }
 
+    if (!$dara.isNull(request.backupRetentionPeriod)) {
+      query["BackupRetentionPeriod"] = request.backupRetentionPeriod;
+    }
+
     if (!$dara.isNull(request.backupStrategy)) {
       query["BackupStrategy"] = request.backupStrategy;
     }
@@ -2533,6 +2537,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.engineVersion)) {
       query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!$dara.isNull(request.externalReplication)) {
+      query["ExternalReplication"] = request.externalReplication;
     }
 
     if (!$dara.isNull(request.instanceNetworkType)) {
@@ -3609,6 +3617,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a diagnostic report.
+   * 
+   * @remarks
+   * >  This operation is no longer maintained. You can call the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
+   * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
+   * 
+   * @param request - CreateDiagnosticReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDiagnosticReportResponse
+   */
+  async createDiagnosticReportWithOptions(request: $_model.CreateDiagnosticReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDiagnosticReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDiagnosticReport",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDiagnosticReportResponse>(await this.callApi(params, req, runtime), new $_model.CreateDiagnosticReportResponse({}));
+  }
+
+  /**
+   * Creates a diagnostic report.
+   * 
+   * @remarks
+   * >  This operation is no longer maintained. You can call the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
+   * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
+   * 
+   * @param request - CreateDiagnosticReportRequest
+   * @returns CreateDiagnosticReportResponse
+   */
+  async createDiagnosticReport(request: $_model.CreateDiagnosticReportRequest): Promise<$_model.CreateDiagnosticReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDiagnosticReportWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an ApsaraDB RDS global active database cluster.
    * 
    * @remarks
@@ -4449,6 +4515,12 @@ export default class Client extends OpenApi {
   /**
    * Creates a data disk for an RDS Custom instance.
    * 
+   * @remarks
+   *   The disk can be an ultra disk, an Enterprise SSD (ESSD), an SSD, or a Premium ESSD. By default, Premium ESSD is used.
+   * *   When you set InstanceChargeType to **Prepaid**, the disk billing method is subscription. You must set **InstanceId** to the ID of a subscription instance. The expiration time of the disk must be the same as that of the instance to which the disk is attached.
+   * *   When you set **InstanceChargeType** to Postpaid, the disk billing method is pay-as-you-go. You do not need to attach the disk to an instance. You can also attach the pay-as-you-go disk to an instance of any billing method based on your business requirements.
+   * *   The type and number of disks that can be attached to an instance vary based on instance specifications.
+   * 
    * @param request - CreateRCDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateRCDiskResponse
@@ -4539,6 +4611,12 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a data disk for an RDS Custom instance.
+   * 
+   * @remarks
+   *   The disk can be an ultra disk, an Enterprise SSD (ESSD), an SSD, or a Premium ESSD. By default, Premium ESSD is used.
+   * *   When you set InstanceChargeType to **Prepaid**, the disk billing method is subscription. You must set **InstanceId** to the ID of a subscription instance. The expiration time of the disk must be the same as that of the instance to which the disk is attached.
+   * *   When you set **InstanceChargeType** to Postpaid, the disk billing method is pay-as-you-go. You do not need to attach the disk to an instance. You can also attach the pay-as-you-go disk to an instance of any billing method based on your business requirements.
+   * *   The type and number of disks that can be attached to an instance vary based on instance specifications.
    * 
    * @param request - CreateRCDiskRequest
    * @returns CreateRCDiskResponse
@@ -4773,8 +4851,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.retentionDays)) {
       query["RetentionDays"] = request.retentionDays;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!$dara.isNull(request.zoneId)) {
@@ -5693,12 +5779,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the backup files of an ApsaraDB RDS for SQL Server instance.
+   * Deletes the backup files of an ApsaraDB RDS for SQL Server instance. This operation is available only for users that have been added to the whitelist of the instance.
    * 
    * @remarks
-   * ### [](#)Supported database engines
-   * RDS SQL Server
-   * >  This operation is available only for users that are added to the whitelist.
+   * ### [](#)Supported database engine
+   * SQL Server
+   * >  **This operation is not supported for new users. **Select other methods to [reduce or save backup costs](https://help.aliyun.com/document_detail/95718.html). Users who are added to the whitelist can still use the backup file. Check the availability of the backup file before you delete it. After the backup file is deleted, you cannot retrieve it.
    * 
    * @param request - DeleteBackupFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5757,12 +5843,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the backup files of an ApsaraDB RDS for SQL Server instance.
+   * Deletes the backup files of an ApsaraDB RDS for SQL Server instance. This operation is available only for users that have been added to the whitelist of the instance.
    * 
    * @remarks
-   * ### [](#)Supported database engines
-   * RDS SQL Server
-   * >  This operation is available only for users that are added to the whitelist.
+   * ### [](#)Supported database engine
+   * SQL Server
+   * >  **This operation is not supported for new users. **Select other methods to [reduce or save backup costs](https://help.aliyun.com/document_detail/95718.html). Users who are added to the whitelist can still use the backup file. Check the availability of the backup file before you delete it. After the backup file is deleted, you cannot retrieve it.
    * 
    * @param request - DeleteBackupFileRequest
    * @returns DeleteBackupFileResponse
@@ -9199,6 +9285,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the settings of assured serverless.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * RDS PostgreSQL
+   * ### [](#)References
+   * [Assured serverless](https://help.aliyun.com/document_detail/2928780.html)
+   * 
+   * @param request - DescribeComputeBurstConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeComputeBurstConfigResponse
+   */
+  async describeComputeBurstConfigWithOptions(request: $_model.DescribeComputeBurstConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeComputeBurstConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeComputeBurstConfig",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeComputeBurstConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeComputeBurstConfigResponse({}));
+  }
+
+  /**
+   * Queries the settings of assured serverless.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * RDS PostgreSQL
+   * ### [](#)References
+   * [Assured serverless](https://help.aliyun.com/document_detail/2928780.html)
+   * 
+   * @param request - DescribeComputeBurstConfigRequest
+   * @returns DescribeComputeBurstConfigResponse
+   */
+  async describeComputeBurstConfig(request: $_model.DescribeComputeBurstConfigRequest): Promise<$_model.DescribeComputeBurstConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeComputeBurstConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the databases and tables whose data is included in a cross-region backup file of an instance.
    * 
    * @remarks
@@ -10948,6 +11112,10 @@ export default class Client extends OpenApi {
    * *   RDS MySQL
    * *   RDS PostgreSQL
    * *   RDS SQL Server
+   * ### [](#)References
+   * *   [Use the SSL encryption feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96120.html)
+   * *   [Use the SSL encryption feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/229518.html)
+   * *   [Use the SSL encryption feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95715.html)
    * 
    * @param request - DescribeDBInstanceSSLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11001,6 +11169,10 @@ export default class Client extends OpenApi {
    * *   RDS MySQL
    * *   RDS PostgreSQL
    * *   RDS SQL Server
+   * ### [](#)References
+   * *   [Use the SSL encryption feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96120.html)
+   * *   [Use the SSL encryption feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/229518.html)
+   * *   [Use the SSL encryption feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95715.html)
    * 
    * @param request - DescribeDBInstanceSSLRequest
    * @returns DescribeDBInstanceSSLResponse
@@ -11257,6 +11429,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.payType)) {
       query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.queryAutoRenewal)) {
+      query["QueryAutoRenewal"] = request.queryAutoRenewal;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -12556,6 +12732,64 @@ export default class Client extends OpenApi {
   async describeDetachedBackups(request: $_model.DescribeDetachedBackupsRequest): Promise<$_model.DescribeDetachedBackupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDetachedBackupsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information about diagnostics reports.
+   * 
+   * @remarks
+   * >  This operation is phased out.
+   * 
+   * @deprecated OpenAPI DescribeDiagnosticReportList is deprecated
+   * 
+   * @param request - DescribeDiagnosticReportListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDiagnosticReportListResponse
+   */
+  // Deprecated
+  async describeDiagnosticReportListWithOptions(request: $_model.DescribeDiagnosticReportListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDiagnosticReportListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDiagnosticReportList",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDiagnosticReportListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDiagnosticReportListResponse({}));
+  }
+
+  /**
+   * Queries the information about diagnostics reports.
+   * 
+   * @remarks
+   * >  This operation is phased out.
+   * 
+   * @deprecated OpenAPI DescribeDiagnosticReportList is deprecated
+   * 
+   * @param request - DescribeDiagnosticReportListRequest
+   * @returns DescribeDiagnosticReportListResponse
+   */
+  // Deprecated
+  async describeDiagnosticReportList(request: $_model.DescribeDiagnosticReportListRequest): Promise<$_model.DescribeDiagnosticReportListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDiagnosticReportListWithOptions(request, runtime);
   }
 
   /**
@@ -15383,6 +15617,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询云助手安装状态
+   * 
+   * @param tmpReq - DescribeRCCloudAssistantStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCCloudAssistantStatusResponse
+   */
+  async describeRCCloudAssistantStatusWithOptions(tmpReq: $_model.DescribeRCCloudAssistantStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRCCloudAssistantStatusResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeRCCloudAssistantStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.OSType)) {
+      query["OSType"] = request.OSType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRCCloudAssistantStatus",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRCCloudAssistantStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRCCloudAssistantStatusResponse({}));
+  }
+
+  /**
+   * 查询云助手安装状态
+   * 
+   * @param request - DescribeRCCloudAssistantStatusRequest
+   * @returns DescribeRCCloudAssistantStatusResponse
+   */
+  async describeRCCloudAssistantStatus(request: $_model.DescribeRCCloudAssistantStatusRequest): Promise<$_model.DescribeRCCloudAssistantStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRCCloudAssistantStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the kubeconfig file of a Container Service for Kubernetes (ACK) cluster in which an RDS Custom instance resides.
    * 
    * @remarks
@@ -15670,6 +15976,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.maxDisksResults)) {
+      query["MaxDisksResults"] = request.maxDisksResults;
+    }
+
     if (!$dara.isNull(request.privateIpAddress)) {
       query["PrivateIpAddress"] = request.privateIpAddress;
     }
@@ -15769,7 +16079,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定实例系统事件信息
+   * Queries the system events of ApsaraDB RDS instances. When you call this operation, you can specify parameters, such as InstanceId and EventType, in the request. By default, non-active system events are queried.
+   * 
+   * @remarks
+   *   You can query system events that were completed within the last 30 days. No limits apply to the time range for querying uncompleted system events.
+   * *   If you do not specify the EventCycleStatus or InstanceEventCycleStatus parameter, only system events in the Avoidated, Executed, Canceled, or Failed state are included in the query results by default.
+   * *   You can also specify the InstanceEventCycleStatus parameter in the request to query the system events that are in the Scheduled, Executing, or Inquiring state.
    * 
    * @param request - DescribeRCInstanceHistoryEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15860,7 +16175,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定实例系统事件信息
+   * Queries the system events of ApsaraDB RDS instances. When you call this operation, you can specify parameters, such as InstanceId and EventType, in the request. By default, non-active system events are queried.
+   * 
+   * @remarks
+   *   You can query system events that were completed within the last 30 days. No limits apply to the time range for querying uncompleted system events.
+   * *   If you do not specify the EventCycleStatus or InstanceEventCycleStatus parameter, only system events in the Avoidated, Executed, Canceled, or Failed state are included in the query results by default.
+   * *   You can also specify the InstanceEventCycleStatus parameter in the request to query the system events that are in the Scheduled, Executing, or Inquiring state.
    * 
    * @param request - DescribeRCInstanceHistoryEventsRequest
    * @returns DescribeRCInstanceHistoryEventsResponse
@@ -16199,6 +16519,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询云助手命令执行结果
+   * 
+   * @param tmpReq - DescribeRCInvocationResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCInvocationResultsResponse
+   */
+  async describeRCInvocationResultsWithOptions(tmpReq: $_model.DescribeRCInvocationResultsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRCInvocationResultsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeRCInvocationResultsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.commandId)) {
+      query["CommandId"] = request.commandId;
+    }
+
+    if (!$dara.isNull(request.contentEncoding)) {
+      query["ContentEncoding"] = request.contentEncoding;
+    }
+
+    if (!$dara.isNull(request.includeHistory)) {
+      query["IncludeHistory"] = request.includeHistory;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.invokeId)) {
+      query["InvokeId"] = request.invokeId;
+    }
+
+    if (!$dara.isNull(request.invokeRecordStatus)) {
+      query["InvokeRecordStatus"] = request.invokeRecordStatus;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRCInvocationResults",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRCInvocationResultsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRCInvocationResultsResponse({}));
+  }
+
+  /**
+   * 查询云助手命令执行结果
+   * 
+   * @param request - DescribeRCInvocationResultsRequest
+   * @returns DescribeRCInvocationResultsResponse
+   */
+  async describeRCInvocationResults(request: $_model.DescribeRCInvocationResultsRequest): Promise<$_model.DescribeRCInvocationResultsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRCInvocationResultsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the monitoring data of a metric for an RDS Custom instance.
    * 
    * @param request - DescribeRCMetricListRequest
@@ -16400,6 +16816,10 @@ export default class Client extends OpenApi {
       query["SnapshotIds"] = request.snapshotIds;
     }
 
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16426,6 +16846,52 @@ export default class Client extends OpenApi {
   async describeRCSnapshots(request: $_model.DescribeRCSnapshotsRequest): Promise<$_model.DescribeRCSnapshotsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRCSnapshotsWithOptions(request, runtime);
+  }
+
+  /**
+   * 描述vCluster
+   * 
+   * @param request - DescribeRCVClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCVClusterResponse
+   */
+  async describeRCVClusterWithOptions(request: $_model.DescribeRCVClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRCVClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRCVCluster",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRCVClusterResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRCVClusterResponse({}));
+  }
+
+  /**
+   * 描述vCluster
+   * 
+   * @param request - DescribeRCVClusterRequest
+   * @returns DescribeRCVClusterResponse
+   */
+  async describeRCVCluster(request: $_model.DescribeRCVClusterRequest): Promise<$_model.DescribeRCVClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRCVClusterWithOptions(request, runtime);
   }
 
   /**
@@ -18363,6 +18829,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询交换机列表
+   * 
+   * @param request - DescribeVSwitchListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVSwitchListResponse
+   */
+  async describeVSwitchListWithOptions(request: $_model.DescribeVSwitchListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVSwitchListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.vSwitchIds)) {
+      query["VSwitchIds"] = request.vSwitchIds;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVSwitchList",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVSwitchListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVSwitchListResponse({}));
+  }
+
+  /**
+   * 查询交换机列表
+   * 
+   * @param request - DescribeVSwitchListRequest
+   * @returns DescribeVSwitchListResponse
+   */
+  async describeVSwitchList(request: $_model.DescribeVSwitchListRequest): Promise<$_model.DescribeVSwitchListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVSwitchListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of vSwitch that are available in a virtual private cloud (VPC).
    * 
    * @remarks
@@ -19231,6 +19755,10 @@ export default class Client extends OpenApi {
       query["BucketRegion"] = request.bucketRegion;
     }
 
+    if (!$dara.isNull(request.buildReplication)) {
+      query["BuildReplication"] = request.buildReplication;
+    }
+
     if (!$dara.isNull(request.comment)) {
       query["Comment"] = request.comment;
     }
@@ -19241,6 +19769,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.engineVersion)) {
       query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!$dara.isNull(request.masterInfo)) {
+      query["MasterInfo"] = request.masterInfo;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      query["Mode"] = request.mode;
     }
 
     if (!$dara.isNull(request.ownerId)) {
@@ -19269,6 +19805,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.retention)) {
       query["Retention"] = request.retention;
+    }
+
+    if (!$dara.isNull(request.sourceInfo)) {
+      query["SourceInfo"] = request.sourceInfo;
     }
 
     if (!$dara.isNull(request.zoneId)) {
@@ -19312,6 +19852,58 @@ export default class Client extends OpenApi {
   async importUserBackupFile(request: $_model.ImportUserBackupFileRequest): Promise<$_model.ImportUserBackupFileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.importUserBackupFileWithOptions(request, runtime);
+  }
+
+  /**
+   * 为实例安装云助手Agent
+   * 
+   * @param tmpReq - InstallRCCloudAssistantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InstallRCCloudAssistantResponse
+   */
+  async installRCCloudAssistantWithOptions(tmpReq: $_model.InstallRCCloudAssistantRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstallRCCloudAssistantResponse> {
+    tmpReq.validate();
+    let request = new $_model.InstallRCCloudAssistantShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InstallRCCloudAssistant",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InstallRCCloudAssistantResponse>(await this.callApi(params, req, runtime), new $_model.InstallRCCloudAssistantResponse({}));
+  }
+
+  /**
+   * 为实例安装云助手Agent
+   * 
+   * @param request - InstallRCCloudAssistantRequest
+   * @returns InstallRCCloudAssistantResponse
+   */
+  async installRCCloudAssistant(request: $_model.InstallRCCloudAssistantRequest): Promise<$_model.InstallRCCloudAssistantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.installRCCloudAssistantWithOptions(request, runtime);
   }
 
   /**
@@ -20877,6 +21469,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the expiration time of backup sets.
+   * 
+   * @remarks
+   * ### [](#)Supported database engines
+   * *   RDS SQL Server
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * 
+   * @param request - ModifyBackupSetExpireTimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBackupSetExpireTimeResponse
+   */
+  async modifyBackupSetExpireTimeWithOptions(request: $_model.ModifyBackupSetExpireTimeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyBackupSetExpireTimeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.expectExpireTime)) {
+      query["ExpectExpireTime"] = request.expectExpireTime;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyBackupSetExpireTime",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyBackupSetExpireTimeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyBackupSetExpireTimeResponse({}));
+  }
+
+  /**
+   * Modifies the expiration time of backup sets.
+   * 
+   * @remarks
+   * ### [](#)Supported database engines
+   * *   RDS SQL Server
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * 
+   * @param request - ModifyBackupSetExpireTimeRequest
+   * @returns ModifyBackupSetExpireTimeResponse
+   */
+  async modifyBackupSetExpireTime(request: $_model.ModifyBackupSetExpireTimeRequest): Promise<$_model.ModifyBackupSetExpireTimeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyBackupSetExpireTimeWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the character set collation and time zone of system databases on an instance.
    * 
    * @remarks
@@ -20950,6 +21608,112 @@ export default class Client extends OpenApi {
   async modifyCollationTimeZone(request: $_model.ModifyCollationTimeZoneRequest): Promise<$_model.ModifyCollationTimeZoneResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyCollationTimeZoneWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改本地性能突发配置
+   * 
+   * @param request - ModifyComputeBurstConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyComputeBurstConfigResponse
+   */
+  async modifyComputeBurstConfigWithOptions(request: $_model.ModifyComputeBurstConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyComputeBurstConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.burstStatus)) {
+      query["BurstStatus"] = request.burstStatus;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cpuEnlargeThreshold)) {
+      query["CpuEnlargeThreshold"] = request.cpuEnlargeThreshold;
+    }
+
+    if (!$dara.isNull(request.cpuShrinkThreshold)) {
+      query["CpuShrinkThreshold"] = request.cpuShrinkThreshold;
+    }
+
+    if (!$dara.isNull(request.crontabJobId)) {
+      query["CrontabJobId"] = request.crontabJobId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.memoryEnlargeThreshold)) {
+      query["MemoryEnlargeThreshold"] = request.memoryEnlargeThreshold;
+    }
+
+    if (!$dara.isNull(request.memoryShrinkThreshold)) {
+      query["MemoryShrinkThreshold"] = request.memoryShrinkThreshold;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.scaleMaxCpus)) {
+      query["ScaleMaxCpus"] = request.scaleMaxCpus;
+    }
+
+    if (!$dara.isNull(request.scaleMaxMemory)) {
+      query["ScaleMaxMemory"] = request.scaleMaxMemory;
+    }
+
+    if (!$dara.isNull(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
+    if (!$dara.isNull(request.switchTimeMode)) {
+      query["SwitchTimeMode"] = request.switchTimeMode;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyComputeBurstConfig",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyComputeBurstConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyComputeBurstConfigResponse({}));
+  }
+
+  /**
+   * 修改本地性能突发配置
+   * 
+   * @param request - ModifyComputeBurstConfigRequest
+   * @returns ModifyComputeBurstConfigResponse
+   */
+  async modifyComputeBurstConfig(request: $_model.ModifyComputeBurstConfigRequest): Promise<$_model.ModifyComputeBurstConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyComputeBurstConfigWithOptions(request, runtime);
   }
 
   /**
@@ -24905,21 +25669,39 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies specific attributes of an RDS Custom instance, such as the password or hostname.
+   * Modifies the attributes of an RDS Custom instance, such as the password, hostname, security groups, and whether release protection is enabled.
    * 
-   * @param request - ModifyRCInstanceAttributeRequest
+   * @param tmpReq - ModifyRCInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyRCInstanceAttributeResponse
    */
-  async modifyRCInstanceAttributeWithOptions(request: $_model.ModifyRCInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRCInstanceAttributeResponse> {
-    request.validate();
+  async modifyRCInstanceAttributeWithOptions(tmpReq: $_model.ModifyRCInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRCInstanceAttributeResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyRCInstanceAttributeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.securityGroupIds)) {
+      request.securityGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.securityGroupIds, "SecurityGroupIds", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
+    }
+
     if (!$dara.isNull(request.hostName)) {
       query["HostName"] = request.hostName;
     }
 
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
     }
 
     if (!$dara.isNull(request.password)) {
@@ -24936,6 +25718,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.securityGroupId)) {
       query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!$dara.isNull(request.securityGroupIdsShrink)) {
+      query["SecurityGroupIds"] = request.securityGroupIdsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -24956,7 +25742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies specific attributes of an RDS Custom instance, such as the password or hostname.
+   * Modifies the attributes of an RDS Custom instance, such as the password, hostname, security groups, and whether release protection is enabled.
    * 
    * @param request - ModifyRCInstanceAttributeRequest
    * @returns ModifyRCInstanceAttributeResponse
@@ -26849,6 +27635,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Redeploys an RDS Custom instance when the instance receives a system event notification.
+   * 
+   * @remarks
+   * RedeployInstance is an **asynchronous** operation. It migrates data before it restarts the instance. If the instance is successfully redeployed, it enters the Running state. If the instance fails to be redeployed, it returns to the original physical server and the state before the redeployment.
+   * When you call this operation, take note of the following items:
+   * The instance must be in the Running or Stopped state. After the instance is redeployed, the state of the instance has the following changes:
+   * *   If the instance is in the Running state before redeployment, the instance enters the Stopped state.
+   * *   If the instance is in the Stopped state before redeployment, the instance enters the Starting state.
+   * *   If an instance receives notifications about simulated events that are created by calling the CreateSimulatedSystemEvent operation for the instance, you cannot call this operation to redeploy the instance.
+   * The following table lists the types and states of events that you can handle by calling the RedeployInstance operation.
+   * *   Instance redeployment due to system maintenance: SystemMaintenance.Redeploy. The event state is Inquiring or Scheduled.
+   * *   Instance redeployment due to system failures: SystemFailure.Redeploy. The event state is Inquiring.
+   * 
+   * @param request - RedeployRCInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RedeployRCInstanceResponse
+   */
+  async redeployRCInstanceWithOptions(request: $_model.RedeployRCInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RedeployRCInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.forceStop)) {
+      query["ForceStop"] = request.forceStop;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RedeployRCInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RedeployRCInstanceResponse>(await this.callApi(params, req, runtime), new $_model.RedeployRCInstanceResponse({}));
+  }
+
+  /**
+   * Redeploys an RDS Custom instance when the instance receives a system event notification.
+   * 
+   * @remarks
+   * RedeployInstance is an **asynchronous** operation. It migrates data before it restarts the instance. If the instance is successfully redeployed, it enters the Running state. If the instance fails to be redeployed, it returns to the original physical server and the state before the redeployment.
+   * When you call this operation, take note of the following items:
+   * The instance must be in the Running or Stopped state. After the instance is redeployed, the state of the instance has the following changes:
+   * *   If the instance is in the Running state before redeployment, the instance enters the Stopped state.
+   * *   If the instance is in the Stopped state before redeployment, the instance enters the Starting state.
+   * *   If an instance receives notifications about simulated events that are created by calling the CreateSimulatedSystemEvent operation for the instance, you cannot call this operation to redeploy the instance.
+   * The following table lists the types and states of events that you can handle by calling the RedeployInstance operation.
+   * *   Instance redeployment due to system maintenance: SystemMaintenance.Redeploy. The event state is Inquiring or Scheduled.
+   * *   Instance redeployment due to system failures: SystemFailure.Redeploy. The event state is Inquiring.
+   * 
+   * @param request - RedeployRCInstanceRequest
+   * @returns RedeployRCInstanceResponse
+   */
+  async redeployRCInstance(request: $_model.RedeployRCInstanceRequest): Promise<$_model.RedeployRCInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.redeployRCInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Releases the public endpoint of an instance.
    * 
    * @remarks
@@ -28261,6 +29115,158 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建并执行云助手命令
+   * 
+   * @param tmpReq - RunRCCommandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunRCCommandResponse
+   */
+  async runRCCommandWithOptions(tmpReq: $_model.RunRCCommandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunRCCommandResponse> {
+    tmpReq.validate();
+    let request = new $_model.RunRCCommandShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.resourceTags)) {
+      request.resourceTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceTags, "ResourceTags", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.commandContent)) {
+      query["CommandContent"] = request.commandContent;
+    }
+
+    if (!$dara.isNull(request.containerId)) {
+      query["ContainerId"] = request.containerId;
+    }
+
+    if (!$dara.isNull(request.containerName)) {
+      query["ContainerName"] = request.containerName;
+    }
+
+    if (!$dara.isNull(request.contentEncoding)) {
+      query["ContentEncoding"] = request.contentEncoding;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enableParameter)) {
+      query["EnableParameter"] = request.enableParameter;
+    }
+
+    if (!$dara.isNull(request.frequency)) {
+      query["Frequency"] = request.frequency;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.keepCommand)) {
+      query["KeepCommand"] = request.keepCommand;
+    }
+
+    if (!$dara.isNull(request.launcher)) {
+      query["Launcher"] = request.launcher;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.repeatMode)) {
+      query["RepeatMode"] = request.repeatMode;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceTagsShrink)) {
+      query["ResourceTags"] = request.resourceTagsShrink;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.terminationMode)) {
+      query["TerminationMode"] = request.terminationMode;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    if (!$dara.isNull(request.windowsPasswordName)) {
+      query["WindowsPasswordName"] = request.windowsPasswordName;
+    }
+
+    if (!$dara.isNull(request.workingDir)) {
+      query["WorkingDir"] = request.workingDir;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunRCCommand",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunRCCommandResponse>(await this.callApi(params, req, runtime), new $_model.RunRCCommandResponse({}));
+  }
+
+  /**
+   * 创建并执行云助手命令
+   * 
+   * @param request - RunRCCommandRequest
+   * @returns RunRCCommandResponse
+   */
+  async runRCCommand(request: $_model.RunRCCommandRequest): Promise<$_model.RunRCCommandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runRCCommandWithOptions(request, runtime);
+  }
+
+  /**
    * Creates one or more subscription RDS Custom instances. Before you call this operation, you must specify parameters such as ImageId, InstanceType, VSwitchId, and SecurityGroupId.
    * 
    * @remarks
@@ -28323,6 +29329,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dataDiskShrink)) {
       query["DataDisk"] = request.dataDiskShrink;
+    }
+
+    if (!$dara.isNull(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
     }
 
     if (!$dara.isNull(request.deploymentSetId)) {
@@ -29186,8 +30196,16 @@ export default class Client extends OpenApi {
   async switchOverMajorVersionUpgradeWithOptions(request: $_model.SwitchOverMajorVersionUpgradeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SwitchOverMajorVersionUpgradeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
     }
 
     if (!$dara.isNull(request.ownerId)) {
@@ -29196,6 +30214,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!$dara.isNull(request.switchoverTimeout)) {
@@ -29239,7 +30269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Switches the data synchronization link to synchronize data from a disaster recovery (DR) instance to the primary ApsaraDB RDS for SQL Server instance.
+   * Switches the data synchronization link from a the primary ApsaraDB RDS for SQL Server instance to a disaster recovery (DR) instance.
    * 
    * @remarks
    * ### [](#)Supported database engine
@@ -29286,7 +30316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Switches the data synchronization link to synchronize data from a disaster recovery (DR) instance to the primary ApsaraDB RDS for SQL Server instance.
+   * Switches the data synchronization link from a the primary ApsaraDB RDS for SQL Server instance to a disaster recovery (DR) instance.
    * 
    * @remarks
    * ### [](#)Supported database engine

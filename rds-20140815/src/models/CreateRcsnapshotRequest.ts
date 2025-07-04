@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { CreateRCSnapshotRequestTag } from "./CreateRcsnapshotRequestTag";
 
 
 export class CreateRCSnapshotRequest extends $dara.Model {
@@ -47,6 +48,7 @@ export class CreateRCSnapshotRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The retention period of the snapshot. Valid values: 1 to 65536. Unit: days. The snapshot is automatically released when its retention period expires.
@@ -57,6 +59,7 @@ export class CreateRCSnapshotRequest extends $dara.Model {
    * 2
    */
   retentionDays?: number;
+  tag?: CreateRCSnapshotRequestTag[];
   /**
    * @remarks
    * This parameter has been deprecated.
@@ -72,7 +75,9 @@ export class CreateRCSnapshotRequest extends $dara.Model {
       instantAccess: 'InstantAccess',
       instantAccessRetentionDays: 'InstantAccessRetentionDays',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       retentionDays: 'RetentionDays',
+      tag: 'Tag',
       zoneId: 'ZoneId',
     };
   }
@@ -84,12 +89,17 @@ export class CreateRCSnapshotRequest extends $dara.Model {
       instantAccess: 'boolean',
       instantAccessRetentionDays: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       retentionDays: 'number',
+      tag: { 'type': 'array', 'itemType': CreateRCSnapshotRequestTag },
       zoneId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

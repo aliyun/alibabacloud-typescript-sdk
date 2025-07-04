@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventType extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the system event type.
+   * 
+   * @example
+   * 34
+   */
   code?: string;
+  /**
+   * @remarks
+   * The name of the system event type.
+   * 
+   * @example
+   * InstanceExpiration.Stop
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {

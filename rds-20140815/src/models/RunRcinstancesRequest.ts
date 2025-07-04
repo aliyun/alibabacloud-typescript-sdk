@@ -58,6 +58,7 @@ export class RunRCInstancesRequest extends $dara.Model {
    * The information about the data disks.
    */
   dataDisk?: RunRCInstancesRequestDataDisk[];
+  deletionProtection?: boolean;
   /**
    * @remarks
    * The deployment set ID.
@@ -252,6 +253,7 @@ export class RunRCInstancesRequest extends $dara.Model {
       createExtraParam: 'CreateExtraParam',
       createMode: 'CreateMode',
       dataDisk: 'DataDisk',
+      deletionProtection: 'DeletionProtection',
       deploymentSetId: 'DeploymentSetId',
       description: 'Description',
       dryRun: 'DryRun',
@@ -294,6 +296,7 @@ export class RunRCInstancesRequest extends $dara.Model {
       createExtraParam: 'string',
       createMode: 'string',
       dataDisk: { 'type': 'array', 'itemType': RunRCInstancesRequestDataDisk },
+      deletionProtection: 'boolean',
       deploymentSetId: 'string',
       description: 'string',
       dryRun: 'boolean',

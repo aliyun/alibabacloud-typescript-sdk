@@ -220,6 +220,10 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
    * ss-i-bp1j4i2jdf3owlhe****
    */
   storageSetId?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tag?: DescribeRCDisksResponseBodyDisksTag[];
   /**
    * @remarks

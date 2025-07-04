@@ -9,6 +9,9 @@ export class ImportUserBackupFileResponseBody extends $dara.Model {
    * 
    * @example
    * b-n8tpg24c6i0v********
+   * 
+   * **if can be null:**
+   * true
    */
   backupId?: string;
   /**

@@ -54,7 +54,21 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * >  This parameter applies only to ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled. For more information, see [Introduction to Babelfish](https://help.aliyun.com/document_detail/428613.html).
    */
   babelfishConfig?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeBabelfishConfig;
+  /**
+   * @remarks
+   * This is a reserved parameter and is not in use.
+   * 
+   * @example
+   * None
+   */
   blueGreenDeploymentName?: string;
+  /**
+   * @remarks
+   * This is a reserved parameter and is not in use.
+   * 
+   * @example
+   * None
+   */
   blueInstanceName?: string;
   /**
    * @remarks
@@ -125,7 +139,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   collation?: string;
   /**
    * @remarks
-   * The storage compression mode.
+   * The storage compression mode of the instance.
    * 
    * @example
    * on, off
@@ -139,6 +153,13 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * 1.25
    */
   compressionRatio?: string;
+  /**
+   * @remarks
+   * This is a reserved parameter and is not in use.
+   * 
+   * @example
+   * None
+   */
   computeBurstEnabled?: boolean;
   /**
    * @remarks
@@ -394,6 +415,13 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * TestGroup
    */
   generalGroupName?: string;
+  /**
+   * @remarks
+   * This is a reserved parameter and is not in use.
+   * 
+   * @example
+   * None
+   */
   greenInstanceName?: string;
   /**
    * @remarks
@@ -546,9 +574,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   /**
    * @remarks
    * The OptimizedWritesInfo parameter contains the following fields:
-   * 
    * *   **optimized_writes**: indicates whether the 16K atomic write feature is enabled for the current instance.
-   * *   **init_optimized_writes**: indicates whether the 16K atomic write feature can be enabled for the current instance. If init_optimized_writes is set to false, the 16K atomic write switch is not displayed for specific instances in the console.
+   * *   **init_optimized_writes**: indicates whether the 16K atomic write feature can be enabled for the current instance. If init_optimized_writes is set to false, the 16K atomic write switch is not displayed for the instance in the console.
    * 
    * @example
    * {"optimized_writes":true,"init_optimized_writes":true}
@@ -601,6 +628,13 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * The IDs of the read-only instances that are attached to the primary instance.
    */
   readOnlyDBInstanceIds?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeReadOnlyDBInstanceIds;
+  /**
+   * @remarks
+   * This is a reserved parameter and is not in use.
+   * 
+   * @example
+   * None
+   */
   readOnlyStatus?: string;
   /**
    * @remarks
@@ -668,7 +702,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   superPermissionMode?: string;
   /**
    * @remarks
-   * Indicates whether the storage compression mode can be enabled for the instance.
+   * Indicates whether storage compression can be enabled for the instance.
    * 
    * @example
    * true, false

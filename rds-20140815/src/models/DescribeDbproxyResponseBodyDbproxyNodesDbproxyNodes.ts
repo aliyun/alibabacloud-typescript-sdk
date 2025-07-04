@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes extends $dara.Model {
   /**
    * @remarks
-   * The number of cpu cores for the node.
+   * The number of CPU cores of the node.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes extends $dara.M
   cpuCores?: string;
   /**
    * @remarks
-   * The proxy node id.
+   * The ID of the proxy node.
    * 
    * @example
    * pn-xxxxxxx01
@@ -21,7 +21,7 @@ export class DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes extends $dara.M
   nodeId?: string;
   /**
    * @remarks
-   * The id of the availability zone where the node is located.
+   * The ID of the zone in which the node is deployed.
    * 
    * @example
    * cn-hangzhou-c

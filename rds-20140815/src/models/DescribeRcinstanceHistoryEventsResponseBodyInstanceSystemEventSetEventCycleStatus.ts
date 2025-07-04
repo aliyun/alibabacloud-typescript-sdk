@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInstanceHistoryEventsResponseBodyInstanceSystemEventSetEventCycleStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The state code of the system event.
+   * 
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @remarks
+   * The state name of the system event.
+   * 
+   * @example
+   * Executed
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {

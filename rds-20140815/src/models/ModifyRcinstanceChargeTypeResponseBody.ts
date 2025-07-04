@@ -7,9 +7,8 @@ export class ModifyRCInstanceChargeTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The billing method.
-   * 
-   * *   **POSTPAY**: pay-as-you-go
-   * *   **PREPAY**: subscription
+   * *   **POSTPAY**: pay-as-you-go.
+   * *   **PREPAY**: subscription.
    * 
    * @example
    * POSTPAY
@@ -18,7 +17,6 @@ export class ModifyRCInstanceChargeTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The time when the instance expires.
-   * 
    * >  If you change the billing method from subscription to pay-as-you-go, this parameter is not returned.
    */
   expiredTime?: string[];
@@ -29,7 +27,7 @@ export class ModifyRCInstanceChargeTypeResponseBody extends $dara.Model {
   feeOfInstances?: ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances[];
   /**
    * @remarks
-   * The instance IDs.
+   * The list of instance IDs.
    */
   instanceIds?: string[];
   /**
