@@ -138,6 +138,7 @@ export { DescribeLensMonitorDisksResponse } from './DescribeLensMonitorDisksResp
 export { DescribeLensServiceStatusResponseBody } from './DescribeLensServiceStatusResponseBody';
 export { DescribeLensServiceStatusResponse } from './DescribeLensServiceStatusResponse';
 export { DescribeMetricDataRequest } from './DescribeMetricDataRequest';
+export { DescribeMetricDataShrinkRequest } from './DescribeMetricDataShrinkRequest';
 export { DescribeMetricDataResponseBody } from './DescribeMetricDataResponseBody';
 export { DescribeMetricDataResponse } from './DescribeMetricDataResponse';
 export { DescribePairDrillsRequest } from './DescribePairDrillsRequest';

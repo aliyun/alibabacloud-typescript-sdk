@@ -6,12 +6,12 @@ import { DescribeMetricDataResponseBodyDataList } from "./DescribeMetricDataResp
 export class DescribeMetricDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The disk monitoring data.
+   * Collection of monitoring data for the cloud disk.
    */
   dataList?: DescribeMetricDataResponseBodyDataList[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 11B55F58-D3A4-4A9B-9596-342420D0****
@@ -19,12 +19,16 @@ export class DescribeMetricDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of data entries queried.
+   * Total number of data points queried.
    * 
    * @example
-   * 3
+   * 1
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * List of warning messages.
+   */
   warnings?: string[];
   static names(): { [key: string]: string } {
     return {

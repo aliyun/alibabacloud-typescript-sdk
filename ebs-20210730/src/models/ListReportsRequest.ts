@@ -6,14 +6,6 @@ export class ListReportsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * App name.
-   * 
-   * @example
-   * App1
-   */
-  appName?: string;
-  /**
-   * @remarks
    * Maximum number of items for Token-based pagination.
    * 
    * @example
@@ -55,7 +47,6 @@ export class ListReportsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      appName: 'AppName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       pageNumber: 'PageNumber',
@@ -67,7 +58,6 @@ export class ListReportsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      appName: 'string',
       maxResults: 'number',
       nextToken: 'string',
       pageNumber: 'number',

@@ -5,27 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetricDataResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The datapoints that consist of consecutive timestamps in seconds and metric values that were recorded at these time points.
+   * List of monitoring data, consisting of a series of consecutive second-level timestamps and the corresponding metric values at those times.
    * 
    * @example
-   * {
-   *         "1699258861": 1,
-   *         "1699259461": 0,
-   *         "1699260061": 0,
-   *         "1699260661": 0,
-   *         "1699261261": 0,
-   *         "1699261861": 0,
-   *         "1699262461": 0,
-   *         "1699263061": 0,
-   *         "1699263661": 0,
-   *         "1699264261": 0,
-   *         "1699264861": 0
-   * }
+   * {"1699258861": 1,"1699259461": 0}
    */
   datapoints?: any;
   /**
    * @remarks
-   * The tags.
+   * Labels.
    * 
    * @example
    * {"DiskId": "d-1234"}

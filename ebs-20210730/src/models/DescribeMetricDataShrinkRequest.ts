@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeMetricDataRequest extends $dara.Model {
+export class DescribeMetricDataShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Aggregation method over time. Possible values include:
@@ -57,7 +57,7 @@ export class DescribeMetricDataRequest extends $dara.Model {
    * 2023-11-21T02:00:00Z
    */
   endTime?: string;
-  groupByLabels?: string[];
+  groupByLabelsShrink?: string;
   /**
    * @remarks
    * Metric name. Possible values include:
@@ -112,7 +112,7 @@ export class DescribeMetricDataRequest extends $dara.Model {
       aggreOverLineOps: 'AggreOverLineOps',
       dimensions: 'Dimensions',
       endTime: 'EndTime',
-      groupByLabels: 'GroupByLabels',
+      groupByLabelsShrink: 'GroupByLabels',
       metricName: 'MetricName',
       period: 'Period',
       regionId: 'RegionId',
@@ -126,7 +126,7 @@ export class DescribeMetricDataRequest extends $dara.Model {
       aggreOverLineOps: 'string',
       dimensions: 'string',
       endTime: 'string',
-      groupByLabels: { 'type': 'array', 'itemType': 'string' },
+      groupByLabelsShrink: 'string',
       metricName: 'string',
       period: 'number',
       regionId: 'string',
@@ -135,9 +135,6 @@ export class DescribeMetricDataRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.groupByLabels)) {
-      $dara.Model.validateArray(this.groupByLabels);
-    }
     super.validate();
   }
 

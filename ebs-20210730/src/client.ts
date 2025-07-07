@@ -1874,14 +1874,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics about a metric of Elastic Block Storage (EBS) disks.
+   * Query single metric monitoring information
    * 
-   * @param request - DescribeMetricDataRequest
+   * @param tmpReq - DescribeMetricDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeMetricDataResponse
    */
-  async describeMetricDataWithOptions(request: $_model.DescribeMetricDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMetricDataResponse> {
-    request.validate();
+  async describeMetricDataWithOptions(tmpReq: $_model.DescribeMetricDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMetricDataResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeMetricDataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.groupByLabels)) {
+      request.groupByLabelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupByLabels, "GroupByLabels", "simple");
+    }
+
     let query = { };
     if (!$dara.isNull(request.aggreOps)) {
       query["AggreOps"] = request.aggreOps;
@@ -1897,6 +1903,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.groupByLabelsShrink)) {
+      query["GroupByLabels"] = request.groupByLabelsShrink;
     }
 
     if (!$dara.isNull(request.metricName)) {
@@ -1933,7 +1943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics about a metric of Elastic Block Storage (EBS) disks.
+   * Query single metric monitoring information
    * 
    * @param request - DescribeMetricDataRequest
    * @returns DescribeMetricDataResponse
@@ -2524,10 +2534,6 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.appName)) {
-      body["AppName"] = request.appName;
-    }
-
     if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
