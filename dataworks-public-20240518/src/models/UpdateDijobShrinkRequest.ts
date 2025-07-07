@@ -4,6 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDIJobShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is deprecated. Use the Id parameter instead.
+   * 
+   * @example
+   * 11588
+   * 
    * @deprecated
    */
   DIJobId?: number;
@@ -17,6 +23,15 @@ export class UpdateDIJobShrinkRequest extends $dara.Model {
    */
   id?: number;
   jobSettingsShrink?: string;
+  /**
+   * @remarks
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the operation is applied.
+   * 
+   * @example
+   * 10000
+   */
   projectId?: number;
   resourceSettingsShrink?: string;
   tableMappingsShrink?: string;
