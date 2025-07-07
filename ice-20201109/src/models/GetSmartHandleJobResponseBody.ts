@@ -5,6 +5,8 @@ import { GetSmartHandleJobResponseBodySmartJobInfo } from "./GetSmartHandleJobRe
 
 
 export class GetSmartHandleJobResponseBody extends $dara.Model {
+  errorCode?: string;
+  errorMessage?: string;
   /**
    * @remarks
    * The job ID.
@@ -64,6 +66,8 @@ export class GetSmartHandleJobResponseBody extends $dara.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
       jobId: 'JobId',
       jobResult: 'JobResult',
       output: 'Output',
@@ -76,6 +80,8 @@ export class GetSmartHandleJobResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      errorCode: 'string',
+      errorMessage: 'string',
       jobId: 'string',
       jobResult: GetSmartHandleJobResponseBodyJobResult,
       output: 'string',

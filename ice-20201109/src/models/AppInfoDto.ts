@@ -10,16 +10,22 @@ export class AppInfoDTO extends $dara.Model {
    * 1-普通应用，2-内嵌SDK.
    */
   appType?: number;
+  creationTime?: string;
   gmtCreate?: string;
+  gmtModified?: string;
   itemId?: string;
+  modificationTime?: string;
   platforms?: AppInfoDTOPlatforms[];
   userId?: number;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       appType: 'AppType',
+      creationTime: 'CreationTime',
       gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
       itemId: 'ItemId',
+      modificationTime: 'ModificationTime',
       platforms: 'Platforms',
       userId: 'UserId',
     };
@@ -29,8 +35,11 @@ export class AppInfoDTO extends $dara.Model {
     return {
       appName: 'string',
       appType: 'number',
+      creationTime: 'string',
       gmtCreate: 'string',
+      gmtModified: 'string',
       itemId: 'string',
+      modificationTime: 'string',
       platforms: { 'type': 'array', 'itemType': AppInfoDTOPlatforms },
       userId: 'number',
     };
