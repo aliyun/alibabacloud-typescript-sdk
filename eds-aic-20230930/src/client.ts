@@ -686,6 +686,10 @@ export default class Client extends OpenApi {
       query["PhoneCount"] = request.phoneCount;
     }
 
+    if (!$dara.isNull(request.phoneDataVolume)) {
+      query["PhoneDataVolume"] = request.phoneDataVolume;
+    }
+
     if (!$dara.isNull(request.resolutionHeight)) {
       query["ResolutionHeight"] = request.resolutionHeight;
     }

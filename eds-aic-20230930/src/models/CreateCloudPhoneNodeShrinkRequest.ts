@@ -126,6 +126,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
    * 25
    */
   phoneCount?: number;
+  phoneDataVolume?: number;
   /**
    * @remarks
    * The resolution height. Unit: pixel.
@@ -193,6 +194,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
       period: 'Period',
       periodUnit: 'PeriodUnit',
       phoneCount: 'PhoneCount',
+      phoneDataVolume: 'PhoneDataVolume',
       resolutionHeight: 'ResolutionHeight',
       resolutionWidth: 'ResolutionWidth',
       serverShareDataVolume: 'ServerShareDataVolume',
@@ -218,6 +220,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
       period: 'number',
       periodUnit: 'string',
       phoneCount: 'number',
+      phoneDataVolume: 'number',
       resolutionHeight: 'number',
       resolutionWidth: 'number',
       serverShareDataVolume: 'number',
