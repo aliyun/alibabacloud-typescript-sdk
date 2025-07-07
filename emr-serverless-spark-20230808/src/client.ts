@@ -130,6 +130,172 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Livy compute
+   * 
+   * @param request - CreateLivyComputeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLivyComputeResponse
+   */
+  async createLivyComputeWithOptions(workspaceBizId: string, request: $_model.CreateLivyComputeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLivyComputeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authType)) {
+      body["authType"] = request.authType;
+    }
+
+    if (!$dara.isNull(request.autoStartConfiguration)) {
+      body["autoStartConfiguration"] = request.autoStartConfiguration;
+    }
+
+    if (!$dara.isNull(request.autoStopConfiguration)) {
+      body["autoStopConfiguration"] = request.autoStopConfiguration;
+    }
+
+    if (!$dara.isNull(request.cpuLimit)) {
+      body["cpuLimit"] = request.cpuLimit;
+    }
+
+    if (!$dara.isNull(request.displayReleaseVersion)) {
+      body["displayReleaseVersion"] = request.displayReleaseVersion;
+    }
+
+    if (!$dara.isNull(request.enablePublic)) {
+      body["enablePublic"] = request.enablePublic;
+    }
+
+    if (!$dara.isNull(request.environmentId)) {
+      body["environmentId"] = request.environmentId;
+    }
+
+    if (!$dara.isNull(request.fusion)) {
+      body["fusion"] = request.fusion;
+    }
+
+    if (!$dara.isNull(request.livyServerConf)) {
+      body["livyServerConf"] = request.livyServerConf;
+    }
+
+    if (!$dara.isNull(request.livyVersion)) {
+      body["livyVersion"] = request.livyVersion;
+    }
+
+    if (!$dara.isNull(request.memoryLimit)) {
+      body["memoryLimit"] = request.memoryLimit;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.networkName)) {
+      body["networkName"] = request.networkName;
+    }
+
+    if (!$dara.isNull(request.queueName)) {
+      body["queueName"] = request.queueName;
+    }
+
+    if (!$dara.isNull(request.releaseVersion)) {
+      body["releaseVersion"] = request.releaseVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLivyCompute",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceBizId)}/livycompute`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLivyComputeResponse>(await this.callApi(params, req, runtime), new $_model.CreateLivyComputeResponse({}));
+  }
+
+  /**
+   * 创建Livy compute
+   * 
+   * @param request - CreateLivyComputeRequest
+   * @returns CreateLivyComputeResponse
+   */
+  async createLivyCompute(workspaceBizId: string, request: $_model.CreateLivyComputeRequest): Promise<$_model.CreateLivyComputeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createLivyComputeWithOptions(workspaceBizId, request, headers, runtime);
+  }
+
+  /**
+   * 创建Livy Compute的token
+   * 
+   * @param request - CreateLivyComputeTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLivyComputeTokenResponse
+   */
+  async createLivyComputeTokenWithOptions(workspaceBizId: string, livyComputeId: string, request: $_model.CreateLivyComputeTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLivyComputeTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoExpireConfiguration)) {
+      body["autoExpireConfiguration"] = request.autoExpireConfiguration;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      body["token"] = request.token;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLivyComputeToken",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceBizId)}/livycompute/${$dara.URL.percentEncode(livyComputeId)}/token`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLivyComputeTokenResponse>(await this.callApi(params, req, runtime), new $_model.CreateLivyComputeTokenResponse({}));
+  }
+
+  /**
+   * 创建Livy Compute的token
+   * 
+   * @param request - CreateLivyComputeTokenRequest
+   * @returns CreateLivyComputeTokenResponse
+   */
+  async createLivyComputeToken(workspaceBizId: string, livyComputeId: string, request: $_model.CreateLivyComputeTokenRequest): Promise<$_model.CreateLivyComputeTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createLivyComputeTokenWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
+  }
+
+  /**
    * Creates a workflow.
    * 
    * @param tmpReq - CreateProcessDefinitionWithScheduleRequest
@@ -530,6 +696,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除livy compute
+   * 
+   * @param request - DeleteLivyComputeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLivyComputeResponse
+   */
+  async deleteLivyComputeWithOptions(workspaceBizId: string, livyComputeId: string, request: $_model.DeleteLivyComputeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLivyComputeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLivyCompute",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceBizId)}/livycompute/${$dara.URL.percentEncode(livyComputeId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLivyComputeResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLivyComputeResponse({}));
+  }
+
+  /**
+   * 删除livy compute
+   * 
+   * @param request - DeleteLivyComputeRequest
+   * @returns DeleteLivyComputeResponse
+   */
+  async deleteLivyCompute(workspaceBizId: string, livyComputeId: string, request: $_model.DeleteLivyComputeRequest): Promise<$_model.DeleteLivyComputeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteLivyComputeWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
+  }
+
+  /**
+   * 删除Livy Compute的token
+   * 
+   * @param request - DeleteLivyComputeTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLivyComputeTokenResponse
+   */
+  async deleteLivyComputeTokenWithOptions(workspaceBizId: string, livyComputeId: string, tokenId: string, request: $_model.DeleteLivyComputeTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLivyComputeTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLivyComputeToken",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceBizId)}/livycompute/${$dara.URL.percentEncode(livyComputeId)}/token/${$dara.URL.percentEncode(tokenId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLivyComputeTokenResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLivyComputeTokenResponse({}));
+  }
+
+  /**
+   * 删除Livy Compute的token
+   * 
+   * @param request - DeleteLivyComputeTokenRequest
+   * @returns DeleteLivyComputeTokenResponse
+   */
+  async deleteLivyComputeToken(workspaceBizId: string, livyComputeId: string, tokenId: string, request: $_model.DeleteLivyComputeTokenRequest): Promise<$_model.DeleteLivyComputeTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteLivyComputeTokenWithOptions(workspaceBizId, livyComputeId, tokenId, request, headers, runtime);
+  }
+
+  /**
    * Modifies the queue of a workspace.
    * 
    * @param request - EditWorkspaceQueueRequest
@@ -737,6 +993,96 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobRunWithOptions(workspaceId, jobRunId, request, headers, runtime);
+  }
+
+  /**
+   * 获取livy compute
+   * 
+   * @param request - GetLivyComputeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLivyComputeResponse
+   */
+  async getLivyComputeWithOptions(workspaceBizId: string, livyComputeId: string, request: $_model.GetLivyComputeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetLivyComputeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLivyCompute",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceBizId)}/livycompute/${$dara.URL.percentEncode(livyComputeId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLivyComputeResponse>(await this.callApi(params, req, runtime), new $_model.GetLivyComputeResponse({}));
+  }
+
+  /**
+   * 获取livy compute
+   * 
+   * @param request - GetLivyComputeRequest
+   * @returns GetLivyComputeResponse
+   */
+  async getLivyCompute(workspaceBizId: string, livyComputeId: string, request: $_model.GetLivyComputeRequest): Promise<$_model.GetLivyComputeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLivyComputeWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
+  }
+
+  /**
+   * 获取livy compute token
+   * 
+   * @param request - GetLivyComputeTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLivyComputeTokenResponse
+   */
+  async getLivyComputeTokenWithOptions(workspaceBizId: string, livyComputeId: string, tokenId: string, request: $_model.GetLivyComputeTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetLivyComputeTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLivyComputeToken",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceBizId)}/livycompute/${$dara.URL.percentEncode(livyComputeId)}/token/${$dara.URL.percentEncode(tokenId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLivyComputeTokenResponse>(await this.callApi(params, req, runtime), new $_model.GetLivyComputeTokenResponse({}));
+  }
+
+  /**
+   * 获取livy compute token
+   * 
+   * @param request - GetLivyComputeTokenRequest
+   * @returns GetLivyComputeTokenResponse
+   */
+  async getLivyComputeToken(workspaceBizId: string, livyComputeId: string, tokenId: string, request: $_model.GetLivyComputeTokenRequest): Promise<$_model.GetLivyComputeTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLivyComputeTokenWithOptions(workspaceBizId, livyComputeId, tokenId, request, headers, runtime);
   }
 
   /**
@@ -1220,6 +1566,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出livy compute
+   * 
+   * @param request - ListLivyComputeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLivyComputeResponse
+   */
+  async listLivyComputeWithOptions(workspaceBizId: string, request: $_model.ListLivyComputeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListLivyComputeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.environmentId)) {
+      query["environmentId"] = request.environmentId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLivyCompute",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceBizId)}/livycompute`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLivyComputeResponse>(await this.callApi(params, req, runtime), new $_model.ListLivyComputeResponse({}));
+  }
+
+  /**
+   * 列出livy compute
+   * 
+   * @param request - ListLivyComputeRequest
+   * @returns ListLivyComputeResponse
+   */
+  async listLivyCompute(workspaceBizId: string, request: $_model.ListLivyComputeRequest): Promise<$_model.ListLivyComputeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listLivyComputeWithOptions(workspaceBizId, request, headers, runtime);
+  }
+
+  /**
+   * 列出livy compute token
+   * 
+   * @param request - ListLivyComputeTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLivyComputeTokenResponse
+   */
+  async listLivyComputeTokenWithOptions(workspaceBizId: string, livyComputeId: string, request: $_model.ListLivyComputeTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListLivyComputeTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLivyComputeToken",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceBizId)}/livycompute/${$dara.URL.percentEncode(livyComputeId)}/token`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLivyComputeTokenResponse>(await this.callApi(params, req, runtime), new $_model.ListLivyComputeTokenResponse({}));
+  }
+
+  /**
+   * 列出livy compute token
+   * 
+   * @param request - ListLivyComputeTokenRequest
+   * @returns ListLivyComputeTokenResponse
+   */
+  async listLivyComputeToken(workspaceBizId: string, livyComputeId: string, request: $_model.ListLivyComputeTokenRequest): Promise<$_model.ListLivyComputeTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listLivyComputeTokenWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
+  }
+
+  /**
    * Get Log Content
    * 
    * @param request - ListLogContentsRequest
@@ -1527,6 +1967,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新Livy Compute的token
+   * 
+   * @param request - RefreshLivyComputeTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshLivyComputeTokenResponse
+   */
+  async refreshLivyComputeTokenWithOptions(workspaceBizId: string, livyComputeId: string, tokenId: string, request: $_model.RefreshLivyComputeTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RefreshLivyComputeTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoExpireConfiguration)) {
+      body["autoExpireConfiguration"] = request.autoExpireConfiguration;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      body["token"] = request.token;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RefreshLivyComputeToken",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceBizId)}/livycompute/${$dara.URL.percentEncode(livyComputeId)}/token/${$dara.URL.percentEncode(tokenId)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RefreshLivyComputeTokenResponse>(await this.callApi(params, req, runtime), new $_model.RefreshLivyComputeTokenResponse({}));
+  }
+
+  /**
+   * 更新Livy Compute的token
+   * 
+   * @param request - RefreshLivyComputeTokenRequest
+   * @returns RefreshLivyComputeTokenResponse
+   */
+  async refreshLivyComputeToken(workspaceBizId: string, livyComputeId: string, tokenId: string, request: $_model.RefreshLivyComputeTokenRequest): Promise<$_model.RefreshLivyComputeTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.refreshLivyComputeTokenWithOptions(workspaceBizId, livyComputeId, tokenId, request, headers, runtime);
+  }
+
+  /**
    * Starts a Spark job.
    * 
    * @param request - StartJobRunRequest
@@ -1619,6 +2118,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startJobRunWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 启动livy compute
+   * 
+   * @param request - StartLivyComputeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartLivyComputeResponse
+   */
+  async startLivyComputeWithOptions(workspaceBizId: string, livyComputeId: string, request: $_model.StartLivyComputeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartLivyComputeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartLivyCompute",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceBizId)}/livycompute/${$dara.URL.percentEncode(livyComputeId)}/start`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartLivyComputeResponse>(await this.callApi(params, req, runtime), new $_model.StartLivyComputeResponse({}));
+  }
+
+  /**
+   * 启动livy compute
+   * 
+   * @param request - StartLivyComputeRequest
+   * @returns StartLivyComputeResponse
+   */
+  async startLivyCompute(workspaceBizId: string, livyComputeId: string, request: $_model.StartLivyComputeRequest): Promise<$_model.StartLivyComputeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startLivyComputeWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
   }
 
   /**
@@ -1762,6 +2306,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 停止livy compute
+   * 
+   * @param request - StopLivyComputeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopLivyComputeResponse
+   */
+  async stopLivyComputeWithOptions(workspaceBizId: string, livyComputeId: string, request: $_model.StopLivyComputeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopLivyComputeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopLivyCompute",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceBizId)}/livycompute/${$dara.URL.percentEncode(livyComputeId)}/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopLivyComputeResponse>(await this.callApi(params, req, runtime), new $_model.StopLivyComputeResponse({}));
+  }
+
+  /**
+   * 停止livy compute
+   * 
+   * @param request - StopLivyComputeRequest
+   * @returns StopLivyComputeResponse
+   */
+  async stopLivyCompute(workspaceBizId: string, livyComputeId: string, request: $_model.StopLivyComputeRequest): Promise<$_model.StopLivyComputeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopLivyComputeWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
+  }
+
+  /**
    * Stops a session.
    * 
    * @param request - StopSessionClusterRequest
@@ -1859,6 +2448,113 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.terminateSqlStatementWithOptions(workspaceId, statementId, request, headers, runtime);
+  }
+
+  /**
+   * 更新livy compute
+   * 
+   * @param request - UpdateLivyComputeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLivyComputeResponse
+   */
+  async updateLivyComputeWithOptions(workspaceBizId: string, livyComputeId: string, request: $_model.UpdateLivyComputeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLivyComputeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authType)) {
+      body["authType"] = request.authType;
+    }
+
+    if (!$dara.isNull(request.autoStartConfiguration)) {
+      body["autoStartConfiguration"] = request.autoStartConfiguration;
+    }
+
+    if (!$dara.isNull(request.autoStopConfiguration)) {
+      body["autoStopConfiguration"] = request.autoStopConfiguration;
+    }
+
+    if (!$dara.isNull(request.cpuLimit)) {
+      body["cpuLimit"] = request.cpuLimit;
+    }
+
+    if (!$dara.isNull(request.displayReleaseVersion)) {
+      body["displayReleaseVersion"] = request.displayReleaseVersion;
+    }
+
+    if (!$dara.isNull(request.enablePublic)) {
+      body["enablePublic"] = request.enablePublic;
+    }
+
+    if (!$dara.isNull(request.environmentId)) {
+      body["environmentId"] = request.environmentId;
+    }
+
+    if (!$dara.isNull(request.fusion)) {
+      body["fusion"] = request.fusion;
+    }
+
+    if (!$dara.isNull(request.livyServerConf)) {
+      body["livyServerConf"] = request.livyServerConf;
+    }
+
+    if (!$dara.isNull(request.livyVersion)) {
+      body["livyVersion"] = request.livyVersion;
+    }
+
+    if (!$dara.isNull(request.memoryLimit)) {
+      body["memoryLimit"] = request.memoryLimit;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.networkName)) {
+      body["networkName"] = request.networkName;
+    }
+
+    if (!$dara.isNull(request.queueName)) {
+      body["queueName"] = request.queueName;
+    }
+
+    if (!$dara.isNull(request.releaseVersion)) {
+      body["releaseVersion"] = request.releaseVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateLivyCompute",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceBizId)}/livycompute/${$dara.URL.percentEncode(livyComputeId)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateLivyComputeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLivyComputeResponse({}));
+  }
+
+  /**
+   * 更新livy compute
+   * 
+   * @param request - UpdateLivyComputeRequest
+   * @returns UpdateLivyComputeResponse
+   */
+  async updateLivyCompute(workspaceBizId: string, livyComputeId: string, request: $_model.UpdateLivyComputeRequest): Promise<$_model.UpdateLivyComputeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateLivyComputeWithOptions(workspaceBizId, livyComputeId, request, headers, runtime);
   }
 
   /**

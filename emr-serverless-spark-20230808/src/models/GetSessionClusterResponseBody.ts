@@ -14,7 +14,7 @@ export class GetSessionClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The session.
+   * The session object.
    */
   sessionCluster?: GetSessionClusterResponseBodySessionCluster;
   static names(): { [key: string]: string } {

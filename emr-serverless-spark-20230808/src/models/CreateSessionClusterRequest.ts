@@ -13,10 +13,10 @@ export class CreateSessionClusterRequest extends $dara.Model {
   applicationConfigs?: CreateSessionClusterRequestApplicationConfigs[];
   /**
    * @remarks
-   * The automatic startup configuration.
+   * Specifies whether to enable automatic startup.
    * 
-   * *
-   * *
+   * *   true
+   * *   false
    */
   autoStartConfiguration?: CreateSessionClusterRequestAutoStartConfiguration;
   /**

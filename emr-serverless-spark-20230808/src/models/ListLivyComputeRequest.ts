@@ -2,42 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetTemplateRequest extends $dara.Model {
+export class ListLivyComputeRequest extends $dara.Model {
   /**
-   * @remarks
-   * The region ID.
-   * 
+   * @example
+   * ev-cq31c7tlhtgm9nrrlj4g
+   */
+  environmentId?: string;
+  /**
    * @example
    * cn-hangzhou
    */
   regionId?: string;
-  templateBizId?: string;
-  /**
-   * @remarks
-   * The template type.
-   * 
-   * Valid values:
-   * 
-   * *   TASK
-   * *   SESSION
-   * 
-   * @example
-   * TASK
-   */
-  templateType?: string;
   static names(): { [key: string]: string } {
     return {
+      environmentId: 'environmentId',
       regionId: 'regionId',
-      templateBizId: 'templateBizId',
-      templateType: 'templateType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      environmentId: 'string',
       regionId: 'string',
-      templateBizId: 'string',
-      templateType: 'string',
     };
   }
 

@@ -140,7 +140,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   submitTime?: number;
   /**
    * @remarks
-   * The tags.
+   * The tags of the job.
    */
   tags?: Tag[];
   /**
