@@ -29,6 +29,7 @@ export class ModifyDiskReplicaGroupRequest extends $dara.Model {
    * This is description.
    */
   description?: string;
+  enableRtc?: boolean;
   /**
    * @remarks
    * The name of the replication pair-consistent group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
@@ -70,6 +71,7 @@ export class ModifyDiskReplicaGroupRequest extends $dara.Model {
       bandwidth: 'Bandwidth',
       clientToken: 'ClientToken',
       description: 'Description',
+      enableRtc: 'EnableRtc',
       groupName: 'GroupName',
       RPO: 'RPO',
       regionId: 'RegionId',
@@ -82,6 +84,7 @@ export class ModifyDiskReplicaGroupRequest extends $dara.Model {
       bandwidth: 'number',
       clientToken: 'string',
       description: 'string',
+      enableRtc: 'boolean',
       groupName: 'string',
       RPO: 'number',
       regionId: 'string',

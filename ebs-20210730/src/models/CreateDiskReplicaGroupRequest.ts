@@ -50,6 +50,7 @@ export class CreateDiskReplicaGroupRequest extends $dara.Model {
    * cn-shanghai-e
    */
   destinationZoneId?: string;
+  enableRtc?: boolean;
   /**
    * @remarks
    * The name of the replication pair-consistent group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
@@ -106,6 +107,7 @@ export class CreateDiskReplicaGroupRequest extends $dara.Model {
       description: 'Description',
       destinationRegionId: 'DestinationRegionId',
       destinationZoneId: 'DestinationZoneId',
+      enableRtc: 'EnableRtc',
       groupName: 'GroupName',
       RPO: 'RPO',
       regionId: 'RegionId',
@@ -122,6 +124,7 @@ export class CreateDiskReplicaGroupRequest extends $dara.Model {
       description: 'string',
       destinationRegionId: 'string',
       destinationZoneId: 'string',
+      enableRtc: 'boolean',
       groupName: 'string',
       RPO: 'number',
       regionId: 'string',

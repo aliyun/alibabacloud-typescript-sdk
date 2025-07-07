@@ -90,6 +90,7 @@ export class CreateDiskReplicaPairRequest extends $dara.Model {
    * d-iq80sgp4d0xbk24q****
    */
   diskId?: string;
+  enableRtc?: boolean;
   /**
    * @remarks
    * The name of the replication pair. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
@@ -173,6 +174,7 @@ export class CreateDiskReplicaPairRequest extends $dara.Model {
       destinationRegionId: 'DestinationRegionId',
       destinationZoneId: 'DestinationZoneId',
       diskId: 'DiskId',
+      enableRtc: 'EnableRtc',
       pairName: 'PairName',
       period: 'Period',
       periodUnit: 'PeriodUnit',
@@ -194,6 +196,7 @@ export class CreateDiskReplicaPairRequest extends $dara.Model {
       destinationRegionId: 'string',
       destinationZoneId: 'string',
       diskId: 'string',
+      enableRtc: 'boolean',
       pairName: 'string',
       period: 'number',
       periodUnit: 'string',

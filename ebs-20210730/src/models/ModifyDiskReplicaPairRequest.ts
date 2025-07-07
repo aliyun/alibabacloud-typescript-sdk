@@ -29,6 +29,7 @@ export class ModifyDiskReplicaPairRequest extends $dara.Model {
    * This is description.
    */
   description?: string;
+  enableRtc?: boolean;
   /**
    * @remarks
    * The name of the replication pair.
@@ -70,6 +71,7 @@ export class ModifyDiskReplicaPairRequest extends $dara.Model {
       bandwidth: 'Bandwidth',
       clientToken: 'ClientToken',
       description: 'Description',
+      enableRtc: 'EnableRtc',
       pairName: 'PairName',
       RPO: 'RPO',
       regionId: 'RegionId',
@@ -82,6 +84,7 @@ export class ModifyDiskReplicaPairRequest extends $dara.Model {
       bandwidth: 'number',
       clientToken: 'string',
       description: 'string',
+      enableRtc: 'boolean',
       pairName: 'string',
       RPO: 'number',
       regionId: 'string',

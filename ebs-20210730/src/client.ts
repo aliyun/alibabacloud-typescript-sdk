@@ -522,6 +522,10 @@ export default class Client extends OpenApi {
       query["DestinationZoneId"] = request.destinationZoneId;
     }
 
+    if (!$dara.isNull(request.enableRtc)) {
+      query["EnableRtc"] = request.enableRtc;
+    }
+
     if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
@@ -631,6 +635,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.diskId)) {
       query["DiskId"] = request.diskId;
+    }
+
+    if (!$dara.isNull(request.enableRtc)) {
+      query["EnableRtc"] = request.enableRtc;
     }
 
     if (!$dara.isNull(request.pairName)) {
@@ -2732,6 +2740,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.enableRtc)) {
+      query["EnableRtc"] = request.enableRtc;
+    }
+
     if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
@@ -2806,6 +2818,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enableRtc)) {
+      query["EnableRtc"] = request.enableRtc;
     }
 
     if (!$dara.isNull(request.pairName)) {

@@ -63,6 +63,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
    * cn-shanghai-b
    */
   destinationZoneId?: string;
+  enableRtc?: boolean;
   /**
    * @remarks
    * The time when the replication pair expires. The value of this parameter is a timestamp. Unit: seconds.
@@ -251,6 +252,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
       destinationDiskId: 'DestinationDiskId',
       destinationRegion: 'DestinationRegion',
       destinationZoneId: 'DestinationZoneId',
+      enableRtc: 'EnableRtc',
       expiredTime: 'ExpiredTime',
       lastRecoverPoint: 'LastRecoverPoint',
       pairName: 'PairName',
@@ -282,6 +284,7 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Mode
       destinationDiskId: 'string',
       destinationRegion: 'string',
       destinationZoneId: 'string',
+      enableRtc: 'boolean',
       expiredTime: 'number',
       lastRecoverPoint: 'number',
       pairName: 'string',

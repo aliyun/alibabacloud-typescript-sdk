@@ -36,6 +36,7 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $dara.Mo
    * cn-shanghai-e
    */
   destinationZoneId?: string;
+  enableRtc?: boolean;
   /**
    * @remarks
    * The name of the replication pair-consistent group.
@@ -186,6 +187,7 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $dara.Mo
       description: 'Description',
       destinationRegionId: 'DestinationRegionId',
       destinationZoneId: 'DestinationZoneId',
+      enableRtc: 'EnableRtc',
       groupName: 'GroupName',
       lastRecoverPoint: 'LastRecoverPoint',
       pairIds: 'PairIds',
@@ -211,6 +213,7 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $dara.Mo
       description: 'string',
       destinationRegionId: 'string',
       destinationZoneId: 'string',
+      enableRtc: 'boolean',
       groupName: 'string',
       lastRecoverPoint: 'number',
       pairIds: { 'type': 'array', 'itemType': 'Buffer' },
