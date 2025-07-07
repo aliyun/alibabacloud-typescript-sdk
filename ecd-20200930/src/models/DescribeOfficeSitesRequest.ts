@@ -161,6 +161,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
    * REGISTERED
    */
   status?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
@@ -170,6 +171,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
       regionId: 'RegionId',
       securityProtection: 'SecurityProtection',
       status: 'Status',
+      vpcId: 'VpcId',
     };
   }
 
@@ -182,6 +184,7 @@ export class DescribeOfficeSitesRequest extends $dara.Model {
       regionId: 'string',
       securityProtection: 'string',
       status: 'string',
+      vpcId: 'string',
     };
   }
 

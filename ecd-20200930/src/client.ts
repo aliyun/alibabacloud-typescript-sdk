@@ -3379,6 +3379,10 @@ export default class Client extends OpenApi {
       query["PromotionId"] = request.promotionId;
     }
 
+    if (!$dara.isNull(request.qosRuleId)) {
+      query["QosRuleId"] = request.qosRuleId;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -6734,6 +6738,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.sessionStatus)) {
       query["SessionStatus"] = request.sessionStatus;
     }
@@ -8171,6 +8179,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeDesktopSessionsResponseBodySessionsResourceGroups } from "./DescribeDesktopSessionsResponseBodySessionsResourceGroups";
 
 
 export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
@@ -117,6 +118,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
    * ASP
    */
   protocolType?: string;
+  resourceGroups?: DescribeDesktopSessionsResponseBodySessionsResourceGroups[];
   /**
    * @remarks
    * The end time of the session.
@@ -192,6 +194,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
       osSessionStatus: 'OsSessionStatus',
       osType: 'OsType',
       protocolType: 'ProtocolType',
+      resourceGroups: 'ResourceGroups',
       sessionEndTime: 'SessionEndTime',
       sessionIdleTime: 'SessionIdleTime',
       sessionStartTime: 'SessionStartTime',
@@ -216,6 +219,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
       osSessionStatus: 'string',
       osType: 'string',
       protocolType: 'string',
+      resourceGroups: { 'type': 'array', 'itemType': DescribeDesktopSessionsResponseBodySessionsResourceGroups },
       sessionEndTime: 'string',
       sessionIdleTime: 'number',
       sessionStartTime: 'string',
@@ -226,6 +230,9 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.resourceGroups)) {
+      $dara.Model.validateArray(this.resourceGroups);
+    }
     super.validate();
   }
 

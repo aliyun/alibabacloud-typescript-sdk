@@ -82,6 +82,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The state of the session.
@@ -130,6 +131,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sessionStatus: 'SessionStatus',
       startTime: 'StartTime',
       subPayType: 'SubPayType',
@@ -148,6 +150,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       sessionStatus: 'string',
       startTime: 'string',
       subPayType: 'string',

@@ -239,6 +239,7 @@ export class CreateDesktopsRequest extends $dara.Model {
    * 23141
    */
   promotionId?: string;
+  qosRuleId?: string;
   /**
    * @remarks
    * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
@@ -379,6 +380,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
       promotionId: 'PromotionId',
+      qosRuleId: 'QosRuleId',
       regionId: 'RegionId',
       resellerOwnerUid: 'ResellerOwnerUid',
       resourceGroupId: 'ResourceGroupId',
@@ -420,6 +422,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       periodUnit: 'string',
       policyGroupId: 'string',
       promotionId: 'string',
+      qosRuleId: 'string',
       regionId: 'string',
       resellerOwnerUid: 'number',
       resourceGroupId: 'string',

@@ -80,6 +80,7 @@ export { DescribeDesktopInfoResponseBodyDesktops } from './DescribeDesktopInfoRe
 export { DescribeDesktopOversoldGroupResponseBodyData } from './DescribeDesktopOversoldGroupResponseBodyData';
 export { DescribeDesktopOversoldUserResponseBodyData } from './DescribeDesktopOversoldUserResponseBodyData';
 export { DescribeDesktopOversoldUserGroupResponseBodyData } from './DescribeDesktopOversoldUserGroupResponseBodyData';
+export { DescribeDesktopSessionsResponseBodySessionsResourceGroups } from './DescribeDesktopSessionsResponseBodySessionsResourceGroups';
 export { DescribeDesktopSessionsResponseBodySessions } from './DescribeDesktopSessionsResponseBodySessions';
 export { DescribeDesktopTypesResponseBodyDesktopTypes } from './DescribeDesktopTypesResponseBodyDesktopTypes';
 export { DescribeDesktopsRequestTag } from './DescribeDesktopsRequestTag';
