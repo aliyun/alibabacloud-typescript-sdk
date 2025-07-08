@@ -1975,6 +1975,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指定监控项的最新监控数据
+   * 
+   * @param request - DescribeMetricLastRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMetricLastResponse
+   */
+  async describeMetricLastWithOptions(request: $_model.DescribeMetricLastRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMetricLastResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.androidInstanceIds)) {
+      body["AndroidInstanceIds"] = request.androidInstanceIds;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.length)) {
+      body["Length"] = request.length;
+    }
+
+    if (!$dara.isNull(request.metricNames)) {
+      body["MetricNames"] = request.metricNames;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      body["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMetricLast",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMetricLastResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMetricLastResponse({}));
+  }
+
+  /**
+   * 查询指定监控项的最新监控数据
+   * 
+   * @param request - DescribeMetricLastRequest
+   * @returns DescribeMetricLastResponse
+   */
+  async describeMetricLast(request: $_model.DescribeMetricLastRequest): Promise<$_model.DescribeMetricLastResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMetricLastWithOptions(request, runtime);
+  }
+
+  /**
    * Query available regions.
    * 
    * @param request - DescribeRegionsRequest
