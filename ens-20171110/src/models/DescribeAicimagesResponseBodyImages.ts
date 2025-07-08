@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAICImagesResponseBodyImages extends $dara.Model {
+  androidVersion?: string;
   /**
    * @remarks
    * The time when the image was created.
@@ -53,6 +54,7 @@ export class DescribeAICImagesResponseBodyImages extends $dara.Model {
   user?: string;
   static names(): { [key: string]: string } {
     return {
+      androidVersion: 'AndroidVersion',
       creationTime: 'CreationTime',
       description: 'Description',
       imageId: 'ImageId',
@@ -64,6 +66,7 @@ export class DescribeAICImagesResponseBodyImages extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      androidVersion: 'string',
       creationTime: 'string',
       description: 'string',
       imageId: 'string',

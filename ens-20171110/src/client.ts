@@ -13610,6 +13610,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 可移除所有版本的sdg，恢复为本地盘挂载
+   * 
+   * @param tmpReq - RemoveSDGsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveSDGsResponse
+   */
+  async removeSDGsWithOptions(tmpReq: $_model.RemoveSDGsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveSDGsResponse> {
+    tmpReq.validate();
+    let request = new $_model.RemoveSDGsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sdgIds)) {
+      request.sdgIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sdgIds, "SdgIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.sdgIdsShrink)) {
+      query["SdgIds"] = request.sdgIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveSDGs",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveSDGsResponse>(await this.callApi(params, req, runtime), new $_model.RemoveSDGsResponse({}));
+  }
+
+  /**
+   * 可移除所有版本的sdg，恢复为本地盘挂载
+   * 
+   * @param request - RemoveSDGsRequest
+   * @returns RemoveSDGsResponse
+   */
+  async removeSDGs(request: $_model.RemoveSDGsRequest): Promise<$_model.RemoveSDGsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeSDGsWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes the networking information. This operation is applicable only for instances that reside in the internal network.
    * 
    * @param request - RemoveVSwitchesFromEpnInstanceRequest
