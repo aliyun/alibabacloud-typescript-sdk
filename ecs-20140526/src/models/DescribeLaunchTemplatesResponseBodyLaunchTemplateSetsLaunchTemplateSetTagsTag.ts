@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLaunchTemplatesResponseBodyLaunchTemplateSetsLaunchTemplateSetTagsTag extends $dara.Model {
   /**
    * @remarks
-   * The tag value of the launch template.
+   * The tag key of the launch template.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeLaunchTemplatesResponseBodyLaunchTemplateSetsLaunchTemplate
   tagKey?: string;
   /**
    * @remarks
-   * The tag key of the launch template.
+   * The tag value of the launch template.
    * 
    * @example
    * TestValue

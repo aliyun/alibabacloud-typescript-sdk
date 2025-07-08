@@ -1,9 +1,11 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacityAvailableInstanceTypes } from "./DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacityAvailableInstanceTypes";
 import { DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacitySocketCapacities } from "./DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacitySocketCapacities";
 
 
 export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacity extends $dara.Model {
+  availableInstanceTypes?: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacityAvailableInstanceTypes;
   /**
    * @remarks
    * The amount of available space on the local disks. Unit: GiB
@@ -83,6 +85,7 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapaci
   totalVgpus?: number;
   static names(): { [key: string]: string } {
     return {
+      availableInstanceTypes: 'AvailableInstanceTypes',
       availableLocalStorage: 'AvailableLocalStorage',
       availableMemory: 'AvailableMemory',
       availableVcpus: 'AvailableVcpus',
@@ -98,6 +101,7 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapaci
 
   static types(): { [key: string]: any } {
     return {
+      availableInstanceTypes: DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapacityAvailableInstanceTypes,
       availableLocalStorage: 'number',
       availableMemory: 'number',
       availableVcpus: 'number',
@@ -112,6 +116,9 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHostCapaci
   }
 
   validate() {
+    if(this.availableInstanceTypes && typeof (this.availableInstanceTypes as any).validate === 'function') {
+      (this.availableInstanceTypes as any).validate();
+    }
     if(this.socketCapacities && typeof (this.socketCapacities as any).validate === 'function') {
       (this.socketCapacities as any).validate();
     }

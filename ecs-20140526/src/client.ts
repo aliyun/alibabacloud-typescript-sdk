@@ -11988,6 +11988,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.queryInventory)) {
+      query["QueryInventory"] = request.queryInventory;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -18561,7 +18565,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeRouteTables is deprecated
+   * 查询路由表信息列表
+   * 
+   * @deprecated OpenAPI DescribeRouteTables is deprecated, please use Vpc::2016-04-28::DescribeRouteTableList instead.
    * 
    * @param request - DescribeRouteTablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18637,7 +18643,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeRouteTables is deprecated
+   * 查询路由表信息列表
+   * 
+   * @deprecated OpenAPI DescribeRouteTables is deprecated, please use Vpc::2016-04-28::DescribeRouteTableList instead.
    * 
    * @param request - DescribeRouteTablesRequest
    * @returns DescribeRouteTablesResponse
@@ -20773,7 +20781,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeVRouters is deprecated
+   * 查询路由器列表
+   * 
+   * @deprecated OpenAPI DescribeVRouters is deprecated, please use Vpc::2016-04-28::DescribeVRouters instead.
    * 
    * @param request - DescribeVRoutersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20833,7 +20843,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeVRouters is deprecated
+   * 查询路由器列表
+   * 
+   * @deprecated OpenAPI DescribeVRouters is deprecated, please use Vpc::2016-04-28::DescribeVRouters instead.
    * 
    * @param request - DescribeVRoutersRequest
    * @returns DescribeVRoutersResponse

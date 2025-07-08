@@ -24,7 +24,7 @@ export class DescribeLaunchTemplatesResponseBodyLaunchTemplateSetsLaunchTemplate
   createdBy?: string;
   /**
    * @remarks
-   * The time when the launch template was modified.
+   * The default version number of the launch template.
    * 
    * @example
    * 1
@@ -32,7 +32,7 @@ export class DescribeLaunchTemplatesResponseBodyLaunchTemplateSetsLaunchTemplate
   defaultVersionNumber?: number;
   /**
    * @remarks
-   * The tags of the launch template.
+   * The latest version number of the launch template.
    * 
    * @example
    * 1
@@ -40,7 +40,7 @@ export class DescribeLaunchTemplatesResponseBodyLaunchTemplateSetsLaunchTemplate
   latestVersionNumber?: number;
   /**
    * @remarks
-   * The time when the launch template was created.
+   * The ID of the launch template.
    * 
    * @example
    * lt-m5e3ofjr1zn1aw7q****
@@ -48,7 +48,7 @@ export class DescribeLaunchTemplatesResponseBodyLaunchTemplateSetsLaunchTemplate
   launchTemplateId?: string;
   /**
    * @remarks
-   * The default version number of the launch template.
+   * The name of the template.
    * 
    * @example
    * wd-152630748****
@@ -66,7 +66,7 @@ export class DescribeLaunchTemplatesResponseBodyLaunchTemplateSetsLaunchTemplate
   modifiedTime?: string;
   /**
    * @remarks
-   * The creator of the launch template.
+   * The ID of the resource group to which the launch template belongs.
    * 
    * @example
    * rg-acfmxazb4p****

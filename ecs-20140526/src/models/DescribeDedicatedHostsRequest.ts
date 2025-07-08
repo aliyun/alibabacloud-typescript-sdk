@@ -91,6 +91,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  queryInventory?: boolean;
   /**
    * @remarks
    * The region ID of the dedicated host. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
@@ -166,6 +167,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      queryInventory: 'QueryInventory',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -190,6 +192,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      queryInventory: 'boolean',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',

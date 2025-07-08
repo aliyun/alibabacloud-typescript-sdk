@@ -11,7 +11,7 @@ export class DescribeLaunchTemplatesResponseBody extends $dara.Model {
   launchTemplateSets?: DescribeLaunchTemplatesResponseBodyLaunchTemplateSets;
   /**
    * @remarks
-   * The total number of launch templates.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class DescribeLaunchTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -27,7 +27,7 @@ export class DescribeLaunchTemplatesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The ID of the request.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE12CBA
@@ -35,7 +35,7 @@ export class DescribeLaunchTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the launch templates.
+   * The total number of launch templates.
    * 
    * @example
    * 1
