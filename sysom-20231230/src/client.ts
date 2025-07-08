@@ -2537,6 +2537,10 @@ export default class Client extends OpenApi {
       body["analysisTool"] = request.analysisTool;
     }
 
+    if (!$dara.isNull(request.analysisParams)) {
+      body["analysis_params"] = request.analysisParams;
+    }
+
     if (!$dara.isNull(request.channel)) {
       body["channel"] = request.channel;
     }
@@ -2545,8 +2549,28 @@ export default class Client extends OpenApi {
       body["comms"] = request.comms;
     }
 
+    if (!$dara.isNull(request.createdBy)) {
+      body["created_by"] = request.createdBy;
+    }
+
     if (!$dara.isNull(request.instance)) {
       body["instance"] = request.instance;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      body["instance_type"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.iterationFunc)) {
+      body["iteration_func"] = request.iterationFunc;
+    }
+
+    if (!$dara.isNull(request.iterationMod)) {
+      body["iteration_mod"] = request.iterationMod;
+    }
+
+    if (!$dara.isNull(request.iterationRange)) {
+      body["iteration_range"] = request.iterationRange;
     }
 
     if (!$dara.isNull(request.pids)) {
@@ -2559,6 +2583,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.timeout)) {
       body["timeout"] = request.timeout;
+    }
+
+    if (!$dara.isNull(request.uid)) {
+      body["uid"] = request.uid;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2589,6 +2617,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startAIAnalysisWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查看AI Infra差分分析结果
+   * 
+   * @param request - StartAIDiffAnalysisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartAIDiffAnalysisResponse
+   */
+  async startAIDiffAnalysisWithOptions(request: $_model.StartAIDiffAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartAIDiffAnalysisResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.task1)) {
+      body["task1"] = request.task1;
+    }
+
+    if (!$dara.isNull(request.task2)) {
+      body["task2"] = request.task2;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartAIDiffAnalysis",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/appObserv/aiAnalysis/diffAnalysis`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartAIDiffAnalysisResponse>(await this.callApi(params, req, runtime), new $_model.StartAIDiffAnalysisResponse({}));
+  }
+
+  /**
+   * 查看AI Infra差分分析结果
+   * 
+   * @param request - StartAIDiffAnalysisRequest
+   * @returns StartAIDiffAnalysisResponse
+   */
+  async startAIDiffAnalysis(request: $_model.StartAIDiffAnalysisRequest): Promise<$_model.StartAIDiffAnalysisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startAIDiffAnalysisWithOptions(request, headers, runtime);
   }
 
   /**

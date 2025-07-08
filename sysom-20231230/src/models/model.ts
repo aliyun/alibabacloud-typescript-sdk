@@ -52,6 +52,8 @@ export { ListPluginsInstancesResponseBodyDataInstanceTag } from './ListPluginsIn
 export { ListPluginsInstancesResponseBodyData } from './ListPluginsInstancesResponseBodyData';
 export { ListPodsOfInstanceResponseBodyData } from './ListPodsOfInstanceResponseBodyData';
 export { StartAIAnalysisResponseBodyData } from './StartAianalysisResponseBodyData';
+export { StartAIDiffAnalysisRequestTask1 } from './StartAidiffAnalysisRequestTask1';
+export { StartAIDiffAnalysisRequestTask2 } from './StartAidiffAnalysisRequestTask2';
 export { UninstallAgentRequestInstances } from './UninstallAgentRequestInstances';
 export { UninstallAgentResponseBodyData } from './UninstallAgentResponseBodyData';
 export { UninstallAgentForClusterResponseBodyData } from './UninstallAgentForClusterResponseBodyData';
@@ -195,6 +197,9 @@ export { ListRegionsResponse } from './ListRegionsResponse';
 export { StartAIAnalysisRequest } from './StartAianalysisRequest';
 export { StartAIAnalysisResponseBody } from './StartAianalysisResponseBody';
 export { StartAIAnalysisResponse } from './StartAianalysisResponse';
+export { StartAIDiffAnalysisRequest } from './StartAidiffAnalysisRequest';
+export { StartAIDiffAnalysisResponseBody } from './StartAidiffAnalysisResponseBody';
+export { StartAIDiffAnalysisResponse } from './StartAidiffAnalysisResponse';
 export { UninstallAgentRequest } from './UninstallAgentRequest';
 export { UninstallAgentResponseBody } from './UninstallAgentResponseBody';
 export { UninstallAgentResponse } from './UninstallAgentResponse';
