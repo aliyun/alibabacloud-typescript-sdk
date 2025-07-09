@@ -1,9 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListTemplateRequestTag } from "./ListTemplateRequestTag";
 
 
-export class ListTemplateRequest extends $dara.Model {
+export class ListTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The keyword that is used to search for templates.
@@ -54,7 +53,7 @@ export class ListTemplateRequest extends $dara.Model {
    * rg-acfmyjt3c5om3hi
    */
   resourceGroupId?: string;
-  tag?: ListTemplateRequestTag[];
+  tagShrink?: string;
   /**
    * @remarks
    * The tag that you want to use to query templates.
@@ -80,7 +79,7 @@ export class ListTemplateRequest extends $dara.Model {
       nextToken: 'NextToken',
       orderType: 'OrderType',
       resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
+      tagShrink: 'Tag',
       tagList: 'TagList',
       type: 'Type',
     };
@@ -93,16 +92,13 @@ export class ListTemplateRequest extends $dara.Model {
       nextToken: 'number',
       orderType: 'number',
       resourceGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': ListTemplateRequestTag },
+      tagShrink: 'string',
       tagList: 'number',
       type: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
     super.validate();
   }
 

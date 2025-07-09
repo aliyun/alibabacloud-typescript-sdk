@@ -1217,12 +1217,18 @@ export default class Client extends OpenApi {
   /**
    * Queries templates, including information such as the template name, architecture image URL, and URL of the serialized architecture image file.
    * 
-   * @param request - ListTemplateRequest
+   * @param tmpReq - ListTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTemplateResponse
    */
-  async listTemplateWithOptions(request: $_model.ListTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTemplateResponse> {
-    request.validate();
+  async listTemplateWithOptions(tmpReq: $_model.ListTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.keyword)) {
       body["Keyword"] = request.keyword;
@@ -1242,6 +1248,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tagShrink)) {
+      body["Tag"] = request.tagShrink;
     }
 
     if (!$dara.isNull(request.tagList)) {

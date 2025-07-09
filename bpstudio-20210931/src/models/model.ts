@@ -20,6 +20,7 @@ export { ListApplicationResponseBodyData } from './ListApplicationResponseBodyDa
 export { ListFoCreatedAppsResponseBodyData } from './ListFoCreatedAppsResponseBodyData';
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequestTag';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBodyTagResources';
+export { ListTemplateRequestTag } from './ListTemplateRequestTag';
 export { ListTemplateResponseBodyData } from './ListTemplateResponseBodyData';
 export { ModifyApplicationSpecRequestInstanceSpec } from './ModifyApplicationSpecRequestInstanceSpec';
 export { QueryInstanceSpec4ModifyResponseBodyDataOptionalValues } from './QueryInstanceSpec4modifyResponseBodyDataOptionalValues';
@@ -97,6 +98,7 @@ export { ListTagResourcesRequest } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBody } from './ListTagResourcesResponseBody';
 export { ListTagResourcesResponse } from './ListTagResourcesResponse';
 export { ListTemplateRequest } from './ListTemplateRequest';
+export { ListTemplateShrinkRequest } from './ListTemplateShrinkRequest';
 export { ListTemplateResponseBody } from './ListTemplateResponseBody';
 export { ListTemplateResponse } from './ListTemplateResponse';
 export { ModifyApplicationSpecRequest } from './ModifyApplicationSpecRequest';
