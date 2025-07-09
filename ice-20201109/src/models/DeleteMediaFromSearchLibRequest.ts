@@ -21,6 +21,7 @@ export class DeleteMediaFromSearchLibRequest extends $dara.Model {
    * {}
    */
   msgBody?: string;
+  namespace?: string;
   /**
    * @remarks
    * The name of the search library. Default value: ims-default-search-lib.
@@ -33,6 +34,7 @@ export class DeleteMediaFromSearchLibRequest extends $dara.Model {
     return {
       mediaId: 'MediaId',
       msgBody: 'MsgBody',
+      namespace: 'Namespace',
       searchLibName: 'SearchLibName',
     };
   }
@@ -41,6 +43,7 @@ export class DeleteMediaFromSearchLibRequest extends $dara.Model {
     return {
       mediaId: 'string',
       msgBody: 'string',
+      namespace: 'string',
       searchLibName: 'string',
     };
   }

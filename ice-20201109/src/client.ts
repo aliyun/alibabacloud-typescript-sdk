@@ -4180,6 +4180,10 @@ export default class Client extends OpenApi {
       query["MsgBody"] = request.msgBody;
     }
 
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
     if (!$dara.isNull(request.searchLibName)) {
       query["SearchLibName"] = request.searchLibName;
     }
@@ -8820,6 +8824,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.msgBody)) {
       query["MsgBody"] = request.msgBody;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
     }
 
     if (!$dara.isNull(request.searchLibName)) {
@@ -13468,6 +13476,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.mediaIds)) {
       query["MediaIds"] = request.mediaIds;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
     }
 
     if (!$dara.isNull(request.searchLibName)) {
@@ -19628,6 +19640,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.msgBody)) {
       query["MsgBody"] = request.msgBody;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
     }
 
     if (!$dara.isNull(request.searchLibName)) {

@@ -48,6 +48,7 @@ export class InsertMediaToSearchLibRequest extends $dara.Model {
    * {}
    */
   msgBody?: string;
+  namespace?: string;
   /**
    * @remarks
    * The name of the search library. Default value: ims-default-search-lib.
@@ -63,6 +64,7 @@ export class InsertMediaToSearchLibRequest extends $dara.Model {
       mediaId: 'MediaId',
       mediaType: 'MediaType',
       msgBody: 'MsgBody',
+      namespace: 'Namespace',
       searchLibName: 'SearchLibName',
     };
   }
@@ -74,6 +76,7 @@ export class InsertMediaToSearchLibRequest extends $dara.Model {
       mediaId: 'string',
       mediaType: 'string',
       msgBody: 'string',
+      namespace: 'string',
       searchLibName: 'string',
     };
   }

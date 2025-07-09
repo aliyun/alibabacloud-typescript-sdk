@@ -13,6 +13,7 @@ export class SearchIndexJobRerunRequest extends $dara.Model {
    * ******b48fb04483915d4f2cd8******,******c48fb37407365d4f2cd8******
    */
   mediaIds?: string;
+  namespace?: string;
   /**
    * @remarks
    * The search library.
@@ -36,6 +37,7 @@ export class SearchIndexJobRerunRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       mediaIds: 'MediaIds',
+      namespace: 'Namespace',
       searchLibName: 'SearchLibName',
       task: 'Task',
     };
@@ -44,6 +46,7 @@ export class SearchIndexJobRerunRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       mediaIds: 'string',
+      namespace: 'string',
       searchLibName: 'string',
       task: 'string',
     };
