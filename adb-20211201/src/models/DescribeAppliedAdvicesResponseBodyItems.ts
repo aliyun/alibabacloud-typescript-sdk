@@ -27,6 +27,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
    * build table `schema1`.`table1`
    */
   buildSQL?: string;
+  indexFields?: string;
   /**
    * @remarks
    * The status of the suggestion execution job. Valid values:
@@ -122,6 +123,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
       adviceId: 'AdviceId',
       benefit: 'Benefit',
       buildSQL: 'BuildSQL',
+      indexFields: 'IndexFields',
       jobStatus: 'JobStatus',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -140,6 +142,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
       adviceId: 'string',
       benefit: 'string',
       buildSQL: 'string',
+      indexFields: 'string',
       jobStatus: 'string',
       pageNumber: 'number',
       pageSize: 'number',

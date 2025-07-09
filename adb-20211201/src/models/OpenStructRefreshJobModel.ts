@@ -9,6 +9,7 @@ export class OpenStructRefreshJobModel extends $dara.Model {
   refreshInterval?: string;
   refreshModel?: string;
   resourceGroup?: string;
+  scheduledStartTime?: string;
   schemaName?: string;
   startTime?: string;
   status?: string;
@@ -20,6 +21,7 @@ export class OpenStructRefreshJobModel extends $dara.Model {
       refreshInterval: 'RefreshInterval',
       refreshModel: 'RefreshModel',
       resourceGroup: 'ResourceGroup',
+      scheduledStartTime: 'ScheduledStartTime',
       schemaName: 'SchemaName',
       startTime: 'StartTime',
       status: 'Status',
@@ -34,6 +36,7 @@ export class OpenStructRefreshJobModel extends $dara.Model {
       refreshInterval: 'string',
       refreshModel: 'string',
       resourceGroup: 'string',
+      scheduledStartTime: 'string',
       schemaName: 'string',
       startTime: 'string',
       status: 'string',

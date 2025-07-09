@@ -1,8 +1,10 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { OpenStructMvDetailModelBaseTableInfos } from "./OpenStructMvDetailModelBaseTableInfos";
 
 
 export class OpenStructMvDetailModel extends $dara.Model {
+  baseTableInfos?: OpenStructMvDetailModelBaseTableInfos[];
   baseTableNames?: string[][];
   explicitHit?: number;
   firstRefreshTime?: string;
@@ -17,6 +19,7 @@ export class OpenStructMvDetailModel extends $dara.Model {
   updatedAt?: string;
   static names(): { [key: string]: string } {
     return {
+      baseTableInfos: 'BaseTableInfos',
       baseTableNames: 'BaseTableNames',
       explicitHit: 'ExplicitHit',
       firstRefreshTime: 'FirstRefreshTime',
@@ -34,6 +37,7 @@ export class OpenStructMvDetailModel extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      baseTableInfos: { 'type': 'array', 'itemType': OpenStructMvDetailModelBaseTableInfos },
       baseTableNames: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
       explicitHit: 'number',
       firstRefreshTime: 'string',
@@ -50,6 +54,9 @@ export class OpenStructMvDetailModel extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.baseTableInfos)) {
+      $dara.Model.validateArray(this.baseTableInfos);
+    }
     if(Array.isArray(this.baseTableNames)) {
       $dara.Model.validateArray(this.baseTableNames);
     }

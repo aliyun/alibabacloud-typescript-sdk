@@ -2,6 +2,7 @@ export { FiltersExecutionTimeRange } from './FiltersExecutionTimeRange';
 export { FiltersSubmitTimeRange } from './FiltersSubmitTimeRange';
 export { FiltersTermiatedTimeRange } from './FiltersTermiatedTimeRange';
 export { OperatorNodeStats } from './OperatorNodeStats';
+export { OpenStructMvDetailModelBaseTableInfos } from './OpenStructMvDetailModelBaseTableInfos';
 export { CancelSparkReplStatementResponseBodyData } from './CancelSparkReplStatementResponseBodyData';
 export { CreateApsDatasoureRequestDatabricksInfo } from './CreateApsDatasoureRequestDatabricksInfo';
 export { CreateApsDatasoureRequestHiveInfo } from './CreateApsDatasoureRequestHiveInfo';

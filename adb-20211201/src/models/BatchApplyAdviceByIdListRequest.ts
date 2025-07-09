@@ -19,6 +19,8 @@ export class BatchApplyAdviceByIdListRequest extends $dara.Model {
    * c2589ff3-e86c-4f19-80c8-2aeb7dd9****,53414470-ebf4-4a53-a312-8a1ad8fd****,6e8dce84-fec8-4b0b-9c04-b0cea12c****,b3b9703d-55ca-47e0-96dd-6a4a9dbf****
    */
   adviceIdList?: string;
+  applyType?: string;
+  buildImmediately?: boolean;
   /**
    * @remarks
    * The cluster ID.
@@ -45,6 +47,8 @@ export class BatchApplyAdviceByIdListRequest extends $dara.Model {
     return {
       adviceDate: 'AdviceDate',
       adviceIdList: 'AdviceIdList',
+      applyType: 'ApplyType',
+      buildImmediately: 'BuildImmediately',
       DBClusterId: 'DBClusterId',
       regionId: 'RegionId',
     };
@@ -54,6 +58,8 @@ export class BatchApplyAdviceByIdListRequest extends $dara.Model {
     return {
       adviceDate: 'number',
       adviceIdList: 'string',
+      applyType: 'string',
+      buildImmediately: 'boolean',
       DBClusterId: 'string',
       regionId: 'string',
     };

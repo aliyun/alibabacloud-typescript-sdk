@@ -152,6 +152,14 @@ export default class Client extends OpenApi {
       query["AdviceId"] = request.adviceId;
     }
 
+    if (!$dara.isNull(request.applyType)) {
+      query["ApplyType"] = request.applyType;
+    }
+
+    if (!$dara.isNull(request.buildImmediately)) {
+      query["BuildImmediately"] = request.buildImmediately;
+    }
+
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
@@ -255,6 +263,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.adviceIdList)) {
       query["AdviceIdList"] = request.adviceIdList;
+    }
+
+    if (!$dara.isNull(request.applyType)) {
+      query["ApplyType"] = request.applyType;
+    }
+
+    if (!$dara.isNull(request.buildImmediately)) {
+      query["BuildImmediately"] = request.buildImmediately;
     }
 
     if (!$dara.isNull(request.DBClusterId)) {
