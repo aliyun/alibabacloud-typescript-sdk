@@ -17,10 +17,6 @@ export class CreateAppAgentTemplateRequestAsrConfig extends $dara.Model {
    * STT
    */
   name?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   wordWeights?: CreateAppAgentTemplateRequestAsrConfigWordWeights[];
   static names(): { [key: string]: string } {
     return {
