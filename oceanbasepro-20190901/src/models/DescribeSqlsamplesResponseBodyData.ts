@@ -58,7 +58,7 @@ export class DescribeSQLSamplesResponseBodyData extends $dara.Model {
    * @example
    * 4****
    */
-  clientPort?: string;
+  clientPort?: number;
   /**
    * @remarks
    * Concurrency event waiting time (in milliseconds).
@@ -268,7 +268,7 @@ export class DescribeSQLSamplesResponseBodyData extends $dara.Model {
    * @example
    * EE205C00-30E4-****-****-87E3A8A2AA0C
    */
-  requestId?: string;
+  requestId?: number;
   /**
    * @remarks
    * SQL request time.
@@ -504,7 +504,7 @@ export class DescribeSQLSamplesResponseBodyData extends $dara.Model {
       blockIndexCacheHit: 'number',
       bloomFilterCacheHit: 'number',
       clientIp: 'string',
-      clientPort: 'string',
+      clientPort: 'number',
       concurrencyWaitTime: 'number',
       consistencyLevel: 'string',
       cpuTime: 'number',
@@ -530,7 +530,7 @@ export class DescribeSQLSamplesResponseBodyData extends $dara.Model {
       planId: 'number',
       planType: 'string',
       queueTime: 'number',
-      requestId: 'string',
+      requestId: 'number',
       requestTime: 'string',
       retCode: 'number',
       retryCount: 'number',

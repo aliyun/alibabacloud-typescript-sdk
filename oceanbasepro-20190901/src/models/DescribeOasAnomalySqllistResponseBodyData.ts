@@ -104,7 +104,7 @@ export class DescribeOasAnomalySQLListResponseBodyData extends $dara.Model {
    * @example
    * 2023-04-12T04:38:38Z
    */
-  lastExecutedTime?: number;
+  lastExecutedTime?: string;
   /**
    * @remarks
    * Risk level.
@@ -212,7 +212,7 @@ export class DescribeOasAnomalySQLListResponseBodyData extends $dara.Model {
       diagnosis: 'string',
       dynamicSql: 'boolean',
       executions: 'number',
-      lastExecutedTime: 'number',
+      lastExecutedTime: 'string',
       riskLevel: 'string',
       sqlId: 'string',
       sqlList: { 'type': 'array', 'itemType': DescribeOasAnomalySQLListResponseBodyDataSqlList },

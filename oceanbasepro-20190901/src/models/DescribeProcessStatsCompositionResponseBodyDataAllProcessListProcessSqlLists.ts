@@ -8,11 +8,7 @@ export class DescribeProcessStatsCompositionResponseBodyDataAllProcessListProces
   command?: string;
   cpuTime?: number;
   database?: string;
-  /**
-   * @example
-   * true
-   */
-  dynamicSql?: string;
+  dynamicSql?: boolean;
   executeTime?: number;
   planId?: string;
   processSqlList?: DescribeProcessStatsCompositionResponseBodyDataAllProcessListProcessSqlListsProcessSqlList[];
@@ -53,7 +49,7 @@ export class DescribeProcessStatsCompositionResponseBodyDataAllProcessListProces
       command: 'string',
       cpuTime: 'number',
       database: 'string',
-      dynamicSql: 'string',
+      dynamicSql: 'boolean',
       executeTime: 'number',
       planId: 'string',
       processSqlList: { 'type': 'array', 'itemType': DescribeProcessStatsCompositionResponseBodyDataAllProcessListProcessSqlListsProcessSqlList },

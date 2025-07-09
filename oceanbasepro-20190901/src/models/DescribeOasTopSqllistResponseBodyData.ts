@@ -409,7 +409,7 @@ export class DescribeOasTopSQLListResponseBodyData extends $dara.Model {
    * 0
    */
   missPlans?: number;
-  obDbId?: string;
+  obDbId?: number;
   /**
    * @remarks
    * Remote plan percentage during the execution period.
@@ -761,7 +761,7 @@ export class DescribeOasTopSQLListResponseBodyData extends $dara.Model {
       maxWaitTime: 'number',
       missPlanPercentage: 'number',
       missPlans: 'number',
-      obDbId: 'string',
+      obDbId: 'number',
       remotePlanPercentage: 'number',
       remotePlans: 'number',
       retCode4012Count: 'number',

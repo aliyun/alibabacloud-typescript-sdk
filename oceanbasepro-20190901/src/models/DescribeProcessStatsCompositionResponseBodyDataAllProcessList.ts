@@ -38,11 +38,7 @@ export class DescribeProcessStatsCompositionResponseBodyDataAllProcessList exten
    * c1
    */
   database?: string;
-  /**
-   * @example
-   * true
-   */
-  dynamicSql?: string;
+  dynamicSql?: boolean;
   /**
    * @remarks
    * The definition of this parameter varies based on whether the SQL statement is executed.
@@ -164,7 +160,7 @@ export class DescribeProcessStatsCompositionResponseBodyDataAllProcessList exten
       command: 'string',
       cpuTime: 'number',
       database: 'string',
-      dynamicSql: 'string',
+      dynamicSql: 'boolean',
       executeTime: 'number',
       planId: 'string',
       processSqlLists: { 'type': 'array', 'itemType': DescribeProcessStatsCompositionResponseBodyDataAllProcessListProcessSqlLists },

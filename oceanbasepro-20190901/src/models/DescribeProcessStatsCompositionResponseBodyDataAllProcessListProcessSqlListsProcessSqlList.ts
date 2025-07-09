@@ -7,7 +7,7 @@ export class DescribeProcessStatsCompositionResponseBodyDataAllProcessListProces
   command?: string;
   cpuTime?: number;
   database?: string;
-  dynamicSql?: string;
+  dynamicSql?: boolean;
   executeTime?: number;
   planId?: string;
   proxySessId?: string;
@@ -46,7 +46,7 @@ export class DescribeProcessStatsCompositionResponseBodyDataAllProcessListProces
       command: 'string',
       cpuTime: 'number',
       database: 'string',
-      dynamicSql: 'string',
+      dynamicSql: 'boolean',
       executeTime: 'number',
       planId: 'string',
       proxySessId: 'string',

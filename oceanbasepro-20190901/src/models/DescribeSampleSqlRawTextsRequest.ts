@@ -29,7 +29,7 @@ export class DescribeSampleSqlRawTextsRequest extends $dara.Model {
    * @example
    * 20
    */
-  limit?: string;
+  limit?: number;
   /**
    * @remarks
    * SQL ID。
@@ -78,7 +78,7 @@ export class DescribeSampleSqlRawTextsRequest extends $dara.Model {
       dynamicSql: 'boolean',
       endTime: 'string',
       instanceId: 'string',
-      limit: 'string',
+      limit: 'number',
       sqlId: 'string',
       startTime: 'string',
       tenantId: 'string',
