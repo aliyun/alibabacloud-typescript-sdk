@@ -29,6 +29,7 @@ export class SetSubscriptionAttributesShrinkRequest extends $dara.Model {
    * MySubscription
    */
   subscriptionName?: string;
+  tenantRateLimitPolicyShrink?: string;
   /**
    * @remarks
    * The name of the topic.
@@ -44,6 +45,7 @@ export class SetSubscriptionAttributesShrinkRequest extends $dara.Model {
       dlqPolicyShrink: 'DlqPolicy',
       notifyStrategy: 'NotifyStrategy',
       subscriptionName: 'SubscriptionName',
+      tenantRateLimitPolicyShrink: 'TenantRateLimitPolicy',
       topicName: 'TopicName',
     };
   }
@@ -53,6 +55,7 @@ export class SetSubscriptionAttributesShrinkRequest extends $dara.Model {
       dlqPolicyShrink: 'string',
       notifyStrategy: 'string',
       subscriptionName: 'string',
+      tenantRateLimitPolicyShrink: 'string',
       topicName: 'string',
     };
   }

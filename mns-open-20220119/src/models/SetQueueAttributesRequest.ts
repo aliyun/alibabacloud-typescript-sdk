@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { SetQueueAttributesRequestDlqPolicy } from "./SetQueueAttributesRequestDlqPolicy";
+import { SetQueueAttributesRequestTenantRateLimitPolicy } from "./SetQueueAttributesRequestTenantRateLimitPolicy";
 
 
 export class SetQueueAttributesRequest extends $dara.Model {
@@ -62,6 +63,7 @@ export class SetQueueAttributesRequest extends $dara.Model {
    * testqueue
    */
   queueName?: string;
+  tenantRateLimitPolicy?: SetQueueAttributesRequestTenantRateLimitPolicy;
   /**
    * @remarks
    * The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
@@ -79,6 +81,7 @@ export class SetQueueAttributesRequest extends $dara.Model {
       messageRetentionPeriod: 'MessageRetentionPeriod',
       pollingWaitSeconds: 'PollingWaitSeconds',
       queueName: 'QueueName',
+      tenantRateLimitPolicy: 'TenantRateLimitPolicy',
       visibilityTimeout: 'VisibilityTimeout',
     };
   }
@@ -92,6 +95,7 @@ export class SetQueueAttributesRequest extends $dara.Model {
       messageRetentionPeriod: 'number',
       pollingWaitSeconds: 'number',
       queueName: 'string',
+      tenantRateLimitPolicy: SetQueueAttributesRequestTenantRateLimitPolicy,
       visibilityTimeout: 'number',
     };
   }
@@ -99,6 +103,9 @@ export class SetQueueAttributesRequest extends $dara.Model {
   validate() {
     if(this.dlqPolicy && typeof (this.dlqPolicy as any).validate === 'function') {
       (this.dlqPolicy as any).validate();
+    }
+    if(this.tenantRateLimitPolicy && typeof (this.tenantRateLimitPolicy as any).validate === 'function') {
+      (this.tenantRateLimitPolicy as any).validate();
     }
     super.validate();
   }

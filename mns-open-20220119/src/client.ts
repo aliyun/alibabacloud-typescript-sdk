@@ -109,6 +109,14 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.deliveryMode)) {
+      query["DeliveryMode"] = request.deliveryMode;
+    }
+
     if (!$dara.isNull(request.endpointsShrink)) {
       query["Endpoints"] = request.endpointsShrink;
     }
@@ -172,6 +180,10 @@ export default class Client extends OpenApi {
       request.dlqPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dlqPolicy, "DlqPolicy", "json");
     }
 
+    if (!$dara.isNull(tmpReq.tenantRateLimitPolicy)) {
+      request.tenantRateLimitPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantRateLimitPolicy, "TenantRateLimitPolicy", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.delaySeconds)) {
       query["DelaySeconds"] = request.delaySeconds;
@@ -203,6 +215,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.tenantRateLimitPolicyShrink)) {
+      query["TenantRateLimitPolicy"] = request.tenantRateLimitPolicyShrink;
     }
 
     if (!$dara.isNull(request.visibilityTimeout)) {
@@ -928,6 +944,10 @@ export default class Client extends OpenApi {
       request.dlqPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dlqPolicy, "DlqPolicy", "json");
     }
 
+    if (!$dara.isNull(tmpReq.tenantRateLimitPolicy)) {
+      request.tenantRateLimitPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantRateLimitPolicy, "TenantRateLimitPolicy", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.delaySeconds)) {
       query["DelaySeconds"] = request.delaySeconds;
@@ -955,6 +975,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.queueName)) {
       query["QueueName"] = request.queueName;
+    }
+
+    if (!$dara.isNull(request.tenantRateLimitPolicyShrink)) {
+      query["TenantRateLimitPolicy"] = request.tenantRateLimitPolicyShrink;
     }
 
     if (!$dara.isNull(request.visibilityTimeout)) {
@@ -1004,6 +1028,10 @@ export default class Client extends OpenApi {
       request.dlqPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dlqPolicy, "DlqPolicy", "json");
     }
 
+    if (!$dara.isNull(tmpReq.tenantRateLimitPolicy)) {
+      request.tenantRateLimitPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantRateLimitPolicy, "TenantRateLimitPolicy", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.dlqPolicyShrink)) {
       query["DlqPolicy"] = request.dlqPolicyShrink;
@@ -1015,6 +1043,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.subscriptionName)) {
       query["SubscriptionName"] = request.subscriptionName;
+    }
+
+    if (!$dara.isNull(request.tenantRateLimitPolicyShrink)) {
+      query["TenantRateLimitPolicy"] = request.tenantRateLimitPolicyShrink;
     }
 
     if (!$dara.isNull(request.topicName)) {
@@ -1114,13 +1146,41 @@ export default class Client extends OpenApi {
       request.dlqPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dlqPolicy, "DlqPolicy", "json");
     }
 
+    if (!$dara.isNull(tmpReq.dmAttributes)) {
+      request.dmAttributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dmAttributes, "DmAttributes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.dysmsAttributes)) {
+      request.dysmsAttributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dysmsAttributes, "DysmsAttributes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.kafkaAttributes)) {
+      request.kafkaAttributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.kafkaAttributes, "KafkaAttributes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantRateLimitPolicy)) {
+      request.tenantRateLimitPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantRateLimitPolicy, "TenantRateLimitPolicy", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.dlqPolicyShrink)) {
       query["DlqPolicy"] = request.dlqPolicyShrink;
     }
 
+    if (!$dara.isNull(request.dmAttributesShrink)) {
+      query["DmAttributes"] = request.dmAttributesShrink;
+    }
+
+    if (!$dara.isNull(request.dysmsAttributesShrink)) {
+      query["DysmsAttributes"] = request.dysmsAttributesShrink;
+    }
+
     if (!$dara.isNull(request.endpoint)) {
       query["Endpoint"] = request.endpoint;
+    }
+
+    if (!$dara.isNull(request.kafkaAttributesShrink)) {
+      query["KafkaAttributes"] = request.kafkaAttributesShrink;
     }
 
     if (!$dara.isNull(request.messageTag)) {
@@ -1145,6 +1205,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.subscriptionName)) {
       query["SubscriptionName"] = request.subscriptionName;
+    }
+
+    if (!$dara.isNull(request.tenantRateLimitPolicyShrink)) {
+      query["TenantRateLimitPolicy"] = request.tenantRateLimitPolicyShrink;
     }
 
     if (!$dara.isNull(request.topicName)) {

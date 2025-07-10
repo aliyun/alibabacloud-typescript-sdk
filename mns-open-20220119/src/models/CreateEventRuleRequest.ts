@@ -5,6 +5,8 @@ import { EventMatchRule } from "./EventMatchRule";
 
 
 export class CreateEventRuleRequest extends $dara.Model {
+  clientToken?: string;
+  deliveryMode?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -38,6 +40,8 @@ export class CreateEventRuleRequest extends $dara.Model {
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      deliveryMode: 'DeliveryMode',
       endpoints: 'Endpoints',
       eventTypes: 'EventTypes',
       matchRules: 'MatchRules',
@@ -48,6 +52,8 @@ export class CreateEventRuleRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      deliveryMode: 'string',
       endpoints: { 'type': 'array', 'itemType': CreateEventRuleRequestEndpoints },
       eventTypes: { 'type': 'array', 'itemType': 'string' },
       matchRules: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': EventMatchRule } },

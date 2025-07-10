@@ -1,6 +1,10 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { SubscribeRequestDlqPolicy } from "./SubscribeRequestDlqPolicy";
+import { SubscribeRequestDmAttributes } from "./SubscribeRequestDmAttributes";
+import { SubscribeRequestDysmsAttributes } from "./SubscribeRequestDysmsAttributes";
+import { SubscribeRequestKafkaAttributes } from "./SubscribeRequestKafkaAttributes";
+import { SubscribeRequestTenantRateLimitPolicy } from "./SubscribeRequestTenantRateLimitPolicy";
 
 
 export class SubscribeRequest extends $dara.Model {
@@ -9,6 +13,8 @@ export class SubscribeRequest extends $dara.Model {
    * The dead-letter queue policy.
    */
   dlqPolicy?: SubscribeRequestDlqPolicy;
+  dmAttributes?: SubscribeRequestDmAttributes;
+  dysmsAttributes?: SubscribeRequestDysmsAttributes;
   /**
    * @remarks
    * The receiver endpoint. The format of the endpoint varies based on the terminal type.
@@ -25,6 +31,7 @@ export class SubscribeRequest extends $dara.Model {
    * http://example.com
    */
   endpoint?: string;
+  kafkaAttributes?: SubscribeRequestKafkaAttributes;
   /**
    * @remarks
    * The tag that is used to filter messages. Only messages that have the same tag can be pushed. Set the value to a string of no more than 16 characters.
@@ -85,6 +92,7 @@ export class SubscribeRequest extends $dara.Model {
    * testSubscription
    */
   subscriptionName?: string;
+  tenantRateLimitPolicy?: SubscribeRequestTenantRateLimitPolicy;
   /**
    * @remarks
    * The name of the topic.
@@ -98,13 +106,17 @@ export class SubscribeRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dlqPolicy: 'DlqPolicy',
+      dmAttributes: 'DmAttributes',
+      dysmsAttributes: 'DysmsAttributes',
       endpoint: 'Endpoint',
+      kafkaAttributes: 'KafkaAttributes',
       messageTag: 'MessageTag',
       notifyContentFormat: 'NotifyContentFormat',
       notifyStrategy: 'NotifyStrategy',
       pushType: 'PushType',
       stsRoleArn: 'StsRoleArn',
       subscriptionName: 'SubscriptionName',
+      tenantRateLimitPolicy: 'TenantRateLimitPolicy',
       topicName: 'TopicName',
     };
   }
@@ -112,13 +124,17 @@ export class SubscribeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dlqPolicy: SubscribeRequestDlqPolicy,
+      dmAttributes: SubscribeRequestDmAttributes,
+      dysmsAttributes: SubscribeRequestDysmsAttributes,
       endpoint: 'string',
+      kafkaAttributes: SubscribeRequestKafkaAttributes,
       messageTag: 'string',
       notifyContentFormat: 'string',
       notifyStrategy: 'string',
       pushType: 'string',
       stsRoleArn: 'string',
       subscriptionName: 'string',
+      tenantRateLimitPolicy: SubscribeRequestTenantRateLimitPolicy,
       topicName: 'string',
     };
   }
@@ -126,6 +142,18 @@ export class SubscribeRequest extends $dara.Model {
   validate() {
     if(this.dlqPolicy && typeof (this.dlqPolicy as any).validate === 'function') {
       (this.dlqPolicy as any).validate();
+    }
+    if(this.dmAttributes && typeof (this.dmAttributes as any).validate === 'function') {
+      (this.dmAttributes as any).validate();
+    }
+    if(this.dysmsAttributes && typeof (this.dysmsAttributes as any).validate === 'function') {
+      (this.dysmsAttributes as any).validate();
+    }
+    if(this.kafkaAttributes && typeof (this.kafkaAttributes as any).validate === 'function') {
+      (this.kafkaAttributes as any).validate();
+    }
+    if(this.tenantRateLimitPolicy && typeof (this.tenantRateLimitPolicy as any).validate === 'function') {
+      (this.tenantRateLimitPolicy as any).validate();
     }
     super.validate();
   }

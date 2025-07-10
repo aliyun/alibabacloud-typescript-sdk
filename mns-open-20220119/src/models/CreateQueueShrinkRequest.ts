@@ -69,6 +69,7 @@ export class CreateQueueShrinkRequest extends $dara.Model {
    * The tags.
    */
   tag?: CreateQueueShrinkRequestTag[];
+  tenantRateLimitPolicyShrink?: string;
   /**
    * @remarks
    * The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
@@ -87,6 +88,7 @@ export class CreateQueueShrinkRequest extends $dara.Model {
       pollingWaitSeconds: 'PollingWaitSeconds',
       queueName: 'QueueName',
       tag: 'Tag',
+      tenantRateLimitPolicyShrink: 'TenantRateLimitPolicy',
       visibilityTimeout: 'VisibilityTimeout',
     };
   }
@@ -101,6 +103,7 @@ export class CreateQueueShrinkRequest extends $dara.Model {
       pollingWaitSeconds: 'number',
       queueName: 'string',
       tag: { 'type': 'array', 'itemType': CreateQueueShrinkRequestTag },
+      tenantRateLimitPolicyShrink: 'string',
       visibilityTimeout: 'number',
     };
   }

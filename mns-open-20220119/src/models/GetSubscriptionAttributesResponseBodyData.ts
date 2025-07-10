@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { GetSubscriptionAttributesResponseBodyDataDlqPolicy } from "./GetSubscriptionAttributesResponseBodyDataDlqPolicy";
+import { GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy } from "./GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy";
 
 
 export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
@@ -72,6 +73,7 @@ export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
    * MySubscription
    */
   subscriptionName?: string;
+  tenantRateLimitPolicy?: GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy;
   /**
    * @remarks
    * The name of the topic.
@@ -98,6 +100,7 @@ export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
       notifyContentFormat: 'NotifyContentFormat',
       notifyStrategy: 'NotifyStrategy',
       subscriptionName: 'SubscriptionName',
+      tenantRateLimitPolicy: 'TenantRateLimitPolicy',
       topicName: 'TopicName',
       topicOwner: 'TopicOwner',
     };
@@ -113,6 +116,7 @@ export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
       notifyContentFormat: 'string',
       notifyStrategy: 'string',
       subscriptionName: 'string',
+      tenantRateLimitPolicy: GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy,
       topicName: 'string',
       topicOwner: 'string',
     };
@@ -121,6 +125,9 @@ export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
   validate() {
     if(this.dlqPolicy && typeof (this.dlqPolicy as any).validate === 'function') {
       (this.dlqPolicy as any).validate();
+    }
+    if(this.tenantRateLimitPolicy && typeof (this.tenantRateLimitPolicy as any).validate === 'function') {
+      (this.tenantRateLimitPolicy as any).validate();
     }
     super.validate();
   }

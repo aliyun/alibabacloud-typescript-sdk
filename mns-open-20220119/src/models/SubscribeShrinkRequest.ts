@@ -8,6 +8,8 @@ export class SubscribeShrinkRequest extends $dara.Model {
    * The dead-letter queue policy.
    */
   dlqPolicyShrink?: string;
+  dmAttributesShrink?: string;
+  dysmsAttributesShrink?: string;
   /**
    * @remarks
    * The receiver endpoint. The format of the endpoint varies based on the terminal type.
@@ -24,6 +26,7 @@ export class SubscribeShrinkRequest extends $dara.Model {
    * http://example.com
    */
   endpoint?: string;
+  kafkaAttributesShrink?: string;
   /**
    * @remarks
    * The tag that is used to filter messages. Only messages that have the same tag can be pushed. Set the value to a string of no more than 16 characters.
@@ -84,6 +87,7 @@ export class SubscribeShrinkRequest extends $dara.Model {
    * testSubscription
    */
   subscriptionName?: string;
+  tenantRateLimitPolicyShrink?: string;
   /**
    * @remarks
    * The name of the topic.
@@ -97,13 +101,17 @@ export class SubscribeShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dlqPolicyShrink: 'DlqPolicy',
+      dmAttributesShrink: 'DmAttributes',
+      dysmsAttributesShrink: 'DysmsAttributes',
       endpoint: 'Endpoint',
+      kafkaAttributesShrink: 'KafkaAttributes',
       messageTag: 'MessageTag',
       notifyContentFormat: 'NotifyContentFormat',
       notifyStrategy: 'NotifyStrategy',
       pushType: 'PushType',
       stsRoleArn: 'StsRoleArn',
       subscriptionName: 'SubscriptionName',
+      tenantRateLimitPolicyShrink: 'TenantRateLimitPolicy',
       topicName: 'TopicName',
     };
   }
@@ -111,13 +119,17 @@ export class SubscribeShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dlqPolicyShrink: 'string',
+      dmAttributesShrink: 'string',
+      dysmsAttributesShrink: 'string',
       endpoint: 'string',
+      kafkaAttributesShrink: 'string',
       messageTag: 'string',
       notifyContentFormat: 'string',
       notifyStrategy: 'string',
       pushType: 'string',
       stsRoleArn: 'string',
       subscriptionName: 'string',
+      tenantRateLimitPolicyShrink: 'string',
       topicName: 'string',
     };
   }

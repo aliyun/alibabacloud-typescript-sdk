@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { GetQueueAttributesResponseBodyDataDlqPolicy } from "./GetQueueAttributesResponseBodyDataDlqPolicy";
 import { GetQueueAttributesResponseBodyDataTags } from "./GetQueueAttributesResponseBodyDataTags";
+import { GetQueueAttributesResponseBodyDataTenantRateLimitPolicy } from "./GetQueueAttributesResponseBodyDataTenantRateLimitPolicy";
 
 
 export class GetQueueAttributesResponseBodyData extends $dara.Model {
@@ -106,6 +107,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
    * The tag.
    */
   tags?: GetQueueAttributesResponseBodyDataTags[];
+  tenantRateLimitPolicy?: GetQueueAttributesResponseBodyDataTenantRateLimitPolicy;
   /**
    * @remarks
    * The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
@@ -129,6 +131,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
       pollingWaitSeconds: 'PollingWaitSeconds',
       queueName: 'QueueName',
       tags: 'Tags',
+      tenantRateLimitPolicy: 'TenantRateLimitPolicy',
       visibilityTimeout: 'VisibilityTimeout',
     };
   }
@@ -148,6 +151,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
       pollingWaitSeconds: 'number',
       queueName: 'string',
       tags: { 'type': 'array', 'itemType': GetQueueAttributesResponseBodyDataTags },
+      tenantRateLimitPolicy: GetQueueAttributesResponseBodyDataTenantRateLimitPolicy,
       visibilityTimeout: 'number',
     };
   }
@@ -158,6 +162,9 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    if(this.tenantRateLimitPolicy && typeof (this.tenantRateLimitPolicy as any).validate === 'function') {
+      (this.tenantRateLimitPolicy as any).validate();
     }
     super.validate();
   }

@@ -1,6 +1,7 @@
 export { CreateEventRuleRequestEndpoints } from './CreateEventRuleRequestEndpoints';
 export { CreateQueueRequestDlqPolicy } from './CreateQueueRequestDlqPolicy';
 export { CreateQueueRequestTag } from './CreateQueueRequestTag';
+export { CreateQueueRequestTenantRateLimitPolicy } from './CreateQueueRequestTenantRateLimitPolicy';
 export { CreateQueueShrinkRequestTag } from './CreateQueueShrinkRequestTag';
 export { CreateQueueResponseBodyData } from './CreateQueueResponseBodyData';
 export { CreateTopicRequestTag } from './CreateTopicRequestTag';
@@ -11,8 +12,10 @@ export { GetEndpointAttributeResponseBodyData } from './GetEndpointAttributeResp
 export { GetQueueAttributesRequestTag } from './GetQueueAttributesRequestTag';
 export { GetQueueAttributesResponseBodyDataDlqPolicy } from './GetQueueAttributesResponseBodyDataDlqPolicy';
 export { GetQueueAttributesResponseBodyDataTags } from './GetQueueAttributesResponseBodyDataTags';
+export { GetQueueAttributesResponseBodyDataTenantRateLimitPolicy } from './GetQueueAttributesResponseBodyDataTenantRateLimitPolicy';
 export { GetQueueAttributesResponseBodyData } from './GetQueueAttributesResponseBodyData';
 export { GetSubscriptionAttributesResponseBodyDataDlqPolicy } from './GetSubscriptionAttributesResponseBodyDataDlqPolicy';
+export { GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy } from './GetSubscriptionAttributesResponseBodyDataTenantRateLimitPolicy';
 export { GetSubscriptionAttributesResponseBodyData } from './GetSubscriptionAttributesResponseBodyData';
 export { GetTopicAttributesRequestTag } from './GetTopicAttributesRequestTag';
 export { GetTopicAttributesResponseBodyDataTags } from './GetTopicAttributesResponseBodyDataTags';
@@ -30,11 +33,17 @@ export { ListTopicResponseBodyDataPageDataTags } from './ListTopicResponseBodyDa
 export { ListTopicResponseBodyDataPageData } from './ListTopicResponseBodyDataPageData';
 export { ListTopicResponseBodyData } from './ListTopicResponseBodyData';
 export { SetQueueAttributesRequestDlqPolicy } from './SetQueueAttributesRequestDlqPolicy';
+export { SetQueueAttributesRequestTenantRateLimitPolicy } from './SetQueueAttributesRequestTenantRateLimitPolicy';
 export { SetQueueAttributesResponseBodyData } from './SetQueueAttributesResponseBodyData';
 export { SetSubscriptionAttributesRequestDlqPolicy } from './SetSubscriptionAttributesRequestDlqPolicy';
+export { SetSubscriptionAttributesRequestTenantRateLimitPolicy } from './SetSubscriptionAttributesRequestTenantRateLimitPolicy';
 export { SetSubscriptionAttributesResponseBodyData } from './SetSubscriptionAttributesResponseBodyData';
 export { SetTopicAttributesResponseBodyData } from './SetTopicAttributesResponseBodyData';
 export { SubscribeRequestDlqPolicy } from './SubscribeRequestDlqPolicy';
+export { SubscribeRequestDmAttributes } from './SubscribeRequestDmAttributes';
+export { SubscribeRequestDysmsAttributes } from './SubscribeRequestDysmsAttributes';
+export { SubscribeRequestKafkaAttributes } from './SubscribeRequestKafkaAttributes';
+export { SubscribeRequestTenantRateLimitPolicy } from './SubscribeRequestTenantRateLimitPolicy';
 export { UnsubscribeResponseBodyData } from './UnsubscribeResponseBodyData';
 export { EventMatchRule } from './EventMatchRule';
 export { AuthorizeEndpointAclRequest } from './AuthorizeEndpointAclRequest';
