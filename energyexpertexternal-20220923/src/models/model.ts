@@ -113,6 +113,9 @@ export { BatchUpdateSystemRunningPlanResponse } from './BatchUpdateSystemRunning
 export { ChatRequest } from './ChatRequest';
 export { ChatResponseBody } from './ChatResponseBody';
 export { ChatResponse } from './ChatResponse';
+export { ChatStreamRequest } from './ChatStreamRequest';
+export { ChatStreamResponseBody } from './ChatStreamResponseBody';
+export { ChatStreamResponse } from './ChatStreamResponse';
 export { CreateChatSessionRequest } from './CreateChatSessionRequest';
 export { CreateChatSessionResponseBody } from './CreateChatSessionResponseBody';
 export { CreateChatSessionResponse } from './CreateChatSessionResponse';
