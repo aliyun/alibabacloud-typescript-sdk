@@ -33,6 +33,7 @@ export class TextModerationPlusResponseBodyData extends $dara.Model {
    * text1234
    */
   dataId?: string;
+  detectedLanguage?: string;
   manualTaskId?: string;
   /**
    * @remarks
@@ -68,18 +69,21 @@ export class TextModerationPlusResponseBodyData extends $dara.Model {
    * The result of sensitivity data detect
    */
   sensitiveResult?: TextModerationPlusResponseBodyDataSensitiveResult[];
+  translatedContent?: string;
   static names(): { [key: string]: string } {
     return {
       advice: 'Advice',
       attackLevel: 'AttackLevel',
       attackResult: 'AttackResult',
       dataId: 'DataId',
+      detectedLanguage: 'DetectedLanguage',
       manualTaskId: 'ManualTaskId',
       result: 'Result',
       riskLevel: 'RiskLevel',
       score: 'Score',
       sensitiveLevel: 'SensitiveLevel',
       sensitiveResult: 'SensitiveResult',
+      translatedContent: 'TranslatedContent',
     };
   }
 
@@ -89,12 +93,14 @@ export class TextModerationPlusResponseBodyData extends $dara.Model {
       attackLevel: 'string',
       attackResult: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataAttackResult },
       dataId: 'string',
+      detectedLanguage: 'string',
       manualTaskId: 'string',
       result: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataResult },
       riskLevel: 'string',
       score: 'number',
       sensitiveLevel: 'string',
       sensitiveResult: { 'type': 'array', 'itemType': TextModerationPlusResponseBodyDataSensitiveResult },
+      translatedContent: 'string',
     };
   }
 
