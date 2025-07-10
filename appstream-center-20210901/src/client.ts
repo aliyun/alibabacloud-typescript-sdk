@@ -1985,12 +1985,18 @@ export default class Client extends OpenApi {
    * @remarks
    * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
    * 
-   * @param request - RenewAppInstanceGroupRequest
+   * @param tmpReq - RenewAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RenewAppInstanceGroupResponse
    */
-  async renewAppInstanceGroupWithOptions(request: $_model.RenewAppInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenewAppInstanceGroupResponse> {
-    request.validate();
+  async renewAppInstanceGroupWithOptions(tmpReq: $_model.RenewAppInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenewAppInstanceGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.RenewAppInstanceGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.renewNodes)) {
+      request.renewNodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.renewNodes, "RenewNodes", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.appInstanceGroupId)) {
       query["AppInstanceGroupId"] = request.appInstanceGroupId;
@@ -2014,6 +2020,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.promotionId)) {
       query["PromotionId"] = request.promotionId;
+    }
+
+    if (!$dara.isNull(request.renewAmount)) {
+      query["RenewAmount"] = request.renewAmount;
+    }
+
+    if (!$dara.isNull(request.renewMode)) {
+      query["RenewMode"] = request.renewMode;
+    }
+
+    if (!$dara.isNull(request.renewNodesShrink)) {
+      query["RenewNodes"] = request.renewNodesShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

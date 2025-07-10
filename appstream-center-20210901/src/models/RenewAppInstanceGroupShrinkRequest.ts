@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RenewAppInstanceGroupRequest extends $dara.Model {
+export class RenewAppInstanceGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the delivery group.
@@ -81,7 +81,7 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
   promotionId?: string;
   renewAmount?: number;
   renewMode?: string;
-  renewNodes?: string[];
+  renewNodesShrink?: string;
   static names(): { [key: string]: string } {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
@@ -92,7 +92,7 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
       promotionId: 'PromotionId',
       renewAmount: 'RenewAmount',
       renewMode: 'RenewMode',
-      renewNodes: 'RenewNodes',
+      renewNodesShrink: 'RenewNodes',
     };
   }
 
@@ -106,14 +106,11 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
       promotionId: 'string',
       renewAmount: 'number',
       renewMode: 'string',
-      renewNodes: { 'type': 'array', 'itemType': 'string' },
+      renewNodesShrink: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.renewNodes)) {
-      $dara.Model.validateArray(this.renewNodes);
-    }
     super.validate();
   }
 

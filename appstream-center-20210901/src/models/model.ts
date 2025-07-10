@@ -168,6 +168,7 @@ export { PageListAppInstanceGroupUserRequest } from './PageListAppInstanceGroupU
 export { PageListAppInstanceGroupUserResponseBody } from './PageListAppInstanceGroupUserResponseBody';
 export { PageListAppInstanceGroupUserResponse } from './PageListAppInstanceGroupUserResponse';
 export { RenewAppInstanceGroupRequest } from './RenewAppInstanceGroupRequest';
+export { RenewAppInstanceGroupShrinkRequest } from './RenewAppInstanceGroupShrinkRequest';
 export { RenewAppInstanceGroupResponseBody } from './RenewAppInstanceGroupResponseBody';
 export { RenewAppInstanceGroupResponse } from './RenewAppInstanceGroupResponse';
 export { TagCloudResourcesRequest } from './TagCloudResourcesRequest';
