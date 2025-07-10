@@ -36,6 +36,7 @@ export class DescribeAppAttributesResponseBodyAppsAppAttribute extends $dara.Mod
    * App test
    */
   description?: string;
+  disabled?: boolean;
   /**
    * @remarks
    * 扩展信息
@@ -63,6 +64,7 @@ export class DescribeAppAttributesResponseBodyAppsAppAttribute extends $dara.Mod
       appName: 'AppName',
       createdTime: 'CreatedTime',
       description: 'Description',
+      disabled: 'Disabled',
       extend: 'Extend',
       modifiedTime: 'ModifiedTime',
       tags: 'Tags',
@@ -75,6 +77,7 @@ export class DescribeAppAttributesResponseBodyAppsAppAttribute extends $dara.Mod
       appName: 'string',
       createdTime: 'string',
       description: 'string',
+      disabled: 'boolean',
       extend: 'string',
       modifiedTime: 'string',
       tags: DescribeAppAttributesResponseBodyAppsAppAttributeTags,

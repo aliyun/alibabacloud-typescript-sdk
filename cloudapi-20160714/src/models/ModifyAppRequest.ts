@@ -34,6 +34,7 @@ export class ModifyAppRequest extends $dara.Model {
    * modidyTest
    */
   description?: string;
+  disabled?: boolean;
   /**
    * @remarks
    * 扩展信息
@@ -56,6 +57,7 @@ export class ModifyAppRequest extends $dara.Model {
       appId: 'AppId',
       appName: 'AppName',
       description: 'Description',
+      disabled: 'Disabled',
       extend: 'Extend',
       securityToken: 'SecurityToken',
       tag: 'Tag',
@@ -67,6 +69,7 @@ export class ModifyAppRequest extends $dara.Model {
       appId: 'number',
       appName: 'string',
       description: 'string',
+      disabled: 'boolean',
       extend: 'string',
       securityToken: 'string',
       tag: { 'type': 'array', 'itemType': ModifyAppRequestTag },

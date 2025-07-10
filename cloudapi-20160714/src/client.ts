@@ -10276,6 +10276,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.disabled)) {
+      query["Disabled"] = request.disabled;
+    }
+
     if (!$dara.isNull(request.extend)) {
       query["Extend"] = request.extend;
     }

@@ -35,6 +35,7 @@ export class DescribeAppResponseBody extends $dara.Model {
    * Estimated on October 15, 2021 at 10:20:27
    */
   description?: string;
+  disabled?: boolean;
   /**
    * @remarks
    * 扩展信息
@@ -65,6 +66,7 @@ export class DescribeAppResponseBody extends $dara.Model {
       appName: 'AppName',
       createdTime: 'CreatedTime',
       description: 'Description',
+      disabled: 'Disabled',
       extend: 'Extend',
       modifiedTime: 'ModifiedTime',
       requestId: 'RequestId',
@@ -77,6 +79,7 @@ export class DescribeAppResponseBody extends $dara.Model {
       appName: 'string',
       createdTime: 'string',
       description: 'string',
+      disabled: 'boolean',
       extend: 'string',
       modifiedTime: 'string',
       requestId: 'string',
