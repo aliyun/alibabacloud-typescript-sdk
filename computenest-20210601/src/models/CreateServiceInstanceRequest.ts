@@ -125,6 +125,7 @@ export class CreateServiceInstanceRequest extends $dara.Model {
    * service-0e6fca6a51a54420****
    */
   serviceId?: string;
+  serviceInstanceId?: string;
   /**
    * @remarks
    * The service version.
@@ -188,6 +189,7 @@ export class CreateServiceInstanceRequest extends $dara.Model {
       resourceAutoPay: 'ResourceAutoPay',
       resourceGroupId: 'ResourceGroupId',
       serviceId: 'ServiceId',
+      serviceInstanceId: 'ServiceInstanceId',
       serviceVersion: 'ServiceVersion',
       specificationCode: 'SpecificationCode',
       specificationName: 'SpecificationName',
@@ -212,6 +214,7 @@ export class CreateServiceInstanceRequest extends $dara.Model {
       resourceAutoPay: 'boolean',
       resourceGroupId: 'string',
       serviceId: 'string',
+      serviceInstanceId: 'string',
       serviceVersion: 'string',
       specificationCode: 'string',
       specificationName: 'string',

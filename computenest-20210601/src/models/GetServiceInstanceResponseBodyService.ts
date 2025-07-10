@@ -24,6 +24,13 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
    * ros
    */
   deployType?: string;
+  /**
+   * @remarks
+   * Operation info.
+   * 
+   * @example
+   * {"SupportBackup":false,"PrometheusConfigMap":{},"ModifyParametersConfig":[{"TemplateName":"国内版","Operation":[{"Name":"套餐变配","Description":"套餐变配","Type":"Custom","SupportPredefinedParameters":true,"EnableLogging":false},{"Name":"参数变配","Description":"参数变配","Type":"Custom","SupportPredefinedParameters":false,"EnableLogging":false,"Parameters":["DataDiskSize"]}]}]}
+   */
   operationMetadata?: string;
   /**
    * @remarks
@@ -109,7 +116,7 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
   supplierUrl?: string;
   /**
    * @remarks
-   * The upgradable service version.
+   * The service versions that can be updated.
    */
   upgradableServiceInfos?: GetServiceInstanceResponseBodyServiceUpgradableServiceInfos[];
   /**
@@ -120,37 +127,6 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
   /**
    * @remarks
    * The metadata about the upgrade.
-   * 
-   * @example
-   * {
-   *   "Type": "OOS",
-   *   "Description": "Changelog or something description",
-   *   "SupportUpgradeFromVersions": [1, 2],
-   *   "UpgradeSteps": {
-   *     "PreUpgradeStage": {
-   *       "Description": "初始化数据库",
-   *       "Type": "RunCommand",
-   *       "ResourceName": "EcsRole1",
-   *       "CommandType": "runShellScript",
-   *       "CommandContent": "echo hello"
-   *     },
-   *     "UpgradeStage": [{
-   *       "Description": "更新EcsRole1实例",
-   *       "Type": "RunCommand",
-   *       "ResourceName": "EcsRole1",
-   *       "ArtifactsDownloadDirectory": "/home/admin",
-   *       "CommandType": "runShellScript",
-   *       "CommandContent": "echo hello"
-   *     }],
-   *     "PostUpgradeStage": {
-   *       "Description": "部署后post check",
-   *       "Type": "None/RunCommand",
-   *       "ResourceName": "EcsRole1",
-   *       "CommandType": "runShellScript",
-   *       "CommandContent": "echo hello"
-   *     }
-   *   }
-   * }
    */
   upgradeMetadata?: string;
   /**

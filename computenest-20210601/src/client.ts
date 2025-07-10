@@ -331,6 +331,10 @@ export default class Client extends OpenApi {
       query["ServiceId"] = request.serviceId;
     }
 
+    if (!$dara.isNull(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
     if (!$dara.isNull(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }

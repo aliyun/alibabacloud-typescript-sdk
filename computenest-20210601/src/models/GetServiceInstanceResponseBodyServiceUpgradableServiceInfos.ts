@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceInstanceResponseBodyServiceUpgradableServiceInfos extends $dara.Model {
   /**
    * @remarks
-   * An upgradable service version.
+   * The service version.
    * 
    * @example
    * draft
@@ -13,7 +13,7 @@ export class GetServiceInstanceResponseBodyServiceUpgradableServiceInfos extends
   version?: string;
   /**
    * @remarks
-   * The version name of an upgradable service version.
+   * The version name.
    * 
    * @example
    * 0.1.0

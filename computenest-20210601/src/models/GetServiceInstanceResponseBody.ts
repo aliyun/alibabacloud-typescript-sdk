@@ -210,7 +210,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   resources?: string;
   /**
    * @remarks
-   * The information about the service to which the service instance belongs.
+   * The information about the cloud service.
    */
   service?: GetServiceInstanceResponseBodyService;
   /**
@@ -276,6 +276,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
    * 158927391332*****
    */
   supplierUid?: number;
+  supportTrialToPrivate?: boolean;
   /**
    * @remarks
    * The tags.
@@ -337,6 +338,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
       status: 'Status',
       statusDetail: 'StatusDetail',
       supplierUid: 'SupplierUid',
+      supportTrialToPrivate: 'SupportTrialToPrivate',
       tags: 'Tags',
       templateName: 'TemplateName',
       updateTime: 'UpdateTime',
@@ -376,6 +378,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
       status: 'string',
       statusDetail: 'string',
       supplierUid: 'number',
+      supportTrialToPrivate: 'boolean',
       tags: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyTags },
       templateName: 'string',
       updateTime: 'string',

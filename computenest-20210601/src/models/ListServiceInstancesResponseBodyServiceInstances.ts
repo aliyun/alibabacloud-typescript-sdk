@@ -205,6 +205,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
    * deploy successfully
    */
   statusDetail?: string;
+  supportTrialToPrivate?: boolean;
   /**
    * @remarks
    * The custom tags.
@@ -250,6 +251,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
       source: 'Source',
       status: 'Status',
       statusDetail: 'StatusDetail',
+      supportTrialToPrivate: 'SupportTrialToPrivate',
       tags: 'Tags',
       templateName: 'TemplateName',
       updateTime: 'UpdateTime',
@@ -280,6 +282,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
       source: 'string',
       status: 'string',
       statusDetail: 'string',
+      supportTrialToPrivate: 'boolean',
       tags: { 'type': 'array', 'itemType': ListServiceInstancesResponseBodyServiceInstancesTags },
       templateName: 'string',
       updateTime: 'string',
