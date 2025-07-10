@@ -2274,6 +2274,116 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param tmpReq - CreateAlidingAssistantRequest
+   * @param tmpHeader - CreateAlidingAssistantHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAlidingAssistantResponse
+   */
+  async createAlidingAssistantWithOptions(tmpReq: $_model.CreateAlidingAssistantRequest, tmpHeader: $_model.CreateAlidingAssistantHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAlidingAssistantResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAlidingAssistantShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.CreateAlidingAssistantShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.ext)) {
+      request.extShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ext, "Ext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.recommendPrompts)) {
+      request.recommendPromptsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recommendPrompts, "RecommendPrompts", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appCode)) {
+      body["AppCode"] = request.appCode;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.extShrink)) {
+      body["Ext"] = request.extShrink;
+    }
+
+    if (!$dara.isNull(request.icon)) {
+      body["Icon"] = request.icon;
+    }
+
+    if (!$dara.isNull(request.instructions)) {
+      body["Instructions"] = request.instructions;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.recommendPromptsShrink)) {
+      body["RecommendPrompts"] = request.recommendPromptsShrink;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.sourceIdentityId)) {
+      body["SourceIdentityId"] = request.sourceIdentityId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.welcomeContent)) {
+      body["WelcomeContent"] = request.welcomeContent;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAlidingAssistant",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/aiagent/createAlidingAssistant`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAlidingAssistantResponse>(await this.callApi(params, req, runtime), new $_model.CreateAlidingAssistantResponse({}));
+  }
+
+  /**
+   * @param request - CreateAlidingAssistantRequest
+   * @returns CreateAlidingAssistantResponse
+   */
+  async createAlidingAssistant(request: $_model.CreateAlidingAssistantRequest): Promise<$_model.CreateAlidingAssistantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.CreateAlidingAssistantHeaders({ });
+    return await this.createAlidingAssistantWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 发布钉钉投放活动
    * 
    * @param tmpReq - CreateDeliveryPlanRequest
@@ -4666,6 +4776,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param tmpReq - DeleteAlidingAssistantRequest
+   * @param tmpHeader - DeleteAlidingAssistantHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAlidingAssistantResponse
+   */
+  async deleteAlidingAssistantWithOptions(tmpReq: $_model.DeleteAlidingAssistantRequest, tmpHeader: $_model.DeleteAlidingAssistantHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAlidingAssistantResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteAlidingAssistantShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.DeleteAlidingAssistantShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assistantId)) {
+      body["AssistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAlidingAssistant",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/aiagent/deleteAlidingAssistant`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAlidingAssistantResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAlidingAssistantResponse({}));
+  }
+
+  /**
+   * @param request - DeleteAlidingAssistantRequest
+   * @returns DeleteAlidingAssistantResponse
+   */
+  async deleteAlidingAssistant(request: $_model.DeleteAlidingAssistantRequest): Promise<$_model.DeleteAlidingAssistantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.DeleteAlidingAssistantHeaders({ });
+    return await this.deleteAlidingAssistantWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 删除指定列
    * 
    * @param tmpReq - DeleteColumnsRequest
@@ -6719,6 +6895,76 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetActivityListHeaders({ });
     return await this.getActivityListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取阿里钉ai助理信息
+   * 
+   * @param tmpReq - GetAlidingAssistantInfoRequest
+   * @param tmpHeader - GetAlidingAssistantInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAlidingAssistantInfoResponse
+   */
+  async getAlidingAssistantInfoWithOptions(tmpReq: $_model.GetAlidingAssistantInfoRequest, tmpHeader: $_model.GetAlidingAssistantInfoHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetAlidingAssistantInfoResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetAlidingAssistantInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetAlidingAssistantInfoShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assistantId)) {
+      body["AssistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAlidingAssistantInfo",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/aiagent/getAlidingAssistantInfo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAlidingAssistantInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetAlidingAssistantInfoResponse({}));
+  }
+
+  /**
+   * 获取阿里钉ai助理信息
+   * 
+   * @param request - GetAlidingAssistantInfoRequest
+   * @returns GetAlidingAssistantInfoResponse
+   */
+  async getAlidingAssistantInfo(request: $_model.GetAlidingAssistantInfoRequest): Promise<$_model.GetAlidingAssistantInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetAlidingAssistantInfoHeaders({ });
+    return await this.getAlidingAssistantInfoWithOptions(request, headers, runtime);
   }
 
   /**
@@ -18949,6 +19195,120 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.UnsubscribeEventHeaders({ });
     return await this.unsubscribeEventWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @param tmpReq - UpdateAlidingAssistantRequest
+   * @param tmpHeader - UpdateAlidingAssistantHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAlidingAssistantResponse
+   */
+  async updateAlidingAssistantWithOptions(tmpReq: $_model.UpdateAlidingAssistantRequest, tmpHeader: $_model.UpdateAlidingAssistantHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlidingAssistantResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateAlidingAssistantShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.UpdateAlidingAssistantShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.ext)) {
+      request.extShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ext, "Ext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.feature)) {
+      request.featureShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.feature, "Feature", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.recommendPrompts)) {
+      request.recommendPromptsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recommendPrompts, "RecommendPrompts", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assistantId)) {
+      body["AssistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.extShrink)) {
+      body["Ext"] = request.extShrink;
+    }
+
+    if (!$dara.isNull(request.fallbackContent)) {
+      body["FallbackContent"] = request.fallbackContent;
+    }
+
+    if (!$dara.isNull(request.featureShrink)) {
+      body["Feature"] = request.featureShrink;
+    }
+
+    if (!$dara.isNull(request.icon)) {
+      body["Icon"] = request.icon;
+    }
+
+    if (!$dara.isNull(request.instructions)) {
+      body["Instructions"] = request.instructions;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.recommendPromptsShrink)) {
+      body["RecommendPrompts"] = request.recommendPromptsShrink;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.welcomeContent)) {
+      body["WelcomeContent"] = request.welcomeContent;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAlidingAssistant",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/aiagent/updateAlidingAssistant`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAlidingAssistantResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAlidingAssistantResponse({}));
+  }
+
+  /**
+   * @param request - UpdateAlidingAssistantRequest
+   * @returns UpdateAlidingAssistantResponse
+   */
+  async updateAlidingAssistant(request: $_model.UpdateAlidingAssistantRequest): Promise<$_model.UpdateAlidingAssistantResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.UpdateAlidingAssistantHeaders({ });
+    return await this.updateAlidingAssistantWithOptions(request, headers, runtime);
   }
 
   /**
