@@ -38,6 +38,7 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
    * 0.4 GB of storage saved
    */
   benefit?: string;
+  indexFields?: string;
   /**
    * @remarks
    * The page number. Pages start from 1. Default value: 1.
@@ -104,6 +105,7 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
       adviceId: 'AdviceId',
       adviceType: 'AdviceType',
       benefit: 'Benefit',
+      indexFields: 'IndexFields',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       reason: 'Reason',
@@ -120,6 +122,7 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
       adviceId: 'string',
       adviceType: 'string',
       benefit: 'string',
+      indexFields: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       reason: 'string',

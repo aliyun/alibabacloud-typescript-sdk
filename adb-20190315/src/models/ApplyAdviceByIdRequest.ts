@@ -19,6 +19,8 @@ export class ApplyAdviceByIdRequest extends $dara.Model {
    * 0baf1f52-53df-487f-8292-99a03716****
    */
   adviceId?: string;
+  applyType?: string;
+  buildImmediately?: boolean;
   /**
    * @remarks
    * The cluster ID.
@@ -47,6 +49,8 @@ export class ApplyAdviceByIdRequest extends $dara.Model {
     return {
       adviceDate: 'AdviceDate',
       adviceId: 'AdviceId',
+      applyType: 'ApplyType',
+      buildImmediately: 'BuildImmediately',
       DBClusterId: 'DBClusterId',
       regionId: 'RegionId',
     };
@@ -56,6 +60,8 @@ export class ApplyAdviceByIdRequest extends $dara.Model {
     return {
       adviceDate: 'number',
       adviceId: 'string',
+      applyType: 'string',
+      buildImmediately: 'boolean',
       DBClusterId: 'string',
       regionId: 'string',
     };
