@@ -15,6 +15,8 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
    * @remarks
    * arrival city code (capitalized)
    * 
+   * This parameter is required.
+   * 
    * @example
    * MFM
    */
@@ -47,6 +49,8 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
    * @remarks
    * departure city code (capitalized)
    * 
+   * This parameter is required.
+   * 
    * @example
    * SHA
    */
@@ -54,6 +58,8 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
   /**
    * @remarks
    * departure time in string format (yyyy-MM-dd HH:mm:ss)
+   * 
+   * This parameter is required.
    * 
    * @example
    * 2023-03-10 07:55:00
