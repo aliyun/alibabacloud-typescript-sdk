@@ -68,6 +68,7 @@ export class ListJobsResponseBodyDataApplications extends $dara.Model {
    * 0
    */
   failed?: number;
+  imageUrl?: string;
   /**
    * @remarks
    * Indicates whether the latest change order was executed. Valid values:
@@ -174,6 +175,7 @@ export class ListJobsResponseBodyDataApplications extends $dara.Model {
       completionTime: 'CompletionTime',
       cpu: 'Cpu',
       failed: 'Failed',
+      imageUrl: 'ImageUrl',
       lastChangeorderState: 'LastChangeorderState',
       lastJobState: 'LastJobState',
       lastStartTime: 'LastStartTime',
@@ -197,6 +199,7 @@ export class ListJobsResponseBodyDataApplications extends $dara.Model {
       completionTime: 'number',
       cpu: 'number',
       failed: 'number',
+      imageUrl: 'string',
       lastChangeorderState: 'string',
       lastJobState: 'string',
       lastStartTime: 'number',
