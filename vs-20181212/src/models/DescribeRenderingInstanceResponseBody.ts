@@ -21,6 +21,7 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
    * cn-xxx.ecr.aliyuncs.com
    */
   hostname?: string;
+  internalIp?: string;
   isp?: string;
   portMappings?: DescribeRenderingInstanceResponseBodyPortMappings[];
   /**
@@ -44,6 +45,7 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
       creationTime: 'CreationTime',
       egressIp: 'EgressIp',
       hostname: 'Hostname',
+      internalIp: 'InternalIp',
       isp: 'Isp',
       portMappings: 'PortMappings',
       renderingInstanceId: 'RenderingInstanceId',
@@ -62,6 +64,7 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
       creationTime: 'string',
       egressIp: 'string',
       hostname: 'string',
+      internalIp: 'string',
       isp: 'string',
       portMappings: { 'type': 'array', 'itemType': DescribeRenderingInstanceResponseBodyPortMappings },
       renderingInstanceId: 'string',

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRenderingProjectsRequest extends $dara.Model {
+  endTime?: string;
   /**
    * @example
    * 1
@@ -23,21 +24,26 @@ export class ListRenderingProjectsRequest extends $dara.Model {
    * idata_content
    */
   projectName?: string;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       projectId: 'string',
       projectName: 'string',
+      startTime: 'string',
     };
   }
 

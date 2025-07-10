@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRenderingInstancesRequest extends $dara.Model {
+  endTime?: string;
   /**
    * @example
    * 1
@@ -23,23 +24,28 @@ export class ListRenderingInstancesRequest extends $dara.Model {
    * crs.cp.l1
    */
   renderingSpec?: string;
+  startTime?: string;
   storageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       renderingInstanceId: 'RenderingInstanceId',
       renderingSpec: 'RenderingSpec',
+      startTime: 'StartTime',
       storageSize: 'StorageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       renderingInstanceId: 'string',
       renderingSpec: 'string',
+      startTime: 'string',
       storageSize: 'number',
     };
   }

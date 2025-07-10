@@ -6019,19 +6019,41 @@ export default class Client extends OpenApi {
   /**
    * 安装云应用
    * 
-   * @param request - InstallCloudAppRequest
+   * @param tmpReq - InstallCloudAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InstallCloudAppResponse
    */
-  async installCloudAppWithOptions(request: $_model.InstallCloudAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstallCloudAppResponse> {
-    request.validate();
+  async installCloudAppWithOptions(tmpReq: $_model.InstallCloudAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstallCloudAppResponse> {
+    tmpReq.validate();
+    let request = new $_model.InstallCloudAppShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.renderingInstanceIds)) {
+      request.renderingInstanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.renderingInstanceIds, "RenderingInstanceIds", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
 
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     if (!$dara.isNull(request.renderingInstanceId)) {
       query["RenderingInstanceId"] = request.renderingInstanceId;
+    }
+
+    if (!$dara.isNull(request.renderingInstanceIdsShrink)) {
+      query["RenderingInstanceIds"] = request.renderingInstanceIdsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6270,6 +6292,10 @@ export default class Client extends OpenApi {
       query["DataPackageId"] = request.dataPackageId;
     }
 
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -6280,6 +6306,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.size)) {
       query["Size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -6324,6 +6354,10 @@ export default class Client extends OpenApi {
   async listRenderingInstanceGatewayWithOptions(request: $_model.ListRenderingInstanceGatewayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRenderingInstanceGatewayResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!$dara.isNull(request.gatewayInstanceId)) {
       query["GatewayInstanceId"] = request.gatewayInstanceId;
     }
@@ -6338,6 +6372,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.renderingInstanceId)) {
       query["RenderingInstanceId"] = request.renderingInstanceId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6420,6 +6458,10 @@ export default class Client extends OpenApi {
   async listRenderingProjectInstancesWithOptions(request: $_model.ListRenderingProjectInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRenderingProjectInstancesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -6434,6 +6476,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.renderingInstanceId)) {
       query["RenderingInstanceId"] = request.renderingInstanceId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     if (!$dara.isNull(request.state)) {
@@ -6487,6 +6533,10 @@ export default class Client extends OpenApi {
   async listRenderingProjectsWithOptions(request: $_model.ListRenderingProjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRenderingProjectsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -6501,6 +6551,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.projectName)) {
       query["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6559,6 +6613,10 @@ export default class Client extends OpenApi {
       query["ClientId"] = request.clientId;
     }
 
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -6577,6 +6635,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sessionId)) {
       query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     if (!$dara.isNull(request.state)) {
@@ -9044,19 +9106,41 @@ export default class Client extends OpenApi {
   /**
    * 卸载云应用
    * 
-   * @param request - UninstallCloudAppRequest
+   * @param tmpReq - UninstallCloudAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UninstallCloudAppResponse
    */
-  async uninstallCloudAppWithOptions(request: $_model.UninstallCloudAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UninstallCloudAppResponse> {
-    request.validate();
+  async uninstallCloudAppWithOptions(tmpReq: $_model.UninstallCloudAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UninstallCloudAppResponse> {
+    tmpReq.validate();
+    let request = new $_model.UninstallCloudAppShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.renderingInstanceIds)) {
+      request.renderingInstanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.renderingInstanceIds, "RenderingInstanceIds", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
 
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     if (!$dara.isNull(request.renderingInstanceId)) {
       query["RenderingInstanceId"] = request.renderingInstanceId;
+    }
+
+    if (!$dara.isNull(request.renderingInstanceIdsShrink)) {
+      query["RenderingInstanceIds"] = request.renderingInstanceIdsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -9481,6 +9565,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.md5)) {
       query["Md5"] = request.md5;
+    }
+
+    if (!$dara.isNull(request.pkgFormat)) {
+      query["PkgFormat"] = request.pkgFormat;
+    }
+
+    if (!$dara.isNull(request.pkgType)) {
+      query["PkgType"] = request.pkgType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

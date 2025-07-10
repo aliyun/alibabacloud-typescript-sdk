@@ -9,6 +9,7 @@ export class ListRenderingDataPackagesRequest extends $dara.Model {
    * dp-449ea3d16c0841b8bf33ec5bbc86a152
    */
   dataPackageId?: string;
+  endTime?: string;
   /**
    * @example
    * 1
@@ -24,6 +25,7 @@ export class ListRenderingDataPackagesRequest extends $dara.Model {
    * 20
    */
   size?: number;
+  startTime?: string;
   /**
    * @example
    * available
@@ -33,9 +35,11 @@ export class ListRenderingDataPackagesRequest extends $dara.Model {
     return {
       category: 'Category',
       dataPackageId: 'DataPackageId',
+      endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       size: 'Size',
+      startTime: 'StartTime',
       status: 'Status',
     };
   }
@@ -44,9 +48,11 @@ export class ListRenderingDataPackagesRequest extends $dara.Model {
     return {
       category: 'string',
       dataPackageId: 'string',
+      endTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       size: 'number',
+      startTime: 'string',
       status: 'string',
     };
   }

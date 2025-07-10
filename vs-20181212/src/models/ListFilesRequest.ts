@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListFilesRequest extends $dara.Model {
+  endTime?: string;
   /**
    * @example
    * f-1671accd4dafdag3er256cvgewt13f7141db2f7
@@ -23,21 +24,26 @@ export class ListFilesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       fileId: 'FileId',
       fileName: 'FileName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'string',
       fileId: 'string',
       fileName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      startTime: 'string',
     };
   }
 

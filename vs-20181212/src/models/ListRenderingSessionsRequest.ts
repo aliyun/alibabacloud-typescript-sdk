@@ -13,6 +13,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
    * ae7990f4-203d-494b-a5ea-e0babe9fa13d
    */
   clientId?: string;
+  endTime?: string;
   /**
    * @example
    * 1
@@ -37,6 +38,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
    * session-i205217481741918129226
    */
   sessionId?: string;
+  startTime?: string;
   /**
    * @example
    * SessionStarting
@@ -46,11 +48,13 @@ export class ListRenderingSessionsRequest extends $dara.Model {
     return {
       appId: 'AppId',
       clientId: 'ClientId',
+      endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       projectId: 'ProjectId',
       renderingInstanceId: 'RenderingInstanceId',
       sessionId: 'SessionId',
+      startTime: 'StartTime',
       state: 'State',
     };
   }
@@ -59,11 +63,13 @@ export class ListRenderingSessionsRequest extends $dara.Model {
     return {
       appId: 'string',
       clientId: 'string',
+      endTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       projectId: 'string',
       renderingInstanceId: 'string',
       sessionId: 'string',
+      startTime: 'string',
       state: 'string',
     };
   }

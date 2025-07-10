@@ -23,6 +23,8 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
    * demo
    */
   description?: string;
+  pkgFormat?: string;
+  pkgType?: string;
   /**
    * @example
    * Success
@@ -49,6 +51,8 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
       appName: 'AppName',
       appVersion: 'AppVersion',
       description: 'Description',
+      pkgFormat: 'PkgFormat',
+      pkgType: 'PkgType',
       status: 'Status',
       statusDescription: 'StatusDescription',
       updateTime: 'UpdateTime',
@@ -62,6 +66,8 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
       appName: 'string',
       appVersion: 'string',
       description: 'string',
+      pkgFormat: 'string',
+      pkgType: 'string',
       status: 'string',
       statusDescription: 'string',
       updateTime: 'string',

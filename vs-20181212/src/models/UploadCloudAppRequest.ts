@@ -36,6 +36,8 @@ export class UploadCloudAppRequest extends $dara.Model {
    * 0CFBB7BD10CDD7279642ADAB8FEF3DEE
    */
   md5?: string;
+  pkgFormat?: string;
+  pkgType?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -43,6 +45,8 @@ export class UploadCloudAppRequest extends $dara.Model {
       description: 'Description',
       downloadUrl: 'DownloadUrl',
       md5: 'Md5',
+      pkgFormat: 'PkgFormat',
+      pkgType: 'PkgType',
     };
   }
 
@@ -53,6 +57,8 @@ export class UploadCloudAppRequest extends $dara.Model {
       description: 'string',
       downloadUrl: 'string',
       md5: 'string',
+      pkgFormat: 'string',
+      pkgType: 'string',
     };
   }
 
