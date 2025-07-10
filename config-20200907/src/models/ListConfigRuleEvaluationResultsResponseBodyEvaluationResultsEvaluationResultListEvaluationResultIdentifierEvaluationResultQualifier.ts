@@ -55,6 +55,14 @@ export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluat
   regionId?: string;
   /**
    * @remarks
+   * This parameter is required.
+   * 
+   * **if can be null:**
+   * true
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
    * The resource ID.
    * 
    * @example
@@ -93,6 +101,7 @@ export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluat
       configRuleName: 'ConfigRuleName',
       ignoreDate: 'IgnoreDate',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceName: 'ResourceName',
       resourceOwnerId: 'ResourceOwnerId',
@@ -108,6 +117,7 @@ export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluat
       configRuleName: 'string',
       ignoreDate: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceId: 'string',
       resourceName: 'string',
       resourceOwnerId: 'number',

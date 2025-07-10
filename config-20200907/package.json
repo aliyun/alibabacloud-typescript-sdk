@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/config20200907",
-  "version": "3.0.15",
+  "version": "3.0.16",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
