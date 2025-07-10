@@ -15,6 +15,8 @@ export class InitializeRequest extends $dara.Model {
   crop?: string;
   dateOfBirth?: string;
   dateOfExpiry?: string;
+  docName?: string;
+  docNo?: string;
   docPageConfig?: string[];
   docScanMode?: string;
   /**
@@ -106,6 +108,8 @@ export class InitializeRequest extends $dara.Model {
       crop: 'Crop',
       dateOfBirth: 'DateOfBirth',
       dateOfExpiry: 'DateOfExpiry',
+      docName: 'DocName',
+      docNo: 'DocNo',
       docPageConfig: 'DocPageConfig',
       docScanMode: 'DocScanMode',
       docType: 'DocType',
@@ -149,6 +153,8 @@ export class InitializeRequest extends $dara.Model {
       crop: 'string',
       dateOfBirth: 'string',
       dateOfExpiry: 'string',
+      docName: 'string',
+      docNo: 'string',
       docPageConfig: { 'type': 'array', 'itemType': 'string' },
       docScanMode: 'string',
       docType: 'string',

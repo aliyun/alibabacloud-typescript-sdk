@@ -1345,6 +1345,14 @@ export default class Client extends OpenApi {
       query["DateOfExpiry"] = request.dateOfExpiry;
     }
 
+    if (!$dara.isNull(request.docName)) {
+      query["DocName"] = request.docName;
+    }
+
+    if (!$dara.isNull(request.docNo)) {
+      query["DocNo"] = request.docNo;
+    }
+
     if (!$dara.isNull(request.docPageConfigShrink)) {
       query["DocPageConfig"] = request.docPageConfigShrink;
     }
