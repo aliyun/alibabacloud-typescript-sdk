@@ -1,0 +1,44 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class CreateServerGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 54B48E3D-DF70-471B-AA93-08E683A1B45
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The server group ID.
+   * 
+   * @example
+   * sgp-atstuj3rtoptyui****
+   */
+  serverGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      serverGroupId: 'ServerGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      serverGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
