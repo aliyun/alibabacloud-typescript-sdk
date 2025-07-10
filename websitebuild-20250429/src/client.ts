@@ -39,6 +39,10 @@ export default class Client extends OpenApi {
   async createLogoTaskWithOptions(request: $_model.CreateLogoTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLogoTaskResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.logoVersion)) {
+      query["LogoVersion"] = request.logoVersion;
+    }
+
     if (!$dara.isNull(request.negativePrompt)) {
       query["NegativePrompt"] = request.negativePrompt;
     }
@@ -49,10 +53,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.prompt)) {
       query["Prompt"] = request.prompt;
-    }
-
-    if (!$dara.isNull(request.version)) {
-      query["Version"] = request.version;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

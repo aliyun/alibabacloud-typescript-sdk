@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateLogoTaskRequest extends $dara.Model {
+  logoVersion?: string;
   negativePrompt?: string;
   /**
    * @example
@@ -10,26 +11,21 @@ export class CreateLogoTaskRequest extends $dara.Model {
    */
   parameters?: string;
   prompt?: string;
-  /**
-   * @example
-   * 1.0.2
-   */
-  version?: string;
   static names(): { [key: string]: string } {
     return {
+      logoVersion: 'LogoVersion',
       negativePrompt: 'NegativePrompt',
       parameters: 'Parameters',
       prompt: 'Prompt',
-      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      logoVersion: 'string',
       negativePrompt: 'string',
       parameters: 'string',
       prompt: 'string',
-      version: 'string',
     };
   }
 
