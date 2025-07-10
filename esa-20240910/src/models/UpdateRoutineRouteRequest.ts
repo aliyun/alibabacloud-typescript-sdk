@@ -16,6 +16,7 @@ export class UpdateRoutineRouteRequest extends $dara.Model {
    * 35281609698****
    */
   configId?: number;
+  fallback?: string;
   /**
    * @example
    * on
@@ -53,6 +54,7 @@ export class UpdateRoutineRouteRequest extends $dara.Model {
     return {
       bypass: 'Bypass',
       configId: 'ConfigId',
+      fallback: 'Fallback',
       routeEnable: 'RouteEnable',
       routeName: 'RouteName',
       routineName: 'RoutineName',
@@ -66,6 +68,7 @@ export class UpdateRoutineRouteRequest extends $dara.Model {
     return {
       bypass: 'string',
       configId: 'number',
+      fallback: 'string',
       routeEnable: 'string',
       routeName: 'string',
       routineName: 'string',

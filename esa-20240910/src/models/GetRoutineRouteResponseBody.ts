@@ -18,6 +18,7 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
    * global
    */
   configType?: string;
+  fallback?: string;
   /**
    * @example
    * simple
@@ -63,6 +64,7 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
       bypass: 'Bypass',
       configId: 'ConfigId',
       configType: 'ConfigType',
+      fallback: 'Fallback',
       mode: 'Mode',
       requestId: 'RequestId',
       routeEnable: 'RouteEnable',
@@ -79,6 +81,7 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
       bypass: 'string',
       configId: 'number',
       configType: 'string',
+      fallback: 'string',
       mode: 'string',
       requestId: 'string',
       routeEnable: 'string',

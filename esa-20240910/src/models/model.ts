@@ -89,6 +89,7 @@ export { DescribeSiteTimeSeriesDataResponseBodySummarizedData } from './Describe
 export { DescribeSiteTopDataRequestFields } from './DescribeSiteTopDataRequestFields';
 export { DescribeSiteTopDataResponseBodyDataDetailData } from './DescribeSiteTopDataResponseBodyDataDetailData';
 export { DescribeSiteTopDataResponseBodyData } from './DescribeSiteTopDataResponseBodyData';
+export { DescribeUrlObservationDataResponseBodyUrlDetailData } from './DescribeUrlObservationDataResponseBodyUrlDetailData';
 export { GetCertificateResponseBodyResultDCV } from './GetCertificateResponseBodyResultDcv';
 export { GetCertificateResponseBodyResult } from './GetCertificateResponseBodyResult';
 export { GetCertificateQuotaResponseBodySiteUsage } from './GetCertificateQuotaResponseBodySiteUsage';
@@ -641,6 +642,9 @@ export { DescribeSiteTopDataRequest } from './DescribeSiteTopDataRequest';
 export { DescribeSiteTopDataShrinkRequest } from './DescribeSiteTopDataShrinkRequest';
 export { DescribeSiteTopDataResponseBody } from './DescribeSiteTopDataResponseBody';
 export { DescribeSiteTopDataResponse } from './DescribeSiteTopDataResponse';
+export { DescribeUrlObservationDataRequest } from './DescribeUrlObservationDataRequest';
+export { DescribeUrlObservationDataResponseBody } from './DescribeUrlObservationDataResponseBody';
+export { DescribeUrlObservationDataResponse } from './DescribeUrlObservationDataResponse';
 export { DisableCustomScenePolicyRequest } from './DisableCustomScenePolicyRequest';
 export { DisableCustomScenePolicyResponseBody } from './DisableCustomScenePolicyResponseBody';
 export { DisableCustomScenePolicyResponse } from './DisableCustomScenePolicyResponse';

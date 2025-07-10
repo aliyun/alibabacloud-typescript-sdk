@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEdgeContainerAppResourceStatusResponseBodyRegions extends $dara.Model {
+  isOffline?: boolean;
+  isStaging?: boolean;
   /**
    * @example
    * unicom
@@ -25,6 +27,8 @@ export class GetEdgeContainerAppResourceStatusResponseBodyRegions extends $dara.
   total?: number;
   static names(): { [key: string]: string } {
     return {
+      isOffline: 'IsOffline',
+      isStaging: 'IsStaging',
       isp: 'Isp',
       ready: 'Ready',
       region: 'Region',
@@ -34,6 +38,8 @@ export class GetEdgeContainerAppResourceStatusResponseBodyRegions extends $dara.
 
   static types(): { [key: string]: any } {
     return {
+      isOffline: 'boolean',
+      isStaging: 'boolean',
       isp: 'string',
       ready: 'number',
       region: 'string',

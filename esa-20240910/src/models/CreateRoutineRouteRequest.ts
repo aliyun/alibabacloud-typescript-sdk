@@ -8,6 +8,7 @@ export class CreateRoutineRouteRequest extends $dara.Model {
    * on
    */
   bypass?: string;
+  fallback?: string;
   /**
    * @example
    * on
@@ -47,6 +48,7 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bypass: 'Bypass',
+      fallback: 'Fallback',
       routeEnable: 'RouteEnable',
       routeName: 'RouteName',
       routineName: 'RoutineName',
@@ -59,6 +61,7 @@ export class CreateRoutineRouteRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bypass: 'string',
+      fallback: 'string',
       routeEnable: 'string',
       routeName: 'string',
       routineName: 'string',
