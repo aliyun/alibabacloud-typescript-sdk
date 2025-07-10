@@ -1,10 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import OSS, * as $OSS from '@alicloud/oss-client';
-import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
-import * as $OSSUtil from '@alicloud/oss-util';
-import * as $FileForm from '@alicloud/tea-fileform';
-import OpenApi from '@alicloud/openapi-core';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
 
@@ -35,6 +31,42 @@ export default class Client extends OpenApi {
     this._endpoint = this.getEndpoint("gpdb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
+    let request_ = new $dara.Request();
+    let boundary = $dara.Form.getBoundary();
+    request_.protocol = "HTTPS";
+    request_.method = "POST";
+    request_.pathname = `/`;
+    request_.headers = {
+      host: String(form["host"]),
+      date: OpenApiUtil.getDateUTCString(),
+      'user-agent': OpenApiUtil.getUserAgent(""),
+    };
+    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+    request_.body = $dara.Form.toFileForm(form, boundary);
+    let response_ = await $dara.doAction(request_);
+
+    let respMap : {[key: string]: any} = null;
+    let bodyStr = await $dara.Stream.readAsString(response_.body);
+    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+      respMap = $dara.XML.parseXml(bodyStr, null);
+      let err = respMap["Error"];
+      throw new $OpenApi.ClientError({
+        code: String(err["Code"]),
+        message: String(err["Message"]),
+        data: {
+          httpCode: response_.statusCode,
+          requestId: String(err["RequestId"]),
+          hostId: String(err["HostId"]),
+        },
+      });
+    }
+
+    respMap = $dara.XML.parseXml(bodyStr, null);
+    return {
+      ...respMap,
+    };
+  }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
     if (!$dara.isNull(endpoint)) {
@@ -2327,6 +2359,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建supabase project
+   * 
+   * @param request - CreateSupabaseProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSupabaseProjectResponse
+   */
+  async createSupabaseProjectWithOptions(request: $_model.CreateSupabaseProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSupabaseProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountPassword)) {
+      query["AccountPassword"] = request.accountPassword;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.diskPerformanceLevel)) {
+      query["DiskPerformanceLevel"] = request.diskPerformanceLevel;
+    }
+
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.projectSpec)) {
+      query["ProjectSpec"] = request.projectSpec;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    if (!$dara.isNull(request.storageSize)) {
+      query["StorageSize"] = request.storageSize;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSupabaseProject",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSupabaseProjectResponse>(await this.callApi(params, req, runtime), new $_model.CreateSupabaseProjectResponse({}));
+  }
+
+  /**
+   * 创建supabase project
+   * 
+   * @param request - CreateSupabaseProjectRequest
+   * @returns CreateSupabaseProjectResponse
+   */
+  async createSupabaseProject(request: $_model.CreateSupabaseProjectRequest): Promise<$_model.CreateSupabaseProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSupabaseProjectWithOptions(request, runtime);
+  }
+
+  /**
    * Create Vector Index
    * 
    * @param request - CreateVectorIndexRequest
@@ -3556,6 +3670,52 @@ export default class Client extends OpenApi {
   async deleteStreamingJob(request: $_model.DeleteStreamingJobRequest): Promise<$_model.DeleteStreamingJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteStreamingJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Supabase实例
+   * 
+   * @param request - DeleteSupabaseProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSupabaseProjectResponse
+   */
+  async deleteSupabaseProjectWithOptions(request: $_model.DeleteSupabaseProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSupabaseProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSupabaseProject",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSupabaseProjectResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSupabaseProjectResponse({}));
+  }
+
+  /**
+   * 删除Supabase实例
+   * 
+   * @param request - DeleteSupabaseProjectRequest
+   * @returns DeleteSupabaseProjectResponse
+   */
+  async deleteSupabaseProject(request: $_model.DeleteSupabaseProjectRequest): Promise<$_model.DeleteSupabaseProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSupabaseProjectWithOptions(request, runtime);
   }
 
   /**
@@ -8281,6 +8441,144 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Supabase实例详情
+   * 
+   * @param request - GetSupabaseProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSupabaseProjectResponse
+   */
+  async getSupabaseProjectWithOptions(request: $_model.GetSupabaseProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSupabaseProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSupabaseProject",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSupabaseProjectResponse>(await this.callApi(params, req, runtime), new $_model.GetSupabaseProjectResponse({}));
+  }
+
+  /**
+   * 查询Supabase实例详情
+   * 
+   * @param request - GetSupabaseProjectRequest
+   * @returns GetSupabaseProjectResponse
+   */
+  async getSupabaseProject(request: $_model.GetSupabaseProjectRequest): Promise<$_model.GetSupabaseProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSupabaseProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Supabase实例 API Keys
+   * 
+   * @param request - GetSupabaseProjectApiKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSupabaseProjectApiKeysResponse
+   */
+  async getSupabaseProjectApiKeysWithOptions(request: $_model.GetSupabaseProjectApiKeysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSupabaseProjectApiKeysResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSupabaseProjectApiKeys",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSupabaseProjectApiKeysResponse>(await this.callApi(params, req, runtime), new $_model.GetSupabaseProjectApiKeysResponse({}));
+  }
+
+  /**
+   * 查询Supabase实例 API Keys
+   * 
+   * @param request - GetSupabaseProjectApiKeysRequest
+   * @returns GetSupabaseProjectApiKeysResponse
+   */
+  async getSupabaseProjectApiKeys(request: $_model.GetSupabaseProjectApiKeysRequest): Promise<$_model.GetSupabaseProjectApiKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSupabaseProjectApiKeysWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Supabase项目dashboard账号信息
+   * 
+   * @param request - GetSupabaseProjectDashboardAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSupabaseProjectDashboardAccountResponse
+   */
+  async getSupabaseProjectDashboardAccountWithOptions(request: $_model.GetSupabaseProjectDashboardAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSupabaseProjectDashboardAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSupabaseProjectDashboardAccount",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSupabaseProjectDashboardAccountResponse>(await this.callApi(params, req, runtime), new $_model.GetSupabaseProjectDashboardAccountResponse({}));
+  }
+
+  /**
+   * 查询Supabase项目dashboard账号信息
+   * 
+   * @param request - GetSupabaseProjectDashboardAccountRequest
+   * @returns GetSupabaseProjectDashboardAccountResponse
+   */
+  async getSupabaseProjectDashboardAccount(request: $_model.GetSupabaseProjectDashboardAccountRequest): Promise<$_model.GetSupabaseProjectDashboardAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSupabaseProjectDashboardAccountWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the progress and result of an asynchronous document upload job based on the job ID.
    * 
    * @remarks
@@ -9558,6 +9856,56 @@ export default class Client extends OpenApi {
   async listStreamingJobs(request: $_model.ListStreamingJobsRequest): Promise<$_model.ListStreamingJobsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listStreamingJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Supabase实例列表
+   * 
+   * @param request - ListSupabaseProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSupabaseProjectsResponse
+   */
+  async listSupabaseProjectsWithOptions(request: $_model.ListSupabaseProjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSupabaseProjectsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSupabaseProjects",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSupabaseProjectsResponse>(await this.callApi(params, req, runtime), new $_model.ListSupabaseProjectsResponse({}));
+  }
+
+  /**
+   * 查询Supabase实例列表
+   * 
+   * @param request - ListSupabaseProjectsRequest
+   * @returns ListSupabaseProjectsResponse
+   */
+  async listSupabaseProjects(request: $_model.ListSupabaseProjectsRequest): Promise<$_model.ListSupabaseProjectsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSupabaseProjectsWithOptions(request, runtime);
   }
 
   /**
@@ -11275,6 +11623,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改supabase项目白名单
+   * 
+   * @param request - ModifySupabaseProjectSecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySupabaseProjectSecurityIpsResponse
+   */
+  async modifySupabaseProjectSecurityIpsWithOptions(request: $_model.ModifySupabaseProjectSecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySupabaseProjectSecurityIpsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySupabaseProjectSecurityIps",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySupabaseProjectSecurityIpsResponse>(await this.callApi(params, req, runtime), new $_model.ModifySupabaseProjectSecurityIpsResponse({}));
+  }
+
+  /**
+   * 修改supabase项目白名单
+   * 
+   * @param request - ModifySupabaseProjectSecurityIpsRequest
+   * @returns ModifySupabaseProjectSecurityIpsResponse
+   */
+  async modifySupabaseProjectSecurityIps(request: $_model.ModifySupabaseProjectSecurityIpsRequest): Promise<$_model.ModifySupabaseProjectSecurityIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySupabaseProjectSecurityIpsWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
    * 
    * @param request - ModifyVectorConfigurationRequest
@@ -11704,12 +12102,20 @@ export default class Client extends OpenApi {
 
   async queryContentAdvance(request: $_model.QueryContentAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryContentResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -11726,51 +12132,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "gpdb",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "gpdb",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
     let queryContentReq = new $_model.QueryContentRequest({ });
     OpenApiUtil.convert(request, queryContentReq);
     if (!$dara.isNull(request.fileUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      queryContentReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      queryContentReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let queryContentResp = await this.queryContentWithOptions(queryContentReq, runtime);
@@ -12049,6 +12458,56 @@ export default class Client extends OpenApi {
   async resetIMVMonitorData(request: $_model.ResetIMVMonitorDataRequest): Promise<$_model.ResetIMVMonitorDataResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resetIMVMonitorDataWithOptions(request, runtime);
+  }
+
+  /**
+   * 重置supabase数据库密码
+   * 
+   * @param request - ResetSupabaseProjectPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetSupabaseProjectPasswordResponse
+   */
+  async resetSupabaseProjectPasswordWithOptions(request: $_model.ResetSupabaseProjectPasswordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetSupabaseProjectPasswordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountPassword)) {
+      query["AccountPassword"] = request.accountPassword;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetSupabaseProjectPassword",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetSupabaseProjectPasswordResponse>(await this.callApi(params, req, runtime), new $_model.ResetSupabaseProjectPasswordResponse({}));
+  }
+
+  /**
+   * 重置supabase数据库密码
+   * 
+   * @param request - ResetSupabaseProjectPasswordRequest
+   * @returns ResetSupabaseProjectPasswordResponse
+   */
+  async resetSupabaseProjectPassword(request: $_model.ResetSupabaseProjectPasswordRequest): Promise<$_model.ResetSupabaseProjectPasswordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resetSupabaseProjectPasswordWithOptions(request, runtime);
   }
 
   /**
@@ -13267,12 +13726,20 @@ export default class Client extends OpenApi {
 
   async uploadDocumentAsyncAdvance(request: $_model.UploadDocumentAsyncAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadDocumentAsyncResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -13289,51 +13756,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "gpdb",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "gpdb",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
     let uploadDocumentAsyncReq = new $_model.UploadDocumentAsyncRequest({ });
     OpenApiUtil.convert(request, uploadDocumentAsyncReq);
     if (!$dara.isNull(request.fileUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      uploadDocumentAsyncReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      uploadDocumentAsyncReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let uploadDocumentAsyncResp = await this.uploadDocumentAsyncWithOptions(uploadDocumentAsyncReq, runtime);
@@ -13598,12 +14068,20 @@ export default class Client extends OpenApi {
 
   async upsertCollectionDataAsyncAdvance(request: $_model.UpsertCollectionDataAsyncAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpsertCollectionDataAsyncResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -13620,51 +14098,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "gpdb",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "gpdb",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
     let upsertCollectionDataAsyncReq = new $_model.UpsertCollectionDataAsyncRequest({ });
     OpenApiUtil.convert(request, upsertCollectionDataAsyncReq);
     if (!$dara.isNull(request.fileUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      upsertCollectionDataAsyncReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      upsertCollectionDataAsyncReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let upsertCollectionDataAsyncResp = await this.upsertCollectionDataAsyncWithOptions(upsertCollectionDataAsyncReq, runtime);
