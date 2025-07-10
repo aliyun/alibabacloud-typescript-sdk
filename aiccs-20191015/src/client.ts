@@ -948,6 +948,10 @@ export default class Client extends OpenApi {
       query["StartType"] = request.startType;
     }
 
+    if (!$dara.isNull(request.taskCps)) {
+      query["TaskCps"] = request.taskCps;
+    }
+
     if (!$dara.isNull(request.taskName)) {
       query["TaskName"] = request.taskName;
     }
@@ -6251,6 +6255,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.callerNumber)) {
       query["CallerNumber"] = request.callerNumber;
+    }
+
+    if (!$dara.isNull(request.customerLineCode)) {
+      query["CustomerLineCode"] = request.customerLineCode;
     }
 
     if (!$dara.isNull(request.extension)) {

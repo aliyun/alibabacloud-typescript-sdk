@@ -49,6 +49,11 @@ export class CreateAiCallTaskRequest extends $dara.Model {
    */
   startType?: string;
   /**
+   * @example
+   * 75
+   */
+  taskCps?: number;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -82,6 +87,7 @@ export class CreateAiCallTaskRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       startType: 'StartType',
+      taskCps: 'TaskCps',
       taskName: 'TaskName',
       taskStartTime: 'TaskStartTime',
       virtualNumber: 'VirtualNumber',
@@ -101,6 +107,7 @@ export class CreateAiCallTaskRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       startType: 'string',
+      taskCps: 'number',
       taskName: 'string',
       taskStartTime: 'number',
       virtualNumber: 'string',

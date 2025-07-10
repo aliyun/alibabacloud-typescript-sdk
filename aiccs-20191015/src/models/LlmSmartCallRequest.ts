@@ -25,6 +25,7 @@ export class LlmSmartCallRequest extends $dara.Model {
    * 057188040000
    */
   callerNumber?: string;
+  customerLineCode?: string;
   extension?: string;
   /**
    * @example
@@ -43,6 +44,7 @@ export class LlmSmartCallRequest extends $dara.Model {
       bizParam: 'BizParam',
       calledNumber: 'CalledNumber',
       callerNumber: 'CallerNumber',
+      customerLineCode: 'CustomerLineCode',
       extension: 'Extension',
       outId: 'OutId',
       promptParam: 'PromptParam',
@@ -60,6 +62,7 @@ export class LlmSmartCallRequest extends $dara.Model {
       bizParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       calledNumber: 'string',
       callerNumber: 'string',
+      customerLineCode: 'string',
       extension: 'string',
       outId: 'string',
       promptParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },

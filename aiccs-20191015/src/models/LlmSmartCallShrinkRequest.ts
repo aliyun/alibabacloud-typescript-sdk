@@ -25,6 +25,7 @@ export class LlmSmartCallShrinkRequest extends $dara.Model {
    * 057188040000
    */
   callerNumber?: string;
+  customerLineCode?: string;
   extension?: string;
   /**
    * @example
@@ -43,6 +44,7 @@ export class LlmSmartCallShrinkRequest extends $dara.Model {
       bizParamShrink: 'BizParam',
       calledNumber: 'CalledNumber',
       callerNumber: 'CallerNumber',
+      customerLineCode: 'CustomerLineCode',
       extension: 'Extension',
       outId: 'OutId',
       promptParamShrink: 'PromptParam',
@@ -60,6 +62,7 @@ export class LlmSmartCallShrinkRequest extends $dara.Model {
       bizParamShrink: 'string',
       calledNumber: 'string',
       callerNumber: 'string',
+      customerLineCode: 'string',
       extension: 'string',
       outId: 'string',
       promptParamShrink: 'string',
