@@ -1,7 +1,71 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListExecutorsRequestFilter } from "./ListExecutorsRequestFilter";
 
+
+export class ListExecutorsRequestFilter extends $dara.Model {
+  executorIds?: string[];
+  image?: string;
+  ipAddresses?: string[];
+  /**
+   * @example
+   * testJob
+   */
+  jobName?: string;
+  status?: string[];
+  /**
+   * @example
+   * 1703819914
+   */
+  timeCreatedAfter?: number;
+  /**
+   * @example
+   * 1703820113
+   */
+  timeCreatedBefore?: number;
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executorIds: 'ExecutorIds',
+      image: 'Image',
+      ipAddresses: 'IpAddresses',
+      jobName: 'JobName',
+      status: 'Status',
+      timeCreatedAfter: 'TimeCreatedAfter',
+      timeCreatedBefore: 'TimeCreatedBefore',
+      vswitchId: 'VswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executorIds: { 'type': 'array', 'itemType': 'string' },
+      image: 'string',
+      ipAddresses: { 'type': 'array', 'itemType': 'string' },
+      jobName: 'string',
+      status: { 'type': 'array', 'itemType': 'string' },
+      timeCreatedAfter: 'number',
+      timeCreatedBefore: 'number',
+      vswitchId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.executorIds)) {
+      $dara.Model.validateArray(this.executorIds);
+    }
+    if(Array.isArray(this.ipAddresses)) {
+      $dara.Model.validateArray(this.ipAddresses);
+    }
+    if(Array.isArray(this.status)) {
+      $dara.Model.validateArray(this.status);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListExecutorsRequest extends $dara.Model {
   filter?: ListExecutorsRequestFilter;
