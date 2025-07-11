@@ -1,7 +1,86 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeSecurityEventLogsResponseBodySecurityEventMetaData } from "./DescribeSecurityEventLogsResponseBodySecurityEventMetaData";
 
+
+export class DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the value of EndDate in the request parameters.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the value of StartDate in the request parameters.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventLogsResponseBodySecurityEventMetaData extends $dara.Model {
+  /**
+   * @remarks
+   * The time range that is used for the query.
+   */
+  dateRange?: DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange;
+  /**
+   * @remarks
+   * The unit of the statistics returned. The value is fixed as requests.
+   * 
+   * @example
+   * requests
+   */
+  units?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateRange: 'DateRange',
+      units: 'Units',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateRange: DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange,
+      units: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeSecurityEventLogsResponseBody extends $dara.Model {
   /**

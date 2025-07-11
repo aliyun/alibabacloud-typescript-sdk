@@ -1,7 +1,46 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeWafSourceIpSegmentResponseBodyWafSourceIp } from "./DescribeWafSourceIpSegmentResponseBodyWafSourceIp";
 
+
+export class DescribeWafSourceIpSegmentResponseBodyWafSourceIp extends $dara.Model {
+  /**
+   * @remarks
+   * An array of back-to-origin IPv4 CIDR blocks.
+   */
+  IPv4?: string[];
+  /**
+   * @remarks
+   * An array of back-to-origin IPv6 CIDR blocks.
+   */
+  IPv6?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      IPv4: 'IPv4',
+      IPv6: 'IPv6',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IPv4: { 'type': 'array', 'itemType': 'string' },
+      IPv6: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.IPv4)) {
+      $dara.Model.validateArray(this.IPv4);
+    }
+    if(Array.isArray(this.IPv6)) {
+      $dara.Model.validateArray(this.IPv6);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeWafSourceIpSegmentResponseBody extends $dara.Model {
   /**

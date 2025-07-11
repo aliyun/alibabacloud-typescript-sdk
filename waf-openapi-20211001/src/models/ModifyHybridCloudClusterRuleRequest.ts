@@ -7,12 +7,11 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
    * @remarks
    * The ID of the hybrid cloud cluster.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1018
    */
   clusterId?: number;
+  clusterRuleResourceId?: string;
   /**
    * @remarks
    * The ID of the WAF instance.
@@ -59,8 +58,6 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
    * *   **on**: enables the rule.
    * *   **off**: disables the rule.
    * 
-   * This parameter is required.
-   * 
    * @example
    * on
    */
@@ -71,8 +68,6 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
    * 
    * *   **pullin**: The traffic redirection rule.
    * 
-   * This parameter is required.
-   * 
    * @example
    * pullin
    */
@@ -80,6 +75,7 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      clusterRuleResourceId: 'ClusterRuleResourceId',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
@@ -92,6 +88,7 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clusterId: 'number',
+      clusterRuleResourceId: 'string',
       instanceId: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',

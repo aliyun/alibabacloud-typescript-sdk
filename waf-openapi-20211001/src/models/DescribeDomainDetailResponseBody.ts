@@ -1,10 +1,688 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDomainDetailResponseBodyCertDetail } from "./DescribeDomainDetailResponseBodyCertDetail";
-import { DescribeDomainDetailResponseBodyListen } from "./DescribeDomainDetailResponseBodyListen";
-import { DescribeDomainDetailResponseBodyRedirect } from "./DescribeDomainDetailResponseBodyRedirect";
-import { DescribeDomainDetailResponseBodySM2CertDetail } from "./DescribeDomainDetailResponseBodySm2certDetail";
 
+
+export class DescribeDomainDetailResponseBodyCertDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name of your website.
+   * 
+   * @example
+   * test.aliyundoc.com
+   */
+  commonName?: string;
+  /**
+   * @remarks
+   * The end of the validity period of the SSL certificate. The value is in the UNIX timestamp format. Unit: milliseconds.
+   * 
+   * @example
+   * 1685590400000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the SSL certificate.
+   * 
+   * @example
+   * 123-cn-hangzhou
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The name of the SSL certificate.
+   * 
+   * @example
+   * test-cert-name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * All domain names that are bound to the certificate.
+   */
+  sans?: string[];
+  /**
+   * @remarks
+   * The beginning of the validity period of the SSL certificate. The value is in the UNIX timestamp format. Unit: milliseconds.
+   * 
+   * @example
+   * 1677772800000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      endTime: 'EndTime',
+      id: 'Id',
+      name: 'Name',
+      sans: 'Sans',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      endTime: 'number',
+      id: 'string',
+      name: 'string',
+      sans: { 'type': 'array', 'itemType': 'string' },
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sans)) {
+      $dara.Model.validateArray(this.sans);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * @example
+   * 123
+   */
+  certId?: string;
+  /**
+   * @remarks
+   * The type of the cipher suites. Valid values:
+   * 
+   * *   **1:** all cipher suites.
+   * *   **2:** strong cipher suites.
+   * *   **99:** custom cipher suites.
+   * 
+   * @example
+   * 2
+   */
+  cipherSuite?: number;
+  /**
+   * @remarks
+   * An array of custom cipher suites.
+   */
+  customCiphers?: string[];
+  /**
+   * @remarks
+   * Indicates whether TLS 1.3 is supported. Valid values:
+   * 
+   * *   **true:** TLS 1.3 is supported.
+   * *   **false:** TLS 1.3 is not supported.
+   * 
+   * @example
+   * true
+   */
+  enableTLSv3?: boolean;
+  /**
+   * @remarks
+   * Indicates whether an exclusive IP address is enabled. Valid values:
+   * 
+   * *   **true:** An exclusive IP address is enabled for the domain name.
+   * *   **false:** No exclusive IP addresses are enabled for the domain name.
+   * 
+   * @example
+   * true
+   */
+  exclusiveIp?: boolean;
+  /**
+   * @remarks
+   * Indicates whether HTTP to HTTPS redirection is enabled for the domain name. Valid values:
+   * 
+   * *   **true:** HTTP to HTTPS redirection is enabled.
+   * *   **false:** HTTP to HTTPS redirection is disabled.
+   * 
+   * @example
+   * true
+   */
+  focusHttps?: boolean;
+  /**
+   * @remarks
+   * Indicates whether HTTP/2 is enabled. Valid values:
+   * 
+   * *   **true:** HTTP/2 is enabled.
+   * *   **false:** HTTP/2 is disabled.
+   * 
+   * @example
+   * true
+   */
+  http2Enabled?: boolean;
+  /**
+   * @remarks
+   * An array of HTTP listener ports.
+   */
+  httpPorts?: number[];
+  /**
+   * @remarks
+   * An array of HTTPS listener ports.
+   */
+  httpsPorts?: number[];
+  /**
+   * @remarks
+   * Indicates whether IPv6 is enabled. Valid values:
+   * 
+   * *   **true:** IPv6 is enabled.
+   * *   **false:** IPv6 is disabled.
+   * 
+   * @example
+   * true
+   */
+  IPv6Enabled?: boolean;
+  /**
+   * @remarks
+   * The type of protection resource that is used. Valid values:
+   * 
+   * *   **share:** shared cluster.
+   * *   **gslb:** shared cluster-based intelligent load balancing.
+   * 
+   * @example
+   * share
+   */
+  protectionResource?: string;
+  /**
+   * @remarks
+   * Indicates whether only SM certificate-based clients can access the domain name. This parameter is returned only if the value of SM2Enabled is true. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  SM2AccessOnly?: boolean;
+  /**
+   * @remarks
+   * The ID of the SM certificate that is added. This parameter is returned only if the value of SM2Enabled is true.
+   * 
+   * @example
+   * 123-cn-hangzhou
+   */
+  SM2CertId?: string;
+  /**
+   * @remarks
+   * Indicates whether SM certificate-based verification is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  SM2Enabled?: boolean;
+  /**
+   * @remarks
+   * The version of the Transport Layer Security (TLS) protocol. Valid values:
+   * 
+   * *   **tlsv1**
+   * *   **tlsv1.1**
+   * *   **tlsv1.2**
+   * 
+   * @example
+   * tlsv1.2
+   */
+  TLSVersion?: string;
+  /**
+   * @remarks
+   * The method that WAF uses to obtain the actual IP address of a client. Valid values:
+   * 
+   * *   **0:** No Layer 7 proxies are deployed in front of WAF.
+   * *   **1:** WAF reads the first value of the X-Forwarded-For (XFF) header field as the actual IP address of the client.
+   * *   **2:** WAF reads the value of a custom header field as the actual IP address of the client.
+   * 
+   * @example
+   * 2
+   */
+  xffHeaderMode?: number;
+  /**
+   * @remarks
+   * An array of custom header fields that are used to obtain the actual IP address of a client.
+   */
+  xffHeaders?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      certId: 'CertId',
+      cipherSuite: 'CipherSuite',
+      customCiphers: 'CustomCiphers',
+      enableTLSv3: 'EnableTLSv3',
+      exclusiveIp: 'ExclusiveIp',
+      focusHttps: 'FocusHttps',
+      http2Enabled: 'Http2Enabled',
+      httpPorts: 'HttpPorts',
+      httpsPorts: 'HttpsPorts',
+      IPv6Enabled: 'IPv6Enabled',
+      protectionResource: 'ProtectionResource',
+      SM2AccessOnly: 'SM2AccessOnly',
+      SM2CertId: 'SM2CertId',
+      SM2Enabled: 'SM2Enabled',
+      TLSVersion: 'TLSVersion',
+      xffHeaderMode: 'XffHeaderMode',
+      xffHeaders: 'XffHeaders',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certId: 'string',
+      cipherSuite: 'number',
+      customCiphers: { 'type': 'array', 'itemType': 'string' },
+      enableTLSv3: 'boolean',
+      exclusiveIp: 'boolean',
+      focusHttps: 'boolean',
+      http2Enabled: 'boolean',
+      httpPorts: { 'type': 'array', 'itemType': 'number' },
+      httpsPorts: { 'type': 'array', 'itemType': 'number' },
+      IPv6Enabled: 'boolean',
+      protectionResource: 'string',
+      SM2AccessOnly: 'boolean',
+      SM2CertId: 'string',
+      SM2Enabled: 'boolean',
+      TLSVersion: 'string',
+      xffHeaderMode: 'number',
+      xffHeaders: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.customCiphers)) {
+      $dara.Model.validateArray(this.customCiphers);
+    }
+    if(Array.isArray(this.httpPorts)) {
+      $dara.Model.validateArray(this.httpPorts);
+    }
+    if(Array.isArray(this.httpsPorts)) {
+      $dara.Model.validateArray(this.httpsPorts);
+    }
+    if(Array.isArray(this.xffHeaders)) {
+      $dara.Model.validateArray(this.xffHeaders);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainDetailResponseBodyRedirectBackends extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address or domain name of the origin server.
+   * 
+   * @example
+   * 1.1.XX.XX
+   */
+  backend?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backend: 'Backend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backend: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainDetailResponseBodyRedirectBackupBackends extends $dara.Model {
+  /**
+   * @remarks
+   * The back-to-origin IP address or domain name.
+   * 
+   * @example
+   * [
+   *     "1.1.XX.XX",
+   *     "2.2.XX.XX"
+   * ]
+   */
+  backend?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backend: 'Backend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backend: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainDetailResponseBodyRedirectRequestHeaders extends $dara.Model {
+  /**
+   * @remarks
+   * The custom header field.
+   * 
+   * @example
+   * aaa
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the custom header field.
+   * 
+   * @example
+   * bbb
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
+  /**
+   * @remarks
+   * An array of addresses of origin servers.
+   */
+  backends?: DescribeDomainDetailResponseBodyRedirectBackends[];
+  /**
+   * @remarks
+   * An array of HTTPS listener ports.
+   */
+  backupBackends?: DescribeDomainDetailResponseBodyRedirectBackupBackends[];
+  /**
+   * @remarks
+   * The timeout period of the connection. Unit: seconds. Valid values: 5 to 120.
+   * 
+   * @example
+   * 120
+   */
+  connectTimeout?: number;
+  /**
+   * @remarks
+   * Indicates whether HTTPS to HTTP redirection is enabled for back-to-origin requests of the domain name. Valid values:
+   * 
+   * *   **true:** HTTPS to HTTP redirection for back-to-origin requests of the domain name is enabled.
+   * *   **false:** HTTPS to HTTP redirection for back-to-origin requests of the domain name is disabled.
+   * 
+   * @example
+   * true
+   */
+  focusHttpBackend?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the persistent connection feature is enabled. Valid values:
+   * 
+   * *   **true:** The persistent connection feature is enabled. This is the default value.
+   * *   **false:** The persistent connection feature is disabled.
+   * 
+   * @example
+   * true
+   */
+  keepalive?: boolean;
+  /**
+   * @remarks
+   * The number of reused persistent connections. Valid values: 60 to 1000.
+   * 
+   * >  This parameter specifies the number of reused persistent connections when you enable the persistent connection feature.
+   * 
+   * @example
+   * 1000
+   */
+  keepaliveRequests?: number;
+  /**
+   * @remarks
+   * The timeout period of persistent connections that are in the Idle state. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+   * 
+   * >  This parameter specifies the period of time during which a reused persistent connection is allowed to remain in the Idle state before the persistent connection is released.
+   * 
+   * @example
+   * 15
+   */
+  keepaliveTimeout?: number;
+  /**
+   * @remarks
+   * The load balancing algorithm that is used when WAF forwards requests to the origin server. Valid values:
+   * 
+   * *   **ip_hash:** the IP hash algorithm.
+   * *   **roundRobin:** the round-robin algorithm.
+   * *   **leastTime:** the least response time algorithm.
+   * 
+   * @example
+   * iphash
+   */
+  loadbalance?: string;
+  /**
+   * @remarks
+   * The read timeout period. Unit: seconds. Valid values: 5 to 1800.
+   * 
+   * @example
+   * 200
+   */
+  readTimeout?: number;
+  /**
+   * @remarks
+   * An array of key-value pairs that are used to mark the requests that pass through the WAF instance.
+   */
+  requestHeaders?: DescribeDomainDetailResponseBodyRedirectRequestHeaders[];
+  /**
+   * @remarks
+   * Indicates whether WAF retries when requests fail to be forwarded to the origin server. Valid values:
+   * 
+   * *   **true:** WAF retries. This is the default value.
+   * *   **false:** WAF does not retry.
+   * 
+   * @example
+   * true
+   */
+  retry?: boolean;
+  /**
+   * @remarks
+   * Indicates whether origin Server Name Indication (SNI) is enabled. Valid values:
+   * 
+   * *   **true:** Origin SNI is enabled.
+   * *   **false:** Origin SNI is disabled. This is the default value.
+   * 
+   * @example
+   * true
+   */
+  sniEnabled?: boolean;
+  /**
+   * @remarks
+   * The value of the custom SNI field.
+   * 
+   * @example
+   * www.aliyundoc.com
+   */
+  sniHost?: string;
+  /**
+   * @remarks
+   * The write timeout period. Unit: seconds. Valid values: 5 to 1800.
+   * 
+   * @example
+   * 200
+   */
+  writeTimeout?: number;
+  /**
+   * @remarks
+   * Indicates whether the X-Forward-For-Proto header is used to identify the protocol used by WAF to forward requests to the origin server. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  xffProto?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      backends: 'Backends',
+      backupBackends: 'BackupBackends',
+      connectTimeout: 'ConnectTimeout',
+      focusHttpBackend: 'FocusHttpBackend',
+      keepalive: 'Keepalive',
+      keepaliveRequests: 'KeepaliveRequests',
+      keepaliveTimeout: 'KeepaliveTimeout',
+      loadbalance: 'Loadbalance',
+      readTimeout: 'ReadTimeout',
+      requestHeaders: 'RequestHeaders',
+      retry: 'Retry',
+      sniEnabled: 'SniEnabled',
+      sniHost: 'SniHost',
+      writeTimeout: 'WriteTimeout',
+      xffProto: 'XffProto',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backends: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackends },
+      backupBackends: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackupBackends },
+      connectTimeout: 'number',
+      focusHttpBackend: 'boolean',
+      keepalive: 'boolean',
+      keepaliveRequests: 'number',
+      keepaliveTimeout: 'number',
+      loadbalance: 'string',
+      readTimeout: 'number',
+      requestHeaders: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectRequestHeaders },
+      retry: 'boolean',
+      sniEnabled: 'boolean',
+      sniHost: 'string',
+      writeTimeout: 'number',
+      xffProto: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.backends)) {
+      $dara.Model.validateArray(this.backends);
+    }
+    if(Array.isArray(this.backupBackends)) {
+      $dara.Model.validateArray(this.backupBackends);
+    }
+    if(Array.isArray(this.requestHeaders)) {
+      $dara.Model.validateArray(this.requestHeaders);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainDetailResponseBodySM2CertDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name of your website.
+   * 
+   * @example
+   * test.aliyundoc.com
+   */
+  commonName?: string;
+  /**
+   * @remarks
+   * The end of the validity period of the SSL certificate. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1665590400000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the SSL certificate.
+   * 
+   * @example
+   * 123-cn-hangzhou
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The name of the SSL certificate.
+   * 
+   * @example
+   * test-sm2-cert-name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * All domain names that are bound to the certificate.
+   */
+  sans?: string[];
+  /**
+   * @remarks
+   * The beginning of the validity period of the SSL certificate. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1657551525000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      endTime: 'EndTime',
+      id: 'Id',
+      name: 'Name',
+      sans: 'Sans',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      endTime: 'number',
+      id: 'string',
+      name: 'string',
+      sans: { 'type': 'array', 'itemType': 'string' },
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sans)) {
+      $dara.Model.validateArray(this.sans);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDomainDetailResponseBody extends $dara.Model {
   /**

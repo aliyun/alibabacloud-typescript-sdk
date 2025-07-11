@@ -1,7 +1,142 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeSecurityEventLogsRequestFilter } from "./DescribeSecurityEventLogsRequestFilter";
 
+
+export class DescribeSecurityEventLogsRequestFilterConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The field name. This operation supports all fields. For more information, see the **Supported field names** section below.
+   * 
+   * @example
+   * matched_host
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The operator. For more information, see the **Supported operators** section below.
+   * 
+   * @example
+   * eq
+   */
+  opValue?: string;
+  /**
+   * @remarks
+   * The field content.
+   * 
+   * @example
+   * test.waf-top
+   */
+  values?: any;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      opValue: 'OpValue',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      opValue: 'string',
+      values: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventLogsRequestFilterDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventLogsRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The filter conditions. Each object describes a filter condition.
+   */
+  conditions?: DescribeSecurityEventLogsRequestFilterConditions[];
+  /**
+   * @remarks
+   * The time range for the query.
+   * 
+   * This parameter is required.
+   */
+  dateRange?: DescribeSecurityEventLogsRequestFilterDateRange;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      dateRange: 'DateRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': DescribeSecurityEventLogsRequestFilterConditions },
+      dateRange: DescribeSecurityEventLogsRequestFilterDateRange,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeSecurityEventLogsRequest extends $dara.Model {
   /**

@@ -10195,6 +10195,10 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
+    if (!$dara.isNull(request.clusterRuleResourceId)) {
+      query["ClusterRuleResourceId"] = request.clusterRuleResourceId;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }

@@ -1,7 +1,142 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeSecurityEventTimeSeriesMetricRequestFilter } from "./DescribeSecurityEventTimeSeriesMetricRequestFilter";
 
+
+export class DescribeSecurityEventTimeSeriesMetricRequestFilterConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The field name. This operation supports all fields. For details, see the **Supported field names** section below.
+   * 
+   * @example
+   * matched_host
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The operator. For details, see the **Supported operators** section below.
+   * 
+   * @example
+   * eq
+   */
+  opValue?: string;
+  /**
+   * @remarks
+   * The field content.
+   * 
+   * @example
+   * test.waf-top
+   */
+  values?: any;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      opValue: 'OpValue',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      opValue: 'string',
+      values: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTimeSeriesMetricRequestFilterDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a Unix timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a Unix timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTimeSeriesMetricRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The filter conditions. Each object describes a filter condition.
+   */
+  conditions?: DescribeSecurityEventTimeSeriesMetricRequestFilterConditions[];
+  /**
+   * @remarks
+   * The time range for the query.
+   * 
+   * This parameter is required.
+   */
+  dateRange?: DescribeSecurityEventTimeSeriesMetricRequestFilterDateRange;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      dateRange: 'DateRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': DescribeSecurityEventTimeSeriesMetricRequestFilterConditions },
+      dateRange: DescribeSecurityEventTimeSeriesMetricRequestFilterDateRange,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeSecurityEventTimeSeriesMetricRequest extends $dara.Model {
   /**

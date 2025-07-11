@@ -1,7 +1,146 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeNetworkFlowTimeSeriesMetricRequestFilter } from "./DescribeNetworkFlowTimeSeriesMetricRequestFilter";
 
+
+export class DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The filter fields. Valid values:
+   * *   matched_host
+   * *   cluster
+   * 
+   * For details, see the **Filter fields (Key)** section below.
+   * 
+   * @example
+   * matched_host
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The filter operator. For details, see the **Filter operators (OpValue)** section below.
+   * 
+   * @example
+   * eq
+   */
+  opValue?: string;
+  /**
+   * @remarks
+   * The filter content.
+   * 
+   * @example
+   * test.waf-top
+   */
+  values?: any;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      opValue: 'OpValue',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      opValue: 'string',
+      values: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * End time of the query range (Unix timestamp, seconds).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * Start time of the query range (Unix timestamp, seconds).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTimeSeriesMetricRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The list of filter conditions. Each node describes a filter condition.
+   */
+  conditions?: DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions[];
+  /**
+   * @remarks
+   * Specifies the date range for the query.
+   * 
+   * This parameter is required.
+   */
+  dateRange?: DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      dateRange: 'DateRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions },
+      dateRange: DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeNetworkFlowTimeSeriesMetricRequest extends $dara.Model {
   /**
