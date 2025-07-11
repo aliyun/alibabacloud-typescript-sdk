@@ -1774,6 +1774,167 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - GetStorageAmountSummaryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStorageAmountSummaryResponse
+   */
+  async getStorageAmountSummaryWithOptions(request: $_model.GetStorageAmountSummaryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetStorageAmountSummaryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.date)) {
+      query["date"] = request.date;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStorageAmountSummary",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/observations/analysis/storage/amount`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStorageAmountSummaryResponse>(await this.callApi(params, req, runtime), new $_model.GetStorageAmountSummaryResponse({}));
+  }
+
+  /**
+   * @param request - GetStorageAmountSummaryRequest
+   * @returns GetStorageAmountSummaryResponse
+   */
+  async getStorageAmountSummary(request: $_model.GetStorageAmountSummaryRequest): Promise<$_model.GetStorageAmountSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getStorageAmountSummaryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @param request - GetStorageSizeSummaryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStorageSizeSummaryResponse
+   */
+  async getStorageSizeSummaryWithOptions(request: $_model.GetStorageSizeSummaryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetStorageSizeSummaryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.date)) {
+      query["date"] = request.date;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStorageSizeSummary",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/observations/analysis/storage/size`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStorageSizeSummaryResponse>(await this.callApi(params, req, runtime), new $_model.GetStorageSizeSummaryResponse({}));
+  }
+
+  /**
+   * @param request - GetStorageSizeSummaryRequest
+   * @returns GetStorageSizeSummaryResponse
+   */
+  async getStorageSizeSummary(request: $_model.GetStorageSizeSummaryRequest): Promise<$_model.GetStorageSizeSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getStorageSizeSummaryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @param tmpReq - GetStorageSummaryComparedRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStorageSummaryComparedResponse
+   */
+  async getStorageSummaryComparedWithOptions(type: string, tmpReq: $_model.GetStorageSummaryComparedRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetStorageSummaryComparedResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetStorageSummaryComparedShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.projects)) {
+      request.projectsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.projects, "projects", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.beginDate)) {
+      query["beginDate"] = request.beginDate;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.projectsShrink)) {
+      query["projects"] = request.projectsShrink;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStorageSummaryCompared",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/observations/analysis/storage/${$dara.URL.percentEncode(type)}/compared`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStorageSummaryComparedResponse>(await this.callApi(params, req, runtime), new $_model.GetStorageSummaryComparedResponse({}));
+  }
+
+  /**
+   * @param request - GetStorageSummaryComparedRequest
+   * @returns GetStorageSummaryComparedResponse
+   */
+  async getStorageSummaryCompared(type: string, request: $_model.GetStorageSummaryComparedRequest): Promise<$_model.GetStorageSummaryComparedResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getStorageSummaryComparedWithOptions(type, request, headers, runtime);
+  }
+
+  /**
    * Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
    * 
    * @param request - GetTableInfoRequest
@@ -3365,6 +3526,79 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ListStorageProjectsInfoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListStorageProjectsInfoResponse
+   */
+  async listStorageProjectsInfoWithOptions(request: $_model.ListStorageProjectsInfoRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListStorageProjectsInfoResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ascOrder)) {
+      query["ascOrder"] = request.ascOrder;
+    }
+
+    if (!$dara.isNull(request.date)) {
+      query["date"] = request.date;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      query["orderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectPrefix)) {
+      query["projectPrefix"] = request.projectPrefix;
+    }
+
+    if (!$dara.isNull(request.recentDays)) {
+      query["recentDays"] = request.recentDays;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListStorageProjectsInfo",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/observations/analysis/storage/projectsInfo`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListStorageProjectsInfoResponse>(await this.callApi(params, req, runtime), new $_model.ListStorageProjectsInfoResponse({}));
+  }
+
+  /**
+   * @param request - ListStorageProjectsInfoRequest
+   * @returns ListStorageProjectsInfoResponse
+   */
+  async listStorageProjectsInfo(request: $_model.ListStorageProjectsInfoRequest): Promise<$_model.ListStorageProjectsInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listStorageProjectsInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the table storage details of a MaxCompute project.
    * 
    * @param tmpReq - ListStorageTablesInfoRequest
@@ -3690,6 +3924,65 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryQuotaWithOptions(nickname, request, headers, runtime);
+  }
+
+  /**
+   * 查看存储数据的时序指标
+   * 
+   * @param request - QueryStorageMetricRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryStorageMetricResponse
+   */
+  async queryStorageMetricWithOptions(metric: string, request: $_model.QueryStorageMetricRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryStorageMetricResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.projectList)) {
+      body["projectList"] = request.projectList;
+    }
+
+    if (!$dara.isNull(request.typeList)) {
+      body["typeList"] = request.typeList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryStorageMetric",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/observations/storage/${$dara.URL.percentEncode(metric)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryStorageMetricResponse>(await this.callApi(params, req, runtime), new $_model.QueryStorageMetricResponse({}));
+  }
+
+  /**
+   * 查看存储数据的时序指标
+   * 
+   * @param request - QueryStorageMetricRequest
+   * @returns QueryStorageMetricResponse
+   */
+  async queryStorageMetric(metric: string, request: $_model.QueryStorageMetricRequest): Promise<$_model.QueryStorageMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryStorageMetricWithOptions(metric, request, headers, runtime);
   }
 
   /**
@@ -4500,6 +4793,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateTunnelQuotaTimerWithOptions(nickname, request, headers, runtime);
+  }
+
+  /**
+   * Add or remove users from a project role.
+   * 
+   * @param request - UpdateUsersToRoleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUsersToRoleResponse
+   */
+  async updateUsersToRoleWithOptions(projectName: string, roleName: string, request: $_model.UpdateUsersToRoleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateUsersToRoleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.add)) {
+      body["add"] = request.add;
+    }
+
+    if (!$dara.isNull(request.remove)) {
+      body["remove"] = request.remove;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateUsersToRole",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/projects/${$dara.URL.percentEncode(projectName)}/roles/${$dara.URL.percentEncode(roleName)}/users`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateUsersToRoleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateUsersToRoleResponse({}));
+  }
+
+  /**
+   * Add or remove users from a project role.
+   * 
+   * @param request - UpdateUsersToRoleRequest
+   * @returns UpdateUsersToRoleResponse
+   */
+  async updateUsersToRole(projectName: string, roleName: string, request: $_model.UpdateUsersToRoleRequest): Promise<$_model.UpdateUsersToRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateUsersToRoleWithOptions(projectName, roleName, request, headers, runtime);
   }
 
 }
