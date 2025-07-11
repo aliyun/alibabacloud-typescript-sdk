@@ -53,6 +53,7 @@ export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
    * ./file/Dockerfile
    */
   dockerfilePath?: string;
+  enableGpu?: boolean;
   /**
    * @remarks
    * The region ID where the source mirror image is located.
@@ -97,6 +98,7 @@ export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
       commandContent: 'CommandContent',
       commandType: 'CommandType',
       dockerfilePath: 'DockerfilePath',
+      enableGpu: 'EnableGpu',
       regionId: 'RegionId',
       sourceContainerImage: 'SourceContainerImage',
       sourceImageId: 'SourceImageId',
@@ -111,6 +113,7 @@ export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
       commandContent: 'string',
       commandType: 'string',
       dockerfilePath: 'string',
+      enableGpu: 'boolean',
       regionId: 'string',
       sourceContainerImage: 'string',
       sourceImageId: 'string',
