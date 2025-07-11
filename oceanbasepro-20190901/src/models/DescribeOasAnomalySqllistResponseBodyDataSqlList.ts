@@ -145,7 +145,7 @@ export class DescribeOasAnomalySQLListResponseBodyDataSqlList extends $dara.Mode
    * @example
    * 11452126.36
    */
-  sumElapsedTime?: string;
+  sumElapsedTime?: number;
   /**
    * @remarks
    * The total number of retries.
@@ -206,7 +206,7 @@ export class DescribeOasAnomalySQLListResponseBodyDataSqlList extends $dara.Mode
       sqlTextShort: 'string',
       suggestion: 'string',
       sumDbTime: 'number',
-      sumElapsedTime: 'string',
+      sumElapsedTime: 'number',
       sumRetryCount: 'number',
       userName: 'string',
     };

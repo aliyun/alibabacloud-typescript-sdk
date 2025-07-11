@@ -9,7 +9,7 @@ export class DescribeProcessStatsCompositionResponseBodyDataAllProcessListProces
   database?: string;
   dynamicSql?: boolean;
   executeTime?: number;
-  planId?: string;
+  planId?: number;
   proxySessId?: string;
   serverIp?: string;
   sessionId?: number;
@@ -48,7 +48,7 @@ export class DescribeProcessStatsCompositionResponseBodyDataAllProcessListProces
       database: 'string',
       dynamicSql: 'boolean',
       executeTime: 'number',
-      planId: 'string',
+      planId: 'number',
       proxySessId: 'string',
       serverIp: 'string',
       sessionId: 'number',

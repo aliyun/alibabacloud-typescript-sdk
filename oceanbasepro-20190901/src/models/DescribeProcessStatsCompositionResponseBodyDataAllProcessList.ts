@@ -56,7 +56,7 @@ export class DescribeProcessStatsCompositionResponseBodyDataAllProcessList exten
    * @example
    * 1898
    */
-  planId?: string;
+  planId?: number;
   processSqlLists?: DescribeProcessStatsCompositionResponseBodyDataAllProcessListProcessSqlLists[];
   /**
    * @remarks
@@ -162,7 +162,7 @@ export class DescribeProcessStatsCompositionResponseBodyDataAllProcessList exten
       database: 'string',
       dynamicSql: 'boolean',
       executeTime: 'number',
-      planId: 'string',
+      planId: 'number',
       processSqlLists: { 'type': 'array', 'itemType': DescribeProcessStatsCompositionResponseBodyDataAllProcessListProcessSqlLists },
       proxySessId: 'string',
       serverIp: 'string',

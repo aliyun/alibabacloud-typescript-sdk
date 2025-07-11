@@ -10,7 +10,7 @@ export class DescribeProcessStatsCompositionResponseBodyDataAllProcessListProces
   database?: string;
   dynamicSql?: boolean;
   executeTime?: number;
-  planId?: string;
+  planId?: number;
   processSqlList?: DescribeProcessStatsCompositionResponseBodyDataAllProcessListProcessSqlListsProcessSqlList[];
   proxySessId?: string;
   serverIp?: string;
@@ -51,7 +51,7 @@ export class DescribeProcessStatsCompositionResponseBodyDataAllProcessListProces
       database: 'string',
       dynamicSql: 'boolean',
       executeTime: 'number',
-      planId: 'string',
+      planId: 'number',
       processSqlList: { 'type': 'array', 'itemType': DescribeProcessStatsCompositionResponseBodyDataAllProcessListProcessSqlListsProcessSqlList },
       proxySessId: 'string',
       serverIp: 'string',
