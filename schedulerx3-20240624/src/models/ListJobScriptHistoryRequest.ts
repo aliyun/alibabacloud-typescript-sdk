@@ -2,12 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateAppRequest extends $dara.Model {
-  /**
-   * @example
-   * ltk1ZXHv6LvibZypFkPHzRA
-   */
-  accessToken?: string;
+export class ListJobScriptHistoryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -25,42 +20,40 @@ export class CreateAppRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * true
+   * 74
    */
-  enableLog?: boolean;
-  labelRouteStrategy?: number;
+  jobId?: number;
   /**
    * @example
    * 10
    */
-  maxConcurrency?: number;
+  maxResults?: number;
   /**
-   * @remarks
-   * This parameter is required.
+   * @example
+   * eCKqVlS5FKF5EWGGOo8EgQ==
    */
-  title?: string;
+  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
-      accessToken: 'AccessToken',
       appName: 'AppName',
       clusterId: 'ClusterId',
-      enableLog: 'EnableLog',
-      labelRouteStrategy: 'LabelRouteStrategy',
-      maxConcurrency: 'MaxConcurrency',
-      title: 'Title',
+      jobId: 'JobId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accessToken: 'string',
       appName: 'string',
       clusterId: 'string',
-      enableLog: 'boolean',
-      labelRouteStrategy: 'number',
-      maxConcurrency: 'number',
-      title: 'string',
+      jobId: 'number',
+      maxResults: 'number',
+      nextToken: 'string',
     };
   }
 

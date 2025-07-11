@@ -2,21 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateJobResponseBodyData extends $dara.Model {
+export class GetAppRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 74
+   * test-app
    */
-  jobId?: number;
+  appName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxljob-d6a5243b6fa
+   */
+  clusterId?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
+      appName: 'AppName',
+      clusterId: 'ClusterId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'number',
+      appName: 'string',
+      clusterId: 'string',
     };
   }
 

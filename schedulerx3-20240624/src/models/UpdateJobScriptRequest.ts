@@ -2,12 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateAppRequest extends $dara.Model {
-  /**
-   * @example
-   * ltk1ZXHv6LvibZypFkPHzRA
-   */
-  accessToken?: string;
+export class UpdateJobScriptRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -25,42 +20,39 @@ export class CreateAppRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * true
+   * 74
    */
-  enableLog?: boolean;
-  labelRouteStrategy?: number;
-  /**
-   * @example
-   * 10
-   */
-  maxConcurrency?: number;
+  jobId?: number;
+  scriptContent?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * init version
    */
-  title?: string;
+  versionDescription?: string;
   static names(): { [key: string]: string } {
     return {
-      accessToken: 'AccessToken',
       appName: 'AppName',
       clusterId: 'ClusterId',
-      enableLog: 'EnableLog',
-      labelRouteStrategy: 'LabelRouteStrategy',
-      maxConcurrency: 'MaxConcurrency',
-      title: 'Title',
+      jobId: 'JobId',
+      scriptContent: 'ScriptContent',
+      versionDescription: 'VersionDescription',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accessToken: 'string',
       appName: 'string',
       clusterId: 'string',
-      enableLog: 'boolean',
-      labelRouteStrategy: 'number',
-      maxConcurrency: 'number',
-      title: 'string',
+      jobId: 'number',
+      scriptContent: 'string',
+      versionDescription: 'string',
     };
   }
 

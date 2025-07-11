@@ -55,6 +55,10 @@ export default class Client extends OpenApi {
       body["EnableLog"] = request.enableLog;
     }
 
+    if (!$dara.isNull(request.labelRouteStrategy)) {
+      body["LabelRouteStrategy"] = request.labelRouteStrategy;
+    }
+
     if (!$dara.isNull(request.maxConcurrency)) {
       body["MaxConcurrency"] = request.maxConcurrency;
     }
@@ -503,6 +507,52 @@ export default class Client extends OpenApi {
   async exportJobs(request: $_model.ExportJobsRequest): Promise<$_model.ExportJobsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.exportJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取指定应用
+   * 
+   * @param request - GetAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppResponse
+   */
+  async getAppWithOptions(request: $_model.GetAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAppResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApp",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAppResponse>(await this.callApi(params, req, runtime), new $_model.GetAppResponse({}));
+  }
+
+  /**
+   * 获取指定应用
+   * 
+   * @param request - GetAppRequest
+   * @returns GetAppResponse
+   */
+  async getApp(request: $_model.GetAppRequest): Promise<$_model.GetAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAppWithOptions(request, runtime);
   }
 
   /**
@@ -1159,6 +1209,64 @@ export default class Client extends OpenApi {
   async listJobExecutions(request: $_model.ListJobExecutionsRequest): Promise<$_model.ListJobExecutionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listJobExecutionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取任务脚本历史列表
+   * 
+   * @param request - ListJobScriptHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobScriptHistoryResponse
+   */
+  async listJobScriptHistoryWithOptions(request: $_model.ListJobScriptHistoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListJobScriptHistoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListJobScriptHistory",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListJobScriptHistoryResponse>(await this.callApi(params, req, runtime), new $_model.ListJobScriptHistoryResponse({}));
+  }
+
+  /**
+   * 获取任务脚本历史列表
+   * 
+   * @param request - ListJobScriptHistoryRequest
+   * @returns ListJobScriptHistoryResponse
+   */
+  async listJobScriptHistory(request: $_model.ListJobScriptHistoryRequest): Promise<$_model.ListJobScriptHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listJobScriptHistoryWithOptions(request, runtime);
   }
 
   /**
@@ -1827,6 +1935,10 @@ export default class Client extends OpenApi {
       body["EnableLog"] = request.enableLog;
     }
 
+    if (!$dara.isNull(request.labelRouteStrategy)) {
+      body["LabelRouteStrategy"] = request.labelRouteStrategy;
+    }
+
     if (!$dara.isNull(request.maxConcurrency)) {
       body["MaxConcurrency"] = request.maxConcurrency;
     }
@@ -2043,6 +2155,64 @@ export default class Client extends OpenApi {
   async updateJob(request: $_model.UpdateJobRequest): Promise<$_model.UpdateJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新任务脚本内容
+   * 
+   * @param request - UpdateJobScriptRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateJobScriptResponse
+   */
+  async updateJobScriptWithOptions(request: $_model.UpdateJobScriptRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateJobScriptResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.scriptContent)) {
+      body["ScriptContent"] = request.scriptContent;
+    }
+
+    if (!$dara.isNull(request.versionDescription)) {
+      body["VersionDescription"] = request.versionDescription;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateJobScript",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateJobScriptResponse>(await this.callApi(params, req, runtime), new $_model.UpdateJobScriptResponse({}));
+  }
+
+  /**
+   * 更新任务脚本内容
+   * 
+   * @param request - UpdateJobScriptRequest
+   * @returns UpdateJobScriptResponse
+   */
+  async updateJobScript(request: $_model.UpdateJobScriptRequest): Promise<$_model.UpdateJobScriptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateJobScriptWithOptions(request, runtime);
   }
 
 }

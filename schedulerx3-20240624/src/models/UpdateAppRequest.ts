@@ -29,6 +29,7 @@ export class UpdateAppRequest extends $dara.Model {
    * true
    */
   enableLog?: boolean;
+  labelRouteStrategy?: number;
   /**
    * @example
    * 10
@@ -45,6 +46,7 @@ export class UpdateAppRequest extends $dara.Model {
       appName: 'AppName',
       clusterId: 'ClusterId',
       enableLog: 'EnableLog',
+      labelRouteStrategy: 'LabelRouteStrategy',
       maxConcurrency: 'MaxConcurrency',
       title: 'Title',
     };
@@ -56,6 +58,7 @@ export class UpdateAppRequest extends $dara.Model {
       appName: 'string',
       clusterId: 'string',
       enableLog: 'boolean',
+      labelRouteStrategy: 'number',
       maxConcurrency: 'number',
       title: 'string',
     };

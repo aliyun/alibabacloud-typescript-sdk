@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListAppsResponseBodyDataRecords extends $dara.Model {
+export class GetAppResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * AccessToken
+   * AccessToken。
    * 
    * @example
    * 2f4ddeab8e344ed68e0402cf9b8502ffv3
@@ -18,7 +18,7 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
   appName?: string;
   /**
    * @example
-   * 1827811800555555
+   * 18582193685027xx
    */
   creator?: string;
   /**
@@ -28,22 +28,23 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
   enableLog?: boolean;
   /**
    * @example
-   * 1
+   * 2
    */
   executorNum?: number;
   /**
    * @example
-   * 43885
+   * 3402
    */
   id?: number;
   /**
    * @example
-   * 10
+   * 100
    */
   jobNum?: number;
+  labelRouteStrategy?: number;
   /**
    * @example
-   * http://28.5.128.3:80
+   * http://28.***.***.3:80
    */
   leader?: string;
   /**
@@ -59,7 +60,7 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
   title?: string;
   /**
    * @example
-   * 1827811800555555
+   * 18582193685027xx
    */
   updater?: string;
   static names(): { [key: string]: string } {
@@ -71,6 +72,7 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
       executorNum: 'ExecutorNum',
       id: 'Id',
       jobNum: 'JobNum',
+      labelRouteStrategy: 'LabelRouteStrategy',
       leader: 'Leader',
       maxConcurrency: 'MaxConcurrency',
       maxJobs: 'MaxJobs',
@@ -88,6 +90,7 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
       executorNum: 'number',
       id: 'number',
       jobNum: 'number',
+      labelRouteStrategy: 'number',
       leader: 'string',
       maxConcurrency: 'number',
       maxJobs: 'number',
@@ -97,6 +100,64 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * -
+   */
+  data?: GetAppResponseBodyData;
+  /**
+   * @example
+   * Not found: appName not found.
+   */
+  message?: string;
+  /**
+   * @example
+   * D0DE9C33-992A-580B-89C4-B609A292748D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetAppResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
     super.validate();
   }
 

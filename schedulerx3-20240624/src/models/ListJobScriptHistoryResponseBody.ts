@@ -2,63 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetLogEventResponseBodyDataRecords extends $dara.Model {
+export class ListJobScriptHistoryResponseBodyDataRecords extends $dara.Model {
   /**
    * @example
-   * portal-dev
+   * 2025-06-29 15:56:36
    */
-  appName?: string;
+  createTime?: string;
   /**
    * @example
-   * hello word
+   * 1963096506470832
    */
-  content?: string;
+  creator?: string;
+  scriptContent?: string;
   /**
    * @example
-   * info
+   * init version
    */
-  event?: string;
-  /**
-   * @example
-   * 101
-   */
-  jobExecutionId?: string;
-  /**
-   * @example
-   * test
-   */
-  jobName?: string;
-  /**
-   * @example
-   * 2024-10-31 16:43:51
-   */
-  time?: string;
-  /**
-   * @example
-   * 030225016025_9357_60125@127.0.0.1:51363
-   */
-  workerAddr?: string;
+  versionDescription?: string;
   static names(): { [key: string]: string } {
     return {
-      appName: 'AppName',
-      content: 'Content',
-      event: 'Event',
-      jobExecutionId: 'JobExecutionId',
-      jobName: 'JobName',
-      time: 'Time',
-      workerAddr: 'WorkerAddr',
+      createTime: 'CreateTime',
+      creator: 'Creator',
+      scriptContent: 'ScriptContent',
+      versionDescription: 'VersionDescription',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appName: 'string',
-      content: 'string',
-      event: 'string',
-      jobExecutionId: 'string',
-      jobName: 'string',
-      time: 'string',
-      workerAddr: 'string',
+      createTime: 'string',
+      creator: 'string',
+      scriptContent: 'string',
+      versionDescription: 'string',
     };
   }
 
@@ -71,31 +46,25 @@ export class GetLogEventResponseBodyDataRecords extends $dara.Model {
   }
 }
 
-export class GetLogEventResponseBodyData extends $dara.Model {
+export class ListJobScriptHistoryResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 1
+   * eCKqVlS5FKF5EWGGOo8EgQ==
    */
-  pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
+  nextToken?: string;
   /**
    * @remarks
    * -
    */
-  records?: GetLogEventResponseBodyDataRecords[];
+  records?: ListJobScriptHistoryResponseBodyDataRecords[];
   /**
    * @example
-   * 33
+   * 21
    */
-  total?: number;
+  total?: string;
   static names(): { [key: string]: string } {
     return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
+      nextToken: 'NextToken',
       records: 'Records',
       total: 'Total',
     };
@@ -103,10 +72,9 @@ export class GetLogEventResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      records: { 'type': 'array', 'itemType': GetLogEventResponseBodyDataRecords },
-      total: 'number',
+      nextToken: 'string',
+      records: { 'type': 'array', 'itemType': ListJobScriptHistoryResponseBodyDataRecords },
+      total: 'string',
     };
   }
 
@@ -122,7 +90,7 @@ export class GetLogEventResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetLogEventResponseBody extends $dara.Model {
+export class ListJobScriptHistoryResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -132,15 +100,23 @@ export class GetLogEventResponseBody extends $dara.Model {
    * @remarks
    * -
    */
-  data?: GetLogEventResponseBodyData;
+  data?: ListJobScriptHistoryResponseBodyData;
   /**
    * @example
-   * Parameter check error
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * not support query script history, please upgrade engine version to 2.2.2+
    */
   message?: string;
   /**
    * @example
-   * BAC1ADB5-EEB5-5834-93D8-522E067AF8D9
+   * 5EF879D0-3B43-5AD1-9BF7-52418F9C5E73
    */
   requestId?: string;
   /**
@@ -152,6 +128,7 @@ export class GetLogEventResponseBody extends $dara.Model {
     return {
       code: 'Code',
       data: 'Data',
+      maxResults: 'MaxResults',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -161,7 +138,8 @@ export class GetLogEventResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: GetLogEventResponseBodyData,
+      data: ListJobScriptHistoryResponseBodyData,
+      maxResults: 'number',
       message: 'string',
       requestId: 'string',
       success: 'boolean',
