@@ -28,7 +28,7 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   authInternationalRateEligibility?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the business platform.
+   * The business ID.
    * 
    * @example
    * 19293988***
@@ -36,7 +36,7 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   businessId?: string;
   /**
    * @remarks
-   * The name of the business platform.
+   * The business name.
    * 
    * @example
    * Alibaba
@@ -59,6 +59,9 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The Marketing Messaging Lite status.
+   * 
    * @example
    * Y
    */

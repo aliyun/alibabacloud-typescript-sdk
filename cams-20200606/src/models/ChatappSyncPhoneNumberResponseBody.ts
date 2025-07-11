@@ -4,6 +4,13 @@ import { ChatappSyncPhoneNumberResponseBodyPhoneNumbers } from "./ChatappSyncPho
 
 
 export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -26,7 +33,7 @@ export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Details of the phone numbers.
+   * The phone numbers.
    */
   phoneNumbers?: ChatappSyncPhoneNumberResponseBodyPhoneNumbers[];
   /**
@@ -38,6 +45,12 @@ export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * *   **true**: The call was successful.
+   * *   **false**: The call failed.
+   * 
    * @example
    * true
    */

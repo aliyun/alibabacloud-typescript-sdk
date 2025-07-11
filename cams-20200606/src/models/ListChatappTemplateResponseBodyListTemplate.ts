@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   /**
    * @remarks
-   * The review state of the message template. Valid values:
+   * The review state of the template. Valid values:
    * 
-   * *   **pass**: The message template is approved.
-   * *   **fail**: The message template is rejected.
-   * *   **auditing**: The message template is being reviewed.
+   * *   **pass**: The template is approved.
+   * *   **fail**: The template is rejected.
+   * *   **auditing**: The template is being reviewed.
    * *   **unaudit**: The review is suspended.
    * 
    * @example
@@ -18,23 +18,23 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   auditStatus?: string;
   /**
    * @remarks
-   * The category of the WhatsApp template. Valid values:
+   * The category of the WhatsApp message template. Valid values:
    * 
-   * *   **UTILITY**: utility template
-   * *   **MARKETING**: marketing template
-   * *   **AUTHENTICATION**: authentication template
+   * *   **UTILITY**
+   * *   **MARKETING**
+   * *   **AUTHENTICATION**
    * 
    * The category of the Viber template. Valid values:
    * 
    * *   **text**: template that contains only text
-   * *   **image**: template that contains only an image
-   * *   **text_image_button**: template that contains text, an image, and a button
-   * *   **text_button**: template that contains text and a button
-   * *   **document**: template that contains only a document
-   * *   **video**: template that contains only a video
-   * *   **text_video**: template that contains text and a video
-   * *   **text_video_button**: template that contains text, a video, and a button
-   * *   **text_image**: template that contains text and an image
+   * *   **image**: template that contains only images
+   * *   **text_image_button**: template that contains text, images, and buttons
+   * *   **text_button**: template that contains text and buttons
+   * *   **document**: template that contains only documents
+   * *   **video**: template that contains only videos
+   * *   **text_video**: template that contains text and videos
+   * *   **text_video_button**: template that contains text, videos, and buttons
+   * *   **text_image**: template that contains text and images
    * 
    * @example
    * TRANSACTIONAL
@@ -58,7 +58,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   lastUpdateTime?: number;
   /**
    * @remarks
-   * The reason for the review failure.
+   * The reason why the template was rejected.
    * 
    * @example
    * None

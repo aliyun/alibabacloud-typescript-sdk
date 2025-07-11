@@ -2,6 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
+/**
+ */
 export class ChatappBindWabaResponseBodyData extends $dara.Model {
   /**
    * @remarks

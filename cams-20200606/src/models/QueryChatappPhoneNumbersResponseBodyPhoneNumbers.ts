@@ -7,11 +7,21 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
    * @remarks
    * The verification status of the phone number.
    * 
+   * Valid values:
+   * 
+   * *   REVOKED: The review application is revoked.
+   * *   MORE_INFORMATION_REQUESTED: More information needs to be provided.
+   * *   VERIFIED: The phone number passes the verification.
+   * *   REJECTED: The phone number fails to pass the verification.
+   * 
    * @example
    * VERIFIED
    */
   codeVerificationStatus?: string;
   /**
+   * @remarks
+   * Indicates whether it is a WhatsApp Official Business Account (OBA).
+   * 
    * @example
    * N
    */
@@ -35,7 +45,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   messagingLimitTier?: string;
   /**
    * @remarks
-   * The status of the business name.
+   * The review status of the name.
    * 
    * @example
    * Approval
@@ -43,7 +53,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   nameStatus?: string;
   /**
    * @remarks
-   * The review status of the new business name.
+   * The review status of the new display name of the enterprise.
    * 
    * @example
    * Approval
@@ -63,10 +73,10 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
    * 
    * Valid values:
    * 
-   * *   RED
-   * *   YELLOW
-   * *   UNKNOWN
-   * *   GREEN
+   * *   RED: low
+   * *   YELLOW: medium
+   * *   UNKNOWN: unknown
+   * *   GREEN: high
    * 
    * @example
    * GREEN
@@ -96,7 +106,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The callback URL to which status reports are sent by using HTTP callbacks.
+   * The URL that receives the status reports.
    * 
    * @example
    * https://ali.com/status
@@ -112,7 +122,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   statusQueue?: string;
   /**
    * @remarks
-   * The callback URL to which MO messages are sent by using HTTP callbacks.
+   * The URL that receives the MO messages.
    * 
    * @example
    * https://ali.com/inbound
@@ -120,7 +130,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   upCallbackUrl?: string;
   /**
    * @remarks
-   * The mobile originated (MO) message notification queue.
+   * The mobile originated (MO) message queue.
    * 
    * @example
    * Alicom-Queue-****-ChatAppInbound
@@ -128,7 +138,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   upQueue?: string;
   /**
    * @remarks
-   * The name of the company with which the phone number is associated.
+   * The display name of the enterprise to which the phone number belongs.
    * 
    * @example
    * Alibaba

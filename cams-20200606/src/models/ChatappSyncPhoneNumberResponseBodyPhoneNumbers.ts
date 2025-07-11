@@ -5,13 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model {
   /**
    * @remarks
-   * The verification status.
+   * The verification state of the phone number.
+   * 
+   * Valid values:
+   * 
+   * *   REVOKED: The review application is revoked.
+   * *   MORE_INFORMATION_REQUESTED: More information needs to be provided.
+   * *   VERIFIED: The phone number passes the verification.
+   * *   REJECTED: The phone number fails to pass the verification.
    * 
    * @example
    * VERIFIED
    */
   codeVerificationStatus?: string;
   /**
+   * @remarks
+   * Indicates whether it is a WhatsApp Official Business Account (OBA).
+   * 
    * @example
    * N
    */
@@ -50,7 +60,13 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   phoneNumber?: string;
   /**
    * @remarks
-   * The quality rating of the phone number. Valid values: GREEN, YELLOW, and RED.
+   * The quality rating of the phone number.
+   * 
+   * Valid values:
+   * 
+   * *   RED
+   * *   YELLOW
+   * *   GREEN
    * 
    * @example
    * GREEN
@@ -58,7 +74,21 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   qualityRating?: string;
   /**
    * @remarks
-   * The status of the phone number.
+   * The state of the phone number.
+   * 
+   * Valid values:
+   * 
+   * *   MIGRATED
+   * *   FLAGGED
+   * *   DISCONNECTED
+   * *   UNVERIFIED
+   * *   BANNED
+   * *   RATE_LIMITED
+   * *   PENDING
+   * *   CONNECTED
+   * *   UNKNOWN
+   * *   DELETED
+   * *   RESTRICTED
    * 
    * @example
    * PENDING
@@ -82,7 +112,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   statusQueue?: string;
   /**
    * @remarks
-   * The callback URL to which MO messages are sent by using HTTP callbacks.
+   * The URL that receives the MO messages.
    * 
    * @example
    * https://www.alibaba.com/inbound

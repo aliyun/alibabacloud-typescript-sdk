@@ -25,7 +25,7 @@ export class ListChatappTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of the templates.
+   * The message templates.
    */
   listTemplate?: ListChatappTemplateResponseBodyListTemplate[];
   /**
@@ -45,13 +45,19 @@ export class ListChatappTemplateResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * false
    */
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 1

@@ -236,182 +236,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates FAQs in the knowledge base.
-   * 
-   * @remarks
-   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   * 
-   * @param tmpReq - BeeBotAssociateRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns BeeBotAssociateResponse
-   */
-  async beeBotAssociateWithOptions(tmpReq: $_model.BeeBotAssociateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BeeBotAssociateResponse> {
-    tmpReq.validate();
-    let request = new $_model.BeeBotAssociateShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.perspective)) {
-      request.perspectiveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.perspective, "Perspective", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.chatBotInstanceId)) {
-      body["ChatBotInstanceId"] = request.chatBotInstanceId;
-    }
-
-    if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
-    }
-
-    if (!$dara.isNull(request.isvCode)) {
-      body["IsvCode"] = request.isvCode;
-    }
-
-    if (!$dara.isNull(request.perspectiveShrink)) {
-      body["Perspective"] = request.perspectiveShrink;
-    }
-
-    if (!$dara.isNull(request.recommendNum)) {
-      body["RecommendNum"] = request.recommendNum;
-    }
-
-    if (!$dara.isNull(request.sessionId)) {
-      body["SessionId"] = request.sessionId;
-    }
-
-    if (!$dara.isNull(request.utterance)) {
-      body["Utterance"] = request.utterance;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "BeeBotAssociate",
-      version: "2020-06-06",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.BeeBotAssociateResponse>(await this.callApi(params, req, runtime), new $_model.BeeBotAssociateResponse({}));
-  }
-
-  /**
-   * Associates FAQs in the knowledge base.
-   * 
-   * @remarks
-   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   * 
-   * @param request - BeeBotAssociateRequest
-   * @returns BeeBotAssociateResponse
-   */
-  async beeBotAssociate(request: $_model.BeeBotAssociateRequest): Promise<$_model.BeeBotAssociateResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.beeBotAssociateWithOptions(request, runtime);
-  }
-
-  /**
-   * Conducts sessions with the bot based on its unique identifier (ID).
-   * 
-   * @remarks
-   * The ID of the session.
-   * 
-   * @param tmpReq - BeeBotChatRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns BeeBotChatResponse
-   */
-  async beeBotChatWithOptions(tmpReq: $_model.BeeBotChatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BeeBotChatResponse> {
-    tmpReq.validate();
-    let request = new $_model.BeeBotChatShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.perspective)) {
-      request.perspectiveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.perspective, "Perspective", "json");
-    }
-
-    if (!$dara.isNull(tmpReq.vendorParam)) {
-      request.vendorParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vendorParam, "VendorParam", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.chatBotInstanceId)) {
-      body["ChatBotInstanceId"] = request.chatBotInstanceId;
-    }
-
-    if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
-    }
-
-    if (!$dara.isNull(request.intentName)) {
-      body["IntentName"] = request.intentName;
-    }
-
-    if (!$dara.isNull(request.isvCode)) {
-      body["IsvCode"] = request.isvCode;
-    }
-
-    if (!$dara.isNull(request.knowledgeId)) {
-      body["KnowledgeId"] = request.knowledgeId;
-    }
-
-    if (!$dara.isNull(request.perspectiveShrink)) {
-      body["Perspective"] = request.perspectiveShrink;
-    }
-
-    if (!$dara.isNull(request.senderId)) {
-      body["SenderId"] = request.senderId;
-    }
-
-    if (!$dara.isNull(request.senderNick)) {
-      body["SenderNick"] = request.senderNick;
-    }
-
-    if (!$dara.isNull(request.sessionId)) {
-      body["SessionId"] = request.sessionId;
-    }
-
-    if (!$dara.isNull(request.utterance)) {
-      body["Utterance"] = request.utterance;
-    }
-
-    if (!$dara.isNull(request.vendorParamShrink)) {
-      body["VendorParam"] = request.vendorParamShrink;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "BeeBotChat",
-      version: "2020-06-06",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.BeeBotChatResponse>(await this.callApi(params, req, runtime), new $_model.BeeBotChatResponse({}));
-  }
-
-  /**
-   * Conducts sessions with the bot based on its unique identifier (ID).
-   * 
-   * @remarks
-   * The ID of the session.
-   * 
-   * @param request - BeeBotChatRequest
-   * @returns BeeBotChatResponse
-   */
-  async beeBotChat(request: $_model.BeeBotChatRequest): Promise<$_model.BeeBotChatResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.beeBotChatWithOptions(request, runtime);
-  }
-
-  /**
    * Binds the WhatsApp Business account with ChatApp.
    * 
    * @remarks
@@ -872,6 +696,212 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create Chatflow
+   * 
+   * @param tmpReq - CreateChatFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateChatFlowResponse
+   */
+  async createChatFlowWithOptions(tmpReq: $_model.CreateChatFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateChatFlowResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateChatFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowTriggerType)) {
+      query["FlowTriggerType"] = request.flowTriggerType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateChatFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateChatFlowResponse>(await this.callApi(params, req, runtime), new $_model.CreateChatFlowResponse({}));
+  }
+
+  /**
+   * Create Chatflow
+   * 
+   * @param request - CreateChatFlowRequest
+   * @returns CreateChatFlowResponse
+   */
+  async createChatFlow(request: $_model.CreateChatFlowRequest): Promise<$_model.CreateChatFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createChatFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * Import and create flow
+   * 
+   * @param tmpReq - CreateChatFlowByImportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateChatFlowByImportResponse
+   */
+  async createChatFlowByImportWithOptions(tmpReq: $_model.CreateChatFlowByImportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateChatFlowByImportResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateChatFlowByImportShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowViewModel)) {
+      query["FlowViewModel"] = request.flowViewModel;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateChatFlowByImport",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateChatFlowByImportResponse>(await this.callApi(params, req, runtime), new $_model.CreateChatFlowByImportResponse({}));
+  }
+
+  /**
+   * Import and create flow
+   * 
+   * @param request - CreateChatFlowByImportRequest
+   * @returns CreateChatFlowByImportResponse
+   */
+  async createChatFlowByImport(request: $_model.CreateChatFlowByImportRequest): Promise<$_model.CreateChatFlowByImportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createChatFlowByImportWithOptions(request, runtime);
+  }
+
+  /**
+   * Create chatFlow log setting
+   * 
+   * @param request - CreateChatFlowLogSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateChatFlowLogSettingResponse
+   */
+  async createChatFlowLogSettingWithOptions(request: $_model.CreateChatFlowLogSettingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateChatFlowLogSettingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateChatFlowLogSetting",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateChatFlowLogSettingResponse>(await this.callApi(params, req, runtime), new $_model.CreateChatFlowLogSettingResponse({}));
+  }
+
+  /**
+   * Create chatFlow log setting
+   * 
+   * @param request - CreateChatFlowLogSettingRequest
+   * @returns CreateChatFlowLogSettingResponse
+   */
+  async createChatFlowLogSetting(request: $_model.CreateChatFlowLogSettingRequest): Promise<$_model.CreateChatFlowLogSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createChatFlowLogSettingWithOptions(request, runtime);
+  }
+
+  /**
    * The ID of the number.
    * 
    * @remarks
@@ -1098,6 +1128,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateFlowVersion
+   * 
+   * @param tmpReq - CreateFlowVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFlowVersionResponse
+   */
+  async createFlowVersionWithOptions(tmpReq: $_model.CreateFlowVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFlowVersionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateFlowVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.flowVersionCopyFrom)) {
+      query["FlowVersionCopyFrom"] = request.flowVersionCopyFrom;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFlowVersion",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFlowVersionResponse>(await this.callApi(params, req, runtime), new $_model.CreateFlowVersionResponse({}));
+  }
+
+  /**
+   * CreateFlowVersion
+   * 
+   * @param request - CreateFlowVersionRequest
+   * @returns CreateFlowVersionResponse
+   */
+  async createFlowVersion(request: $_model.CreateFlowVersionRequest): Promise<$_model.CreateFlowVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createFlowVersionWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a quick-response (QR) code that contains a message.
    * 
    * @param request - CreatePhoneMessageQrdlRequest
@@ -1149,6 +1255,74 @@ export default class Client extends OpenApi {
   async createPhoneMessageQrdl(request: $_model.CreatePhoneMessageQrdlRequest): Promise<$_model.CreatePhoneMessageQrdlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createPhoneMessageQrdlWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete Process
+   * 
+   * @param tmpReq - DeleteChatFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteChatFlowResponse
+   */
+  async deleteChatFlowWithOptions(tmpReq: $_model.DeleteChatFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteChatFlowResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteChatFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteChatFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteChatFlowResponse>(await this.callApi(params, req, runtime), new $_model.DeleteChatFlowResponse({}));
+  }
+
+  /**
+   * Delete Process
+   * 
+   * @param request - DeleteChatFlowRequest
+   * @returns DeleteChatFlowResponse
+   */
+  async deleteChatFlow(request: $_model.DeleteChatFlowRequest): Promise<$_model.DeleteChatFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteChatFlowWithOptions(request, runtime);
   }
 
   /**
@@ -1498,6 +1672,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete Flow Version
+   * 
+   * @param tmpReq - DeleteFlowVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFlowVersionResponse
+   */
+  async deleteFlowVersionWithOptions(tmpReq: $_model.DeleteFlowVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFlowVersionResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteFlowVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.flowVersion)) {
+      query["FlowVersion"] = request.flowVersion;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFlowVersion",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFlowVersionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFlowVersionResponse({}));
+  }
+
+  /**
+   * Delete Flow Version
+   * 
+   * @param request - DeleteFlowVersionRequest
+   * @returns DeleteFlowVersionResponse
+   */
+  async deleteFlowVersion(request: $_model.DeleteFlowVersionRequest): Promise<$_model.DeleteFlowVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFlowVersionWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a quick-response (QR) code that contains a message.
    * 
    * @param request - DeletePhoneMessageQrdlRequest
@@ -1643,6 +1889,380 @@ export default class Client extends OpenApi {
   async enableWhatsappROIMetric(request: $_model.EnableWhatsappROIMetricRequest): Promise<$_model.EnableWhatsappROIMetricResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enableWhatsappROIMetricWithOptions(request, runtime);
+  }
+
+  /**
+   * Bind phone numbers to flow
+   * 
+   * @param tmpReq - FlowBindPhoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FlowBindPhoneResponse
+   */
+  async flowBindPhoneWithOptions(tmpReq: $_model.FlowBindPhoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FlowBindPhoneResponse> {
+    tmpReq.validate();
+    let request = new $_model.FlowBindPhoneShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.phoneNumbers)) {
+      request.phoneNumbersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.phoneNumbers, "PhoneNumbers", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.channelCode)) {
+      query["ChannelCode"] = request.channelCode;
+    }
+
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.flowVersion)) {
+      query["FlowVersion"] = request.flowVersion;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneNumbersShrink)) {
+      query["PhoneNumbers"] = request.phoneNumbersShrink;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.wabaId)) {
+      query["WabaId"] = request.wabaId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FlowBindPhone",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FlowBindPhoneResponse>(await this.callApi(params, req, runtime), new $_model.FlowBindPhoneResponse({}));
+  }
+
+  /**
+   * Bind phone numbers to flow
+   * 
+   * @param request - FlowBindPhoneRequest
+   * @returns FlowBindPhoneResponse
+   */
+  async flowBindPhone(request: $_model.FlowBindPhoneRequest): Promise<$_model.FlowBindPhoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.flowBindPhoneWithOptions(request, runtime);
+  }
+
+  /**
+   * Rebind phone number for flow
+   * 
+   * @param tmpReq - FlowRebindPhoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FlowRebindPhoneResponse
+   */
+  async flowRebindPhoneWithOptions(tmpReq: $_model.FlowRebindPhoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FlowRebindPhoneResponse> {
+    tmpReq.validate();
+    let request = new $_model.FlowRebindPhoneShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.phoneNumbers)) {
+      request.phoneNumbersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.phoneNumbers, "PhoneNumbers", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.channelCode)) {
+      query["ChannelCode"] = request.channelCode;
+    }
+
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.flowVersion)) {
+      query["FlowVersion"] = request.flowVersion;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneNumbersShrink)) {
+      query["PhoneNumbers"] = request.phoneNumbersShrink;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.wabaId)) {
+      query["WabaId"] = request.wabaId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FlowRebindPhone",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FlowRebindPhoneResponse>(await this.callApi(params, req, runtime), new $_model.FlowRebindPhoneResponse({}));
+  }
+
+  /**
+   * Rebind phone number for flow
+   * 
+   * @param request - FlowRebindPhoneRequest
+   * @returns FlowRebindPhoneResponse
+   */
+  async flowRebindPhone(request: $_model.FlowRebindPhoneRequest): Promise<$_model.FlowRebindPhoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.flowRebindPhoneWithOptions(request, runtime);
+  }
+
+  /**
+   * Unbind phone number from flow
+   * 
+   * @param tmpReq - FlowUnbindPhoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FlowUnbindPhoneResponse
+   */
+  async flowUnbindPhoneWithOptions(tmpReq: $_model.FlowUnbindPhoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FlowUnbindPhoneResponse> {
+    tmpReq.validate();
+    let request = new $_model.FlowUnbindPhoneShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.phoneNumbers)) {
+      request.phoneNumbersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.phoneNumbers, "PhoneNumbers", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.flowVersion)) {
+      query["FlowVersion"] = request.flowVersion;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneNumbersShrink)) {
+      query["PhoneNumbers"] = request.phoneNumbersShrink;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FlowUnbindPhone",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FlowUnbindPhoneResponse>(await this.callApi(params, req, runtime), new $_model.FlowUnbindPhoneResponse({}));
+  }
+
+  /**
+   * Unbind phone number from flow
+   * 
+   * @param request - FlowUnbindPhoneRequest
+   * @returns FlowUnbindPhoneResponse
+   */
+  async flowUnbindPhone(request: $_model.FlowUnbindPhoneRequest): Promise<$_model.FlowUnbindPhoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.flowUnbindPhoneWithOptions(request, runtime);
+  }
+
+  /**
+   * Get ChatFlow Runtime Data
+   * 
+   * @param tmpReq - GetChatFlowMetricRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChatFlowMetricResponse
+   */
+  async getChatFlowMetricWithOptions(tmpReq: $_model.GetChatFlowMetricRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetChatFlowMetricResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetChatFlowMetricShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.flowVersion)) {
+      query["FlowVersion"] = request.flowVersion;
+    }
+
+    if (!$dara.isNull(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!$dara.isNull(request.metricName)) {
+      query["MetricName"] = request.metricName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.to)) {
+      query["To"] = request.to;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetChatFlowMetric",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetChatFlowMetricResponse>(await this.callApi(params, req, runtime), new $_model.GetChatFlowMetricResponse({}));
+  }
+
+  /**
+   * Get ChatFlow Runtime Data
+   * 
+   * @param request - GetChatFlowMetricRequest
+   * @returns GetChatFlowMetricResponse
+   */
+  async getChatFlowMetric(request: $_model.GetChatFlowMetricRequest): Promise<$_model.GetChatFlowMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getChatFlowMetricWithOptions(request, runtime);
+  }
+
+  /**
+   * Query chatFlow template
+   * 
+   * @param request - GetChatFlowTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChatFlowTemplateResponse
+   */
+  async getChatFlowTemplateWithOptions(request: $_model.GetChatFlowTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetChatFlowTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetChatFlowTemplate",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetChatFlowTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetChatFlowTemplateResponse({}));
+  }
+
+  /**
+   * Query chatFlow template
+   * 
+   * @param request - GetChatFlowTemplateRequest
+   * @returns GetChatFlowTemplateResponse
+   */
+  async getChatFlowTemplate(request: $_model.GetChatFlowTemplateRequest): Promise<$_model.GetChatFlowTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getChatFlowTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -2732,6 +3352,222 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据flowCode查询已绑定列表
+   * 
+   * @param request - ListBindingRelationsForFlowVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBindingRelationsForFlowVersionResponse
+   */
+  async listBindingRelationsForFlowVersionWithOptions(request: $_model.ListBindingRelationsForFlowVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBindingRelationsForFlowVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBindingRelationsForFlowVersion",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBindingRelationsForFlowVersionResponse>(await this.callApi(params, req, runtime), new $_model.ListBindingRelationsForFlowVersionResponse({}));
+  }
+
+  /**
+   * 根据flowCode查询已绑定列表
+   * 
+   * @param request - ListBindingRelationsForFlowVersionRequest
+   * @returns ListBindingRelationsForFlowVersionResponse
+   */
+  async listBindingRelationsForFlowVersion(request: $_model.ListBindingRelationsForFlowVersionRequest): Promise<$_model.ListBindingRelationsForFlowVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBindingRelationsForFlowVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * List Flows
+   * 
+   * @param tmpReq - ListChatFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChatFlowResponse
+   */
+  async listChatFlowWithOptions(tmpReq: $_model.ListChatFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListChatFlowResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListChatFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowTriggerType)) {
+      query["FlowTriggerType"] = request.flowTriggerType;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.returnWithOnlineVersion)) {
+      query["ReturnWithOnlineVersion"] = request.returnWithOnlineVersion;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChatFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListChatFlowResponse>(await this.callApi(params, req, runtime), new $_model.ListChatFlowResponse({}));
+  }
+
+  /**
+   * List Flows
+   * 
+   * @param request - ListChatFlowRequest
+   * @returns ListChatFlowResponse
+   */
+  async listChatFlow(request: $_model.ListChatFlowRequest): Promise<$_model.ListChatFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listChatFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * ChatFlow Template List
+   * 
+   * @param request - ListChatFlowTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChatFlowTemplateResponse
+   */
+  async listChatFlowTemplateWithOptions(request: $_model.ListChatFlowTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListChatFlowTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.triggerType)) {
+      query["TriggerType"] = request.triggerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChatFlowTemplate",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListChatFlowTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ListChatFlowTemplateResponse({}));
+  }
+
+  /**
+   * ChatFlow Template List
+   * 
+   * @param request - ListChatFlowTemplateRequest
+   * @returns ListChatFlowTemplateResponse
+   */
+  async listChatFlowTemplate(request: $_model.ListChatFlowTemplateRequest): Promise<$_model.ListChatFlowTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listChatFlowTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * ListChatGroup
    * 
    * @param tmpReq - ListChatGroupRequest
@@ -3054,6 +3890,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * List Flow Versions
+   * 
+   * @param tmpReq - ListFlowVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlowVersionResponse
+   */
+  async listFlowVersionWithOptions(tmpReq: $_model.ListFlowVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlowVersionResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListFlowVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFlowVersion",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFlowVersionResponse>(await this.callApi(params, req, runtime), new $_model.ListFlowVersionResponse({}));
+  }
+
+  /**
+   * List Flow Versions
+   * 
+   * @param request - ListFlowVersionRequest
+   * @returns ListFlowVersionResponse
+   */
+  async listFlowVersion(request: $_model.ListFlowVersionRequest): Promise<$_model.ListFlowVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFlowVersionWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a list of quick-response (QR) codes that contain messages.
    * 
    * @param request - ListPhoneMessageQrdlRequest
@@ -3062,17 +3978,29 @@ export default class Client extends OpenApi {
    */
   async listPhoneMessageQrdlWithOptions(request: $_model.ListPhoneMessageQrdlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPhoneMessageQrdlResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.phoneNumber)) {
-      body["PhoneNumber"] = request.phoneNumber;
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "ListPhoneMessageQrdl",
@@ -3604,6 +4532,158 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Offline Flow Version
+   * 
+   * @param tmpReq - OfflineFlowVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OfflineFlowVersionResponse
+   */
+  async offlineFlowVersionWithOptions(tmpReq: $_model.OfflineFlowVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OfflineFlowVersionResponse> {
+    tmpReq.validate();
+    let request = new $_model.OfflineFlowVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.flowVersion)) {
+      query["FlowVersion"] = request.flowVersion;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OfflineFlowVersion",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OfflineFlowVersionResponse>(await this.callApi(params, req, runtime), new $_model.OfflineFlowVersionResponse({}));
+  }
+
+  /**
+   * Offline Flow Version
+   * 
+   * @param request - OfflineFlowVersionRequest
+   * @returns OfflineFlowVersionResponse
+   */
+  async offlineFlowVersion(request: $_model.OfflineFlowVersionRequest): Promise<$_model.OfflineFlowVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.offlineFlowVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * Online Flow Version
+   * 
+   * @param tmpReq - OnlineFlowVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OnlineFlowVersionResponse
+   */
+  async onlineFlowVersionWithOptions(tmpReq: $_model.OnlineFlowVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OnlineFlowVersionResponse> {
+    tmpReq.validate();
+    let request = new $_model.OnlineFlowVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.flowVersion)) {
+      query["FlowVersion"] = request.flowVersion;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OnlineFlowVersion",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OnlineFlowVersionResponse>(await this.callApi(params, req, runtime), new $_model.OnlineFlowVersionResponse({}));
+  }
+
+  /**
+   * Online Flow Version
+   * 
+   * @param request - OnlineFlowVersionRequest
+   * @returns OnlineFlowVersionResponse
+   */
+  async onlineFlowVersion(request: $_model.OnlineFlowVersionRequest): Promise<$_model.OnlineFlowVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.onlineFlowVersionWithOptions(request, runtime);
+  }
+
+  /**
    * Publishes a Flow.
    * 
    * @remarks
@@ -3913,6 +4993,204 @@ export default class Client extends OpenApi {
   async queryWabaBusinessInfo(request: $_model.QueryWabaBusinessInfoRequest): Promise<$_model.QueryWabaBusinessInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryWabaBusinessInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieve Flow
+   * 
+   * @param tmpReq - ReadChatFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReadChatFlowResponse
+   */
+  async readChatFlowWithOptions(tmpReq: $_model.ReadChatFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReadChatFlowResponse> {
+    tmpReq.validate();
+    let request = new $_model.ReadChatFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReadChatFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReadChatFlowResponse>(await this.callApi(params, req, runtime), new $_model.ReadChatFlowResponse({}));
+  }
+
+  /**
+   * Retrieve Flow
+   * 
+   * @param request - ReadChatFlowRequest
+   * @returns ReadChatFlowResponse
+   */
+  async readChatFlow(request: $_model.ReadChatFlowRequest): Promise<$_model.ReadChatFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.readChatFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * View chatFlow log settings
+   * 
+   * @param request - ReadChatFlowLogSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReadChatFlowLogSettingResponse
+   */
+  async readChatFlowLogSettingWithOptions(request: $_model.ReadChatFlowLogSettingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReadChatFlowLogSettingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReadChatFlowLogSetting",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReadChatFlowLogSettingResponse>(await this.callApi(params, req, runtime), new $_model.ReadChatFlowLogSettingResponse({}));
+  }
+
+  /**
+   * View chatFlow log settings
+   * 
+   * @param request - ReadChatFlowLogSettingRequest
+   * @returns ReadChatFlowLogSettingResponse
+   */
+  async readChatFlowLogSetting(request: $_model.ReadChatFlowLogSettingRequest): Promise<$_model.ReadChatFlowLogSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.readChatFlowLogSettingWithOptions(request, runtime);
+  }
+
+  /**
+   * Get Flow Version
+   * 
+   * @param tmpReq - ReadFlowVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReadFlowVersionResponse
+   */
+  async readFlowVersionWithOptions(tmpReq: $_model.ReadFlowVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReadFlowVersionResponse> {
+    tmpReq.validate();
+    let request = new $_model.ReadFlowVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.flowVersion)) {
+      query["FlowVersion"] = request.flowVersion;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReadFlowVersion",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReadFlowVersionResponse>(await this.callApi(params, req, runtime), new $_model.ReadFlowVersionResponse({}));
+  }
+
+  /**
+   * Get Flow Version
+   * 
+   * @param request - ReadFlowVersionRequest
+   * @returns ReadFlowVersionResponse
+   */
+  async readFlowVersion(request: $_model.ReadFlowVersionRequest): Promise<$_model.ReadFlowVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.readFlowVersionWithOptions(request, runtime);
   }
 
   /**
@@ -4428,6 +5706,144 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get Process
+   * 
+   * @param tmpReq - UpdateChatFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateChatFlowResponse
+   */
+  async updateChatFlowWithOptions(tmpReq: $_model.UpdateChatFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateChatFlowResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateChatFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateChatFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateChatFlowResponse>(await this.callApi(params, req, runtime), new $_model.UpdateChatFlowResponse({}));
+  }
+
+  /**
+   * Get Process
+   * 
+   * @param request - UpdateChatFlowRequest
+   * @returns UpdateChatFlowResponse
+   */
+  async updateChatFlow(request: $_model.UpdateChatFlowRequest): Promise<$_model.UpdateChatFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateChatFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * Modify chatFlow log settings
+   * 
+   * @param request - UpdateChatFlowLogSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateChatFlowLogSettingResponse
+   */
+  async updateChatFlowLogSettingWithOptions(request: $_model.UpdateChatFlowLogSettingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateChatFlowLogSettingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateChatFlowLogSetting",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateChatFlowLogSettingResponse>(await this.callApi(params, req, runtime), new $_model.UpdateChatFlowLogSettingResponse({}));
+  }
+
+  /**
+   * Modify chatFlow log settings
+   * 
+   * @param request - UpdateChatFlowLogSettingRequest
+   * @returns UpdateChatFlowLogSettingResponse
+   */
+  async updateChatFlowLogSetting(request: $_model.UpdateChatFlowLogSettingRequest): Promise<$_model.UpdateChatFlowLogSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateChatFlowLogSettingWithOptions(request, runtime);
+  }
+
+  /**
    * UpdateChatGroup
    * 
    * @param request - UpdateChatGroupRequest
@@ -4715,6 +6131,86 @@ export default class Client extends OpenApi {
   async updateFlowJSONAsset(request: $_model.UpdateFlowJSONAssetRequest): Promise<$_model.UpdateFlowJSONAssetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateFlowJSONAssetWithOptions(request, runtime);
+  }
+
+  /**
+   * Update flow version, used for updating the flow DSL on the canvas
+   * 
+   * @param tmpReq - UpdateFlowVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFlowVersionResponse
+   */
+  async updateFlowVersionWithOptions(tmpReq: $_model.UpdateFlowVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFlowVersionResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateFlowVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizExtend)) {
+      request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.bizExtendShrink)) {
+      query["BizExtend"] = request.bizExtendShrink;
+    }
+
+    if (!$dara.isNull(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!$dara.isNull(request.flowVersion)) {
+      query["FlowVersion"] = request.flowVersion;
+    }
+
+    if (!$dara.isNull(request.flowViewModel)) {
+      query["FlowViewModel"] = request.flowViewModel;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFlowVersion",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFlowVersionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFlowVersionResponse({}));
+  }
+
+  /**
+   * Update flow version, used for updating the flow DSL on the canvas
+   * 
+   * @param request - UpdateFlowVersionRequest
+   * @returns UpdateFlowVersionResponse
+   */
+  async updateFlowVersion(request: $_model.UpdateFlowVersionRequest): Promise<$_model.UpdateFlowVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateFlowVersionWithOptions(request, runtime);
   }
 
   /**
