@@ -17,12 +17,11 @@ export class ModifyDomainShrinkRequest extends $dara.Model {
    * @remarks
    * The domain name whose access configurations you want to modify.
    * 
-   * This parameter is required.
-   * 
    * @example
    * www.aliyundoc.com
    */
   domain?: string;
+  domainId?: string;
   /**
    * @remarks
    * The ID of the WAF instance.
@@ -66,6 +65,7 @@ export class ModifyDomainShrinkRequest extends $dara.Model {
     return {
       accessType: 'AccessType',
       domain: 'Domain',
+      domainId: 'DomainId',
       instanceId: 'InstanceId',
       listenShrink: 'Listen',
       redirectShrink: 'Redirect',
@@ -77,6 +77,7 @@ export class ModifyDomainShrinkRequest extends $dara.Model {
     return {
       accessType: 'string',
       domain: 'string',
+      domainId: 'string',
       instanceId: 'string',
       listenShrink: 'string',
       redirectShrink: 'string',

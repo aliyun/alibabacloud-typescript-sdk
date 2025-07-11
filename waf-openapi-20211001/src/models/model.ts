@@ -237,6 +237,9 @@ export { DeleteDefenseResourceGroupResponse } from './DeleteDefenseResourceGroup
 export { DeleteDefenseRuleRequest } from './DeleteDefenseRuleRequest';
 export { DeleteDefenseRuleResponseBody } from './DeleteDefenseRuleResponseBody';
 export { DeleteDefenseRuleResponse } from './DeleteDefenseRuleResponse';
+export { DeleteDefenseRuleBlockIpRequest } from './DeleteDefenseRuleBlockIpRequest';
+export { DeleteDefenseRuleBlockIpResponseBody } from './DeleteDefenseRuleBlockIpResponseBody';
+export { DeleteDefenseRuleBlockIpResponse } from './DeleteDefenseRuleBlockIpResponse';
 export { DeleteDefenseTemplateRequest } from './DeleteDefenseTemplateRequest';
 export { DeleteDefenseTemplateResponseBody } from './DeleteDefenseTemplateResponseBody';
 export { DeleteDefenseTemplateResponse } from './DeleteDefenseTemplateResponse';

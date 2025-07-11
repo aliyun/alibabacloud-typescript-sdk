@@ -26,6 +26,7 @@ export class DescribeDomainsResponseBodyDomains extends $dara.Model {
    * www.aliyundoc.com
    */
   domain?: string;
+  domainId?: string;
   /**
    * @remarks
    * The configurations of the listeners.
@@ -58,6 +59,7 @@ export class DescribeDomainsResponseBodyDomains extends $dara.Model {
       backeds: 'Backeds',
       cname: 'Cname',
       domain: 'Domain',
+      domainId: 'DomainId',
       listenPorts: 'ListenPorts',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       status: 'Status',
@@ -69,6 +71,7 @@ export class DescribeDomainsResponseBodyDomains extends $dara.Model {
       backeds: DescribeDomainsResponseBodyDomainsBackeds,
       cname: 'string',
       domain: 'string',
+      domainId: 'string',
       listenPorts: DescribeDomainsResponseBodyDomainsListenPorts,
       resourceManagerResourceGroupId: 'string',
       status: 'number',

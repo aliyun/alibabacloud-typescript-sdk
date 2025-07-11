@@ -19,12 +19,11 @@ export class ModifyDomainRequest extends $dara.Model {
    * @remarks
    * The domain name whose access configurations you want to modify.
    * 
-   * This parameter is required.
-   * 
    * @example
    * www.aliyundoc.com
    */
   domain?: string;
+  domainId?: string;
   /**
    * @remarks
    * The ID of the WAF instance.
@@ -68,6 +67,7 @@ export class ModifyDomainRequest extends $dara.Model {
     return {
       accessType: 'AccessType',
       domain: 'Domain',
+      domainId: 'DomainId',
       instanceId: 'InstanceId',
       listen: 'Listen',
       redirect: 'Redirect',
@@ -79,6 +79,7 @@ export class ModifyDomainRequest extends $dara.Model {
     return {
       accessType: 'string',
       domain: 'string',
+      domainId: 'string',
       instanceId: 'string',
       listen: ModifyDomainRequestListen,
       redirect: ModifyDomainRequestRedirect,

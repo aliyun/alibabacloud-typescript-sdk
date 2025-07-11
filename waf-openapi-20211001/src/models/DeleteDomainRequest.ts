@@ -18,8 +18,6 @@ export class DeleteDomainRequest extends $dara.Model {
    * @remarks
    * The domain name that you want to delete.
    * 
-   * This parameter is required.
-   * 
    * @example
    * www.aliyundoc.com
    */

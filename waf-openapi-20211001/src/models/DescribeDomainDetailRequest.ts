@@ -7,12 +7,11 @@ export class DescribeDomainDetailRequest extends $dara.Model {
    * @remarks
    * The domain name that you want to query.
    * 
-   * This parameter is required.
-   * 
    * @example
    * www.aliyundoc.com
    */
   domain?: string;
+  domainId?: string;
   /**
    * @remarks
    * The ID of the WAF instance.
@@ -39,6 +38,7 @@ export class DescribeDomainDetailRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
+      domainId: 'DomainId',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
     };
@@ -47,6 +47,7 @@ export class DescribeDomainDetailRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       domain: 'string',
+      domainId: 'string',
       instanceId: 'string',
       regionId: 'string',
     };

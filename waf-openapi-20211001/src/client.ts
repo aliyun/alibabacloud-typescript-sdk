@@ -1510,6 +1510,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新防护规则封禁Ip
+   * 
+   * @param request - DeleteDefenseRuleBlockIpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDefenseRuleBlockIpResponse
+   */
+  async deleteDefenseRuleBlockIpWithOptions(request: $_model.DeleteDefenseRuleBlockIpRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDefenseRuleBlockIpResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDefenseRuleBlockIp",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDefenseRuleBlockIpResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDefenseRuleBlockIpResponse({}));
+  }
+
+  /**
+   * 更新防护规则封禁Ip
+   * 
+   * @param request - DeleteDefenseRuleBlockIpRequest
+   * @returns DeleteDefenseRuleBlockIpResponse
+   */
+  async deleteDefenseRuleBlockIp(request: $_model.DeleteDefenseRuleBlockIpRequest): Promise<$_model.DeleteDefenseRuleBlockIpResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDefenseRuleBlockIpWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a protection rule template.
    * 
    * @param request - DeleteDefenseTemplateRequest
@@ -4573,6 +4631,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.domain)) {
       query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.domainId)) {
+      query["DomainId"] = request.domainId;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -9957,6 +10019,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.domain)) {
       query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.domainId)) {
+      query["DomainId"] = request.domainId;
     }
 
     if (!$dara.isNull(request.instanceId)) {

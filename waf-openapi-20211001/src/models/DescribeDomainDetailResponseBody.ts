@@ -28,6 +28,7 @@ export class DescribeDomainDetailResponseBody extends $dara.Model {
    * www.aliyundoc.com
    */
   domain?: string;
+  domainId?: string;
   /**
    * @remarks
    * The configurations of the listeners.
@@ -78,6 +79,7 @@ export class DescribeDomainDetailResponseBody extends $dara.Model {
       certDetail: 'CertDetail',
       cname: 'Cname',
       domain: 'Domain',
+      domainId: 'DomainId',
       listen: 'Listen',
       redirect: 'Redirect',
       requestId: 'RequestId',
@@ -92,6 +94,7 @@ export class DescribeDomainDetailResponseBody extends $dara.Model {
       certDetail: DescribeDomainDetailResponseBodyCertDetail,
       cname: 'string',
       domain: 'string',
+      domainId: 'string',
       listen: DescribeDomainDetailResponseBodyListen,
       redirect: DescribeDomainDetailResponseBodyRedirect,
       requestId: 'string',
