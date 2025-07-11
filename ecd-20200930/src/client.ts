@@ -3515,6 +3515,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建网盘
+   * 
+   * @param request - CreateDriveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDriveResponse
+   */
+  async createDriveWithOptions(request: $_model.CreateDriveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDriveResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aliUid)) {
+      query["AliUid"] = request.aliUid;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!$dara.isNull(request.driveName)) {
+      query["DriveName"] = request.driveName;
+    }
+
+    if (!$dara.isNull(request.externalDomainId)) {
+      query["ExternalDomainId"] = request.externalDomainId;
+    }
+
+    if (!$dara.isNull(request.profileRoaming)) {
+      query["ProfileRoaming"] = request.profileRoaming;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDrive",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDriveResponse>(await this.callApi(params, req, runtime), new $_model.CreateDriveResponse({}));
+  }
+
+  /**
+   * 创建网盘
+   * 
+   * @param request - CreateDriveRequest
+   * @returns CreateDriveResponse
+   */
+  async createDrive(request: $_model.CreateDriveRequest): Promise<$_model.CreateDriveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDriveWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a custom image based on a deployed cloud computer. Then, you can use the custom image to create cloud computers that have the same configurations. This prevents the repeated settings when you create cloud computers.
    * 
    * @param request - CreateImageRequest
@@ -4963,6 +5041,52 @@ export default class Client extends OpenApi {
   async deleteDirectories(request: $_model.DeleteDirectoriesRequest): Promise<$_model.DeleteDirectoriesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDirectoriesWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除网盘
+   * 
+   * @param request - DeleteDriveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDriveResponse
+   */
+  async deleteDriveWithOptions(request: $_model.DeleteDriveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDriveResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.driveId)) {
+      query["DriveId"] = request.driveId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDrive",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDriveResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDriveResponse({}));
+  }
+
+  /**
+   * 删除网盘
+   * 
+   * @param request - DeleteDriveRequest
+   * @returns DeleteDriveResponse
+   */
+  async deleteDrive(request: $_model.DeleteDriveRequest): Promise<$_model.DeleteDriveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDriveWithOptions(request, runtime);
   }
 
   /**
@@ -7295,6 +7419,68 @@ export default class Client extends OpenApi {
   async describeDirectories(request: $_model.DescribeDirectoriesRequest): Promise<$_model.DescribeDirectoriesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDirectoriesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询网盘列表
+   * 
+   * @param request - DescribeDrivesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDrivesResponse
+   */
+  async describeDrivesWithOptions(request: $_model.DescribeDrivesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDrivesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domainIds)) {
+      query["DomainIds"] = request.domainIds;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDrives",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDrivesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDrivesResponse({}));
+  }
+
+  /**
+   * 查询网盘列表
+   * 
+   * @param request - DescribeDrivesRequest
+   * @returns DescribeDrivesResponse
+   */
+  async describeDrives(request: $_model.DescribeDrivesRequest): Promise<$_model.DescribeDrivesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDrivesWithOptions(request, runtime);
   }
 
   /**
