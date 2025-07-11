@@ -1504,6 +1504,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 客户端连接保持
+   * 
+   * @param request - KeepaliveIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns KeepaliveIntlResponse
+   */
+  async keepaliveIntlWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.KeepaliveIntlResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "KeepaliveIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.KeepaliveIntlResponse>(await this.callApi(params, req, runtime), new $_model.KeepaliveIntlResponse({}));
+  }
+
+  /**
+   * 客户端连接保持
+   * @returns KeepaliveIntlResponse
+   */
+  async keepaliveIntl(): Promise<$_model.KeepaliveIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.keepaliveIntlWithOptions(runtime);
+  }
+
+  /**
    * 手机号三要素国际版接口
    * 
    * @param request - Mobile3MetaVerifyIntlRequest

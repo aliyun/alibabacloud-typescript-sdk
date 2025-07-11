@@ -16,6 +16,7 @@ export { FaceLivenessResponseBodyResult } from './FaceLivenessResponseBodyResult
 export { Id2MetaPeriodVerifyIntlResponseBodyResult } from './Id2metaPeriodVerifyIntlResponseBodyResult';
 export { Id2MetaVerifyIntlResponseBodyResult } from './Id2metaVerifyIntlResponseBodyResult';
 export { InitializeResponseBodyResult } from './InitializeResponseBodyResult';
+export { KeepaliveIntlResponseBodyResult } from './KeepaliveIntlResponseBodyResult';
 export { Mobile3MetaVerifyIntlResponseBodyResult } from './Mobile3metaVerifyIntlResponseBodyResult';
 export { AddressVerifyIntlRequest } from './AddressVerifyIntlRequest';
 export { AddressVerifyIntlResponseBody } from './AddressVerifyIntlResponseBody';
@@ -73,6 +74,8 @@ export { InitializeRequest } from './InitializeRequest';
 export { InitializeShrinkRequest } from './InitializeShrinkRequest';
 export { InitializeResponseBody } from './InitializeResponseBody';
 export { InitializeResponse } from './InitializeResponse';
+export { KeepaliveIntlResponseBody } from './KeepaliveIntlResponseBody';
+export { KeepaliveIntlResponse } from './KeepaliveIntlResponse';
 export { Mobile3MetaVerifyIntlRequest } from './Mobile3metaVerifyIntlRequest';
 export { Mobile3MetaVerifyIntlResponseBody } from './Mobile3metaVerifyIntlResponseBody';
 export { Mobile3MetaVerifyIntlResponse } from './Mobile3metaVerifyIntlResponse';
