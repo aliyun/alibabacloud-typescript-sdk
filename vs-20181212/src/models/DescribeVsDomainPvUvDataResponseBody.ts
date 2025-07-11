@@ -1,7 +1,73 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeVsDomainPvUvDataResponseBodyPvUvDataInfos } from "./DescribeVsDomainPvUvDataResponseBodyPvUvDataInfos";
 
+
+export class DescribeVsDomainPvUvDataResponseBodyPvUvDataInfosPvUvDataInfo extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  PV?: string;
+  /**
+   * @example
+   * 2021-10-14T23:00:00Z
+   */
+  timeStamp?: string;
+  /**
+   * @example
+   * 100
+   */
+  UV?: string;
+  static names(): { [key: string]: string } {
+    return {
+      PV: 'PV',
+      timeStamp: 'TimeStamp',
+      UV: 'UV',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      PV: 'string',
+      timeStamp: 'string',
+      UV: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVsDomainPvUvDataResponseBodyPvUvDataInfos extends $dara.Model {
+  pvUvDataInfo?: DescribeVsDomainPvUvDataResponseBodyPvUvDataInfosPvUvDataInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      pvUvDataInfo: 'PvUvDataInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pvUvDataInfo: { 'type': 'array', 'itemType': DescribeVsDomainPvUvDataResponseBodyPvUvDataInfosPvUvDataInfo },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.pvUvDataInfo)) {
+      $dara.Model.validateArray(this.pvUvDataInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeVsDomainPvUvDataResponseBody extends $dara.Model {
   /**

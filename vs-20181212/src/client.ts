@@ -1818,6 +1818,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.instanceBillingCycle)) {
+      query["InstanceBillingCycle"] = request.instanceBillingCycle;
+    }
+
     if (!$dara.isNull(request.renderingInstanceId)) {
       query["RenderingInstanceId"] = request.renderingInstanceId;
     }

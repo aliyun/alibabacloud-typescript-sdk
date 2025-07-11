@@ -1,10 +1,162 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeRenderingSessionResponseBodyAdditionalIngresses } from "./DescribeRenderingSessionResponseBodyAdditionalIngresses";
-import { DescribeRenderingSessionResponseBodyLocation } from "./DescribeRenderingSessionResponseBodyLocation";
-import { DescribeRenderingSessionResponseBodyPortMappings } from "./DescribeRenderingSessionResponseBodyPortMappings";
-import { DescribeRenderingSessionResponseBodyStateInfo } from "./DescribeRenderingSessionResponseBodyStateInfo";
 
+
+export class DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings extends $dara.Model {
+  externalPort?: string;
+  internalPort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalPort: 'ExternalPort',
+      internalPort: 'InternalPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalPort: 'string',
+      internalPort: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenderingSessionResponseBodyAdditionalIngresses extends $dara.Model {
+  hostname?: string;
+  isp?: string;
+  portMappings?: DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      hostname: 'Hostname',
+      isp: 'Isp',
+      portMappings: 'PortMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostname: 'string',
+      isp: 'string',
+      portMappings: { 'type': 'array', 'itemType': DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.portMappings)) {
+      $dara.Model.validateArray(this.portMappings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenderingSessionResponseBodyLocation extends $dara.Model {
+  /**
+   * @example
+   * 310000
+   */
+  provinceCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      provinceCode: 'ProvinceCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      provinceCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenderingSessionResponseBodyPortMappings extends $dara.Model {
+  /**
+   * @example
+   * 10013/10020
+   */
+  externalPort?: string;
+  /**
+   * @example
+   * 49008/49015
+   */
+  internalPort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalPort: 'ExternalPort',
+      internalPort: 'InternalPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalPort: 'string',
+      internalPort: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenderingSessionResponseBodyStateInfo extends $dara.Model {
+  comment?: string;
+  /**
+   * @example
+   * SessionStarted
+   */
+  state?: string;
+  /**
+   * @example
+   * 2024-10-15T10:05:20+08:00
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      state: 'State',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      state: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeRenderingSessionResponseBody extends $dara.Model {
   additionalIngresses?: DescribeRenderingSessionResponseBodyAdditionalIngresses[];

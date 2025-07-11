@@ -9,6 +9,7 @@ export class CreateRenderingDataPackageRequest extends $dara.Model {
    * testdescription
    */
   description?: string;
+  instanceBillingCycle?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -21,6 +22,7 @@ export class CreateRenderingDataPackageRequest extends $dara.Model {
     return {
       category: 'Category',
       description: 'Description',
+      instanceBillingCycle: 'InstanceBillingCycle',
       renderingInstanceId: 'RenderingInstanceId',
     };
   }
@@ -29,6 +31,7 @@ export class CreateRenderingDataPackageRequest extends $dara.Model {
     return {
       category: 'string',
       description: 'string',
+      instanceBillingCycle: 'string',
       renderingInstanceId: 'string',
     };
   }

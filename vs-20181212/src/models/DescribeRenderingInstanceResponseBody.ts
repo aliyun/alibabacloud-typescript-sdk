@@ -1,11 +1,316 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeRenderingInstanceResponseBodyAdditionalIngresses } from "./DescribeRenderingInstanceResponseBodyAdditionalIngresses";
-import { DescribeRenderingInstanceResponseBodyConfigInfo } from "./DescribeRenderingInstanceResponseBodyConfigInfo";
-import { DescribeRenderingInstanceResponseBodyPortMappings } from "./DescribeRenderingInstanceResponseBodyPortMappings";
-import { DescribeRenderingInstanceResponseBodyRenderingStatus } from "./DescribeRenderingInstanceResponseBodyRenderingStatus";
-import { DescribeRenderingInstanceResponseBodySystemInfo } from "./DescribeRenderingInstanceResponseBodySystemInfo";
 
+
+export class DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings extends $dara.Model {
+  externalPort?: string;
+  internalPort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalPort: 'ExternalPort',
+      internalPort: 'InternalPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalPort: 'string',
+      internalPort: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenderingInstanceResponseBodyAdditionalIngresses extends $dara.Model {
+  hostname?: string;
+  isp?: string;
+  portMappings?: DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      hostname: 'Hostname',
+      isp: 'Isp',
+      portMappings: 'PortMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostname: 'string',
+      isp: 'string',
+      portMappings: { 'type': 'array', 'itemType': DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.portMappings)) {
+      $dara.Model.validateArray(this.portMappings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenderingInstanceResponseBodyConfigInfoConfigurationAttributes extends $dara.Model {
+  /**
+   * @example
+   * lon
+   */
+  name?: string;
+  /**
+   * @example
+   * 100
+   */
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenderingInstanceResponseBodyConfigInfoConfiguration extends $dara.Model {
+  attributes?: DescribeRenderingInstanceResponseBodyConfigInfoConfigurationAttributes[];
+  /**
+   * @example
+   * location
+   */
+  moduleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      moduleName: 'ModuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: { 'type': 'array', 'itemType': DescribeRenderingInstanceResponseBodyConfigInfoConfigurationAttributes },
+      moduleName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.attributes)) {
+      $dara.Model.validateArray(this.attributes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenderingInstanceResponseBodyConfigInfoNetworkConfig extends $dara.Model {
+  /**
+   * @example
+   * success
+   */
+  bandwidthStatus?: string;
+  /**
+   * @example
+   * 100
+   */
+  maxEgressBandwidth?: number;
+  /**
+   * @example
+   * 100
+   */
+  maxIngressBandwidth?: number;
+  /**
+   * @example
+   * 2023-08-17T09:54:35Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthStatus: 'BandwidthStatus',
+      maxEgressBandwidth: 'MaxEgressBandwidth',
+      maxIngressBandwidth: 'MaxIngressBandwidth',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthStatus: 'string',
+      maxEgressBandwidth: 'number',
+      maxIngressBandwidth: 'number',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenderingInstanceResponseBodyConfigInfo extends $dara.Model {
+  configuration?: DescribeRenderingInstanceResponseBodyConfigInfoConfiguration[];
+  networkConfig?: DescribeRenderingInstanceResponseBodyConfigInfoNetworkConfig;
+  static names(): { [key: string]: string } {
+    return {
+      configuration: 'Configuration',
+      networkConfig: 'NetworkConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configuration: { 'type': 'array', 'itemType': DescribeRenderingInstanceResponseBodyConfigInfoConfiguration },
+      networkConfig: DescribeRenderingInstanceResponseBodyConfigInfoNetworkConfig,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configuration)) {
+      $dara.Model.validateArray(this.configuration);
+    }
+    if(this.networkConfig && typeof (this.networkConfig as any).validate === 'function') {
+      (this.networkConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenderingInstanceResponseBodyPortMappings extends $dara.Model {
+  /**
+   * @example
+   * 10013/10020
+   */
+  externalPort?: string;
+  /**
+   * @example
+   * 49008/49015
+   */
+  internalPort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalPort: 'ExternalPort',
+      internalPort: 'InternalPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalPort: 'string',
+      internalPort: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenderingInstanceResponseBodyRenderingStatus extends $dara.Model {
+  description?: string;
+  /**
+   * @example
+   * MigrateLocalData
+   */
+  latestAction?: string;
+  /**
+   * @example
+   * Working
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      latestAction: 'LatestAction',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      latestAction: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenderingInstanceResponseBodySystemInfo extends $dara.Model {
+  /**
+   * @example
+   * 60
+   */
+  frequency?: number;
+  /**
+   * @example
+   * 1920*1080
+   */
+  resolution?: string;
+  static names(): { [key: string]: string } {
+    return {
+      frequency: 'Frequency',
+      resolution: 'Resolution',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      frequency: 'number',
+      resolution: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeRenderingInstanceResponseBody extends $dara.Model {
   additionalIngresses?: DescribeRenderingInstanceResponseBodyAdditionalIngresses[];

@@ -1,9 +1,104 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { StartRenderingSessionResponseBodyLocation } from "./StartRenderingSessionResponseBodyLocation";
-import { StartRenderingSessionResponseBodyPortMappings } from "./StartRenderingSessionResponseBodyPortMappings";
-import { StartRenderingSessionResponseBodyStateInfo } from "./StartRenderingSessionResponseBodyStateInfo";
 
+
+export class StartRenderingSessionResponseBodyLocation extends $dara.Model {
+  /**
+   * @example
+   * 610000
+   */
+  provinceCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      provinceCode: 'ProvinceCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      provinceCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartRenderingSessionResponseBodyPortMappings extends $dara.Model {
+  /**
+   * @example
+   * 10013/10020
+   */
+  externalPort?: string;
+  /**
+   * @example
+   * 49008/49015
+   */
+  internalPort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalPort: 'ExternalPort',
+      internalPort: 'InternalPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalPort: 'string',
+      internalPort: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartRenderingSessionResponseBodyStateInfo extends $dara.Model {
+  comment?: string;
+  /**
+   * @example
+   * SessionStarting
+   */
+  state?: string;
+  /**
+   * @example
+   * 2021-05-06T06:37Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      state: 'State',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      state: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class StartRenderingSessionResponseBody extends $dara.Model {
   /**

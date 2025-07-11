@@ -1,7 +1,66 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeVsDomainReqTrafficDataResponseBodyReqTrafficDataPerInterval } from "./DescribeVsDomainReqTrafficDataResponseBodyReqTrafficDataPerInterval";
 
+
+export class DescribeVsDomainReqTrafficDataResponseBodyReqTrafficDataPerIntervalDataModule extends $dara.Model {
+  /**
+   * @example
+   * 10000
+   */
+  reqTrafficValue?: string;
+  /**
+   * @example
+   * 2021-09-22T03:40:41Z
+   */
+  timeStamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reqTrafficValue: 'ReqTrafficValue',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reqTrafficValue: 'string',
+      timeStamp: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVsDomainReqTrafficDataResponseBodyReqTrafficDataPerInterval extends $dara.Model {
+  dataModule?: DescribeVsDomainReqTrafficDataResponseBodyReqTrafficDataPerIntervalDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeVsDomainReqTrafficDataResponseBodyReqTrafficDataPerIntervalDataModule },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dataModule)) {
+      $dara.Model.validateArray(this.dataModule);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeVsDomainReqTrafficDataResponseBody extends $dara.Model {
   /**

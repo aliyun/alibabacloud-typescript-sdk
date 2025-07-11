@@ -1,7 +1,66 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeVsDomainReqBpsDataResponseBodyReqBpsDataPerInterval } from "./DescribeVsDomainReqBpsDataResponseBodyReqBpsDataPerInterval";
 
+
+export class DescribeVsDomainReqBpsDataResponseBodyReqBpsDataPerIntervalDataModule extends $dara.Model {
+  /**
+   * @example
+   * 1000
+   */
+  reqBpsValue?: string;
+  /**
+   * @example
+   * 2021-12-24T16:00:00Z
+   */
+  timeStamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reqBpsValue: 'ReqBpsValue',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reqBpsValue: 'string',
+      timeStamp: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVsDomainReqBpsDataResponseBodyReqBpsDataPerInterval extends $dara.Model {
+  dataModule?: DescribeVsDomainReqBpsDataResponseBodyReqBpsDataPerIntervalDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeVsDomainReqBpsDataResponseBodyReqBpsDataPerIntervalDataModule },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dataModule)) {
+      $dara.Model.validateArray(this.dataModule);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeVsDomainReqBpsDataResponseBody extends $dara.Model {
   /**

@@ -1,8 +1,115 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDeviceResponseBodyDirectory } from "./DescribeDeviceResponseBodyDirectory";
-import { DescribeDeviceResponseBodyStats } from "./DescribeDeviceResponseBodyStats";
 
+
+export class DescribeDeviceResponseBodyDirectory extends $dara.Model {
+  /**
+   * @example
+   * 2019-02-28T17:00:17Z
+   */
+  createdTime?: string;
+  description?: string;
+  /**
+   * @example
+   * 3238848****092994-cn-qingdao
+   */
+  groupId?: string;
+  /**
+   * @example
+   * 3238848****092994-cn-qingdao
+   */
+  id?: string;
+  name?: string;
+  /**
+   * @example
+   * 3238848****092995-cn-qingdao
+   */
+  parentId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      description: 'Description',
+      groupId: 'GroupId',
+      id: 'Id',
+      name: 'Name',
+      parentId: 'ParentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      description: 'string',
+      groupId: 'string',
+      id: 'string',
+      name: 'string',
+      parentId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeviceResponseBodyStats extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  channelNum?: number;
+  /**
+   * @example
+   * 1
+   */
+  failedNum?: number;
+  /**
+   * @example
+   * 1
+   */
+  offlineNum?: number;
+  /**
+   * @example
+   * 1
+   */
+  onlineNum?: number;
+  /**
+   * @example
+   * 1
+   */
+  streamNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      channelNum: 'ChannelNum',
+      failedNum: 'FailedNum',
+      offlineNum: 'OfflineNum',
+      onlineNum: 'OnlineNum',
+      streamNum: 'StreamNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelNum: 'number',
+      failedNum: 'number',
+      offlineNum: 'number',
+      onlineNum: 'number',
+      streamNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDeviceResponseBody extends $dara.Model {
   /**
