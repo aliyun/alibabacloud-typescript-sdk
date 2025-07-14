@@ -3874,10 +3874,13 @@ export default class Client extends OpenApi {
   /**
    * Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
    * 
+   * @deprecated OpenAPI QueryReadableResourcesListByUserId is deprecated, please use quickbi-public::2022-01-01::QueryReadableResourcesListByUserIdV2 instead.
+   * 
    * @param request - QueryReadableResourcesListByUserIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryReadableResourcesListByUserIdResponse
    */
+  // Deprecated
   async queryReadableResourcesListByUserIdWithOptions(request: $_model.QueryReadableResourcesListByUserIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryReadableResourcesListByUserIdResponse> {
     request.validate();
     let query = { };
@@ -3905,12 +3908,65 @@ export default class Client extends OpenApi {
   /**
    * Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
    * 
+   * @deprecated OpenAPI QueryReadableResourcesListByUserId is deprecated, please use quickbi-public::2022-01-01::QueryReadableResourcesListByUserIdV2 instead.
+   * 
    * @param request - QueryReadableResourcesListByUserIdRequest
    * @returns QueryReadableResourcesListByUserIdResponse
    */
+  // Deprecated
   async queryReadableResourcesListByUserId(request: $_model.QueryReadableResourcesListByUserIdRequest): Promise<$_model.QueryReadableResourcesListByUserIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryReadableResourcesListByUserIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户有权查看的作品列表(新)
+   * 
+   * @param request - QueryReadableResourcesListByUserIdV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryReadableResourcesListByUserIdV2Response
+   */
+  async queryReadableResourcesListByUserIdV2WithOptions(request: $_model.QueryReadableResourcesListByUserIdV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.QueryReadableResourcesListByUserIdV2Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!$dara.isNull(request.workType)) {
+      query["WorkType"] = request.workType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryReadableResourcesListByUserIdV2",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryReadableResourcesListByUserIdV2Response>(await this.callApi(params, req, runtime), new $_model.QueryReadableResourcesListByUserIdV2Response({}));
+  }
+
+  /**
+   * 查询用户有权查看的作品列表(新)
+   * 
+   * @param request - QueryReadableResourcesListByUserIdV2Request
+   * @returns QueryReadableResourcesListByUserIdV2Response
+   */
+  async queryReadableResourcesListByUserIdV2(request: $_model.QueryReadableResourcesListByUserIdV2Request): Promise<$_model.QueryReadableResourcesListByUserIdV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryReadableResourcesListByUserIdV2WithOptions(request, runtime);
   }
 
   /**

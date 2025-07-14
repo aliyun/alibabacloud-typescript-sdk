@@ -1,7 +1,99 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListDataLevelPermissionWhiteListResponseBodyResult } from "./ListDataLevelPermissionWhiteListResponseBodyResult";
 
+
+export class ListDataLevelPermissionWhiteListResponseBodyResultUsersModel extends $dara.Model {
+  /**
+   * @remarks
+   * UserGroups.
+   */
+  userGroups?: string[];
+  /**
+   * @remarks
+   * Users.
+   */
+  users?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      userGroups: 'UserGroups',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userGroups: { 'type': 'array', 'itemType': 'string' },
+      users: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.userGroups)) {
+      $dara.Model.validateArray(this.userGroups);
+    }
+    if(Array.isArray(this.users)) {
+      $dara.Model.validateArray(this.users);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLevelPermissionWhiteListResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Dataset ID.
+   * 
+   * @example
+   * 7c7223ae-****-3c744528014b
+   */
+  cubeId?: string;
+  /**
+   * @remarks
+   * Type of dataset row and column permissions. Possible values:
+   * 
+   * - ROW_LEVEL: Row-level permission
+   * - COLUMN_LEVEL: Column-level permission
+   * 
+   * @example
+   * ROW_LEVEL
+   */
+  ruleType?: string;
+  /**
+   * @remarks
+   * Whitelist information.
+   */
+  usersModel?: ListDataLevelPermissionWhiteListResponseBodyResultUsersModel;
+  static names(): { [key: string]: string } {
+    return {
+      cubeId: 'CubeId',
+      ruleType: 'RuleType',
+      usersModel: 'UsersModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cubeId: 'string',
+      ruleType: 'string',
+      usersModel: ListDataLevelPermissionWhiteListResponseBodyResultUsersModel,
+    };
+  }
+
+  validate() {
+    if(this.usersModel && typeof (this.usersModel as any).validate === 'function') {
+      (this.usersModel as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListDataLevelPermissionWhiteListResponseBody extends $dara.Model {
   /**

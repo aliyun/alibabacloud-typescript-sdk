@@ -2,34 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListOrganizationRoleUsersResponseBodyResultData extends $dara.Model {
+export class QueryReadableResourcesListByUserIdV2Request extends $dara.Model {
   /**
    * @remarks
-   * Nickname of the organization member.
+   * This parameter is required.
    * 
    * @example
-   * Test User
-   */
-  nickName?: string;
-  /**
-   * @remarks
-   * UserID of the organization member in Quick BI.
-   * 
-   * @example
-   * b5d8fd9348cc4327****afb604
+   * asdas*********sdsddf
    */
   userId?: string;
+  /**
+   * @example
+   * DATAFORM
+   */
+  workType?: string;
+  /**
+   * @example
+   * 95296e95-ca89-4c7d-8af9-dedf0ad0****
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      nickName: 'NickName',
       userId: 'UserId',
+      workType: 'WorkType',
+      workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nickName: 'string',
       userId: 'string',
+      workType: 'string',
+      workspaceId: 'string',
     };
   }
 

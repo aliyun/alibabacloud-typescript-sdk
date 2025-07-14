@@ -1,7 +1,116 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListOrganizationRoleUsersResponseBodyResult } from "./ListOrganizationRoleUsersResponseBodyResult";
 
+
+export class ListOrganizationRoleUsersResponseBodyResultData extends $dara.Model {
+  /**
+   * @remarks
+   * Nickname of the organization member.
+   * 
+   * @example
+   * Test User
+   */
+  nickName?: string;
+  /**
+   * @remarks
+   * UserID of the organization member in Quick BI.
+   * 
+   * @example
+   * b5d8fd9348cc4327****afb604
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nickName: 'NickName',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nickName: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOrganizationRoleUsersResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * User list.
+   */
+  data?: ListOrganizationRoleUsersResponseBodyResultData[];
+  /**
+   * @remarks
+   * Page number.
+   * 
+   * @example
+   * 10
+   */
+  pageNum?: number;
+  /**
+   * @remarks
+   * Number of items per page as set in the request.
+   * 
+   * @example
+   * 1
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Total number of items.
+   * 
+   * @example
+   * 10
+   */
+  totalNum?: number;
+  /**
+   * @remarks
+   * Total number of pages.
+   * 
+   * @example
+   * 1
+   */
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      totalNum: 'TotalNum',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListOrganizationRoleUsersResponseBodyResultData },
+      pageNum: 'number',
+      pageSize: 'number',
+      totalNum: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListOrganizationRoleUsersResponseBody extends $dara.Model {
   /**
