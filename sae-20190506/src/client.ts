@@ -5935,8 +5935,16 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
     if (!$dara.isNull(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

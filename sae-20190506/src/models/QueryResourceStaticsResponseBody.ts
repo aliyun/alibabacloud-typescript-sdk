@@ -1,7 +1,186 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { QueryResourceStaticsResponseBodyData } from "./QueryResourceStaticsResponseBodyData";
 
+
+export class QueryResourceStaticsResponseBodyDataRealTimeRes extends $dara.Model {
+  /**
+   * @remarks
+   * The CPU usage. Unit: core per minute.
+   * 
+   * @example
+   * 13
+   */
+  cpu?: number;
+  /**
+   * @remarks
+   * The storage size of the temporary storage space. Unit: GiB.
+   * 
+   * @example
+   * 0
+   */
+  ephemeralStorage?: number;
+  /**
+   * @remarks
+   * The memory usage. Unit: GiB per minute.
+   * 
+   * @example
+   * 26
+   */
+  memory?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      ephemeralStorage: 'EphemeralStorage',
+      memory: 'Memory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      ephemeralStorage: 'number',
+      memory: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
+  /**
+   * @remarks
+   * The usage of active vCPU. Unit: Core*min.
+   * 
+   * @example
+   * 10
+   */
+  activeCpu?: number;
+  /**
+   * @remarks
+   * The CPU usage. Unit: core per minute.
+   * 
+   * @example
+   * 3354
+   */
+  cpu?: number;
+  /**
+   * @remarks
+   * The CU usage.
+   * 
+   * @example
+   * 2312145
+   */
+  cu?: number;
+  /**
+   * @remarks
+   * The storage size of the temporary storage space. Unit: GiB.
+   * 
+   * @example
+   * 20
+   */
+  ephemeralStorage?: number;
+  /**
+   * @example
+   * c8g1
+   */
+  gpuA10?: number;
+  gpuPpu810e?: number;
+  /**
+   * @remarks
+   * The usage of idle CPU. Unit: Core*min.
+   * 
+   * @example
+   * 10
+   */
+  idleCpu?: number;
+  /**
+   * @remarks
+   * The memory usage. Unit: GiB per minute.
+   * 
+   * @example
+   * 6708
+   */
+  memory?: number;
+  static names(): { [key: string]: string } {
+    return {
+      activeCpu: 'ActiveCpu',
+      cpu: 'Cpu',
+      cu: 'Cu',
+      ephemeralStorage: 'EphemeralStorage',
+      gpuA10: 'GpuA10',
+      gpuPpu810e: 'GpuPpu810e',
+      idleCpu: 'IdleCpu',
+      memory: 'Memory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeCpu: 'number',
+      cpu: 'number',
+      cu: 'number',
+      ephemeralStorage: 'number',
+      gpuA10: 'number',
+      gpuPpu810e: 'number',
+      idleCpu: 'number',
+      memory: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryResourceStaticsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The real-time resource usage.
+   */
+  realTimeRes?: QueryResourceStaticsResponseBodyDataRealTimeRes;
+  /**
+   * @remarks
+   * The resource usage of the current month.
+   */
+  summary?: QueryResourceStaticsResponseBodyDataSummary;
+  static names(): { [key: string]: string } {
+    return {
+      realTimeRes: 'RealTimeRes',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      realTimeRes: QueryResourceStaticsResponseBodyDataRealTimeRes,
+      summary: QueryResourceStaticsResponseBodyDataSummary,
+    };
+  }
+
+  validate() {
+    if(this.realTimeRes && typeof (this.realTimeRes as any).validate === 'function') {
+      (this.realTimeRes as any).validate();
+    }
+    if(this.summary && typeof (this.summary as any).validate === 'function') {
+      (this.summary as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class QueryResourceStaticsResponseBody extends $dara.Model {
   /**
@@ -28,6 +207,9 @@ export class QueryResourceStaticsResponseBody extends $dara.Model {
    * 
    * - The **ErrorCode** parameter is not returned when the request succeeds.
    * - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * 
+   * @example
+   * Null
    */
   errorCode?: string;
   /**
