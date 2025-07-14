@@ -1,7 +1,50 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateDesktopGroupRequestTag } from "./CreateDesktopGroupRequestTag";
 
+
+export class CreateDesktopGroupRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. You cannot specify an empty string as a tag key. A tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value. You can specify an empty string as a tag key. A tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateDesktopGroupRequest extends $dara.Model {
   /**
@@ -204,6 +247,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
    * zh-CN
    */
   defaultLanguage?: string;
+  deleteDuration?: number;
   /**
    * @remarks
    * The name of the shared group. The name can be up to 30 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
@@ -623,6 +667,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
       dataDiskSize: 'DataDiskSize',
       defaultInitDesktopCount: 'DefaultInitDesktopCount',
       defaultLanguage: 'DefaultLanguage',
+      deleteDuration: 'DeleteDuration',
       desktopGroupName: 'DesktopGroupName',
       desktopType: 'DesktopType',
       directoryId: 'DirectoryId',
@@ -688,6 +733,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
       dataDiskSize: 'number',
       defaultInitDesktopCount: 'number',
       defaultLanguage: 'string',
+      deleteDuration: 'number',
       desktopGroupName: 'string',
       desktopType: 'string',
       directoryId: 'string',

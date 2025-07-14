@@ -1,15 +1,685 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModifyPolicyGroupRequestAuthorizeAccessPolicyRule } from "./ModifyPolicyGroupRequestAuthorizeAccessPolicyRule";
-import { ModifyPolicyGroupRequestAuthorizeSecurityPolicyRule } from "./ModifyPolicyGroupRequestAuthorizeSecurityPolicyRule";
-import { ModifyPolicyGroupRequestClientType } from "./ModifyPolicyGroupRequestClientType";
-import { ModifyPolicyGroupRequestDeviceRedirects } from "./ModifyPolicyGroupRequestDeviceRedirects";
-import { ModifyPolicyGroupRequestDeviceRules } from "./ModifyPolicyGroupRequestDeviceRules";
-import { ModifyPolicyGroupRequestDomainResolveRule } from "./ModifyPolicyGroupRequestDomainResolveRule";
-import { ModifyPolicyGroupRequestRevokeAccessPolicyRule } from "./ModifyPolicyGroupRequestRevokeAccessPolicyRule";
-import { ModifyPolicyGroupRequestRevokeSecurityPolicyRule } from "./ModifyPolicyGroupRequestRevokeSecurityPolicyRule";
-import { ModifyPolicyGroupRequestUsbSupplyRedirectRule } from "./ModifyPolicyGroupRequestUsbSupplyRedirectRule";
 
+
+export class ModifyPolicyGroupRequestAuthorizeAccessPolicyRule extends $dara.Model {
+  /**
+   * @remarks
+   * The client CIDR block. Specify an IPv4 CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 47.100.XX.XX/16
+   */
+  cidrIp?: string;
+  /**
+   * @remarks
+   * The description of the client IP address whitelist.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.Model {
+  /**
+   * @remarks
+   * The object to which the security group rule applies. The value is an IPv4 CIDR block.
+   * 
+   * @example
+   * 10.0.XX.XX/8
+   */
+  cidrIp?: string;
+  /**
+   * @remarks
+   * The description of the security group rule.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The protocol type of the security group rule.
+   * 
+   * Valid values:
+   * 
+   * *   UDP: the User Datagram Protocol (UDP) protocol.
+   * *   TCP: the Transmission Control Protocol (TCP) protocol.
+   * *   ALL: all protocols.
+   * *   GRE: the Generic Routing Encapsulation (GRE) protocol.
+   * *   ICMP: the Internet Control Message Protocol (ICMP) for (IPv4)
+   * 
+   * @example
+   * tcp
+   */
+  ipProtocol?: string;
+  /**
+   * @remarks
+   * The authorization of the security group rule.
+   * 
+   * Valid values:
+   * 
+   * *   drop: denies all access requests. If no messages of access denied are returned, the requests timed out or failed.
+   * *   accept: accepts all requests.
+   * 
+   * @example
+   * accept
+   */
+  policy?: string;
+  /**
+   * @remarks
+   * The port range of the security group rule. The value range of this parameter varies based on the value of the IpProtocol parameter.
+   * 
+   * *   If the IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+   * *   If the IpProtocol parameter is set to ICMP, set the value to -1/-1.
+   * *   If the IpProtocol parameter is set to GRE, set the value to -1/-1.
+   * *   If the IpProtocol parameter is set to ALL, set the value to -1/-1.
+   * 
+   * For more information about the common ports applied in EDS, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+   * 
+   * @example
+   * 22/22
+   */
+  portRange?: string;
+  /**
+   * @remarks
+   * The priority of the security group rule. A smaller value indicates a higher priority. Valid values: 1 to 60. Default value: 1
+   * 
+   * @example
+   * 1
+   */
+  priority?: string;
+  /**
+   * @remarks
+   * The direction of the security group rule.
+   * 
+   * Valid values:
+   * 
+   * *   outflow: outbound
+   * *   inflow: inbound
+   * 
+   * @example
+   * inflow
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+      ipProtocol: 'IpProtocol',
+      policy: 'Policy',
+      portRange: 'PortRange',
+      priority: 'Priority',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+      ipProtocol: 'string',
+      policy: 'string',
+      portRange: 'string',
+      priority: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupRequestClientType extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the Alibaba Cloud Workspace client.
+   * 
+   * >  If you do not specify the `ClientType` parameter, all types of the client are allowed by default.
+   * 
+   * Valid values:
+   * 
+   * *   html5: web client
+   * *   android: Android client
+   * *   windows: Windows client
+   * *   ios: iOS client
+   * *   macos: macOS client
+   * 
+   * @example
+   * windows
+   */
+  clientType?: string;
+  /**
+   * @remarks
+   * Specifies whether to allow end users to use a specific type of the client to connect to cloud computers.
+   * 
+   * >  If you do not specify the `ClientType` parameter, all types of the client are allowed by default.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
+   * 
+   * @example
+   * ON
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientType: 'ClientType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientType: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupRequestDeviceRedirects extends $dara.Model {
+  /**
+   * @remarks
+   * The peripheral type.
+   * 
+   * Valid values:
+   * 
+   * *   printer
+   * *   scanner
+   * *   camera
+   * *   adb: the Android Debug Bridge (ADB) device
+   * 
+   * @example
+   * camera
+   */
+  deviceType?: string;
+  /**
+   * @remarks
+   * The redirection type.
+   * 
+   * Valid values:
+   * 
+   * *   deviceRedirect: device redirection
+   * *   usbRedirect: USB redirection
+   * *   off: redirection disabled
+   * 
+   * @example
+   * usbRedirect
+   */
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceType: 'DeviceType',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceType: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupRequestDeviceRules extends $dara.Model {
+  /**
+   * @remarks
+   * The device name.
+   * 
+   * @example
+   * sandisk
+   */
+  deviceName?: string;
+  /**
+   * @remarks
+   * The product ID (PID).
+   * 
+   * @example
+   * 0x0781
+   */
+  devicePid?: string;
+  /**
+   * @remarks
+   * The peripheral type.
+   * 
+   * Valid values:
+   * 
+   * *   usbKey: UKeys
+   * *   other: other peripheral devices.
+   * *   graphicsTablet: graphics tablets.
+   * *   printer: printers.
+   * *   cardReader: card readers.
+   * *   scanner: scanners.
+   * *   storage: storage devices.
+   * *   camera: web cameras.
+   * *   adb: Android Debug Bridge (ADB) device
+   * *   networkInterfaceCard: NIC devices.
+   * 
+   * @example
+   * storage
+   */
+  deviceType?: string;
+  /**
+   * @remarks
+   * The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * 
+   * @example
+   * 0x55b1
+   */
+  deviceVid?: string;
+  /**
+   * @remarks
+   * The link optimization command.
+   * 
+   * @example
+   * 2:0
+   */
+  optCommand?: string;
+  platforms?: string;
+  /**
+   * @remarks
+   * The redirection type.
+   * 
+   * Valid values:
+   * 
+   * *   deviceRedirect: device redirection
+   * *   usbRedirect: USB redirection.
+   * *   off: redirection disabled
+   * 
+   * @example
+   * usbRedirect
+   */
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      devicePid: 'DevicePid',
+      deviceType: 'DeviceType',
+      deviceVid: 'DeviceVid',
+      optCommand: 'OptCommand',
+      platforms: 'Platforms',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      devicePid: 'string',
+      deviceType: 'string',
+      deviceVid: 'string',
+      optCommand: 'string',
+      platforms: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupRequestDomainResolveRule extends $dara.Model {
+  /**
+   * @remarks
+   * The policy description.
+   * 
+   * @example
+   * description policy
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * *.igetget.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The resolution policy.
+   * 
+   * Valid values:
+   * 
+   * *   allow
+   * *   block
+   * 
+   * @example
+   * block
+   */
+  policy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      domain: 'Domain',
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      domain: 'string',
+      policy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupRequestRevokeAccessPolicyRule extends $dara.Model {
+  /**
+   * @remarks
+   * The client CIDR block that you want to delete. Specify an IPv4 CIDR block.
+   * 
+   * @example
+   * 47.100.XX.XX/16
+   */
+  cidrIp?: string;
+  /**
+   * @remarks
+   * The description of the client IP address whitelist that you want to delete.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupRequestRevokeSecurityPolicyRule extends $dara.Model {
+  /**
+   * @remarks
+   * The object of the security group rule that you want to delete. The value is an IPv4 CIDR block.
+   * 
+   * @example
+   * 47.100.XX.XX/16
+   */
+  cidrIp?: string;
+  /**
+   * @remarks
+   * The description of the security group rule that you want to delete.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The protocol type of the security group rule that you want to delete.
+   * 
+   * Valid values:
+   * 
+   * *   TCP
+   * *   UDP
+   * *   ALL
+   * *   GRE
+   * *   ICMP
+   * 
+   * @example
+   * tcp
+   */
+  ipProtocol?: string;
+  /**
+   * @remarks
+   * The authorization of the security group rule that you want to delete.
+   * 
+   * Valid values:
+   * 
+   * *   drop: denies all access requests. If no messages of access denied are returned, the requests timed out or failed.
+   * *   accept (default): accepts all requests.
+   * 
+   * @example
+   * accept
+   */
+  policy?: string;
+  /**
+   * @remarks
+   * The port range of the security group rule that you want to delete. The value range of this parameter varies based on the value of the IpProtocol parameter.
+   * 
+   * *   If the IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+   * *   If the IpProtocol parameter is set to ICMP, set the value to -1/-1.
+   * *   If the IpProtocol parameter is set to GRE, set the value to -1/-1.
+   * *   If the IpProtocol parameter is set to ALL, set the value to -1/-1.
+   * 
+   * For more information about the common ports applied in EDS, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+   * 
+   * @example
+   * 22/22
+   */
+  portRange?: string;
+  /**
+   * @remarks
+   * The priority of the security group rule that you want to delete. A smaller value indicates a higher priority. Valid values: 1 to 60. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  priority?: string;
+  /**
+   * @remarks
+   * The direction of the security group rule that you want to delete.
+   * 
+   * Valid values:
+   * 
+   * *   outflow: outbound
+   * *   inflow: inbound
+   * 
+   * @example
+   * outflow
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+      ipProtocol: 'IpProtocol',
+      policy: 'Policy',
+      portRange: 'PortRange',
+      priority: 'Priority',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+      ipProtocol: 'string',
+      policy: 'string',
+      portRange: 'string',
+      priority: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
+  /**
+   * @remarks
+   * The rule description.
+   * 
+   * @example
+   * Test rule
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The device class. This parameter is required when `usbRuleType` is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
+   * 
+   * @example
+   * 0Eh
+   */
+  deviceClass?: string;
+  /**
+   * @remarks
+   * The device subclass. This parameter is required when `usbRuleType` is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
+   * 
+   * @example
+   * xxh
+   */
+  deviceSubclass?: string;
+  /**
+   * @remarks
+   * The product ID (PID).
+   * 
+   * @example
+   * 08**
+   */
+  productId?: string;
+  /**
+   * @remarks
+   * Specifies whether to allow USB redirection.
+   * 
+   * Valid values:
+   * 
+   * *   1: allows USB redirection.
+   * *   2: forbids USB redirection.
+   * 
+   * @example
+   * 1
+   */
+  usbRedirectType?: number;
+  /**
+   * @remarks
+   * The type of the USB redirection rule.
+   * 
+   * Valid values:
+   * 
+   * *   1: by device class
+   * *   2: by device vendor
+   * 
+   * @example
+   * 1
+   */
+  usbRuleType?: number;
+  /**
+   * @remarks
+   * The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * 
+   * @example
+   * 04**
+   */
+  vendorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      deviceClass: 'DeviceClass',
+      deviceSubclass: 'DeviceSubclass',
+      productId: 'ProductId',
+      usbRedirectType: 'UsbRedirectType',
+      usbRuleType: 'UsbRuleType',
+      vendorId: 'VendorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      deviceClass: 'string',
+      deviceSubclass: 'string',
+      productId: 'string',
+      usbRedirectType: 'number',
+      usbRuleType: 'number',
+      vendorId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifyPolicyGroupRequest extends $dara.Model {
   /**

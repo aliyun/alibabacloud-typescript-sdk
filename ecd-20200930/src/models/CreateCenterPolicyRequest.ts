@@ -1,14 +1,556 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateCenterPolicyRequestAuthorizeAccessPolicyRule } from "./CreateCenterPolicyRequestAuthorizeAccessPolicyRule";
-import { CreateCenterPolicyRequestAuthorizeSecurityPolicyRule } from "./CreateCenterPolicyRequestAuthorizeSecurityPolicyRule";
-import { CreateCenterPolicyRequestClientType } from "./CreateCenterPolicyRequestClientType";
-import { CreateCenterPolicyRequestDeviceRedirects } from "./CreateCenterPolicyRequestDeviceRedirects";
-import { CreateCenterPolicyRequestDeviceRules } from "./CreateCenterPolicyRequestDeviceRules";
-import { CreateCenterPolicyRequestDomainResolveRule } from "./CreateCenterPolicyRequestDomainResolveRule";
-import { CreateCenterPolicyRequestNetRedirectRule } from "./CreateCenterPolicyRequestNetRedirectRule";
-import { CreateCenterPolicyRequestUsbSupplyRedirectRule } from "./CreateCenterPolicyRequestUsbSupplyRedirectRule";
 
+
+export class CreateCenterPolicyRequestAuthorizeAccessPolicyRule extends $dara.Model {
+  /**
+   * @remarks
+   * The client CIDR block from which end users can connect to cloud computers. Specify an IPv4 CIDR block.
+   * 
+   * @example
+   * 47.100.XX.XX/16
+   */
+  cidrIp?: string;
+  /**
+   * @remarks
+   * The description of the client IP address whitelist.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestAuthorizeSecurityPolicyRule extends $dara.Model {
+  /**
+   * @remarks
+   * The object of the security group rule. Specify an IPv4 CIDR block.
+   * 
+   * @example
+   * 10.0.XX.XX/8
+   */
+  cidrIp?: string;
+  /**
+   * @remarks
+   * The description of the security group rule.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The protocol type of the security group rule.
+   * 
+   * Valid values:
+   * 
+   * *   TCP: the Transmission Control Protocol (TCP) protocol.
+   * *   UDP: the User Datagram Protocol (UDP) protocol.
+   * *   ALL: any type of protocol.
+   * *   GRE: the Generic Routing Encapsulation (GRE) protocol.
+   * *   ICMP: the Internet Control Message Protocol (ICMP) for (IPv4).
+   * 
+   * @example
+   * TCP
+   */
+  ipProtocol?: string;
+  /**
+   * @remarks
+   * The authorization policy of the security group rule.
+   * 
+   * Valid values:
+   * 
+   * *   drop: denies all access requests. If no \\"\\"access denied\\"\\" messages are returned, the requests either timed out or failed.
+   * *   accept (default): accepts all requests.
+   * 
+   * @example
+   * accept
+   */
+  policy?: string;
+  /**
+   * @remarks
+   * The port range of the security group rule. The value range of this parameter varies based on the value of IpProtocol.
+   * 
+   * *   If IpProtocol is set to TCP or UDP, the port range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+   * *   If IpProtocol is set to ICMP, set the value to -1/-1.
+   * *   If IpProtocol is set to GRE, set the value to -1/-1.
+   * *   If IpProtocol is set to ALL, set the value to -1/-1.
+   * 
+   * For more information about the common ports, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+   * 
+   * @example
+   * 22/22
+   */
+  portRange?: string;
+  /**
+   * @remarks
+   * The priority of the security group rule. A smaller value specifies a higher priority.\\
+   * Valid values: 1 to 60.\\
+   * Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  priority?: string;
+  /**
+   * @remarks
+   * The direction of the security group rule.
+   * 
+   * Valid values:
+   * 
+   * *   outflow: outbound.
+   * *   inflow: inbound.
+   * 
+   * @example
+   * inflow
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+      ipProtocol: 'IpProtocol',
+      policy: 'Policy',
+      portRange: 'PortRange',
+      priority: 'Priority',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+      ipProtocol: 'string',
+      policy: 'string',
+      portRange: 'string',
+      priority: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestClientType extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the Alibaba Cloud Workspace client that end users can use to connect to cloud computers.
+   * 
+   * Valid values:
+   * 
+   * *   html5: the web client.
+   * *   android: the Android client.
+   * *   ios: the iOS client.
+   * *   windows: the Windows client.
+   * *   macos: the macOS client.
+   * 
+   * @example
+   * windows
+   */
+  clientType?: string;
+  /**
+   * @remarks
+   * Specifies whether end users can use the specified type of Alibaba Cloud Workspace client to connect to cloud computers.
+   * 
+   * >  If you don\\"t specify `ClientType`, any client can be used to connect to cloud computers.
+   * 
+   * Valid values:
+   * 
+   * *   off: End users cannot use the specified type of Alibaba Cloud Workspace client to connect to cloud computers.
+   * *   on: End users can use the specified type of Alibaba Cloud Workspace client to connect to cloud computers.
+   * 
+   * @example
+   * off
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientType: 'ClientType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientType: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestDeviceRedirects extends $dara.Model {
+  /**
+   * @remarks
+   * The peripheral type.
+   * 
+   * Valid values:
+   * 
+   * *   printer
+   * *   scanner
+   * *   serialport
+   * *   camera
+   * *   adb
+   * 
+   * @example
+   * camera
+   */
+  deviceType?: string;
+  /**
+   * @remarks
+   * The redirection type.
+   * 
+   * Valid values:
+   * 
+   * *   deviceRedirect: enables device redirection.
+   * *   usbRedirect: enables USB redirection.
+   * *   off: disables any type of redirection.
+   * 
+   * @example
+   * usbRedirect
+   */
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceType: 'DeviceType',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceType: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestDeviceRules extends $dara.Model {
+  /**
+   * @remarks
+   * The device name.
+   * 
+   * @example
+   * sandisk
+   */
+  deviceName?: string;
+  /**
+   * @remarks
+   * The product ID (PID).
+   * 
+   * @example
+   * 0x55b1
+   */
+  devicePid?: string;
+  /**
+   * @remarks
+   * The peripheral type.
+   * 
+   * Valid values:
+   * 
+   * *   usbKey: UKeys.
+   * *   other: other peripheral devices.
+   * *   graphicsTablet: graphics tablets.
+   * *   cardReader: card readers.
+   * *   printer: printers.
+   * *   scanner: scanners.
+   * *   storage: storage devices.
+   * *   camera: cameras.
+   * *   networkInterfaceCard: NIC devices.
+   * 
+   * @example
+   * storage
+   */
+  deviceType?: string;
+  /**
+   * @remarks
+   * The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * 
+   * @example
+   * 0x0781
+   */
+  deviceVid?: string;
+  /**
+   * @remarks
+   * The link optimization command.
+   * 
+   * @example
+   * 2:0
+   */
+  optCommand?: string;
+  platforms?: string;
+  /**
+   * @remarks
+   * The redirection type.
+   * 
+   * Valid values:
+   * 
+   * *   deviceRedirect: device redirection.
+   * *   usbRedirect: USB redirection.
+   * *   off: redirection disabled.
+   * 
+   * @example
+   * usbRedirect
+   */
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      devicePid: 'DevicePid',
+      deviceType: 'DeviceType',
+      deviceVid: 'DeviceVid',
+      optCommand: 'OptCommand',
+      platforms: 'Platforms',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      devicePid: 'string',
+      deviceType: 'string',
+      deviceVid: 'string',
+      optCommand: 'string',
+      platforms: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestDomainResolveRule extends $dara.Model {
+  /**
+   * @remarks
+   * The policy description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * *.example.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * Specifies whether to allow the domain resolution policy to take effect.
+   * 
+   * Valid values:
+   * 
+   * *   allow
+   * *   block
+   * 
+   * @example
+   * allow
+   */
+  policy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      domain: 'Domain',
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      domain: 'string',
+      policy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestNetRedirectRule extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * *.taobao.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The redirection policy.
+   * 
+   * @example
+   * allow
+   */
+  policy?: string;
+  /**
+   * @remarks
+   * The rule type.
+   * 
+   * Valid values:
+   * 
+   * *   prc: process.
+   * *   domain: domain name.
+   * 
+   * @example
+   * domain
+   */
+  ruleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      policy: 'Policy',
+      ruleType: 'RuleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      policy: 'string',
+      ruleType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestUsbSupplyRedirectRule extends $dara.Model {
+  /**
+   * @remarks
+   * The rule description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The product ID (PID).
+   * 
+   * @example
+   * 08**
+   */
+  productId?: string;
+  /**
+   * @remarks
+   * Specifies whether to allow USB redirection.
+   * 
+   * Valid values:
+   * 
+   * *   1: allows USB redirection.
+   * *   2: forbids USB redirection.
+   * 
+   * @example
+   * 1
+   */
+  usbRedirectType?: string;
+  /**
+   * @remarks
+   * The type of the USB redirection rule.
+   * 
+   * Valid values:
+   * 
+   * *   2: enables USB redirection based on products.
+   * 
+   * @example
+   * 2
+   */
+  usbRuleType?: string;
+  /**
+   * @remarks
+   * The vendor ID (VID). For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * 
+   * @example
+   * 04**
+   */
+  vendorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      productId: 'ProductId',
+      usbRedirectType: 'UsbRedirectType',
+      usbRuleType: 'UsbRuleType',
+      vendorId: 'VendorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      productId: 'string',
+      usbRedirectType: 'string',
+      usbRuleType: 'string',
+      vendorId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateCenterPolicyRequest extends $dara.Model {
   /**

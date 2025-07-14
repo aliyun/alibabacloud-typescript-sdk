@@ -1,7 +1,162 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SetUserProfilePathRulesRequestUserProfilePathRule } from "./SetUserProfilePathRulesRequestUserProfilePathRule";
 
+
+export class SetUserProfilePathRulesRequestUserProfilePathRuleBlackPath extends $dara.Model {
+  /**
+   * @remarks
+   * The blacklist path.
+   * 
+   * @example
+   * AppLocal/Data
+   */
+  path?: string;
+  /**
+   * @remarks
+   * The path type.
+   * 
+   * Valid values:
+   * 
+   * *   file
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   folder
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * folder
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetUserProfilePathRulesRequestUserProfilePathRuleWhitePaths extends $dara.Model {
+  /**
+   * @remarks
+   * The whitelist path.
+   * 
+   * @example
+   * whitePath
+   */
+  path?: string;
+  /**
+   * @remarks
+   * The path type.
+   * 
+   * Valid values:
+   * 
+   * *   file
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   folder
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * file
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetUserProfilePathRulesRequestUserProfilePathRule extends $dara.Model {
+  /**
+   * @remarks
+   * The directory in the blacklist.
+   */
+  blackPath?: SetUserProfilePathRulesRequestUserProfilePathRuleBlackPath;
+  /**
+   * @remarks
+   * The directories that you want to configure in the whitelist.
+   */
+  whitePaths?: SetUserProfilePathRulesRequestUserProfilePathRuleWhitePaths[];
+  static names(): { [key: string]: string } {
+    return {
+      blackPath: 'BlackPath',
+      whitePaths: 'WhitePaths',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blackPath: SetUserProfilePathRulesRequestUserProfilePathRuleBlackPath,
+      whitePaths: { 'type': 'array', 'itemType': SetUserProfilePathRulesRequestUserProfilePathRuleWhitePaths },
+    };
+  }
+
+  validate() {
+    if(this.blackPath && typeof (this.blackPath as any).validate === 'function') {
+      (this.blackPath as any).validate();
+    }
+    if(Array.isArray(this.whitePaths)) {
+      $dara.Model.validateArray(this.whitePaths);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SetUserProfilePathRulesRequest extends $dara.Model {
   /**

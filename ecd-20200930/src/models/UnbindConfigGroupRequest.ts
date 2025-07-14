@@ -1,7 +1,75 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UnbindConfigGroupRequestResourceInfos } from "./UnbindConfigGroupRequestResourceInfos";
 
+
+export class UnbindConfigGroupRequestResourceInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The service type of the resource.
+   * 
+   * Valid value:
+   * 
+   * *   CLOUD_DESKTOP: the cloud computer service.
+   * 
+   * @example
+   * CLOUD_DESKTOP
+   */
+  productType?: string;
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * ecd-ctwj0bk3l5nz****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The region ID of the resource.
+   * 
+   * @example
+   * cn-chengdu
+   */
+  resourceRegionId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * Valid values:
+   * 
+   * *   RESOURCE_GROUP: the resource group.
+   * *   CLOUD_DESKTOP: the cloud computer service.
+   * 
+   * @example
+   * CLOUD_DESKTOP
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productType: 'ProductType',
+      resourceId: 'ResourceId',
+      resourceRegionId: 'ResourceRegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productType: 'string',
+      resourceId: 'string',
+      resourceRegionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UnbindConfigGroupRequest extends $dara.Model {
   /**

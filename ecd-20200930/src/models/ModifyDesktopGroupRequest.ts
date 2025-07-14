@@ -79,6 +79,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
    * 600000
    */
   connectDuration?: number;
+  deleteDuration?: number;
   /**
    * @remarks
    * The ID of the cloud computer share.
@@ -276,6 +277,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
       classify: 'Classify',
       comments: 'Comments',
       connectDuration: 'ConnectDuration',
+      deleteDuration: 'DeleteDuration',
       desktopGroupId: 'DesktopGroupId',
       desktopGroupName: 'DesktopGroupName',
       disableSessionConfig: 'DisableSessionConfig',
@@ -307,6 +309,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
       classify: 'string',
       comments: 'string',
       connectDuration: 'number',
+      deleteDuration: 'number',
       desktopGroupId: 'string',
       desktopGroupName: 'string',
       disableSessionConfig: 'boolean',

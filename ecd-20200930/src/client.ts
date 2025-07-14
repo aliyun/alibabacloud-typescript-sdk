@@ -2960,6 +2960,10 @@ export default class Client extends OpenApi {
       query["DefaultLanguage"] = request.defaultLanguage;
     }
 
+    if (!$dara.isNull(request.deleteDuration)) {
+      query["DeleteDuration"] = request.deleteDuration;
+    }
+
     if (!$dara.isNull(request.desktopGroupName)) {
       query["DesktopGroupName"] = request.desktopGroupName;
     }
@@ -11214,6 +11218,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取文件下载地址
+   * 
+   * @param request - ListTransferFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTransferFilesResponse
+   */
+  async listTransferFilesWithOptions(request: $_model.ListTransferFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTransferFilesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTransferFiles",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTransferFilesResponse>(await this.callApi(params, req, runtime), new $_model.ListTransferFilesResponse({}));
+  }
+
+  /**
+   * 获取文件下载地址
+   * 
+   * @param request - ListTransferFilesRequest
+   * @returns ListTransferFilesResponse
+   */
+  async listTransferFiles(request: $_model.ListTransferFilesRequest): Promise<$_model.ListTransferFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTransferFilesWithOptions(request, runtime);
+  }
+
+  /**
    * Obtains the organizational units (OUs) of an Active Directory (AD) domain that is connected to an enterprise AD office network (formerly workspace).
    * 
    * @param request - ListUserAdOrganizationUnitsRequest
@@ -12860,6 +12914,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.connectDuration)) {
       query["ConnectDuration"] = request.connectDuration;
+    }
+
+    if (!$dara.isNull(request.deleteDuration)) {
+      query["DeleteDuration"] = request.deleteDuration;
     }
 
     if (!$dara.isNull(request.desktopGroupId)) {
@@ -16532,6 +16590,60 @@ export default class Client extends OpenApi {
   async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 文件传输审批回调
+   * 
+   * @param request - TransferTaskApprovalCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransferTaskApprovalCallbackResponse
+   */
+  async transferTaskApprovalCallbackWithOptions(request: $_model.TransferTaskApprovalCallbackRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TransferTaskApprovalCallbackResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ossBucketName)) {
+      query["OssBucketName"] = request.ossBucketName;
+    }
+
+    if (!$dara.isNull(request.ossBucketRegionId)) {
+      query["OssBucketRegionId"] = request.ossBucketRegionId;
+    }
+
+    if (!$dara.isNull(request.result)) {
+      query["Result"] = request.result;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TransferTaskApprovalCallback",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TransferTaskApprovalCallbackResponse>(await this.callApi(params, req, runtime), new $_model.TransferTaskApprovalCallbackResponse({}));
+  }
+
+  /**
+   * 文件传输审批回调
+   * 
+   * @param request - TransferTaskApprovalCallbackRequest
+   * @returns TransferTaskApprovalCallbackResponse
+   */
+  async transferTaskApprovalCallback(request: $_model.TransferTaskApprovalCallbackRequest): Promise<$_model.TransferTaskApprovalCallbackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.transferTaskApprovalCallbackWithOptions(request, runtime);
   }
 
   /**
