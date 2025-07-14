@@ -830,6 +830,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增集群规则信息
+   * 
+   * @param request - CreateHybridCloudClusterRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHybridCloudClusterRuleResponse
+   */
+  async createHybridCloudClusterRuleWithOptions(request: $_model.CreateHybridCloudClusterRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateHybridCloudClusterRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.ruleConfig)) {
+      query["RuleConfig"] = request.ruleConfig;
+    }
+
+    if (!$dara.isNull(request.ruleStatus)) {
+      query["RuleStatus"] = request.ruleStatus;
+    }
+
+    if (!$dara.isNull(request.ruleType)) {
+      query["RuleType"] = request.ruleType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateHybridCloudClusterRule",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateHybridCloudClusterRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateHybridCloudClusterRuleResponse({}));
+  }
+
+  /**
+   * 新增集群规则信息
+   * 
+   * @param request - CreateHybridCloudClusterRuleRequest
+   * @returns CreateHybridCloudClusterRuleResponse
+   */
+  async createHybridCloudClusterRule(request: $_model.CreateHybridCloudClusterRuleRequest): Promise<$_model.CreateHybridCloudClusterRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createHybridCloudClusterRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a node group for a hybrid cloud cluster.
    * 
    * @param request - CreateHybridCloudGroupRequest
@@ -1677,6 +1743,60 @@ export default class Client extends OpenApi {
   async deleteDomain(request: $_model.DeleteDomainRequest): Promise<$_model.DeleteDomainResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDomainWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除集群规则信息
+   * 
+   * @param request - DeleteHybridCloudClusterRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHybridCloudClusterRuleResponse
+   */
+  async deleteHybridCloudClusterRuleWithOptions(request: $_model.DeleteHybridCloudClusterRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteHybridCloudClusterRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterRuleResourceId)) {
+      query["ClusterRuleResourceId"] = request.clusterRuleResourceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteHybridCloudClusterRule",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteHybridCloudClusterRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteHybridCloudClusterRuleResponse({}));
+  }
+
+  /**
+   * 删除集群规则信息
+   * 
+   * @param request - DeleteHybridCloudClusterRuleRequest
+   * @returns DeleteHybridCloudClusterRuleResponse
+   */
+  async deleteHybridCloudClusterRule(request: $_model.DeleteHybridCloudClusterRuleRequest): Promise<$_model.DeleteHybridCloudClusterRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteHybridCloudClusterRuleWithOptions(request, runtime);
   }
 
   /**
@@ -5211,6 +5331,80 @@ export default class Client extends OpenApi {
   async describeHybridCloudClusterRule(request: $_model.DescribeHybridCloudClusterRuleRequest): Promise<$_model.DescribeHybridCloudClusterRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeHybridCloudClusterRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 集群规则列表
+   * 
+   * @param request - DescribeHybridCloudClusterRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHybridCloudClusterRulesResponse
+   */
+  async describeHybridCloudClusterRulesWithOptions(request: $_model.DescribeHybridCloudClusterRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHybridCloudClusterRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.ruleContent)) {
+      query["RuleContent"] = request.ruleContent;
+    }
+
+    if (!$dara.isNull(request.ruleMatchType)) {
+      query["RuleMatchType"] = request.ruleMatchType;
+    }
+
+    if (!$dara.isNull(request.ruleType)) {
+      query["RuleType"] = request.ruleType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHybridCloudClusterRules",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeHybridCloudClusterRulesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeHybridCloudClusterRulesResponse({}));
+  }
+
+  /**
+   * 集群规则列表
+   * 
+   * @param request - DescribeHybridCloudClusterRulesRequest
+   * @returns DescribeHybridCloudClusterRulesResponse
+   */
+  async describeHybridCloudClusterRules(request: $_model.DescribeHybridCloudClusterRulesRequest): Promise<$_model.DescribeHybridCloudClusterRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHybridCloudClusterRulesWithOptions(request, runtime);
   }
 
   /**
