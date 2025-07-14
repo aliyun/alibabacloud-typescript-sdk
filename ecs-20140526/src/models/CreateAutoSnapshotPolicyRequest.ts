@@ -1,8 +1,151 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration } from "./CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration";
-import { CreateAutoSnapshotPolicyRequestTag } from "./CreateAutoSnapshotPolicyRequestTag";
 
+
+export class CreateAutoSnapshotPolicyRequestCopyEncryptionConfigurationArn extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * 1000000000
+   */
+  assumeRoleFor?: number;
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * hide
+   */
+  roleType?: string;
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * hide
+   */
+  rolearn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assumeRoleFor: 'AssumeRoleFor',
+      roleType: 'RoleType',
+      rolearn: 'Rolearn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assumeRoleFor: 'number',
+      roleType: 'string',
+      rolearn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   */
+  arn?: CreateAutoSnapshotPolicyRequestCopyEncryptionConfigurationArn[];
+  /**
+   * @remarks
+   * Specifies whether to enable cross-region snapshot replication and encryption. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  encrypted?: boolean;
+  /**
+   * @remarks
+   * The ID of the Key Management Service (KMS) key used in cross-region snapshot replication and encryption.
+   * 
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d3fb40826X
+   */
+  KMSKeyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      encrypted: 'Encrypted',
+      KMSKeyId: 'KMSKeyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: { 'type': 'array', 'itemType': CreateAutoSnapshotPolicyRequestCopyEncryptionConfigurationArn },
+      encrypted: 'boolean',
+      KMSKeyId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.arn)) {
+      $dara.Model.validateArray(this.arn);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAutoSnapshotPolicyRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the automatic snapshot policy. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the automatic snapshot policy. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://. The tag value cannot start with acs:.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   /**

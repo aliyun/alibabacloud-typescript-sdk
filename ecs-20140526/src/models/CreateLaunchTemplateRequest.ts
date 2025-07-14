@@ -1,12 +1,671 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateLaunchTemplateRequestSystemDisk } from "./CreateLaunchTemplateRequestSystemDisk";
-import { CreateLaunchTemplateRequestDataDisk } from "./CreateLaunchTemplateRequestDataDisk";
-import { CreateLaunchTemplateRequestImageOptions } from "./CreateLaunchTemplateRequestImageOptions";
-import { CreateLaunchTemplateRequestNetworkInterface } from "./CreateLaunchTemplateRequestNetworkInterface";
-import { CreateLaunchTemplateRequestTag } from "./CreateLaunchTemplateRequestTag";
-import { CreateLaunchTemplateRequestTemplateTag } from "./CreateLaunchTemplateRequestTemplateTag";
 
+
+export class CreateLaunchTemplateRequestSystemDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the automatic snapshot policy to apply to the system disk.
+   * 
+   * @example
+   * sp-gc7c37d4ylw7mtnk****
+   */
+  autoSnapshotPolicyId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the performance burst feature for the system disk. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  burstingEnabled?: boolean;
+  /**
+   * @remarks
+   * The category of the system disk. Valid values:
+   * 
+   * *   cloud: basic disk.
+   * *   cloud_efficiency: ultra disk.
+   * *   cloud_ssd: standard SSD.
+   * *   cloud_essd: Enterprise SSD (ESSD). You can use `SystemDisk.PerformanceLevel` to set the performance level of the ESSD to use as the system disk.
+   * *   cloud_auto: ESSD AutoPL disk.
+   * *   cloud_essd_entry: ESSD Entry disk.
+   * 
+   * For non-I/O optimized instances of retired instance types, the default value is cloud. For other types of instances, the default value is cloud_efficiency.
+   * 
+   * @example
+   * cloud_ssd
+   */
+  category?: string;
+  /**
+   * @remarks
+   * Specifies whether to release the system disk when the instance is released. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: true.
+   * 
+   * @example
+   * true
+   */
+  deleteWithInstance?: boolean;
+  /**
+   * @remarks
+   * The description of the system disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
+   * @example
+   * testSystemDiskDescription
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The name of the system disk. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * testSystemDiskName
+   */
+  diskName?: string;
+  /**
+   * @remarks
+   * Specifies whether to encrypt the system disk. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * >  If you create an instance in Hong Kong Zone D or Singapore Zone A, you cannot encrypt the system disk.
+   * 
+   * @example
+   * false
+   */
+  encrypted?: string;
+  /**
+   * @remarks
+   * > This parameter is in invitational preview and is unavailable for general users.
+   * 
+   * @example
+   * null
+   */
+  iops?: number;
+  /**
+   * @remarks
+   * The ID of the KMS key to use for the system disk.
+   * 
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d3fb40****
+   */
+  KMSKeyId?: string;
+  /**
+   * @remarks
+   * The performance level of the ESSD to use as the system disk. Default value: PL0. Valid values:
+   * 
+   * *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+   * *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+   * *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
+   * *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+   * 
+   * For more information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * 
+   * @example
+   * PL0
+   */
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
+   * 
+   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}
+   * 
+   * > This parameter is available only if you set the SystemDisk.Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
+   * 
+   * @example
+   * 50000
+   */
+  provisionedIops?: number;
+  /**
+   * @remarks
+   * The size of the system disk. Unit: GiB. Valid values:
+   * 
+   * *   Valid values if you set SystemDisk.Category to cloud: 20 to 500.
+   * *   Valid values if you set SystemDisk.Category to other disk categories: 20 to 2048.
+   * 
+   * The value of this parameter must be at least 20 and greater than or equal to the size of the image.
+   * 
+   * @example
+   * 40
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoSnapshotPolicyId: 'AutoSnapshotPolicyId',
+      burstingEnabled: 'BurstingEnabled',
+      category: 'Category',
+      deleteWithInstance: 'DeleteWithInstance',
+      description: 'Description',
+      diskName: 'DiskName',
+      encrypted: 'Encrypted',
+      iops: 'Iops',
+      KMSKeyId: 'KMSKeyId',
+      performanceLevel: 'PerformanceLevel',
+      provisionedIops: 'ProvisionedIops',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSnapshotPolicyId: 'string',
+      burstingEnabled: 'boolean',
+      category: 'string',
+      deleteWithInstance: 'boolean',
+      description: 'string',
+      diskName: 'string',
+      encrypted: 'string',
+      iops: 'number',
+      KMSKeyId: 'string',
+      performanceLevel: 'string',
+      provisionedIops: 'number',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLaunchTemplateRequestDataDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the automatic snapshot policy to apply to data disk N.
+   * 
+   * @example
+   * sp-m5e7fa9ute44ssa****
+   */
+  autoSnapshotPolicyId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the performance burst feature for the system disk. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  burstingEnabled?: boolean;
+  /**
+   * @remarks
+   * The category of data disk N. Valid values:
+   * 
+   * *   cloud: basic disk
+   * *   cloud_efficiency: utra disk
+   * *   cloud_ssd: standard SSD
+   * *   cloud_essd: ESSD
+   * *   cloud_auto: ESSD AutoPL disk
+   * *   cloud_essd_entry: ESSD Entry disk
+   * 
+   * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
+   * 
+   * @example
+   * cloud_ssd
+   */
+  category?: string;
+  /**
+   * @remarks
+   * Specifies whether to release data disk N when the associated instance is released. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: true.
+   * 
+   * @example
+   * true
+   */
+  deleteWithInstance?: boolean;
+  /**
+   * @remarks
+   * The description of data disk N. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
+   * @example
+   * testDataDiskDescription
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The mount point of data disk N. The mount points are named based on the number of data disks:
+   * 
+   * *   1st to 25th data disks: /dev/xvd`[b-z]`.
+   * *   From the 26th data disk on: /dev/xvd`[aa-zz]`. For example, the 26th data disk is named /dev/xvdaa, the 27th data disk is named /dev/xvdab, and so on.
+   * 
+   * >  This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set the parameter to the mount point of data disk N contained in the full image and modify `DataDisk.N.Size` and `DataDisk.N.Category` to change the category and size of data disk N created based on the image.
+   * 
+   * @example
+   * null
+   */
+  device?: string;
+  /**
+   * @remarks
+   * The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * testDataDiskName
+   */
+  diskName?: string;
+  /**
+   * @remarks
+   * Specifies whether to encrypt data disk N.
+   * 
+   * @example
+   * false
+   */
+  encrypted?: string;
+  /**
+   * @remarks
+   * The ID of the KMS key used for the data disk.
+   * 
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d****
+   */
+  KMSKeyId?: string;
+  /**
+   * @remarks
+   * The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
+   * 
+   * *   PL0: A single ESSD can deliver up to 10000 random read/write IOPS.
+   * *   PL1 (default): A single ESSD can deliver up to 50000 random read/write IOPS.
+   * *   PL2: A single ESSD can deliver up to 100000 random read/write IOPS.
+   * *   PL3: A single ESSD can deliver up to 1000000 random read/write IOPS.
+   * 
+   * For information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * 
+   * @example
+   * PL1
+   */
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
+   * 
+   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
+   * 
+   * >  This parameter is available only if you set DiskCategory to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
+   * 
+   * @example
+   * 50000
+   */
+  provisionedIops?: number;
+  /**
+   * @remarks
+   * The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
+   * 
+   * *   Valid values if you set DataDisk.N.Category to cloud: 5 to 2000.
+   * 
+   * *   Valid values if you set DataDisk.N.Category to cloud_efficiency: 20 to 32768.
+   * 
+   * *   Valid values if you set DataDisk.N.Category to cloud_ssd: 20 to 32768.
+   * 
+   * *   Valid values if you set DataDisk.N.Category to cloud_essd: vary based on the value of `DataDisk.N.PerformanceLevel`.
+   * 
+   *     *   Valid values if DataDisk.N.PerformanceLevel is set to PL0: 1 to 32768.
+   *     *   Valid values if DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
+   *     *   Valid values if DataDisk.N.PerformanceLevel is set to PL2: 461 to 32768.
+   *     *   Valid values if you set DataDisk.N.PerformanceLevel to PL3: 1261 to 32768.
+   * 
+   * *   Valid values if you set DataDisk.N.Category to cloud_auto: 1 to 32768.
+   * 
+   * *   Valid values if you set DataDisk.N.Category to cloud_essd_entry: 10 to 32768.
+   * 
+   * The value of this parameter must be greater than or equal to the size of the snapshot specified by `SnapshotId`.
+   * 
+   * @example
+   * 2000
+   */
+  size?: number;
+  /**
+   * @remarks
+   * The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16. If you specify `DataDisk.N.SnapshotId`, `DataDisk.N.Size` is ignored. The data disk is created with the size of the specified snapshot.
+   * 
+   * >  Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+   * 
+   * @example
+   * s-bp17441ohwka0yuh****
+   */
+  snapshotId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoSnapshotPolicyId: 'AutoSnapshotPolicyId',
+      burstingEnabled: 'BurstingEnabled',
+      category: 'Category',
+      deleteWithInstance: 'DeleteWithInstance',
+      description: 'Description',
+      device: 'Device',
+      diskName: 'DiskName',
+      encrypted: 'Encrypted',
+      KMSKeyId: 'KMSKeyId',
+      performanceLevel: 'PerformanceLevel',
+      provisionedIops: 'ProvisionedIops',
+      size: 'Size',
+      snapshotId: 'SnapshotId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSnapshotPolicyId: 'string',
+      burstingEnabled: 'boolean',
+      category: 'string',
+      deleteWithInstance: 'boolean',
+      description: 'string',
+      device: 'string',
+      diskName: 'string',
+      encrypted: 'string',
+      KMSKeyId: 'string',
+      performanceLevel: 'string',
+      provisionedIops: 'number',
+      size: 'number',
+      snapshotId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLaunchTemplateRequestImageOptions extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the instance that uses the image supports logons of the ecs-user user. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  loginAsNonRoot?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      loginAsNonRoot: 'LoginAsNonRoot',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loginAsNonRoot: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLaunchTemplateRequestNetworkInterface extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to release ENI N when the instance is released. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: true.
+   * 
+   * >  This parameter takes effect only for secondary ENIs.
+   * 
+   * @example
+   * true
+   */
+  deleteOnRelease?: boolean;
+  /**
+   * @remarks
+   * The description of the secondary ENI. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`. The value of N in `NetworkInterface.N` cannot be greater than 1.
+   * 
+   * @example
+   * testEniDescription
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The type of ENI N. Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+   * 
+   * Valid values:
+   * 
+   * *   Primary
+   * *   Secondary
+   * 
+   * Default value: Secondary.
+   * 
+   * @example
+   * ecs.g5.large
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The name of ENI N.
+   * 
+   * Take note of the following items:
+   * 
+   * *   Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+   * *   If you set `NetworkInterface.N.InstanceType` to `Primary`, you do not need to specify this parameter.
+   * 
+   * @example
+   * testEniName
+   */
+  networkInterfaceName?: string;
+  /**
+   * @remarks
+   * The communication mode of the primary ENI. Valid values:
+   * 
+   * *   Standard: uses the TCP communication mode.
+   * *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
+   * 
+   * @example
+   * Standard
+   */
+  networkInterfaceTrafficMode?: string;
+  /**
+   * @remarks
+   * The primary IP address to assign to ENI N.
+   * 
+   * Take note of the following items:
+   * 
+   * *   Valid values of N: 1 and 2.
+   * 
+   *     *   If the value of N is 1, you can configure a primary or secondary ENI. If you specify this parameter, set `Amount` to a numeric value greater than 1, and set NetworkInterface.N.InstanceType to Primary, the specified number of instances are created and consecutive primary IP addresses starting from the specified IP address are assigned to the instances. In this case, you cannot attach secondary ENIs to the instances.
+   *     *   If the value of N is 2, you must configure a primary ENI and a secondary ENI. If you specify this parameter, set `Amount` to a numeric value greater than 1, and set NetworkInterface.N.InstanceType to Primary, you cannot set `NetworkInterface.2.InstanceType` to Secondary to attach a secondary ENI.
+   * 
+   * *   If you set `NetworkInterface.N.InstanceType` to `Primary`, this parameter is equivalent to `PrivateIpAddress`. You cannot specify both this parameter and `PrivateIpAddress` in the same request.
+   * 
+   * *   If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, the specified primary IP address is assigned to the secondary ENI. The default value is an IP address that is randomly selected from within the CIDR block of the vSwitch to which to connect the secondary ENI.
+   * 
+   * >  You can attach only a single secondary ENI when you create an instance. After the instance is created, you can call the [CreateNetworkInterface](https://help.aliyun.com/document_detail/58504.html) and [AttachNetworkInterface](https://help.aliyun.com/document_detail/58515.html) operations to attach more secondary ENIs.
+   * 
+   * @example
+   * ``192.168.**.**``
+   */
+  primaryIpAddress?: string;
+  /**
+   * @remarks
+   * The ID of the security group to which to assign ENI N.
+   * 
+   * Take note of the following items:
+   * 
+   * *   Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+   * *   If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `SecurityGroupId`, and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupIds.N`.
+   * *   If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the ID of the security group to which to assign the instance.
+   * 
+   * @example
+   * sg-bp15ed6xe1yxeycg****
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of security groups to which to assign ENI N.
+   * 
+   * *   Valid values of the first N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+   * *   The second N in this parameter indicates that one or more security group IDs can be specified. The valid values of N vary based on the maximum number of security groups to which an instance can belong. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section of the "Limits" topic.
+   * 
+   * Take note of the following items:
+   * 
+   * *   If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter or `NetworkInterface.N.SecurityGroupId`. In this case, this parameter is equivalent to `SecurityGroupIds.N`, and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupId`.
+   * *   If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the ID of the security group to which to assign the instance.
+   * 
+   * @example
+   * sg-bp67acfmxazb4p****
+   */
+  securityGroupIds?: string[];
+  /**
+   * @remarks
+   * The ID of the vSwitch to which to connect ENI N.
+   * 
+   * Take note of the following items:
+   * 
+   * *   Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+   * *   If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `VSwitchId`. You cannot specify both NetworkInterface.N.VSwitchId and `VSwitchId` in the same request.
+   * *   If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the VSwitchId value.
+   * 
+   * @example
+   * vsw-bp1s5fnvk4gn2tws0****
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteOnRelease: 'DeleteOnRelease',
+      description: 'Description',
+      instanceType: 'InstanceType',
+      networkInterfaceName: 'NetworkInterfaceName',
+      networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
+      primaryIpAddress: 'PrimaryIpAddress',
+      securityGroupId: 'SecurityGroupId',
+      securityGroupIds: 'SecurityGroupIds',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteOnRelease: 'boolean',
+      description: 'string',
+      instanceType: 'string',
+      networkInterfaceName: 'string',
+      networkInterfaceTrafficMode: 'string',
+      primaryIpAddress: 'string',
+      securityGroupId: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      vSwitchId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.securityGroupIds)) {
+      $dara.Model.validateArray(this.securityGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLaunchTemplateRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the instance, disks, and primary ENI that are created from the launch template. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the instance, disks, and primary ENI that are created from the launch template. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLaunchTemplateRequestTemplateTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the launch template. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the launch template. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateLaunchTemplateRequest extends $dara.Model {
   systemDisk?: CreateLaunchTemplateRequestSystemDisk;

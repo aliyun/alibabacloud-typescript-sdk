@@ -1,9 +1,214 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration } from "./ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration";
-import { ModifyNetworkInterfaceAttributeRequestEnhancedNetwork } from "./ModifyNetworkInterfaceAttributeRequestEnhancedNetwork";
-import { ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTrafficConfig } from "./ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTrafficConfig";
 
+
+export class ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The timeout period for TCP connections in the TIME_WAIT or CLOSE_WAIT state. Unit: seconds. Valid values: integers from 3 to 15.
+   * 
+   * Default value: 3.
+   * 
+   * >  If the associated ECS instance is used together with a Network Load Balancer (NLB) or Classic Load Balancer (CLB) instance, the default timeout period for TCP connections in the `TIME_WAIT` state is 15 seconds.
+   * 
+   * @example
+   * 3
+   */
+  tcpClosedAndTimeWaitTimeout?: number;
+  /**
+   * @remarks
+   * The timeout period for TCP connections in the ESTABLISHED state. Unit: seconds. Valid values: 30, 60, 80, 100, 200, 300, 500, 700, and 910.
+   * 
+   * Default value: 910.
+   * 
+   * @example
+   * 910
+   */
+  tcpEstablishedTimeout?: number;
+  /**
+   * @remarks
+   * The timeout period for UDP flows. Unit: seconds. Valid values: 10, 20, 30, 60, 80, and 100.
+   * 
+   * Default value: 30.
+   * 
+   * >  If the associated ECS instance is used together with an NLB or CLB instance, the default timeout period for UDP flows is 100 seconds.
+   * 
+   * @example
+   * 30
+   */
+  udpTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tcpClosedAndTimeWaitTimeout: 'TcpClosedAndTimeWaitTimeout',
+      tcpEstablishedTimeout: 'TcpEstablishedTimeout',
+      udpTimeout: 'UdpTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tcpClosedAndTimeWaitTimeout: 'number',
+      tcpEstablishedTimeout: 'number',
+      udpTimeout: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNetworkInterfaceAttributeRequestEnhancedNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * false
+   */
+  enableRss?: boolean;
+  /**
+   * @remarks
+   * This parameter is not publicly available.
+   * 
+   * @example
+   * true
+   */
+  enableSriov?: boolean;
+  virtualFunctionQuantity?: number;
+  virtualFunctionTotalQueueNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableRss: 'EnableRss',
+      enableSriov: 'EnableSriov',
+      virtualFunctionQuantity: 'VirtualFunctionQuantity',
+      virtualFunctionTotalQueueNumber: 'VirtualFunctionTotalQueueNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableRss: 'boolean',
+      enableSriov: 'boolean',
+      virtualFunctionQuantity: 'number',
+      virtualFunctionTotalQueueNumber: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTrafficConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The communication mode of the ENI. Valid values:
+   * 
+   * *   Standard: uses the TCP communication mode.
+   * *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
+   * 
+   * When the ENI is in the InUse state, take note of the following items:
+   * 
+   * *   The total number of ERIs attached to the instance cannot exceed the ERI quota for the instance type. To query the ERI quota for an instance type, call the DescribeInstanceTypes operation and check the EriQuantity value in the response.
+   * 
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * HighPerformance
+   */
+  networkInterfaceTrafficMode?: string;
+  /**
+   * @remarks
+   * The number of queues supported by the ENI. When the ENI is in the InUse state, take note of the following items:
+   * 
+   * *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI for the instance type.
+   * *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To query the maximum number of queues per ENI and the queue quota for an instance type, call the DescribeInstanceTypes operation and check the MaximumQueueNumberPerEnig and TotalEniQueueQuantity values in the response.
+   * 
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * 8
+   */
+  queueNumber?: number;
+  /**
+   * @remarks
+   * The number of queues supported by the ERI. When the ERI is in the InUse state, take note of the following items:
+   * 
+   * *   The value of this parameter cannot exceed the maximum number of queues allowed per ERI for the instance type. To query the maximum number of queues allowed per ERI for an instance type, call the DescribeInstanceTypes operation and check the QueuePairNumber value in the response.
+   * 
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * 8
+   */
+  queuePairNumber?: number;
+  /**
+   * @remarks
+   * The receive (Rx) queue depth of the ENI.
+   * 
+   * Take note of the following items:
+   * 
+   * *   The Rx queue depth of an ENI must be the same as the transmit (Tx) queue depth of the ENI. Valid values: powers of 2 in the range of 8192 to 16384.
+   * *   A larger Rx queue depth yields higher inbound throughput but consumes more memory.
+   * 
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * 8192
+   */
+  rxQueueSize?: number;
+  /**
+   * @remarks
+   * The Tx queue depth of the ENI.
+   * 
+   * Take note of the following items:
+   * 
+   * *   The Tx queue depth of an ENI must be the same as the Rx queue depth of the ENI. Valid values: powers of 2 in the range of 8192 to 16384.
+   * *   A larger Tx queue depth yields higher outbound throughput but consumes more memory.
+   * 
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * 8192
+   */
+  txQueueSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
+      queueNumber: 'QueueNumber',
+      queuePairNumber: 'QueuePairNumber',
+      rxQueueSize: 'RxQueueSize',
+      txQueueSize: 'TxQueueSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkInterfaceTrafficMode: 'string',
+      queueNumber: 'number',
+      queuePairNumber: 'number',
+      rxQueueSize: 'number',
+      txQueueSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifyNetworkInterfaceAttributeRequest extends $dara.Model {
   /**

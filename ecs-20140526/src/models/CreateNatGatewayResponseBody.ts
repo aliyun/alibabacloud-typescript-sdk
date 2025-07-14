@@ -1,8 +1,58 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateNatGatewayResponseBodyBandwidthPackageIds } from "./CreateNatGatewayResponseBodyBandwidthPackageIds";
-import { CreateNatGatewayResponseBodyForwardTableIds } from "./CreateNatGatewayResponseBodyForwardTableIds";
 
+
+export class CreateNatGatewayResponseBodyBandwidthPackageIds extends $dara.Model {
+  bandwidthPackageId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthPackageId: 'BandwidthPackageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthPackageId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.bandwidthPackageId)) {
+      $dara.Model.validateArray(this.bandwidthPackageId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNatGatewayResponseBodyForwardTableIds extends $dara.Model {
+  forwardTableId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      forwardTableId: 'ForwardTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      forwardTableId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.forwardTableId)) {
+      $dara.Model.validateArray(this.forwardTableId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateNatGatewayResponseBody extends $dara.Model {
   bandwidthPackageIds?: CreateNatGatewayResponseBodyBandwidthPackageIds;

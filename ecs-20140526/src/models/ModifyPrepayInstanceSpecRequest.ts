@@ -1,8 +1,91 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModifyPrepayInstanceSpecRequestSystemDisk } from "./ModifyPrepayInstanceSpecRequestSystemDisk";
-import { ModifyPrepayInstanceSpecRequestDisk } from "./ModifyPrepayInstanceSpecRequestDisk";
 
+
+export class ModifyPrepayInstanceSpecRequestSystemDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The new category of the system disk. Valid values:
+   * 
+   * *   cloud_efficiency: utra disk
+   * *   cloud_ssd: standard SSD
+   * 
+   * >  This parameter takes effect on an instance only when you change from a [retired instance type](https://help.aliyun.com/document_detail/55263.html) to an instance type in an [instance family available for purchase](https://help.aliyun.com/document_detail/25378.html) and upgrade the instance from a non-I/O optimized instance type to an I/O optimized instance type.
+   * 
+   * @example
+   * cloud_efficiency
+   */
+  category?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPrepayInstanceSpecRequestDisk extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  category?: string;
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  performanceLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      diskId: 'DiskId',
+      performanceLevel: 'PerformanceLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      diskId: 'string',
+      performanceLevel: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   systemDisk?: ModifyPrepayInstanceSpecRequestSystemDisk;

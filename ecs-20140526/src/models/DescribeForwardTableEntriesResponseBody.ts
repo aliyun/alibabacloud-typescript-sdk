@@ -1,7 +1,76 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeForwardTableEntriesResponseBodyForwardTableEntries } from "./DescribeForwardTableEntriesResponseBodyForwardTableEntries";
 
+
+export class DescribeForwardTableEntriesResponseBodyForwardTableEntriesForwardTableEntry extends $dara.Model {
+  externalIp?: string;
+  externalPort?: string;
+  forwardEntryId?: string;
+  forwardTableId?: string;
+  internalIp?: string;
+  internalPort?: string;
+  ipProtocol?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalIp: 'ExternalIp',
+      externalPort: 'ExternalPort',
+      forwardEntryId: 'ForwardEntryId',
+      forwardTableId: 'ForwardTableId',
+      internalIp: 'InternalIp',
+      internalPort: 'InternalPort',
+      ipProtocol: 'IpProtocol',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalIp: 'string',
+      externalPort: 'string',
+      forwardEntryId: 'string',
+      forwardTableId: 'string',
+      internalIp: 'string',
+      internalPort: 'string',
+      ipProtocol: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends $dara.Model {
+  forwardTableEntry?: DescribeForwardTableEntriesResponseBodyForwardTableEntriesForwardTableEntry[];
+  static names(): { [key: string]: string } {
+    return {
+      forwardTableEntry: 'ForwardTableEntry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      forwardTableEntry: { 'type': 'array', 'itemType': DescribeForwardTableEntriesResponseBodyForwardTableEntriesForwardTableEntry },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.forwardTableEntry)) {
+      $dara.Model.validateArray(this.forwardTableEntry);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeForwardTableEntriesResponseBody extends $dara.Model {
   forwardTableEntries?: DescribeForwardTableEntriesResponseBodyForwardTableEntries;

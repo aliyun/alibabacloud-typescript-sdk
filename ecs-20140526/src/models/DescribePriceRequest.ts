@@ -1,10 +1,292 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribePriceRequestDataDisk } from "./DescribePriceRequestDataDisk";
-import { DescribePriceRequestSchedulerOptions } from "./DescribePriceRequestSchedulerOptions";
-import { DescribePriceRequestSystemDisk } from "./DescribePriceRequestSystemDisk";
-import { DescribePriceRequestRecurrenceRules } from "./DescribePriceRequestRecurrenceRules";
 
+
+export class DescribePriceRequestDataDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The category of data disk N. Valid values:
+   * 
+   * *   cloud: basic disk.
+   * *   cloud_efficiency: ultra disk.
+   * *   cloud_ssd: standard SSD.
+   * *   ephemeral_ssd: local SSD.
+   * *   cloud_essd: ESSD.
+   * *   cloud_auto: ESSD AutoPL disk.
+   * 
+   * Valid values of N: 1 to 16.
+   * 
+   * @example
+   * cloud_ssd
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The performance level of data disk N when the disk is an ESSD. This parameter takes effect only when `DataDisk.N.Category` is set to cloud_essd. Valid values:
+   * 
+   * *   PL0
+   * *   PL1 (default)
+   * *   PL2
+   * *   PL3
+   * 
+   * Valid values of N: 1 to 16.
+   * 
+   * @example
+   * PL1
+   */
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * The size of data disk N. Unit: GiB. Valid values:
+   * 
+   * *   Valid values if DataDisk.N.Category is set to cloud: 5 to 2000.
+   * 
+   * *   Valid values if DataDisk.N.Category is set to cloud_efficiency: 20 to 32768.
+   * 
+   * *   Valid values if DataDisk.N.Category is set to cloud_ssd: 20 to 32768.
+   * 
+   * *   Valid values if DataDisk.N.Category is set to cloud_auto: 1 to 32768.
+   * 
+   * *   Valid values if DataDisk.N.Category is set to cloud_essd: vary based on the `DataDisk.N.PerformanceLevel` value.
+   * 
+   *     *   Valid values if DataDisk.N.PerformanceLevel is set to PL0: 1 to 32768.
+   *     *   Valid values if DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
+   *     *   Valid values if DataDisk.N.PerformanceLevel is set to PL2: 461 to 32768.
+   *     *   Valid values if DataDisk.N.PerformanceLevel is set to PL3: 1261 to 32768.
+   * 
+   * *   Valid values if DataDisk.N.Category is set to ephemeral_ssd: 5 to 800.
+   * 
+   * Valid values of N: 1 to 16.
+   * 
+   * @example
+   * 2000
+   */
+  size?: number;
+  /**
+   * @remarks
+   * The provisioned read/write IOPS of the ESSD AutoPL disk to use as data disk N. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
+   * 
+   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
+   * 
+   * >  This parameter is available only if you set `DataDisk.N.Category` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+   * 
+   * @example
+   * 40000
+   */
+  provisionedIops?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+      provisionedIops: 'ProvisionedIops',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      performanceLevel: 'string',
+      size: 'number',
+      provisionedIops: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceRequestSchedulerOptions extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter takes effect only when ResourceType is set to instance.
+   * 
+   * The ID of the dedicated host. You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the dedicated host list.
+   * 
+   * @example
+   * dh-bp67acfmxazb4p****
+   */
+  dedicatedHostId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dedicatedHostId: 'DedicatedHostId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dedicatedHostId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceRequestSystemDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The category of the system disk. Valid values:
+   * 
+   * *   cloud: basic disk
+   * *   cloud_efficiency: ultra disk
+   * *   cloud_ssd: standard SSD
+   * *   ephemeral_ssd: local SSD
+   * *   cloud_essd: Enterprise SSD (ESSD)
+   * *   cloud_auto: ESSD AutoPL disk
+   * 
+   * Default value:
+   * 
+   * *   When InstanceType is set to a retired instance type and `IoOptimized` is set to `none`, the default value is `cloud`.
+   * *   In other cases, the default value is `cloud_efficiency`.
+   * 
+   * >  If you want to query the price of a system disk, you must also specify `ImageId`.
+   * 
+   * @example
+   * cloud_ssd
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The performance level of the system disk when the disk is an ESSD. This parameter is valid only when `SystemDiskCategory` is set to cloud_essd. Valid values:
+   * 
+   * PL0, PL1 (default), PL2, PL3.
+   * 
+   * @example
+   * PL1
+   */
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * The size of the system disk. Unit: GiB. Valid values:
+   * 
+   * *   Basic disk (cloud): 20 to 500.
+   * 
+   * *   ESSD (cloud_essd): Valid values vary based on the SystemDisk.PerformanceLevel value.
+   * 
+   *     *   Valid values when SystemDisk.PerformanceLevel is set to PL0: 1 to 2048.
+   *     *   Valid values when SystemDisk.PerformanceLevel is set to PL1: 20 to 2048.
+   *     *   Valid values when SystemDisk.PerformanceLevel is set to PL2: 461 to 2048.
+   *     *   Valid values when SystemDisk.PerformanceLevel is set to PL3: 1261 to 2048.
+   * 
+   * *   ESSD AutoPL disk (cloud_auto): 1 to 2048.
+   * 
+   * *   Other disk categories: 20 to 2048.
+   * 
+   * Default value: 20 or the size of the image specified by ImageId, whichever is greater.
+   * 
+   * @example
+   * 80
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      performanceLevel: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceRequestRecurrenceRules extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of the assurance period for the capacity reservation of the time-segmented elasticity assurance. Specify an on-the-hour point in time.
+   * 
+   * @example
+   * 10
+   */
+  endHour?: number;
+  /**
+   * @remarks
+   * The type of the assurance schedule. Valid values:
+   * 
+   * *   Daily
+   * *   Weekly
+   * *   Monthly
+   * 
+   * >  If you specify this parameter, you must specify `RecurrenceType` and `RecurrenceValue`.
+   * 
+   * @example
+   * Daily
+   */
+  recurrenceType?: string;
+  /**
+   * @remarks
+   * The days of the week or month on which the capacity reservation of the time-segmented elasticity assurance takes effect or the interval, in number of days, at which the capacity reservation takes effect.
+   * 
+   * *   If you set `RecurrenceType` to `Daily`, you can specify only one value. Valid values: 1 to 31. The value specifies that the capacity reservation takes effect every few days.
+   * *   If you set `RecurrenceType` to `Weekly`, you can specify multiple values. Separate the values with commas (,). Valid values: 0, 1, 2, 3, 4, 5, and 6, which specify Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday, respectively. Example: `1,2`, which specifies that the capacity reservation takes effect on Monday and Tuesday.
+   * *   If you set `RecurrenceType` to `Monthly`, you can specify two values in the `A-B` format. Valid values of A and B: 1 to 31. B must be greater than or equal to A. Example: `1-5`, which specifies that the capacity reservation takes effect every day from the first day up to the fifth day of each month.
+   * 
+   * >  If you specify this parameter, you must specify `RecurrenceType` and `RecurrenceValue`.
+   * 
+   * @example
+   * 5
+   */
+  recurrenceValue?: string;
+  /**
+   * @remarks
+   * The start time of the assurance period for the capacity reservation of the time-segmented elasticity assurance. Specify an on-the-hour point in time.
+   * 
+   * >  You must specify both StartHour and EndHour. The EndHour value must be at least 4 hours later than the StartHour value.
+   * 
+   * @example
+   * 4
+   */
+  startHour?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endHour: 'EndHour',
+      recurrenceType: 'RecurrenceType',
+      recurrenceValue: 'RecurrenceValue',
+      startHour: 'StartHour',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endHour: 'number',
+      recurrenceType: 'string',
+      recurrenceValue: 'string',
+      startHour: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribePriceRequest extends $dara.Model {
   dataDisk?: DescribePriceRequestDataDisk[];

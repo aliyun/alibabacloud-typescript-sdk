@@ -1,7 +1,158 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeTaskAttributeResponseBodyOperationProgressSet } from "./DescribeTaskAttributeResponseBodyOperationProgressSet";
 
+
+export class DescribeTaskAttributeResponseBodyOperationProgressSetOperationProgressRelatedItemSetRelatedItem extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the related item.
+   * 
+   * @example
+   * OSSObject
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The value of the related item.
+   * 
+   * @example
+   * MYOSSPRE_m-23f8tcp***_t-23ym6mv***.vhd
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTaskAttributeResponseBodyOperationProgressSetOperationProgressRelatedItemSet extends $dara.Model {
+  relatedItem?: DescribeTaskAttributeResponseBodyOperationProgressSetOperationProgressRelatedItemSetRelatedItem[];
+  static names(): { [key: string]: string } {
+    return {
+      relatedItem: 'RelatedItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      relatedItem: { 'type': 'array', 'itemType': DescribeTaskAttributeResponseBodyOperationProgressSetOperationProgressRelatedItemSetRelatedItem },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.relatedItem)) {
+      $dara.Model.validateArray(this.relatedItem);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTaskAttributeResponseBodyOperationProgressSetOperationProgress extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * ParameterInvalid
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The specified RegionId parameter is invalid.
+   */
+  errorMsg?: string;
+  /**
+   * @remarks
+   * The status of the operation.
+   * 
+   * @example
+   * Success
+   */
+  operationStatus?: string;
+  /**
+   * @remarks
+   * The type of resource information.
+   */
+  relatedItemSet?: DescribeTaskAttributeResponseBodyOperationProgressSetOperationProgressRelatedItemSet;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      operationStatus: 'OperationStatus',
+      relatedItemSet: 'RelatedItemSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      operationStatus: 'string',
+      relatedItemSet: DescribeTaskAttributeResponseBodyOperationProgressSetOperationProgressRelatedItemSet,
+    };
+  }
+
+  validate() {
+    if(this.relatedItemSet && typeof (this.relatedItemSet as any).validate === 'function') {
+      (this.relatedItemSet as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTaskAttributeResponseBodyOperationProgressSet extends $dara.Model {
+  operationProgress?: DescribeTaskAttributeResponseBodyOperationProgressSetOperationProgress[];
+  static names(): { [key: string]: string } {
+    return {
+      operationProgress: 'OperationProgress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationProgress: { 'type': 'array', 'itemType': DescribeTaskAttributeResponseBodyOperationProgressSetOperationProgress },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.operationProgress)) {
+      $dara.Model.validateArray(this.operationProgress);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeTaskAttributeResponseBody extends $dara.Model {
   /**

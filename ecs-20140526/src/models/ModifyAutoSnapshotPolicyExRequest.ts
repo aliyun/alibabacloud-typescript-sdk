@@ -1,7 +1,111 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration } from "./ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration";
 
+
+export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is not publicly available.
+   * 
+   * @example
+   * 1000000000
+   */
+  assumeRoleFor?: number;
+  /**
+   * @remarks
+   * This parameter is not publicly available.
+   * 
+   * @example
+   * hide
+   */
+  roleType?: string;
+  /**
+   * @remarks
+   * This parameter is not publicly available.
+   * 
+   * @example
+   * hide
+   */
+  rolearn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assumeRoleFor: 'AssumeRoleFor',
+      roleType: 'RoleType',
+      rolearn: 'Rolearn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assumeRoleFor: 'number',
+      roleType: 'string',
+      rolearn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is not publicly available.
+   */
+  arn?: ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn[];
+  /**
+   * @remarks
+   * Specifies whether to enable encryption for cross-region snapshot replication. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  encrypted?: boolean;
+  /**
+   * @remarks
+   * The ID of the KMS key used for encryption in cross-region snapshot replication.
+   * 
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d3fb40826X
+   */
+  KMSKeyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      encrypted: 'Encrypted',
+      KMSKeyId: 'KMSKeyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: { 'type': 'array', 'itemType': ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn },
+      encrypted: 'boolean',
+      KMSKeyId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.arn)) {
+      $dara.Model.validateArray(this.arn);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   /**

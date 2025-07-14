@@ -1,19 +1,1285 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunInstancesRequestCpuOptions } from "./RunInstancesRequestCpuOptions";
-import { RunInstancesRequestHibernationOptions } from "./RunInstancesRequestHibernationOptions";
-import { RunInstancesRequestPrivatePoolOptions } from "./RunInstancesRequestPrivatePoolOptions";
-import { RunInstancesRequestSchedulerOptions } from "./RunInstancesRequestSchedulerOptions";
-import { RunInstancesRequestSecurityOptions } from "./RunInstancesRequestSecurityOptions";
-import { RunInstancesRequestSystemDisk } from "./RunInstancesRequestSystemDisk";
-import { RunInstancesRequestArn } from "./RunInstancesRequestArn";
-import { RunInstancesRequestDataDisk } from "./RunInstancesRequestDataDisk";
-import { RunInstancesRequestImageOptions } from "./RunInstancesRequestImageOptions";
-import { RunInstancesRequestNetworkInterface } from "./RunInstancesRequestNetworkInterface";
-import { RunInstancesRequestNetworkOptions } from "./RunInstancesRequestNetworkOptions";
-import { RunInstancesRequestPrivateDnsNameOptions } from "./RunInstancesRequestPrivateDnsNameOptions";
-import { RunInstancesRequestTag } from "./RunInstancesRequestTag";
 
+
+export class RunInstancesRequestCpuOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CPU cores. This parameter cannot be specified but only uses its default value.
+   * 
+   * For information about the default value, see [Customize CPU options](https://help.aliyun.com/document_detail/145895.html).
+   * 
+   * @example
+   * 2
+   */
+  core?: number;
+  /**
+   * @remarks
+   * This parameter is no longer used.
+   * 
+   * @example
+   * 1
+   */
+  numa?: string;
+  /**
+   * @remarks
+   * The number of threads per CPU core. The following formula is used to calculate the number of vCPUs of the instance: `CpuOptions.Core` value × `CpuOptions.ThreadsPerCore` value.
+   * 
+   * *   If `CpuOptionsThreadPerCore` is set to 1, Hyper-Threading (HT) is disabled.
+   * *   This parameter is applicable only to specific instance types.
+   * 
+   * @example
+   * 2
+   */
+  threadsPerCore?: number;
+  /**
+   * @remarks
+   * The CPU topology type of the instance. Valid values:
+   * 
+   * *   ContinuousCoreToHTMapping: The HT technology allows continuous threads to run on the same core in the CPU topology of the instance.``
+   * *   DiscreteCoreToHTMapping: The HT technology allows discrete threads to run on the same core in the CPU topology of the instance.``
+   * 
+   * This parameter is empty by default.
+   * 
+   * >  This parameter is supported only for specific instance families. For more information about the supported instance families, see [View and modify the CPU topology](https://help.aliyun.com/document_detail/2636059.html).
+   * 
+   * @example
+   * DiscreteCoreToHTMapping
+   */
+  topologyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      core: 'Core',
+      numa: 'Numa',
+      threadsPerCore: 'ThreadsPerCore',
+      topologyType: 'TopologyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      core: 'number',
+      numa: 'string',
+      threadsPerCore: 'number',
+      topologyType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestHibernationOptions extends $dara.Model {
+  /**
+   * @remarks
+   * > This parameter is in invitational preview and is unavailable.
+   * 
+   * @example
+   * false
+   */
+  configured?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      configured: 'Configured',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configured: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestPrivatePoolOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the private pool. The ID of a private pool is the same as that of the elasticity assurance or capacity reservation for which the private pool is generated.
+   * 
+   * @example
+   * eap-bp67acfmxazb4****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The type of the private pool to use to create the instance. A private pool is generated after an elasticity assurance or a capacity reservation takes effect. You can select the private pool when you start an instance. Valid values:
+   * 
+   * *   Open: open private pool. The system selects a matching open private pool to create the instance. If no matching open private pools are found, resources in the public pool are used. When you set this parameter to Open, you can leave the `PrivatePoolOptions.Id` parameter empty.
+   * *   Target: specified private pool. The system uses the capacity in a specified private pool to create the instance. If the specified private pool is unavailable, the instance cannot be created. If you set this parameter to Target, you must specify the `PrivatePoolOptions.Id` parameter.
+   * *   None: no private pool. The capacity in private pools is not used.
+   * 
+   * Default value: None.
+   * 
+   * In the following scenarios, the PrivatePoolOptions.MatchCriteria parameter can be set only to `None` or left empty:
+   * 
+   * *   A spot instance is created.
+   * *   The instance is created in the classic network.
+   * *   The instance is created on a dedicated host.
+   * 
+   * @example
+   * Open
+   */
+  matchCriteria?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      matchCriteria: 'MatchCriteria',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      matchCriteria: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestSchedulerOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the dedicated host cluster in which to create the instance. After this parameter is specified, the system selects one dedicated host from the specified cluster to create the instance.
+   * 
+   * > This parameter is valid only when the `Tenancy` parameter is set to `host`.
+   * 
+   * When you specify both the `DedicatedHostId` and `SchedulerOptions.DedicatedHostClusterId` parameters, take note of the following items:
+   * 
+   * *   If the specified dedicated host belongs to the specified dedicated host cluster, the instance is preferentially deployed on the specified dedicated host.
+   * *   If the specified dedicated host does not belong to the specified dedicated host cluster, the instance cannot be created.
+   * 
+   * You can call the [DescribeDedicatedHostClusters](https://help.aliyun.com/document_detail/184145.html) operation to query the list of dedicated host cluster IDs.
+   * 
+   * @example
+   * dc-bp12wlf6am0vz9v2****
+   */
+  dedicatedHostClusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dedicatedHostClusterId: 'DedicatedHostClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dedicatedHostClusterId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestSecurityOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The confidential computing mode. Set the value to Enclave.
+   * 
+   * A value of Enclave indicates that an enclave-based confidential computing environment is built on the instance. When you call the `RunInstances` operation, you can set this parameter only for c7, g7, or r7 instances to use enclave-based confidential computing. Take note of the following items:
+   * 
+   * *   The confidential computing feature is in invitational preview.
+   * *   When you use the ECS API to create instances that support enclave-based confidential computing, you can call only the `RunInstances` operation. The `CreateInstance` operation does not support the `SecurityOptions.ConfidentialComputingMode` parameter.
+   * *   Enclave-based confidential computing is implemented based on Alibaba Cloud Trusted System (vTPM). When you build a confidential computing environment on an instance by using Enclave, Alibaba Cloud Trusted System is enabled for the instance. If you set `SecurityOptions.ConfidentialComputingMode` to Enclave when you call this operation, the created instances use enclave-based confidential computing and Alibaba Cloud Trusted System regardless of whether `SecurityOptions.TrustedSystemMode` is set to vTPM.
+   * 
+   * For more information about confidential computing, see [Build a confidential computing environment by using Enclave](https://help.aliyun.com/document_detail/203433.html).
+   * 
+   * @example
+   * Enclave
+   */
+  confidentialComputingMode?: string;
+  /**
+   * @remarks
+   * The trusted system mode. Set the value to vTPM.
+   * 
+   * The trusted system mode supports the following instance families:
+   * 
+   * *   g7, c7, and r7
+   * *   Security-enhanced instance families: g7t, c7t, and r7t
+   * 
+   * When you create instances of the preceding instance families, you must set this parameter. Take note of the following items:
+   * 
+   * *   To use the Alibaba Cloud trusted system, set this parameter to vTPM. Then, the Alibaba Cloud trusted system performs trust verifications when the instances start.
+   * *   If you do not want to use the Alibaba Cloud trusted system, leave this parameter empty. Note that if your created instances use an enclave-based confidential computing environment (with `SecurityOptions.ConfidentialComputingMode` set to Enclave), the Alibaba Cloud trusted system is enabled for the instances.
+   * *   When you use the ECS API to create instances that use the trusted system, you can call only the `RunInstances` operation. The `CreateInstance` operation does not support the `SecurityOptions.TrustedSystemMode` parameter.
+   * 
+   * > If you have configured an instance as a trusted one when you created the instance, you can use only an image that support the trusted system to replace the system disk of the instance.
+   * 
+   * For more information about the trusted system, see [Overview](https://help.aliyun.com/document_detail/201394.html).
+   * 
+   * @example
+   * vTPM
+   */
+  trustedSystemMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidentialComputingMode: 'ConfidentialComputingMode',
+      trustedSystemMode: 'TrustedSystemMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidentialComputingMode: 'string',
+      trustedSystemMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestSystemDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the automatic snapshot policy to apply to the system disk.
+   * 
+   * @example
+   * sp-bp67acfmxazb4p****
+   */
+  autoSnapshotPolicyId?: string;
+  /**
+   * @remarks
+   * The category of the system disk. Valid values:
+   * 
+   * *   cloud_efficiency: utra disk
+   * *   cloud_ssd: standard SSD
+   * *   cloud_essd: enhanced SSD (ESSD)
+   * *   cloud: basic disk
+   * *   cloud_auto: ESSD AutoPL disk
+   * *   cloud_essd_entry: ESSD Entry disk
+   * 
+   * >  The value of this parameter can be `cloud_essd_entry` only when `InstanceType` is set to `ecs.u1` or `ecs.e`. ecs.u1 indicates the u1 universal instance family and ecs.e indicates the e economy instance family. For information about the u1 and e instance families, see the [u1, universal instance family](https://help.aliyun.com/document_detail/457079.html) section in the "Universal instance families" topic and the [e, economy instance family](https://help.aliyun.com/document_detail/108489.html) section in the "Shared instance families" topic.
+   * 
+   * For non-I/O optimized instances of retired instance types, the default value is cloud. For other types of instances, the default value is cloud_efficiency.
+   * 
+   * @example
+   * cloud_ssd
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The description of the system disk. The description must be 2 to 256 characters in length. The description can contain letters but cannot start with `http://` or `https://`.
+   * 
+   * @example
+   * SystemDisk_Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The name of the system disk. The name must be 2 to 128 characters in length and support Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * 
+   * @example
+   * cloud_ssdSystem
+   */
+  diskName?: string;
+  /**
+   * @remarks
+   * The performance level of the ESSD to use as the system disk. Default value: PL1. Valid values:
+   * 
+   * *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+   * *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+   * *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
+   * *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+   * 
+   * For more information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * 
+   * @example
+   * PL0
+   */
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * The size of the system disk. Unit: GiB. Valid values:
+   * 
+   * *   Basic disk: 20 to 500.
+   * 
+   * *   ESSD: Valid values vary based on the performance level of the ESSD.
+   * 
+   *     *   PL0 ESSD: 1 to 2048.
+   *     *   PL1 ESSD: 20 to 2048.
+   *     *   PL2 ESSD: 461 to 2048.
+   *     *   PL3 ESSD: 1261 to 2048.
+   * 
+   * *   ESSD AutoPL disk: 1 to 2048.
+   * 
+   * *   Other disk categories: 20 to 2048.
+   * 
+   * The value of this parameter must be at least 1 and greater than or equal to the image size.
+   * 
+   * Default value: 40 or the image size, whichever is greater.
+   * 
+   * @example
+   * 40
+   */
+  size?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the performance burst feature for the system disk. Valid values:
+   * 
+   * *   true: enables the performance burst feature for the system disk.
+   * *   false: disables the performance burst feature for the system disk.
+   * 
+   * >  This parameter is available only if you set `SystemDisk.Category` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+   * 
+   * @example
+   * false
+   */
+  burstingEnabled?: boolean;
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * ase-256
+   */
+  encryptAlgorithm?: string;
+  /**
+   * @remarks
+   * Specifies whether to encrypt the system disk. Valid values:
+   * 
+   * *   true: encrypts the system disk.
+   * *   false: does not encrypt the system disk.
+   * 
+   * Default value: false.
+   * 
+   * >  The system disks of instances cannot be encrypted during instance creation in Hong Kong Zone D or Singapore Zone A.
+   * 
+   * >  When you use a shared encrypted image to create the disk based on an encrypted snapshot, you must set Encrypted to true to ensure that the disk uses an encryption key of your own.
+   * 
+   * @example
+   * false
+   */
+  encrypted?: string;
+  /**
+   * @remarks
+   * The ID of the KMS key to use for the system disk.
+   * 
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d3fb40****
+   */
+  KMSKeyId?: string;
+  /**
+   * @remarks
+   * The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
+   * 
+   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
+   * 
+   * >  This parameter is available only if you set `SystemDisk.Category` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+   * 
+   * @example
+   * 40000
+   */
+  provisionedIops?: number;
+  /**
+   * @remarks
+   * The ID of the dedicated block storage cluster to which the system disk belongs. If you want to use disks in a dedicated block storage cluster as system disks when you create instances, specify this parameter.
+   * 
+   * @example
+   * dbsc-j5e1sf2vaf5he8m2****
+   */
+  storageClusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoSnapshotPolicyId: 'AutoSnapshotPolicyId',
+      category: 'Category',
+      description: 'Description',
+      diskName: 'DiskName',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+      burstingEnabled: 'BurstingEnabled',
+      encryptAlgorithm: 'EncryptAlgorithm',
+      encrypted: 'Encrypted',
+      KMSKeyId: 'KMSKeyId',
+      provisionedIops: 'ProvisionedIops',
+      storageClusterId: 'StorageClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSnapshotPolicyId: 'string',
+      category: 'string',
+      description: 'string',
+      diskName: 'string',
+      performanceLevel: 'string',
+      size: 'string',
+      burstingEnabled: 'boolean',
+      encryptAlgorithm: 'string',
+      encrypted: 'string',
+      KMSKeyId: 'string',
+      provisionedIops: 'number',
+      storageClusterId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestArn extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * 0
+   */
+  assumeRoleFor?: number;
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  roleType?: string;
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  rolearn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assumeRoleFor: 'AssumeRoleFor',
+      roleType: 'RoleType',
+      rolearn: 'Rolearn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assumeRoleFor: 'number',
+      roleType: 'string',
+      rolearn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestDataDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the automatic snapshot policy to apply to data disk N.
+   * 
+   * @example
+   * sp-bp67acfmxazb4p****
+   */
+  autoSnapshotPolicyId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the performance burst feature for data disk N. Valid values:
+   * 
+   * *   true: enables the performance burst feature for the system disk.
+   * *   false: disables the performance burst feature for the data disk.
+   * 
+   * >  This parameter is available only if you set DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+   * 
+   * @example
+   * false
+   */
+  burstingEnabled?: boolean;
+  /**
+   * @remarks
+   * The category of data disk N. Valid values:
+   * 
+   * *   cloud_efficiency: utra disk.
+   * 
+   * *   cloud_ssd: standard SSD.
+   * 
+   * *   cloud_essd: ESSD.
+   * 
+   * *   cloud: basic disk.
+   * 
+   * *   cloud_auto: ESSD AutoPL disk.
+   * 
+   * *   cloud_regional_disk_auto: Regional ESSD.
+   * 
+   * *   cloud_essd_entry: ESSD Entry disk.
+   * 
+   *     **
+   * 
+   *     **Note** This parameter can be set to `cloud_essd_entry` only when `InstanceType` is set to `ecs.u1` or `ecs.e`.
+   * 
+   * *   elastic_ephemeral_disk_standard: standard elastic ephemeral disk.
+   * 
+   * *   elastic_ephemeral_disk_premium: premium elastic ephemeral disk
+   * 
+   * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
+   * 
+   * @example
+   * cloud_ssd
+   */
+  category?: string;
+  /**
+   * @remarks
+   * Specifies whether to release data disk N when the associated instance is released. Valid values:
+   * 
+   * *   true: releases the data disk when the associated instance is released.
+   * *   false: does not release the data disk when the associated instance is released.
+   * 
+   * Default value: true.
+   * 
+   * @example
+   * true
+   */
+  deleteWithInstance?: boolean;
+  /**
+   * @remarks
+   * The description of data disk N. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
+   * @example
+   * DataDisk_Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The mount point of data disk N. The mount points are named based on the number of data disks:
+   * 
+   * *   1st to 25th data disks: /dev/xvd`[b-z]`.
+   * *   From the 26th data disk on: /dev/xvd`[aa-zz]`. For example, the 26th data disk is named /dev/xvdaa, the 27th data disk is named /dev/xvdab, and so on.
+   * 
+   * > 
+   * 
+   * *   This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set this parameter to the mount point of data disk N in the full image and modify `DataDisk.N.Size` and `DataDisk.N.Category` to change the category and size of data disk N created based on the image.
+   * 
+   * *   When you use a full image to create an ECS instance, the data disks in the image are created as the first N data disks of the instance.
+   * 
+   * @example
+   * /dev/xvdb
+   */
+  device?: string;
+  /**
+   * @remarks
+   * The name of data disk N. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * 
+   * @example
+   * cloud_ssdData
+   */
+  diskName?: string;
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * aes-256
+   */
+  encryptAlgorithm?: string;
+  /**
+   * @remarks
+   * Specifies whether to encrypt data disk N. Valid values:
+   * 
+   * *   true: encrypts the data disk.
+   * *   false: does not encrypt the data disk.
+   * 
+   * Default value: false.
+   * 
+   * >  When you use a shared encrypted image to create the disk based on an encrypted snapshot, you must set Encrypted to true to ensure that the disk uses an encryption key of your own.
+   * 
+   * @example
+   * false
+   */
+  encrypted?: string;
+  /**
+   * @remarks
+   * The ID of the KMS key used for the data disk.
+   * 
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d3fb40****
+   */
+  KMSKeyId?: string;
+  /**
+   * @remarks
+   * The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
+   * 
+   * *   PL0: A single ESSD can deliver up to 10000 random read/write IOPS.
+   * *   PL1 (default): A single ESSD can deliver up to 50000 random read/write IOPS.
+   * *   PL2: A single ESSD can deliver up to 100000 random read/write IOPS.
+   * *   PL3: A single ESSD can deliver up to 1000000 random read/write IOPS.
+   * 
+   * For information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * 
+   * @example
+   * PL1
+   */
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * The provisioned read/write IOPS of the ESSD AutoPL disk to use as data disk N. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
+   * 
+   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
+   * 
+   * >  This parameter is available only if you set DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+   * 
+   * @example
+   * 40000
+   */
+  provisionedIops?: number;
+  /**
+   * @remarks
+   * The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
+   * 
+   * *   Valid values when DataDisk.N.Category is set to cloud_efficiency: 20 to 32768.
+   * 
+   * *   Valid values when DataDisk.N.Category is set to cloud_ssd: 20 to 32768.
+   * 
+   * *   Valid values when DataDisk.N.Category is set to cloud_essd: vary based on the value of `DataDisk.N.PerformanceLevel`.
+   * 
+   *     *   Valid values when DataDisk.N.PerformanceLevel is set to PL0: 1 to 65536.
+   *     *   Valid values when DataDisk.N.PerformanceLevel is set to PL1: 20 to 65536.
+   *     *   Valid values when DataDisk.N.PerformanceLevel is set to PL2: 461 to 65536.
+   *     *   Valid values when DataDisk.N.PerformanceLevel is set to PL3: 1261 to 65536.
+   * 
+   * *   Valid values when DataDisk.N.Category is set to cloud: 5 to 2000.
+   * 
+   * *   Valid values when DataDisk.N.Category is set to cloud_auto: 1 to 65536.
+   * 
+   * *   Valid values when DataDisk.N.Category is set to cloud_essd_entry: 10 to 32768.
+   * 
+   * >  The value of this parameter must be greater than or equal to the size of the snapshot specified by `DataDisk.N.SnapshotId`.
+   * 
+   * @example
+   * 2000
+   */
+  size?: number;
+  /**
+   * @remarks
+   * The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16.
+   * 
+   * When `DataDisk.N.SnapshotId` is specified, `DataDisk.N.Size` is ignored. The data disk is created with the size of the specified snapshot. Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+   * 
+   * @example
+   * s-bp17441ohwka0yuh****
+   */
+  snapshotId?: string;
+  /**
+   * @remarks
+   * The ID of the dedicated block storage cluster to which data disk N belongs. If you want to use a disk in a dedicated block storage cluster as data disk N when you create the instance, you must specify this parameter.
+   * 
+   * @example
+   * dbsc-j5e1sf2vaf5he8m2****
+   */
+  storageClusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoSnapshotPolicyId: 'AutoSnapshotPolicyId',
+      burstingEnabled: 'BurstingEnabled',
+      category: 'Category',
+      deleteWithInstance: 'DeleteWithInstance',
+      description: 'Description',
+      device: 'Device',
+      diskName: 'DiskName',
+      encryptAlgorithm: 'EncryptAlgorithm',
+      encrypted: 'Encrypted',
+      KMSKeyId: 'KMSKeyId',
+      performanceLevel: 'PerformanceLevel',
+      provisionedIops: 'ProvisionedIops',
+      size: 'Size',
+      snapshotId: 'SnapshotId',
+      storageClusterId: 'StorageClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSnapshotPolicyId: 'string',
+      burstingEnabled: 'boolean',
+      category: 'string',
+      deleteWithInstance: 'boolean',
+      description: 'string',
+      device: 'string',
+      diskName: 'string',
+      encryptAlgorithm: 'string',
+      encrypted: 'string',
+      KMSKeyId: 'string',
+      performanceLevel: 'string',
+      provisionedIops: 'number',
+      size: 'number',
+      snapshotId: 'string',
+      storageClusterId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestImageOptions extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the instance that uses the image supports logons of the ecs-user user. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  loginAsNonRoot?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      loginAsNonRoot: 'LoginAsNonRoot',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loginAsNonRoot: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestNetworkInterface extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to release ENI N when the associated instance is released. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: true.
+   * 
+   * >  This parameter takes effect only for secondary ENIs.
+   * 
+   * @example
+   * true
+   */
+  deleteOnRelease?: boolean;
+  /**
+   * @remarks
+   * The description of ENI N.
+   * 
+   * Take note of the following items:
+   * 
+   * *   The value of N cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
+   * *   The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you do not need to specify this parameter.
+   * 
+   * @example
+   * Network_Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The type of ENI N. The value of N cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
+   * 
+   * Valid values:
+   * 
+   * *   Primary
+   * *   Secondary
+   * 
+   * Default value: Secondary.
+   * 
+   * @example
+   * Secondary
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The IPv6 addresses to assign to the primary ENI. You can assign up to 10 IPv6 addresses to the primary ENI. Valid values of the second N: 1 to 10.
+   * 
+   * Example: `Ipv6Address.1=2001:db8:1234:1a00::***`.
+   * 
+   * Take note of the following items:
+   * 
+   * *   This parameter takes effect only when `NetworkInterface.N.InstanceType` is set to `Primary`. If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you cannot specify this parameter.
+   * *   If you specify this parameter, you must set `Amount` to 1 and cannot specify `Ipv6AddressCount`, `Ipv6Address.N`, or `NetworkInterface.N.Ipv6AddressCount`.
+   */
+  ipv6Address?: string[];
+  /**
+   * @remarks
+   * The number of IPv6 addresses to randomly generate for the primary ENI. Valid values: 1 to 10.
+   * 
+   * Take note of the following items:
+   * 
+   * *   This parameter takes effect only when `NetworkInterface.N.InstanceType` is set to `Primary`. If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you cannot specify this parameter.
+   * *   If you specify this parameter, you cannot specify `Ipv6AddressCount`, `Ipv6Address.N`, or `NetworkInterface.N.Ipv6Address.N`.
+   * 
+   * @example
+   * 1
+   */
+  ipv6AddressCount?: number;
+  /**
+   * @remarks
+   * The index of the network card for ENI N.
+   * 
+   * Take note of the following items:
+   * 
+   * *   You can specify network card indexes only for instances of specific instance types.
+   * *   If you set NetworkInterface.N.InstanceType to Primary, you can set NetworkInterface.N.NetworkCardIndex only to 0 for instance types that support network cards.
+   * *   If you set NetworkInterface.N.InstanceType to Secondary or leave NetworkInterface.N.InstanceType empty, you can specify NetworkInterface.N.NetworkCardIndex based on instance types if the instance types support network cards. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+   * 
+   * @example
+   * 0
+   */
+  networkCardIndex?: number;
+  /**
+   * @remarks
+   * The ID of ENI N to attach to the instance.
+   * 
+   * If you specify this parameter, you must set `Amount` to 1.
+   * 
+   * >  This parameter takes effect only for secondary ENIs. After you specify an existing secondary ENI, you cannot specify other ENI creation parameters.
+   * 
+   * @example
+   * eni-bp1gn106np8jhxhj****
+   */
+  networkInterfaceId?: string;
+  /**
+   * @remarks
+   * The name of ENI N. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * 
+   * Take note of the following items:
+   * 
+   * *   The value of N cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
+   * *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you do not need to specify this parameter.
+   * 
+   * @example
+   * Network_Name
+   */
+  networkInterfaceName?: string;
+  /**
+   * @remarks
+   * The communication mode of ENI N. Valid values:
+   * 
+   * *   Standard: uses the TCP communication mode.
+   * *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
+   * 
+   * Default value: Standard.
+   * 
+   * >  The number of ERIs on an instance cannot exceed the maximum number of ERIs that the instance type supports. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+   * 
+   * @example
+   * Standard
+   */
+  networkInterfaceTrafficMode?: string;
+  /**
+   * @remarks
+   * The primary IP address to assign to ENI N.
+   * 
+   * Take note of the following items:
+   * 
+   * *   The value of N cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
+   * 
+   *     *   If the value of N is 1, you can configure a primary or secondary ENI. If you specify this parameter, set `Amount` to a numeric value greater than 1, and set NetworkInterface.N.InstanceType to Primary, the specified number of instances are created and consecutive primary IP addresses starting from the specified IP address are assigned to the instances. In this case, you cannot attach secondary ENIs to the instances.
+   *     *   If you specify this parameter, set `Amount` to a numeric value greater than 1, and set NetworkInterface.N.InstanceType to Primary, you cannot set `NetworkInterface.2.InstanceType` to Secondary to attach a secondary ENI.
+   * 
+   * *   If you set `NetworkInterface.N.InstanceType` to `Primary`, this parameter is equivalent to `PrivateIpAddress`. You cannot specify both this parameter and `PrivateIpAddress` in the same request.
+   * 
+   * *   If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, the specified primary IP address is assigned to the secondary ENI. The default value is an IP address that is randomly selected from within the CIDR block of the vSwitch to which to connect the secondary ENI.
+   * 
+   * > 
+   * 
+   * *   The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. You cannot specify the IP addresses. For example, if a vSwitch CIDR block is 192.168.1.0/24, the following IP addresses are reserved: 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+   * 
+   * @example
+   * ``172.16.**.**``
+   */
+  primaryIpAddress?: string;
+  /**
+   * @remarks
+   * The number of queues supported by ENI N.
+   * 
+   * Take note of the following items:
+   * 
+   * *   The value of N cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
+   * *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI.
+   * *   The total number of queues for all ENIs on an instance cannot exceed the queue quota for the instance type. To query the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and check the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values in the response.
+   * *   If you specify this parameter and set `NetworkInterface.N.InstanceType` to `Primary`, you cannot specify `NetworkInterfaceQueueNumber`.
+   * 
+   * @example
+   * 8
+   */
+  queueNumber?: number;
+  /**
+   * @remarks
+   * The number of queue pairs (QPs) supported by the ERI.
+   * 
+   * If you want to attach multiple ERIs to a created instance, we recommend that you specify QueuePairNumber for each ERI based on the value of `QueuePairNumber` supported by the instance type and the number of ERIs that you want to use. Make sure that the total number of QPs of all ERIs does not exceed the maximum number of QPs supported by the instance type. For information about the maximum number of QPs supported by an instance type, see [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html).
+   * 
+   * >  If you do not specify QueuePairNumber for an ERI, the maximum number of QPs supported by the instance type is used as the number of QPs supported by the ERI. In this case, you cannot attach an additional ERI to the instance. However, you can attach other types of ENIs to the instance.
+   * 
+   * @example
+   * 0
+   */
+  queuePairNumber?: number;
+  /**
+   * @remarks
+   * The receive (Rx) queue depth of ENI N.
+   * 
+   * >  This parameter is in invitational preview and is not publicly available. To use this parameter, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
+   * 
+   * Take note of the following items:
+   * 
+   * *   This parameter is applicable only to 7th-generation or later ECS instance types.
+   * *   This parameter is applicable to Linux images.
+   * *   A larger Rx queue depth yields higher inbound throughput and reduces packet loss rates but consumes more memory.
+   * 
+   * @example
+   * 8192
+   */
+  rxQueueSize?: number;
+  /**
+   * @remarks
+   * The ID of the security group to which to assign ENI N.
+   * 
+   * Take note of the following items:
+   * 
+   * *   The value of N cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
+   * *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `SecurityGroupId` and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupIds.N`.
+   * *   If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, you do not need to specify this parameter. The default value is the ID of the security group to which to assign the instance.
+   * 
+   * @example
+   * sg-bp67acfmxazb4p****
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of security groups to which to assign ENI N.
+   * 
+   * *   The value of the first N in this parameter cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
+   * *   The second N in this parameter indicates that one or more security group IDs can be specified. The valid values of the second N vary based on the maximum number of security groups to which an instance can belong. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section of the "Limits" topic.
+   * 
+   * Take note of the following items:
+   * 
+   * *   If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter or `NetworkInterface.N.SecurityGroupId`. In this case, this parameter is equivalent to `SecurityGroupIds.N`, and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupId`.
+   * *   If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the ID of the security group to which to assign the instance.
+   * 
+   * @example
+   * sg-bp15ed6xe1yxeycg7****
+   */
+  securityGroupIds?: string[];
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * false
+   */
+  sourceDestCheck?: boolean;
+  /**
+   * @remarks
+   * The Tx queue depth of ENI N.
+   * 
+   * >  This parameter is in invitational preview and is not publicly available. To use this parameter, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
+   * 
+   * Take note of the following items:
+   * 
+   * *   This parameter is applicable only to 7th-generation or later ECS instance types.
+   * *   This parameter is applicable to Linux images.
+   * *   A larger Tx queue depth yields higher outbound throughput and reduces packet loss rates but consumes more memory.
+   * 
+   * @example
+   * 8192
+   */
+  txQueueSize?: number;
+  /**
+   * @remarks
+   * The ID of the vSwitch to which to connect ENI N.
+   * 
+   * Take note of the following items:
+   * 
+   * *   The value of N cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
+   * *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `VSwitchId`. You cannot specify both NetworkInterface.N.VSwitchId and `VSwitchId` in the same request.
+   * *   If `NetworkInterface.N.InstanceType` is set to `Secondary` or left empty, you do not need to specify this parameter. The default value is the VSwitchId value.
+   * 
+   * @example
+   * vsw-bp67acfmxazb4p****
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteOnRelease: 'DeleteOnRelease',
+      description: 'Description',
+      instanceType: 'InstanceType',
+      ipv6Address: 'Ipv6Address',
+      ipv6AddressCount: 'Ipv6AddressCount',
+      networkCardIndex: 'NetworkCardIndex',
+      networkInterfaceId: 'NetworkInterfaceId',
+      networkInterfaceName: 'NetworkInterfaceName',
+      networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
+      primaryIpAddress: 'PrimaryIpAddress',
+      queueNumber: 'QueueNumber',
+      queuePairNumber: 'QueuePairNumber',
+      rxQueueSize: 'RxQueueSize',
+      securityGroupId: 'SecurityGroupId',
+      securityGroupIds: 'SecurityGroupIds',
+      sourceDestCheck: 'SourceDestCheck',
+      txQueueSize: 'TxQueueSize',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteOnRelease: 'boolean',
+      description: 'string',
+      instanceType: 'string',
+      ipv6Address: { 'type': 'array', 'itemType': 'string' },
+      ipv6AddressCount: 'number',
+      networkCardIndex: 'number',
+      networkInterfaceId: 'string',
+      networkInterfaceName: 'string',
+      networkInterfaceTrafficMode: 'string',
+      primaryIpAddress: 'string',
+      queueNumber: 'number',
+      queuePairNumber: 'number',
+      rxQueueSize: 'number',
+      securityGroupId: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      sourceDestCheck: 'boolean',
+      txQueueSize: 'number',
+      vSwitchId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipv6Address)) {
+      $dara.Model.validateArray(this.ipv6Address);
+    }
+    if(Array.isArray(this.securityGroupIds)) {
+      $dara.Model.validateArray(this.securityGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestNetworkOptions extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the Jumbo Frames feature for the instance. Valid values:
+   * 
+   * *   false: does not enable the Jumbo Frames feature for the instance. The maximum transmission unit (MTU) value of all ENIs on the instance is set to 1500.
+   * *   true: enables the Jumbo Frames feature for the instance. The MTU value of all ENIs on the instance is set to 8500.
+   * 
+   * Default value: true.
+   * 
+   * >  The Jumbo Frames feature is supported by only 8th-generation or later instance types. For more information, see [Jumbo Frames](https://help.aliyun.com/document_detail/200512.html).
+   * 
+   * @example
+   * false
+   */
+  enableJumboFrame?: boolean;
+  enableNetworkEncryption?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableJumboFrame: 'EnableJumboFrame',
+      enableNetworkEncryption: 'EnableNetworkEncryption',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableJumboFrame: 'boolean',
+      enableNetworkEncryption: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestPrivateDnsNameOptions extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv6 Address (AAAA Record) is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
+  enableInstanceIdDnsAAAARecord?: boolean;
+  /**
+   * @remarks
+   * Specifies whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  enableInstanceIdDnsARecord?: boolean;
+  /**
+   * @remarks
+   * Specifies whether DNS Resolution from the IP Address-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
+  enableIpDnsARecord?: boolean;
+  /**
+   * @remarks
+   * Specifies whether Reverse DNS Resolution from the Instance Primary Private IPv4 Address to the IP Address-based Hostname (PTR Record) is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  enableIpDnsPtrRecord?: boolean;
+  /**
+   * @remarks
+   * The type of hostname. Valid values:
+   * 
+   * *   Custom: custom hostname
+   * *   IpBased: IP address-based hostname
+   * *   InstanceIdBased: instance ID-based hostname
+   * 
+   * Default value: Custom.
+   * 
+   * @example
+   * Custom
+   */
+  hostnameType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableInstanceIdDnsAAAARecord: 'EnableInstanceIdDnsAAAARecord',
+      enableInstanceIdDnsARecord: 'EnableInstanceIdDnsARecord',
+      enableIpDnsARecord: 'EnableIpDnsARecord',
+      enableIpDnsPtrRecord: 'EnableIpDnsPtrRecord',
+      hostnameType: 'HostnameType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableInstanceIdDnsAAAARecord: 'boolean',
+      enableInstanceIdDnsARecord: 'boolean',
+      enableIpDnsARecord: 'boolean',
+      enableIpDnsPtrRecord: 'boolean',
+      hostnameType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the instance, disks, and primary ENI. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the instance, disks, and primary ENI. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunInstancesRequest extends $dara.Model {
   cpuOptions?: RunInstancesRequestCpuOptions;

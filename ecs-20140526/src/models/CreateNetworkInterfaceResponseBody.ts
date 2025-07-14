@@ -1,12 +1,332 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateNetworkInterfaceResponseBodyIpv4PrefixSets } from "./CreateNetworkInterfaceResponseBodyIpv4prefixSets";
-import { CreateNetworkInterfaceResponseBodyIpv6PrefixSets } from "./CreateNetworkInterfaceResponseBodyIpv6prefixSets";
-import { CreateNetworkInterfaceResponseBodyIpv6Sets } from "./CreateNetworkInterfaceResponseBodyIpv6sets";
-import { CreateNetworkInterfaceResponseBodyPrivateIpSets } from "./CreateNetworkInterfaceResponseBodyPrivateIpSets";
-import { CreateNetworkInterfaceResponseBodySecurityGroupIds } from "./CreateNetworkInterfaceResponseBodySecurityGroupIds";
-import { CreateNetworkInterfaceResponseBodyTags } from "./CreateNetworkInterfaceResponseBodyTags";
 
+
+export class CreateNetworkInterfaceResponseBodyIpv4PrefixSetsIpv4PrefixSet extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv4 prefix assigned to the ENI.
+   * 
+   * @example
+   * hide
+   */
+  ipv4Prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv4Prefix: 'Ipv4Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4Prefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodyIpv4PrefixSets extends $dara.Model {
+  ipv4PrefixSet?: CreateNetworkInterfaceResponseBodyIpv4PrefixSetsIpv4PrefixSet[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv4PrefixSet: 'Ipv4PrefixSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4PrefixSet: { 'type': 'array', 'itemType': CreateNetworkInterfaceResponseBodyIpv4PrefixSetsIpv4PrefixSet },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipv4PrefixSet)) {
+      $dara.Model.validateArray(this.ipv4PrefixSet);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodyIpv6PrefixSetsIpv6PrefixSet extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv6 prefix assigned to the ENI.
+   * 
+   * @example
+   * hide
+   */
+  ipv6Prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Prefix: 'Ipv6Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Prefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodyIpv6PrefixSets extends $dara.Model {
+  ipv6PrefixSet?: CreateNetworkInterfaceResponseBodyIpv6PrefixSetsIpv6PrefixSet[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6PrefixSet: 'Ipv6PrefixSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6PrefixSet: { 'type': 'array', 'itemType': CreateNetworkInterfaceResponseBodyIpv6PrefixSetsIpv6PrefixSet },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipv6PrefixSet)) {
+      $dara.Model.validateArray(this.ipv6PrefixSet);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodyIpv6SetsIpv6Set extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv6 address assigned to the ENI.
+   * 
+   * @example
+   * 2001:db8:1234:1a00::****
+   */
+  ipv6Address?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Address: 'Ipv6Address',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Address: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodyIpv6Sets extends $dara.Model {
+  ipv6Set?: CreateNetworkInterfaceResponseBodyIpv6SetsIpv6Set[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Set: 'Ipv6Set',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Set: { 'type': 'array', 'itemType': CreateNetworkInterfaceResponseBodyIpv6SetsIpv6Set },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipv6Set)) {
+      $dara.Model.validateArray(this.ipv6Set);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodyPrivateIpSetsPrivateIpSet extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the private IP address is the primary private IP address.
+   * 
+   * @example
+   * true
+   */
+  primary?: boolean;
+  /**
+   * @remarks
+   * The private IP address of the instance.
+   * 
+   * @example
+   * ``172.17.**.**``
+   */
+  privateIpAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      primary: 'Primary',
+      privateIpAddress: 'PrivateIpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      primary: 'boolean',
+      privateIpAddress: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodyPrivateIpSets extends $dara.Model {
+  privateIpSet?: CreateNetworkInterfaceResponseBodyPrivateIpSetsPrivateIpSet[];
+  static names(): { [key: string]: string } {
+    return {
+      privateIpSet: 'PrivateIpSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privateIpSet: { 'type': 'array', 'itemType': CreateNetworkInterfaceResponseBodyPrivateIpSetsPrivateIpSet },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.privateIpSet)) {
+      $dara.Model.validateArray(this.privateIpSet);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodySecurityGroupIds extends $dara.Model {
+  securityGroupId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.securityGroupId)) {
+      $dara.Model.validateArray(this.securityGroupId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodyTagsTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * TestKey
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * TestValue
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBodyTags extends $dara.Model {
+  tag?: CreateNetworkInterfaceResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': CreateNetworkInterfaceResponseBodyTagsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   /**

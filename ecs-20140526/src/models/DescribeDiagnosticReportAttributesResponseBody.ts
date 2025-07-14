@@ -1,7 +1,212 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDiagnosticReportAttributesResponseBodyMetricResults } from "./DescribeDiagnosticReportAttributesResponseBodyMetricResults";
 
+
+export class DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssuesIssue extends $dara.Model {
+  /**
+   * @remarks
+   * The additional data about the diagnosed issue. The value is a JSON string.
+   * 
+   * @example
+   * {
+   *   "TotalPercent": 95,
+   *   "TopUtilizationProcesses": [
+   *     {
+   *       "Pid": "1223",
+   *       "CommandName": "/usr/bin/mem.py",
+   *       "PhysicalMemoryPercent": 50
+   *     }
+   *   ]
+   * }
+   */
+  additional?: string;
+  /**
+   * @remarks
+   * The ID of the diagnosed issue, which is the unique identifier of the issue.
+   * 
+   * @example
+   * GuestOS.CPU.HighUtiliz*****
+   */
+  issueId?: string;
+  /**
+   * @remarks
+   * The time when the diagnosed issue occurred.
+   * 
+   * @example
+   * 2022-07-11T14:00:00Z
+   */
+  occurrenceTime?: string;
+  /**
+   * @remarks
+   * The severity level of the diagnosed issue. Valid values:
+   * 
+   * *   Info: Diagnostic information was recorded and may be related to exceptions.
+   * *   Warn: Diagnostic information was recorded and may indicate potential exceptions.
+   * *   Critical: Critical exceptions were detected.
+   * 
+   * @example
+   * Info
+   */
+  severity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additional: 'Additional',
+      issueId: 'IssueId',
+      occurrenceTime: 'OccurrenceTime',
+      severity: 'Severity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additional: 'string',
+      issueId: 'string',
+      occurrenceTime: 'string',
+      severity: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssues extends $dara.Model {
+  issue?: DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssuesIssue[];
+  static names(): { [key: string]: string } {
+    return {
+      issue: 'Issue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issue: { 'type': 'array', 'itemType': DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssuesIssue },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.issue)) {
+      $dara.Model.validateArray(this.issue);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResult extends $dara.Model {
+  /**
+   * @remarks
+   * The diagnosed issues.
+   */
+  issues?: DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssues;
+  /**
+   * @remarks
+   * The category of the diagnostic metric.
+   * 
+   * @example
+   * CPU
+   */
+  metricCategory?: string;
+  /**
+   * @remarks
+   * The ID of the diagnostic metric.
+   * 
+   * @example
+   * GuestOS.WinFirewall
+   */
+  metricId?: string;
+  /**
+   * @remarks
+   * The severity level of the diagnostic metric. Valid values:
+   * 
+   * *   Unknown: The diagnostic has not started, failed to run, or exited unexpectedly without a diagnosis.
+   * *   Normal: No exceptions were detected.
+   * *   Info: Diagnostic information was recorded and may be related to exceptions.
+   * *   NotSupport: The version of the guest operating system does support diagnosing the metric.
+   * *   Warn: Diagnostic information was recorded and may indicate potential exceptions.
+   * *   Critical: Critical exceptions were detected.
+   * 
+   * @example
+   * Normal
+   */
+  severity?: string;
+  /**
+   * @remarks
+   * The state of the diagnostic metric. Valid values:
+   * 
+   * *   InProgress.
+   * *   Finished.
+   * *   Failed.
+   * 
+   * @example
+   * Finished
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      issues: 'Issues',
+      metricCategory: 'MetricCategory',
+      metricId: 'MetricId',
+      severity: 'Severity',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issues: DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResultIssues,
+      metricCategory: 'string',
+      metricId: 'string',
+      severity: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.issues && typeof (this.issues as any).validate === 'function') {
+      (this.issues as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticReportAttributesResponseBodyMetricResults extends $dara.Model {
+  metricResult?: DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResult[];
+  static names(): { [key: string]: string } {
+    return {
+      metricResult: 'MetricResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricResult: { 'type': 'array', 'itemType': DescribeDiagnosticReportAttributesResponseBodyMetricResultsMetricResult },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.metricResult)) {
+      $dara.Model.validateArray(this.metricResult);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDiagnosticReportAttributesResponseBody extends $dara.Model {
   /**

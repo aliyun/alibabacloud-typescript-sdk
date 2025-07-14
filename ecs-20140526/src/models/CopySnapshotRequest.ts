@@ -1,8 +1,96 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CopySnapshotRequestArn } from "./CopySnapshotRequestArn";
-import { CopySnapshotRequestTag } from "./CopySnapshotRequestTag";
 
+
+export class CopySnapshotRequestArn extends $dara.Model {
+  /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
+   * @example
+   * 0
+   */
+  assumeRoleFor?: number;
+  /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  roleType?: string;
+  /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  rolearn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assumeRoleFor: 'AssumeRoleFor',
+      roleType: 'RoleType',
+      rolearn: 'Rolearn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assumeRoleFor: 'number',
+      roleType: 'string',
+      rolearn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopySnapshotRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the new snapshot. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the new snapshot. The tag value can be an empty string. It can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CopySnapshotRequest extends $dara.Model {
   /**

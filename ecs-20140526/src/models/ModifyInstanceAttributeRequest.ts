@@ -1,9 +1,206 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModifyInstanceAttributeRequestCpuOptions } from "./ModifyInstanceAttributeRequestCpuOptions";
-import { ModifyInstanceAttributeRequestPrivateDnsNameOptions } from "./ModifyInstanceAttributeRequestPrivateDnsNameOptions";
-import { ModifyInstanceAttributeRequestRemoteConnectionOptions } from "./ModifyInstanceAttributeRequestRemoteConnectionOptions";
 
+
+export class ModifyInstanceAttributeRequestCpuOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CPU cores. This parameter cannot be specified but only uses its default value.
+   * 
+   * @example
+   * 2
+   */
+  core?: number;
+  /**
+   * @remarks
+   * The number of threads per CPU core. The following formula is used to calculate the number of vCPUs of the instance: `CpuOptions.Core` value × `CpuOptions.ThreadsPerCore` value.
+   * 
+   * *   If `CpuOptionsThreadPerCore` is set to 1, Hyper-Threading (HT) is disabled.
+   * *   This parameter is applicable only to specific instance types.
+   * 
+   * @example
+   * 2
+   */
+  threadsPerCore?: number;
+  /**
+   * @remarks
+   * The CPU topology type of the instance. Valid values:
+   * 
+   * *   ContinuousCoreToHTMapping: The Hyper-Threading (HT) technology allows continuous threads to run on the same core in the CPU topology of the instance.
+   * *   DiscreteCoreToHTMapping: The HT technology allows discrete threads to run on the same core.
+   * 
+   * This parameter is left empty by default.
+   * 
+   * Take note of the following items:
+   * 
+   * *   The instance must be in the Stopped (`Stopped`) state.
+   * 
+   * >  This parameter is supported only for specific instance families. For information about the supported instance families, see [View and modify CPU topologies](https://help.aliyun.com/document_detail/2636059.html).
+   * 
+   * @example
+   * DiscreteCoreToHTMapping
+   */
+  topologyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      core: 'Core',
+      threadsPerCore: 'ThreadsPerCore',
+      topologyType: 'TopologyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      core: 'number',
+      threadsPerCore: 'number',
+      topologyType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceAttributeRequestPrivateDnsNameOptions extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv6 Address (AAAA Record) is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  enableInstanceIdDnsAAAARecord?: boolean;
+  /**
+   * @remarks
+   * Specifies whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  enableInstanceIdDnsARecord?: boolean;
+  /**
+   * @remarks
+   * Specifies whether DNS Resolution from the IP Address-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  enableIpDnsARecord?: boolean;
+  /**
+   * @remarks
+   * Specifies whether Reverse DNS Resolution from the Instance Primary Private IPv4 Address to the IP Address-based Hostname (PTR Record) is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  enableIpDnsPtrRecord?: boolean;
+  /**
+   * @remarks
+   * The type of the hostname. Valid values:
+   * 
+   * *   Custom: custom hostname.
+   * *   IpBased: IP address-based hostname.
+   * *   InstanceIdBased: instance ID-based hostname.
+   * 
+   * Default value: Custom.
+   * 
+   * @example
+   * Custom
+   */
+  hostnameType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableInstanceIdDnsAAAARecord: 'EnableInstanceIdDnsAAAARecord',
+      enableInstanceIdDnsARecord: 'EnableInstanceIdDnsARecord',
+      enableIpDnsARecord: 'EnableIpDnsARecord',
+      enableIpDnsPtrRecord: 'EnableIpDnsPtrRecord',
+      hostnameType: 'HostnameType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableInstanceIdDnsAAAARecord: 'boolean',
+      enableInstanceIdDnsARecord: 'boolean',
+      enableIpDnsARecord: 'boolean',
+      enableIpDnsPtrRecord: 'boolean',
+      hostnameType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceAttributeRequestRemoteConnectionOptions extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * hide
+   */
+  password?: string;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * hide
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      password: 'Password',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      password: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifyInstanceAttributeRequest extends $dara.Model {
   cpuOptions?: ModifyInstanceAttributeRequestCpuOptions;

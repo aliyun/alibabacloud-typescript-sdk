@@ -1,9 +1,165 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateElasticityAssuranceRequestPrivatePoolOptions } from "./CreateElasticityAssuranceRequestPrivatePoolOptions";
-import { CreateElasticityAssuranceRequestRecurrenceRules } from "./CreateElasticityAssuranceRequestRecurrenceRules";
-import { CreateElasticityAssuranceRequestTag } from "./CreateElasticityAssuranceRequestTag";
 
+
+export class CreateElasticityAssuranceRequestPrivatePoolOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the private pool with which you want to associate the elasticity assurance. Valid values:
+   * 
+   * *   Open: open private pool. If you use the elasticity assurance to create ECS instances, the open private pool that is associated with the elasticity assurance is automatically matched. If no capacity is available in the open private pool, resources in the public pool are automatically used to create the ECS instances.
+   * *   Target: targeted private pool. If you use the elasticity assurance to create ECS instances, the specified private pool that is associated with the elasticity assurance is automatically matched. If no capacity is available in the private pool, the ECS instances fail to be created.
+   * 
+   * Default value: Open.
+   * 
+   * @example
+   * Open
+   */
+  matchCriteria?: string;
+  /**
+   * @remarks
+   * The name of the elasticity assurance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * eapTestName
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      matchCriteria: 'MatchCriteria',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchCriteria: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateElasticityAssuranceRequestRecurrenceRules extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of the assurance period for the capacity reservation of the time-segmented elasticity assurance. Specify an on-the-hour point in time.
+   * 
+   * @example
+   * 10
+   */
+  endHour?: number;
+  /**
+   * @remarks
+   * The type of the assurance schedule. Valid values:
+   * 
+   * *   Daily
+   * *   Weekly
+   * *   Monthly
+   * 
+   * >  If you specify this parameter, you must specify `RecurrenceType` and `RecurrenceValue`.
+   * 
+   * @example
+   * Daily
+   */
+  recurrenceType?: string;
+  /**
+   * @remarks
+   * The days of the week or month on which the capacity reservation of the time-segmented elasticity assurance takes effect or the interval, in number of days, at which the capacity reservation takes effect.
+   * 
+   * *   If you set `RecurrenceType` to `Daily`, you can specify only one value for this parameter. Valid values: 1 to 31. The value specifies that the capacity reservation takes effect every few days.
+   * *   If you set `RecurrenceType` to `Weekly`, you can specify multiple values for this parameter. Separate the values with commas (,). Valid values: 0, 1, 2, 3, 4, 5, and 6, which specify Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday, respectively. Example: `1,2`, which specifies that the capacity reservation takes effect on Monday and Tuesday.
+   * *   If you set `RecurrenceType` to `Monthly`, you can specify two values in the `A-B` format for this parameter. Valid values of A and B: 1 to 31. B must be greater than or equal to A. Example: `1-5`, which specifies that the capacity reservation takes effect every day from the first day up to the fifth day of each month.
+   * 
+   * >  If you specify this parameter, you must specify `RecurrenceType` and `RecurrenceValue`.
+   * 
+   * @example
+   * 1
+   */
+  recurrenceValue?: string;
+  /**
+   * @remarks
+   * The start time of the assurance period for the capacity reservation of the time-segmented elasticity assurance. Specify an on-the-hour point in time.
+   * 
+   * >  You must specify both `StartHour` and `EndHour`. The EndHour value must be at least 4 hours later than the StartHour value.
+   * 
+   * @example
+   * 4
+   */
+  startHour?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endHour: 'EndHour',
+      recurrenceType: 'RecurrenceType',
+      recurrenceValue: 'RecurrenceValue',
+      startHour: 'StartHour',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endHour: 'number',
+      recurrenceType: 'string',
+      recurrenceValue: 'string',
+      startHour: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateElasticityAssuranceRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the elasticity assurance. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the elasticity assurance. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateElasticityAssuranceRequest extends $dara.Model {
   privatePoolOptions?: CreateElasticityAssuranceRequestPrivatePoolOptions;

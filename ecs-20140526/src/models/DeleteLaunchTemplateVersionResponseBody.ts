@@ -1,7 +1,72 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DeleteLaunchTemplateVersionResponseBodyLaunchTemplateVersions } from "./DeleteLaunchTemplateVersionResponseBodyLaunchTemplateVersions";
 
+
+export class DeleteLaunchTemplateVersionResponseBodyLaunchTemplateVersionsLaunchTemplateVersion extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the launch template.
+   * 
+   * @example
+   * lt-m5eiaupmvm2op9d****
+   */
+  launchTemplateId?: string;
+  /**
+   * @remarks
+   * The version number of the launch template.
+   * 
+   * @example
+   * 2
+   */
+  launchTemplateVersionNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      launchTemplateId: 'LaunchTemplateId',
+      launchTemplateVersionNumber: 'LaunchTemplateVersionNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      launchTemplateId: 'string',
+      launchTemplateVersionNumber: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLaunchTemplateVersionResponseBodyLaunchTemplateVersions extends $dara.Model {
+  launchTemplateVersion?: DeleteLaunchTemplateVersionResponseBodyLaunchTemplateVersionsLaunchTemplateVersion[];
+  static names(): { [key: string]: string } {
+    return {
+      launchTemplateVersion: 'LaunchTemplateVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      launchTemplateVersion: { 'type': 'array', 'itemType': DeleteLaunchTemplateVersionResponseBodyLaunchTemplateVersionsLaunchTemplateVersion },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.launchTemplateVersion)) {
+      $dara.Model.validateArray(this.launchTemplateVersion);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DeleteLaunchTemplateVersionResponseBody extends $dara.Model {
   /**

@@ -1,7 +1,72 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeSnapshotMonitorDataResponseBodyMonitorData } from "./DescribeSnapshotMonitorDataResponseBodyMonitorData";
 
+
+export class DescribeSnapshotMonitorDataResponseBodyMonitorDataDataPoint extends $dara.Model {
+  /**
+   * @remarks
+   * The total size of snapshots. Unit: bytes.
+   * 
+   * @example
+   * 243036848128
+   */
+  size?: number;
+  /**
+   * @remarks
+   * The timestamp that corresponds to a snapshot size.
+   * 
+   * @example
+   * 2019-05-10T04:00:00Z
+   */
+  timeStamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      size: 'Size',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      size: 'number',
+      timeStamp: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSnapshotMonitorDataResponseBodyMonitorData extends $dara.Model {
+  dataPoint?: DescribeSnapshotMonitorDataResponseBodyMonitorDataDataPoint[];
+  static names(): { [key: string]: string } {
+    return {
+      dataPoint: 'DataPoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataPoint: { 'type': 'array', 'itemType': DescribeSnapshotMonitorDataResponseBodyMonitorDataDataPoint },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dataPoint)) {
+      $dara.Model.validateArray(this.dataPoint);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeSnapshotMonitorDataResponseBody extends $dara.Model {
   /**

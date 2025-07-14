@@ -1,14 +1,363 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeInstanceAttributeResponseBodyDedicatedHostAttribute } from "./DescribeInstanceAttributeResponseBodyDedicatedHostAttribute";
-import { DescribeInstanceAttributeResponseBodyEipAddress } from "./DescribeInstanceAttributeResponseBodyEipAddress";
-import { DescribeInstanceAttributeResponseBodyInnerIpAddress } from "./DescribeInstanceAttributeResponseBodyInnerIpAddress";
-import { DescribeInstanceAttributeResponseBodyNetworkOptions } from "./DescribeInstanceAttributeResponseBodyNetworkOptions";
-import { DescribeInstanceAttributeResponseBodyOperationLocks } from "./DescribeInstanceAttributeResponseBodyOperationLocks";
-import { DescribeInstanceAttributeResponseBodyPublicIpAddress } from "./DescribeInstanceAttributeResponseBodyPublicIpAddress";
-import { DescribeInstanceAttributeResponseBodySecurityGroupIds } from "./DescribeInstanceAttributeResponseBodySecurityGroupIds";
-import { DescribeInstanceAttributeResponseBodyVpcAttributes } from "./DescribeInstanceAttributeResponseBodyVpcAttributes";
 
+
+export class DescribeInstanceAttributeResponseBodyDedicatedHostAttribute extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the dedicated host.
+   * 
+   * @example
+   * dh-2ze7qrzz6lvbfhr0****
+   */
+  dedicatedHostId?: string;
+  /**
+   * @remarks
+   * The name of the dedicated host.
+   * 
+   * @example
+   * ecs-autoui-create-ddh-temp
+   */
+  dedicatedHostName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dedicatedHostId: 'DedicatedHostId',
+      dedicatedHostName: 'DedicatedHostName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dedicatedHostId: 'string',
+      dedicatedHostName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceAttributeResponseBodyEipAddress extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the EIP.
+   * 
+   * @example
+   * eip-wz9uilio26dfscamm****
+   */
+  allocationId?: string;
+  /**
+   * @remarks
+   * The maximum public bandwidth of the EIP. Unit: Mbit/s.
+   * 
+   * @example
+   * 8
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
+   * The billing method for network usage. Valid values:
+   * 
+   * *   PayByBandwidth
+   * *   PayByTraffic
+   * 
+   * >  When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+   * 
+   * @example
+   * PayByTraffic
+   */
+  internetChargeType?: string;
+  /**
+   * @remarks
+   * The ID of the elastic IP address (EIP).
+   * 
+   * @example
+   * ``30.21.**.**``
+   */
+  ipAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocationId: 'AllocationId',
+      bandwidth: 'Bandwidth',
+      internetChargeType: 'InternetChargeType',
+      ipAddress: 'IpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationId: 'string',
+      bandwidth: 'number',
+      internetChargeType: 'string',
+      ipAddress: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceAttributeResponseBodyInnerIpAddress extends $dara.Model {
+  ipAddress?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipAddress)) {
+      $dara.Model.validateArray(this.ipAddress);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceAttributeResponseBodyNetworkOptions extends $dara.Model {
+  enableJumboFrame?: boolean;
+  enableNetworkEncryption?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableJumboFrame: 'EnableJumboFrame',
+      enableNetworkEncryption: 'EnableNetworkEncryption',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableJumboFrame: 'boolean',
+      enableNetworkEncryption: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceAttributeResponseBodyOperationLocksLockReason extends $dara.Model {
+  /**
+   * @remarks
+   * The reason why the instance was locked. Valid values:
+   * 
+   * *   financial: The instance was locked due to overdue payments.
+   * *   security: The instance was locked due to security reasons.
+   * *   recycling: The spot instance was locked and pending release.
+   * *   dedicatedhostfinancial: The instance was locked due to overdue payments for the dedicated host.
+   * *   refunded: The instance was locked because a refund is made for the instance.
+   * 
+   * @example
+   * financial
+   */
+  lockReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lockReason: 'LockReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lockReason: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceAttributeResponseBodyOperationLocks extends $dara.Model {
+  lockReason?: DescribeInstanceAttributeResponseBodyOperationLocksLockReason[];
+  static names(): { [key: string]: string } {
+    return {
+      lockReason: 'LockReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lockReason: { 'type': 'array', 'itemType': DescribeInstanceAttributeResponseBodyOperationLocksLockReason },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.lockReason)) {
+      $dara.Model.validateArray(this.lockReason);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceAttributeResponseBodyPublicIpAddress extends $dara.Model {
+  ipAddress?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipAddress)) {
+      $dara.Model.validateArray(this.ipAddress);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceAttributeResponseBodySecurityGroupIds extends $dara.Model {
+  securityGroupId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.securityGroupId)) {
+      $dara.Model.validateArray(this.securityGroupId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress extends $dara.Model {
+  ipAddress?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipAddress)) {
+      $dara.Model.validateArray(this.ipAddress);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceAttributeResponseBodyVpcAttributes extends $dara.Model {
+  /**
+   * @remarks
+   * The NAT IP address of the instance. It is used by ECS instances in different VPCs for communication.
+   * 
+   * @example
+   * ``172.17.**.**``
+   */
+  natIpAddress?: string;
+  /**
+   * @remarks
+   * The private IP address of the instance.
+   */
+  privateIpAddress?: DescribeInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress;
+  /**
+   * @remarks
+   * The ID of the vSwitch to which the instance is connected.
+   * 
+   * @example
+   * vsw-uf6ixacqz8osrwnqb****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC.
+   * 
+   * @example
+   * vpc-wz9e4e9pmbcnj6ki6****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      natIpAddress: 'NatIpAddress',
+      privateIpAddress: 'PrivateIpAddress',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      natIpAddress: 'string',
+      privateIpAddress: DescribeInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress,
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.privateIpAddress && typeof (this.privateIpAddress as any).validate === 'function') {
+      (this.privateIpAddress as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   /**

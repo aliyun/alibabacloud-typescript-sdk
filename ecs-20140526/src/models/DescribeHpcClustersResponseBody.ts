@@ -1,7 +1,82 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeHpcClustersResponseBodyHpcClusters } from "./DescribeHpcClustersResponseBodyHpcClusters";
 
+
+export class DescribeHpcClustersResponseBodyHpcClustersHpcCluster extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the HPC cluster.
+   * 
+   * @example
+   * testDescription
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The description of the HPC cluster.
+   * 
+   * @example
+   * hpc-bp1a5zr3u7nq9cx****
+   */
+  hpcClusterId?: string;
+  /**
+   * @remarks
+   * The name of the HPC cluster.
+   * 
+   * @example
+   * testName
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      hpcClusterId: 'HpcClusterId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      hpcClusterId: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHpcClustersResponseBodyHpcClusters extends $dara.Model {
+  hpcCluster?: DescribeHpcClustersResponseBodyHpcClustersHpcCluster[];
+  static names(): { [key: string]: string } {
+    return {
+      hpcCluster: 'HpcCluster',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hpcCluster: { 'type': 'array', 'itemType': DescribeHpcClustersResponseBodyHpcClustersHpcCluster },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hpcCluster)) {
+      $dara.Model.validateArray(this.hpcCluster);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeHpcClustersResponseBody extends $dara.Model {
   /**

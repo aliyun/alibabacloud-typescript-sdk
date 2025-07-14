@@ -1,7 +1,72 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribePrefixListAttributesResponseBodyEntries } from "./DescribePrefixListAttributesResponseBodyEntries";
 
+
+export class DescribePrefixListAttributesResponseBodyEntriesEntry extends $dara.Model {
+  /**
+   * @remarks
+   * The CIDR block in entry N.
+   * 
+   * @example
+   * 192.168.1.0/24
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The description in entry N.
+   * 
+   * @example
+   * Description Sample 01
+   */
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      description: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePrefixListAttributesResponseBodyEntries extends $dara.Model {
+  entry?: DescribePrefixListAttributesResponseBodyEntriesEntry[];
+  static names(): { [key: string]: string } {
+    return {
+      entry: 'Entry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entry: { 'type': 'array', 'itemType': DescribePrefixListAttributesResponseBodyEntriesEntry },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.entry)) {
+      $dara.Model.validateArray(this.entry);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribePrefixListAttributesResponseBody extends $dara.Model {
   /**

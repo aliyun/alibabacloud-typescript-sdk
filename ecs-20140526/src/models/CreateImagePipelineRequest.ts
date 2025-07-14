@@ -1,10 +1,505 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateImagePipelineRequestAdvancedOptions } from "./CreateImagePipelineRequestAdvancedOptions";
-import { CreateImagePipelineRequestImageOptions } from "./CreateImagePipelineRequestImageOptions";
-import { CreateImagePipelineRequestImportImageOptions } from "./CreateImagePipelineRequestImportImageOptions";
-import { CreateImagePipelineRequestTag } from "./CreateImagePipelineRequestTag";
 
+
+export class CreateImagePipelineRequestAdvancedOptions extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to disable the feature that automatically adds a suffix to the name of the image created based on the image template. Valid value:
+   * 
+   * *   disable
+   * 
+   * @example
+   * disable
+   */
+  imageNameSuffix?: string;
+  /**
+   * @remarks
+   * Specifies whether to retain Cloud Assistant Agent that is installed during the image building process. During the image building process, the system automatically installs Cloud Assistant Agent on the intermediate instance to run commands. You can choose whether to retain Cloud Assistant Agent that is installed during the image building process in the new image. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * >  The setting of this parameter does not affect Cloud Assistant Agent that comes with your image.
+   * 
+   * @example
+   * true
+   */
+  retainCloudAssistant?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      imageNameSuffix: 'ImageNameSuffix',
+      retainCloudAssistant: 'RetainCloudAssistant',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageNameSuffix: 'string',
+      retainCloudAssistant: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImagePipelineRequestImageOptionsImageFeatures extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the image created based on the image template supports the NVMe protocol. Valid values:
+   * 
+   * *   supported: The image supports the NVMe protocol. Instances created from the image also support the NVMe protocol.
+   * *   unsupported: The image does not support the NVMe protocol. Instances created from the image do not support the NVMe protocol.
+   * *   auto: The system automatically detects whether the image supports the NVMe protocol. The system automatically detects whether the NVMe driver is installed on your image before the new image is built. If you install or uninstall the NVMe driver during the image building process, the detection result may be incorrect. We recommend that you set the value to supported or unsupported based on the image building content.
+   * 
+   * @example
+   * auto
+   */
+  nvmeSupport?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nvmeSupport: 'NvmeSupport',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nvmeSupport: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImagePipelineRequestImageOptionsImageTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the image. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the image. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImagePipelineRequestImageOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the image. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
+   * @example
+   * This is description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The image family. The image family name must be 2 to 128 characters in length. The name must start with a letter and cannot start with acs: or aliyun. The name cannot contain http:// or https:// and can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * family
+   */
+  imageFamily?: string;
+  /**
+   * @remarks
+   * The feature attributes of the image.
+   */
+  imageFeatures?: CreateImagePipelineRequestImageOptionsImageFeatures;
+  /**
+   * @remarks
+   * The prefix of the image name. The prefix must be 2 to 64 characters in length. The prefix must start with a letter and cannot start with `http://` or `https://`. The prefix can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * 
+   * The system generates the final image name that consists of the specified prefix and the ID of the build task (`ExecutionId`) in the format of `{ImageName}_{ExecutionId}`.
+   * 
+   * @example
+   * testImageName
+   */
+  imageName?: string;
+  /**
+   * @remarks
+   * The tags to add to the image.
+   */
+  imageTags?: CreateImagePipelineRequestImageOptionsImageTags[];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      imageFamily: 'ImageFamily',
+      imageFeatures: 'ImageFeatures',
+      imageName: 'ImageName',
+      imageTags: 'ImageTags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      imageFamily: 'string',
+      imageFeatures: CreateImagePipelineRequestImageOptionsImageFeatures,
+      imageName: 'string',
+      imageTags: { 'type': 'array', 'itemType': CreateImagePipelineRequestImageOptionsImageTags },
+    };
+  }
+
+  validate() {
+    if(this.imageFeatures && typeof (this.imageFeatures as any).validate === 'function') {
+      (this.imageFeatures as any).validate();
+    }
+    if(Array.isArray(this.imageTags)) {
+      $dara.Model.validateArray(this.imageTags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImagePipelineRequestImportImageOptionsDiskDeviceMappings extends $dara.Model {
+  /**
+   * @remarks
+   * The size of disk N in the custom image after the source image is imported.
+   * 
+   * You can use this parameter to specify the sizes of the system disk and data disks in the custom image. When you specify the size of the system disk, make sure that the specified size is greater than or equal to the size of the source image file. Unit: GiB. Valid values:
+   * 
+   * *   When the N value is 1, this parameter specifies the size of the system disk in the custom image. Valid values: 1 to 2048.
+   * *   When the N value is an integer in the range of 2 to 17, this parameter specifies the size of a data disk in the custom image. Valid values: 1 to 2048.
+   * 
+   * After the image file is uploaded to an OSS bucket, you can view the size of the image file in the OSS bucket.
+   * 
+   * @example
+   * 40
+   */
+  diskImageSize?: number;
+  /**
+   * @remarks
+   * The format of the image. Valid values:
+   * 
+   * *   RAW
+   * *   VHD
+   * *   QCOW2
+   * 
+   * This parameter is empty by default, which indicates that the system checks the format of the image and uses the check result as the value of this parameter.
+   * 
+   * @example
+   * RAW
+   */
+  format?: string;
+  /**
+   * @remarks
+   * The OSS bucket where the image file is stored.
+   * 
+   * @example
+   * ecsimageos
+   */
+  OSSBucket?: string;
+  /**
+   * @remarks
+   * The name (key) of the object that the uploaded image is stored as in the OSS bucket.
+   * 
+   * @example
+   * CentOS_5.4_32.raw
+   */
+  OSSObject?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskImageSize: 'DiskImageSize',
+      format: 'Format',
+      OSSBucket: 'OSSBucket',
+      OSSObject: 'OSSObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskImageSize: 'number',
+      format: 'string',
+      OSSBucket: 'string',
+      OSSObject: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImagePipelineRequestImportImageOptionsFeatures extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the imported source image supports the Non-Volatile Memory Express (NVMe) protocol. Valid values:
+   * 
+   * *   supported: The image supports the NVMe protocol. Instances created from the image also support the NVMe protocol.
+   * *   unsupported: The image does not support the NVMe protocol. Instances created from the image do not support the NVMe protocol.
+   * 
+   * Default value: unsupported.
+   * 
+   * @example
+   * supported
+   */
+  nvmeSupport?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nvmeSupport: 'NvmeSupport',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nvmeSupport: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImagePipelineRequestImportImageOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The system architecture of the system disk. If you specify a data disk snapshot to create the system disk of the image, use Architecture to specify the system architecture of the system disk. Valid values:
+   * 
+   * *   x86_64
+   * *   arm64
+   * 
+   * Default value: x86_64.
+   * 
+   * @example
+   * x86_64
+   */
+  architecture?: string;
+  /**
+   * @remarks
+   * The boot mode of the image. Valid values:
+   * 
+   * *   BIOS: BIOS mode
+   * *   UEFI: Unified Extensible Firmware Interface (UEFI) mode
+   * 
+   * Default value: BIOS. If you set Architecture to `arm64`, set this parameter to UEFI.
+   * 
+   * >  Before you specify this parameter, make sure that you are familiar with the boot modes supported by the image. If you specify a boot mode that is not supported by the image, ECS instances created from the image cannot start as expected. For information about the boot modes of images, see the [Boot modes of images](~~2244655#b9caa9b8bb1wf~~) section of the "Best practices for ECS instance boot modes" topic.
+   * 
+   * @example
+   * BIOS
+   */
+  bootMode?: string;
+  /**
+   * @remarks
+   * The information of disks from which the custom images are created.
+   * 
+   * *   When the N value is 1, this parameter creates a custom image from the system disk.
+   * *   When the N value is an integer in the range of 2 to 17, this parameter creates a custom image from a data disk.
+   */
+  diskDeviceMappings?: CreateImagePipelineRequestImportImageOptionsDiskDeviceMappings[];
+  /**
+   * @remarks
+   * The attributes of the image.
+   */
+  features?: CreateImagePipelineRequestImportImageOptionsFeatures;
+  /**
+   * @remarks
+   * The type of the license to use to activate the operating system after the image is imported. Valid values:
+   * 
+   * *   Auto: ECS detects the operating system of the image and allocates a license to the operating system. In this mode, the system first checks whether a license allocated by an official Alibaba Cloud channel is available for the operating system version specified by `Platform`. If a license allocated by an official Alibaba Cloud channel is available for the operating system version, the system allocates the license to the imported image. If no such license is available, the Bring Your Own License (BYOL) mode is used.
+   * *   Aliyun: The license allocated by an official Alibaba Cloud channel for the operating system version specified by `Platform` is used.
+   * *   BYOL: The license that comes with the source operating system is used. When you use the BYOL license, make sure that your license key is supported by Alibaba Cloud.
+   * 
+   * Default value: Auto.
+   * 
+   * @example
+   * Auto
+   */
+  licenseType?: string;
+  /**
+   * @remarks
+   * The operating system type. Valid values:
+   * 
+   * *   windows
+   * *   linux
+   * 
+   * Default value: linux.
+   * 
+   * @example
+   * linux
+   */
+  OSType?: string;
+  /**
+   * @remarks
+   * The version of the operating system. Valid values:
+   * 
+   * *   Aliyun
+   * *   Anolis
+   * *   CentOS
+   * *   Ubuntu
+   * *   CoreOS
+   * *   SUSE
+   * *   Debian
+   * *   OpenSUSE
+   * *   FreeBSD
+   * *   RedHat
+   * *   Kylin
+   * *   UOS
+   * *   Fedora
+   * *   Fedora CoreOS
+   * *   CentOS Stream
+   * *   AlmaLinux
+   * *   Rocky Linux
+   * *   Gentoo
+   * *   Customized Linux
+   * *   Others Linux
+   * *   Windows Server 2022
+   * *   Windows Server 2019
+   * *   Windows Server 2016
+   * *   Windows Server 2012
+   * *   Windows Server 2008
+   * *   Windows Server 2003
+   * *   Other Windows
+   * 
+   * Default value: Others Linux when the operating system type is linux, and Other Windows when the operating system type is windows.
+   * 
+   * @example
+   * Aliyun
+   */
+  platform?: string;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview.
+   * 
+   * @example
+   * false
+   */
+  retainImportedImage?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'Architecture',
+      bootMode: 'BootMode',
+      diskDeviceMappings: 'DiskDeviceMappings',
+      features: 'Features',
+      licenseType: 'LicenseType',
+      OSType: 'OSType',
+      platform: 'Platform',
+      retainImportedImage: 'RetainImportedImage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: 'string',
+      bootMode: 'string',
+      diskDeviceMappings: { 'type': 'array', 'itemType': CreateImagePipelineRequestImportImageOptionsDiskDeviceMappings },
+      features: CreateImagePipelineRequestImportImageOptionsFeatures,
+      licenseType: 'string',
+      OSType: 'string',
+      platform: 'string',
+      retainImportedImage: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.diskDeviceMappings)) {
+      $dara.Model.validateArray(this.diskDeviceMappings);
+    }
+    if(this.features && typeof (this.features as any).validate === 'function') {
+      (this.features as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImagePipelineRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N. Valid values of N: 1 to 20. You cannot specify empty strings as tag keys. The tag key must be 1 to 128 characters in length and cannot contain `http://` or `https://`. It cannot start with `acs:` or `aliyun`.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value must be 0 to 128 characters in length. It cannot start with `acs:` or contain `http://` or `https://`.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateImagePipelineRequest extends $dara.Model {
   /**

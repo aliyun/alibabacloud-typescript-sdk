@@ -1,19 +1,840 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeNetworkInterfaceAttributeResponseBodyAssociatedPublicIp } from "./DescribeNetworkInterfaceAttributeResponseBodyAssociatedPublicIp";
-import { DescribeNetworkInterfaceAttributeResponseBodyAttachment } from "./DescribeNetworkInterfaceAttributeResponseBodyAttachment";
-import { DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecification } from "./DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecification";
-import { DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConfiguration } from "./DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConfiguration";
-import { DescribeNetworkInterfaceAttributeResponseBodyEnhancedNetwork } from "./DescribeNetworkInterfaceAttributeResponseBodyEnhancedNetwork";
-import { DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSets } from "./DescribeNetworkInterfaceAttributeResponseBodyIpv4prefixSets";
-import { DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSets } from "./DescribeNetworkInterfaceAttributeResponseBodyIpv6prefixSets";
-import { DescribeNetworkInterfaceAttributeResponseBodyIpv6Sets } from "./DescribeNetworkInterfaceAttributeResponseBodyIpv6sets";
-import { DescribeNetworkInterfaceAttributeResponseBodyNetworkInterfaceTrafficConfig } from "./DescribeNetworkInterfaceAttributeResponseBodyNetworkInterfaceTrafficConfig";
-import { DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets } from "./DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets";
-import { DescribeNetworkInterfaceAttributeResponseBodySecurityGroupIds } from "./DescribeNetworkInterfaceAttributeResponseBodySecurityGroupIds";
-import { DescribeNetworkInterfaceAttributeResponseBodySlaveInterfaceSpecification } from "./DescribeNetworkInterfaceAttributeResponseBodySlaveInterfaceSpecification";
-import { DescribeNetworkInterfaceAttributeResponseBodyTags } from "./DescribeNetworkInterfaceAttributeResponseBodyTags";
 
+
+export class DescribeNetworkInterfaceAttributeResponseBodyAssociatedPublicIp extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the EIP.
+   * 
+   * @example
+   * null
+   */
+  allocationId?: string;
+  /**
+   * @remarks
+   * The EIP.
+   * 
+   * @example
+   * ``116.62.**.**``
+   */
+  publicIpAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocationId: 'AllocationId',
+      publicIpAddress: 'PublicIpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationId: 'string',
+      publicIpAddress: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyAttachmentMemberNetworkInterfaceIds extends $dara.Model {
+  memberNetworkInterfaceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      memberNetworkInterfaceId: 'MemberNetworkInterfaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberNetworkInterfaceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.memberNetworkInterfaceId)) {
+      $dara.Model.validateArray(this.memberNetworkInterfaceId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyAttachment extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and unavailable for general users.
+   * 
+   * @example
+   * hide
+   */
+  deviceIndex?: number;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and unavailable for general users.
+   * 
+   * @example
+   * hide
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and unavailable for general users.
+   */
+  memberNetworkInterfaceIds?: DescribeNetworkInterfaceAttributeResponseBodyAttachmentMemberNetworkInterfaceIds;
+  /**
+   * @remarks
+   * The index of the network interface controller (NIC).
+   * 
+   * *   If the ENI is in the Available state or if no NIC index was specified when the ENI was attached, this parameter has no value.
+   * *   If the ENI is in the InUse state and an NIC index was specified when the ENI was attached, the specified NIC index is returned as the value of this parameter.
+   * 
+   * @example
+   * 0
+   */
+  networkCardIndex?: number;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and unavailable for general users.
+   * 
+   * @example
+   * hide
+   */
+  trunkNetworkInterfaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceIndex: 'DeviceIndex',
+      instanceId: 'InstanceId',
+      memberNetworkInterfaceIds: 'MemberNetworkInterfaceIds',
+      networkCardIndex: 'NetworkCardIndex',
+      trunkNetworkInterfaceId: 'TrunkNetworkInterfaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceIndex: 'number',
+      instanceId: 'string',
+      memberNetworkInterfaceIds: DescribeNetworkInterfaceAttributeResponseBodyAttachmentMemberNetworkInterfaceIds,
+      networkCardIndex: 'number',
+      trunkNetworkInterfaceId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.memberNetworkInterfaceIds && typeof (this.memberNetworkInterfaceIds as any).validate === 'function') {
+      (this.memberNetworkInterfaceIds as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecificationSlaveInterfaceSpecificationSlaveInterfaceSpecificationSet extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  bondNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  slaveNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  workState?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bondNetworkInterfaceId: 'BondNetworkInterfaceId',
+      slaveNetworkInterfaceId: 'SlaveNetworkInterfaceId',
+      workState: 'WorkState',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bondNetworkInterfaceId: 'string',
+      slaveNetworkInterfaceId: 'string',
+      workState: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecificationSlaveInterfaceSpecification extends $dara.Model {
+  slaveInterfaceSpecificationSet?: DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecificationSlaveInterfaceSpecificationSlaveInterfaceSpecificationSet[];
+  static names(): { [key: string]: string } {
+    return {
+      slaveInterfaceSpecificationSet: 'SlaveInterfaceSpecificationSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      slaveInterfaceSpecificationSet: { 'type': 'array', 'itemType': DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecificationSlaveInterfaceSpecificationSlaveInterfaceSpecificationSet },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.slaveInterfaceSpecificationSet)) {
+      $dara.Model.validateArray(this.slaveInterfaceSpecificationSet);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecification extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and unavailable for general users.
+   * 
+   * @example
+   * null
+   */
+  bondMode?: string;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and unavailable for general users.
+   */
+  slaveInterfaceSpecification?: DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecificationSlaveInterfaceSpecification;
+  static names(): { [key: string]: string } {
+    return {
+      bondMode: 'BondMode',
+      slaveInterfaceSpecification: 'SlaveInterfaceSpecification',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bondMode: 'string',
+      slaveInterfaceSpecification: DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecificationSlaveInterfaceSpecification,
+    };
+  }
+
+  validate() {
+    if(this.slaveInterfaceSpecification && typeof (this.slaveInterfaceSpecification as any).validate === 'function') {
+      (this.slaveInterfaceSpecification as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The timeout period for TCP connections in the TIME_WAIT or CLOSE_WAIT state. Unit: seconds. Valid values: integers from 3 to 15.
+   * 
+   * >  If the associated Elastic Compute Service (ECS) instance is used with a Network Load Balancer (NLB) or Classic Load Balancer (CLB) instance, the default timeout period for TCP connections in the `TIME_WAIT` state is 15 seconds.
+   * 
+   * @example
+   * 3
+   */
+  tcpClosedAndTimeWaitTimeout?: number;
+  /**
+   * @remarks
+   * The timeout period for TCP connections in the ESTABLISHED state. Unit: seconds. Valid values: 30, 60, 80, 100, 200, 300, 500, 700, and 910.
+   * 
+   * @example
+   * 910
+   */
+  tcpEstablishedTimeout?: number;
+  /**
+   * @remarks
+   * The timeout period for UDP flows. Unit: seconds. Valid values: 10, 20, 30, 60, 80, and 100.
+   * 
+   * >  If the associated ECS instance is used with an NLB or CLB instance, the default timeout period for UDP flows is 100 seconds.
+   * 
+   * @example
+   * 30
+   */
+  udpTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tcpClosedAndTimeWaitTimeout: 'TcpClosedAndTimeWaitTimeout',
+      tcpEstablishedTimeout: 'TcpEstablishedTimeout',
+      udpTimeout: 'UdpTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tcpClosedAndTimeWaitTimeout: 'number',
+      tcpEstablishedTimeout: 'number',
+      udpTimeout: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyEnhancedNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * true
+   */
+  enableRss?: boolean;
+  /**
+   * @remarks
+   * This parameter is not publicly available.
+   * 
+   * @example
+   * false
+   */
+  enableSriov?: boolean;
+  virtualFunctionQuantity?: number;
+  virtualFunctionTotalQueueNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableRss: 'EnableRss',
+      enableSriov: 'EnableSriov',
+      virtualFunctionQuantity: 'VirtualFunctionQuantity',
+      virtualFunctionTotalQueueNumber: 'VirtualFunctionTotalQueueNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableRss: 'boolean',
+      enableSriov: 'boolean',
+      virtualFunctionQuantity: 'number',
+      virtualFunctionTotalQueueNumber: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSetsIpv4PrefixSet extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv4 prefix of the ENI.
+   * 
+   * @example
+   * 192.168.**.0/28
+   */
+  ipv4Prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv4Prefix: 'Ipv4Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4Prefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSets extends $dara.Model {
+  ipv4PrefixSet?: DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSetsIpv4PrefixSet[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv4PrefixSet: 'Ipv4PrefixSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4PrefixSet: { 'type': 'array', 'itemType': DescribeNetworkInterfaceAttributeResponseBodyIpv4PrefixSetsIpv4PrefixSet },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipv4PrefixSet)) {
+      $dara.Model.validateArray(this.ipv4PrefixSet);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSetsIpv6PrefixSet extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv6 prefix of the ENI.
+   * 
+   * @example
+   * 2001:db8:1234:1a00:****::/80
+   */
+  ipv6Prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Prefix: 'Ipv6Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Prefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSets extends $dara.Model {
+  ipv6PrefixSet?: DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSetsIpv6PrefixSet[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6PrefixSet: 'Ipv6PrefixSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6PrefixSet: { 'type': 'array', 'itemType': DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSetsIpv6PrefixSet },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipv6PrefixSet)) {
+      $dara.Model.validateArray(this.ipv6PrefixSet);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyIpv6SetsIpv6Set extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv6 address of the ENI.
+   * 
+   * @example
+   * 2001:db8:1234:1a00::****
+   */
+  ipv6Address?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Address: 'Ipv6Address',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Address: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyIpv6Sets extends $dara.Model {
+  ipv6Set?: DescribeNetworkInterfaceAttributeResponseBodyIpv6SetsIpv6Set[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Set: 'Ipv6Set',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Set: { 'type': 'array', 'itemType': DescribeNetworkInterfaceAttributeResponseBodyIpv6SetsIpv6Set },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipv6Set)) {
+      $dara.Model.validateArray(this.ipv6Set);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyNetworkInterfaceTrafficConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The communication mode of the ENI.
+   * 
+   * @example
+   * HighPerformance
+   */
+  networkInterfaceTrafficMode?: string;
+  /**
+   * @remarks
+   * The number of queues supported by the ENI.
+   * 
+   * @example
+   * 8
+   */
+  queueNumber?: number;
+  /**
+   * @remarks
+   * The number of queues supported by the ERI.
+   * 
+   * @example
+   * 8
+   */
+  queuePairNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      networkInterfaceTrafficMode: 'NetworkInterfaceTrafficMode',
+      queueNumber: 'QueueNumber',
+      queuePairNumber: 'QueuePairNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkInterfaceTrafficMode: 'string',
+      queueNumber: 'number',
+      queuePairNumber: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSetsPrivateIpSetAssociatedPublicIp extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  allocationId?: string;
+  /**
+   * @remarks
+   * The EIP.
+   * 
+   * @example
+   * ``116.62.**.**``
+   */
+  publicIpAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocationId: 'AllocationId',
+      publicIpAddress: 'PublicIpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationId: 'string',
+      publicIpAddress: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSetsPrivateIpSet extends $dara.Model {
+  /**
+   * @remarks
+   * The EIP that is associated with the secondary private IP address of the ENI.
+   */
+  associatedPublicIp?: DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSetsPrivateIpSetAssociatedPublicIp;
+  /**
+   * @remarks
+   * Indicates whether the IP address is the primary private IP address. Valid values:
+   * 
+   * *   true: The IP address is the primary private IP address.
+   * *   false: The IP address is a secondary private IP address.
+   * 
+   * @example
+   * true
+   */
+  primary?: boolean;
+  /**
+   * @remarks
+   * The private IP address of the ENI.
+   * 
+   * @example
+   * ``172.17.**.**``
+   */
+  privateIpAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      associatedPublicIp: 'AssociatedPublicIp',
+      primary: 'Primary',
+      privateIpAddress: 'PrivateIpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      associatedPublicIp: DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSetsPrivateIpSetAssociatedPublicIp,
+      primary: 'boolean',
+      privateIpAddress: 'string',
+    };
+  }
+
+  validate() {
+    if(this.associatedPublicIp && typeof (this.associatedPublicIp as any).validate === 'function') {
+      (this.associatedPublicIp as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets extends $dara.Model {
+  privateIpSet?: DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSetsPrivateIpSet[];
+  static names(): { [key: string]: string } {
+    return {
+      privateIpSet: 'PrivateIpSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privateIpSet: { 'type': 'array', 'itemType': DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSetsPrivateIpSet },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.privateIpSet)) {
+      $dara.Model.validateArray(this.privateIpSet);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodySecurityGroupIds extends $dara.Model {
+  securityGroupId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.securityGroupId)) {
+      $dara.Model.validateArray(this.securityGroupId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodySlaveInterfaceSpecification extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and unavailable for general users.
+   * 
+   * @example
+   * null
+   */
+  bondNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and unavailable for general users.
+   * 
+   * @example
+   * null
+   */
+  slaveNetworkInterfaceId?: string;
+  /**
+   * @remarks
+   * >  This parameter is in invitational preview and unavailable for general users.
+   * 
+   * @example
+   * null
+   */
+  workState?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bondNetworkInterfaceId: 'BondNetworkInterfaceId',
+      slaveNetworkInterfaceId: 'SlaveNetworkInterfaceId',
+      workState: 'WorkState',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bondNetworkInterfaceId: 'string',
+      slaveNetworkInterfaceId: 'string',
+      workState: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyTagsTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the ENI.
+   * 
+   * @example
+   * TestKey
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value of the ENI.
+   * 
+   * @example
+   * TestValue
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyTags extends $dara.Model {
+  tag?: DescribeNetworkInterfaceAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeNetworkInterfaceAttributeResponseBodyTagsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   /**

@@ -1,7 +1,82 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeResourceByTagsResponseBodyResources } from "./DescribeResourceByTagsResponseBodyResources";
 
+
+export class DescribeResourceByTagsResponseBodyResourcesResource extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * i-bp16t2cgmiiy7t1c****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * instance
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceByTagsResponseBodyResources extends $dara.Model {
+  resource?: DescribeResourceByTagsResponseBodyResourcesResource[];
+  static names(): { [key: string]: string } {
+    return {
+      resource: 'Resource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resource: { 'type': 'array', 'itemType': DescribeResourceByTagsResponseBodyResourcesResource },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resource)) {
+      $dara.Model.validateArray(this.resource);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeResourceByTagsResponseBody extends $dara.Model {
   /**

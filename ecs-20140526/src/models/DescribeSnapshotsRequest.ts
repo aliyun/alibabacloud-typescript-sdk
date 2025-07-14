@@ -1,8 +1,88 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeSnapshotsRequestFilter } from "./DescribeSnapshotsRequestFilter";
-import { DescribeSnapshotsRequestTag } from "./DescribeSnapshotsRequestTag";
 
+
+export class DescribeSnapshotsRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The key of filter 1 that is used to query resources. Set the value to `CreationStartTime`. You can specify a time by configuring both `Filter.1.Key` and `Filter.1.Value` to query resources that were created after the time.
+   * 
+   * @example
+   * CreationStartTime
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of filter 1 that is used to query resources. Set the value to a time. If you configure this parameter, you must also configure `Filter.1.Key`. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+   * 
+   * @example
+   * 2019-12-13T17:00Z
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSnapshotsRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N of the snapshot. Valid values of N: 1 to 20
+   * 
+   * If a single tag is specified to query resources, up to 1,000 resources that have this tag added are returned. If multiple tags are specified to query resources, up to 1,000 resources that have all these tags added are returned. To query more than 1,000 resources with the specified tags, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N of the snapshot. Valid values of N: 1 to 20.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeSnapshotsRequest extends $dara.Model {
   filter?: DescribeSnapshotsRequestFilter[];
