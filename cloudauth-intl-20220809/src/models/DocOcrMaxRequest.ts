@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DocOcrMaxRequest extends $dara.Model {
+  docPage?: string;
   /**
    * @example
    * CNSSC01
@@ -57,6 +58,7 @@ export class DocOcrMaxRequest extends $dara.Model {
   spoof?: string;
   static names(): { [key: string]: string } {
     return {
+      docPage: 'DocPage',
       docType: 'DocType',
       idOcrPictureBase64: 'IdOcrPictureBase64',
       idOcrPictureUrl: 'IdOcrPictureUrl',
@@ -74,6 +76,7 @@ export class DocOcrMaxRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      docPage: 'string',
       docType: 'string',
       idOcrPictureBase64: 'string',
       idOcrPictureUrl: 'string',

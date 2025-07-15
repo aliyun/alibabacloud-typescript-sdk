@@ -761,6 +761,10 @@ export default class Client extends OpenApi {
   async docOcrMaxWithOptions(request: $_model.DocOcrMaxRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DocOcrMaxResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.docPage)) {
+      body["DocPage"] = request.docPage;
+    }
+
     if (!$dara.isNull(request.docType)) {
       body["DocType"] = request.docType;
     }
