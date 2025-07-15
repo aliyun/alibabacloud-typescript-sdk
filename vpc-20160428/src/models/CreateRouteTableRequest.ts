@@ -1,7 +1,50 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateRouteTableRequestTag } from "./CreateRouteTableRequestTag";
 
+
+export class CreateRouteTableRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * 
+   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * FinanceJoshua
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateRouteTableRequest extends $dara.Model {
   /**
@@ -71,17 +114,6 @@ export class CreateRouteTableRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the VPC to which the custom route table belongs.
-   * 
-   * If a VPC contains an Elastic Compute Service (ECS) instance that belongs to one of the following instance families, you cannot create a custom route table for the VPC:
-   * 
-   * ecs.c1, ecs.c2, ecs.c4, ecs.ce4, ecs.cm4, ecs.d1, ecs.e3, ecs.e4, ecs.ga1, ecs.gn4, ecs.gn5, ecs.i1, ecs.m1, ecs.m2, ecs.mn4, ecs.n1, ecs.n2, ecs.n4, ecs.s1, ecs.s2, ecs.s3, ecs.se1, ecs.sn1, ecs.sn2, ecs.t1, and ecs.xn4
-   * 
-   * You must upgrade or release the ECS instance before you can create a custom route table for the VPC.
-   * 
-   * *   For more information about how to upgrade an ECS instance, see [Upgrade subscription instances](https://help.aliyun.com/document_detail/25438.html) and [Change specifications of pay-as-you-go instances](https://help.aliyun.com/document_detail/60051.html).
-   * *   For more information about how to release an ECS instance, see [Release an ECS instance](https://help.aliyun.com/document_detail/25442.html).
-   * 
-   * >  If a custom route table is created for a VPC that contains an ECS instance from one of the preceding instance families, you must upgrade or release the ECS instance. Otherwise, the custom route table cannot work as expected.
    * 
    * This parameter is required.
    * 

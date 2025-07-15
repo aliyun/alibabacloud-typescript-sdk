@@ -17,7 +17,7 @@ export class ModifyHaVipAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the HAVIP.
+   * The description of the HaVip.
    * 
    * The description must be 1 to 255 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -27,7 +27,7 @@ export class ModifyHaVipAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the HAVIP.
+   * The ID of the HaVip.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class ModifyHaVipAttributeRequest extends $dara.Model {
   haVipId?: string;
   /**
    * @remarks
-   * The name of the HAVIP.
+   * The name of the HaVip.
    * 
    * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
    * 
@@ -49,7 +49,7 @@ export class ModifyHaVipAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region to which the HAVIP belongs.
+   * The ID of the region to which the HaVip belongs.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 

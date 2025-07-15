@@ -1,7 +1,72 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeIPv6TranslatorAclListsResponseBodyIpv6TranslatorAcls } from "./DescribeIpv6translatorAclListsResponseBodyIpv6translatorAcls";
 
+
+export class DescribeIPv6TranslatorAclListsResponseBodyIpv6TranslatorAclsIPv6TranslatorAcl extends $dara.Model {
+  /**
+   * @remarks
+   * The ACL ID.
+   * 
+   * @example
+   * ipv6transacl-bp1de2****
+   */
+  aclId?: string;
+  /**
+   * @remarks
+   * The ACL name.
+   * 
+   * @example
+   * acl1
+   */
+  aclName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclId: 'AclId',
+      aclName: 'AclName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclId: 'string',
+      aclName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIPv6TranslatorAclListsResponseBodyIpv6TranslatorAcls extends $dara.Model {
+  IPv6TranslatorAcl?: DescribeIPv6TranslatorAclListsResponseBodyIpv6TranslatorAclsIPv6TranslatorAcl[];
+  static names(): { [key: string]: string } {
+    return {
+      IPv6TranslatorAcl: 'IPv6TranslatorAcl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IPv6TranslatorAcl: { 'type': 'array', 'itemType': DescribeIPv6TranslatorAclListsResponseBodyIpv6TranslatorAclsIPv6TranslatorAcl },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.IPv6TranslatorAcl)) {
+      $dara.Model.validateArray(this.IPv6TranslatorAcl);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeIPv6TranslatorAclListsResponseBody extends $dara.Model {
   /**

@@ -17,7 +17,7 @@ export class AssociateHaVipRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the HAVIP.
+   * The ID of the HaVip.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class AssociateHaVipRequest extends $dara.Model {
   haVipId?: string;
   /**
    * @remarks
-   * The ID of the ECS instance to be associated with the HAVIP.
+   * The ID of the ECS instance to be associated with the HaVip.
    * 
    * This parameter is required.
    * 
@@ -37,10 +37,10 @@ export class AssociateHaVipRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of the instance to be associated with the HAVIP. Valid values:
+   * The type of the instance to be associated with the HaVip. Valid values:
    * 
    * *   **EcsInstance**: an ECS instance
-   * *   **NetworkInterface**: an ENI. If you want to associate the HAVIP with an ENI, this parameter is required.
+   * *   **NetworkInterface**: an ENI. If you want to associate the HaVip with an ENI, this parameter is required.
    * 
    * @example
    * EcsInstance
@@ -50,7 +50,7 @@ export class AssociateHaVipRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region to which the HAVIP belongs.
+   * The ID of the region to which the HaVip belongs.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 

@@ -1,7 +1,50 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateHaVipRequestTag } from "./CreateHaVipRequestTag";
 
+
+export class CreateHaVipRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * 
+   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length, but cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * FinanceJoshua
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateHaVipRequest extends $dara.Model {
   /**
@@ -18,7 +61,7 @@ export class CreateHaVipRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the HAVIP.
+   * The description of the HaVip.
    * 
    * The description must be 1 to 255 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -28,9 +71,9 @@ export class CreateHaVipRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The IP address of the HAVIP.
+   * The IP address of the HaVip.
    * 
-   * The specified IP address must be an idle IP address that falls within the CIDR block of the vSwitch. If this parameter is not set, an idle IP address from the CIDR block of the vSwitch is randomly assigned to the HAVIP.
+   * The specified IP address must be an idle IP address that falls within the CIDR block of the vSwitch. If this parameter is not set, an idle IP address from the CIDR block of the vSwitch is randomly assigned to the HaVip.
    * 
    * @example
    * 192.XX.XX.10
@@ -38,7 +81,7 @@ export class CreateHaVipRequest extends $dara.Model {
   ipAddress?: string;
   /**
    * @remarks
-   * The name of the HAVIP.
+   * The name of the HaVip.
    * 
    * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
    * 
@@ -50,7 +93,7 @@ export class CreateHaVipRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the HAVIP. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region ID of the HaVip. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -60,7 +103,7 @@ export class CreateHaVipRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the HAVIP belongs.
+   * The ID of the resource group to which the HaVip belongs.
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -75,7 +118,7 @@ export class CreateHaVipRequest extends $dara.Model {
   tag?: CreateHaVipRequestTag[];
   /**
    * @remarks
-   * The ID of the vSwitch to which the HAVIP belongs.
+   * The ID of the vSwitch to which the HaVip belongs.
    * 
    * This parameter is required.
    * 

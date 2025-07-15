@@ -13,7 +13,7 @@ export class OpenTrafficMirrorServiceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information returned after traffic mirroring is enabled.
+   * The information returned after traffic mirror is enabled.
    * 
    * @example
    * successful

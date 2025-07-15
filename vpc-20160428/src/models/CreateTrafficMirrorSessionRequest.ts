@@ -1,7 +1,50 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateTrafficMirrorSessionRequestTag } from "./CreateTrafficMirrorSessionRequestTag";
 
+
+export class CreateTrafficMirrorSessionRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * 
+   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * FinanceJoshua
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateTrafficMirrorSessionRequest extends $dara.Model {
   /**
@@ -64,7 +107,7 @@ export class CreateTrafficMirrorSessionRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the region to which the traffic mirror session belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](https://help.aliyun.com/document_detail/207513.html).
+   * The ID of the region to which the traffic mirror session belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about regions that support traffic mirror, see [Overview of traffic mirror](https://help.aliyun.com/document_detail/207513.html).
    * 
    * This parameter is required.
    * 

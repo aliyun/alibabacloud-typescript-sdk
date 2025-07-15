@@ -1,9 +1,84 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateNatGatewayResponseBodyForwardTableIds } from "./CreateNatGatewayResponseBodyForwardTableIds";
-import { CreateNatGatewayResponseBodyFullNatTableIds } from "./CreateNatGatewayResponseBodyFullNatTableIds";
-import { CreateNatGatewayResponseBodySnatTableIds } from "./CreateNatGatewayResponseBodySnatTableIds";
 
+
+export class CreateNatGatewayResponseBodyForwardTableIds extends $dara.Model {
+  forwardTableId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      forwardTableId: 'ForwardTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      forwardTableId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.forwardTableId)) {
+      $dara.Model.validateArray(this.forwardTableId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNatGatewayResponseBodyFullNatTableIds extends $dara.Model {
+  fullNatTableId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      fullNatTableId: 'FullNatTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fullNatTableId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.fullNatTableId)) {
+      $dara.Model.validateArray(this.fullNatTableId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNatGatewayResponseBodySnatTableIds extends $dara.Model {
+  snatTableId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      snatTableId: 'SnatTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      snatTableId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.snatTableId)) {
+      $dara.Model.validateArray(this.snatTableId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateNatGatewayResponseBody extends $dara.Model {
   /**

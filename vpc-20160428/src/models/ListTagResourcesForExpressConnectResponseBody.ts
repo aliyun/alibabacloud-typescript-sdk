@@ -1,7 +1,96 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListTagResourcesForExpressConnectResponseBodyTagResources } from "./ListTagResourcesForExpressConnectResponseBodyTagResources";
 
+
+export class ListTagResourcesForExpressConnectResponseBodyTagResourcesTagResource extends $dara.Model {
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * pc-bp16qjewdsunr41m1****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   **PHYSICALCONNECTION**: Express Connect circuit.
+   * *   **VIRTUALBORDERROUTER**: VBR.
+   * *   **ROUTERINTERFACE**: router interface.
+   * 
+   * @example
+   * PHYSICALCONNECTION
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The key of the tag that is added to the resource.
+   * 
+   * @example
+   * FinanceDept
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the resource.
+   * 
+   * @example
+   * FinanceJoshua
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesForExpressConnectResponseBodyTagResources extends $dara.Model {
+  tagResource?: ListTagResourcesForExpressConnectResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesForExpressConnectResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagResource)) {
+      $dara.Model.validateArray(this.tagResource);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListTagResourcesForExpressConnectResponseBody extends $dara.Model {
   /**

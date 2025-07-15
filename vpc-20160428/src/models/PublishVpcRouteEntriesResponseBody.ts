@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublishVpcRouteEntriesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 980960B0-2969-40BF-8542-EBB34FD358AB
    */

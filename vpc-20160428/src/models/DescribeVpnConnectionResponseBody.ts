@@ -1,12 +1,924 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeVpnConnectionResponseBodyIkeConfig } from "./DescribeVpnConnectionResponseBodyIkeConfig";
-import { DescribeVpnConnectionResponseBodyIpsecConfig } from "./DescribeVpnConnectionResponseBodyIpsecConfig";
-import { DescribeVpnConnectionResponseBodyTags } from "./DescribeVpnConnectionResponseBodyTags";
-import { DescribeVpnConnectionResponseBodyTunnelOptionsSpecification } from "./DescribeVpnConnectionResponseBodyTunnelOptionsSpecification";
-import { DescribeVpnConnectionResponseBodyVcoHealthCheck } from "./DescribeVpnConnectionResponseBodyVcoHealthCheck";
-import { DescribeVpnConnectionResponseBodyVpnBgpConfig } from "./DescribeVpnConnectionResponseBodyVpnBgpConfig";
 
+
+export class DescribeVpnConnectionResponseBodyIkeConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication algorithm in the IKE phase.
+   * 
+   * @example
+   * sha1
+   */
+  ikeAuthAlg?: string;
+  /**
+   * @remarks
+   * The encryption algorithm in the IKE phase.
+   * 
+   * @example
+   * aes
+   */
+  ikeEncAlg?: string;
+  /**
+   * @remarks
+   * The lifetime in the IKE phase. Unit: seconds.
+   * 
+   * @example
+   * 86400
+   */
+  ikeLifetime?: number;
+  /**
+   * @remarks
+   * The IKE negotiation mode.
+   * 
+   * *   **main**: This mode offers higher security during negotiations.
+   * *   **aggressive**: This mode is faster and has a higher success rate.
+   * 
+   * @example
+   * main
+   */
+  ikeMode?: string;
+  /**
+   * @remarks
+   * The Diffie-Hellman (DH) group in the IKE phase.
+   * 
+   * @example
+   * group2
+   */
+  ikePfs?: string;
+  /**
+   * @remarks
+   * The version of the IKE protocol.
+   * 
+   * *   **ikev1**
+   * *   **ikev2**
+   * 
+   * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and is more suitable for scenarios in which multiple CIDR blocks are used.
+   * 
+   * @example
+   * ikev1
+   */
+  ikeVersion?: string;
+  /**
+   * @remarks
+   * The identifier of the IPsec-VPN connection on the Alibaba Cloud side.
+   * 
+   * @example
+   * 116.28.XX.XX
+   */
+  localId?: string;
+  /**
+   * @remarks
+   * The pre-shared key.
+   * 
+   * @example
+   * pgw6dy****
+   */
+  psk?: string;
+  /**
+   * @remarks
+   * The identifier of the IPsec-VPN connection on the data center side.
+   * 
+   * @example
+   * 139.34.XX.XX
+   */
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'number',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyIpsecConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication algorithm in the IPsec phase.
+   * 
+   * @example
+   * sha1
+   */
+  ipsecAuthAlg?: string;
+  /**
+   * @remarks
+   * The encryption algorithm in the IPsec phase.
+   * 
+   * @example
+   * aes
+   */
+  ipsecEncAlg?: string;
+  /**
+   * @remarks
+   * The lifetime in the IPsec phase. Unit: seconds.
+   * 
+   * @example
+   * 86400
+   */
+  ipsecLifetime?: number;
+  /**
+   * @remarks
+   * The DH group in the IPsec phase.
+   * 
+   * @example
+   * group2
+   */
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'number',
+      ipsecPfs: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyTagsTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * TagKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * TagValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyTags extends $dara.Model {
+  tag?: DescribeVpnConnectionResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeVpnConnectionResponseBodyTagsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The negotiation state of BGP. Valid values:
+   * 
+   * *   **success**
+   * *   **false**
+   * 
+   * @example
+   * success
+   */
+  bgpStatus?: string;
+  /**
+   * @remarks
+   * The ASN on the Alibaba Cloud side.
+   * 
+   * @example
+   * 65530
+   */
+  localAsn?: string;
+  /**
+   * @remarks
+   * The BGP address on the Alibaba Cloud side.
+   * 
+   * @example
+   * 169.254.10.1
+   */
+  localBgpIp?: string;
+  /**
+   * @remarks
+   * The ASN of the tunnel peer.
+   * 
+   * @example
+   * 65531
+   */
+  peerAsn?: string;
+  /**
+   * @remarks
+   * The BGP IP address of the tunnel peer.
+   * 
+   * @example
+   * 169.254.10.2
+   */
+  peerBgpIp?: string;
+  /**
+   * @remarks
+   * The BGP CIDR block of the tunnel.
+   * 
+   * @example
+   * 169.254.10.0/30
+   */
+  tunnelCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bgpStatus: 'BgpStatus',
+      localAsn: 'LocalAsn',
+      localBgpIp: 'LocalBgpIp',
+      peerAsn: 'PeerAsn',
+      peerBgpIp: 'PeerBgpIp',
+      tunnelCidr: 'TunnelCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bgpStatus: 'string',
+      localAsn: 'string',
+      localBgpIp: 'string',
+      peerAsn: 'string',
+      peerBgpIp: 'string',
+      tunnelCidr: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication algorithm in the IKE phase.
+   * 
+   * @example
+   * sha1
+   */
+  ikeAuthAlg?: string;
+  /**
+   * @remarks
+   * The encryption algorithm in the IKE phase.
+   * 
+   * @example
+   * aes
+   */
+  ikeEncAlg?: string;
+  /**
+   * @remarks
+   * The lifetime in the IKE phase. Unit: seconds.
+   * 
+   * @example
+   * 86400
+   */
+  ikeLifetime?: string;
+  /**
+   * @remarks
+   * The IKE negotiation mode.
+   * 
+   * *   **main**: This mode offers higher security during negotiations.
+   * *   **aggressive**: This mode is faster and has a higher success rate.
+   * 
+   * @example
+   * main
+   */
+  ikeMode?: string;
+  /**
+   * @remarks
+   * The Diffie-Hellman (DH) group in the IKE phase.
+   * 
+   * @example
+   * group2
+   */
+  ikePfs?: string;
+  /**
+   * @remarks
+   * The version of the IKE protocol.
+   * 
+   * @example
+   * ikev1
+   */
+  ikeVersion?: string;
+  /**
+   * @remarks
+   * The identifier of the tunnel on the Alibaba Cloud side.
+   * 
+   * @example
+   * 47.21.XX.XX
+   */
+  localId?: string;
+  /**
+   * @remarks
+   * The pre-shared key.
+   * 
+   * @example
+   * 123456****
+   */
+  psk?: string;
+  /**
+   * @remarks
+   * The identifier of the tunnel peer.
+   * 
+   * @example
+   * 47.42.XX.XX
+   */
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'string',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication algorithm in the IPsec phase.
+   * 
+   * @example
+   * sha1
+   */
+  ipsecAuthAlg?: string;
+  /**
+   * @remarks
+   * The encryption algorithm in the IPsec phase.
+   * 
+   * @example
+   * aes
+   */
+  ipsecEncAlg?: string;
+  /**
+   * @remarks
+   * The lifetime in the IPsec phase. Unit: seconds.
+   * 
+   * @example
+   * 86400
+   */
+  ipsecLifetime?: string;
+  /**
+   * @remarks
+   * The DH group in the IPsec phase.
+   * 
+   * @example
+   * group2
+   */
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'string',
+      ipsecPfs: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the customer gateway associated with the tunnel.
+   * 
+   * @example
+   * cgw-p0wy363lucf1uyae8****
+   */
+  customerGatewayId?: string;
+  /**
+   * @remarks
+   * Indicates whether the DPD feature is enabled for the tunnel. Valid values:
+   * 
+   * *   **false**
+   * *   **true**
+   * 
+   * @example
+   * true
+   */
+  enableDpd?: string;
+  /**
+   * @remarks
+   * Indicates whether NAT traversal is enabled for the tunnel. Valid values:
+   * 
+   * *   **false**
+   * *   **true**
+   * 
+   * @example
+   * true
+   */
+  enableNatTraversal?: string;
+  /**
+   * @remarks
+   * The tunnel IP address.
+   * 
+   * @example
+   * 47.21.XX.XX
+   */
+  internetIp?: string;
+  /**
+   * @remarks
+   * The CA certificate of the tunnel peer.
+   * 
+   * This parameter is returned only if the VPN gateway is of the ShangMi (SM) type.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
+   */
+  remoteCaCertificate?: string;
+  /**
+   * @remarks
+   * The tunnel role. Valid values:
+   * 
+   * *   **master**: The tunnel is an active tunnel.
+   * *   **slave**: The tunnel is a standby tunnel.
+   * 
+   * @example
+   * master
+   */
+  role?: string;
+  /**
+   * @remarks
+   * The tunnel status. Valid values:
+   * 
+   * *   **active**
+   * *   **updating**
+   * *   **deleting**
+   * 
+   * @example
+   * active
+   */
+  state?: string;
+  /**
+   * @remarks
+   * The state of the IPsec-VPN connection. Valid values:
+   * 
+   * *   **ike_sa_not_established**: Phase 1 negotiations failed.
+   * *   **ike_sa_established**: Phase 1 negotiations succeeded.
+   * *   **ipsec_sa_not_established**: Phase 2 negotiations failed.
+   * *   **ipsec_sa_established**: Phase 2 negotiations succeeded.
+   * 
+   * @example
+   * ipsec_sa_established
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The BGP configurations.
+   */
+  tunnelBgpConfig?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig;
+  /**
+   * @remarks
+   * The tunnel ID.
+   * 
+   * @example
+   * tun-opsqc4d97wni27****
+   */
+  tunnelId?: string;
+  /**
+   * @remarks
+   * The configuration of Phase 1 negotiations.
+   */
+  tunnelIkeConfig?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig;
+  /**
+   * @remarks
+   * The order in which the tunnel is created.
+   * 
+   * *   **1**: Tunnel 1.
+   * *   **2**: Tunnel 2.
+   * 
+   * >  This parameter is returned only if the IPsec-VPN connection is associated with a transit router.
+   * 
+   * @example
+   * 1
+   */
+  tunnelIndex?: number;
+  /**
+   * @remarks
+   * The configurations of Phase 2 negotiations.
+   */
+  tunnelIpsecConfig?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig;
+  /**
+   * @remarks
+   * The zone where the tunnel is deployed.
+   * 
+   * You can call [DescribeZones](https://help.aliyun.com/document_detail/36064.html) to query zone IDs.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
+  zoneNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customerGatewayId: 'CustomerGatewayId',
+      enableDpd: 'EnableDpd',
+      enableNatTraversal: 'EnableNatTraversal',
+      internetIp: 'InternetIp',
+      remoteCaCertificate: 'RemoteCaCertificate',
+      role: 'Role',
+      state: 'State',
+      status: 'Status',
+      tunnelBgpConfig: 'TunnelBgpConfig',
+      tunnelId: 'TunnelId',
+      tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIndex: 'TunnelIndex',
+      tunnelIpsecConfig: 'TunnelIpsecConfig',
+      zoneNo: 'ZoneNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customerGatewayId: 'string',
+      enableDpd: 'string',
+      enableNatTraversal: 'string',
+      internetIp: 'string',
+      remoteCaCertificate: 'string',
+      role: 'string',
+      state: 'string',
+      status: 'string',
+      tunnelBgpConfig: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig,
+      tunnelId: 'string',
+      tunnelIkeConfig: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig,
+      tunnelIndex: 'number',
+      tunnelIpsecConfig: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig,
+      zoneNo: 'string',
+    };
+  }
+
+  validate() {
+    if(this.tunnelBgpConfig && typeof (this.tunnelBgpConfig as any).validate === 'function') {
+      (this.tunnelBgpConfig as any).validate();
+    }
+    if(this.tunnelIkeConfig && typeof (this.tunnelIkeConfig as any).validate === 'function') {
+      (this.tunnelIkeConfig as any).validate();
+    }
+    if(this.tunnelIpsecConfig && typeof (this.tunnelIpsecConfig as any).validate === 'function') {
+      (this.tunnelIpsecConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecification extends $dara.Model {
+  tunnelOptions?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions[];
+  static names(): { [key: string]: string } {
+    return {
+      tunnelOptions: 'TunnelOptions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tunnelOptions: { 'type': 'array', 'itemType': DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tunnelOptions)) {
+      $dara.Model.validateArray(this.tunnelOptions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyVcoHealthCheck extends $dara.Model {
+  /**
+   * @remarks
+   * The destination IP address.
+   * 
+   * @example
+   * 10.0.0.1
+   */
+  dip?: string;
+  /**
+   * @remarks
+   * Indicates whether the health check feature is enabled for the IPsec-VPN connection. Valid values:
+   * 
+   * *   **false**
+   * *   **true**
+   * 
+   * @example
+   * true
+   */
+  enable?: string;
+  /**
+   * @remarks
+   * The interval between two consecutive health checks. Unit: seconds.
+   * 
+   * @example
+   * 3
+   */
+  interval?: number;
+  /**
+   * @remarks
+   * Indicates whether advertised routes are withdrawn when the health check fails. Valid values:
+   * 
+   * *   **revoke_route**: Advertised routes are withdrawn.
+   * *   **reserve_route**: Advertised routes are not withdrawn.
+   * 
+   * @example
+   * revoke_route
+   */
+  policy?: string;
+  /**
+   * @remarks
+   * The maximum number of health check retries.
+   * 
+   * @example
+   * 3
+   */
+  retry?: number;
+  /**
+   * @remarks
+   * The source IP address.
+   * 
+   * @example
+   * 192.168.1.1
+   */
+  sip?: string;
+  /**
+   * @remarks
+   * The state of the health check. Valid values:
+   * 
+   * *   **failed**
+   * *   **success**: normal
+   * 
+   * @example
+   * failed
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dip: 'Dip',
+      enable: 'Enable',
+      interval: 'Interval',
+      policy: 'Policy',
+      retry: 'Retry',
+      sip: 'Sip',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dip: 'string',
+      enable: 'string',
+      interval: 'number',
+      policy: 'string',
+      retry: 'number',
+      sip: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnConnectionResponseBodyVpnBgpConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication key of the BGP routing protocol.
+   * 
+   * @example
+   * AuthKey****
+   */
+  authKey?: string;
+  /**
+   * @remarks
+   * Indicates whether BGP is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  enableBgp?: string;
+  /**
+   * @remarks
+   * The ASN on the Alibaba Cloud side.
+   * 
+   * @example
+   * 65531
+   */
+  localAsn?: number;
+  /**
+   * @remarks
+   * The BGP IP address on the Alibaba Cloud side.
+   * 
+   * @example
+   * 169.254.11.2
+   */
+  localBgpIp?: string;
+  /**
+   * @remarks
+   * The autonomous system number (ASN) of the peer.
+   * 
+   * @example
+   * 65530
+   */
+  peerAsn?: number;
+  /**
+   * @remarks
+   * The BGP IP address of the peer.
+   * 
+   * @example
+   * 169.254.11.1
+   */
+  peerBgpIp?: string;
+  /**
+   * @remarks
+   * The negotiation state of the BGP routing protocol. Valid values:
+   * 
+   * *   **success**: normal
+   * *   **failed**
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The BGP CIDR block of the IPsec-VPN connection. The CIDR block falls within 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
+   * 
+   * @example
+   * 169.254.11.0/30
+   */
+  tunnelCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authKey: 'AuthKey',
+      enableBgp: 'EnableBgp',
+      localAsn: 'LocalAsn',
+      localBgpIp: 'LocalBgpIp',
+      peerAsn: 'PeerAsn',
+      peerBgpIp: 'PeerBgpIp',
+      status: 'Status',
+      tunnelCidr: 'TunnelCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authKey: 'string',
+      enableBgp: 'string',
+      localAsn: 'number',
+      localBgpIp: 'string',
+      peerAsn: 'number',
+      peerBgpIp: 'string',
+      status: 'string',
+      tunnelCidr: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeVpnConnectionResponseBody extends $dara.Model {
   /**

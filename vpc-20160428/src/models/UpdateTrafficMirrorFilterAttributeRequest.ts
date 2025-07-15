@@ -32,7 +32,7 @@ export class UpdateTrafficMirrorFilterAttributeRequest extends $dara.Model {
    * @remarks
    * The ID of the region to which the mirrored traffic belongs.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](https://help.aliyun.com/document_detail/207513.html).
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about regions that support traffic mirror, see [Overview of traffic mirror](https://help.aliyun.com/document_detail/207513.html).
    * 
    * This parameter is required.
    * 

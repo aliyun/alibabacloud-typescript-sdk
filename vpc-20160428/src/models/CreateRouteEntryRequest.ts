@@ -1,7 +1,56 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateRouteEntryRequestNextHopList } from "./CreateRouteEntryRequestNextHopList";
 
+
+export class CreateRouteEntryRequestNextHopList extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the next hop of the ECMP route.
+   * 
+   * @example
+   * ri-2zeo3xzyf3cd8r4****
+   */
+  nextHopId?: string;
+  /**
+   * @remarks
+   * The type of next hop of the ECMP route entry. Set the value to **RouterInterface**.
+   * 
+   * @example
+   * RouterInterface
+   */
+  nextHopType?: string;
+  /**
+   * @remarks
+   * The weight of the next hop of the ECMP route entry.
+   * 
+   * @example
+   * 10
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nextHopId: 'NextHopId',
+      nextHopType: 'NextHopType',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextHopId: 'string',
+      nextHopType: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateRouteEntryRequest extends $dara.Model {
   /**
@@ -39,10 +88,22 @@ export class CreateRouteEntryRequest extends $dara.Model {
    * 192.168.0.0/24
    */
   destinationCidrBlock?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the required parameters, request syntax, and limits. If the request fails, an error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): sends the request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the next hop.
+   * The ID of the next hop for the custom route.
+   * 
+   * >  [](#-nexthoptype--ecr-describeexpressconnectrouterassociation--associationid--id)If you set the NextHopType parameter to ECR, call the [DescribeExpressConnectRouterAssociation](https://help.aliyun.com/document_detail/2712069.html) operation to access the AssociationId and use it as the next hop ID.
    * 
    * @example
    * i-j6c2fp57q8rr4jlu****
@@ -58,7 +119,7 @@ export class CreateRouteEntryRequest extends $dara.Model {
    * The type of next hop of the custom route entry. Valid values:
    * 
    * *   **Instance**: an Elastic Compute Service (ECS) instance. This is the default value.
-   * *   **HaVip**: a high-availability virtual IP address (HAVIP).
+   * *   **HaVip**: a high-availability virtual IP address (HaVip).
    * *   **RouterInterface**: a router interface.
    * *   **NetworkInterface**: an elastic network interface (ENI).
    * *   **VpnGateway**: a VPN gateway.

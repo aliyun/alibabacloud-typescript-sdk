@@ -1,7 +1,381 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification } from "./ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification";
 
+
+export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ASN of the tunnel on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
+   * 
+   * >  You can specify this parameter only if **EnableTunnelsBgp** is set to **true**.
+   * 
+   * *   Before you add BGP configurations, we recommend that you learn about how BGP dynamic routing works and the limits. For more information, see [Configure BGP dynamic routing](https://help.aliyun.com/document_detail/2638220.html).
+   * 
+   * *   We recommend that you use a private ASN to establish BGP connections to Alibaba Cloud. For information about the range of private ASNs, see the relevant documentation.
+   * 
+   * @example
+   * 65530
+   */
+  localAsn?: number;
+  /**
+   * @remarks
+   * The BGP IP address of the tunnel on the Alibaba Cloud side. The address is an IP address that falls within the BGP CIDR block.
+   * 
+   * @example
+   * 169.254.10.1
+   */
+  localBgpIp?: string;
+  /**
+   * @remarks
+   * The BGP CIDR block of the tunnel.
+   * 
+   * The CIDR block must fall within 169.254.0.0/16 and the mask of the CIDR block must be 30 bits in length. The CIDR block cannot be 169.254.0.0/30, 169.254.1.0/30, 169.254.2.0/30, 169.254.3.0/30, 169.254.4.0/30, 169.254.5.0/30, 169.254.6.0/30, or 169.254.169.252/30.
+   * 
+   * >  The BGP CIDR block of each tunnel must be unique on a VPN gateway.
+   * 
+   * @example
+   * 169.254.10.0/30
+   */
+  tunnelCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localAsn: 'LocalAsn',
+      localBgpIp: 'LocalBgpIp',
+      tunnelCidr: 'TunnelCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localAsn: 'number',
+      localBgpIp: 'string',
+      tunnelCidr: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication algorithm that is used in Phase 1 negotiations.
+   * 
+   * Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**.
+   * 
+   * @example
+   * md5
+   */
+  ikeAuthAlg?: string;
+  /**
+   * @remarks
+   * The encryption algorithm that is used in Phase 1 negotiations.
+   * 
+   * Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**.
+   * 
+   * @example
+   * aes
+   */
+  ikeEncAlg?: string;
+  /**
+   * @remarks
+   * The SA lifetime as a result of Phase 1 negotiations. Unit: seconds Valid values: **0** to **86400**.
+   * 
+   * @example
+   * 86400
+   */
+  ikeLifetime?: number;
+  /**
+   * @remarks
+   * The negotiation mode of IKE. Valid values:
+   * 
+   * *   **main:** This mode offers higher security during negotiations.
+   * *   **aggressive:** This mode supports faster negotiations and a higher success rate.
+   * 
+   * @example
+   * main
+   */
+  ikeMode?: string;
+  /**
+   * @remarks
+   * The Diffie-Hellman key exchange algorithm that is used in Phase 1 negotiations. Valid values: **group1**, **group2**, **group5**, and **group14**.
+   * 
+   * @example
+   * group2
+   */
+  ikePfs?: string;
+  /**
+   * @remarks
+   * The version of the IKE protocol. Valid values: **ikev1** and **ikev2**.
+   * 
+   * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and provides better support for scenarios with multiple CIDR blocks.
+   * 
+   * @example
+   * ikev1
+   */
+  ikeVersion?: string;
+  /**
+   * @remarks
+   * The identifier on the Alibaba Cloud side, which is used in Phase 1 negotiations. The identifier cannot exceed 100 characters in length and cannot contain space characters. The default value is the IP address of the tunnel.
+   * 
+   * **LocalId** supports fully qualified domain names (FQDNs). If you use an FQDN, we recommend that you set the negotiation mode to **aggressive**.
+   * 
+   * @example
+   * 47.21.XX.XX
+   */
+  localId?: string;
+  /**
+   * @remarks
+   * The pre-shared key, which is used for identity authentication between the tunnel and the tunnel peer.
+   * 
+   * *   The key cannot contain space characters. The key must be 1 to 100 characters in length, and can contain digits, letters, and the following special characters: ``~!\\`@#$%^&*()_-+={}[]|;:\\",.<>/?``
+   * *   If you do not specify a pre-shared key, the system randomly generates a 16-bit string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the pre-shared key that is automatically generated by the system.
+   * 
+   * >  The tunnel and the tunnel peer must use the same pre-shared key. Otherwise, the tunnel cannot be built.
+   * 
+   * @example
+   * 123456****
+   */
+  psk?: string;
+  /**
+   * @remarks
+   * The identifier of the tunnel peer, which is used in Phase 1 negotiations. The identifier cannot exceed 100 characters in length and cannot contain space characters. The default value is the IP address of the customer gateway that is associated with the tunnel.
+   * 
+   * **RemoteId** supports FQDNs. If you use an FQDN, we recommend that you set the negotiation mode to **aggressive**.
+   * 
+   * @example
+   * 47.42.XX.XX
+   */
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'number',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication algorithm that is used in Phase 2 negotiations.
+   * 
+   * Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**.
+   * 
+   * @example
+   * md5
+   */
+  ipsecAuthAlg?: string;
+  /**
+   * @remarks
+   * The encryption algorithm that is used in Phase 2 negotiations.
+   * 
+   * Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**.
+   * 
+   * @example
+   * aes
+   */
+  ipsecEncAlg?: string;
+  /**
+   * @remarks
+   * The SA lifetime as a result of Phase 2 negotiations. Unit: seconds Valid values: **0** to **86400**.
+   * 
+   * @example
+   * 86400
+   */
+  ipsecLifetime?: number;
+  /**
+   * @remarks
+   * The Diffie-Hellman key exchange algorithm that is used in Phase 2 negotiations.
+   * 
+   * Valid values: **disabled**, **group1**, **group2**, **group5**, and **group14**.
+   * 
+   * @example
+   * group2
+   */
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'number',
+      ipsecPfs: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the customer gateway associated with the tunnel.
+   * 
+   * @example
+   * cgw-1nmwbpgrp7ssqm1yn****
+   */
+  customerGatewayId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the Dead Peer Detection (DPD) feature for the tunnel. Valid values:
+   * 
+   * *   **true**: enables DPD. The initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no feedback is received from the peer within the specified period of time, the connection fails. In this case, ISAKMP SA and IPsec SA are deleted. The security tunnel is also deleted.
+   * *   **false**: disables DPD. The initiator of the IPsec-VPN connection does not send DPD packets.
+   * 
+   * @example
+   * true
+   */
+  enableDpd?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable NAT traversal for the tunnel. Valid values:
+   * 
+   * *   **true**: enables NAT traversal. After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the IPsec-VPN tunnel.
+   * *   **false**: disables NAT traversal.
+   * 
+   * @example
+   * true
+   */
+  enableNatTraversal?: boolean;
+  /**
+   * @remarks
+   * If the VPN gateway uses an SM certificate, you can modify the CA certificate used by the IPsec peer.
+   * 
+   * If the VPN gateway does not use an SM certificate, this parameter is not supported.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
+   */
+  remoteCaCertificate?: string;
+  /**
+   * @remarks
+   * The tunnel role. Valid values:
+   * 
+   * *   **master**: The tunnel is an active tunnel.
+   * *   **slave**: The tunnel is a standby tunnel.
+   * 
+   * @example
+   * master
+   */
+  role?: string;
+  /**
+   * @remarks
+   * The Border Gateway Protocol (BGP) configurations of the tunnel.
+   */
+  tunnelBgpConfig?: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig;
+  /**
+   * @remarks
+   * The tunnel ID.
+   * 
+   * @example
+   * tun-opsqc4d97wni27****
+   */
+  tunnelId?: string;
+  /**
+   * @remarks
+   * The configurations of Phase 1 negotiations.
+   */
+  tunnelIkeConfig?: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig;
+  /**
+   * @remarks
+   * The configurations of Phase 2 negotiations.
+   */
+  tunnelIpsecConfig?: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig;
+  static names(): { [key: string]: string } {
+    return {
+      customerGatewayId: 'CustomerGatewayId',
+      enableDpd: 'EnableDpd',
+      enableNatTraversal: 'EnableNatTraversal',
+      remoteCaCertificate: 'RemoteCaCertificate',
+      role: 'Role',
+      tunnelBgpConfig: 'TunnelBgpConfig',
+      tunnelId: 'TunnelId',
+      tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIpsecConfig: 'TunnelIpsecConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customerGatewayId: 'string',
+      enableDpd: 'boolean',
+      enableNatTraversal: 'boolean',
+      remoteCaCertificate: 'string',
+      role: 'string',
+      tunnelBgpConfig: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig,
+      tunnelId: 'string',
+      tunnelIkeConfig: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig,
+      tunnelIpsecConfig: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig,
+    };
+  }
+
+  validate() {
+    if(this.tunnelBgpConfig && typeof (this.tunnelBgpConfig as any).validate === 'function') {
+      (this.tunnelBgpConfig as any).validate();
+    }
+    if(this.tunnelIkeConfig && typeof (this.tunnelIkeConfig as any).validate === 'function') {
+      (this.tunnelIkeConfig as any).validate();
+    }
+    if(this.tunnelIpsecConfig && typeof (this.tunnelIpsecConfig as any).validate === 'function') {
+      (this.tunnelIpsecConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifyVpnConnectionAttributeRequest extends $dara.Model {
   /**

@@ -1,8 +1,92 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateVpcPrefixListRequestPrefixListEntries } from "./CreateVpcPrefixListRequestPrefixListEntries";
-import { CreateVpcPrefixListRequestTag } from "./CreateVpcPrefixListRequestTag";
 
+
+export class CreateVpcPrefixListRequestPrefixListEntries extends $dara.Model {
+  /**
+   * @remarks
+   * The CIDR block specified in the prefix list.
+   * 
+   * @example
+   * 192.168.0.0/16
+   */
+  cidr?: string;
+  /**
+   * @remarks
+   * The description of the CIDR block specified in the prefix list.
+   * 
+   * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
+   * @example
+   * CIDR
+   */
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      description: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpcPrefixListRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * 
+   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N. You can specify at most 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * FinanceJoshua
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateVpcPrefixListRequest extends $dara.Model {
   /**

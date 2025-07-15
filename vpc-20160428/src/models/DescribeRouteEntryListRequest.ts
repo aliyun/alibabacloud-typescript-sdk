@@ -48,7 +48,7 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
    * The next hop type. Valid values:
    * 
    * *   **Instance**: an Elastic Compute Service (ECS) instance. This is the default value.
-   * *   **HaVip**: a high-availability virtual IP address (HAVIP).
+   * *   **HaVip**: a high-availability virtual IP address (HaVip).
    * *   **VpnGateway**: a VPN gateway.
    * *   **NatGateway**: a NAT gateway.
    * *   **NetworkInterface**: a secondary elastic network interface (ENI).

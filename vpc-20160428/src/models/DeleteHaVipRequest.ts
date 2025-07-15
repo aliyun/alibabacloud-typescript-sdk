@@ -17,7 +17,7 @@ export class DeleteHaVipRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the HAVIP that you want to delete.
+   * The ID of the HaVip that you want to delete.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class DeleteHaVipRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the HAVIP is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region where the HaVip resides. Call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region list.
    * 
    * This parameter is required.
    * 

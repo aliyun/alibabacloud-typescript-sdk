@@ -1,15 +1,58 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateVpcRequestTag } from "./CreateVpcRequestTag";
 
+
+export class CreateVpcRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the resource. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * 
+   * The tag key can be at most 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length, but cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * FinanceJoshua
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateVpcRequest extends $dara.Model {
   /**
    * @remarks
    * The CIDR block of the VPC.
    * 
-   * *   You can specify one of the following CIDR blocks or their subsets as the primary IPv4 CIDR block of the VPC: 192.168.0.0/16, 172.16.0.0/12, and 10.0.0.0/8. These CIDR blocks are standard private CIDR blocks as defined by Request for Comments (RFC) documents. The subnet mask must be 8 to 28 bits in length.
-   * *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, 169.254.0.0/16, and their subnets as the primary IPv4 CIDR block of the VPC.
+   * *   We recommend using the private IPv4 address specified in RFC 1918 as the primary IPv4 CIDR block of the VPC with a recommended mask length of 16 to 28 bits. For example, 10.0.0.0/16, 172.16.0.0/16, and 192.168.0.0/16.
+   * *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, 169.254.0.0/16, or their subnets as the primary IPv4 CIDR block.
    * 
    * @example
    * 172.16.0.0/12
@@ -48,18 +91,35 @@ export class CreateVpcRequest extends $dara.Model {
    * false
    */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * Whether to enable the DNS hostname feature. Values:
+   * - **false** (default): Not enabled. 
+   * - **true**: Enabled.
+   * 
+   * @example
+   * false
+   */
   enableDnsHostname?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable IPv6. Valid values:
+   * Indicates whether IPv6 is enabled. Valid values:
    * 
-   * *   **false** (default)
-   * *   **true**
+   * *   **false** (default): disabled.
+   * *   **true**: enabled.
    * 
    * @example
    * false
    */
   enableIpv6?: boolean;
+  /**
+   * @remarks
+   * Allocate VPC from the IPAM address pool by inputting a mask.
+   * > When creating a VPC with a specified IPAM address pool, at least one of the parameters CidrBlock or Ipv4CidrMask must be provided.
+   * 
+   * @example
+   * 12
+   */
   ipv4CidrMask?: number;
   /**
    * @remarks
@@ -71,7 +131,7 @@ export class CreateVpcRequest extends $dara.Model {
   ipv4IpamPoolId?: string;
   /**
    * @remarks
-   * The IPv6 CIDR block of the VPC.
+   * The IPv6 CIDR block of the VPC. If you enable IPv6 for a VPC, the system allocates an IPv6 CIDR block. To specify an IPv6 CIDR block, you must call the [AllocateVpcIpv6Cidr](https://help.aliyun.com/document_detail/448916.html) operation to reserve the specified IPv6 CIDR block.
    * 
    * @example
    * 2408:XXXX:0:6a::/56

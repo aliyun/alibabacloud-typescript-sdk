@@ -1,8 +1,148 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList } from "./CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList";
-import { CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionList } from "./CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionList";
 
+
+export class CreateHighReliablePhysicalConnectionResponseBodyErrorInfoListErrorInfoList extends $dara.Model {
+  /**
+   * @remarks
+   * Error codes.
+   * 
+   * @example
+   * pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The returned error message.
+   * 
+   * @example
+   * pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the Express Connect circuit.
+   * 
+   * @example
+   * pc-j5e5qqo616p81ncspbll1
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList extends $dara.Model {
+  errorInfoList?: CreateHighReliablePhysicalConnectionResponseBodyErrorInfoListErrorInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      errorInfoList: 'errorInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorInfoList: { 'type': 'array', 'itemType': CreateHighReliablePhysicalConnectionResponseBodyErrorInfoListErrorInfoList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.errorInfoList)) {
+      $dara.Model.validateArray(this.errorInfoList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionListPhysicalConnectionList extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Express Connect circuit.
+   * 
+   * @example
+   * pc-j5e5qqo616p81ncspbll1
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the Express Connect circuit.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionNo: 'RegionNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionNo: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionList extends $dara.Model {
+  physicalConnectionList?: CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionListPhysicalConnectionList[];
+  static names(): { [key: string]: string } {
+    return {
+      physicalConnectionList: 'physicalConnectionList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      physicalConnectionList: { 'type': 'array', 'itemType': CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionListPhysicalConnectionList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.physicalConnectionList)) {
+      $dara.Model.validateArray(this.physicalConnectionList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateHighReliablePhysicalConnectionResponseBody extends $dara.Model {
   /**

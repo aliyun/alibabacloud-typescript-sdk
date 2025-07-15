@@ -13,7 +13,7 @@ export class DescribeTagKeysRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 50. Default value: 50.
+   * The number of entries per page. Valid values: 1 to 50. Default value: 50.
    * 
    * @example
    * 50
@@ -44,6 +44,10 @@ export class DescribeTagKeysRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource IDs. You can specify up to 20 resource IDs.
+   */
   resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

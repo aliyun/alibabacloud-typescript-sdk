@@ -1,15 +1,417 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetNatGatewayAttributeResponseBodyAccessMode } from "./GetNatGatewayAttributeResponseBodyAccessMode";
-import { GetNatGatewayAttributeResponseBodyBillingConfig } from "./GetNatGatewayAttributeResponseBodyBillingConfig";
-import { GetNatGatewayAttributeResponseBodyDeletionProtectionInfo } from "./GetNatGatewayAttributeResponseBodyDeletionProtectionInfo";
-import { GetNatGatewayAttributeResponseBodyForwardTable } from "./GetNatGatewayAttributeResponseBodyForwardTable";
-import { GetNatGatewayAttributeResponseBodyFullNatTable } from "./GetNatGatewayAttributeResponseBodyFullNatTable";
-import { GetNatGatewayAttributeResponseBodyIpList } from "./GetNatGatewayAttributeResponseBodyIpList";
-import { GetNatGatewayAttributeResponseBodyLogDelivery } from "./GetNatGatewayAttributeResponseBodyLogDelivery";
-import { GetNatGatewayAttributeResponseBodyPrivateInfo } from "./GetNatGatewayAttributeResponseBodyPrivateInfo";
-import { GetNatGatewayAttributeResponseBodySnatTable } from "./GetNatGatewayAttributeResponseBodySnatTable";
 
+
+export class GetNatGatewayAttributeResponseBodyAccessMode extends $dara.Model {
+  modeValue?: string;
+  tunnelType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modeValue: 'ModeValue',
+      tunnelType: 'TunnelType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modeValue: 'string',
+      tunnelType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNatGatewayAttributeResponseBodyBillingConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether automatic payment is enabled. If the **InstanceChargeType** parameter is set to **PrePaid**, one of the following values is returned:
+   * 
+   * *   **false**: disabled. After an order is generated, you must go to the Order Center to complete the payment.
+   * *   **true**: enabled. Payments are automatically completed.
+   * 
+   * The return value of this parameter is empty if **InstanceChargeType** is set to **PostPaid**.
+   * 
+   * @example
+   * false
+   */
+  autoPay?: string;
+  /**
+   * @remarks
+   * The billing method of the NAT gateway. The value is set to **PostPaid**, which indicates the pay-as-you-go billing method.
+   * 
+   * @example
+   * PostPaid
+   */
+  instanceChargeType?: string;
+  /**
+   * @remarks
+   * The metering method of the NAT gateway. Valid values:
+   * 
+   * *   **PayBySpec**: pay-by-specification
+   * *   **PayByLcu**: pay-by-CU
+   * 
+   * @example
+   * PayBySpec
+   */
+  internetChargeType?: string;
+  /**
+   * @remarks
+   * The specification of the Internet NAT gateway. If the **InternetChargeType** parameter is set to **PayBySpec**, one of the following values is returned:
+   * 
+   * *   **Small**: small
+   * 
+   * *   **Middle**: medium
+   * 
+   * *   **Large**: large
+   * 
+   *     The return value of this parameter is empty if **InternetChargeType** is set to **PayByLcu**.
+   * 
+   * @example
+   * Small
+   */
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      instanceChargeType: 'InstanceChargeType',
+      internetChargeType: 'InternetChargeType',
+      spec: 'Spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'string',
+      instanceChargeType: 'string',
+      internetChargeType: 'string',
+      spec: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNatGatewayAttributeResponseBodyDeletionProtectionInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether deletion protection is enabled.
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNatGatewayAttributeResponseBodyForwardTable extends $dara.Model {
+  /**
+   * @remarks
+   * The number of DNAT entries.
+   * 
+   * @example
+   * 1
+   */
+  forwardEntryCount?: number;
+  /**
+   * @remarks
+   * The ID of the DNAT table.
+   * 
+   * @example
+   * ftb-uf6gj3mhsg94qsqst****
+   */
+  forwardTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      forwardEntryCount: 'ForwardEntryCount',
+      forwardTableId: 'ForwardTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      forwardEntryCount: 'number',
+      forwardTableId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNatGatewayAttributeResponseBodyFullNatTable extends $dara.Model {
+  /**
+   * @remarks
+   * The number of FULLNAT entries.
+   * 
+   * @example
+   * 1
+   */
+  fullNatEntryCount?: number;
+  /**
+   * @remarks
+   * The ID of the FULLNAT table.
+   * 
+   * @example
+   * fulltb-gw88z7hhlv43rmb26****
+   */
+  fullNatTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fullNatEntryCount: 'FullNatEntryCount',
+      fullNatTableId: 'FullNatTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fullNatEntryCount: 'number',
+      fullNatTableId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNatGatewayAttributeResponseBodyIpList extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the EIP.
+   * 
+   * @example
+   * eip-bp13e9i2qst4g6jzi****
+   */
+  allocationId?: string;
+  /**
+   * @remarks
+   * The IP address of the EIP.
+   * 
+   * @example
+   * 116.33.XX.XX
+   */
+  ipAddress?: string;
+  /**
+   * @remarks
+   * The association status of the EIP.
+   * 
+   * *   **idle**: The EIP is not specified in an SNAT entry or a DNAT entry.
+   * *   **UsedBySnatTable**: The EIP is specified in an SNAT entry.
+   * *   **UsedByForwardTable**: The EIP is specified in a DNAT entry.
+   * 
+   * @example
+   * idle
+   */
+  usingStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocationId: 'AllocationId',
+      ipAddress: 'IpAddress',
+      usingStatus: 'UsingStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationId: 'string',
+      ipAddress: 'string',
+      usingStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNatGatewayAttributeResponseBodyLogDelivery extends $dara.Model {
+  deliverLogsErrorMessage?: string;
+  deliveryStatus?: string;
+  logDeliveryType?: string;
+  logDestination?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deliverLogsErrorMessage: 'DeliverLogsErrorMessage',
+      deliveryStatus: 'DeliveryStatus',
+      logDeliveryType: 'LogDeliveryType',
+      logDestination: 'LogDestination',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deliverLogsErrorMessage: 'string',
+      deliveryStatus: 'string',
+      logDeliveryType: 'string',
+      logDestination: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNatGatewayAttributeResponseBodyPrivateInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the elastic network interface (ENI).
+   * 
+   * @example
+   * eni-bp1cmgtoaka8vfyg****
+   */
+  eniInstanceId?: string;
+  /**
+   * @remarks
+   * The zone where the NAT gateway is deployed.
+   * 
+   * @example
+   * cn-qingdao-b
+   */
+  izNo?: string;
+  /**
+   * @remarks
+   * The maximum bandwidth. Unit: Mbit/s.
+   * 
+   * @example
+   * 5120
+   */
+  maxBandwidth?: number;
+  /**
+   * @remarks
+   * The private IP address.
+   * 
+   * @example
+   * 192.168.XX.XX
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch to which the NAT gateway belongs.
+   * 
+   * @example
+   * vsw-bp1s2laxhdf9ayjbo***
+   */
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eniInstanceId: 'EniInstanceId',
+      izNo: 'IzNo',
+      maxBandwidth: 'MaxBandwidth',
+      privateIpAddress: 'PrivateIpAddress',
+      vswitchId: 'VswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eniInstanceId: 'string',
+      izNo: 'string',
+      maxBandwidth: 'number',
+      privateIpAddress: 'string',
+      vswitchId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNatGatewayAttributeResponseBodySnatTable extends $dara.Model {
+  /**
+   * @remarks
+   * The number of SNAT entries.
+   * 
+   * @example
+   * 1
+   */
+  snatEntryCount?: number;
+  /**
+   * @remarks
+   * The ID of the SNAT table.
+   * 
+   * @example
+   * stb-SnatTableIds****
+   */
+  snatTableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      snatEntryCount: 'SnatEntryCount',
+      snatTableId: 'SnatTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      snatEntryCount: 'number',
+      snatTableId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   accessMode?: GetNatGatewayAttributeResponseBodyAccessMode;

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHaVipResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the HAVIP.
+   * The ID of the HaVip.
    * 
    * @example
    * havip-2zeo05qre24nhrqpy****
@@ -13,7 +13,7 @@ export class CreateHaVipResponseBody extends $dara.Model {
   haVipId?: string;
   /**
    * @remarks
-   * The IP address of the HAVIP.
+   * The IP address of the HaVip.
    * 
    * @example
    * 192.XX.XX.10

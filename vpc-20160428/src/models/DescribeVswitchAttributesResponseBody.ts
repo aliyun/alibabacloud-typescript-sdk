@@ -1,8 +1,115 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeVSwitchAttributesResponseBodyRouteTable } from "./DescribeVswitchAttributesResponseBodyRouteTable";
-import { DescribeVSwitchAttributesResponseBodyTags } from "./DescribeVswitchAttributesResponseBodyTags";
 
+
+export class DescribeVSwitchAttributesResponseBodyRouteTable extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the route table that is associated with the vSwitch.
+   * 
+   * @example
+   * vtb-bp145q7glnuzdv****
+   */
+  routeTableId?: string;
+  /**
+   * @remarks
+   * The type of the route table. Valid values:
+   * 
+   * *   **System**
+   * *   **Custom**
+   * 
+   * @example
+   * System
+   */
+  routeTableType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      routeTableId: 'RouteTableId',
+      routeTableType: 'RouteTableType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routeTableId: 'string',
+      routeTableType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVSwitchAttributesResponseBodyTagsTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N added to the resource.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N added to the resource.
+   * 
+   * @example
+   * FinanceJoshua
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVSwitchAttributesResponseBodyTags extends $dara.Model {
+  tag?: DescribeVSwitchAttributesResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeVSwitchAttributesResponseBodyTagsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   /**
