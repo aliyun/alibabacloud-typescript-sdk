@@ -1,7 +1,33 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SubmitSmartAuditResponseBodyData } from "./SubmitSmartAuditResponseBodyData";
 
+
+export class SubmitSmartAuditResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SubmitSmartAuditResponseBody extends $dara.Model {
   /**

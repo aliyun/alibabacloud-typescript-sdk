@@ -1,7 +1,83 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AsyncUploadVideoResponseBodyData } from "./AsyncUploadVideoResponseBodyData";
 
+
+export class AsyncUploadVideoResponseBodyDataVideoInfos extends $dara.Model {
+  videoExtraInfo?: string;
+  /**
+   * @example
+   * 60616fad41b171f0bb4b4531948c0102
+   */
+  videoId?: string;
+  /**
+   * @example
+   * 123.mp4
+   */
+  videoName?: string;
+  /**
+   * @example
+   * http://123.mp4
+   */
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoExtraInfo: 'VideoExtraInfo',
+      videoId: 'VideoId',
+      videoName: 'VideoName',
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoExtraInfo: 'string',
+      videoId: 'string',
+      videoName: 'string',
+      videoUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AsyncUploadVideoResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  videoInfos?: AsyncUploadVideoResponseBodyDataVideoInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      videoInfos: 'VideoInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      videoInfos: { 'type': 'array', 'itemType': AsyncUploadVideoResponseBodyDataVideoInfos },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.videoInfos)) {
+      $dara.Model.validateArray(this.videoInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AsyncUploadVideoResponseBody extends $dara.Model {
   /**

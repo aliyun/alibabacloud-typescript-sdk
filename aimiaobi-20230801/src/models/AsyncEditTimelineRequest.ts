@@ -1,7 +1,77 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AsyncEditTimelineRequestTimelines } from "./AsyncEditTimelineRequestTimelines";
 
+
+export class AsyncEditTimelineRequestTimelinesClips extends $dara.Model {
+  clipId?: string;
+  contentInner?: string;
+  in?: number;
+  out?: number;
+  videoId?: string;
+  videoName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clipId: 'ClipId',
+      contentInner: 'ContentInner',
+      in: 'In',
+      out: 'Out',
+      videoId: 'VideoId',
+      videoName: 'VideoName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipId: 'string',
+      contentInner: 'string',
+      in: 'number',
+      out: 'number',
+      videoId: 'string',
+      videoName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AsyncEditTimelineRequestTimelines extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  clips?: AsyncEditTimelineRequestTimelinesClips[];
+  timelineId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clips: 'Clips',
+      timelineId: 'TimelineId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clips: { 'type': 'array', 'itemType': AsyncEditTimelineRequestTimelinesClips },
+      timelineId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.clips)) {
+      $dara.Model.validateArray(this.clips);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AsyncEditTimelineRequest extends $dara.Model {
   autoClips?: boolean;

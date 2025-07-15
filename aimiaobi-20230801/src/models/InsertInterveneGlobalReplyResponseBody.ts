@@ -1,7 +1,42 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { InsertInterveneGlobalReplyResponseBodyData } from "./InsertInterveneGlobalReplyResponseBodyData";
 
+
+export class InsertInterveneGlobalReplyResponseBodyData extends $dara.Model {
+  code?: number;
+  failIdList?: string[];
+  /**
+   * @example
+   * 4829
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      failIdList: 'FailIdList',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      failIdList: { 'type': 'array', 'itemType': 'string' },
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failIdList)) {
+      $dara.Model.validateArray(this.failIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class InsertInterveneGlobalReplyResponseBody extends $dara.Model {
   /**

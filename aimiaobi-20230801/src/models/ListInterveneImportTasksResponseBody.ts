@@ -1,7 +1,111 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListInterveneImportTasksResponseBodyData } from "./ListInterveneImportTasksResponseBodyData";
 
+
+export class ListInterveneImportTasksResponseBodyDataStatusList extends $dara.Model {
+  /**
+   * @example
+   * Success
+   */
+  msg?: string;
+  /**
+   * @example
+   * 5
+   */
+  percentage?: number;
+  /**
+   * @example
+   * Success
+   */
+  status?: number;
+  /**
+   * @example
+   * 4854
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 12344454
+   */
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      msg: 'Msg',
+      percentage: 'Percentage',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      msg: 'string',
+      percentage: 'number',
+      status: 'number',
+      taskId: 'string',
+      taskName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInterveneImportTasksResponseBodyData extends $dara.Model {
+  code?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  statusList?: ListInterveneImportTasksResponseBodyDataStatusList[];
+  /**
+   * @example
+   * 0
+   */
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      statusList: 'StatusList',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
+      statusList: { 'type': 'array', 'itemType': ListInterveneImportTasksResponseBodyDataStatusList },
+      totalSize: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.statusList)) {
+      $dara.Model.validateArray(this.statusList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListInterveneImportTasksResponseBody extends $dara.Model {
   /**

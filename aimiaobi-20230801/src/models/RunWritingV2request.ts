@@ -1,11 +1,210 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunWritingV2RequestArticles } from "./RunWritingV2requestArticles";
-import { RunWritingV2RequestMiniDocs } from "./RunWritingV2requestMiniDocs";
-import { RunWritingV2RequestOutlines } from "./RunWritingV2requestOutlines";
-import { RunWritingV2RequestSearchSources } from "./RunWritingV2requestSearchSources";
-import { RunWritingV2RequestSummarization } from "./RunWritingV2requestSummarization";
 
+
+export class RunWritingV2RequestArticles extends $dara.Model {
+  content?: string;
+  /**
+   * @example
+   * 2024-11-25 14:25:59
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * QuarkCommonNews
+   */
+  searchSourceName?: string;
+  source?: string;
+  title?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.docx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      pubTime: 'PubTime',
+      searchSourceName: 'SearchSourceName',
+      source: 'Source',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      pubTime: 'string',
+      searchSourceName: 'string',
+      source: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingV2RequestMiniDocs extends $dara.Model {
+  content?: string;
+  index?: string;
+  /**
+   * @example
+   * true
+   */
+  star?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      index: 'Index',
+      star: 'Star',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      index: 'string',
+      star: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingV2RequestOutlinesArticles extends $dara.Model {
+  content?: string;
+  title?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingV2RequestOutlines extends $dara.Model {
+  articles?: RunWritingV2RequestOutlinesArticles[];
+  outline?: string;
+  static names(): { [key: string]: string } {
+    return {
+      articles: 'Articles',
+      outline: 'Outline',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      articles: { 'type': 'array', 'itemType': RunWritingV2RequestOutlinesArticles },
+      outline: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.articles)) {
+      $dara.Model.validateArray(this.articles);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingV2RequestSearchSources extends $dara.Model {
+  /**
+   * @example
+   * SystemSearch
+   */
+  code?: string;
+  /**
+   * @example
+   * QuarkCommonNews
+   */
+  datasetName?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      datasetName: 'DatasetName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      datasetName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunWritingV2RequestSummarization extends $dara.Model {
+  event?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'Event',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: 'string',
+      message: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunWritingV2Request extends $dara.Model {
   articles?: RunWritingV2RequestArticles[];

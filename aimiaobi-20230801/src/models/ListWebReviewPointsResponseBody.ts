@@ -1,7 +1,188 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListWebReviewPointsResponseBodyData } from "./ListWebReviewPointsResponseBodyData";
 
+
+export class ListWebReviewPointsResponseBodyDataComments extends $dara.Model {
+  /**
+   * @example
+   * 来源
+   */
+  source?: string;
+  /**
+   * @example
+   * 评论内容
+   */
+  text?: string;
+  /**
+   * @example
+   * 标题
+   */
+  title?: string;
+  /**
+   * @example
+   * 当前评论所属的URL
+   */
+  url?: string;
+  /**
+   * @example
+   * 评论用户名
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      source: 'Source',
+      text: 'Text',
+      title: 'Title',
+      url: 'Url',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      source: 'string',
+      text: 'string',
+      title: 'string',
+      url: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebReviewPointsResponseBodyDataViewPointsOutlines extends $dara.Model {
+  /**
+   * @example
+   * 大纲
+   */
+  outline?: string;
+  /**
+   * @example
+   * 大纲摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outline: 'Outline',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outline: 'string',
+      summary: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebReviewPointsResponseBodyDataViewPoints extends $dara.Model {
+  outlines?: ListWebReviewPointsResponseBodyDataViewPointsOutlines[];
+  /**
+   * @example
+   * 视角
+   */
+  point?: string;
+  /**
+   * @example
+   * 摘要
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outlines: 'Outlines',
+      point: 'Point',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outlines: { 'type': 'array', 'itemType': ListWebReviewPointsResponseBodyDataViewPointsOutlines },
+      point: 'string',
+      summary: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.outlines)) {
+      $dara.Model.validateArray(this.outlines);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebReviewPointsResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 当前观点
+   */
+  attitude?: string;
+  /**
+   * @example
+   * 观点类型
+   */
+  attitudeType?: string;
+  comments?: ListWebReviewPointsResponseBodyDataComments[];
+  /**
+   * @example
+   * 当前观点占比
+   */
+  ratio?: string;
+  viewPoints?: ListWebReviewPointsResponseBodyDataViewPoints[];
+  static names(): { [key: string]: string } {
+    return {
+      attitude: 'Attitude',
+      attitudeType: 'AttitudeType',
+      comments: 'Comments',
+      ratio: 'Ratio',
+      viewPoints: 'ViewPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attitude: 'string',
+      attitudeType: 'string',
+      comments: { 'type': 'array', 'itemType': ListWebReviewPointsResponseBodyDataComments },
+      ratio: 'string',
+      viewPoints: { 'type': 'array', 'itemType': ListWebReviewPointsResponseBodyDataViewPoints },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.comments)) {
+      $dara.Model.validateArray(this.comments);
+    }
+    if(Array.isArray(this.viewPoints)) {
+      $dara.Model.validateArray(this.viewPoints);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListWebReviewPointsResponseBody extends $dara.Model {
   /**

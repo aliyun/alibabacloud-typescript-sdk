@@ -1,7 +1,91 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunSearchSimilarArticlesRequestChatConfig } from "./RunSearchSimilarArticlesRequestChatConfig";
 
+
+export class RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources extends $dara.Model {
+  /**
+   * @example
+   * SystemSearch
+   */
+  code?: string;
+  datasetName?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      datasetName: 'DatasetName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      datasetName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchSimilarArticlesRequestChatConfigSearchParam extends $dara.Model {
+  searchSources?: RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources[];
+  static names(): { [key: string]: string } {
+    return {
+      searchSources: 'SearchSources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchSources: { 'type': 'array', 'itemType': RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.searchSources)) {
+      $dara.Model.validateArray(this.searchSources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchSimilarArticlesRequestChatConfig extends $dara.Model {
+  searchParam?: RunSearchSimilarArticlesRequestChatConfigSearchParam;
+  static names(): { [key: string]: string } {
+    return {
+      searchParam: 'SearchParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchParam: RunSearchSimilarArticlesRequestChatConfigSearchParam,
+    };
+  }
+
+  validate() {
+    if(this.searchParam && typeof (this.searchParam as any).validate === 'function') {
+      (this.searchParam as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunSearchSimilarArticlesRequest extends $dara.Model {
   chatConfig?: RunSearchSimilarArticlesRequestChatConfig;

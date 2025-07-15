@@ -30,6 +30,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加审核自定义词库记录
+   * 
+   * @param request - AddAuditTermsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAuditTermsResponse
+   */
+  async addAuditTermsWithOptions(request: $_model.AddAuditTermsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAuditTermsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.suggestWord)) {
+      body["SuggestWord"] = request.suggestWord;
+    }
+
+    if (!$dara.isNull(request.termsDesc)) {
+      body["TermsDesc"] = request.termsDesc;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddAuditTerms",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddAuditTermsResponse>(await this.callApi(params, req, runtime), new $_model.AddAuditTermsResponse({}));
+  }
+
+  /**
+   * 添加审核自定义词库记录
+   * 
+   * @param request - AddAuditTermsRequest
+   * @returns AddAuditTermsResponse
+   */
+  async addAuditTerms(request: $_model.AddAuditTermsRequest): Promise<$_model.AddAuditTermsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addAuditTermsWithOptions(request, runtime);
+  }
+
+  /**
    * 添加文档到数据集
    * 
    * @param tmpReq - AddDatasetDocumentRequest
@@ -684,6 +738,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除指定的词库记录
+   * 
+   * @param tmpReq - DeleteAuditTermsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAuditTermsResponse
+   */
+  async deleteAuditTermsWithOptions(tmpReq: $_model.DeleteAuditTermsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAuditTermsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteAuditTermsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.idList)) {
+      request.idListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.idList, "IdList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.idListShrink)) {
+      body["IdList"] = request.idListShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAuditTerms",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAuditTermsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAuditTermsResponse({}));
+  }
+
+  /**
+   * 删除指定的词库记录
+   * 
+   * @param request - DeleteAuditTermsRequest
+   * @returns DeleteAuditTermsResponse
+   */
+  async deleteAuditTerms(request: $_model.DeleteAuditTermsRequest): Promise<$_model.DeleteAuditTermsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAuditTermsWithOptions(request, runtime);
+  }
+
+  /**
    * 删除自定义文本
    * 
    * @param request - DeleteCustomTextRequest
@@ -1238,6 +1344,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 编辑审核自定义词库记录
+   * 
+   * @param request - EditAuditTermsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EditAuditTermsResponse
+   */
+  async editAuditTermsWithOptions(request: $_model.EditAuditTermsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EditAuditTermsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.suggestWord)) {
+      body["SuggestWord"] = request.suggestWord;
+    }
+
+    if (!$dara.isNull(request.termsDesc)) {
+      body["TermsDesc"] = request.termsDesc;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EditAuditTerms",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EditAuditTermsResponse>(await this.callApi(params, req, runtime), new $_model.EditAuditTermsResponse({}));
+  }
+
+  /**
+   * 编辑审核自定义词库记录
+   * 
+   * @param request - EditAuditTermsRequest
+   * @returns EditAuditTermsResponse
+   */
+  async editAuditTerms(request: $_model.EditAuditTermsRequest): Promise<$_model.EditAuditTermsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.editAuditTermsWithOptions(request, runtime);
+  }
+
+  /**
    * 导出企业VOC分析任务明细列表
    * 
    * @param tmpReq - ExportAnalysisTagDetailByTaskIdRequest
@@ -1632,6 +1796,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取词库导出任务结果
+   * 
+   * @param request - FetchExportTermsTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchExportTermsTaskResponse
+   */
+  async fetchExportTermsTaskWithOptions(request: $_model.FetchExportTermsTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FetchExportTermsTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FetchExportTermsTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FetchExportTermsTaskResponse>(await this.callApi(params, req, runtime), new $_model.FetchExportTermsTaskResponse({}));
+  }
+
+  /**
+   * 获取词库导出任务结果
+   * 
+   * @param request - FetchExportTermsTaskRequest
+   * @returns FetchExportTermsTaskResponse
+   */
+  async fetchExportTermsTask(request: $_model.FetchExportTermsTaskRequest): Promise<$_model.FetchExportTermsTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.fetchExportTermsTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 获取异步导出文档任务结果
    * 
    * @param request - FetchExportWordTaskRequest
@@ -1735,6 +1945,52 @@ export default class Client extends OpenApi {
   async fetchImageTask(request: $_model.FetchImageTaskRequest): Promise<$_model.FetchImageTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.fetchImageTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取导入词库任务结果
+   * 
+   * @param request - FetchImportTermsTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchImportTermsTaskResponse
+   */
+  async fetchImportTermsTaskWithOptions(request: $_model.FetchImportTermsTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FetchImportTermsTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FetchImportTermsTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FetchImportTermsTaskResponse>(await this.callApi(params, req, runtime), new $_model.FetchImportTermsTaskResponse({}));
+  }
+
+  /**
+   * 获取导入词库任务结果
+   * 
+   * @param request - FetchImportTermsTaskRequest
+   * @returns FetchImportTermsTaskResponse
+   */
+  async fetchImportTermsTask(request: $_model.FetchImportTermsTaskRequest): Promise<$_model.FetchImportTermsTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.fetchImportTermsTaskWithOptions(request, runtime);
   }
 
   /**
@@ -3739,6 +3995,56 @@ export default class Client extends OpenApi {
   async listAuditContentErrorTypes(request: $_model.ListAuditContentErrorTypesRequest): Promise<$_model.ListAuditContentErrorTypesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAuditContentErrorTypesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取词库列表
+   * 
+   * @param request - ListAuditTermsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuditTermsResponse
+   */
+  async listAuditTermsWithOptions(request: $_model.ListAuditTermsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAuditTermsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAuditTerms",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAuditTermsResponse>(await this.callApi(params, req, runtime), new $_model.ListAuditTermsResponse({}));
+  }
+
+  /**
+   * 获取词库列表
+   * 
+   * @param request - ListAuditTermsRequest
+   * @returns ListAuditTermsResponse
+   */
+  async listAuditTerms(request: $_model.ListAuditTermsRequest): Promise<$_model.ListAuditTermsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAuditTermsWithOptions(request, runtime);
   }
 
   /**
@@ -8737,6 +9043,94 @@ export default class Client extends OpenApi {
   async submitEnterpriseVocAnalysisTask(request: $_model.SubmitEnterpriseVocAnalysisTaskRequest): Promise<$_model.SubmitEnterpriseVocAnalysisTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitEnterpriseVocAnalysisTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 导出词库任务
+   * 
+   * @param request - SubmitExportTermsTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitExportTermsTaskResponse
+   */
+  async submitExportTermsTaskWithOptions(request: $_model.SubmitExportTermsTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitExportTermsTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitExportTermsTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitExportTermsTaskResponse>(await this.callApi(params, req, runtime), new $_model.SubmitExportTermsTaskResponse({}));
+  }
+
+  /**
+   * 导出词库任务
+   * 
+   * @param request - SubmitExportTermsTaskRequest
+   * @returns SubmitExportTermsTaskResponse
+   */
+  async submitExportTermsTask(request: $_model.SubmitExportTermsTaskRequest): Promise<$_model.SubmitExportTermsTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitExportTermsTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交导入自定义词库任务
+   * 
+   * @param request - SubmitImportTermsTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitImportTermsTaskResponse
+   */
+  async submitImportTermsTaskWithOptions(request: $_model.SubmitImportTermsTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitImportTermsTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileKey)) {
+      body["FileKey"] = request.fileKey;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitImportTermsTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitImportTermsTaskResponse>(await this.callApi(params, req, runtime), new $_model.SubmitImportTermsTaskResponse({}));
+  }
+
+  /**
+   * 提交导入自定义词库任务
+   * 
+   * @param request - SubmitImportTermsTaskRequest
+   * @returns SubmitImportTermsTaskResponse
+   */
+  async submitImportTermsTask(request: $_model.SubmitImportTermsTaskRequest): Promise<$_model.SubmitImportTermsTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitImportTermsTaskWithOptions(request, runtime);
   }
 
   /**

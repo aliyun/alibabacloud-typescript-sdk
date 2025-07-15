@@ -1,9 +1,120 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SubmitEnterpriseVocAnalysisTaskRequestContentTags } from "./SubmitEnterpriseVocAnalysisTaskRequestContentTags";
-import { SubmitEnterpriseVocAnalysisTaskRequestContents } from "./SubmitEnterpriseVocAnalysisTaskRequestContents";
-import { SubmitEnterpriseVocAnalysisTaskRequestFilterTags } from "./SubmitEnterpriseVocAnalysisTaskRequestFilterTags";
 
+
+export class SubmitEnterpriseVocAnalysisTaskRequestContentTags extends $dara.Model {
+  /**
+   * @example
+   * 一级标签-二级标签
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @example
+   * 一级标签-二级标签
+   */
+  tagName?: string;
+  /**
+   * @example
+   * singleTagValue
+   */
+  tagTaskType?: string;
+  tagValueDefinePrompt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'TagDefinePrompt',
+      tagName: 'TagName',
+      tagTaskType: 'TagTaskType',
+      tagValueDefinePrompt: 'TagValueDefinePrompt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+      tagTaskType: 'string',
+      tagValueDefinePrompt: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskRequestContents extends $dara.Model {
+  extraInfo?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extraInfo: 'ExtraInfo',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extraInfo: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskRequestFilterTags extends $dara.Model {
+  /**
+   * @example
+   * 一级标签-二级标签
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @example
+   * 一级标签-二级标签
+   */
+  tagName?: string;
+  /**
+   * @example
+   * singleTagValue
+   */
+  tagType?: string;
+  tagValueDefinePrompt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'TagDefinePrompt',
+      tagName: 'TagName',
+      tagType: 'TagType',
+      tagValueDefinePrompt: 'TagValueDefinePrompt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+      tagType: 'string',
+      tagValueDefinePrompt: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
   apiKey?: string;

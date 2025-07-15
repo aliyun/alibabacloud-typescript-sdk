@@ -1,8 +1,175 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunStyleFeatureAnalysisResponseBodyHeader } from "./RunStyleFeatureAnalysisResponseBodyHeader";
-import { RunStyleFeatureAnalysisResponseBodyPayload } from "./RunStyleFeatureAnalysisResponseBodyPayload";
 
+
+export class RunStyleFeatureAnalysisResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * 403
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Pop sign mismatch, please check.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  /**
+   * @example
+   * 模型生成事件
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * 3cd10828-0e42-471c-8f1a-931cde20b035
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleFeatureAnalysisResponseBodyPayloadOutput extends $dara.Model {
+  /**
+   * @example
+   * 这是测试输出
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleFeatureAnalysisResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunStyleFeatureAnalysisResponseBodyPayload extends $dara.Model {
+  output?: RunStyleFeatureAnalysisResponseBodyPayloadOutput;
+  usage?: RunStyleFeatureAnalysisResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunStyleFeatureAnalysisResponseBodyPayloadOutput,
+      usage: RunStyleFeatureAnalysisResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunStyleFeatureAnalysisResponseBody extends $dara.Model {
   end?: boolean;

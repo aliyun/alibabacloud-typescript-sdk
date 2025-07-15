@@ -1,8 +1,76 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { WritingStyleTemplateFieldEnums } from "./WritingStyleTemplateFieldEnums";
-import { WritingStyleTemplateFieldStyle } from "./WritingStyleTemplateFieldStyle";
 
+
+export class WritingStyleTemplateFieldEnums extends $dara.Model {
+  cascadingFields?: string[];
+  key?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cascadingFields: 'CascadingFields',
+      key: 'Key',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cascadingFields: { 'type': 'array', 'itemType': 'string' },
+      key: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cascadingFields)) {
+      $dara.Model.validateArray(this.cascadingFields);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WritingStyleTemplateFieldStyle extends $dara.Model {
+  description?: string;
+  format?: string;
+  placeholder?: string;
+  showTime?: boolean;
+  suffix?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      format: 'Format',
+      placeholder: 'Placeholder',
+      showTime: 'ShowTime',
+      suffix: 'Suffix',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      format: 'string',
+      placeholder: 'string',
+      showTime: 'boolean',
+      suffix: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class WritingStyleTemplateField extends $dara.Model {
   buildIn?: boolean;
