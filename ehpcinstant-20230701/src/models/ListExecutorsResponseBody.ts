@@ -93,6 +93,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
    * 0
    */
   arrayIndex?: number;
+  blockDuration?: number;
   /**
    * @example
    * 2024-02-20 10:04:10
@@ -123,6 +124,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
    * testJob
    */
   jobName?: string;
+  preemptible?: boolean;
   resource?: ListExecutorsResponseBodyExecutorsResource;
   resourceType?: string;
   startTime?: string;
@@ -148,6 +150,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
     return {
       appName: 'AppName',
       arrayIndex: 'ArrayIndex',
+      blockDuration: 'BlockDuration',
       createTime: 'CreateTime',
       endTime: 'EndTime',
       executorId: 'ExecutorId',
@@ -158,6 +161,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
       ipAddress: 'IpAddress',
       jobId: 'JobId',
       jobName: 'JobName',
+      preemptible: 'Preemptible',
       resource: 'Resource',
       resourceType: 'ResourceType',
       startTime: 'StartTime',
@@ -174,6 +178,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
     return {
       appName: 'string',
       arrayIndex: 'number',
+      blockDuration: 'number',
       createTime: 'string',
       endTime: 'string',
       executorId: 'string',
@@ -184,6 +189,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
       ipAddress: { 'type': 'array', 'itemType': 'string' },
       jobId: 'string',
       jobName: 'string',
+      preemptible: 'boolean',
       resource: ListExecutorsResponseBodyExecutorsResource,
       resourceType: 'string',
       startTime: 'string',

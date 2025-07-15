@@ -75,6 +75,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
    * 0
    */
   arrayIndex?: number;
+  blockDuration?: number;
   /**
    * @example
    * 2024-02-20 10:04:10
@@ -90,6 +91,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
   externalIpAddress?: string[];
   hostName?: string[];
   ipAddress?: string[];
+  preemptible?: boolean;
   startTime?: string;
   /**
    * @example
@@ -105,6 +107,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       arrayIndex: 'ArrayIndex',
+      blockDuration: 'BlockDuration',
       createTime: 'CreateTime',
       endTime: 'EndTime',
       executorId: 'ExecutorId',
@@ -112,6 +115,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
       externalIpAddress: 'ExternalIpAddress',
       hostName: 'HostName',
       ipAddress: 'IpAddress',
+      preemptible: 'Preemptible',
       startTime: 'StartTime',
       status: 'Status',
       statusReason: 'StatusReason',
@@ -122,6 +126,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       arrayIndex: 'number',
+      blockDuration: 'number',
       createTime: 'string',
       endTime: 'string',
       executorId: 'string',
@@ -129,6 +134,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
       externalIpAddress: { 'type': 'array', 'itemType': 'string' },
       hostName: { 'type': 'array', 'itemType': 'string' },
       ipAddress: { 'type': 'array', 'itemType': 'string' },
+      preemptible: 'boolean',
       startTime: 'string',
       status: 'string',
       statusReason: 'string',
