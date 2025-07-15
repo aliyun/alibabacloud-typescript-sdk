@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCloudPhoneNodesRequest extends $dara.Model {
+  bandwidthPackageId?: string;
   /**
    * @remarks
    * The region ID.
@@ -79,6 +80,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidthPackageId: 'BandwidthPackageId',
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
       maxResults: 'MaxResults',
@@ -92,6 +94,7 @@ export class DescribeCloudPhoneNodesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bandwidthPackageId: 'string',
       bizRegionId: 'string',
       chargeType: 'string',
       maxResults: 'string',

@@ -1,7 +1,180 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeMetricLastResponseBodyMetricTotalModel } from "./DescribeMetricLastResponseBodyMetricTotalModel";
 
+
+export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints extends $dara.Model {
+  /**
+   * @example
+   * 99.52
+   */
+  average?: number;
+  /**
+   * @example
+   * 100
+   */
+  maximum?: number;
+  /**
+   * @example
+   * 93.1
+   */
+  minimum?: number;
+  /**
+   * @example
+   * 1548777660000
+   */
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      average: 'Average',
+      maximum: 'Maximum',
+      minimum: 'Minimum',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      average: 'number',
+      maximum: 'number',
+      minimum: 'number',
+      timestamp: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProcessLastInfos extends $dara.Model {
+  /**
+   * @example
+   * 50
+   */
+  cpuUsage?: number;
+  /**
+   * @example
+   * 50
+   */
+  memoryUsage?: number;
+  /**
+   * @example
+   * com.offerup
+   */
+  name?: string;
+  processIds?: number[];
+  /**
+   * @example
+   * 1548777660000
+   */
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpuUsage: 'CpuUsage',
+      memoryUsage: 'MemoryUsage',
+      name: 'Name',
+      processIds: 'ProcessIds',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuUsage: 'number',
+      memoryUsage: 'number',
+      name: 'string',
+      processIds: { 'type': 'array', 'itemType': 'number' },
+      timestamp: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.processIds)) {
+      $dara.Model.validateArray(this.processIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelList extends $dara.Model {
+  dataPoints?: DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints[];
+  /**
+   * @example
+   * cpu_utilization
+   */
+  metricName?: string;
+  processLastInfos?: DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProcessLastInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      dataPoints: 'DataPoints',
+      metricName: 'MetricName',
+      processLastInfos: 'ProcessLastInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataPoints: { 'type': 'array', 'itemType': DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints },
+      metricName: 'string',
+      processLastInfos: { 'type': 'array', 'itemType': DescribeMetricLastResponseBodyMetricTotalModelMetricModelListProcessLastInfos },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dataPoints)) {
+      $dara.Model.validateArray(this.dataPoints);
+    }
+    if(Array.isArray(this.processLastInfos)) {
+      $dara.Model.validateArray(this.processLastInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMetricLastResponseBodyMetricTotalModel extends $dara.Model {
+  /**
+   * @example
+   * acp-fkuit0cmyru4p****
+   */
+  androidInstanceId?: string;
+  metricModelList?: DescribeMetricLastResponseBodyMetricTotalModelMetricModelList[];
+  static names(): { [key: string]: string } {
+    return {
+      androidInstanceId: 'AndroidInstanceId',
+      metricModelList: 'MetricModelList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      androidInstanceId: 'string',
+      metricModelList: { 'type': 'array', 'itemType': DescribeMetricLastResponseBodyMetricTotalModelMetricModelList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.metricModelList)) {
+      $dara.Model.validateArray(this.metricModelList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeMetricLastResponseBody extends $dara.Model {
   /**

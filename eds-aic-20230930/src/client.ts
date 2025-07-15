@@ -637,6 +637,10 @@ export default class Client extends OpenApi {
       request.displayConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.displayConfig, "DisplayConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.networkInfo)) {
+      request.networkInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networkInfo, "NetworkInfo", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
@@ -644,6 +648,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.bandwidthPackageId)) {
+      query["BandwidthPackageId"] = request.bandwidthPackageId;
+    }
+
+    if (!$dara.isNull(request.bandwidthPackageType)) {
+      query["BandwidthPackageType"] = request.bandwidthPackageType;
     }
 
     if (!$dara.isNull(request.bizRegionId)) {
@@ -658,6 +670,10 @@ export default class Client extends OpenApi {
       query["Count"] = request.count;
     }
 
+    if (!$dara.isNull(request.downBandwidthLimit)) {
+      query["DownBandwidthLimit"] = request.downBandwidthLimit;
+    }
+
     if (!$dara.isNull(request.imageId)) {
       query["ImageId"] = request.imageId;
     }
@@ -668,6 +684,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.networkId)) {
       query["NetworkId"] = request.networkId;
+    }
+
+    if (!$dara.isNull(request.networkInfoShrink)) {
+      query["NetworkInfo"] = request.networkInfoShrink;
+    }
+
+    if (!$dara.isNull(request.networkType)) {
+      query["NetworkType"] = request.networkType;
     }
 
     if (!$dara.isNull(request.nodeName)) {
@@ -712,6 +736,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.upBandwidthLimit)) {
+      query["UpBandwidthLimit"] = request.upBandwidthLimit;
     }
 
     if (!$dara.isNull(request.vSwitchId)) {
@@ -1480,6 +1508,10 @@ export default class Client extends OpenApi {
       query["OfficeSiteIds"] = request.officeSiteIds;
     }
 
+    if (!$dara.isNull(request.privateIpAddress)) {
+      query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
     if (!$dara.isNull(request.qosRuleIds)) {
       query["QosRuleIds"] = request.qosRuleIds;
     }
@@ -1704,6 +1736,10 @@ export default class Client extends OpenApi {
   async describeCloudPhoneNodesWithOptions(request: $_model.DescribeCloudPhoneNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCloudPhoneNodesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.bandwidthPackageId)) {
+      query["BandwidthPackageId"] = request.bandwidthPackageId;
+    }
+
     if (!$dara.isNull(request.bizRegionId)) {
       query["BizRegionId"] = request.bizRegionId;
     }
@@ -2870,8 +2906,20 @@ export default class Client extends OpenApi {
       query["AndroidInstanceId"] = request.androidInstanceId;
     }
 
+    if (!$dara.isNull(request.downBandwidthLimit)) {
+      query["DownBandwidthLimit"] = request.downBandwidthLimit;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
     if (!$dara.isNull(request.newAndroidInstanceName)) {
       query["NewAndroidInstanceName"] = request.newAndroidInstanceName;
+    }
+
+    if (!$dara.isNull(request.upBandwidthLimit)) {
+      query["UpBandwidthLimit"] = request.upBandwidthLimit;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

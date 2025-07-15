@@ -1,7 +1,46 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeAndroidInstancesRequestTag } from "./DescribeAndroidInstancesRequestTag";
 
+
+export class DescribeAndroidInstancesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeAndroidInstancesRequest extends $dara.Model {
   /**
@@ -102,6 +141,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
    */
   nodeName?: string;
   officeSiteIds?: string[];
+  privateIpAddress?: string;
   qosRuleIds?: string[];
   /**
    * @remarks
@@ -164,6 +204,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
       nodeId: 'NodeId',
       nodeName: 'NodeName',
       officeSiteIds: 'OfficeSiteIds',
+      privateIpAddress: 'PrivateIpAddress',
       qosRuleIds: 'QosRuleIds',
       saleMode: 'SaleMode',
       status: 'Status',
@@ -188,6 +229,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
       nodeId: 'string',
       nodeName: 'string',
       officeSiteIds: { 'type': 'array', 'itemType': 'string' },
+      privateIpAddress: 'string',
       qosRuleIds: { 'type': 'array', 'itemType': 'string' },
       saleMode: 'string',
       status: 'string',

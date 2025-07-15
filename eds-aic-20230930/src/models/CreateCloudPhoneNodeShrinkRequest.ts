@@ -1,7 +1,46 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateCloudPhoneNodeShrinkRequestTag } from "./CreateCloudPhoneNodeShrinkRequestTag";
 
+
+export class CreateCloudPhoneNodeShrinkRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * keyname
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * valuename
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
   /**
@@ -30,6 +69,8 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
    * true
    */
   autoRenew?: boolean;
+  bandwidthPackageId?: string;
+  bandwidthPackageType?: string;
   /**
    * @remarks
    * The region ID.
@@ -57,6 +98,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
    */
   count?: string;
   displayConfigShrink?: string;
+  downBandwidthLimit?: number;
   /**
    * @remarks
    * The image ID.
@@ -86,6 +128,8 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
    * cn-hangzhou+dir-5mwr9azebliva****
    */
   networkId?: string;
+  networkInfoShrink?: string;
+  networkType?: string;
   /**
    * @remarks
    * The name of the cloud phone matrix.
@@ -171,6 +215,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
    * The resource tags.
    */
   tag?: CreateCloudPhoneNodeShrinkRequestTag[];
+  upBandwidthLimit?: number;
   /**
    * @remarks
    * The vSwitch ID.
@@ -183,13 +228,18 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
     return {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
+      bandwidthPackageId: 'BandwidthPackageId',
+      bandwidthPackageType: 'BandwidthPackageType',
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
       count: 'Count',
       displayConfigShrink: 'DisplayConfig',
+      downBandwidthLimit: 'DownBandwidthLimit',
       imageId: 'ImageId',
       instanceType: 'InstanceType',
       networkId: 'NetworkId',
+      networkInfoShrink: 'NetworkInfo',
+      networkType: 'NetworkType',
       nodeName: 'NodeName',
       period: 'Period',
       periodUnit: 'PeriodUnit',
@@ -201,6 +251,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
       serverType: 'ServerType',
       streamMode: 'StreamMode',
       tag: 'Tag',
+      upBandwidthLimit: 'UpBandwidthLimit',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -209,13 +260,18 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
     return {
       autoPay: 'boolean',
       autoRenew: 'boolean',
+      bandwidthPackageId: 'string',
+      bandwidthPackageType: 'string',
       bizRegionId: 'string',
       chargeType: 'string',
       count: 'string',
       displayConfigShrink: 'string',
+      downBandwidthLimit: 'number',
       imageId: 'string',
       instanceType: 'string',
       networkId: 'string',
+      networkInfoShrink: 'string',
+      networkType: 'string',
       nodeName: 'string',
       period: 'number',
       periodUnit: 'string',
@@ -227,6 +283,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
       serverType: 'string',
       streamMode: 'number',
       tag: { 'type': 'array', 'itemType': CreateCloudPhoneNodeShrinkRequestTag },
+      upBandwidthLimit: 'number',
       vSwitchId: 'string',
     };
   }

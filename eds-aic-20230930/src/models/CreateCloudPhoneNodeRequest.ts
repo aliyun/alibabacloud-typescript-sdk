@@ -1,8 +1,113 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateCloudPhoneNodeRequestDisplayConfig } from "./CreateCloudPhoneNodeRequestDisplayConfig";
-import { CreateCloudPhoneNodeRequestTag } from "./CreateCloudPhoneNodeRequestTag";
 
+
+export class CreateCloudPhoneNodeRequestDisplayConfig extends $dara.Model {
+  dpi?: number;
+  fps?: number;
+  lockResolution?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dpi: 'Dpi',
+      fps: 'Fps',
+      lockResolution: 'LockResolution',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dpi: 'number',
+      fps: 'number',
+      lockResolution: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudPhoneNodeRequestNetworkInfo extends $dara.Model {
+  bandwidthPackageName?: string;
+  cidrBlock?: string;
+  internetChargeType?: string;
+  ipRatio?: number;
+  isp?: string;
+  limitedBandwidth?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthPackageName: 'BandwidthPackageName',
+      cidrBlock: 'CidrBlock',
+      internetChargeType: 'InternetChargeType',
+      ipRatio: 'IpRatio',
+      isp: 'Isp',
+      limitedBandwidth: 'LimitedBandwidth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthPackageName: 'string',
+      cidrBlock: 'string',
+      internetChargeType: 'string',
+      ipRatio: 'number',
+      isp: 'string',
+      limitedBandwidth: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudPhoneNodeRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * keyname
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * valuename
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateCloudPhoneNodeRequest extends $dara.Model {
   /**
@@ -31,6 +136,8 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
    * true
    */
   autoRenew?: boolean;
+  bandwidthPackageId?: string;
+  bandwidthPackageType?: string;
   /**
    * @remarks
    * The region ID.
@@ -58,6 +165,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
    */
   count?: string;
   displayConfig?: CreateCloudPhoneNodeRequestDisplayConfig;
+  downBandwidthLimit?: number;
   /**
    * @remarks
    * The image ID.
@@ -87,6 +195,8 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
    * cn-hangzhou+dir-5mwr9azebliva****
    */
   networkId?: string;
+  networkInfo?: CreateCloudPhoneNodeRequestNetworkInfo;
+  networkType?: string;
   /**
    * @remarks
    * The name of the cloud phone matrix.
@@ -172,6 +282,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
    * The resource tags.
    */
   tag?: CreateCloudPhoneNodeRequestTag[];
+  upBandwidthLimit?: number;
   /**
    * @remarks
    * The vSwitch ID.
@@ -184,13 +295,18 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
     return {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
+      bandwidthPackageId: 'BandwidthPackageId',
+      bandwidthPackageType: 'BandwidthPackageType',
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
       count: 'Count',
       displayConfig: 'DisplayConfig',
+      downBandwidthLimit: 'DownBandwidthLimit',
       imageId: 'ImageId',
       instanceType: 'InstanceType',
       networkId: 'NetworkId',
+      networkInfo: 'NetworkInfo',
+      networkType: 'NetworkType',
       nodeName: 'NodeName',
       period: 'Period',
       periodUnit: 'PeriodUnit',
@@ -202,6 +318,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
       serverType: 'ServerType',
       streamMode: 'StreamMode',
       tag: 'Tag',
+      upBandwidthLimit: 'UpBandwidthLimit',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -210,13 +327,18 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
     return {
       autoPay: 'boolean',
       autoRenew: 'boolean',
+      bandwidthPackageId: 'string',
+      bandwidthPackageType: 'string',
       bizRegionId: 'string',
       chargeType: 'string',
       count: 'string',
       displayConfig: CreateCloudPhoneNodeRequestDisplayConfig,
+      downBandwidthLimit: 'number',
       imageId: 'string',
       instanceType: 'string',
       networkId: 'string',
+      networkInfo: CreateCloudPhoneNodeRequestNetworkInfo,
+      networkType: 'string',
       nodeName: 'string',
       period: 'number',
       periodUnit: 'string',
@@ -228,6 +350,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
       serverType: 'string',
       streamMode: 'number',
       tag: { 'type': 'array', 'itemType': CreateCloudPhoneNodeRequestTag },
+      upBandwidthLimit: 'number',
       vSwitchId: 'string',
     };
   }
@@ -235,6 +358,9 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
   validate() {
     if(this.displayConfig && typeof (this.displayConfig as any).validate === 'function') {
       (this.displayConfig as any).validate();
+    }
+    if(this.networkInfo && typeof (this.networkInfo as any).validate === 'function') {
+      (this.networkInfo as any).validate();
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
