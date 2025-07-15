@@ -36,6 +36,7 @@ export { CreateDesktopsShrinkRequestMonthDesktopSetting } from './CreateDesktops
 export { CreateDesktopsShrinkRequestTag } from './CreateDesktopsShrinkRequest';
 export { CreateDesktopsShrinkRequestUserCommands } from './CreateDesktopsShrinkRequest';
 export { CreateDriveResponseBodyDrive } from './CreateDriveResponseBody';
+export { CreateEcdReportTaskRequestFilterList } from './CreateEcdReportTaskRequest';
 export { CreatePolicyGroupRequestAuthorizeAccessPolicyRule } from './CreatePolicyGroupRequest';
 export { CreatePolicyGroupRequestAuthorizeSecurityPolicyRule } from './CreatePolicyGroupRequest';
 export { CreatePolicyGroupRequestClientType } from './CreatePolicyGroupRequest';
@@ -103,6 +104,7 @@ export { DescribeDirectoriesResponseBodyDirectoriesLogs } from './DescribeDirect
 export { DescribeDirectoriesResponseBodyDirectories } from './DescribeDirectoriesResponseBody';
 export { DescribeDrivesResponseBodyDrivesDesktopGroups } from './DescribeDrivesResponseBody';
 export { DescribeDrivesResponseBodyDrives } from './DescribeDrivesResponseBody';
+export { DescribeEcdReportTasksResponseBodyExportTaskList } from './DescribeEcdReportTasksResponseBody';
 export { DescribeFlowStatisticResponseBodyDesktopFlowStatistic } from './DescribeFlowStatisticResponseBody';
 export { DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktopsSessions } from './DescribeFotaPendingDesktopsResponseBody';
 export { DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops } from './DescribeFotaPendingDesktopsResponseBody';
@@ -343,6 +345,9 @@ export { CreateCdsFileShareLinkResponse } from './CreateCdsFileShareLinkResponse
 export { CreateCenterPolicyRequest } from './CreateCenterPolicyRequest';
 export { CreateCenterPolicyResponseBody } from './CreateCenterPolicyResponseBody';
 export { CreateCenterPolicyResponse } from './CreateCenterPolicyResponse';
+export { CreateCloudDriveGroupRequest } from './CreateCloudDriveGroupRequest';
+export { CreateCloudDriveGroupResponseBody } from './CreateCloudDriveGroupResponseBody';
+export { CreateCloudDriveGroupResponse } from './CreateCloudDriveGroupResponse';
 export { CreateCloudDriveServiceRequest } from './CreateCloudDriveServiceRequest';
 export { CreateCloudDriveServiceResponseBody } from './CreateCloudDriveServiceResponseBody';
 export { CreateCloudDriveServiceResponse } from './CreateCloudDriveServiceResponse';
@@ -368,6 +373,9 @@ export { CreateDiskEncryptionServiceResponse } from './CreateDiskEncryptionServi
 export { CreateDriveRequest } from './CreateDriveRequest';
 export { CreateDriveResponseBody } from './CreateDriveResponseBody';
 export { CreateDriveResponse } from './CreateDriveResponse';
+export { CreateEcdReportTaskRequest } from './CreateEcdReportTaskRequest';
+export { CreateEcdReportTaskResponseBody } from './CreateEcdReportTaskResponseBody';
+export { CreateEcdReportTaskResponse } from './CreateEcdReportTaskResponse';
 export { CreateImageRequest } from './CreateImageRequest';
 export { CreateImageResponseBody } from './CreateImageResponseBody';
 export { CreateImageResponse } from './CreateImageResponse';
@@ -530,6 +538,9 @@ export { DescribeDirectoriesResponse } from './DescribeDirectoriesResponse';
 export { DescribeDrivesRequest } from './DescribeDrivesRequest';
 export { DescribeDrivesResponseBody } from './DescribeDrivesResponseBody';
 export { DescribeDrivesResponse } from './DescribeDrivesResponse';
+export { DescribeEcdReportTasksRequest } from './DescribeEcdReportTasksRequest';
+export { DescribeEcdReportTasksResponseBody } from './DescribeEcdReportTasksResponseBody';
+export { DescribeEcdReportTasksResponse } from './DescribeEcdReportTasksResponse';
 export { DescribeFlowMetricRequest } from './DescribeFlowMetricRequest';
 export { DescribeFlowMetricResponseBody } from './DescribeFlowMetricResponseBody';
 export { DescribeFlowMetricResponse } from './DescribeFlowMetricResponse';

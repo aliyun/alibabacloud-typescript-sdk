@@ -2643,6 +2643,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Authorizes a user to use a team space.
+   * 
+   * @remarks
+   * The list of teams of a cloud disk in Cloud Drive Service is synchronized from the Organization tab in the Elastic Desktop Service (EDS) console. You can choose Users > Manager User > User > Organization in the console. If you want to authorize a user to use a team space, you must move the user to the corresponding organization. After you move the user, the user can view the menu bar of the team space on a Cloud Drive Service client.
+   * 
+   * @param request - CreateCloudDriveGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloudDriveGroupResponse
+   */
+  async createCloudDriveGroupWithOptions(request: $_model.CreateCloudDriveGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCloudDriveGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.adminUserIds)) {
+      query["AdminUserIds"] = request.adminUserIds;
+    }
+
+    if (!$dara.isNull(request.cdsId)) {
+      query["CdsId"] = request.cdsId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.totalSize)) {
+      query["TotalSize"] = request.totalSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCloudDriveGroup",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCloudDriveGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateCloudDriveGroupResponse({}));
+  }
+
+  /**
+   * Authorizes a user to use a team space.
+   * 
+   * @remarks
+   * The list of teams of a cloud disk in Cloud Drive Service is synchronized from the Organization tab in the Elastic Desktop Service (EDS) console. You can choose Users > Manager User > User > Organization in the console. If you want to authorize a user to use a team space, you must move the user to the corresponding organization. After you move the user, the user can view the menu bar of the team space on a Cloud Drive Service client.
+   * 
+   * @param request - CreateCloudDriveGroupRequest
+   * @returns CreateCloudDriveGroupResponse
+   */
+  async createCloudDriveGroup(request: $_model.CreateCloudDriveGroupRequest): Promise<$_model.CreateCloudDriveGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCloudDriveGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an enterprise drive.
    * 
    * @remarks
@@ -3594,6 +3658,64 @@ export default class Client extends OpenApi {
   async createDrive(request: $_model.CreateDriveRequest): Promise<$_model.CreateDriveResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDriveWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建无影数据报表导出任务
+   * 
+   * @param request - CreateEcdReportTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEcdReportTaskResponse
+   */
+  async createEcdReportTaskWithOptions(request: $_model.CreateEcdReportTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEcdReportTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filterList)) {
+      query["FilterList"] = request.filterList;
+    }
+
+    if (!$dara.isNull(request.langType)) {
+      query["LangType"] = request.langType;
+    }
+
+    if (!$dara.isNull(request.reportFileName)) {
+      query["ReportFileName"] = request.reportFileName;
+    }
+
+    if (!$dara.isNull(request.subType)) {
+      query["SubType"] = request.subType;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateEcdReportTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateEcdReportTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateEcdReportTaskResponse({}));
+  }
+
+  /**
+   * 创建无影数据报表导出任务
+   * 
+   * @param request - CreateEcdReportTaskRequest
+   * @returns CreateEcdReportTaskResponse
+   */
+  async createEcdReportTask(request: $_model.CreateEcdReportTaskRequest): Promise<$_model.CreateEcdReportTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createEcdReportTaskWithOptions(request, runtime);
   }
 
   /**
@@ -7485,6 +7607,68 @@ export default class Client extends OpenApi {
   async describeDrives(request: $_model.DescribeDrivesRequest): Promise<$_model.DescribeDrivesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDrivesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询数据报表导出任务列表
+   * 
+   * @param request - DescribeEcdReportTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEcdReportTasksResponse
+   */
+  async describeEcdReportTasksWithOptions(request: $_model.DescribeEcdReportTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEcdReportTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.subType)) {
+      query["SubType"] = request.subType;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeEcdReportTasks",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeEcdReportTasksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEcdReportTasksResponse({}));
+  }
+
+  /**
+   * 查询数据报表导出任务列表
+   * 
+   * @param request - DescribeEcdReportTasksRequest
+   * @returns DescribeEcdReportTasksResponse
+   */
+  async describeEcdReportTasks(request: $_model.DescribeEcdReportTasksRequest): Promise<$_model.DescribeEcdReportTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeEcdReportTasksWithOptions(request, runtime);
   }
 
   /**
