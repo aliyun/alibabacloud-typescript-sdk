@@ -1,7 +1,39 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListFlashSmsTemplatesResponseBodyData } from "./ListFlashSmsTemplatesResponseBodyData";
 
+
+export class ListFlashSmsTemplatesResponseBodyData extends $dara.Model {
+  templateDetails?: string;
+  /**
+   * @example
+   * 1715*****38
+   */
+  templateId?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateDetails: 'TemplateDetails',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateDetails: 'string',
+      templateId: 'string',
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListFlashSmsTemplatesResponseBody extends $dara.Model {
   /**

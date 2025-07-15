@@ -1,7 +1,312 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AnswerCallResponseBodyData } from "./AnswerCallResponseBodyData";
 
+
+export class AnswerCallResponseBodyDataCallContextChannelContexts extends $dara.Model {
+  /**
+   * @example
+   * INBOUND
+   */
+  callType?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
+  channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
+  channelState?: string;
+  channelVariables?: string;
+  /**
+   * @example
+   * 1390501****
+   */
+  destination?: string;
+  index?: number;
+  /**
+   * @example
+   * job-6538214103685****
+   */
+  jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
+  originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
+  releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
+  releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
+  skillGroupId?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
+  timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
+  userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callType: 'CallType',
+      channelId: 'ChannelId',
+      channelState: 'ChannelState',
+      channelVariables: 'ChannelVariables',
+      destination: 'Destination',
+      index: 'Index',
+      jobId: 'JobId',
+      originator: 'Originator',
+      releaseInitiator: 'ReleaseInitiator',
+      releaseReason: 'ReleaseReason',
+      skillGroupId: 'SkillGroupId',
+      timestamp: 'Timestamp',
+      userExtension: 'UserExtension',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callType: 'string',
+      channelId: 'string',
+      channelState: 'string',
+      channelVariables: 'string',
+      destination: 'string',
+      index: 'number',
+      jobId: 'string',
+      originator: 'string',
+      releaseInitiator: 'string',
+      releaseReason: 'string',
+      skillGroupId: 'string',
+      timestamp: 'number',
+      userExtension: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnswerCallResponseBodyDataCallContext extends $dara.Model {
+  /**
+   * @example
+   * INBOUND
+   */
+  callType?: string;
+  channelContexts?: AnswerCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callType: 'CallType',
+      channelContexts: 'ChannelContexts',
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callType: 'string',
+      channelContexts: { 'type': 'array', 'itemType': AnswerCallResponseBodyDataCallContextChannelContexts },
+      instanceId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.channelContexts)) {
+      $dara.Model.validateArray(this.channelContexts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnswerCallResponseBodyDataUserContext extends $dara.Model {
+  /**
+   * @example
+   * Warm-up
+   */
+  breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
+  deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
+  extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
+  heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
+  jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
+  mobile?: string;
+  /**
+   * @example
+   * false
+   */
+  outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
+  reserved?: number;
+  signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
+  userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
+  userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
+  workMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      breakCode: 'BreakCode',
+      deviceId: 'DeviceId',
+      extension: 'Extension',
+      heartbeat: 'Heartbeat',
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+      mobile: 'Mobile',
+      outboundScenario: 'OutboundScenario',
+      reserved: 'Reserved',
+      signedSkillGroupIdList: 'SignedSkillGroupIdList',
+      userId: 'UserId',
+      userState: 'UserState',
+      workMode: 'WorkMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakCode: 'string',
+      deviceId: 'string',
+      extension: 'string',
+      heartbeat: 'number',
+      instanceId: 'string',
+      jobId: 'string',
+      mobile: 'string',
+      outboundScenario: 'boolean',
+      reserved: 'number',
+      signedSkillGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      userId: 'string',
+      userState: 'string',
+      workMode: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.signedSkillGroupIdList)) {
+      $dara.Model.validateArray(this.signedSkillGroupIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnswerCallResponseBodyData extends $dara.Model {
+  callContext?: AnswerCallResponseBodyDataCallContext;
+  /**
+   * @example
+   * 103655
+   */
+  contextId?: number;
+  userContext?: AnswerCallResponseBodyDataUserContext;
+  static names(): { [key: string]: string } {
+    return {
+      callContext: 'CallContext',
+      contextId: 'ContextId',
+      userContext: 'UserContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callContext: AnswerCallResponseBodyDataCallContext,
+      contextId: 'number',
+      userContext: AnswerCallResponseBodyDataUserContext,
+    };
+  }
+
+  validate() {
+    if(this.callContext && typeof (this.callContext as any).validate === 'function') {
+      (this.callContext as any).validate();
+    }
+    if(this.userContext && typeof (this.userContext as any).validate === 'function') {
+      (this.userContext as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AnswerCallResponseBody extends $dara.Model {
   /**

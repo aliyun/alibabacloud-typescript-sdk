@@ -7064,6 +7064,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取闪信模板列表
+   * 
    * @param request - ListFlashSmsTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFlashSmsTemplatesResponse
@@ -7101,6 +7103,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取闪信模板列表
+   * 
    * @param request - ListFlashSmsTemplatesRequest
    * @returns ListFlashSmsTemplatesResponse
    */
