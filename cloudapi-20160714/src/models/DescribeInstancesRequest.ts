@@ -1,7 +1,46 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeInstancesRequestTag } from "./DescribeInstancesRequestTag";
 
+
+export class DescribeInstancesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeInstancesRequest extends $dara.Model {
   /**
@@ -20,6 +59,7 @@ export class DescribeInstancesRequest extends $dara.Model {
    * api-shared-vpc-001
    */
   instanceId?: string;
+  instanceType?: string;
   /**
    * @remarks
    * The language in which you want the description of the system policy to be returned. Valid values:
@@ -42,6 +82,7 @@ export class DescribeInstancesRequest extends $dara.Model {
     return {
       enableTagAuthorization: 'EnableTagAuthorization',
       instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
       language: 'Language',
       securityToken: 'SecurityToken',
       tag: 'Tag',
@@ -52,6 +93,7 @@ export class DescribeInstancesRequest extends $dara.Model {
     return {
       enableTagAuthorization: 'boolean',
       instanceId: 'string',
+      instanceType: 'string',
       language: 'string',
       securityToken: 'string',
       tag: { 'type': 'array', 'itemType': DescribeInstancesRequestTag },

@@ -1,7 +1,62 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribePurchasedApiGroupResponseBodyDomains } from "./DescribePurchasedApiGroupResponseBodyDomains";
 
+
+export class DescribePurchasedApiGroupResponseBodyDomainsDomainItem extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * test_domain.com
+   */
+  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePurchasedApiGroupResponseBodyDomains extends $dara.Model {
+  domainItem?: DescribePurchasedApiGroupResponseBodyDomainsDomainItem[];
+  static names(): { [key: string]: string } {
+    return {
+      domainItem: 'DomainItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainItem: { 'type': 'array', 'itemType': DescribePurchasedApiGroupResponseBodyDomainsDomainItem },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.domainItem)) {
+      $dara.Model.validateArray(this.domainItem);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribePurchasedApiGroupResponseBody extends $dara.Model {
   /**

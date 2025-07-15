@@ -7255,6 +7255,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
     if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }

@@ -1,7 +1,72 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeInstanceHttpCodeResponseBodyInstanceHttpCode } from "./DescribeInstanceHttpCodeResponseBodyInstanceHttpCode";
 
+
+export class DescribeInstanceHttpCodeResponseBodyInstanceHttpCodeMonitorItem extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 404
+   */
+  itemTime?: string;
+  /**
+   * @remarks
+   * The corresponding value.
+   * 
+   * @example
+   * 1
+   */
+  itemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      itemTime: 'ItemTime',
+      itemValue: 'ItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemTime: 'string',
+      itemValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceHttpCodeResponseBodyInstanceHttpCode extends $dara.Model {
+  monitorItem?: DescribeInstanceHttpCodeResponseBodyInstanceHttpCodeMonitorItem[];
+  static names(): { [key: string]: string } {
+    return {
+      monitorItem: 'MonitorItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorItem: { 'type': 'array', 'itemType': DescribeInstanceHttpCodeResponseBodyInstanceHttpCodeMonitorItem },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.monitorItem)) {
+      $dara.Model.validateArray(this.monitorItem);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeInstanceHttpCodeResponseBody extends $dara.Model {
   /**

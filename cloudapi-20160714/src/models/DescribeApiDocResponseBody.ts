@@ -1,9 +1,394 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeApiDocResponseBodyErrorCodeSamples } from "./DescribeApiDocResponseBodyErrorCodeSamples";
-import { DescribeApiDocResponseBodyRequestConfig } from "./DescribeApiDocResponseBodyRequestConfig";
-import { DescribeApiDocResponseBodyRequestParameters } from "./DescribeApiDocResponseBodyRequestParameters";
 
+
+export class DescribeApiDocResponseBodyErrorCodeSamplesErrorCodeSample extends $dara.Model {
+  /**
+   * @remarks
+   * The returned error code.
+   * 
+   * @example
+   * Error
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error description.
+   * 
+   * @example
+   * Unauthorized
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The returned error message.
+   * 
+   * @example
+   * error message
+   */
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      description: 'Description',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      description: 'string',
+      message: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiDocResponseBodyErrorCodeSamples extends $dara.Model {
+  errorCodeSample?: DescribeApiDocResponseBodyErrorCodeSamplesErrorCodeSample[];
+  static names(): { [key: string]: string } {
+    return {
+      errorCodeSample: 'ErrorCodeSample',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCodeSample: { 'type': 'array', 'itemType': DescribeApiDocResponseBodyErrorCodeSamplesErrorCodeSample },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.errorCodeSample)) {
+      $dara.Model.validateArray(this.errorCodeSample);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiDocResponseBodyRequestConfig extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter takes effect only when the RequestMode parameter is set to MAPPING.********
+   * 
+   * The server data transmission method used for POST and PUT requests. Valid values: FORM and STREAM. FORM indicates that data in key-value pairs is transmitted as forms. STREAM indicates that data is transmitted as byte streams.
+   * 
+   * @example
+   * STREAM
+   */
+  bodyFormat?: string;
+  /**
+   * @remarks
+   * Whether to escape the Path parameter, if true, the [param] on the Path will be treated as a regular character.
+   * 
+   * @example
+   * true
+   */
+  escapePathParam?: boolean;
+  /**
+   * @remarks
+   * The description of the request body.
+   * 
+   * @example
+   * fwefwef
+   */
+  postBodyDescription?: string;
+  /**
+   * @remarks
+   * The HTTP method used to make the request. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
+   * 
+   * @example
+   * POST
+   */
+  requestHttpMethod?: string;
+  /**
+   * @remarks
+   * The request mode. Valid values:
+   * 
+   * *   MAPPING: Parameters are mapped. Unknown parameters are filtered out.
+   * *   PASSTHROUGH: Parameters are passed through.
+   * *   MAPPING_PASSTHROUGH: Parameters are mapped. Unknown parameters are passed through.
+   * 
+   * @example
+   * MAPPING
+   */
+  requestMode?: string;
+  /**
+   * @remarks
+   * The API request path. If the complete API URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the API request path is ` /object/add  `.
+   * 
+   * @example
+   * /api/billing/test/[type]
+   */
+  requestPath?: string;
+  /**
+   * @remarks
+   * The protocol type supported by the API. Valid values: HTTP and HTTPS. Separate multiple values with commas (,), such as "HTTP,HTTPS".
+   * 
+   * @example
+   * HTTP
+   */
+  requestProtocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bodyFormat: 'BodyFormat',
+      escapePathParam: 'EscapePathParam',
+      postBodyDescription: 'PostBodyDescription',
+      requestHttpMethod: 'RequestHttpMethod',
+      requestMode: 'RequestMode',
+      requestPath: 'RequestPath',
+      requestProtocol: 'RequestProtocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bodyFormat: 'string',
+      escapePathParam: 'boolean',
+      postBodyDescription: 'string',
+      requestHttpMethod: 'string',
+      requestMode: 'string',
+      requestPath: 'string',
+      requestProtocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiDocResponseBodyRequestParametersRequestParameter extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the parameter in the API request.
+   * 
+   * @example
+   * Length
+   */
+  apiParameterName?: string;
+  /**
+   * @remarks
+   * The type of the array element.
+   * 
+   * @example
+   * String
+   */
+  arrayItemsType?: string;
+  /**
+   * @remarks
+   * The default value.
+   * 
+   * @example
+   * 20
+   */
+  defaultValue?: string;
+  /**
+   * @remarks
+   * The example value.
+   * 
+   * @example
+   * 20
+   */
+  demoValue?: string;
+  /**
+   * @remarks
+   * The parameter description.
+   * 
+   * @example
+   * Parameters
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The order in which the parameter is sorted in the document.
+   * 
+   * @example
+   * 0
+   */
+  docOrder?: number;
+  /**
+   * @remarks
+   * Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
+   * 
+   * @example
+   * PUBLIC
+   */
+  docShow?: string;
+  /**
+   * @remarks
+   * The hash values that are supported when **ParameterType** is set to Int, Long, Float, Double, or String. Separate values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
+   * 
+   * @example
+   * boy,girl
+   */
+  enumValue?: string;
+  /**
+   * @remarks
+   * JSON scheme
+   * 
+   * @example
+   * {}
+   */
+  jsonScheme?: string;
+  /**
+   * @remarks
+   * The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
+   * 
+   * @example
+   * HEAD
+   */
+  location?: string;
+  /**
+   * @remarks
+   * The maximum length.
+   * 
+   * @example
+   * 123456
+   */
+  maxLength?: number;
+  /**
+   * @remarks
+   * The maximum value.
+   * 
+   * @example
+   * 200
+   */
+  maxValue?: number;
+  /**
+   * @remarks
+   * The minimum length.
+   * 
+   * @example
+   * 2
+   */
+  minLength?: number;
+  /**
+   * @remarks
+   * The minimum value.
+   * 
+   * @example
+   * 123456
+   */
+  minValue?: number;
+  /**
+   * @remarks
+   * The data type of the parameter.
+   * 
+   * @example
+   * String
+   */
+  parameterType?: string;
+  /**
+   * @remarks
+   * The regular expression that is used for parameter validation when **ParameterType** is set to String.
+   * 
+   * @example
+   * xxx
+   */
+  regularExpression?: string;
+  /**
+   * @remarks
+   * Indicates whether the parameter is required.
+   * 
+   * @example
+   * OPTIONAL
+   */
+  required?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiParameterName: 'ApiParameterName',
+      arrayItemsType: 'ArrayItemsType',
+      defaultValue: 'DefaultValue',
+      demoValue: 'DemoValue',
+      description: 'Description',
+      docOrder: 'DocOrder',
+      docShow: 'DocShow',
+      enumValue: 'EnumValue',
+      jsonScheme: 'JsonScheme',
+      location: 'Location',
+      maxLength: 'MaxLength',
+      maxValue: 'MaxValue',
+      minLength: 'MinLength',
+      minValue: 'MinValue',
+      parameterType: 'ParameterType',
+      regularExpression: 'RegularExpression',
+      required: 'Required',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiParameterName: 'string',
+      arrayItemsType: 'string',
+      defaultValue: 'string',
+      demoValue: 'string',
+      description: 'string',
+      docOrder: 'number',
+      docShow: 'string',
+      enumValue: 'string',
+      jsonScheme: 'string',
+      location: 'string',
+      maxLength: 'number',
+      maxValue: 'number',
+      minLength: 'number',
+      minValue: 'number',
+      parameterType: 'string',
+      regularExpression: 'string',
+      required: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiDocResponseBodyRequestParameters extends $dara.Model {
+  requestParameter?: DescribeApiDocResponseBodyRequestParametersRequestParameter[];
+  static names(): { [key: string]: string } {
+    return {
+      requestParameter: 'RequestParameter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestParameter: { 'type': 'array', 'itemType': DescribeApiDocResponseBodyRequestParametersRequestParameter },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.requestParameter)) {
+      $dara.Model.validateArray(this.requestParameter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeApiDocResponseBody extends $dara.Model {
   /**

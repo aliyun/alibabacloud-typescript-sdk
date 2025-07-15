@@ -1,7 +1,82 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeAppsResponseBodyApps } from "./DescribeAppsResponseBodyApps";
 
+
+export class DescribeAppsResponseBodyAppsAppItem extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the app.
+   * 
+   * @example
+   * 20112314518278
+   */
+  appId?: number;
+  /**
+   * @remarks
+   * The name of the app.
+   * 
+   * @example
+   * CreateApptest
+   */
+  appName?: string;
+  /**
+   * @remarks
+   * The description of the app.
+   * 
+   * @example
+   * App test
+   */
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'number',
+      appName: 'string',
+      description: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsResponseBodyApps extends $dara.Model {
+  appItem?: DescribeAppsResponseBodyAppsAppItem[];
+  static names(): { [key: string]: string } {
+    return {
+      appItem: 'AppItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appItem: { 'type': 'array', 'itemType': DescribeAppsResponseBodyAppsAppItem },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appItem)) {
+      $dara.Model.validateArray(this.appItem);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeAppsResponseBody extends $dara.Model {
   /**
