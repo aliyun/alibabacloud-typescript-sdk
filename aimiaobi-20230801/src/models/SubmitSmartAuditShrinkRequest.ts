@@ -10,11 +10,13 @@ export class SubmitSmartAuditShrinkRequest extends $dara.Model {
    * xxxx
    */
   workspaceId?: string;
+  imageUrlsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       subCodesShrink: 'SubCodes',
       text: 'Text',
       workspaceId: 'WorkspaceId',
+      imageUrlsShrink: 'imageUrls',
     };
   }
 
@@ -23,6 +25,7 @@ export class SubmitSmartAuditShrinkRequest extends $dara.Model {
       subCodesShrink: 'string',
       text: 'string',
       workspaceId: 'string',
+      imageUrlsShrink: 'string',
     };
   }
 

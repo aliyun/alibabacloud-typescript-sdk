@@ -43,6 +43,7 @@ export class GetSmartAuditResultResponseBodyDataErrorItemDetails extends $dara.M
    */
   subClassCode?: string;
   subClassDesc?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
       checkId: 'CheckId',
@@ -57,6 +58,7 @@ export class GetSmartAuditResultResponseBodyDataErrorItemDetails extends $dara.M
       rightWord: 'RightWord',
       subClassCode: 'SubClassCode',
       subClassDesc: 'SubClassDesc',
+      url: 'Url',
     };
   }
 
@@ -74,6 +76,7 @@ export class GetSmartAuditResultResponseBodyDataErrorItemDetails extends $dara.M
       rightWord: 'string',
       subClassCode: 'string',
       subClassDesc: 'string',
+      url: 'string',
     };
   }
 

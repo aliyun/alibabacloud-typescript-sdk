@@ -11,6 +11,7 @@ export class RunAbbreviationContentRequest extends $dara.Model {
    * 创新政务社交媒体功能。鼓励各地区、各部门结合实际，开发政务社交媒体的特色功能，如在线咨询服务、政策解读、互动问答等，增强政务社交媒体的互动性和实用性，提升公众参与度。
    */
   content?: string;
+  prompt?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -22,6 +23,7 @@ export class RunAbbreviationContentRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
+      prompt: 'Prompt',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -29,6 +31,7 @@ export class RunAbbreviationContentRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       content: 'string',
+      prompt: 'string',
       workspaceId: 'string',
     };
   }

@@ -6061,6 +6061,10 @@ export default class Client extends OpenApi {
       body["Content"] = request.content;
     }
 
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -7071,6 +7075,10 @@ export default class Client extends OpenApi {
       body["Content"] = request.content;
     }
 
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -7239,6 +7247,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
     if (!$dara.isNull(request.referenceDataShrink)) {
       body["ReferenceData"] = request.referenceDataShrink;
     }
@@ -7685,6 +7697,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.content)) {
       body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -9148,6 +9164,10 @@ export default class Client extends OpenApi {
       request.subCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subCodes, "SubCodes", "json");
     }
 
+    if (!$dara.isNull(tmpReq.imageUrls)) {
+      request.imageUrlsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageUrls, "imageUrls", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.subCodesShrink)) {
       body["SubCodes"] = request.subCodesShrink;
@@ -9159,6 +9179,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.imageUrlsShrink)) {
+      body["imageUrls"] = request.imageUrlsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

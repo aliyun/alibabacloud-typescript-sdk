@@ -33,6 +33,7 @@ export class RunKeywordsExtractionGenerationRequestReferenceData extends $dara.M
 }
 
 export class RunKeywordsExtractionGenerationRequest extends $dara.Model {
+  prompt?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -53,6 +54,7 @@ export class RunKeywordsExtractionGenerationRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      prompt: 'Prompt',
       referenceData: 'ReferenceData',
       taskId: 'TaskId',
       workspaceId: 'WorkspaceId',
@@ -61,6 +63,7 @@ export class RunKeywordsExtractionGenerationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      prompt: 'string',
       referenceData: RunKeywordsExtractionGenerationRequestReferenceData,
       taskId: 'string',
       workspaceId: 'string',
