@@ -4867,6 +4867,10 @@ export default class Client extends OpenApi {
       query["ApplicationName"] = request.applicationName;
     }
 
+    if (!$dara.isNull(request.deployedRevisionId)) {
+      query["DeployedRevisionId"] = request.deployedRevisionId;
+    }
+
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }

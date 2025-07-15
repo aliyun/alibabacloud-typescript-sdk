@@ -13,6 +13,7 @@ export class UpdateApplicationGroupRequest extends $dara.Model {
    * MyApplication
    */
   applicationName?: string;
+  deployedRevisionId?: string;
   /**
    * @remarks
    * The name of the application group.
@@ -58,6 +59,7 @@ export class UpdateApplicationGroupRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       applicationName: 'ApplicationName',
+      deployedRevisionId: 'DeployedRevisionId',
       name: 'Name',
       newName: 'NewName',
       operationName: 'OperationName',
@@ -69,6 +71,7 @@ export class UpdateApplicationGroupRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applicationName: 'string',
+      deployedRevisionId: 'string',
       name: 'string',
       newName: 'string',
       operationName: 'string',

@@ -1,7 +1,139 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListOpsItemsResponseBodyOpsItems } from "./ListOpsItemsResponseBodyOpsItems";
 
+
+export class ListOpsItemsResponseBodyOpsItems extends $dara.Model {
+  /**
+   * @remarks
+   * The category.
+   * 
+   * @example
+   * Security
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M item was created.
+   * 
+   * @example
+   * 2023-07-09T10:01Z
+   */
+  createDate?: string;
+  /**
+   * @remarks
+   * The ID of the O\\&M item.
+   * 
+   * @example
+   * oi-d52b08695e2b46ae8413
+   */
+  opsItemId?: string;
+  /**
+   * @remarks
+   * The priority.
+   * 
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The Alibaba Resource Names (ARNs) of the associated resources.
+   */
+  resources?: string[];
+  /**
+   * @remarks
+   * The severity level.
+   * 
+   * @example
+   * Medium
+   */
+  severity?: string;
+  /**
+   * @remarks
+   * The source business.
+   * 
+   * @example
+   * /aliyun/ecs
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The status of the O\\&M item.
+   * 
+   * @example
+   * Open
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1":"v1"}
+   */
+  tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The title of the O\\&M item.
+   * 
+   * @example
+   * Test
+   */
+  title?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M item was updated.
+   * 
+   * @example
+   * 2023-07-09T10:01Z
+   */
+  updateDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      createDate: 'CreateDate',
+      opsItemId: 'OpsItemId',
+      priority: 'Priority',
+      resources: 'Resources',
+      severity: 'Severity',
+      source: 'Source',
+      status: 'Status',
+      tags: 'Tags',
+      title: 'Title',
+      updateDate: 'UpdateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      createDate: 'string',
+      opsItemId: 'string',
+      priority: 'number',
+      resources: { 'type': 'array', 'itemType': 'string' },
+      severity: 'string',
+      source: 'string',
+      status: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      title: 'string',
+      updateDate: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListOpsItemsResponseBody extends $dara.Model {
   /**
