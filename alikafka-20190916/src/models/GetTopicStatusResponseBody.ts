@@ -1,7 +1,152 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetTopicStatusResponseBodyTopicStatus } from "./GetTopicStatusResponseBodyTopicStatus";
 
+
+export class GetTopicStatusResponseBodyTopicStatusOffsetTableOffsetTable extends $dara.Model {
+  /**
+   * @remarks
+   * The last time when the partition was modified.
+   * 
+   * @example
+   * 1566470063547
+   */
+  lastUpdateTimestamp?: number;
+  /**
+   * @remarks
+   * The latest offset in the partition of the topic.
+   * 
+   * @example
+   * 76
+   */
+  maxOffset?: number;
+  /**
+   * @remarks
+   * The earliest offset in the partition of the topic.
+   * 
+   * @example
+   * 0
+   */
+  minOffset?: number;
+  /**
+   * @remarks
+   * The ID of the partition.
+   * 
+   * @example
+   * 0
+   */
+  partition?: number;
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * @example
+   * testkafka
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lastUpdateTimestamp: 'LastUpdateTimestamp',
+      maxOffset: 'MaxOffset',
+      minOffset: 'MinOffset',
+      partition: 'Partition',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lastUpdateTimestamp: 'number',
+      maxOffset: 'number',
+      minOffset: 'number',
+      partition: 'number',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicStatusResponseBodyTopicStatusOffsetTable extends $dara.Model {
+  offsetTable?: GetTopicStatusResponseBodyTopicStatusOffsetTableOffsetTable[];
+  static names(): { [key: string]: string } {
+    return {
+      offsetTable: 'OffsetTable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offsetTable: { 'type': 'array', 'itemType': GetTopicStatusResponseBodyTopicStatusOffsetTableOffsetTable },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.offsetTable)) {
+      $dara.Model.validateArray(this.offsetTable);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicStatusResponseBodyTopicStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the last consumed message was generated.
+   * 
+   * @example
+   * 1566470063575
+   */
+  lastTimeStamp?: number;
+  /**
+   * @remarks
+   * The information about offsets in the topic.
+   */
+  offsetTable?: GetTopicStatusResponseBodyTopicStatusOffsetTable;
+  /**
+   * @remarks
+   * The number of messages in the topic.
+   * 
+   * @example
+   * 423
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lastTimeStamp: 'LastTimeStamp',
+      offsetTable: 'OffsetTable',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lastTimeStamp: 'number',
+      offsetTable: GetTopicStatusResponseBodyTopicStatusOffsetTable,
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(this.offsetTable && typeof (this.offsetTable as any).validate === 'function') {
+      (this.offsetTable as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetTopicStatusResponseBody extends $dara.Model {
   /**

@@ -1,8 +1,77 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreatePostPayInstanceRequestServerlessConfig } from "./CreatePostPayInstanceRequestServerlessConfig";
-import { CreatePostPayInstanceRequestTag } from "./CreatePostPayInstanceRequestTag";
 
+
+export class CreatePostPayInstanceRequestServerlessConfig extends $dara.Model {
+  /**
+   * @example
+   * 60
+   */
+  reservedPublishCapacity?: number;
+  /**
+   * @example
+   * 50
+   */
+  reservedSubscribeCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      reservedPublishCapacity: 'ReservedPublishCapacity',
+      reservedSubscribeCapacity: 'ReservedSubscribeCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reservedPublishCapacity: 'number',
+      reservedSubscribeCapacity: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePostPayInstanceRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreatePostPayInstanceRequest extends $dara.Model {
   /**

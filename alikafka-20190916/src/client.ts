@@ -1982,6 +1982,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例风险列表
+   * 
+   * @param request - GetRiskListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRiskListResponse
+   */
+  async getRiskListWithOptions(request: $_model.GetRiskListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRiskListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startIndex)) {
+      query["StartIndex"] = request.startIndex;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRiskList",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRiskListResponse>(await this.callApi(params, req, runtime), new $_model.GetRiskListResponse({}));
+  }
+
+  /**
+   * 查询实例风险列表
+   * 
+   * @param request - GetRiskListRequest
+   * @returns GetRiskListResponse
+   */
+  async getRiskList(request: $_model.GetRiskListRequest): Promise<$_model.GetRiskListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRiskListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a topic.
    * 
    * @param request - GetTopicListRequest
