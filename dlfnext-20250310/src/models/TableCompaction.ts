@@ -4,12 +4,14 @@ import * as $dara from '@darabonba/typescript';
 
 export class TableCompaction extends $dara.Model {
   catalogId?: string;
+  cuUsage?: number;
   lastCompactedFileTime?: number;
   maxLevel0FileCount?: string;
   tableId?: string;
   static names(): { [key: string]: string } {
     return {
       catalogId: 'catalogId',
+      cuUsage: 'cuUsage',
       lastCompactedFileTime: 'lastCompactedFileTime',
       maxLevel0FileCount: 'maxLevel0FileCount',
       tableId: 'tableId',
@@ -19,6 +21,7 @@ export class TableCompaction extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       catalogId: 'string',
+      cuUsage: 'number',
       lastCompactedFileTime: 'number',
       maxLevel0FileCount: 'string',
       tableId: 'string',

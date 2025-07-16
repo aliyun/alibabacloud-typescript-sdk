@@ -6,6 +6,7 @@ import { MoMValues } from "./MoMvalues";
 export class CatalogSummary extends $dara.Model {
   apiVisitCountMonthly?: number;
   databaseCount?: MoMValues;
+  fileAccessCountMonthly?: number;
   /**
    * @remarks
    * Update date of the statistics
@@ -20,6 +21,7 @@ export class CatalogSummary extends $dara.Model {
     return {
       apiVisitCountMonthly: 'apiVisitCountMonthly',
       databaseCount: 'databaseCount',
+      fileAccessCountMonthly: 'fileAccessCountMonthly',
       generatedDate: 'generatedDate',
       partitionCount: 'partitionCount',
       tableCount: 'tableCount',
@@ -33,6 +35,7 @@ export class CatalogSummary extends $dara.Model {
     return {
       apiVisitCountMonthly: 'number',
       databaseCount: MoMValues,
+      fileAccessCountMonthly: 'number',
       generatedDate: 'string',
       partitionCount: MoMValues,
       tableCount: MoMValues,

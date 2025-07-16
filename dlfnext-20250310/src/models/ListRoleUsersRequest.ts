@@ -7,7 +7,7 @@ export class ListRoleUsersRequest extends $dara.Model {
    * @example
    * 10
    */
-  maxResults?: string;
+  maxResults?: number;
   /**
    * @example
    * ""
@@ -28,7 +28,7 @@ export class ListRoleUsersRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'string',
+      maxResults: 'number',
       pageToken: 'string',
       rolePrincipal: 'string',
     };

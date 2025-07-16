@@ -183,10 +183,6 @@ export default class Client extends OpenApi {
       body["name"] = request.name;
     }
 
-    if (!$dara.isNull(request.optimizationConfig)) {
-      body["optimizationConfig"] = request.optimizationConfig;
-    }
-
     if (!$dara.isNull(request.options)) {
       body["options"] = request.options;
     }

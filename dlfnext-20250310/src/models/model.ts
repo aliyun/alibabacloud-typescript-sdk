@@ -1,5 +1,5 @@
-export { PermissionColumns } from './PermissionColumns';
-export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBodyRegions';
+export { PermissionColumns } from './Permission';
+export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBody';
 export { Catalog } from './Catalog';
 export { CatalogSummary } from './CatalogSummary';
 export { CatalogSummaryTrend } from './CatalogSummaryTrend';

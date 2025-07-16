@@ -11,6 +11,11 @@ export class CatalogSummaryTrend extends $dara.Model {
   apiVisitCount?: DateSummary[];
   /**
    * @remarks
+   * file access count trends
+   */
+  fileAccessCount?: DateSummary[];
+  /**
+   * @remarks
    * Table count trends
    */
   throughput?: DateSummary[];
@@ -32,6 +37,7 @@ export class CatalogSummaryTrend extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apiVisitCount: 'apiVisitCount',
+      fileAccessCount: 'fileAccessCount',
       throughput: 'throughput',
       totalFileCount: 'totalFileCount',
       totalFileSizeInBytes: 'totalFileSizeInBytes',
@@ -42,6 +48,7 @@ export class CatalogSummaryTrend extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apiVisitCount: { 'type': 'array', 'itemType': DateSummary },
+      fileAccessCount: { 'type': 'array', 'itemType': DateSummary },
       throughput: { 'type': 'array', 'itemType': DateSummary },
       totalFileCount: { 'type': 'array', 'itemType': DateSummary },
       totalFileSizeInBytes: { 'type': 'array', 'itemType': DateSummary },
@@ -52,6 +59,9 @@ export class CatalogSummaryTrend extends $dara.Model {
   validate() {
     if(Array.isArray(this.apiVisitCount)) {
       $dara.Model.validateArray(this.apiVisitCount);
+    }
+    if(Array.isArray(this.fileAccessCount)) {
+      $dara.Model.validateArray(this.fileAccessCount);
     }
     if(Array.isArray(this.throughput)) {
       $dara.Model.validateArray(this.throughput);
