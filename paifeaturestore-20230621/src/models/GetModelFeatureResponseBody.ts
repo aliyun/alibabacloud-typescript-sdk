@@ -1,8 +1,178 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetModelFeatureResponseBodyFeatures } from "./GetModelFeatureResponseBodyFeatures";
-import { GetModelFeatureResponseBodyRelations } from "./GetModelFeatureResponseBodyRelations";
 
+
+export class GetModelFeatureResponseBodyFeatures extends $dara.Model {
+  /**
+   * @example
+   * feature2
+   */
+  aliasName?: string;
+  /**
+   * @example
+   * 3
+   */
+  featureViewId?: string;
+  /**
+   * @example
+   * feature_view_1
+   */
+  featureViewName?: string;
+  /**
+   * @example
+   * feature1
+   */
+  name?: string;
+  /**
+   * @example
+   * INT32
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasName: 'AliasName',
+      featureViewId: 'FeatureViewId',
+      featureViewName: 'FeatureViewName',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasName: 'string',
+      featureViewId: 'string',
+      featureViewName: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureResponseBodyRelationsDomains extends $dara.Model {
+  /**
+   * @example
+   * FeatureEntity
+   */
+  domainType?: string;
+  /**
+   * @remarks
+   * Domain ID。
+   * 
+   * @example
+   * 3
+   */
+  id?: string;
+  /**
+   * @example
+   * feature_entity_1
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainType: 'DomainType',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainType: 'string',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureResponseBodyRelationsLinks extends $dara.Model {
+  /**
+   * @example
+   * model_feature_2
+   */
+  from?: string;
+  /**
+   * @example
+   * user_id
+   */
+  link?: string;
+  /**
+   * @example
+   * feature_entity_3
+   */
+  to?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      link: 'Link',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'string',
+      link: 'string',
+      to: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureResponseBodyRelations extends $dara.Model {
+  domains?: GetModelFeatureResponseBodyRelationsDomains[];
+  links?: GetModelFeatureResponseBodyRelationsLinks[];
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      links: 'Links',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: { 'type': 'array', 'itemType': GetModelFeatureResponseBodyRelationsDomains },
+      links: { 'type': 'array', 'itemType': GetModelFeatureResponseBodyRelationsLinks },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.domains)) {
+      $dara.Model.validateArray(this.domains);
+    }
+    if(Array.isArray(this.links)) {
+      $dara.Model.validateArray(this.links);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetModelFeatureResponseBody extends $dara.Model {
   /**

@@ -1,7 +1,54 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures } from "./ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures";
 
+
+export class ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures extends $dara.Model {
+  /**
+   * @example
+   * age
+   */
+  name?: string;
+  /**
+   * @example
+   * user_fea
+   */
+  sourceName?: string;
+  /**
+   * @example
+   * FeatureView
+   */
+  sourceType?: string;
+  /**
+   * @example
+   * STRING
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListModelFeatureAvailableFeaturesResponseBody extends $dara.Model {
   avaliableFeatures?: ListModelFeatureAvailableFeaturesResponseBodyAvaliableFeatures[];

@@ -1,9 +1,253 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetModelFeatureFGFeatureResponseBodyLookupFeatures } from "./GetModelFeatureFgfeatureResponseBodyLookupFeatures";
-import { GetModelFeatureFGFeatureResponseBodyRawFeatures } from "./GetModelFeatureFgfeatureResponseBodyRawFeatures";
-import { GetModelFeatureFGFeatureResponseBodySequenceFeatures } from "./GetModelFeatureFgfeatureResponseBodySequenceFeatures";
 
+
+export class GetModelFeatureFGFeatureResponseBodyLookupFeatures extends $dara.Model {
+  /**
+   * @example
+   * -1024
+   */
+  defaultValue?: string;
+  /**
+   * @example
+   * item_id
+   */
+  featureName?: string;
+  /**
+   * @example
+   * Item
+   */
+  keyFeatureDomain?: string;
+  /**
+   * @example
+   * 1
+   */
+  keyFeatureName?: string;
+  /**
+   * @example
+   * User
+   */
+  mapFeatureDomain?: string;
+  /**
+   * @example
+   * item_id
+   */
+  mapFeatureName?: string;
+  /**
+   * @example
+   * STRING
+   */
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      featureName: 'FeatureName',
+      keyFeatureDomain: 'KeyFeatureDomain',
+      keyFeatureName: 'KeyFeatureName',
+      mapFeatureDomain: 'MapFeatureDomain',
+      mapFeatureName: 'MapFeatureName',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      featureName: 'string',
+      keyFeatureDomain: 'string',
+      keyFeatureName: 'string',
+      mapFeatureDomain: 'string',
+      mapFeatureName: 'string',
+      valueType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureFGFeatureResponseBodyRawFeatures extends $dara.Model {
+  /**
+   * @example
+   * -1024
+   */
+  defaultValue?: string;
+  /**
+   * @example
+   * User
+   */
+  featureDomain?: string;
+  /**
+   * @example
+   * item_id
+   */
+  featureName?: string;
+  /**
+   * @example
+   * IdFeature
+   */
+  featureType?: string;
+  /**
+   * @example
+   * item_id
+   */
+  inputFeatureName?: string;
+  /**
+   * @example
+   * STRING
+   */
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      featureDomain: 'FeatureDomain',
+      featureName: 'FeatureName',
+      featureType: 'FeatureType',
+      inputFeatureName: 'InputFeatureName',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      featureDomain: 'string',
+      featureName: 'string',
+      featureType: 'string',
+      inputFeatureName: 'string',
+      valueType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures extends $dara.Model {
+  /**
+   * @example
+   * -1024
+   */
+  defaultValue?: string;
+  /**
+   * @example
+   * User
+   */
+  featureDomain?: string;
+  /**
+   * @example
+   * item_id
+   */
+  featureName?: string;
+  /**
+   * @example
+   * IdFeature
+   */
+  featureType?: string;
+  /**
+   * @example
+   * item_id
+   */
+  inputFeatureName?: string;
+  /**
+   * @example
+   * STRING
+   */
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultValue: 'DefaultValue',
+      featureDomain: 'FeatureDomain',
+      featureName: 'FeatureName',
+      featureType: 'FeatureType',
+      inputFeatureName: 'InputFeatureName',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultValue: 'string',
+      featureDomain: 'string',
+      featureName: 'string',
+      featureType: 'string',
+      inputFeatureName: 'string',
+      valueType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeatureFGFeatureResponseBodySequenceFeatures extends $dara.Model {
+  /**
+   * @example
+   * #
+   */
+  attributeDelim?: string;
+  /**
+   * @example
+   * item_id
+   */
+  featureName?: string;
+  /**
+   * @example
+   * ;
+   */
+  sequenceDelim?: string;
+  /**
+   * @example
+   * 50
+   */
+  sequenceLength?: number;
+  subFeatures?: GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures[];
+  static names(): { [key: string]: string } {
+    return {
+      attributeDelim: 'AttributeDelim',
+      featureName: 'FeatureName',
+      sequenceDelim: 'SequenceDelim',
+      sequenceLength: 'SequenceLength',
+      subFeatures: 'SubFeatures',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributeDelim: 'string',
+      featureName: 'string',
+      sequenceDelim: 'string',
+      sequenceLength: 'number',
+      subFeatures: { 'type': 'array', 'itemType': GetModelFeatureFGFeatureResponseBodySequenceFeaturesSubFeatures },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.subFeatures)) {
+      $dara.Model.validateArray(this.subFeatures);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetModelFeatureFGFeatureResponseBody extends $dara.Model {
   lookupFeatures?: GetModelFeatureFGFeatureResponseBodyLookupFeatures[];
