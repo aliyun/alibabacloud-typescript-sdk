@@ -1,7 +1,43 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { TranslateResponseBodyData } from "./TranslateResponseBodyData";
 
+
+export class TranslateResponseBodyData extends $dara.Model {
+  detectedLanguage?: string;
+  /**
+   * @example
+   * Hello
+   */
+  translated?: string;
+  /**
+   * @example
+   * 10
+   */
+  wordCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detectedLanguage: 'DetectedLanguage',
+      translated: 'Translated',
+      wordCount: 'WordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detectedLanguage: 'string',
+      translated: 'string',
+      wordCount: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class TranslateResponseBody extends $dara.Model {
   /**
