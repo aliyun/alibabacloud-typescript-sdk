@@ -1,7 +1,29 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateBackupResponseBodyData } from "./CreateBackupResponseBodyData";
 
+
+export class CreateBackupResponseBodyData extends $dara.Model {
+  backupSetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupSetId: 'BackupSetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupSetId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateBackupResponseBody extends $dara.Model {
   data?: CreateBackupResponseBodyData;
