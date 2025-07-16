@@ -1,8 +1,63 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { InsertMultiDimTableRecordRequestRecords } from "./InsertMultiDimTableRecordRequestRecords";
-import { InsertMultiDimTableRecordRequestTenantContext } from "./InsertMultiDimTableRecordRequestTenantContext";
 
+
+export class InsertMultiDimTableRecordRequestRecords extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  fields?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      fields: 'Fields',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fields: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  validate() {
+    if(this.fields) {
+      $dara.Model.validateMap(this.fields);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertMultiDimTableRecordRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class InsertMultiDimTableRecordRequest extends $dara.Model {
   /**

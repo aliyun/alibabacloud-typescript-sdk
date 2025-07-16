@@ -1,7 +1,94 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetFormDataByIDResponseBodyOriginator } from "./GetFormDataByIdresponseBodyOriginator";
 
+
+export class GetFormDataByIDResponseBodyOriginatorName extends $dara.Model {
+  /**
+   * @example
+   * 张三
+   */
+  nameInChinese?: string;
+  /**
+   * @example
+   * ZhangSan
+   */
+  nameInEnglish?: string;
+  /**
+   * @example
+   * i18n
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nameInChinese: 'NameInChinese',
+      nameInEnglish: 'NameInEnglish',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameInChinese: 'string',
+      nameInEnglish: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFormDataByIDResponseBodyOriginator extends $dara.Model {
+  /**
+   * @example
+   * 开发部
+   */
+  departmentName?: string;
+  /**
+   * @example
+   * abc@alimail.com
+   */
+  email?: string;
+  name?: GetFormDataByIDResponseBodyOriginatorName;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentName: 'DepartmentName',
+      email: 'Email',
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentName: 'string',
+      email: 'string',
+      name: GetFormDataByIDResponseBodyOriginatorName,
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.name && typeof (this.name as any).validate === 'function') {
+      (this.name as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetFormDataByIDResponseBody extends $dara.Model {
   formData?: { [key: string]: any };

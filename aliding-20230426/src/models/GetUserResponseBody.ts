@@ -1,10 +1,169 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetUserResponseBodyDeptOrderList } from "./GetUserResponseBodyDeptOrderList";
-import { GetUserResponseBodyLeaderInDept } from "./GetUserResponseBodyLeaderInDept";
-import { GetUserResponseBodyRoleList } from "./GetUserResponseBodyRoleList";
-import { GetUserResponseBodyUnionEmpExt } from "./GetUserResponseBodyUnionEmpExt";
 
+
+export class GetUserResponseBodyDeptOrderList extends $dara.Model {
+  deptId?: number;
+  order?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deptId: 'deptId',
+      order: 'order',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptId: 'number',
+      order: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserResponseBodyLeaderInDept extends $dara.Model {
+  deptId?: number;
+  leader?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      deptId: 'deptId',
+      leader: 'leader',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptId: 'number',
+      leader: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserResponseBodyRoleList extends $dara.Model {
+  /**
+   * @example
+   * 职务
+   */
+  groupName?: string;
+  id?: number;
+  /**
+   * @example
+   * 张三
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'groupName',
+      id: 'id',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserResponseBodyUnionEmpExtUnionEmpMapList extends $dara.Model {
+  /**
+   * @example
+   * dingxxx
+   */
+  cropId?: string;
+  /**
+   * @example
+   * zhangsan
+   */
+  userid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cropId: 'cropId',
+      userid: 'userid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cropId: 'string',
+      userid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserResponseBodyUnionEmpExt extends $dara.Model {
+  /**
+   * @example
+   * dingxxx
+   */
+  corpId?: string;
+  unionEmpMapList?: GetUserResponseBodyUnionEmpExtUnionEmpMapList[];
+  /**
+   * @example
+   * zhangsan
+   */
+  userid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'corpId',
+      unionEmpMapList: 'unionEmpMapList',
+      userid: 'userid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      unionEmpMapList: { 'type': 'array', 'itemType': GetUserResponseBodyUnionEmpExtUnionEmpMapList },
+      userid: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.unionEmpMapList)) {
+      $dara.Model.validateArray(this.unionEmpMapList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetUserResponseBody extends $dara.Model {
   /**

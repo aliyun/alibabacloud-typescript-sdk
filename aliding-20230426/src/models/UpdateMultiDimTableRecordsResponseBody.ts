@@ -1,7 +1,33 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateMultiDimTableRecordsResponseBodyValue } from "./UpdateMultiDimTableRecordsResponseBodyValue";
 
+
+export class UpdateMultiDimTableRecordsResponseBodyValue extends $dara.Model {
+  /**
+   * @example
+   * []
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateMultiDimTableRecordsResponseBody extends $dara.Model {
   value?: UpdateMultiDimTableRecordsResponseBodyValue[];

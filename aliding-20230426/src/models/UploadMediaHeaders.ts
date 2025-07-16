@@ -1,7 +1,29 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UploadMediaHeadersAccountContext } from "./UploadMediaHeadersAccountContext";
 
+
+export class UploadMediaHeadersAccountContext extends $dara.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UploadMediaHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };

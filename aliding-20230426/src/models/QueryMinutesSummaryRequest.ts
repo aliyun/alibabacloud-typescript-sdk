@@ -1,7 +1,33 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { QueryMinutesSummaryRequestTenantContext } from "./QueryMinutesSummaryRequestTenantContext";
 
+
+export class QueryMinutesSummaryRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class QueryMinutesSummaryRequest extends $dara.Model {
   tenantContext?: QueryMinutesSummaryRequestTenantContext;

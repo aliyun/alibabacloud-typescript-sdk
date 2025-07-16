@@ -1,7 +1,191 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { QueryMinutesTextResponseBodyParagraphList } from "./QueryMinutesTextResponseBodyParagraphList";
 
+
+export class QueryMinutesTextResponseBodyParagraphListSentenceListWordList extends $dara.Model {
+  /**
+   * @example
+   * 7910000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 7910000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * 单词
+   */
+  word?: string;
+  /**
+   * @example
+   * 172
+   */
+  wordId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      word: 'Word',
+      wordId: 'WordId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+      word: 'string',
+      wordId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesTextResponseBodyParagraphListSentenceList extends $dara.Model {
+  /**
+   * @example
+   * 7910000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 这里是小钉
+   */
+  sentence?: string;
+  /**
+   * @example
+   * 7910000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  /**
+   * @example
+   * []
+   */
+  wordList?: QueryMinutesTextResponseBodyParagraphListSentenceListWordList[];
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      sentence: 'Sentence',
+      startTime: 'StartTime',
+      userId: 'UserId',
+      wordList: 'WordList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      sentence: 'string',
+      startTime: 'number',
+      userId: 'string',
+      wordList: { 'type': 'array', 'itemType': QueryMinutesTextResponseBodyParagraphListSentenceListWordList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.wordList)) {
+      $dara.Model.validateArray(this.wordList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMinutesTextResponseBodyParagraphList extends $dara.Model {
+  /**
+   * @example
+   * 7910000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 小钉
+   */
+  nickName?: string;
+  /**
+   * @example
+   * 123
+   */
+  paragraph?: string;
+  /**
+   * @example
+   * 123
+   */
+  paragraphId?: number;
+  /**
+   * @example
+   * 44444
+   */
+  recordId?: number;
+  /**
+   * @example
+   * []
+   */
+  sentenceList?: QueryMinutesTextResponseBodyParagraphListSentenceList[];
+  /**
+   * @example
+   * 7910000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      nickName: 'NickName',
+      paragraph: 'Paragraph',
+      paragraphId: 'ParagraphId',
+      recordId: 'RecordId',
+      sentenceList: 'SentenceList',
+      startTime: 'StartTime',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      nickName: 'string',
+      paragraph: 'string',
+      paragraphId: 'number',
+      recordId: 'number',
+      sentenceList: { 'type': 'array', 'itemType': QueryMinutesTextResponseBodyParagraphListSentenceList },
+      startTime: 'number',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sentenceList)) {
+      $dara.Model.validateArray(this.sentenceList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class QueryMinutesTextResponseBody extends $dara.Model {
   /**

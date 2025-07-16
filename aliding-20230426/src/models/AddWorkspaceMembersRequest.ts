@@ -1,8 +1,74 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AddWorkspaceMembersRequestMembers } from "./AddWorkspaceMembersRequestMembers";
-import { AddWorkspaceMembersRequestTenantContext } from "./AddWorkspaceMembersRequestTenantContext";
 
+
+export class AddWorkspaceMembersRequestMembers extends $dara.Model {
+  /**
+   * @example
+   * 012345
+   */
+  memberId?: string;
+  /**
+   * @example
+   * USER
+   */
+  memberType?: string;
+  /**
+   * @example
+   * EDITOR
+   */
+  roleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memberId: 'MemberId',
+      memberType: 'MemberType',
+      roleType: 'RoleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberId: 'string',
+      memberType: 'string',
+      roleType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddWorkspaceMembersRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AddWorkspaceMembersRequest extends $dara.Model {
   members?: AddWorkspaceMembersRequestMembers[];

@@ -1,8 +1,60 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateDingtalkPersonalTodoTaskRequestNotifyConfigs } from "./CreateDingtalkPersonalTodoTaskRequestNotifyConfigs";
-import { CreateDingtalkPersonalTodoTaskRequestTenantContext } from "./CreateDingtalkPersonalTodoTaskRequestTenantContext";
 
+
+export class CreateDingtalkPersonalTodoTaskRequestNotifyConfigs extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  dingNotify?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dingNotify: 'DingNotify',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingNotify: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDingtalkPersonalTodoTaskRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateDingtalkPersonalTodoTaskRequest extends $dara.Model {
   /**

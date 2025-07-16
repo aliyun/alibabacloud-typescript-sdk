@@ -1,9 +1,107 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateTodoTaskResponseBodyContentFieldList } from "./CreateTodoTaskResponseBodyContentFieldList";
-import { CreateTodoTaskResponseBodyDetailUrl } from "./CreateTodoTaskResponseBodyDetailUrl";
-import { CreateTodoTaskResponseBodyNotifyConfigs } from "./CreateTodoTaskResponseBodyNotifyConfigs";
 
+
+export class CreateTodoTaskResponseBodyContentFieldList extends $dara.Model {
+  /**
+   * @remarks
+   * fieldKey
+   * 
+   * @example
+   * fieldKey
+   */
+  fieldKey?: string;
+  /**
+   * @remarks
+   * fieldValue
+   * 
+   * @example
+   * fieldValue
+   */
+  fieldValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldKey: 'fieldKey',
+      fieldValue: 'fieldValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldKey: 'string',
+      fieldValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskResponseBodyDetailUrl extends $dara.Model {
+  /**
+   * @example
+   * https://www.dingtalk.com
+   */
+  appUrl?: string;
+  /**
+   * @example
+   * https://www.dingtalk.com
+   */
+  pcUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appUrl: 'appUrl',
+      pcUrl: 'pcUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUrl: 'string',
+      pcUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskResponseBodyNotifyConfigs extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  dingNotify?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dingNotify: 'dingNotify',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingNotify: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateTodoTaskResponseBody extends $dara.Model {
   /**

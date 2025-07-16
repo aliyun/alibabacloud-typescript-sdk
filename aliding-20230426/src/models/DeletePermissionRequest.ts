@@ -1,8 +1,74 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DeletePermissionRequestMembers } from "./DeletePermissionRequestMembers";
-import { DeletePermissionRequestTenantContext } from "./DeletePermissionRequestTenantContext";
 
+
+export class DeletePermissionRequestMembers extends $dara.Model {
+  /**
+   * @example
+   * 123456
+   */
+  corpId?: string;
+  /**
+   * @example
+   * ORG
+   */
+  id?: string;
+  /**
+   * @example
+   * ORG
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      id: 'Id',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      id: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePermissionRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DeletePermissionRequest extends $dara.Model {
   /**

@@ -1,9 +1,135 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { TransferTicketRequestNotify } from "./TransferTicketRequestNotify";
-import { TransferTicketRequestTenantContext } from "./TransferTicketRequestTenantContext";
-import { TransferTicketRequestTicketMemo } from "./TransferTicketRequestTicketMemo";
 
+
+export class TransferTicketRequestNotify extends $dara.Model {
+  groupNoticeReceiverUserIds?: string[];
+  /**
+   * @example
+   * true
+   */
+  noticeAllGroupMember?: boolean;
+  workNoticeReceiverUserIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      groupNoticeReceiverUserIds: 'GroupNoticeReceiverUserIds',
+      noticeAllGroupMember: 'NoticeAllGroupMember',
+      workNoticeReceiverUserIds: 'WorkNoticeReceiverUserIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupNoticeReceiverUserIds: { 'type': 'array', 'itemType': 'string' },
+      noticeAllGroupMember: 'boolean',
+      workNoticeReceiverUserIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.groupNoticeReceiverUserIds)) {
+      $dara.Model.validateArray(this.groupNoticeReceiverUserIds);
+    }
+    if(Array.isArray(this.workNoticeReceiverUserIds)) {
+      $dara.Model.validateArray(this.workNoticeReceiverUserIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketRequestTicketMemoAttachments extends $dara.Model {
+  /**
+   * @example
+   * auto-test-1727143229007.pdf
+   */
+  fileName?: string;
+  /**
+   * @example
+   * key1
+   */
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      key: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferTicketRequestTicketMemo extends $dara.Model {
+  attachments?: TransferTicketRequestTicketMemoAttachments[];
+  memo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachments: 'Attachments',
+      memo: 'Memo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachments: { 'type': 'array', 'itemType': TransferTicketRequestTicketMemoAttachments },
+      memo: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.attachments)) {
+      $dara.Model.validateArray(this.attachments);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class TransferTicketRequest extends $dara.Model {
   notify?: TransferTicketRequestNotify;

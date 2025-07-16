@@ -1660,6 +1660,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改阿里钉号
+   * 
+   * @param tmpReq - ChangeDingTalkIdRequest
+   * @param tmpHeader - ChangeDingTalkIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeDingTalkIdResponse
+   */
+  async changeDingTalkIdWithOptions(tmpReq: $_model.ChangeDingTalkIdRequest, tmpHeader: $_model.ChangeDingTalkIdHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeDingTalkIdResponse> {
+    tmpReq.validate();
+    let request = new $_model.ChangeDingTalkIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.ChangeDingTalkIdShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dingTalkId)) {
+      body["DingTalkId"] = request.dingTalkId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeDingTalkId",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/user/changeDingTalkId`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeDingTalkIdResponse>(await this.callApi(params, req, runtime), new $_model.ChangeDingTalkIdResponse({}));
+  }
+
+  /**
+   * 修改阿里钉号
+   * 
+   * @param request - ChangeDingTalkIdRequest
+   * @returns ChangeDingTalkIdResponse
+   */
+  async changeDingTalkId(request: $_model.ChangeDingTalkIdRequest): Promise<$_model.ChangeDingTalkIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ChangeDingTalkIdHeaders({ });
+    return await this.changeDingTalkIdWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 校验阿里员工
    * 
    * @param tmpReq - CheckAlibabaStaffRequest

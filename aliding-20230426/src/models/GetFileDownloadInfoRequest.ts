@@ -1,8 +1,67 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetFileDownloadInfoRequestOption } from "./GetFileDownloadInfoRequestOption";
-import { GetFileDownloadInfoRequestTenantContext } from "./GetFileDownloadInfoRequestTenantContext";
 
+
+export class GetFileDownloadInfoRequestOption extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  preferIntranet?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      preferIntranet: 'PreferIntranet',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      preferIntranet: 'boolean',
+      version: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileDownloadInfoRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetFileDownloadInfoRequest extends $dara.Model {
   /**

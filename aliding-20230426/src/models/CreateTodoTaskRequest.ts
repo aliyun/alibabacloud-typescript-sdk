@@ -1,11 +1,207 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateTodoTaskRequestTenantContext } from "./CreateTodoTaskRequestTenantContext";
-import { CreateTodoTaskRequestActionList } from "./CreateTodoTaskRequestActionList";
-import { CreateTodoTaskRequestContentFieldList } from "./CreateTodoTaskRequestContentFieldList";
-import { CreateTodoTaskRequestDetailUrl } from "./CreateTodoTaskRequestDetailUrl";
-import { CreateTodoTaskRequestNotifyConfigs } from "./CreateTodoTaskRequestNotifyConfigs";
 
+
+export class CreateTodoTaskRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskRequestActionListParam extends $dara.Model {
+  body?: string;
+  header?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      header: 'header',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: 'string',
+      header: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.header) {
+      $dara.Model.validateMap(this.header);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskRequestActionList extends $dara.Model {
+  actionKey?: string;
+  actionType?: number;
+  buttonStyleType?: number;
+  param?: CreateTodoTaskRequestActionListParam;
+  pcUrl?: string;
+  title?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionKey: 'actionKey',
+      actionType: 'actionType',
+      buttonStyleType: 'buttonStyleType',
+      param: 'param',
+      pcUrl: 'pcUrl',
+      title: 'title',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionKey: 'string',
+      actionType: 'number',
+      buttonStyleType: 'number',
+      param: CreateTodoTaskRequestActionListParam,
+      pcUrl: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    if(this.param && typeof (this.param as any).validate === 'function') {
+      (this.param as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskRequestContentFieldList extends $dara.Model {
+  /**
+   * @remarks
+   * fieldKey
+   * 
+   * @example
+   * fieldKey
+   */
+  fieldKey?: string;
+  /**
+   * @remarks
+   * fieldValue
+   * 
+   * @example
+   * fieldValue
+   */
+  fieldValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldKey: 'fieldKey',
+      fieldValue: 'fieldValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldKey: 'string',
+      fieldValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskRequestDetailUrl extends $dara.Model {
+  /**
+   * @example
+   * https://www.dingtalk.com
+   */
+  appUrl?: string;
+  /**
+   * @example
+   * https://www.dingtalk.com
+   */
+  pcUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appUrl: 'appUrl',
+      pcUrl: 'pcUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUrl: 'string',
+      pcUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskRequestNotifyConfigs extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  dingNotify?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dingNotify: 'dingNotify',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingNotify: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateTodoTaskRequest extends $dara.Model {
   tenantContext?: CreateTodoTaskRequestTenantContext;

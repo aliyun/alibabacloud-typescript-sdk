@@ -1,8 +1,74 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateRangeRequestHyperlinks } from "./UpdateRangeRequestHyperlinks";
-import { UpdateRangeRequestTenantContext } from "./UpdateRangeRequestTenantContext";
 
+
+export class UpdateRangeRequestHyperlinks extends $dara.Model {
+  /**
+   * @example
+   * path
+   */
+  type?: string;
+  /**
+   * @example
+   * https://www.dingtalk.com
+   */
+  link?: string;
+  /**
+   * @example
+   * test
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      link: 'Link',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      link: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRangeRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateRangeRequest extends $dara.Model {
   /**

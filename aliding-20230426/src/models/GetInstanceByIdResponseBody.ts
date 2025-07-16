@@ -1,8 +1,182 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetInstanceByIdResponseBodyActionExecutor } from "./GetInstanceByIdResponseBodyActionExecutor";
-import { GetInstanceByIdResponseBodyOriginator } from "./GetInstanceByIdResponseBodyOriginator";
 
+
+export class GetInstanceByIdResponseBodyActionExecutorName extends $dara.Model {
+  /**
+   * @example
+   * 张三
+   */
+  nameInChinese?: string;
+  /**
+   * @example
+   * ZhangSan
+   */
+  nameInEnglish?: string;
+  /**
+   * @example
+   * i18n
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nameInChinese: 'NameInChinese',
+      nameInEnglish: 'NameInEnglish',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameInChinese: 'string',
+      nameInEnglish: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceByIdResponseBodyActionExecutor extends $dara.Model {
+  /**
+   * @example
+   * 开发部
+   */
+  deptName?: string;
+  /**
+   * @example
+   * abc@alimail.com
+   */
+  email?: string;
+  name?: GetInstanceByIdResponseBodyActionExecutorName;
+  /**
+   * @example
+   * manager123
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'DeptName',
+      email: 'Email',
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      email: 'string',
+      name: GetInstanceByIdResponseBodyActionExecutorName,
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.name && typeof (this.name as any).validate === 'function') {
+      (this.name as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceByIdResponseBodyOriginatorName extends $dara.Model {
+  /**
+   * @example
+   * 张三
+   */
+  nameInChinese?: string;
+  /**
+   * @example
+   * ZhangSan
+   */
+  nameInEnglish?: string;
+  /**
+   * @example
+   * i18n
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nameInChinese: 'NameInChinese',
+      nameInEnglish: 'NameInEnglish',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameInChinese: 'string',
+      nameInEnglish: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceByIdResponseBodyOriginator extends $dara.Model {
+  /**
+   * @example
+   * 开发部
+   */
+  deptName?: string;
+  /**
+   * @example
+   * abc@alimail.com
+   */
+  email?: string;
+  name?: GetInstanceByIdResponseBodyOriginatorName;
+  /**
+   * @example
+   * manager123
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptName: 'DeptName',
+      email: 'Email',
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptName: 'string',
+      email: 'string',
+      name: GetInstanceByIdResponseBodyOriginatorName,
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.name && typeof (this.name as any).validate === 'function') {
+      (this.name as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetInstanceByIdResponseBody extends $dara.Model {
   actionExecutor?: GetInstanceByIdResponseBodyActionExecutor[];

@@ -1,8 +1,60 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetWorkspacesRequestOption } from "./GetWorkspacesRequestOption";
-import { GetWorkspacesRequestTenantContext } from "./GetWorkspacesRequestTenantContext";
 
+
+export class GetWorkspacesRequestOption extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  withPermissionRole?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      withPermissionRole: 'WithPermissionRole',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      withPermissionRole: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkspacesRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetWorkspacesRequest extends $dara.Model {
   option?: GetWorkspacesRequestOption;

@@ -1,8 +1,116 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AddFolderRequestOption } from "./AddFolderRequestOption";
-import { AddFolderRequestTenantContext } from "./AddFolderRequestTenantContext";
 
+
+export class AddFolderRequestOptionAppProperties extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * value
+   */
+  value?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PUBLIC
+   */
+  visibility?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+      visibility: 'Visibility',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+      visibility: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFolderRequestOption extends $dara.Model {
+  appProperties?: AddFolderRequestOptionAppProperties[];
+  /**
+   * @example
+   * AUTO_RENAME
+   */
+  conflictStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appProperties: 'AppProperties',
+      conflictStrategy: 'ConflictStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appProperties: { 'type': 'array', 'itemType': AddFolderRequestOptionAppProperties },
+      conflictStrategy: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appProperties)) {
+      $dara.Model.validateArray(this.appProperties);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFolderRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AddFolderRequest extends $dara.Model {
   /**

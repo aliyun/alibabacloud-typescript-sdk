@@ -1,9 +1,107 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetReportTemplateByNameResponseBodyDefaultReceivedConvs } from "./GetReportTemplateByNameResponseBodyDefaultReceivedConvs";
-import { GetReportTemplateByNameResponseBodyDefaultReceivers } from "./GetReportTemplateByNameResponseBodyDefaultReceivers";
-import { GetReportTemplateByNameResponseBodyFields } from "./GetReportTemplateByNameResponseBodyFields";
 
+
+export class GetReportTemplateByNameResponseBodyDefaultReceivedConvs extends $dara.Model {
+  /**
+   * @example
+   * cid12334##2341
+   */
+  conversationId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conversationId: 'ConversationId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conversationId: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetReportTemplateByNameResponseBodyDefaultReceivers extends $dara.Model {
+  userName?: string;
+  /**
+   * @example
+   * 1234
+   */
+  userid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userName: 'UserName',
+      userid: 'Userid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userName: 'string',
+      userid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetReportTemplateByNameResponseBodyFields extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
+  fieldName?: string;
+  /**
+   * @example
+   * 0
+   */
+  sort?: number;
+  /**
+   * @example
+   * 1
+   */
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fieldName: 'FieldName',
+      sort: 'Sort',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldName: 'string',
+      sort: 'number',
+      type: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetReportTemplateByNameResponseBody extends $dara.Model {
   defaultReceivedConvs?: GetReportTemplateByNameResponseBodyDefaultReceivedConvs[];

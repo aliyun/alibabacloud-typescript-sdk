@@ -1,9 +1,114 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateMeetingRoomRequestReservationAuthority } from "./CreateMeetingRoomRequestReservationAuthority";
-import { CreateMeetingRoomRequestRoomLocation } from "./CreateMeetingRoomRequestRoomLocation";
-import { CreateMeetingRoomRequestTenantContext } from "./CreateMeetingRoomRequestTenantContext";
 
+
+export class CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers extends $dara.Model {
+  memberId?: string;
+  memberName?: string;
+  memberType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memberId: 'MemberId',
+      memberName: 'MemberName',
+      memberType: 'MemberType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberId: 'string',
+      memberName: 'string',
+      memberType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMeetingRoomRequestReservationAuthority extends $dara.Model {
+  authorizedMembers?: CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers[];
+  static names(): { [key: string]: string } {
+    return {
+      authorizedMembers: 'AuthorizedMembers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizedMembers: { 'type': 'array', 'itemType': CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.authorizedMembers)) {
+      $dara.Model.validateArray(this.authorizedMembers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMeetingRoomRequestRoomLocation extends $dara.Model {
+  desc?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMeetingRoomRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateMeetingRoomRequest extends $dara.Model {
   enableCycleReservation?: boolean;

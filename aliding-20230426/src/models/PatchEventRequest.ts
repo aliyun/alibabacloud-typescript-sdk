@@ -1,13 +1,337 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { PatchEventRequestAttendees } from "./PatchEventRequestAttendees";
-import { PatchEventRequestCardInstances } from "./PatchEventRequestCardInstances";
-import { PatchEventRequestEnd } from "./PatchEventRequestEnd";
-import { PatchEventRequestLocation } from "./PatchEventRequestLocation";
-import { PatchEventRequestRecurrence } from "./PatchEventRequestRecurrence";
-import { PatchEventRequestReminders } from "./PatchEventRequestReminders";
-import { PatchEventRequestStart } from "./PatchEventRequestStart";
 
+
+export class PatchEventRequestAttendees extends $dara.Model {
+  /**
+   * @example
+   * 123456
+   */
+  id?: string;
+  /**
+   * @example
+   * false
+   */
+  isOptional?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      isOptional: 'isOptional',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      isOptional: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventRequestCardInstances extends $dara.Model {
+  outTrackId?: string;
+  scenario?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outTrackId: 'OutTrackId',
+      scenario: 'Scenario',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outTrackId: 'string',
+      scenario: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventRequestEnd extends $dara.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
+  date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
+  dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timeZone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'date',
+      dateTime: 'dateTime',
+      timeZone: 'timeZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      dateTime: 'string',
+      timeZone: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventRequestLocation extends $dara.Model {
+  /**
+   * @example
+   * room 1-2-3
+   */
+  displayName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'displayName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventRequestRecurrencePattern extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  dayOfMonth?: number;
+  /**
+   * @example
+   * sunday
+   */
+  daysOfWeek?: string;
+  /**
+   * @example
+   * last
+   */
+  index?: string;
+  /**
+   * @example
+   * 1
+   */
+  interval?: number;
+  /**
+   * @example
+   * daily
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dayOfMonth: 'dayOfMonth',
+      daysOfWeek: 'daysOfWeek',
+      index: 'index',
+      interval: 'interval',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dayOfMonth: 'number',
+      daysOfWeek: 'string',
+      index: 'string',
+      interval: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventRequestRecurrenceRange extends $dara.Model {
+  /**
+   * @example
+   * 2021-12-31T10:15:30+08:00
+   */
+  endDate?: string;
+  /**
+   * @example
+   * 1
+   */
+  numberOfOccurrences?: number;
+  /**
+   * @example
+   * endDate
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'endDate',
+      numberOfOccurrences: 'numberOfOccurrences',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'string',
+      numberOfOccurrences: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventRequestRecurrence extends $dara.Model {
+  pattern?: PatchEventRequestRecurrencePattern;
+  range?: PatchEventRequestRecurrenceRange;
+  static names(): { [key: string]: string } {
+    return {
+      pattern: 'pattern',
+      range: 'range',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pattern: PatchEventRequestRecurrencePattern,
+      range: PatchEventRequestRecurrenceRange,
+    };
+  }
+
+  validate() {
+    if(this.pattern && typeof (this.pattern as any).validate === 'function') {
+      (this.pattern as any).validate();
+    }
+    if(this.range && typeof (this.range as any).validate === 'function') {
+      (this.range as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventRequestReminders extends $dara.Model {
+  /**
+   * @example
+   * dingtalk
+   */
+  method?: string;
+  /**
+   * @example
+   * 15
+   */
+  minutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      method: 'method',
+      minutes: 'minutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      method: 'string',
+      minutes: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PatchEventRequestStart extends $dara.Model {
+  /**
+   * @example
+   * 2020-01-01
+   */
+  date?: string;
+  /**
+   * @example
+   * 2020-01-01T10:15:30+08:00
+   */
+  dateTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timeZone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'date',
+      dateTime: 'dateTime',
+      timeZone: 'timeZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      dateTime: 'string',
+      timeZone: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class PatchEventRequest extends $dara.Model {
   attendees?: PatchEventRequestAttendees[];

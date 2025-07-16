@@ -1,7 +1,33 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { InsertColumnsBeforeHeadersAccountContext } from "./InsertColumnsBeforeHeadersAccountContext";
 
+
+export class InsertColumnsBeforeHeadersAccountContext extends $dara.Model {
+  /**
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class InsertColumnsBeforeHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };

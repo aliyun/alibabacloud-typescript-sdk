@@ -1,8 +1,67 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetNodeByUrlRequestOption } from "./GetNodeByUrlRequestOption";
-import { GetNodeByUrlRequestTenantContext } from "./GetNodeByUrlRequestTenantContext";
 
+
+export class GetNodeByUrlRequestOption extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  withPermissionRole?: boolean;
+  /**
+   * @example
+   * false
+   */
+  withStatisticalInfo?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      withPermissionRole: 'WithPermissionRole',
+      withStatisticalInfo: 'WithStatisticalInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      withPermissionRole: 'boolean',
+      withStatisticalInfo: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeByUrlRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetNodeByUrlRequest extends $dara.Model {
   option?: GetNodeByUrlRequestOption;
