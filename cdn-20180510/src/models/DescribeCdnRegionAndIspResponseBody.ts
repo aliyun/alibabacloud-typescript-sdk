@@ -1,8 +1,132 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeCdnRegionAndIspResponseBodyIsps } from "./DescribeCdnRegionAndIspResponseBodyIsps";
-import { DescribeCdnRegionAndIspResponseBodyRegions } from "./DescribeCdnRegionAndIspResponseBodyRegions";
 
+
+export class DescribeCdnRegionAndIspResponseBodyIspsIsp extends $dara.Model {
+  /**
+   * @remarks
+   * The English name of the ISP.
+   * 
+   * @example
+   * unicom
+   */
+  nameEn?: string;
+  /**
+   * @remarks
+   * The Chinese name of the ISP.
+   */
+  nameZh?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nameEn: 'NameEn',
+      nameZh: 'NameZh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameEn: 'string',
+      nameZh: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnRegionAndIspResponseBodyIsps extends $dara.Model {
+  isp?: DescribeCdnRegionAndIspResponseBodyIspsIsp[];
+  static names(): { [key: string]: string } {
+    return {
+      isp: 'Isp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isp: { 'type': 'array', 'itemType': DescribeCdnRegionAndIspResponseBodyIspsIsp },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.isp)) {
+      $dara.Model.validateArray(this.isp);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnRegionAndIspResponseBodyRegionsRegion extends $dara.Model {
+  /**
+   * @remarks
+   * The English name of the region.
+   * 
+   * @example
+   * liaoning
+   */
+  nameEn?: string;
+  /**
+   * @remarks
+   * The Chinese name of the region.
+   */
+  nameZh?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nameEn: 'NameEn',
+      nameZh: 'NameZh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nameEn: 'string',
+      nameZh: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnRegionAndIspResponseBodyRegions extends $dara.Model {
+  region?: DescribeCdnRegionAndIspResponseBodyRegionsRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: { 'type': 'array', 'itemType': DescribeCdnRegionAndIspResponseBodyRegionsRegion },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.region)) {
+      $dara.Model.validateArray(this.region);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeCdnRegionAndIspResponseBody extends $dara.Model {
   /**

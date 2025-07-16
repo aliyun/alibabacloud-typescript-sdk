@@ -6879,6 +6879,10 @@ export default class Client extends OpenApi {
       query["Interval"] = request.interval;
     }
 
+    if (!$dara.isNull(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }

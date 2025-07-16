@@ -1,7 +1,72 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDomainSrcQpsDataResponseBodySrcQpsDataPerInterval } from "./DescribeDomainSrcQpsDataResponseBodySrcQpsDataPerInterval";
 
+
+export class DescribeDomainSrcQpsDataResponseBodySrcQpsDataPerIntervalDataModule extends $dara.Model {
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2015-12-10T21:00:00Z
+   */
+  timeStamp?: string;
+  /**
+   * @remarks
+   * The QPS value.
+   * 
+   * @example
+   * 0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      timeStamp: 'TimeStamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeStamp: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainSrcQpsDataResponseBodySrcQpsDataPerInterval extends $dara.Model {
+  dataModule?: DescribeDomainSrcQpsDataResponseBodySrcQpsDataPerIntervalDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeDomainSrcQpsDataResponseBodySrcQpsDataPerIntervalDataModule },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dataModule)) {
+      $dara.Model.validateArray(this.dataModule);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDomainSrcQpsDataResponseBody extends $dara.Model {
   /**

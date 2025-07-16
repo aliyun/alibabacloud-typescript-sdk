@@ -1,7 +1,82 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDomainHitRateDataResponseBodyHitRateInterval } from "./DescribeDomainHitRateDataResponseBodyHitRateInterval";
 
+
+export class DescribeDomainHitRateDataResponseBodyHitRateIntervalDataModule extends $dara.Model {
+  /**
+   * @remarks
+   * The byte hit ratio of HTTPS requests.
+   * 
+   * @example
+   * 50.0
+   */
+  httpsValue?: string;
+  /**
+   * @remarks
+   * The timestamp of the data returned.
+   * 
+   * @example
+   * 2019-12-30T08:00:00Z
+   */
+  timeStamp?: string;
+  /**
+   * @remarks
+   * The byte hit ratio.
+   * 
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpsValue: 'HttpsValue',
+      timeStamp: 'TimeStamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpsValue: 'string',
+      timeStamp: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainHitRateDataResponseBodyHitRateInterval extends $dara.Model {
+  dataModule?: DescribeDomainHitRateDataResponseBodyHitRateIntervalDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeDomainHitRateDataResponseBodyHitRateIntervalDataModule },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dataModule)) {
+      $dara.Model.validateArray(this.dataModule);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDomainHitRateDataResponseBody extends $dara.Model {
   /**

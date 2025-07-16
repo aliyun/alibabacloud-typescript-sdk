@@ -1,7 +1,92 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDomainMax95BpsDataResponseBodyDetailData } from "./DescribeDomainMax95bpsDataResponseBodyDetailData";
 
+
+export class DescribeDomainMax95BpsDataResponseBodyDetailDataMax95Detail extends $dara.Model {
+  /**
+   * @remarks
+   * Region of the 95th percentile bandwidth.
+   * 
+   * @example
+   * CN
+   */
+  area?: string;
+  /**
+   * @remarks
+   * The 95th percentile bandwidth.
+   * 
+   * @example
+   * 16777590.28
+   */
+  max95Bps?: number;
+  /**
+   * @remarks
+   * Time of the 95th percentile bandwidth.
+   * 
+   * @example
+   * 2015-12-11T21:05:00Z
+   */
+  max95BpsPeakTime?: string;
+  /**
+   * @remarks
+   * The timestamp of the returned data.
+   * 
+   * @example
+   * 2015-12-11T21:00:00Z
+   */
+  timeStamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      area: 'Area',
+      max95Bps: 'Max95Bps',
+      max95BpsPeakTime: 'Max95BpsPeakTime',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      area: 'string',
+      max95Bps: 'number',
+      max95BpsPeakTime: 'string',
+      timeStamp: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainMax95BpsDataResponseBodyDetailData extends $dara.Model {
+  max95Detail?: DescribeDomainMax95BpsDataResponseBodyDetailDataMax95Detail[];
+  static names(): { [key: string]: string } {
+    return {
+      max95Detail: 'Max95Detail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      max95Detail: { 'type': 'array', 'itemType': DescribeDomainMax95BpsDataResponseBodyDetailDataMax95Detail },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.max95Detail)) {
+      $dara.Model.validateArray(this.max95Detail);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDomainMax95BpsDataResponseBody extends $dara.Model {
   /**

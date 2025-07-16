@@ -1,7 +1,82 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { BatchSetCdnDomainConfigResponseBodyDomainConfigList } from "./BatchSetCdnDomainConfigResponseBodyDomainConfigList";
 
+
+export class BatchSetCdnDomainConfigResponseBodyDomainConfigListDomainConfigModel extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the configuration.
+   * 
+   * @example
+   * 1234567
+   */
+  configId?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * www.example.com
+   */
+  domainName?: string;
+  /**
+   * @remarks
+   * The name of the feature.
+   * 
+   * @example
+   * set_resp_header
+   */
+  functionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      domainName: 'DomainName',
+      functionName: 'FunctionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      domainName: 'string',
+      functionName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchSetCdnDomainConfigResponseBodyDomainConfigList extends $dara.Model {
+  domainConfigModel?: BatchSetCdnDomainConfigResponseBodyDomainConfigListDomainConfigModel[];
+  static names(): { [key: string]: string } {
+    return {
+      domainConfigModel: 'DomainConfigModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainConfigModel: { 'type': 'array', 'itemType': BatchSetCdnDomainConfigResponseBodyDomainConfigListDomainConfigModel },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.domainConfigModel)) {
+      $dara.Model.validateArray(this.domainConfigModel);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class BatchSetCdnDomainConfigResponseBody extends $dara.Model {
   /**

@@ -87,6 +87,7 @@ export class DescribeDomainUsageDataRequest extends $dara.Model {
    * 300
    */
   interval?: string;
+  serviceType?: string;
   /**
    * @remarks
    * The beginning of the time range to query.
@@ -121,6 +122,7 @@ export class DescribeDomainUsageDataRequest extends $dara.Model {
       endTime: 'EndTime',
       field: 'Field',
       interval: 'Interval',
+      serviceType: 'ServiceType',
       startTime: 'StartTime',
       type: 'Type',
     };
@@ -134,6 +136,7 @@ export class DescribeDomainUsageDataRequest extends $dara.Model {
       endTime: 'string',
       field: 'string',
       interval: 'string',
+      serviceType: 'string',
       startTime: 'string',
       type: 'string',
     };

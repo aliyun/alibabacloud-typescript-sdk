@@ -1,11 +1,486 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDomainSrcTopUrlVisitResponseBodyAllUrlList } from "./DescribeDomainSrcTopUrlVisitResponseBodyAllUrlList";
-import { DescribeDomainSrcTopUrlVisitResponseBodyUrl200List } from "./DescribeDomainSrcTopUrlVisitResponseBodyUrl200list";
-import { DescribeDomainSrcTopUrlVisitResponseBodyUrl300List } from "./DescribeDomainSrcTopUrlVisitResponseBodyUrl300list";
-import { DescribeDomainSrcTopUrlVisitResponseBodyUrl400List } from "./DescribeDomainSrcTopUrlVisitResponseBodyUrl400list";
-import { DescribeDomainSrcTopUrlVisitResponseBodyUrl500List } from "./DescribeDomainSrcTopUrlVisitResponseBodyUrl500list";
 
+
+export class DescribeDomainSrcTopUrlVisitResponseBodyAllUrlListUrlList extends $dara.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
+  flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
+  flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/a0.m3u8
+   */
+  urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
+  visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
+  visitProportion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      flow: 'Flow',
+      flowProportion: 'FlowProportion',
+      urlDetail: 'UrlDetail',
+      visitData: 'VisitData',
+      visitProportion: 'VisitProportion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flow: 'string',
+      flowProportion: 'number',
+      urlDetail: 'string',
+      visitData: 'string',
+      visitProportion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainSrcTopUrlVisitResponseBodyAllUrlList extends $dara.Model {
+  urlList?: DescribeDomainSrcTopUrlVisitResponseBodyAllUrlListUrlList[];
+  static names(): { [key: string]: string } {
+    return {
+      urlList: 'UrlList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      urlList: { 'type': 'array', 'itemType': DescribeDomainSrcTopUrlVisitResponseBodyAllUrlListUrlList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.urlList)) {
+      $dara.Model.validateArray(this.urlList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainSrcTopUrlVisitResponseBodyUrl200ListUrlList extends $dara.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
+  flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
+  flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/a0.m3u8
+   */
+  urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
+  visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
+  visitProportion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      flow: 'Flow',
+      flowProportion: 'FlowProportion',
+      urlDetail: 'UrlDetail',
+      visitData: 'VisitData',
+      visitProportion: 'VisitProportion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flow: 'string',
+      flowProportion: 'number',
+      urlDetail: 'string',
+      visitData: 'string',
+      visitProportion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainSrcTopUrlVisitResponseBodyUrl200List extends $dara.Model {
+  urlList?: DescribeDomainSrcTopUrlVisitResponseBodyUrl200ListUrlList[];
+  static names(): { [key: string]: string } {
+    return {
+      urlList: 'UrlList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      urlList: { 'type': 'array', 'itemType': DescribeDomainSrcTopUrlVisitResponseBodyUrl200ListUrlList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.urlList)) {
+      $dara.Model.validateArray(this.urlList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainSrcTopUrlVisitResponseBodyUrl300ListUrlList extends $dara.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
+  flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
+  flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/a0.m3u8
+   */
+  urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
+  visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
+  visitProportion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      flow: 'Flow',
+      flowProportion: 'FlowProportion',
+      urlDetail: 'UrlDetail',
+      visitData: 'VisitData',
+      visitProportion: 'VisitProportion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flow: 'string',
+      flowProportion: 'number',
+      urlDetail: 'string',
+      visitData: 'string',
+      visitProportion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainSrcTopUrlVisitResponseBodyUrl300List extends $dara.Model {
+  urlList?: DescribeDomainSrcTopUrlVisitResponseBodyUrl300ListUrlList[];
+  static names(): { [key: string]: string } {
+    return {
+      urlList: 'UrlList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      urlList: { 'type': 'array', 'itemType': DescribeDomainSrcTopUrlVisitResponseBodyUrl300ListUrlList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.urlList)) {
+      $dara.Model.validateArray(this.urlList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainSrcTopUrlVisitResponseBodyUrl400ListUrlList extends $dara.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
+  flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
+  flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/a0.m3u8
+   */
+  urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
+  visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
+  visitProportion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      flow: 'Flow',
+      flowProportion: 'FlowProportion',
+      urlDetail: 'UrlDetail',
+      visitData: 'VisitData',
+      visitProportion: 'VisitProportion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flow: 'string',
+      flowProportion: 'number',
+      urlDetail: 'string',
+      visitData: 'string',
+      visitProportion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainSrcTopUrlVisitResponseBodyUrl400List extends $dara.Model {
+  urlList?: DescribeDomainSrcTopUrlVisitResponseBodyUrl400ListUrlList[];
+  static names(): { [key: string]: string } {
+    return {
+      urlList: 'UrlList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      urlList: { 'type': 'array', 'itemType': DescribeDomainSrcTopUrlVisitResponseBodyUrl400ListUrlList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.urlList)) {
+      $dara.Model.validateArray(this.urlList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainSrcTopUrlVisitResponseBodyUrl500ListUrlList extends $dara.Model {
+  /**
+   * @remarks
+   * The amount of network traffic. Unit: bytes.
+   * 
+   * @example
+   * 460486880
+   */
+  flow?: string;
+  /**
+   * @remarks
+   * The proportion of network traffic consumed to access the URL.
+   * 
+   * @example
+   * 0.35
+   */
+  flowProportion?: number;
+  /**
+   * @remarks
+   * The complete URL.
+   * 
+   * @example
+   * http://example.com/nn_live/nn_x64/a0.m3u8
+   */
+  urlDetail?: string;
+  /**
+   * @remarks
+   * The number of visits to the URL.
+   * 
+   * @example
+   * 161673
+   */
+  visitData?: string;
+  /**
+   * @remarks
+   * The proportion of visits to the URL.
+   * 
+   * @example
+   * 0.35
+   */
+  visitProportion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      flow: 'Flow',
+      flowProportion: 'FlowProportion',
+      urlDetail: 'UrlDetail',
+      visitData: 'VisitData',
+      visitProportion: 'VisitProportion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flow: 'string',
+      flowProportion: 'number',
+      urlDetail: 'string',
+      visitData: 'string',
+      visitProportion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainSrcTopUrlVisitResponseBodyUrl500List extends $dara.Model {
+  urlList?: DescribeDomainSrcTopUrlVisitResponseBodyUrl500ListUrlList[];
+  static names(): { [key: string]: string } {
+    return {
+      urlList: 'UrlList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      urlList: { 'type': 'array', 'itemType': DescribeDomainSrcTopUrlVisitResponseBodyUrl500ListUrlList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.urlList)) {
+      $dara.Model.validateArray(this.urlList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDomainSrcTopUrlVisitResponseBody extends $dara.Model {
   /**
