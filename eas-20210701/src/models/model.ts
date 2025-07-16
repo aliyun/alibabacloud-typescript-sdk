@@ -1,4 +1,5 @@
 export { ResourceInstanceLabels } from './ResourceInstance';
+export { ServiceInstanceCountInResource } from './Service';
 export { ServiceLabels } from './Service';
 export { AttachGatewayDomainRequestCustomDomain } from './AttachGatewayDomainRequest';
 export { CreateAclPolicyRequestAclPolicyList } from './CreateAclPolicyRequest';

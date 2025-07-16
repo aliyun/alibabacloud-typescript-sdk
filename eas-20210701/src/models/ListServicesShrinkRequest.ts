@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListServicesShrinkRequest extends $dara.Model {
+  autoscalerEnabled?: boolean;
+  cronscalerEnabled?: boolean;
   /**
    * @remarks
    * The field that is used for fuzzy matches. The system performs fuzzy matches only by service name.
@@ -77,6 +79,7 @@ export class ListServicesShrinkRequest extends $dara.Model {
    */
   quotaId?: string;
   resourceAliasName?: string;
+  resourceBurstable?: boolean;
   resourceId?: string;
   /**
    * @remarks
@@ -344,6 +347,8 @@ export class ListServicesShrinkRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoscalerEnabled: 'AutoscalerEnabled',
+      cronscalerEnabled: 'CronscalerEnabled',
       filter: 'Filter',
       gateway: 'Gateway',
       groupName: 'GroupName',
@@ -355,6 +360,7 @@ export class ListServicesShrinkRequest extends $dara.Model {
       parentServiceUid: 'ParentServiceUid',
       quotaId: 'QuotaId',
       resourceAliasName: 'ResourceAliasName',
+      resourceBurstable: 'ResourceBurstable',
       resourceId: 'ResourceId',
       resourceName: 'ResourceName',
       resourceType: 'ResourceType',
@@ -370,6 +376,8 @@ export class ListServicesShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoscalerEnabled: 'boolean',
+      cronscalerEnabled: 'boolean',
       filter: 'string',
       gateway: 'string',
       groupName: 'string',
@@ -381,6 +389,7 @@ export class ListServicesShrinkRequest extends $dara.Model {
       parentServiceUid: 'string',
       quotaId: 'string',
       resourceAliasName: 'string',
+      resourceBurstable: 'boolean',
       resourceId: 'string',
       resourceName: 'string',
       resourceType: 'string',

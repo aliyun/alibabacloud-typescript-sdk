@@ -2,6 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ServiceInstanceCountInResource extends $dara.Model {
+  dedicated?: number;
+  public?: number;
+  quota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dedicated: 'Dedicated',
+      public: 'Public',
+      quota: 'Quota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dedicated: 'number',
+      public: 'number',
+      quota: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ServiceLabels extends $dara.Model {
   labelKey?: string;
   labelValue?: string;
@@ -34,14 +63,19 @@ export class Service extends $dara.Model {
   appSpecName?: string;
   appType?: string;
   appVersion?: string;
+  autoscalerEnabled?: boolean;
   callerUid?: string;
   cpu?: number;
   createTime?: string;
+  cronscalerEnabled?: boolean;
   currentVersion?: number;
   extraData?: string;
+  GPUCorePercentage?: number;
+  GPUMemory?: number;
   gateway?: string;
   gpu?: number;
   image?: string;
+  instanceCountInResource?: ServiceInstanceCountInResource;
   internetEndpoint?: string;
   intranetEndpoint?: string;
   labels?: ServiceLabels[];
@@ -57,6 +91,7 @@ export class Service extends $dara.Model {
   requestId?: string;
   resource?: string;
   resourceAlias?: string;
+  resourceBurstable?: boolean;
   role?: string;
   roleAttrs?: string;
   runningInstance?: number;
@@ -82,14 +117,19 @@ export class Service extends $dara.Model {
       appSpecName: 'AppSpecName',
       appType: 'AppType',
       appVersion: 'AppVersion',
+      autoscalerEnabled: 'AutoscalerEnabled',
       callerUid: 'CallerUid',
       cpu: 'Cpu',
       createTime: 'CreateTime',
+      cronscalerEnabled: 'CronscalerEnabled',
       currentVersion: 'CurrentVersion',
       extraData: 'ExtraData',
+      GPUCorePercentage: 'GPUCorePercentage',
+      GPUMemory: 'GPUMemory',
       gateway: 'Gateway',
       gpu: 'Gpu',
       image: 'Image',
+      instanceCountInResource: 'InstanceCountInResource',
       internetEndpoint: 'InternetEndpoint',
       intranetEndpoint: 'IntranetEndpoint',
       labels: 'Labels',
@@ -105,6 +145,7 @@ export class Service extends $dara.Model {
       requestId: 'RequestId',
       resource: 'Resource',
       resourceAlias: 'ResourceAlias',
+      resourceBurstable: 'ResourceBurstable',
       role: 'Role',
       roleAttrs: 'RoleAttrs',
       runningInstance: 'RunningInstance',
@@ -133,14 +174,19 @@ export class Service extends $dara.Model {
       appSpecName: 'string',
       appType: 'string',
       appVersion: 'string',
+      autoscalerEnabled: 'boolean',
       callerUid: 'string',
       cpu: 'number',
       createTime: 'string',
+      cronscalerEnabled: 'boolean',
       currentVersion: 'number',
       extraData: 'string',
+      GPUCorePercentage: 'number',
+      GPUMemory: 'number',
       gateway: 'string',
       gpu: 'number',
       image: 'string',
+      instanceCountInResource: ServiceInstanceCountInResource,
       internetEndpoint: 'string',
       intranetEndpoint: 'string',
       labels: { 'type': 'array', 'itemType': ServiceLabels },
@@ -156,6 +202,7 @@ export class Service extends $dara.Model {
       requestId: 'string',
       resource: 'string',
       resourceAlias: 'string',
+      resourceBurstable: 'boolean',
       role: 'string',
       roleAttrs: 'string',
       runningInstance: 'number',
@@ -178,6 +225,9 @@ export class Service extends $dara.Model {
   }
 
   validate() {
+    if(this.instanceCountInResource && typeof (this.instanceCountInResource as any).validate === 'function') {
+      (this.instanceCountInResource as any).validate();
+    }
     if(Array.isArray(this.labels)) {
       $dara.Model.validateArray(this.labels);
     }

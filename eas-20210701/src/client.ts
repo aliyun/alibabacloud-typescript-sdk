@@ -3581,6 +3581,14 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoscalerEnabled)) {
+      query["AutoscalerEnabled"] = request.autoscalerEnabled;
+    }
+
+    if (!$dara.isNull(request.cronscalerEnabled)) {
+      query["CronscalerEnabled"] = request.cronscalerEnabled;
+    }
+
     if (!$dara.isNull(request.filter)) {
       query["Filter"] = request.filter;
     }
@@ -3623,6 +3631,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceAliasName)) {
       query["ResourceAliasName"] = request.resourceAliasName;
+    }
+
+    if (!$dara.isNull(request.resourceBurstable)) {
+      query["ResourceBurstable"] = request.resourceBurstable;
     }
 
     if (!$dara.isNull(request.resourceId)) {

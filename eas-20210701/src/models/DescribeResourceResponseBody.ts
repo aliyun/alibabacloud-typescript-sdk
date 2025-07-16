@@ -43,6 +43,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
    * {"vswitch_id":"vsw-bp17uo6xebcusy****","gpu_share":true,"aux_vswitch_id_list":["vsw-bp13b3pvjap3vxn****","vsw-bp1nls8o5hk8mt8*****"],"security_group_id":"sg-bp1j1z7297hcink*****","vpc_id":"vpc-bp1kjr3rfyhx01*****","destination_cidr":"172.16.0.12/28","role_arn":"acs:ram::1157703270*****:role/AliyunServiceRoleForPaiEas","sls_project":"","sls_logstore":"","sls_status":"ResourceReady","sls_message":"","update_time":""}
    */
   extraData?: string;
+  features?: string[];
   /**
    * @remarks
    * The total number of GPUs.
@@ -67,6 +68,9 @@ export class DescribeResourceResponseBody extends $dara.Model {
    * 4
    */
   instanceCount?: number;
+  instanceMaxAllocatableCPU?: number;
+  instanceMaxAllocatableGPU?: number;
+  instanceMaxAllocatableMemory?: number;
   /**
    * @remarks
    * The total memory size. Unit: MB.
@@ -173,9 +177,13 @@ export class DescribeResourceResponseBody extends $dara.Model {
       cpuUsed: 'CpuUsed',
       createTime: 'CreateTime',
       extraData: 'ExtraData',
+      features: 'Features',
       gpuCount: 'GpuCount',
       gpuUsed: 'GpuUsed',
       instanceCount: 'InstanceCount',
+      instanceMaxAllocatableCPU: 'InstanceMaxAllocatableCPU',
+      instanceMaxAllocatableGPU: 'InstanceMaxAllocatableGPU',
+      instanceMaxAllocatableMemory: 'InstanceMaxAllocatableMemory',
       memory: 'Memory',
       memoryUsed: 'MemoryUsed',
       message: 'Message',
@@ -198,9 +206,13 @@ export class DescribeResourceResponseBody extends $dara.Model {
       cpuUsed: 'number',
       createTime: 'string',
       extraData: 'string',
+      features: { 'type': 'array', 'itemType': 'string' },
       gpuCount: 'number',
       gpuUsed: 'number',
       instanceCount: 'number',
+      instanceMaxAllocatableCPU: 'number',
+      instanceMaxAllocatableGPU: 'number',
+      instanceMaxAllocatableMemory: 'number',
       memory: 'number',
       memoryUsed: 'number',
       message: 'string',
@@ -217,6 +229,9 @@ export class DescribeResourceResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.features)) {
+      $dara.Model.validateArray(this.features);
+    }
     super.validate();
   }
 

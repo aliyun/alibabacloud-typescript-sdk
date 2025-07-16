@@ -99,6 +99,7 @@ export class DescribeVirtualResourceResponseBody extends $dara.Model {
    * true
    */
   disableSpotProtectionPeriod?: boolean;
+  features?: string[];
   /**
    * @remarks
    * The ID of the request.
@@ -148,6 +149,7 @@ export class DescribeVirtualResourceResponseBody extends $dara.Model {
     return {
       createTime: 'CreateTime',
       disableSpotProtectionPeriod: 'DisableSpotProtectionPeriod',
+      features: 'Features',
       requestId: 'RequestId',
       resources: 'Resources',
       serviceCount: 'ServiceCount',
@@ -161,6 +163,7 @@ export class DescribeVirtualResourceResponseBody extends $dara.Model {
     return {
       createTime: 'string',
       disableSpotProtectionPeriod: 'boolean',
+      features: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
       resources: { 'type': 'array', 'itemType': DescribeVirtualResourceResponseBodyResources },
       serviceCount: 'number',
@@ -171,6 +174,9 @@ export class DescribeVirtualResourceResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.features)) {
+      $dara.Model.validateArray(this.features);
+    }
     if(Array.isArray(this.resources)) {
       $dara.Model.validateArray(this.resources);
     }
