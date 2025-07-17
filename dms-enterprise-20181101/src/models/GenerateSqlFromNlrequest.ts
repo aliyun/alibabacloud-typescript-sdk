@@ -36,6 +36,11 @@ export class GenerateSqlFromNLRequest extends $dara.Model {
    * This parameter is required.
    */
   question?: string;
+  /**
+   * @example
+   * users,orders
+   */
+  tableNames?: string;
   static names(): { [key: string]: string } {
     return {
       dbId: 'DbId',
@@ -44,6 +49,7 @@ export class GenerateSqlFromNLRequest extends $dara.Model {
       level: 'Level',
       model: 'Model',
       question: 'Question',
+      tableNames: 'TableNames',
     };
   }
 
@@ -55,6 +61,7 @@ export class GenerateSqlFromNLRequest extends $dara.Model {
       level: 'string',
       model: 'string',
       question: 'string',
+      tableNames: 'string',
     };
   }
 

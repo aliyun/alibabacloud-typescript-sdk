@@ -5727,6 +5727,10 @@ export default class Client extends OpenApi {
       query["Question"] = request.question;
     }
 
+    if (!$dara.isNull(request.tableNames)) {
+      query["TableNames"] = request.tableNames;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
