@@ -2,38 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RetrieveResponseBodyDataNodes extends $dara.Model {
+export class AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList extends $dara.Model {
   /**
-   * @remarks
-   * The metadata map of the chunk.
-   */
-  metadata?: any;
-  /**
-   * @remarks
-   * The similarity score of the chunk. Valid values:[0-1].
-   * 
    * @example
-   * 0.3
+   * file_809f469a59ac449586ec692576xxxxx_102248XXX
    */
-  score?: number;
+  fileId?: string;
   /**
-   * @remarks
-   * The text of the chunk.
+   * @example
+   * size too large
    */
-  text?: string;
+  msg?: string;
+  /**
+   * @example
+   * root/path/this_is_temp_xxxx.pdf
+   */
+  ossKey?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      metadata: 'Metadata',
-      score: 'Score',
-      text: 'Text',
+      fileId: 'FileId',
+      msg: 'Msg',
+      ossKey: 'OssKey',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      metadata: 'any',
-      score: 'number',
-      text: 'string',
+      fileId: 'string',
+      msg: 'string',
+      ossKey: 'string',
+      status: 'string',
     };
   }
 
@@ -46,27 +50,23 @@ export class RetrieveResponseBodyDataNodes extends $dara.Model {
   }
 }
 
-export class RetrieveResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The list of queried chunks.
-   */
-  nodes?: RetrieveResponseBodyDataNodes[];
+export class AddFilesFromAuthorizedOssResponseBodyData extends $dara.Model {
+  addFileResultList?: AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList[];
   static names(): { [key: string]: string } {
     return {
-      nodes: 'Nodes',
+      addFileResultList: 'AddFileResultList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nodes: { 'type': 'array', 'itemType': RetrieveResponseBodyDataNodes },
+      addFileResultList: { 'type': 'array', 'itemType': AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList },
     };
   }
 
   validate() {
-    if(Array.isArray(this.nodes)) {
-      $dara.Model.validateArray(this.nodes);
+    if(Array.isArray(this.addFileResultList)) {
+      $dara.Model.validateArray(this.addFileResultList);
     }
     super.validate();
   }
@@ -76,55 +76,36 @@ export class RetrieveResponseBodyData extends $dara.Model {
   }
 }
 
-export class RetrieveResponseBody extends $dara.Model {
+export class AddFilesFromAuthorizedOssResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * HTTP status code
-   * 
    * @example
-   * Index.InvalidParameter
+   * success
    */
   code?: string;
+  data?: AddFilesFromAuthorizedOssResponseBodyData;
   /**
-   * @remarks
-   * The returned data.
-   */
-  data?: RetrieveResponseBodyData;
-  /**
-   * @remarks
-   * The error message.
-   * 
    * @example
-   * Required parameter(%s) missing or invalid, please check the request parameters.
+   * Cant find out category for category_id param.
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * 17204B98-7734-4F9A-8464-2446A84821CA
+   * 17204B98-xxxx-4F9A-8464-2446A84821CA
    */
   requestId?: string;
   /**
-   * @remarks
-   * The HTTP status code returned.
-   * 
    * @example
    * 200
    */
   status?: string;
   /**
-   * @remarks
-   * Indications whether the API call is successful. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
    * @example
    * true
    */
-  success?: boolean;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -139,11 +120,11 @@ export class RetrieveResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: RetrieveResponseBodyData,
+      data: AddFilesFromAuthorizedOssResponseBodyData,
       message: 'string',
       requestId: 'string',
       status: 'string',
-      success: 'boolean',
+      success: 'string',
     };
   }
 

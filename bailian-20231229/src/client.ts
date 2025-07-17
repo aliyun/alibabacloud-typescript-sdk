@@ -168,6 +168,81 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 将已授权OSS Bucket中的文件添加到百炼应用数据
+   * 
+   * @param tmpReq - AddFilesFromAuthorizedOssRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddFilesFromAuthorizedOssResponse
+   */
+  async addFilesFromAuthorizedOssWithOptions(WorkspaceId: string, tmpReq: $_model.AddFilesFromAuthorizedOssRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddFilesFromAuthorizedOssResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddFilesFromAuthorizedOssShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fileDetails)) {
+      request.fileDetailsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fileDetails, "FileDetails", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoryId)) {
+      body["CategoryId"] = request.categoryId;
+    }
+
+    if (!$dara.isNull(request.categoryType)) {
+      body["CategoryType"] = request.categoryType;
+    }
+
+    if (!$dara.isNull(request.fileDetailsShrink)) {
+      body["FileDetails"] = request.fileDetailsShrink;
+    }
+
+    if (!$dara.isNull(request.ossBucketName)) {
+      body["OssBucketName"] = request.ossBucketName;
+    }
+
+    if (!$dara.isNull(request.ossRegionId)) {
+      body["OssRegionId"] = request.ossRegionId;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddFilesFromAuthorizedOss",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/datacenter/file/fromoss`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddFilesFromAuthorizedOssResponse>(await this.callApi(params, req, runtime), new $_model.AddFilesFromAuthorizedOssResponse({}));
+  }
+
+  /**
+   * 将已授权OSS Bucket中的文件添加到百炼应用数据
+   * 
+   * @param request - AddFilesFromAuthorizedOssRequest
+   * @returns AddFilesFromAuthorizedOssResponse
+   */
+  async addFilesFromAuthorizedOss(WorkspaceId: string, request: $_model.AddFilesFromAuthorizedOssRequest): Promise<$_model.AddFilesFromAuthorizedOssResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addFilesFromAuthorizedOssWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * Applies for a document upload lease to upload a document.
    * 
    * @remarks
