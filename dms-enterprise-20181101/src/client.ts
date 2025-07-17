@@ -437,6 +437,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加表到资产类目
+   * 
+   * @param request - AddTableToCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddTableToCategoryResponse
+   */
+  async addTableToCategoryWithOptions(request: $_model.AddTableToCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddTableToCategoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!$dara.isNull(request.tableSchemaName)) {
+      query["TableSchemaName"] = request.tableSchemaName;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddTableToCategory",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddTableToCategoryResponse>(await this.callApi(params, req, runtime), new $_model.AddTableToCategoryResponse({}));
+  }
+
+  /**
+   * 添加表到资产类目
+   * 
+   * @param request - AddTableToCategoryRequest
+   * @returns AddTableToCategoryResponse
+   */
+  async addTableToCategory(request: $_model.AddTableToCategoryRequest): Promise<$_model.AddTableToCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addTableToCategoryWithOptions(request, runtime);
+  }
+
+  /**
    * Adds directed edges for an existing task node.
    * 
    * @remarks
@@ -2278,6 +2336,10 @@ export default class Client extends OpenApi {
       query["AdbpgInstanceMode"] = request.adbpgInstanceMode;
     }
 
+    if (!$dara.isNull(request.backupVSwitchId)) {
+      query["BackupVSwitchId"] = request.backupVSwitchId;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -2330,6 +2392,14 @@ export default class Client extends OpenApi {
       query["DryRun"] = request.dryRun;
     }
 
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
+    if (!$dara.isNull(request.enableExtraEndpoint)) {
+      query["EnableExtraEndpoint"] = request.enableExtraEndpoint;
+    }
+
     if (!$dara.isNull(request.gpuNodeSpec)) {
       query["GpuNodeSpec"] = request.gpuNodeSpec;
     }
@@ -2364,6 +2434,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.kvStoreType)) {
       query["KvStoreType"] = request.kvStoreType;
+    }
+
+    if (!$dara.isNull(request.majorVersion)) {
+      query["MajorVersion"] = request.majorVersion;
     }
 
     if (!$dara.isNull(request.modelId)) {
@@ -2740,6 +2814,56 @@ export default class Client extends OpenApi {
   async createLogicDatabase(request: $_model.CreateLogicDatabaseRequest): Promise<$_model.CreateLogicDatabaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createLogicDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建资产类目
+   * 
+   * @param request - CreateMetaCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMetaCategoryResponse
+   */
+  async createMetaCategoryWithOptions(request: $_model.CreateMetaCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMetaCategoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.parentCategoryId)) {
+      query["ParentCategoryId"] = request.parentCategoryId;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMetaCategory",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMetaCategoryResponse>(await this.callApi(params, req, runtime), new $_model.CreateMetaCategoryResponse({}));
+  }
+
+  /**
+   * 创建资产类目
+   * 
+   * @param request - CreateMetaCategoryRequest
+   * @returns CreateMetaCategoryResponse
+   */
+  async createMetaCategory(request: $_model.CreateMetaCategoryRequest): Promise<$_model.CreateMetaCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMetaCategoryWithOptions(request, runtime);
   }
 
   /**
@@ -4239,6 +4363,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除资产类目
+   * 
+   * @param request - DeleteMetaCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMetaCategoryResponse
+   */
+  async deleteMetaCategoryWithOptions(request: $_model.DeleteMetaCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMetaCategoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMetaCategory",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMetaCategoryResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMetaCategoryResponse({}));
+  }
+
+  /**
+   * 删除资产类目
+   * 
+   * @param request - DeleteMetaCategoryRequest
+   * @returns DeleteMetaCategoryResponse
+   */
+  async deleteMetaCategory(request: $_model.DeleteMetaCategoryRequest): Promise<$_model.DeleteMetaCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMetaCategoryWithOptions(request, runtime);
+  }
+
+  /**
    * You can call this operation to disable the data security protection proxy of a DB instance.
    * 
    * @remarks
@@ -4786,6 +4956,72 @@ export default class Client extends OpenApi {
   async describeDifyDefaultVpc(request: $_model.DescribeDifyDefaultVpcRequest): Promise<$_model.DescribeDifyDefaultVpcResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDifyDefaultVpcWithOptions(request, runtime);
+  }
+
+  /**
+   * 用于获取Dify当前支持的版本信息
+   * 
+   * @remarks
+   * ## 请求说明
+   * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
+   * - 如果选择新建工作空间 (`CreateNewInstance`)，则必须提供 `workspaceName` 和 `workspaceDescription`。
+   * - `vpcId`, `VSwitchID`, `zoneId`, `regionCode`, `ResourceQuota`, `Replicas`, `storageType`, `dbInstanceClass`, `dbEngineVersion`, `kvstoreEngineVersion` 是必填项。
+   * - 当 `storageType` 为 `oss` 时，需要指定 `ossBucketResourceId` 和 `ossPath`。
+   * - 如果需要新建数据库实例，则必须提供 `instanceAccount` 和 `instancePassword`。
+   * - 预付费模式下，`PayPeriodType` 和 `PayPeriod` 必须填写。
+   * - 可以通过设置 `dryRun` 为 `true` 来执行预检查而不实际创建实例。
+   * 
+   * @param request - DescribeDifyEditionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDifyEditionsResponse
+   */
+  async describeDifyEditionsWithOptions(request: $_model.DescribeDifyEditionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDifyEditionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDifyEditions",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDifyEditionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDifyEditionsResponse({}));
+  }
+
+  /**
+   * 用于获取Dify当前支持的版本信息
+   * 
+   * @remarks
+   * ## 请求说明
+   * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
+   * - 如果选择新建工作空间 (`CreateNewInstance`)，则必须提供 `workspaceName` 和 `workspaceDescription`。
+   * - `vpcId`, `VSwitchID`, `zoneId`, `regionCode`, `ResourceQuota`, `Replicas`, `storageType`, `dbInstanceClass`, `dbEngineVersion`, `kvstoreEngineVersion` 是必填项。
+   * - 当 `storageType` 为 `oss` 时，需要指定 `ossBucketResourceId` 和 `ossPath`。
+   * - 如果需要新建数据库实例，则必须提供 `instanceAccount` 和 `instancePassword`。
+   * - 预付费模式下，`PayPeriodType` 和 `PayPeriod` 必须填写。
+   * - 可以通过设置 `dryRun` 为 `true` 来执行预检查而不实际创建实例。
+   * 
+   * @param request - DescribeDifyEditionsRequest
+   * @returns DescribeDifyEditionsResponse
+   */
+  async describeDifyEditions(request: $_model.DescribeDifyEditionsRequest): Promise<$_model.DescribeDifyEditionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDifyEditionsWithOptions(request, runtime);
   }
 
   /**
@@ -5404,6 +5640,48 @@ export default class Client extends OpenApi {
   async executeStructSync(request: $_model.ExecuteStructSyncRequest): Promise<$_model.ExecuteStructSyncResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.executeStructSyncWithOptions(request, runtime);
+  }
+
+  /**
+   * 数据库知识库补数据接口
+   * 
+   * @param request - GenMetaKnowledgeAssetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenMetaKnowledgeAssetResponse
+   */
+  async genMetaKnowledgeAssetWithOptions(request: $_model.GenMetaKnowledgeAssetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenMetaKnowledgeAssetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenMetaKnowledgeAsset",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenMetaKnowledgeAssetResponse>(await this.callApi(params, req, runtime), new $_model.GenMetaKnowledgeAssetResponse({}));
+  }
+
+  /**
+   * 数据库知识库补数据接口
+   * 
+   * @param request - GenMetaKnowledgeAssetRequest
+   * @returns GenMetaKnowledgeAssetResponse
+   */
+  async genMetaKnowledgeAsset(request: $_model.GenMetaKnowledgeAssetRequest): Promise<$_model.GenMetaKnowledgeAssetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.genMetaKnowledgeAssetWithOptions(request, runtime);
   }
 
   /**
@@ -11250,6 +11528,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.region)) {
+      query["Region"] = request.region;
+    }
+
     if (!$dara.isNull(request.searchKey)) {
       query["SearchKey"] = request.searchKey;
     }
@@ -11500,6 +11782,60 @@ export default class Client extends OpenApi {
   async listLogicTables(request: $_model.ListLogicTablesRequest): Promise<$_model.ListLogicTablesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listLogicTablesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取资产类目列表
+   * 
+   * @param request - ListMetaCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMetaCategoryResponse
+   */
+  async listMetaCategoryWithOptions(request: $_model.ListMetaCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMetaCategoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.parentCategoryId)) {
+      query["ParentCategoryId"] = request.parentCategoryId;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMetaCategory",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMetaCategoryResponse>(await this.callApi(params, req, runtime), new $_model.ListMetaCategoryResponse({}));
+  }
+
+  /**
+   * 获取资产类目列表
+   * 
+   * @param request - ListMetaCategoryRequest
+   * @returns ListMetaCategoryResponse
+   */
+  async listMetaCategory(request: $_model.ListMetaCategoryRequest): Promise<$_model.ListMetaCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMetaCategoryWithOptions(request, runtime);
   }
 
   /**
@@ -12446,6 +12782,60 @@ export default class Client extends OpenApi {
   async listTables(request: $_model.ListTablesRequest): Promise<$_model.ListTablesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTablesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取类目下的表列表
+   * 
+   * @param request - ListTablesInCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTablesInCategoryResponse
+   */
+  async listTablesInCategoryWithOptions(request: $_model.ListTablesInCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTablesInCategoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTablesInCategory",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTablesInCategoryResponse>(await this.callApi(params, req, runtime), new $_model.ListTablesInCategoryResponse({}));
+  }
+
+  /**
+   * 获取类目下的表列表
+   * 
+   * @param request - ListTablesInCategoryRequest
+   * @returns ListTablesInCategoryResponse
+   */
+  async listTablesInCategory(request: $_model.ListTablesInCategoryRequest): Promise<$_model.ListTablesInCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTablesInCategoryWithOptions(request, runtime);
   }
 
   /**
@@ -14337,6 +14727,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 从资产类目移除表
+   * 
+   * @param request - RemoveTableFromCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveTableFromCategoryResponse
+   */
+  async removeTableFromCategoryWithOptions(request: $_model.RemoveTableFromCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveTableFromCategoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!$dara.isNull(request.tableSchemaName)) {
+      query["TableSchemaName"] = request.tableSchemaName;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveTableFromCategory",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveTableFromCategoryResponse>(await this.callApi(params, req, runtime), new $_model.RemoveTableFromCategoryResponse({}));
+  }
+
+  /**
+   * 从资产类目移除表
+   * 
+   * @param request - RemoveTableFromCategoryRequest
+   * @returns RemoveTableFromCategoryResponse
+   */
+  async removeTableFromCategory(request: $_model.RemoveTableFromCategoryRequest): Promise<$_model.RemoveTableFromCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeTableFromCategoryWithOptions(request, runtime);
+  }
+
+  /**
    * Reruns a failed SQL task for data change.
    * 
    * @param request - RestartDataCorrectSQLJobRequest
@@ -16114,6 +16562,56 @@ export default class Client extends OpenApi {
   async updateInstance(request: $_model.UpdateInstanceRequest): Promise<$_model.UpdateInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新资产类目信息
+   * 
+   * @param request - UpdateMetaCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMetaCategoryResponse
+   */
+  async updateMetaCategoryWithOptions(request: $_model.UpdateMetaCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMetaCategoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMetaCategory",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMetaCategoryResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMetaCategoryResponse({}));
+  }
+
+  /**
+   * 更新资产类目信息
+   * 
+   * @param request - UpdateMetaCategoryRequest
+   * @returns UpdateMetaCategoryResponse
+   */
+  async updateMetaCategory(request: $_model.UpdateMetaCategoryRequest): Promise<$_model.UpdateMetaCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMetaCategoryWithOptions(request, runtime);
   }
 
   /**

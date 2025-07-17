@@ -1,7 +1,72 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListTaskFlowTimeVariablesResponseBodyTimeVariables } from "./ListTaskFlowTimeVariablesResponseBodyTimeVariables";
 
+
+export class ListTaskFlowTimeVariablesResponseBodyTimeVariablesTimeVariable extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the time variable.
+   * 
+   * @example
+   * time_test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The format of the time variable.
+   * 
+   * @example
+   * 2018-09-26|+7h
+   */
+  pattern?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      pattern: 'Pattern',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      pattern: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskFlowTimeVariablesResponseBodyTimeVariables extends $dara.Model {
+  timeVariable?: ListTaskFlowTimeVariablesResponseBodyTimeVariablesTimeVariable[];
+  static names(): { [key: string]: string } {
+    return {
+      timeVariable: 'TimeVariable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeVariable: { 'type': 'array', 'itemType': ListTaskFlowTimeVariablesResponseBodyTimeVariablesTimeVariable },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.timeVariable)) {
+      $dara.Model.validateArray(this.timeVariable);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListTaskFlowTimeVariablesResponseBody extends $dara.Model {
   /**

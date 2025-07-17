@@ -1,7 +1,94 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListDifyInstancesResponseBodyRoot } from "./ListDifyInstancesResponseBodyRoot";
 
+
+export class ListDifyInstancesResponseBodyRootData extends $dara.Model {
+  appUuid?: string;
+  createdTime?: string;
+  edition?: string;
+  enterpriseInternetUrl?: string;
+  enterpriseIntranetUrl?: string;
+  instanceId?: string;
+  internetUrl?: string;
+  intranetUrl?: string;
+  majorVersion?: string;
+  securityGroupId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  workspaceId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appUuid: 'AppUuid',
+      createdTime: 'CreatedTime',
+      edition: 'Edition',
+      enterpriseInternetUrl: 'EnterpriseInternetUrl',
+      enterpriseIntranetUrl: 'EnterpriseIntranetUrl',
+      instanceId: 'InstanceId',
+      internetUrl: 'InternetUrl',
+      intranetUrl: 'IntranetUrl',
+      majorVersion: 'MajorVersion',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      workspaceId: 'WorkspaceId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUuid: 'string',
+      createdTime: 'string',
+      edition: 'string',
+      enterpriseInternetUrl: 'string',
+      enterpriseIntranetUrl: 'string',
+      instanceId: 'string',
+      internetUrl: 'string',
+      intranetUrl: 'string',
+      majorVersion: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+      workspaceId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDifyInstancesResponseBodyRoot extends $dara.Model {
+  data?: ListDifyInstancesResponseBodyRootData[];
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListDifyInstancesResponseBodyRootData },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListDifyInstancesResponseBody extends $dara.Model {
   code?: string;

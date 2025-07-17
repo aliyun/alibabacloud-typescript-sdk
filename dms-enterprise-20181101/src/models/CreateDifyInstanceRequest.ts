@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDifyInstanceRequest extends $dara.Model {
   adbpgInstanceMode?: string;
+  backupVSwitchId?: string;
   clientToken?: string;
   /**
    * @remarks
@@ -21,6 +22,12 @@ export class CreateDifyInstanceRequest extends $dara.Model {
   dbStorageSize?: string;
   dbStorageType?: string;
   dryRun?: boolean;
+  /**
+   * @example
+   * Community
+   */
+  edition?: string;
+  enableExtraEndpoint?: boolean;
   gpuNodeSpec?: string;
   kvStoreAccount?: string;
   kvStoreEngineVersion?: string;
@@ -30,6 +37,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
   kvStorePassword?: string;
   kvStoreResourceId?: number;
   kvStoreType?: string;
+  majorVersion?: string;
   modelId?: string;
   /**
    * @example
@@ -88,6 +96,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       adbpgInstanceMode: 'AdbpgInstanceMode',
+      backupVSwitchId: 'BackupVSwitchId',
       clientToken: 'ClientToken',
       dataRegion: 'DataRegion',
       databaseOption: 'DatabaseOption',
@@ -101,6 +110,8 @@ export class CreateDifyInstanceRequest extends $dara.Model {
       dbStorageSize: 'DbStorageSize',
       dbStorageType: 'DbStorageType',
       dryRun: 'DryRun',
+      edition: 'Edition',
+      enableExtraEndpoint: 'EnableExtraEndpoint',
       gpuNodeSpec: 'GpuNodeSpec',
       kvStoreAccount: 'KvStoreAccount',
       kvStoreEngineVersion: 'KvStoreEngineVersion',
@@ -110,6 +121,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
       kvStorePassword: 'KvStorePassword',
       kvStoreResourceId: 'KvStoreResourceId',
       kvStoreType: 'KvStoreType',
+      majorVersion: 'MajorVersion',
       modelId: 'ModelId',
       modelOption: 'ModelOption',
       natGatewayOption: 'NatGatewayOption',
@@ -147,6 +159,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       adbpgInstanceMode: 'string',
+      backupVSwitchId: 'string',
       clientToken: 'string',
       dataRegion: 'string',
       databaseOption: 'string',
@@ -160,6 +173,8 @@ export class CreateDifyInstanceRequest extends $dara.Model {
       dbStorageSize: 'string',
       dbStorageType: 'string',
       dryRun: 'boolean',
+      edition: 'string',
+      enableExtraEndpoint: 'boolean',
       gpuNodeSpec: 'string',
       kvStoreAccount: 'string',
       kvStoreEngineVersion: 'string',
@@ -169,6 +184,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
       kvStorePassword: 'string',
       kvStoreResourceId: 'number',
       kvStoreType: 'string',
+      majorVersion: 'string',
       modelId: 'string',
       modelOption: 'string',
       natGatewayOption: 'string',

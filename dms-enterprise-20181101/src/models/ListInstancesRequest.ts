@@ -79,6 +79,7 @@ export class ListInstancesRequest extends $dara.Model {
    * 50
    */
   pageSize?: number;
+  region?: string;
   /**
    * @remarks
    * The keyword that is used to search for database instances.
@@ -104,6 +105,7 @@ export class ListInstancesRequest extends $dara.Model {
       netType: 'NetType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      region: 'Region',
       searchKey: 'SearchKey',
       tid: 'Tid',
     };
@@ -118,6 +120,7 @@ export class ListInstancesRequest extends $dara.Model {
       netType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      region: 'string',
       searchKey: 'string',
       tid: 'number',
     };
