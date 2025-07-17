@@ -1,15 +1,1809 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModifyEciScalingConfigurationRequestAcrRegistryInfos } from "./ModifyEciScalingConfigurationRequestAcrRegistryInfos";
-import { ModifyEciScalingConfigurationRequestContainers } from "./ModifyEciScalingConfigurationRequestContainers";
-import { ModifyEciScalingConfigurationRequestDnsConfigOptions } from "./ModifyEciScalingConfigurationRequestDnsConfigOptions";
-import { ModifyEciScalingConfigurationRequestHostAliases } from "./ModifyEciScalingConfigurationRequestHostAliases";
-import { ModifyEciScalingConfigurationRequestImageRegistryCredentials } from "./ModifyEciScalingConfigurationRequestImageRegistryCredentials";
-import { ModifyEciScalingConfigurationRequestInitContainers } from "./ModifyEciScalingConfigurationRequestInitContainers";
-import { ModifyEciScalingConfigurationRequestSecurityContextSysCtls } from "./ModifyEciScalingConfigurationRequestSecurityContextSysCtls";
-import { ModifyEciScalingConfigurationRequestTags } from "./ModifyEciScalingConfigurationRequestTags";
-import { ModifyEciScalingConfigurationRequestVolumes } from "./ModifyEciScalingConfigurationRequestVolumes";
 
+
+export class ModifyEciScalingConfigurationRequestAcrRegistryInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The domain names of the Container Registry Enterprise Edition instance. By default, all domain names of the instance are displayed. Separate multiple domain names with commas (,).
+   */
+  domains?: string[];
+  /**
+   * @remarks
+   * The ID of the Container Registry Enterprise Edition instance.
+   * 
+   * @example
+   * cri-nwj395hgf6f3****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The name of the Container Registry Enterprise Edition instance.
+   * 
+   * @example
+   * acr-test
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The region ID of the Container Registry Enterprise Edition instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      instanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.domains)) {
+      $dara.Model.validateArray(this.domains);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersLivenessProbeExec extends $dara.Model {
+  commands?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      commands: 'Commands',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commands: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.commands)) {
+      $dara.Model.validateArray(this.commands);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersLivenessProbeHttpGet extends $dara.Model {
+  path?: string;
+  port?: number;
+  scheme?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      port: 'Port',
+      scheme: 'Scheme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      port: 'number',
+      scheme: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersLivenessProbeTcpSocket extends $dara.Model {
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersLivenessProbe extends $dara.Model {
+  exec?: ModifyEciScalingConfigurationRequestContainersLivenessProbeExec;
+  failureThreshold?: number;
+  httpGet?: ModifyEciScalingConfigurationRequestContainersLivenessProbeHttpGet;
+  initialDelaySeconds?: number;
+  periodSeconds?: number;
+  successThreshold?: number;
+  tcpSocket?: ModifyEciScalingConfigurationRequestContainersLivenessProbeTcpSocket;
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      exec: 'Exec',
+      failureThreshold: 'FailureThreshold',
+      httpGet: 'HttpGet',
+      initialDelaySeconds: 'InitialDelaySeconds',
+      periodSeconds: 'PeriodSeconds',
+      successThreshold: 'SuccessThreshold',
+      tcpSocket: 'TcpSocket',
+      timeoutSeconds: 'TimeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exec: ModifyEciScalingConfigurationRequestContainersLivenessProbeExec,
+      failureThreshold: 'number',
+      httpGet: ModifyEciScalingConfigurationRequestContainersLivenessProbeHttpGet,
+      initialDelaySeconds: 'number',
+      periodSeconds: 'number',
+      successThreshold: 'number',
+      tcpSocket: ModifyEciScalingConfigurationRequestContainersLivenessProbeTcpSocket,
+      timeoutSeconds: 'number',
+    };
+  }
+
+  validate() {
+    if(this.exec && typeof (this.exec as any).validate === 'function') {
+      (this.exec as any).validate();
+    }
+    if(this.httpGet && typeof (this.httpGet as any).validate === 'function') {
+      (this.httpGet as any).validate();
+    }
+    if(this.tcpSocket && typeof (this.tcpSocket as any).validate === 'function') {
+      (this.tcpSocket as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersReadinessProbeExec extends $dara.Model {
+  commands?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      commands: 'Commands',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commands: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.commands)) {
+      $dara.Model.validateArray(this.commands);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersReadinessProbeHttpGet extends $dara.Model {
+  path?: string;
+  port?: number;
+  scheme?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      port: 'Port',
+      scheme: 'Scheme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      port: 'number',
+      scheme: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersReadinessProbeTcpSocket extends $dara.Model {
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersReadinessProbe extends $dara.Model {
+  exec?: ModifyEciScalingConfigurationRequestContainersReadinessProbeExec;
+  failureThreshold?: number;
+  httpGet?: ModifyEciScalingConfigurationRequestContainersReadinessProbeHttpGet;
+  initialDelaySeconds?: number;
+  periodSeconds?: number;
+  successThreshold?: number;
+  tcpSocket?: ModifyEciScalingConfigurationRequestContainersReadinessProbeTcpSocket;
+  timeoutSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      exec: 'Exec',
+      failureThreshold: 'FailureThreshold',
+      httpGet: 'HttpGet',
+      initialDelaySeconds: 'InitialDelaySeconds',
+      periodSeconds: 'PeriodSeconds',
+      successThreshold: 'SuccessThreshold',
+      tcpSocket: 'TcpSocket',
+      timeoutSeconds: 'TimeoutSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exec: ModifyEciScalingConfigurationRequestContainersReadinessProbeExec,
+      failureThreshold: 'number',
+      httpGet: ModifyEciScalingConfigurationRequestContainersReadinessProbeHttpGet,
+      initialDelaySeconds: 'number',
+      periodSeconds: 'number',
+      successThreshold: 'number',
+      tcpSocket: ModifyEciScalingConfigurationRequestContainersReadinessProbeTcpSocket,
+      timeoutSeconds: 'number',
+    };
+  }
+
+  validate() {
+    if(this.exec && typeof (this.exec as any).validate === 'function') {
+      (this.exec as any).validate();
+    }
+    if(this.httpGet && typeof (this.httpGet as any).validate === 'function') {
+      (this.httpGet as any).validate();
+    }
+    if(this.tcpSocket && typeof (this.tcpSocket as any).validate === 'function') {
+      (this.tcpSocket as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersSecurityContextCapability extends $dara.Model {
+  adds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      adds: 'Adds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.adds)) {
+      $dara.Model.validateArray(this.adds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersSecurityContext extends $dara.Model {
+  capability?: ModifyEciScalingConfigurationRequestContainersSecurityContextCapability;
+  readOnlyRootFilesystem?: boolean;
+  runAsUser?: number;
+  static names(): { [key: string]: string } {
+    return {
+      capability: 'Capability',
+      readOnlyRootFilesystem: 'ReadOnlyRootFilesystem',
+      runAsUser: 'RunAsUser',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capability: ModifyEciScalingConfigurationRequestContainersSecurityContextCapability,
+      readOnlyRootFilesystem: 'boolean',
+      runAsUser: 'number',
+    };
+  }
+
+  validate() {
+    if(this.capability && typeof (this.capability as any).validate === 'function') {
+      (this.capability as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef extends $dara.Model {
+  fieldPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldPath: 'FieldPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersEnvironmentVars extends $dara.Model {
+  fieldRef?: ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef;
+  /**
+   * @remarks
+   * The name of the environment variable. The name can be 1 to 128 characters in length, and can contain letters, underscores (_), and digits. The name cannot start with a digit. Specify the value in the `[0-9a-zA-Z]` format.
+   * 
+   * @example
+   * PATH
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the environment variable. The value can be up to 256 characters in length.
+   * 
+   * @example
+   * /usr/local/bin
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldRef: 'FieldRef',
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldRef: ModifyEciScalingConfigurationRequestContainersEnvironmentVarsFieldRef,
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    if(this.fieldRef && typeof (this.fieldRef as any).validate === 'function') {
+      (this.fieldRef as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersPorts extends $dara.Model {
+  /**
+   * @remarks
+   * The port number. Valid values: 1 to 65535.
+   * 
+   * @example
+   * 80
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The protocol type. Valid values:
+   * 
+   * *   TCP
+   * *   UDP
+   * 
+   * @example
+   * TCP
+   */
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainersVolumeMounts extends $dara.Model {
+  /**
+   * @remarks
+   * The directory within the container onto which you want to mount the volume.
+   * 
+   * >  The information stored within this directory is overwritten by the data on the mounted volume. Exercise caution when you specify this parameter.
+   * 
+   * @example
+   * /pod/data
+   */
+  mountPath?: string;
+  /**
+   * @remarks
+   * The mount propagation settings of the volume. Mount propagation enables volumes mounted on one container to be shared among other containers within the same pod or across distinct pods residing on the same node. Valid values:
+   * 
+   * *   None: Subsequent mounts executed on the volume or its subdirectories do not propagate to the volume.
+   * *   HostToCotainer: Subsequent mounts executed on the volume or its subdirectories propagate to the volume.
+   * *   Bidirectional: This value is similar to HostToCotainer. Subsequent mounts executed on the volume or its subdirectories propagate to the volume. In addition, volume mounts executed on the container propagate back to the underlying instance and to all containers across every pod that uses the same volume.
+   * 
+   * @example
+   * None
+   */
+  mountPropagation?: string;
+  /**
+   * @remarks
+   * The volume name. The value of this parameter is the same as the name of the volume that is mounted to containers.
+   * 
+   * @example
+   * default-volume1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Specifies whether the volume is read-only.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  readOnly?: boolean;
+  /**
+   * @remarks
+   * The volume subdirectory.
+   * 
+   * @example
+   * data2/
+   */
+  subPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      mountPropagation: 'MountPropagation',
+      name: 'Name',
+      readOnly: 'ReadOnly',
+      subPath: 'SubPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      mountPropagation: 'string',
+      name: 'string',
+      readOnly: 'boolean',
+      subPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestContainers extends $dara.Model {
+  livenessProbe?: ModifyEciScalingConfigurationRequestContainersLivenessProbe;
+  readinessProbe?: ModifyEciScalingConfigurationRequestContainersReadinessProbe;
+  securityContext?: ModifyEciScalingConfigurationRequestContainersSecurityContext;
+  /**
+   * @remarks
+   * The container startup arguments. You can specify up to 10 arguments.
+   */
+  args?: string[];
+  /**
+   * @remarks
+   * The commands that you can run in the container when you use the CLI to perform a liveness probe.
+   */
+  commands?: string[];
+  /**
+   * @remarks
+   * The number of vCPUs per container.
+   * 
+   * @example
+   * 0.25
+   */
+  cpu?: number;
+  /**
+   * @remarks
+   * The environment variables.
+   */
+  environmentVars?: ModifyEciScalingConfigurationRequestContainersEnvironmentVars[];
+  /**
+   * @remarks
+   * The number of GPUs per container.
+   * 
+   * @example
+   * 1
+   */
+  gpu?: number;
+  /**
+   * @remarks
+   * The container image.
+   * 
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com/eci_open/nginx:latest
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The image pulling policy. Valid values:
+   * 
+   * *   Always: Image pulling is performed each time instances are created.
+   * *   IfNotPresent: Image pulling is performed as needed. On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
+   * *   Never: On-premises images are always used. Image pulling is not performed.
+   * 
+   * @example
+   * Always
+   */
+  imagePullPolicy?: string;
+  /**
+   * @remarks
+   * The commands that you can run within the container to configure the postStart callback function.
+   */
+  lifecyclePostStartHandlerExecs?: string[];
+  /**
+   * @remarks
+   * The IP address of the host to which you want to send the HTTP GET request to configure the postStart callback function.
+   * 
+   * @example
+   * 10.0.XX.XX
+   */
+  lifecyclePostStartHandlerHttpGetHost?: string;
+  /**
+   * @remarks
+   * The path to which you want to send the HTTP GET request to configure the postStart callback function.
+   * 
+   * @example
+   * /healthyz
+   */
+  lifecyclePostStartHandlerHttpGetPath?: string;
+  /**
+   * @remarks
+   * The port over which you want to send the HTTP GET request to configure the postStart callback function.
+   * 
+   * @example
+   * 5050
+   */
+  lifecyclePostStartHandlerHttpGetPort?: number;
+  /**
+   * @remarks
+   * The protocol type of the HTTP GET request that you want to send to configure the postStart callback function. Valid values:
+   * 
+   * *   HTTP
+   * *   HTTPS
+   * 
+   * @example
+   * HTTPS
+   */
+  lifecyclePostStartHandlerHttpGetScheme?: string;
+  /**
+   * @remarks
+   * The IP address of the host detected by the TCP socket that you want to use to configure the postStart callback function.
+   * 
+   * @example
+   * 10.0.XX.XX
+   */
+  lifecyclePostStartHandlerTcpSocketHost?: string;
+  /**
+   * @remarks
+   * The port detected by the TCP socket that you want to use to configure the postStart callback function.
+   * 
+   * @example
+   * 80
+   */
+  lifecyclePostStartHandlerTcpSocketPort?: number;
+  /**
+   * @remarks
+   * The commands that you can run within the container to configure the preStop callback function.
+   */
+  lifecyclePreStopHandlerExecs?: string[];
+  /**
+   * @remarks
+   * The IP address of the host to which you want to send the HTTP GET request to configure the preStop callback function.
+   * 
+   * @example
+   * 10.0.XX.XX
+   */
+  lifecyclePreStopHandlerHttpGetHost?: string;
+  /**
+   * @remarks
+   * The path to which you want to send the HTTP GET request to configure the preStop callback function.
+   * 
+   * @example
+   * /healthyz
+   */
+  lifecyclePreStopHandlerHttpGetPath?: string;
+  /**
+   * @remarks
+   * The port over which you want to send the HTTP GET request to configure the preStop callback function.
+   * 
+   * @example
+   * 80
+   */
+  lifecyclePreStopHandlerHttpGetPort?: number;
+  /**
+   * @remarks
+   * The protocol type of the HTTP GET request that you want to send to configure the preStop callback function. Valid values:
+   * 
+   * *   HTTP
+   * *   HTTPS
+   * 
+   * @example
+   * HTTP
+   */
+  lifecyclePreStopHandlerHttpGetScheme?: string;
+  /**
+   * @remarks
+   * The IP address of the host detected by the TCP socket that you want to use to configure the preStop callback function.
+   * 
+   * @example
+   * 10.0.XX.XX
+   */
+  lifecyclePreStopHandlerTcpSocketHost?: string;
+  /**
+   * @remarks
+   * The port detected by the TCP socket that you want to use to configure the preStop callback function.
+   * 
+   * @example
+   * 80
+   */
+  lifecyclePreStopHandlerTcpSocketPort?: number;
+  /**
+   * @remarks
+   * The memory size per container. Unit: GiB.
+   * 
+   * @example
+   * 0.5
+   */
+  memory?: number;
+  /**
+   * @remarks
+   * The name of the container image.
+   * 
+   * @example
+   * nginx
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The ports.
+   */
+  ports?: ModifyEciScalingConfigurationRequestContainersPorts[];
+  /**
+   * @remarks
+   * Specifies whether the container allocates buffer resources to standard input streams during its active runtime. If you do not specify this parameter, an end-of-file (EOF) error occurs when standard input streams in the container are read.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  stdin?: boolean;
+  /**
+   * @remarks
+   * Specifies whether standard input streams remain connected during multiple sessions when StdinOnce is set to true.
+   * 
+   * If you set StdinOnce to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected and remain disconnected until the container is restarted.
+   * 
+   * @example
+   * false
+   */
+  stdinOnce?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable Interaction. Default value: false.
+   * 
+   * If the command is a /bin/bash command, set this parameter to true.
+   * 
+   * @example
+   * false
+   */
+  tty?: boolean;
+  /**
+   * @remarks
+   * The volume mounts of the container.
+   */
+  volumeMounts?: ModifyEciScalingConfigurationRequestContainersVolumeMounts[];
+  /**
+   * @remarks
+   * The working directory of the container.
+   * 
+   * @example
+   * /usr/local/
+   */
+  workingDir?: string;
+  static names(): { [key: string]: string } {
+    return {
+      livenessProbe: 'LivenessProbe',
+      readinessProbe: 'ReadinessProbe',
+      securityContext: 'SecurityContext',
+      args: 'Args',
+      commands: 'Commands',
+      cpu: 'Cpu',
+      environmentVars: 'EnvironmentVars',
+      gpu: 'Gpu',
+      image: 'Image',
+      imagePullPolicy: 'ImagePullPolicy',
+      lifecyclePostStartHandlerExecs: 'LifecyclePostStartHandlerExecs',
+      lifecyclePostStartHandlerHttpGetHost: 'LifecyclePostStartHandlerHttpGetHost',
+      lifecyclePostStartHandlerHttpGetPath: 'LifecyclePostStartHandlerHttpGetPath',
+      lifecyclePostStartHandlerHttpGetPort: 'LifecyclePostStartHandlerHttpGetPort',
+      lifecyclePostStartHandlerHttpGetScheme: 'LifecyclePostStartHandlerHttpGetScheme',
+      lifecyclePostStartHandlerTcpSocketHost: 'LifecyclePostStartHandlerTcpSocketHost',
+      lifecyclePostStartHandlerTcpSocketPort: 'LifecyclePostStartHandlerTcpSocketPort',
+      lifecyclePreStopHandlerExecs: 'LifecyclePreStopHandlerExecs',
+      lifecyclePreStopHandlerHttpGetHost: 'LifecyclePreStopHandlerHttpGetHost',
+      lifecyclePreStopHandlerHttpGetPath: 'LifecyclePreStopHandlerHttpGetPath',
+      lifecyclePreStopHandlerHttpGetPort: 'LifecyclePreStopHandlerHttpGetPort',
+      lifecyclePreStopHandlerHttpGetScheme: 'LifecyclePreStopHandlerHttpGetScheme',
+      lifecyclePreStopHandlerTcpSocketHost: 'LifecyclePreStopHandlerTcpSocketHost',
+      lifecyclePreStopHandlerTcpSocketPort: 'LifecyclePreStopHandlerTcpSocketPort',
+      memory: 'Memory',
+      name: 'Name',
+      ports: 'Ports',
+      stdin: 'Stdin',
+      stdinOnce: 'StdinOnce',
+      tty: 'Tty',
+      volumeMounts: 'VolumeMounts',
+      workingDir: 'WorkingDir',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      livenessProbe: ModifyEciScalingConfigurationRequestContainersLivenessProbe,
+      readinessProbe: ModifyEciScalingConfigurationRequestContainersReadinessProbe,
+      securityContext: ModifyEciScalingConfigurationRequestContainersSecurityContext,
+      args: { 'type': 'array', 'itemType': 'string' },
+      commands: { 'type': 'array', 'itemType': 'string' },
+      cpu: 'number',
+      environmentVars: { 'type': 'array', 'itemType': ModifyEciScalingConfigurationRequestContainersEnvironmentVars },
+      gpu: 'number',
+      image: 'string',
+      imagePullPolicy: 'string',
+      lifecyclePostStartHandlerExecs: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePostStartHandlerHttpGetHost: 'string',
+      lifecyclePostStartHandlerHttpGetPath: 'string',
+      lifecyclePostStartHandlerHttpGetPort: 'number',
+      lifecyclePostStartHandlerHttpGetScheme: 'string',
+      lifecyclePostStartHandlerTcpSocketHost: 'string',
+      lifecyclePostStartHandlerTcpSocketPort: 'number',
+      lifecyclePreStopHandlerExecs: { 'type': 'array', 'itemType': 'string' },
+      lifecyclePreStopHandlerHttpGetHost: 'string',
+      lifecyclePreStopHandlerHttpGetPath: 'string',
+      lifecyclePreStopHandlerHttpGetPort: 'number',
+      lifecyclePreStopHandlerHttpGetScheme: 'string',
+      lifecyclePreStopHandlerTcpSocketHost: 'string',
+      lifecyclePreStopHandlerTcpSocketPort: 'number',
+      memory: 'number',
+      name: 'string',
+      ports: { 'type': 'array', 'itemType': ModifyEciScalingConfigurationRequestContainersPorts },
+      stdin: 'boolean',
+      stdinOnce: 'boolean',
+      tty: 'boolean',
+      volumeMounts: { 'type': 'array', 'itemType': ModifyEciScalingConfigurationRequestContainersVolumeMounts },
+      workingDir: 'string',
+    };
+  }
+
+  validate() {
+    if(this.livenessProbe && typeof (this.livenessProbe as any).validate === 'function') {
+      (this.livenessProbe as any).validate();
+    }
+    if(this.readinessProbe && typeof (this.readinessProbe as any).validate === 'function') {
+      (this.readinessProbe as any).validate();
+    }
+    if(this.securityContext && typeof (this.securityContext as any).validate === 'function') {
+      (this.securityContext as any).validate();
+    }
+    if(Array.isArray(this.args)) {
+      $dara.Model.validateArray(this.args);
+    }
+    if(Array.isArray(this.commands)) {
+      $dara.Model.validateArray(this.commands);
+    }
+    if(Array.isArray(this.environmentVars)) {
+      $dara.Model.validateArray(this.environmentVars);
+    }
+    if(Array.isArray(this.lifecyclePostStartHandlerExecs)) {
+      $dara.Model.validateArray(this.lifecyclePostStartHandlerExecs);
+    }
+    if(Array.isArray(this.lifecyclePreStopHandlerExecs)) {
+      $dara.Model.validateArray(this.lifecyclePreStopHandlerExecs);
+    }
+    if(Array.isArray(this.ports)) {
+      $dara.Model.validateArray(this.ports);
+    }
+    if(Array.isArray(this.volumeMounts)) {
+      $dara.Model.validateArray(this.volumeMounts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestDnsConfigOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The variable name of the option.
+   * 
+   * @example
+   * name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The variable value of the option.
+   * 
+   * @example
+   * value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestHostAliases extends $dara.Model {
+  /**
+   * @remarks
+   * The names of the hosts that you want to add.
+   */
+  hostnames?: string[];
+  /**
+   * @remarks
+   * The IP address that you want to add.
+   * 
+   * @example
+   * 192.0.XX.XX
+   */
+  ip?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostnames: 'Hostnames',
+      ip: 'Ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostnames: { 'type': 'array', 'itemType': 'string' },
+      ip: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hostnames)) {
+      $dara.Model.validateArray(this.hostnames);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestImageRegistryCredentials extends $dara.Model {
+  /**
+   * @remarks
+   * The password of the image repository.
+   * 
+   * @example
+   * yourpaasword
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The address of the image repository.
+   * 
+   * @example
+   * registry-vpc.cn-shanghai.aliyuncs.com
+   */
+  server?: string;
+  /**
+   * @remarks
+   * The username of the image repository.
+   * 
+   * @example
+   * yourusername
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      password: 'Password',
+      server: 'Server',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      password: 'string',
+      server: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestInitContainersSecurityContextCapability extends $dara.Model {
+  adds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      adds: 'Adds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.adds)) {
+      $dara.Model.validateArray(this.adds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestInitContainersSecurityContext extends $dara.Model {
+  capability?: ModifyEciScalingConfigurationRequestInitContainersSecurityContextCapability;
+  readOnlyRootFilesystem?: boolean;
+  runAsUser?: number;
+  static names(): { [key: string]: string } {
+    return {
+      capability: 'Capability',
+      readOnlyRootFilesystem: 'ReadOnlyRootFilesystem',
+      runAsUser: 'RunAsUser',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capability: ModifyEciScalingConfigurationRequestInitContainersSecurityContextCapability,
+      readOnlyRootFilesystem: 'boolean',
+      runAsUser: 'number',
+    };
+  }
+
+  validate() {
+    if(this.capability && typeof (this.capability as any).validate === 'function') {
+      (this.capability as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestInitContainersInitContainerEnvironmentVarsFieldRef extends $dara.Model {
+  fieldPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldPath: 'FieldPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestInitContainersInitContainerEnvironmentVars extends $dara.Model {
+  fieldRef?: ModifyEciScalingConfigurationRequestInitContainersInitContainerEnvironmentVarsFieldRef;
+  /**
+   * @remarks
+   * The name of the environment variable. The name can be 1 to 128 characters in length, and can contain letters, underscores (_), and digits. The name cannot start with a digit. Specify the value in the `[0-9a-zA-Z]` format.
+   * 
+   * @example
+   * Path
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the environment variable. The value can be up to 256 characters in length.
+   * 
+   * @example
+   * /usr/bin/
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldRef: 'FieldRef',
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldRef: ModifyEciScalingConfigurationRequestInitContainersInitContainerEnvironmentVarsFieldRef,
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    if(this.fieldRef && typeof (this.fieldRef as any).validate === 'function') {
+      (this.fieldRef as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestInitContainersInitContainerPorts extends $dara.Model {
+  /**
+   * @remarks
+   * The port number. Valid values: 1 to 65535.
+   * 
+   * @example
+   * 1
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The protocol type. Valid values:
+   * 
+   * *   TCP
+   * *   UDP
+   * 
+   * @example
+   * TCP
+   */
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestInitContainersInitContainerVolumeMounts extends $dara.Model {
+  /**
+   * @remarks
+   * The directory within the init container onto which you want to mount the volume.
+   * 
+   * >  The information stored within this directory is overwritten by the data on the mounted volume. Exercise caution when you specify this parameter.
+   * 
+   * @example
+   * /usr/share/
+   */
+  mountPath?: string;
+  /**
+   * @remarks
+   * The mount propagation settings of the volume. Mount propagation enables volumes mounted on one container to be shared among other containers within the same pod or across distinct pods residing on the same node. Valid values:
+   * 
+   * *   None: Subsequent mounts executed on the volume or its subdirectories do not propagate to the volume.
+   * *   HostToCotainer: Subsequent mounts executed on the volume or its subdirectories propagate to the volume.
+   * *   Bidirectional: This value is similar to HostToCotainer. Subsequent mounts executed on the volume or its subdirectories propagate to the volume. In addition, volume mounts executed on the container propagate back to the underlying instance and to all containers across every pod that uses the same volume.
+   * 
+   * Default value: None.
+   * 
+   * @example
+   * None
+   */
+  mountPropagation?: string;
+  /**
+   * @remarks
+   * The name of the volume.
+   * 
+   * @example
+   * test-empty
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Specifies whether the mount path is read-only.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  readOnly?: boolean;
+  /**
+   * @remarks
+   * The volume subdirectory. The pod can mount different directories of the same volume to different subdirectories of init containers.
+   * 
+   * @example
+   * Always
+   */
+  subPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      mountPropagation: 'MountPropagation',
+      name: 'Name',
+      readOnly: 'ReadOnly',
+      subPath: 'SubPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      mountPropagation: 'string',
+      name: 'string',
+      readOnly: 'boolean',
+      subPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestInitContainers extends $dara.Model {
+  securityContext?: ModifyEciScalingConfigurationRequestInitContainersSecurityContext;
+  /**
+   * @remarks
+   * The container startup arguments.
+   */
+  args?: string[];
+  /**
+   * @remarks
+   * The commands that you can run to start the init container.
+   */
+  commands?: string[];
+  /**
+   * @remarks
+   * The number of vCPUs per init container.
+   * 
+   * @example
+   * 0.5
+   */
+  cpu?: number;
+  /**
+   * @remarks
+   * The number of GPUs per init container.
+   * 
+   * @example
+   * 1
+   */
+  gpu?: number;
+  /**
+   * @remarks
+   * The image of the init container.
+   * 
+   * @example
+   * nginx
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The image pulling policy. Valid values:
+   * 
+   * *   Always: Image pulling is performed each time instances are created.
+   * *   IfNotPresent: Image pulling is performed as needed. On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
+   * *   Never: On-premises images are always used. Image pulling is not performed.
+   * 
+   * @example
+   * Always
+   */
+  imagePullPolicy?: string;
+  /**
+   * @remarks
+   * The environment variables of the init container.
+   */
+  initContainerEnvironmentVars?: ModifyEciScalingConfigurationRequestInitContainersInitContainerEnvironmentVars[];
+  /**
+   * @remarks
+   * The ports of the init container.
+   */
+  initContainerPorts?: ModifyEciScalingConfigurationRequestInitContainersInitContainerPorts[];
+  /**
+   * @remarks
+   * The volume mounts of the init container.
+   */
+  initContainerVolumeMounts?: ModifyEciScalingConfigurationRequestInitContainersInitContainerVolumeMounts[];
+  /**
+   * @remarks
+   * The memory size per init container. Unit: GiB.
+   * 
+   * @example
+   * 1.0
+   */
+  memory?: number;
+  /**
+   * @remarks
+   * The name of the init container.
+   * 
+   * @example
+   * test-init
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The working directory.
+   * 
+   * @example
+   * /usr/local
+   */
+  workingDir?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityContext: 'SecurityContext',
+      args: 'Args',
+      commands: 'Commands',
+      cpu: 'Cpu',
+      gpu: 'Gpu',
+      image: 'Image',
+      imagePullPolicy: 'ImagePullPolicy',
+      initContainerEnvironmentVars: 'InitContainerEnvironmentVars',
+      initContainerPorts: 'InitContainerPorts',
+      initContainerVolumeMounts: 'InitContainerVolumeMounts',
+      memory: 'Memory',
+      name: 'Name',
+      workingDir: 'WorkingDir',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityContext: ModifyEciScalingConfigurationRequestInitContainersSecurityContext,
+      args: { 'type': 'array', 'itemType': 'string' },
+      commands: { 'type': 'array', 'itemType': 'string' },
+      cpu: 'number',
+      gpu: 'number',
+      image: 'string',
+      imagePullPolicy: 'string',
+      initContainerEnvironmentVars: { 'type': 'array', 'itemType': ModifyEciScalingConfigurationRequestInitContainersInitContainerEnvironmentVars },
+      initContainerPorts: { 'type': 'array', 'itemType': ModifyEciScalingConfigurationRequestInitContainersInitContainerPorts },
+      initContainerVolumeMounts: { 'type': 'array', 'itemType': ModifyEciScalingConfigurationRequestInitContainersInitContainerVolumeMounts },
+      memory: 'number',
+      name: 'string',
+      workingDir: 'string',
+    };
+  }
+
+  validate() {
+    if(this.securityContext && typeof (this.securityContext as any).validate === 'function') {
+      (this.securityContext as any).validate();
+    }
+    if(Array.isArray(this.args)) {
+      $dara.Model.validateArray(this.args);
+    }
+    if(Array.isArray(this.commands)) {
+      $dara.Model.validateArray(this.commands);
+    }
+    if(Array.isArray(this.initContainerEnvironmentVars)) {
+      $dara.Model.validateArray(this.initContainerEnvironmentVars);
+    }
+    if(Array.isArray(this.initContainerPorts)) {
+      $dara.Model.validateArray(this.initContainerPorts);
+    }
+    if(Array.isArray(this.initContainerVolumeMounts)) {
+      $dara.Model.validateArray(this.initContainerVolumeMounts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestSecurityContextSysCtls extends $dara.Model {
+  /**
+   * @remarks
+   * The variable name of the security context in which the elastic container instance runs.
+   * 
+   * @example
+   * kernel.msgmax
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The variable value of the security context in which the elastic container instance runs.
+   * 
+   * @example
+   * 65536
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * version
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * 3
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestVolumesDiskVolume extends $dara.Model {
+  diskId?: string;
+  diskSize?: number;
+  fsType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskId: 'DiskId',
+      diskSize: 'DiskSize',
+      fsType: 'FsType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+      diskSize: 'number',
+      fsType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestVolumesEmptyDirVolume extends $dara.Model {
+  medium?: string;
+  sizeLimit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      medium: 'Medium',
+      sizeLimit: 'SizeLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      medium: 'string',
+      sizeLimit: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestVolumesFlexVolume extends $dara.Model {
+  driver?: string;
+  fsType?: string;
+  options?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driver: 'Driver',
+      fsType: 'FsType',
+      options: 'Options',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driver: 'string',
+      fsType: 'string',
+      options: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestVolumesHostPathVolume extends $dara.Model {
+  path?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestVolumesNFSVolume extends $dara.Model {
+  path?: string;
+  readOnly?: boolean;
+  server?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      readOnly: 'ReadOnly',
+      server: 'Server',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      readOnly: 'boolean',
+      server: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestVolumesConfigFileVolumeConfigFileToPath extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the configuration file (32 KB).
+   * 
+   * @example
+   * bGl1bWk=
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The permissions on the ConfigFile volume.
+   * 
+   * @example
+   * 0644
+   */
+  mode?: number;
+  /**
+   * @remarks
+   * The relative path to the configuration file.
+   * 
+   * @example
+   * /usr/bin/
+   */
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      mode: 'Mode',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      mode: 'number',
+      path: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEciScalingConfigurationRequestVolumes extends $dara.Model {
+  diskVolume?: ModifyEciScalingConfigurationRequestVolumesDiskVolume;
+  emptyDirVolume?: ModifyEciScalingConfigurationRequestVolumesEmptyDirVolume;
+  flexVolume?: ModifyEciScalingConfigurationRequestVolumesFlexVolume;
+  hostPathVolume?: ModifyEciScalingConfigurationRequestVolumesHostPathVolume;
+  NFSVolume?: ModifyEciScalingConfigurationRequestVolumesNFSVolume;
+  /**
+   * @remarks
+   * The paths to the configuration files.
+   */
+  configFileVolumeConfigFileToPath?: ModifyEciScalingConfigurationRequestVolumesConfigFileVolumeConfigFileToPath[];
+  /**
+   * @remarks
+   * The default permissions on the ConfigFile volume.
+   * 
+   * @example
+   * 0644
+   */
+  configFileVolumeDefaultMode?: number;
+  /**
+   * @remarks
+   * The volume name.
+   * 
+   * @example
+   * default-volume1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The type of the Host directory. Examples: File, Directory, and Socket.
+   * 
+   * @example
+   * EmptyDirVolume
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskVolume: 'DiskVolume',
+      emptyDirVolume: 'EmptyDirVolume',
+      flexVolume: 'FlexVolume',
+      hostPathVolume: 'HostPathVolume',
+      NFSVolume: 'NFSVolume',
+      configFileVolumeConfigFileToPath: 'ConfigFileVolumeConfigFileToPath',
+      configFileVolumeDefaultMode: 'ConfigFileVolumeDefaultMode',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskVolume: ModifyEciScalingConfigurationRequestVolumesDiskVolume,
+      emptyDirVolume: ModifyEciScalingConfigurationRequestVolumesEmptyDirVolume,
+      flexVolume: ModifyEciScalingConfigurationRequestVolumesFlexVolume,
+      hostPathVolume: ModifyEciScalingConfigurationRequestVolumesHostPathVolume,
+      NFSVolume: ModifyEciScalingConfigurationRequestVolumesNFSVolume,
+      configFileVolumeConfigFileToPath: { 'type': 'array', 'itemType': ModifyEciScalingConfigurationRequestVolumesConfigFileVolumeConfigFileToPath },
+      configFileVolumeDefaultMode: 'number',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.diskVolume && typeof (this.diskVolume as any).validate === 'function') {
+      (this.diskVolume as any).validate();
+    }
+    if(this.emptyDirVolume && typeof (this.emptyDirVolume as any).validate === 'function') {
+      (this.emptyDirVolume as any).validate();
+    }
+    if(this.flexVolume && typeof (this.flexVolume as any).validate === 'function') {
+      (this.flexVolume as any).validate();
+    }
+    if(this.hostPathVolume && typeof (this.hostPathVolume as any).validate === 'function') {
+      (this.hostPathVolume as any).validate();
+    }
+    if(this.NFSVolume && typeof (this.NFSVolume as any).validate === 'function') {
+      (this.NFSVolume as any).validate();
+    }
+    if(Array.isArray(this.configFileVolumeConfigFileToPath)) {
+      $dara.Model.validateArray(this.configFileVolumeConfigFileToPath);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifyEciScalingConfigurationRequest extends $dara.Model {
   /**
@@ -48,7 +1842,7 @@ export class ModifyEciScalingConfigurationRequest extends $dara.Model {
    * The name series of elastic container instances. Naming conventions:
    * 
    * *   The name must be 2 to 128 characters in length.
-   * *   The name can contain only lowercase letters, digits, and hyphens (-). The name cannot start or end with a hyphen (-).
+   * *   The name can contain only lowercase letters, digits, and hyphens (-). It cannot start or end with a hyphen (-).
    * 
    * @example
    * nginx-test
@@ -161,7 +1955,7 @@ export class ModifyEciScalingConfigurationRequest extends $dara.Model {
   dataCacheProvisionedIops?: number;
   /**
    * @remarks
-   * >  This parameter is unavailable.
+   * >  This parameter is unavailable for use.
    * 
    * @example
    * desc

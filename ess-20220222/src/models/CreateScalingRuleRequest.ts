@@ -1,10 +1,239 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateScalingRuleRequestAlarmDimensions } from "./CreateScalingRuleRequestAlarmDimensions";
-import { CreateScalingRuleRequestAlarmOptions } from "./CreateScalingRuleRequestAlarmOptions";
-import { CreateScalingRuleRequestHybridMetrics } from "./CreateScalingRuleRequestHybridMetrics";
-import { CreateScalingRuleRequestStepAdjustments } from "./CreateScalingRuleRequestStepAdjustments";
 
+
+export class CreateScalingRuleRequestAlarmDimensions extends $dara.Model {
+  /**
+   * @remarks
+   * The dimension key of the metric.
+   * 
+   * @example
+   * rulePool
+   */
+  dimensionKey?: string;
+  /**
+   * @remarks
+   * The dimension value of the metric.
+   * 
+   * @example
+   * sgp-l1cbirz451yxuxxx
+   */
+  dimensionValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dimensionKey: 'DimensionKey',
+      dimensionValue: 'DimensionValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimensionKey: 'string',
+      dimensionValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScalingRuleRequestAlarmOptions extends $dara.Model {
+  /**
+   * @example
+   * 60
+   */
+  period?: number;
+  static names(): { [key: string]: string } {
+    return {
+      period: 'Period',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      period: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScalingRuleRequestHybridMetricsDimensions extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the metric dimension.
+   * 
+   * @example
+   * queue
+   */
+  dimensionKey?: string;
+  /**
+   * @remarks
+   * The value of the metric dimension.
+   * 
+   * @example
+   * testQueue
+   */
+  dimensionValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dimensionKey: 'DimensionKey',
+      dimensionValue: 'DimensionValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimensionKey: 'string',
+      dimensionValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScalingRuleRequestHybridMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The metric dimensions. You can use this parameter to specify the monitored resources.
+   */
+  dimensions?: CreateScalingRuleRequestHybridMetricsDimensions[];
+  /**
+   * @remarks
+   * The metric expression that consists of multiple Hybrid Cloud Monitoring metrics. It calculates a result used to trigger scaling events.
+   * 
+   * The expression must be written in Reverse Polish Notation (RPN) format and supports only the following operators: `+, -, *, /`.
+   * 
+   * @example
+   * (a+b)/2
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The reference ID of the metric in the metric expression.
+   * 
+   * @example
+   * a
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The name of the Hybrid Cloud Monitoring metric.
+   * 
+   * @example
+   * AliyunSmq_NumberOfMessagesVisible
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * The statistical method of the metric value. Valid values:
+   * 
+   * *   Average: calculates the average value of all metric values within a specified interval.
+   * *   Minimum: calculates the minimum value of all metric values within a specified interval.
+   * *   Maximum: calculates the maximum value of all metric values within a specified interval.
+   * 
+   * @example
+   * Average
+   */
+  statistic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dimensions: 'Dimensions',
+      expression: 'Expression',
+      id: 'Id',
+      metricName: 'MetricName',
+      statistic: 'Statistic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimensions: { 'type': 'array', 'itemType': CreateScalingRuleRequestHybridMetricsDimensions },
+      expression: 'string',
+      id: 'string',
+      metricName: 'string',
+      statistic: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dimensions)) {
+      $dara.Model.validateArray(this.dimensions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScalingRuleRequestStepAdjustments extends $dara.Model {
+  /**
+   * @remarks
+   * The lower limit specified in a step adjustment. This parameter is available only if you set the ScalingRuleType parameter to StepScalingRule. Valid values: -9.999999E18 to 9.999999E18.
+   * 
+   * @example
+   * 1.0
+   */
+  metricIntervalLowerBound?: number;
+  /**
+   * @remarks
+   * The upper limit that is specified in a step adjustment. Valid values: -9.999999E18 to 9.999999E18.
+   * 
+   * @example
+   * 5.0
+   */
+  metricIntervalUpperBound?: number;
+  /**
+   * @remarks
+   * The number of ECS instances that you want to scale in a step adjustment. This parameter is available only if you set the ScalingRuleType parameter to StepScalingRule.
+   * 
+   * @example
+   * 1
+   */
+  scalingAdjustment?: number;
+  static names(): { [key: string]: string } {
+    return {
+      metricIntervalLowerBound: 'MetricIntervalLowerBound',
+      metricIntervalUpperBound: 'MetricIntervalUpperBound',
+      scalingAdjustment: 'ScalingAdjustment',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricIntervalLowerBound: 'number',
+      metricIntervalUpperBound: 'number',
+      scalingAdjustment: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateScalingRuleRequest extends $dara.Model {
   /**

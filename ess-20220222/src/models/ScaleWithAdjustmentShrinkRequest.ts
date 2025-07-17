@@ -47,6 +47,7 @@ export class ScaleWithAdjustmentShrinkRequest extends $dara.Model {
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
+  executionMode?: string;
   /**
    * @remarks
    * The context of the lifecycle hook.
@@ -99,6 +100,7 @@ export class ScaleWithAdjustmentShrinkRequest extends $dara.Model {
       adjustmentType: 'AdjustmentType',
       adjustmentValue: 'AdjustmentValue',
       clientToken: 'ClientToken',
+      executionMode: 'ExecutionMode',
       lifecycleHookContextShrink: 'LifecycleHookContext',
       minAdjustmentMagnitude: 'MinAdjustmentMagnitude',
       overridesShrink: 'Overrides',
@@ -116,6 +118,7 @@ export class ScaleWithAdjustmentShrinkRequest extends $dara.Model {
       adjustmentType: 'string',
       adjustmentValue: 'number',
       clientToken: 'string',
+      executionMode: 'string',
       lifecycleHookContextShrink: 'string',
       minAdjustmentMagnitude: 'number',
       overridesShrink: 'string',

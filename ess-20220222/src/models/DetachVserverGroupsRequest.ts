@@ -1,7 +1,88 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DetachVServerGroupsRequestVServerGroups } from "./DetachVserverGroupsRequestVserverGroups";
 
+
+export class DetachVServerGroupsRequestVServerGroupsVServerGroupAttributes extends $dara.Model {
+  /**
+   * @remarks
+   * The port number that Auto Scaling employs to incorporate instances into the vServer group. Valid values: 1 to 65535.
+   * 
+   * @example
+   * 22
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The ID of the backend vServer group.
+   * 
+   * @example
+   * rsp-bp1jp1rge****
+   */
+  VServerGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      VServerGroupId: 'VServerGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      VServerGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachVServerGroupsRequestVServerGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the load balancer to which the vServer group belongs.
+   * 
+   * >  You can detach vServer groups of up to five load balancers from a scaling group in one call.
+   * 
+   * @example
+   * lb-bp1p90y3ya9h8s62d****
+   */
+  loadBalancerId?: string;
+  /**
+   * @remarks
+   * The attributes of the backend vServer group.
+   */
+  VServerGroupAttributes?: DetachVServerGroupsRequestVServerGroupsVServerGroupAttributes[];
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      VServerGroupAttributes: 'VServerGroupAttributes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      VServerGroupAttributes: { 'type': 'array', 'itemType': DetachVServerGroupsRequestVServerGroupsVServerGroupAttributes },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.VServerGroupAttributes)) {
+      $dara.Model.validateArray(this.VServerGroupAttributes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DetachVServerGroupsRequest extends $dara.Model {
   /**

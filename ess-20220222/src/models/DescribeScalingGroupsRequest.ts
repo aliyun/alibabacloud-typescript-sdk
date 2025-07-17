@@ -1,7 +1,46 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeScalingGroupsRequestTags } from "./DescribeScalingGroupsRequestTags";
 
+
+export class DescribeScalingGroupsRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the scaling group.
+   * 
+   * @example
+   * Department
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the scaling group.
+   * 
+   * @example
+   * Finance
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeScalingGroupsRequest extends $dara.Model {
   /**
@@ -19,9 +58,9 @@ export class DescribeScalingGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Minimum value: 1.
+   * The page number. Pages start from page 1.
    * 
-   * Default value: 1
+   * Default value: 1.
    * 
    * @example
    * 1

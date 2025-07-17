@@ -34,9 +34,9 @@ export class DescribeAlarmsRequest extends $dara.Model {
    * @remarks
    * The metric type. Valid values:
    * 
-   * *   system: system metrics of CloudMonitor
-   * *   custom: custom metrics that are reported to CloudMonitor.
-   * *   hybrid: metrics of Hybrid Cloud Monitoring.
+   * *   system: a system metric of CloudMonitor
+   * *   custom: a custom metric that is reported to CloudMonitor.
+   * *   hybrid: a metric of Hybrid Cloud Monitoring.
    * 
    * @example
    * true
@@ -55,7 +55,7 @@ export class DescribeAlarmsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 50.
+   * The number of entries per page. Valid values: 1 to 50.
    * 
    * Default value: 10.
    * 

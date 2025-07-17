@@ -1,7 +1,98 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AttachVServerGroupsRequestVServerGroups } from "./AttachVserverGroupsRequestVserverGroups";
 
+
+export class AttachVServerGroupsRequestVServerGroupsVServerGroupAttributes extends $dara.Model {
+  /**
+   * @remarks
+   * The port number over which Auto Scaling adds ECS instances or elastic container instances to the new vServer group. Valid values: 1 to 65535.
+   * 
+   * @example
+   * 22
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The ID of the vServer group.
+   * 
+   * @example
+   * lb-bp1u7etiogg38yvwz****
+   */
+  VServerGroupId?: string;
+  /**
+   * @remarks
+   * The weight of an ECS instance or elastic container instance as a backend server. Valid values: 0 to 100.
+   * 
+   * Default value: 50.
+   * 
+   * @example
+   * 100
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'Port',
+      VServerGroupId: 'VServerGroupId',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      VServerGroupId: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachVServerGroupsRequestVServerGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the CLB instance to which the new vServer group belongs.
+   * 
+   * @example
+   * rsp-bp1jp1rge****
+   */
+  loadBalancerId?: string;
+  /**
+   * @remarks
+   * The attributes of the vServer group.
+   */
+  VServerGroupAttributes?: AttachVServerGroupsRequestVServerGroupsVServerGroupAttributes[];
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      VServerGroupAttributes: 'VServerGroupAttributes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      VServerGroupAttributes: { 'type': 'array', 'itemType': AttachVServerGroupsRequestVServerGroupsVServerGroupAttributes },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.VServerGroupAttributes)) {
+      $dara.Model.validateArray(this.VServerGroupAttributes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AttachVServerGroupsRequest extends $dara.Model {
   /**

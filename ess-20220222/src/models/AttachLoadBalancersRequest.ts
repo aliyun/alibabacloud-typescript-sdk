@@ -1,7 +1,48 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AttachLoadBalancersRequestLoadBalancerConfigs } from "./AttachLoadBalancersRequestLoadBalancerConfigs";
 
+
+export class AttachLoadBalancersRequestLoadBalancerConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the CLB instance.
+   * 
+   * @example
+   * 147b46d767c-cn-qingdao-cm5****
+   */
+  loadBalancerId?: string;
+  /**
+   * @remarks
+   * The weight of an Elastic Compute Service (ECS) instance or elastic container instance as a backend sever of the CLB instance. If an instance has a higher weight, more access traffic is routed to the instance. If an instance has zero weight, no access traffic is routed to the instance.
+   * 
+   * Valid values: 0 to 100.
+   * 
+   * @example
+   * 10
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AttachLoadBalancersRequest extends $dara.Model {
   /**
@@ -35,7 +76,7 @@ export class AttachLoadBalancersRequest extends $dara.Model {
    * 
    *     **
    * 
-   *     **Note** If a load balancer is currently attached to your scaling group, and you want to add the instances in your scaling group to the backend server groups of the load balancer, you can call this operation again and set ForceAttach request to true.
+   *     **Note** If a load balancer is currently attached to your scaling group, and you only want to add the instances in your scaling group to the backend server groups of the load balancer, you can call this operation again and set ForceAttach request to true.
    * 
    * *   false: If you set this parameter to false, the attachment of the load balancer does not entail the addition of the existing instances in the scaling group to the backend server groups of the load balancer.
    * 
