@@ -10,6 +10,7 @@ export { GetDatasourceTableResponseBodyFields } from './GetDatasourceTableRespon
 export { GetFeatureViewResponseBodyFieldsTransformInput } from './GetFeatureViewResponseBody';
 export { GetFeatureViewResponseBodyFieldsTransform } from './GetFeatureViewResponseBody';
 export { GetFeatureViewResponseBodyFields } from './GetFeatureViewResponseBody';
+export { GetInstanceResponseBodyFeatureDBInfo } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyFeatureDBInstanceInfo } from './GetInstanceResponseBody';
 export { GetLabelTableResponseBodyFields } from './GetLabelTableResponseBody';
 export { GetModelFeatureResponseBodyFeatures } from './GetModelFeatureResponseBody';
@@ -32,6 +33,7 @@ export { ListFeatureViewFieldRelationshipsResponseBodyRelationships } from './Li
 export { ListFeatureViewRelationshipsResponseBodyRelationshipsModels } from './ListFeatureViewRelationshipsResponseBody';
 export { ListFeatureViewRelationshipsResponseBodyRelationships } from './ListFeatureViewRelationshipsResponseBody';
 export { ListFeatureViewsResponseBodyFeatureViews } from './ListFeatureViewsResponseBody';
+export { ListInstancesResponseBodyInstancesFeatureDBInfo } from './ListInstancesResponseBody';
 export { ListInstancesResponseBodyInstancesFeatureDBInstanceInfo } from './ListInstancesResponseBody';
 export { ListInstancesResponseBodyInstances } from './ListInstancesResponseBody';
 export { ListLLMConfigsResponseBodyLLMConfigs } from './ListLlmconfigsResponseBody';

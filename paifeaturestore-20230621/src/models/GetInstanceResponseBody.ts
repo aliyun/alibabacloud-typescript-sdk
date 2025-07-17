@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetInstanceResponseBodyFeatureDBInfo extends $dara.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBodyFeatureDBInstanceInfo extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
@@ -26,6 +49,10 @@ export class GetInstanceResponseBodyFeatureDBInstanceInfo extends $dara.Model {
 }
 
 export class GetInstanceResponseBody extends $dara.Model {
+  featureDBInfo?: GetInstanceResponseBodyFeatureDBInfo;
+  /**
+   * @deprecated
+   */
   featureDBInstanceInfo?: GetInstanceResponseBodyFeatureDBInstanceInfo;
   /**
    * @example
@@ -69,6 +96,7 @@ export class GetInstanceResponseBody extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      featureDBInfo: 'FeatureDBInfo',
       featureDBInstanceInfo: 'FeatureDBInstanceInfo',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
@@ -83,6 +111,7 @@ export class GetInstanceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      featureDBInfo: GetInstanceResponseBodyFeatureDBInfo,
       featureDBInstanceInfo: GetInstanceResponseBodyFeatureDBInstanceInfo,
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
@@ -96,6 +125,9 @@ export class GetInstanceResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.featureDBInfo && typeof (this.featureDBInfo as any).validate === 'function') {
+      (this.featureDBInfo as any).validate();
+    }
     if(this.featureDBInstanceInfo && typeof (this.featureDBInstanceInfo as any).validate === 'function') {
       (this.featureDBInstanceInfo as any).validate();
     }

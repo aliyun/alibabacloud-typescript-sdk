@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListInstancesResponseBodyInstancesFeatureDBInfo extends $dara.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancesResponseBodyInstancesFeatureDBInstanceInfo extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
@@ -26,6 +49,10 @@ export class ListInstancesResponseBodyInstancesFeatureDBInstanceInfo extends $da
 }
 
 export class ListInstancesResponseBodyInstances extends $dara.Model {
+  featureDBInfo?: ListInstancesResponseBodyInstancesFeatureDBInfo;
+  /**
+   * @deprecated
+   */
   featureDBInstanceInfo?: ListInstancesResponseBodyInstancesFeatureDBInstanceInfo;
   /**
    * @example
@@ -59,6 +86,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      featureDBInfo: 'FeatureDBInfo',
       featureDBInstanceInfo: 'FeatureDBInstanceInfo',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
@@ -71,6 +99,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      featureDBInfo: ListInstancesResponseBodyInstancesFeatureDBInfo,
       featureDBInstanceInfo: ListInstancesResponseBodyInstancesFeatureDBInstanceInfo,
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
@@ -82,6 +111,9 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   }
 
   validate() {
+    if(this.featureDBInfo && typeof (this.featureDBInfo as any).validate === 'function') {
+      (this.featureDBInfo as any).validate();
+    }
     if(this.featureDBInstanceInfo && typeof (this.featureDBInstanceInfo as any).validate === 'function') {
       (this.featureDBInstanceInfo as any).validate();
     }
