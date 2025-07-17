@@ -25,9 +25,7 @@ export class UpdateDIJobShrinkRequest extends $dara.Model {
   jobSettingsShrink?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
-   * 
-   * You must configure this parameter to specify the DataWorks workspace to which the operation is applied.
+   * The DataWorks workspace ID. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to obtain the ID.
    * 
    * @example
    * 10000

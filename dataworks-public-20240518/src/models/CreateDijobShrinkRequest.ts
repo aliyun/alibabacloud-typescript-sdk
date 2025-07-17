@@ -32,11 +32,11 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   jobSettingsShrink?: string;
   /**
    * @remarks
-   * The type of the task. This parameter is optional. Valid values:
+   * The type of the synchronization task. Valid values:
    * 
-   * *   DatabaseRealtimeMigration: A real-time synchronization task used to synchronize only full data, only incremental data, or full and incremental data in multiple tables of multiple databases at the source.
-   * *   DatabaseOfflineMigration: A batch synchronization task used to synchronize only full data, only incremental data, or full and incremental data in multiple tables of multiple databases at the source.
-   * *   SingleTableRealtimeMigration: A real-time synchronization task used to synchronize only data in single table at the source.
+   * *   DatabaseRealtimeMigration: A real-time synchronization task used to synchronize only full data, only incremental data, or full and incremental data in multiple tables of multiple databases in the source.
+   * *   DatabaseOfflineMigration: A batch synchronization task used to synchronize only full data, only incremental data, or full and incremental data in multiple tables of multiple databases in the source.
+   * *   SingleTableRealtimeMigration: A real-time synchronization task used to synchronize data only in a single table in the source.
    * 
    * @example
    * DatabaseRealtimeMigration
@@ -46,11 +46,11 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
    * @remarks
    * The synchronization type. Valid values:
    * 
-   * *   FullAndRealtimeIncremental: full synchronization and real-time incremental synchronization of data in an entire database
-   * *   RealtimeIncremental: real-time incremental synchronization of data in a single table
-   * *   Full: full batch synchronization of data in an entire database
-   * *   OfflineIncremental: batch incremental synchronization of data in an entire database
-   * *   FullAndOfflineIncremental: full synchronization and batch incremental synchronization of data in an entire database
+   * *   FullAndRealtimeIncremental
+   * *   RealtimeIncremental
+   * *   Full
+   * *   OfflineIncremental
+   * *   FullAndOfflineIncremental
    * 
    * This parameter is required.
    * 
@@ -68,7 +68,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID.
    * 
    * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
    * 

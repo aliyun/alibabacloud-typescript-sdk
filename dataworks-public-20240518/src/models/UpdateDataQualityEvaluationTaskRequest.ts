@@ -1,11 +1,857 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateDataQualityEvaluationTaskRequestDataQualityRules } from "./UpdateDataQualityEvaluationTaskRequestDataQualityRules";
-import { UpdateDataQualityEvaluationTaskRequestHooks } from "./UpdateDataQualityEvaluationTaskRequestHooks";
-import { UpdateDataQualityEvaluationTaskRequestNotifications } from "./UpdateDataQualityEvaluationTaskRequestNotifications";
-import { UpdateDataQualityEvaluationTaskRequestTarget } from "./UpdateDataQualityEvaluationTaskRequestTarget";
-import { UpdateDataQualityEvaluationTaskRequestTrigger } from "./UpdateDataQualityEvaluationTaskRequestTrigger";
 
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical extends $dara.Model {
+  /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Examples:
+   * 
+   * *   $checkValue > 0.01
+   * *   $checkValue < -0.01
+   * *   abs($checkValue) > 0.01
+   * 
+   * If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * The threshold value.
+   * 
+   * @example
+   * 0.01
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected extends $dara.Model {
+  /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Examples:
+   * 
+   * *   $checkValue > 0.01
+   * *   $checkValue < -0.01
+   * *   abs($checkValue) > 0.01
+   * 
+   * If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
+   * @example
+   * =
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * The threshold value.
+   * 
+   * @example
+   * 0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned extends $dara.Model {
+  /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Examples:
+   * 
+   * *   $checkValue > 0.01
+   * *   $checkValue < -0.01
+   * *   abs($checkValue) > 0.01
+   * 
+   * If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * The threshold value.
+   * 
+   * @example
+   * 0.001
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholds extends $dara.Model {
+  /**
+   * @remarks
+   * The threshold settings for critical alerts.
+   */
+  critical?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical;
+  /**
+   * @remarks
+   * The expected threshold setting.
+   */
+  expected?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected;
+  /**
+   * @remarks
+   * The threshold settings for normal alerts.
+   */
+  warned?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned;
+  static names(): { [key: string]: string } {
+    return {
+      critical: 'Critical',
+      expected: 'Expected',
+      warned: 'Warned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      critical: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical,
+      expected: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected,
+      warned: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned,
+    };
+  }
+
+  validate() {
+    if(this.critical && typeof (this.critical as any).validate === 'function') {
+      (this.critical as any).validate();
+    }
+    if(this.expected && typeof (this.expected as any).validate === 'function') {
+      (this.expected as any).validate();
+    }
+    if(this.warned && typeof (this.warned as any).validate === 'function') {
+      (this.warned as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The method that is used to query the referenced samples. To obtain specific types of thresholds, you must query reference values. In this example, an expression is used to specify the query method of referenced samples.
+   * 
+   * @example
+   * {"bizdate": ["-1"]}
+   */
+  referencedSamplesFilter?: string;
+  /**
+   * @remarks
+   * The threshold settings.
+   */
+  thresholds?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholds;
+  /**
+   * @remarks
+   * The threshold calculation method. Valid values:
+   * 
+   * *   Fluctation
+   * *   Auto
+   * *   FluctationDiscreate
+   * *   Average
+   * *   Fixed
+   * 
+   * @example
+   * Fixed
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      thresholds: 'Thresholds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      thresholds: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholds,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.thresholds && typeof (this.thresholds as any).validate === 'function') {
+      (this.thresholds as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers extends $dara.Model {
+  /**
+   * @remarks
+   * The SQL statement that is used to filter failed tasks. If you define the rule by using custom SQL statements, you must specify an SQL statement to filter failed tasks.
+   * 
+   * @example
+   * SELECT * FROM ods_d_openapi_log WHERE status = \\"Error\\"
+   */
+  errorDataFilter?: string;
+  /**
+   * @remarks
+   * The type of the operation. Valid values:
+   * 
+   * *   SaveErrorData
+   * 
+   * @example
+   * SaveErrorData
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDataFilter: 'ErrorDataFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDataFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The metrics used for sampling. Valid values:
+   * 
+   * *   Count: the number of rows in the table.
+   * *   Min: the minimum value of the field.
+   * *   Max: the maximum value of the field.
+   * *   Avg: the average value of the field.
+   * *   DistinctCount: the number of unique values of the field after deduplication.
+   * *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
+   * *   DuplicatedCount: the number of duplicated values of the field.
+   * *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
+   * *   TableSize: the table size.
+   * *   NullValueCount: the number of rows in which the field value is null.
+   * *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
+   * *   GroupCount: the field value and the number of rows for each field value.
+   * *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
+   * *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
+   * *   UserDefinedSql: specifies that data is sampled by executing custom SQL statements.
+   * 
+   * @example
+   * CountNotIn
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The parameters required for sampling.
+   * 
+   * @example
+   * { "Columns": [ "id", "name" ] , "SQL": "select count(1) from table;"}
+   */
+  metricParameters?: string;
+  /**
+   * @remarks
+   * The statements that are used to filter unnecessary data during sampling. The statements can be up to 16,777,215 characters in length.
+   * 
+   * @example
+   * status != \\"Succeeded\\"
+   */
+  samplingFilter?: string;
+  /**
+   * @remarks
+   * The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+   * 
+   * @example
+   * odps.sql.type.system.odps2=True,odps.sql.hive.compatible=True
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      samplingFilter: 'SamplingFilter',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      samplingFilter: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRules extends $dara.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
+  checkingConfig?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfig;
+  /**
+   * @remarks
+   * The description of the rule.
+   * 
+   * @example
+   * OpenAPI test rules
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The operations that you can perform after the rule-based check fails.
+   */
+  errorHandlers?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers[];
+  /**
+   * @remarks
+   * The rule ID. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to query the ID of the monitoring rule.
+   * 
+   * @example
+   * 1022171560
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The name of the monitoring rule.
+   * 
+   * @example
+   * OpenAPI test rules
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The parameters required for sampling.
+   */
+  samplingConfig?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfig;
+  /**
+   * @remarks
+   * The strength of the rule. Valid values:
+   * 
+   * *   Normal
+   * *   High
+   * 
+   * @example
+   * Normal
+   */
+  severity?: string;
+  /**
+   * @remarks
+   * The ID of the template used by the rule.
+   * 
+   * @example
+   * SYSTEM:field:null_value:fixed:0
+   */
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      description: 'Description',
+      enabled: 'Enabled',
+      errorHandlers: 'ErrorHandlers',
+      id: 'Id',
+      name: 'Name',
+      samplingConfig: 'SamplingConfig',
+      severity: 'Severity',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfig,
+      description: 'string',
+      enabled: 'boolean',
+      errorHandlers: { 'type': 'array', 'itemType': UpdateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers },
+      id: 'number',
+      name: 'string',
+      samplingConfig: UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfig,
+      severity: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  validate() {
+    if(this.checkingConfig && typeof (this.checkingConfig as any).validate === 'function') {
+      (this.checkingConfig as any).validate();
+    }
+    if(Array.isArray(this.errorHandlers)) {
+      $dara.Model.validateArray(this.errorHandlers);
+    }
+    if(this.samplingConfig && typeof (this.samplingConfig as any).validate === 'function') {
+      (this.samplingConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestHooks extends $dara.Model {
+  /**
+   * @remarks
+   * The hook trigger condition. When this condition is met, the hook action is triggered. Only two conditional expressions are supported:
+   * 
+   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
+   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+   * 
+   * @example
+   * ${severity} == "High" AND ${status} == "Critical"
+   */
+  condition?: string;
+  /**
+   * @remarks
+   * The hook type. Valid values:
+   * 
+   * *   BlockTaskInstance: Blocks the running of scheduling tasks.
+   * 
+   * @example
+   * ByScheduledTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels extends $dara.Model {
+  /**
+   * @remarks
+   * The alert notification methods.
+   */
+  channels?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.channels)) {
+      $dara.Model.validateArray(this.channels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationReceivers extends $dara.Model {
+  /**
+   * @remarks
+   * The additional parameters that are required when alerts are sent. The parameters are JSON-formatted strings. The following keys are supported:
+   * 
+   * *   atAll: specifies that all members in a group are mentioned when alerts are sent by using DingTalk. This parameter is valid only if you set ReceiverType to DingdingUrl.
+   * 
+   * @example
+   * {  "atAll": true }
+   */
+  extension?: string;
+  /**
+   * @remarks
+   * The type of the alert recipient.
+   * 
+   * Valid values:
+   * 
+   * *   WebhookUrl
+   * *   FeishuUrl
+   * *   DingdingUrl
+   * *   WeixinUrl
+   * *   AliUid
+   * 
+   * @example
+   * DingdingUrl
+   */
+  receiverType?: string;
+  /**
+   * @remarks
+   * The alert recipient.
+   */
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.receiverValues)) {
+      $dara.Model.validateArray(this.receiverValues);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestNotificationsNotifications extends $dara.Model {
+  /**
+   * @remarks
+   * The alert notification methods.
+   */
+  notificationChannels?: UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels[];
+  /**
+   * @remarks
+   * The configurations of alert recipients.
+   */
+  notificationReceivers?: UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notificationChannels: { 'type': 'array', 'itemType': UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationReceivers },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.notificationChannels)) {
+      $dara.Model.validateArray(this.notificationChannels);
+    }
+    if(Array.isArray(this.notificationReceivers)) {
+      $dara.Model.validateArray(this.notificationReceivers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestNotifications extends $dara.Model {
+  /**
+   * @remarks
+   * The notification trigger condition. When this condition is met, the alert notification is triggered. Only two conditional expressions are supported:
+   * 
+   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
+   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+   * 
+   * @example
+   * ${severity} == "High" AND ${status} == "Critical"
+   */
+  condition?: string;
+  /**
+   * @remarks
+   * The configurations of the alert notification.
+   */
+  notifications?: UpdateDataQualityEvaluationTaskRequestNotificationsNotifications[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      notifications: 'Notifications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      notifications: { 'type': 'array', 'itemType': UpdateDataQualityEvaluationTaskRequestNotificationsNotifications },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.notifications)) {
+      $dara.Model.validateArray(this.notifications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestTarget extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the database to which the table belongs. Valid values:
+   * 
+   * *   maxcompute
+   * *   hologres
+   * *   cdh
+   * *   analyticdb_for_mysql
+   * *   starrocks
+   * *   emr
+   * *   analyticdb_for_postgresql
+   * 
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @remarks
+   * The configuration of the partitioned table.
+   * 
+   * @example
+   * dt=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @remarks
+   * The ID of the table in Data Map.
+   * 
+   * @example
+   * odsp.openapi.ods_d_openapi_log
+   */
+  tableGuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestTrigger extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of scheduling tasks. This parameter is valid only if you set Type to ByScheduledTaskInstance.
+   */
+  taskIds?: number[];
+  /**
+   * @remarks
+   * The trigger type of the monitor. Valid values:
+   * 
+   * *   ByScheduledTaskInstance: The monitor is triggered by the associated scheduling tasks.
+   * *   ByManual: The monitor is manually triggered.
+   * 
+   * @example
+   * ByScheduledTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskIds: 'TaskIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIds: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.taskIds)) {
+      $dara.Model.validateArray(this.taskIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateDataQualityEvaluationTaskRequest extends $dara.Model {
   /**
