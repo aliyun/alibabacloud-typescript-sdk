@@ -3,8 +3,36 @@ import * as $dara from '@darabonba/typescript';
 import { AgentServiceConfig } from "./AgentServiceConfig";
 import { AiServiceConfig } from "./AiServiceConfig";
 import { ServiceHealthCheck } from "./ServiceHealthCheck";
-import { ServicePorts } from "./ServicePorts";
 
+
+export class ServicePorts extends $dara.Model {
+  name?: string;
+  port?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      port: 'port',
+      protocol: 'protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class Service extends $dara.Model {
   addresses?: string[];

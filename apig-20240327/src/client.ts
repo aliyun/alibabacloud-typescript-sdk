@@ -354,12 +354,20 @@ export default class Client extends OpenApi {
       body["ingressConfig"] = request.ingressConfig;
     }
 
+    if (!$dara.isNull(request.modelCategory)) {
+      body["modelCategory"] = request.modelCategory;
+    }
+
     if (!$dara.isNull(request.name)) {
       body["name"] = request.name;
     }
 
     if (!$dara.isNull(request.protocols)) {
       body["protocols"] = request.protocols;
+    }
+
+    if (!$dara.isNull(request.removeBasePathOnForward)) {
+      body["removeBasePathOnForward"] = request.removeBasePathOnForward;
     }
 
     if (!$dara.isNull(request.resourceGroupId)) {
@@ -3164,6 +3172,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.protocols)) {
       body["protocols"] = request.protocols;
+    }
+
+    if (!$dara.isNull(request.removeBasePathOnForward)) {
+      body["removeBasePathOnForward"] = request.removeBasePathOnForward;
     }
 
     if (!$dara.isNull(request.versionConfig)) {

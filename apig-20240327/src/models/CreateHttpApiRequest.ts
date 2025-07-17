@@ -2,9 +2,83 @@
 import * as $dara from '@darabonba/typescript';
 import { AuthConfig } from "./AuthConfig";
 import { HttpApiDeployConfig } from "./HttpApiDeployConfig";
-import { CreateHttpApiRequestIngressConfig } from "./CreateHttpApiRequestIngressConfig";
 import { HttpApiVersionConfig } from "./HttpApiVersionConfig";
 
+
+export class CreateHttpApiRequestIngressConfig extends $dara.Model {
+  clusterId?: string;
+  /**
+   * @remarks
+   * The environment ID.
+   * 
+   * @example
+   * env-cq146allhtgk***
+   */
+  environmentId?: string;
+  /**
+   * @remarks
+   * The Ingress Class for listening.
+   * 
+   * @example
+   * mse
+   */
+  ingressClass?: string;
+  /**
+   * @remarks
+   * Specifies whether to update the address in Ingress Status.
+   * 
+   * @example
+   * false
+   */
+  overrideIngressIp?: boolean;
+  /**
+   * @remarks
+   * The source ID.
+   * 
+   * @example
+   * src-crdddallhtgtr***
+   * 
+   * @deprecated
+   */
+  sourceId?: string;
+  /**
+   * @remarks
+   * The namespace for listening.
+   * 
+   * @example
+   * default
+   */
+  watchNamespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'clusterId',
+      environmentId: 'environmentId',
+      ingressClass: 'ingressClass',
+      overrideIngressIp: 'overrideIngressIp',
+      sourceId: 'sourceId',
+      watchNamespace: 'watchNamespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      environmentId: 'string',
+      ingressClass: 'string',
+      overrideIngressIp: 'boolean',
+      sourceId: 'string',
+      watchNamespace: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateHttpApiRequest extends $dara.Model {
   agentProtocols?: string[];
@@ -51,6 +125,7 @@ export class CreateHttpApiRequest extends $dara.Model {
    * The HTTP Ingress configurations.
    */
   ingressConfig?: CreateHttpApiRequestIngressConfig;
+  modelCategory?: string;
   /**
    * @remarks
    * The API name.
@@ -66,6 +141,7 @@ export class CreateHttpApiRequest extends $dara.Model {
    * The protocols that are used to call the API.
    */
   protocols?: string[];
+  removeBasePathOnForward?: boolean;
   /**
    * @remarks
    * The resource group ID.
@@ -102,8 +178,10 @@ export class CreateHttpApiRequest extends $dara.Model {
       description: 'description',
       enableAuth: 'enableAuth',
       ingressConfig: 'ingressConfig',
+      modelCategory: 'modelCategory',
       name: 'name',
       protocols: 'protocols',
+      removeBasePathOnForward: 'removeBasePathOnForward',
       resourceGroupId: 'resourceGroupId',
       type: 'type',
       versionConfig: 'versionConfig',
@@ -120,8 +198,10 @@ export class CreateHttpApiRequest extends $dara.Model {
       description: 'string',
       enableAuth: 'boolean',
       ingressConfig: CreateHttpApiRequestIngressConfig,
+      modelCategory: 'string',
       name: 'string',
       protocols: { 'type': 'array', 'itemType': 'string' },
+      removeBasePathOnForward: 'boolean',
       resourceGroupId: 'string',
       type: 'string',
       versionConfig: HttpApiVersionConfig,

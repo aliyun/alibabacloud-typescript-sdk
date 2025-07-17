@@ -1,8 +1,64 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { JwtIdentityConfigJwtPayloadConfig } from "./JwtIdentityConfigJwtPayloadConfig";
-import { JwtIdentityConfigJwtTokenConfig } from "./JwtIdentityConfigJwtTokenConfig";
 
+
+export class JwtIdentityConfigJwtPayloadConfig extends $dara.Model {
+  payloadKeyName?: string;
+  payloadKeyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      payloadKeyName: 'payloadKeyName',
+      payloadKeyValue: 'payloadKeyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payloadKeyName: 'string',
+      payloadKeyValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
+  key?: string;
+  pass?: boolean;
+  position?: string;
+  prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      pass: 'pass',
+      position: 'position',
+      prefix: 'prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      pass: 'boolean',
+      position: 'string',
+      prefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class JwtIdentityConfig extends $dara.Model {
   jwks?: string;

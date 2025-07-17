@@ -1,11 +1,207 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { Backend } from "./Backend";
-import { HttpRouteDomainInfos } from "./HttpRouteDomainInfos";
-import { HttpRouteEnvironmentInfo } from "./HttpRouteEnvironmentInfo";
 import { HttpRouteMatch } from "./HttpRouteMatch";
-import { HttpRouteMcpServerInfo } from "./HttpRouteMcpServerInfo";
 
+
+export class HttpRouteDomainInfos extends $dara.Model {
+  domainId?: string;
+  name?: string;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'domainId',
+      name: 'name',
+      protocol: 'protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      name: 'string',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
+  gatewayId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'gatewayId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpRouteEnvironmentInfoSubDomains extends $dara.Model {
+  domainId?: string;
+  name?: string;
+  /**
+   * @example
+   * Internet
+   */
+  networkType?: string;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'domainId',
+      name: 'name',
+      networkType: 'networkType',
+      protocol: 'protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      name: 'string',
+      networkType: 'string',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpRouteEnvironmentInfo extends $dara.Model {
+  alias?: string;
+  environmentId?: string;
+  gatewayInfo?: HttpRouteEnvironmentInfoGatewayInfo;
+  name?: string;
+  subDomains?: HttpRouteEnvironmentInfoSubDomains[];
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'alias',
+      environmentId: 'environmentId',
+      gatewayInfo: 'gatewayInfo',
+      name: 'name',
+      subDomains: 'subDomains',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      environmentId: 'string',
+      gatewayInfo: HttpRouteEnvironmentInfoGatewayInfo,
+      name: 'string',
+      subDomains: { 'type': 'array', 'itemType': HttpRouteEnvironmentInfoSubDomains },
+    };
+  }
+
+  validate() {
+    if(this.gatewayInfo && typeof (this.gatewayInfo as any).validate === 'function') {
+      (this.gatewayInfo as any).validate();
+    }
+    if(Array.isArray(this.subDomains)) {
+      $dara.Model.validateArray(this.subDomains);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpRouteMcpServerInfoMcpRouteConfig extends $dara.Model {
+  exposedUriPath?: string;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exposedUriPath: 'exposedUriPath',
+      protocol: 'protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exposedUriPath: 'string',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpRouteMcpServerInfo extends $dara.Model {
+  createFromType?: string;
+  importInstanceId?: string;
+  importMcpServerId?: string;
+  importNamespace?: string;
+  mcpRouteConfig?: HttpRouteMcpServerInfoMcpRouteConfig;
+  mcpServerConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createFromType: 'createFromType',
+      importInstanceId: 'importInstanceId',
+      importMcpServerId: 'importMcpServerId',
+      importNamespace: 'importNamespace',
+      mcpRouteConfig: 'mcpRouteConfig',
+      mcpServerConfig: 'mcpServerConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createFromType: 'string',
+      importInstanceId: 'string',
+      importMcpServerId: 'string',
+      importNamespace: 'string',
+      mcpRouteConfig: HttpRouteMcpServerInfoMcpRouteConfig,
+      mcpServerConfig: 'string',
+    };
+  }
+
+  validate() {
+    if(this.mcpRouteConfig && typeof (this.mcpRouteConfig as any).validate === 'function') {
+      (this.mcpRouteConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class HttpRoute extends $dara.Model {
   backend?: Backend;

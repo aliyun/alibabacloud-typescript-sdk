@@ -2,9 +2,78 @@
 import * as $dara from '@darabonba/typescript';
 import { AuthConfig } from "./AuthConfig";
 import { HttpApiDeployConfig } from "./HttpApiDeployConfig";
-import { UpdateHttpApiRequestIngressConfig } from "./UpdateHttpApiRequestIngressConfig";
 import { HttpApiVersionConfig } from "./HttpApiVersionConfig";
 
+
+export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The environment ID.
+   * 
+   * @example
+   * env-cr6ql0tlhtgmc****
+   */
+  environmentId?: string;
+  /**
+   * @remarks
+   * The Ingress class for listening.
+   * 
+   * @example
+   * mse
+   */
+  ingressClass?: string;
+  /**
+   * @remarks
+   * Specifies whether to update the address in Ingress Status.
+   * 
+   * @example
+   * false
+   */
+  overrideIngressIp?: boolean;
+  /**
+   * @remarks
+   * The source ID.
+   * 
+   * @example
+   * src-crdddallhtgtr****
+   */
+  sourceId?: string;
+  /**
+   * @remarks
+   * The namespace for listening.
+   * 
+   * @example
+   * default
+   */
+  watchNamespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'environmentId',
+      ingressClass: 'ingressClass',
+      overrideIngressIp: 'overrideIngressIp',
+      sourceId: 'sourceId',
+      watchNamespace: 'watchNamespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      ingressClass: 'string',
+      overrideIngressIp: 'boolean',
+      sourceId: 'string',
+      watchNamespace: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateHttpApiRequest extends $dara.Model {
   agentProtocols?: string[];
@@ -57,6 +126,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
    * The protocols that are used to access the API.
    */
   protocols?: string[];
+  removeBasePathOnForward?: boolean;
   /**
    * @remarks
    * The versioning configurations.
@@ -74,6 +144,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
       ingressConfig: 'ingressConfig',
       onlyChangeConfig: 'onlyChangeConfig',
       protocols: 'protocols',
+      removeBasePathOnForward: 'removeBasePathOnForward',
       versionConfig: 'versionConfig',
     };
   }
@@ -90,6 +161,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
       ingressConfig: UpdateHttpApiRequestIngressConfig,
       onlyChangeConfig: 'boolean',
       protocols: { 'type': 'array', 'itemType': 'string' },
+      removeBasePathOnForward: 'boolean',
       versionConfig: HttpApiVersionConfig,
     };
   }
