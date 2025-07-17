@@ -2,26 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigureLocation extends $dara.Model {
-  h?: number;
-  w?: number;
-  x?: number;
-  y?: number;
+export class MultimodalAsyncModerationRequest extends $dara.Model {
+  service?: string;
+  serviceParameters?: string;
   static names(): { [key: string]: string } {
     return {
-      h: 'H',
-      w: 'W',
-      x: 'X',
-      y: 'Y',
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      h: 'number',
-      w: 'number',
-      x: 'number',
-      y: 'number',
+      service: 'string',
+      serviceParameters: 'string',
     };
   }
 

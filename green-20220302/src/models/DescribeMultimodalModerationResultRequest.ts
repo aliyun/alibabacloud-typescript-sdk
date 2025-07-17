@@ -2,24 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ImageModerationResponseBodyDataExtVlContent extends $dara.Model {
-  /**
-   * @remarks
-   * the vl output content
-   * 
-   * @example
-   * this is a cat
-   */
-  outputText?: string;
+export class DescribeMultimodalModerationResultRequest extends $dara.Model {
+  reqId?: string;
   static names(): { [key: string]: string } {
     return {
-      outputText: 'OutputText',
+      reqId: 'ReqId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      outputText: 'string',
+      reqId: 'string',
     };
   }
 

@@ -2,34 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class VideoModerationResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the moderated object.
-   * 
-   * @example
-   * data1234
-   */
+export class MultimodalAsyncModerationResponseBodyData extends $dara.Model {
   dataId?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * xxxxx-xxxxx
-   */
-  taskId?: string;
+  reqId?: string;
   static names(): { [key: string]: string } {
     return {
       dataId: 'DataId',
-      taskId: 'TaskId',
+      reqId: 'ReqId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       dataId: 'string',
-      taskId: 'string',
+      reqId: 'string',
     };
   }
 
@@ -42,41 +28,16 @@ export class VideoModerationResponseBodyData extends $dara.Model {
   }
 }
 
-export class VideoModerationResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
+export class MultimodalAsyncModerationResponseBody extends $dara.Model {
   code?: number;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: VideoModerationResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * SUCCESS
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
+  data?: MultimodalAsyncModerationResponseBodyData;
+  msg?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       data: 'Data',
-      message: 'Message',
+      msg: 'Msg',
       requestId: 'RequestId',
     };
   }
@@ -84,8 +45,8 @@ export class VideoModerationResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: VideoModerationResponseBodyData,
-      message: 'string',
+      data: MultimodalAsyncModerationResponseBodyData,
+      msg: 'string',
       requestId: 'string',
     };
   }

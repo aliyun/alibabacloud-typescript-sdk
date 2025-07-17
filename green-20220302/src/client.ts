@@ -192,6 +192,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询异步多模态检测结果
+   * 
+   * @param request - DescribeMultimodalModerationResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMultimodalModerationResultResponse
+   */
+  async describeMultimodalModerationResultWithOptions(request: $_model.DescribeMultimodalModerationResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMultimodalModerationResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.reqId)) {
+      query["ReqId"] = request.reqId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMultimodalModerationResult",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMultimodalModerationResultResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMultimodalModerationResultResponse({}));
+  }
+
+  /**
+   * 查询异步多模态检测结果
+   * 
+   * @param request - DescribeMultimodalModerationResultRequest
+   * @returns DescribeMultimodalModerationResultResponse
+   */
+  async describeMultimodalModerationResult(request: $_model.DescribeMultimodalModerationResultRequest): Promise<$_model.DescribeMultimodalModerationResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMultimodalModerationResultWithOptions(request, runtime);
+  }
+
+  /**
    * 查询上传token
    * 
    * @param request - DescribeUploadTokenRequest
@@ -659,6 +701,52 @@ export default class Client extends OpenApi {
   async multiModalGuard(request: $_model.MultiModalGuardRequest): Promise<$_model.MultiModalGuardResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.multiModalGuardWithOptions(request, runtime);
+  }
+
+  /**
+   * 多模态-异步检测
+   * 
+   * @param request - MultimodalAsyncModerationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MultimodalAsyncModerationResponse
+   */
+  async multimodalAsyncModerationWithOptions(request: $_model.MultimodalAsyncModerationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MultimodalAsyncModerationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.service)) {
+      query["Service"] = request.service;
+    }
+
+    if (!$dara.isNull(request.serviceParameters)) {
+      query["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MultimodalAsyncModeration",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MultimodalAsyncModerationResponse>(await this.callApi(params, req, runtime), new $_model.MultimodalAsyncModerationResponse({}));
+  }
+
+  /**
+   * 多模态-异步检测
+   * 
+   * @param request - MultimodalAsyncModerationRequest
+   * @returns MultimodalAsyncModerationResponse
+   */
+  async multimodalAsyncModeration(request: $_model.MultimodalAsyncModerationRequest): Promise<$_model.MultimodalAsyncModerationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.multimodalAsyncModerationWithOptions(request, runtime);
   }
 
   /**
