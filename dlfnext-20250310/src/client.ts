@@ -79,6 +79,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新数据库
+   * 
+   * @param request - AlterDatabaseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AlterDatabaseResponse
+   */
+  async alterDatabaseWithOptions(catalogId: string, database: string, request: $_model.AlterDatabaseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AlterDatabaseResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.removals)) {
+      body["removals"] = request.removals;
+    }
+
+    if (!$dara.isNull(request.updates)) {
+      body["updates"] = request.updates;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AlterDatabase",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AlterDatabaseResponse>(await this.callApi(params, req, runtime), new $_model.AlterDatabaseResponse({}));
+  }
+
+  /**
+   * 更新数据库
+   * 
+   * @param request - AlterDatabaseRequest
+   * @returns AlterDatabaseResponse
+   */
+  async alterDatabase(catalogId: string, database: string, request: $_model.AlterDatabaseRequest): Promise<$_model.AlterDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.alterDatabaseWithOptions(catalogId, database, request, headers, runtime);
+  }
+
+  /**
+   * 更改Table
+   * 
+   * @param request - AlterTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AlterTableResponse
+   */
+  async alterTableWithOptions(catalogId: string, database: string, table: string, request: $_model.AlterTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AlterTableResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.changes)) {
+      body["changes"] = request.changes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AlterTable",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/tables/${$dara.URL.percentEncode(table)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.AlterTableResponse>(await this.callApi(params, req, runtime), new $_model.AlterTableResponse({}));
+  }
+
+  /**
+   * 更改Table
+   * 
+   * @param request - AlterTableRequest
+   * @returns AlterTableResponse
+   */
+  async alterTable(catalogId: string, database: string, table: string, request: $_model.AlterTableRequest): Promise<$_model.AlterTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.alterTableWithOptions(catalogId, database, table, request, headers, runtime);
+  }
+
+  /**
    * 批量授权
    * 
    * @param request - BatchGrantPermissionsRequest
@@ -222,6 +316,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建数据库
+   * 
+   * @param request - CreateDatabaseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatabaseResponse
+   */
+  async createDatabaseWithOptions(catalogId: string, request: $_model.CreateDatabaseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDatabaseResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.options)) {
+      body["options"] = request.options;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDatabase",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.CreateDatabaseResponse>(await this.callApi(params, req, runtime), new $_model.CreateDatabaseResponse({}));
+  }
+
+  /**
+   * 创建数据库
+   * 
+   * @param request - CreateDatabaseRequest
+   * @returns CreateDatabaseResponse
+   */
+  async createDatabase(catalogId: string, request: $_model.CreateDatabaseRequest): Promise<$_model.CreateDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDatabaseWithOptions(catalogId, request, headers, runtime);
+  }
+
+  /**
    * 创建角色
    * 
    * @param request - CreateRoleRequest
@@ -272,6 +415,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createRoleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建表
+   * 
+   * @param request - CreateTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTableResponse
+   */
+  async createTableWithOptions(catalogId: string, database: string, request: $_model.CreateTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTableResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.identifier)) {
+      body["identifier"] = request.identifier;
+    }
+
+    if (!$dara.isNull(request.schema)) {
+      body["schema"] = request.schema;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTable",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/tables`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.CreateTableResponse>(await this.callApi(params, req, runtime), new $_model.CreateTableResponse({}));
+  }
+
+  /**
+   * 创建表
+   * 
+   * @param request - CreateTableRequest
+   * @returns CreateTableResponse
+   */
+  async createTable(catalogId: string, database: string, request: $_model.CreateTableRequest): Promise<$_model.CreateTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTableWithOptions(catalogId, database, request, headers, runtime);
   }
 
   /**
@@ -387,6 +579,76 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.dropCatalogWithOptions(catalog, headers, runtime);
+  }
+
+  /**
+   * 删除数据库
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DropDatabaseResponse
+   */
+  async dropDatabaseWithOptions(catalogId: string, database: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DropDatabaseResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DropDatabase",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DropDatabaseResponse>(await this.callApi(params, req, runtime), new $_model.DropDatabaseResponse({}));
+  }
+
+  /**
+   * 删除数据库
+   * @returns DropDatabaseResponse
+   */
+  async dropDatabase(catalogId: string, database: string): Promise<$_model.DropDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.dropDatabaseWithOptions(catalogId, database, headers, runtime);
+  }
+
+  /**
+   * 删除表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DropTableResponse
+   */
+  async dropTableWithOptions(catalogId: string, database: string, table: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DropTableResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DropTable",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/tables/${$dara.URL.percentEncode(table)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DropTableResponse>(await this.callApi(params, req, runtime), new $_model.DropTableResponse({}));
+  }
+
+  /**
+   * 删除表
+   * @returns DropTableResponse
+   */
+  async dropTable(catalogId: string, database: string, table: string): Promise<$_model.DropTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.dropTableWithOptions(catalogId, database, table, headers, runtime);
   }
 
   /**
@@ -544,6 +806,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看数据库
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatabaseResponse
+   */
+  async getDatabaseWithOptions(catalogId: string, database: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatabaseResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDatabase",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDatabaseResponse>(await this.callApi(params, req, runtime), new $_model.GetDatabaseResponse({}));
+  }
+
+  /**
+   * 查看数据库
+   * @returns GetDatabaseResponse
+   */
+  async getDatabase(catalogId: string, database: string): Promise<$_model.GetDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDatabaseWithOptions(catalogId, database, headers, runtime);
+  }
+
+  /**
    * 查看表
    * 
    * @param headers - map
@@ -656,6 +953,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRoleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查看表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableResponse
+   */
+  async getTableWithOptions(catalogId: string, database: string, table: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTable",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/tables/${$dara.URL.percentEncode(table)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableResponse>(await this.callApi(params, req, runtime), new $_model.GetTableResponse({}));
+  }
+
+  /**
+   * 查看表
+   * @returns GetTableResponse
+   */
+  async getTable(catalogId: string, database: string, table: string): Promise<$_model.GetTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTableWithOptions(catalogId, database, table, headers, runtime);
   }
 
   /**
@@ -838,6 +1170,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCatalogsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查看数据库列表
+   * 
+   * @param request - ListDatabasesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatabasesResponse
+   */
+  async listDatabasesWithOptions(catalogId: string, request: $_model.ListDatabasesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatabasesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.databaseNamePattern)) {
+      query["databaseNamePattern"] = request.databaseNamePattern;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDatabases",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDatabasesResponse>(await this.callApi(params, req, runtime), new $_model.ListDatabasesResponse({}));
+  }
+
+  /**
+   * 查看数据库列表
+   * 
+   * @param request - ListDatabasesRequest
+   * @returns ListDatabasesResponse
+   */
+  async listDatabases(catalogId: string, request: $_model.ListDatabasesRequest): Promise<$_model.ListDatabasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDatabasesWithOptions(catalogId, request, headers, runtime);
   }
 
   /**
@@ -1070,6 +1455,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listRolesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查看表详情列表
+   * 
+   * @param request - ListTablesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTablesResponse
+   */
+  async listTablesWithOptions(catalogId: string, database: string, request: $_model.ListTablesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListTablesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    if (!$dara.isNull(request.tableNamePattern)) {
+      query["tableNamePattern"] = request.tableNamePattern;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTables",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/tables`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTablesResponse>(await this.callApi(params, req, runtime), new $_model.ListTablesResponse({}));
+  }
+
+  /**
+   * 查看表详情列表
+   * 
+   * @param request - ListTablesRequest
+   * @returns ListTablesResponse
+   */
+  async listTables(catalogId: string, database: string, request: $_model.ListTablesRequest): Promise<$_model.ListTablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTablesWithOptions(catalogId, database, request, headers, runtime);
   }
 
   /**
