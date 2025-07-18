@@ -530,6 +530,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
    * API
    */
   gatewayType?: string;
+  isp?: string;
   /**
    * @remarks
    * The ingress addresses of the instance.
@@ -645,6 +646,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       expireTimestamp: 'expireTimestamp',
       gatewayId: 'gatewayId',
       gatewayType: 'gatewayType',
+      isp: 'isp',
       loadBalancers: 'loadBalancers',
       name: 'name',
       replicas: 'replicas',
@@ -671,6 +673,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       expireTimestamp: 'number',
       gatewayId: 'string',
       gatewayType: 'string',
+      isp: 'string',
       loadBalancers: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataLoadBalancers },
       name: 'string',
       replicas: 'string',
