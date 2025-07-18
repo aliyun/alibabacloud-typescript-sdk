@@ -1,7 +1,72 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListDocumentsResponseBodyItems } from "./ListDocumentsResponseBodyItems";
 
+
+export class ListDocumentsResponseBodyItemsDocumentList extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the document.
+   * 
+   * @example
+   * music.txt
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * The source of the document.
+   * 
+   * @example
+   * http://oss.xxx/music.txt
+   */
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      source: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDocumentsResponseBodyItems extends $dara.Model {
+  documentList?: ListDocumentsResponseBodyItemsDocumentList[];
+  static names(): { [key: string]: string } {
+    return {
+      documentList: 'DocumentList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentList: { 'type': 'array', 'itemType': ListDocumentsResponseBodyItemsDocumentList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.documentList)) {
+      $dara.Model.validateArray(this.documentList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListDocumentsResponseBody extends $dara.Model {
   /**

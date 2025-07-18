@@ -1,7 +1,136 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ExecuteStatementResponseBodyData } from "./ExecuteStatementResponseBodyData";
+import { Field } from "./Field";
+import { ColumnMetadata } from "./ColumnMetadata";
 
+
+export class ExecuteStatementResponseBodyDataColumnMetadata extends $dara.Model {
+  columnMetadata?: ColumnMetadata[];
+  static names(): { [key: string]: string } {
+    return {
+      columnMetadata: 'ColumnMetadata',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnMetadata: { 'type': 'array', 'itemType': ColumnMetadata },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.columnMetadata)) {
+      $dara.Model.validateArray(this.columnMetadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteStatementResponseBodyDataRecordsRecords extends $dara.Model {
+  record?: Field[];
+  static names(): { [key: string]: string } {
+    return {
+      record: 'Record',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      record: { 'type': 'array', 'itemType': Field },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.record)) {
+      $dara.Model.validateArray(this.record);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteStatementResponseBodyDataRecords extends $dara.Model {
+  records?: ExecuteStatementResponseBodyDataRecordsRecords[];
+  static names(): { [key: string]: string } {
+    return {
+      records: 'Records',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      records: { 'type': 'array', 'itemType': ExecuteStatementResponseBodyDataRecordsRecords },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.records)) {
+      $dara.Model.validateArray(this.records);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteStatementResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The metadata of the columns.
+   */
+  columnMetadata?: ExecuteStatementResponseBodyDataColumnMetadata;
+  /**
+   * @remarks
+   * The rows of data.
+   */
+  records?: ExecuteStatementResponseBodyDataRecords;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
+  totalNumRows?: number;
+  static names(): { [key: string]: string } {
+    return {
+      columnMetadata: 'ColumnMetadata',
+      records: 'Records',
+      totalNumRows: 'TotalNumRows',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnMetadata: ExecuteStatementResponseBodyDataColumnMetadata,
+      records: ExecuteStatementResponseBodyDataRecords,
+      totalNumRows: 'number',
+    };
+  }
+
+  validate() {
+    if(this.columnMetadata && typeof (this.columnMetadata as any).validate === 'function') {
+      (this.columnMetadata as any).validate();
+    }
+    if(this.records && typeof (this.records as any).validate === 'function') {
+      (this.records as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ExecuteStatementResponseBody extends $dara.Model {
   /**

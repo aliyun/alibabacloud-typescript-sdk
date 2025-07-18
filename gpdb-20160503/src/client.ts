@@ -13681,6 +13681,10 @@ export default class Client extends OpenApi {
       body["TextSplitterName"] = request.textSplitterName;
     }
 
+    if (!$dara.isNull(request.vlEnhance)) {
+      body["VlEnhance"] = request.vlEnhance;
+    }
+
     if (!$dara.isNull(request.zhTitleEnhance)) {
       body["ZhTitleEnhance"] = request.zhTitleEnhance;
     }

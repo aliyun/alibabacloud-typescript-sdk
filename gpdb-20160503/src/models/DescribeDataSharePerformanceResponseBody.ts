@@ -1,7 +1,126 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDataSharePerformanceResponseBodyPerformanceKeys } from "./DescribeDataSharePerformanceResponseBodyPerformanceKeys";
 
+
+export class DescribeDataSharePerformanceResponseBodyPerformanceKeysSeriesValues extends $dara.Model {
+  /**
+   * @remarks
+   * The value of the performance metric at a point in time.
+   */
+  point?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      point: 'Point',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      point: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.point)) {
+      $dara.Model.validateArray(this.point);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataSharePerformanceResponseBodyPerformanceKeysSeries extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the performance metric.
+   * 
+   * @example
+   * adbpg_datashare_topic_count
+   */
+  name?: string;
+  /**
+   * @remarks
+   * One or more values of the performance metric.
+   */
+  values?: DescribeDataSharePerformanceResponseBodyPerformanceKeysSeriesValues[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      values: { 'type': 'array', 'itemType': DescribeDataSharePerformanceResponseBodyPerformanceKeysSeriesValues },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataSharePerformanceResponseBodyPerformanceKeys extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the performance metric.
+   * 
+   * @example
+   * adbpg_datashare_topic_count
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Details of the performance metric.
+   */
+  series?: DescribeDataSharePerformanceResponseBodyPerformanceKeysSeries[];
+  /**
+   * @remarks
+   * The unit of the performance metric.
+   * 
+   * @example
+   * int
+   */
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      series: 'Series',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      series: { 'type': 'array', 'itemType': DescribeDataSharePerformanceResponseBodyPerformanceKeysSeries },
+      unit: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.series)) {
+      $dara.Model.validateArray(this.series);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDataSharePerformanceResponseBody extends $dara.Model {
   /**

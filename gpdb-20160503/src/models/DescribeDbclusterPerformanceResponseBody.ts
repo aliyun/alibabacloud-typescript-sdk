@@ -1,7 +1,140 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDBClusterPerformanceResponseBodyPerformanceKeys } from "./DescribeDbclusterPerformanceResponseBodyPerformanceKeys";
 
+
+export class DescribeDBClusterPerformanceResponseBodyPerformanceKeysSeriesValues extends $dara.Model {
+  /**
+   * @remarks
+   * The value of the performance metric and the time when the metric value was collected.
+   */
+  point?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      point: 'Point',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      point: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.point)) {
+      $dara.Model.validateArray(this.point);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterPerformanceResponseBodyPerformanceKeysSeries extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the compute node or compute group.
+   * 
+   * @example
+   * standby-********-cpu
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The role of the node. Valid values:
+   * 
+   * *   **master**: primary coordinator node
+   * *   **standby**: standby coordinator node
+   * *   **segment**: compute node
+   * 
+   * @example
+   * standby
+   */
+  role?: string;
+  /**
+   * @remarks
+   * The value of the performance metric collected at a point in time.
+   */
+  values?: DescribeDBClusterPerformanceResponseBodyPerformanceKeysSeriesValues[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      role: 'Role',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      role: 'string',
+      values: { 'type': 'array', 'itemType': DescribeDBClusterPerformanceResponseBodyPerformanceKeysSeriesValues },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterPerformanceResponseBodyPerformanceKeys extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the performance metric. For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
+   * 
+   * @example
+   * adbpg_group_cpu_used_percent
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Details of the performance metric of a node.
+   */
+  series?: DescribeDBClusterPerformanceResponseBodyPerformanceKeysSeries[];
+  /**
+   * @remarks
+   * The unit of the performance metric.
+   * 
+   * @example
+   * %
+   */
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      series: 'Series',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      series: { 'type': 'array', 'itemType': DescribeDBClusterPerformanceResponseBodyPerformanceKeysSeries },
+      unit: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.series)) {
+      $dara.Model.validateArray(this.series);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   /**

@@ -158,6 +158,7 @@ export class UploadDocumentAsyncRequest extends $dara.Model {
    * ChineseRecursiveTextSplitter
    */
   textSplitterName?: string;
+  vlEnhance?: boolean;
   /**
    * @remarks
    * Specifies whether to enable title enhancement.
@@ -185,6 +186,7 @@ export class UploadDocumentAsyncRequest extends $dara.Model {
       regionId: 'RegionId',
       separators: 'Separators',
       textSplitterName: 'TextSplitterName',
+      vlEnhance: 'VlEnhance',
       zhTitleEnhance: 'ZhTitleEnhance',
     };
   }
@@ -206,6 +208,7 @@ export class UploadDocumentAsyncRequest extends $dara.Model {
       regionId: 'string',
       separators: { 'type': 'array', 'itemType': 'string' },
       textSplitterName: 'string',
+      vlEnhance: 'boolean',
       zhTitleEnhance: 'boolean',
     };
   }

@@ -1,7 +1,83 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpsertCollectionDataRequestRows } from "./UpsertCollectionDataRequestRows";
 
+
+export class UpsertCollectionDataRequestRowsSparseVector extends $dara.Model {
+  indices?: number[];
+  values?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      indices: 'Indices',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indices: { 'type': 'array', 'itemType': 'number' },
+      values: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.indices)) {
+      $dara.Model.validateArray(this.indices);
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionDataRequestRows extends $dara.Model {
+  id?: string;
+  metadata?: { [key: string]: string };
+  sparseVector?: UpsertCollectionDataRequestRowsSparseVector;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  vector?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      metadata: 'Metadata',
+      sparseVector: 'SparseVector',
+      vector: 'Vector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      sparseVector: UpsertCollectionDataRequestRowsSparseVector,
+      vector: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
+    if(this.sparseVector && typeof (this.sparseVector as any).validate === 'function') {
+      (this.sparseVector as any).validate();
+    }
+    if(Array.isArray(this.vector)) {
+      $dara.Model.validateArray(this.vector);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpsertCollectionDataRequest extends $dara.Model {
   /**
