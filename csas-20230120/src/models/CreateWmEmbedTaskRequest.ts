@@ -1,8 +1,250 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateWmEmbedTaskRequestCsvControl } from "./CreateWmEmbedTaskRequestCsvControl";
-import { CreateWmEmbedTaskRequestDocumentControl } from "./CreateWmEmbedTaskRequestDocumentControl";
 
+
+export class CreateWmEmbedTaskRequestCsvControl extends $dara.Model {
+  embedBitsNumberInEachTime?: number;
+  embedColumn?: number;
+  embedDensity?: string;
+  embedPrecision?: number;
+  embedTimePosition?: string;
+  method?: string;
+  timeFormat?: string;
+  static names(): { [key: string]: string } {
+    return {
+      embedBitsNumberInEachTime: 'EmbedBitsNumberInEachTime',
+      embedColumn: 'EmbedColumn',
+      embedDensity: 'EmbedDensity',
+      embedPrecision: 'EmbedPrecision',
+      embedTimePosition: 'EmbedTimePosition',
+      method: 'Method',
+      timeFormat: 'TimeFormat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      embedBitsNumberInEachTime: 'number',
+      embedColumn: 'number',
+      embedDensity: 'string',
+      embedPrecision: 'number',
+      embedTimePosition: 'string',
+      method: 'string',
+      timeFormat: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  opacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      opacity: 'Opacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opacity: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl extends $dara.Model {
+  /**
+   * @example
+   * 30
+   */
+  angle?: number;
+  /**
+   * @example
+   * 0x000000
+   */
+  fontColor?: string;
+  /**
+   * @example
+   * 30
+   */
+  fontSize?: number;
+  /**
+   * @example
+   * 3
+   */
+  horizontalNumber?: number;
+  /**
+   * @example
+   * pos
+   */
+  mode?: string;
+  /**
+   * @example
+   * 100
+   */
+  opacity?: number;
+  /**
+   * @example
+   * 0.5
+   */
+  posX?: string;
+  /**
+   * @example
+   * 0.5
+   */
+  posY?: string;
+  /**
+   * @example
+   * 3
+   */
+  verticalNumber?: number;
+  /**
+   * @example
+   * hello ****
+   */
+  visibleText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      horizontalNumber: 'HorizontalNumber',
+      mode: 'Mode',
+      opacity: 'Opacity',
+      posX: 'PosX',
+      posY: 'PosY',
+      verticalNumber: 'VerticalNumber',
+      visibleText: 'VisibleText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      fontColor: 'string',
+      fontSize: 'number',
+      horizontalNumber: 'number',
+      mode: 'string',
+      opacity: 'number',
+      posX: 'string',
+      posY: 'string',
+      verticalNumber: 'number',
+      visibleText: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestDocumentControlBackgroundControl extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  bgAddInvisible?: boolean;
+  /**
+   * @example
+   * true
+   */
+  bgAddVisible?: boolean;
+  bgInvisibleControl?: CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl;
+  bgVisibleControl?: CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl;
+  static names(): { [key: string]: string } {
+    return {
+      bgAddInvisible: 'BgAddInvisible',
+      bgAddVisible: 'BgAddVisible',
+      bgInvisibleControl: 'BgInvisibleControl',
+      bgVisibleControl: 'BgVisibleControl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bgAddInvisible: 'boolean',
+      bgAddVisible: 'boolean',
+      bgInvisibleControl: CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl,
+      bgVisibleControl: CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl,
+    };
+  }
+
+  validate() {
+    if(this.bgInvisibleControl && typeof (this.bgInvisibleControl as any).validate === 'function') {
+      (this.bgInvisibleControl as any).validate();
+    }
+    if(this.bgVisibleControl && typeof (this.bgVisibleControl as any).validate === 'function') {
+      (this.bgVisibleControl as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestDocumentControl extends $dara.Model {
+  backgroundControl?: CreateWmEmbedTaskRequestDocumentControlBackgroundControl;
+  /**
+   * @example
+   * true
+   */
+  invisibleAntiAllCopy?: boolean;
+  /**
+   * @example
+   * true
+   */
+  invisibleAntiTextCopy?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      backgroundControl: 'BackgroundControl',
+      invisibleAntiAllCopy: 'InvisibleAntiAllCopy',
+      invisibleAntiTextCopy: 'InvisibleAntiTextCopy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backgroundControl: CreateWmEmbedTaskRequestDocumentControlBackgroundControl,
+      invisibleAntiAllCopy: 'boolean',
+      invisibleAntiTextCopy: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.backgroundControl && typeof (this.backgroundControl as any).validate === 'function') {
+      (this.backgroundControl as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateWmEmbedTaskRequest extends $dara.Model {
   csvControl?: CreateWmEmbedTaskRequestCsvControl;

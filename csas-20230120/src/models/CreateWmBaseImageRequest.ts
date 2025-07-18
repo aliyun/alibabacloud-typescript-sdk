@@ -1,7 +1,150 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateWmBaseImageRequestImageControl } from "./CreateWmBaseImageRequestImageControl";
 
+
+export class CreateWmBaseImageRequestImageControlLogoVisibleControl extends $dara.Model {
+  angle?: number;
+  logoBase64?: string;
+  mode?: string;
+  opacity?: number;
+  posAx?: number;
+  posAy?: number;
+  posX?: number;
+  posY?: number;
+  spaceX?: number;
+  spaceY?: number;
+  visible?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      logoBase64: 'LogoBase64',
+      mode: 'Mode',
+      opacity: 'Opacity',
+      posAx: 'PosAx',
+      posAy: 'PosAy',
+      posX: 'PosX',
+      posY: 'PosY',
+      spaceX: 'SpaceX',
+      spaceY: 'SpaceY',
+      visible: 'Visible',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      logoBase64: 'string',
+      mode: 'string',
+      opacity: 'number',
+      posAx: 'number',
+      posAy: 'number',
+      posX: 'number',
+      posY: 'number',
+      spaceX: 'number',
+      spaceY: 'number',
+      visible: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmBaseImageRequestImageControlTextVisibleControl extends $dara.Model {
+  angle?: number;
+  fontColor?: string;
+  fontSize?: number;
+  mode?: string;
+  opacity?: number;
+  posAx?: number;
+  posAy?: number;
+  posX?: number;
+  posY?: number;
+  spaceX?: number;
+  spaceY?: number;
+  visible?: boolean;
+  visibleText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      mode: 'Mode',
+      opacity: 'Opacity',
+      posAx: 'PosAx',
+      posAy: 'PosAy',
+      posX: 'PosX',
+      posY: 'PosY',
+      spaceX: 'SpaceX',
+      spaceY: 'SpaceY',
+      visible: 'Visible',
+      visibleText: 'VisibleText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      fontColor: 'string',
+      fontSize: 'number',
+      mode: 'string',
+      opacity: 'number',
+      posAx: 'number',
+      posAy: 'number',
+      posX: 'number',
+      posY: 'number',
+      spaceX: 'number',
+      spaceY: 'number',
+      visible: 'boolean',
+      visibleText: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmBaseImageRequestImageControl extends $dara.Model {
+  logoVisibleControl?: CreateWmBaseImageRequestImageControlLogoVisibleControl;
+  textVisibleControl?: CreateWmBaseImageRequestImageControlTextVisibleControl;
+  static names(): { [key: string]: string } {
+    return {
+      logoVisibleControl: 'LogoVisibleControl',
+      textVisibleControl: 'TextVisibleControl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logoVisibleControl: CreateWmBaseImageRequestImageControlLogoVisibleControl,
+      textVisibleControl: CreateWmBaseImageRequestImageControlTextVisibleControl,
+    };
+  }
+
+  validate() {
+    if(this.logoVisibleControl && typeof (this.logoVisibleControl as any).validate === 'function') {
+      (this.logoVisibleControl as any).validate();
+    }
+    if(this.textVisibleControl && typeof (this.textVisibleControl as any).validate === 'function') {
+      (this.textVisibleControl as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateWmBaseImageRequest extends $dara.Model {
   /**

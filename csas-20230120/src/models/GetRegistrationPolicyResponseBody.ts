@@ -1,7 +1,87 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetRegistrationPolicyResponseBodyLimitDetail } from "./GetRegistrationPolicyResponseBodyLimitDetail";
 
+
+export class GetRegistrationPolicyResponseBodyLimitDetailLimitCount extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  all?: number;
+  /**
+   * @example
+   * 2
+   */
+  mobile?: number;
+  /**
+   * @example
+   * 2
+   */
+  PC?: number;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      mobile: 'Mobile',
+      PC: 'PC',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'number',
+      mobile: 'number',
+      PC: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegistrationPolicyResponseBodyLimitDetail extends $dara.Model {
+  /**
+   * @example
+   * Personal
+   */
+  deviceBelong?: string;
+  limitCount?: GetRegistrationPolicyResponseBodyLimitDetailLimitCount;
+  /**
+   * @example
+   * LimitDiff
+   */
+  limitType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceBelong: 'DeviceBelong',
+      limitCount: 'LimitCount',
+      limitType: 'LimitType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceBelong: 'string',
+      limitCount: GetRegistrationPolicyResponseBodyLimitDetailLimitCount,
+      limitType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.limitCount && typeof (this.limitCount as any).validate === 'function') {
+      (this.limitCount as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetRegistrationPolicyResponseBody extends $dara.Model {
   /**

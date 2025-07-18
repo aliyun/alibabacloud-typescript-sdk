@@ -1,7 +1,93 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListTagsForPrivateAccessPolicyResponseBodyPolices } from "./ListTagsForPrivateAccessPolicyResponseBodyPolices";
 
+
+export class ListTagsForPrivateAccessPolicyResponseBodyPolicesTags extends $dara.Model {
+  /**
+   * @remarks
+   * 内网访问标签创建时间。
+   * 
+   * @example
+   * 2023-02-21 14:10:16
+   */
+  createTime?: string;
+  description?: string;
+  /**
+   * @example
+   * tag_name
+   */
+  name?: string;
+  /**
+   * @example
+   * tag-d3f64e8bdd4a****
+   */
+  tagId?: string;
+  /**
+   * @example
+   * Default
+   */
+  tagType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      name: 'Name',
+      tagId: 'TagId',
+      tagType: 'TagType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      name: 'string',
+      tagId: 'string',
+      tagType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagsForPrivateAccessPolicyResponseBodyPolices extends $dara.Model {
+  /**
+   * @example
+   * pa-policy-1b0d0e8b4bcf****
+   */
+  policyId?: string;
+  tags?: ListTagsForPrivateAccessPolicyResponseBodyPolicesTags[];
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      tags: { 'type': 'array', 'itemType': ListTagsForPrivateAccessPolicyResponseBodyPolicesTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListTagsForPrivateAccessPolicyResponseBody extends $dara.Model {
   polices?: ListTagsForPrivateAccessPolicyResponseBodyPolices[];

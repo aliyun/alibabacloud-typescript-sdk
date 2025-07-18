@@ -56,6 +56,7 @@ export class ListUserDevicesRequest extends $dara.Model {
    * true
    */
   sharingStatus?: boolean;
+  snSystem?: string;
   sortBy?: string;
   username?: string;
   workshop?: string;
@@ -80,6 +81,7 @@ export class ListUserDevicesRequest extends $dara.Model {
       pageSize: 'PageSize',
       saseUserId: 'SaseUserId',
       sharingStatus: 'SharingStatus',
+      snSystem: 'SnSystem',
       sortBy: 'SortBy',
       username: 'Username',
       workshop: 'Workshop',
@@ -107,6 +109,7 @@ export class ListUserDevicesRequest extends $dara.Model {
       pageSize: 'number',
       saseUserId: 'string',
       sharingStatus: 'boolean',
+      snSystem: 'string',
       sortBy: 'string',
       username: 'string',
       workshop: 'string',

@@ -1,7 +1,73 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListPopTrafficStatisticsResponseBodyTrafficData } from "./ListPopTrafficStatisticsResponseBodyTrafficData";
 
+
+export class ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints extends $dara.Model {
+  /**
+   * @example
+   * 15325
+   */
+  average?: number;
+  /**
+   * @example
+   * 2023-12-06 15:29:00
+   */
+  dateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      average: 'Average',
+      dateTime: 'DateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      average: 'number',
+      dateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPopTrafficStatisticsResponseBodyTrafficData extends $dara.Model {
+  datapoints?: ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints[];
+  /**
+   * @example
+   * InternetTx
+   */
+  metricName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datapoints: 'Datapoints',
+      metricName: 'MetricName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datapoints: { 'type': 'array', 'itemType': ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints },
+      metricName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.datapoints)) {
+      $dara.Model.validateArray(this.datapoints);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListPopTrafficStatisticsResponseBody extends $dara.Model {
   /**
