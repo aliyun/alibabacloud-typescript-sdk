@@ -23865,6 +23865,10 @@ export default class Client extends OpenApi {
       request.ossDeliveryConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ossDeliveryConfig, "OssDeliveryConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.sessionManagerConfig)) {
+      request.sessionManagerConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sessionManagerConfig, "SessionManagerConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.slsDeliveryConfig)) {
       request.slsDeliveryConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.slsDeliveryConfig, "SlsDeliveryConfig", "json");
     }
@@ -23896,6 +23900,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sessionManagerConfigShrink)) {
+      query["SessionManagerConfig"] = request.sessionManagerConfigShrink;
     }
 
     if (!$dara.isNull(request.settingType)) {

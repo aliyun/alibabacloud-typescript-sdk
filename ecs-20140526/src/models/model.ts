@@ -192,6 +192,7 @@ export { DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfigAllowedUpgr
 export { DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig } from './DescribeCloudAssistantSettingsResponseBody';
 export { DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigsOssDeliveryConfig } from './DescribeCloudAssistantSettingsResponseBody';
 export { DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigs } from './DescribeCloudAssistantSettingsResponseBody';
+export { DescribeCloudAssistantSettingsResponseBodySessionManagerConfig } from './DescribeCloudAssistantSettingsResponseBody';
 export { DescribeCloudAssistantSettingsResponseBodySlsDeliveryConfigsSlsDeliveryConfig } from './DescribeCloudAssistantSettingsResponseBody';
 export { DescribeCloudAssistantSettingsResponseBodySlsDeliveryConfigs } from './DescribeCloudAssistantSettingsResponseBody';
 export { DescribeCloudAssistantStatusResponseBodyInstanceCloudAssistantStatusSetInstanceCloudAssistantStatus } from './DescribeCloudAssistantStatusResponseBody';
@@ -780,6 +781,7 @@ export { ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration } from './
 export { ModifyCapacityReservationRequestPrivatePoolOptions } from './ModifyCapacityReservationRequest';
 export { ModifyCloudAssistantSettingsRequestAgentUpgradeConfig } from './ModifyCloudAssistantSettingsRequest';
 export { ModifyCloudAssistantSettingsRequestOssDeliveryConfig } from './ModifyCloudAssistantSettingsRequest';
+export { ModifyCloudAssistantSettingsRequestSessionManagerConfig } from './ModifyCloudAssistantSettingsRequest';
 export { ModifyCloudAssistantSettingsRequestSlsDeliveryConfig } from './ModifyCloudAssistantSettingsRequest';
 export { ModifyDedicatedHostAttributeRequestNetworkAttributes } from './ModifyDedicatedHostAttributeRequest';
 export { ModifyDedicatedHostsChargeTypeResponseBodyFeeOfInstancesFeeOfInstance } from './ModifyDedicatedHostsChargeTypeResponseBody';

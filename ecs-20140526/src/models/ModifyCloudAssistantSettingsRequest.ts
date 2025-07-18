@@ -155,6 +155,29 @@ export class ModifyCloudAssistantSettingsRequestOssDeliveryConfig extends $dara.
   }
 }
 
+export class ModifyCloudAssistantSettingsRequestSessionManagerConfig extends $dara.Model {
+  sessionManagerEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      sessionManagerEnabled: 'SessionManagerEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionManagerEnabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyCloudAssistantSettingsRequestSlsDeliveryConfig extends $dara.Model {
   /**
    * @remarks
@@ -230,6 +253,7 @@ export class ModifyCloudAssistantSettingsRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  sessionManagerConfig?: ModifyCloudAssistantSettingsRequestSessionManagerConfig;
   /**
    * @remarks
    * The Cloud Assistant feature. Valid values:
@@ -258,6 +282,7 @@ export class ModifyCloudAssistantSettingsRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      sessionManagerConfig: 'SessionManagerConfig',
       settingType: 'SettingType',
       slsDeliveryConfig: 'SlsDeliveryConfig',
     };
@@ -272,6 +297,7 @@ export class ModifyCloudAssistantSettingsRequest extends $dara.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      sessionManagerConfig: ModifyCloudAssistantSettingsRequestSessionManagerConfig,
       settingType: 'string',
       slsDeliveryConfig: ModifyCloudAssistantSettingsRequestSlsDeliveryConfig,
     };
@@ -283,6 +309,9 @@ export class ModifyCloudAssistantSettingsRequest extends $dara.Model {
     }
     if(this.ossDeliveryConfig && typeof (this.ossDeliveryConfig as any).validate === 'function') {
       (this.ossDeliveryConfig as any).validate();
+    }
+    if(this.sessionManagerConfig && typeof (this.sessionManagerConfig as any).validate === 'function') {
+      (this.sessionManagerConfig as any).validate();
     }
     if(this.slsDeliveryConfig && typeof (this.slsDeliveryConfig as any).validate === 'function') {
       (this.slsDeliveryConfig as any).validate();

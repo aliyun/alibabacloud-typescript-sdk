@@ -204,6 +204,29 @@ export class DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigs extend
   }
 }
 
+export class DescribeCloudAssistantSettingsResponseBodySessionManagerConfig extends $dara.Model {
+  sessionManagerEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      sessionManagerEnabled: 'SessionManagerEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionManagerEnabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCloudAssistantSettingsResponseBodySlsDeliveryConfigsSlsDeliveryConfig extends $dara.Model {
   /**
    * @remarks
@@ -312,6 +335,7 @@ export class DescribeCloudAssistantSettingsResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
   requestId?: string;
+  sessionManagerConfig?: DescribeCloudAssistantSettingsResponseBodySessionManagerConfig;
   /**
    * @remarks
    * The configurations for delivering items to Simple Log Service.
@@ -322,6 +346,7 @@ export class DescribeCloudAssistantSettingsResponseBody extends $dara.Model {
       agentUpgradeConfig: 'AgentUpgradeConfig',
       ossDeliveryConfigs: 'OssDeliveryConfigs',
       requestId: 'RequestId',
+      sessionManagerConfig: 'SessionManagerConfig',
       slsDeliveryConfigs: 'SlsDeliveryConfigs',
     };
   }
@@ -331,6 +356,7 @@ export class DescribeCloudAssistantSettingsResponseBody extends $dara.Model {
       agentUpgradeConfig: DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig,
       ossDeliveryConfigs: DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigs,
       requestId: 'string',
+      sessionManagerConfig: DescribeCloudAssistantSettingsResponseBodySessionManagerConfig,
       slsDeliveryConfigs: DescribeCloudAssistantSettingsResponseBodySlsDeliveryConfigs,
     };
   }
@@ -341,6 +367,9 @@ export class DescribeCloudAssistantSettingsResponseBody extends $dara.Model {
     }
     if(this.ossDeliveryConfigs && typeof (this.ossDeliveryConfigs as any).validate === 'function') {
       (this.ossDeliveryConfigs as any).validate();
+    }
+    if(this.sessionManagerConfig && typeof (this.sessionManagerConfig as any).validate === 'function') {
+      (this.sessionManagerConfig as any).validate();
     }
     if(this.slsDeliveryConfigs && typeof (this.slsDeliveryConfigs as any).validate === 'function') {
       (this.slsDeliveryConfigs as any).validate();
