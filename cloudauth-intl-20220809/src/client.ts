@@ -148,7 +148,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 银行卡核验
+   * Bank Card Verification
+   * 
+   * @remarks
+   * Verification of bank card elements, including: two-element verification (name + bank card number), three-element verification (name + ID number + bank card number), and four-element verification (name + ID number + phone number + bank card number) for consistency.
    * 
    * @param request - BankMetaVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -211,7 +214,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 银行卡核验
+   * Bank Card Verification
+   * 
+   * @remarks
+   * Verification of bank card elements, including: two-element verification (name + bank card number), three-element verification (name + ID number + bank card number), and four-element verification (name + ID number + phone number + bank card number) for consistency.
    * 
    * @param request - BankMetaVerifyIntlRequest
    * @returns BankMetaVerifyIntlResponse
@@ -1537,6 +1543,60 @@ export default class Client extends OpenApi {
   async keepaliveIntl(): Promise<$_model.KeepaliveIntlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.keepaliveIntlWithOptions(runtime);
+  }
+
+  /**
+   * 手机号二要素核验API
+   * 
+   * @param request - Mobile2MetaVerifyIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns Mobile2MetaVerifyIntlResponse
+   */
+  async mobile2MetaVerifyIntlWithOptions(request: $_model.Mobile2MetaVerifyIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.Mobile2MetaVerifyIntlResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.mobile)) {
+      body["Mobile"] = request.mobile;
+    }
+
+    if (!$dara.isNull(request.paramType)) {
+      body["ParamType"] = request.paramType;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      body["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "Mobile2MetaVerifyIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.Mobile2MetaVerifyIntlResponse>(await this.callApi(params, req, runtime), new $_model.Mobile2MetaVerifyIntlResponse({}));
+  }
+
+  /**
+   * 手机号二要素核验API
+   * 
+   * @param request - Mobile2MetaVerifyIntlRequest
+   * @returns Mobile2MetaVerifyIntlResponse
+   */
+  async mobile2MetaVerifyIntl(request: $_model.Mobile2MetaVerifyIntlRequest): Promise<$_model.Mobile2MetaVerifyIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.mobile2MetaVerifyIntlWithOptions(request, runtime);
   }
 
   /**
