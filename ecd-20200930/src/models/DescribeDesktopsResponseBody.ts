@@ -596,6 +596,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * The information about the disks.
    */
   disks?: DescribeDesktopsResponseBodyDesktopsDisks[];
+  domainType?: string;
   /**
    * @remarks
    * The number of times for which the cloud desktop can be downgraded.
@@ -995,6 +996,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       directoryId: 'DirectoryId',
       directoryType: 'DirectoryType',
       disks: 'Disks',
+      domainType: 'DomainType',
       downgradeQuota: 'DowngradeQuota',
       downgradedTimes: 'DowngradedTimes',
       endUserIds: 'EndUserIds',
@@ -1064,6 +1066,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       directoryId: 'string',
       directoryType: 'string',
       disks: { 'type': 'array', 'itemType': DescribeDesktopsResponseBodyDesktopsDisks },
+      domainType: 'string',
       downgradeQuota: 'number',
       downgradedTimes: 'number',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
