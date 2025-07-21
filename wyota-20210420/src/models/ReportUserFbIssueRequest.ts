@@ -1,7 +1,48 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ReportUserFbIssueRequestFileList } from "./ReportUserFbIssueRequestFileList";
 
+
+export class ReportUserFbIssueRequestFileList extends $dara.Model {
+  fileMd5?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  fileName?: string;
+  fileSize?: number;
+  fileType?: number;
+  ossUrl?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileMd5: 'FileMd5',
+      fileName: 'FileName',
+      fileSize: 'FileSize',
+      fileType: 'FileType',
+      ossUrl: 'OssUrl',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileMd5: 'string',
+      fileName: 'string',
+      fileSize: 'number',
+      fileType: 'number',
+      ossUrl: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ReportUserFbIssueRequest extends $dara.Model {
   appId?: string;
@@ -19,10 +60,14 @@ export class ReportUserFbIssueRequest extends $dara.Model {
   errorMsg?: string;
   fbType?: number;
   fileList?: ReportUserFbIssueRequestFileList[];
+  isSubstituteReport?: boolean;
   issueLabel?: string;
+  loginRegionId?: string;
+  loginToken?: string;
   occurTime?: number;
   reservedA?: string;
   reservedB?: string;
+  sessionId?: string;
   telNo?: string;
   title?: string;
   userEmail?: string;
@@ -47,10 +92,14 @@ export class ReportUserFbIssueRequest extends $dara.Model {
       errorMsg: 'ErrorMsg',
       fbType: 'FbType',
       fileList: 'FileList',
+      isSubstituteReport: 'IsSubstituteReport',
       issueLabel: 'IssueLabel',
+      loginRegionId: 'LoginRegionId',
+      loginToken: 'LoginToken',
       occurTime: 'OccurTime',
       reservedA: 'ReservedA',
       reservedB: 'ReservedB',
+      sessionId: 'SessionId',
       telNo: 'TelNo',
       title: 'Title',
       userEmail: 'UserEmail',
@@ -78,10 +127,14 @@ export class ReportUserFbIssueRequest extends $dara.Model {
       errorMsg: 'string',
       fbType: 'number',
       fileList: { 'type': 'array', 'itemType': ReportUserFbIssueRequestFileList },
+      isSubstituteReport: 'boolean',
       issueLabel: 'string',
+      loginRegionId: 'string',
+      loginToken: 'string',
       occurTime: 'number',
       reservedA: 'string',
       reservedB: 'string',
+      sessionId: 'string',
       telNo: 'string',
       title: 'string',
       userEmail: 'string',

@@ -3,11 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetFbOssConfigRequest extends $dara.Model {
+  areaSite?: string;
   dirPrefix?: string;
   isDedicatedLine?: number;
   region?: string;
   static names(): { [key: string]: string } {
     return {
+      areaSite: 'AreaSite',
       dirPrefix: 'DirPrefix',
       isDedicatedLine: 'IsDedicatedLine',
       region: 'Region',
@@ -16,6 +18,7 @@ export class GetFbOssConfigRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      areaSite: 'string',
       dirPrefix: 'string',
       isDedicatedLine: 'number',
       region: 'string',

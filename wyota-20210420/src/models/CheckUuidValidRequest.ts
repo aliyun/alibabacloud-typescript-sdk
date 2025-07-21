@@ -18,6 +18,7 @@ export class CheckUuidValidRequest extends $dara.Model {
    */
   customId?: string;
   etherMac?: string;
+  hostOsInfo?: string;
   loginRegionId?: string;
   loginToken?: string;
   /**
@@ -42,6 +43,7 @@ export class CheckUuidValidRequest extends $dara.Model {
       clientVersion: 'ClientVersion',
       customId: 'CustomId',
       etherMac: 'EtherMac',
+      hostOsInfo: 'HostOsInfo',
       loginRegionId: 'LoginRegionId',
       loginToken: 'LoginToken',
       serialNo: 'SerialNo',
@@ -61,6 +63,7 @@ export class CheckUuidValidRequest extends $dara.Model {
       clientVersion: 'string',
       customId: 'string',
       etherMac: 'string',
+      hostOsInfo: 'string',
       loginRegionId: 'string',
       loginToken: 'string',
       serialNo: 'string',

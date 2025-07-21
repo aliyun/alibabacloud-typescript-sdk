@@ -751,6 +751,10 @@ export default class Client extends OpenApi {
       body["EtherMac"] = request.etherMac;
     }
 
+    if (!$dara.isNull(request.hostOsInfo)) {
+      body["HostOsInfo"] = request.hostOsInfo;
+    }
+
     if (!$dara.isNull(request.loginRegionId)) {
       body["LoginRegionId"] = request.loginRegionId;
     }
@@ -2111,6 +2115,10 @@ export default class Client extends OpenApi {
   async getFbOssConfigWithOptions(request: $_model.GetFbOssConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFbOssConfigResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.areaSite)) {
+      body["AreaSite"] = request.areaSite;
+    }
+
     if (!$dara.isNull(request.dirPrefix)) {
       body["DirPrefix"] = request.dirPrefix;
     }
@@ -3706,8 +3714,20 @@ export default class Client extends OpenApi {
       body["FileList"] = request.fileListShrink;
     }
 
+    if (!$dara.isNull(request.isSubstituteReport)) {
+      body["IsSubstituteReport"] = request.isSubstituteReport;
+    }
+
     if (!$dara.isNull(request.issueLabel)) {
       body["IssueLabel"] = request.issueLabel;
+    }
+
+    if (!$dara.isNull(request.loginRegionId)) {
+      body["LoginRegionId"] = request.loginRegionId;
+    }
+
+    if (!$dara.isNull(request.loginToken)) {
+      body["LoginToken"] = request.loginToken;
     }
 
     if (!$dara.isNull(request.occurTime)) {
@@ -3720,6 +3740,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.reservedB)) {
       body["ReservedB"] = request.reservedB;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
     }
 
     if (!$dara.isNull(request.telNo)) {

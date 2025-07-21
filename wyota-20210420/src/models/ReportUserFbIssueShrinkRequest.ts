@@ -18,10 +18,14 @@ export class ReportUserFbIssueShrinkRequest extends $dara.Model {
   errorMsg?: string;
   fbType?: number;
   fileListShrink?: string;
+  isSubstituteReport?: boolean;
   issueLabel?: string;
+  loginRegionId?: string;
+  loginToken?: string;
   occurTime?: number;
   reservedA?: string;
   reservedB?: string;
+  sessionId?: string;
   telNo?: string;
   title?: string;
   userEmail?: string;
@@ -46,10 +50,14 @@ export class ReportUserFbIssueShrinkRequest extends $dara.Model {
       errorMsg: 'ErrorMsg',
       fbType: 'FbType',
       fileListShrink: 'FileList',
+      isSubstituteReport: 'IsSubstituteReport',
       issueLabel: 'IssueLabel',
+      loginRegionId: 'LoginRegionId',
+      loginToken: 'LoginToken',
       occurTime: 'OccurTime',
       reservedA: 'ReservedA',
       reservedB: 'ReservedB',
+      sessionId: 'SessionId',
       telNo: 'TelNo',
       title: 'Title',
       userEmail: 'UserEmail',
@@ -77,10 +85,14 @@ export class ReportUserFbIssueShrinkRequest extends $dara.Model {
       errorMsg: 'string',
       fbType: 'number',
       fileListShrink: 'string',
+      isSubstituteReport: 'boolean',
       issueLabel: 'string',
+      loginRegionId: 'string',
+      loginToken: 'string',
       occurTime: 'number',
       reservedA: 'string',
       reservedB: 'string',
+      sessionId: 'string',
       telNo: 'string',
       title: 'string',
       userEmail: 'string',

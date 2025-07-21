@@ -1,7 +1,29 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ReportUserFbIssueResponseBodyData } from "./ReportUserFbIssueResponseBodyData";
 
+
+export class ReportUserFbIssueResponseBodyData extends $dara.Model {
+  issueId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      issueId: 'IssueId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issueId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ReportUserFbIssueResponseBody extends $dara.Model {
   code?: string;

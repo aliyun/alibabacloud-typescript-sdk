@@ -1,7 +1,121 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListUnbindDevicesResponseBodyData } from "./ListUnbindDevicesResponseBodyData";
 
+
+export class ListUnbindDevicesResponseBodyDataDevices extends $dara.Model {
+  alias?: string;
+  boundTime?: string;
+  buildId?: string;
+  clientType?: string;
+  connectionStatus?: string;
+  deviceMqttConnectionStatus?: number;
+  deviceOs?: string;
+  devicePlatform?: string;
+  inManage?: boolean;
+  lastLoginTime?: string;
+  lastLoginUser?: string;
+  loginUser?: string;
+  model?: string;
+  passwordFreeLoginUser?: string;
+  passwordFreeLoginUserNickName?: string;
+  privateIp?: string;
+  productName?: string;
+  publicIp?: string;
+  serialNo?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      boundTime: 'BoundTime',
+      buildId: 'BuildId',
+      clientType: 'ClientType',
+      connectionStatus: 'ConnectionStatus',
+      deviceMqttConnectionStatus: 'DeviceMqttConnectionStatus',
+      deviceOs: 'DeviceOs',
+      devicePlatform: 'DevicePlatform',
+      inManage: 'InManage',
+      lastLoginTime: 'LastLoginTime',
+      lastLoginUser: 'LastLoginUser',
+      loginUser: 'LoginUser',
+      model: 'Model',
+      passwordFreeLoginUser: 'PasswordFreeLoginUser',
+      passwordFreeLoginUserNickName: 'PasswordFreeLoginUserNickName',
+      privateIp: 'PrivateIp',
+      productName: 'ProductName',
+      publicIp: 'PublicIp',
+      serialNo: 'SerialNo',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      boundTime: 'string',
+      buildId: 'string',
+      clientType: 'string',
+      connectionStatus: 'string',
+      deviceMqttConnectionStatus: 'number',
+      deviceOs: 'string',
+      devicePlatform: 'string',
+      inManage: 'boolean',
+      lastLoginTime: 'string',
+      lastLoginUser: 'string',
+      loginUser: 'string',
+      model: 'string',
+      passwordFreeLoginUser: 'string',
+      passwordFreeLoginUserNickName: 'string',
+      privateIp: 'string',
+      productName: 'string',
+      publicIp: 'string',
+      serialNo: 'string',
+      uuid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUnbindDevicesResponseBodyData extends $dara.Model {
+  devices?: ListUnbindDevicesResponseBodyDataDevices[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      devices: 'Devices',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      devices: { 'type': 'array', 'itemType': ListUnbindDevicesResponseBodyDataDevices },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.devices)) {
+      $dara.Model.validateArray(this.devices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListUnbindDevicesResponseBody extends $dara.Model {
   code?: string;
