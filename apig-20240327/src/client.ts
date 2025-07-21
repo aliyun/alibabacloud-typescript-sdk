@@ -83,6 +83,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Removes consumer authentication rules.
+   * 
+   * @param request - BatchDeleteConsumerAuthorizationRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchDeleteConsumerAuthorizationRuleResponse
+   */
+  async batchDeleteConsumerAuthorizationRuleWithOptions(request: $_model.BatchDeleteConsumerAuthorizationRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchDeleteConsumerAuthorizationRuleResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.consumerAuthorizationRuleIds)) {
+      query["consumerAuthorizationRuleIds"] = request.consumerAuthorizationRuleIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchDeleteConsumerAuthorizationRule",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/authorization-rules`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchDeleteConsumerAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.BatchDeleteConsumerAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * Removes consumer authentication rules.
+   * 
+   * @param request - BatchDeleteConsumerAuthorizationRuleRequest
+   * @returns BatchDeleteConsumerAuthorizationRuleResponse
+   */
+  async batchDeleteConsumerAuthorizationRule(request: $_model.BatchDeleteConsumerAuthorizationRuleRequest): Promise<$_model.BatchDeleteConsumerAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchDeleteConsumerAuthorizationRuleWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Resource Group Transfer
    * 
    * @param request - ChangeResourceGroupRequest
@@ -137,6 +182,181 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.changeResourceGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建消费者
+   * 
+   * @param request - CreateConsumerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConsumerResponse
+   */
+  async createConsumerWithOptions(request: $_model.CreateConsumerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateConsumerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.akSkIdentityConfigs)) {
+      body["akSkIdentityConfigs"] = request.akSkIdentityConfigs;
+    }
+
+    if (!$dara.isNull(request.apikeyIdentityConfig)) {
+      body["apikeyIdentityConfig"] = request.apikeyIdentityConfig;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.gatewayType)) {
+      body["gatewayType"] = request.gatewayType;
+    }
+
+    if (!$dara.isNull(request.jwtIdentityConfig)) {
+      body["jwtIdentityConfig"] = request.jwtIdentityConfig;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateConsumer",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateConsumerResponse>(await this.callApi(params, req, runtime), new $_model.CreateConsumerResponse({}));
+  }
+
+  /**
+   * 创建消费者
+   * 
+   * @param request - CreateConsumerRequest
+   * @returns CreateConsumerResponse
+   */
+  async createConsumer(request: $_model.CreateConsumerRequest): Promise<$_model.CreateConsumerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createConsumerWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建消费者授权规则
+   * 
+   * @param request - CreateConsumerAuthorizationRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConsumerAuthorizationRuleResponse
+   */
+  async createConsumerAuthorizationRuleWithOptions(consumerId: string, request: $_model.CreateConsumerAuthorizationRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateConsumerAuthorizationRuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authorizationResourceInfos)) {
+      body["authorizationResourceInfos"] = request.authorizationResourceInfos;
+    }
+
+    if (!$dara.isNull(request.expireMode)) {
+      body["expireMode"] = request.expireMode;
+    }
+
+    if (!$dara.isNull(request.expireTimestamp)) {
+      body["expireTimestamp"] = request.expireTimestamp;
+    }
+
+    if (!$dara.isNull(request.parentResourceType)) {
+      body["parentResourceType"] = request.parentResourceType;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateConsumerAuthorizationRule",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumers/${$dara.URL.percentEncode(consumerId)}/authorization-rules`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateConsumerAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateConsumerAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 创建消费者授权规则
+   * 
+   * @param request - CreateConsumerAuthorizationRuleRequest
+   * @returns CreateConsumerAuthorizationRuleResponse
+   */
+  async createConsumerAuthorizationRule(consumerId: string, request: $_model.CreateConsumerAuthorizationRuleRequest): Promise<$_model.CreateConsumerAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createConsumerAuthorizationRuleWithOptions(consumerId, request, headers, runtime);
+  }
+
+  /**
+   * Creates a consumer authentication rule.
+   * 
+   * @param request - CreateConsumerAuthorizationRulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConsumerAuthorizationRulesResponse
+   */
+  async createConsumerAuthorizationRulesWithOptions(request: $_model.CreateConsumerAuthorizationRulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateConsumerAuthorizationRulesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authorizationRules)) {
+      body["authorizationRules"] = request.authorizationRules;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateConsumerAuthorizationRules",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/authorization-rules`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateConsumerAuthorizationRulesResponse>(await this.callApi(params, req, runtime), new $_model.CreateConsumerAuthorizationRulesResponse({}));
+  }
+
+  /**
+   * Creates a consumer authentication rule.
+   * 
+   * @param request - CreateConsumerAuthorizationRulesRequest
+   * @returns CreateConsumerAuthorizationRulesResponse
+   */
+  async createConsumerAuthorizationRules(request: $_model.CreateConsumerAuthorizationRulesRequest): Promise<$_model.CreateConsumerAuthorizationRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createConsumerAuthorizationRulesWithOptions(request, headers, runtime);
   }
 
   /**
@@ -309,6 +529,87 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createEnvironmentWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建云原生网关
+   * 
+   * @param request - CreateGatewayRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGatewayResponse
+   */
+  async createGatewayWithOptions(request: $_model.CreateGatewayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGatewayResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chargeType)) {
+      body["chargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.gatewayType)) {
+      body["gatewayType"] = request.gatewayType;
+    }
+
+    if (!$dara.isNull(request.logConfig)) {
+      body["logConfig"] = request.logConfig;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.networkAccessConfig)) {
+      body["networkAccessConfig"] = request.networkAccessConfig;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.spec)) {
+      body["spec"] = request.spec;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      body["tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      body["vpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneConfig)) {
+      body["zoneConfig"] = request.zoneConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateGateway",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateGatewayResponse>(await this.callApi(params, req, runtime), new $_model.CreateGatewayResponse({}));
+  }
+
+  /**
+   * 创建云原生网关
+   * 
+   * @param request - CreateGatewayRequest
+   * @returns CreateGatewayResponse
+   */
+  async createGateway(request: $_model.CreateGatewayRequest): Promise<$_model.CreateGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createGatewayWithOptions(request, headers, runtime);
   }
 
   /**
@@ -778,6 +1079,76 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除消费者
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConsumerResponse
+   */
+  async deleteConsumerWithOptions(consumerId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConsumerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConsumer",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumers/${$dara.URL.percentEncode(consumerId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteConsumerResponse>(await this.callApi(params, req, runtime), new $_model.DeleteConsumerResponse({}));
+  }
+
+  /**
+   * 删除消费者
+   * @returns DeleteConsumerResponse
+   */
+  async deleteConsumer(consumerId: string): Promise<$_model.DeleteConsumerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteConsumerWithOptions(consumerId, headers, runtime);
+  }
+
+  /**
+   * 删除消费者授权规则
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConsumerAuthorizationRuleResponse
+   */
+  async deleteConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId: string, consumerId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConsumerAuthorizationRuleResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConsumerAuthorizationRule",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumers/${$dara.URL.percentEncode(consumerId)}/authorization-rules/${$dara.URL.percentEncode(consumerAuthorizationRuleId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteConsumerAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteConsumerAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 删除消费者授权规则
+   * @returns DeleteConsumerAuthorizationRuleResponse
+   */
+  async deleteConsumerAuthorizationRule(consumerAuthorizationRuleId: string, consumerId: string): Promise<$_model.DeleteConsumerAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId, consumerId, headers, runtime);
   }
 
   /**
@@ -1267,6 +1638,76 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.exportHttpApiWithOptions(httpApiId, headers, runtime);
+  }
+
+  /**
+   * 查询消费者
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConsumerResponse
+   */
+  async getConsumerWithOptions(consumerId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetConsumerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConsumer",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumers/${$dara.URL.percentEncode(consumerId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetConsumerResponse>(await this.callApi(params, req, runtime), new $_model.GetConsumerResponse({}));
+  }
+
+  /**
+   * 查询消费者
+   * @returns GetConsumerResponse
+   */
+  async getConsumer(consumerId: string): Promise<$_model.GetConsumerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getConsumerWithOptions(consumerId, headers, runtime);
+  }
+
+  /**
+   * 查询消费者授权规则
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConsumerAuthorizationRuleResponse
+   */
+  async getConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId: string, consumerId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetConsumerAuthorizationRuleResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConsumerAuthorizationRule",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumers/${$dara.URL.percentEncode(consumerId)}/authorization-rules/${$dara.URL.percentEncode(consumerAuthorizationRuleId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetConsumerAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetConsumerAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 查询消费者授权规则
+   * @returns GetConsumerAuthorizationRuleResponse
+   */
+  async getConsumerAuthorizationRule(consumerAuthorizationRuleId: string, consumerId: string): Promise<$_model.GetConsumerAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId, consumerId, headers, runtime);
   }
 
   /**
@@ -1905,6 +2346,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.importHttpApiWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询消费者列表
+   * 
+   * @param request - ListConsumersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConsumersResponse
+   */
+  async listConsumersWithOptions(request: $_model.ListConsumersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConsumersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayType)) {
+      query["gatewayType"] = request.gatewayType;
+    }
+
+    if (!$dara.isNull(request.nameLike)) {
+      query["nameLike"] = request.nameLike;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConsumers",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConsumersResponse>(await this.callApi(params, req, runtime), new $_model.ListConsumersResponse({}));
+  }
+
+  /**
+   * 查询消费者列表
+   * 
+   * @param request - ListConsumersRequest
+   * @returns ListConsumersResponse
+   */
+  async listConsumers(request: $_model.ListConsumersRequest): Promise<$_model.ListConsumersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConsumersWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2806,6 +3304,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of consumer authentication rules.
+   * 
+   * @param request - QueryConsumerAuthorizationRulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryConsumerAuthorizationRulesResponse
+   */
+  async queryConsumerAuthorizationRulesWithOptions(request: $_model.QueryConsumerAuthorizationRulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryConsumerAuthorizationRulesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiNameLike)) {
+      query["apiNameLike"] = request.apiNameLike;
+    }
+
+    if (!$dara.isNull(request.consumerId)) {
+      query["consumerId"] = request.consumerId;
+    }
+
+    if (!$dara.isNull(request.consumerNameLike)) {
+      query["consumerNameLike"] = request.consumerNameLike;
+    }
+
+    if (!$dara.isNull(request.environmentId)) {
+      query["environmentId"] = request.environmentId;
+    }
+
+    if (!$dara.isNull(request.groupByApi)) {
+      query["groupByApi"] = request.groupByApi;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.parentResourceId)) {
+      query["parentResourceId"] = request.parentResourceId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["resourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryConsumerAuthorizationRules",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/authorization-rules`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryConsumerAuthorizationRulesResponse>(await this.callApi(params, req, runtime), new $_model.QueryConsumerAuthorizationRulesResponse({}));
+  }
+
+  /**
+   * Queries a list of consumer authentication rules.
+   * 
+   * @param request - QueryConsumerAuthorizationRulesRequest
+   * @returns QueryConsumerAuthorizationRulesResponse
+   */
+  async queryConsumerAuthorizationRules(request: $_model.QueryConsumerAuthorizationRulesRequest): Promise<$_model.QueryConsumerAuthorizationRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryConsumerAuthorizationRulesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Deletes a consumer authorization rule.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveConsumerAuthorizationRuleResponse
+   */
+  async removeConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveConsumerAuthorizationRuleResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveConsumerAuthorizationRule",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/authorization-rules/${$dara.URL.percentEncode(consumerAuthorizationRuleId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveConsumerAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.RemoveConsumerAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * Deletes a consumer authorization rule.
+   * @returns RemoveConsumerAuthorizationRuleResponse
+   */
+  async removeConsumerAuthorizationRule(consumerAuthorizationRuleId: string): Promise<$_model.RemoveConsumerAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.removeConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId, headers, runtime);
+  }
+
+  /**
    * Gateway Restart
    * 
    * @param headers - map
@@ -2895,6 +3509,120 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.undeployHttpApiWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
+   * 更新消费者
+   * 
+   * @param request - UpdateConsumerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConsumerResponse
+   */
+  async updateConsumerWithOptions(consumerId: string, request: $_model.UpdateConsumerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateConsumerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.akSkIdentityConfigs)) {
+      body["akSkIdentityConfigs"] = request.akSkIdentityConfigs;
+    }
+
+    if (!$dara.isNull(request.apikeyIdentityConfig)) {
+      body["apikeyIdentityConfig"] = request.apikeyIdentityConfig;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.jwtIdentityConfig)) {
+      body["jwtIdentityConfig"] = request.jwtIdentityConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConsumer",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumers/${$dara.URL.percentEncode(consumerId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateConsumerResponse>(await this.callApi(params, req, runtime), new $_model.UpdateConsumerResponse({}));
+  }
+
+  /**
+   * 更新消费者
+   * 
+   * @param request - UpdateConsumerRequest
+   * @returns UpdateConsumerResponse
+   */
+  async updateConsumer(consumerId: string, request: $_model.UpdateConsumerRequest): Promise<$_model.UpdateConsumerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateConsumerWithOptions(consumerId, request, headers, runtime);
+  }
+
+  /**
+   * 更新消费者授权规则
+   * 
+   * @param request - UpdateConsumerAuthorizationRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConsumerAuthorizationRuleResponse
+   */
+  async updateConsumerAuthorizationRuleWithOptions(consumerId: string, consumerAuthorizationRuleId: string, request: $_model.UpdateConsumerAuthorizationRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateConsumerAuthorizationRuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authorizationResourceInfos)) {
+      body["authorizationResourceInfos"] = request.authorizationResourceInfos;
+    }
+
+    if (!$dara.isNull(request.expireMode)) {
+      body["expireMode"] = request.expireMode;
+    }
+
+    if (!$dara.isNull(request.expireTimestamp)) {
+      body["expireTimestamp"] = request.expireTimestamp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConsumerAuthorizationRule",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumers/${$dara.URL.percentEncode(consumerId)}/authorization-rules/${$dara.URL.percentEncode(consumerAuthorizationRuleId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateConsumerAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateConsumerAuthorizationRuleResponse({}));
+  }
+
+  /**
+   * 更新消费者授权规则
+   * 
+   * @param request - UpdateConsumerAuthorizationRuleRequest
+   * @returns UpdateConsumerAuthorizationRuleResponse
+   */
+  async updateConsumerAuthorizationRule(consumerId: string, consumerAuthorizationRuleId: string, request: $_model.UpdateConsumerAuthorizationRuleRequest): Promise<$_model.UpdateConsumerAuthorizationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateConsumerAuthorizationRuleWithOptions(consumerId, consumerAuthorizationRuleId, request, headers, runtime);
   }
 
   /**

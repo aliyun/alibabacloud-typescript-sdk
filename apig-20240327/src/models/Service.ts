@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 import { AgentServiceConfig } from "./AgentServiceConfig";
 import { AiServiceConfig } from "./AiServiceConfig";
 import { ServiceHealthCheck } from "./ServiceHealthCheck";
+import { LabelDetail } from "./LabelDetail";
 
 
 export class ServicePorts extends $dara.Model {
@@ -41,6 +42,11 @@ export class Service extends $dara.Model {
   createTimestamp?: number;
   /**
    * @example
+   * StartExecution
+   */
+  expressType?: string;
+  /**
+   * @example
    * gw-xxxx
    */
   gatewayId?: string;
@@ -51,6 +57,7 @@ export class Service extends $dara.Model {
   groupName?: string;
   healthCheck?: ServiceHealthCheck;
   healthStatus?: string;
+  labelDetails?: LabelDetail;
   name?: string;
   namespace?: string;
   ports?: ServicePorts[];
@@ -79,10 +86,12 @@ export class Service extends $dara.Model {
       agentServiceConfig: 'agentServiceConfig',
       aiServiceConfig: 'aiServiceConfig',
       createTimestamp: 'createTimestamp',
+      expressType: 'expressType',
       gatewayId: 'gatewayId',
       groupName: 'groupName',
       healthCheck: 'healthCheck',
       healthStatus: 'healthStatus',
+      labelDetails: 'labelDetails',
       name: 'name',
       namespace: 'namespace',
       ports: 'ports',
@@ -102,10 +111,12 @@ export class Service extends $dara.Model {
       agentServiceConfig: AgentServiceConfig,
       aiServiceConfig: AiServiceConfig,
       createTimestamp: 'number',
+      expressType: 'string',
       gatewayId: 'string',
       groupName: 'string',
       healthCheck: ServiceHealthCheck,
       healthStatus: 'string',
+      labelDetails: LabelDetail,
       name: 'string',
       namespace: 'string',
       ports: { 'type': 'array', 'itemType': ServicePorts },
@@ -131,6 +142,9 @@ export class Service extends $dara.Model {
     }
     if(this.healthCheck && typeof (this.healthCheck as any).validate === 'function') {
       (this.healthCheck as any).validate();
+    }
+    if(this.labelDetails && typeof (this.labelDetails as any).validate === 'function') {
+      (this.labelDetails as any).validate();
     }
     if(Array.isArray(this.ports)) {
       $dara.Model.validateArray(this.ports);
