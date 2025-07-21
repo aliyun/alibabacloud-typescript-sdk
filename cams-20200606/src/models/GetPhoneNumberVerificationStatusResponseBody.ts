@@ -1,9 +1,59 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetPhoneNumberVerificationStatusResponseBodyData } from "./GetPhoneNumberVerificationStatusResponseBodyData";
 
+
+export class GetPhoneNumberVerificationStatusResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The verification status.
+   * 
+   * @example
+   * VERIFIED
+   */
+  codeVerificationStatus?: string;
+  /**
+   * @remarks
+   * The ID of the number.
+   * 
+   * @example
+   * 2224342624
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * 8613900001234
+   */
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVerificationStatus: 'CodeVerificationStatus',
+      id: 'Id',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVerificationStatus: 'string',
+      id: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetPhoneNumberVerificationStatusResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   /**
    * @remarks
    * The HTTP status code returned.
@@ -38,6 +88,7 @@ export class GetPhoneNumberVerificationStatusResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -47,6 +98,7 @@ export class GetPhoneNumberVerificationStatusResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: GetPhoneNumberVerificationStatusResponseBodyData,
       message: 'string',

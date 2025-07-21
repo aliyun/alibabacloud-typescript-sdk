@@ -4,39 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class IsvGetAppIdRequest extends $dara.Model {
   /**
-   * @remarks
-   * The permission.
-   * 
-   * Valid values:
-   * 
-   * *   whatsapp_business_messaging: sending permission on WhatsApp messages
-   * *   ads_management: management permission on advertisements
-   * *   catalog_management: management permission on catalogs
-   * 
    * @example
-   * catalog_management
+   * 示例值示例值示例值
+   */
+  intlVersion?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 示例值示例值
    */
   permissions?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the app. Valid value: WHATSAPP.
-   * 
    * This parameter is required.
    * 
    * @example
-   * WHATSAPP
+   * 示例值示例值
    */
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      intlVersion: 'IntlVersion',
+      ownerId: 'OwnerId',
       permissions: 'Permissions',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      intlVersion: 'string',
+      ownerId: 'number',
       permissions: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       type: 'string',
     };
   }

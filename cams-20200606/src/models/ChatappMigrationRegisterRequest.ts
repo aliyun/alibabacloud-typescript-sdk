@@ -13,6 +13,7 @@ export class ChatappMigrationRegisterRequest extends $dara.Model {
    * 29348393884****
    */
   custSpaceId?: string;
+  ownerId?: number;
   /**
    * @remarks
    * phone number.
@@ -23,17 +24,25 @@ export class ChatappMigrationRegisterRequest extends $dara.Model {
    * 8613800****
    */
   phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       custSpaceId: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 

@@ -307,13 +307,25 @@ export default class Client extends OpenApi {
    */
   async chatappEmbedSignUpWithOptions(request: $_model.ChatappEmbedSignUpRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatappEmbedSignUpResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.inputToken)) {
-      body["InputToken"] = request.inputToken;
+      query["InputToken"] = request.inputToken;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "ChatappEmbedSignUp",
@@ -360,8 +372,20 @@ export default class Client extends OpenApi {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -412,8 +436,20 @@ export default class Client extends OpenApi {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!$dara.isNull(request.verifyCode)) {
@@ -463,17 +499,29 @@ export default class Client extends OpenApi {
    */
   async chatappPhoneNumberDeregisterWithOptions(request: $_model.ChatappPhoneNumberDeregisterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatappPhoneNumberDeregisterResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.phoneNumber)) {
-      body["PhoneNumber"] = request.phoneNumber;
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "ChatappPhoneNumberDeregister",
@@ -926,6 +974,18 @@ export default class Client extends OpenApi {
       query["MobileNumber"] = request.mobileNumber;
     }
 
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1083,21 +1143,33 @@ export default class Client extends OpenApi {
       request.categoriesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categories, "Categories", "json");
     }
 
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.categoriesShrink)) {
-      body["Categories"] = request.categoriesShrink;
+      query["Categories"] = request.categoriesShrink;
     }
 
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.flowName)) {
-      body["FlowName"] = request.flowName;
+      query["FlowName"] = request.flowName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateFlow",
@@ -1212,25 +1284,37 @@ export default class Client extends OpenApi {
    */
   async createPhoneMessageQrdlWithOptions(request: $_model.CreatePhoneMessageQrdlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePhoneMessageQrdlResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.generateQrImage)) {
-      body["GenerateQrImage"] = request.generateQrImage;
+      query["GenerateQrImage"] = request.generateQrImage;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.phoneNumber)) {
-      body["PhoneNumber"] = request.phoneNumber;
+      query["PhoneNumber"] = request.phoneNumber;
     }
 
     if (!$dara.isNull(request.prefilledMessage)) {
-      body["PrefilledMessage"] = request.prefilledMessage;
+      query["PrefilledMessage"] = request.prefilledMessage;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreatePhoneMessageQrdl",
@@ -1631,17 +1715,29 @@ export default class Client extends OpenApi {
    */
   async deleteFlowWithOptions(request: $_model.DeleteFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFlowResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.flowId)) {
-      body["FlowId"] = request.flowId;
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "DeleteFlow",
@@ -1752,21 +1848,33 @@ export default class Client extends OpenApi {
    */
   async deletePhoneMessageQrdlWithOptions(request: $_model.DeletePhoneMessageQrdlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePhoneMessageQrdlResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.phoneNumber)) {
-      body["PhoneNumber"] = request.phoneNumber;
+      query["PhoneNumber"] = request.phoneNumber;
     }
 
     if (!$dara.isNull(request.qrdlCode)) {
-      body["QrdlCode"] = request.qrdlCode;
+      query["QrdlCode"] = request.qrdlCode;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "DeletePhoneMessageQrdl",
@@ -1802,17 +1910,29 @@ export default class Client extends OpenApi {
    */
   async deprecateFlowWithOptions(request: $_model.DeprecateFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeprecateFlowResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.flowId)) {
-      body["FlowId"] = request.flowId;
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "DeprecateFlow",
@@ -1858,6 +1978,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.isvCode)) {
       query["IsvCode"] = request.isvCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2138,6 +2270,10 @@ export default class Client extends OpenApi {
       request.bizExtendShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizExtend, "BizExtend", "json");
     }
 
+    if (!$dara.isNull(tmpReq.metricParam)) {
+      request.metricParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metricParam, "MetricParam", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.bizCode)) {
       query["BizCode"] = request.bizCode;
@@ -2161,6 +2297,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.metricName)) {
       query["MetricName"] = request.metricName;
+    }
+
+    if (!$dara.isNull(request.metricParamShrink)) {
+      query["MetricParam"] = request.metricParamShrink;
     }
 
     if (!$dara.isNull(request.ownerId)) {
@@ -2294,8 +2434,20 @@ export default class Client extends OpenApi {
       query["IsvCode"] = request.isvCode;
     }
 
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!$dara.isNull(request.start)) {
@@ -2440,6 +2592,18 @@ export default class Client extends OpenApi {
       query["Language"] = request.language;
     }
 
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     if (!$dara.isNull(request.start)) {
       query["Start"] = request.start;
     }
@@ -2498,6 +2662,18 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2747,17 +2923,29 @@ export default class Client extends OpenApi {
    */
   async getFlowWithOptions(request: $_model.GetFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFlowResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.flowId)) {
-      body["FlowId"] = request.flowId;
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetFlow",
@@ -2796,17 +2984,29 @@ export default class Client extends OpenApi {
    */
   async getFlowJSONAssestWithOptions(request: $_model.GetFlowJSONAssestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFlowJSONAssestResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.flowId)) {
-      body["FlowId"] = request.flowId;
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetFlowJSONAssest",
@@ -2845,17 +3045,29 @@ export default class Client extends OpenApi {
    */
   async getFlowPreviewUrlWithOptions(request: $_model.GetFlowPreviewUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFlowPreviewUrlResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.flowId)) {
-      body["FlowId"] = request.flowId;
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetFlowPreviewUrl",
@@ -2910,8 +3122,20 @@ export default class Client extends OpenApi {
       query["Method"] = request.method;
     }
 
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2960,21 +3184,33 @@ export default class Client extends OpenApi {
       request.permissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permissions, "Permissions", "json");
     }
 
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.code)) {
-      body["Code"] = request.code;
+      query["Code"] = request.code;
     }
 
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.permissionsShrink)) {
-      body["Permissions"] = request.permissionsShrink;
+      query["Permissions"] = request.permissionsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetPermissionByCode",
@@ -3010,17 +3246,29 @@ export default class Client extends OpenApi {
    */
   async getPhoneEncryptionPublicKeyWithOptions(request: $_model.GetPhoneEncryptionPublicKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPhoneEncryptionPublicKeyResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.phoneNumber)) {
-      body["PhoneNumber"] = request.phoneNumber;
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetPhoneEncryptionPublicKey",
@@ -3059,17 +3307,29 @@ export default class Client extends OpenApi {
    */
   async getPhoneNumberVerificationStatusWithOptions(request: $_model.GetPhoneNumberVerificationStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPhoneNumberVerificationStatusResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.phoneNumber)) {
-      body["PhoneNumber"] = request.phoneNumber;
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetPhoneNumberVerificationStatus",
@@ -3311,17 +3571,33 @@ export default class Client extends OpenApi {
    */
   async isvGetAppIdWithOptions(request: $_model.IsvGetAppIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.IsvGetAppIdResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
+    if (!$dara.isNull(request.intlVersion)) {
+      query["IntlVersion"] = request.intlVersion;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!$dara.isNull(request.permissions)) {
-      body["Permissions"] = request.permissions;
+      query["Permissions"] = request.permissions;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!$dara.isNull(request.type)) {
-      body["Type"] = request.type;
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "IsvGetAppId",
@@ -3352,7 +3628,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据flowCode查询已绑定列表
+   * Query Bound List Based on flowCode
+   * 
+   * @remarks
+   * - You can call this interface to query the list of phone numbers or merchant account IDs bound to a process, or you can view the list in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** interface.
+   * - Before calling this interface, make sure that the process you created has already been bound to a phone number or merchant account ID.
+   * - If the process you created is not bound to a phone number or merchant account ID, you can manually bind a phone number or merchant account ID in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** interface, or bind it through the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) interface.
    * 
    * @param request - ListBindingRelationsForFlowVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3399,7 +3680,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据flowCode查询已绑定列表
+   * Query Bound List Based on flowCode
+   * 
+   * @remarks
+   * - You can call this interface to query the list of phone numbers or merchant account IDs bound to a process, or you can view the list in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** interface.
+   * - Before calling this interface, make sure that the process you created has already been bound to a phone number or merchant account ID.
+   * - If the process you created is not bound to a phone number or merchant account ID, you can manually bind a phone number or merchant account ID in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** interface, or bind it through the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) interface.
    * 
    * @param request - ListBindingRelationsForFlowVersionRequest
    * @returns ListBindingRelationsForFlowVersionResponse
@@ -3724,6 +4010,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询消息列表
+   * 
+   * @param tmpReq - ListChatappMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChatappMessageResponse
+   */
+  async listChatappMessageWithOptions(tmpReq: $_model.ListChatappMessageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListChatappMessageResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListChatappMessageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.page)) {
+      request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.businessNumber)) {
+      query["BusinessNumber"] = request.businessNumber;
+    }
+
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
+    if (!$dara.isNull(request.clientAcceptStatus)) {
+      query["ClientAcceptStatus"] = request.clientAcceptStatus;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.eventAction)) {
+      query["EventAction"] = request.eventAction;
+    }
+
+    if (!$dara.isNull(request.groupMessageId)) {
+      query["GroupMessageId"] = request.groupMessageId;
+    }
+
+    if (!$dara.isNull(request.messageStatus)) {
+      query["MessageStatus"] = request.messageStatus;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageShrink)) {
+      query["Page"] = request.pageShrink;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!$dara.isNull(request.userNumber)) {
+      query["UserNumber"] = request.userNumber;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChatappMessage",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListChatappMessageResponse>(await this.callApi(params, req, runtime), new $_model.ListChatappMessageResponse({}));
+  }
+
+  /**
+   * 查询消息列表
+   * 
+   * @param request - ListChatappMessageRequest
+   * @returns ListChatappMessageResponse
+   */
+  async listChatappMessage(request: $_model.ListChatappMessageRequest): Promise<$_model.ListChatappMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listChatappMessageWithOptions(request, runtime);
+  }
+
+  /**
    * Queries message templates.
    * 
    * @remarks
@@ -3845,21 +4235,33 @@ export default class Client extends OpenApi {
       request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
     }
 
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.flowName)) {
-      body["FlowName"] = request.flowName;
+      query["FlowName"] = request.flowName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.pageShrink)) {
-      body["Page"] = request.pageShrink;
+      query["Page"] = request.pageShrink;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "ListFlow",
@@ -3887,6 +4289,76 @@ export default class Client extends OpenApi {
   async listFlow(request: $_model.ListFlowRequest): Promise<$_model.ListFlowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * ListFlowNodePrototypeV2
+   * 
+   * @param request - ListFlowNodePrototypeV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlowNodePrototypeV2Response
+   */
+  async listFlowNodePrototypeV2WithOptions(request: $_model.ListFlowNodePrototypeV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlowNodePrototypeV2Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.groupCode)) {
+      query["GroupCode"] = request.groupCode;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFlowNodePrototypeV2",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFlowNodePrototypeV2Response>(await this.callApi(params, req, runtime), new $_model.ListFlowNodePrototypeV2Response({}));
+  }
+
+  /**
+   * ListFlowNodePrototypeV2
+   * 
+   * @param request - ListFlowNodePrototypeV2Request
+   * @returns ListFlowNodePrototypeV2Response
+   */
+  async listFlowNodePrototypeV2(request: $_model.ListFlowNodePrototypeV2Request): Promise<$_model.ListFlowNodePrototypeV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFlowNodePrototypeV2WithOptions(request, runtime);
   }
 
   /**
@@ -4385,25 +4857,37 @@ export default class Client extends OpenApi {
       request.categoriesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categories, "Categories", "json");
     }
 
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.categoriesShrink)) {
-      body["Categories"] = request.categoriesShrink;
+      query["Categories"] = request.categoriesShrink;
     }
 
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.flowId)) {
-      body["FlowId"] = request.flowId;
+      query["FlowId"] = request.flowId;
     }
 
     if (!$dara.isNull(request.flowName)) {
-      body["FlowName"] = request.flowName;
+      query["FlowName"] = request.flowName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "ModifyFlow",
@@ -4695,17 +5179,29 @@ export default class Client extends OpenApi {
    */
   async publishFlowWithOptions(request: $_model.PublishFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PublishFlowResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.flowId)) {
-      body["FlowId"] = request.flowId;
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "PublishFlow",
@@ -5527,6 +6023,18 @@ export default class Client extends OpenApi {
       query["OfficeAddress"] = request.officeAddress;
     }
 
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5666,8 +6174,20 @@ export default class Client extends OpenApi {
       query["HttpFlag"] = request.httpFlag;
     }
 
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!$dara.isNull(request.queueFlag)) {
       query["QueueFlag"] = request.queueFlag;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!$dara.isNull(request.statusCallbackUrl)) {
@@ -6092,21 +6612,33 @@ export default class Client extends OpenApi {
    */
   async updateFlowJSONAssetWithOptions(request: $_model.UpdateFlowJSONAssetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFlowJSONAssetResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.filePath)) {
-      body["FilePath"] = request.filePath;
+      query["FilePath"] = request.filePath;
     }
 
     if (!$dara.isNull(request.flowId)) {
-      body["FlowId"] = request.flowId;
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateFlowJSONAsset",
@@ -6222,21 +6754,33 @@ export default class Client extends OpenApi {
    */
   async updatePhoneEncryptionPublicKeyWithOptions(request: $_model.UpdatePhoneEncryptionPublicKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePhoneEncryptionPublicKeyResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.encryptionPublicKey)) {
-      body["EncryptionPublicKey"] = request.encryptionPublicKey;
+      query["EncryptionPublicKey"] = request.encryptionPublicKey;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.phoneNumber)) {
-      body["PhoneNumber"] = request.phoneNumber;
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdatePhoneEncryptionPublicKey",
@@ -6272,29 +6816,41 @@ export default class Client extends OpenApi {
    */
   async updatePhoneMessageQrdlWithOptions(request: $_model.UpdatePhoneMessageQrdlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePhoneMessageQrdlResponse> {
     request.validate();
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.generateQrImage)) {
-      body["GenerateQrImage"] = request.generateQrImage;
+      query["GenerateQrImage"] = request.generateQrImage;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.phoneNumber)) {
-      body["PhoneNumber"] = request.phoneNumber;
+      query["PhoneNumber"] = request.phoneNumber;
     }
 
     if (!$dara.isNull(request.prefilledMessage)) {
-      body["PrefilledMessage"] = request.prefilledMessage;
+      query["PrefilledMessage"] = request.prefilledMessage;
     }
 
     if (!$dara.isNull(request.qrdlCode)) {
-      body["QrdlCode"] = request.qrdlCode;
+      query["QrdlCode"] = request.qrdlCode;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdatePhoneMessageQrdl",
@@ -6344,12 +6900,24 @@ export default class Client extends OpenApi {
       query["HttpFlag"] = request.httpFlag;
     }
 
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
     if (!$dara.isNull(request.queueFlag)) {
       query["QueueFlag"] = request.queueFlag;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!$dara.isNull(request.statusCallbackUrl)) {

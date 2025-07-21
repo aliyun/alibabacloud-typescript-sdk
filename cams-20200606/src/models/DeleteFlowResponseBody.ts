@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteFlowResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   /**
    * @remarks
    * If OK is returned, the request was successful.
@@ -29,6 +30,7 @@ export class DeleteFlowResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -37,6 +39,7 @@ export class DeleteFlowResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       requestId: 'string',

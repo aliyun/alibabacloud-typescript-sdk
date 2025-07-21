@@ -4,38 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFlowJSONAssetRequest extends $dara.Model {
   /**
-   * @remarks
-   * SpaceId/instance ID of ISV sub customer.
-   * 
    * @example
-   * 9399393
+   * 示例值示例值
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * JSON file generated according to Facebook flow rules.
-   * 
    * This parameter is required.
    * 
    * @example
-   * https://aliyun/json.json
+   * 示例值示例值示例值
    */
   filePath?: string;
   /**
    * @remarks
-   * The Flow ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * flow_001
+   * 示例值示例值
    */
   flowId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
       filePath: 'FilePath',
       flowId: 'FlowId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -44,6 +43,9 @@ export class UpdateFlowJSONAssetRequest extends $dara.Model {
       custSpaceId: 'string',
       filePath: 'string',
       flowId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 

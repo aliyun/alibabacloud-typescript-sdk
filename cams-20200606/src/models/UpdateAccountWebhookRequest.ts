@@ -24,6 +24,7 @@ export class UpdateAccountWebhookRequest extends $dara.Model {
    * Y
    */
   httpFlag?: string;
+  ownerId?: number;
   /**
    * @remarks
    * Specifies whether to use Message Service (MNS) queues to receive receipts. Valid values:
@@ -35,6 +36,8 @@ export class UpdateAccountWebhookRequest extends $dara.Model {
    * N
    */
   queueFlag?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   /**
    * @remarks
    * The callback URL to which status reports are sent by using HTTP callbacks.
@@ -47,7 +50,10 @@ export class UpdateAccountWebhookRequest extends $dara.Model {
     return {
       custSpaceId: 'CustSpaceId',
       httpFlag: 'HttpFlag',
+      ownerId: 'OwnerId',
       queueFlag: 'QueueFlag',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       statusCallbackUrl: 'StatusCallbackUrl',
     };
   }
@@ -56,7 +62,10 @@ export class UpdateAccountWebhookRequest extends $dara.Model {
     return {
       custSpaceId: 'string',
       httpFlag: 'string',
+      ownerId: 'number',
       queueFlag: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       statusCallbackUrl: 'string',
     };
   }

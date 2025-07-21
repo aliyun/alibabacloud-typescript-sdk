@@ -5,32 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class GetPermissionByCodeRequest extends $dara.Model {
   /**
    * @remarks
-   * Authorize code information.
-   * 
    * This parameter is required.
    * 
    * @example
-   * flow_001
+   * 示例值示例值示例值
    */
   code?: string;
   /**
-   * @remarks
-   * The space ID of the RAM user within the independent software vendor (ISV) account.
-   * 
    * @example
-   * 393847477
+   * 示例值
    */
   custSpaceId?: string;
-  /**
-   * @remarks
-   * The permissions.
-   */
+  ownerId?: number;
   permissions?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       custSpaceId: 'CustSpaceId',
+      ownerId: 'OwnerId',
       permissions: 'Permissions',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -38,7 +35,10 @@ export class GetPermissionByCodeRequest extends $dara.Model {
     return {
       code: 'string',
       custSpaceId: 'string',
+      ownerId: 'number',
       permissions: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 

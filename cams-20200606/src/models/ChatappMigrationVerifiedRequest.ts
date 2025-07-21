@@ -13,6 +13,7 @@ export class ChatappMigrationVerifiedRequest extends $dara.Model {
    * 293483938849493
    */
   custSpaceId?: string;
+  ownerId?: number;
   /**
    * @remarks
    * The phone number.
@@ -23,6 +24,8 @@ export class ChatappMigrationVerifiedRequest extends $dara.Model {
    * 861380001234
    */
   phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   /**
    * @remarks
    * The verification code.
@@ -36,7 +39,10 @@ export class ChatappMigrationVerifiedRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       verifyCode: 'VerifyCode',
     };
   }
@@ -44,7 +50,10 @@ export class ChatappMigrationVerifiedRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       custSpaceId: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       verifyCode: 'string',
     };
   }

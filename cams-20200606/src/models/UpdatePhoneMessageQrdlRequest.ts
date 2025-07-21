@@ -4,60 +4,55 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePhoneMessageQrdlRequest extends $dara.Model {
   /**
-   * @remarks
-   * SpaceId/instance ID of ISV sub customer.
-   * 
    * @example
-   * 9383884
+   * 示例值
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * Produce QR code image format.
-   * 
    * This parameter is required.
    * 
    * @example
-   * PNG
+   * 示例值
    */
   generateQrImage?: string;
+  ownerId?: number;
   /**
    * @remarks
-   * Number, enter the country/region code+number.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 861380000
+   * 示例值示例值
    */
   phoneNumber?: string;
   /**
    * @remarks
-   * Message content.
-   * 
    * This parameter is required.
    * 
    * @example
-   * Hello
+   * 示例值示例值
    */
   prefilledMessage?: string;
   /**
    * @remarks
-   * QR code encoding.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 29338838
+   * 示例值示例值示例值
    */
   qrdlCode?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
       generateQrImage: 'GenerateQrImage',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
       prefilledMessage: 'PrefilledMessage',
       qrdlCode: 'QrdlCode',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -65,9 +60,12 @@ export class UpdatePhoneMessageQrdlRequest extends $dara.Model {
     return {
       custSpaceId: 'string',
       generateQrImage: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
       prefilledMessage: 'string',
       qrdlCode: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 

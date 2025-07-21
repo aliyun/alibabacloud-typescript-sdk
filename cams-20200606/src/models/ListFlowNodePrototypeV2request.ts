@@ -2,28 +2,52 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class PublishFlowRequest extends $dara.Model {
-  /**
-   * @example
-   * 示例值示例值示例值
-   */
-  custSpaceId?: string;
+export class ListFlowNodePrototypeV2Request extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * ALICOM_OPAAS
    */
-  flowId?: string;
+  bizCode?: string;
+  /**
+   * @example
+   * Core
+   */
+  groupCode?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  keyword?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      custSpaceId: 'CustSpaceId',
-      flowId: 'FlowId',
+      bizCode: 'BizCode',
+      groupCode: 'GroupCode',
+      keyword: 'Keyword',
       ownerId: 'OwnerId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -31,9 +55,12 @@ export class PublishFlowRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      custSpaceId: 'string',
-      flowId: 'string',
+      bizCode: 'string',
+      groupCode: 'string',
+      keyword: 'string',
       ownerId: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };

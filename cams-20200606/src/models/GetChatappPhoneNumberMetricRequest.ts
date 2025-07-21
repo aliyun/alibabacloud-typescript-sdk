@@ -42,6 +42,7 @@ export class GetChatappPhoneNumberMetricRequest extends $dara.Model {
    * skdi3kksloslikdkkdk
    */
   isvCode?: string;
+  ownerId?: number;
   /**
    * @remarks
    * The business phone number.
@@ -50,6 +51,8 @@ export class GetChatappPhoneNumberMetricRequest extends $dara.Model {
    * 861380000
    */
   phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   /**
    * @remarks
    * The beginning of the time range to query.
@@ -66,7 +69,10 @@ export class GetChatappPhoneNumberMetricRequest extends $dara.Model {
       end: 'End',
       granularity: 'Granularity',
       isvCode: 'IsvCode',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       start: 'Start',
     };
   }
@@ -77,7 +83,10 @@ export class GetChatappPhoneNumberMetricRequest extends $dara.Model {
       end: 'number',
       granularity: 'string',
       isvCode: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       start: 'number',
     };
   }

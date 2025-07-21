@@ -4,49 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePhoneMessageQrdlRequest extends $dara.Model {
   /**
-   * @remarks
-   * The space ID of the RAM user within the independent software vendor (ISV) account.
-   * 
    * @example
-   * 838833
+   * 示例值示例值示例值
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * Produce QR code image format.
-   * 
    * This parameter is required.
    * 
    * @example
-   * PNG
+   * 示例值示例值示例值
    */
   generateQrImage?: string;
+  ownerId?: number;
   /**
    * @remarks
-   * The phone number. Add the country code before the phone number.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 861380000
+   * 示例值示例值示例值
    */
   phoneNumber?: string;
   /**
    * @remarks
-   * Message content.
-   * 
    * This parameter is required.
    * 
    * @example
-   * Hello
+   * 示例值示例值
    */
   prefilledMessage?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
       generateQrImage: 'GenerateQrImage',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
       prefilledMessage: 'PrefilledMessage',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -54,8 +51,11 @@ export class CreatePhoneMessageQrdlRequest extends $dara.Model {
     return {
       custSpaceId: 'string',
       generateQrImage: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
       prefilledMessage: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 

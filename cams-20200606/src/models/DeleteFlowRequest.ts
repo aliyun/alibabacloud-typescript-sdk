@@ -4,27 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteFlowRequest extends $dara.Model {
   /**
-   * @remarks
-   * The space ID of the RAM user within the independent software vendor (ISV) account.
-   * 
    * @example
-   * 393983883
+   * 示例值示例值
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * The Flow ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * flow_001
+   * 示例值示例值
    */
   flowId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
       flowId: 'FlowId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -32,6 +33,9 @@ export class DeleteFlowRequest extends $dara.Model {
     return {
       custSpaceId: 'string',
       flowId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 

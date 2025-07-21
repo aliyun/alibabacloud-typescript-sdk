@@ -53,6 +53,7 @@ export class GetChatFlowMetricShrinkRequest extends $dara.Model {
    * nodeUsageStatistics
    */
   metricName?: string;
+  metricParamShrink?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -72,6 +73,7 @@ export class GetChatFlowMetricShrinkRequest extends $dara.Model {
       flowVersion: 'FlowVersion',
       from: 'From',
       metricName: 'MetricName',
+      metricParamShrink: 'MetricParam',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -87,6 +89,7 @@ export class GetChatFlowMetricShrinkRequest extends $dara.Model {
       flowVersion: 'string',
       from: 'number',
       metricName: 'string',
+      metricParamShrink: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',

@@ -1,8 +1,156 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SendChatappMessageRequestFlowAction } from "./SendChatappMessageRequestFlowAction";
-import { SendChatappMessageRequestProductAction } from "./SendChatappMessageRequestProductAction";
 
+
+export class SendChatappMessageRequestFlowAction extends $dara.Model {
+  /**
+   * @remarks
+   * The default parameter of the Flow.
+   */
+  flowActionData?: { [key: string]: any };
+  /**
+   * @remarks
+   * The Flow token.
+   * 
+   * @example
+   * 1122***
+   */
+  flowToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowActionData: 'FlowActionData',
+      flowToken: 'FlowToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowActionData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      flowToken: 'string',
+    };
+  }
+
+  validate() {
+    if(this.flowActionData) {
+      $dara.Model.validateMap(this.flowActionData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageRequestProductActionSectionsProductItems extends $dara.Model {
+  /**
+   * @remarks
+   * The retailer ID of the product.
+   * 
+   * @example
+   * 9I39E9E
+   */
+  productRetailerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productRetailerId: 'ProductRetailerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productRetailerId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageRequestProductActionSections extends $dara.Model {
+  /**
+   * @remarks
+   * The products.
+   */
+  productItems?: SendChatappMessageRequestProductActionSectionsProductItems[];
+  /**
+   * @remarks
+   * The name of the category.
+   * 
+   * @example
+   * Test
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productItems: 'ProductItems',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productItems: { 'type': 'array', 'itemType': SendChatappMessageRequestProductActionSectionsProductItems },
+      title: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.productItems)) {
+      $dara.Model.validateArray(this.productItems);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageRequestProductAction extends $dara.Model {
+  /**
+   * @remarks
+   * The products. Up to 30 products and 10 categories can be added.
+   */
+  sections?: SendChatappMessageRequestProductActionSections[];
+  /**
+   * @remarks
+   * The retailer ID of the product.
+   * 
+   * @example
+   * S238SK
+   */
+  thumbnailProductRetailerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sections: 'Sections',
+      thumbnailProductRetailerId: 'ThumbnailProductRetailerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sections: { 'type': 'array', 'itemType': SendChatappMessageRequestProductActionSections },
+      thumbnailProductRetailerId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sections)) {
+      $dara.Model.validateArray(this.sections);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SendChatappMessageRequest extends $dara.Model {
   /**

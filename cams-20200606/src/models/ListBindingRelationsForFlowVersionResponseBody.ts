@@ -3,24 +3,51 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListBindingRelationsForFlowVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Access denied details.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Error code. For more information, see [Error Codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
-   * 示例值示例值
+   * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data list.
+   */
   data?: { [key: string]: any }[];
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
-   * 示例值示例值示例值
+   * 无
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
-   * 示例值示例值
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Values:
+   * 
+   * - true: Success.
+   * 
+   * - false: Failure.
+   * 
    * @example
    * true
    */

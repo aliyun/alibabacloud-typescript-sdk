@@ -5,34 +5,33 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFlowShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The categories of the Flow.
-   * 
    * This parameter is required.
    */
   categoriesShrink?: string;
   /**
-   * @remarks
-   * The space ID of the user within the independent software vendor (ISV) account.
-   * 
    * @example
-   * 93994848
+   * 示例值示例值示例值
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * The name of the Flow.
-   * 
    * This parameter is required.
    * 
    * @example
-   * flow_001
+   * 示例值示例值
    */
   flowName?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       categoriesShrink: 'Categories',
       custSpaceId: 'CustSpaceId',
       flowName: 'FlowName',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -41,6 +40,9 @@ export class CreateFlowShrinkRequest extends $dara.Model {
       categoriesShrink: 'string',
       custSpaceId: 'string',
       flowName: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 

@@ -23,6 +23,7 @@ export class UpdatePhoneWebhookRequest extends $dara.Model {
    * Y
    */
   httpFlag?: string;
+  ownerId?: number;
   /**
    * @remarks
    * phone number.
@@ -43,6 +44,8 @@ export class UpdatePhoneWebhookRequest extends $dara.Model {
    * N
    */
   queueFlag?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   /**
    * @remarks
    * HTTP status report interface callback address.
@@ -63,8 +66,11 @@ export class UpdatePhoneWebhookRequest extends $dara.Model {
     return {
       custSpaceId: 'CustSpaceId',
       httpFlag: 'HttpFlag',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
       queueFlag: 'QueueFlag',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       statusCallbackUrl: 'StatusCallbackUrl',
       upCallbackUrl: 'UpCallbackUrl',
     };
@@ -74,8 +80,11 @@ export class UpdatePhoneWebhookRequest extends $dara.Model {
     return {
       custSpaceId: 'string',
       httpFlag: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
       queueFlag: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       statusCallbackUrl: 'string',
       upCallbackUrl: 'string',
     };

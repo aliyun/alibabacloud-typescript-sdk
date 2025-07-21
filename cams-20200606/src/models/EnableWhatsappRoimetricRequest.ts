@@ -19,10 +19,16 @@ export class EnableWhatsappROIMetricRequest extends $dara.Model {
    * skdi3kksloslikdkkdk
    */
   isvCode?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
       isvCode: 'IsvCode',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -30,6 +36,9 @@ export class EnableWhatsappROIMetricRequest extends $dara.Model {
     return {
       custSpaceId: 'string',
       isvCode: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 

@@ -1,7 +1,116 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListProductResponseBodyModel } from "./ListProductResponseBodyModel";
 
+
+export class ListProductResponseBodyModelPagingCursors extends $dara.Model {
+  /**
+   * @remarks
+   * The cursor that points to the end of the page of the returned data.
+   * 
+   * @example
+   * sjsuueu83838
+   */
+  after?: string;
+  /**
+   * @remarks
+   * The cursor that points to the beginning of the page of the returned data.
+   * 
+   * @example
+   * sjjsjdjjdjd83883
+   */
+  before?: string;
+  static names(): { [key: string]: string } {
+    return {
+      after: 'After',
+      before: 'Before',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      after: 'string',
+      before: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductResponseBodyModelPaging extends $dara.Model {
+  /**
+   * @remarks
+   * The cursors for pagination.
+   */
+  cursors?: ListProductResponseBodyModelPagingCursors;
+  static names(): { [key: string]: string } {
+    return {
+      cursors: 'Cursors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cursors: ListProductResponseBodyModelPagingCursors,
+    };
+  }
+
+  validate() {
+    if(this.cursors && typeof (this.cursors as any).validate === 'function') {
+      (this.cursors as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductResponseBodyModel extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The pagination details.
+   */
+  paging?: ListProductResponseBodyModelPaging;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      paging: 'Paging',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      paging: ListProductResponseBodyModelPaging,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    if(this.paging && typeof (this.paging as any).validate === 'function') {
+      (this.paging as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListProductResponseBody extends $dara.Model {
   /**

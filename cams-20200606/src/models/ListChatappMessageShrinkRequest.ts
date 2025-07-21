@@ -2,97 +2,96 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListChatGroupRequestPage extends $dara.Model {
+export class ListChatappMessageShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 1
-   */
-  index?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 20
-   */
-  size?: number;
-  static names(): { [key: string]: string } {
-    return {
-      index: 'Index',
-      size: 'Size',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      index: 'number',
-      size: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListChatGroupRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 8613800***
+   * 8613800****
    */
   businessNumber?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * WHATSAPP
    */
   channelType?: string;
   /**
+   * @example
+   * success
+   */
+  clientAcceptStatus?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * cams-x***
+   * 示例值示例值示例值
    */
   custSpaceId?: string;
   /**
    * @example
-   * ACTIVE
+   * 1727057232686
    */
-  groupStatus?: string;
+  endTime?: number;
+  /**
+   * @example
+   * UP
+   */
+  eventAction?: string;
+  /**
+   * @example
+   * 9292****
+   */
+  groupMessageId?: string;
+  /**
+   * @example
+   * success
+   */
+  messageStatus?: string;
   ownerId?: number;
   /**
    * @remarks
    * This parameter is required.
    */
-  page?: ListChatGroupRequestPage;
+  pageShrink?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @example
-   * test
+   * 1727057232686
    */
-  subject?: string;
+  startTime?: number;
+  /**
+   * @example
+   * 9938***
+   */
+  templateCode?: string;
+  /**
+   * @example
+   * 86138***
+   */
+  userNumber?: string;
   static names(): { [key: string]: string } {
     return {
       businessNumber: 'BusinessNumber',
       channelType: 'ChannelType',
+      clientAcceptStatus: 'ClientAcceptStatus',
       custSpaceId: 'CustSpaceId',
-      groupStatus: 'GroupStatus',
+      endTime: 'EndTime',
+      eventAction: 'EventAction',
+      groupMessageId: 'GroupMessageId',
+      messageStatus: 'MessageStatus',
       ownerId: 'OwnerId',
-      page: 'Page',
+      pageShrink: 'Page',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      subject: 'Subject',
+      startTime: 'StartTime',
+      templateCode: 'TemplateCode',
+      userNumber: 'UserNumber',
     };
   }
 
@@ -100,20 +99,23 @@ export class ListChatGroupRequest extends $dara.Model {
     return {
       businessNumber: 'string',
       channelType: 'string',
+      clientAcceptStatus: 'string',
       custSpaceId: 'string',
-      groupStatus: 'string',
+      endTime: 'number',
+      eventAction: 'string',
+      groupMessageId: 'string',
+      messageStatus: 'string',
       ownerId: 'number',
-      page: ListChatGroupRequestPage,
+      pageShrink: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      subject: 'string',
+      startTime: 'number',
+      templateCode: 'string',
+      userNumber: 'string',
     };
   }
 
   validate() {
-    if(this.page && typeof (this.page as any).validate === 'function') {
-      (this.page as any).validate();
-    }
     super.validate();
   }
 

@@ -33,6 +33,7 @@ export class GetMigrationVerifyCodeRequest extends $dara.Model {
    * sms
    */
   method?: string;
+  ownerId?: number;
   /**
    * @remarks
    * Phone number.
@@ -43,12 +44,17 @@ export class GetMigrationVerifyCodeRequest extends $dara.Model {
    * 8613800001234
    */
   phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
       locale: 'Locale',
       method: 'Method',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -57,7 +63,10 @@ export class GetMigrationVerifyCodeRequest extends $dara.Model {
       custSpaceId: 'string',
       locale: 'string',
       method: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 

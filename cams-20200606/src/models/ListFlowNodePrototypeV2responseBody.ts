@@ -2,63 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListChatGroupResponseBodyDataList extends $dara.Model {
-  /**
-   * @example
-   * 8613800**
-   */
-  businessNumber?: string;
-  /**
-   * @example
-   * test
-   */
-  description?: string;
-  /**
-   * @example
-   * EA30d***
-   */
-  groupId?: string;
-  /**
-   * @example
-   * ACTIVE
-   */
-  groupStatus?: string;
-  /**
-   * @example
-   * https://chat.whatsapp.com/***
-   */
-  inviteLink?: string;
-  /**
-   * @example
-   * https://aliyun.com/png.jpg
-   */
-  profilePictureFile?: string;
+export class ListFlowNodePrototypeV2ResponseBodyDataModel extends $dara.Model {
   /**
    * @example
    * 示例值示例值
    */
-  subject?: string;
+  code?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  groupCode?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  publicExtend?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      businessNumber: 'BusinessNumber',
-      description: 'Description',
-      groupId: 'GroupId',
-      groupStatus: 'GroupStatus',
-      inviteLink: 'InviteLink',
-      profilePictureFile: 'ProfilePictureFile',
-      subject: 'Subject',
+      code: 'Code',
+      groupCode: 'GroupCode',
+      publicExtend: 'PublicExtend',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      businessNumber: 'string',
-      description: 'string',
-      groupId: 'string',
-      groupStatus: 'string',
-      inviteLink: 'string',
-      profilePictureFile: 'string',
-      subject: 'string',
+      code: 'string',
+      groupCode: 'string',
+      publicExtend: 'string',
+      status: 'string',
     };
   }
 
@@ -71,30 +50,23 @@ export class ListChatGroupResponseBodyDataList extends $dara.Model {
   }
 }
 
-export class ListChatGroupResponseBodyData extends $dara.Model {
-  list?: ListChatGroupResponseBodyDataList[];
-  /**
-   * @example
-   * 51
-   */
-  total?: number;
+export class ListFlowNodePrototypeV2ResponseBodyData extends $dara.Model {
+  model?: ListFlowNodePrototypeV2ResponseBodyDataModel[];
   static names(): { [key: string]: string } {
     return {
-      list: 'List',
-      total: 'Total',
+      model: 'Model',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      list: { 'type': 'array', 'itemType': ListChatGroupResponseBodyDataList },
-      total: 'number',
+      model: { 'type': 'array', 'itemType': ListFlowNodePrototypeV2ResponseBodyDataModel },
     };
   }
 
   validate() {
-    if(Array.isArray(this.list)) {
-      $dara.Model.validateArray(this.list);
+    if(Array.isArray(this.model)) {
+      $dara.Model.validateArray(this.model);
     }
     super.validate();
   }
@@ -104,23 +76,19 @@ export class ListChatGroupResponseBodyData extends $dara.Model {
   }
 }
 
-export class ListChatGroupResponseBody extends $dara.Model {
+export class ListFlowNodePrototypeV2ResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 91
    */
-  code?: string;
-  data?: ListChatGroupResponseBodyData;
+  code?: number;
+  data?: ListFlowNodePrototypeV2ResponseBodyData;
   /**
    * @example
    * 示例值示例值
    */
   message?: string;
-  /**
-   * @example
-   * 示例值示例值
-   */
   requestId?: string;
   /**
    * @example
@@ -141,8 +109,8 @@ export class ListChatGroupResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessDeniedDetail: 'string',
-      code: 'string',
-      data: ListChatGroupResponseBodyData,
+      code: 'number',
+      data: ListFlowNodePrototypeV2ResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

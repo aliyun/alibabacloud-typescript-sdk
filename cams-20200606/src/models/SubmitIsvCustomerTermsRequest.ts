@@ -75,6 +75,9 @@ export class SubmitIsvCustomerTermsRequest extends $dara.Model {
    * Hangzhou
    */
   officeAddress?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       businessDesc: 'BusinessDesc',
@@ -84,6 +87,9 @@ export class SubmitIsvCustomerTermsRequest extends $dara.Model {
       custSpaceId: 'CustSpaceId',
       isvTerms: 'IsvTerms',
       officeAddress: 'OfficeAddress',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -96,6 +102,9 @@ export class SubmitIsvCustomerTermsRequest extends $dara.Model {
       custSpaceId: 'string',
       isvTerms: 'string',
       officeAddress: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 

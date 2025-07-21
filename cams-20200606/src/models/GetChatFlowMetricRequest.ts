@@ -53,6 +53,7 @@ export class GetChatFlowMetricRequest extends $dara.Model {
    * nodeUsageStatistics
    */
   metricName?: string;
+  metricParam?: { [key: string]: any };
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -72,6 +73,7 @@ export class GetChatFlowMetricRequest extends $dara.Model {
       flowVersion: 'FlowVersion',
       from: 'From',
       metricName: 'MetricName',
+      metricParam: 'MetricParam',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -87,6 +89,7 @@ export class GetChatFlowMetricRequest extends $dara.Model {
       flowVersion: 'string',
       from: 'number',
       metricName: 'string',
+      metricParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -97,6 +100,9 @@ export class GetChatFlowMetricRequest extends $dara.Model {
   validate() {
     if(this.bizExtend) {
       $dara.Model.validateMap(this.bizExtend);
+    }
+    if(this.metricParam) {
+      $dara.Model.validateMap(this.metricParam);
     }
     super.validate();
   }

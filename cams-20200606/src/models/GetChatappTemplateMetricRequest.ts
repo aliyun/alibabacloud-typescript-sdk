@@ -50,6 +50,9 @@ export class GetChatappTemplateMetricRequest extends $dara.Model {
    * en
    */
   language?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   /**
    * @remarks
    * The beginning of the time range to query.
@@ -90,6 +93,9 @@ export class GetChatappTemplateMetricRequest extends $dara.Model {
       granularity: 'Granularity',
       isvCode: 'IsvCode',
       language: 'Language',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       start: 'Start',
       templateCode: 'TemplateCode',
       templateType: 'TemplateType',
@@ -103,6 +109,9 @@ export class GetChatappTemplateMetricRequest extends $dara.Model {
       granularity: 'string',
       isvCode: 'string',
       language: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       start: 'number',
       templateCode: 'string',
       templateType: 'string',

@@ -33,11 +33,17 @@ export class CreateChatappMigrationInitiateRequest extends $dara.Model {
    * 13900001234
    */
   mobileNumber?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       countryCode: 'CountryCode',
       custSpaceId: 'CustSpaceId',
       mobileNumber: 'MobileNumber',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -46,6 +52,9 @@ export class CreateChatappMigrationInitiateRequest extends $dara.Model {
       countryCode: 'string',
       custSpaceId: 'string',
       mobileNumber: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
