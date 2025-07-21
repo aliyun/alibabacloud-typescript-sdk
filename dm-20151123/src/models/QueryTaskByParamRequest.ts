@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTaskByParamRequest extends $dara.Model {
   /**
    * @remarks
-   * Keyword, defaults to all information.
+   * Keyword, defaults to all information
    * 
    * @example
    * mesh-notification-788717
@@ -14,7 +14,7 @@ export class QueryTaskByParamRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Current page number, default is 1.
+   * Current page number, default is 1
    * 
    * @example
    * 1
@@ -22,7 +22,7 @@ export class QueryTaskByParamRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Page size, default is 10.
+   * Page size, default is 10
    * 
    * @example
    * 10
@@ -32,7 +32,7 @@ export class QueryTaskByParamRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Status, defaults to all statuses.
+   * Status, defaults to all statuses
    * 
    * @example
    * 0

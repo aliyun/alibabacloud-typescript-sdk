@@ -2,33 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class BatchSendMailResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Event ID
-   * 
-   * @example
-   * xxx
-   */
-  envId?: string;
+export class DedicatedIpChangeWarmupTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Request ID
    * 
    * @example
-   * 12D086F6-8F31-4658-84C1-006DED011A85
+   * xxx
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      envId: 'EnvId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      envId: 'string',
       requestId: 'string',
     };
   }

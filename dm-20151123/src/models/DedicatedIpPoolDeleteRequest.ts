@@ -2,34 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class BatchSendMailResponseBody extends $dara.Model {
+export class DedicatedIpPoolDeleteRequest extends $dara.Model {
   /**
-   * @remarks
-   * Event ID
-   * 
    * @example
    * xxx
    */
-  envId?: string;
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * 12D086F6-8F31-4658-84C1-006DED011A85
-   */
-  requestId?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      envId: 'EnvId',
-      requestId: 'RequestId',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      envId: 'string',
-      requestId: 'string',
+      id: 'string',
     };
   }
 

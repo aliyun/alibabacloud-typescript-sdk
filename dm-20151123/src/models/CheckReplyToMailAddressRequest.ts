@@ -10,7 +10,7 @@ export class CheckReplyToMailAddressRequest extends $dara.Model {
    * en is English, and any other value or an empty value defaults to Chinese.
    * 
    * @example
-   * 无
+   * en
    */
   lang?: string;
   /**

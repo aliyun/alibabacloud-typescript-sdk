@@ -2,34 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class BatchSendMailResponseBody extends $dara.Model {
+export class DedicatedIpPoolListRequest extends $dara.Model {
   /**
    * @remarks
-   * Event ID
+   * Search keyword for the name
    * 
    * @example
    * xxx
    */
-  envId?: string;
+  keyword?: string;
   /**
    * @remarks
-   * Request ID
+   * Page index, starting from 1
    * 
    * @example
-   * 12D086F6-8F31-4658-84C1-006DED011A85
+   * 1
    */
-  requestId?: string;
+  pageIndex?: number;
+  /**
+   * @remarks
+   * Number of items per page
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      envId: 'EnvId',
-      requestId: 'RequestId',
+      keyword: 'Keyword',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      envId: 'string',
-      requestId: 'string',
+      keyword: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
     };
   }
 

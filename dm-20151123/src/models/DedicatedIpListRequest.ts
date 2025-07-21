@@ -2,44 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QueryTagByParamResponseBodyDataTag extends $dara.Model {
+export class DedicatedIpListRequest extends $dara.Model {
   /**
    * @remarks
-   * Tag description
+   * IP search keyword
    * 
    * @example
-   * test description
+   * xxx
    */
-  tagDescription?: string;
+  keyword?: string;
   /**
    * @remarks
-   * Tag ID
+   * Pagination index, starting from 1
    * 
    * @example
-   * 52366
+   * 1
    */
-  tagId?: string;
+  pageIndex?: number;
   /**
    * @remarks
-   * Tag name
+   * Page size
    * 
    * @example
-   * hellopal
+   * 10
    */
-  tagName?: string;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      tagDescription: 'TagDescription',
-      tagId: 'TagId',
-      tagName: 'TagName',
+      keyword: 'Keyword',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagDescription: 'string',
-      tagId: 'string',
-      tagName: 'string',
+      keyword: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
     };
   }
 

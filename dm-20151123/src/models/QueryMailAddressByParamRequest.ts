@@ -8,7 +8,7 @@ export class QueryMailAddressByParamRequest extends $dara.Model {
    * Email address, length 1-60, supports numbers, letters, ., -, @.
    * 
    * @example
-   * 账号+@+域名
+   * sender@example.com
    */
   keyWord?: string;
   ownerId?: number;
@@ -32,7 +32,7 @@ export class QueryMailAddressByParamRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Type of sending address. Values:
+   * Sending address type. Values:
    * 
    * - batch: bulk email
    * - trigger: triggered email

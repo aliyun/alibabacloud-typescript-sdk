@@ -2,24 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetUserResponseBodyData extends $dara.Model {
+export class DedicatedIpPoolUpdateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Whether EventBridge is enabled
+   * IP pool ID
    * 
    * @example
-   * true
+   * xxx
    */
-  enableEventbridge?: boolean;
+  id?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * xxx
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      enableEventbridge: 'EnableEventbridge',
+      id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enableEventbridge: 'boolean',
+      id: 'string',
+      requestId: 'string',
     };
   }
 

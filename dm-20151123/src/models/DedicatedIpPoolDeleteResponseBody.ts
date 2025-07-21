@@ -2,20 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SingleSendMailRequestAttachments extends $dara.Model {
-  attachmentName?: string;
-  attachmentUrl?: string;
+export class DedicatedIpPoolDeleteResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxx
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      attachmentName: 'AttachmentName',
-      attachmentUrl: 'AttachmentUrl',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      attachmentName: 'string',
-      attachmentUrl: 'string',
+      requestId: 'string',
     };
   }
 

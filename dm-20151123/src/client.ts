@@ -1,10 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import OSS, * as $OSS from '@alicloud/oss-client';
-import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
-import * as $OSSUtil from '@alicloud/oss-util';
-import * as $FileForm from '@alicloud/tea-fileform';
-import OpenApi from '@alicloud/openapi-core';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
 
@@ -20,6 +16,42 @@ export default class Client extends OpenApi {
     this._endpoint = this.getEndpoint("dm", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
+    let request_ = new $dara.Request();
+    let boundary = $dara.Form.getBoundary();
+    request_.protocol = "HTTPS";
+    request_.method = "POST";
+    request_.pathname = `/`;
+    request_.headers = {
+      host: String(form["host"]),
+      date: OpenApiUtil.getDateUTCString(),
+      'user-agent': OpenApiUtil.getUserAgent(""),
+    };
+    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+    request_.body = $dara.Form.toFileForm(form, boundary);
+    let response_ = await $dara.doAction(request_);
+
+    let respMap : {[key: string]: any} = null;
+    let bodyStr = await $dara.Stream.readAsString(response_.body);
+    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+      respMap = $dara.XML.parseXml(bodyStr, null);
+      let err = respMap["Error"];
+      throw new $OpenApi.ClientError({
+        code: String(err["Code"]),
+        message: String(err["Message"]),
+        data: {
+          httpCode: response_.statusCode,
+          requestId: String(err["RequestId"]),
+          hostId: String(err["HostId"]),
+        },
+      });
+    }
+
+    respMap = $dara.XML.parseXml(bodyStr, null);
+    return {
+      ...respMap,
+    };
+  }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
     if (!$dara.isNull(endpoint)) {
@@ -705,6 +737,368 @@ export default class Client extends OpenApi {
   async createUserSuppression(request: $_model.CreateUserSuppressionRequest): Promise<$_model.CreateUserSuppressionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createUserSuppressionWithOptions(request, runtime);
+  }
+
+  /**
+   * Set Dedicated IP Auto Renewal
+   * 
+   * @param request - DedicatedIpAutoRenewalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DedicatedIpAutoRenewalResponse
+   */
+  async dedicatedIpAutoRenewalWithOptions(request: $_model.DedicatedIpAutoRenewalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DedicatedIpAutoRenewalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoRenewal)) {
+      query["AutoRenewal"] = request.autoRenewal;
+    }
+
+    if (!$dara.isNull(request.buyResourceIds)) {
+      query["BuyResourceIds"] = request.buyResourceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DedicatedIpAutoRenewal",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DedicatedIpAutoRenewalResponse>(await this.callApi(params, req, runtime), new $_model.DedicatedIpAutoRenewalResponse({}));
+  }
+
+  /**
+   * Set Dedicated IP Auto Renewal
+   * 
+   * @param request - DedicatedIpAutoRenewalRequest
+   * @returns DedicatedIpAutoRenewalResponse
+   */
+  async dedicatedIpAutoRenewal(request: $_model.DedicatedIpAutoRenewalRequest): Promise<$_model.DedicatedIpAutoRenewalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dedicatedIpAutoRenewalWithOptions(request, runtime);
+  }
+
+  /**
+   * Change the warmup method for a dedicated IP
+   * 
+   * @param request - DedicatedIpChangeWarmupTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DedicatedIpChangeWarmupTypeResponse
+   */
+  async dedicatedIpChangeWarmupTypeWithOptions(request: $_model.DedicatedIpChangeWarmupTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DedicatedIpChangeWarmupTypeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.warmupType)) {
+      query["WarmupType"] = request.warmupType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DedicatedIpChangeWarmupType",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DedicatedIpChangeWarmupTypeResponse>(await this.callApi(params, req, runtime), new $_model.DedicatedIpChangeWarmupTypeResponse({}));
+  }
+
+  /**
+   * Change the warmup method for a dedicated IP
+   * 
+   * @param request - DedicatedIpChangeWarmupTypeRequest
+   * @returns DedicatedIpChangeWarmupTypeResponse
+   */
+  async dedicatedIpChangeWarmupType(request: $_model.DedicatedIpChangeWarmupTypeRequest): Promise<$_model.DedicatedIpChangeWarmupTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dedicatedIpChangeWarmupTypeWithOptions(request, runtime);
+  }
+
+  /**
+   * Dedicated IP User IP List
+   * 
+   * @param request - DedicatedIpListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DedicatedIpListResponse
+   */
+  async dedicatedIpListWithOptions(request: $_model.DedicatedIpListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DedicatedIpListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DedicatedIpList",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DedicatedIpListResponse>(await this.callApi(params, req, runtime), new $_model.DedicatedIpListResponse({}));
+  }
+
+  /**
+   * Dedicated IP User IP List
+   * 
+   * @param request - DedicatedIpListRequest
+   * @returns DedicatedIpListResponse
+   */
+  async dedicatedIpList(request: $_model.DedicatedIpListRequest): Promise<$_model.DedicatedIpListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dedicatedIpListWithOptions(request, runtime);
+  }
+
+  /**
+   * Purchased Independent IPs Not Added to Pool
+   * 
+   * @param request - DedicatedIpNonePoolListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DedicatedIpNonePoolListResponse
+   */
+  async dedicatedIpNonePoolListWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DedicatedIpNonePoolListResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DedicatedIpNonePoolList",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DedicatedIpNonePoolListResponse>(await this.callApi(params, req, runtime), new $_model.DedicatedIpNonePoolListResponse({}));
+  }
+
+  /**
+   * Purchased Independent IPs Not Added to Pool
+   * @returns DedicatedIpNonePoolListResponse
+   */
+  async dedicatedIpNonePoolList(): Promise<$_model.DedicatedIpNonePoolListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dedicatedIpNonePoolListWithOptions(runtime);
+  }
+
+  /**
+   * Creation of Independent IP Pool
+   * 
+   * @param request - DedicatedIpPoolCreateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DedicatedIpPoolCreateResponse
+   */
+  async dedicatedIpPoolCreateWithOptions(request: $_model.DedicatedIpPoolCreateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DedicatedIpPoolCreateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.buyResourceIds)) {
+      query["BuyResourceIds"] = request.buyResourceIds;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DedicatedIpPoolCreate",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DedicatedIpPoolCreateResponse>(await this.callApi(params, req, runtime), new $_model.DedicatedIpPoolCreateResponse({}));
+  }
+
+  /**
+   * Creation of Independent IP Pool
+   * 
+   * @param request - DedicatedIpPoolCreateRequest
+   * @returns DedicatedIpPoolCreateResponse
+   */
+  async dedicatedIpPoolCreate(request: $_model.DedicatedIpPoolCreateRequest): Promise<$_model.DedicatedIpPoolCreateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dedicatedIpPoolCreateWithOptions(request, runtime);
+  }
+
+  /**
+   * 独立IP池删除
+   * 
+   * @param request - DedicatedIpPoolDeleteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DedicatedIpPoolDeleteResponse
+   */
+  async dedicatedIpPoolDeleteWithOptions(request: $_model.DedicatedIpPoolDeleteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DedicatedIpPoolDeleteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DedicatedIpPoolDelete",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DedicatedIpPoolDeleteResponse>(await this.callApi(params, req, runtime), new $_model.DedicatedIpPoolDeleteResponse({}));
+  }
+
+  /**
+   * 独立IP池删除
+   * 
+   * @param request - DedicatedIpPoolDeleteRequest
+   * @returns DedicatedIpPoolDeleteResponse
+   */
+  async dedicatedIpPoolDelete(request: $_model.DedicatedIpPoolDeleteRequest): Promise<$_model.DedicatedIpPoolDeleteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dedicatedIpPoolDeleteWithOptions(request, runtime);
+  }
+
+  /**
+   * Dedicated IP Pool List
+   * 
+   * @param request - DedicatedIpPoolListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DedicatedIpPoolListResponse
+   */
+  async dedicatedIpPoolListWithOptions(request: $_model.DedicatedIpPoolListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DedicatedIpPoolListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DedicatedIpPoolList",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DedicatedIpPoolListResponse>(await this.callApi(params, req, runtime), new $_model.DedicatedIpPoolListResponse({}));
+  }
+
+  /**
+   * Dedicated IP Pool List
+   * 
+   * @param request - DedicatedIpPoolListRequest
+   * @returns DedicatedIpPoolListResponse
+   */
+  async dedicatedIpPoolList(request: $_model.DedicatedIpPoolListRequest): Promise<$_model.DedicatedIpPoolListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dedicatedIpPoolListWithOptions(request, runtime);
+  }
+
+  /**
+   * Update of dedicated IP Pool
+   * 
+   * @param request - DedicatedIpPoolUpdateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DedicatedIpPoolUpdateResponse
+   */
+  async dedicatedIpPoolUpdateWithOptions(request: $_model.DedicatedIpPoolUpdateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DedicatedIpPoolUpdateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.buyResourceIds)) {
+      query["BuyResourceIds"] = request.buyResourceIds;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.updateResource)) {
+      query["UpdateResource"] = request.updateResource;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DedicatedIpPoolUpdate",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DedicatedIpPoolUpdateResponse>(await this.callApi(params, req, runtime), new $_model.DedicatedIpPoolUpdateResponse({}));
+  }
+
+  /**
+   * Update of dedicated IP Pool
+   * 
+   * @param request - DedicatedIpPoolUpdateRequest
+   * @returns DedicatedIpPoolUpdateResponse
+   */
+  async dedicatedIpPoolUpdate(request: $_model.DedicatedIpPoolUpdateRequest): Promise<$_model.DedicatedIpPoolUpdateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dedicatedIpPoolUpdateWithOptions(request, runtime);
   }
 
   /**
@@ -1990,7 +2384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of mail addresses.
+   * Query the list of sending addresses.
    * 
    * @param request - QueryMailAddressByParamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2045,7 +2439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of mail addresses.
+   * Query the list of sending addresses.
    * 
    * @param request - QueryMailAddressByParamRequest
    * @returns QueryMailAddressByParamResponse
@@ -2250,7 +2644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query task.
+   * Query task list
    * 
    * @param request - QueryTaskByParamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2305,7 +2699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query task.
+   * Query task list
    * 
    * @param request - QueryTaskByParamRequest
    * @returns QueryTaskByParamResponse
@@ -2733,52 +3127,8 @@ export default class Client extends OpenApi {
   async singleSendMailWithOptions(request: $_model.SingleSendMailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SingleSendMailResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.accountName)) {
-      query["AccountName"] = request.accountName;
-    }
-
-    if (!$dara.isNull(request.addressType)) {
-      query["AddressType"] = request.addressType;
-    }
-
-    if (!$dara.isNull(request.attachments)) {
-      query["Attachments"] = request.attachments;
-    }
-
-    if (!$dara.isNull(request.clickTrace)) {
-      query["ClickTrace"] = request.clickTrace;
-    }
-
-    if (!$dara.isNull(request.fromAlias)) {
-      query["FromAlias"] = request.fromAlias;
-    }
-
-    if (!$dara.isNull(request.headers)) {
-      query["Headers"] = request.headers;
-    }
-
-    if (!$dara.isNull(request.htmlBody)) {
-      query["HtmlBody"] = request.htmlBody;
-    }
-
-    if (!$dara.isNull(request.ipPoolId)) {
-      query["IpPoolId"] = request.ipPoolId;
-    }
-
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
-    }
-
-    if (!$dara.isNull(request.replyAddress)) {
-      query["ReplyAddress"] = request.replyAddress;
-    }
-
-    if (!$dara.isNull(request.replyAddressAlias)) {
-      query["ReplyAddressAlias"] = request.replyAddressAlias;
-    }
-
-    if (!$dara.isNull(request.replyToAddress)) {
-      query["ReplyToAddress"] = request.replyToAddress;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -2789,32 +3139,78 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountName)) {
+      body["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.addressType)) {
+      body["AddressType"] = request.addressType;
+    }
+
+    if (!$dara.isNull(request.attachments)) {
+      body["Attachments"] = request.attachments;
+    }
+
+    if (!$dara.isNull(request.clickTrace)) {
+      body["ClickTrace"] = request.clickTrace;
+    }
+
+    if (!$dara.isNull(request.fromAlias)) {
+      body["FromAlias"] = request.fromAlias;
+    }
+
+    if (!$dara.isNull(request.headers)) {
+      body["Headers"] = request.headers;
+    }
+
+    if (!$dara.isNull(request.htmlBody)) {
+      body["HtmlBody"] = request.htmlBody;
+    }
+
+    if (!$dara.isNull(request.ipPoolId)) {
+      body["IpPoolId"] = request.ipPoolId;
+    }
+
+    if (!$dara.isNull(request.replyAddress)) {
+      body["ReplyAddress"] = request.replyAddress;
+    }
+
+    if (!$dara.isNull(request.replyAddressAlias)) {
+      body["ReplyAddressAlias"] = request.replyAddressAlias;
+    }
+
+    if (!$dara.isNull(request.replyToAddress)) {
+      body["ReplyToAddress"] = request.replyToAddress;
+    }
+
     if (!$dara.isNull(request.subject)) {
-      query["Subject"] = request.subject;
+      body["Subject"] = request.subject;
     }
 
     if (!$dara.isNull(request.tagName)) {
-      query["TagName"] = request.tagName;
+      body["TagName"] = request.tagName;
     }
 
     if (!$dara.isNull(request.textBody)) {
-      query["TextBody"] = request.textBody;
+      body["TextBody"] = request.textBody;
     }
 
     if (!$dara.isNull(request.toAddress)) {
-      query["ToAddress"] = request.toAddress;
+      body["ToAddress"] = request.toAddress;
     }
 
     if (!$dara.isNull(request.unSubscribeFilterLevel)) {
-      query["UnSubscribeFilterLevel"] = request.unSubscribeFilterLevel;
+      body["UnSubscribeFilterLevel"] = request.unSubscribeFilterLevel;
     }
 
     if (!$dara.isNull(request.unSubscribeLinkType)) {
-      query["UnSubscribeLinkType"] = request.unSubscribeLinkType;
+      body["UnSubscribeLinkType"] = request.unSubscribeLinkType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "SingleSendMail",
@@ -2843,12 +3239,20 @@ export default class Client extends OpenApi {
 
   async singleSendMailAdvance(request: $_model.SingleSendMailAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SingleSendMailResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2865,25 +3269,31 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "Dm",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Dm",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
     let singleSendMailReq = new $_model.SingleSendMailRequest({ });
     OpenApiUtil.convert(request, singleSendMailReq);
     if (!$dara.isNull(request.attachments)) {
@@ -2891,30 +3301,27 @@ export default class Client extends OpenApi {
 
       for(let item0 of request.attachments) {
         if (!$dara.isNull(item0.attachmentUrlObject)) {
-          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-          ossConfig.accessKeyId = authResponse.body.accessKeyId;
-          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-          ossClient = new OSS(ossConfig);
-          fileObj = new $FileForm.FileField({
-            filename: authResponse.body.objectKey,
+          authResponse = await authClient.callApi(authParams, authReq, runtime);
+          tmpBody = authResponse["body"];
+          useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+          authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+          fileObj = new $dara.FileField({
+            filename: authResponseBody["ObjectKey"],
             content: item0.attachmentUrlObject,
             contentType: "",
           });
-          ossHeader = new $OSS.PostObjectRequestHeader({
-            accessKeyId: authResponse.body.accessKeyId,
-            policy: authResponse.body.encodedPolicy,
-            signature: authResponse.body.signature,
-            key: authResponse.body.objectKey,
+          ossHeader = {
+            host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+            OSSAccessKeyId: authResponseBody["AccessKeyId"],
+            policy: authResponseBody["EncodedPolicy"],
+            Signature: authResponseBody["Signature"],
+            key: authResponseBody["ObjectKey"],
             file: fileObj,
-            successActionStatus: "201",
-          });
-          uploadRequest = new $OSS.PostObjectRequest({
-            bucketName: authResponse.body.bucket,
-            header: ossHeader,
-          });
-          await ossClient.postObject(uploadRequest, ossRuntime);
-          let tmp : $_model.SingleSendMailRequestAttachments = singleSendMailReq.attachments[i0];
-          tmp.attachmentUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+            success_action_status: "201",
+          };
+          await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+          let tmpObj : $_model.SingleSendMailRequestAttachments = singleSendMailReq.attachments[i0];
+          tmpObj.attachmentUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
           i0++;
         }
 
@@ -2923,6 +3330,56 @@ export default class Client extends OpenApi {
 
     let singleSendMailResp = await this.singleSendMailWithOptions(singleSendMailReq, runtime);
     return singleSendMailResp;
+  }
+
+  /**
+   * Lift sending restrictions due to unsubscription, reporting, etc.
+   * 
+   * @param request - UnblockSendingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnblockSendingResponse
+   */
+  async unblockSendingWithOptions(request: $_model.UnblockSendingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnblockSendingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.blockEmail)) {
+      query["BlockEmail"] = request.blockEmail;
+    }
+
+    if (!$dara.isNull(request.blockType)) {
+      query["BlockType"] = request.blockType;
+    }
+
+    if (!$dara.isNull(request.senderEmail)) {
+      query["SenderEmail"] = request.senderEmail;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnblockSending",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnblockSendingResponse>(await this.callApi(params, req, runtime), new $_model.UnblockSendingResponse({}));
+  }
+
+  /**
+   * Lift sending restrictions due to unsubscription, reporting, etc.
+   * 
+   * @param request - UnblockSendingRequest
+   * @returns UnblockSendingResponse
+   */
+  async unblockSending(request: $_model.UnblockSendingRequest): Promise<$_model.UnblockSendingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.unblockSendingWithOptions(request, runtime);
   }
 
   /**

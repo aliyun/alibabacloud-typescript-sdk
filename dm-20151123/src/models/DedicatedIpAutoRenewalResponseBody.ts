@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SaveReceiverDetailResponseBodyDataDetail extends $dara.Model {
+export class DedicatedIpAutoRenewalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Recipient address.
+   * Request ID
    * 
    * @example
-   * test@example.com
+   * xxx
    */
-  email?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      email: 'Email',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      email: 'string',
+      requestId: 'string',
     };
   }
 

@@ -2,48 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
-export class GetIpfilterListResponseBodyDataIpfilters extends $dara.Model {
+export class DedicatedIpPoolCreateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * timestamp
+   * IP pool ID
    * 
    * @example
-   * 1653547140
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * Record ID
-   * 
-   * @example
-   * 10083
+   * xxx
    */
   id?: string;
   /**
    * @remarks
-   * IP address/IP range/IP segment
+   * Request ID
    * 
    * @example
-   * xxx.xxx.xxx.xxx
-   * xxx.xxx.xxx.xxx-xxx.xxx.xxx.xxx
-   * xxx.xxx.xxx.xxx/xxx
+   * xxx
    */
-  ipAddress?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      createTime: 'CreateTime',
       id: 'Id',
-      ipAddress: 'IpAddress',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createTime: 'string',
       id: 'string',
-      ipAddress: 'string',
+      requestId: 'string',
     };
   }
 

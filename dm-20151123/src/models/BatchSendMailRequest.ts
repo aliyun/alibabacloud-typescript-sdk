@@ -35,7 +35,7 @@ export class BatchSendMailRequest extends $dara.Model {
   clickTrace?: string;
   /**
    * @remarks
-   * Currently, the standard fields that can be added to the email header are Message-ID, List-Unsubscribe, and List-Unsubscribe-Post. Standard fields will overwrite the existing values in the email header, while non-standard fields need to start with X-User- and will be appended to the email header. Currently, up to 10 headers can be passed in JSON format, and both standard and non-standard fields must comply with the syntax requirements for headers.
+   * Currently, the standard fields that can be added to the email header are Message-ID, List-Unsubscribe, and List-Unsubscribe-Post. Standard fields will overwrite the existing values in the email header, while non-standard fields must start with X-User- and will be appended to the email header. Currently, up to 10 headers can be passed in JSON format, and both standard and non-standard fields must comply with the syntax requirements for headers.
    * 
    * @example
    * {
@@ -45,11 +45,18 @@ export class BatchSendMailRequest extends $dara.Model {
    * }
    */
   headers?: string;
+  /**
+   * @remarks
+   * dedicated IP pool ID. Users who have purchased an dedicated IP can use this parameter to specify the outgoing IP for this send operation.
+   * 
+   * @example
+   * xxx
+   */
   ipPoolId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The name of the recipient list that has been created and uploaded. Note: The recipient list should not be deleted until at least 10 minutes after the task is triggered, otherwise it may cause sending failure.
+   * The name of the recipient list that has been created and uploaded with recipients. Note: The recipient list should not be deleted until at least 10 minutes after the task is triggered, otherwise it may cause sending failure.
    * 
    * This parameter is required.
    * 
@@ -85,7 +92,7 @@ export class BatchSendMailRequest extends $dara.Model {
   tagName?: string;
   /**
    * @remarks
-   * The name of a pre-created and approved template.
+   * The name of the template that has been created and approved in advance.
    * 
    * This parameter is required.
    * 
@@ -95,12 +102,12 @@ export class BatchSendMailRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * Filter level. Refer to the [Unsubscribe Function Link Generation and Filtering Mechanism](https://help.aliyun.com/document_detail/2689048.html) document.
+   * Filtering level. Refer to the [Unsubscribe Function Link Generation and Filtering Mechanism](https://help.aliyun.com/document_detail/2689048.html) document.
    * - disabled: No filtering
-   * - default: Use the default strategy, bulk addresses use sender address level filtering
-   * - mailfrom: Sender address level filtering
-   * - mailfrom_domain: Sender domain level filtering
-   * - edm_id: Account level filtering
+   * - default: Use the default strategy, bulk addresses use sender address-level filtering
+   * - mailfrom: Sender address-level filtering
+   * - mailfrom_domain: Sender domain-level filtering
+   * - edm_id: Account-level filtering
    * 
    * @example
    * mailfrom_domain
@@ -108,13 +115,13 @@ export class BatchSendMailRequest extends $dara.Model {
   unSubscribeFilterLevel?: string;
   /**
    * @remarks
-   * Type of generated unsubscribe link. Refer to the [Unsubscribe Function Link Generation and Filtering Mechanism](https://help.aliyun.com/document_detail/2689048.html) document.
-   * - disabled: Not generated
-   * - default: Use the default strategy: Generate an unsubscribe link when sending from a bulk email address to specific domains, such as those containing keywords like "gmail", "yahoo",
+   * The type of generated unsubscribe link. Refer to the [Unsubscribe Function Link Generation and Filtering Mechanism](https://help.aliyun.com/document_detail/2689048.html) document.
+   * - disabled: Do not generate
+   * - default: Use the default strategy: Generate an unsubscribe link when a bulk-type sending address sends to specific domains, such as those containing keywords like "gmail", "yahoo",
    * "google", "aol.com", "hotmail",
    * "outlook", "ymail.com", etc.
-   * - zh-cn: Generated, for future content preparation
-   * - en-us: Generated, for future content preparation
+   * - zh-cn: Generate, for future content preparation
+   * - en-us: Generate, for future content preparation
    * 
    * @example
    * default

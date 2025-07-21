@@ -2,24 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetUserResponseBodyData extends $dara.Model {
+export class DedicatedIpNonePoolListResponseBodyIps extends $dara.Model {
   /**
    * @remarks
-   * Whether EventBridge is enabled
+   * Purchased instance ID
    * 
    * @example
-   * true
+   * xxx
    */
-  enableEventbridge?: boolean;
+  id?: string;
+  /**
+   * @remarks
+   * IP address
+   * 
+   * @example
+   * xxx
+   */
+  ip?: string;
   static names(): { [key: string]: string } {
     return {
-      enableEventbridge: 'EnableEventbridge',
+      id: 'Id',
+      ip: 'Ip',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enableEventbridge: 'boolean',
+      id: 'string',
+      ip: 'string',
     };
   }
 
@@ -32,37 +42,37 @@ export class GetUserResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetUserResponseBody extends $dara.Model {
+export class DedicatedIpNonePoolListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returned Content
+   * Information on IPs not added to the IP pool
    */
-  data?: GetUserResponseBodyData;
+  ips?: DedicatedIpNonePoolListResponseBodyIps[];
   /**
    * @remarks
    * Request ID
    * 
    * @example
-   * 10A1AD70-E48E-476D-98D9-39BD92193837
+   * xxx
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      data: 'Data',
+      ips: 'Ips',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: GetUserResponseBodyData,
+      ips: { 'type': 'array', 'itemType': DedicatedIpNonePoolListResponseBodyIps },
       requestId: 'string',
     };
   }
 
   validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
+    if(Array.isArray(this.ips)) {
+      $dara.Model.validateArray(this.ips);
     }
     super.validate();
   }

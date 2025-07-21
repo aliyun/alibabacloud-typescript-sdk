@@ -2,24 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateUserRequestUser extends $dara.Model {
+export class DedicatedIpChangeWarmupTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether EventBridge is enabled
+   * Dedicated IP ID
    * 
    * @example
-   * true
+   * xxx
    */
-  enableEventbridge?: boolean;
+  id?: string;
+  /**
+   * @remarks
+   * Warmup method
+   * 
+   * @example
+   * sysCusStream
+   */
+  warmupType?: string;
   static names(): { [key: string]: string } {
     return {
-      enableEventbridge: 'EnableEventbridge',
+      id: 'Id',
+      warmupType: 'WarmupType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enableEventbridge: 'boolean',
+      id: 'string',
+      warmupType: 'string',
     };
   }
 
