@@ -5456,7 +5456,15 @@ export default class Client extends OpenApi {
       request.layoutSpecifiedUsersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.layoutSpecifiedUsers, "LayoutSpecifiedUsers", "json");
     }
 
+    if (!$dara.isNull(tmpReq.singleStreamingRecord)) {
+      request.singleStreamingRecordShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.singleStreamingRecord, "SingleStreamingRecord", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.annotation)) {
+      query["Annotation"] = request.annotation;
+    }
+
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
@@ -5493,6 +5501,10 @@ export default class Client extends OpenApi {
       query["Panes"] = request.panes;
     }
 
+    if (!$dara.isNull(request.recordMode)) {
+      query["RecordMode"] = request.recordMode;
+    }
+
     if (!$dara.isNull(request.regionColor)) {
       query["RegionColor"] = request.regionColor;
     }
@@ -5503,6 +5515,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.showDefaultBackgroundOnMute)) {
       query["ShowDefaultBackgroundOnMute"] = request.showDefaultBackgroundOnMute;
+    }
+
+    if (!$dara.isNull(request.singleStreamingRecordShrink)) {
+      query["SingleStreamingRecord"] = request.singleStreamingRecordShrink;
+    }
+
+    if (!$dara.isNull(request.startWithoutChannel)) {
+      query["StartWithoutChannel"] = request.startWithoutChannel;
+    }
+
+    if (!$dara.isNull(request.startWithoutChannelWaitTime)) {
+      query["StartWithoutChannelWaitTime"] = request.startWithoutChannelWaitTime;
     }
 
     if (!$dara.isNull(request.storageConfig)) {
@@ -5844,6 +5868,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.annotation)) {
+      query["Annotation"] = request.annotation;
+    }
+
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
@@ -5890,6 +5918,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.showDefaultBackgroundOnMute)) {
       query["ShowDefaultBackgroundOnMute"] = request.showDefaultBackgroundOnMute;
+    }
+
+    if (!$dara.isNull(request.specMixedUserList)) {
+      query["SpecMixedUserList"] = request.specMixedUserList;
     }
 
     if (!$dara.isNull(request.startWithoutChannel)) {
@@ -6944,6 +6976,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionColor)) {
       query["RegionColor"] = request.regionColor;
+    }
+
+    if (!$dara.isNull(request.specMixedUserList)) {
+      query["SpecMixedUserList"] = request.specMixedUserList;
     }
 
     if (!$dara.isNull(request.taskId)) {

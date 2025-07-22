@@ -1,7 +1,33 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeChannelAllUsersResponseBodyUsers } from "./DescribeChannelAllUsersResponseBodyUsers";
 
+
+export class DescribeChannelAllUsersResponseBodyUsers extends $dara.Model {
+  /**
+   * @example
+   * 1811****
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeChannelAllUsersResponseBody extends $dara.Model {
   channelExist?: boolean;

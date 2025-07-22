@@ -1,7 +1,197 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateRecordTaskRequestUserPanes } from "./UpdateRecordTaskRequestUserPanes";
 
+
+export class UpdateRecordTaskRequestUserPanesImages extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
+  height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
+  url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
+  width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      display: 'Display',
+      height: 'Height',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      display: 'number',
+      height: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRecordTaskRequestUserPanesTexts extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  fontColor?: number;
+  /**
+   * @example
+   * 1
+   */
+  fontSize?: number;
+  /**
+   * @example
+   * 0
+   */
+  fontType?: number;
+  /**
+   * @example
+   * text
+   */
+  text?: string;
+  /**
+   * @example
+   * 0.7576
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      fontType: 'FontType',
+      text: 'Text',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fontColor: 'number',
+      fontSize: 'number',
+      fontType: 'number',
+      text: 'string',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRecordTaskRequestUserPanes extends $dara.Model {
+  images?: UpdateRecordTaskRequestUserPanesImages[];
+  /**
+   * @example
+   * 1
+   */
+  paneId?: number;
+  /**
+   * @example
+   * camera
+   */
+  sourceType?: string;
+  texts?: UpdateRecordTaskRequestUserPanesTexts[];
+  /**
+   * @example
+   * TestId
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      paneId: 'PaneId',
+      sourceType: 'SourceType',
+      texts: 'Texts',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': UpdateRecordTaskRequestUserPanesImages },
+      paneId: 'number',
+      sourceType: 'string',
+      texts: { 'type': 'array', 'itemType': UpdateRecordTaskRequestUserPanesTexts },
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.images)) {
+      $dara.Model.validateArray(this.images);
+    }
+    if(Array.isArray(this.texts)) {
+      $dara.Model.validateArray(this.texts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateRecordTaskRequest extends $dara.Model {
   /**

@@ -1,11 +1,522 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { StartMPUTaskRequestBackgrounds } from "./StartMputaskRequestBackgrounds";
-import { StartMPUTaskRequestClockWidgets } from "./StartMputaskRequestClockWidgets";
-import { StartMPUTaskRequestEnhancedParam } from "./StartMputaskRequestEnhancedParam";
-import { StartMPUTaskRequestUserPanes } from "./StartMputaskRequestUserPanes";
-import { StartMPUTaskRequestWatermarks } from "./StartMputaskRequestWatermarks";
 
+
+export class StartMPUTaskRequestBackgrounds extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
+  height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
+  url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
+  width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      display: 'Display',
+      height: 'Height',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      display: 'number',
+      height: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartMPUTaskRequestClockWidgets extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0
+   */
+  borderColor?: number;
+  /**
+   * @example
+   * 1
+   */
+  borderWidth?: number;
+  /**
+   * @example
+   * false
+   */
+  box?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  boxBorderWidth?: number;
+  /**
+   * @example
+   * 0
+   */
+  boxColor?: number;
+  /**
+   * @example
+   * 0
+   */
+  fontColor?: number;
+  /**
+   * @example
+   * 1
+   */
+  fontSize?: number;
+  /**
+   * @example
+   * 0
+   */
+  fontType?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      borderColor: 'BorderColor',
+      borderWidth: 'BorderWidth',
+      box: 'Box',
+      boxBorderWidth: 'BoxBorderWidth',
+      boxColor: 'BoxColor',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      fontType: 'FontType',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      borderColor: 'number',
+      borderWidth: 'number',
+      box: 'boolean',
+      boxBorderWidth: 'number',
+      boxColor: 'number',
+      fontColor: 'number',
+      fontSize: 'number',
+      fontType: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartMPUTaskRequestEnhancedParam extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  enablePortraitSegmentation?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enablePortraitSegmentation: 'EnablePortraitSegmentation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablePortraitSegmentation: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartMPUTaskRequestUserPanesImages extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
+  height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
+  url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
+  width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      display: 'Display',
+      height: 'Height',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      display: 'number',
+      height: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartMPUTaskRequestUserPanesTexts extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0
+   */
+  borderColor?: number;
+  /**
+   * @example
+   * 1
+   */
+  borderWidth?: number;
+  /**
+   * @example
+   * false
+   */
+  box?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  boxBorderWidth?: number;
+  /**
+   * @example
+   * 0
+   */
+  boxColor?: number;
+  /**
+   * @example
+   * 0
+   */
+  fontColor?: number;
+  /**
+   * @example
+   * 1
+   */
+  fontSize?: number;
+  /**
+   * @example
+   * 0
+   */
+  fontType?: number;
+  /**
+   * @example
+   * text
+   */
+  text?: string;
+  /**
+   * @example
+   * 0.7576
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.2456
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      borderColor: 'BorderColor',
+      borderWidth: 'BorderWidth',
+      box: 'Box',
+      boxBorderWidth: 'BoxBorderWidth',
+      boxColor: 'BoxColor',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      fontType: 'FontType',
+      text: 'Text',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      borderColor: 'number',
+      borderWidth: 'number',
+      box: 'boolean',
+      boxBorderWidth: 'number',
+      boxColor: 'number',
+      fontColor: 'number',
+      fontSize: 'number',
+      fontType: 'number',
+      text: 'string',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartMPUTaskRequestUserPanes extends $dara.Model {
+  images?: StartMPUTaskRequestUserPanesImages[];
+  /**
+   * @example
+   * 2
+   */
+  paneId?: number;
+  /**
+   * @example
+   * 0
+   */
+  segmentType?: number;
+  /**
+   * @example
+   * camera
+   */
+  sourceType?: string;
+  texts?: StartMPUTaskRequestUserPanesTexts[];
+  /**
+   * @example
+   * TestId
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      paneId: 'PaneId',
+      segmentType: 'SegmentType',
+      sourceType: 'SourceType',
+      texts: 'Texts',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': StartMPUTaskRequestUserPanesImages },
+      paneId: 'number',
+      segmentType: 'number',
+      sourceType: 'string',
+      texts: { 'type': 'array', 'itemType': StartMPUTaskRequestUserPanesTexts },
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.images)) {
+      $dara.Model.validateArray(this.images);
+    }
+    if(Array.isArray(this.texts)) {
+      $dara.Model.validateArray(this.texts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartMPUTaskRequestWatermarks extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0
+   */
+  display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
+  height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
+  url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
+  width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      display: 'Display',
+      height: 'Height',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      display: 'number',
+      height: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class StartMPUTaskRequest extends $dara.Model {
   /**

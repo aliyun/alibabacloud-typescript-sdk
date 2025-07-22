@@ -1,9 +1,213 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateRecordTemplateRequestBackgrounds } from "./UpdateRecordTemplateRequestBackgrounds";
-import { UpdateRecordTemplateRequestClockWidgets } from "./UpdateRecordTemplateRequestClockWidgets";
-import { UpdateRecordTemplateRequestWatermarks } from "./UpdateRecordTemplateRequestWatermarks";
 
+
+export class UpdateRecordTemplateRequestBackgrounds extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
+  height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
+  url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
+  width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      display: 'Display',
+      height: 'Height',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      display: 'number',
+      height: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRecordTemplateRequestClockWidgets extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  fontColor?: number;
+  /**
+   * @example
+   * 1
+   */
+  fontSize?: number;
+  /**
+   * @example
+   * 0
+   */
+  fontType?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      fontType: 'FontType',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fontColor: 'number',
+      fontSize: 'number',
+      fontType: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRecordTemplateRequestWatermarks extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0
+   */
+  display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
+  height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
+  url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
+  width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      display: 'Display',
+      height: 'Height',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      display: 'number',
+      height: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateRecordTemplateRequest extends $dara.Model {
   /**
