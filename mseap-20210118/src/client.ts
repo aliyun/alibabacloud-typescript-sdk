@@ -30,6 +30,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 商品授权码激活
+   * 
    * @param request - ActivateLicenseRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ActivateLicenseResponse
@@ -75,6 +77,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 商品授权码激活
+   * 
    * @param request - ActivateLicenseRequest
    * @returns ActivateLicenseResponse
    */
@@ -206,6 +210,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询协议状态
+   * 
    * @param request - DescribeAgreementStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAgreementStatusResponse
@@ -235,6 +241,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询协议状态
+   * 
    * @param request - DescribeAgreementStatusRequest
    * @returns DescribeAgreementStatusResponse
    */
@@ -487,6 +495,48 @@ export default class Client extends OpenApi {
   async getNodeByTemplateId(request: $_model.GetNodeByTemplateIdRequest): Promise<$_model.GetNodeByTemplateIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getNodeByTemplateIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 合作伙伴获取订单概要信息
+   * 
+   * @param request - GetOrderSummaryForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOrderSummaryForPartnerResponse
+   */
+  async getOrderSummaryForPartnerWithOptions(request: $_model.GetOrderSummaryForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOrderSummaryForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOrderSummaryForPartner",
+      version: "2021-01-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOrderSummaryForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.GetOrderSummaryForPartnerResponse({}));
+  }
+
+  /**
+   * 合作伙伴获取订单概要信息
+   * 
+   * @param request - GetOrderSummaryForPartnerRequest
+   * @returns GetOrderSummaryForPartnerResponse
+   */
+  async getOrderSummaryForPartner(request: $_model.GetOrderSummaryForPartnerRequest): Promise<$_model.GetOrderSummaryForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOrderSummaryForPartnerWithOptions(request, runtime);
   }
 
   /**
@@ -1578,6 +1628,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新协议状态
+   * 
    * @param request - UpdateAgreementStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAgreementStatusResponse
@@ -1607,6 +1659,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新协议状态
+   * 
    * @param request - UpdateAgreementStatusRequest
    * @returns UpdateAgreementStatusResponse
    */
