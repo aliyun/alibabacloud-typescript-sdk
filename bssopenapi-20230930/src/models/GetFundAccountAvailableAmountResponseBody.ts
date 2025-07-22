@@ -1,8 +1,81 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetFundAccountAvailableAmountResponseBodyExtendLedgerList } from "./GetFundAccountAvailableAmountResponseBodyExtendLedgerList";
-import { GetFundAccountAvailableAmountResponseBodyOriginalCashAmountList } from "./GetFundAccountAvailableAmountResponseBodyOriginalCashAmountList";
 
+
+export class GetFundAccountAvailableAmountResponseBodyExtendLedgerList extends $dara.Model {
+  /**
+   * @example
+   * CNY
+   */
+  currency?: string;
+  /**
+   * @example
+   * 应付对冲账本
+   */
+  ledgerName?: string;
+  /**
+   * @example
+   * 50
+   */
+  originalAmount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      ledgerName: 'LedgerName',
+      originalAmount: 'OriginalAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      ledgerName: 'string',
+      originalAmount: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFundAccountAvailableAmountResponseBodyOriginalCashAmountList extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  amount?: string;
+  /**
+   * @example
+   * USD
+   */
+  currency?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      currency: 'Currency',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      currency: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetFundAccountAvailableAmountResponseBody extends $dara.Model {
   /**

@@ -1,8 +1,64 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeUserSpnSummaryInfoResponseBodyRegionList } from "./DescribeUserSpnSummaryInfoResponseBodyRegionList";
-import { DescribeUserSpnSummaryInfoResponseBodySpnCodeAndTypeList } from "./DescribeUserSpnSummaryInfoResponseBodySpnCodeAndTypeList";
 
+
+export class DescribeUserSpnSummaryInfoResponseBodyRegionList extends $dara.Model {
+  regionCode?: string;
+  regionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionCode: 'RegionCode',
+      regionName: 'RegionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionCode: 'string',
+      regionName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserSpnSummaryInfoResponseBodySpnCodeAndTypeList extends $dara.Model {
+  productCode?: string;
+  spnCommodityCode?: string;
+  spnType?: string;
+  spnTypeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productCode: 'ProductCode',
+      spnCommodityCode: 'SpnCommodityCode',
+      spnType: 'SpnType',
+      spnTypeName: 'SpnTypeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productCode: 'string',
+      spnCommodityCode: 'string',
+      spnType: 'string',
+      spnTypeName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeUserSpnSummaryInfoResponseBody extends $dara.Model {
   instanceFamilyList?: string[];

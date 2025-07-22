@@ -154,6 +154,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 财务单元实例重分配
+   * 
+   * @param tmpReq - AllocateCostCenterResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AllocateCostCenterResourceResponse
+   */
+  async allocateCostCenterResourceWithOptions(tmpReq: $_model.AllocateCostCenterResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AllocateCostCenterResourceResponse> {
+    tmpReq.validate();
+    let request = new $_model.AllocateCostCenterResourceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceInstanceList)) {
+      request.resourceInstanceListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceInstanceList, "ResourceInstanceList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fromCostCenterId)) {
+      body["FromCostCenterId"] = request.fromCostCenterId;
+    }
+
+    if (!$dara.isNull(request.fromOwnerAccountId)) {
+      body["FromOwnerAccountId"] = request.fromOwnerAccountId;
+    }
+
+    if (!$dara.isNull(request.resourceInstanceListShrink)) {
+      body["ResourceInstanceList"] = request.resourceInstanceListShrink;
+    }
+
+    if (!$dara.isNull(request.toCostCenterId)) {
+      body["ToCostCenterId"] = request.toCostCenterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AllocateCostCenterResource",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AllocateCostCenterResourceResponse>(await this.callApi(params, req, runtime), new $_model.AllocateCostCenterResourceResponse({}));
+  }
+
+  /**
+   * 财务单元实例重分配
+   * 
+   * @param request - AllocateCostCenterResourceRequest
+   * @returns AllocateCostCenterResourceResponse
+   */
+  async allocateCostCenterResource(request: $_model.AllocateCostCenterResourceRequest): Promise<$_model.AllocateCostCenterResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.allocateCostCenterResourceWithOptions(request, runtime);
+  }
+
+  /**
    * 取消资金账户低额预警
    * 
    * @param request - CancelFundAccountLowAvailableAmountAlarmRequest
@@ -245,6 +311,64 @@ export default class Client extends OpenApi {
   async createCostCenter(request: $_model.CreateCostCenterRequest): Promise<$_model.CreateCostCenterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createCostCenterWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建财务单元规则
+   * 
+   * @param tmpReq - CreateCostCenterRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCostCenterRuleResponse
+   */
+  async createCostCenterRuleWithOptions(tmpReq: $_model.CreateCostCenterRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCostCenterRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateCostCenterRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterExpression)) {
+      request.filterExpressionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterExpression, "FilterExpression", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.filterExpressionShrink)) {
+      query["FilterExpression"] = request.filterExpressionShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.costCenterId)) {
+      body["CostCenterId"] = request.costCenterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCostCenterRule",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCostCenterRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateCostCenterRuleResponse({}));
+  }
+
+  /**
+   * 新建财务单元规则
+   * 
+   * @param request - CreateCostCenterRuleRequest
+   * @returns CreateCostCenterRuleResponse
+   */
+  async createCostCenterRule(request: $_model.CreateCostCenterRuleRequest): Promise<$_model.CreateCostCenterRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCostCenterRuleWithOptions(request, runtime);
   }
 
   /**
@@ -372,6 +496,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 申请发票
+   * 
+   * @param tmpReq - CreateInvoiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInvoiceResponse
+   */
+  async createInvoiceWithOptions(tmpReq: $_model.CreateInvoiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInvoiceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateInvoiceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.invoiceCandidateIds)) {
+      request.invoiceCandidateIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.invoiceCandidateIds, "InvoiceCandidateIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.recipientEmails)) {
+      request.recipientEmailsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recipientEmails, "RecipientEmails", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.invoiceCandidateIdsShrink)) {
+      query["InvoiceCandidateIds"] = request.invoiceCandidateIdsShrink;
+    }
+
+    if (!$dara.isNull(request.invoiceMode)) {
+      query["InvoiceMode"] = request.invoiceMode;
+    }
+
+    if (!$dara.isNull(request.invoiceRemark)) {
+      query["InvoiceRemark"] = request.invoiceRemark;
+    }
+
+    if (!$dara.isNull(request.invoiceTitleId)) {
+      query["InvoiceTitleId"] = request.invoiceTitleId;
+    }
+
+    if (!$dara.isNull(request.invoiceType)) {
+      query["InvoiceType"] = request.invoiceType;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.recipientEmailsShrink)) {
+      query["RecipientEmails"] = request.recipientEmailsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInvoice",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInvoiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateInvoiceResponse({}));
+  }
+
+  /**
+   * 申请发票
+   * 
+   * @param request - CreateInvoiceRequest
+   * @returns CreateInvoiceResponse
+   */
+  async createInvoice(request: $_model.CreateInvoiceRequest): Promise<$_model.CreateInvoiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createInvoiceWithOptions(request, runtime);
+  }
+
+  /**
    * 创建账单订阅
    * 
    * @param request - CreateReportDefinitionRequest
@@ -495,6 +707,64 @@ export default class Client extends OpenApi {
   async deleteCostCenter(request: $_model.DeleteCostCenterRequest): Promise<$_model.DeleteCostCenterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCostCenterWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除财务单元规则
+   * 
+   * @param tmpReq - DeleteCostCenterRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCostCenterRuleResponse
+   */
+  async deleteCostCenterRuleWithOptions(tmpReq: $_model.DeleteCostCenterRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCostCenterRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteCostCenterRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterExpression)) {
+      request.filterExpressionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterExpression, "FilterExpression", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.filterExpressionShrink)) {
+      query["FilterExpression"] = request.filterExpressionShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.costCenterId)) {
+      body["CostCenterId"] = request.costCenterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCostCenterRule",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCostCenterRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCostCenterRuleResponse({}));
+  }
+
+  /**
+   * 删除财务单元规则
+   * 
+   * @param request - DeleteCostCenterRuleRequest
+   * @returns DeleteCostCenterRuleResponse
+   */
+  async deleteCostCenterRule(request: $_model.DeleteCostCenterRuleRequest): Promise<$_model.DeleteCostCenterRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCostCenterRuleWithOptions(request, runtime);
   }
 
   /**
@@ -1106,6 +1376,138 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 订单详情查询
+   * 
+   * @param request - GetOrderDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOrderDetailResponse
+   */
+  async getOrderDetailWithOptions(request: $_model.GetOrderDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOrderDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOrderDetail",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOrderDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetOrderDetailResponse({}));
+  }
+
+  /**
+   * 订单详情查询
+   * 
+   * @param request - GetOrderDetailRequest
+   * @returns GetOrderDetailResponse
+   */
+  async getOrderDetail(request: $_model.GetOrderDetailRequest): Promise<$_model.GetOrderDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOrderDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 订单列表查询
+   * 
+   * @param request - GetOrdersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOrdersResponse
+   */
+  async getOrdersWithOptions(request: $_model.GetOrdersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOrdersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!$dara.isNull(request.createTimeStart)) {
+      query["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!$dara.isNull(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.paymentStatus)) {
+      query["PaymentStatus"] = request.paymentStatus;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.subscriptionType)) {
+      query["SubscriptionType"] = request.subscriptionType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOrders",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOrdersResponse>(await this.callApi(params, req, runtime), new $_model.GetOrdersResponse({}));
+  }
+
+  /**
+   * 订单列表查询
+   * 
+   * @param request - GetOrdersRequest
+   * @returns GetOrdersResponse
+   */
+  async getOrders(request: $_model.GetOrdersRequest): Promise<$_model.GetOrdersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOrdersWithOptions(request, runtime);
+  }
+
+  /**
    * 获取节省计划及可抵扣商品信息
    * 
    * @param tmpReq - GetSavingPlanDeductableCommodityRequest
@@ -1454,6 +1856,146 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 对客OpenAPI开票对象查询
+   * 
+   * @param tmpReq - ListInvoiceCandidateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInvoiceCandidateResponse
+   */
+  async listInvoiceCandidateWithOptions(tmpReq: $_model.ListInvoiceCandidateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInvoiceCandidateResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListInvoiceCandidateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.billingCycles)) {
+      request.billingCyclesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.billingCycles, "BillingCycles", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.businessIds)) {
+      request.businessIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.businessIds, "BusinessIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.invoiceIssuers)) {
+      request.invoiceIssuersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.invoiceIssuers, "InvoiceIssuers", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.status)) {
+      request.statusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.status, "Status", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.types)) {
+      request.typesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.types, "Types", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.billingCyclesShrink)) {
+      query["BillingCycles"] = request.billingCyclesShrink;
+    }
+
+    if (!$dara.isNull(request.businessIdsShrink)) {
+      query["BusinessIds"] = request.businessIdsShrink;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.invoiceIssuersShrink)) {
+      query["InvoiceIssuers"] = request.invoiceIssuersShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.statusShrink)) {
+      query["Status"] = request.statusShrink;
+    }
+
+    if (!$dara.isNull(request.typesShrink)) {
+      query["Types"] = request.typesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInvoiceCandidate",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInvoiceCandidateResponse>(await this.callApi(params, req, runtime), new $_model.ListInvoiceCandidateResponse({}));
+  }
+
+  /**
+   * 对客OpenAPI开票对象查询
+   * 
+   * @param request - ListInvoiceCandidateRequest
+   * @returns ListInvoiceCandidateResponse
+   */
+  async listInvoiceCandidate(request: $_model.ListInvoiceCandidateRequest): Promise<$_model.ListInvoiceCandidateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInvoiceCandidateWithOptions(request, runtime);
+  }
+
+  /**
+   * 发票抬头查询服务
+   * 
+   * @param request - ListInvoiceTitleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInvoiceTitleResponse
+   */
+  async listInvoiceTitleWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListInvoiceTitleResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInvoiceTitle",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInvoiceTitleResponse>(await this.callApi(params, req, runtime), new $_model.ListInvoiceTitleResponse({}));
+  }
+
+  /**
+   * 发票抬头查询服务
+   * @returns ListInvoiceTitleResponse
+   */
+  async listInvoiceTitle(): Promise<$_model.ListInvoiceTitleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInvoiceTitleWithOptions(runtime);
+  }
+
+  /**
    * 查看已订阅的报告列表
    * 
    * @param request - ListReportDefinitionsRequest
@@ -1545,6 +2087,68 @@ export default class Client extends OpenApi {
   async modifyCostCenter(request: $_model.ModifyCostCenterRequest): Promise<$_model.ModifyCostCenterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyCostCenterWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改财务单元规则
+   * 
+   * @param tmpReq - ModifyCostCenterRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCostCenterRuleResponse
+   */
+  async modifyCostCenterRuleWithOptions(tmpReq: $_model.ModifyCostCenterRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCostCenterRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyCostCenterRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterExpression)) {
+      request.filterExpressionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterExpression, "FilterExpression", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.filterExpressionShrink)) {
+      query["FilterExpression"] = request.filterExpressionShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.costCenterId)) {
+      body["CostCenterId"] = request.costCenterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccountId)) {
+      body["OwnerAccountId"] = request.ownerAccountId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCostCenterRule",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyCostCenterRuleResponse>(await this.callApi(params, req, runtime), new $_model.ModifyCostCenterRuleResponse({}));
+  }
+
+  /**
+   * 修改财务单元规则
+   * 
+   * @param request - ModifyCostCenterRuleRequest
+   * @returns ModifyCostCenterRuleResponse
+   */
+  async modifyCostCenterRule(request: $_model.ModifyCostCenterRuleRequest): Promise<$_model.ModifyCostCenterRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCostCenterRuleWithOptions(request, runtime);
   }
 
   /**
@@ -1677,6 +2281,58 @@ export default class Client extends OpenApi {
   async queryCostCenterResource(request: $_model.QueryCostCenterResourceRequest): Promise<$_model.QueryCostCenterResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryCostCenterResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询财务单元规则
+   * 
+   * @param request - QueryCostCenterRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCostCenterRuleResponse
+   */
+  async queryCostCenterRuleWithOptions(request: $_model.QueryCostCenterRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryCostCenterRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ecIdAccountIds)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIds;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.costCenterId)) {
+      body["CostCenterId"] = request.costCenterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryCostCenterRule",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryCostCenterRuleResponse>(await this.callApi(params, req, runtime), new $_model.QueryCostCenterRuleResponse({}));
+  }
+
+  /**
+   * 查询财务单元规则
+   * 
+   * @param request - QueryCostCenterRuleRequest
+   * @returns QueryCostCenterRuleResponse
+   */
+  async queryCostCenterRule(request: $_model.QueryCostCenterRuleRequest): Promise<$_model.QueryCostCenterRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryCostCenterRuleWithOptions(request, runtime);
   }
 
   /**
