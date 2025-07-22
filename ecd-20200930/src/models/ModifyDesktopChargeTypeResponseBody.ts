@@ -24,11 +24,13 @@ export class ModifyDesktopChargeTypeResponseBody extends $dara.Model {
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       desktopId: 'DesktopId',
       orderId: 'OrderId',
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
@@ -37,6 +39,7 @@ export class ModifyDesktopChargeTypeResponseBody extends $dara.Model {
       desktopId: { 'type': 'array', 'itemType': 'string' },
       orderId: 'string',
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
