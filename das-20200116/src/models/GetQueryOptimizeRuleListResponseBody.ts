@@ -1,7 +1,126 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetQueryOptimizeRuleListResponseBodyData } from "./GetQueryOptimizeRuleListResponseBodyData";
 
+
+export class GetQueryOptimizeRuleListResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the tag.
+   * 
+   * @example
+   * LARGE_ROWS_EXAMINED
+   */
+  name?: string;
+  /**
+   * @remarks
+   * A reserved parameter.
+   * 
+   * @example
+   * None
+   */
+  ruleId?: string;
+  /**
+   * @remarks
+   * The type of the tag. **Predefined** is returned, which indicates that the tag is added by the system.
+   * 
+   * @example
+   * Predefined
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      ruleId: 'RuleId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      ruleId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueryOptimizeRuleListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A reserved parameter.
+   * 
+   * @example
+   * None
+   */
+  extra?: string;
+  /**
+   * @remarks
+   * The information about tags.
+   */
+  list?: GetQueryOptimizeRuleListResponseBodyDataList[];
+  /**
+   * @remarks
+   * A reserved parameter.
+   * 
+   * @example
+   * None
+   */
+  pageNo?: number;
+  /**
+   * @remarks
+   * A reserved parameter.
+   * 
+   * @example
+   * None
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extra: 'Extra',
+      list: 'List',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extra: 'string',
+      list: { 'type': 'array', 'itemType': GetQueryOptimizeRuleListResponseBodyDataList },
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetQueryOptimizeRuleListResponseBody extends $dara.Model {
   /**

@@ -1,7 +1,174 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DisableAutoThrottleRulesResponseBodyData } from "./DisableAutoThrottleRulesResponseBodyData";
 
+
+export class DisableAutoThrottleRulesResponseBodyDataConfigFailInstanceList extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the automatic SQL throttling feature is disabled. Valid values:
+   * 
+   * * **true**
+   * 
+   * * **false**
+   * 
+   * @example
+   * false
+   */
+  configSuccess?: boolean;
+  /**
+   * @remarks
+   * The error message returned.
+   * 
+   * @example
+   * cannot found instance by rm-2ze9xrhze0709****
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The database instance ID.
+   * 
+   * @example
+   * rm-2ze9xrhze0709****
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configSuccess: 'ConfigSuccess',
+      errorMessage: 'ErrorMessage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configSuccess: 'boolean',
+      errorMessage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableAutoThrottleRulesResponseBodyDataConfigSuccessInstanceList extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the automatic SQL throttling feature is disabled. Valid values:
+   * 
+   * * **true**
+   * 
+   * * **false**
+   * 
+   * @example
+   * true
+   */
+  configSuccess?: boolean;
+  /**
+   * @remarks
+   * The database instance ID.
+   * 
+   * @example
+   * rm-2ze8g2am97624****
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configSuccess: 'ConfigSuccess',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configSuccess: 'boolean',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableAutoThrottleRulesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The number of database instances for which the automatic SQL throttling feature failed to be disabled.
+   * 
+   * @example
+   * 1
+   */
+  configFailInstanceCount?: number;
+  /**
+   * @remarks
+   * The database instances for which the automatic SQL throttling feature failed to be disabled.
+   */
+  configFailInstanceList?: DisableAutoThrottleRulesResponseBodyDataConfigFailInstanceList[];
+  /**
+   * @remarks
+   * The number of database instances for which the automatic SQL throttling feature is disabled.
+   * 
+   * @example
+   * 1
+   */
+  configSuccessInstanceCount?: number;
+  /**
+   * @remarks
+   * The database instances for which the automatic SQL throttling feature is disabled.
+   */
+  configSuccessInstanceList?: DisableAutoThrottleRulesResponseBodyDataConfigSuccessInstanceList[];
+  /**
+   * @remarks
+   * The total number of database instances.
+   * 
+   * @example
+   * 2
+   */
+  totalInstanceCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configFailInstanceCount: 'ConfigFailInstanceCount',
+      configFailInstanceList: 'ConfigFailInstanceList',
+      configSuccessInstanceCount: 'ConfigSuccessInstanceCount',
+      configSuccessInstanceList: 'ConfigSuccessInstanceList',
+      totalInstanceCount: 'TotalInstanceCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configFailInstanceCount: 'number',
+      configFailInstanceList: { 'type': 'array', 'itemType': DisableAutoThrottleRulesResponseBodyDataConfigFailInstanceList },
+      configSuccessInstanceCount: 'number',
+      configSuccessInstanceList: { 'type': 'array', 'itemType': DisableAutoThrottleRulesResponseBodyDataConfigSuccessInstanceList },
+      totalInstanceCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configFailInstanceList)) {
+      $dara.Model.validateArray(this.configFailInstanceList);
+    }
+    if(Array.isArray(this.configSuccessInstanceList)) {
+      $dara.Model.validateArray(this.configSuccessInstanceList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DisableAutoThrottleRulesResponseBody extends $dara.Model {
   /**

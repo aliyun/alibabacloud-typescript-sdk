@@ -1,7 +1,99 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetHDMAliyunResourceSyncResultResponseBodyData } from "./GetHdmaliyunResourceSyncResultResponseBodyData";
 
+
+export class GetHDMAliyunResourceSyncResultResponseBodyDataSubResultsResourceSyncSubResult extends $dara.Model {
+  errMsg?: string;
+  resourceType?: string;
+  success?: boolean;
+  syncCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errMsg: 'ErrMsg',
+      resourceType: 'ResourceType',
+      success: 'Success',
+      syncCount: 'SyncCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errMsg: 'string',
+      resourceType: 'string',
+      success: 'boolean',
+      syncCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHDMAliyunResourceSyncResultResponseBodyDataSubResults extends $dara.Model {
+  resourceSyncSubResult?: GetHDMAliyunResourceSyncResultResponseBodyDataSubResultsResourceSyncSubResult[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceSyncSubResult: 'ResourceSyncSubResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceSyncSubResult: { 'type': 'array', 'itemType': GetHDMAliyunResourceSyncResultResponseBodyDataSubResultsResourceSyncSubResult },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceSyncSubResult)) {
+      $dara.Model.validateArray(this.resourceSyncSubResult);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHDMAliyunResourceSyncResultResponseBodyData extends $dara.Model {
+  errorMsg?: string;
+  results?: string;
+  subResults?: GetHDMAliyunResourceSyncResultResponseBodyDataSubResults;
+  syncStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMsg: 'ErrorMsg',
+      results: 'Results',
+      subResults: 'SubResults',
+      syncStatus: 'SyncStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMsg: 'string',
+      results: 'string',
+      subResults: GetHDMAliyunResourceSyncResultResponseBodyDataSubResults,
+      syncStatus: 'string',
+    };
+  }
+
+  validate() {
+    if(this.subResults && typeof (this.subResults as any).validate === 'function') {
+      (this.subResults as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetHDMAliyunResourceSyncResultResponseBody extends $dara.Model {
   code?: string;

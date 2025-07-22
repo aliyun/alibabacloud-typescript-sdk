@@ -1,7 +1,40 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeSlowLogStatisticRequestFilters } from "./DescribeSlowLogStatisticRequestFilters";
 
+
+export class DescribeSlowLogStatisticRequestFilters extends $dara.Model {
+  /**
+   * @example
+   * KeyWords
+   */
+  key?: string;
+  /**
+   * @example
+   * select
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeSlowLogStatisticRequest extends $dara.Model {
   /**

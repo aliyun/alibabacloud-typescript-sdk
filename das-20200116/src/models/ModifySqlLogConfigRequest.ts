@@ -1,7 +1,46 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModifySqlLogConfigRequestFilters } from "./ModifySqlLogConfigRequestFilters";
 
+
+export class ModifySqlLogConfigRequestFilters extends $dara.Model {
+  /**
+   * @remarks
+   * A reserved parameter.
+   * 
+   * @example
+   * None
+   */
+  key?: string;
+  /**
+   * @remarks
+   * A reserved parameter.
+   * 
+   * @example
+   * None
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifySqlLogConfigRequest extends $dara.Model {
   /**
