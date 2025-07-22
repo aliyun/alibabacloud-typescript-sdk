@@ -2,26 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListInstancesResponseBodyInstancesAffinityCPU extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the CPU affinity feature was enabled.
-   * 
-   * true false
-   * 
-   * @example
-   * true
-   */
-  enable?: boolean;
+export class GetUserCommandRequest extends $dara.Model {
+  instanceId?: string;
+  token?: string;
   static names(): { [key: string]: string } {
     return {
-      enable: 'Enable',
+      instanceId: 'InstanceId',
+      token: 'Token',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enable: 'boolean',
+      instanceId: 'string',
+      token: 'string',
     };
   }
 

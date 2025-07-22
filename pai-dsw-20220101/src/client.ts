@@ -1029,6 +1029,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取自定义用户命令
+   * 
+   * @param request - GetUserCommandRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserCommandResponse
+   */
+  async getUserCommandWithOptions(UserCommandId: string, request: $_model.GetUserCommandRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserCommandResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUserCommand",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/usercommands/${$dara.URL.percentEncode(UserCommandId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUserCommandResponse>(await this.callApi(params, req, runtime), new $_model.GetUserCommandResponse({}));
+  }
+
+  /**
+   * 获取自定义用户命令
+   * 
+   * @param request - GetUserCommandRequest
+   * @returns GetUserCommandResponse
+   */
+  async getUserCommand(UserCommandId: string, request: $_model.GetUserCommandRequest): Promise<$_model.GetUserCommandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getUserCommandWithOptions(UserCommandId, request, headers, runtime);
+  }
+
+  /**
    * 获取用户配置
    * 
    * @param headers - map
@@ -1387,6 +1436,91 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取系统日志
+   * 
+   * @param request - ListSystemLogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSystemLogsResponse
+   */
+  async listSystemLogsWithOptions(request: $_model.ListSystemLogsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSystemLogsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gmtEndTime)) {
+      query["GmtEndTime"] = request.gmtEndTime;
+    }
+
+    if (!$dara.isNull(request.gmtStartTime)) {
+      query["GmtStartTime"] = request.gmtStartTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.logLevel)) {
+      query["LogLevel"] = request.logLevel;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.problemCategory)) {
+      query["ProblemCategory"] = request.problemCategory;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sourceRequestId)) {
+      query["SourceRequestId"] = request.sourceRequestId;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSystemLogs",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/systemlogs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSystemLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListSystemLogsResponse({}));
+  }
+
+  /**
+   * 获取系统日志
+   * 
+   * @param request - ListSystemLogsRequest
+   * @returns ListSystemLogsResponse
+   */
+  async listSystemLogs(request: $_model.ListSystemLogsRequest): Promise<$_model.ListSystemLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSystemLogsWithOptions(request, headers, runtime);
   }
 
   /**

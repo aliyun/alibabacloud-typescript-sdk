@@ -1,20 +1,901 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetInstanceResponseBodyAffinity } from "./GetInstanceResponseBodyAffinity";
-import { GetInstanceResponseBodyCloudDisks } from "./GetInstanceResponseBodyCloudDisks";
 import { CredentialConfig } from "./CredentialConfig";
-import { GetInstanceResponseBodyDatasets } from "./GetInstanceResponseBodyDatasets";
 import { DynamicMount } from "./DynamicMount";
-import { GetInstanceResponseBodyIdleInstanceCuller } from "./GetInstanceResponseBodyIdleInstanceCuller";
-import { GetInstanceResponseBodyInstanceShutdownTimer } from "./GetInstanceResponseBodyInstanceShutdownTimer";
-import { GetInstanceResponseBodyInstanceSnapshotList } from "./GetInstanceResponseBodyInstanceSnapshotList";
-import { GetInstanceResponseBodyLabels } from "./GetInstanceResponseBodyLabels";
-import { GetInstanceResponseBodyLatestSnapshot } from "./GetInstanceResponseBodyLatestSnapshot";
-import { GetInstanceResponseBodyNodeErrorRecovery } from "./GetInstanceResponseBodyNodeErrorRecovery";
-import { GetInstanceResponseBodyRequestedResource } from "./GetInstanceResponseBodyRequestedResource";
-import { GetInstanceResponseBodyTags } from "./GetInstanceResponseBodyTags";
-import { GetInstanceResponseBodyUserVpc } from "./GetInstanceResponseBodyUserVpc";
+import { BandwidthLimit } from "./BandwidthLimit";
+import { ForwardInfoResponse } from "./ForwardInfoResponse";
 
+
+export class GetInstanceResponseBodyAffinityCPU extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether CPU affinity is enabled.
+   * 
+   * true false
+   * 
+   * @example
+   * true
+   */
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyAffinity extends $dara.Model {
+  /**
+   * @remarks
+   * The CPU affinity configuration. Only subscription instances that use general-purpose computing resources support CPU affinity configuration.
+   */
+  CPU?: GetInstanceResponseBodyAffinityCPU;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: GetInstanceResponseBodyAffinityCPU,
+    };
+  }
+
+  validate() {
+    if(this.CPU && typeof (this.CPU as any).validate === 'function') {
+      (this.CPU as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyCloudDisks extends $dara.Model {
+  /**
+   * @remarks
+   * Disk Capacity
+   * 
+   * @example
+   * 30Gi
+   */
+  capacity?: string;
+  /**
+   * @remarks
+   * The mount path of the cloud disk in the container.
+   * 
+   * @example
+   * /mmt/workspace
+   */
+  mountPath?: string;
+  /**
+   * @remarks
+   * The directory on the cloud disk that is mounted to the container.
+   * 
+   * @example
+   * /workspace
+   */
+  path?: string;
+  /**
+   * @remarks
+   * The usage mode of the cloud disk. The value rootfs indicates that the cloud disk is used as the root file system.
+   * 
+   * @example
+   * rootfs
+   */
+  subType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      mountPath: 'MountPath',
+      path: 'Path',
+      subType: 'SubType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'string',
+      mountPath: 'string',
+      path: 'string',
+      subType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyDatasets extends $dara.Model {
+  /**
+   * @remarks
+   * The dataset ID.
+   * 
+   * @example
+   * d-vsqjvsjp4orp5l206u
+   */
+  datasetId?: string;
+  /**
+   * @remarks
+   * The dataset version.
+   * 
+   * @example
+   * v1
+   */
+  datasetVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether dynamic mounting is enabled. Default value: false.
+   * 
+   * @example
+   * false
+   */
+  dynamic?: boolean;
+  /**
+   * @remarks
+   * The read and write permissions. Valid values: RW and RO.
+   * 
+   * @example
+   * RW
+   */
+  mountAccess?: string;
+  /**
+   * @remarks
+   * The mount path in the container.
+   * 
+   * @example
+   * /mnt/data
+   */
+  mountPath?: string;
+  /**
+   * @remarks
+   * The mount type of the dataset (deprecated).
+   * 
+   * @example
+   * FastReadWrite
+   */
+  optionType?: string;
+  /**
+   * @remarks
+   * The mount type of the dataset.
+   * 
+   * @example
+   * {
+   *   "fs.oss.download.thread.concurrency": "10",
+   *   "fs.oss.upload.thread.concurrency": "10",
+   *   "fs.jindo.args": "-oattr_timeout=3 -oentry_timeout=0 -onegative_timeout=0 -oauto_cache -ono_symlink"
+   * }
+   */
+  options?: string;
+  /**
+   * @remarks
+   * The dataset URI.
+   * 
+   * @example
+   * oss://bucket-name.oss-cn-shanghai-internal.aliyuncs.com/data/path/
+   */
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetVersion: 'DatasetVersion',
+      dynamic: 'Dynamic',
+      mountAccess: 'MountAccess',
+      mountPath: 'MountPath',
+      optionType: 'OptionType',
+      options: 'Options',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      datasetVersion: 'string',
+      dynamic: 'boolean',
+      mountAccess: 'string',
+      mountPath: 'string',
+      optionType: 'string',
+      options: 'string',
+      uri: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyIdleInstanceCuller extends $dara.Model {
+  /**
+   * @remarks
+   * The CPU utilization threshold. Unit: percentage. Valid values: 1 to 100. If the CPU utilization of the instance is lower than this threshold, the instance is considered idle.
+   * 
+   * @example
+   * 20
+   */
+  cpuPercentThreshold?: number;
+  /**
+   * @remarks
+   * The GPU utilization threshold. Unit: percentage. Valid values: 1 to 100. This parameter takes effect only if the instance is of the GPU instance type. If both CPU and GPU utilization is lower than the thresholds, the instance is considered idle.
+   * 
+   * @example
+   * 10
+   */
+  gpuPercentThreshold?: number;
+  /**
+   * @remarks
+   * The current time duration for which the instance is idle. Unit: minutes.
+   * 
+   * @example
+   * 30
+   */
+  idleTimeInMinutes?: number;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The maximum time duration for which the instance is idle. Unit: minutes. If the time duration for which the instance is idle exceeds this value, the system automatically stops the instance.
+   * 
+   * @example
+   * 60
+   */
+  maxIdleTimeInMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpuPercentThreshold: 'CpuPercentThreshold',
+      gpuPercentThreshold: 'GpuPercentThreshold',
+      idleTimeInMinutes: 'IdleTimeInMinutes',
+      instanceId: 'InstanceId',
+      maxIdleTimeInMinutes: 'MaxIdleTimeInMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuPercentThreshold: 'number',
+      gpuPercentThreshold: 'number',
+      idleTimeInMinutes: 'number',
+      instanceId: 'string',
+      maxIdleTimeInMinutes: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyInstanceShutdownTimer extends $dara.Model {
+  /**
+   * @remarks
+   * The scheduled stop time.
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  dueTime?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @remarks
+   * The modified time.
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The remaining time before the instance is stopped. Unit: milliseconds.
+   * 
+   * @example
+   * 3600000
+   */
+  remainingTimeInMs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dueTime: 'DueTime',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      instanceId: 'InstanceId',
+      remainingTimeInMs: 'RemainingTimeInMs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dueTime: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      instanceId: 'string',
+      remainingTimeInMs: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyInstanceSnapshotList extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the snapshot was created.
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @remarks
+   * The time when the snapshot was modified.
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * The image ID.
+   * 
+   * @example
+   * image-05cefd0be2exxxx
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * The image name.
+   * 
+   * @example
+   * py36_cpu_tf1.12_ubuntu
+   */
+  imageName?: string;
+  /**
+   * @remarks
+   * The image URL.
+   * 
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
+  imageUrl?: string;
+  /**
+   * @remarks
+   * The error code of the instance snapshot.
+   * 
+   * @example
+   * Internal Error
+   */
+  reasonCode?: string;
+  /**
+   * @remarks
+   * The error message of the instance snapshot.
+   * 
+   * @example
+   * ImagePullBackOff
+   */
+  reasonMessage?: string;
+  /**
+   * @remarks
+   * The image repository URL.
+   * 
+   * @example
+   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
+   */
+  repositoryUrl?: string;
+  /**
+   * @remarks
+   * The instance snapshot status.
+   * 
+   * @example
+   * Pushing
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      repositoryUrl: 'RepositoryUrl',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      repositoryUrl: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyLabels extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * stsTokenOwner
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * 123xxxxxxxx
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyLatestSnapshot extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the snapshot was created.
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @remarks
+   * The time when the snapshot was modified.
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * The image ID.
+   * 
+   * @example
+   * image-05cefd0be2exxxx
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * The image name.
+   * 
+   * @example
+   * py36_cpu_tf1.12_ubuntu
+   */
+  imageName?: string;
+  /**
+   * @remarks
+   * The image URL.
+   * 
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
+  imageUrl?: string;
+  /**
+   * @remarks
+   * The error code of the instance snapshot.
+   * 
+   * @example
+   * Internal Error
+   */
+  reasonCode?: string;
+  /**
+   * @remarks
+   * The error message of the instance snapshot.
+   * 
+   * @example
+   * ImagePullBackOff
+   */
+  reasonMessage?: string;
+  /**
+   * @remarks
+   * The image repository URL.
+   * 
+   * @example
+   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
+   */
+  repositoryUrl?: string;
+  /**
+   * @remarks
+   * The instance snapshot status.
+   * 
+   * Valid values:
+   * 
+   * *   Committing
+   * *   Pushing
+   * *   Failed
+   * *   Saved
+   * 
+   * @example
+   * Pushing
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      repositoryUrl: 'RepositoryUrl',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      repositoryUrl: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyNodeErrorRecovery extends $dara.Model {
+  /**
+   * @remarks
+   * The number of seconds to wait before automatic switchover.
+   * 
+   * @example
+   * 30
+   */
+  autoSwitchCountdownSeconds?: number;
+  /**
+   * @remarks
+   * Indicates whether to enable automatic switchover when a node error occurs.
+   * 
+   * @example
+   * true
+   */
+  enableAutoSwitchOnNodeError?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the node has an error.
+   * 
+   * @example
+   * false
+   */
+  hasNodeError?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoSwitchCountdownSeconds: 'autoSwitchCountdownSeconds',
+      enableAutoSwitchOnNodeError: 'enableAutoSwitchOnNodeError',
+      hasNodeError: 'hasNodeError',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSwitchCountdownSeconds: 'number',
+      enableAutoSwitchOnNodeError: 'boolean',
+      hasNodeError: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyRequestedResource extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CPU cores.
+   * 
+   * @example
+   * 32
+   */
+  CPU?: string;
+  /**
+   * @remarks
+   * The number of GPUs.
+   * 
+   * @example
+   * 4
+   */
+  GPU?: string;
+  /**
+   * @remarks
+   * The GPU type. Valid values:
+   * 
+   * *   V100
+   * *   A100
+   * *   T4
+   * *   A10
+   * *   P100
+   * 
+   * @example
+   * v100
+   */
+  GPUType?: string;
+  /**
+   * @remarks
+   * The memory size. Unit: GB.
+   * 
+   * @example
+   * 32
+   */
+  memory?: string;
+  /**
+   * @remarks
+   * The shared memory size. Unit: GB.
+   * 
+   * @example
+   * 32
+   */
+  sharedMemory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+      GPU: 'GPU',
+      GPUType: 'GPUType',
+      memory: 'Memory',
+      sharedMemory: 'SharedMemory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: 'string',
+      GPU: 'string',
+      GPUType: 'string',
+      memory: 'string',
+      sharedMemory: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tag1
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyUserVpc extends $dara.Model {
+  bandwidthLimit?: BandwidthLimit;
+  /**
+   * @remarks
+   * Default Route
+   * 
+   * @example
+   * eth0 | eth1
+   */
+  defaultRoute?: string;
+  /**
+   * @remarks
+   * The extended CIDR block.
+   * 
+   * *   If you leave VSwitchId empty, this parameter is not required and the system automatically obtains all CIDR blocks in the VPC.
+   * *   If VSwitchId is not empty, this parameter is required. Specify all CIDR blocks in the VPC.
+   * 
+   * @example
+   * ["192.168.0.1/24", "192.168.1.1/24"]
+   */
+  extendedCIDRs?: string[];
+  /**
+   * @remarks
+   * The forward information.
+   */
+  forwardInfos?: ForwardInfoResponse[];
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-xxxxxx
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-xxxxx
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-xxxxx
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthLimit: 'BandwidthLimit',
+      defaultRoute: 'DefaultRoute',
+      extendedCIDRs: 'ExtendedCIDRs',
+      forwardInfos: 'ForwardInfos',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthLimit: BandwidthLimit,
+      defaultRoute: 'string',
+      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
+      forwardInfos: { 'type': 'array', 'itemType': ForwardInfoResponse },
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.bandwidthLimit && typeof (this.bandwidthLimit as any).validate === 'function') {
+      (this.bandwidthLimit as any).validate();
+    }
+    if(Array.isArray(this.extendedCIDRs)) {
+      $dara.Model.validateArray(this.extendedCIDRs);
+    }
+    if(Array.isArray(this.forwardInfos)) {
+      $dara.Model.validateArray(this.forwardInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetInstanceResponseBody extends $dara.Model {
   /**
