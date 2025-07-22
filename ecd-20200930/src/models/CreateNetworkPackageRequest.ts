@@ -94,8 +94,6 @@ export class CreateNetworkPackageRequest extends $dara.Model {
    * @remarks
    * The office network ID.
    * 
-   * This parameter is required.
-   * 
    * @example
    * cn-hangzhou+dir-363353****
    */

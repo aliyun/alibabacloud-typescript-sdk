@@ -395,6 +395,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 实例开通公网IP
+   * 
+   * @param request - AllocateIpAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AllocateIpAddressResponse
+   */
+  async allocateIpAddressWithOptions(request: $_model.AllocateIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AllocateIpAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.networkInterfaceId)) {
+      query["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AllocateIpAddress",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AllocateIpAddressResponse>(await this.callApi(params, req, runtime), new $_model.AllocateIpAddressResponse({}));
+  }
+
+  /**
+   * 实例开通公网IP
+   * 
+   * @param request - AllocateIpAddressRequest
+   * @returns AllocateIpAddressResponse
+   */
+  async allocateIpAddress(request: $_model.AllocateIpAddressRequest): Promise<$_model.AllocateIpAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.allocateIpAddressWithOptions(request, runtime);
+  }
+
+  /**
    * Apply an automatic snapshot policy to cloud computers. After the automatic snapshot policy is applied to the cloud computers, Elastic Desktop Service automatically creates snapshots for the cloud computers based on the time specified in the automatic snapshot policy.
    * 
    * @remarks
@@ -629,6 +679,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 实例绑定公网IP
+   * 
+   * @param request - AssociateIpAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateIpAddressResponse
+   */
+  async associateIpAddressWithOptions(request: $_model.AssociateIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AssociateIpAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eipId)) {
+      query["EipId"] = request.eipId;
+    }
+
+    if (!$dara.isNull(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!$dara.isNull(request.networkInterfaceId)) {
+      query["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AssociateIpAddress",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AssociateIpAddressResponse>(await this.callApi(params, req, runtime), new $_model.AssociateIpAddressResponse({}));
+  }
+
+  /**
+   * 实例绑定公网IP
+   * 
+   * @param request - AssociateIpAddressRequest
+   * @returns AssociateIpAddressResponse
+   */
+  async associateIpAddress(request: $_model.AssociateIpAddressRequest): Promise<$_model.AssociateIpAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.associateIpAddressWithOptions(request, runtime);
+  }
+
+  /**
    * Binds a premium bandwidth plan to an office network. A premium bandwidth plan is used together with only one office network.
    * 
    * @param request - AssociateNetworkPackageRequest
@@ -676,6 +784,56 @@ export default class Client extends OpenApi {
   async associateNetworkPackage(request: $_model.AssociateNetworkPackageRequest): Promise<$_model.AssociateNetworkPackageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.associateNetworkPackageWithOptions(request, runtime);
+  }
+
+  /**
+   * 将创建的自定义路由表和同一VPC内的交换机绑定
+   * 
+   * @param request - AssociateRouteTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateRouteTableResponse
+   */
+  async associateRouteTableWithOptions(request: $_model.AssociateRouteTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AssociateRouteTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.routeTableId)) {
+      query["RouteTableId"] = request.routeTableId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AssociateRouteTable",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AssociateRouteTableResponse>(await this.callApi(params, req, runtime), new $_model.AssociateRouteTableResponse({}));
+  }
+
+  /**
+   * 将创建的自定义路由表和同一VPC内的交换机绑定
+   * 
+   * @param request - AssociateRouteTableRequest
+   * @returns AssociateRouteTableResponse
+   */
+  async associateRouteTable(request: $_model.AssociateRouteTableRequest): Promise<$_model.AssociateRouteTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.associateRouteTableWithOptions(request, runtime);
   }
 
   /**
@@ -3719,6 +3877,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加DNAT条目
+   * 
+   * @param request - CreateForwardEntryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateForwardEntryResponse
+   */
+  async createForwardEntryWithOptions(request: $_model.CreateForwardEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateForwardEntryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.externalIp)) {
+      query["ExternalIp"] = request.externalIp;
+    }
+
+    if (!$dara.isNull(request.externalPort)) {
+      query["ExternalPort"] = request.externalPort;
+    }
+
+    if (!$dara.isNull(request.forwardEntryName)) {
+      query["ForwardEntryName"] = request.forwardEntryName;
+    }
+
+    if (!$dara.isNull(request.forwardTableId)) {
+      query["ForwardTableId"] = request.forwardTableId;
+    }
+
+    if (!$dara.isNull(request.internalIp)) {
+      query["InternalIp"] = request.internalIp;
+    }
+
+    if (!$dara.isNull(request.internalPort)) {
+      query["InternalPort"] = request.internalPort;
+    }
+
+    if (!$dara.isNull(request.ipProtocol)) {
+      query["IpProtocol"] = request.ipProtocol;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateForwardEntry",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateForwardEntryResponse>(await this.callApi(params, req, runtime), new $_model.CreateForwardEntryResponse({}));
+  }
+
+  /**
+   * 添加DNAT条目
+   * 
+   * @param request - CreateForwardEntryRequest
+   * @returns CreateForwardEntryResponse
+   */
+  async createForwardEntry(request: $_model.CreateForwardEntryRequest): Promise<$_model.CreateForwardEntryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createForwardEntryWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a custom image based on a deployed cloud computer. Then, you can use the custom image to create cloud computers that have the same configurations. This prevents the repeated settings when you create cloud computers.
    * 
    * @param request - CreateImageRequest
@@ -3880,6 +4108,56 @@ export default class Client extends OpenApi {
   async createNASFileSystem(request: $_model.CreateNASFileSystemRequest): Promise<$_model.CreateNASFileSystemResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createNASFileSystemWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建NAT网关
+   * 
+   * @param request - CreateNatGatewayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNatGatewayResponse
+   */
+  async createNatGatewayWithOptions(request: $_model.CreateNatGatewayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNatGatewayResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNatGateway",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateNatGatewayResponse>(await this.callApi(params, req, runtime), new $_model.CreateNatGatewayResponse({}));
+  }
+
+  /**
+   * 新建NAT网关
+   * 
+   * @param request - CreateNatGatewayRequest
+   * @returns CreateNatGatewayResponse
+   */
+  async createNatGateway(request: $_model.CreateNatGatewayRequest): Promise<$_model.CreateNatGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createNatGatewayWithOptions(request, runtime);
   }
 
   /**
@@ -4309,6 +4587,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新建路由条目
+   * 
+   * @param request - CreateRouteEntryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRouteEntryResponse
+   */
+  async createRouteEntryWithOptions(request: $_model.CreateRouteEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRouteEntryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.destinationCidrBlock)) {
+      query["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
+    if (!$dara.isNull(request.nextHopId)) {
+      query["NextHopId"] = request.nextHopId;
+    }
+
+    if (!$dara.isNull(request.nextHopType)) {
+      query["NextHopType"] = request.nextHopType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.routeEntryName)) {
+      query["RouteEntryName"] = request.routeEntryName;
+    }
+
+    if (!$dara.isNull(request.routeTableId)) {
+      query["RouteTableId"] = request.routeTableId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRouteEntry",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRouteEntryResponse>(await this.callApi(params, req, runtime), new $_model.CreateRouteEntryResponse({}));
+  }
+
+  /**
+   * 新建路由条目
+   * 
+   * @param request - CreateRouteEntryRequest
+   * @returns CreateRouteEntryResponse
+   */
+  async createRouteEntry(request: $_model.CreateRouteEntryRequest): Promise<$_model.CreateRouteEntryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRouteEntryWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建自定义路由表
+   * 
+   * @param request - CreateRouteTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRouteTableResponse
+   */
+  async createRouteTableWithOptions(request: $_model.CreateRouteTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRouteTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.routeTableName)) {
+      query["RouteTableName"] = request.routeTableName;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRouteTable",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRouteTableResponse>(await this.callApi(params, req, runtime), new $_model.CreateRouteTableResponse({}));
+  }
+
+  /**
+   * 新建自定义路由表
+   * 
+   * @param request - CreateRouteTableRequest
+   * @returns CreateRouteTableResponse
+   */
+  async createRouteTable(request: $_model.CreateRouteTableRequest): Promise<$_model.CreateRouteTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRouteTableWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an office network of the convenience account type. Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
    * 
    * @param request - CreateSimpleOfficeSiteRequest
@@ -4464,6 +4866,126 @@ export default class Client extends OpenApi {
   async createSnapshot(request: $_model.CreateSnapshotRequest): Promise<$_model.CreateSnapshotResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createSnapshotWithOptions(request, runtime);
+  }
+
+  /**
+   * 添加SNAT条目
+   * 
+   * @param request - CreateSnatEntryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSnatEntryResponse
+   */
+  async createSnatEntryWithOptions(request: $_model.CreateSnatEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSnatEntryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eipAffinity)) {
+      query["EipAffinity"] = request.eipAffinity;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.snatEntryName)) {
+      query["SnatEntryName"] = request.snatEntryName;
+    }
+
+    if (!$dara.isNull(request.snatIp)) {
+      query["SnatIp"] = request.snatIp;
+    }
+
+    if (!$dara.isNull(request.snatTableId)) {
+      query["SnatTableId"] = request.snatTableId;
+    }
+
+    if (!$dara.isNull(request.sourceCIDR)) {
+      query["SourceCIDR"] = request.sourceCIDR;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSnatEntry",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSnatEntryResponse>(await this.callApi(params, req, runtime), new $_model.CreateSnatEntryResponse({}));
+  }
+
+  /**
+   * 添加SNAT条目
+   * 
+   * @param request - CreateSnatEntryRequest
+   * @returns CreateSnatEntryResponse
+   */
+  async createSnatEntry(request: $_model.CreateSnatEntryRequest): Promise<$_model.CreateSnatEntryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSnatEntryWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建子网
+   * 
+   * @param request - CreateSubnetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSubnetResponse
+   */
+  async createSubnetWithOptions(request: $_model.CreateSubnetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSubnetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cidrBlock)) {
+      query["CidrBlock"] = request.cidrBlock;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSubnet",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSubnetResponse>(await this.callApi(params, req, runtime), new $_model.CreateSubnetResponse({}));
+  }
+
+  /**
+   * 新建子网
+   * 
+   * @param request - CreateSubnetRequest
+   * @returns CreateSubnetResponse
+   */
+  async createSubnet(request: $_model.CreateSubnetRequest): Promise<$_model.CreateSubnetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSubnetWithOptions(request, runtime);
   }
 
   /**
@@ -5258,6 +5780,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除DNAT条目
+   * 
+   * @param request - DeleteForwardEntryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteForwardEntryResponse
+   */
+  async deleteForwardEntryWithOptions(request: $_model.DeleteForwardEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteForwardEntryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.forwardEntryId)) {
+      query["ForwardEntryId"] = request.forwardEntryId;
+    }
+
+    if (!$dara.isNull(request.forwardTableId)) {
+      query["ForwardTableId"] = request.forwardTableId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteForwardEntry",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteForwardEntryResponse>(await this.callApi(params, req, runtime), new $_model.DeleteForwardEntryResponse({}));
+  }
+
+  /**
+   * 删除DNAT条目
+   * 
+   * @param request - DeleteForwardEntryRequest
+   * @returns DeleteForwardEntryResponse
+   */
+  async deleteForwardEntry(request: $_model.DeleteForwardEntryRequest): Promise<$_model.DeleteForwardEntryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteForwardEntryWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes one or more custom images.
    * 
    * @remarks
@@ -5367,6 +5939,52 @@ export default class Client extends OpenApi {
   async deleteNASFileSystems(request: $_model.DeleteNASFileSystemsRequest): Promise<$_model.DeleteNASFileSystemsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNASFileSystemsWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除NAT网关
+   * 
+   * @param request - DeleteNatGatewayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNatGatewayResponse
+   */
+  async deleteNatGatewayWithOptions(request: $_model.DeleteNatGatewayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNatGatewayResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNatGateway",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteNatGatewayResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNatGatewayResponse({}));
+  }
+
+  /**
+   * 删除NAT网关
+   * 
+   * @param request - DeleteNatGatewayRequest
+   * @returns DeleteNatGatewayResponse
+   */
+  async deleteNatGateway(request: $_model.DeleteNatGatewayRequest): Promise<$_model.DeleteNatGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteNatGatewayWithOptions(request, runtime);
   }
 
   /**
@@ -5532,6 +6150,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除路由条目
+   * 
+   * @param request - DeleteRouteEntryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRouteEntryResponse
+   */
+  async deleteRouteEntryWithOptions(request: $_model.DeleteRouteEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRouteEntryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.destinationCidrBlock)) {
+      query["DestinationCidrBlock"] = request.destinationCidrBlock;
+    }
+
+    if (!$dara.isNull(request.nextHopId)) {
+      query["NextHopId"] = request.nextHopId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.routeEntryId)) {
+      query["RouteEntryId"] = request.routeEntryId;
+    }
+
+    if (!$dara.isNull(request.routeTableId)) {
+      query["RouteTableId"] = request.routeTableId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRouteEntry",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRouteEntryResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRouteEntryResponse({}));
+  }
+
+  /**
+   * 删除路由条目
+   * 
+   * @param request - DeleteRouteEntryRequest
+   * @returns DeleteRouteEntryResponse
+   */
+  async deleteRouteEntry(request: $_model.DeleteRouteEntryRequest): Promise<$_model.DeleteRouteEntryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRouteEntryWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除自定义路由表
+   * 
+   * @param request - DeleteRouteTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRouteTableResponse
+   */
+  async deleteRouteTableWithOptions(request: $_model.DeleteRouteTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRouteTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.routeTableId)) {
+      query["RouteTableId"] = request.routeTableId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRouteTable",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRouteTableResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRouteTableResponse({}));
+  }
+
+  /**
+   * 删除自定义路由表
+   * 
+   * @param request - DeleteRouteTableRequest
+   * @returns DeleteRouteTableResponse
+   */
+  async deleteRouteTable(request: $_model.DeleteRouteTableRequest): Promise<$_model.DeleteRouteTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRouteTableWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes one or more snapshots.
    * 
    * @remarks
@@ -5581,6 +6303,102 @@ export default class Client extends OpenApi {
   async deleteSnapshot(request: $_model.DeleteSnapshotRequest): Promise<$_model.DeleteSnapshotResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSnapshotWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除SNAT条目
+   * 
+   * @param request - DeleteSnatEntryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSnatEntryResponse
+   */
+  async deleteSnatEntryWithOptions(request: $_model.DeleteSnatEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSnatEntryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.snatEntryId)) {
+      query["SnatEntryId"] = request.snatEntryId;
+    }
+
+    if (!$dara.isNull(request.snatTableId)) {
+      query["SnatTableId"] = request.snatTableId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSnatEntry",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSnatEntryResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSnatEntryResponse({}));
+  }
+
+  /**
+   * 删除SNAT条目
+   * 
+   * @param request - DeleteSnatEntryRequest
+   * @returns DeleteSnatEntryResponse
+   */
+  async deleteSnatEntry(request: $_model.DeleteSnatEntryRequest): Promise<$_model.DeleteSnatEntryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSnatEntryWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除子网
+   * 
+   * @param request - DeleteSubnetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSubnetResponse
+   */
+  async deleteSubnetWithOptions(request: $_model.DeleteSubnetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSubnetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.subnetId)) {
+      query["SubnetId"] = request.subnetId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSubnet",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSubnetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSubnetResponse({}));
+  }
+
+  /**
+   * 删除子网
+   * 
+   * @param request - DeleteSubnetRequest
+   * @returns DeleteSubnetResponse
+   */
+  async deleteSubnet(request: $_model.DeleteSubnetRequest): Promise<$_model.DeleteSubnetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSubnetWithOptions(request, runtime);
   }
 
   /**
@@ -7806,6 +8624,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询DNAT条目
+   * 
+   * @param request - DescribeForwardTableEntriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeForwardTableEntriesResponse
+   */
+  async describeForwardTableEntriesWithOptions(request: $_model.DescribeForwardTableEntriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeForwardTableEntriesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.forwardEntryId)) {
+      query["ForwardEntryId"] = request.forwardEntryId;
+    }
+
+    if (!$dara.isNull(request.forwardTableId)) {
+      query["ForwardTableId"] = request.forwardTableId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeForwardTableEntries",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeForwardTableEntriesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeForwardTableEntriesResponse({}));
+  }
+
+  /**
+   * 查询DNAT条目
+   * 
+   * @param request - DescribeForwardTableEntriesRequest
+   * @returns DescribeForwardTableEntriesResponse
+   */
+  async describeForwardTableEntries(request: $_model.DescribeForwardTableEntriesRequest): Promise<$_model.DescribeForwardTableEntriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeForwardTableEntriesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries information about the cloud computers whose images can be and are pending to be updated to the specified version.
    * 
    * @param request - DescribeFotaPendingDesktopsRequest
@@ -8282,6 +9162,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询公网IP
+   * 
+   * @param request - DescribeIpAddressesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIpAddressesResponse
+   */
+  async describeIpAddressesWithOptions(request: $_model.DescribeIpAddressesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeIpAddressesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eipId)) {
+      query["EipId"] = request.eipId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeIpAddresses",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeIpAddressesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeIpAddressesResponse({}));
+  }
+
+  /**
+   * 查询公网IP
+   * 
+   * @param request - DescribeIpAddressesRequest
+   * @returns DescribeIpAddressesResponse
+   */
+  async describeIpAddresses(request: $_model.DescribeIpAddressesRequest): Promise<$_model.DescribeIpAddressesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeIpAddressesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries Key Management Service (KMS) keys of users. The first time you call this operation, you can try to create a service key for Elastic Desktop Service (EDS) and call the operation to return results.
    * 
    * @param request - DescribeKmsKeysRequest
@@ -8457,6 +9395,68 @@ export default class Client extends OpenApi {
   async describeNASFileSystems(request: $_model.DescribeNASFileSystemsRequest): Promise<$_model.DescribeNASFileSystemsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeNASFileSystemsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询NAT详细列表
+   * 
+   * @param request - DescribeNatGatewaysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNatGatewaysResponse
+   */
+  async describeNatGatewaysWithOptions(request: $_model.DescribeNatGatewaysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNatGatewaysResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNatGateways",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeNatGatewaysResponse>(await this.callApi(params, req, runtime), new $_model.DescribeNatGatewaysResponse({}));
+  }
+
+  /**
+   * 查询NAT详细列表
+   * 
+   * @param request - DescribeNatGatewaysRequest
+   * @returns DescribeNatGatewaysResponse
+   */
+  async describeNatGateways(request: $_model.DescribeNatGatewaysRequest): Promise<$_model.DescribeNatGatewaysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeNatGatewaysWithOptions(request, runtime);
   }
 
   /**
@@ -9248,6 +10248,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询路由条目列表
+   * 
+   * @param request - DescribeRouteEntryListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRouteEntryListResponse
+   */
+  async describeRouteEntryListWithOptions(request: $_model.DescribeRouteEntryListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRouteEntryListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.routeTableId)) {
+      query["RouteTableId"] = request.routeTableId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRouteEntryList",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRouteEntryListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRouteEntryListResponse({}));
+  }
+
+  /**
+   * 查询路由条目列表
+   * 
+   * @param request - DescribeRouteEntryListRequest
+   * @returns DescribeRouteEntryListResponse
+   */
+  async describeRouteEntryList(request: $_model.DescribeRouteEntryListRequest): Promise<$_model.DescribeRouteEntryListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRouteEntryListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询路由表列表
+   * 
+   * @param request - DescribeRouteTableListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRouteTableListResponse
+   */
+  async describeRouteTableListWithOptions(request: $_model.DescribeRouteTableListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRouteTableListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.routeTableId)) {
+      query["RouteTableId"] = request.routeTableId;
+    }
+
+    if (!$dara.isNull(request.routeTableName)) {
+      query["RouteTableName"] = request.routeTableName;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRouteTableList",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRouteTableListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRouteTableListResponse({}));
+  }
+
+  /**
+   * 查询路由表列表
+   * 
+   * @param request - DescribeRouteTableListRequest
+   * @returns DescribeRouteTableListResponse
+   */
+  async describeRouteTableList(request: $_model.DescribeRouteTableListRequest): Promise<$_model.DescribeRouteTableListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRouteTableListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the session statistics of a region.
    * 
    * @remarks
@@ -9405,6 +10521,130 @@ export default class Client extends OpenApi {
   async describeSnapshots(request: $_model.DescribeSnapshotsRequest): Promise<$_model.DescribeSnapshotsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSnapshotsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询SNAT条目
+   * 
+   * @param request - DescribeSnatTableEntriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSnatTableEntriesResponse
+   */
+  async describeSnatTableEntriesWithOptions(request: $_model.DescribeSnatTableEntriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSnatTableEntriesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.snatEntryId)) {
+      query["SnatEntryId"] = request.snatEntryId;
+    }
+
+    if (!$dara.isNull(request.snatTableId)) {
+      query["SnatTableId"] = request.snatTableId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSnatTableEntries",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSnatTableEntriesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSnatTableEntriesResponse({}));
+  }
+
+  /**
+   * 查询SNAT条目
+   * 
+   * @param request - DescribeSnatTableEntriesRequest
+   * @returns DescribeSnatTableEntriesResponse
+   */
+  async describeSnatTableEntries(request: $_model.DescribeSnatTableEntriesRequest): Promise<$_model.DescribeSnatTableEntriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSnatTableEntriesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询子网
+   * 
+   * @param request - DescribeSubnetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSubnetsResponse
+   */
+  async describeSubnetsWithOptions(request: $_model.DescribeSubnetsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSubnetsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.subnetId)) {
+      query["SubnetId"] = request.subnetId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSubnets",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSubnetsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSubnetsResponse({}));
+  }
+
+  /**
+   * 查询子网
+   * 
+   * @param request - DescribeSubnetsRequest
+   * @returns DescribeSubnetsResponse
+   */
+  async describeSubnets(request: $_model.DescribeSubnetsRequest): Promise<$_model.DescribeSubnetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSubnetsWithOptions(request, runtime);
   }
 
   /**
@@ -10175,6 +11415,52 @@ export default class Client extends OpenApi {
   async disconnectDesktopSessions(request: $_model.DisconnectDesktopSessionsRequest): Promise<$_model.DisconnectDesktopSessionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disconnectDesktopSessionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 实例解绑/删除公网IP
+   * 
+   * @param request - DissociateIpAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DissociateIpAddressResponse
+   */
+  async dissociateIpAddressWithOptions(request: $_model.DissociateIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DissociateIpAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eipId)) {
+      query["EipId"] = request.eipId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DissociateIpAddress",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DissociateIpAddressResponse>(await this.callApi(params, req, runtime), new $_model.DissociateIpAddressResponse({}));
+  }
+
+  /**
+   * 实例解绑/删除公网IP
+   * 
+   * @param request - DissociateIpAddressRequest
+   * @returns DissociateIpAddressResponse
+   */
+  async dissociateIpAddress(request: $_model.DissociateIpAddressRequest): Promise<$_model.DissociateIpAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dissociateIpAddressWithOptions(request, runtime);
   }
 
   /**
@@ -15280,6 +16566,52 @@ export default class Client extends OpenApi {
   async rebuildDesktops(request: $_model.RebuildDesktopsRequest): Promise<$_model.RebuildDesktopsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.rebuildDesktopsWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除公网IP
+   * 
+   * @param request - ReleaseIpAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseIpAddressResponse
+   */
+  async releaseIpAddressWithOptions(request: $_model.ReleaseIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReleaseIpAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eipId)) {
+      query["EipId"] = request.eipId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReleaseIpAddress",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReleaseIpAddressResponse>(await this.callApi(params, req, runtime), new $_model.ReleaseIpAddressResponse({}));
+  }
+
+  /**
+   * 删除公网IP
+   * 
+   * @param request - ReleaseIpAddressRequest
+   * @returns ReleaseIpAddressResponse
+   */
+  async releaseIpAddress(request: $_model.ReleaseIpAddressRequest): Promise<$_model.ReleaseIpAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.releaseIpAddressWithOptions(request, runtime);
   }
 
   /**
