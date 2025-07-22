@@ -1460,6 +1460,59 @@ export default class Client extends OpenApi {
   /**
    * 查看表详情列表
    * 
+   * @param request - ListTableDetailsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTableDetailsResponse
+   */
+  async listTableDetailsWithOptions(catalogId: string, database: string, request: $_model.ListTableDetailsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListTableDetailsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    if (!$dara.isNull(request.tableNamePattern)) {
+      query["tableNamePattern"] = request.tableNamePattern;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTableDetails",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/table-details`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTableDetailsResponse>(await this.callApi(params, req, runtime), new $_model.ListTableDetailsResponse({}));
+  }
+
+  /**
+   * 查看表详情列表
+   * 
+   * @param request - ListTableDetailsRequest
+   * @returns ListTableDetailsResponse
+   */
+  async listTableDetails(catalogId: string, database: string, request: $_model.ListTableDetailsRequest): Promise<$_model.ListTableDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTableDetailsWithOptions(catalogId, database, request, headers, runtime);
+  }
+
+  /**
+   * 查看表详情列表
+   * 
    * @param request - ListTablesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
