@@ -52,12 +52,14 @@ export class GetLifecycleResponseBodyLifecycle extends $dara.Model {
    * 2022-10-21T07:27:44Z
    */
   gmtCreateTime?: string;
+  gmtEndTime?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
       reasonCode: 'ReasonCode',
       reasonMessage: 'ReasonMessage',
       gmtCreateTime: 'GmtCreateTime',
+      gmtEndTime: 'GmtEndTime',
     };
   }
 
@@ -67,6 +69,7 @@ export class GetLifecycleResponseBodyLifecycle extends $dara.Model {
       reasonCode: 'string',
       reasonMessage: 'string',
       gmtCreateTime: 'string',
+      gmtEndTime: 'string',
     };
   }
 
