@@ -1,33 +1,34 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { GetServiceObservabilityResponseBody } from "./GetServiceObservabilityResponseBody";
 
 
-export class ListAlertActionsResponseBodyAlertActionsWebhookParam extends $dara.Model {
-  contentType?: string;
+export class GetServiceObservabilityResponse extends $dara.Model {
   headers?: { [key: string]: string };
-  method?: string;
-  url?: string;
+  statusCode?: number;
+  body?: GetServiceObservabilityResponseBody;
   static names(): { [key: string]: string } {
     return {
-      contentType: 'contentType',
       headers: 'headers',
-      method: 'method',
-      url: 'url',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      contentType: 'string',
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      method: 'string',
-      url: 'string',
+      statusCode: 'number',
+      body: GetServiceObservabilityResponseBody,
     };
   }
 
   validate() {
     if(this.headers) {
       $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
     }
     super.validate();
   }

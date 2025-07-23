@@ -4,9 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAlertActionsRequest extends $dara.Model {
   alertActionIds?: string[];
+  /**
+   * @example
+   * testName
+   */
   alertActionName?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * FC
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

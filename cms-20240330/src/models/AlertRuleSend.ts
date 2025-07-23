@@ -7,10 +7,12 @@ import { AlertRuleNotification } from "./AlertRuleNotification";
 export class AlertRuleSend extends $dara.Model {
   action?: AlertRuleAction;
   notification?: AlertRuleNotification;
+  sendToArms?: boolean;
   static names(): { [key: string]: string } {
     return {
       action: 'action',
       notification: 'notification',
+      sendToArms: 'sendToArms',
     };
   }
 
@@ -18,6 +20,7 @@ export class AlertRuleSend extends $dara.Model {
     return {
       action: AlertRuleAction,
       notification: AlertRuleNotification,
+      sendToArms: 'boolean',
     };
   }
 

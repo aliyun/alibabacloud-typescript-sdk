@@ -458,6 +458,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取应用可观测实例
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceObservabilityResponse
+   */
+  async getServiceObservabilityWithOptions(workspace: string, type: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceObservabilityResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceObservability",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/service-observability/${$dara.URL.percentEncode(type)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetServiceObservabilityResponse>(await this.callApi(params, req, runtime), new $_model.GetServiceObservabilityResponse({}));
+  }
+
+  /**
+   * 获取应用可观测实例
+   * @returns GetServiceObservabilityResponse
+   */
+  async getServiceObservability(workspace: string, type: string): Promise<$_model.GetServiceObservabilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getServiceObservabilityWithOptions(workspace, type, headers, runtime);
+  }
+
+  /**
    * 获取Umodel配置信息
    * 
    * @param headers - map
