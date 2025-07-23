@@ -13,7 +13,7 @@ export class DescribeInstanceLogRequest extends $dara.Model {
   containerId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

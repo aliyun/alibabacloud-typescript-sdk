@@ -7724,8 +7724,16 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!$dara.isNull(request.appIds)) {
+      query["AppIds"] = request.appIds;
+    }
+
     if (!$dara.isNull(request.enableIdle)) {
       query["EnableIdle"] = request.enableIdle;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

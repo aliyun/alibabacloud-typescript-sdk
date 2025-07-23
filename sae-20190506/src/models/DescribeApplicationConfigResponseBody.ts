@@ -63,9 +63,37 @@ export class DescribeApplicationConfigResponseBodyDataConfigMapMountDesc extends
 }
 
 export class DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc extends $dara.Model {
+  /**
+   * @remarks
+   * ConfigMap ID。
+   * 
+   * @example
+   * 1
+   */
   configMapId?: number;
+  /**
+   * @remarks
+   * The name of the ConfigMap.
+   * 
+   * @example
+   * test
+   */
   configMapName?: string;
+  /**
+   * @remarks
+   * The key.
+   * 
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The mount path.
+   * 
+   * @example
+   * /tmp
+   */
   mountPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,11 +123,74 @@ export class DescribeApplicationConfigResponseBodyDataInitContainersConfigConfig
 }
 
 export class DescribeApplicationConfigResponseBodyDataInitContainersConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The command that is used to start the image. The command must be an existing executable object in the container. Sample statements:
+   * 
+   *     command:
+   *           - echo
+   *           - abc
+   *           - >
+   *           - file0
+   * 
+   * In this example, the Command parameter is set to `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+   * 
+   * @example
+   * /bin/sh
+   */
   command?: string;
+  /**
+   * @remarks
+   * The parameters of the image startup command. The CommandArgs parameter specifies the parameters that are required for the **Command** parameter. You can specify the name in one of the following formats:
+   * 
+   * `["a","b"]`
+   * 
+   * In the preceding example, the CommandArgs parameter is set to `CommandArgs=["abc", ">", "file0"]`. The data type of `["abc", ">", "file0"]` must be an array of strings in the JSON format. This parameter is optional.
+   * 
+   * @example
+   * ["a","b"]
+   */
   commandArgs?: string;
+  /**
+   * @remarks
+   * The information of ConfigMap.
+   */
   configMapMountDesc?: DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc[];
+  /**
+   * @remarks
+   * The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Take note of the following rules:
+   * 
+   * *   Customize
+   * 
+   *     *   **name**: the name of the environment variable.
+   *     *   **value**: the value of the environment variable.
+   * 
+   * *   Reference ConfigMap
+   * 
+   *     *   **name**: the name of the environment variable. You can reference one or all keys. If you want to reference all keys, specify `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
+   *     *   **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
+   *     *   **configMapId**: the ConfigMap ID.
+   *     *   **key**: the key. If you want to reference all keys, do not configure this parameter.
+   * 
+   * @example
+   * [{"name":"TEST_ENV_KEY","value":"TEST_ENV_VAR"}]
+   */
   envs?: string;
+  /**
+   * @remarks
+   * The image URL of the initialized container.
+   * 
+   * @example
+   * registry.cn-shenzhen.aliyuncs.com/sae-serverless-demo/sae-demo:microservice-java-provider-v1.0
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * The name of the initialized container.
+   * 
+   * @example
+   * init-container
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -239,9 +330,37 @@ export class DescribeApplicationConfigResponseBodyDataOssMountDescs extends $dar
 }
 
 export class DescribeApplicationConfigResponseBodyDataSecretMountDesc extends $dara.Model {
+  /**
+   * @remarks
+   * The key to Base64 encode values.
+   * 
+   * @example
+   * task-center
+   */
   key?: string;
+  /**
+   * @remarks
+   * The mount path.
+   * 
+   * @example
+   * /opt/www/runtime/logs
+   */
   mountPath?: string;
+  /**
+   * @remarks
+   * The secret ID of the instance.
+   * 
+   * @example
+   * 520
+   */
   secretId?: number;
+  /**
+   * @remarks
+   * The name of the secret.
+   * 
+   * @example
+   * dummy-name-opaque-894
+   */
   secretName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -271,9 +390,37 @@ export class DescribeApplicationConfigResponseBodyDataSecretMountDesc extends $d
 }
 
 export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfigConfigMapMountDesc extends $dara.Model {
+  /**
+   * @remarks
+   * The ConfigMap ID.
+   * 
+   * @example
+   * 7361
+   */
   configMapId?: number;
+  /**
+   * @remarks
+   * The ConfigMap name.
+   * 
+   * @example
+   * ConfigMap-test
+   */
   configMapName?: string;
+  /**
+   * @remarks
+   * The ConfigMap key
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The mount path.
+   * 
+   * @example
+   * /mnt/test
+   */
   mountPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -303,7 +450,21 @@ export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfigCon
 }
 
 export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfigEmptyDirDesc extends $dara.Model {
+  /**
+   * @remarks
+   * Mount path of the data volume within the container.
+   * 
+   * @example
+   * /mnt/cache
+   */
   mountPath?: string;
+  /**
+   * @remarks
+   * The name of the shared temporary storage.
+   * 
+   * @example
+   * sidecar-container
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -329,15 +490,110 @@ export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfigEmp
 }
 
 export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of Container Registry Enterprise Edition instance. This parameter is required when the **ImageUrl** parameter is set to the URL of an image in an ACR Enterprise Edition instance.
+   * 
+   * @example
+   * cri-fhzlneorxala66ip
+   */
   acrInstanceId?: string;
+  /**
+   * @remarks
+   * The command that is used to start the image. The command must be an existing executable object in the container. Sample statements:
+   * 
+   *     command:
+   *           - echo
+   *           - abc
+   *           - >
+   *           - file0
+   * 
+   * In this example, the Command parameter is set to `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+   * 
+   * @example
+   * /bin/sh
+   */
   command?: string;
+  /**
+   * @remarks
+   * The parameters of the image startup command. The CommandArgs parameter specifies the parameters that are required for the **Command** parameter. You can specify the name in one of the following formats:
+   * 
+   * `["a","b"]`
+   * 
+   * In the preceding example, the CommandArgs parameter is set to `CommandArgs=["abc", ">", "file0"]`. The data type of `["abc", ">", "file0"]` must be an array of strings in the JSON format. This parameter is optional.
+   * 
+   * @example
+   * [\\"-c\\",\\"echo \\\\\\"test\\\\\\" > /home/nas/test.log && sleep 10000000s\\"]
+   */
   commandArgs?: string;
+  /**
+   * @remarks
+   * The description of the **ConfigMap** instance mounted to the application. Use configurations created on the Configuration Items page to configure containers. The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **congfigMapId**: the ID of the ConfigMap instance. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID.
+   * *   **key**: the key.
+   * 
+   * > You can use the `sae-sys-configmap-all` key to mount all keys.
+   * 
+   * *   **mountPath**: the mount path in the container.
+   */
   configMapMountDesc?: DescribeApplicationConfigResponseBodyDataSidecarContainersConfigConfigMapMountDesc[];
+  /**
+   * @remarks
+   * Set the CPU resource limit of the primary container that can be used by Sidecar container.
+   * 
+   * @example
+   * 500
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * Shared temporary storage mounted to the primary container and the Sidecar container.
+   */
   emptyDirDesc?: DescribeApplicationConfigResponseBodyDataSidecarContainersConfigEmptyDirDesc[];
+  /**
+   * @remarks
+   * The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Take note of the following rules:
+   * 
+   * *   Customize
+   * 
+   *     *   **name**: the name of the environment variable.
+   *     *   **value**: the value of the environment variable.
+   * 
+   * *   Reference ConfigMap
+   * 
+   *     *   **name**: the name of the environment variable. You can reference one or all keys. If you want to reference all keys, specify `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
+   *     *   **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
+   *     *   **configMapId**: the ConfigMap ID.
+   *     *   **key**: the key. If you want to reference all keys, do not configure this parameter.
+   * 
+   * @example
+   * [{\\"name\\":\\"k1\\",\\"value\\":\\"c8e3a815-e5d3-4adf-abb3-98b106a607c4\\"}]
+   */
   envs?: string;
+  /**
+   * @remarks
+   * The URL of the image.
+   * 
+   * @example
+   * registry.cn-beijing.aliyuncs.com/sae-dev-test/nginx:stable
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * Set the memory limit of the primary container that can be used by Sidecar container.
+   * 
+   * @example
+   * 1024
+   */
   memory?: number;
+  /**
+   * @remarks
+   * The container name.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -444,6 +700,9 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The description of the application.
+   * 
+   * @example
+   * The application description.
    */
   appDescription?: string;
   /**
@@ -485,6 +744,13 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * true
    */
   associateEip?: boolean;
+  /**
+   * @remarks
+   * The base app ID.
+   * 
+   * @example
+   * 8c573618-8d72-4407-baf4-f7b64b******
+   */
   baseAppId?: string;
   /**
    * @remarks
@@ -494,6 +760,13 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * 10
    */
   batchWaitTime?: number;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * 495fc79c-ae61-4600-866d-a09d68******
+   */
   clusterId?: string;
   /**
    * @remarks
@@ -558,8 +831,39 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * [{"hostName":"test.host.name","ip":"0.0.0.0"}]
    */
   customHostAlias?: string;
+  /**
+   * @remarks
+   * The type of custom image. Set to empty string if using pre-built image.
+   * 
+   * - internet: public network image.
+   * 
+   * - intranet: private network image.
+   * 
+   * @example
+   * internet
+   */
   customImageNetworkType?: string;
+  /**
+   * @remarks
+   * The disk size. Unit: GB.
+   * 
+   * @example
+   * 20
+   */
   diskSize?: number;
+  /**
+   * @remarks
+   * The version of .NET.
+   * 
+   * - .NET 3.1
+   * - .NET 5.0
+   * - .NET 6.0
+   * - .NET 7.0
+   * - .NET 8.0
+   * 
+   * @example
+   * .NET 8.0
+   */
   dotnet?: string;
   /**
    * @remarks
@@ -580,6 +884,17 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * true
    */
   enableAhas?: string;
+  /**
+   * @remarks
+   * Enable CPU Burst.
+   * 
+   * - true: enable
+   * 
+   * - false: disable
+   * 
+   * @example
+   * true
+   */
   enableCpuBurst?: string;
   /**
    * @remarks
@@ -592,7 +907,29 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * false
    */
   enableGreyTagRoute?: boolean;
+  /**
+   * @remarks
+   * Enable idle mode.
+   * 
+   * - true: enable
+   * 
+   * - false: disable
+   * 
+   * @example
+   * false
+   */
   enableIdle?: boolean;
+  /**
+   * @remarks
+   * Enable new ARMS feature.
+   * 
+   * - true: enable
+   * 
+   * - false: disable
+   * 
+   * @example
+   * false
+   */
   enableNewArms?: boolean;
   enablePrometheus?: boolean;
   /**
@@ -609,6 +946,9 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
   gpuCount?: string;
   gpuType?: string;
   /**
+   * @remarks
+   * The ID of the corresponding secret dictionary.
+   * 
    * @example
    * 10
    */
@@ -621,6 +961,10 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * docker.io/library/nginx:1.14.2
    */
   imageUrl?: string;
+  /**
+   * @remarks
+   * Initialize container configuration.
+   */
   initContainersConfig?: DescribeApplicationConfigResponseBodyDataInitContainersConfig[];
   isStateful?: boolean;
   /**
@@ -726,11 +1070,44 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    */
   memory?: number;
   /**
+   * @remarks
+   * The Nacos registry. Valid values:
+   * 
+   * *   **0**: SAE built-in Nacos registry
+   * *   **1**: self-managed Nacos registry
+   * *   **2** : MSE Nacos registry
+   * 
    * @example
    * "0"
    */
   microRegistration?: string;
+  /**
+   * @remarks
+   * The configuration of registration center. Takes effect only the type of registration center is MSE enterprise Nacos.
+   * 
+   * @example
+   * {\\"instanceId\\":\\"mse-cn-1ls43******\\",\\"namespace\\":\\"62ee12fb-c279-4da4-be96-21**********\\"}
+   */
   microRegistrationConfig?: string;
+  /**
+   * @remarks
+   * Configure microservices governance
+   * 
+   * enable: Whether to enable microservices governance
+   * 
+   * - true: Enable
+   * - false: Disable
+   * 
+   * mseLosslessRule: Configure lossless online/offline deployment
+   * 
+   * - delayTime: Delay duration (unit: seconds)
+   * - enable: Whether to enable lossless deployment. Set to "true" to enable; set to "false" to disable.
+   * - notice: Whether to enable notifications. Set to "true" to enable; set to "false" to disable.
+   * - warmupTime: Small-traffic warm-up duration (unit: seconds)
+   * 
+   * @example
+   * {\\"Enable\\":true,\\"MseLosslessRule\\":{\\"enable\\":true,\\"notice\\":true,\\"delayTime\\":10,\\"warmupTime\\":120,\\"funcType\\":2,\\"aligned\\":false,\\"related\\":false,\\"lossLessDetail\\":false}}
+   */
   microserviceEngineConfig?: string;
   /**
    * @remarks
@@ -780,6 +1157,9 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    */
   mseApplicationId?: string;
   /**
+   * @remarks
+   * The application name of SAE service registered in MSE.
+   * 
    * @example
    * cn-shenzhen-alb-demo-5c****
    */
@@ -793,6 +1173,9 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The configurations for mounting the NAS file system.
+   * 
    * @example
    * [{"mountPath":"/test1","readOnly":false,"nasId":"nasId1","mountDomain":"nasId1.cn-shenzhen.nas.aliyuncs.com","nasPath":"/test1"},{"nasId":"nasId2","mountDomain":"nasId2.cn-shenzhen.nas.aliyuncs.com","readOnly":false,"nasPath":"/test2","mountPath":"/test2"}]
    */
@@ -805,7 +1188,27 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * AKSN89**
    */
   nasId?: string;
+  /**
+   * @remarks
+   * The SAE application edition.
+   * 
+   * - lite: The lightweight edition.
+   * - std: The standard edition.
+   * - pro: The professional edition.
+   * 
+   * @example
+   * pro
+   */
   newSaeVersion?: string;
+  /**
+   * @remarks
+   * The name of the RAM role used to authenticate the user identity.
+   * 
+   * >  You need to create an OpenID Connect (OIDC) identity provider (IdP) and an identity provider (IdP) for role-based single sign-on (SSO) in advance. For more information, see [Creates an OpenID Connect (OIDC) identity provider (IdP)](https://help.aliyun.com/document_detail/2331022.html) and [Creates an identity provider (IdP) for role-based single sign-on (SSO)](https://help.aliyun.com/document_detail/2331016.html).
+   * 
+   * @example
+   * sae-test
+   */
   oidcRoleName?: string;
   /**
    * @remarks
@@ -870,6 +1273,9 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    */
   packageVersion?: string;
   /**
+   * @remarks
+   * The version of PHP supporting PHP deployment packages. Image is not supported.
+   * 
    * @example
    * PHP-FPM 7.0
    */
@@ -929,16 +1335,25 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    */
   programmingLanguage?: string;
   /**
+   * @remarks
+   * Enable K8s Service discovery and registration.
+   * 
    * @example
    * {"serviceName":"bwm-poc-sc-gateway-cn-beijing-front","namespaceId":"cn-beijing:front","portAndProtocol":{"18012":"TCP"},"enable":true}
    */
   pvtzDiscovery?: string;
   /**
+   * @remarks
+   * The Python environment. PYTHON 3.9.15 is supported.
+   * 
    * @example
    * PYTHON 3.9.15
    */
   python?: string;
   /**
+   * @remarks
+   * The configurations for installing custom module dependencies. By default, the dependencies defined by the requirements.txt file in the root directory are installed. If no software package is configured, you can specify dependencies based on your business requirements.
+   * 
    * @example
    * Flask==2.0
    */
@@ -969,7 +1384,18 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * 2
    */
   replicas?: number;
+  /**
+   * @remarks
+   * The type of the resource. Set the value to `application`.
+   * 
+   * @example
+   * application
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * Secret mount description.
+   */
   secretMountDesc?: DescribeApplicationConfigResponseBodyDataSecretMountDesc[];
   /**
    * @remarks
@@ -984,6 +1410,10 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * The canary tag configured for the application.
    */
   serviceTags?: { [key: string]: string };
+  /**
+   * @remarks
+   * The configuration of the Sidecar container.
+   */
   sidecarContainersConfig?: DescribeApplicationConfigResponseBodyDataSidecarContainersConfig[];
   /**
    * @remarks
@@ -1006,7 +1436,21 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
    */
   slsConfigs?: string;
+  /**
+   * @remarks
+   * Enable startup probe.
+   * 
+   * @example
+   * {\\"exec\\":{\\"command\\":[\\"/bin/sh\\",\\"-c\\",\\"#!Note: If microservice config is enabled, the application will be automatically injected with the prestop configuration for lossless offline. If you delete this prestop configuration, lossless offline will not be effective.\\\\n echo stop > /tmp/prestop; /home/admin/.tools/curl http://127.0.0.1:54199/offline; sleep 30\\"]}}
+   */
   startupProbe?: string;
+  /**
+   * @remarks
+   * Configuration of K8s Service discovery and registration, and full-chain gray-release feature.
+   * 
+   * @example
+   * {\\"enable\\":\\"false\\",\\"namespaceId\\":\\"cn-beijing:test\\",\\"portAndProtocol\\":{\\"2000:TCP\\":\\"18081\\"},\\"portProtocols\\":[{\\"port\\":2000,\\"protocol\\":\\"TCP\\",\\"targetPort\\":18081}],\\"pvtzDiscoveryName\\":\\"cn-beijing-1421801774382676\\",\\"serviceId\\":\\"3513\\",\\"serviceName\\":\\"demo-gray.test\\"}
+   */
   swimlanePvtzDiscovery?: string;
   /**
    * @remarks
@@ -1348,6 +1792,9 @@ export class DescribeApplicationConfigResponseBody extends $dara.Model {
    * 
    * *   If the call is successful, the **ErrorCode** parameter is not returned.
    * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * Null
    */
   errorCode?: string;
   /**
