@@ -945,7 +945,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTokenResponse
    */
-  // Deprecated
   async getTokenWithOptions(request: $_model.GetTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTokenResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };

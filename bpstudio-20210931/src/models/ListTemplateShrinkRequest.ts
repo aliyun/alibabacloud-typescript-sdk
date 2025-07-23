@@ -60,6 +60,8 @@ export class ListTemplateShrinkRequest extends $dara.Model {
    * 
    * @example
    * 1
+   * 
+   * @deprecated
    */
   tagList?: number;
   /**
