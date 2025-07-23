@@ -225,4 +225,68 @@ export default class Client extends OpenApi {
     return await this.operateAppServiceForPartnerWithOptions(request, runtime);
   }
 
+  /**
+   * 合作伙伴同步应用实例
+   * 
+   * @param tmpReq - SyncAppInstanceForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncAppInstanceForPartnerResponse
+   */
+  async syncAppInstanceForPartnerWithOptions(tmpReq: $_model.SyncAppInstanceForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SyncAppInstanceForPartnerResponse> {
+    tmpReq.validate();
+    let request = new $_model.SyncAppInstanceForPartnerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.appInstance)) {
+      request.appInstanceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.appInstance, "AppInstance", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appInstanceShrink)) {
+      query["AppInstance"] = request.appInstanceShrink;
+    }
+
+    if (!$dara.isNull(request.eventType)) {
+      query["EventType"] = request.eventType;
+    }
+
+    if (!$dara.isNull(request.operator)) {
+      query["Operator"] = request.operator;
+    }
+
+    if (!$dara.isNull(request.sourceBizId)) {
+      query["SourceBizId"] = request.sourceBizId;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SyncAppInstanceForPartner",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SyncAppInstanceForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.SyncAppInstanceForPartnerResponse({}));
+  }
+
+  /**
+   * 合作伙伴同步应用实例
+   * 
+   * @param request - SyncAppInstanceForPartnerRequest
+   * @returns SyncAppInstanceForPartnerResponse
+   */
+  async syncAppInstanceForPartner(request: $_model.SyncAppInstanceForPartnerRequest): Promise<$_model.SyncAppInstanceForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.syncAppInstanceForPartnerWithOptions(request, runtime);
+  }
+
 }

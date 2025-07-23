@@ -1,4 +1,8 @@
-export { GetCreateLogoTaskResponseBodyTask } from './GetCreateLogoTaskResponseBodyTask';
+export { GetCreateLogoTaskResponseBodyTask } from './GetCreateLogoTaskResponseBody';
+export { SyncAppInstanceForPartnerRequestAppInstanceProfile } from './SyncAppInstanceForPartnerRequest';
+export { SyncAppInstanceForPartnerRequestAppInstance } from './SyncAppInstanceForPartnerRequest';
+export { SyncAppInstanceForPartnerResponseBodyDataAppInstance } from './SyncAppInstanceForPartnerResponseBody';
+export { SyncAppInstanceForPartnerResponseBodyData } from './SyncAppInstanceForPartnerResponseBody';
 export { CreateLogoTaskRequest } from './CreateLogoTaskRequest';
 export { CreateLogoTaskResponseBody } from './CreateLogoTaskResponseBody';
 export { CreateLogoTaskResponse } from './CreateLogoTaskResponse';
@@ -11,3 +15,7 @@ export { OperateAppInstanceForPartnerResponse } from './OperateAppInstanceForPar
 export { OperateAppServiceForPartnerRequest } from './OperateAppServiceForPartnerRequest';
 export { OperateAppServiceForPartnerResponseBody } from './OperateAppServiceForPartnerResponseBody';
 export { OperateAppServiceForPartnerResponse } from './OperateAppServiceForPartnerResponse';
+export { SyncAppInstanceForPartnerRequest } from './SyncAppInstanceForPartnerRequest';
+export { SyncAppInstanceForPartnerShrinkRequest } from './SyncAppInstanceForPartnerShrinkRequest';
+export { SyncAppInstanceForPartnerResponseBody } from './SyncAppInstanceForPartnerResponseBody';
+export { SyncAppInstanceForPartnerResponse } from './SyncAppInstanceForPartnerResponse';
