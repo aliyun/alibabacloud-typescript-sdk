@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEventRuleShrinkRequest extends $dara.Model {
   clientToken?: string;
   deliveryMode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
+  endpointShrink?: string;
   endpointsShrink?: string;
   /**
    * @remarks
@@ -40,6 +37,7 @@ export class CreateEventRuleShrinkRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       deliveryMode: 'DeliveryMode',
+      endpointShrink: 'Endpoint',
       endpointsShrink: 'Endpoints',
       eventTypesShrink: 'EventTypes',
       matchRulesShrink: 'MatchRules',
@@ -52,6 +50,7 @@ export class CreateEventRuleShrinkRequest extends $dara.Model {
     return {
       clientToken: 'string',
       deliveryMode: 'string',
+      endpointShrink: 'string',
       endpointsShrink: 'string',
       eventTypesShrink: 'string',
       matchRulesShrink: 'string',

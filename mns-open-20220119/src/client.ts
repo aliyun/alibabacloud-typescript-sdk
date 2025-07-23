@@ -96,6 +96,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateEventRuleShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.endpoint)) {
+      request.endpointShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.endpoint, "Endpoint", "json");
+    }
+
     if (!$dara.isNull(tmpReq.endpoints)) {
       request.endpointsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.endpoints, "Endpoints", "json");
     }
@@ -115,6 +119,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.deliveryMode)) {
       query["DeliveryMode"] = request.deliveryMode;
+    }
+
+    if (!$dara.isNull(request.endpointShrink)) {
+      query["Endpoint"] = request.endpointShrink;
     }
 
     if (!$dara.isNull(request.endpointsShrink)) {

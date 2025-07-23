@@ -1,11 +1,147 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SubscribeRequestDlqPolicy } from "./SubscribeRequestDlqPolicy";
-import { SubscribeRequestDmAttributes } from "./SubscribeRequestDmAttributes";
-import { SubscribeRequestDysmsAttributes } from "./SubscribeRequestDysmsAttributes";
-import { SubscribeRequestKafkaAttributes } from "./SubscribeRequestKafkaAttributes";
-import { SubscribeRequestTenantRateLimitPolicy } from "./SubscribeRequestTenantRateLimitPolicy";
 
+
+export class SubscribeRequestDlqPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The queue to which dead-letter messages are delivered.
+   * 
+   * @example
+   * deadLetterTargetQueue
+   */
+  deadLetterTargetQueue?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the dead-letter message delivery.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      deadLetterTargetQueue: 'DeadLetterTargetQueue',
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deadLetterTargetQueue: 'string',
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeRequestDmAttributes extends $dara.Model {
+  accountName?: string;
+  subject?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      subject: 'Subject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      subject: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeRequestDysmsAttributes extends $dara.Model {
+  signName?: string;
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      signName: 'SignName',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      signName: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeRequestKafkaAttributes extends $dara.Model {
+  businessMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessMode: 'BusinessMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeRequestTenantRateLimitPolicy extends $dara.Model {
+  enabled?: boolean;
+  maxReceivesPerSecond?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      maxReceivesPerSecond: 'MaxReceivesPerSecond',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      maxReceivesPerSecond: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SubscribeRequest extends $dara.Model {
   /**

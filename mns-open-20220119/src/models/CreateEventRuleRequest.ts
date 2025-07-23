@@ -1,16 +1,74 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateEventRuleRequestEndpoints } from "./CreateEventRuleRequestEndpoints";
 import { EventMatchRule } from "./EventMatchRule";
 
+
+/**
+ */
+export class CreateEventRuleRequestEndpoint extends $dara.Model {
+  endpointType?: string;
+  endpointValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointType: 'EndpointType',
+      endpointValue: 'EndpointValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointType: 'string',
+      endpointValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventRuleRequestEndpoints extends $dara.Model {
+  /**
+   * @example
+   * http
+   */
+  endpointType?: string;
+  /**
+   * @example
+   * test-xxx-queue
+   */
+  endpointValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointType: 'EndpointType',
+      endpointValue: 'EndpointValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointType: 'string',
+      endpointValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateEventRuleRequest extends $dara.Model {
   clientToken?: string;
   deliveryMode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
+  endpoint?: CreateEventRuleRequestEndpoint;
   endpoints?: CreateEventRuleRequestEndpoints[];
   /**
    * @remarks
@@ -42,6 +100,7 @@ export class CreateEventRuleRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       deliveryMode: 'DeliveryMode',
+      endpoint: 'Endpoint',
       endpoints: 'Endpoints',
       eventTypes: 'EventTypes',
       matchRules: 'MatchRules',
@@ -54,6 +113,7 @@ export class CreateEventRuleRequest extends $dara.Model {
     return {
       clientToken: 'string',
       deliveryMode: 'string',
+      endpoint: CreateEventRuleRequestEndpoint,
       endpoints: { 'type': 'array', 'itemType': CreateEventRuleRequestEndpoints },
       eventTypes: { 'type': 'array', 'itemType': 'string' },
       matchRules: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': EventMatchRule } },
@@ -63,6 +123,9 @@ export class CreateEventRuleRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.endpoint && typeof (this.endpoint as any).validate === 'function') {
+      (this.endpoint as any).validate();
+    }
     if(Array.isArray(this.endpoints)) {
       $dara.Model.validateArray(this.endpoints);
     }

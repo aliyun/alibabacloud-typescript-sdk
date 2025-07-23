@@ -1,9 +1,122 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateQueueRequestDlqPolicy } from "./CreateQueueRequestDlqPolicy";
-import { CreateQueueRequestTag } from "./CreateQueueRequestTag";
-import { CreateQueueRequestTenantRateLimitPolicy } from "./CreateQueueRequestTenantRateLimitPolicy";
 
+
+export class CreateQueueRequestDlqPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The queue to which dead-letter messages are delivered.
+   * 
+   * @example
+   * deadLetterQueue
+   */
+  deadLetterTargetQueue?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the dead-letter message delivery.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The maximum number of retries.
+   * 
+   * @example
+   * 3
+   */
+  maxReceiveCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deadLetterTargetQueue: 'DeadLetterTargetQueue',
+      enabled: 'Enabled',
+      maxReceiveCount: 'MaxReceiveCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deadLetterTargetQueue: 'string',
+      enabled: 'boolean',
+      maxReceiveCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateQueueRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * tag1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateQueueRequestTenantRateLimitPolicy extends $dara.Model {
+  enabled?: boolean;
+  maxReceivesPerSecond?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      maxReceivesPerSecond: 'MaxReceivesPerSecond',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      maxReceivesPerSecond: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateQueueRequest extends $dara.Model {
   /**
