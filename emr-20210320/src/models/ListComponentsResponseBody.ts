@@ -1,7 +1,77 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListComponentsResponseBodyComponents } from "./ListComponentsResponseBodyComponents";
+import { Attribute } from "./Attribute";
 
+
+export class ListComponentsResponseBodyComponents extends $dara.Model {
+  /**
+   * @remarks
+   * 应用名称。
+   * 
+   * @example
+   * KNOX
+   */
+  applicationName?: string;
+  /**
+   * @remarks
+   * 属性列表。
+   */
+  attributes?: Attribute[];
+  /**
+   * @remarks
+   * 组件名称。
+   * 
+   * @example
+   * KNOX
+   */
+  componentName?: string;
+  /**
+   * @remarks
+   * 命名空间。
+   * 
+   * @example
+   * “”
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * 安装该组件的机器总数。
+   * 
+   * @example
+   * 1
+   */
+  replica?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applicationName: 'ApplicationName',
+      attributes: 'Attributes',
+      componentName: 'ComponentName',
+      namespace: 'Namespace',
+      replica: 'Replica',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationName: 'string',
+      attributes: { 'type': 'array', 'itemType': Attribute },
+      componentName: 'string',
+      namespace: 'string',
+      replica: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.attributes)) {
+      $dara.Model.validateArray(this.attributes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListComponentsResponseBody extends $dara.Model {
   components?: ListComponentsResponseBodyComponents[];
@@ -26,7 +96,7 @@ export class ListComponentsResponseBody extends $dara.Model {
    * 请求ID。
    * 
    * @example
-   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   * FFAC608A-5DC3-174F-93C6-9F88CA6D5875
    */
   requestId?: string;
   /**

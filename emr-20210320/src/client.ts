@@ -1746,6 +1746,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - GetManagedScalingPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetManagedScalingPolicyResponse
+   */
+  async getManagedScalingPolicyWithOptions(request: $_model.GetManagedScalingPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetManagedScalingPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetManagedScalingPolicy",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetManagedScalingPolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetManagedScalingPolicyResponse({}));
+  }
+
+  /**
+   * @param request - GetManagedScalingPolicyRequest
+   * @returns GetManagedScalingPolicyResponse
+   */
+  async getManagedScalingPolicy(request: $_model.GetManagedScalingPolicyRequest): Promise<$_model.GetManagedScalingPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getManagedScalingPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * You can call this operation to obtain the details of a node group.
    * 
    * @remarks

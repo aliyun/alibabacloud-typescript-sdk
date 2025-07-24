@@ -1,7 +1,159 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListDoctorReportsResponseBodyData } from "./ListDoctorReportsResponseBodyData";
 
+
+export class ListDoctorReportsResponseBodyDataSummaryReport extends $dara.Model {
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 88
+   */
+  score?: number;
+  /**
+   * @remarks
+   * The optimization suggestion.
+   * 
+   * @example
+   * block
+   */
+  suggestion?: string;
+  /**
+   * @remarks
+   * The summary of the report.
+   * 
+   * @example
+   * eastbuy-mse-plugin-auth
+   */
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      score: 'Score',
+      suggestion: 'Suggestion',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      score: 'number',
+      suggestion: 'string',
+      summary: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDoctorReportsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The component types.
+   * 
+   * Valid values:
+   * 
+   * *   compute
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   hive
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   hdfs
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   yarn
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   oss
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   hbase
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * null
+   */
+  componentTypes?: string[];
+  /**
+   * @remarks
+   * The date on which the report was generated.
+   * 
+   * @example
+   * 2023-06-29
+   */
+  dateTime?: string;
+  /**
+   * @remarks
+   * The summary of the report.
+   */
+  summaryReport?: ListDoctorReportsResponseBodyDataSummaryReport;
+  static names(): { [key: string]: string } {
+    return {
+      componentTypes: 'ComponentTypes',
+      dateTime: 'DateTime',
+      summaryReport: 'SummaryReport',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentTypes: { 'type': 'array', 'itemType': 'string' },
+      dateTime: 'string',
+      summaryReport: ListDoctorReportsResponseBodyDataSummaryReport,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.componentTypes)) {
+      $dara.Model.validateArray(this.componentTypes);
+    }
+    if(this.summaryReport && typeof (this.summaryReport as any).validate === 'function') {
+      (this.summaryReport as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListDoctorReportsResponseBody extends $dara.Model {
   /**

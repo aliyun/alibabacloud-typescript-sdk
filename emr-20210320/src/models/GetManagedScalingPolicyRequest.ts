@@ -2,17 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetApplicationRequest extends $dara.Model {
-  /**
-   * @remarks
-   * 应用名称。
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * HDFS
-   */
-  applicationName?: string;
+export class GetManagedScalingPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * 集群ID。
@@ -20,12 +10,12 @@ export class GetApplicationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * c-e6a9d46e92675****
+   * c-b933c5aac8fe****
    */
   clusterId?: string;
   /**
    * @remarks
-   * 地域ID。
+   * 区域ID。
    * 
    * This parameter is required.
    * 
@@ -35,7 +25,6 @@ export class GetApplicationRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      applicationName: 'ApplicationName',
       clusterId: 'ClusterId',
       regionId: 'RegionId',
     };
@@ -43,7 +32,6 @@ export class GetApplicationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      applicationName: 'string',
       clusterId: 'string',
       regionId: 'string',
     };

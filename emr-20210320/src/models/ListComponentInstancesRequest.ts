@@ -8,7 +8,7 @@ export class ListComponentInstancesRequest extends $dara.Model {
    * 应用名称列表。
    * 
    * @example
-   * ["HDFS"]
+   * c-b933c5aac8fe****
    */
   applicationNames?: string[];
   /**
@@ -18,7 +18,7 @@ export class ListComponentInstancesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * c-b933c5aac8fe****
+   * C-8CFEBCCFFEF5****
    */
   clusterId?: string;
   /**
@@ -26,7 +26,7 @@ export class ListComponentInstancesRequest extends $dara.Model {
    * 组件名称列表。
    * 
    * @example
-   * ["DataNode"]
+   * ["HDFS"]
    */
   componentNames?: string[];
   /**
@@ -39,7 +39,7 @@ export class ListComponentInstancesRequest extends $dara.Model {
    * 一次获取的最大记录数。取值范围：1~100。
    * 
    * @example
-   * 20
+   * 10
    */
   maxResults?: number;
   /**
@@ -47,7 +47,7 @@ export class ListComponentInstancesRequest extends $dara.Model {
    * 标记当前开始读取的位置，置空表示从头开始。
    * 
    * @example
-   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
+   * “”
    */
   nextToken?: string;
   /**
@@ -55,7 +55,7 @@ export class ListComponentInstancesRequest extends $dara.Model {
    * 节点ID列表。
    * 
    * @example
-   * ["i-bp1cudc25w2bfwl5****"]
+   * DD6B1B2A-5837-5237-ABE4-FF0C89568980
    */
   nodeIds?: string[];
   /**
@@ -63,7 +63,7 @@ export class ListComponentInstancesRequest extends $dara.Model {
    * 节点名称列表。
    * 
    * @example
-   * ["core1-1"]
+   * 20
    */
   nodeNames?: string[];
   /**
@@ -76,6 +76,10 @@ export class ListComponentInstancesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

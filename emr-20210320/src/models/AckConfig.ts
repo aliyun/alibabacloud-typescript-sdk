@@ -1,11 +1,97 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { Tag } from "./Tag";
-import { AckConfigPvcs } from "./AckConfigPvcs";
 import { Toleration } from "./Toleration";
-import { AckConfigVolumeMounts } from "./AckConfigVolumeMounts";
-import { AckConfigVolumes } from "./AckConfigVolumes";
 
+
+/**
+ */
+export class AckConfigPvcs extends $dara.Model {
+  dataDiskSize?: number;
+  dataDiskStorageClass?: string;
+  name?: string;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataDiskSize: 'DataDiskSize',
+      dataDiskStorageClass: 'DataDiskStorageClass',
+      name: 'Name',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDiskSize: 'number',
+      dataDiskStorageClass: 'string',
+      name: 'string',
+      path: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AckConfigVolumeMounts extends $dara.Model {
+  name?: string;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      path: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AckConfigVolumes extends $dara.Model {
+  name?: string;
+  path?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AckConfig extends $dara.Model {
   /**

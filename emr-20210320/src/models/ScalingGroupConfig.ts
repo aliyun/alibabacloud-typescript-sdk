@@ -1,10 +1,226 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ScalingGroupConfigInstanceTypeList } from "./ScalingGroupConfigInstanceTypeList";
-import { ScalingGroupConfigMultiAvailablePolicy } from "./ScalingGroupConfigMultiAvailablePolicy";
-import { ScalingGroupConfigNodeOfflinePolicy } from "./ScalingGroupConfigNodeOfflinePolicy";
-import { ScalingGroupConfigPrivatePoolOptions } from "./ScalingGroupConfigPrivatePoolOptions";
 
+
+export class ScalingGroupConfigInstanceTypeList extends $dara.Model {
+  /**
+   * @remarks
+   * Ecs类型。
+   * 
+   * @example
+   * ecs.c5.xlarge
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * 抢占价格上限,可空。
+   * 
+   * @example
+   * 0.79
+   */
+  spotPriceLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      spotPriceLimit: 'SpotPriceLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      spotPriceLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScalingGroupConfigMultiAvailablePolicyPolicyParam extends $dara.Model {
+  /**
+   * @remarks
+   * 按需实例最小个数。
+   * 
+   * @example
+   * 1
+   */
+  onDemandBaseCapacity?: number;
+  /**
+   * @remarks
+   * 按需实例百分比。
+   * 
+   * @example
+   * 10
+   */
+  onDemandPercentageAboveBaseCapacity?: number;
+  /**
+   * @remarks
+   * 抢占实例类型池规模。
+   * 
+   * @example
+   * 10
+   */
+  spotInstancePools?: number;
+  /**
+   * @remarks
+   * 是否使用按量补偿。
+   * 
+   * @example
+   * false
+   */
+  spotInstanceRemedy?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      onDemandBaseCapacity: 'OnDemandBaseCapacity',
+      onDemandPercentageAboveBaseCapacity: 'OnDemandPercentageAboveBaseCapacity',
+      spotInstancePools: 'SpotInstancePools',
+      spotInstanceRemedy: 'SpotInstanceRemedy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      onDemandBaseCapacity: 'number',
+      onDemandPercentageAboveBaseCapacity: 'number',
+      spotInstancePools: 'number',
+      spotInstanceRemedy: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScalingGroupConfigMultiAvailablePolicy extends $dara.Model {
+  /**
+   * @remarks
+   * 资源可用性策略(成本优化参数)。
+   */
+  policyParam?: ScalingGroupConfigMultiAvailablePolicyPolicyParam;
+  /**
+   * @remarks
+   * 策略类型。
+   * 
+   * @example
+   * PRIORITY
+   */
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyParam: 'PolicyParam',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyParam: ScalingGroupConfigMultiAvailablePolicyPolicyParam,
+      policyType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.policyParam && typeof (this.policyParam as any).validate === 'function') {
+      (this.policyParam as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScalingGroupConfigNodeOfflinePolicy extends $dara.Model {
+  /**
+   * @remarks
+   * 下线模式,是否为优雅下线。
+   * 
+   * @example
+   * DEFAULT
+   */
+  mode?: string;
+  /**
+   * @remarks
+   * 下线超时时间,单位毫秒。
+   * 
+   * @example
+   * 1000
+   */
+  timeoutMs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      mode: 'Mode',
+      timeoutMs: 'TimeoutMs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mode: 'string',
+      timeoutMs: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScalingGroupConfigPrivatePoolOptions extends $dara.Model {
+  /**
+   * @remarks
+   * 私有池id。
+   * 
+   * @example
+   * eap-bp67acfmxazb4****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * 实例启动的私有池容量选项。。
+   * 
+   * @example
+   * Open
+   */
+  matchCriteria?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      matchCriteria: 'MatchCriteria',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      matchCriteria: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ScalingGroupConfig extends $dara.Model {
   /**
