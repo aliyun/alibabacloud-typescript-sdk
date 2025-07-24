@@ -154,6 +154,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Service
+   * 
+   * @param request - CreateServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceResponse
+   */
+  async createServiceWithOptions(workspace: string, request: $_model.CreateServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attributes)) {
+      body["attributes"] = request.attributes;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.pid)) {
+      body["pid"] = request.pid;
+    }
+
+    if (!$dara.isNull(request.serviceName)) {
+      body["serviceName"] = request.serviceName;
+    }
+
+    if (!$dara.isNull(request.serviceStatus)) {
+      body["serviceStatus"] = request.serviceStatus;
+    }
+
+    if (!$dara.isNull(request.serviceType)) {
+      body["serviceType"] = request.serviceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateService",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/service`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateServiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateServiceResponse({}));
+  }
+
+  /**
+   * 创建Service
+   * 
+   * @param request - CreateServiceRequest
+   * @returns CreateServiceResponse
+   */
+  async createService(workspace: string, request: $_model.CreateServiceRequest): Promise<$_model.CreateServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createServiceWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
    * 创建Umodel配置
    * 
    * @param request - CreateUmodelRequest
@@ -235,6 +304,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteEntityStoreWithOptions(workspaceName, headers, runtime);
+  }
+
+  /**
+   * 删除Service
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceResponse
+   */
+  async deleteServiceWithOptions(workspace: string, serviceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteService",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/service/${$dara.URL.percentEncode(serviceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteServiceResponse({}));
+  }
+
+  /**
+   * 删除Service
+   * @returns DeleteServiceResponse
+   */
+  async deleteService(workspace: string, serviceId: string): Promise<$_model.DeleteServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteServiceWithOptions(workspace, serviceId, headers, runtime);
   }
 
   /**
@@ -455,6 +559,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetEntityStoreDataHeaders({ });
     return await this.getEntityStoreDataWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
+   * 查询 Service
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceResponse
+   */
+  async getServiceWithOptions(workspace: string, serviceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetService",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/service/${$dara.URL.percentEncode(serviceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetServiceResponse>(await this.callApi(params, req, runtime), new $_model.GetServiceResponse({}));
+  }
+
+  /**
+   * 查询 Service
+   * @returns GetServiceResponse
+   */
+  async getService(workspace: string, serviceId: string): Promise<$_model.GetServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getServiceWithOptions(workspace, serviceId, headers, runtime);
   }
 
   /**
@@ -681,6 +820,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出资源Service
+   * 
+   * @param request - ListServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServicesResponse
+   */
+  async listServicesWithOptions(workspace: string, request: $_model.ListServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListServicesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.serviceType)) {
+      query["serviceType"] = request.serviceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServices",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/services`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListServicesResponse>(await this.callApi(params, req, runtime), new $_model.ListServicesResponse({}));
+  }
+
+  /**
+   * 列出资源Service
+   * 
+   * @param request - ListServicesRequest
+   * @returns ListServicesResponse
+   */
+  async listServices(workspace: string, request: $_model.ListServicesRequest): Promise<$_model.ListServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listServicesWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
    * 获取工作空间列表
    * 
    * @param tmpReq - ListWorkspacesRequest
@@ -798,6 +990,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putWorkspaceWithOptions(workspaceName, request, headers, runtime);
+  }
+
+  /**
+   * 更新UpdateService
+   * 
+   * @param request - UpdateServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceResponse
+   */
+  async updateServiceWithOptions(workspace: string, serviceId: string, request: $_model.UpdateServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attributes)) {
+      body["attributes"] = request.attributes;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.serviceStatus)) {
+      body["serviceStatus"] = request.serviceStatus;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateService",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/service/${$dara.URL.percentEncode(serviceId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateServiceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateServiceResponse({}));
+  }
+
+  /**
+   * 更新UpdateService
+   * 
+   * @param request - UpdateServiceRequest
+   * @returns UpdateServiceResponse
+   */
+  async updateService(workspace: string, serviceId: string, request: $_model.UpdateServiceRequest): Promise<$_model.UpdateServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateServiceWithOptions(workspace, serviceId, request, headers, runtime);
   }
 
   /**
