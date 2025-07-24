@@ -237,6 +237,18 @@ export default class Client extends OpenApi {
   async asyncCreateClipsTimeLineWithOptions(request: $_model.AsyncCreateClipsTimeLineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AsyncCreateClipsTimeLineResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.additionalContent)) {
+      body["AdditionalContent"] = request.additionalContent;
+    }
+
+    if (!$dara.isNull(request.customContent)) {
+      body["CustomContent"] = request.customContent;
+    }
+
+    if (!$dara.isNull(request.noRefVideo)) {
+      body["NoRefVideo"] = request.noRefVideo;
+    }
+
     if (!$dara.isNull(request.processPrompt)) {
       body["ProcessPrompt"] = request.processPrompt;
     }
@@ -348,6 +360,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.AsyncUploadVideoShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.referenceVideo)) {
+      request.referenceVideoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.referenceVideo, "ReferenceVideo", "json");
+    }
+
     if (!$dara.isNull(tmpReq.sourceVideos)) {
       request.sourceVideosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceVideos, "SourceVideos", "json");
     }
@@ -357,8 +373,16 @@ export default class Client extends OpenApi {
       body["AnlysisPrompt"] = request.anlysisPrompt;
     }
 
+    if (!$dara.isNull(request.referenceVideoShrink)) {
+      body["ReferenceVideo"] = request.referenceVideoShrink;
+    }
+
     if (!$dara.isNull(request.sourceVideosShrink)) {
       body["SourceVideos"] = request.sourceVideosShrink;
+    }
+
+    if (!$dara.isNull(request.splitInterval)) {
+      body["SplitInterval"] = request.splitInterval;
     }
 
     if (!$dara.isNull(request.workspaceId)) {

@@ -3,6 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AsyncCreateClipsTimeLineRequest extends $dara.Model {
+  additionalContent?: string;
+  customContent?: string;
+  noRefVideo?: boolean;
   processPrompt?: string;
   /**
    * @remarks
@@ -22,6 +25,9 @@ export class AsyncCreateClipsTimeLineRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      additionalContent: 'AdditionalContent',
+      customContent: 'CustomContent',
+      noRefVideo: 'NoRefVideo',
       processPrompt: 'ProcessPrompt',
       taskId: 'TaskId',
       workspaceId: 'WorkspaceId',
@@ -30,6 +36,9 @@ export class AsyncCreateClipsTimeLineRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      additionalContent: 'string',
+      customContent: 'string',
+      noRefVideo: 'boolean',
       processPrompt: 'string',
       taskId: 'string',
       workspaceId: 'string',

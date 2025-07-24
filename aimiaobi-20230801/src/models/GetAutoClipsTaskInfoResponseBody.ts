@@ -79,11 +79,13 @@ export class GetAutoClipsTaskInfoResponseBodyDataTimelinesClips extends $dara.Mo
    * 0
    */
   in?: number;
+  inEx?: number;
   /**
    * @example
    * 5
    */
   out?: number;
+  outEx?: number;
   /**
    * @example
    * 20774ebd9abc71ef80486632b68f0102
@@ -99,7 +101,9 @@ export class GetAutoClipsTaskInfoResponseBodyDataTimelinesClips extends $dara.Mo
       clipId: 'ClipId',
       contentInner: 'ContentInner',
       in: 'In',
+      inEx: 'InEx',
       out: 'Out',
+      outEx: 'OutEx',
       videoId: 'VideoId',
       videoName: 'VideoName',
     };
@@ -110,7 +114,9 @@ export class GetAutoClipsTaskInfoResponseBodyDataTimelinesClips extends $dara.Mo
       clipId: 'string',
       contentInner: 'string',
       in: 'number',
+      inEx: 'number',
       out: 'number',
+      outEx: 'number',
       videoId: 'string',
       videoName: 'string',
     };
@@ -164,6 +170,7 @@ export class GetAutoClipsTaskInfoResponseBodyDataTimelines extends $dara.Model {
 export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
   colorWords?: GetAutoClipsTaskInfoResponseBodyDataColorWords[];
   content?: string;
+  errorMessage?: string;
   mediaCloudTimeline?: string;
   musicStyle?: string;
   /**
@@ -208,6 +215,7 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
     return {
       colorWords: 'ColorWords',
       content: 'Content',
+      errorMessage: 'ErrorMessage',
       mediaCloudTimeline: 'MediaCloudTimeline',
       musicStyle: 'MusicStyle',
       musicUrl: 'MusicUrl',
@@ -227,6 +235,7 @@ export class GetAutoClipsTaskInfoResponseBodyData extends $dara.Model {
     return {
       colorWords: { 'type': 'array', 'itemType': GetAutoClipsTaskInfoResponseBodyDataColorWords },
       content: 'string',
+      errorMessage: 'string',
       mediaCloudTimeline: 'string',
       musicStyle: 'string',
       musicUrl: 'string',

@@ -10,6 +10,7 @@ export { AsyncCreateClipsTimeLineResponseBodyData } from './AsyncCreateClipsTime
 export { AsyncEditTimelineRequestTimelinesClips } from './AsyncEditTimelineRequest';
 export { AsyncEditTimelineRequestTimelines } from './AsyncEditTimelineRequest';
 export { AsyncEditTimelineResponseBodyData } from './AsyncEditTimelineResponseBody';
+export { AsyncUploadVideoRequestReferenceVideo } from './AsyncUploadVideoRequest';
 export { AsyncUploadVideoRequestSourceVideos } from './AsyncUploadVideoRequest';
 export { AsyncUploadVideoResponseBodyDataVideoInfos } from './AsyncUploadVideoResponseBody';
 export { AsyncUploadVideoResponseBodyData } from './AsyncUploadVideoResponseBody';

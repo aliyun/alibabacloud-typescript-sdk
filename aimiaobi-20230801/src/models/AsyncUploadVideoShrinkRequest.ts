@@ -4,11 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class AsyncUploadVideoShrinkRequest extends $dara.Model {
   anlysisPrompt?: string;
+  referenceVideoShrink?: string;
   /**
    * @remarks
    * This parameter is required.
    */
   sourceVideosShrink?: string;
+  splitInterval?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -20,7 +22,9 @@ export class AsyncUploadVideoShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       anlysisPrompt: 'AnlysisPrompt',
+      referenceVideoShrink: 'ReferenceVideo',
       sourceVideosShrink: 'SourceVideos',
+      splitInterval: 'SplitInterval',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -28,7 +32,9 @@ export class AsyncUploadVideoShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       anlysisPrompt: 'string',
+      referenceVideoShrink: 'string',
       sourceVideosShrink: 'string',
+      splitInterval: 'number',
       workspaceId: 'string',
     };
   }

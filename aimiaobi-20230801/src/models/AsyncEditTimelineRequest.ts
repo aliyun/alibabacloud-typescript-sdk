@@ -6,7 +6,9 @@ export class AsyncEditTimelineRequestTimelinesClips extends $dara.Model {
   clipId?: string;
   contentInner?: string;
   in?: number;
+  inEx?: number;
   out?: number;
+  outEx?: number;
   videoId?: string;
   videoName?: string;
   static names(): { [key: string]: string } {
@@ -14,7 +16,9 @@ export class AsyncEditTimelineRequestTimelinesClips extends $dara.Model {
       clipId: 'ClipId',
       contentInner: 'ContentInner',
       in: 'In',
+      inEx: 'InEx',
       out: 'Out',
+      outEx: 'OutEx',
       videoId: 'VideoId',
       videoName: 'VideoName',
     };
@@ -25,7 +29,9 @@ export class AsyncEditTimelineRequestTimelinesClips extends $dara.Model {
       clipId: 'string',
       contentInner: 'string',
       in: 'number',
+      inEx: 'number',
       out: 'number',
+      outEx: 'number',
       videoId: 'string',
       videoName: 'string',
     };
