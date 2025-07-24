@@ -225,6 +225,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 信息查询服务接口日维度使用量查询
+   * 
+   * @param request - GetIqsUsageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIqsUsageResponse
+   */
+  async getIqsUsageWithOptions(request: $_model.GetIqsUsageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetIqsUsageResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["startDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIqsUsage",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-admin/v1/iqs/usage`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetIqsUsageResponse>(await this.callApi(params, req, runtime), new $_model.GetIqsUsageResponse({}));
+  }
+
+  /**
+   * 信息查询服务接口日维度使用量查询
+   * 
+   * @param request - GetIqsUsageRequest
+   * @returns GetIqsUsageResponse
+   */
+  async getIqsUsage(request: $_model.GetIqsUsageRequest): Promise<$_model.GetIqsUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getIqsUsageWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 通晓搜索-出海版(全球信息搜索)
    * 
    * @param request - GlobalSearchRequest

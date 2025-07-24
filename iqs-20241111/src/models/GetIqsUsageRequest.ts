@@ -2,26 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QueryContextOriginalQuery extends $dara.Model {
-  industry?: string;
-  page?: string;
-  query?: string;
-  timeRange?: string;
+export class GetIqsUsageRequest extends $dara.Model {
+  /**
+   * @example
+   * 20241017
+   */
+  endDate?: string;
+  /**
+   * @example
+   * 20241011
+   */
+  startDate?: string;
   static names(): { [key: string]: string } {
     return {
-      industry: 'industry',
-      page: 'page',
-      query: 'query',
-      timeRange: 'timeRange',
+      endDate: 'endDate',
+      startDate: 'startDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      industry: 'string',
-      page: 'string',
-      query: 'string',
-      timeRange: 'string',
+      endDate: 'string',
+      startDate: 'string',
     };
   }
 
