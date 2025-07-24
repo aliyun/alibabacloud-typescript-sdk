@@ -523,6 +523,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $dara.Mod
    * 1
    */
   paidType?: number;
+  recommendedPartitionCount?: number;
   /**
    * @remarks
    * The ID of the region where the instance resides.
@@ -811,6 +812,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $dara.Mod
       msgRetain: 'MsgRetain',
       name: 'Name',
       paidType: 'PaidType',
+      recommendedPartitionCount: 'RecommendedPartitionCount',
       regionId: 'RegionId',
       reservedPublishCapacity: 'ReservedPublishCapacity',
       reservedSubscribeCapacity: 'ReservedSubscribeCapacity',
@@ -865,6 +867,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $dara.Mod
       msgRetain: 'number',
       name: 'string',
       paidType: 'number',
+      recommendedPartitionCount: 'number',
       regionId: 'string',
       reservedPublishCapacity: 'number',
       reservedSubscribeCapacity: 'number',
