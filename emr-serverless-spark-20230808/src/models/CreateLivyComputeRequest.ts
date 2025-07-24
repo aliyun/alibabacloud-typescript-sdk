@@ -1,8 +1,67 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateLivyComputeRequestAutoStartConfiguration } from "./CreateLivyComputeRequestAutoStartConfiguration";
-import { CreateLivyComputeRequestAutoStopConfiguration } from "./CreateLivyComputeRequestAutoStopConfiguration";
 
+
+export class CreateLivyComputeRequestAutoStartConfiguration extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLivyComputeRequestAutoStopConfiguration extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  enable?: boolean;
+  /**
+   * @example
+   * 300
+   */
+  idleTimeoutMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      idleTimeoutMinutes: 'idleTimeoutMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      idleTimeoutMinutes: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateLivyComputeRequest extends $dara.Model {
   /**

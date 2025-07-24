@@ -1,9 +1,126 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListJobRunsRequestEndTime } from "./ListJobRunsRequestEndTime";
-import { ListJobRunsRequestStartTime } from "./ListJobRunsRequestStartTime";
-import { ListJobRunsRequestTags } from "./ListJobRunsRequestTags";
 
+
+export class ListJobRunsRequestEndTime extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the end time range.
+   * 
+   * @example
+   * 1710432000000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The beginning of the end time range.
+   * 
+   * @example
+   * 1709740800000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobRunsRequestStartTime extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the start time range.
+   * 
+   * @example
+   * 1710432000000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The beginning of the start time range.
+   * 
+   * @example
+   * 1709740800000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobRunsRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N.
+   * 
+   * @example
+   * tag_key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N.
+   * 
+   * @example
+   * value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListJobRunsRequest extends $dara.Model {
   /**
