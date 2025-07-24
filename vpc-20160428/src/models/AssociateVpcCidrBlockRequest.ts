@@ -32,6 +32,7 @@ export class AssociateVpcCidrBlockRequest extends $dara.Model {
    * ipam-pool-sycmt3p2a9v63i****
    */
   ipamPoolId?: string;
+  ipv6CidrMask?: number;
   /**
    * @remarks
    * The type of the IPv6 CIDR block. Valid values:
@@ -54,8 +55,6 @@ export class AssociateVpcCidrBlockRequest extends $dara.Model {
    * The region ID of the VPC to which you want to add a secondary CIDR block.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
-   * 
-   * This parameter is required.
    * 
    * @example
    * ch-hangzhou
@@ -107,6 +106,7 @@ export class AssociateVpcCidrBlockRequest extends $dara.Model {
       IPv6CidrBlock: 'IPv6CidrBlock',
       ipVersion: 'IpVersion',
       ipamPoolId: 'IpamPoolId',
+      ipv6CidrMask: 'Ipv6CidrMask',
       ipv6Isp: 'Ipv6Isp',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -124,6 +124,7 @@ export class AssociateVpcCidrBlockRequest extends $dara.Model {
       IPv6CidrBlock: 'string',
       ipVersion: 'string',
       ipamPoolId: 'string',
+      ipv6CidrMask: 'number',
       ipv6Isp: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

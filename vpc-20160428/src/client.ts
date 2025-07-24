@@ -542,7 +542,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddIPv6TranslatorAclListEntryResponse
    */
-  // Deprecated
   async addIPv6TranslatorAclListEntryWithOptions(request: $_model.AddIPv6TranslatorAclListEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddIPv6TranslatorAclListEntryResponse> {
     request.validate();
     let query = { };
@@ -1065,7 +1064,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AllocateEipSegmentAddressResponse
    */
-  // Deprecated
   async allocateEipSegmentAddressWithOptions(request: $_model.AllocateEipSegmentAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AllocateEipSegmentAddressResponse> {
     request.validate();
     let query = { };
@@ -2328,6 +2326,10 @@ export default class Client extends OpenApi {
       query["IpamPoolId"] = request.ipamPoolId;
     }
 
+    if (!$dara.isNull(request.ipv6CidrMask)) {
+      query["Ipv6CidrMask"] = request.ipv6CidrMask;
+    }
+
     if (!$dara.isNull(request.ipv6Isp)) {
       query["Ipv6Isp"] = request.ipv6Isp;
     }
@@ -3210,7 +3212,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConvertBandwidthPackageResponse
    */
-  // Deprecated
   async convertBandwidthPackageWithOptions(request: $_model.ConvertBandwidthPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConvertBandwidthPackageResponse> {
     request.validate();
     let query = { };
@@ -4924,7 +4925,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateGlobalAccelerationInstanceResponse
    */
-  // Deprecated
   async createGlobalAccelerationInstanceWithOptions(request: $_model.CreateGlobalAccelerationInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGlobalAccelerationInstanceResponse> {
     request.validate();
     let query = { };
@@ -5210,7 +5210,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateIPv6TranslatorResponse
    */
-  // Deprecated
   async createIPv6TranslatorWithOptions(request: $_model.CreateIPv6TranslatorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateIPv6TranslatorResponse> {
     request.validate();
     let query = { };
@@ -5306,7 +5305,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateIPv6TranslatorAclListResponse
    */
-  // Deprecated
   async createIPv6TranslatorAclListWithOptions(request: $_model.CreateIPv6TranslatorAclListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateIPv6TranslatorAclListResponse> {
     request.validate();
     let query = { };
@@ -5378,7 +5376,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateIPv6TranslatorEntryResponse
    */
-  // Deprecated
   async createIPv6TranslatorEntryWithOptions(request: $_model.CreateIPv6TranslatorEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateIPv6TranslatorEntryResponse> {
     request.validate();
     let query = { };
@@ -8597,6 +8594,14 @@ export default class Client extends OpenApi {
       query["Ipv6CidrBlock"] = request.ipv6CidrBlock;
     }
 
+    if (!$dara.isNull(request.ipv6CidrMask)) {
+      query["Ipv6CidrMask"] = request.ipv6CidrMask;
+    }
+
+    if (!$dara.isNull(request.ipv6IpamPoolId)) {
+      query["Ipv6IpamPoolId"] = request.ipv6IpamPoolId;
+    }
+
     if (!$dara.isNull(request.ipv6Isp)) {
       query["Ipv6Isp"] = request.ipv6Isp;
     }
@@ -10962,7 +10967,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteIPv6TranslatorAclListResponse
    */
-  // Deprecated
   async deleteIPv6TranslatorAclListWithOptions(request: $_model.DeleteIPv6TranslatorAclListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteIPv6TranslatorAclListResponse> {
     request.validate();
     let query = { };
@@ -11034,7 +11038,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteIPv6TranslatorEntryResponse
    */
-  // Deprecated
   async deleteIPv6TranslatorEntryWithOptions(request: $_model.DeleteIPv6TranslatorEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteIPv6TranslatorEntryResponse> {
     request.validate();
     let query = { };
@@ -16108,7 +16111,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeIPv6TranslatorAclListsResponse
    */
-  // Deprecated
   async describeIPv6TranslatorAclListsWithOptions(request: $_model.DescribeIPv6TranslatorAclListsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeIPv6TranslatorAclListsResponse> {
     request.validate();
     let query = { };
@@ -16188,7 +16190,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeIPv6TranslatorEntriesResponse
    */
-  // Deprecated
   async describeIPv6TranslatorEntriesWithOptions(request: $_model.DescribeIPv6TranslatorEntriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeIPv6TranslatorEntriesResponse> {
     request.validate();
     let query = { };
@@ -16308,7 +16309,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeIPv6TranslatorsResponse
    */
-  // Deprecated
   async describeIPv6TranslatorsWithOptions(request: $_model.DescribeIPv6TranslatorsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeIPv6TranslatorsResponse> {
     request.validate();
     let query = { };
@@ -17676,7 +17676,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRouteTablesResponse
    */
-  // Deprecated
   async describeRouteTablesWithOptions(request: $_model.DescribeRouteTablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRouteTablesResponse> {
     request.validate();
     let query = { };
@@ -20444,7 +20443,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableNatGatewayEcsMetricResponse
    */
-  // Deprecated
   async disableNatGatewayEcsMetricWithOptions(request: $_model.DisableNatGatewayEcsMetricRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableNatGatewayEcsMetricResponse> {
     request.validate();
     let query = { };
@@ -20862,7 +20860,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableNatGatewayEcsMetricResponse
    */
-  // Deprecated
   async enableNatGatewayEcsMetricWithOptions(request: $_model.EnableNatGatewayEcsMetricRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableNatGatewayEcsMetricResponse> {
     request.validate();
     let query = { };
@@ -25788,7 +25785,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyIPv6TranslatorAclAttributeResponse
    */
-  // Deprecated
   async modifyIPv6TranslatorAclAttributeWithOptions(request: $_model.ModifyIPv6TranslatorAclAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyIPv6TranslatorAclAttributeResponse> {
     request.validate();
     let query = { };
@@ -26082,7 +26078,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyIPv6TranslatorEntryResponse
    */
-  // Deprecated
   async modifyIPv6TranslatorEntryWithOptions(request: $_model.ModifyIPv6TranslatorEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyIPv6TranslatorEntryResponse> {
     request.validate();
     let query = { };
@@ -32763,7 +32758,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateNatGatewayNatTypeResponse
    */
-  // Deprecated
   async updateNatGatewayNatTypeWithOptions(request: $_model.UpdateNatGatewayNatTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNatGatewayNatTypeResponse> {
     request.validate();
     let query = { };

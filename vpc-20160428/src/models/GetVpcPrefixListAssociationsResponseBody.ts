@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation extends $dara.Model {
+  /**
+   * @remarks
+   * List of CIDR addresses where the prefix list is effective in the currently associated resources.
+   * 
+   * @example
+   * 192.168.0.0/16
+   */
   cidrList?: string;
   /**
    * @remarks

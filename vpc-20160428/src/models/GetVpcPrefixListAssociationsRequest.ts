@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVpcPrefixListAssociationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return in each call. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20

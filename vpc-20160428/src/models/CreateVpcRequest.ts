@@ -137,6 +137,8 @@ export class CreateVpcRequest extends $dara.Model {
    * 2408:XXXX:0:6a::/56
    */
   ipv6CidrBlock?: string;
+  ipv6CidrMask?: number;
+  ipv6IpamPoolId?: string;
   /**
    * @remarks
    * The type of the IPv6 CIDR block of the VPC. Valid values:
@@ -214,6 +216,8 @@ export class CreateVpcRequest extends $dara.Model {
       ipv4CidrMask: 'Ipv4CidrMask',
       ipv4IpamPoolId: 'Ipv4IpamPoolId',
       ipv6CidrBlock: 'Ipv6CidrBlock',
+      ipv6CidrMask: 'Ipv6CidrMask',
+      ipv6IpamPoolId: 'Ipv6IpamPoolId',
       ipv6Isp: 'Ipv6Isp',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -238,6 +242,8 @@ export class CreateVpcRequest extends $dara.Model {
       ipv4CidrMask: 'number',
       ipv4IpamPoolId: 'string',
       ipv6CidrBlock: 'string',
+      ipv6CidrMask: 'number',
+      ipv6IpamPoolId: 'string',
       ipv6Isp: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
