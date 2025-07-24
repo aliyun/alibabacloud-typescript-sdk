@@ -11,6 +11,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
    * env-cti17hem1hktoruj98ug
    */
   environmentId?: string;
+  parentResourceId?: string;
   /**
    * @remarks
    * The resource ID.
@@ -19,21 +20,29 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
    * ha-cn-li942gy8p03
    */
   resourceId?: string;
+  resources?: string[];
   static names(): { [key: string]: string } {
     return {
       environmentId: 'environmentId',
+      parentResourceId: 'parentResourceId',
       resourceId: 'resourceId',
+      resources: 'resources',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       environmentId: 'string',
+      parentResourceId: 'string',
       resourceId: 'string',
+      resources: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
     super.validate();
   }
 

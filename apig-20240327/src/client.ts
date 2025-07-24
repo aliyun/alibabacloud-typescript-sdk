@@ -471,7 +471,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateEnvironmentResponse
    */
-  // Deprecated
   async createEnvironmentWithOptions(request: $_model.CreateEnvironmentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEnvironmentResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -1195,7 +1194,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteEnvironmentResponse
    */
-  // Deprecated
   async deleteEnvironmentWithOptions(environmentId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEnvironmentResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -1751,6 +1749,10 @@ export default class Client extends OpenApi {
       query["pluginId"] = request.pluginId;
     }
 
+    if (!$dara.isNull(request.routeId)) {
+      query["routeId"] = request.routeId;
+    }
+
     if (!$dara.isNull(request.source)) {
       query["source"] = request.source;
     }
@@ -1844,7 +1846,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetEnvironmentResponse
    */
-  // Deprecated
   async getEnvironmentWithOptions(environmentId: string, request: $_model.GetEnvironmentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetEnvironmentResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
@@ -2480,7 +2481,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEnvironmentsResponse
    */
-  // Deprecated
   async listEnvironmentsWithOptions(request: $_model.ListEnvironmentsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListEnvironmentsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
@@ -3354,6 +3354,10 @@ export default class Client extends OpenApi {
       query["resourceType"] = request.resourceType;
     }
 
+    if (!$dara.isNull(request.resourceTypes)) {
+      query["resourceTypes"] = request.resourceTypes;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -3716,7 +3720,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateEnvironmentResponse
    */
-  // Deprecated
   async updateEnvironmentWithOptions(environmentId: string, request: $_model.UpdateEnvironmentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateEnvironmentResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -4018,6 +4021,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.match)) {
       body["match"] = request.match;
+    }
+
+    if (!$dara.isNull(request.mcpRouteConfig)) {
+      body["mcpRouteConfig"] = request.mcpRouteConfig;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

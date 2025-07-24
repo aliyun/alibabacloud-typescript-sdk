@@ -124,10 +124,12 @@ export class CreateHttpApiRouteRequestBackendConfig extends $dara.Model {
 
 export class CreateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
   exposedUriPath?: string;
+  mcpStatisticsEnable?: boolean;
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
       exposedUriPath: 'exposedUriPath',
+      mcpStatisticsEnable: 'mcpStatisticsEnable',
       protocol: 'protocol',
     };
   }
@@ -135,6 +137,7 @@ export class CreateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       exposedUriPath: 'string',
+      mcpStatisticsEnable: 'boolean',
       protocol: 'string',
     };
   }

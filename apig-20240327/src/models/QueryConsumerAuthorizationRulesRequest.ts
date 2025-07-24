@@ -83,6 +83,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
    * HttpApiRoute
    */
   resourceType?: string;
+  resourceTypes?: string;
   static names(): { [key: string]: string } {
     return {
       apiNameLike: 'apiNameLike',
@@ -95,6 +96,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
       parentResourceId: 'parentResourceId',
       resourceId: 'resourceId',
       resourceType: 'resourceType',
+      resourceTypes: 'resourceTypes',
     };
   }
 
@@ -110,6 +112,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
       parentResourceId: 'string',
       resourceId: 'string',
       resourceType: 'string',
+      resourceTypes: 'string',
     };
   }
 

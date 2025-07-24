@@ -152,6 +152,7 @@ export { UpdateDomainResponseBodyData } from './UpdateDomainResponseBody';
 export { UpdateHttpApiRequestIngressConfig } from './UpdateHttpApiRequest';
 export { UpdateHttpApiRouteRequestBackendConfigServices } from './UpdateHttpApiRouteRequest';
 export { UpdateHttpApiRouteRequestBackendConfig } from './UpdateHttpApiRouteRequest';
+export { UpdateHttpApiRouteRequestMcpRouteConfig } from './UpdateHttpApiRouteRequest';
 export { AgentServiceConfig } from './AgentServiceConfig';
 export { AiServiceConfig } from './AiServiceConfig';
 export { AkSkIdentityConfig } from './AkSkIdentityConfig';

@@ -74,6 +74,7 @@ export class GetDashboardRequest extends $dara.Model {
    */
   pluginClassId?: string;
   pluginId?: string;
+  routeId?: string;
   /**
    * @remarks
    * The dashboard source. Valid values:
@@ -93,6 +94,7 @@ export class GetDashboardRequest extends $dara.Model {
       name: 'name',
       pluginClassId: 'pluginClassId',
       pluginId: 'pluginId',
+      routeId: 'routeId',
       source: 'source',
       upstreamCluster: 'upstreamCluster',
     };
@@ -106,6 +108,7 @@ export class GetDashboardRequest extends $dara.Model {
       name: 'string',
       pluginClassId: 'string',
       pluginId: 'string',
+      routeId: 'string',
       source: 'string',
       upstreamCluster: 'string',
     };

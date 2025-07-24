@@ -124,6 +124,35 @@ export class UpdateHttpApiRouteRequestBackendConfig extends $dara.Model {
   }
 }
 
+export class UpdateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
+  exposedUriPath?: string;
+  mcpStatisticsEnable?: boolean;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exposedUriPath: 'exposedUriPath',
+      mcpStatisticsEnable: 'mcpStatisticsEnable',
+      protocol: 'protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exposedUriPath: 'string',
+      mcpStatisticsEnable: 'boolean',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateHttpApiRouteRequest extends $dara.Model {
   /**
    * @remarks
@@ -157,6 +186,8 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
    * The rules for matching the route.
    */
   match?: HttpRouteMatch;
+  mcpRouteConfig?: UpdateHttpApiRouteRequestMcpRouteConfig;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
       backendConfig: 'backendConfig',
@@ -165,6 +196,8 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
       domainIds: 'domainIds',
       environmentId: 'environmentId',
       match: 'match',
+      mcpRouteConfig: 'mcpRouteConfig',
+      name: 'name',
     };
   }
 
@@ -176,6 +209,8 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
       domainIds: { 'type': 'array', 'itemType': 'string' },
       environmentId: 'string',
       match: HttpRouteMatch,
+      mcpRouteConfig: UpdateHttpApiRouteRequestMcpRouteConfig,
+      name: 'string',
     };
   }
 
@@ -191,6 +226,9 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
     }
     if(this.match && typeof (this.match as any).validate === 'function') {
       (this.match as any).validate();
+    }
+    if(this.mcpRouteConfig && typeof (this.mcpRouteConfig as any).validate === 'function') {
+      (this.mcpRouteConfig as any).validate();
     }
     super.validate();
   }
