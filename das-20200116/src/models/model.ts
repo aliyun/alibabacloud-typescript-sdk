@@ -37,6 +37,9 @@ export { DescribeCloudBenchTasksResponseBodyDataList } from './DescribeCloudBenc
 export { DescribeCloudBenchTasksResponseBodyData } from './DescribeCloudBenchTasksResponseBody';
 export { DescribeCloudbenchTaskResponseBodyData } from './DescribeCloudbenchTaskResponseBody';
 export { DescribeCloudbenchTaskConfigResponseBodyData } from './DescribeCloudbenchTaskConfigResponseBody';
+export { DescribeErrorLogRecordsRequestFilters } from './DescribeErrorLogRecordsRequest';
+export { DescribeErrorLogRecordsResponseBodyDataLogs } from './DescribeErrorLogRecordsResponseBody';
+export { DescribeErrorLogRecordsResponseBodyData } from './DescribeErrorLogRecordsResponseBody';
 export { DescribeHotBigKeysResponseBodyDataBigKeysBigKey } from './DescribeHotBigKeysResponseBody';
 export { DescribeHotBigKeysResponseBodyDataBigKeys } from './DescribeHotBigKeysResponseBody';
 export { DescribeHotBigKeysResponseBodyDataHotKeysHotKey } from './DescribeHotBigKeysResponseBody';
@@ -268,6 +271,9 @@ export { DescribeCloudbenchTaskConfigResponse } from './DescribeCloudbenchTaskCo
 export { DescribeDiagnosticReportListRequest } from './DescribeDiagnosticReportListRequest';
 export { DescribeDiagnosticReportListResponseBody } from './DescribeDiagnosticReportListResponseBody';
 export { DescribeDiagnosticReportListResponse } from './DescribeDiagnosticReportListResponse';
+export { DescribeErrorLogRecordsRequest } from './DescribeErrorLogRecordsRequest';
+export { DescribeErrorLogRecordsResponseBody } from './DescribeErrorLogRecordsResponseBody';
+export { DescribeErrorLogRecordsResponse } from './DescribeErrorLogRecordsResponse';
 export { DescribeHotBigKeysRequest } from './DescribeHotBigKeysRequest';
 export { DescribeHotBigKeysResponseBody } from './DescribeHotBigKeysResponseBody';
 export { DescribeHotBigKeysResponse } from './DescribeHotBigKeysResponse';

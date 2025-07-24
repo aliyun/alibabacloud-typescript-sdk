@@ -1489,6 +1489,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例错误日志
+   * 
+   * @param request - DescribeErrorLogRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeErrorLogRecordsResponse
+   */
+  async describeErrorLogRecordsWithOptions(request: $_model.DescribeErrorLogRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeErrorLogRecordsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.filters)) {
+      body["Filters"] = request.filters;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.role)) {
+      body["Role"] = request.role;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeErrorLogRecords",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeErrorLogRecordsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeErrorLogRecordsResponse({}));
+  }
+
+  /**
+   * 查询实例错误日志
+   * 
+   * @param request - DescribeErrorLogRecordsRequest
+   * @returns DescribeErrorLogRecordsResponse
+   */
+  async describeErrorLogRecords(request: $_model.DescribeErrorLogRecordsRequest): Promise<$_model.DescribeErrorLogRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeErrorLogRecordsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the hot keys and the large keys in the memory in real time.
    * 
    * @remarks
