@@ -32,7 +32,7 @@ export class ImportImageRequestDiskDeviceMapping extends $dara.Model {
   diskImSize?: number;
   /**
    * @remarks
-   * The size of disk N in the custom image after the image is imported.
+   * The size of disk N in the custom image after the source image is imported.
    * 
    * You can use this parameter to specify the sizes of the system disk and data disks in the custom image. When you specify the size of the system disk, make sure that the specified size is greater than or equal to the size of the imported image file. Unit: GiB. Valid values:
    * 
@@ -47,13 +47,14 @@ export class ImportImageRequestDiskDeviceMapping extends $dara.Model {
   diskImageSize?: number;
   /**
    * @remarks
-   * The image format. Valid values:
+   * The format of the source image. Valid values:
    * 
    * *   RAW
    * *   VHD
    * *   QCOW2
+   * *   VMDK (invitational preview)
    * 
-   * This parameter is empty by default, which indicates that the system checks the format of the image and uses the check result as the value of this parameter.
+   * This parameter is empty by default, which indicates that the system checks the image format and uses the check result as the value of this parameter.
    * 
    * @example
    * QCOW2
@@ -61,9 +62,9 @@ export class ImportImageRequestDiskDeviceMapping extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The OSS bucket where the image file is stored.
+   * The Object Storage Service (OSS) bucket where the image file is stored.
    * 
-   * >  Before you import images for the first time, you must use RAM to authorize ECS to access your OSS buckets. If ECS is not authorized to access your OSS buckets, the `NoSetRoletoECSServiceAcount` error code is returned when you call the ImportImage operation. For more information, see the "**Usage notes**" section in this topic.
+   * >  Before you import images for the first time, you must use RAM to authorize ECS to access your OSS buckets. If ECS is not authorized to access your OSS buckets, the `NoSetRoletoECSServiceAcount` error code is returned when you call the ImportImage operation. For more information, see **Usage notes**.
    * 
    * @example
    * ecsimageos
@@ -71,7 +72,7 @@ export class ImportImageRequestDiskDeviceMapping extends $dara.Model {
   OSSBucket?: string;
   /**
    * @remarks
-   * The name (key) of the object that the uploaded image is stored as in the OSS bucket.
+   * The name (key) of the object that the image file is stored as in the OSS bucket.
    * 
    * @example
    * CentOS_5.4_32.raw
@@ -254,7 +255,7 @@ export class ImportImageRequest extends $dara.Model {
   detectionStrategy?: string;
   /**
    * @remarks
-   * The information of disks from which the custom images are created.
+   * Details about the custom images.
    */
   diskDeviceMapping?: ImportImageRequestDiskDeviceMapping[];
   /**

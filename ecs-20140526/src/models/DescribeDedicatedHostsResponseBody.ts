@@ -717,7 +717,7 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHostsDedicatedHost exten
   cores?: number;
   /**
    * @remarks
-   * The CPU overcommit ratio.Valid values: 1 to 5.
+   * The CPU overcommit ratio. Valid values: 1 to 5.
    * 
    * @example
    * 1
@@ -1050,7 +1050,7 @@ export class DescribeDedicatedHostsResponseBodyDedicatedHosts extends $dara.Mode
 export class DescribeDedicatedHostsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the dedicated hosts.
+   * Details about the DDH.
    */
   dedicatedHosts?: DescribeDedicatedHostsResponseBodyDedicatedHosts;
   /**

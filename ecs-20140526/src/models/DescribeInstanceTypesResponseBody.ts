@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeAttributesAttribute extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the attribute.
+   * 
+   * @example
+   * VirtualIntelSpeedSelectTechnologySupport
+   */
   name?: string;
+  /**
+   * @remarks
+   * The attribute value.
+   * 
+   * @example
+   * 1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55,6 +69,16 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeAttribute
 }
 
 export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeClock extends $dara.Model {
+  /**
+   * @remarks
+   * Whether PTP is supported. Possible values:
+   * 
+   * *   supported
+   * *   unsupported
+   * 
+   * @example
+   * unsupported
+   */
   ptpSupport?: string;
   static names(): { [key: string]: string } {
     return {
@@ -308,6 +332,10 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeSupported
 }
 
 export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends $dara.Model {
+  /**
+   * @remarks
+   * The list of specification attributes.
+   */
   attributes?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeAttributes;
   /**
    * @remarks
@@ -317,6 +345,10 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
    * 4
    */
   baselineCredit?: number;
+  /**
+   * @remarks
+   * The clock supported by the specification.
+   */
   clock?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeClock;
   /**
    * @remarks
@@ -612,6 +644,8 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
    * 
    * *   true
    * *   false
+   * 
+   * >  This parameter is in invitational preview and is not publicly available.
    * 
    * @example
    * true

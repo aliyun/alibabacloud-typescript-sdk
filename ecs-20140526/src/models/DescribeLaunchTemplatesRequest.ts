@@ -71,7 +71,7 @@ export class DescribeLaunchTemplatesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The page number. Page starts from page 1.
    * 
    * Default value: 1.
    * 
@@ -81,7 +81,7 @@ export class DescribeLaunchTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * Default value: 10.
    * 
@@ -91,7 +91,7 @@ export class DescribeLaunchTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the launch template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -105,7 +105,7 @@ export class DescribeLaunchTemplatesRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the launch template belongs. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned.
    * 
-   * > Resources in the default resource group are displayed in the response regardless of whether you specify this parameter.
+   * >  The default resource group is not supported.
    * 
    * @example
    * rg-acfmxazb4p****
@@ -115,7 +115,7 @@ export class DescribeLaunchTemplatesRequest extends $dara.Model {
    * @remarks
    * The tags of the launch template.
    * 
-   * >  You can only call API operations to add tags to and query the tags of a launch template. You cannot add tags to or view the tags of a launch template in the Elastic Compute Service (ECS) console.
+   * >  You can only call API operations to add tags to and query the tags of a launch template. You cannot add tags to or view the tags of a launch template in the ECS console.
    */
   templateTag?: DescribeLaunchTemplatesRequestTemplateTag[];
   static names(): { [key: string]: string } {

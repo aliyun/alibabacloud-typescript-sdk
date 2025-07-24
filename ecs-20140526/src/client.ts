@@ -143,7 +143,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ActivateRouterInterfaceResponse
    */
-  // Deprecated
   async activateRouterInterfaceWithOptions(request: $_model.ActivateRouterInterfaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ActivateRouterInterfaceResponse> {
     request.validate();
     let query = { };
@@ -203,7 +202,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddBandwidthPackageIpsResponse
    */
-  // Deprecated
   async addBandwidthPackageIpsWithOptions(request: $_model.AddBandwidthPackageIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddBandwidthPackageIpsResponse> {
     request.validate();
     let query = { };
@@ -283,7 +281,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddTagsResponse
    */
-  // Deprecated
   async addTagsWithOptions(request: $_model.AddTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddTagsResponse> {
     request.validate();
     let query = { };
@@ -516,7 +513,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AllocateEipAddressResponse
    */
-  // Deprecated
   async allocateEipAddressWithOptions(request: $_model.AllocateEipAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AllocateEipAddressResponse> {
     request.validate();
     let query = { };
@@ -965,7 +961,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AssociateEipAddressResponse
    */
-  // Deprecated
   async associateEipAddressWithOptions(request: $_model.AssociateEipAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AssociateEipAddressResponse> {
     request.validate();
     let query = { };
@@ -1037,7 +1032,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AssociateHaVipResponse
    */
-  // Deprecated
   async associateHaVipWithOptions(request: $_model.AssociateHaVipRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AssociateHaVipResponse> {
     request.validate();
     let query = { };
@@ -2233,7 +2227,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelPhysicalConnectionResponse
    */
-  // Deprecated
   async cancelPhysicalConnectionWithOptions(request: $_model.CancelPhysicalConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelPhysicalConnectionResponse> {
     request.validate();
     let query = { };
@@ -2429,7 +2422,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConnectRouterInterfaceResponse
    */
-  // Deprecated
   async connectRouterInterfaceWithOptions(request: $_model.ConnectRouterInterfaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConnectRouterInterfaceResponse> {
     request.validate();
     let query = { };
@@ -4085,7 +4077,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateForwardEntryResponse
    */
-  // Deprecated
   async createForwardEntryWithOptions(request: $_model.CreateForwardEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateForwardEntryResponse> {
     request.validate();
     let query = { };
@@ -4169,7 +4160,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateHaVipResponse
    */
-  // Deprecated
   async createHaVipWithOptions(request: $_model.CreateHaVipRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateHaVipResponse> {
     request.validate();
     let query = { };
@@ -5703,7 +5693,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateNatGatewayResponse
    */
-  // Deprecated
   async createNatGatewayWithOptions(request: $_model.CreateNatGatewayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNatGatewayResponse> {
     request.validate();
     let query = { };
@@ -6075,7 +6064,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePhysicalConnectionResponse
    */
-  // Deprecated
   async createPhysicalConnectionWithOptions(request: $_model.CreatePhysicalConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePhysicalConnectionResponse> {
     request.validate();
     let query = { };
@@ -6391,7 +6379,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateRouteEntryResponse
    */
-  // Deprecated
   async createRouteEntryWithOptions(request: $_model.CreateRouteEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRouteEntryResponse> {
     request.validate();
     let query = { };
@@ -6475,7 +6462,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateRouterInterfaceResponse
    */
-  // Deprecated
   async createRouterInterfaceWithOptions(request: $_model.CreateRouterInterfaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRouterInterfaceResponse> {
     request.validate();
     let query = { };
@@ -7263,7 +7249,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVSwitchResponse
    */
-  // Deprecated
   async createVSwitchWithOptions(request: $_model.CreateVSwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVSwitchResponse> {
     request.validate();
     let query = { };
@@ -7347,7 +7332,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVirtualBorderRouterResponse
    */
-  // Deprecated
   async createVirtualBorderRouterWithOptions(request: $_model.CreateVirtualBorderRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVirtualBorderRouterResponse> {
     request.validate();
     let query = { };
@@ -7455,7 +7439,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVpcResponse
    */
-  // Deprecated
   async createVpcWithOptions(request: $_model.CreateVpcRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVpcResponse> {
     request.validate();
     let query = { };
@@ -7535,7 +7518,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeactivateRouterInterfaceResponse
    */
-  // Deprecated
   async deactivateRouterInterfaceWithOptions(request: $_model.DeactivateRouterInterfaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeactivateRouterInterfaceResponse> {
     request.validate();
     let query = { };
@@ -7793,7 +7775,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteBandwidthPackageResponse
    */
-  // Deprecated
   async deleteBandwidthPackageWithOptions(request: $_model.DeleteBandwidthPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBandwidthPackageResponse> {
     request.validate();
     let query = { };
@@ -8223,7 +8204,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteForwardEntryResponse
    */
-  // Deprecated
   async deleteForwardEntryWithOptions(request: $_model.DeleteForwardEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteForwardEntryResponse> {
     request.validate();
     let query = { };
@@ -8291,7 +8271,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteHaVipResponse
    */
-  // Deprecated
   async deleteHaVipWithOptions(request: $_model.DeleteHaVipRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteHaVipResponse> {
     request.validate();
     let query = { };
@@ -8499,10 +8478,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an image component.
+   * Deletes an image component. You can specify RegionId and ImageComponentId in the request.
    * 
    * @remarks
-   * Only custom image components can be deleted.
+   *   Only custom image components can be deleted.
+   * *   When you delete a component, make sure that the component is not used in the template. Otherwise, the component fails to be deleted.
    * 
    * @param request - DeleteImageComponentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8557,10 +8537,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an image component.
+   * Deletes an image component. You can specify RegionId and ImageComponentId in the request.
    * 
    * @remarks
-   * Only custom image components can be deleted.
+   *   Only custom image components can be deleted.
+   * *   When you delete a component, make sure that the component is not used in the template. Otherwise, the component fails to be deleted.
    * 
    * @param request - DeleteImageComponentRequest
    * @returns DeleteImageComponentResponse
@@ -8571,7 +8552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an image template. You can specify RegionId and ImagePipelineId in the request.
+   * Deletes an image template.
    * 
    * @remarks
    * If an ongoing image building task is associated with an image template, you cannot delete the image template. You can delete the image template only if the image building task reaches the SUCCESS, FAILED, TEST_FAILED, PARTITION_SUCCESS, or CANCELLED state. You can call the DescribeImagePipelineExecutions operation to query the details of an image building task.
@@ -8629,7 +8610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an image template. You can specify RegionId and ImagePipelineId in the request.
+   * Deletes an image template.
    * 
    * @remarks
    * If an ongoing image building task is associated with an image template, you cannot delete the image template. You can delete the image template only if the image building task reaches the SUCCESS, FAILED, TEST_FAILED, PARTITION_SUCCESS, or CANCELLED state. You can call the DescribeImagePipelineExecutions operation to query the details of an image building task.
@@ -9071,7 +9052,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteNatGatewayResponse
    */
-  // Deprecated
   async deleteNatGatewayWithOptions(request: $_model.DeleteNatGatewayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNatGatewayResponse> {
     request.validate();
     let query = { };
@@ -9231,7 +9211,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteNetworkInterfacePermissionResponse
    */
-  // Deprecated
   async deleteNetworkInterfacePermissionWithOptions(request: $_model.DeleteNetworkInterfacePermissionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNetworkInterfacePermissionResponse> {
     request.validate();
     let query = { };
@@ -9305,7 +9284,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePhysicalConnectionResponse
    */
-  // Deprecated
   async deletePhysicalConnectionWithOptions(request: $_model.DeletePhysicalConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePhysicalConnectionResponse> {
     request.validate();
     let query = { };
@@ -9511,7 +9489,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteRouteEntryResponse
    */
-  // Deprecated
   async deleteRouteEntryWithOptions(request: $_model.DeleteRouteEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRouteEntryResponse> {
     request.validate();
     let query = { };
@@ -9587,7 +9564,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteRouterInterfaceResponse
    */
-  // Deprecated
   async deleteRouterInterfaceWithOptions(request: $_model.DeleteRouterInterfaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRouterInterfaceResponse> {
     request.validate();
     let query = { };
@@ -9941,7 +9917,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVSwitchResponse
    */
-  // Deprecated
   async deleteVSwitchWithOptions(request: $_model.DeleteVSwitchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVSwitchResponse> {
     request.validate();
     let query = { };
@@ -10005,7 +9980,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVirtualBorderRouterResponse
    */
-  // Deprecated
   async deleteVirtualBorderRouterWithOptions(request: $_model.DeleteVirtualBorderRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVirtualBorderRouterResponse> {
     request.validate();
     let query = { };
@@ -10079,7 +10053,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVpcResponse
    */
-  // Deprecated
   async deleteVpcWithOptions(request: $_model.DeleteVpcRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVpcResponse> {
     request.validate();
     let query = { };
@@ -10211,7 +10184,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAccessPointsResponse
    */
-  // Deprecated
   async describeAccessPointsWithOptions(request: $_model.DescribeAccessPointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAccessPointsResponse> {
     request.validate();
     let query = { };
@@ -11033,7 +11005,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBandwidthPackagesResponse
    */
-  // Deprecated
   async describeBandwidthPackagesWithOptions(request: $_model.DescribeBandwidthPackagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBandwidthPackagesResponse> {
     request.validate();
     let query = { };
@@ -11519,7 +11490,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeClustersResponse
    */
-  // Deprecated
   async describeClustersWithOptions(request: $_model.DescribeClustersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClustersResponse> {
     request.validate();
     let query = { };
@@ -11929,7 +11899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about dedicated hosts, including the physical performance specifications, machine codes, and status of the dedicated hosts, and Elastic Compute Service (ECS) instances that are created on the dedicated hosts.
+   * Queries the details of one or more Dedicated Hosts (DDHs). You can call this operation to obtain information about a DDH, including the physical performance specifications, machine code, service status, and the list of created ECS instances. You can specify relevant parameters, such as DDH IDs, DDH cluster IDs, hostname, and status, to query the required DDH details. This helps you efficiently manage and optimize cloud computing resources.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -12042,7 +12012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about dedicated hosts, including the physical performance specifications, machine codes, and status of the dedicated hosts, and Elastic Compute Service (ECS) instances that are created on the dedicated hosts.
+   * Queries the details of one or more Dedicated Hosts (DDHs). You can call this operation to obtain information about a DDH, including the physical performance specifications, machine code, service status, and the list of created ECS instances. You can specify relevant parameters, such as DDH IDs, DDH cluster IDs, hostname, and status, to query the required DDH details. This helps you efficiently manage and optimize cloud computing resources.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -12955,7 +12925,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEipAddressesResponse
    */
-  // Deprecated
   async describeEipAddressesWithOptions(request: $_model.DescribeEipAddressesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEipAddressesResponse> {
     request.validate();
     let query = { };
@@ -13059,7 +13028,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEipMonitorDataResponse
    */
-  // Deprecated
   async describeEipMonitorDataWithOptions(request: $_model.DescribeEipMonitorDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEipMonitorDataResponse> {
     request.validate();
     let query = { };
@@ -13465,7 +13433,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeForwardTableEntriesResponse
    */
-  // Deprecated
   async describeForwardTableEntriesWithOptions(request: $_model.DescribeForwardTableEntriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeForwardTableEntriesResponse> {
     request.validate();
     let query = { };
@@ -13541,7 +13508,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeHaVipsResponse
    */
-  // Deprecated
   async describeHaVipsWithOptions(request: $_model.DescribeHaVipsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHaVipsResponse> {
     request.validate();
     let query = { };
@@ -14581,7 +14547,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   You can query system events that were completed within the last 30 days. No limits apply to the time range for querying uncompleted system events.
-   * *   You can also specify InstanceEventCycleStatus to query the system events that are in the Scheduled, Executing, or Inquiring state.
+   * *   If you do not specify the EventCycleStatus or InstanceEventCycleStatus parameter, only system events in the Avoidated, Executed, Canceled, or Failed state are included in the query results by default.
+   * *   You can also specify the InstanceEventCycleStatus parameter in the request to query the system events that are in the Scheduled, Executing, or Inquiring state.
    * 
    * @param request - DescribeInstanceHistoryEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14704,7 +14671,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   You can query system events that were completed within the last 30 days. No limits apply to the time range for querying uncompleted system events.
-   * *   You can also specify InstanceEventCycleStatus to query the system events that are in the Scheduled, Executing, or Inquiring state.
+   * *   If you do not specify the EventCycleStatus or InstanceEventCycleStatus parameter, only system events in the Avoidated, Executed, Canceled, or Failed state are included in the query results by default.
+   * *   You can also specify the InstanceEventCycleStatus parameter in the request to query the system events that are in the Scheduled, Executing, or Inquiring state.
    * 
    * @param request - DescribeInstanceHistoryEventsRequest
    * @returns DescribeInstanceHistoryEventsResponse
@@ -16491,7 +16459,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLimitationResponse
    */
-  // Deprecated
   async describeLimitationWithOptions(request: $_model.DescribeLimitationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLimitationResponse> {
     request.validate();
     let query = { };
@@ -16665,7 +16632,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeNatGatewaysResponse
    */
-  // Deprecated
   async describeNatGatewaysWithOptions(request: $_model.DescribeNatGatewaysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNatGatewaysResponse> {
     request.validate();
     let query = { };
@@ -17051,7 +17017,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeNewProjectEipMonitorDataResponse
    */
-  // Deprecated
   async describeNewProjectEipMonitorDataWithOptions(request: $_model.DescribeNewProjectEipMonitorDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNewProjectEipMonitorDataResponse> {
     request.validate();
     let query = { };
@@ -17127,7 +17092,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePhysicalConnectionsResponse
    */
-  // Deprecated
   async describePhysicalConnectionsWithOptions(request: $_model.DescribePhysicalConnectionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePhysicalConnectionsResponse> {
     request.validate();
     let query = { };
@@ -18343,7 +18307,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeResourceByTagsResponse
    */
-  // Deprecated
   async describeResourceByTagsWithOptions(request: $_model.DescribeResourceByTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceByTagsResponse> {
     request.validate();
     let query = { };
@@ -18573,7 +18536,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRouteTablesResponse
    */
-  // Deprecated
   async describeRouteTablesWithOptions(request: $_model.DescribeRouteTablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRouteTablesResponse> {
     request.validate();
     let query = { };
@@ -18663,7 +18625,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRouterInterfacesResponse
    */
-  // Deprecated
   async describeRouterInterfacesWithOptions(request: $_model.DescribeRouterInterfacesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRouterInterfacesResponse> {
     request.validate();
     let query = { };
@@ -20334,7 +20295,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTagsResponse
    */
-  // Deprecated
   async describeTagsWithOptions(request: $_model.DescribeTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTagsResponse> {
     request.validate();
     let query = { };
@@ -20657,7 +20617,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUserBusinessBehaviorResponse
    */
-  // Deprecated
   async describeUserBusinessBehaviorWithOptions(request: $_model.DescribeUserBusinessBehaviorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeUserBusinessBehaviorResponse> {
     request.validate();
     let query = { };
@@ -20789,7 +20748,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVRoutersResponse
    */
-  // Deprecated
   async describeVRoutersWithOptions(request: $_model.DescribeVRoutersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVRoutersResponse> {
     request.validate();
     let query = { };
@@ -20863,7 +20821,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVSwitchesResponse
    */
-  // Deprecated
   async describeVSwitchesWithOptions(request: $_model.DescribeVSwitchesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVSwitchesResponse> {
     request.validate();
     let query = { };
@@ -20947,7 +20904,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVirtualBorderRoutersResponse
    */
-  // Deprecated
   async describeVirtualBorderRoutersWithOptions(request: $_model.DescribeVirtualBorderRoutersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVirtualBorderRoutersResponse> {
     request.validate();
     let query = { };
@@ -21015,7 +20971,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVirtualBorderRoutersForPhysicalConnectionResponse
    */
-  // Deprecated
   async describeVirtualBorderRoutersForPhysicalConnectionWithOptions(request: $_model.DescribeVirtualBorderRoutersForPhysicalConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVirtualBorderRoutersForPhysicalConnectionResponse> {
     request.validate();
     let query = { };
@@ -21089,7 +21044,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVpcsResponse
    */
-  // Deprecated
   async describeVpcsWithOptions(request: $_model.DescribeVpcsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVpcsResponse> {
     request.validate();
     let query = { };
@@ -21843,7 +21797,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnablePhysicalConnectionResponse
    */
-  // Deprecated
   async enablePhysicalConnectionWithOptions(request: $_model.EnablePhysicalConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnablePhysicalConnectionResponse> {
     request.validate();
     let query = { };
@@ -22151,7 +22104,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExportSnapshotResponse
    */
-  // Deprecated
   async exportSnapshotWithOptions(request: $_model.ExportSnapshotRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExportSnapshotResponse> {
     request.validate();
     let query = { };
@@ -23101,20 +23053,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) to a security group. When you call this operation, you can specify parameters, such as SecurityGroupId, InstanceId, and NetworkInterfaceId, in the request.
+   * Adds an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) to a specified security group.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * >  This operation is not recommended. We recommend that you call the [ModifyInstanceAttribute](https://help.aliyun.com/document_detail/25503.html) operation to add an instance to or remove an instance from a security group, and call the [ModifyNetworkInterfaceAttribute](https://help.aliyun.com/document_detail/58513.html) operation to add an ENI to or remove an ENI from a security group.
-   * Take note of the following items:
-   * *   Before you add an instance to a security group, the instance must be in the **Stopped** (Stopped) or **Running** (Running) state.
-   * *   An instance can be added to up to five security groups by default.
-   * *   You can [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to change the maximum number of security groups to which an instance can be added to 4 or 10.
-   * *   A basic security group can contain up to 2,000 instances. An advanced security group can contain up to 65,536 instances.
-   * *   The security group and the instance must reside in the same region.
-   * *   The security group and the instance must be of the same network type. If the network type is Virtual Private Cloud (VPC), the security group and the instance must reside in the same VPC.
+   * > This operation is not recommended. We recommend that you call the [ModifyInstanceAttribute](https://help.aliyun.com/document_detail/25503.html) operation to add an instance to or remove an instance from a security group, and call the [ModifyNetworkInterfaceAttribute](https://help.aliyun.com/document_detail/58513.html) operation to add an ENI to or remove an ENI from a security group.
    * *   An instance and an ENI cannot be added to a security group at the same time. You cannot specify `InstanceId` and `NetworkInterfaceId` at the same time in a request.
-   * For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
+   * *   The security group and the ECS instance to be added to the security group must reside in the same region.
+   * *   The security group and the instance must be of the same network type. If the network type is Virtual Private Cloud (VPC), the security group and the instance must reside in the same VPC.
+   * *   Before you add an instance to a security group, the instance must be in the **Stopped** or **Running** state.
+   * *   An instance can be added to up to five security groups by default. For more information, see [Security group limits](~~25412#SecurityGroupQuota1~~).
    * 
    * @param request - JoinSecurityGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23173,20 +23120,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) to a security group. When you call this operation, you can specify parameters, such as SecurityGroupId, InstanceId, and NetworkInterfaceId, in the request.
+   * Adds an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) to a specified security group.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * >  This operation is not recommended. We recommend that you call the [ModifyInstanceAttribute](https://help.aliyun.com/document_detail/25503.html) operation to add an instance to or remove an instance from a security group, and call the [ModifyNetworkInterfaceAttribute](https://help.aliyun.com/document_detail/58513.html) operation to add an ENI to or remove an ENI from a security group.
-   * Take note of the following items:
-   * *   Before you add an instance to a security group, the instance must be in the **Stopped** (Stopped) or **Running** (Running) state.
-   * *   An instance can be added to up to five security groups by default.
-   * *   You can [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to change the maximum number of security groups to which an instance can be added to 4 or 10.
-   * *   A basic security group can contain up to 2,000 instances. An advanced security group can contain up to 65,536 instances.
-   * *   The security group and the instance must reside in the same region.
-   * *   The security group and the instance must be of the same network type. If the network type is Virtual Private Cloud (VPC), the security group and the instance must reside in the same VPC.
+   * > This operation is not recommended. We recommend that you call the [ModifyInstanceAttribute](https://help.aliyun.com/document_detail/25503.html) operation to add an instance to or remove an instance from a security group, and call the [ModifyNetworkInterfaceAttribute](https://help.aliyun.com/document_detail/58513.html) operation to add an ENI to or remove an ENI from a security group.
    * *   An instance and an ENI cannot be added to a security group at the same time. You cannot specify `InstanceId` and `NetworkInterfaceId` at the same time in a request.
-   * For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
+   * *   The security group and the ECS instance to be added to the security group must reside in the same region.
+   * *   The security group and the instance must be of the same network type. If the network type is Virtual Private Cloud (VPC), the security group and the instance must reside in the same VPC.
+   * *   Before you add an instance to a security group, the instance must be in the **Stopped** or **Running** state.
+   * *   An instance can be added to up to five security groups by default. For more information, see [Security group limits](~~25412#SecurityGroupQuota1~~).
    * 
    * @param request - JoinSecurityGroupRequest
    * @returns JoinSecurityGroupResponse
@@ -23699,7 +23641,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyBandwidthPackageSpecResponse
    */
-  // Deprecated
   async modifyBandwidthPackageSpecWithOptions(request: $_model.ModifyBandwidthPackageSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyBandwidthPackageSpecResponse> {
     request.validate();
     let query = { };
@@ -24693,7 +24634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the billing method of data disks that are attached to a subscription Elastic Compute Service (ECS) instance.
+   * Converts the billing method of a data disk attached to a subscription ECS instance between pay-as-you-go and subscription.
    * 
    * @remarks
    * For information about how to change the billing method of cloud disks, see [Change the billing methods of a disk](https://help.aliyun.com/document_detail/145018.html).
@@ -24769,7 +24710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the billing method of data disks that are attached to a subscription Elastic Compute Service (ECS) instance.
+   * Converts the billing method of a data disk attached to a subscription ECS instance between pay-as-you-go and subscription.
    * 
    * @remarks
    * For information about how to change the billing method of cloud disks, see [Change the billing methods of a disk](https://help.aliyun.com/document_detail/145018.html).
@@ -25075,7 +25016,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyEipAddressAttributeResponse
    */
-  // Deprecated
   async modifyEipAddressAttributeWithOptions(request: $_model.ModifyEipAddressAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyEipAddressAttributeResponse> {
     request.validate();
     let query = { };
@@ -25295,7 +25235,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyForwardEntryResponse
    */
-  // Deprecated
   async modifyForwardEntryWithOptions(request: $_model.ModifyForwardEntryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyForwardEntryResponse> {
     request.validate();
     let query = { };
@@ -25383,7 +25322,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyHaVipAttributeResponse
    */
-  // Deprecated
   async modifyHaVipAttributeWithOptions(request: $_model.ModifyHaVipAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyHaVipAttributeResponse> {
     request.validate();
     let query = { };
@@ -25629,7 +25567,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyImageShareGroupPermissionResponse
    */
-  // Deprecated
   async modifyImageShareGroupPermissionWithOptions(request: $_model.ModifyImageShareGroupPermissionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyImageShareGroupPermissionResponse> {
     request.validate();
     let query = { };
@@ -27407,7 +27344,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyPhysicalConnectionAttributeResponse
    */
-  // Deprecated
   async modifyPhysicalConnectionAttributeWithOptions(request: $_model.ModifyPhysicalConnectionAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPhysicalConnectionAttributeResponse> {
     request.validate();
     let query = { };
@@ -28145,7 +28081,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyRouterInterfaceAttributeResponse
    */
-  // Deprecated
   async modifyRouterInterfaceAttributeWithOptions(request: $_model.ModifyRouterInterfaceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRouterInterfaceAttributeResponse> {
     request.validate();
     let query = { };
@@ -28237,7 +28172,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyRouterInterfaceSpecResponse
    */
-  // Deprecated
   async modifyRouterInterfaceSpecWithOptions(request: $_model.ModifyRouterInterfaceSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRouterInterfaceSpecResponse> {
     request.validate();
     let query = { };
@@ -29131,7 +29065,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyUserBusinessBehaviorResponse
    */
-  // Deprecated
   async modifyUserBusinessBehaviorWithOptions(request: $_model.ModifyUserBusinessBehaviorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyUserBusinessBehaviorResponse> {
     request.validate();
     let query = { };
@@ -29201,7 +29134,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyVRouterAttributeResponse
    */
-  // Deprecated
   async modifyVRouterAttributeWithOptions(request: $_model.ModifyVRouterAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyVRouterAttributeResponse> {
     request.validate();
     let query = { };
@@ -29273,7 +29205,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyVSwitchAttributeResponse
    */
-  // Deprecated
   async modifyVSwitchAttributeWithOptions(request: $_model.ModifyVSwitchAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyVSwitchAttributeResponse> {
     request.validate();
     let query = { };
@@ -29345,7 +29276,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyVirtualBorderRouterAttributeResponse
    */
-  // Deprecated
   async modifyVirtualBorderRouterAttributeWithOptions(request: $_model.ModifyVirtualBorderRouterAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyVirtualBorderRouterAttributeResponse> {
     request.validate();
     let query = { };
@@ -29445,7 +29375,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyVpcAttributeResponse
    */
-  // Deprecated
   async modifyVpcAttributeWithOptions(request: $_model.ModifyVpcAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyVpcAttributeResponse> {
     request.validate();
     let query = { };
@@ -30199,7 +30128,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RecoverVirtualBorderRouterResponse
    */
-  // Deprecated
   async recoverVirtualBorderRouterWithOptions(request: $_model.RecoverVirtualBorderRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecoverVirtualBorderRouterResponse> {
     request.validate();
     let query = { };
@@ -30595,7 +30523,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReleaseEipAddressResponse
    */
-  // Deprecated
   async releaseEipAddressWithOptions(request: $_model.ReleaseEipAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReleaseEipAddressResponse> {
     request.validate();
     let query = { };
@@ -30661,7 +30588,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReleasePublicIpAddressResponse
    */
-  // Deprecated
   async releasePublicIpAddressWithOptions(request: $_model.ReleasePublicIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReleasePublicIpAddressResponse> {
     request.validate();
     let query = { };
@@ -30719,7 +30645,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveBandwidthPackageIpsResponse
    */
-  // Deprecated
   async removeBandwidthPackageIpsWithOptions(request: $_model.RemoveBandwidthPackageIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveBandwidthPackageIpsResponse> {
     request.validate();
     let query = { };
@@ -30793,7 +30718,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveTagsResponse
    */
-  // Deprecated
   async removeTagsWithOptions(request: $_model.RemoveTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveTagsResponse> {
     request.validate();
     let query = { };
@@ -33815,7 +33739,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TerminatePhysicalConnectionResponse
    */
-  // Deprecated
   async terminatePhysicalConnectionWithOptions(request: $_model.TerminatePhysicalConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TerminatePhysicalConnectionResponse> {
     request.validate();
     let query = { };
@@ -33887,7 +33810,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TerminateVirtualBorderRouterResponse
    */
-  // Deprecated
   async terminateVirtualBorderRouterWithOptions(request: $_model.TerminateVirtualBorderRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TerminateVirtualBorderRouterResponse> {
     request.validate();
     let query = { };
@@ -34129,7 +34051,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnassociateEipAddressResponse
    */
-  // Deprecated
   async unassociateEipAddressWithOptions(request: $_model.UnassociateEipAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnassociateEipAddressResponse> {
     request.validate();
     let query = { };
@@ -34201,7 +34122,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnassociateHaVipResponse
    */
-  // Deprecated
   async unassociateHaVipWithOptions(request: $_model.UnassociateHaVipRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnassociateHaVipResponse> {
     request.validate();
     let query = { };

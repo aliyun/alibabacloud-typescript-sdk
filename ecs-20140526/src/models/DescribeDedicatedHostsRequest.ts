@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDedicatedHostsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the dedicated host. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * The key of tag N of the DDH. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeDedicatedHostsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the dedicated host. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * The value of tag N of the DDH. You can specify empty strings as tag values. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -53,7 +53,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   dedicatedHostClusterId?: string;
   /**
    * @remarks
-   * The IDs of dedicated hosts. You can specify up to 100 dedicated host IDs in a single request. Separate the IDs with commas (,).
+   * The list of DDH IDs. You can specify up to 100 deployment set IDs in each request. Separate the deployment set IDs with commas (,).
    * 
    * @example
    * ["dh-bp165p6xk2tlw61e****", "dh-bp1f9vxmno7emy96****"]
@@ -69,7 +69,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   dedicatedHostName?: string;
   /**
    * @remarks
-   * The dedicated host type. You can call the [DescribeDedicatedHostTypes](https://help.aliyun.com/document_detail/134240.html) operation to query the most recent list of dedicated host types.
+   * The type of the DDH. You can call the [DescribeDedicatedHostTypes](https://help.aliyun.com/document_detail/134240.html) operation to query the most recent list of DDH types.
    * 
    * @example
    * ddh.g5
@@ -110,9 +110,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of entries per page.
-   * 
-   * Default value: 1.
+   * >  This parameter will be removed in the future. You can use NextToken and MaxResults for a paged query.
    * 
    * @example
    * 1
@@ -120,11 +118,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
-   * 
-   * Valid values: 1 to 100.
-   * 
-   * Default value: 10.
+   * >  This parameter will be removed in the future. You can use NextToken and MaxResults for a paged query.
    * 
    * @example
    * 10
@@ -155,10 +149,16 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to display socket information. Valid values:
+   * Specifies whether to display socket information. You can view the remaining resources (vCPUs, memory usage, remaining resources, and total resources) based on the capacity information of the socket dimension. Then you can determine whether ECS instances of the corresponding specifications can be created. Valid values:
    * 
-   * *   true
+   * *   true Only some DDHs support the information about resources in the socket dimension. For more information, see [View and export information about DDHs](https://help.aliyun.com/document_detail/68989.html).
    * *   false
+   * 
+   * >  Each DDH generally has two CPUs, and each CPU corresponds to Socket 0 and Socket 1. To maximize the performance of an ECS instance on a DDH, ECS instances are not created across sockets.
+   * 
+   * *   If one socket has available computing resources for creating the ECS instance, creation succeeds.
+   * 
+   * *   If not, creation fails even if the combined available resources of both sockets are sufficient. Although the remaining resources of the two sockets on the DDH are larger than the ECS instance type, the ECS instance cannot be created.
    * 
    * @example
    * true
@@ -182,7 +182,7 @@ export class DescribeDedicatedHostsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the dedicated host.
+   * The list of tags. The list length ranges from 0 to 20.
    */
   tag?: DescribeDedicatedHostsRequestTag[];
   /**

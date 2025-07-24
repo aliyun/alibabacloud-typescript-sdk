@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLaunchTemplatesResponseBodyLaunchTemplateSetsLaunchTemplateSetTagsTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the launch template.
+   * The tag value of the launch template.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeLaunchTemplatesResponseBodyLaunchTemplateSetsLaunchTemplate
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the launch template.
+   * The tag key of the launch template.
    * 
    * @example
    * TestValue
@@ -113,7 +113,7 @@ export class DescribeLaunchTemplatesResponseBodyLaunchTemplateSetsLaunchTemplate
   launchTemplateId?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The name of the launch template.
    * 
    * @example
    * wd-152630748****
@@ -218,7 +218,7 @@ export class DescribeLaunchTemplatesResponseBody extends $dara.Model {
   launchTemplateSets?: DescribeLaunchTemplatesResponseBodyLaunchTemplateSets;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -226,7 +226,7 @@ export class DescribeLaunchTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -234,7 +234,7 @@ export class DescribeLaunchTemplatesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE12CBA

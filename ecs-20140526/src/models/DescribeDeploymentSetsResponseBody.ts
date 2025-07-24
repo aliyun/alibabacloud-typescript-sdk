@@ -105,6 +105,7 @@ export class DescribeDeploymentSetsResponseBodyDeploymentSetsDeploymentSetInstan
 }
 
 export class DescribeDeploymentSetsResponseBodyDeploymentSetsDeploymentSet extends $dara.Model {
+  accountId?: number;
   /**
    * @remarks
    * Details of the capacities of the deployment set. This parameter is valid only when the deployment set contains ECS instances. The value contains information about the capacities of the deployment set in different zones.
@@ -199,6 +200,7 @@ export class DescribeDeploymentSetsResponseBodyDeploymentSetsDeploymentSet exten
   strategy?: string;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       capacities: 'Capacities',
       creationTime: 'CreationTime',
       deploymentSetDescription: 'DeploymentSetDescription',
@@ -216,6 +218,7 @@ export class DescribeDeploymentSetsResponseBodyDeploymentSetsDeploymentSet exten
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'number',
       capacities: DescribeDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacities,
       creationTime: 'string',
       deploymentSetDescription: 'string',
