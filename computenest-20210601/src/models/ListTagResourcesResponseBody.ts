@@ -1,7 +1,71 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListTagResourcesResponseBodyTagResources } from "./ListTagResourcesResponseBodyTagResources";
 
+
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * si-44b9923be2d048eb8f5f
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * *   service: service
+   * *   serviceinstance: service instance
+   * *   artifact: deployment package
+   * *   dataset: dataset
+   * 
+   * @example
+   * serviceinstance
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * test
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * major
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
@@ -22,7 +86,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of resources that have tags.
+   * The collection of details about resources and tags, such as resource IDs, resource types, and tag key-value pairs.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

@@ -1,13 +1,708 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetServiceResponseBodyCommodity } from "./GetServiceResponseBodyCommodity";
-import { GetServiceResponseBodyComplianceMetadata } from "./GetServiceResponseBodyComplianceMetadata";
-import { GetServiceResponseBodyInstanceRoleInfos } from "./GetServiceResponseBodyInstanceRoleInfos";
-import { GetServiceResponseBodyServiceDocumentInfos } from "./GetServiceResponseBodyServiceDocumentInfos";
-import { GetServiceResponseBodyServiceInfos } from "./GetServiceResponseBodyServiceInfos";
-import { GetServiceResponseBodySupportContacts } from "./GetServiceResponseBodySupportContacts";
-import { GetServiceResponseBodyTags } from "./GetServiceResponseBodyTags";
 
+
+export class GetServiceResponseBodyCommodityCssMetadataComponentsMappings extends $dara.Model {
+  /**
+   * @remarks
+   * The mappings.
+   */
+  mappings?: { [key: string]: string };
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template one.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappings: 'Mappings',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappings: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    if(this.mappings) {
+      $dara.Model.validateMap(this.mappings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityCssMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The mapping information about the billing items.
+   */
+  componentsMappings?: GetServiceResponseBodyCommodityCssMetadataComponentsMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      componentsMappings: 'ComponentsMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentsMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataComponentsMappings },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.componentsMappings)) {
+      $dara.Model.validateArray(this.componentsMappings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings extends $dara.Model {
+  /**
+   * @remarks
+   * The specification code of the service in Alibaba Cloud Marketplace.
+   * 
+   * @example
+   * cmjj00****
+   */
+  specificationCode?: string;
+  /**
+   * @remarks
+   * The package name.
+   * 
+   * @example
+   * Package one.
+   */
+  specificationName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template one.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      specificationCode: 'SpecificationCode',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specificationCode: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The mappings between the service specifications and the template or package.
+   */
+  specificationMappings?: GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      specificationMappings: 'SpecificationMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specificationMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.specificationMappings)) {
+      $dara.Model.validateArray(this.specificationMappings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommoditySpecifications extends $dara.Model {
+  /**
+   * @remarks
+   * The commodity code.
+   * 
+   * @example
+   * cmjj00****
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The specification name.
+   * 
+   * @example
+   * specifications1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The subscription duration. Unit: week or year.
+   */
+  times?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+      times: 'Times',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      times: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.times)) {
+      $dara.Model.validateArray(this.times);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodity extends $dara.Model {
+  /**
+   * @remarks
+   * The billing method of the service. Valid values:
+   * 
+   * *   **PREPAY** (default): subscription.
+   * *   **POSTPAY**: pay-as-you-go.
+   * 
+   * @example
+   * POSTPAY
+   */
+  chargeType?: string;
+  /**
+   * @remarks
+   * The commodity code of the service in Alibaba Cloud Marketplace.
+   * 
+   * @example
+   * cmjj00****
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * The configuration metadata related to Lingxiao.
+   */
+  cssMetadata?: GetServiceResponseBodyCommodityCssMetadata;
+  /**
+   * @remarks
+   * The deploy page.
+   * 
+   * @example
+   * Order： Order page
+   * Detail： Detail page
+   */
+  deployPage?: string;
+  /**
+   * @remarks
+   * The metadata of Alibaba Cloud Marketplace.
+   */
+  marketplaceMetadata?: GetServiceResponseBodyCommodityMarketplaceMetadata;
+  /**
+   * @remarks
+   * The order time.
+   */
+  orderTime?: { [key: string]: string[] };
+  /**
+   * @remarks
+   * The configuration metadata related to Saas Boost.
+   * 
+   * @example
+   * {
+   *     "Enabled":false    "PublicAccessUrl":"https://example.com"
+   * }
+   */
+  saasBoostMetadata?: string;
+  /**
+   * @remarks
+   * The specification details of the service in Alibaba Cloud Marketplace.
+   */
+  specifications?: GetServiceResponseBodyCommoditySpecifications[];
+  /**
+   * @remarks
+   * The service type. Valid values:
+   * 
+   * *   marketplace: Alibaba Cloud Marketplace.
+   * *   Css: Lingxiao.
+   * 
+   * @example
+   * Marketplace
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      commodityCode: 'CommodityCode',
+      cssMetadata: 'CssMetadata',
+      deployPage: 'DeployPage',
+      marketplaceMetadata: 'MarketplaceMetadata',
+      orderTime: 'OrderTime',
+      saasBoostMetadata: 'SaasBoostMetadata',
+      specifications: 'Specifications',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      commodityCode: 'string',
+      cssMetadata: GetServiceResponseBodyCommodityCssMetadata,
+      deployPage: 'string',
+      marketplaceMetadata: GetServiceResponseBodyCommodityMarketplaceMetadata,
+      orderTime: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
+      saasBoostMetadata: 'string',
+      specifications: { 'type': 'array', 'itemType': GetServiceResponseBodyCommoditySpecifications },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.cssMetadata && typeof (this.cssMetadata as any).validate === 'function') {
+      (this.cssMetadata as any).validate();
+    }
+    if(this.marketplaceMetadata && typeof (this.marketplaceMetadata as any).validate === 'function') {
+      (this.marketplaceMetadata as any).validate();
+    }
+    if(this.orderTime) {
+      $dara.Model.validateMap(this.orderTime);
+    }
+    if(Array.isArray(this.specifications)) {
+      $dara.Model.validateArray(this.specifications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyComplianceMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The compliance pack list.
+   */
+  compliancePacks?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      compliancePacks: 'CompliancePacks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePacks: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.compliancePacks)) {
+      $dara.Model.validateArray(this.compliancePacks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyInstanceRoleInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the policy.
+   * 
+   * @example
+   * {\\n  \\"Version\\": \\"1\\",\\n  \\"Statement\\": [\\n    {\\n      \\"Effect\\": \\"Allow\\",\\n      \\"Action\\": \\"*\\",\\n      \\"Principal\\": \\"*\\",\\n      \\"Resource\\": \\"*\\"\\n    }\\n  ]\\n}
+   */
+  policyDocument?: string;
+  /**
+   * @remarks
+   * The information of the RAM entity.
+   */
+  principals?: string[];
+  /**
+   * @remarks
+   * The ram role name.
+   * 
+   * @example
+   * ram-for-dts
+   */
+  roleName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template one.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyDocument: 'PolicyDocument',
+      principals: 'Principals',
+      roleName: 'RoleName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyDocument: 'string',
+      principals: { 'type': 'array', 'itemType': 'string' },
+      roleName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.principals)) {
+      $dara.Model.validateArray(this.principals);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceDocumentInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The URL that is used to access the document.
+   * 
+   * @example
+   * https://help.aliyun.com/zh/compute-nest/use-cases/deploy-an-sd-painting-service-instance?spm=a2c4g.11186623.0.i2
+   */
+  documentUrl?: string;
+  /**
+   * @remarks
+   * The language that you use for the query. Valid values: zh-CN and en-US.
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template one.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentUrl: 'DocumentUrl',
+      locale: 'Locale',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentUrl: 'string',
+      locale: 'string',
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfosAgreements extends $dara.Model {
+  /**
+   * @remarks
+   * The agreement name.
+   * 
+   * @example
+   * User agreement
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The agreement URL.
+   * 
+   * @example
+   * https://url
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfosSoftwares extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the Software.
+   * 
+   * @example
+   * wordpress
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the software.
+   * 
+   * @example
+   * 6.0.1
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The agreement information about the service.
+   */
+  agreements?: GetServiceResponseBodyServiceInfosAgreements[];
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * https://example.com/service-image/c1c4a559-cc60-4af1-b976-98f356602462.png
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * Service document information.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * Docker Community Edition (CE) is a free version of the Docker project, aimed at developers, enthusiasts, and individuals and organizations who want to use container technology.
+   */
+  shortDescription?: string;
+  /**
+   * @remarks
+   * The list of the software in the service.
+   */
+  softwares?: GetServiceResponseBodyServiceInfosSoftwares[];
+  static names(): { [key: string]: string } {
+    return {
+      agreements: 'Agreements',
+      image: 'Image',
+      locale: 'Locale',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreements: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfosAgreements },
+      image: 'string',
+      locale: 'string',
+      name: 'string',
+      shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfosSoftwares },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.agreements)) {
+      $dara.Model.validateArray(this.agreements);
+    }
+    if(Array.isArray(this.softwares)) {
+      $dara.Model.validateArray(this.softwares);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodySupportContacts extends $dara.Model {
+  /**
+   * @remarks
+   * The type of contact information.
+   * 
+   * @example
+   * Email
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The value of contact information.
+   * 
+   * @example
+   * supplier@example.com
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetServiceResponseBody extends $dara.Model {
   /**
@@ -33,6 +728,10 @@ export class GetServiceResponseBody extends $dara.Model {
    * The information about the order placed in Alibaba Cloud Marketplace.
    */
   commodity?: GetServiceResponseBodyCommodity;
+  /**
+   * @remarks
+   * Compliance check metadata.
+   */
   complianceMetadata?: GetServiceResponseBodyComplianceMetadata;
   /**
    * @remarks

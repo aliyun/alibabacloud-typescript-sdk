@@ -918,7 +918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 计算巢查询服务是否开通
+   * Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
    * 
    * @param tmpReq - GetServiceProvisionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -975,7 +975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 计算巢查询服务是否开通
+   * Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
    * 
    * @param request - GetServiceProvisionsRequest
    * @returns GetServiceProvisionsResponse

@@ -1,9 +1,210 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateServiceInstanceShrinkRequestCommodity } from "./CreateServiceInstanceShrinkRequestCommodity";
-import { CreateServiceInstanceShrinkRequestOperationMetadata } from "./CreateServiceInstanceShrinkRequestOperationMetadata";
-import { CreateServiceInstanceShrinkRequestTag } from "./CreateServiceInstanceShrinkRequestTag";
 
+
+export class CreateServiceInstanceShrinkRequestCommodity extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to automatically complete the payment. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal for the service instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * The coupon ID.
+   * 
+   * @example
+   * 302070970220
+   */
+  couponId?: string;
+  /**
+   * @remarks
+   * The subscription duration.
+   * 
+   * @example
+   * 1
+   */
+  payPeriod?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration. Valid values:
+   * 
+   * *   **Year**
+   * *   **Month**
+   * *   **Day**
+   * 
+   * @example
+   * Year
+   */
+  payPeriodUnit?: string;
+  quotationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      couponId: 'CouponId',
+      payPeriod: 'PayPeriod',
+      payPeriodUnit: 'PayPeriodUnit',
+      quotationId: 'QuotationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      couponId: 'string',
+      payPeriod: 'number',
+      payPeriodUnit: 'string',
+      quotationId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceInstanceShrinkRequestOperationMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The operation end time.
+   * 
+   * @example
+   * 2022-01-28T06:48:56Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The additional information.
+   * 
+   * @example
+   * ```json
+   *   {
+   *     "vncInfo": [
+   *       {
+   *         "instanceId": "i-001",
+   *         "username": "admin",
+   *         "password": "******",
+   *         "vncPassword": "******"
+   *       }
+   *     ]
+   *   }
+   *   ```
+   */
+  extraInfo?: string;
+  /**
+   * @remarks
+   * Imported resource.
+   * 
+   * @example
+   * {   "RegionId": "cn-hangzhou",   "Type": "ResourceIds",   "ResourceIds": {     "ALIYUN::ECS::INSTANCE": ["i-xxx", "i-yyy"],     "ALIYUN::RDS::INSTANCE": ["rm-xxx", "rm-yyy"],     "ALIYUN::VPC::VPC": ["vpc-xxx", "vpc-yyy"],     "ALIYUN::SLB::INSTANCE": ["lb-xxx", "lb-yyy"]   } }
+   */
+  resources?: string;
+  /**
+   * @remarks
+   * The ID of the service instance.
+   * 
+   * @example
+   * si-d6ab3a63ccbb4b17****
+   */
+  serviceInstanceId?: string;
+  /**
+   * @remarks
+   * The operation start time.
+   * 
+   * @example
+   * 2021-12-29T06:48:56Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      extraInfo: 'ExtraInfo',
+      resources: 'Resources',
+      serviceInstanceId: 'ServiceInstanceId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      extraInfo: 'string',
+      resources: 'string',
+      serviceInstanceId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceInstanceShrinkRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateServiceInstanceShrinkRequest extends $dara.Model {
   /**
@@ -125,6 +326,13 @@ export class CreateServiceInstanceShrinkRequest extends $dara.Model {
    * service-0e6fca6a51a54420****
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * The trial service instance id witch you want to convert to formal
+   * 
+   * @example
+   * si-d32fbcef30664721b785
+   */
   serviceInstanceId?: string;
   /**
    * @remarks
