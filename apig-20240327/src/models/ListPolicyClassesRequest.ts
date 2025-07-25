@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPolicyClassesRequest extends $dara.Model {
+  attachResourceId?: string;
   /**
    * @remarks
    * Types of attachment points supported by the policy.
@@ -30,6 +31,7 @@ export class ListPolicyClassesRequest extends $dara.Model {
    * InBound
    */
   direction?: string;
+  gatewayId?: string;
   /**
    * @remarks
    * Page number, default is 1.
@@ -56,8 +58,10 @@ export class ListPolicyClassesRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      attachResourceId: 'attachResourceId',
       attachResourceType: 'attachResourceType',
       direction: 'direction',
+      gatewayId: 'gatewayId',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       type: 'type',
@@ -66,8 +70,10 @@ export class ListPolicyClassesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attachResourceId: 'string',
       attachResourceType: 'string',
       direction: 'string',
+      gatewayId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       type: 'string',

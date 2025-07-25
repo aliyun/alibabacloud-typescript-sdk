@@ -3092,12 +3092,20 @@ export default class Client extends OpenApi {
   async listPolicyClassesWithOptions(request: $_model.ListPolicyClassesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPolicyClassesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attachResourceId)) {
+      query["attachResourceId"] = request.attachResourceId;
+    }
+
     if (!$dara.isNull(request.attachResourceType)) {
       query["attachResourceType"] = request.attachResourceType;
     }
 
     if (!$dara.isNull(request.direction)) {
       query["direction"] = request.direction;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
