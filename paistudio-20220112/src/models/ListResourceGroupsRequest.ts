@@ -8,6 +8,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
    * Ecs
    */
   computingResourceProvider?: string;
+  hasResource?: boolean;
   /**
    * @example
    * rgf0zhfqn1d4ity2
@@ -52,6 +53,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       computingResourceProvider: 'ComputingResourceProvider',
+      hasResource: 'HasResource',
       name: 'Name',
       order: 'Order',
       pageNumber: 'PageNumber',
@@ -67,6 +69,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       computingResourceProvider: 'string',
+      hasResource: 'boolean',
       name: 'string',
       order: 'string',
       pageNumber: 'number',

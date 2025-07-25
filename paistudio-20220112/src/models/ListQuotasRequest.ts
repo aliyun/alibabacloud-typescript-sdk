@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListQuotasRequest extends $dara.Model {
+  hasResource?: string;
   /**
    * @example
    * official=true,gpu=false
@@ -63,6 +64,7 @@ export class ListQuotasRequest extends $dara.Model {
   workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      hasResource: 'HasResource',
       labels: 'Labels',
       layoutMode: 'LayoutMode',
       order: 'Order',
@@ -82,6 +84,7 @@ export class ListQuotasRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      hasResource: 'string',
       labels: 'string',
       layoutMode: 'string',
       order: 'string',

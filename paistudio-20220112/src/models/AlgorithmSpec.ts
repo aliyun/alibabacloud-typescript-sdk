@@ -1,14 +1,184 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { Location } from "./Location";
-import { AlgorithmSpecComputeResource } from "./AlgorithmSpecComputeResource";
-import { AlgorithmSpecCustomization } from "./AlgorithmSpecCustomization";
 import { HyperParameterDefinition } from "./HyperParameterDefinition";
 import { Channel } from "./Channel";
 import { MetricDefinition } from "./MetricDefinition";
-import { AlgorithmSpecProgressDefinitions } from "./AlgorithmSpecProgressDefinitions";
 import { ConditionExpression } from "./ConditionExpression";
 
+
+/**
+ */
+export class AlgorithmSpecComputeResourcePolicy extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  value?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlgorithmSpecComputeResource extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  policy?: AlgorithmSpecComputeResourcePolicy;
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: AlgorithmSpecComputeResourcePolicy,
+    };
+  }
+
+  validate() {
+    if(this.policy && typeof (this.policy as any).validate === 'function') {
+      (this.policy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlgorithmSpecCustomization extends $dara.Model {
+  codeDir?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      codeDir: 'CodeDir',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeDir: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlgorithmSpecProgressDefinitionsOverallProgress extends $dara.Model {
+  description?: string;
+  regex?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      regex: 'Regex',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      regex: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlgorithmSpecProgressDefinitionsRemainingTime extends $dara.Model {
+  description?: string;
+  regex?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      regex: 'Regex',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      regex: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlgorithmSpecProgressDefinitions extends $dara.Model {
+  overallProgress?: AlgorithmSpecProgressDefinitionsOverallProgress;
+  remainingTime?: AlgorithmSpecProgressDefinitionsRemainingTime;
+  static names(): { [key: string]: string } {
+    return {
+      overallProgress: 'OverallProgress',
+      remainingTime: 'RemainingTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      overallProgress: AlgorithmSpecProgressDefinitionsOverallProgress,
+      remainingTime: AlgorithmSpecProgressDefinitionsRemainingTime,
+    };
+  }
+
+  validate() {
+    if(this.overallProgress && typeof (this.overallProgress as any).validate === 'function') {
+      (this.overallProgress as any).validate();
+    }
+    if(this.remainingTime && typeof (this.remainingTime as any).validate === 'function') {
+      (this.remainingTime as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AlgorithmSpec extends $dara.Model {
   codeDir?: Location;

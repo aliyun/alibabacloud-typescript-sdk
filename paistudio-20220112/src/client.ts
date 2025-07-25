@@ -585,7 +585,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteMachineGroupResponse
    */
-  // Deprecated
   async deleteMachineGroupWithOptions(MachineGroupID: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMachineGroupResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -696,7 +695,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteResourceGroupMachineGroupResponse
    */
-  // Deprecated
   async deleteResourceGroupMachineGroupWithOptions(MachineGroupID: string, ResourceGroupID: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceGroupMachineGroupResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -887,7 +885,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMachineGroupResponse
    */
-  // Deprecated
   async getMachineGroupWithOptions(MachineGroupID: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMachineGroupResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -929,7 +926,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNodeMetricsResponse
    */
-  // Deprecated
   async getNodeMetricsWithOptions(ResourceGroupID: string, MetricType: string, request: $_model.GetNodeMetricsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetNodeMetricsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
@@ -1147,7 +1143,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourceGroupRequestResponse
    */
-  // Deprecated
   async getResourceGroupRequestWithOptions(request: $_model.GetResourceGroupRequestRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetResourceGroupRequestResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
@@ -1480,7 +1475,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserViewMetricsResponse
    */
-  // Deprecated
   async getUserViewMetricsWithOptions(ResourceGroupID: string, request: $_model.GetUserViewMetricsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserViewMetricsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
@@ -1904,6 +1898,10 @@ export default class Client extends OpenApi {
   async listQuotasWithOptions(request: $_model.ListQuotasRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListQuotasResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hasResource)) {
+      query["HasResource"] = request.hasResource;
+    }
+
     if (!$dara.isNull(request.labels)) {
       query["Labels"] = request.labels;
     }
@@ -2096,6 +2094,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.computingResourceProvider)) {
       query["ComputingResourceProvider"] = request.computingResourceProvider;
+    }
+
+    if (!$dara.isNull(request.hasResource)) {
+      query["HasResource"] = request.hasResource;
     }
 
     if (!$dara.isNull(request.name)) {
