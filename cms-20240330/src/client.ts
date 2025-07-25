@@ -223,6 +223,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建票据
+   * 
+   * @param request - CreateTicketRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTicketResponse
+   */
+  async createTicketWithOptions(request: $_model.CreateTicketRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTicketResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessTokenExpirationTime)) {
+      query["accessTokenExpirationTime"] = request.accessTokenExpirationTime;
+    }
+
+    if (!$dara.isNull(request.expirationTime)) {
+      query["expirationTime"] = request.expirationTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTicket",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/tickets`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTicketResponse>(await this.callApi(params, req, runtime), new $_model.CreateTicketResponse({}));
+  }
+
+  /**
+   * 创建票据
+   * 
+   * @param request - CreateTicketRequest
+   * @returns CreateTicketResponse
+   */
+  async createTicket(request: $_model.CreateTicketRequest): Promise<$_model.CreateTicketResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTicketWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建Umodel配置
    * 
    * @param request - CreateUmodelRequest

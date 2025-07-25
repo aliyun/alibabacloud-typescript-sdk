@@ -123,6 +123,9 @@ export { CreatePrometheusInstanceResponse } from './CreatePrometheusInstanceResp
 export { CreateServiceRequest } from './CreateServiceRequest';
 export { CreateServiceResponseBody } from './CreateServiceResponseBody';
 export { CreateServiceResponse } from './CreateServiceResponse';
+export { CreateTicketRequest } from './CreateTicketRequest';
+export { CreateTicketResponseBody } from './CreateTicketResponseBody';
+export { CreateTicketResponse } from './CreateTicketResponse';
 export { CreateUmodelRequest } from './CreateUmodelRequest';
 export { CreateUmodelResponseBody } from './CreateUmodelResponseBody';
 export { CreateUmodelResponse } from './CreateUmodelResponse';
