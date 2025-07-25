@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeCloudPhoneNodesResponseBodyNodeModelBizTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos extends $dara.Model {
   bandwidthPackageId?: string;
   bandwidthPackageType?: string;
@@ -66,6 +92,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo extends $
 export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   bandwidthPackageId?: string;
   bandwidthPackageType?: string;
+  bizTags?: DescribeCloudPhoneNodesResponseBodyNodeModelBizTags[];
   /**
    * @remarks
    * The billing method.
@@ -210,6 +237,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
     return {
       bandwidthPackageId: 'BandwidthPackageId',
       bandwidthPackageType: 'BandwidthPackageType',
+      bizTags: 'BizTags',
       chargeType: 'ChargeType',
       cpu: 'Cpu',
       gmtCreate: 'GmtCreate',
@@ -238,6 +266,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
     return {
       bandwidthPackageId: 'string',
       bandwidthPackageType: 'string',
+      bizTags: { 'type': 'array', 'itemType': DescribeCloudPhoneNodesResponseBodyNodeModelBizTags },
       chargeType: 'string',
       cpu: 'string',
       gmtCreate: 'string',
@@ -263,6 +292,9 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.bizTags)) {
+      $dara.Model.validateArray(this.bizTags);
+    }
     if(Array.isArray(this.networkInfos)) {
       $dara.Model.validateArray(this.networkInfos);
     }

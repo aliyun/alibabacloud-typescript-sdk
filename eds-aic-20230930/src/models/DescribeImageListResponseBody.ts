@@ -3,6 +3,32 @@ import * as $dara from '@darabonba/typescript';
 import { DataImageRegionDistributeMapValue } from "./DataImageRegionDistributeMapValue";
 
 
+export class DescribeImageListResponseBodyDataImageBizTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageListResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -36,6 +62,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
    * 2024-02-01 10:56:36
    */
   gmtModified?: string;
+  imageBizTags?: DescribeImageListResponseBodyDataImageBizTags[];
   /**
    * @remarks
    * The ID of the image.
@@ -136,6 +163,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
       description: 'Description',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      imageBizTags: 'ImageBizTags',
       imageId: 'ImageId',
       imageName: 'ImageName',
       imageRegionDistributeMap: 'ImageRegionDistributeMap',
@@ -156,6 +184,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
       description: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      imageBizTags: { 'type': 'array', 'itemType': DescribeImageListResponseBodyDataImageBizTags },
       imageId: 'string',
       imageName: 'string',
       imageRegionDistributeMap: { 'type': 'map', 'keyType': 'string', 'valueType': DataImageRegionDistributeMapValue },
@@ -171,6 +200,9 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.imageBizTags)) {
+      $dara.Model.validateArray(this.imageBizTags);
+    }
     if(this.imageRegionDistributeMap) {
       $dara.Model.validateMap(this.imageRegionDistributeMap);
     }

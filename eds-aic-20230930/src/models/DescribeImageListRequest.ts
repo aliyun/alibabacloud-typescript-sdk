@@ -2,7 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeImageListRequestImageBizTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageListRequest extends $dara.Model {
+  imageBizTags?: DescribeImageListRequestImageBizTags[];
   /**
    * @remarks
    * The ID of the image.
@@ -42,6 +69,7 @@ export class DescribeImageListRequest extends $dara.Model {
    * System
    */
   imageType?: string;
+  instanceType?: string;
   /**
    * @remarks
    * The number of entries per page. Valid values: 1 to 100. Default value: 20.
@@ -79,10 +107,12 @@ export class DescribeImageListRequest extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      imageBizTags: 'ImageBizTags',
       imageId: 'ImageId',
       imageName: 'ImageName',
       imagePackageType: 'ImagePackageType',
       imageType: 'ImageType',
+      instanceType: 'InstanceType',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       status: 'Status',
@@ -91,10 +121,12 @@ export class DescribeImageListRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      imageBizTags: { 'type': 'array', 'itemType': DescribeImageListRequestImageBizTags },
       imageId: 'string',
       imageName: 'string',
       imagePackageType: 'string',
       imageType: 'string',
+      instanceType: 'string',
       maxResults: 'number',
       nextToken: 'string',
       status: 'string',
@@ -102,6 +134,9 @@ export class DescribeImageListRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.imageBizTags)) {
+      $dara.Model.validateArray(this.imageBizTags);
+    }
     super.validate();
   }
 

@@ -1852,8 +1852,16 @@ export default class Client extends OpenApi {
   async describeImageListWithOptions(request: $_model.DescribeImageListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeImageListResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.imageBizTags)) {
+      query["ImageBizTags"] = request.imageBizTags;
+    }
+
     if (!$dara.isNull(request.imagePackageType)) {
       query["ImagePackageType"] = request.imagePackageType;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
     }
 
     let body : {[key: string ]: any} = { };

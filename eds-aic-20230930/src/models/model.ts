@@ -24,6 +24,7 @@ export { DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks } from
 export { DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel } from './DescribeAndroidInstanceGroupsResponseBody';
 export { DescribeAndroidInstancesRequestTag } from './DescribeAndroidInstancesRequest';
 export { DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy } from './DescribeAndroidInstancesResponseBody';
+export { DescribeAndroidInstancesResponseBodyInstanceModelBizTags } from './DescribeAndroidInstancesResponseBody';
 export { DescribeAndroidInstancesResponseBodyInstanceModelDisks } from './DescribeAndroidInstancesResponseBody';
 export { DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig } from './DescribeAndroidInstancesResponseBody';
 export { DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo } from './DescribeAndroidInstancesResponseBody';
@@ -31,10 +32,13 @@ export { DescribeAndroidInstancesResponseBodyInstanceModelTags } from './Describ
 export { DescribeAndroidInstancesResponseBodyInstanceModel } from './DescribeAndroidInstancesResponseBody';
 export { DescribeAppsResponseBodyData } from './DescribeAppsResponseBody';
 export { DescribeBackupFilesResponseBodyData } from './DescribeBackupFilesResponseBody';
+export { DescribeCloudPhoneNodesResponseBodyNodeModelBizTags } from './DescribeCloudPhoneNodesResponseBody';
 export { DescribeCloudPhoneNodesResponseBodyNodeModelNetworkInfos } from './DescribeCloudPhoneNodesResponseBody';
 export { DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo } from './DescribeCloudPhoneNodesResponseBody';
 export { DescribeCloudPhoneNodesResponseBodyNodeModel } from './DescribeCloudPhoneNodesResponseBody';
 export { DescribeDisplayConfigResponseBodyDisplayConfigModel } from './DescribeDisplayConfigResponseBody';
+export { DescribeImageListRequestImageBizTags } from './DescribeImageListRequest';
+export { DescribeImageListResponseBodyDataImageBizTags } from './DescribeImageListResponseBody';
 export { DescribeImageListResponseBodyData } from './DescribeImageListResponseBody';
 export { DescribeInvocationsResponseBodyData } from './DescribeInvocationsResponseBody';
 export { DescribeKeyPairsResponseBodyData } from './DescribeKeyPairsResponseBody';

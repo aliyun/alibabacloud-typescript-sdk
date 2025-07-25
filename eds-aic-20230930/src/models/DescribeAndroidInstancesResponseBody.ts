@@ -28,6 +28,32 @@ export class DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy ex
   }
 }
 
+export class DescribeAndroidInstancesResponseBodyInstanceModelBizTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAndroidInstancesResponseBodyInstanceModelDisks extends $dara.Model {
   /**
    * @remarks
@@ -245,6 +271,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * test
    */
   bindUserId?: string;
+  bizTags?: DescribeAndroidInstancesResponseBodyInstanceModelBizTags[];
   /**
    * @remarks
    * The billing method of the instance.
@@ -416,6 +443,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * local
    */
   renderingType?: string;
+  serverType?: string;
   /**
    * @remarks
    * The session status.
@@ -452,6 +480,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       bandwidthPackageId: 'BandwidthPackageId',
       bandwidthPackageType: 'BandwidthPackageType',
       bindUserId: 'BindUserId',
+      bizTags: 'BizTags',
       chargeType: 'ChargeType',
       cpu: 'Cpu',
       disks: 'Disks',
@@ -479,6 +508,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       rate: 'Rate',
       regionId: 'RegionId',
       renderingType: 'RenderingType',
+      serverType: 'ServerType',
       sessionStatus: 'SessionStatus',
       streamMode: 'StreamMode',
       tags: 'Tags',
@@ -502,6 +532,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       bandwidthPackageId: 'string',
       bandwidthPackageType: 'string',
       bindUserId: 'string',
+      bizTags: { 'type': 'array', 'itemType': DescribeAndroidInstancesResponseBodyInstanceModelBizTags },
       chargeType: 'string',
       cpu: 'string',
       disks: { 'type': 'array', 'itemType': DescribeAndroidInstancesResponseBodyInstanceModelDisks },
@@ -529,6 +560,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       rate: 'number',
       regionId: 'string',
       renderingType: 'string',
+      serverType: 'string',
       sessionStatus: 'string',
       streamMode: 'number',
       tags: { 'type': 'array', 'itemType': DescribeAndroidInstancesResponseBodyInstanceModelTags },
@@ -541,6 +573,9 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   validate() {
     if(this.appManagePolicy && typeof (this.appManagePolicy as any).validate === 'function') {
       (this.appManagePolicy as any).validate();
+    }
+    if(Array.isArray(this.bizTags)) {
+      $dara.Model.validateArray(this.bizTags);
     }
     if(Array.isArray(this.disks)) {
       $dara.Model.validateArray(this.disks);
