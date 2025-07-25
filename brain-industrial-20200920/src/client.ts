@@ -246,6 +246,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建用电负荷预测任务，历史数据来自文件url
+   * 
+   * @param request - CreateLoadForecastByFileUrlJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLoadForecastByFileUrlJobResponse
+   */
+  async createLoadForecastByFileUrlJobWithOptions(request: $_model.CreateLoadForecastByFileUrlJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLoadForecastByFileUrlJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessKey)) {
+      body["BusinessKey"] = request.businessKey;
+    }
+
+    if (!$dara.isNull(request.deviceType)) {
+      body["DeviceType"] = request.deviceType;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      body["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.freq)) {
+      body["Freq"] = request.freq;
+    }
+
+    if (!$dara.isNull(request.historyUrl)) {
+      body["HistoryUrl"] = request.historyUrl;
+    }
+
+    if (!$dara.isNull(request.modelVersion)) {
+      body["ModelVersion"] = request.modelVersion;
+    }
+
+    if (!$dara.isNull(request.runDate)) {
+      body["RunDate"] = request.runDate;
+    }
+
+    if (!$dara.isNull(request.systemType)) {
+      body["SystemType"] = request.systemType;
+    }
+
+    if (!$dara.isNull(request.timeColumn)) {
+      body["TimeColumn"] = request.timeColumn;
+    }
+
+    if (!$dara.isNull(request.timeZone)) {
+      body["TimeZone"] = request.timeZone;
+    }
+
+    if (!$dara.isNull(request.valueColumn)) {
+      body["ValueColumn"] = request.valueColumn;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLoadForecastByFileUrlJob",
+      version: "2020-09-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLoadForecastByFileUrlJobResponse>(await this.callApi(params, req, runtime), new $_model.CreateLoadForecastByFileUrlJobResponse({}));
+  }
+
+  /**
+   * 创建用电负荷预测任务，历史数据来自文件url
+   * 
+   * @param request - CreateLoadForecastByFileUrlJobRequest
+   * @returns CreateLoadForecastByFileUrlJobResponse
+   */
+  async createLoadForecastByFileUrlJob(request: $_model.CreateLoadForecastByFileUrlJobRequest): Promise<$_model.CreateLoadForecastByFileUrlJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createLoadForecastByFileUrlJobWithOptions(request, runtime);
+  }
+
+  /**
    * 创建用电负荷预测任务
    * 
    * @param tmpReq - CreateLoadForecastJobRequest
@@ -323,6 +405,98 @@ export default class Client extends OpenApi {
   async createLoadForecastJob(request: $_model.CreateLoadForecastJobRequest): Promise<$_model.CreateLoadForecastJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createLoadForecastJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建发电功率预测任务，历史数据来自文件url
+   * 
+   * @param tmpReq - CreatePowerForecastByFileUrlJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePowerForecastByFileUrlJobResponse
+   */
+  async createPowerForecastByFileUrlJobWithOptions(tmpReq: $_model.CreatePowerForecastByFileUrlJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePowerForecastByFileUrlJobResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreatePowerForecastByFileUrlJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.location)) {
+      request.locationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.location, "Location", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessKey)) {
+      body["BusinessKey"] = request.businessKey;
+    }
+
+    if (!$dara.isNull(request.deviceType)) {
+      body["DeviceType"] = request.deviceType;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      body["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.freq)) {
+      body["Freq"] = request.freq;
+    }
+
+    if (!$dara.isNull(request.historyUrl)) {
+      body["HistoryUrl"] = request.historyUrl;
+    }
+
+    if (!$dara.isNull(request.locationShrink)) {
+      body["Location"] = request.locationShrink;
+    }
+
+    if (!$dara.isNull(request.modelVersion)) {
+      body["ModelVersion"] = request.modelVersion;
+    }
+
+    if (!$dara.isNull(request.runDate)) {
+      body["RunDate"] = request.runDate;
+    }
+
+    if (!$dara.isNull(request.systemType)) {
+      body["SystemType"] = request.systemType;
+    }
+
+    if (!$dara.isNull(request.timeColumn)) {
+      body["TimeColumn"] = request.timeColumn;
+    }
+
+    if (!$dara.isNull(request.timeZone)) {
+      body["TimeZone"] = request.timeZone;
+    }
+
+    if (!$dara.isNull(request.valueColumn)) {
+      body["ValueColumn"] = request.valueColumn;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePowerForecastByFileUrlJob",
+      version: "2020-09-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePowerForecastByFileUrlJobResponse>(await this.callApi(params, req, runtime), new $_model.CreatePowerForecastByFileUrlJobResponse({}));
+  }
+
+  /**
+   * 创建发电功率预测任务，历史数据来自文件url
+   * 
+   * @param request - CreatePowerForecastByFileUrlJobRequest
+   * @returns CreatePowerForecastByFileUrlJobResponse
+   */
+  async createPowerForecastByFileUrlJob(request: $_model.CreatePowerForecastByFileUrlJobRequest): Promise<$_model.CreatePowerForecastByFileUrlJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPowerForecastByFileUrlJobWithOptions(request, runtime);
   }
 
   /**
