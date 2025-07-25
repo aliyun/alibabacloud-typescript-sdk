@@ -64,6 +64,10 @@ export default class Client extends OpenApi {
       query["IpamPoolId"] = request.ipamPoolId;
     }
 
+    if (!$dara.isNull(request.netmaskLength)) {
+      query["NetmaskLength"] = request.netmaskLength;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -403,6 +407,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ipamScopeId)) {
       query["IpamScopeId"] = request.ipamScopeId;
+    }
+
+    if (!$dara.isNull(request.ipv6Isp)) {
+      query["Ipv6Isp"] = request.ipv6Isp;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -1585,6 +1593,10 @@ export default class Client extends OpenApi {
   async listIpamPoolsWithOptions(request: $_model.ListIpamPoolsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListIpamPoolsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
     if (!$dara.isNull(request.ipamPoolIds)) {
       query["IpamPoolIds"] = request.ipamPoolIds;
     }
@@ -1595,6 +1607,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ipamScopeId)) {
       query["IpamScopeId"] = request.ipamScopeId;
+    }
+
+    if (!$dara.isNull(request.ipv6Isp)) {
+      query["Ipv6Isp"] = request.ipv6Isp;
     }
 
     if (!$dara.isNull(request.isShared)) {
@@ -2646,7 +2662,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   You can add or remove effective regions only for custom resource discovery instances.
-   * *   When removing effective regions from a resource discovery instance, the managed region cannot be included.
+   * *   When removing effective regions from a resource discovery instance, the hosted region cannot be included.
    * 
    * @param request - UpdateIpamResourceDiscoveryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2725,7 +2741,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    *   You can add or remove effective regions only for custom resource discovery instances.
-   * *   When removing effective regions from a resource discovery instance, the managed region cannot be included.
+   * *   When removing effective regions from a resource discovery instance, the hosted region cannot be included.
    * 
    * @param request - UpdateIpamResourceDiscoveryRequest
    * @returns UpdateIpamResourceDiscoveryResponse

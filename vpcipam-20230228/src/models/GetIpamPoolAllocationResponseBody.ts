@@ -59,7 +59,7 @@ export class GetIpamPoolAllocationResponseBody extends $dara.Model {
    * @remarks
    * The region of the IPAM pool.
    * 
-   * >  If the IPAM pool to which the CIDR block allocation belongs has the region attribute, this parameter is the region of the IPAM pool. If not, this parameter is the IPAM managed region.
+   * >  If the IPAM pool to which the CIDR block allocation belongs has the region attribute, this parameter is the region of the IPAM pool. If not, this parameter is the IPAM hosted region.
    * 
    * @example
    * cn-hangzhou

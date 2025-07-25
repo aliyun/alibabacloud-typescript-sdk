@@ -34,7 +34,7 @@ export class ListIpamDiscoveredResourceRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the managed region of the IPAM pool.
+   * The ID of the hosted region of the IPAM pool.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region list.
    * 

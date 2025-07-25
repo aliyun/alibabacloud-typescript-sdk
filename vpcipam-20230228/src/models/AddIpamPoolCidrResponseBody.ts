@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddIpamPoolCidrResponseBody extends $dara.Model {
+  cidr?: string;
   /**
    * @remarks
    * The request ID.
@@ -13,12 +14,14 @@ export class AddIpamPoolCidrResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      cidr: 'Cidr',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cidr: 'string',
       requestId: 'string',
     };
   }

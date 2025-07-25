@@ -9,8 +9,6 @@ export class AddIpamPoolCidrRequest extends $dara.Model {
    * 
    * >  Only IPv4 CIDR blocks are supported.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 192.168.1.0/24
    */
@@ -46,6 +44,7 @@ export class AddIpamPoolCidrRequest extends $dara.Model {
    * ipam-pool-6rcq3tobayc20t****
    */
   ipamPoolId?: string;
+  netmaskLength?: number;
   /**
    * @remarks
    * The ID of the region where the IPAM instance is hosted.
@@ -64,6 +63,7 @@ export class AddIpamPoolCidrRequest extends $dara.Model {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       ipamPoolId: 'IpamPoolId',
+      netmaskLength: 'NetmaskLength',
       regionId: 'RegionId',
     };
   }
@@ -74,6 +74,7 @@ export class AddIpamPoolCidrRequest extends $dara.Model {
       clientToken: 'string',
       dryRun: 'boolean',
       ipamPoolId: 'string',
+      netmaskLength: 'number',
       regionId: 'string',
     };
   }

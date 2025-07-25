@@ -47,7 +47,7 @@ export class GetIpamPoolNextAvailableCidrRequest extends $dara.Model {
    * @remarks
    * The region of the IPAM pool.
    * 
-   * >  If the IPAM pool has the region attribute, this parameter is set to the effective region of the IPAM pool. If not, this is set to the managed region.
+   * >  If the IPAM pool has the region attribute, this parameter is set to the effective region of the IPAM pool. If not, this is set to the hosted region.
    * 
    * This parameter is required.
    * 

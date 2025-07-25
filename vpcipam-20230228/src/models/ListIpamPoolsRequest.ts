@@ -1,9 +1,53 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListIpamPoolsRequestTags } from "./ListIpamPoolsRequestTags";
 
+
+export class ListIpamPoolsRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. You can specify at most 20 tag keys. It cannot be an empty string.
+   * 
+   * The tag key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The tag key must start with a letter but cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value. You can specify at most 20 tag values. It can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length. It must start with a letter and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * FinanceJoshua
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListIpamPoolsRequest extends $dara.Model {
+  ipVersion?: string;
   /**
    * @remarks
    * The IDs of IPAM pools. Valid values of N: 1 to 100. A maximum of 100 IPAM pools can be queried at a time.
@@ -27,6 +71,7 @@ export class ListIpamPoolsRequest extends $dara.Model {
    * ipam-scope-glfmcyldpm8lsy****
    */
   ipamScopeId?: string;
+  ipv6Isp?: string;
   /**
    * @remarks
    * Whether it is a shared pool.
@@ -99,9 +144,11 @@ export class ListIpamPoolsRequest extends $dara.Model {
   tags?: ListIpamPoolsRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      ipVersion: 'IpVersion',
       ipamPoolIds: 'IpamPoolIds',
       ipamPoolName: 'IpamPoolName',
       ipamScopeId: 'IpamScopeId',
+      ipv6Isp: 'Ipv6Isp',
       isShared: 'IsShared',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -119,9 +166,11 @@ export class ListIpamPoolsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ipVersion: 'string',
       ipamPoolIds: { 'type': 'array', 'itemType': 'string' },
       ipamPoolName: 'string',
       ipamScopeId: 'string',
+      ipv6Isp: 'string',
       isShared: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
