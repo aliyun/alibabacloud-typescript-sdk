@@ -74,7 +74,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddAliClusterIdsToPrometheusGlobalViewResponse
    */
-  // Deprecated
   async addAliClusterIdsToPrometheusGlobalViewWithOptions(request: $_model.AddAliClusterIdsToPrometheusGlobalViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAliClusterIdsToPrometheusGlobalViewResponse> {
     request.validate();
     let query = { };
@@ -134,7 +133,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddGrafanaResponse
    */
-  // Deprecated
   async addGrafanaWithOptions(request: $_model.AddGrafanaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddGrafanaResponse> {
     request.validate();
     let query = { };
@@ -190,7 +188,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddIntegrationResponse
    */
-  // Deprecated
   async addIntegrationWithOptions(request: $_model.AddIntegrationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddIntegrationResponse> {
     request.validate();
     let query = { };
@@ -246,7 +243,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddPrometheusGlobalViewResponse
    */
-  // Deprecated
   async addPrometheusGlobalViewWithOptions(request: $_model.AddPrometheusGlobalViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddPrometheusGlobalViewResponse> {
     request.validate();
     let query = { };
@@ -310,7 +306,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddPrometheusGlobalViewByAliClusterIdsResponse
    */
-  // Deprecated
   async addPrometheusGlobalViewByAliClusterIdsWithOptions(request: $_model.AddPrometheusGlobalViewByAliClusterIdsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddPrometheusGlobalViewByAliClusterIdsResponse> {
     request.validate();
     let query = { };
@@ -370,7 +365,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddPrometheusInstanceResponse
    */
-  // Deprecated
   async addPrometheusInstanceWithOptions(request: $_model.AddPrometheusInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddPrometheusInstanceResponse> {
     request.validate();
     let query = { };
@@ -426,7 +420,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddPrometheusIntegrationResponse
    */
-  // Deprecated
   async addPrometheusIntegrationWithOptions(request: $_model.AddPrometheusIntegrationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddPrometheusIntegrationResponse> {
     request.validate();
     let query = { };
@@ -486,7 +479,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddRecordingRuleResponse
    */
-  // Deprecated
   async addRecordingRuleWithOptions(request: $_model.AddRecordingRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddRecordingRuleResponse> {
     request.validate();
     let query = { };
@@ -542,7 +534,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddTagToFlinkClusterResponse
    */
-  // Deprecated
   async addTagToFlinkClusterWithOptions(request: $_model.AddTagToFlinkClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddTagToFlinkClusterResponse> {
     request.validate();
     let query = { };
@@ -610,7 +601,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AppendInstancesToPrometheusGlobalViewResponse
    */
-  // Deprecated
   async appendInstancesToPrometheusGlobalViewWithOptions(request: $_model.AppendInstancesToPrometheusGlobalViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AppendInstancesToPrometheusGlobalViewResponse> {
     request.validate();
     let query = { };
@@ -754,7 +744,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindPrometheusGrafanaInstanceResponse
    */
-  // Deprecated
   async bindPrometheusGrafanaInstanceWithOptions(request: $_model.BindPrometheusGrafanaInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindPrometheusGrafanaInstanceResponse> {
     request.validate();
     let query = { };
@@ -2708,7 +2697,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePrometheusMonitoringResponse
    */
-  // Deprecated
   async createPrometheusMonitoringWithOptions(request: $_model.CreatePrometheusMonitoringRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePrometheusMonitoringResponse> {
     request.validate();
     let query = { };
@@ -3652,7 +3640,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCmsExporterResponse
    */
-  // Deprecated
   async deleteCmsExporterWithOptions(request: $_model.DeleteCmsExporterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCmsExporterResponse> {
     request.validate();
     let query = { };
@@ -4134,7 +4121,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGrafanaResourceResponse
    */
-  // Deprecated
   async deleteGrafanaResourceWithOptions(request: $_model.DeleteGrafanaResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGrafanaResourceResponse> {
     request.validate();
     let query = { };
@@ -4288,7 +4274,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteIntegrationResponse
    */
-  // Deprecated
   async deleteIntegrationWithOptions(request: $_model.DeleteIntegrationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteIntegrationResponse> {
     request.validate();
     let query = { };
@@ -4470,7 +4455,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePrometheusGlobalViewResponse
    */
-  // Deprecated
   async deletePrometheusGlobalViewWithOptions(request: $_model.DeletePrometheusGlobalViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrometheusGlobalViewResponse> {
     request.validate();
     let query = { };
@@ -4522,7 +4506,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePrometheusIntegrationResponse
    */
-  // Deprecated
   async deletePrometheusIntegrationWithOptions(request: $_model.DeletePrometheusIntegrationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrometheusIntegrationResponse> {
     request.validate();
     let query = { };
@@ -4582,7 +4565,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePrometheusMonitoringResponse
    */
-  // Deprecated
   async deletePrometheusMonitoringWithOptions(request: $_model.DeletePrometheusMonitoringRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrometheusMonitoringResponse> {
     request.validate();
     let query = { };
@@ -5986,7 +5968,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableMetricResponse
    */
-  // Deprecated
   async enableMetricWithOptions(request: $_model.EnableMetricRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableMetricResponse> {
     request.validate();
     let query = { };
@@ -6145,6 +6126,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.alertType)) {
       query["AlertType"] = request.alertType;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
     }
 
     if (!$dara.isNull(request.clusterId)) {
@@ -6358,7 +6343,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCloudClusterAllUrlResponse
    */
-  // Deprecated
   async getCloudClusterAllUrlWithOptions(request: $_model.GetCloudClusterAllUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCloudClusterAllUrlResponse> {
     request.validate();
     let query = { };
@@ -6410,7 +6394,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetClusterAllUrlResponse
    */
-  // Deprecated
   async getClusterAllUrlWithOptions(request: $_model.GetClusterAllUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetClusterAllUrlResponse> {
     request.validate();
     let query = { };
@@ -6508,7 +6491,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetExploreUrlResponse
    */
-  // Deprecated
   async getExploreUrlWithOptions(request: $_model.GetExploreUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetExploreUrlResponse> {
     request.validate();
     let query = { };
@@ -6624,7 +6606,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetIntegrationStateResponse
    */
-  // Deprecated
   async getIntegrationStateWithOptions(request: $_model.GetIntegrationStateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetIntegrationStateResponse> {
     request.validate();
     let query = { };
@@ -6680,7 +6661,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetManagedPrometheusStatusResponse
    */
-  // Deprecated
   async getManagedPrometheusStatusWithOptions(request: $_model.GetManagedPrometheusStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetManagedPrometheusStatusResponse> {
     request.validate();
     let query = { };
@@ -6984,7 +6964,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPrometheusIntegrationResponse
    */
-  // Deprecated
   async getPrometheusIntegrationWithOptions(request: $_model.GetPrometheusIntegrationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPrometheusIntegrationResponse> {
     request.validate();
     let query = { };
@@ -7044,7 +7023,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPrometheusMonitoringResponse
    */
-  // Deprecated
   async getPrometheusMonitoringWithOptions(request: $_model.GetPrometheusMonitoringRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPrometheusMonitoringResponse> {
     request.validate();
     let query = { };
@@ -7104,7 +7082,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRecordingRuleResponse
    */
-  // Deprecated
   async getRecordingRuleWithOptions(request: $_model.GetRecordingRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRecordingRuleResponse> {
     request.validate();
     let query = { };
@@ -8468,7 +8445,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InstallCmsExporterResponse
    */
-  // Deprecated
   async installCmsExporterWithOptions(request: $_model.InstallCmsExporterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstallCmsExporterResponse> {
     request.validate();
     let query = { };
@@ -8601,7 +8577,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InstallManagedPrometheusResponse
    */
-  // Deprecated
   async installManagedPrometheusWithOptions(request: $_model.InstallManagedPrometheusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstallManagedPrometheusResponse> {
     request.validate();
     let query = { };
@@ -9014,7 +8989,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListClusterFromGrafanaResponse
    */
-  // Deprecated
   async listClusterFromGrafanaWithOptions(request: $_model.ListClusterFromGrafanaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListClusterFromGrafanaResponse> {
     request.validate();
     let query = { };
@@ -9062,7 +9036,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCmsInstancesResponse
    */
-  // Deprecated
   async listCmsInstancesWithOptions(request: $_model.ListCmsInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCmsInstancesResponse> {
     request.validate();
     let query = { };
@@ -9194,7 +9167,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDashboardsByNameResponse
    */
-  // Deprecated
   async listDashboardsByNameWithOptions(request: $_model.ListDashboardsByNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDashboardsByNameResponse> {
     request.validate();
     let query = { };
@@ -10462,7 +10434,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPrometheusIntegrationResponse
    */
-  // Deprecated
   async listPrometheusIntegrationWithOptions(request: $_model.ListPrometheusIntegrationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPrometheusIntegrationResponse> {
     request.validate();
     let query = { };
@@ -10518,7 +10489,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPrometheusMonitoringResponse
    */
-  // Deprecated
   async listPrometheusMonitoringWithOptions(request: $_model.ListPrometheusMonitoringRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPrometheusMonitoringResponse> {
     request.validate();
     let query = { };
@@ -11002,7 +10972,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenVClusterResponse
    */
-  // Deprecated
   async openVClusterWithOptions(request: $_model.OpenVClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OpenVClusterResponse> {
     request.validate();
     let query = { };
@@ -11394,7 +11363,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPromInstallStatusResponse
    */
-  // Deprecated
   async queryPromInstallStatusWithOptions(request: $_model.QueryPromInstallStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPromInstallStatusResponse> {
     request.validate();
     let query = { };
@@ -11516,7 +11484,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveAliClusterIdsFromPrometheusGlobalViewResponse
    */
-  // Deprecated
   async removeAliClusterIdsFromPrometheusGlobalViewWithOptions(request: $_model.RemoveAliClusterIdsFromPrometheusGlobalViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveAliClusterIdsFromPrometheusGlobalViewResponse> {
     request.validate();
     let query = { };
@@ -11576,7 +11543,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveSourcesFromPrometheusGlobalViewResponse
    */
-  // Deprecated
   async removeSourcesFromPrometheusGlobalViewWithOptions(request: $_model.RemoveSourcesFromPrometheusGlobalViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveSourcesFromPrometheusGlobalViewResponse> {
     request.validate();
     let query = { };
@@ -12816,7 +12782,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SyncRecordingRulesResponse
    */
-  // Deprecated
   async syncRecordingRulesWithOptions(request: $_model.SyncRecordingRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SyncRecordingRulesResponse> {
     request.validate();
     let query = { };
@@ -12925,7 +12890,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UninstallManagedPrometheusResponse
    */
-  // Deprecated
   async uninstallManagedPrometheusWithOptions(request: $_model.UninstallManagedPrometheusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UninstallManagedPrometheusResponse> {
     request.validate();
     let query = { };
@@ -13852,7 +13816,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateMetricDropResponse
    */
-  // Deprecated
   async updateMetricDropWithOptions(request: $_model.UpdateMetricDropRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMetricDropResponse> {
     request.validate();
     let query = { };
@@ -13998,7 +13961,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdatePrometheusGlobalViewResponse
    */
-  // Deprecated
   async updatePrometheusGlobalViewWithOptions(request: $_model.UpdatePrometheusGlobalViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePrometheusGlobalViewResponse> {
     request.validate();
     let query = { };
@@ -14152,7 +14114,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdatePrometheusIntegrationResponse
    */
-  // Deprecated
   async updatePrometheusIntegrationWithOptions(request: $_model.UpdatePrometheusIntegrationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePrometheusIntegrationResponse> {
     request.validate();
     let query = { };
@@ -14216,7 +14177,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdatePrometheusMonitoringResponse
    */
-  // Deprecated
   async updatePrometheusMonitoringWithOptions(request: $_model.UpdatePrometheusMonitoringRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePrometheusMonitoringResponse> {
     request.validate();
     let query = { };
@@ -14282,7 +14242,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdatePrometheusMonitoringStatusResponse
    */
-  // Deprecated
   async updatePrometheusMonitoringStatusWithOptions(request: $_model.UpdatePrometheusMonitoringStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePrometheusMonitoringStatusResponse> {
     request.validate();
     let query = { };

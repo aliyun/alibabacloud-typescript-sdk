@@ -93,6 +93,7 @@ export class GetAlertRulesRequest extends $dara.Model {
    * APPLICATION_MONITORING_ALERT_RULE
    */
   alertType?: string;
+  bizRegionId?: string;
   /**
    * @remarks
    * The ID of the monitored cluster.
@@ -150,6 +151,7 @@ export class GetAlertRulesRequest extends $dara.Model {
       alertNames: 'AlertNames',
       alertStatus: 'AlertStatus',
       alertType: 'AlertType',
+      bizRegionId: 'BizRegionId',
       clusterId: 'ClusterId',
       page: 'Page',
       productCode: 'ProductCode',
@@ -165,6 +167,7 @@ export class GetAlertRulesRequest extends $dara.Model {
       alertNames: 'string',
       alertStatus: 'string',
       alertType: 'string',
+      bizRegionId: 'string',
       clusterId: 'string',
       page: 'number',
       productCode: 'string',
