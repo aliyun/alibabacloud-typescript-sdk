@@ -1,8 +1,58 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModifyHichinaDomainDNSResponseBodyNewDnsServers } from "./ModifyHichinaDomainDnsresponseBodyNewDnsServers";
-import { ModifyHichinaDomainDNSResponseBodyOriginalDnsServers } from "./ModifyHichinaDomainDnsresponseBodyOriginalDnsServers";
 
+
+export class ModifyHichinaDomainDNSResponseBodyNewDnsServers extends $dara.Model {
+  dnsServer?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dnsServer: 'DnsServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsServer: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dnsServer)) {
+      $dara.Model.validateArray(this.dnsServer);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyHichinaDomainDNSResponseBodyOriginalDnsServers extends $dara.Model {
+  dnsServer?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dnsServer: 'DnsServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsServer: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dnsServer)) {
+      $dara.Model.validateArray(this.dnsServer);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifyHichinaDomainDNSResponseBody extends $dara.Model {
   /**

@@ -1,9 +1,264 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools } from "./DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools";
-import { DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools } from "./DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools";
-import { DescribeDnsGtmAccessStrategyResponseBodyLines } from "./DescribeDnsGtmAccessStrategyResponseBodyLines";
 
+
+export class DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPoolsDefaultAddrPool extends $dara.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 1
+   */
+  addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * pool1
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The weight of the address pool.
+   * 
+   * @example
+   * 1
+   */
+  lbaWeight?: number;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addrCount: 'AddrCount',
+      id: 'Id',
+      lbaWeight: 'LbaWeight',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrCount: 'number',
+      id: 'string',
+      lbaWeight: 'number',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools extends $dara.Model {
+  defaultAddrPool?: DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPoolsDefaultAddrPool[];
+  static names(): { [key: string]: string } {
+    return {
+      defaultAddrPool: 'DefaultAddrPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultAddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPoolsDefaultAddrPool },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.defaultAddrPool)) {
+      $dara.Model.validateArray(this.defaultAddrPool);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPoolsFailoverAddrPool extends $dara.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 1
+   */
+  addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * pool1
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The weight of the address pool.
+   * 
+   * @example
+   * 1
+   */
+  lbaWeight?: number;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addrCount: 'AddrCount',
+      id: 'Id',
+      lbaWeight: 'LbaWeight',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrCount: 'number',
+      id: 'string',
+      lbaWeight: 'number',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools extends $dara.Model {
+  failoverAddrPool?: DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPoolsFailoverAddrPool[];
+  static names(): { [key: string]: string } {
+    return {
+      failoverAddrPool: 'FailoverAddrPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failoverAddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPoolsFailoverAddrPool },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failoverAddrPool)) {
+      $dara.Model.validateArray(this.failoverAddrPool);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyResponseBodyLinesLine extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the source region group.
+   * 
+   * @example
+   * default
+   */
+  groupCode?: string;
+  /**
+   * @remarks
+   * The name of the source region group.
+   * 
+   * @example
+   * global
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * The line code of the source region.
+   * 
+   * @example
+   * default
+   */
+  lineCode?: string;
+  /**
+   * @remarks
+   * The line name of the source region.
+   * 
+   * @example
+   * global
+   */
+  lineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupCode: 'GroupCode',
+      groupName: 'GroupName',
+      lineCode: 'LineCode',
+      lineName: 'LineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupCode: 'string',
+      groupName: 'string',
+      lineCode: 'string',
+      lineName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyResponseBodyLines extends $dara.Model {
+  line?: DescribeDnsGtmAccessStrategyResponseBodyLinesLine[];
+  static names(): { [key: string]: string } {
+    return {
+      line: 'Line',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      line: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyResponseBodyLinesLine },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.line)) {
+      $dara.Model.validateArray(this.line);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDnsGtmAccessStrategyResponseBody extends $dara.Model {
   /**

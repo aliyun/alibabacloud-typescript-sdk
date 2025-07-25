@@ -1,8 +1,102 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AddGtmAddressPoolRequestAddr } from "./AddGtmAddressPoolRequestAddr";
-import { AddGtmAddressPoolRequestIspCityNode } from "./AddGtmAddressPoolRequestIspCityNode";
 
+
+export class AddGtmAddressPoolRequestAddr extends $dara.Model {
+  /**
+   * @remarks
+   * The weight of the address pool.
+   * 
+   * @example
+   * 1
+   */
+  lbaWeight?: number;
+  /**
+   * @remarks
+   * The mode of the address pool. Valid values:
+   * 
+   * *   **SMART**: smart return
+   * *   **ONLINE**: always online
+   * *   **OFFLINE**: always offline
+   * 
+   * @example
+   * SMART
+   */
+  mode?: string;
+  /**
+   * @remarks
+   * The address in the address pool.
+   * 
+   * @example
+   * 1.1.1.1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lbaWeight: 'LbaWeight',
+      mode: 'Mode',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lbaWeight: 'number',
+      mode: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddGtmAddressPoolRequestIspCityNode extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the city where the monitored node is deployed. For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
+   * 
+   * @example
+   * 546
+   */
+  cityCode?: string;
+  /**
+   * @remarks
+   * *   The code of the Internet service provider (ISP) to which the monitored node belongs. For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
+   * *   If the value of the GroupType parameter is BGP or OVERSEAS, IspCode is optional. The default value is 465.
+   * *   If the value of the GroupType parameter is not BGP or OVERSEAS, IspCode is required and is used together with CityCode.
+   * 
+   * @example
+   * 465
+   */
+  ispCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      ispCode: 'IspCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      ispCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AddGtmAddressPoolRequest extends $dara.Model {
   /**

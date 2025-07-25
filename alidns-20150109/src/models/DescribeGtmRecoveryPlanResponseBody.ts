@@ -1,7 +1,161 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeGtmRecoveryPlanResponseBodyFaultAddrPools } from "./DescribeGtmRecoveryPlanResponseBodyFaultAddrPools";
 
+
+export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrsAddr extends $dara.Model {
+  /**
+   * @remarks
+   * The address ID.
+   * 
+   * @example
+   * 739
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The address mode.
+   * 
+   * @example
+   * OFFLINE
+   */
+  mode?: string;
+  /**
+   * @remarks
+   * The address.
+   * 
+   * @example
+   * 1.1.1.1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      mode: 'Mode',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      mode: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs extends $dara.Model {
+  addr?: DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrsAddr[];
+  static names(): { [key: string]: string } {
+    return {
+      addr: 'Addr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addr: { 'type': 'array', 'itemType': DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrsAddr },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.addr)) {
+      $dara.Model.validateArray(this.addr);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPool extends $dara.Model {
+  /**
+   * @remarks
+   * The address pool ID.
+   * 
+   * @example
+   * hra0oq
+   */
+  addrPoolId?: string;
+  /**
+   * @remarks
+   * The address pool name.
+   */
+  addrPoolName?: string;
+  addrs?: DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * instance-zwy-38
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addrPoolId: 'AddrPoolId',
+      addrPoolName: 'AddrPoolName',
+      addrs: 'Addrs',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrPoolId: 'string',
+      addrPoolName: 'string',
+      addrs: DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs,
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.addrs && typeof (this.addrs as any).validate === 'function') {
+      (this.addrs as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPools extends $dara.Model {
+  faultAddrPool?: DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPool[];
+  static names(): { [key: string]: string } {
+    return {
+      faultAddrPool: 'FaultAddrPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faultAddrPool: { 'type': 'array', 'itemType': DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPool },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.faultAddrPool)) {
+      $dara.Model.validateArray(this.faultAddrPool);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeGtmRecoveryPlanResponseBody extends $dara.Model {
   /**

@@ -1,9 +1,138 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDomainInfoResponseBodyAvailableTtls } from "./DescribeDomainInfoResponseBodyAvailableTtls";
-import { DescribeDomainInfoResponseBodyDnsServers } from "./DescribeDomainInfoResponseBodyDnsServers";
-import { DescribeDomainInfoResponseBodyRecordLines } from "./DescribeDomainInfoResponseBodyRecordLines";
 
+
+export class DescribeDomainInfoResponseBodyAvailableTtls extends $dara.Model {
+  availableTtl?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      availableTtl: 'AvailableTtl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableTtl: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.availableTtl)) {
+      $dara.Model.validateArray(this.availableTtl);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainInfoResponseBodyDnsServers extends $dara.Model {
+  dnsServer?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dnsServer: 'DnsServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsServer: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dnsServer)) {
+      $dara.Model.validateArray(this.dnsServer);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainInfoResponseBodyRecordLinesRecordLine extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the parent line. This parameter is not returned if the line has no parent line.
+   * 
+   * @example
+   * internal
+   */
+  fatherCode?: string;
+  /**
+   * @remarks
+   * The code of the line.
+   * 
+   * @example
+   * cn_region_xibei
+   */
+  lineCode?: string;
+  /**
+   * @remarks
+   * The name of the parent line.
+   */
+  lineDisplayName?: string;
+  /**
+   * @remarks
+   * The name of the line.
+   */
+  lineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fatherCode: 'FatherCode',
+      lineCode: 'LineCode',
+      lineDisplayName: 'LineDisplayName',
+      lineName: 'LineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fatherCode: 'string',
+      lineCode: 'string',
+      lineDisplayName: 'string',
+      lineName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainInfoResponseBodyRecordLines extends $dara.Model {
+  recordLine?: DescribeDomainInfoResponseBodyRecordLinesRecordLine[];
+  static names(): { [key: string]: string } {
+    return {
+      recordLine: 'RecordLine',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recordLine: { 'type': 'array', 'itemType': DescribeDomainInfoResponseBodyRecordLinesRecordLine },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.recordLine)) {
+      $dara.Model.validateArray(this.recordLine);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDomainInfoResponseBody extends $dara.Model {
   /**

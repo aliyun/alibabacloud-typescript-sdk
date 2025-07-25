@@ -1,13 +1,408 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPools } from "./DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPools";
-import { DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPools } from "./DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4addrPools";
-import { DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPools } from "./DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6addrPools";
-import { DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLines } from "./DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLines";
-import { DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedDomainLines } from "./DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedDomainLines";
-import { DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv4Lines } from "./DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv4lines";
-import { DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6Lines } from "./DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6lines";
 
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPoolsDomainAddrPool extends $dara.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 1
+   */
+  addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * pool1
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * testpool
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addrCount: 'AddrCount',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrCount: 'number',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPools extends $dara.Model {
+  domainAddrPool?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPoolsDomainAddrPool[];
+  static names(): { [key: string]: string } {
+    return {
+      domainAddrPool: 'DomainAddrPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainAddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPoolsDomainAddrPool },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.domainAddrPool)) {
+      $dara.Model.validateArray(this.domainAddrPool);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPoolsIpv4AddrPool extends $dara.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 1
+   */
+  addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * pool1
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * testpool
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addrCount: 'AddrCount',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrCount: 'number',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPools extends $dara.Model {
+  ipv4AddrPool?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPoolsIpv4AddrPool[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv4AddrPool: 'Ipv4AddrPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4AddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPoolsIpv4AddrPool },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipv4AddrPool)) {
+      $dara.Model.validateArray(this.ipv4AddrPool);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPoolsIpv6AddrPool extends $dara.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 1
+   */
+  addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * pool1
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * testpool
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addrCount: 'AddrCount',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addrCount: 'number',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPools extends $dara.Model {
+  ipv6AddrPool?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPoolsIpv6AddrPool[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6AddrPool: 'Ipv6AddrPool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6AddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPoolsIpv6AddrPool },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipv6AddrPool)) {
+      $dara.Model.validateArray(this.ipv6AddrPool);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLinesLine extends $dara.Model {
+  /**
+   * @remarks
+   * The parent line code of the source region. Leave it blank if no parent line exists.
+   * 
+   * @example
+   * telecom
+   */
+  fatherCode?: string;
+  /**
+   * @remarks
+   * The line name of the source region.
+   * 
+   * @example
+   * default
+   */
+  groupCode?: string;
+  /**
+   * @remarks
+   * The name of the source region group.
+   * 
+   * @example
+   * global
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * The line code of the source region.
+   * 
+   * @example
+   * default
+   */
+  lineCode?: string;
+  /**
+   * @remarks
+   * The code of the source region group.
+   * 
+   * @example
+   * global
+   */
+  lineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fatherCode: 'FatherCode',
+      groupCode: 'GroupCode',
+      groupName: 'GroupName',
+      lineCode: 'LineCode',
+      lineName: 'LineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fatherCode: 'string',
+      groupCode: 'string',
+      groupName: 'string',
+      lineCode: 'string',
+      lineName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLines extends $dara.Model {
+  line?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLinesLine[];
+  static names(): { [key: string]: string } {
+    return {
+      line: 'Line',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      line: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLinesLine },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.line)) {
+      $dara.Model.validateArray(this.line);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedDomainLines extends $dara.Model {
+  selectedDomainLine?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      selectedDomainLine: 'SelectedDomainLine',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      selectedDomainLine: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.selectedDomainLine)) {
+      $dara.Model.validateArray(this.selectedDomainLine);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv4Lines extends $dara.Model {
+  selectedIpv4Line?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      selectedIpv4Line: 'SelectedIpv4Line',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      selectedIpv4Line: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.selectedIpv4Line)) {
+      $dara.Model.validateArray(this.selectedIpv4Line);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6Lines extends $dara.Model {
+  selectedIpv6Line?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      selectedIpv6Line: 'SelectedIpv6Line',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      selectedIpv6Line: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.selectedIpv6Line)) {
+      $dara.Model.validateArray(this.selectedIpv6Line);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends $dara.Model {
   /**

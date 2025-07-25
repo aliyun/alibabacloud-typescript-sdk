@@ -1,8 +1,138 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AddDnsGtmAddressPoolRequestAddr } from "./AddDnsGtmAddressPoolRequestAddr";
-import { AddDnsGtmAddressPoolRequestIspCityNode } from "./AddDnsGtmAddressPoolRequestIspCityNode";
 
+
+export class AddDnsGtmAddressPoolRequestAddr extends $dara.Model {
+  /**
+   * @remarks
+   * The address in the address pool.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1.1.1.1
+   */
+  addr?: string;
+  /**
+   * @remarks
+   * The information about the source region of the address. The value of this parameter is a JSON string. Valid values:
+   * 
+   * *   lineCode: the line code of the source region for the address
+   * 
+   * *   lineCodeRectifyType: the rectification type of the line code. Default value: AUTO. Valid values:
+   * 
+   *     *   NO_NEED: no need for rectification
+   *     *   RECTIFIED: rectified
+   *     *   AUTO: automatic rectification
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  attributeInfo?: string;
+  /**
+   * @remarks
+   * The weight of the address.
+   * 
+   * @example
+   * 1
+   */
+  lbaWeight?: number;
+  /**
+   * @remarks
+   * The return mode of the addresses: Valid values:
+   * 
+   * *   SMART: smart return
+   * *   ONLINE: always online
+   * *   OFFLINE: always offline
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * online
+   */
+  mode?: string;
+  /**
+   * @remarks
+   * The description of the address pool.
+   * 
+   * @example
+   * test
+   */
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addr: 'Addr',
+      attributeInfo: 'AttributeInfo',
+      lbaWeight: 'LbaWeight',
+      mode: 'Mode',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addr: 'string',
+      attributeInfo: 'string',
+      lbaWeight: 'number',
+      mode: 'string',
+      remark: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDnsGtmAddressPoolRequestIspCityNode extends $dara.Model {
+  /**
+   * @remarks
+   * The city code.
+   * 
+   * Specify the parameter according to the value of CityCode returned by the DescribeGtmMonitorAvailableConfig operation.
+   * 
+   * @example
+   * 503
+   */
+  cityCode?: string;
+  /**
+   * @remarks
+   * *   The Internet service provider (ISP) node. Specify the parameter according to the value of IspCode returned by the DescribeGtmMonitorAvailableConfig operation.
+   * *   If the returned value of GroupType for the DescribeGtmMonitorAvailableConfig operation is BGP or Overseas, IspCode is not required and is set to 465 by default.
+   * *   If the returned value of GroupType for the DescribeGtmMonitorAvailableConfig operation is not BGP or Overseas, IspCode is required. When IspCode is specified, CityCode is required.
+   * 
+   * @example
+   * 465
+   */
+  ispCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'CityCode',
+      ispCode: 'IspCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      ispCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AddDnsGtmAddressPoolRequest extends $dara.Model {
   /**

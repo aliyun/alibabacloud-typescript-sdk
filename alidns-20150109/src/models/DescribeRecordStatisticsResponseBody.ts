@@ -1,7 +1,72 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeRecordStatisticsResponseBodyStatistics } from "./DescribeRecordStatisticsResponseBodyStatistics";
 
+
+export class DescribeRecordStatisticsResponseBodyStatisticsStatistic extends $dara.Model {
+  /**
+   * @remarks
+   * The number of DNS requests.
+   * 
+   * @example
+   * 15292887
+   */
+  count?: number;
+  /**
+   * @remarks
+   * The statistical timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1556640000000
+   */
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      timestamp: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRecordStatisticsResponseBodyStatistics extends $dara.Model {
+  statistic?: DescribeRecordStatisticsResponseBodyStatisticsStatistic[];
+  static names(): { [key: string]: string } {
+    return {
+      statistic: 'Statistic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      statistic: { 'type': 'array', 'itemType': DescribeRecordStatisticsResponseBodyStatisticsStatistic },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.statistic)) {
+      $dara.Model.validateArray(this.statistic);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeRecordStatisticsResponseBody extends $dara.Model {
   /**

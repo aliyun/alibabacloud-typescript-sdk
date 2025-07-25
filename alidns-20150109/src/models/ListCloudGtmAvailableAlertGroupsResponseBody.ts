@@ -1,7 +1,62 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroups } from "./ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroups";
 
+
+export class ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroupsAlertGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the alert contact group.
+   * 
+   * @example
+   * [\\"Default\\"]
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroups extends $dara.Model {
+  alertGroup?: ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroupsAlertGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      alertGroup: 'AlertGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertGroup: { 'type': 'array', 'itemType': ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroupsAlertGroup },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.alertGroup)) {
+      $dara.Model.validateArray(this.alertGroup);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListCloudGtmAvailableAlertGroupsResponseBody extends $dara.Model {
   /**
