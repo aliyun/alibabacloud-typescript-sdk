@@ -187,11 +187,13 @@ export class ScaleWithAdjustmentRequestOverrides extends $dara.Model {
    * 4
    */
   memory?: number;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       containerOverrides: 'ContainerOverrides',
       cpu: 'Cpu',
       memory: 'Memory',
+      userData: 'UserData',
     };
   }
 
@@ -200,6 +202,7 @@ export class ScaleWithAdjustmentRequestOverrides extends $dara.Model {
       containerOverrides: { 'type': 'array', 'itemType': ScaleWithAdjustmentRequestOverridesContainerOverrides },
       cpu: 'number',
       memory: 'number',
+      userData: 'string',
     };
   }
 
