@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetSecretValueResponseBodyVersionStages extends $dara.Model {
+  versionStage?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      versionStage: 'VersionStage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      versionStage: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.versionStage)) {
+      $dara.Model.validateArray(this.versionStage);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSecretValueResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -138,7 +164,7 @@ export class GetSecretValueResponseBody extends $dara.Model {
    * @remarks
    * The stage labels that mark the secret versions.
    */
-  versionStages?: string[];
+  versionStages?: GetSecretValueResponseBodyVersionStages;
   static names(): { [key: string]: string } {
     return {
       automaticRotation: 'AutomaticRotation',
@@ -171,13 +197,13 @@ export class GetSecretValueResponseBody extends $dara.Model {
       secretName: 'string',
       secretType: 'string',
       versionId: 'string',
-      versionStages: { 'type': 'array', 'itemType': 'string' },
+      versionStages: GetSecretValueResponseBodyVersionStages,
     };
   }
 
   validate() {
-    if(Array.isArray(this.versionStages)) {
-      $dara.Model.validateArray(this.versionStages);
+    if(this.versionStages && typeof (this.versionStages as any).validate === 'function') {
+      (this.versionStages as any).validate();
     }
     super.validate();
   }

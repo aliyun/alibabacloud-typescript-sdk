@@ -9,6 +9,7 @@ export { DescribeSecretResponseBodyTags } from './DescribeSecretResponseBody';
 export { GetKmsInstanceResponseBodyKmsInstanceBindVpcsBindVpc } from './GetKmsInstanceResponseBody';
 export { GetKmsInstanceResponseBodyKmsInstanceBindVpcs } from './GetKmsInstanceResponseBody';
 export { GetKmsInstanceResponseBodyKmsInstance } from './GetKmsInstanceResponseBody';
+export { GetSecretValueResponseBodyVersionStages } from './GetSecretValueResponseBody';
 export { ListAliasesResponseBodyAliasesAlias } from './ListAliasesResponseBody';
 export { ListAliasesResponseBodyAliases } from './ListAliasesResponseBody';
 export { ListAliasesByKeyIdResponseBodyAliasesAlias } from './ListAliasesByKeyIdResponseBody';
