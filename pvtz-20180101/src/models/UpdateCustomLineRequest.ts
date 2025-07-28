@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateCustomLineRequest extends $dara.Model {
+  dnsCategory?: string;
   /**
    * @remarks
    * The IPv4 CIDR blocks.
@@ -35,6 +36,7 @@ export class UpdateCustomLineRequest extends $dara.Model {
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      dnsCategory: 'DnsCategory',
       ipv4s: 'Ipv4s',
       lang: 'Lang',
       lineId: 'LineId',
@@ -44,6 +46,7 @@ export class UpdateCustomLineRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dnsCategory: 'string',
       ipv4s: { 'type': 'array', 'itemType': 'string' },
       lang: 'string',
       lineId: 'string',

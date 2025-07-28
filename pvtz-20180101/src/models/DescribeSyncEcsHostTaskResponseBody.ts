@@ -1,8 +1,124 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeSyncEcsHostTaskResponseBodyEcsRegions } from "./DescribeSyncEcsHostTaskResponseBodyEcsRegions";
-import { DescribeSyncEcsHostTaskResponseBodyRegions } from "./DescribeSyncEcsHostTaskResponseBodyRegions";
 
+
+export class DescribeSyncEcsHostTaskResponseBodyEcsRegionsEcsRegionRegionIds extends $dara.Model {
+  regionId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regionId)) {
+      $dara.Model.validateArray(this.regionId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyncEcsHostTaskResponseBodyEcsRegionsEcsRegion extends $dara.Model {
+  /**
+   * @remarks
+   * The synchronized region IDs.
+   */
+  regionIds?: DescribeSyncEcsHostTaskResponseBodyEcsRegionsEcsRegionRegionIds;
+  /**
+   * @remarks
+   * The user ID to which the region belongs. This parameter is used in cross-account synchronization scenarios.
+   * 
+   * @example
+   * 141339776561****
+   */
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      regionIds: 'RegionIds',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionIds: DescribeSyncEcsHostTaskResponseBodyEcsRegionsEcsRegionRegionIds,
+      userId: 'number',
+    };
+  }
+
+  validate() {
+    if(this.regionIds && typeof (this.regionIds as any).validate === 'function') {
+      (this.regionIds as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyncEcsHostTaskResponseBodyEcsRegions extends $dara.Model {
+  ecsRegion?: DescribeSyncEcsHostTaskResponseBodyEcsRegionsEcsRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      ecsRegion: 'EcsRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsRegion: { 'type': 'array', 'itemType': DescribeSyncEcsHostTaskResponseBodyEcsRegionsEcsRegion },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ecsRegion)) {
+      $dara.Model.validateArray(this.ecsRegion);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyncEcsHostTaskResponseBodyRegions extends $dara.Model {
+  regionId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regionId)) {
+      $dara.Model.validateArray(this.regionId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeSyncEcsHostTaskResponseBody extends $dara.Model {
   /**

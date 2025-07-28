@@ -1,7 +1,46 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { TagResourcesRequestTag } from "./TagResourcesRequestTag";
 
+
+export class TagResourcesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the resources.
+   * 
+   * @example
+   * env
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the resources.
+   * 
+   * @example
+   * daily
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class TagResourcesRequest extends $dara.Model {
   /**

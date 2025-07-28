@@ -1,9 +1,107 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AddResolverRuleRequestEdgeDnsClusters } from "./AddResolverRuleRequestEdgeDnsClusters";
-import { AddResolverRuleRequestForwardIp } from "./AddResolverRuleRequestForwardIp";
-import { AddResolverRuleRequestVpcs } from "./AddResolverRuleRequestVpcs";
 
+
+export class AddResolverRuleRequestEdgeDnsClusters extends $dara.Model {
+  clusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddResolverRuleRequestForwardIp extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address of the destination server.
+   * 
+   * >  The following CIDR blocks are reserved by the system: 100.100.2.136 to 100.100.2.138 and 100.100.2.116 to 100.100.2.118. You cannot specify the IP addresses within these CIDR blocks for the external DNS servers.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 172.16.XX.XX
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The port of the destination server.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8080
+   */
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      port: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddResolverRuleRequestVpcs extends $dara.Model {
+  regionId?: string;
+  vpcId?: string;
+  vpcType?: string;
+  vpcUserId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
+      vpcType: 'VpcType',
+      vpcUserId: 'VpcUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      vpcId: 'string',
+      vpcType: 'string',
+      vpcUserId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AddResolverRuleRequest extends $dara.Model {
   edgeDnsClusters?: AddResolverRuleRequestEdgeDnsClusters[];

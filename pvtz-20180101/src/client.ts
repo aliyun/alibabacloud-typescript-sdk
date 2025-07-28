@@ -2567,6 +2567,10 @@ export default class Client extends OpenApi {
   async updateCustomLineWithOptions(request: $_model.UpdateCustomLineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCustomLineResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.dnsCategory)) {
+      query["DnsCategory"] = request.dnsCategory;
+    }
+
     if (!$dara.isNull(request.ipv4s)) {
       query["Ipv4s"] = request.ipv4s;
     }

@@ -51,6 +51,7 @@ export class DescribeCustomLineInfoResponseBody extends $dara.Model {
    * USER
    */
   creatorType?: string;
+  dnscategory?: string;
   /**
    * @remarks
    * The IPv4 CIDR blocks.
@@ -100,6 +101,7 @@ export class DescribeCustomLineInfoResponseBody extends $dara.Model {
       creator: 'Creator',
       creatorSubType: 'CreatorSubType',
       creatorType: 'CreatorType',
+      dnscategory: 'Dnscategory',
       ipv4s: 'Ipv4s',
       lineId: 'LineId',
       name: 'Name',
@@ -116,6 +118,7 @@ export class DescribeCustomLineInfoResponseBody extends $dara.Model {
       creator: 'string',
       creatorSubType: 'string',
       creatorType: 'string',
+      dnscategory: 'string',
       ipv4s: { 'type': 'array', 'itemType': 'string' },
       lineId: 'string',
       name: 'string',
