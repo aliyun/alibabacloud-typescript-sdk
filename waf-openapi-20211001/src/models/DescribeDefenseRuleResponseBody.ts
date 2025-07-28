@@ -30,6 +30,7 @@ export class DescribeDefenseRuleResponseBodyRule extends $dara.Model {
    * waf_group
    */
   defenseScene?: string;
+  defenseType?: string;
   /**
    * @remarks
    * The most recent time when the protection rule was modified.
@@ -79,6 +80,7 @@ export class DescribeDefenseRuleResponseBodyRule extends $dara.Model {
       config: 'Config',
       defenseOrigin: 'DefenseOrigin',
       defenseScene: 'DefenseScene',
+      defenseType: 'DefenseType',
       gmtModified: 'GmtModified',
       resource: 'Resource',
       ruleId: 'RuleId',
@@ -93,6 +95,7 @@ export class DescribeDefenseRuleResponseBodyRule extends $dara.Model {
       config: 'string',
       defenseOrigin: 'string',
       defenseScene: 'string',
+      defenseType: 'string',
       gmtModified: 'number',
       resource: 'string',
       ruleId: 'number',

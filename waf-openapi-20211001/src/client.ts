@@ -10015,6 +10015,10 @@ export default class Client extends OpenApi {
   async modifyDefenseRuleStatusWithOptions(request: $_model.ModifyDefenseRuleStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDefenseRuleStatusResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.defenseType)) {
+      query["DefenseType"] = request.defenseType;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }

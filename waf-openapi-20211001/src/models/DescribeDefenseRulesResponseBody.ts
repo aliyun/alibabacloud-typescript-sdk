@@ -45,6 +45,7 @@ export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
    * waf_group
    */
   defenseScene?: string;
+  defenseType?: string;
   description?: string;
   detailRuleIds?: string;
   externalInfo?: string;
@@ -100,6 +101,7 @@ export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
       config: 'Config',
       defenseOrigin: 'DefenseOrigin',
       defenseScene: 'DefenseScene',
+      defenseType: 'DefenseType',
       description: 'Description',
       detailRuleIds: 'DetailRuleIds',
       externalInfo: 'ExternalInfo',
@@ -120,6 +122,7 @@ export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
       config: 'string',
       defenseOrigin: 'string',
       defenseScene: 'string',
+      defenseType: 'string',
       description: 'string',
       detailRuleIds: 'string',
       externalInfo: 'string',

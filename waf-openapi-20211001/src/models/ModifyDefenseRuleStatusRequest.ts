@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDefenseRuleStatusRequest extends $dara.Model {
+  defenseType?: string;
   /**
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
@@ -61,14 +62,13 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
    * @remarks
    * The ID of the protection rule template to which the protection rule whose status you want to change belongs.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 7239
    */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
+      defenseType: 'DefenseType',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
@@ -80,6 +80,7 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      defenseType: 'string',
       instanceId: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',

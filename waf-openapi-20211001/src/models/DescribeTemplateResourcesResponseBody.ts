@@ -18,6 +18,7 @@ export class DescribeTemplateResourcesResponseBody extends $dara.Model {
    * An array of protected objects or protected object groups that are associated to the protection rule template.
    */
   resources?: string[];
+  templateId?: number;
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25,6 +26,7 @@ export class DescribeTemplateResourcesResponseBody extends $dara.Model {
       nextToken: 'NextToken',
       requestId: 'RequestId',
       resources: 'Resources',
+      templateId: 'TemplateId',
       totalCount: 'TotalCount',
     };
   }
@@ -35,6 +37,7 @@ export class DescribeTemplateResourcesResponseBody extends $dara.Model {
       nextToken: 'string',
       requestId: 'string',
       resources: { 'type': 'array', 'itemType': 'string' },
+      templateId: 'number',
       totalCount: 'number',
     };
   }
