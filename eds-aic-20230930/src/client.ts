@@ -742,6 +742,10 @@ export default class Client extends OpenApi {
       query["UpBandwidthLimit"] = request.upBandwidthLimit;
     }
 
+    if (!$dara.isNull(request.useTemplate)) {
+      query["UseTemplate"] = request.useTemplate;
+    }
+
     if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }
@@ -1030,6 +1034,66 @@ export default class Client extends OpenApi {
   async createScreenshot(request: $_model.CreateScreenshotRequest): Promise<$_model.CreateScreenshotResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createScreenshotWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建系统属性模板
+   * 
+   * @param tmpReq - CreateSystemPropertyTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSystemPropertyTemplateResponse
+   */
+  async createSystemPropertyTemplateWithOptions(tmpReq: $_model.CreateSystemPropertyTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSystemPropertyTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateSystemPropertyTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.systemPropertyInfo)) {
+      request.systemPropertyInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.systemPropertyInfo, "SystemPropertyInfo", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.enableAuto)) {
+      query["EnableAuto"] = request.enableAuto;
+    }
+
+    if (!$dara.isNull(request.filePath)) {
+      query["FilePath"] = request.filePath;
+    }
+
+    if (!$dara.isNull(request.systemPropertyInfoShrink)) {
+      query["SystemPropertyInfo"] = request.systemPropertyInfoShrink;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSystemPropertyTemplate",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSystemPropertyTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateSystemPropertyTemplateResponse({}));
+  }
+
+  /**
+   * 创建系统属性模板
+   * 
+   * @param request - CreateSystemPropertyTemplateRequest
+   * @returns CreateSystemPropertyTemplateResponse
+   */
+  async createSystemPropertyTemplate(request: $_model.CreateSystemPropertyTemplateRequest): Promise<$_model.CreateSystemPropertyTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSystemPropertyTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -1358,6 +1422,48 @@ export default class Client extends OpenApi {
   async deletePolicyGroup(request: $_model.DeletePolicyGroupRequest): Promise<$_model.DeletePolicyGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePolicyGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除系统属性模板
+   * 
+   * @param request - DeleteSystemPropertyTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSystemPropertyTemplatesResponse
+   */
+  async deleteSystemPropertyTemplatesWithOptions(request: $_model.DeleteSystemPropertyTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSystemPropertyTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.templateIds)) {
+      query["TemplateIds"] = request.templateIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSystemPropertyTemplates",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSystemPropertyTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSystemPropertyTemplatesResponse({}));
+  }
+
+  /**
+   * 删除系统属性模板
+   * 
+   * @param request - DeleteSystemPropertyTemplatesRequest
+   * @returns DeleteSystemPropertyTemplatesResponse
+   */
+  async deleteSystemPropertyTemplates(request: $_model.DeleteSystemPropertyTemplatesRequest): Promise<$_model.DeleteSystemPropertyTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSystemPropertyTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -2201,6 +2307,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询系统属性模板
+   * 
+   * @param request - DescribeSystemPropertyTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSystemPropertyTemplatesResponse
+   */
+  async describeSystemPropertyTemplatesWithOptions(request: $_model.DescribeSystemPropertyTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSystemPropertyTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.templateIds)) {
+      query["TemplateIds"] = request.templateIds;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSystemPropertyTemplates",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSystemPropertyTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSystemPropertyTemplatesResponse({}));
+  }
+
+  /**
+   * 查询系统属性模板
+   * 
+   * @param request - DescribeSystemPropertyTemplatesRequest
+   * @returns DescribeSystemPropertyTemplatesResponse
+   */
+  async describeSystemPropertyTemplates(request: $_model.DescribeSystemPropertyTemplatesRequest): Promise<$_model.DescribeSystemPropertyTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSystemPropertyTemplatesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries tasks created for a cloud phone instance.
    * 
    * @remarks
@@ -2732,6 +2892,48 @@ export default class Client extends OpenApi {
   async generateCoordinationCode(request: $_model.GenerateCoordinationCodeRequest): Promise<$_model.GenerateCoordinationCodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.generateCoordinationCodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取属性模板信息
+   * 
+   * @param request - GetInstancePropertiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstancePropertiesResponse
+   */
+  async getInstancePropertiesWithOptions(request: $_model.GetInstancePropertiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstancePropertiesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceProperties",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstancePropertiesResponse>(await this.callApi(params, req, runtime), new $_model.GetInstancePropertiesResponse({}));
+  }
+
+  /**
+   * 获取属性模板信息
+   * 
+   * @param request - GetInstancePropertiesRequest
+   * @returns GetInstancePropertiesResponse
+   */
+  async getInstanceProperties(request: $_model.GetInstancePropertiesRequest): Promise<$_model.GetInstancePropertiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInstancePropertiesWithOptions(request, runtime);
   }
 
   /**
@@ -3365,6 +3567,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改属性模板
+   * 
+   * @param tmpReq - ModifySystemPropertyTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySystemPropertyTemplateResponse
+   */
+  async modifySystemPropertyTemplateWithOptions(tmpReq: $_model.ModifySystemPropertyTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySystemPropertyTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifySystemPropertyTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.systemPropertyInfo)) {
+      request.systemPropertyInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.systemPropertyInfo, "SystemPropertyInfo", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.enableAuto)) {
+      query["EnableAuto"] = request.enableAuto;
+    }
+
+    if (!$dara.isNull(request.filePath)) {
+      query["FilePath"] = request.filePath;
+    }
+
+    if (!$dara.isNull(request.systemPropertyInfoShrink)) {
+      query["SystemPropertyInfo"] = request.systemPropertyInfoShrink;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySystemPropertyTemplate",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySystemPropertyTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ModifySystemPropertyTemplateResponse({}));
+  }
+
+  /**
+   * 修改属性模板
+   * 
+   * @param request - ModifySystemPropertyTemplateRequest
+   * @returns ModifySystemPropertyTemplateResponse
+   */
+  async modifySystemPropertyTemplate(request: $_model.ModifySystemPropertyTemplateRequest): Promise<$_model.ModifySystemPropertyTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySystemPropertyTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Operates apps in a cloud phone, such as opening, closing, and reopening apps.
    * 
    * @remarks
@@ -3834,6 +4100,58 @@ export default class Client extends OpenApi {
   async sendFile(request: $_model.SendFileRequest): Promise<$_model.SendFileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.sendFileWithOptions(request, runtime);
+  }
+
+  /**
+   * 发送属性模板
+   * 
+   * @param request - SendSystemPropertyTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendSystemPropertyTemplateResponse
+   */
+  async sendSystemPropertyTemplateWithOptions(request: $_model.SendSystemPropertyTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendSystemPropertyTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateIds)) {
+      query["TemplateIds"] = request.templateIds;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.androidInstanceIds)) {
+      body["AndroidInstanceIds"] = request.androidInstanceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendSystemPropertyTemplate",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SendSystemPropertyTemplateResponse>(await this.callApi(params, req, runtime), new $_model.SendSystemPropertyTemplateResponse({}));
+  }
+
+  /**
+   * 发送属性模板
+   * 
+   * @param request - SendSystemPropertyTemplateRequest
+   * @returns SendSystemPropertyTemplateResponse
+   */
+  async sendSystemPropertyTemplate(request: $_model.SendSystemPropertyTemplateRequest): Promise<$_model.SendSystemPropertyTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.sendSystemPropertyTemplateWithOptions(request, runtime);
   }
 
   /**

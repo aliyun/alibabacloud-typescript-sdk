@@ -216,6 +216,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
    */
   tag?: CreateCloudPhoneNodeShrinkRequestTag[];
   upBandwidthLimit?: number;
+  useTemplate?: string;
   /**
    * @remarks
    * The vSwitch ID.
@@ -252,6 +253,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
       streamMode: 'StreamMode',
       tag: 'Tag',
       upBandwidthLimit: 'UpBandwidthLimit',
+      useTemplate: 'UseTemplate',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -284,6 +286,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
       streamMode: 'number',
       tag: { 'type': 'array', 'itemType': CreateCloudPhoneNodeShrinkRequestTag },
       upBandwidthLimit: 'number',
+      useTemplate: 'string',
       vSwitchId: 'string',
     };
   }
