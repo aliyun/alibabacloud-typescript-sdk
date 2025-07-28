@@ -1111,6 +1111,7 @@ export class RunInstancesRequestNetworkInterface extends $dara.Model {
 }
 
 export class RunInstancesRequestNetworkOptions extends $dara.Model {
+  bandwidthWeighting?: string;
   /**
    * @remarks
    * Specifies whether to enable the Jumbo Frames feature for the instance. Valid values:
@@ -1129,6 +1130,7 @@ export class RunInstancesRequestNetworkOptions extends $dara.Model {
   enableNetworkEncryption?: boolean;
   static names(): { [key: string]: string } {
     return {
+      bandwidthWeighting: 'BandwidthWeighting',
       enableJumboFrame: 'EnableJumboFrame',
       enableNetworkEncryption: 'EnableNetworkEncryption',
     };
@@ -1136,6 +1138,7 @@ export class RunInstancesRequestNetworkOptions extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bandwidthWeighting: 'string',
       enableJumboFrame: 'boolean',
       enableNetworkEncryption: 'boolean',
     };

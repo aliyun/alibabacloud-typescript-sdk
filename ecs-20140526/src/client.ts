@@ -2036,6 +2036,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!$dara.isNull(request.autoSnapshotPolicyId)) {
+      query["autoSnapshotPolicyId"] = request.autoSnapshotPolicyId;
+    }
+
     if (!$dara.isNull(request.diskIds)) {
       query["diskIds"] = request.diskIds;
     }
@@ -10656,6 +10660,80 @@ export default class Client extends OpenApi {
   async describeAutoProvisioningGroups(request: $_model.DescribeAutoProvisioningGroupsRequest): Promise<$_model.DescribeAutoProvisioningGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAutoProvisioningGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询自动快照策略的关联关系
+   * 
+   * @param request - DescribeAutoSnapshotPolicyAssociationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAutoSnapshotPolicyAssociationsResponse
+   */
+  async describeAutoSnapshotPolicyAssociationsWithOptions(request: $_model.DescribeAutoSnapshotPolicyAssociationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAutoSnapshotPolicyAssociationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoSnapshotPolicyId)) {
+      query["AutoSnapshotPolicyId"] = request.autoSnapshotPolicyId;
+    }
+
+    if (!$dara.isNull(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAutoSnapshotPolicyAssociations",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAutoSnapshotPolicyAssociationsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAutoSnapshotPolicyAssociationsResponse({}));
+  }
+
+  /**
+   * 查询自动快照策略的关联关系
+   * 
+   * @param request - DescribeAutoSnapshotPolicyAssociationsRequest
+   * @returns DescribeAutoSnapshotPolicyAssociationsResponse
+   */
+  async describeAutoSnapshotPolicyAssociations(request: $_model.DescribeAutoSnapshotPolicyAssociationsRequest): Promise<$_model.DescribeAutoSnapshotPolicyAssociationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAutoSnapshotPolicyAssociationsWithOptions(request, runtime);
   }
 
   /**
@@ -26505,6 +26583,64 @@ export default class Client extends OpenApi {
   async modifyInstanceMetadataOptions(request: $_model.ModifyInstanceMetadataOptionsRequest): Promise<$_model.ModifyInstanceMetadataOptionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyInstanceMetadataOptionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改实例网络选项
+   * 
+   * @param request - ModifyInstanceNetworkOptionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceNetworkOptionsResponse
+   */
+  async modifyInstanceNetworkOptionsWithOptions(request: $_model.ModifyInstanceNetworkOptionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceNetworkOptionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bandwidthWeighting)) {
+      query["BandwidthWeighting"] = request.bandwidthWeighting;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceNetworkOptions",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstanceNetworkOptionsResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceNetworkOptionsResponse({}));
+  }
+
+  /**
+   * 修改实例网络选项
+   * 
+   * @param request - ModifyInstanceNetworkOptionsRequest
+   * @returns ModifyInstanceNetworkOptionsResponse
+   */
+  async modifyInstanceNetworkOptions(request: $_model.ModifyInstanceNetworkOptionsRequest): Promise<$_model.ModifyInstanceNetworkOptionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInstanceNetworkOptionsWithOptions(request, runtime);
   }
 
   /**

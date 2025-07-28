@@ -134,10 +134,12 @@ export class DescribeInstanceAttributeResponseBodyInnerIpAddress extends $dara.M
 }
 
 export class DescribeInstanceAttributeResponseBodyNetworkOptions extends $dara.Model {
+  bandwidthWeighting?: string;
   enableJumboFrame?: boolean;
   enableNetworkEncryption?: boolean;
   static names(): { [key: string]: string } {
     return {
+      bandwidthWeighting: 'BandwidthWeighting',
       enableJumboFrame: 'EnableJumboFrame',
       enableNetworkEncryption: 'EnableNetworkEncryption',
     };
@@ -145,6 +147,7 @@ export class DescribeInstanceAttributeResponseBodyNetworkOptions extends $dara.M
 
   static types(): { [key: string]: any } {
     return {
+      bandwidthWeighting: 'string',
       enableJumboFrame: 'boolean',
       enableNetworkEncryption: 'boolean',
     };

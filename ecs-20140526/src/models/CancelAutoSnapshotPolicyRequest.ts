@@ -27,6 +27,7 @@ export class CancelAutoSnapshotPolicyRequest extends $dara.Model {
    * 155780923770
    */
   resourceOwnerId?: number;
+  autoSnapshotPolicyId?: string;
   /**
    * @remarks
    * The IDs of the disks for which you want to disable the automatic snapshot policy. To disable the automatic snapshot policy for multiple disks, you can set this parameter to a JSON array that consists of multiple disk IDs, such as ["dxxxxxxxxx", "dyyyyyyyyy", … "dzzzzzzzzz"]. Separate the disk IDs with commas (,).
@@ -52,6 +53,7 @@ export class CancelAutoSnapshotPolicyRequest extends $dara.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      autoSnapshotPolicyId: 'autoSnapshotPolicyId',
       diskIds: 'diskIds',
       regionId: 'regionId',
     };
@@ -62,6 +64,7 @@ export class CancelAutoSnapshotPolicyRequest extends $dara.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      autoSnapshotPolicyId: 'string',
       diskIds: 'string',
       regionId: 'string',
     };

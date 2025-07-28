@@ -155,6 +155,8 @@ export { DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoPro
 export { DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTargetCapacitySpecification } from './DescribeAutoProvisioningGroupsResponseBody';
 export { DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroup } from './DescribeAutoProvisioningGroupsResponseBody';
 export { DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroups } from './DescribeAutoProvisioningGroupsResponseBody';
+export { DescribeAutoSnapshotPolicyAssociationsResponseBodyAutoSnapshotPolicyAssociationsAutoSnapshotPolicyAssociation } from './DescribeAutoSnapshotPolicyAssociationsResponseBody';
+export { DescribeAutoSnapshotPolicyAssociationsResponseBodyAutoSnapshotPolicyAssociations } from './DescribeAutoSnapshotPolicyAssociationsResponseBody';
 export { DescribeAutoSnapshotPolicyExRequestTag } from './DescribeAutoSnapshotPolicyExRequest';
 export { DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyCopyEncryptionConfiguration } from './DescribeAutoSnapshotPolicyExResponseBody';
 export { DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTagsTag } from './DescribeAutoSnapshotPolicyExResponseBody';
@@ -1194,6 +1196,9 @@ export { DescribeAutoProvisioningGroupInstancesResponse } from './DescribeAutoPr
 export { DescribeAutoProvisioningGroupsRequest } from './DescribeAutoProvisioningGroupsRequest';
 export { DescribeAutoProvisioningGroupsResponseBody } from './DescribeAutoProvisioningGroupsResponseBody';
 export { DescribeAutoProvisioningGroupsResponse } from './DescribeAutoProvisioningGroupsResponse';
+export { DescribeAutoSnapshotPolicyAssociationsRequest } from './DescribeAutoSnapshotPolicyAssociationsRequest';
+export { DescribeAutoSnapshotPolicyAssociationsResponseBody } from './DescribeAutoSnapshotPolicyAssociationsResponseBody';
+export { DescribeAutoSnapshotPolicyAssociationsResponse } from './DescribeAutoSnapshotPolicyAssociationsResponse';
 export { DescribeAutoSnapshotPolicyExRequest } from './DescribeAutoSnapshotPolicyExRequest';
 export { DescribeAutoSnapshotPolicyExResponseBody } from './DescribeAutoSnapshotPolicyExResponseBody';
 export { DescribeAutoSnapshotPolicyExResponse } from './DescribeAutoSnapshotPolicyExResponse';
@@ -1715,6 +1720,9 @@ export { ModifyInstanceMaintenanceAttributesResponse } from './ModifyInstanceMai
 export { ModifyInstanceMetadataOptionsRequest } from './ModifyInstanceMetadataOptionsRequest';
 export { ModifyInstanceMetadataOptionsResponseBody } from './ModifyInstanceMetadataOptionsResponseBody';
 export { ModifyInstanceMetadataOptionsResponse } from './ModifyInstanceMetadataOptionsResponse';
+export { ModifyInstanceNetworkOptionsRequest } from './ModifyInstanceNetworkOptionsRequest';
+export { ModifyInstanceNetworkOptionsResponseBody } from './ModifyInstanceNetworkOptionsResponseBody';
+export { ModifyInstanceNetworkOptionsResponse } from './ModifyInstanceNetworkOptionsResponse';
 export { ModifyInstanceNetworkSpecRequest } from './ModifyInstanceNetworkSpecRequest';
 export { ModifyInstanceNetworkSpecResponseBody } from './ModifyInstanceNetworkSpecResponseBody';
 export { ModifyInstanceNetworkSpecResponse } from './ModifyInstanceNetworkSpecResponse';
