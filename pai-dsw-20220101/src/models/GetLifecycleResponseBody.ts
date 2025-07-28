@@ -53,6 +53,7 @@ export class GetLifecycleResponseBodyLifecycle extends $dara.Model {
    */
   gmtCreateTime?: string;
   gmtEndTime?: string;
+  lifecycleId?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
@@ -60,6 +61,7 @@ export class GetLifecycleResponseBodyLifecycle extends $dara.Model {
       reasonMessage: 'ReasonMessage',
       gmtCreateTime: 'GmtCreateTime',
       gmtEndTime: 'GmtEndTime',
+      lifecycleId: 'LifecycleId',
     };
   }
 
@@ -70,6 +72,7 @@ export class GetLifecycleResponseBodyLifecycle extends $dara.Model {
       reasonMessage: 'string',
       gmtCreateTime: 'string',
       gmtEndTime: 'string',
+      lifecycleId: 'string',
     };
   }
 
