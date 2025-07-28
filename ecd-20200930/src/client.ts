@@ -8047,6 +8047,10 @@ export default class Client extends OpenApi {
       query["ImageId"] = request.imageId;
     }
 
+    if (!$dara.isNull(request.includeAutoSnapshotPolicy)) {
+      query["IncludeAutoSnapshotPolicy"] = request.includeAutoSnapshotPolicy;
+    }
+
     if (!$dara.isNull(request.managementFlag)) {
       query["ManagementFlag"] = request.managementFlag;
     }

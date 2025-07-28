@@ -188,6 +188,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
    * The IDs of the images.
    */
   imageId?: string[];
+  includeAutoSnapshotPolicy?: boolean;
   /**
    * @remarks
    * The flag that is used to manage the cloud desktops.
@@ -387,6 +388,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
       gpuInstanceGroupId: 'GpuInstanceGroupId',
       groupId: 'GroupId',
       imageId: 'ImageId',
+      includeAutoSnapshotPolicy: 'IncludeAutoSnapshotPolicy',
       managementFlag: 'ManagementFlag',
       maxResults: 'MaxResults',
       multiResource: 'MultiResource',
@@ -428,6 +430,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
       gpuInstanceGroupId: 'string',
       groupId: 'string',
       imageId: { 'type': 'array', 'itemType': 'string' },
+      includeAutoSnapshotPolicy: 'boolean',
       managementFlag: 'string',
       maxResults: 'number',
       multiResource: 'boolean',
