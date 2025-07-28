@@ -1982,6 +1982,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取发信的黑名单列表
+   * 
+   * @param request - ListBlockSendingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBlockSendingResponse
+   */
+  async listBlockSendingWithOptions(request: $_model.ListBlockSendingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBlockSendingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!$dara.isNull(request.blockEmail)) {
+      query["BlockEmail"] = request.blockEmail;
+    }
+
+    if (!$dara.isNull(request.blockType)) {
+      query["BlockType"] = request.blockType;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.senderEmail)) {
+      query["SenderEmail"] = request.senderEmail;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBlockSending",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBlockSendingResponse>(await this.callApi(params, req, runtime), new $_model.ListBlockSendingResponse({}));
+  }
+
+  /**
+   * 获取发信的黑名单列表
+   * 
+   * @param request - ListBlockSendingRequest
+   * @returns ListBlockSendingResponse
+   */
+  async listBlockSending(request: $_model.ListBlockSendingRequest): Promise<$_model.ListBlockSendingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBlockSendingWithOptions(request, runtime);
+  }
+
+  /**
    * List User Invalid Addresses.
    * 
    * @param request - ListUserSuppressionRequest

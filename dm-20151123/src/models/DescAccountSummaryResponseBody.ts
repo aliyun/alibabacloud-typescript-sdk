@@ -44,6 +44,11 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
    */
   enableTimes?: number;
   /**
+   * **if can be null:**
+   * true
+   */
+  ipChannelType?: string;
+  /**
    * @remarks
    * Number of sending addresses
    * 
@@ -158,6 +163,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
       dayuStatus: 'DayuStatus',
       domains: 'Domains',
       enableTimes: 'EnableTimes',
+      ipChannelType: 'IpChannelType',
       mailAddresses: 'MailAddresses',
       maxQuotaLevel: 'MaxQuotaLevel',
       monthQuota: 'MonthQuota',
@@ -181,6 +187,7 @@ export class DescAccountSummaryResponseBody extends $dara.Model {
       dayuStatus: 'number',
       domains: 'number',
       enableTimes: 'number',
+      ipChannelType: 'string',
       mailAddresses: 'number',
       maxQuotaLevel: 'number',
       monthQuota: 'number',

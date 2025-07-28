@@ -10,6 +10,7 @@ export { GetTrackListResponseBodyData } from './GetTrackListResponseBody';
 export { GetTrackListByMailFromAndTagNameResponseBodyTrackListStat } from './GetTrackListByMailFromAndTagNameResponseBody';
 export { GetTrackListByMailFromAndTagNameResponseBodyTrackList } from './GetTrackListByMailFromAndTagNameResponseBody';
 export { GetUserResponseBodyData } from './GetUserResponseBody';
+export { ListBlockSendingResponseBodyData } from './ListBlockSendingResponseBody';
 export { ListUserSuppressionResponseBodyDataUserSuppressions } from './ListUserSuppressionResponseBody';
 export { ListUserSuppressionResponseBodyData } from './ListUserSuppressionResponseBody';
 export { QueryDomainByParamResponseBodyDataDomain } from './QueryDomainByParamResponseBody';
@@ -135,6 +136,9 @@ export { GetTrackListByMailFromAndTagNameResponseBody } from './GetTrackListByMa
 export { GetTrackListByMailFromAndTagNameResponse } from './GetTrackListByMailFromAndTagNameResponse';
 export { GetUserResponseBody } from './GetUserResponseBody';
 export { GetUserResponse } from './GetUserResponse';
+export { ListBlockSendingRequest } from './ListBlockSendingRequest';
+export { ListBlockSendingResponseBody } from './ListBlockSendingResponseBody';
+export { ListBlockSendingResponse } from './ListBlockSendingResponse';
 export { ListUserSuppressionRequest } from './ListUserSuppressionRequest';
 export { ListUserSuppressionResponseBody } from './ListUserSuppressionResponseBody';
 export { ListUserSuppressionResponse } from './ListUserSuppressionResponse';
