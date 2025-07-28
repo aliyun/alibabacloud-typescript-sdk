@@ -1175,6 +1175,59 @@ export default class Client extends OpenApi {
   /**
    * 查看数据库列表
    * 
+   * @param request - ListDatabaseDetailsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatabaseDetailsResponse
+   */
+  async listDatabaseDetailsWithOptions(catalogId: string, request: $_model.ListDatabaseDetailsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatabaseDetailsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.databaseNamePattern)) {
+      query["databaseNamePattern"] = request.databaseNamePattern;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDatabaseDetails",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/database-details`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDatabaseDetailsResponse>(await this.callApi(params, req, runtime), new $_model.ListDatabaseDetailsResponse({}));
+  }
+
+  /**
+   * 查看数据库列表
+   * 
+   * @param request - ListDatabaseDetailsRequest
+   * @returns ListDatabaseDetailsResponse
+   */
+  async listDatabaseDetails(catalogId: string, request: $_model.ListDatabaseDetailsRequest): Promise<$_model.ListDatabaseDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDatabaseDetailsWithOptions(catalogId, request, headers, runtime);
+  }
+
+  /**
+   * 查看数据库列表
+   * 
    * @param request - ListDatabasesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
