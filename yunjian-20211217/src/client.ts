@@ -574,6 +574,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 报备列表查询
+   * 
+   * @param request - PageDemandPlanWithDemandInfoRequest
+   * @param headers - PageDemandPlanWithDemandInfoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PageDemandPlanWithDemandInfoResponse
+   */
+  async pageDemandPlanWithDemandInfoWithOptions(request: $_model.PageDemandPlanWithDemandInfoRequest, headers: $_model.PageDemandPlanWithDemandInfoHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.PageDemandPlanWithDemandInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.approvalStatus)) {
+      body["approvalStatus"] = request.approvalStatus;
+    }
+
+    if (!$dara.isNull(request.createTimeEnd)) {
+      body["createTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!$dara.isNull(request.createTimeStart)) {
+      body["createTimeStart"] = request.createTimeStart;
+    }
+
+    if (!$dara.isNull(request.creatorStaffId)) {
+      body["creatorStaffId"] = request.creatorStaffId;
+    }
+
+    if (!$dara.isNull(request.demandDeliveryStatus)) {
+      body["demandDeliveryStatus"] = request.demandDeliveryStatus;
+    }
+
+    if (!$dara.isNull(request.demandId)) {
+      body["demandId"] = request.demandId;
+    }
+
+    if (!$dara.isNull(request.demandPlanId)) {
+      body["demandPlanId"] = request.demandPlanId;
+    }
+
+    if (!$dara.isNull(request.demandPlanStatus)) {
+      body["demandPlanStatus"] = request.demandPlanStatus;
+    }
+
+    if (!$dara.isNull(request.operator)) {
+      body["operator"] = request.operator;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      body["pageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.roCode)) {
+      body["roCode"] = request.roCode;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.yunUserId)) {
+      realHeaders["Yun-User-Id"] = String(headers.yunUserId);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PageDemandPlanWithDemandInfo",
+      version: "2021-12-17",
+      protocol: "HTTPS",
+      pathname: `/api/demand/getDemandPlanList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PageDemandPlanWithDemandInfoResponse>(await this.callApi(params, req, runtime), new $_model.PageDemandPlanWithDemandInfoResponse({}));
+  }
+
+  /**
+   * 报备列表查询
+   * 
+   * @param request - PageDemandPlanWithDemandInfoRequest
+   * @returns PageDemandPlanWithDemandInfoResponse
+   */
+  async pageDemandPlanWithDemandInfo(request: $_model.PageDemandPlanWithDemandInfoRequest): Promise<$_model.PageDemandPlanWithDemandInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.PageDemandPlanWithDemandInfoHeaders({ });
+    return await this.pageDemandPlanWithDemandInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
    * ecs资源方案
    * 
    * @param request - PushResourcePlanRequest

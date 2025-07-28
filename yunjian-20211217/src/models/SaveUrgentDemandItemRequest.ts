@@ -1,8 +1,116 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SaveUrgentDemandItemRequestUrgentDemandEbsRequest } from "./SaveUrgentDemandItemRequestUrgentDemandEbsRequest";
-import { SaveUrgentDemandItemRequestUrgentDemandEcsRequest } from "./SaveUrgentDemandItemRequestUrgentDemandEcsRequest";
 
+
+export class SaveUrgentDemandItemRequestUrgentDemandEbsRequest extends $dara.Model {
+  /**
+   * @example
+   * cloud_essd
+   */
+  commodityCode?: string;
+  /**
+   * @example
+   * 1
+   */
+  commodityNum?: number;
+  /**
+   * @example
+   * yundisk
+   */
+  commodityTypeCode?: string;
+  /**
+   * @example
+   * 111222
+   */
+  itemId?: number;
+  /**
+   * @example
+   * 1
+   */
+  performanceLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'commodityCode',
+      commodityNum: 'commodityNum',
+      commodityTypeCode: 'commodityTypeCode',
+      itemId: 'itemId',
+      performanceLevel: 'performanceLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      commodityNum: 'number',
+      commodityTypeCode: 'string',
+      itemId: 'number',
+      performanceLevel: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveUrgentDemandItemRequestUrgentDemandEcsRequest extends $dara.Model {
+  /**
+   * @example
+   * ecs.sn2ne.6xlarge
+   */
+  commodityCode?: string;
+  /**
+   * @example
+   * 2
+   */
+  commodityNum?: number;
+  /**
+   * @example
+   * ecs
+   */
+  commodityTypeCode?: string;
+  /**
+   * @example
+   * 111222
+   */
+  itemId?: number;
+  /**
+   * @example
+   * 2
+   */
+  vCpuCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'commodityCode',
+      commodityNum: 'commodityNum',
+      commodityTypeCode: 'commodityTypeCode',
+      itemId: 'itemId',
+      vCpuCount: 'vCpuCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      commodityNum: 'number',
+      commodityTypeCode: 'string',
+      itemId: 'number',
+      vCpuCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SaveUrgentDemandItemRequest extends $dara.Model {
   /**
