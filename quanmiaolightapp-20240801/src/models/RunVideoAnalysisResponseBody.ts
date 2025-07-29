@@ -626,6 +626,102 @@ export class RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateRe
   }
 }
 
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals extends $dara.Model {
+  endTime?: number;
+  startTime?: number;
+  timestamp?: number;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      startTime: 'startTime',
+      timestamp: 'timestamp',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+      timestamp: 'number',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRoles extends $dara.Model {
+  isAutoRecognition?: boolean;
+  ratio?: number;
+  roleInfo?: string;
+  roleName?: string;
+  timeIntervals?: RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals[];
+  static names(): { [key: string]: string } {
+    return {
+      isAutoRecognition: 'isAutoRecognition',
+      ratio: 'ratio',
+      roleInfo: 'roleInfo',
+      roleName: 'roleName',
+      timeIntervals: 'timeIntervals',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isAutoRecognition: 'boolean',
+      ratio: 'number',
+      roleInfo: 'string',
+      roleName: 'string',
+      timeIntervals: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.timeIntervals)) {
+      $dara.Model.validateArray(this.timeIntervals);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResult extends $dara.Model {
+  videoRoles?: RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRoles[];
+  static names(): { [key: string]: string } {
+    return {
+      videoRoles: 'videoRoles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoRoles: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRoles },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.videoRoles)) {
+      $dara.Model.validateArray(this.videoRoles);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResultVideoShotsVideoSnapshots extends $dara.Model {
   url?: string;
   static names(): { [key: string]: string } {
@@ -811,6 +907,7 @@ export class RunVideoAnalysisResponseBodyPayloadOutput extends $dara.Model {
   videoGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult;
   videoGenerateResults?: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResults[];
   videoMindMappingGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult;
+  videoRoleRecognitionResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResult;
   videoShotSnapshotResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResult;
   videoTitleGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult;
   static names(): { [key: string]: string } {
@@ -821,6 +918,7 @@ export class RunVideoAnalysisResponseBodyPayloadOutput extends $dara.Model {
       videoGenerateResult: 'videoGenerateResult',
       videoGenerateResults: 'videoGenerateResults',
       videoMindMappingGenerateResult: 'videoMindMappingGenerateResult',
+      videoRoleRecognitionResult: 'videoRoleRecognitionResult',
       videoShotSnapshotResult: 'videoShotSnapshotResult',
       videoTitleGenerateResult: 'videoTitleGenerateResult',
     };
@@ -834,6 +932,7 @@ export class RunVideoAnalysisResponseBodyPayloadOutput extends $dara.Model {
       videoGenerateResult: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult,
       videoGenerateResults: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResults },
       videoMindMappingGenerateResult: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult,
+      videoRoleRecognitionResult: RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResult,
       videoShotSnapshotResult: RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResult,
       videoTitleGenerateResult: RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult,
     };
@@ -854,6 +953,9 @@ export class RunVideoAnalysisResponseBodyPayloadOutput extends $dara.Model {
     }
     if(this.videoMindMappingGenerateResult && typeof (this.videoMindMappingGenerateResult as any).validate === 'function') {
       (this.videoMindMappingGenerateResult as any).validate();
+    }
+    if(this.videoRoleRecognitionResult && typeof (this.videoRoleRecognitionResult as any).validate === 'function') {
+      (this.videoRoleRecognitionResult as any).validate();
     }
     if(this.videoShotSnapshotResult && typeof (this.videoShotSnapshotResult as any).validate === 'function') {
       (this.videoShotSnapshotResult as any).validate();

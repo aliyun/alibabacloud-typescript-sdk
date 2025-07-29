@@ -153,27 +153,62 @@ export class SubmitVideoAnalysisTaskRequestVideoCaptionInfo extends $dara.Model 
   }
 }
 
+export class SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals extends $dara.Model {
+  endTime?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitVideoAnalysisTaskRequestVideoRoles extends $dara.Model {
+  isAutoRecognition?: boolean;
   roleInfo?: string;
   roleName?: string;
+  timeIntervals?: SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals[];
   urls?: string[];
   static names(): { [key: string]: string } {
     return {
+      isAutoRecognition: 'isAutoRecognition',
       roleInfo: 'roleInfo',
       roleName: 'roleName',
+      timeIntervals: 'timeIntervals',
       urls: 'urls',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      isAutoRecognition: 'boolean',
       roleInfo: 'string',
       roleName: 'string',
+      timeIntervals: { 'type': 'array', 'itemType': SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals },
       urls: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.timeIntervals)) {
+      $dara.Model.validateArray(this.timeIntervals);
+    }
     if(Array.isArray(this.urls)) {
       $dara.Model.validateArray(this.urls);
     }
@@ -186,6 +221,7 @@ export class SubmitVideoAnalysisTaskRequestVideoRoles extends $dara.Model {
 }
 
 export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
+  autoRoleRecognitionVideoUrl?: string;
   /**
    * @example
    * 1
@@ -242,6 +278,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      autoRoleRecognitionVideoUrl: 'autoRoleRecognitionVideoUrl',
       deduplicationId: 'deduplicationId',
       excludeGenerateOptions: 'excludeGenerateOptions',
       faceIdentitySimilarityMinScore: 'faceIdentitySimilarityMinScore',
@@ -266,6 +303,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoRoleRecognitionVideoUrl: 'string',
       deduplicationId: 'string',
       excludeGenerateOptions: { 'type': 'array', 'itemType': 'string' },
       faceIdentitySimilarityMinScore: 'number',

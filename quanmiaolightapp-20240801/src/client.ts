@@ -1624,6 +1624,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoRoleRecognitionVideoUrl)) {
+      body["autoRoleRecognitionVideoUrl"] = request.autoRoleRecognitionVideoUrl;
+    }
+
     if (!$dara.isNull(request.excludeGenerateOptionsShrink)) {
       body["excludeGenerateOptions"] = request.excludeGenerateOptionsShrink;
     }
@@ -2032,6 +2036,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoRoleRecognitionVideoUrl)) {
+      body["autoRoleRecognitionVideoUrl"] = request.autoRoleRecognitionVideoUrl;
+    }
+
     if (!$dara.isNull(request.deduplicationId)) {
       body["deduplicationId"] = request.deduplicationId;
     }

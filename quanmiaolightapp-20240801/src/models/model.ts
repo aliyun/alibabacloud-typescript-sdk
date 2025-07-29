@@ -35,6 +35,9 @@ export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenera
 export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodes } from './GetVideoAnalysisTaskResponseBody';
 export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResultVideoMindMappings } from './GetVideoAnalysisTaskResponseBody';
 export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResult } from './GetVideoAnalysisTaskResponseBody';
+export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals } from './GetVideoAnalysisTaskResponseBody';
+export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResultVideoRoles } from './GetVideoAnalysisTaskResponseBody';
+export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoRoleRecognitionResult } from './GetVideoAnalysisTaskResponseBody';
 export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResultUsage } from './GetVideoAnalysisTaskResponseBody';
 export { GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResult } from './GetVideoAnalysisTaskResponseBody';
 export { GetVideoAnalysisTaskResponseBodyDataPayloadOutput } from './GetVideoAnalysisTaskResponseBody';
@@ -126,6 +129,7 @@ export { RunVideoAnalysisRequestFrameSampleMethod } from './RunVideoAnalysisRequ
 export { RunVideoAnalysisRequestTextProcessTasks } from './RunVideoAnalysisRequest';
 export { RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions } from './RunVideoAnalysisRequest';
 export { RunVideoAnalysisRequestVideoCaptionInfo } from './RunVideoAnalysisRequest';
+export { RunVideoAnalysisRequestVideoRolesTimeIntervals } from './RunVideoAnalysisRequest';
 export { RunVideoAnalysisRequestVideoRoles } from './RunVideoAnalysisRequest';
 export { RunVideoAnalysisResponseBodyHeader } from './RunVideoAnalysisResponseBody';
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultUsage } from './RunVideoAnalysisResponseBody';
@@ -142,6 +146,9 @@ export { RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappingsChildNodes } from './RunVideoAnalysisResponseBody';
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResultVideoMindMappings } from './RunVideoAnalysisResponseBody';
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult } from './RunVideoAnalysisResponseBody';
+export { RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRolesTimeIntervals } from './RunVideoAnalysisResponseBody';
+export { RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResultVideoRoles } from './RunVideoAnalysisResponseBody';
+export { RunVideoAnalysisResponseBodyPayloadOutputVideoRoleRecognitionResult } from './RunVideoAnalysisResponseBody';
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResultVideoShotsVideoSnapshots } from './RunVideoAnalysisResponseBody';
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResultVideoShots } from './RunVideoAnalysisResponseBody';
 export { RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResult } from './RunVideoAnalysisResponseBody';
@@ -162,6 +169,7 @@ export { SubmitVideoAnalysisTaskRequestFrameSampleMethod } from './SubmitVideoAn
 export { SubmitVideoAnalysisTaskRequestTextProcessTasks } from './SubmitVideoAnalysisTaskRequest';
 export { SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions } from './SubmitVideoAnalysisTaskRequest';
 export { SubmitVideoAnalysisTaskRequestVideoCaptionInfo } from './SubmitVideoAnalysisTaskRequest';
+export { SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals } from './SubmitVideoAnalysisTaskRequest';
 export { SubmitVideoAnalysisTaskRequestVideoRoles } from './SubmitVideoAnalysisTaskRequest';
 export { SubmitVideoAnalysisTaskResponseBodyData } from './SubmitVideoAnalysisTaskResponseBody';
 export { UpdateVideoAnalysisTaskResponseBodyData } from './UpdateVideoAnalysisTaskResponseBody';
