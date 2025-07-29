@@ -112,6 +112,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dependencyPolicy)) {
+      request.dependencyPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dependencyPolicy, "DependencyPolicy", "json");
+    }
+
     if (!$dara.isNull(tmpReq.deploymentPolicy)) {
       request.deploymentPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deploymentPolicy, "DeploymentPolicy", "json");
     }
@@ -125,6 +129,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.dependencyPolicyShrink)) {
+      query["DependencyPolicy"] = request.dependencyPolicyShrink;
+    }
+
     if (!$dara.isNull(request.deploymentPolicyShrink)) {
       query["DeploymentPolicy"] = request.deploymentPolicyShrink;
     }

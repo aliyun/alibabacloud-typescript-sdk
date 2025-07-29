@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateJobShrinkRequest extends $dara.Model {
+  dependencyPolicyShrink?: string;
   deploymentPolicyShrink?: string;
   /**
    * @example
@@ -26,6 +27,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
   tasksShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      dependencyPolicyShrink: 'DependencyPolicy',
       deploymentPolicyShrink: 'DeploymentPolicy',
       jobDescription: 'JobDescription',
       jobName: 'JobName',
@@ -37,6 +39,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dependencyPolicyShrink: 'string',
       deploymentPolicyShrink: 'string',
       jobDescription: 'string',
       jobName: 'string',

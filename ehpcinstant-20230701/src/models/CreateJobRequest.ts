@@ -2,6 +2,62 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateJobRequestDependencyPolicyJobDependency extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  jobId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobRequestDependencyPolicy extends $dara.Model {
+  jobDependency?: CreateJobRequestDependencyPolicyJobDependency[];
+  static names(): { [key: string]: string } {
+    return {
+      jobDependency: 'JobDependency',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobDependency: { 'type': 'array', 'itemType': CreateJobRequestDependencyPolicyJobDependency },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.jobDependency)) {
+      $dara.Model.validateArray(this.jobDependency);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateJobRequestDeploymentPolicyNetwork extends $dara.Model {
   enableExternalIpAddress?: boolean;
   vswitch?: string[];
@@ -315,6 +371,69 @@ export class CreateJobRequestTasksTaskSpecResource extends $dara.Model {
   }
 }
 
+export class CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  action?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  exitCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      exitCode: 'ExitCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      exitCode: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobRequestTasksTaskSpecRetryPolicy extends $dara.Model {
+  exitCodeActions?: CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions[];
+  retryCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      exitCodeActions: 'ExitCodeActions',
+      retryCount: 'RetryCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exitCodeActions: { 'type': 'array', 'itemType': CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions },
+      retryCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.exitCodeActions)) {
+      $dara.Model.validateArray(this.exitCodeActions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars extends $dara.Model {
   /**
    * @example
@@ -535,6 +654,7 @@ export class CreateJobRequestTasksTaskSpecVolumeMount extends $dara.Model {
 
 export class CreateJobRequestTasksTaskSpec extends $dara.Model {
   resource?: CreateJobRequestTasksTaskSpecResource;
+  retryPolicy?: CreateJobRequestTasksTaskSpecRetryPolicy;
   /**
    * @remarks
    * This parameter is required.
@@ -544,6 +664,7 @@ export class CreateJobRequestTasksTaskSpec extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       resource: 'Resource',
+      retryPolicy: 'RetryPolicy',
       taskExecutor: 'TaskExecutor',
       volumeMount: 'VolumeMount',
     };
@@ -552,6 +673,7 @@ export class CreateJobRequestTasksTaskSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       resource: CreateJobRequestTasksTaskSpecResource,
+      retryPolicy: CreateJobRequestTasksTaskSpecRetryPolicy,
       taskExecutor: { 'type': 'array', 'itemType': CreateJobRequestTasksTaskSpecTaskExecutor },
       volumeMount: { 'type': 'array', 'itemType': CreateJobRequestTasksTaskSpecVolumeMount },
     };
@@ -560,6 +682,9 @@ export class CreateJobRequestTasksTaskSpec extends $dara.Model {
   validate() {
     if(this.resource && typeof (this.resource as any).validate === 'function') {
       (this.resource as any).validate();
+    }
+    if(this.retryPolicy && typeof (this.retryPolicy as any).validate === 'function') {
+      (this.retryPolicy as any).validate();
     }
     if(Array.isArray(this.taskExecutor)) {
       $dara.Model.validateArray(this.taskExecutor);
@@ -622,6 +747,7 @@ export class CreateJobRequestTasks extends $dara.Model {
 }
 
 export class CreateJobRequest extends $dara.Model {
+  dependencyPolicy?: CreateJobRequestDependencyPolicy;
   deploymentPolicy?: CreateJobRequestDeploymentPolicy;
   /**
    * @example
@@ -645,6 +771,7 @@ export class CreateJobRequest extends $dara.Model {
   tasks?: CreateJobRequestTasks[];
   static names(): { [key: string]: string } {
     return {
+      dependencyPolicy: 'DependencyPolicy',
       deploymentPolicy: 'DeploymentPolicy',
       jobDescription: 'JobDescription',
       jobName: 'JobName',
@@ -656,6 +783,7 @@ export class CreateJobRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dependencyPolicy: CreateJobRequestDependencyPolicy,
       deploymentPolicy: CreateJobRequestDeploymentPolicy,
       jobDescription: 'string',
       jobName: 'string',
@@ -666,6 +794,9 @@ export class CreateJobRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.dependencyPolicy && typeof (this.dependencyPolicy as any).validate === 'function') {
+      (this.dependencyPolicy as any).validate();
+    }
     if(this.deploymentPolicy && typeof (this.deploymentPolicy as any).validate === 'function') {
       (this.deploymentPolicy as any).validate();
     }

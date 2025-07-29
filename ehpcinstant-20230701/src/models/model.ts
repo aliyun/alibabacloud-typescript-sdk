@@ -1,6 +1,8 @@
 export { AddImageRequestContainerImageSpecRegistryCredential } from './AddImageRequest';
 export { AddImageRequestContainerImageSpec } from './AddImageRequest';
 export { AddImageRequestVMImageSpec } from './AddImageRequest';
+export { CreateJobRequestDependencyPolicyJobDependency } from './CreateJobRequest';
+export { CreateJobRequestDependencyPolicy } from './CreateJobRequest';
 export { CreateJobRequestDeploymentPolicyNetwork } from './CreateJobRequest';
 export { CreateJobRequestDeploymentPolicyTag } from './CreateJobRequest';
 export { CreateJobRequestDeploymentPolicy } from './CreateJobRequest';
@@ -10,6 +12,8 @@ export { CreateJobRequestTasksExecutorPolicyArraySpec } from './CreateJobRequest
 export { CreateJobRequestTasksExecutorPolicy } from './CreateJobRequest';
 export { CreateJobRequestTasksTaskSpecResourceDisks } from './CreateJobRequest';
 export { CreateJobRequestTasksTaskSpecResource } from './CreateJobRequest';
+export { CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions } from './CreateJobRequest';
+export { CreateJobRequestTasksTaskSpecRetryPolicy } from './CreateJobRequest';
 export { CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars } from './CreateJobRequest';
 export { CreateJobRequestTasksTaskSpecTaskExecutorContainer } from './CreateJobRequest';
 export { CreateJobRequestTasksTaskSpecTaskExecutorVM } from './CreateJobRequest';
@@ -29,6 +33,8 @@ export { GetImageResponseBodyImageContainerImageSpec } from './GetImageResponseB
 export { GetImageResponseBodyImageDocumentInfo } from './GetImageResponseBody';
 export { GetImageResponseBodyImageVMImageSpec } from './GetImageResponseBody';
 export { GetImageResponseBodyImage } from './GetImageResponseBody';
+export { GetJobResponseBodyJobInfoDependencyPolicyJobDependency } from './GetJobResponseBody';
+export { GetJobResponseBodyJobInfoDependencyPolicy } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoDeploymentPolicyNetwork } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoDeploymentPolicyTags } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoDeploymentPolicy } from './GetJobResponseBody';
@@ -37,6 +43,8 @@ export { GetJobResponseBodyJobInfoTasksExecutorPolicy } from './GetJobResponseBo
 export { GetJobResponseBodyJobInfoTasksExecutorStatus } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoTasksTaskSpecResource } from './GetJobResponseBody';
+export { GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions } from './GetJobResponseBody';
+export { GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor } from './GetJobResponseBody';
 export { GetJobResponseBodyJobInfoTasksTaskSpec } from './GetJobResponseBody';

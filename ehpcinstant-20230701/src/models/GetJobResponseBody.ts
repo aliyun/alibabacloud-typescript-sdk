@@ -2,6 +2,58 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetJobResponseBodyJobInfoDependencyPolicyJobDependency extends $dara.Model {
+  jobId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyJobInfoDependencyPolicy extends $dara.Model {
+  jobDependency?: GetJobResponseBodyJobInfoDependencyPolicyJobDependency[];
+  static names(): { [key: string]: string } {
+    return {
+      jobDependency: 'JobDependency',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobDependency: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoDependencyPolicyJobDependency },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.jobDependency)) {
+      $dara.Model.validateArray(this.jobDependency);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJobResponseBodyJobInfoDeploymentPolicyNetwork extends $dara.Model {
   enableENIMapping?: boolean;
   enableExternalIpAddress?: boolean;
@@ -318,6 +370,61 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $dara.Model 
   }
 }
 
+export class GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions extends $dara.Model {
+  action?: string;
+  exitCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      exitCode: 'ExitCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      exitCode: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy extends $dara.Model {
+  exitCodeActions?: GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions[];
+  retryCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      exitCodeActions: 'ExitCodeActions',
+      retryCount: 'RetryCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exitCodeActions: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicyExitCodeActions },
+      retryCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.exitCodeActions)) {
+      $dara.Model.validateArray(this.exitCodeActions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM extends $dara.Model {
   /**
    * @example
@@ -390,10 +497,12 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor extends $dara.Mo
 
 export class GetJobResponseBodyJobInfoTasksTaskSpec extends $dara.Model {
   resource?: GetJobResponseBodyJobInfoTasksTaskSpecResource;
+  retryPolicy?: GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy;
   taskExecutor?: GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor[];
   static names(): { [key: string]: string } {
     return {
       resource: 'Resource',
+      retryPolicy: 'RetryPolicy',
       taskExecutor: 'TaskExecutor',
     };
   }
@@ -401,6 +510,7 @@ export class GetJobResponseBodyJobInfoTasksTaskSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       resource: GetJobResponseBodyJobInfoTasksTaskSpecResource,
+      retryPolicy: GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy,
       taskExecutor: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor },
     };
   }
@@ -408,6 +518,9 @@ export class GetJobResponseBodyJobInfoTasksTaskSpec extends $dara.Model {
   validate() {
     if(this.resource && typeof (this.resource as any).validate === 'function') {
       (this.resource as any).validate();
+    }
+    if(this.retryPolicy && typeof (this.retryPolicy as any).validate === 'function') {
+      (this.retryPolicy as any).validate();
     }
     if(Array.isArray(this.taskExecutor)) {
       $dara.Model.validateArray(this.taskExecutor);
@@ -479,6 +592,7 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
    * 2024-03-05 20:00:46
    */
   createTime?: string;
+  dependencyPolicy?: GetJobResponseBodyJobInfoDependencyPolicy;
   deploymentPolicy?: GetJobResponseBodyJobInfoDeploymentPolicy;
   /**
    * @example
@@ -516,6 +630,7 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
     return {
       appExtraInfo: 'AppExtraInfo',
       createTime: 'CreateTime',
+      dependencyPolicy: 'DependencyPolicy',
       deploymentPolicy: 'DeploymentPolicy',
       endTime: 'EndTime',
       jobDescription: 'JobDescription',
@@ -532,6 +647,7 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
     return {
       appExtraInfo: 'string',
       createTime: 'string',
+      dependencyPolicy: GetJobResponseBodyJobInfoDependencyPolicy,
       deploymentPolicy: GetJobResponseBodyJobInfoDeploymentPolicy,
       endTime: 'string',
       jobDescription: 'string',
@@ -545,6 +661,9 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
   }
 
   validate() {
+    if(this.dependencyPolicy && typeof (this.dependencyPolicy as any).validate === 'function') {
+      (this.dependencyPolicy as any).validate();
+    }
     if(this.deploymentPolicy && typeof (this.deploymentPolicy as any).validate === 'function') {
       (this.deploymentPolicy as any).validate();
     }
