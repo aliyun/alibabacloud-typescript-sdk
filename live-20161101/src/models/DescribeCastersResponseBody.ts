@@ -190,7 +190,7 @@ export class DescribeCastersResponseBodyCasterListCaster extends $dara.Model {
    * @example
    * rg-aekzw******
    */
-  resourceGroupId?: number;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The time when the production studio was started. This parameter is returned if the production studio is in the streaming status.
@@ -250,7 +250,7 @@ export class DescribeCastersResponseBodyCasterListCaster extends $dara.Model {
       lastModified: 'string',
       normType: 'number',
       purchaseTime: 'string',
-      resourceGroupId: 'number',
+      resourceGroupId: 'string',
       startTime: 'string',
       status: 'number',
       tags: DescribeCastersResponseBodyCasterListCasterTags,

@@ -18025,6 +18025,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指定域名流粒度批量数据
+   * 
+   * @param request - DescribeLiveUserStreamMetricDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLiveUserStreamMetricDataResponse
+   */
+  async describeLiveUserStreamMetricDataWithOptions(request: $_model.DescribeLiveUserStreamMetricDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLiveUserStreamMetricDataResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.streamName)) {
+      query["StreamName"] = request.streamName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLiveUserStreamMetricData",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLiveUserStreamMetricDataResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLiveUserStreamMetricDataResponse({}));
+  }
+
+  /**
+   * 查询指定域名流粒度批量数据
+   * 
+   * @param request - DescribeLiveUserStreamMetricDataRequest
+   * @returns DescribeLiveUserStreamMetricDataResponse
+   */
+  async describeLiveUserStreamMetricData(request: $_model.DescribeLiveUserStreamMetricDataRequest): Promise<$_model.DescribeLiveUserStreamMetricDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLiveUserStreamMetricDataWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DescribeLiveUserTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLiveUserTagsResponse

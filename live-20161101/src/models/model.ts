@@ -325,6 +325,7 @@ export { DescribeLiveUserBillPredictionResponseBodyBillPredictionData } from './
 export { DescribeLiveUserDomainsRequestTag } from './DescribeLiveUserDomainsRequest';
 export { DescribeLiveUserDomainsResponseBodyDomainsPageData } from './DescribeLiveUserDomainsResponseBody';
 export { DescribeLiveUserDomainsResponseBodyDomains } from './DescribeLiveUserDomainsResponseBody';
+export { DescribeLiveUserStreamMetricDataResponseBodyStreamDetailData } from './DescribeLiveUserStreamMetricDataResponseBody';
 export { DescribeLiveUserTagsResponseBodyTags } from './DescribeLiveUserTagsResponseBody';
 export { DescribeLiveUserTrafficLogResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail } from './DescribeLiveUserTrafficLogResponseBody';
 export { DescribeLiveUserTrafficLogResponseBodyDomainLogDetailsDomainLogDetailLogInfos } from './DescribeLiveUserTrafficLogResponseBody';
@@ -1254,6 +1255,9 @@ export { DescribeLiveUserBillPredictionResponse } from './DescribeLiveUserBillPr
 export { DescribeLiveUserDomainsRequest } from './DescribeLiveUserDomainsRequest';
 export { DescribeLiveUserDomainsResponseBody } from './DescribeLiveUserDomainsResponseBody';
 export { DescribeLiveUserDomainsResponse } from './DescribeLiveUserDomainsResponse';
+export { DescribeLiveUserStreamMetricDataRequest } from './DescribeLiveUserStreamMetricDataRequest';
+export { DescribeLiveUserStreamMetricDataResponseBody } from './DescribeLiveUserStreamMetricDataResponseBody';
+export { DescribeLiveUserStreamMetricDataResponse } from './DescribeLiveUserStreamMetricDataResponse';
 export { DescribeLiveUserTagsRequest } from './DescribeLiveUserTagsRequest';
 export { DescribeLiveUserTagsResponseBody } from './DescribeLiveUserTagsResponseBody';
 export { DescribeLiveUserTagsResponse } from './DescribeLiveUserTagsResponse';
