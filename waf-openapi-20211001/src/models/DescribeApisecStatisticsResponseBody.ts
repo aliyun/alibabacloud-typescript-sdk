@@ -75,6 +75,8 @@ export class DescribeApisecStatisticsResponseBodyData extends $dara.Model {
    * 10
    */
   medium?: number;
+  notFixed?: number;
+  systemFixed?: number;
   /**
    * @remarks
    * The number of events to be confirmed.
@@ -91,6 +93,7 @@ export class DescribeApisecStatisticsResponseBodyData extends $dara.Model {
    * 10
    */
   toBeFixed?: number;
+  toBeVerified?: number;
   /**
    * @remarks
    * The number of new high-risk events today.
@@ -142,8 +145,11 @@ export class DescribeApisecStatisticsResponseBodyData extends $dara.Model {
       ignore: 'Ignore',
       low: 'Low',
       medium: 'Medium',
+      notFixed: 'NotFixed',
+      systemFixed: 'SystemFixed',
       toBeConfirmed: 'ToBeConfirmed',
       toBeFixed: 'ToBeFixed',
+      toBeVerified: 'ToBeVerified',
       todayHigh: 'TodayHigh',
       todayLow: 'TodayLow',
       todayMedium: 'TodayMedium',
@@ -163,8 +169,11 @@ export class DescribeApisecStatisticsResponseBodyData extends $dara.Model {
       ignore: 'number',
       low: 'number',
       medium: 'number',
+      notFixed: 'number',
+      systemFixed: 'number',
       toBeConfirmed: 'number',
       toBeFixed: 'number',
+      toBeVerified: 'number',
       todayHigh: 'string',
       todayLow: 'number',
       todayMedium: 'string',

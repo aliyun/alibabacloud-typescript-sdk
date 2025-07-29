@@ -15,6 +15,7 @@ export class DescribeApisecRulesRequest extends $dara.Model {
    * waf_elasticity-cn-0x***
    */
   instanceId?: string;
+  lang?: string;
   /**
    * @remarks
    * The level of the policy.
@@ -124,6 +125,7 @@ export class DescribeApisecRulesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      lang: 'Lang',
       level: 'Level',
       name: 'Name',
       origin: 'Origin',
@@ -139,6 +141,7 @@ export class DescribeApisecRulesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      lang: 'string',
       level: 'string',
       name: 'string',
       origin: 'string',

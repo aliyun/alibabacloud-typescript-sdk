@@ -41,6 +41,7 @@ export class DescribeApisecUserOperationsResponseBodyData extends $dara.Model {
    * 24d997acc48a67a01e09b9c5ad861287
    */
   objectId?: string;
+  operationSource?: string;
   /**
    * @remarks
    * The time at which the operation was performed. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
@@ -95,6 +96,7 @@ export class DescribeApisecUserOperationsResponseBodyData extends $dara.Model {
       fromStatus: 'FromStatus',
       note: 'Note',
       objectId: 'ObjectId',
+      operationSource: 'OperationSource',
       time: 'Time',
       toStatus: 'ToStatus',
       type: 'Type',
@@ -107,6 +109,7 @@ export class DescribeApisecUserOperationsResponseBodyData extends $dara.Model {
       fromStatus: 'string',
       note: 'string',
       objectId: 'string',
+      operationSource: 'string',
       time: 'number',
       toStatus: 'string',
       type: 'string',

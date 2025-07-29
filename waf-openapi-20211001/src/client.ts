@@ -2919,6 +2919,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     if (!$dara.isNull(request.level)) {
       query["Level"] = request.level;
     }
@@ -3187,6 +3191,10 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -3199,8 +3207,16 @@ export default class Client extends OpenApi {
       query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
     }
 
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.userStatusList)) {
+      query["UserStatusList"] = request.userStatusList;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -8419,6 +8435,10 @@ export default class Client extends OpenApi {
       query["StartTime"] = request.startTime;
     }
 
+    if (!$dara.isNull(request.userStatusList)) {
+      query["UserStatusList"] = request.userStatusList;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8665,6 +8685,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.userStatusList)) {
+      query["UserStatusList"] = request.userStatusList;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

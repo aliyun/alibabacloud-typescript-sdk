@@ -59,6 +59,7 @@ export class DescribeUserAbnormalTypeRequest extends $dara.Model {
    * 1723435200
    */
   startTime?: number;
+  userStatusList?: string[];
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
@@ -67,6 +68,7 @@ export class DescribeUserAbnormalTypeRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       startTime: 'StartTime',
+      userStatusList: 'UserStatusList',
     };
   }
 
@@ -78,10 +80,14 @@ export class DescribeUserAbnormalTypeRequest extends $dara.Model {
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
       startTime: 'number',
+      userStatusList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.userStatusList)) {
+      $dara.Model.validateArray(this.userStatusList);
+    }
     super.validate();
   }
 

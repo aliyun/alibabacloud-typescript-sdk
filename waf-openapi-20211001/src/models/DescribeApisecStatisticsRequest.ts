@@ -13,6 +13,7 @@ export class DescribeApisecStatisticsRequest extends $dara.Model {
    * 428
    */
   clusterId?: string;
+  endTime?: number;
   /**
    * @remarks
    * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
@@ -45,6 +46,7 @@ export class DescribeApisecStatisticsRequest extends $dara.Model {
    * rg-aek2***uwbs5q
    */
   resourceManagerResourceGroupId?: string;
+  startTime?: number;
   /**
    * @remarks
    * The type of the statistics. Valid values:
@@ -56,27 +58,37 @@ export class DescribeApisecStatisticsRequest extends $dara.Model {
    * asset_num
    */
   type?: string;
+  userStatusList?: string[];
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      endTime: 'EndTime',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTime: 'StartTime',
       type: 'Type',
+      userStatusList: 'UserStatusList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      endTime: 'number',
       instanceId: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
+      startTime: 'number',
       type: 'string',
+      userStatusList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.userStatusList)) {
+      $dara.Model.validateArray(this.userStatusList);
+    }
     super.validate();
   }
 
