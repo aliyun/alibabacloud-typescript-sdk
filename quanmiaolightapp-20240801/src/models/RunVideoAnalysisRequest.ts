@@ -1,10 +1,177 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunVideoAnalysisRequestFrameSampleMethod } from "./RunVideoAnalysisRequestFrameSampleMethod";
-import { RunVideoAnalysisRequestTextProcessTasks } from "./RunVideoAnalysisRequestTextProcessTasks";
-import { RunVideoAnalysisRequestVideoCaptionInfo } from "./RunVideoAnalysisRequestVideoCaptionInfo";
-import { RunVideoAnalysisRequestVideoRoles } from "./RunVideoAnalysisRequestVideoRoles";
 
+
+export class RunVideoAnalysisRequestFrameSampleMethod extends $dara.Model {
+  interval?: number;
+  methodName?: string;
+  pixel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interval: 'interval',
+      methodName: 'methodName',
+      pixel: 'pixel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interval: 'number',
+      methodName: 'string',
+      pixel: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisRequestTextProcessTasks extends $dara.Model {
+  modelCustomPromptTemplate?: string;
+  modelCustomPromptTemplateId?: string;
+  modelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modelCustomPromptTemplate: 'modelCustomPromptTemplate',
+      modelCustomPromptTemplateId: 'modelCustomPromptTemplateId',
+      modelId: 'modelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelCustomPromptTemplate: 'string',
+      modelCustomPromptTemplateId: 'string',
+      modelId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions extends $dara.Model {
+  /**
+   * @example
+   * 10000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 张三
+   */
+  speaker?: string;
+  /**
+   * @example
+   * 1000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * 你好
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      speaker: 'speaker',
+      startTime: 'startTime',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      speaker: 'string',
+      startTime: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisRequestVideoCaptionInfo extends $dara.Model {
+  /**
+   * @example
+   * oss:// | http://
+   */
+  videoCaptionFileUrl?: string;
+  videoCaptions?: RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions[];
+  static names(): { [key: string]: string } {
+    return {
+      videoCaptionFileUrl: 'videoCaptionFileUrl',
+      videoCaptions: 'videoCaptions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoCaptionFileUrl: 'string',
+      videoCaptions: { 'type': 'array', 'itemType': RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.videoCaptions)) {
+      $dara.Model.validateArray(this.videoCaptions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisRequestVideoRoles extends $dara.Model {
+  roleInfo?: string;
+  roleName?: string;
+  urls?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      roleInfo: 'roleInfo',
+      roleName: 'roleName',
+      urls: 'urls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleInfo: 'string',
+      roleName: 'string',
+      urls: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.urls)) {
+      $dara.Model.validateArray(this.urls);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunVideoAnalysisRequest extends $dara.Model {
   excludeGenerateOptions?: string[];

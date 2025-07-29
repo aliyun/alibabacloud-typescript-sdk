@@ -1,8 +1,120 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunHotTopicChatRequestMessages } from "./RunHotTopicChatRequestMessages";
-import { RunHotTopicChatRequestStepForBroadcastContentConfig } from "./RunHotTopicChatRequestStepForBroadcastContentConfig";
 
+
+export class RunHotTopicChatRequestMessages extends $dara.Model {
+  /**
+   * @example
+   * xxx
+   */
+  content?: string;
+  /**
+   * @example
+   * 2024-12-10 18:51:29
+   */
+  createTime?: string;
+  /**
+   * @example
+   * user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      createTime: 'createTime',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      createTime: 'string',
+      role: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights extends $dara.Model {
+  /**
+   * @example
+   * comments
+   */
+  dimension?: string;
+  /**
+   * @example
+   * 1
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dimension: 'dimension',
+      weight: 'weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimension: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatRequestStepForBroadcastContentConfig extends $dara.Model {
+  categories?: string[];
+  customHotValueWeights?: RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights[];
+  /**
+   * @example
+   * 20
+   */
+  topicCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'categories',
+      customHotValueWeights: 'customHotValueWeights',
+      topicCount: 'topicCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      customHotValueWeights: { 'type': 'array', 'itemType': RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights },
+      topicCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    if(Array.isArray(this.customHotValueWeights)) {
+      $dara.Model.validateArray(this.customHotValueWeights);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunHotTopicChatRequest extends $dara.Model {
   category?: string;

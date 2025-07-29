@@ -1,7 +1,40 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SubmitTagMiningAnalysisTaskRequestTags } from "./SubmitTagMiningAnalysisTaskRequestTags";
 
+
+export class SubmitTagMiningAnalysisTaskRequestTags extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'tagDefinePrompt',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SubmitTagMiningAnalysisTaskRequest extends $dara.Model {
   apiKey?: string;

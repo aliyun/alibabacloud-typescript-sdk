@@ -1,7 +1,77 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListAnalysisTagDetailByTaskIdResponseBodyData } from "./ListAnalysisTagDetailByTaskIdResponseBodyData";
 
+
+export class ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags extends $dara.Model {
+  tagName?: string;
+  tags?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      tagName: 'tagName',
+      tags: 'tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagName: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAnalysisTagDetailByTaskIdResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  content?: string;
+  contentTags?: ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags[];
+  originResponse?: string;
+  sourceList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      contentTags: 'contentTags',
+      originResponse: 'originResponse',
+      sourceList: 'sourceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      contentTags: { 'type': 'array', 'itemType': ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags },
+      originResponse: 'string',
+      sourceList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.contentTags)) {
+      $dara.Model.validateArray(this.contentTags);
+    }
+    if(Array.isArray(this.sourceList)) {
+      $dara.Model.validateArray(this.sourceList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListAnalysisTagDetailByTaskIdResponseBody extends $dara.Model {
   /**
