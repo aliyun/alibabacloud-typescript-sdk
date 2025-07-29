@@ -270,6 +270,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    */
   envs?: string;
   gpuConfig?: string;
+  html?: string;
   /**
    * @remarks
    * The ID of the corresponding Secret.
@@ -903,6 +904,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
       envs: 'Envs',
       gpuConfig: 'GpuConfig',
+      html: 'Html',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
       initContainersConfigShrink: 'InitContainersConfig',
@@ -983,6 +985,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       enableSidecarResourceIsolated: 'boolean',
       envs: 'string',
       gpuConfig: 'string',
+      html: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
       initContainersConfigShrink: 'string',

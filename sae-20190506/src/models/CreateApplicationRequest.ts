@@ -268,6 +268,7 @@ export class CreateApplicationRequest extends $dara.Model {
    */
   envs?: string;
   gpuConfig?: string;
+  html?: string;
   /**
    * @remarks
    * The ID of the corresponding Secret.
@@ -867,6 +868,7 @@ export class CreateApplicationRequest extends $dara.Model {
       enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
       envs: 'Envs',
       gpuConfig: 'GpuConfig',
+      html: 'Html',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
       initContainersConfig: 'InitContainersConfig',
@@ -950,6 +952,7 @@ export class CreateApplicationRequest extends $dara.Model {
       enableSidecarResourceIsolated: 'boolean',
       envs: 'string',
       gpuConfig: 'string',
+      html: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
       initContainersConfig: { 'type': 'array', 'itemType': InitContainerConfig },

@@ -505,6 +505,10 @@ export default class Client extends OpenApi {
       query["GpuConfig"] = request.gpuConfig;
     }
 
+    if (!$dara.isNull(request.html)) {
+      query["Html"] = request.html;
+    }
+
     if (!$dara.isNull(request.imagePullSecrets)) {
       query["ImagePullSecrets"] = request.imagePullSecrets;
     }
@@ -2541,6 +2545,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.gpuConfig)) {
       query["GpuConfig"] = request.gpuConfig;
+    }
+
+    if (!$dara.isNull(request.html)) {
+      query["Html"] = request.html;
     }
 
     if (!$dara.isNull(request.imagePullSecrets)) {

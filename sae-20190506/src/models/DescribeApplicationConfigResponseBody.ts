@@ -945,6 +945,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
   envs?: string;
   gpuCount?: string;
   gpuType?: string;
+  html?: string;
   /**
    * @remarks
    * The ID of the corresponding secret dictionary.
@@ -1578,6 +1579,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       envs: 'Envs',
       gpuCount: 'GpuCount',
       gpuType: 'GpuType',
+      html: 'Html',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
       initContainersConfig: 'InitContainersConfig',
@@ -1671,6 +1673,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       envs: 'string',
       gpuCount: 'string',
       gpuType: 'string',
+      html: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
       initContainersConfig: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataInitContainersConfig },
