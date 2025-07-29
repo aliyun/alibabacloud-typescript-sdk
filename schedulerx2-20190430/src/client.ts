@@ -2046,6 +2046,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 同步任务
+   * 
+   * @param tmpReq - ManageSchedulerxJobSyncRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ManageSchedulerxJobSyncResponse
+   */
+  async manageSchedulerxJobSyncWithOptions(tmpReq: $_model.ManageSchedulerxJobSyncRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ManageSchedulerxJobSyncResponse> {
+    tmpReq.validate();
+    let request = new $_model.ManageSchedulerxJobSyncShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.jobIdList)) {
+      request.jobIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobIdList, "JobIdList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobIdListShrink)) {
+      body["JobIdList"] = request.jobIdListShrink;
+    }
+
+    if (!$dara.isNull(request.namespaceSource)) {
+      body["NamespaceSource"] = request.namespaceSource;
+    }
+
+    if (!$dara.isNull(request.originalGroupId)) {
+      body["OriginalGroupId"] = request.originalGroupId;
+    }
+
+    if (!$dara.isNull(request.originalNamespace)) {
+      body["OriginalNamespace"] = request.originalNamespace;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.targetGroupId)) {
+      body["TargetGroupId"] = request.targetGroupId;
+    }
+
+    if (!$dara.isNull(request.targetNamespace)) {
+      body["TargetNamespace"] = request.targetNamespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ManageSchedulerxJobSync",
+      version: "2019-04-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ManageSchedulerxJobSyncResponse>(await this.callApi(params, req, runtime), new $_model.ManageSchedulerxJobSyncResponse({}));
+  }
+
+  /**
+   * 同步任务
+   * 
+   * @param request - ManageSchedulerxJobSyncRequest
+   * @returns ManageSchedulerxJobSyncResponse
+   */
+  async manageSchedulerxJobSync(request: $_model.ManageSchedulerxJobSyncRequest): Promise<$_model.ManageSchedulerxJobSyncResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.manageSchedulerxJobSyncWithOptions(request, runtime);
+  }
+
+  /**
    * 获取机器详细信息
    * 
    * @param request - ReadSchedulerxDesignateDetailRequest

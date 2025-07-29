@@ -1,7 +1,26 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateRouteStrategyResponseBodyData } from "./CreateRouteStrategyResponseBodyData";
 
+
+export class CreateRouteStrategyResponseBodyData extends $dara.Model {
+  static names(): { [key: string]: string } {
+    return {
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateRouteStrategyResponseBody extends $dara.Model {
   /**
