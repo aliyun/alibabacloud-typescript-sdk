@@ -185,6 +185,79 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateAndAttachPolicy
+   * 
+   * @param request - CreateAndAttachPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAndAttachPolicyResponse
+   */
+  async createAndAttachPolicyWithOptions(request: $_model.CreateAndAttachPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAndAttachPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attachResourceIds)) {
+      body["attachResourceIds"] = request.attachResourceIds;
+    }
+
+    if (!$dara.isNull(request.attachResourceType)) {
+      body["attachResourceType"] = request.attachResourceType;
+    }
+
+    if (!$dara.isNull(request.className)) {
+      body["className"] = request.className;
+    }
+
+    if (!$dara.isNull(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.environmentId)) {
+      body["environmentId"] = request.environmentId;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAndAttachPolicy",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/policies`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAndAttachPolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreateAndAttachPolicyResponse({}));
+  }
+
+  /**
+   * CreateAndAttachPolicy
+   * 
+   * @param request - CreateAndAttachPolicyRequest
+   * @returns CreateAndAttachPolicyResponse
+   */
+  async createAndAttachPolicy(request: $_model.CreateAndAttachPolicyRequest): Promise<$_model.CreateAndAttachPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAndAttachPolicyWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建消费者
    * 
    * @param request - CreateConsumerRequest
@@ -3082,6 +3155,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListPolicies
+   * 
+   * @param request - ListPoliciesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPoliciesResponse
+   */
+  async listPoliciesWithOptions(request: $_model.ListPoliciesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPoliciesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attachResourceId)) {
+      query["attachResourceId"] = request.attachResourceId;
+    }
+
+    if (!$dara.isNull(request.attachResourceType)) {
+      query["attachResourceType"] = request.attachResourceType;
+    }
+
+    if (!$dara.isNull(request.environmentId)) {
+      query["environmentId"] = request.environmentId;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.withAttachments)) {
+      query["withAttachments"] = request.withAttachments;
+    }
+
+    if (!$dara.isNull(request.withSystemPolicy)) {
+      query["withSystemPolicy"] = request.withSystemPolicy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPolicies",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/policies`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.ListPoliciesResponse({}));
+  }
+
+  /**
+   * ListPolicies
+   * 
+   * @param request - ListPoliciesRequest
+   * @returns ListPoliciesResponse
+   */
+  async listPolicies(request: $_model.ListPoliciesRequest): Promise<$_model.ListPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPoliciesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * ListPolicyClasses
    * 
    * @param request - ListPolicyClassesRequest
@@ -3521,6 +3659,75 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.undeployHttpApiWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
+   * UpdateAndAttachPolicy
+   * 
+   * @param request - UpdateAndAttachPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAndAttachPolicyResponse
+   */
+  async updateAndAttachPolicyWithOptions(policyId: string, request: $_model.UpdateAndAttachPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAndAttachPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attachResourceIds)) {
+      body["attachResourceIds"] = request.attachResourceIds;
+    }
+
+    if (!$dara.isNull(request.attachResourceType)) {
+      body["attachResourceType"] = request.attachResourceType;
+    }
+
+    if (!$dara.isNull(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.environmentId)) {
+      body["environmentId"] = request.environmentId;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAndAttachPolicy",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/policies/${$dara.URL.percentEncode(policyId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAndAttachPolicyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAndAttachPolicyResponse({}));
+  }
+
+  /**
+   * UpdateAndAttachPolicy
+   * 
+   * @param request - UpdateAndAttachPolicyRequest
+   * @returns UpdateAndAttachPolicyResponse
+   */
+  async updateAndAttachPolicy(policyId: string, request: $_model.UpdateAndAttachPolicyRequest): Promise<$_model.UpdateAndAttachPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAndAttachPolicyWithOptions(policyId, request, headers, runtime);
   }
 
   /**
