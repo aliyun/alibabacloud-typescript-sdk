@@ -687,6 +687,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看数据湖Catalog
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCatalogByIdResponse
+   */
+  async getCatalogByIdWithOptions(id: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCatalogByIdResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCatalogById",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/catalogs/id/${$dara.URL.percentEncode(id)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCatalogByIdResponse>(await this.callApi(params, req, runtime), new $_model.GetCatalogByIdResponse({}));
+  }
+
+  /**
+   * 查看数据湖Catalog
+   * @returns GetCatalogByIdResponse
+   */
+  async getCatalogById(id: string): Promise<$_model.GetCatalogByIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCatalogByIdWithOptions(id, headers, runtime);
+  }
+
+  /**
    * 查看表
    * 
    * @param headers - map

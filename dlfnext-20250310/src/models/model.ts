@@ -63,6 +63,7 @@ export { DropCatalogResponse } from './DropCatalogResponse';
 export { DropDatabaseResponse } from './DropDatabaseResponse';
 export { DropTableResponse } from './DropTableResponse';
 export { GetCatalogResponse } from './GetCatalogResponse';
+export { GetCatalogByIdResponse } from './GetCatalogByIdResponse';
 export { GetCatalogSummaryResponse } from './GetCatalogSummaryResponse';
 export { GetCatalogSummaryTrendRequest } from './GetCatalogSummaryTrendRequest';
 export { GetCatalogSummaryTrendResponse } from './GetCatalogSummaryTrendResponse';
