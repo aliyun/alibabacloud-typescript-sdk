@@ -1,8 +1,67 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { KubeletConfigReservedMemory } from "./KubeletConfigReservedMemory";
-import { KubeletConfigTracing } from "./KubeletConfigTracing";
 
+
+/**
+ */
+export class KubeletConfigReservedMemory extends $dara.Model {
+  limits?: { [key: string]: any };
+  numaNode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      limits: 'limits',
+      numaNode: 'numaNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limits: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      numaNode: 'number',
+    };
+  }
+
+  validate() {
+    if(this.limits) {
+      $dara.Model.validateMap(this.limits);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KubeletConfigTracing extends $dara.Model {
+  /**
+   * @example
+   * localhost:4317
+   */
+  endpoint?: string;
+  samplingRatePerMillion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'endpoint',
+      samplingRatePerMillion: 'samplingRatePerMillion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      samplingRatePerMillion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class KubeletConfig extends $dara.Model {
   allowedUnsafeSysctls?: string[];

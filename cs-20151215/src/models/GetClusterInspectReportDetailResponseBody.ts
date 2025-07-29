@@ -1,8 +1,192 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetClusterInspectReportDetailResponseBodyCheckItemResults } from "./GetClusterInspectReportDetailResponseBodyCheckItemResults";
-import { GetClusterInspectReportDetailResponseBodySummary } from "./GetClusterInspectReportDetailResponseBodySummary";
 
+
+export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $dara.Model {
+  /**
+   * @remarks
+   * The category of the inspection item. Valid values:
+   * 
+   * *   security: Security compliance
+   * *   performance: Performance efficiency
+   * *   stability: Business stability
+   * *   limitation: Service limits
+   * *   cost: Cost optimization
+   * 
+   * @example
+   * stability
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The unique identifier of the inspection item.
+   * 
+   * @example
+   * APIServerClbInstanceStatus
+   */
+  checkItemUid?: string;
+  /**
+   * @remarks
+   * The description of the inspection item.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The fixing suggestion.
+   */
+  fix?: string;
+  /**
+   * @remarks
+   * The level of the inspection item. Valid values:
+   * 
+   * *   advice: Suggestions
+   * *   warning: Low severity
+   * *   error: Medium severity
+   * *   critical: High severity
+   * 
+   * @example
+   * critical
+   */
+  level?: string;
+  /**
+   * @remarks
+   * The name of the inspection item.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The inspection results. Valid values:
+   * 
+   * *   true: The inspection item is abnormal.
+   * *   false: The inspection item is normal.
+   * *   disable: The inspection item is not enabled.
+   * 
+   * @example
+   * false
+   */
+  result?: string;
+  /**
+   * @remarks
+   * The resource type of the inspection object.
+   * 
+   * @example
+   * CLB
+   */
+  targetType?: string;
+  /**
+   * @remarks
+   * The inspection objects.
+   */
+  targets?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      checkItemUid: 'checkItemUid',
+      description: 'description',
+      fix: 'fix',
+      level: 'level',
+      name: 'name',
+      result: 'result',
+      targetType: 'targetType',
+      targets: 'targets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      checkItemUid: 'string',
+      description: 'string',
+      fix: 'string',
+      level: 'string',
+      name: 'string',
+      result: 'string',
+      targetType: 'string',
+      targets: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.targets)) {
+      $dara.Model.validateArray(this.targets);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterInspectReportDetailResponseBodySummary extends $dara.Model {
+  /**
+   * @remarks
+   * The number of check items whose inspection result is advice.
+   * 
+   * @example
+   * 0
+   */
+  adviceCount?: number;
+  /**
+   * @remarks
+   * Check the status code of the inspection task.
+   * 
+   * @example
+   * warning
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The number of check items whose inspection result is error.
+   * 
+   * @example
+   * 0
+   */
+  errorCount?: number;
+  /**
+   * @remarks
+   * The number of check items whose inspection result is normal.
+   * 
+   * @example
+   * 10
+   */
+  normalCount?: number;
+  /**
+   * @remarks
+   * The number of check items whose inspection result is warning.
+   * 
+   * @example
+   * 1
+   */
+  warnCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      adviceCount: 'adviceCount',
+      code: 'code',
+      errorCount: 'errorCount',
+      normalCount: 'normalCount',
+      warnCount: 'warnCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adviceCount: 'number',
+      code: 'string',
+      errorCount: 'number',
+      normalCount: 'number',
+      warnCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetClusterInspectReportDetailResponseBody extends $dara.Model {
   /**

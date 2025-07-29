@@ -1,9 +1,87 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ScaleClusterRequestTags } from "./ScaleClusterRequestTags";
-import { ScaleClusterRequestTaints } from "./ScaleClusterRequestTaints";
-import { ScaleClusterRequestWorkerDataDisks } from "./ScaleClusterRequestWorkerDataDisks";
 
+
+export class ScaleClusterRequestTags extends $dara.Model {
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScaleClusterRequestTaints extends $dara.Model {
+  effect?: string;
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'effect',
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScaleClusterRequestWorkerDataDisks extends $dara.Model {
+  category?: string;
+  encrypted?: string;
+  size?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      encrypted: 'encrypted',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      encrypted: 'string',
+      size: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ScaleClusterRequest extends $dara.Model {
   cloudMonitorFlags?: boolean;

@@ -1,11 +1,280 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeTaskInfoResponseBodyError } from "./DescribeTaskInfoResponseBodyError";
-import { DescribeTaskInfoResponseBodyEvents } from "./DescribeTaskInfoResponseBodyEvents";
-import { DescribeTaskInfoResponseBodyStages } from "./DescribeTaskInfoResponseBodyStages";
-import { DescribeTaskInfoResponseBodyTarget } from "./DescribeTaskInfoResponseBodyTarget";
-import { DescribeTaskInfoResponseBodyTaskResult } from "./DescribeTaskInfoResponseBodyTaskResult";
 
+
+export class DescribeTaskInfoResponseBodyError extends $dara.Model {
+  /**
+   * @remarks
+   * The error code returned.
+   * 
+   * @example
+   * 400
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message returned.
+   * 
+   * @example
+   * failed to xxx
+   */
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTaskInfoResponseBodyEvents extends $dara.Model {
+  /**
+   * @remarks
+   * The action of the event.
+   * 
+   * @example
+   * start
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The severity level of the event.
+   * 
+   * @example
+   * Normal
+   */
+  level?: string;
+  /**
+   * @remarks
+   * The message about the event.
+   * 
+   * @example
+   * start to xxx
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The cause of the event.
+   * 
+   * @example
+   * NodePoolUpgradeStart
+   */
+  reason?: string;
+  /**
+   * @remarks
+   * The source of the event.
+   * 
+   * @example
+   * ACK
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The timestamp when the event was generated.
+   * 
+   * @example
+   * 1669706229286
+   */
+  timestamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'action',
+      level: 'level',
+      message: 'message',
+      reason: 'reason',
+      source: 'source',
+      timestamp: 'timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      level: 'string',
+      message: 'string',
+      reason: 'string',
+      source: 'string',
+      timestamp: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTaskInfoResponseBodyStages extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of the stage.
+   * 
+   * @example
+   * 2022-12-15 23:00:00
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The message about the stage.
+   * 
+   * @example
+   * success to xxxxx
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The output generated at the stage.
+   */
+  outputs?: { [key: string]: any };
+  /**
+   * @remarks
+   * The start time of the stage.
+   * 
+   * @example
+   * 2022-12-15 23:00:00
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * The status of the stage.
+   * 
+   * @example
+   * running
+   */
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'end_time',
+      message: 'message',
+      outputs: 'outputs',
+      startTime: 'start_time',
+      state: 'state',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      message: 'string',
+      outputs: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      startTime: 'string',
+      state: 'string',
+    };
+  }
+
+  validate() {
+    if(this.outputs) {
+      $dara.Model.validateMap(this.outputs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTaskInfoResponseBodyTarget extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the object.
+   * 
+   * @example
+   * c78592bfe92244365b3c3ad47f1de****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The type of the object.
+   * 
+   * @example
+   * cluster
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTaskInfoResponseBodyTaskResult extends $dara.Model {
+  /**
+   * @remarks
+   * The resources that are managed by the task. For a scale-out task, the value of this parameter is the ID of the instance that is added by the task.
+   * 
+   * @example
+   * i-xxx
+   */
+  data?: string;
+  /**
+   * @remarks
+   * The status of the scale-out task. Valid values:
+   * 
+   * *   `success`: The scale-out task is successful.
+   * *   `success`: The scale-out task failed.
+   * *   `initial`: The scale-out task is being initialized.
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeTaskInfoResponseBody extends $dara.Model {
   /**

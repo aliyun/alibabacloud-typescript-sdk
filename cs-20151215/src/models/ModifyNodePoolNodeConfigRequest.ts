@@ -2,9 +2,67 @@
 import * as $dara from '@darabonba/typescript';
 import { ContainerdConfig } from "./ContainerdConfig";
 import { KubeletConfig } from "./KubeletConfig";
-import { ModifyNodePoolNodeConfigRequestOsConfig } from "./ModifyNodePoolNodeConfigRequestOsConfig";
-import { ModifyNodePoolNodeConfigRequestRollingPolicy } from "./ModifyNodePoolNodeConfigRequestRollingPolicy";
 
+
+export class ModifyNodePoolNodeConfigRequestOsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The sysctl configuration.
+   */
+  sysctl?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      sysctl: 'sysctl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sysctl: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  validate() {
+    if(this.sysctl) {
+      $dara.Model.validateMap(this.sysctl);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolNodeConfigRequestRollingPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of unavailable nodes.
+   * 
+   * @example
+   * 3
+   */
+  maxParallelism?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxParallelism: 'max_parallelism',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxParallelism: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
   /**

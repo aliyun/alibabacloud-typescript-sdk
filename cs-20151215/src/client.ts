@@ -221,7 +221,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelClusterUpgradeResponse
    */
-  // Deprecated
   async cancelClusterUpgradeWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CancelClusterUpgradeResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -262,7 +261,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelComponentUpgradeResponse
    */
-  // Deprecated
   async cancelComponentUpgradeWithOptions(clusterId: string, componentId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CancelComponentUpgradeResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -1404,7 +1402,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateKubernetesTriggerResponse
    */
-  // Deprecated
   async createKubernetesTriggerWithOptions(request: $_model.CreateKubernetesTriggerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKubernetesTriggerResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -1963,7 +1960,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteKubernetesTriggerResponse
    */
-  // Deprecated
   async deleteKubernetesTriggerWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKubernetesTriggerResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -2242,7 +2238,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAddonsResponse
    */
-  // Deprecated
   async describeAddonsWithOptions(request: $_model.DescribeAddonsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAddonsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
@@ -2308,7 +2303,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeClusterAddonInstanceResponse
    */
-  // Deprecated
   async describeClusterAddonInstanceWithOptions(ClusterID: string, AddonName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClusterAddonInstanceResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -2350,7 +2344,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeClusterAddonMetadataResponse
    */
-  // Deprecated
   async describeClusterAddonMetadataWithOptions(clusterId: string, componentId: string, request: $_model.DescribeClusterAddonMetadataRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClusterAddonMetadataResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
@@ -2400,7 +2393,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeClusterAddonUpgradeStatusResponse
    */
-  // Deprecated
   async describeClusterAddonUpgradeStatusWithOptions(ClusterId: string, ComponentId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClusterAddonUpgradeStatusResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -2442,7 +2434,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeClusterAddonsUpgradeStatusResponse
    */
-  // Deprecated
   async describeClusterAddonsUpgradeStatusWithOptions(ClusterId: string, tmpReq: $_model.DescribeClusterAddonsUpgradeStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClusterAddonsUpgradeStatusResponse> {
     tmpReq.validate();
     let request = new $_model.DescribeClusterAddonsUpgradeStatusShrinkRequest({ });
@@ -2498,7 +2489,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeClusterAddonsVersionResponse
    */
-  // Deprecated
   async describeClusterAddonsVersionWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClusterAddonsVersionResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -3024,7 +3014,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeClusterV2UserKubeconfigResponse
    */
-  // Deprecated
   async describeClusterV2UserKubeconfigWithOptions(ClusterId: string, request: $_model.DescribeClusterV2UserKubeconfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClusterV2UserKubeconfigResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
@@ -3114,7 +3103,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeClustersResponse
    */
-  // Deprecated
   async describeClustersWithOptions(request: $_model.DescribeClustersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClustersResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
@@ -3314,7 +3302,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEdgeMachineActiveProcessResponse
    */
-  // Deprecated
   async describeEdgeMachineActiveProcessWithOptions(edgeMachineid: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEdgeMachineActiveProcessResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -3604,7 +3591,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeExternalAgentResponse
    */
-  // Deprecated
   async describeExternalAgentWithOptions(ClusterId: string, request: $_model.DescribeExternalAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExternalAgentResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
@@ -4372,7 +4358,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EdgeClusterAddEdgeMachineResponse
    */
-  // Deprecated
   async edgeClusterAddEdgeMachineWithOptions(clusterid: string, edgeMachineid: string, request: $_model.EdgeClusterAddEdgeMachineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EdgeClusterAddEdgeMachineResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -4799,7 +4784,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetKubernetesTriggerResponse
    */
-  // Deprecated
   async getKubernetesTriggerWithOptions(ClusterId: string, request: $_model.GetKubernetesTriggerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetKubernetesTriggerResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
@@ -4861,7 +4845,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUpgradeStatusResponse
    */
-  // Deprecated
   async getUpgradeStatusWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetUpgradeStatusResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -5640,7 +5623,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyClusterConfigurationResponse
    */
-  // Deprecated
   async modifyClusterConfigurationWithOptions(ClusterId: string, request: $_model.ModifyClusterConfigurationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyClusterConfigurationResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -5976,7 +5958,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PauseClusterUpgradeResponse
    */
-  // Deprecated
   async pauseClusterUpgradeWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PauseClusterUpgradeResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -6017,7 +5998,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PauseComponentUpgradeResponse
    */
-  // Deprecated
   async pauseComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PauseComponentUpgradeResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -6101,7 +6081,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveClusterNodesResponse
    */
-  // Deprecated
   async removeClusterNodesWithOptions(ClusterId: string, request: $_model.RemoveClusterNodesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveClusterNodesResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -6304,7 +6283,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResumeComponentUpgradeResponse
    */
-  // Deprecated
   async resumeComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeComponentUpgradeResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -6380,7 +6358,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResumeUpgradeClusterResponse
    */
-  // Deprecated
   async resumeUpgradeClusterWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeUpgradeClusterResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -6555,7 +6532,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ScaleClusterResponse
    */
-  // Deprecated
   async scaleClusterWithOptions(ClusterId: string, request: $_model.ScaleClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ScaleClusterResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
