@@ -46,6 +46,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
    * Month
    */
   periodUnit?: string;
+  promotionId?: string;
   /**
    * @remarks
    * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
@@ -77,6 +78,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
       instanceIds: 'InstanceIds',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      promotionId: 'PromotionId',
       regionId: 'RegionId',
       resellerOwnerUid: 'ResellerOwnerUid',
       resourceType: 'ResourceType',
@@ -89,6 +91,7 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       period: 'number',
       periodUnit: 'string',
+      promotionId: 'string',
       regionId: 'string',
       resellerOwnerUid: 'number',
       resourceType: 'string',

@@ -9287,6 +9287,10 @@ export default class Client extends OpenApi {
       query["InstanceType"] = request.instanceType;
     }
 
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -10155,6 +10159,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.periodUnit)) {
       query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
     }
 
     if (!$dara.isNull(request.regionId)) {

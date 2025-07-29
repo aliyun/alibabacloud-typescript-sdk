@@ -81,6 +81,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
    * eds.enterprise_office.8c16g
    */
   instanceType?: string;
+  promotionId?: string;
   /**
    * @remarks
    * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
@@ -130,6 +131,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
       bandwidth: 'Bandwidth',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
+      promotionId: 'PromotionId',
       regionId: 'RegionId',
       resellerOwnerUid: 'ResellerOwnerUid',
       resourceSpecs: 'ResourceSpecs',
@@ -144,6 +146,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
       bandwidth: 'number',
       instanceId: 'string',
       instanceType: 'string',
+      promotionId: 'string',
       regionId: 'string',
       resellerOwnerUid: 'number',
       resourceSpecs: { 'type': 'array', 'itemType': DescribeModificationPriceRequestResourceSpecs },
