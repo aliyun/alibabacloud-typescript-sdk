@@ -1,0 +1,44 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class CreateUserResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * user_d6sbsuumeta4h66ec3il7yxxxx
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
