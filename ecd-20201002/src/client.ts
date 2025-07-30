@@ -967,15 +967,25 @@ export default class Client extends OpenApi {
   /**
    * Obtains logon credentials.
    * 
-   * @param request - GetLoginTokenRequest
+   * @param tmpReq - GetLoginTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLoginTokenResponse
    */
-  async getLoginTokenWithOptions(request: $_model.GetLoginTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLoginTokenResponse> {
-    request.validate();
+  async getLoginTokenWithOptions(tmpReq: $_model.GetLoginTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLoginTokenResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetLoginTokenShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.availableFeatures)) {
+      request.availableFeaturesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.availableFeatures, "AvailableFeatures", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.authenticationCode)) {
       query["AuthenticationCode"] = request.authenticationCode;
+    }
+
+    if (!$dara.isNull(request.availableFeaturesShrink)) {
+      query["AvailableFeatures"] = request.availableFeaturesShrink;
     }
 
     if (!$dara.isNull(request.clientId)) {

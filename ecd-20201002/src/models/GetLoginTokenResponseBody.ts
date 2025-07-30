@@ -1,8 +1,106 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetLoginTokenResponseBodyPasswordStrategy } from "./GetLoginTokenResponseBodyPasswordStrategy";
-import { GetLoginTokenResponseBodyRiskVerifyInfo } from "./GetLoginTokenResponseBodyRiskVerifyInfo";
 
+
+export class GetLoginTokenResponseBodyPasswordStrategy extends $dara.Model {
+  /**
+   * @remarks
+   * > This is a parameter only for internal use.
+   */
+  tenantAlternativeChars?: string[];
+  /**
+   * @remarks
+   * > This is a parameter only for internal use.
+   * 
+   * @example
+   * null
+   */
+  tenantPasswordLength?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantAlternativeChars: 'TenantAlternativeChars',
+      tenantPasswordLength: 'TenantPasswordLength',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantAlternativeChars: { 'type': 'array', 'itemType': 'string' },
+      tenantPasswordLength: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tenantAlternativeChars)) {
+      $dara.Model.validateArray(this.tenantAlternativeChars);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoginTokenResponseBodyRiskVerifyInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The email used for authentication.
+   * 
+   * @example
+   * user@example.com
+   */
+  email?: string;
+  /**
+   * @remarks
+   * The duration of the lock.
+   * 
+   * @example
+   * 1713749778
+   */
+  lastLockDuration?: number;
+  /**
+   * @remarks
+   * Whether the account is locked or not.
+   * 
+   * @example
+   * true
+   */
+  locked?: string;
+  /**
+   * @remarks
+   * The mobile number used for authentication.
+   * 
+   * @example
+   * 1388888****
+   */
+  phone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      email: 'Email',
+      lastLockDuration: 'LastLockDuration',
+      locked: 'Locked',
+      phone: 'Phone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      email: 'string',
+      lastLockDuration: 'number',
+      locked: 'string',
+      phone: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetLoginTokenResponseBody extends $dara.Model {
   /**
