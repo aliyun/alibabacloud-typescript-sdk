@@ -505,6 +505,10 @@ export default class Client extends OpenApi {
       query["GpuConfig"] = request.gpuConfig;
     }
 
+    if (!$dara.isNull(request.headlessPvtzDiscoverySvc)) {
+      query["HeadlessPvtzDiscoverySvc"] = request.headlessPvtzDiscoverySvc;
+    }
+
     if (!$dara.isNull(request.html)) {
       query["Html"] = request.html;
     }

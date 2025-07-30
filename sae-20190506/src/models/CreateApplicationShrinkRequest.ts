@@ -266,6 +266,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    */
   envs?: string;
   gpuConfig?: string;
+  headlessPvtzDiscoverySvc?: string;
   html?: string;
   /**
    * @remarks
@@ -866,6 +867,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
       envs: 'Envs',
       gpuConfig: 'GpuConfig',
+      headlessPvtzDiscoverySvc: 'HeadlessPvtzDiscoverySvc',
       html: 'Html',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
@@ -950,6 +952,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       enableSidecarResourceIsolated: 'boolean',
       envs: 'string',
       gpuConfig: 'string',
+      headlessPvtzDiscoverySvc: 'string',
       html: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',

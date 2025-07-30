@@ -768,6 +768,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * 495fc79c-ae61-4600-866d-a09d68******
    */
   clusterId?: string;
+  cmsServiceId?: string;
   /**
    * @remarks
    * The command that is used to start the image. The command must be an existing executable object in the container. Example:
@@ -945,6 +946,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
   envs?: string;
   gpuCount?: string;
   gpuType?: string;
+  headlessPvtzDiscovery?: string;
   html?: string;
   /**
    * @remarks
@@ -1561,6 +1563,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       baseAppId: 'BaseAppId',
       batchWaitTime: 'BatchWaitTime',
       clusterId: 'ClusterId',
+      cmsServiceId: 'CmsServiceId',
       command: 'Command',
       commandArgs: 'CommandArgs',
       configMapMountDesc: 'ConfigMapMountDesc',
@@ -1579,6 +1582,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       envs: 'Envs',
       gpuCount: 'GpuCount',
       gpuType: 'GpuType',
+      headlessPvtzDiscovery: 'HeadlessPvtzDiscovery',
       html: 'Html',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
@@ -1655,6 +1659,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       baseAppId: 'string',
       batchWaitTime: 'number',
       clusterId: 'string',
+      cmsServiceId: 'string',
       command: 'string',
       commandArgs: 'string',
       configMapMountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataConfigMapMountDesc },
@@ -1673,6 +1678,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       envs: 'string',
       gpuCount: 'string',
       gpuType: 'string',
+      headlessPvtzDiscovery: 'string',
       html: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
