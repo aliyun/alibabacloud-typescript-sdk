@@ -8,19 +8,25 @@ export class RemoveGroupRequest extends $dara.Model {
    * ug-12341234****
    */
   groupId?: string;
+  groupIds?: string[];
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
+      groupIds: 'GroupIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       groupId: 'string',
+      groupIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
     super.validate();
   }
 

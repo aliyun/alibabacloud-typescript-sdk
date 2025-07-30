@@ -8,6 +8,7 @@ export class CreateGroupRequest extends $dara.Model {
    * ENTERPRISE
    */
   bizType?: string;
+  description?: string;
   groupName?: string;
   /**
    * @example
@@ -22,6 +23,7 @@ export class CreateGroupRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
+      description: 'Description',
       groupName: 'GroupName',
       parentGroupId: 'ParentGroupId',
       solutionId: 'SolutionId',
@@ -31,6 +33,7 @@ export class CreateGroupRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizType: 'string',
+      description: 'string',
       groupName: 'string',
       parentGroupId: 'string',
       solutionId: 'string',

@@ -14,17 +14,23 @@ export class DescribeGroupsRequest extends $dara.Model {
    */
   groupId?: string;
   groupName?: string;
+  pageNumber?: number;
+  pageSize?: number;
   /**
    * @example
    * co-0esnf80jab***
    */
   solutionId?: string;
+  transferFileNeedApproval?: boolean;
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
       groupId: 'GroupId',
       groupName: 'GroupName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       solutionId: 'SolutionId',
+      transferFileNeedApproval: 'TransferFileNeedApproval',
     };
   }
 
@@ -33,7 +39,10 @@ export class DescribeGroupsRequest extends $dara.Model {
       bizType: 'string',
       groupId: 'string',
       groupName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       solutionId: 'string',
+      transferFileNeedApproval: 'boolean',
     };
   }
 

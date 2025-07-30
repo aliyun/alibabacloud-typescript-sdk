@@ -8,11 +8,14 @@ export class DescribeGroupUserRequest extends $dara.Model {
    * ENTERPRISE
    */
   bizType?: string;
+  filter?: string;
   /**
    * @example
    * ug-12341234****
    */
   groupId?: string;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @example
    * co-0esnf80jab***
@@ -21,7 +24,10 @@ export class DescribeGroupUserRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
+      filter: 'Filter',
       groupId: 'GroupId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       solutionId: 'SolutionId',
     };
   }
@@ -29,7 +35,10 @@ export class DescribeGroupUserRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizType: 'string',
+      filter: 'string',
       groupId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       solutionId: 'string',
     };
   }

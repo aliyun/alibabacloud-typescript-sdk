@@ -1,9 +1,137 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { FilterUsersRequestOrderParam } from "./FilterUsersRequestOrderParam";
-import { FilterUsersRequestPropertyFilterParam } from "./FilterUsersRequestPropertyFilterParam";
-import { FilterUsersRequestPropertyKeyValueFilterParam } from "./FilterUsersRequestPropertyKeyValueFilterParam";
 
+
+export class FilterUsersRequestOrderParam extends $dara.Model {
+  /**
+   * @remarks
+   * The field that you want to sort by.
+   * 
+   * Valid values:
+   * 
+   * *   EndUserId: the username.
+   * *   id: the ID of the primary key.
+   * *   gmt_created: the creation time.
+   * 
+   * @example
+   * id
+   */
+  orderField?: string;
+  /**
+   * @remarks
+   * The direction of the sort.
+   * 
+   * Valid values:
+   * 
+   * *   ASC: the ascending order.
+   * *   DESC (default): the descending order.
+   * 
+   * @example
+   * ASC
+   */
+  orderType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderField: 'OrderField',
+      orderType: 'OrderType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderField: 'string',
+      orderType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FilterUsersRequestPropertyFilterParam extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the property.
+   * 
+   * @example
+   * 123
+   */
+  propertyId?: number;
+  /**
+   * @remarks
+   * The IDs of the property values.
+   * 
+   * @example
+   * test
+   */
+  propertyValueIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyId: 'PropertyId',
+      propertyValueIds: 'PropertyValueIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyId: 'number',
+      propertyValueIds: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FilterUsersRequestPropertyKeyValueFilterParam extends $dara.Model {
+  /**
+   * @remarks
+   * The property name.
+   * 
+   * @example
+   * job
+   */
+  propertyKey?: string;
+  /**
+   * @remarks
+   * The property values.
+   * 
+   * @example
+   * dev
+   */
+  propertyValues?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyKey: 'PropertyKey',
+      propertyValues: 'PropertyValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyKey: 'string',
+      propertyValues: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class FilterUsersRequest extends $dara.Model {
   /**

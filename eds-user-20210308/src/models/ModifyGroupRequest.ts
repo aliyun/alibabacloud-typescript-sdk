@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyGroupRequest extends $dara.Model {
+  description?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -18,6 +19,7 @@ export class ModifyGroupRequest extends $dara.Model {
   newGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       groupId: 'GroupId',
       newGroupName: 'NewGroupName',
     };
@@ -25,6 +27,7 @@ export class ModifyGroupRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       groupId: 'string',
       newGroupName: 'string',
     };

@@ -1,7 +1,96 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RemoveUsersResponseBodyRemoveUsersResult } from "./RemoveUsersResponseBodyRemoveUsersResult";
 
+
+export class RemoveUsersResponseBodyRemoveUsersResultFailedUsers extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the convenience user that failed to be removed.
+   * 
+   * @example
+   * test2
+   */
+  endUserId?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidUsername
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * test2 is an invalid username.
+   */
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endUserId: 'EndUserId',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endUserId: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveUsersResponseBodyRemoveUsersResult extends $dara.Model {
+  /**
+   * @remarks
+   * The convenience users that failed to be removed.
+   */
+  failedUsers?: RemoveUsersResponseBodyRemoveUsersResultFailedUsers[];
+  /**
+   * @remarks
+   * The convenience users that were removed.
+   */
+  removedUsers?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      failedUsers: 'FailedUsers',
+      removedUsers: 'RemovedUsers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedUsers: { 'type': 'array', 'itemType': RemoveUsersResponseBodyRemoveUsersResultFailedUsers },
+      removedUsers: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failedUsers)) {
+      $dara.Model.validateArray(this.failedUsers);
+    }
+    if(Array.isArray(this.removedUsers)) {
+      $dara.Model.validateArray(this.removedUsers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RemoveUsersResponseBody extends $dara.Model {
   /**

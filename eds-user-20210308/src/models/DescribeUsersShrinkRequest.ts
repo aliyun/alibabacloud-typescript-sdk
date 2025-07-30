@@ -14,6 +14,7 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
    * The usernames that must be exactly excluded.
    */
   excludeEndUserIds?: string[];
+  excludeGroupId?: string;
   /**
    * @remarks
    * The string that is used for fuzzy search. You perform fuzzy search by username (EndUserId) and email address (Email). Wildcard characters (\\*) are supported. For example, if you set this parameter to `a*m`, usernames or email addresses that start with `a` and end with `m` are returned.
@@ -69,6 +70,7 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
       bizType: 'BizType',
       endUserIds: 'EndUserIds',
       excludeEndUserIds: 'ExcludeEndUserIds',
+      excludeGroupId: 'ExcludeGroupId',
       filter: 'Filter',
       filterWithAssignedResourceShrink: 'FilterWithAssignedResource',
       filterWithAssignedResourcesShrink: 'FilterWithAssignedResources',
@@ -88,6 +90,7 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
       bizType: 'string',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       excludeEndUserIds: { 'type': 'array', 'itemType': 'string' },
+      excludeGroupId: 'string',
       filter: 'string',
       filterWithAssignedResourceShrink: 'string',
       filterWithAssignedResourcesShrink: 'string',

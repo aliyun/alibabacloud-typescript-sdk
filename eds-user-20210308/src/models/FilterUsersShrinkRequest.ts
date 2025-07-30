@@ -1,8 +1,86 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { FilterUsersShrinkRequestPropertyFilterParam } from "./FilterUsersShrinkRequestPropertyFilterParam";
-import { FilterUsersShrinkRequestPropertyKeyValueFilterParam } from "./FilterUsersShrinkRequestPropertyKeyValueFilterParam";
 
+
+export class FilterUsersShrinkRequestPropertyFilterParam extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the property.
+   * 
+   * @example
+   * 123
+   */
+  propertyId?: number;
+  /**
+   * @remarks
+   * The IDs of the property values.
+   * 
+   * @example
+   * test
+   */
+  propertyValueIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyId: 'PropertyId',
+      propertyValueIds: 'PropertyValueIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyId: 'number',
+      propertyValueIds: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FilterUsersShrinkRequestPropertyKeyValueFilterParam extends $dara.Model {
+  /**
+   * @remarks
+   * The property name.
+   * 
+   * @example
+   * job
+   */
+  propertyKey?: string;
+  /**
+   * @remarks
+   * The property values.
+   * 
+   * @example
+   * dev
+   */
+  propertyValues?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyKey: 'PropertyKey',
+      propertyValues: 'PropertyValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyKey: 'string',
+      propertyValues: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class FilterUsersShrinkRequest extends $dara.Model {
   /**

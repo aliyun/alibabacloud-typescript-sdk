@@ -230,6 +230,10 @@ export default class Client extends OpenApi {
       query["BizType"] = request.bizType;
     }
 
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
@@ -594,8 +598,20 @@ export default class Client extends OpenApi {
       query["BizType"] = request.bizType;
     }
 
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
     if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!$dara.isNull(request.solutionId)) {
@@ -652,8 +668,20 @@ export default class Client extends OpenApi {
       query["GroupName"] = request.groupName;
     }
 
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     if (!$dara.isNull(request.solutionId)) {
       query["SolutionId"] = request.solutionId;
+    }
+
+    if (!$dara.isNull(request.transferFileNeedApproval)) {
+      query["TransferFileNeedApproval"] = request.transferFileNeedApproval;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -938,20 +966,12 @@ export default class Client extends OpenApi {
       query["Filter"] = request.filter;
     }
 
-    if (!$dara.isNull(request.filterWithAssignedResourceShrink)) {
-      query["FilterWithAssignedResource"] = request.filterWithAssignedResourceShrink;
-    }
-
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
-    }
-
-    if (!$dara.isNull(request.status)) {
-      query["Status"] = request.status;
     }
 
     let body : {[key: string ]: any} = { };
@@ -965,6 +985,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.excludeEndUserIds)) {
       body["ExcludeEndUserIds"] = request.excludeEndUserIds;
+    }
+
+    if (!$dara.isNull(request.excludeGroupId)) {
+      body["ExcludeGroupId"] = request.excludeGroupId;
+    }
+
+    if (!$dara.isNull(request.filterWithAssignedResourceShrink)) {
+      body["FilterWithAssignedResource"] = request.filterWithAssignedResourceShrink;
     }
 
     if (!$dara.isNull(request.filterWithAssignedResourcesShrink)) {
@@ -989,6 +1017,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.solutionId)) {
       body["SolutionId"] = request.solutionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1382,6 +1414,10 @@ export default class Client extends OpenApi {
   async modifyGroupWithOptions(request: $_model.ModifyGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyGroupResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
@@ -1650,6 +1686,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.groupIds)) {
+      query["GroupIds"] = request.groupIds;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
