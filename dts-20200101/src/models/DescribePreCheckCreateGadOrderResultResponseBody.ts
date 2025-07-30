@@ -1,7 +1,73 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribePreCheckCreateGadOrderResultResponseBodyPreCheckItems } from "./DescribePreCheckCreateGadOrderResultResponseBodyPreCheckItems";
 
+
+export class DescribePreCheckCreateGadOrderResultResponseBodyPreCheckItemsPreCheckItems extends $dara.Model {
+  /**
+   * @example
+   * CHECK_MASTER_DB_STATUS
+   */
+  code?: string;
+  /**
+   * @example
+   * test
+   */
+  message?: string;
+  /**
+   * @example
+   * Running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePreCheckCreateGadOrderResultResponseBodyPreCheckItems extends $dara.Model {
+  preCheckItems?: DescribePreCheckCreateGadOrderResultResponseBodyPreCheckItemsPreCheckItems[];
+  static names(): { [key: string]: string } {
+    return {
+      preCheckItems: 'PreCheckItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      preCheckItems: { 'type': 'array', 'itemType': DescribePreCheckCreateGadOrderResultResponseBodyPreCheckItemsPreCheckItems },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.preCheckItems)) {
+      $dara.Model.validateArray(this.preCheckItems);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribePreCheckCreateGadOrderResultResponseBody extends $dara.Model {
   /**

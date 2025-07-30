@@ -1,10 +1,249 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeSubscriptionInstanceStatusResponseBodySourceEndpoint } from "./DescribeSubscriptionInstanceStatusResponseBodySourceEndpoint";
-import { DescribeSubscriptionInstanceStatusResponseBodySubscriptionDataType } from "./DescribeSubscriptionInstanceStatusResponseBodySubscriptionDataType";
-import { DescribeSubscriptionInstanceStatusResponseBodySubscriptionHost } from "./DescribeSubscriptionInstanceStatusResponseBodySubscriptionHost";
-import { DescribeSubscriptionInstanceStatusResponseBodySubscriptionObject } from "./DescribeSubscriptionInstanceStatusResponseBodySubscriptionObject";
 
+
+export class DescribeSubscriptionInstanceStatusResponseBodySourceEndpoint extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance that hosts the source database.
+   * 
+   * @example
+   * rm-bp1162kryivb8****
+   */
+  instanceID?: string;
+  /**
+   * @remarks
+   * The instance type of the source database.
+   * 
+   * >  This parameter is returned only for change tracking instances of the new version.
+   * 
+   * @example
+   * RDS
+   */
+  instanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceID: 'InstanceID',
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceID: 'string',
+      instanceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionInstanceStatusResponseBodySubscriptionDataType extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether data definition language (DDL) operations are tracked. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
+  DDL?: boolean;
+  /**
+   * @remarks
+   * Indicates whether data manipulation language (DML) operations are tracked. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
+  DML?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      DDL: 'DDL',
+      DML: 'DML',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DDL: 'boolean',
+      DML: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionInstanceStatusResponseBodySubscriptionHost extends $dara.Model {
+  /**
+   * @remarks
+   * The private endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+   * 
+   * @example
+   * dts-cn-****-internal.aliyuncs.com:18002
+   */
+  privateHost?: string;
+  /**
+   * @remarks
+   * The public endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+   * 
+   * @example
+   * dts-cn-****.aliyuncs.com:18001
+   */
+  publicHost?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+   * 
+   * @example
+   * dts-cn-****-vpc.aliyuncs.com:18003
+   */
+  VPCHost?: string;
+  static names(): { [key: string]: string } {
+    return {
+      privateHost: 'PrivateHost',
+      publicHost: 'PublicHost',
+      VPCHost: 'VPCHost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privateHost: 'string',
+      publicHost: 'string',
+      VPCHost: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionInstanceStatusResponseBodySubscriptionObjectSynchronousObjectTableList extends $dara.Model {
+  table?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      table: 'Table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      table: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.table)) {
+      $dara.Model.validateArray(this.table);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionInstanceStatusResponseBodySubscriptionObjectSynchronousObject extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the database to which the object belongs.
+   * 
+   * @example
+   * dtstestdata
+   */
+  databaseName?: string;
+  /**
+   * @remarks
+   * The table name.
+   */
+  tableList?: DescribeSubscriptionInstanceStatusResponseBodySubscriptionObjectSynchronousObjectTableList;
+  /**
+   * @remarks
+   * Indicates whether the data of an entire database is tracked. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * false
+   */
+  wholeDatabase?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseName: 'DatabaseName',
+      tableList: 'TableList',
+      wholeDatabase: 'WholeDatabase',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseName: 'string',
+      tableList: DescribeSubscriptionInstanceStatusResponseBodySubscriptionObjectSynchronousObjectTableList,
+      wholeDatabase: 'string',
+    };
+  }
+
+  validate() {
+    if(this.tableList && typeof (this.tableList as any).validate === 'function') {
+      (this.tableList as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionInstanceStatusResponseBodySubscriptionObject extends $dara.Model {
+  synchronousObject?: DescribeSubscriptionInstanceStatusResponseBodySubscriptionObjectSynchronousObject[];
+  static names(): { [key: string]: string } {
+    return {
+      synchronousObject: 'SynchronousObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      synchronousObject: { 'type': 'array', 'itemType': DescribeSubscriptionInstanceStatusResponseBodySubscriptionObjectSynchronousObject },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.synchronousObject)) {
+      $dara.Model.validateArray(this.synchronousObject);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeSubscriptionInstanceStatusResponseBody extends $dara.Model {
   /**

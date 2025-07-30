@@ -1,14 +1,661 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeSynchronizationJobStatusResponseBodyDataInitializationStatus } from "./DescribeSynchronizationJobStatusResponseBodyDataInitializationStatus";
-import { DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus } from "./DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus";
-import { DescribeSynchronizationJobStatusResponseBodyDestinationEndpoint } from "./DescribeSynchronizationJobStatusResponseBodyDestinationEndpoint";
-import { DescribeSynchronizationJobStatusResponseBodyPerformance } from "./DescribeSynchronizationJobStatusResponseBodyPerformance";
-import { DescribeSynchronizationJobStatusResponseBodyPrecheckStatus } from "./DescribeSynchronizationJobStatusResponseBodyPrecheckStatus";
-import { DescribeSynchronizationJobStatusResponseBodySourceEndpoint } from "./DescribeSynchronizationJobStatusResponseBodySourceEndpoint";
-import { DescribeSynchronizationJobStatusResponseBodyStructureInitializationStatus } from "./DescribeSynchronizationJobStatusResponseBodyStructureInitializationStatus";
-import { DescribeSynchronizationJobStatusResponseBodySynchronizationObjects } from "./DescribeSynchronizationJobStatusResponseBodySynchronizationObjects";
 
+
+export class DescribeSynchronizationJobStatusResponseBodyDataInitializationStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The error message returned if full data synchronization failed.
+   * 
+   * @example
+   * java.lang.NumberFormatException: For input string: ""
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The progress of full data synchronization. Unit: %.
+   * 
+   * @example
+   * 100
+   */
+  percent?: string;
+  /**
+   * @remarks
+   * The number of records that have been synchronized during full data synchronization.
+   * 
+   * @example
+   * 200001
+   */
+  progress?: string;
+  /**
+   * @remarks
+   * The status of full data synchronization. Valid values:
+   * 
+   * *   **NotStarted**: Full data synchronization is not started.
+   * *   **Migrating**: Full data synchronization is in progress.
+   * *   **Failed**: Full data synchronization failed.
+   * *   **Finished**: Full data synchronization is completed.
+   * 
+   * @example
+   * Finished
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      percent: 'Percent',
+      progress: 'Progress',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      percent: 'string',
+      progress: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The UNIX timestamp generated when the latest data record was synchronized.
+   * 
+   * @example
+   * 1610709865
+   */
+  checkpoint?: string;
+  /**
+   * @remarks
+   * The synchronization latency, in seconds.
+   * 
+   * @example
+   * 0
+   */
+  delay?: string;
+  /**
+   * @remarks
+   * The synchronization latency, in milliseconds.
+   * 
+   * @example
+   * 856
+   */
+  delayMillis?: number;
+  /**
+   * @remarks
+   * The error message returned if incremental data synchronization failed.
+   * 
+   * @example
+   * DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\\n\\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The progress of incremental data synchronization. Unit: %.
+   * 
+   * @example
+   * 100
+   */
+  percent?: string;
+  /**
+   * @remarks
+   * The status of incremental data synchronization. Valid values:
+   * 
+   * *   **NotStarted**: Incremental data synchronization is not started.
+   * *   **Migrating**: Incremental data synchronization is in progress.
+   * *   **Failed**: Incremental data synchronization failed.
+   * *   **Finished**: Incremental data synchronization is completed.
+   * 
+   * @example
+   * Finished
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkpoint: 'Checkpoint',
+      delay: 'Delay',
+      delayMillis: 'DelayMillis',
+      errorMessage: 'ErrorMessage',
+      percent: 'Percent',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkpoint: 'string',
+      delay: 'string',
+      delayMillis: 'number',
+      errorMessage: 'string',
+      percent: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodyDestinationEndpoint extends $dara.Model {
+  /**
+   * @remarks
+   * The database type of the destination instance.
+   * 
+   * @example
+   * MySQL
+   */
+  engineName?: string;
+  /**
+   * @remarks
+   * The endpoint of the destination instance.
+   * 
+   * @example
+   * 172.16.88.***
+   */
+  IP?: string;
+  /**
+   * @remarks
+   * The ID of the destination instance.
+   * 
+   * @example
+   * rm-bp162d4tp0500****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The type of the destination instance.
+   * 
+   * @example
+   * RDS
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The database service port of the destination instance.
+   * 
+   * @example
+   * 3306
+   */
+  port?: string;
+  /**
+   * @remarks
+   * The database account of the destination instance.
+   * 
+   * @example
+   * dtstest
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      engineName: 'EngineName',
+      IP: 'IP',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      port: 'Port',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      engineName: 'string',
+      IP: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      port: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodyPerformance extends $dara.Model {
+  /**
+   * @remarks
+   * The data traffic that is synchronized per second. Unit: MB/s.
+   * 
+   * @example
+   * 1
+   */
+  FLOW?: string;
+  /**
+   * @remarks
+   * The number of times SQL statements are synchronized per second, including BEGIN, COMMIT, DML, and DDL statements. DML statements include INSERT, DELETE, and UPDATE.
+   * 
+   * @example
+   * 100
+   */
+  RPS?: string;
+  static names(): { [key: string]: string } {
+    return {
+      FLOW: 'FLOW',
+      RPS: 'RPS',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      FLOW: 'string',
+      RPS: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodyPrecheckStatusDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The precheck result. Valid values:
+   * 
+   * *   **Success**: The task passed the precheck.
+   * *   **Failed**: The task failed to pass the precheck.
+   * 
+   * @example
+   * Success
+   */
+  checkStatus?: string;
+  /**
+   * @remarks
+   * The error message returned if the task failed to pass the precheck.
+   * 
+   * >  This parameter is returned only if the return value of the **CheckStatus** parameter is **Failed**.
+   * 
+   * @example
+   * Original error: Access denied for user \\"dtstest\\"@\\"100.104.***.**\\" (using password: YES)
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The name of the precheck item.
+   * 
+   * @example
+   * CHECK_CONN_SRC
+   */
+  itemName?: string;
+  /**
+   * @remarks
+   * The method to fix the precheck failure.
+   * 
+   * >  This parameter is returned only if the return value of the **CheckStatus** parameter is **Failed**.
+   * 
+   * @example
+   * CHECK_ERROR_DEST_CONN_REPAIR2
+   */
+  repairMethod?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkStatus: 'CheckStatus',
+      errorMessage: 'ErrorMessage',
+      itemName: 'ItemName',
+      repairMethod: 'RepairMethod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkStatus: 'string',
+      errorMessage: 'string',
+      itemName: 'string',
+      repairMethod: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodyPrecheckStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The result of each precheck item.
+   */
+  detail?: DescribeSynchronizationJobStatusResponseBodyPrecheckStatusDetail[];
+  /**
+   * @remarks
+   * The precheck progress. Unit: %.
+   * 
+   * @example
+   * 100
+   */
+  percent?: string;
+  /**
+   * @remarks
+   * The precheck result. Valid values:
+   * 
+   * *   **Success**: The task passed the precheck.
+   * *   **Failed**: The task failed to pass the precheck.
+   * 
+   * @example
+   * Success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'Detail',
+      percent: 'Percent',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: { 'type': 'array', 'itemType': DescribeSynchronizationJobStatusResponseBodyPrecheckStatusDetail },
+      percent: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.detail)) {
+      $dara.Model.validateArray(this.detail);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodySourceEndpoint extends $dara.Model {
+  /**
+   * @remarks
+   * The database type of the source instance.
+   * 
+   * @example
+   * MySQL
+   */
+  engineName?: string;
+  /**
+   * @remarks
+   * The endpoint of the source instance.
+   * 
+   * @example
+   * 172.16.88.***
+   */
+  IP?: string;
+  /**
+   * @remarks
+   * The ID of the source instance.
+   * 
+   * @example
+   * rm-bp1i99e8l7913****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The type of the source instance.
+   * 
+   * @example
+   * RDS
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The database service port of the source instance.
+   * 
+   * @example
+   * 3306
+   */
+  port?: string;
+  /**
+   * @remarks
+   * The database account of the source instance.
+   * 
+   * @example
+   * dtstest
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      engineName: 'EngineName',
+      IP: 'IP',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      port: 'Port',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      engineName: 'string',
+      IP: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      port: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodyStructureInitializationStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The error message returned if schema synchronization failed.
+   * 
+   * @example
+   * DTS-1020042 Execute sql error sql: ERROR: type "geometry" does not exist;
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The progress of schema synchronization. Unit: %.
+   * 
+   * @example
+   * 100
+   */
+  percent?: string;
+  /**
+   * @remarks
+   * The number of tables whose schemas have been synchronized.
+   * 
+   * @example
+   * 1
+   */
+  progress?: string;
+  /**
+   * @remarks
+   * The status of schema synchronization. Valid values:
+   * 
+   * *   **NotStarted**: Schema synchronization is not started.
+   * *   **Migrating**: Schema synchronization is in progress.
+   * *   **Failed**: Schema synchronization failed.
+   * *   **Finished**: Schema synchronization is completed.
+   * 
+   * @example
+   * Finished
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      percent: 'Percent',
+      progress: 'Progress',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      percent: 'string',
+      progress: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableExcludes extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the excluded table.
+   * 
+   * @example
+   * order
+   */
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableIncludes extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the synchronized table.
+   * 
+   * @example
+   * customer
+   */
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodySynchronizationObjects extends $dara.Model {
+  /**
+   * @remarks
+   * The database name that is used in the destination instance.
+   * 
+   * @example
+   * newdtstestdatabase
+   */
+  newSchemaName?: string;
+  /**
+   * @remarks
+   * The name of the synchronized database.
+   * 
+   * @example
+   * dtstestdatabase
+   */
+  schemaName?: string;
+  /**
+   * @remarks
+   * The source tables that are excluded from the data synchronization task.
+   */
+  tableExcludes?: DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableExcludes[];
+  /**
+   * @remarks
+   * The tables that are synchronized by the task.
+   */
+  tableIncludes?: DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableIncludes[];
+  static names(): { [key: string]: string } {
+    return {
+      newSchemaName: 'NewSchemaName',
+      schemaName: 'SchemaName',
+      tableExcludes: 'TableExcludes',
+      tableIncludes: 'TableIncludes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newSchemaName: 'string',
+      schemaName: 'string',
+      tableExcludes: { 'type': 'array', 'itemType': DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableExcludes },
+      tableIncludes: { 'type': 'array', 'itemType': DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableIncludes },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tableExcludes)) {
+      $dara.Model.validateArray(this.tableExcludes);
+    }
+    if(Array.isArray(this.tableIncludes)) {
+      $dara.Model.validateArray(this.tableIncludes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeSynchronizationJobStatusResponseBody extends $dara.Model {
   /**

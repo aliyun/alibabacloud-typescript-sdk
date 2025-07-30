@@ -1,10 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import OSS, * as $OSS from '@alicloud/oss-client';
-import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
-import * as $OSSUtil from '@alicloud/oss-util';
-import * as $FileForm from '@alicloud/tea-fileform';
-import OpenApi from '@alicloud/openapi-core';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
 
@@ -77,6 +73,42 @@ export default class Client extends OpenApi {
     this._endpoint = this.getEndpoint("dts", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
+    let request_ = new $dara.Request();
+    let boundary = $dara.Form.getBoundary();
+    request_.protocol = "HTTPS";
+    request_.method = "POST";
+    request_.pathname = `/`;
+    request_.headers = {
+      host: String(form["host"]),
+      date: OpenApiUtil.getDateUTCString(),
+      'user-agent': OpenApiUtil.getUserAgent(""),
+    };
+    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+    request_.body = $dara.Form.toFileForm(form, boundary);
+    let response_ = await $dara.doAction(request_);
+
+    let respMap : {[key: string]: any} = null;
+    let bodyStr = await $dara.Stream.readAsString(response_.body);
+    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+      respMap = $dara.XML.parseXml(bodyStr, null);
+      let err = respMap["Error"];
+      throw new $OpenApi.ClientError({
+        code: String(err["Code"]),
+        message: String(err["Message"]),
+        data: {
+          httpCode: response_.statusCode,
+          requestId: String(err["RequestId"]),
+          hostId: String(err["HostId"]),
+        },
+      });
+    }
+
+    respMap = $dara.XML.parseXml(bodyStr, null);
+    return {
+      ...respMap,
+    };
+  }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
     if (!$dara.isNull(endpoint)) {
@@ -392,12 +424,20 @@ export default class Client extends OpenApi {
 
   async configureDtsJobAdvance(request: $_model.ConfigureDtsJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigureDtsJobResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -414,51 +454,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "Dts",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Dts",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
     let configureDtsJobReq = new $_model.ConfigureDtsJobRequest({ });
     OpenApiUtil.convert(request, configureDtsJobReq);
     if (!$dara.isNull(request.fileOssUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileOssUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      configureDtsJobReq.fileOssUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      configureDtsJobReq.fileOssUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let configureDtsJobResp = await this.configureDtsJobWithOptions(configureDtsJobReq, runtime);
@@ -1619,6 +1662,150 @@ export default class Client extends OpenApi {
   async createDedicatedClusterMonitorRule(request: $_model.CreateDedicatedClusterMonitorRuleRequest): Promise<$_model.CreateDedicatedClusterMonitorRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDedicatedClusterMonitorRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看工作流任务结果
+   * 
+   * @param request - CreateDocParserJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDocParserJobResponse
+   */
+  async createDocParserJobWithOptions(request: $_model.CreateDocParserJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDocParserJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resultType)) {
+      query["ResultType"] = request.resultType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDocParserJob",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDocParserJobResponse>(await this.callApi(params, req, runtime), new $_model.CreateDocParserJobResponse({}));
+  }
+
+  /**
+   * 查看工作流任务结果
+   * 
+   * @param request - CreateDocParserJobRequest
+   * @returns CreateDocParserJobResponse
+   */
+  async createDocParserJob(request: $_model.CreateDocParserJobRequest): Promise<$_model.CreateDocParserJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDocParserJobWithOptions(request, runtime);
+  }
+
+  async createDocParserJobAdvance(request: $_model.CreateDocParserJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDocParserJobResponse> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Dts",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let createDocParserJobReq = new $_model.CreateDocParserJobRequest({ });
+    OpenApiUtil.convert(request, createDocParserJobReq);
+    if (!$dara.isNull(request.fileUrlObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.fileUrlObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      createDocParserJobReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let createDocParserJobResp = await this.createDocParserJobWithOptions(createDocParserJobReq, runtime);
+    return createDocParserJobResp;
   }
 
   /**
@@ -3486,6 +3673,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看工作流任务结果
+   * 
+   * @param request - DescribeDocParserJobResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDocParserJobResultResponse
+   */
+  async describeDocParserJobResultWithOptions(request: $_model.DescribeDocParserJobResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDocParserJobResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dtsJobId)) {
+      query["DtsJobId"] = request.dtsJobId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDocParserJobResult",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDocParserJobResultResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDocParserJobResultResponse({}));
+  }
+
+  /**
+   * 查看工作流任务结果
+   * 
+   * @param request - DescribeDocParserJobResultRequest
+   * @returns DescribeDocParserJobResultResponse
+   */
+  async describeDocParserJobResult(request: $_model.DescribeDocParserJobResultRequest): Promise<$_model.DescribeDocParserJobResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDocParserJobResultWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看工作流任务结果
+   * 
+   * @param request - DescribeDocParserJobStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDocParserJobStatusResponse
+   */
+  async describeDocParserJobStatusWithOptions(request: $_model.DescribeDocParserJobStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDocParserJobStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dtsJobId)) {
+      query["DtsJobId"] = request.dtsJobId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDocParserJobStatus",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDocParserJobStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDocParserJobStatusResponse({}));
+  }
+
+  /**
+   * 查看工作流任务结果
+   * 
+   * @param request - DescribeDocParserJobStatusRequest
+   * @returns DescribeDocParserJobStatusResponse
+   */
+  async describeDocParserJobStatus(request: $_model.DescribeDocParserJobStatusRequest): Promise<$_model.DescribeDocParserJobStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDocParserJobStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of extract, transform, and load (ETL) tasks.
    * 
    * @param request - DescribeDtsEtlJobVersionInfoRequest
@@ -4077,6 +4364,10 @@ export default class Client extends OpenApi {
   async describeGadInstancesWithOptions(request: $_model.DescribeGadInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGadInstancesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.dbEngineTypes)) {
+      query["DbEngineTypes"] = request.dbEngineTypes;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
@@ -6287,12 +6578,20 @@ export default class Client extends OpenApi {
 
   async modifyDtsJobAdvance(request: $_model.ModifyDtsJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDtsJobResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -6309,51 +6608,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "Dts",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Dts",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
     let modifyDtsJobReq = new $_model.ModifyDtsJobRequest({ });
     OpenApiUtil.convert(request, modifyDtsJobReq);
     if (!$dara.isNull(request.fileOssUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileOssUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      modifyDtsJobReq.fileOssUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      modifyDtsJobReq.fileOssUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let modifyDtsJobResp = await this.modifyDtsJobWithOptions(modifyDtsJobReq, runtime);
@@ -7152,6 +7454,22 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.masterDatabaseName)) {
+      query["MasterDatabaseName"] = request.masterDatabaseName;
+    }
+
+    if (!$dara.isNull(request.masterEngineArchType)) {
+      query["MasterEngineArchType"] = request.masterEngineArchType;
+    }
+
+    if (!$dara.isNull(request.masterShardAccountName)) {
+      query["MasterShardAccountName"] = request.masterShardAccountName;
+    }
+
+    if (!$dara.isNull(request.masterShardAccountPassword)) {
+      query["MasterShardAccountPassword"] = request.masterShardAccountPassword;
+    }
+
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -7164,12 +7482,20 @@ export default class Client extends OpenApi {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!$dara.isNull(request.slaveDatabaseName)) {
+      query["SlaveDatabaseName"] = request.slaveDatabaseName;
+    }
+
     if (!$dara.isNull(request.slaveDbInstanceId)) {
       query["SlaveDbInstanceId"] = request.slaveDbInstanceId;
     }
 
     if (!$dara.isNull(request.slaveDbInstanceRegion)) {
       query["SlaveDbInstanceRegion"] = request.slaveDbInstanceRegion;
+    }
+
+    if (!$dara.isNull(request.slaveEngineArchType)) {
+      query["SlaveEngineArchType"] = request.slaveEngineArchType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGadInstancesRequest extends $dara.Model {
+  dbEngineTypes?: string;
   /**
    * @example
    * test
@@ -33,6 +34,7 @@ export class DescribeGadInstancesRequest extends $dara.Model {
   slaveDbInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      dbEngineTypes: 'DbEngineTypes',
       instanceName: 'InstanceName',
       masterDbInstanceId: 'MasterDbInstanceId',
       ownerId: 'OwnerId',
@@ -46,6 +48,7 @@ export class DescribeGadInstancesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dbEngineTypes: 'string',
       instanceName: 'string',
       masterDbInstanceId: 'string',
       ownerId: 'string',
