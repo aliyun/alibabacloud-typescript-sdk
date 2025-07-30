@@ -1,7 +1,32 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RevertAssignedSessionResponseBodyMessages } from "./RevertAssignedSessionResponseBodyMessages";
 
+
+export class RevertAssignedSessionResponseBodyMessages extends $dara.Model {
+  message?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.message)) {
+      $dara.Model.validateArray(this.message);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RevertAssignedSessionResponseBody extends $dara.Model {
   /**

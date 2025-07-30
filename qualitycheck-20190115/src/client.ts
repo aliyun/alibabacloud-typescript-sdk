@@ -262,7 +262,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AssignReviewerBySessionGroupResponse
    */
-  // Deprecated
   async assignReviewerBySessionGroupWithOptions(request: $_model.AssignReviewerBySessionGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AssignReviewerBySessionGroupResponse> {
     request.validate();
     let query = { };
@@ -444,6 +443,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建标签挖掘任务
+   * 
+   * @param request - CreateMiningTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMiningTaskResponse
+   */
+  async createMiningTaskWithOptions(request: $_model.CreateMiningTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMiningTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.callbackUrl)) {
+      body["CallbackUrl"] = request.callbackUrl;
+    }
+
+    if (!$dara.isNull(request.filePath)) {
+      body["FilePath"] = request.filePath;
+    }
+
+    if (!$dara.isNull(request.param)) {
+      body["Param"] = request.param;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMiningTask",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMiningTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateMiningTaskResponse({}));
+  }
+
+  /**
+   * 创建标签挖掘任务
+   * 
+   * @param request - CreateMiningTaskRequest
+   * @returns CreateMiningTaskResponse
+   */
+  async createMiningTask(request: $_model.CreateMiningTaskRequest): Promise<$_model.CreateMiningTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMiningTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 新增质检方案
    * 
    * @param request - CreateQualityCheckSchemeRequest
@@ -542,7 +601,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSkillGroupConfigResponse
    */
-  // Deprecated
   async createSkillGroupConfigWithOptions(request: $_model.CreateSkillGroupConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSkillGroupConfigResponse> {
     request.validate();
     let query = { };
@@ -934,7 +992,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDataSetResponse
    */
-  // Deprecated
   async deleteDataSetWithOptions(request: $_model.DeleteDataSetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataSetResponse> {
     request.validate();
     let query = { };
@@ -1072,7 +1129,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteRuleResponse
    */
-  // Deprecated
   async deleteRuleWithOptions(request: $_model.DeleteRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRuleResponse> {
     request.validate();
     let query = { };
@@ -1230,7 +1286,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSkillGroupConfigResponse
    */
-  // Deprecated
   async deleteSkillGroupConfigWithOptions(request: $_model.DeleteSkillGroupConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSkillGroupConfigResponse> {
     request.validate();
     let query = { };
@@ -1532,6 +1587,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取标签挖掘任务结果
+   * 
+   * @param request - GetMiningTaskResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMiningTaskResultResponse
+   */
+  async getMiningTaskResultWithOptions(request: $_model.GetMiningTaskResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMiningTaskResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMiningTaskResult",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMiningTaskResultResponse>(await this.callApi(params, req, runtime), new $_model.GetMiningTaskResultResponse({}));
+  }
+
+  /**
+   * 获取标签挖掘任务结果
+   * 
+   * @param request - GetMiningTaskResultRequest
+   * @returns GetMiningTaskResultResponse
+   */
+  async getMiningTaskResult(request: $_model.GetMiningTaskResultRequest): Promise<$_model.GetMiningTaskResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMiningTaskResultWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - GetNextResultToVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNextResultToVerifyResponse
@@ -1752,7 +1853,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRuleResponse
    */
-  // Deprecated
   async getRuleWithOptions(request: $_model.GetRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRuleResponse> {
     request.validate();
     let query = { };
@@ -1802,7 +1902,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRuleByIdResponse
    */
-  // Deprecated
   async getRuleByIdWithOptions(request: $_model.GetRuleByIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRuleByIdResponse> {
     request.validate();
     let query = { };
@@ -1896,7 +1995,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRuleDetailResponse
    */
-  // Deprecated
   async getRuleDetailWithOptions(request: $_model.GetRuleDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRuleDetailResponse> {
     request.validate();
     let query = { };
@@ -2176,7 +2274,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetScoreInfoResponse
    */
-  // Deprecated
   async getScoreInfoWithOptions(request: $_model.GetScoreInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetScoreInfoResponse> {
     request.validate();
     let query = { };
@@ -2224,7 +2321,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSkillGroupConfigResponse
    */
-  // Deprecated
   async getSkillGroupConfigWithOptions(request: $_model.GetSkillGroupConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSkillGroupConfigResponse> {
     request.validate();
     let query = { };
@@ -2272,7 +2368,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSyncResultResponse
    */
-  // Deprecated
   async getSyncResultWithOptions(request: $_model.GetSyncResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSyncResultResponse> {
     request.validate();
     let query = { };
@@ -2408,7 +2503,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InvalidRuleResponse
    */
-  // Deprecated
   async invalidRuleWithOptions(request: $_model.InvalidRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InvalidRuleResponse> {
     request.validate();
     let query = { };
@@ -2504,7 +2598,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDataSetResponse
    */
-  // Deprecated
   async listDataSetWithOptions(request: $_model.ListDataSetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataSetResponse> {
     request.validate();
     let query = { };
@@ -2642,7 +2735,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRulesResponse
    */
-  // Deprecated
   async listRulesWithOptions(request: $_model.ListRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRulesResponse> {
     request.validate();
     let query = { };
@@ -2882,7 +2974,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSessionGroupResponse
    */
-  // Deprecated
   async listSessionGroupWithOptions(request: $_model.ListSessionGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSessionGroupResponse> {
     request.validate();
     let query = { };
@@ -2932,7 +3023,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSkillGroupConfigResponse
    */
-  // Deprecated
   async listSkillGroupConfigWithOptions(request: $_model.ListSkillGroupConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSkillGroupConfigResponse> {
     request.validate();
     let query = { };
@@ -3200,7 +3290,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RevertAssignedSessionGroupResponse
    */
-  // Deprecated
   async revertAssignedSessionGroupWithOptions(request: $_model.RevertAssignedSessionGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevertAssignedSessionGroupResponse> {
     request.validate();
     let query = { };
@@ -3250,7 +3339,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveConfigDataSetResponse
    */
-  // Deprecated
   async saveConfigDataSetWithOptions(request: $_model.SaveConfigDataSetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveConfigDataSetResponse> {
     request.validate();
     let query = { };
@@ -3734,7 +3822,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateRuleResponse
    */
-  // Deprecated
   async updateRuleWithOptions(request: $_model.UpdateRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRuleResponse> {
     request.validate();
     let query = { };
@@ -3784,7 +3871,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateRuleByIdResponse
    */
-  // Deprecated
   async updateRuleByIdWithOptions(request: $_model.UpdateRuleByIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRuleByIdResponse> {
     request.validate();
     let query = { };
@@ -3992,7 +4078,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSkillGroupConfigResponse
    */
-  // Deprecated
   async updateSkillGroupConfigWithOptions(request: $_model.UpdateSkillGroupConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSkillGroupConfigResponse> {
     request.validate();
     let query = { };
@@ -4298,7 +4383,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UploadDataResponse
    */
-  // Deprecated
   async uploadDataWithOptions(request: $_model.UploadDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadDataResponse> {
     request.validate();
     let query = { };

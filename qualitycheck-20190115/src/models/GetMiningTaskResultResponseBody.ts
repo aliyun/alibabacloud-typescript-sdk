@@ -2,24 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddRuleV4ResponseBodyMessages extends $dara.Model {
-  message?: string[];
+export class GetMiningTaskResultResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 123.22.com/manger/static/login-back.jpg
+   */
+  filePath?: string;
+  /**
+   * @example
+   * 123.22.com/manger/static/login-back.md
+   */
+  filePathMd?: string;
+  /**
+   * @example
+   * 20201231de3d34ec-40fa-4a55-8d27-76ea*****
+   */
+  taskId?: string;
+  /**
+   * @example
+   * finish
+   */
+  taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
+      filePath: 'FilePath',
+      filePathMd: 'FilePathMd',
+      taskId: 'TaskId',
+      taskStatus: 'TaskStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: { 'type': 'array', 'itemType': 'string' },
+      filePath: 'string',
+      filePathMd: 'string',
+      taskId: 'string',
+      taskStatus: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.message)) {
-      $dara.Model.validateArray(this.message);
-    }
     super.validate();
   }
 
@@ -28,25 +50,22 @@ export class AddRuleV4ResponseBodyMessages extends $dara.Model {
   }
 }
 
-export class AddRuleV4ResponseBody extends $dara.Model {
+export class GetMiningTaskResultResponseBody extends $dara.Model {
   /**
    * @example
    * 200
    */
   code?: string;
-  data?: number;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
+  data?: GetMiningTaskResultResponseBodyData;
   /**
    * @example
    * successful
    */
   message?: string;
-  messages?: AddRuleV4ResponseBodyMessages;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24***
    */
@@ -55,14 +74,12 @@ export class AddRuleV4ResponseBody extends $dara.Model {
    * @example
    * true
    */
-  success?: boolean;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
-      messages: 'Messages',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -71,18 +88,16 @@ export class AddRuleV4ResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'number',
-      httpStatusCode: 'number',
+      data: GetMiningTaskResultResponseBodyData,
       message: 'string',
-      messages: AddRuleV4ResponseBodyMessages,
       requestId: 'string',
-      success: 'boolean',
+      success: 'string',
     };
   }
 
   validate() {
-    if(this.messages && typeof (this.messages as any).validate === 'function') {
-      (this.messages as any).validate();
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
     }
     super.validate();
   }

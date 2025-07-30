@@ -2,24 +2,25 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RevertAssignedSessionGroupResponseBodyMessages extends $dara.Model {
-  message?: string[];
+export class CreateMiningTaskResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 7C1DEF5F-2C18-4D36-99C6-8C27*****
+   */
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: { 'type': 'array', 'itemType': 'string' },
+      taskId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.message)) {
-      $dara.Model.validateArray(this.message);
-    }
     super.validate();
   }
 
@@ -28,24 +29,27 @@ export class RevertAssignedSessionGroupResponseBodyMessages extends $dara.Model 
   }
 }
 
-export class RevertAssignedSessionGroupResponseBody extends $dara.Model {
+export class CreateMiningTaskResponseBody extends $dara.Model {
   /**
    * @example
    * 200
    */
   code?: string;
+  data?: CreateMiningTaskResponseBodyData;
   /**
    * @example
    * 200
    */
-  httpStatusCode?: number;
+  httpStatusCode?: string;
   /**
    * @example
    * successful
    */
   message?: string;
-  messages?: RevertAssignedSessionGroupResponseBodyMessages;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 106C6CA0-282D-4AF7-85F0-D2D24F4CE647
    */
@@ -54,13 +58,13 @@ export class RevertAssignedSessionGroupResponseBody extends $dara.Model {
    * @example
    * true
    */
-  success?: boolean;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
-      messages: 'Messages',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -69,17 +73,17 @@ export class RevertAssignedSessionGroupResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      httpStatusCode: 'number',
+      data: CreateMiningTaskResponseBodyData,
+      httpStatusCode: 'string',
       message: 'string',
-      messages: RevertAssignedSessionGroupResponseBodyMessages,
       requestId: 'string',
-      success: 'boolean',
+      success: 'string',
     };
   }
 
   validate() {
-    if(this.messages && typeof (this.messages as any).validate === 'function') {
-      (this.messages as any).validate();
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
     }
     super.validate();
   }

@@ -1,7 +1,101 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetAsrVocabResponseBodyData } from "./GetAsrVocabResponseBodyData";
 
+
+export class GetAsrVocabResponseBodyDataWordsWord extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  weight?: number;
+  word?: string;
+  static names(): { [key: string]: string } {
+    return {
+      weight: 'Weight',
+      word: 'Word',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      weight: 'number',
+      word: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsrVocabResponseBodyDataWords extends $dara.Model {
+  word?: GetAsrVocabResponseBodyDataWordsWord[];
+  static names(): { [key: string]: string } {
+    return {
+      word: 'Word',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      word: { 'type': 'array', 'itemType': GetAsrVocabResponseBodyDataWordsWord },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.word)) {
+      $dara.Model.validateArray(this.word);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsrVocabResponseBodyData extends $dara.Model {
+  asrVersion?: number;
+  modelCustomizationId?: string;
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  words?: GetAsrVocabResponseBodyDataWords;
+  static names(): { [key: string]: string } {
+    return {
+      asrVersion: 'AsrVersion',
+      modelCustomizationId: 'ModelCustomizationId',
+      name: 'Name',
+      words: 'Words',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asrVersion: 'number',
+      modelCustomizationId: 'string',
+      name: 'string',
+      words: GetAsrVocabResponseBodyDataWords,
+    };
+  }
+
+  validate() {
+    if(this.words && typeof (this.words as any).validate === 'function') {
+      (this.words as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetAsrVocabResponseBody extends $dara.Model {
   /**

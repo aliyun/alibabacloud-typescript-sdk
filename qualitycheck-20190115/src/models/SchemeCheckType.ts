@@ -1,8 +1,129 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SchemeCheckTypeSchemeScoreInfoList } from "./SchemeCheckTypeSchemeScoreInfoList";
-import { SchemeCheckTypeTaskFlowScoreInfoList } from "./SchemeCheckTypeTaskFlowScoreInfoList";
 
+
+export class SchemeCheckTypeSchemeScoreInfoList extends $dara.Model {
+  name?: string;
+  rid?: number;
+  scoreNum?: number;
+  scoreNumType?: number;
+  scoreRuleHitType?: number;
+  scoreType?: number;
+  taskFlowId?: number;
+  taskFlowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      rid: 'Rid',
+      scoreNum: 'ScoreNum',
+      scoreNumType: 'ScoreNumType',
+      scoreRuleHitType: 'ScoreRuleHitType',
+      scoreType: 'ScoreType',
+      taskFlowId: 'TaskFlowId',
+      taskFlowName: 'TaskFlowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      rid: 'number',
+      scoreNum: 'number',
+      scoreNumType: 'number',
+      scoreRuleHitType: 'number',
+      scoreType: 'number',
+      taskFlowId: 'number',
+      taskFlowName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SchemeCheckTypeTaskFlowScoreInfoListSchemeScoreInfoList extends $dara.Model {
+  name?: string;
+  rid?: number;
+  scoreNum?: number;
+  scoreNumType?: number;
+  scoreRuleHitType?: number;
+  scoreType?: number;
+  taskFlowId?: number;
+  taskFlowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      rid: 'Rid',
+      scoreNum: 'ScoreNum',
+      scoreNumType: 'ScoreNumType',
+      scoreRuleHitType: 'ScoreRuleHitType',
+      scoreType: 'ScoreType',
+      taskFlowId: 'TaskFlowId',
+      taskFlowName: 'TaskFlowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      rid: 'number',
+      scoreNum: 'number',
+      scoreNumType: 'number',
+      scoreRuleHitType: 'number',
+      scoreType: 'number',
+      taskFlowId: 'number',
+      taskFlowName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SchemeCheckTypeTaskFlowScoreInfoList extends $dara.Model {
+  schemeScoreInfoList?: SchemeCheckTypeTaskFlowScoreInfoListSchemeScoreInfoList[];
+  taskFlowId?: number;
+  taskFlowName?: string;
+  taskFlowType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      schemeScoreInfoList: 'SchemeScoreInfoList',
+      taskFlowId: 'TaskFlowId',
+      taskFlowName: 'TaskFlowName',
+      taskFlowType: 'TaskFlowType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      schemeScoreInfoList: { 'type': 'array', 'itemType': SchemeCheckTypeTaskFlowScoreInfoListSchemeScoreInfoList },
+      taskFlowId: 'number',
+      taskFlowName: 'string',
+      taskFlowType: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.schemeScoreInfoList)) {
+      $dara.Model.validateArray(this.schemeScoreInfoList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SchemeCheckType extends $dara.Model {
   checkName?: string;
