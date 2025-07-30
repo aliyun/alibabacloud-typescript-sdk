@@ -11,6 +11,7 @@ export class GetUploadDocumentJobResponseBodyChunkResult extends $dara.Model {
    * http://xxx/test.jsonl
    */
   chunkFileUrl?: string;
+  documentLoaderResultFileUrl?: string;
   /**
    * @remarks
    * The URL of the file that does not contain metadata after chunking. The validity period of the URL is 2 hours. The file is in the TXT format. Each line is a chunk. The file can be easily used for embedding.
@@ -22,6 +23,7 @@ export class GetUploadDocumentJobResponseBodyChunkResult extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       chunkFileUrl: 'ChunkFileUrl',
+      documentLoaderResultFileUrl: 'DocumentLoaderResultFileUrl',
       plainChunkFileUrl: 'PlainChunkFileUrl',
     };
   }
@@ -29,6 +31,7 @@ export class GetUploadDocumentJobResponseBodyChunkResult extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       chunkFileUrl: 'string',
+      documentLoaderResultFileUrl: 'string',
       plainChunkFileUrl: 'string',
     };
   }

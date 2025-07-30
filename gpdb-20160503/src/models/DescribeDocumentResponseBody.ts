@@ -27,6 +27,7 @@ export class DescribeDocumentResponseBody extends $dara.Model {
    * RapidOCRPDFLoader
    */
   documentLoader?: string;
+  documentLoaderResultFileUrl?: string;
   /**
    * @remarks
    * File extension.
@@ -138,6 +139,7 @@ export class DescribeDocumentResponseBody extends $dara.Model {
       chunkFileUrl: 'ChunkFileUrl',
       docsCount: 'DocsCount',
       documentLoader: 'DocumentLoader',
+      documentLoaderResultFileUrl: 'DocumentLoaderResultFileUrl',
       fileExt: 'FileExt',
       fileMd5: 'FileMd5',
       fileMtime: 'FileMtime',
@@ -159,6 +161,7 @@ export class DescribeDocumentResponseBody extends $dara.Model {
       chunkFileUrl: 'string',
       docsCount: 'number',
       documentLoader: 'string',
+      documentLoaderResultFileUrl: 'string',
       fileExt: 'string',
       fileMd5: 'string',
       fileMtime: 'string',
