@@ -77,6 +77,8 @@ export class AddLiveStreamMergeRequest extends $dara.Model {
    * stream2
    */
   inStreamName2?: string;
+  liveMerger?: string;
+  mergeParameters?: string;
   ownerId?: number;
   /**
    * @remarks
@@ -121,6 +123,8 @@ export class AddLiveStreamMergeRequest extends $dara.Model {
       inAppName2: 'InAppName2',
       inStreamName1: 'InStreamName1',
       inStreamName2: 'InStreamName2',
+      liveMerger: 'LiveMerger',
+      mergeParameters: 'MergeParameters',
       ownerId: 'OwnerId',
       protocol: 'Protocol',
       regionId: 'RegionId',
@@ -138,6 +142,8 @@ export class AddLiveStreamMergeRequest extends $dara.Model {
       inAppName2: 'string',
       inStreamName1: 'string',
       inStreamName2: 'string',
+      liveMerger: 'string',
+      mergeParameters: 'string',
       ownerId: 'number',
       protocol: 'string',
       regionId: 'string',

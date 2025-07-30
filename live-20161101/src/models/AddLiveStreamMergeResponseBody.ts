@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddLiveStreamMergeResponseBody extends $dara.Model {
+  message?: string;
   /**
    * @remarks
    * The request ID.
@@ -13,12 +14,14 @@ export class AddLiveStreamMergeResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      message: 'string',
       requestId: 'string',
     };
   }

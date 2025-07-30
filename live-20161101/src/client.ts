@@ -2425,6 +2425,14 @@ export default class Client extends OpenApi {
       query["InStreamName2"] = request.inStreamName2;
     }
 
+    if (!$dara.isNull(request.liveMerger)) {
+      query["LiveMerger"] = request.liveMerger;
+    }
+
+    if (!$dara.isNull(request.mergeParameters)) {
+      query["MergeParameters"] = request.mergeParameters;
+    }
+
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }

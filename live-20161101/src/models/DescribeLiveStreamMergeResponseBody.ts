@@ -75,6 +75,8 @@ export class DescribeLiveStreamMergeResponseBodyLiveStreamMergeListLiveStreamMer
    * stream2
    */
   inStreamName2?: string;
+  liveMerger?: string;
+  mergeParameters?: string;
   /**
    * @remarks
    * The streaming protocol.
@@ -118,6 +120,8 @@ export class DescribeLiveStreamMergeResponseBodyLiveStreamMergeListLiveStreamMer
       inAppName2: 'InAppName2',
       inStreamName1: 'InStreamName1',
       inStreamName2: 'InStreamName2',
+      liveMerger: 'LiveMerger',
+      mergeParameters: 'MergeParameters',
       protocol: 'Protocol',
       startTime: 'StartTime',
       streamName: 'StreamName',
@@ -136,6 +140,8 @@ export class DescribeLiveStreamMergeResponseBodyLiveStreamMergeListLiveStreamMer
       inAppName2: 'string',
       inStreamName1: 'string',
       inStreamName2: 'string',
+      liveMerger: 'string',
+      mergeParameters: 'string',
       protocol: 'string',
       startTime: 'string',
       streamName: 'string',
