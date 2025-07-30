@@ -69,6 +69,13 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
    * selectdb-cn-xxx
    */
   dbInstanceId?: string;
+  /**
+   * @remarks
+   * Specifies whether to change the billing method of the cluster.
+   * 
+   * @example
+   * true
+   */
   modifyClusterChargeType?: boolean;
   /**
    * @remarks

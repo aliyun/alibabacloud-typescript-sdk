@@ -260,6 +260,14 @@ export default class Client extends OpenApi {
       query["ChargeType"] = request.chargeType;
     }
 
+    if (!$dara.isNull(request.clusterNodeCount)) {
+      query["ClusterNodeCount"] = request.clusterNodeCount;
+    }
+
+    if (!$dara.isNull(request.clusterNodeType)) {
+      query["ClusterNodeType"] = request.clusterNodeType;
+    }
+
     if (!$dara.isNull(request.DBClusterClass)) {
       query["DBClusterClass"] = request.DBClusterClass;
     }
@@ -286,6 +294,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scaleMax)) {
+      query["ScaleMax"] = request.scaleMax;
+    }
+
+    if (!$dara.isNull(request.scaleMin)) {
+      query["ScaleMin"] = request.scaleMin;
     }
 
     if (!$dara.isNull(request.usedTime)) {
@@ -441,6 +457,14 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.clusterNodeCount)) {
+      query["ClusterNodeCount"] = request.clusterNodeCount;
+    }
+
+    if (!$dara.isNull(request.clusterNodeType)) {
+      query["ClusterNodeType"] = request.clusterNodeType;
+    }
+
     if (!$dara.isNull(request.connectionString)) {
       query["ConnectionString"] = request.connectionString;
     }
@@ -479,6 +503,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scaleMax)) {
+      query["ScaleMax"] = request.scaleMax;
+    }
+
+    if (!$dara.isNull(request.scaleMin)) {
+      query["ScaleMin"] = request.scaleMin;
     }
 
     if (!$dara.isNull(request.securityIPList)) {
@@ -1561,6 +1593,14 @@ export default class Client extends OpenApi {
       query["CacheSize"] = request.cacheSize;
     }
 
+    if (!$dara.isNull(request.clusterNodeCount)) {
+      query["ClusterNodeCount"] = request.clusterNodeCount;
+    }
+
+    if (!$dara.isNull(request.clusterNodeType)) {
+      query["ClusterNodeType"] = request.clusterNodeType;
+    }
+
     if (!$dara.isNull(request.DBClusterClass)) {
       query["DBClusterClass"] = request.DBClusterClass;
     }
@@ -1583,6 +1623,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scaleMax)) {
+      query["ScaleMax"] = request.scaleMax;
+    }
+
+    if (!$dara.isNull(request.scaleMin)) {
+      query["ScaleMin"] = request.scaleMin;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

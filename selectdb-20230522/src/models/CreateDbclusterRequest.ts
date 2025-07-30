@@ -19,6 +19,8 @@ export class CreateDBClusterRequest extends $dara.Model {
    * Prepaid
    */
   chargeType?: string;
+  clusterNodeCount?: number;
+  clusterNodeType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -75,6 +77,8 @@ export class CreateDBClusterRequest extends $dara.Model {
    */
   regionId?: string;
   resourceOwnerId?: number;
+  scaleMax?: number;
+  scaleMin?: number;
   /**
    * @example
    * 1
@@ -110,6 +114,8 @@ export class CreateDBClusterRequest extends $dara.Model {
     return {
       cacheSize: 'CacheSize',
       chargeType: 'ChargeType',
+      clusterNodeCount: 'ClusterNodeCount',
+      clusterNodeType: 'ClusterNodeType',
       DBClusterClass: 'DBClusterClass',
       DBClusterDescription: 'DBClusterDescription',
       DBInstanceId: 'DBInstanceId',
@@ -118,6 +124,8 @@ export class CreateDBClusterRequest extends $dara.Model {
       period: 'Period',
       regionId: 'RegionId',
       resourceOwnerId: 'ResourceOwnerId',
+      scaleMax: 'ScaleMax',
+      scaleMin: 'ScaleMin',
       usedTime: 'UsedTime',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -129,6 +137,8 @@ export class CreateDBClusterRequest extends $dara.Model {
     return {
       cacheSize: 'string',
       chargeType: 'string',
+      clusterNodeCount: 'number',
+      clusterNodeType: 'string',
       DBClusterClass: 'string',
       DBClusterDescription: 'string',
       DBInstanceId: 'string',
@@ -137,6 +147,8 @@ export class CreateDBClusterRequest extends $dara.Model {
       period: 'string',
       regionId: 'string',
       resourceOwnerId: 'number',
+      scaleMax: 'number',
+      scaleMin: 'number',
       usedTime: 'string',
       vSwitchId: 'string',
       vpcId: 'string',

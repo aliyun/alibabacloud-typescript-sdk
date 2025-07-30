@@ -3,6 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDBInstanceShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to add the virtual private cloud (VPC) CIDR block to the IP address whitelist. Valid values:
+   * 
+   * *   1: yes.
+   * *   0: no.
+   * 
+   * @example
+   * 1
+   */
   addVPCIPs?: string;
   /**
    * @remarks
@@ -35,6 +45,8 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    * AB
    */
   clientToken?: string;
+  clusterNodeCount?: number;
+  clusterNodeType?: string;
   /**
    * @remarks
    * The instance endpoint.
@@ -64,11 +76,6 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The deployment method of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   multi_az
-   * *   single_az
    * 
    * @example
    * single_az
@@ -136,6 +143,8 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    */
   resourceGroupId?: string;
   resourceOwnerId?: number;
+  scaleMax?: number;
+  scaleMin?: number;
   /**
    * @remarks
    * The IP addresses in the whitelist of the instance. Separate multiple IP addresses with commas (,).
@@ -198,6 +207,8 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       cacheSize: 'CacheSize',
       chargeType: 'ChargeType',
       clientToken: 'ClientToken',
+      clusterNodeCount: 'ClusterNodeCount',
+      clusterNodeType: 'ClusterNodeType',
       connectionString: 'ConnectionString',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceDescription: 'DBInstanceDescription',
@@ -209,6 +220,8 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerId: 'ResourceOwnerId',
+      scaleMax: 'ScaleMax',
+      scaleMin: 'ScaleMin',
       securityIPList: 'SecurityIPList',
       tagShrink: 'Tag',
       usedTime: 'UsedTime',
@@ -224,6 +237,8 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       cacheSize: 'number',
       chargeType: 'string',
       clientToken: 'string',
+      clusterNodeCount: 'number',
+      clusterNodeType: 'string',
       connectionString: 'string',
       DBInstanceClass: 'string',
       DBInstanceDescription: 'string',
@@ -235,6 +250,8 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerId: 'number',
+      scaleMax: 'number',
+      scaleMin: 'number',
       securityIPList: 'string',
       tagShrink: 'string',
       usedTime: 'number',

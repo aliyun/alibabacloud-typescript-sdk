@@ -1,10 +1,98 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateDBInstanceRequestMultiZone } from "./CreateDbinstanceRequestMultiZone";
-import { CreateDBInstanceRequestTag } from "./CreateDbinstanceRequestTag";
 
+
+export class CreateDBInstanceRequestMultiZone extends $dara.Model {
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   */
+  vSwitchIds?: string[];
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-k
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchIds: 'VSwitchIds',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBInstanceRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * testKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * testValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateDBInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to add the virtual private cloud (VPC) CIDR block to the IP address whitelist. Valid values:
+   * 
+   * *   1: yes.
+   * *   0: no.
+   * 
+   * @example
+   * 1
+   */
   addVPCIPs?: string;
   /**
    * @remarks
@@ -37,6 +125,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * AB
    */
   clientToken?: string;
+  clusterNodeCount?: number;
+  clusterNodeType?: string;
   /**
    * @remarks
    * The instance endpoint.
@@ -66,11 +156,6 @@ export class CreateDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The deployment method of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   multi_az
-   * *   single_az
    * 
    * @example
    * single_az
@@ -138,6 +223,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
    */
   resourceGroupId?: string;
   resourceOwnerId?: number;
+  scaleMax?: number;
+  scaleMin?: number;
   /**
    * @remarks
    * The IP addresses in the whitelist of the instance. Separate multiple IP addresses with commas (,).
@@ -200,6 +287,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
       cacheSize: 'CacheSize',
       chargeType: 'ChargeType',
       clientToken: 'ClientToken',
+      clusterNodeCount: 'ClusterNodeCount',
+      clusterNodeType: 'ClusterNodeType',
       connectionString: 'ConnectionString',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceDescription: 'DBInstanceDescription',
@@ -211,6 +300,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerId: 'ResourceOwnerId',
+      scaleMax: 'ScaleMax',
+      scaleMin: 'ScaleMin',
       securityIPList: 'SecurityIPList',
       tag: 'Tag',
       usedTime: 'UsedTime',
@@ -226,6 +317,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
       cacheSize: 'number',
       chargeType: 'string',
       clientToken: 'string',
+      clusterNodeCount: 'number',
+      clusterNodeType: 'string',
       connectionString: 'string',
       DBInstanceClass: 'string',
       DBInstanceDescription: 'string',
@@ -237,6 +330,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerId: 'number',
+      scaleMax: 'number',
+      scaleMin: 'number',
       securityIPList: 'string',
       tag: { 'type': 'array', 'itemType': CreateDBInstanceRequestTag },
       usedTime: 'number',

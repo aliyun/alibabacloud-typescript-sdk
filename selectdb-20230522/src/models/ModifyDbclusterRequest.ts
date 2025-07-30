@@ -11,6 +11,8 @@ export class ModifyDBClusterRequest extends $dara.Model {
    * 200
    */
   cacheSize?: string;
+  clusterNodeCount?: number;
+  clusterNodeType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -52,27 +54,37 @@ export class ModifyDBClusterRequest extends $dara.Model {
    */
   regionId?: string;
   resourceOwnerId?: number;
+  scaleMax?: number;
+  scaleMin?: number;
   static names(): { [key: string]: string } {
     return {
       cacheSize: 'CacheSize',
+      clusterNodeCount: 'ClusterNodeCount',
+      clusterNodeType: 'ClusterNodeType',
       DBClusterClass: 'DBClusterClass',
       DBClusterId: 'DBClusterId',
       DBInstanceId: 'DBInstanceId',
       engine: 'Engine',
       regionId: 'RegionId',
       resourceOwnerId: 'ResourceOwnerId',
+      scaleMax: 'ScaleMax',
+      scaleMin: 'ScaleMin',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cacheSize: 'string',
+      clusterNodeCount: 'number',
+      clusterNodeType: 'string',
       DBClusterClass: 'string',
       DBClusterId: 'string',
       DBInstanceId: 'string',
       engine: 'string',
       regionId: 'string',
       resourceOwnerId: 'number',
+      scaleMax: 'number',
+      scaleMin: 'number',
     };
   }
 

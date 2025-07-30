@@ -1,7 +1,120 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeElasticRulesResponseBodyData } from "./DescribeElasticRulesResponseBodyData";
 
+
+export class DescribeElasticRulesResponseBodyDataRules extends $dara.Model {
+  /**
+   * @remarks
+   * The rule for computing resources of the required cluster.
+   * 
+   * @example
+   * selectdb.2xlarge
+   */
+  clusterClass?: string;
+  /**
+   * @remarks
+   * The time when you want to execute the scheduled scaling rule.
+   * 
+   * @example
+   * 00:00
+   */
+  elasticRuleStartTime?: string;
+  /**
+   * @remarks
+   * The execution cycle.
+   * 
+   * Valid value:
+   * 
+   * *   Day
+   * 
+   * @example
+   * Day
+   */
+  executionPeriod?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * 5467
+   */
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterClass: 'ClusterClass',
+      elasticRuleStartTime: 'ElasticRuleStartTime',
+      executionPeriod: 'ExecutionPeriod',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterClass: 'string',
+      elasticRuleStartTime: 'string',
+      executionPeriod: 'string',
+      ruleId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeElasticRulesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * selectdb-cn-nwy3jv1oa02-be
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * selectdb-cn-7213cjv****
+   */
+  dbInstanceId?: string;
+  /**
+   * @remarks
+   * The details of the rules.
+   */
+  rules?: DescribeElasticRulesResponseBodyDataRules[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dbInstanceId: 'DbInstanceId',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dbInstanceId: 'string',
+      rules: { 'type': 'array', 'itemType': DescribeElasticRulesResponseBodyDataRules },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeElasticRulesResponseBody extends $dara.Model {
   /**
