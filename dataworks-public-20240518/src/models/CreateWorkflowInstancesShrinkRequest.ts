@@ -60,6 +60,8 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
    * 100
    */
   projectId?: number;
+  tagCreationPolicy?: string;
+  tagsShrink?: string;
   /**
    * @remarks
    * The task-specific parameters. The value is in the JSON format. The key specifies the task ID. You can call the GetTask operation to obtain the format of the value by querying the script parameters.
@@ -116,6 +118,8 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
       name: 'Name',
       periodsShrink: 'Periods',
       projectId: 'ProjectId',
+      tagCreationPolicy: 'TagCreationPolicy',
+      tagsShrink: 'Tags',
       taskParameters: 'TaskParameters',
       type: 'Type',
       workflowId: 'WorkflowId',
@@ -132,6 +136,8 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
       name: 'string',
       periodsShrink: 'string',
       projectId: 'number',
+      tagCreationPolicy: 'string',
+      tagsShrink: 'string',
       taskParameters: 'string',
       type: 'string',
       workflowId: 'number',

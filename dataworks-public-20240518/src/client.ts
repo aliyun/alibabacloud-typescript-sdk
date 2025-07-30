@@ -2598,6 +2598,10 @@ export default class Client extends OpenApi {
       request.periodsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.periods, "Periods", "json");
     }
 
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.autoStartEnabled)) {
       body["AutoStartEnabled"] = request.autoStartEnabled;
@@ -2625,6 +2629,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.projectId)) {
       body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.tagCreationPolicy)) {
+      body["TagCreationPolicy"] = request.tagCreationPolicy;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
     }
 
     if (!$dara.isNull(request.taskParameters)) {

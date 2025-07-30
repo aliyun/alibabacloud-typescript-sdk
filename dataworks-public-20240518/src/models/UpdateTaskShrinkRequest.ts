@@ -70,8 +70,6 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The name.
    * 
-   * This parameter is required.
-   * 
    * @example
    * SQL node
    */
@@ -84,8 +82,6 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The account ID of the task owner.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 1000
@@ -107,8 +103,6 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
    * *   FailureAllowed: The task can be rerun only after it fails to run.
    * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
    * 
-   * This parameter is required.
-   * 
    * @example
    * AllAllowed
    */
@@ -124,8 +118,6 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The configurations of the runtime environment, such as the resource group information.
-   * 
-   * This parameter is required.
    */
   runtimeResourceShrink?: string;
   /**
@@ -149,8 +141,6 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The trigger method.
-   * 
-   * This parameter is required.
    */
   triggerShrink?: string;
   static names(): { [key: string]: string } {

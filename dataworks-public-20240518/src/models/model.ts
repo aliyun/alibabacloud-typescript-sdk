@@ -114,6 +114,7 @@ export { CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy } from './C
 export { CreateWorkflowInstancesRequestDefaultRunProperties } from './CreateWorkflowInstancesRequest';
 export { CreateWorkflowInstancesRequestPeriodsBizDates } from './CreateWorkflowInstancesRequest';
 export { CreateWorkflowInstancesRequestPeriods } from './CreateWorkflowInstancesRequest';
+export { CreateWorkflowInstancesRequestTags } from './CreateWorkflowInstancesRequest';
 export { ExecuteAdhocWorkflowInstanceRequestTasksDataSource } from './ExecuteAdhocWorkflowInstanceRequest';
 export { ExecuteAdhocWorkflowInstanceRequestTasksDependencies } from './ExecuteAdhocWorkflowInstanceRequest';
 export { ExecuteAdhocWorkflowInstanceRequestTasksInputsVariables } from './ExecuteAdhocWorkflowInstanceRequest';

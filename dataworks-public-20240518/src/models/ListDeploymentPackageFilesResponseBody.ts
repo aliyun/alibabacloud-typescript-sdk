@@ -169,16 +169,22 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
   smokeTestStatus?: string;
   /**
    * @remarks
-   * The status of the code for the file of the current version. Valid values:
+   * The status of the code file of the current version. Valid values:
    * 
-   * *   10: committing
-   * *   11: committed to the development environment of the scheduling system
-   * *   20: review passed
-   * *   21: review failed
-   * *   80: deployment package creation succeeded
-   * *   100: deploying
-   * *   101: deployed to the production environment
-   * *   200: cancelled
+   * *   2: Commit check in progress.
+   * *   3: Commit check passed.
+   * *   4: Commit check failed.
+   * *   10: Committing.
+   * *   11: Committed.
+   * *   20: Approved.
+   * *   21: Rejected.
+   * *   22: Warning detected during checking.
+   * *   23: Under code review.
+   * *   24: Code review rejected.
+   * *   80: Deployment package created.
+   * *   100: Deploying.
+   * *   101: Deployed to the production environment.
+   * *   200: Cancelled.
    * 
    * @example
    * 100
@@ -265,7 +271,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFi
 export class ListDeploymentPackageFilesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The details of the versions of the files to be deployed.
+   * The list of files pending deployment.
    */
   deploymentPackageFiles?: ListDeploymentPackageFilesResponseBodyPagingInfoDeploymentPackageFiles[];
   /**
@@ -325,7 +331,7 @@ export class ListDeploymentPackageFilesResponseBodyPagingInfo extends $dara.Mode
 export class ListDeploymentPackageFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The pagination details.
    */
   pagingInfo?: ListDeploymentPackageFilesResponseBodyPagingInfo;
   /**

@@ -324,8 +324,6 @@ export class UpdateTaskRequestRuntimeResource extends $dara.Model {
    * @remarks
    * The ID of the resource group for scheduling configured for task running.
    * 
-   * This parameter is required.
-   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -481,8 +479,6 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
    * *   Scheduler: scheduling cycle-based trigger
    * *   Manual: manual trigger
    * 
-   * This parameter is required.
-   * 
    * @example
    * Scheduler
    */
@@ -584,8 +580,6 @@ export class UpdateTaskRequest extends $dara.Model {
    * @remarks
    * The name.
    * 
-   * This parameter is required.
-   * 
    * @example
    * SQL node
    */
@@ -598,8 +592,6 @@ export class UpdateTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The account ID of the task owner.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 1000
@@ -621,8 +613,6 @@ export class UpdateTaskRequest extends $dara.Model {
    * *   FailureAllowed: The task can be rerun only after it fails to run.
    * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
    * 
-   * This parameter is required.
-   * 
    * @example
    * AllAllowed
    */
@@ -638,8 +628,6 @@ export class UpdateTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The configurations of the runtime environment, such as the resource group information.
-   * 
-   * This parameter is required.
    */
   runtimeResource?: UpdateTaskRequestRuntimeResource;
   /**
@@ -663,8 +651,6 @@ export class UpdateTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The trigger method.
-   * 
-   * This parameter is required.
    */
   trigger?: UpdateTaskRequestTrigger;
   static names(): { [key: string]: string } {

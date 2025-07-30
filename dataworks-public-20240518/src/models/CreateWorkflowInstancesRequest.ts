@@ -429,6 +429,32 @@ export class CreateWorkflowInstancesRequestPeriods extends $dara.Model {
   }
 }
 
+export class CreateWorkflowInstancesRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkflowInstancesRequest extends $dara.Model {
   /**
    * @remarks
@@ -487,6 +513,8 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
    * 100
    */
   projectId?: number;
+  tagCreationPolicy?: string;
+  tags?: CreateWorkflowInstancesRequestTags[];
   /**
    * @remarks
    * The task-specific parameters. The value is in the JSON format. The key specifies the task ID. You can call the GetTask operation to obtain the format of the value by querying the script parameters.
@@ -543,6 +571,8 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
       name: 'Name',
       periods: 'Periods',
       projectId: 'ProjectId',
+      tagCreationPolicy: 'TagCreationPolicy',
+      tags: 'Tags',
       taskParameters: 'TaskParameters',
       type: 'Type',
       workflowId: 'WorkflowId',
@@ -559,6 +589,8 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
       name: 'string',
       periods: CreateWorkflowInstancesRequestPeriods,
       projectId: 'number',
+      tagCreationPolicy: 'string',
+      tags: { 'type': 'array', 'itemType': CreateWorkflowInstancesRequestTags },
       taskParameters: 'string',
       type: 'string',
       workflowId: 'number',
@@ -572,6 +604,9 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
     }
     if(this.periods && typeof (this.periods as any).validate === 'function') {
       (this.periods as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
