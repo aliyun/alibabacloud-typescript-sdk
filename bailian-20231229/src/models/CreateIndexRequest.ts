@@ -184,6 +184,7 @@ export class CreateIndexRequest extends $dara.Model {
    */
   chunkSize?: number;
   columns?: CreateIndexRequestColumns[];
+  createIndexType?: string;
   /**
    * @remarks
    * >  This parameter is not available. Do not specify this parameter.
@@ -211,6 +212,7 @@ export class CreateIndexRequest extends $dara.Model {
    * text-embedding-v2
    */
   embeddingModelName?: string;
+  enableRewrite?: boolean;
   /**
    * @remarks
    * The name of the knowledge base. The name must be 1 to 20 characters in length and can contain characters classified as letter in Unicode, including English letters, Chinese characters, digits, among others. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
@@ -338,6 +340,7 @@ export class CreateIndexRequest extends $dara.Model {
    * structured
    */
   structureType?: string;
+  tableIds?: string[];
   chunkMode?: string;
   enableHeaders?: boolean;
   metaExtractColumns?: CreateIndexRequestMetaExtractColumns[];
@@ -346,10 +349,12 @@ export class CreateIndexRequest extends $dara.Model {
       categoryIds: 'CategoryIds',
       chunkSize: 'ChunkSize',
       columns: 'Columns',
+      createIndexType: 'CreateIndexType',
       dataSource: 'DataSource',
       description: 'Description',
       documentIds: 'DocumentIds',
       embeddingModelName: 'EmbeddingModelName',
+      enableRewrite: 'EnableRewrite',
       name: 'Name',
       overlapSize: 'OverlapSize',
       rerankMinScore: 'RerankMinScore',
@@ -360,6 +365,7 @@ export class CreateIndexRequest extends $dara.Model {
       sinkType: 'SinkType',
       sourceType: 'SourceType',
       structureType: 'StructureType',
+      tableIds: 'TableIds',
       chunkMode: 'chunkMode',
       enableHeaders: 'enableHeaders',
       metaExtractColumns: 'metaExtractColumns',
@@ -371,10 +377,12 @@ export class CreateIndexRequest extends $dara.Model {
       categoryIds: { 'type': 'array', 'itemType': 'string' },
       chunkSize: 'number',
       columns: { 'type': 'array', 'itemType': CreateIndexRequestColumns },
+      createIndexType: 'string',
       dataSource: CreateIndexRequestDataSource,
       description: 'string',
       documentIds: { 'type': 'array', 'itemType': 'string' },
       embeddingModelName: 'string',
+      enableRewrite: 'boolean',
       name: 'string',
       overlapSize: 'number',
       rerankMinScore: 'number',
@@ -385,6 +393,7 @@ export class CreateIndexRequest extends $dara.Model {
       sinkType: 'string',
       sourceType: 'string',
       structureType: 'string',
+      tableIds: { 'type': 'array', 'itemType': 'string' },
       chunkMode: 'string',
       enableHeaders: 'boolean',
       metaExtractColumns: { 'type': 'array', 'itemType': CreateIndexRequestMetaExtractColumns },
@@ -403,6 +412,9 @@ export class CreateIndexRequest extends $dara.Model {
     }
     if(Array.isArray(this.documentIds)) {
       $dara.Model.validateArray(this.documentIds);
+    }
+    if(Array.isArray(this.tableIds)) {
+      $dara.Model.validateArray(this.tableIds);
     }
     if(Array.isArray(this.metaExtractColumns)) {
       $dara.Model.validateArray(this.metaExtractColumns);

@@ -419,6 +419,10 @@ export default class Client extends OpenApi {
       request.documentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentIds, "DocumentIds", "json");
     }
 
+    if (!$dara.isNull(tmpReq.tableIds)) {
+      request.tableIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tableIds, "TableIds", "json");
+    }
+
     if (!$dara.isNull(tmpReq.metaExtractColumns)) {
       request.metaExtractColumnsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metaExtractColumns, "metaExtractColumns", "json");
     }
@@ -436,6 +440,10 @@ export default class Client extends OpenApi {
       query["Columns"] = request.columnsShrink;
     }
 
+    if (!$dara.isNull(request.createIndexType)) {
+      query["CreateIndexType"] = request.createIndexType;
+    }
+
     if (!$dara.isNull(request.dataSourceShrink)) {
       query["DataSource"] = request.dataSourceShrink;
     }
@@ -450,6 +458,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.embeddingModelName)) {
       query["EmbeddingModelName"] = request.embeddingModelName;
+    }
+
+    if (!$dara.isNull(request.enableRewrite)) {
+      query["EnableRewrite"] = request.enableRewrite;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -490,6 +502,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.structureType)) {
       query["StructureType"] = request.structureType;
+    }
+
+    if (!$dara.isNull(request.tableIdsShrink)) {
+      query["TableIds"] = request.tableIdsShrink;
     }
 
     if (!$dara.isNull(request.chunkMode)) {
@@ -1967,6 +1983,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.documentIdsShrink)) {
       query["DocumentIds"] = request.documentIdsShrink;
+    }
+
+    if (!$dara.isNull(request.enableHeaders)) {
+      query["EnableHeaders"] = request.enableHeaders;
     }
 
     if (!$dara.isNull(request.indexId)) {

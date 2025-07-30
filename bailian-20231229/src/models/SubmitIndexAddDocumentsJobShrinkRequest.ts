@@ -15,6 +15,7 @@ export class SubmitIndexAddDocumentsJobShrinkRequest extends $dara.Model {
    * The list of the primary key IDs of the documents.
    */
   documentIdsShrink?: string;
+  enableHeaders?: boolean;
   /**
    * @remarks
    * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
@@ -48,6 +49,7 @@ export class SubmitIndexAddDocumentsJobShrinkRequest extends $dara.Model {
       chunkMode: 'ChunkMode',
       chunkSize: 'ChunkSize',
       documentIdsShrink: 'DocumentIds',
+      enableHeaders: 'EnableHeaders',
       indexId: 'IndexId',
       overlapSize: 'OverlapSize',
       separator: 'Separator',
@@ -61,6 +63,7 @@ export class SubmitIndexAddDocumentsJobShrinkRequest extends $dara.Model {
       chunkMode: 'string',
       chunkSize: 'number',
       documentIdsShrink: 'string',
+      enableHeaders: 'boolean',
       indexId: 'string',
       overlapSize: 'number',
       separator: 'string',

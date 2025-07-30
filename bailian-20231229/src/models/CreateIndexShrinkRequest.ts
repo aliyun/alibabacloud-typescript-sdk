@@ -21,6 +21,7 @@ export class CreateIndexShrinkRequest extends $dara.Model {
    */
   chunkSize?: number;
   columnsShrink?: string;
+  createIndexType?: string;
   /**
    * @remarks
    * >  This parameter is not available. Do not specify this parameter.
@@ -48,6 +49,7 @@ export class CreateIndexShrinkRequest extends $dara.Model {
    * text-embedding-v2
    */
   embeddingModelName?: string;
+  enableRewrite?: boolean;
   /**
    * @remarks
    * The name of the knowledge base. The name must be 1 to 20 characters in length and can contain characters classified as letter in Unicode, including English letters, Chinese characters, digits, among others. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
@@ -175,6 +177,7 @@ export class CreateIndexShrinkRequest extends $dara.Model {
    * structured
    */
   structureType?: string;
+  tableIdsShrink?: string;
   chunkMode?: string;
   enableHeaders?: boolean;
   metaExtractColumnsShrink?: string;
@@ -183,10 +186,12 @@ export class CreateIndexShrinkRequest extends $dara.Model {
       categoryIdsShrink: 'CategoryIds',
       chunkSize: 'ChunkSize',
       columnsShrink: 'Columns',
+      createIndexType: 'CreateIndexType',
       dataSourceShrink: 'DataSource',
       description: 'Description',
       documentIdsShrink: 'DocumentIds',
       embeddingModelName: 'EmbeddingModelName',
+      enableRewrite: 'EnableRewrite',
       name: 'Name',
       overlapSize: 'OverlapSize',
       rerankMinScore: 'RerankMinScore',
@@ -197,6 +202,7 @@ export class CreateIndexShrinkRequest extends $dara.Model {
       sinkType: 'SinkType',
       sourceType: 'SourceType',
       structureType: 'StructureType',
+      tableIdsShrink: 'TableIds',
       chunkMode: 'chunkMode',
       enableHeaders: 'enableHeaders',
       metaExtractColumnsShrink: 'metaExtractColumns',
@@ -208,10 +214,12 @@ export class CreateIndexShrinkRequest extends $dara.Model {
       categoryIdsShrink: 'string',
       chunkSize: 'number',
       columnsShrink: 'string',
+      createIndexType: 'string',
       dataSourceShrink: 'string',
       description: 'string',
       documentIdsShrink: 'string',
       embeddingModelName: 'string',
+      enableRewrite: 'boolean',
       name: 'string',
       overlapSize: 'number',
       rerankMinScore: 'number',
@@ -222,6 +230,7 @@ export class CreateIndexShrinkRequest extends $dara.Model {
       sinkType: 'string',
       sourceType: 'string',
       structureType: 'string',
+      tableIdsShrink: 'string',
       chunkMode: 'string',
       enableHeaders: 'boolean',
       metaExtractColumnsShrink: 'string',

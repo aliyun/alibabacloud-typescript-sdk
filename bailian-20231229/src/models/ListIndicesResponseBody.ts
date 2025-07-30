@@ -11,6 +11,7 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
    * 5
    */
   chunkSize?: number;
+  confgModel?: string;
   /**
    * @remarks
    * The description of the knowledge base.
@@ -34,6 +35,7 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
    * conv-rewrite-qwen-1.8b
    */
   embeddingModelName?: string;
+  enableRewrite?: boolean;
   /**
    * @remarks
    * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
@@ -153,9 +155,11 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       chunkSize: 'ChunkSize',
+      confgModel: 'ConfgModel',
       description: 'Description',
       documentIds: 'DocumentIds',
       embeddingModelName: 'EmbeddingModelName',
+      enableRewrite: 'EnableRewrite',
       id: 'Id',
       name: 'Name',
       overlapSize: 'OverlapSize',
@@ -173,9 +177,11 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       chunkSize: 'number',
+      confgModel: 'string',
       description: 'string',
       documentIds: { 'type': 'array', 'itemType': 'string' },
       embeddingModelName: 'string',
+      enableRewrite: 'boolean',
       id: 'string',
       name: 'string',
       overlapSize: 'number',
