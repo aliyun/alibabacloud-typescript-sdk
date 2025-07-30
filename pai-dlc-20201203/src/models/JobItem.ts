@@ -1,15 +1,134 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { JobItemCodeSource } from "./JobItemCodeSource";
 import { CredentialConfig } from "./CredentialConfig";
-import { JobItemDataSources } from "./JobItemDataSources";
 import { JobElasticSpec } from "./JobElasticSpec";
 import { JobSpec } from "./JobSpec";
 import { PodItem } from "./PodItem";
 import { JobSettings } from "./JobSettings";
 import { StatusTransitionItem } from "./StatusTransitionItem";
-import { JobItemUserVpc } from "./JobItemUserVpc";
 
+
+/**
+ */
+export class JobItemCodeSource extends $dara.Model {
+  /**
+   * @example
+   * master
+   */
+  branch?: string;
+  /**
+   * @example
+   * code-20210111103721-85qz78ia96lu
+   */
+  codeSourceId?: string;
+  /**
+   * @example
+   * 44da109b59f8596152987eaa8f3b2487bb72ea63
+   */
+  commit?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branch: 'Branch',
+      codeSourceId: 'CodeSourceId',
+      commit: 'Commit',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branch: 'string',
+      codeSourceId: 'string',
+      commit: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JobItemDataSources extends $dara.Model {
+  /**
+   * @example
+   * data-20210114104214-vf9lowjt3pso
+   */
+  dataSourceId?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JobItemUserVpc extends $dara.Model {
+  defaultRoute?: string;
+  extendedCidrs?: string[];
+  securityGroupId?: string;
+  switchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultRoute: 'DefaultRoute',
+      extendedCidrs: 'ExtendedCidrs',
+      securityGroupId: 'SecurityGroupId',
+      switchId: 'SwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultRoute: 'string',
+      extendedCidrs: { 'type': 'array', 'itemType': 'string' },
+      securityGroupId: 'string',
+      switchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.extendedCidrs)) {
+      $dara.Model.validateArray(this.extendedCidrs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class JobItem extends $dara.Model {
   /**

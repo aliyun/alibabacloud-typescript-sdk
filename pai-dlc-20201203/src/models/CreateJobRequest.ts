@@ -1,13 +1,222 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateJobRequestCodeSource } from "./CreateJobRequestCodeSource";
 import { CredentialConfig } from "./CredentialConfig";
-import { CreateJobRequestDataSources } from "./CreateJobRequestDataSources";
 import { JobElasticSpec } from "./JobElasticSpec";
 import { JobSpec } from "./JobSpec";
 import { JobSettings } from "./JobSettings";
-import { CreateJobRequestUserVpc } from "./CreateJobRequestUserVpc";
 
+
+export class CreateJobRequestCodeSource extends $dara.Model {
+  /**
+   * @remarks
+   * The branch of the referenced code repository. By default, the branch configured in the code source is used. This parameter is optional.
+   * 
+   * @example
+   * master
+   */
+  branch?: string;
+  /**
+   * @remarks
+   * The ID of the code source.
+   * 
+   * @example
+   * code-20210111103721-xxxxxxx
+   */
+  codeSourceId?: string;
+  /**
+   * @remarks
+   * The commit ID of the code to be downloaded. By default, the commit ID configured in the code source is used. This parameter is optional.
+   * 
+   * @example
+   * 44da109b5******
+   */
+  commit?: string;
+  /**
+   * @remarks
+   * The path to which the job is mounted. By default, the mount path configured in the data source is used. This parameter is optional.
+   * 
+   * @example
+   * /root/data
+   */
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branch: 'Branch',
+      codeSourceId: 'CodeSourceId',
+      commit: 'Commit',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branch: 'string',
+      codeSourceId: 'string',
+      commit: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobRequestDataSources extends $dara.Model {
+  /**
+   * @remarks
+   * The data source ID.
+   * 
+   * @example
+   * d-cn9dl*******
+   */
+  dataSourceId?: string;
+  dataSourceVersion?: string;
+  enableCache?: boolean;
+  mountAccess?: string;
+  /**
+   * @remarks
+   * The path to which the job is mounted. By default, the mount path in the data source configuration is used. This parameter is optional.
+   * 
+   * @example
+   * /root/data
+   */
+  mountPath?: string;
+  /**
+   * @remarks
+   * The mount attribute of the custom dataset. Set the value to OSS.
+   * 
+   * @example
+   * {
+   *   "fs.oss.download.thread.concurrency": "10",
+   *   "fs.oss.upload.thread.concurrency": "10",
+   *   "fs.jindo.args": "-oattr_timeout=3 -oentry_timeout=0 -onegative_timeout=0 -oauto_cache -ono_symlink"
+   * }
+   */
+  options?: string;
+  /**
+   * @remarks
+   * The data source path.
+   * 
+   * @example
+   * oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
+   */
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      dataSourceVersion: 'DataSourceVersion',
+      enableCache: 'EnableCache',
+      mountAccess: 'MountAccess',
+      mountPath: 'MountPath',
+      options: 'Options',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      dataSourceVersion: 'string',
+      enableCache: 'boolean',
+      mountAccess: 'string',
+      mountPath: 'string',
+      options: 'string',
+      uri: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobRequestUserVpc extends $dara.Model {
+  /**
+   * @remarks
+   * The default route. Default value: false. Valid values:
+   * 
+   * *   eth0: The default network interface is used to access the Internet through the public gateway.
+   * *   eth1: The user\\"s elastic network interface (ENI) is used to access the Internet through the private gateway. For more information about the configuration method, see [Enable Internet access for a DSW instance by using a private Internet NAT gateway](https://help.aliyun.com/document_detail/2525343.html).
+   * 
+   * @example
+   * eth0
+   */
+  defaultRoute?: string;
+  /**
+   * @remarks
+   * The extended CIDR block.
+   * 
+   * *   If you leave the SwitchId and ExtendedCIDRs parameters empty, the system automatically obtains all CIDR blocks in a VPC.
+   * *   If you configure the SwitchId and ExtendedCIDRs parameters, we recommend that you specify all CIDR blocks in a VPC.
+   */
+  extendedCIDRs?: string[];
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-abcdef****
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The vSwitch ID. This parameter is optional.
+   * 
+   * *   If you leave this parameter empty, the system automatically selects a vSwitch based on the inventory status.
+   * *   You can also specify a vSwitch ID.
+   * 
+   * @example
+   * vs-abcdef****
+   */
+  switchId?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-abcdef****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultRoute: 'DefaultRoute',
+      extendedCIDRs: 'ExtendedCIDRs',
+      securityGroupId: 'SecurityGroupId',
+      switchId: 'SwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultRoute: 'string',
+      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
+      securityGroupId: 'string',
+      switchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.extendedCIDRs)) {
+      $dara.Model.validateArray(this.extendedCIDRs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateJobRequest extends $dara.Model {
   /**
@@ -77,7 +286,7 @@ export class CreateJobRequest extends $dara.Model {
   jobMaxRunningTimeMinutes?: number;
   /**
    * @remarks
-   * The configurations for job running, such as the image address, startup command, node resource declaration, and number of replicas.****
+   * **JobSpecs** describes the configurations for job running, such as the image address, startup command, node resource declaration, and number of replicas.
    * 
    * A DLC job consists of different types of nodes. If nodes of the same type have exactly the same configuration, the configuration is called JobSpec. **JobSpecs** specifies the configurations of all types of nodes. The value is of the array type.
    * 
@@ -97,7 +306,7 @@ export class CreateJobRequest extends $dara.Model {
    * *   SlurmJob
    * *   RayJob
    * 
-   * Valid values for each job type:
+   * Valid values and corresponding frameworks:
    * 
    * *   OneFlowJob: OneFlow.
    * *   PyTorchJob: PyTorch.
@@ -126,7 +335,7 @@ export class CreateJobRequest extends $dara.Model {
    * @remarks
    * The priority of the job. Default value: 1. Valid values: 1 to 9.
    * 
-   * *   1: the lowest priority.
+   * *   1 is the lowest priority.
    * *   9: the highest priority.
    * 
    * @example

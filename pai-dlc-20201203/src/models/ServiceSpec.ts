@@ -4,7 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class ServiceSpec extends $dara.Model {
   defaultPort?: number;
-  extraPorts?: number;
+  extraPorts?: number[];
   serviceMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17,12 +17,15 @@ export class ServiceSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       defaultPort: 'number',
-      extraPorts: 'number',
+      extraPorts: { 'type': 'array', 'itemType': 'number' },
       serviceMode: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.extraPorts)) {
+      $dara.Model.validateArray(this.extraPorts);
+    }
     super.validate();
   }
 

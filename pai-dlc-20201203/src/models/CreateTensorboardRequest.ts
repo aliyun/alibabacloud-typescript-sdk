@@ -8,10 +8,10 @@ import { TensorboardSpec } from "./TensorboardSpec";
 export class CreateTensorboardRequest extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the job. Valid values:
+   * The job visibility. Valid values:
    * 
-   * *   PUBLIC: The configuration is public in the workspace.
-   * *   PRIVATE: The configuration is visible only to you and the administrator of the workspace.
+   * *   PUBLIC: Visible to all members in the workspace.
+   * *   PRIVATE: Visible only to you and the administrator of the workspace.
    * 
    * @example
    * PRIVATE
@@ -27,8 +27,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The dataset ID. 
-   * <props="china">Call [ListDatasets](https://help.aliyun.com/document_detail/457222.html) to get the dataset ID.
+   * The dataset ID.
    * 
    * @example
    * d-xxxxxxxx
@@ -60,7 +59,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The job ID. Call [ListJobs](https://help.aliyun.com/document_detail/459676.html) to get the job ID.
+   * The job ID. For more information about how to query the job ID, see [ListJobs](https://help.aliyun.com/document_detail/459676.html).
    * 
    * @example
    * dlc-20210126170216-mtl37ge7gkvdz
@@ -103,7 +102,8 @@ export class CreateTensorboardRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The resource quota ID. This parameter is required when you create a TensorBoard job by using a resource quota. <props="china">Call [ListQuotas](https://help.aliyun.com/document_detail/2628071.html) to get the quota ID. 
+   * The resource quota ID. This parameter is required when you create a TensorBoard job by using a resource quota.
+   * 
    * This feature is currently limited to whitelisted users. If you need to use this feature, contact us.
    * 
    * @example
@@ -154,7 +154,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   tensorboardSpec?: TensorboardSpec;
   /**
    * @remarks
-   * The dataset URI.
+   * The dataset URI:
    * 
    * *   Value format when DataSourceType is set to OSS: `oss://[oss-bucket].[endpoint]/[path]`.
    * *   Value format when DataSourceType is set to NAS:`nas://[nas-filesystem-id].[region]/[path]`.
@@ -165,8 +165,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   uri?: string;
   /**
    * @remarks
-   * The workspace ID. 
-   * <props="china">Call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * The workspace ID.
    * 
    * @example
    * 123***

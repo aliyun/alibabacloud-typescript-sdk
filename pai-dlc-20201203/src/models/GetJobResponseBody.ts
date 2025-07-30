@@ -1,15 +1,452 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetJobResponseBodyCodeSource } from "./GetJobResponseBodyCodeSource";
 import { CredentialConfig } from "./CredentialConfig";
-import { GetJobResponseBodyDataSources } from "./GetJobResponseBodyDataSources";
 import { JobElasticSpec } from "./JobElasticSpec";
 import { JobSpec } from "./JobSpec";
-import { GetJobResponseBodyPods } from "./GetJobResponseBodyPods";
 import { JobSettings } from "./JobSettings";
 import { StatusTransitionItem } from "./StatusTransitionItem";
-import { GetJobResponseBodyUserVpc } from "./GetJobResponseBodyUserVpc";
 
+
+export class GetJobResponseBodyCodeSource extends $dara.Model {
+  /**
+   * @remarks
+   * The code branch.
+   * 
+   * @example
+   * master
+   */
+  branch?: string;
+  /**
+   * @remarks
+   * The code source ID.
+   * 
+   * @example
+   * code******
+   */
+  codeSourceId?: string;
+  /**
+   * @remarks
+   * The code commit ID
+   * 
+   * @example
+   * 44da109b59f8596152987eaa8f3b2487xxxxxx
+   */
+  commit?: string;
+  /**
+   * @remarks
+   * The local mount path.
+   * 
+   * @example
+   * /mnt/data
+   */
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branch: 'Branch',
+      codeSourceId: 'CodeSourceId',
+      commit: 'Commit',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branch: 'string',
+      codeSourceId: 'string',
+      commit: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyDataSources extends $dara.Model {
+  /**
+   * @remarks
+   * The data source ID.
+   * 
+   * @example
+   * d*******
+   */
+  dataSourceId?: string;
+  /**
+   * @remarks
+   * The local mount path. This parameter is optional. The default value is empty, which specifies that the mount path in the data source is used.
+   * 
+   * @example
+   * /mnt/data/
+   */
+  mountPath?: string;
+  /**
+   * @remarks
+   * The data source URL.
+   * 
+   * @example
+   * oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
+   */
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      mountPath: 'MountPath',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      mountPath: 'string',
+      uri: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the node was created (UTC).
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @remarks
+   * The end time of the node (UTC).
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtFinishTime?: string;
+  /**
+   * @remarks
+   * The start time of the node (UTC).
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtStartTime?: string;
+  /**
+   * @remarks
+   * The IP address of the node.
+   * 
+   * @example
+   * 10.0.1.3
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * @example
+   * Worker
+   */
+  podId?: string;
+  /**
+   * @remarks
+   * The UID of the node.
+   * 
+   * @example
+   * fe846462-af2c-4521-bd6f-96787a57591d
+   */
+  podUid?: string;
+  /**
+   * @remarks
+   * The resource type of the node.
+   * 
+   * @example
+   * Normal
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The status of the node.
+   * 
+   * @example
+   * Failed
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The sub-status of the node, such as its preemption status. Valid values:
+   * 
+   * *   Normal
+   * *   Evicted
+   * 
+   * @example
+   * Normal
+   */
+  subStatus?: string;
+  /**
+   * @remarks
+   * The type of the node.
+   * 
+   * @example
+   * Worker
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtFinishTime: 'GmtFinishTime',
+      gmtStartTime: 'GmtStartTime',
+      ip: 'Ip',
+      podId: 'PodId',
+      podUid: 'PodUid',
+      resourceType: 'ResourceType',
+      status: 'Status',
+      subStatus: 'SubStatus',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtFinishTime: 'string',
+      gmtStartTime: 'string',
+      ip: 'string',
+      podId: 'string',
+      podUid: 'string',
+      resourceType: 'string',
+      status: 'string',
+      subStatus: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyPods extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the node was created (UTC).
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @remarks
+   * The end time of the node (UTC).
+   * 
+   * @example
+   * 2021-01-12T15:36:05Z
+   */
+  gmtFinishTime?: string;
+  /**
+   * @remarks
+   * The start time of the node (UTC).
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtStartTime?: string;
+  /**
+   * @remarks
+   * The historical nodes.
+   */
+  historyPods?: GetJobResponseBodyPodsHistoryPods[];
+  /**
+   * @remarks
+   * The IP address of the node.
+   * 
+   * @example
+   * 10.0.1.2
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The node ID. It can be used in the GetPodLogs and GetPodEvents operations to obtain the detailed logs and events of the node.
+   * 
+   * @example
+   * Worker
+   */
+  podId?: string;
+  /**
+   * @remarks
+   * The UID of the node.
+   * 
+   * @example
+   * fe846462-af2c-4521-bd6f-96787a57591d
+   */
+  podUid?: string;
+  /**
+   * @remarks
+   * The resource type of the node.
+   * 
+   * @example
+   * Normal
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The status of the node. Valid values:
+   * 
+   * *   Pending
+   * *   Running
+   * *   Succeeded
+   * *   Failed
+   * *   Unknown
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The sub-status of the node, such as its preemption status. Valid values:
+   * 
+   * *   Normal
+   * *   Evicted
+   * 
+   * @example
+   * Normal
+   */
+  subStatus?: string;
+  /**
+   * @remarks
+   * The node type, which corresponds to a specific JobSpec in JobSpecs of the CreateJob operation.
+   * 
+   * @example
+   * Worker
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtFinishTime: 'GmtFinishTime',
+      gmtStartTime: 'GmtStartTime',
+      historyPods: 'HistoryPods',
+      ip: 'Ip',
+      podId: 'PodId',
+      podUid: 'PodUid',
+      resourceType: 'ResourceType',
+      status: 'Status',
+      subStatus: 'SubStatus',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtFinishTime: 'string',
+      gmtStartTime: 'string',
+      historyPods: { 'type': 'array', 'itemType': GetJobResponseBodyPodsHistoryPods },
+      ip: 'string',
+      podId: 'string',
+      podUid: 'string',
+      resourceType: 'string',
+      status: 'string',
+      subStatus: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.historyPods)) {
+      $dara.Model.validateArray(this.historyPods);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyUserVpc extends $dara.Model {
+  /**
+   * @remarks
+   * The default router. This parameter is valid only for general-purpose computing resources. Valid values:
+   * 
+   * eth0: The default network interface is used to access the Internet through the public gateway. eth1: The user\\"s Elastic Network Interface is used to access the Internet through the private gateway.
+   */
+  defaultRoute?: string;
+  /**
+   * @remarks
+   * The extended CIDR block. Example: 192.168.0.1/24.
+   */
+  extendedCidrs?: string[];
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-abcdef****
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vs-abcdef****
+   */
+  switchId?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-abcdef****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultRoute: 'DefaultRoute',
+      extendedCidrs: 'ExtendedCidrs',
+      securityGroupId: 'SecurityGroupId',
+      switchId: 'SwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultRoute: 'string',
+      extendedCidrs: { 'type': 'array', 'itemType': 'string' },
+      securityGroupId: 'string',
+      switchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.extendedCidrs)) {
+      $dara.Model.validateArray(this.extendedCidrs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetJobResponseBody extends $dara.Model {
   /**
@@ -146,7 +583,7 @@ export class GetJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The node configurations of the job, which is **JobSpecs** in the CreateJob operation.
+   * The node configuration of the job, which is **JobSpecs** in the CreateJob operation.
    */
   jobSpecs?: JobSpec[];
   /**
@@ -228,7 +665,7 @@ export class GetJobResponseBody extends $dara.Model {
   restartTimes?: string;
   /**
    * @remarks
-   * The settings of the additional parameters of the job.
+   * The additional parameter configurations of the job.
    */
   settings?: JobSettings;
   /**

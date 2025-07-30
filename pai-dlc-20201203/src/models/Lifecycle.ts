@@ -1,8 +1,110 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { LifecyclePostStart } from "./LifecyclePostStart";
-import { LifecyclePreStop } from "./LifecyclePreStop";
 
+
+export class LifecyclePostStartExec extends $dara.Model {
+  command?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.command)) {
+      $dara.Model.validateArray(this.command);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LifecyclePostStart extends $dara.Model {
+  exec?: LifecyclePostStartExec;
+  static names(): { [key: string]: string } {
+    return {
+      exec: 'Exec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exec: LifecyclePostStartExec,
+    };
+  }
+
+  validate() {
+    if(this.exec && typeof (this.exec as any).validate === 'function') {
+      (this.exec as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LifecyclePreStopExec extends $dara.Model {
+  command?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.command)) {
+      $dara.Model.validateArray(this.command);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LifecyclePreStop extends $dara.Model {
+  exec?: LifecyclePreStopExec;
+  static names(): { [key: string]: string } {
+    return {
+      exec: 'Exec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exec: LifecyclePreStopExec,
+    };
+  }
+
+  validate() {
+    if(this.exec && typeof (this.exec as any).validate === 'function') {
+      (this.exec as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class Lifecycle extends $dara.Model {
   postStart?: LifecyclePostStart;

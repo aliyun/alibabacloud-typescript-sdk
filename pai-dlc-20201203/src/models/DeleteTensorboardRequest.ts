@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTensorboardRequest extends $dara.Model {
   /**
    * @remarks
-   * The workspace ID. 
-   * <props="china">For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID.
    * 
    * @example
    * 46099

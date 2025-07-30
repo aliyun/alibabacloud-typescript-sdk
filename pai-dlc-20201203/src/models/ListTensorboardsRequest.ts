@@ -184,8 +184,7 @@ export class ListTensorboardsRequest extends $dara.Model {
   verbose?: boolean;
   /**
    * @remarks
-   * The workspace ID. Obtain a list of TensorBoard instances based on the workspace ID. 
-   * <props="china">For more information, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID. Obtain a list of TensorBoard instances based on the workspace ID.
    * 
    * @example
    * 380
