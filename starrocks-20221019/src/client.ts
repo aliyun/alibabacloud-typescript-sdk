@@ -30,6 +30,310 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroupWithOptions(request: $_model.ChangeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeResourceGroupResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeResourceGroup",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/resourceGroup/change`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ChangeResourceGroupResponse({}));
+  }
+
+  /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroup(request: $_model.ChangeResourceGroupRequest): Promise<$_model.ChangeResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.changeResourceGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建StarRocks集群
+   * 
+   * @param request - CreateInstanceV1Request
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceV1Response
+   */
+  async createInstanceV1WithOptions(request: $_model.CreateInstanceV1Request, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInstanceV1Response> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.adminPassword)) {
+      body["AdminPassword"] = request.adminPassword;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      body["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.backendNodeGroups)) {
+      body["BackendNodeGroups"] = request.backendNodeGroups;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      body["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.encrypted)) {
+      body["Encrypted"] = request.encrypted;
+    }
+
+    if (!$dara.isNull(request.frontendNodeGroups)) {
+      body["FrontendNodeGroups"] = request.frontendNodeGroups;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      body["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.kmsKeyId)) {
+      body["KmsKeyId"] = request.kmsKeyId;
+    }
+
+    if (!$dara.isNull(request.observerNodeGroups)) {
+      body["ObserverNodeGroups"] = request.observerNodeGroups;
+    }
+
+    if (!$dara.isNull(request.ossAccessingRoleName)) {
+      body["OssAccessingRoleName"] = request.ossAccessingRoleName;
+    }
+
+    if (!$dara.isNull(request.packageType)) {
+      body["PackageType"] = request.packageType;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      body["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      body["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      body["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.runMode)) {
+      body["RunMode"] = request.runMode;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.vSwitches)) {
+      body["VSwitches"] = request.vSwitches;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["Version"] = request.version;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      body["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInstanceV1",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/cluster/createV1`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInstanceV1Response>(await this.callApi(params, req, runtime), new $_model.CreateInstanceV1Response({}));
+  }
+
+  /**
+   * 创建StarRocks集群
+   * 
+   * @param request - CreateInstanceV1Request
+   * @returns CreateInstanceV1Response
+   */
+  async createInstanceV1(request: $_model.CreateInstanceV1Request): Promise<$_model.CreateInstanceV1Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createInstanceV1WithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 为用户创建AliyunServiceRoleForEMRStarRocks
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceLinkedRoleResponse
+   */
+  async createServiceLinkedRoleWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceLinkedRoleResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateServiceLinkedRole",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/user/create_default_role`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new $_model.CreateServiceLinkedRoleResponse({}));
+  }
+
+  /**
+   * 为用户创建AliyunServiceRoleForEMRStarRocks
+   * @returns CreateServiceLinkedRoleResponse
+   */
+  async createServiceLinkedRole(): Promise<$_model.CreateServiceLinkedRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createServiceLinkedRoleWithOptions(headers, runtime);
+  }
+
+  /**
+   * 根据集群ID或者名称等信息过滤集群
+   * 
+   * @param tmpReq - DescribeInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstancesResponse
+   */
+  async describeInstancesWithOptions(tmpReq: $_model.DescribeInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstancesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.instanceStatus)) {
+      query["InstanceStatus"] = request.instanceStatus;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstances",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/starrocks/describeInstances`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInstancesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInstancesResponse({}));
+  }
+
+  /**
+   * 根据集群ID或者名称等信息过滤集群
+   * 
+   * @param request - DescribeInstancesRequest
+   * @returns DescribeInstancesResponse
+   */
+  async describeInstances(request: $_model.DescribeInstancesRequest): Promise<$_model.DescribeInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeInstancesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Modifies the number of CUs for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
    * 
    * @remarks
@@ -681,6 +985,134 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.restartInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 打标
+   * 
+   * @param request - TagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      body["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagResources",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/tags`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
+  }
+
+  /**
+   * 打标
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.tagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除标签
+   * 
+   * @param tmpReq - UnTagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnTagResourcesResponse
+   */
+  async unTagResourcesWithOptions(tmpReq: $_model.UnTagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UnTagResourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.UnTagResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceId)) {
+      request.resourceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceId, "ResourceId", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tagKey)) {
+      request.tagKeyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagKey, "TagKey", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceIdShrink)) {
+      query["ResourceId"] = request.resourceIdShrink;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKeyShrink)) {
+      query["TagKey"] = request.tagKeyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnTagResources",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/tags`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UnTagResourcesResponse({}));
+  }
+
+  /**
+   * 删除标签
+   * 
+   * @param request - UnTagResourcesRequest
+   * @returns UnTagResourcesResponse
+   */
+  async unTagResources(request: $_model.UnTagResourcesRequest): Promise<$_model.UnTagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.unTagResourcesWithOptions(request, headers, runtime);
   }
 
   /**
