@@ -112,15 +112,18 @@ export class DescribePriceRequestSchedulerOptions extends $dara.Model {
    * dh-bp67acfmxazb4p****
    */
   dedicatedHostId?: string;
+  deploymentSetStrategy?: string;
   static names(): { [key: string]: string } {
     return {
       dedicatedHostId: 'DedicatedHostId',
+      deploymentSetStrategy: 'DeploymentSetStrategy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       dedicatedHostId: 'string',
+      deploymentSetStrategy: 'string',
     };
   }
 
