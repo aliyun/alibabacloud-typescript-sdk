@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SendChatappMessageResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   /**
    * @remarks
    * The HTTP status code returned.
@@ -40,6 +41,7 @@ export class SendChatappMessageResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       messageId: 'MessageId',
@@ -49,6 +51,7 @@ export class SendChatappMessageResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       messageId: 'string',

@@ -5708,77 +5708,89 @@ export default class Client extends OpenApi {
       request.senderListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.senderList, "SenderList", "json");
     }
 
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!$dara.isNull(request.channelType)) {
-      body["ChannelType"] = request.channelType;
+      query["ChannelType"] = request.channelType;
     }
 
     if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!$dara.isNull(request.custWabaId)) {
-      body["CustWabaId"] = request.custWabaId;
+      query["CustWabaId"] = request.custWabaId;
     }
 
     if (!$dara.isNull(request.fallBackContent)) {
-      body["FallBackContent"] = request.fallBackContent;
+      query["FallBackContent"] = request.fallBackContent;
     }
 
     if (!$dara.isNull(request.fallBackDuration)) {
-      body["FallBackDuration"] = request.fallBackDuration;
+      query["FallBackDuration"] = request.fallBackDuration;
     }
 
     if (!$dara.isNull(request.fallBackId)) {
-      body["FallBackId"] = request.fallBackId;
+      query["FallBackId"] = request.fallBackId;
     }
 
     if (!$dara.isNull(request.fallBackRule)) {
-      body["FallBackRule"] = request.fallBackRule;
+      query["FallBackRule"] = request.fallBackRule;
     }
 
     if (!$dara.isNull(request.from)) {
-      body["From"] = request.from;
+      query["From"] = request.from;
     }
 
     if (!$dara.isNull(request.isvCode)) {
-      body["IsvCode"] = request.isvCode;
+      query["IsvCode"] = request.isvCode;
     }
 
     if (!$dara.isNull(request.label)) {
-      body["Label"] = request.label;
+      query["Label"] = request.label;
     }
 
     if (!$dara.isNull(request.language)) {
-      body["Language"] = request.language;
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!$dara.isNull(request.senderListShrink)) {
-      body["SenderList"] = request.senderListShrink;
+      query["SenderList"] = request.senderListShrink;
     }
 
     if (!$dara.isNull(request.tag)) {
-      body["Tag"] = request.tag;
+      query["Tag"] = request.tag;
     }
 
     if (!$dara.isNull(request.taskId)) {
-      body["TaskId"] = request.taskId;
+      query["TaskId"] = request.taskId;
     }
 
     if (!$dara.isNull(request.templateCode)) {
-      body["TemplateCode"] = request.templateCode;
+      query["TemplateCode"] = request.templateCode;
     }
 
     if (!$dara.isNull(request.templateName)) {
-      body["TemplateName"] = request.templateName;
+      query["TemplateName"] = request.templateName;
     }
 
     if (!$dara.isNull(request.ttl)) {
-      body["Ttl"] = request.ttl;
+      query["Ttl"] = request.ttl;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "SendChatappMassMessage",
@@ -5840,118 +5852,128 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.channelType)) {
+      query["ChannelType"] = request.channelType;
+    }
+
     if (!$dara.isNull(request.content)) {
       query["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.contextMessageId)) {
+      query["ContextMessageId"] = request.contextMessageId;
+    }
+
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.custWabaId)) {
+      query["CustWabaId"] = request.custWabaId;
+    }
+
+    if (!$dara.isNull(request.fallBackContent)) {
+      query["FallBackContent"] = request.fallBackContent;
+    }
+
+    if (!$dara.isNull(request.fallBackDuration)) {
+      query["FallBackDuration"] = request.fallBackDuration;
+    }
+
+    if (!$dara.isNull(request.fallBackId)) {
+      query["FallBackId"] = request.fallBackId;
+    }
+
+    if (!$dara.isNull(request.fallBackRule)) {
+      query["FallBackRule"] = request.fallBackRule;
+    }
+
+    if (!$dara.isNull(request.flowActionShrink)) {
+      query["FlowAction"] = request.flowActionShrink;
+    }
+
+    if (!$dara.isNull(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!$dara.isNull(request.isvCode)) {
+      query["IsvCode"] = request.isvCode;
+    }
+
+    if (!$dara.isNull(request.label)) {
+      query["Label"] = request.label;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.messageType)) {
+      query["MessageType"] = request.messageType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.payloadShrink)) {
       query["Payload"] = request.payloadShrink;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.channelType)) {
-      body["ChannelType"] = request.channelType;
-    }
-
-    if (!$dara.isNull(request.contextMessageId)) {
-      body["ContextMessageId"] = request.contextMessageId;
-    }
-
-    if (!$dara.isNull(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
-    }
-
-    if (!$dara.isNull(request.custWabaId)) {
-      body["CustWabaId"] = request.custWabaId;
-    }
-
-    if (!$dara.isNull(request.fallBackContent)) {
-      body["FallBackContent"] = request.fallBackContent;
-    }
-
-    if (!$dara.isNull(request.fallBackDuration)) {
-      body["FallBackDuration"] = request.fallBackDuration;
-    }
-
-    if (!$dara.isNull(request.fallBackId)) {
-      body["FallBackId"] = request.fallBackId;
-    }
-
-    if (!$dara.isNull(request.fallBackRule)) {
-      body["FallBackRule"] = request.fallBackRule;
-    }
-
-    if (!$dara.isNull(request.flowActionShrink)) {
-      body["FlowAction"] = request.flowActionShrink;
-    }
-
-    if (!$dara.isNull(request.from)) {
-      body["From"] = request.from;
-    }
-
-    if (!$dara.isNull(request.isvCode)) {
-      body["IsvCode"] = request.isvCode;
-    }
-
-    if (!$dara.isNull(request.label)) {
-      body["Label"] = request.label;
-    }
-
-    if (!$dara.isNull(request.language)) {
-      body["Language"] = request.language;
-    }
-
-    if (!$dara.isNull(request.messageType)) {
-      body["MessageType"] = request.messageType;
-    }
-
     if (!$dara.isNull(request.productActionShrink)) {
-      body["ProductAction"] = request.productActionShrink;
+      query["ProductAction"] = request.productActionShrink;
     }
 
     if (!$dara.isNull(request.recipientType)) {
-      body["RecipientType"] = request.recipientType;
+      query["RecipientType"] = request.recipientType;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!$dara.isNull(request.tag)) {
-      body["Tag"] = request.tag;
+      query["Tag"] = request.tag;
     }
 
     if (!$dara.isNull(request.taskId)) {
-      body["TaskId"] = request.taskId;
+      query["TaskId"] = request.taskId;
     }
 
     if (!$dara.isNull(request.templateCode)) {
-      body["TemplateCode"] = request.templateCode;
+      query["TemplateCode"] = request.templateCode;
     }
 
     if (!$dara.isNull(request.templateName)) {
-      body["TemplateName"] = request.templateName;
+      query["TemplateName"] = request.templateName;
     }
 
     if (!$dara.isNull(request.templateParamsShrink)) {
-      body["TemplateParams"] = request.templateParamsShrink;
+      query["TemplateParams"] = request.templateParamsShrink;
     }
 
     if (!$dara.isNull(request.to)) {
-      body["To"] = request.to;
+      query["To"] = request.to;
     }
 
     if (!$dara.isNull(request.trackingData)) {
-      body["TrackingData"] = request.trackingData;
+      query["TrackingData"] = request.trackingData;
     }
 
     if (!$dara.isNull(request.ttl)) {
-      body["Ttl"] = request.ttl;
+      query["Ttl"] = request.ttl;
     }
 
     if (!$dara.isNull(request.type)) {
-      body["Type"] = request.type;
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "SendChatappMessage",
