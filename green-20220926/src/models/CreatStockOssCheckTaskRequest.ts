@@ -38,6 +38,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
   freezeHighRisk2?: boolean;
   freezeMediumRisk1?: boolean;
   freezeMediumRisk2?: boolean;
+  freezeRestorePath?: string;
   freezeType?: string;
   /**
    * @example
@@ -64,6 +65,7 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
    * 0
    */
   priority?: number;
+  referer?: string;
   /**
    * @example
    * cn-shanghai
@@ -118,12 +120,14 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
       freezeHighRisk2: 'FreezeHighRisk2',
       freezeMediumRisk1: 'FreezeMediumRisk1',
       freezeMediumRisk2: 'FreezeMediumRisk2',
+      freezeRestorePath: 'FreezeRestorePath',
       freezeType: 'FreezeType',
       isInc: 'IsInc',
       mediaType: 'MediaType',
       prefixFilterType: 'PrefixFilterType',
       prefixFilters: 'PrefixFilters',
       priority: 'Priority',
+      referer: 'Referer',
       regionId: 'RegionId',
       scanLimit: 'ScanLimit',
       scanNoFileType: 'ScanNoFileType',
@@ -149,12 +153,14 @@ export class CreatStockOssCheckTaskRequest extends $dara.Model {
       freezeHighRisk2: 'boolean',
       freezeMediumRisk1: 'boolean',
       freezeMediumRisk2: 'boolean',
+      freezeRestorePath: 'string',
       freezeType: 'string',
       isInc: 'boolean',
       mediaType: 'number',
       prefixFilterType: 'string',
       prefixFilters: 'string',
       priority: 'number',
+      referer: 'string',
       regionId: 'string',
       scanLimit: 'number',
       scanNoFileType: 'boolean',

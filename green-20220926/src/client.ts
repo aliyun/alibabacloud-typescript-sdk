@@ -535,6 +535,10 @@ export default class Client extends OpenApi {
       query["FreezeMediumRisk2"] = request.freezeMediumRisk2;
     }
 
+    if (!$dara.isNull(request.freezeRestorePath)) {
+      query["FreezeRestorePath"] = request.freezeRestorePath;
+    }
+
     if (!$dara.isNull(request.freezeType)) {
       query["FreezeType"] = request.freezeType;
     }
@@ -557,6 +561,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.priority)) {
       query["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.referer)) {
+      query["Referer"] = request.referer;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -741,6 +749,60 @@ export default class Client extends OpenApi {
   async createCallback(request: $_model.CreateCallbackRequest): Promise<$_model.CreateCallbackResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createCallbackWithOptions(request, runtime);
+  }
+
+  /**
+   * 在线测试
+   * 
+   * @param request - CreateOnlineTestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOnlineTestResponse
+   */
+  async createOnlineTestWithOptions(request: $_model.CreateOnlineTestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOnlineTestResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dataId)) {
+      query["DataId"] = request.dataId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOnlineTest",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOnlineTestResponse>(await this.callApi(params, req, runtime), new $_model.CreateOnlineTestResponse({}));
+  }
+
+  /**
+   * 在线测试
+   * 
+   * @param request - CreateOnlineTestRequest
+   * @returns CreateOnlineTestResponse
+   */
+  async createOnlineTest(request: $_model.CreateOnlineTestRequest): Promise<$_model.CreateOnlineTestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createOnlineTestWithOptions(request, runtime);
   }
 
   /**
@@ -1202,6 +1264,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除在线测试接口
+   * 
+   * @param request - DeleteOnlineTestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOnlineTestResponse
+   */
+  async deleteOnlineTestWithOptions(request: $_model.DeleteOnlineTestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOnlineTestResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOnlineTest",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteOnlineTestResponse>(await this.callApi(params, req, runtime), new $_model.DeleteOnlineTestResponse({}));
+  }
+
+  /**
+   * 删除在线测试接口
+   * 
+   * @param request - DeleteOnlineTestRequest
+   * @returns DeleteOnlineTestResponse
+   */
+  async deleteOnlineTest(request: $_model.DeleteOnlineTestRequest): Promise<$_model.DeleteOnlineTestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteOnlineTestWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询在线测试结果
+   * 
+   * @param request - DescribeOnlineTestResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOnlineTestResultResponse
+   */
+  async describeOnlineTestResultWithOptions(request: $_model.DescribeOnlineTestResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOnlineTestResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOnlineTestResult",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOnlineTestResultResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOnlineTestResultResponse({}));
+  }
+
+  /**
+   * 查询在线测试结果
+   * 
+   * @param request - DescribeOnlineTestResultRequest
+   * @returns DescribeOnlineTestResultResponse
+   */
+  async describeOnlineTestResult(request: $_model.DescribeOnlineTestResultRequest): Promise<$_model.DescribeOnlineTestResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOnlineTestResultWithOptions(request, runtime);
+  }
+
+  /**
    * 导出代答答案
    * 
    * @param request - ExportAnswerSampleRequest
@@ -1476,6 +1634,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sortShrink)) {
       body["Sort"] = request.sortShrink;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["Source"] = request.source;
     }
 
     if (!$dara.isNull(request.startDate)) {
@@ -2010,6 +2172,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.query)) {
+      body["Query"] = request.query;
+    }
+
     if (!$dara.isNull(request.resourceType)) {
       body["ResourceType"] = request.resourceType;
     }
@@ -2300,6 +2466,152 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * oss冻结结果查询
+   * 
+   * @param tmpReq - GetOssCheckFreezeResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOssCheckFreezeResultResponse
+   */
+  async getOssCheckFreezeResultWithOptions(tmpReq: $_model.GetOssCheckFreezeResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOssCheckFreezeResultResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetOssCheckFreezeResultShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sort)) {
+      request.sortShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sort, "Sort", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.finishNum)) {
+      query["FinishNum"] = request.finishNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sortShrink)) {
+      query["Sort"] = request.sortShrink;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOssCheckFreezeResult",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOssCheckFreezeResultResponse>(await this.callApi(params, req, runtime), new $_model.GetOssCheckFreezeResultResponse({}));
+  }
+
+  /**
+   * oss冻结结果查询
+   * 
+   * @param request - GetOssCheckFreezeResultRequest
+   * @returns GetOssCheckFreezeResultResponse
+   */
+  async getOssCheckFreezeResult(request: $_model.GetOssCheckFreezeResultRequest): Promise<$_model.GetOssCheckFreezeResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOssCheckFreezeResultWithOptions(request, runtime);
+  }
+
+  /**
+   * oss结果详情
+   * 
+   * @param request - GetOssCheckResultDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOssCheckResultDetailResponse
+   */
+  async getOssCheckResultDetailWithOptions(request: $_model.GetOssCheckResultDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOssCheckResultDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bucket)) {
+      query["Bucket"] = request.bucket;
+    }
+
+    if (!$dara.isNull(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
+    if (!$dara.isNull(request.object)) {
+      query["Object"] = request.object;
+    }
+
+    if (!$dara.isNull(request.parentTaskId)) {
+      query["ParentTaskId"] = request.parentTaskId;
+    }
+
+    if (!$dara.isNull(request.queryRequestId)) {
+      query["QueryRequestId"] = request.queryRequestId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOssCheckResultDetail",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOssCheckResultDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetOssCheckResultDetailResponse({}));
+  }
+
+  /**
+   * oss结果详情
+   * 
+   * @param request - GetOssCheckResultDetailRequest
+   * @returns GetOssCheckResultDetailResponse
+   */
+  async getOssCheckResultDetail(request: $_model.GetOssCheckResultDetailRequest): Promise<$_model.GetOssCheckResultDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOssCheckResultDetailWithOptions(request, runtime);
+  }
+
+  /**
    * oss用量统计
    * 
    * @param request - GetOssCheckStatRequest
@@ -2399,6 +2711,48 @@ export default class Client extends OpenApi {
   async getOssCheckStatus(request: $_model.GetOssCheckStatusRequest): Promise<$_model.GetOssCheckStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getOssCheckStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询oss扫描任务详情
+   * 
+   * @param request - GetOssCheckTaskInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOssCheckTaskInfoResponse
+   */
+  async getOssCheckTaskInfoWithOptions(request: $_model.GetOssCheckTaskInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOssCheckTaskInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.parentTaskId)) {
+      query["ParentTaskId"] = request.parentTaskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOssCheckTaskInfo",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOssCheckTaskInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetOssCheckTaskInfoResponse({}));
+  }
+
+  /**
+   * 查询oss扫描任务详情
+   * 
+   * @param request - GetOssCheckTaskInfoRequest
+   * @returns GetOssCheckTaskInfoResponse
+   */
+  async getOssCheckTaskInfo(request: $_model.GetOssCheckTaskInfoRequest): Promise<$_model.GetOssCheckTaskInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOssCheckTaskInfoWithOptions(request, runtime);
   }
 
   /**
@@ -2907,6 +3261,48 @@ export default class Client extends OpenApi {
   async getUploadInfo(request: $_model.GetUploadInfoRequest): Promise<$_model.GetUploadInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getUploadInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取上传链接
+   * 
+   * @param request - GetUploadLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUploadLinkResponse
+   */
+  async getUploadLinkWithOptions(request: $_model.GetUploadLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUploadLinkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.uploadUrl)) {
+      query["UploadUrl"] = request.uploadUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUploadLink",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUploadLinkResponse>(await this.callApi(params, req, runtime), new $_model.GetUploadLinkResponse({}));
+  }
+
+  /**
+   * 获取上传链接
+   * 
+   * @param request - GetUploadLinkRequest
+   * @returns GetUploadLinkResponse
+   */
+  async getUploadLink(request: $_model.GetUploadLinkRequest): Promise<$_model.GetUploadLinkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUploadLinkWithOptions(request, runtime);
   }
 
   /**
@@ -3702,6 +4098,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * oss扫描结果查询
+   * 
+   * @param tmpReq - OssCheckResultListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OssCheckResultListResponse
+   */
+  async ossCheckResultListWithOptions(tmpReq: $_model.OssCheckResultListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OssCheckResultListResponse> {
+    tmpReq.validate();
+    let request = new $_model.OssCheckResultListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sort)) {
+      request.sortShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sort, "Sort", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.finishNum)) {
+      query["FinishNum"] = request.finishNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sortShrink)) {
+      query["Sort"] = request.sortShrink;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OssCheckResultList",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OssCheckResultListResponse>(await this.callApi(params, req, runtime), new $_model.OssCheckResultListResponse({}));
+  }
+
+  /**
+   * oss扫描结果查询
+   * 
+   * @param request - OssCheckResultListRequest
+   * @returns OssCheckResultListResponse
+   */
+  async ossCheckResultList(request: $_model.OssCheckResultListRequest): Promise<$_model.OssCheckResultListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.ossCheckResultListWithOptions(request, runtime);
+  }
+
+  /**
    * 分页查询代答样本
    * 
    * @param tmpReq - QueryAnswerSampleByPageRequest
@@ -3871,6 +4347,56 @@ export default class Client extends OpenApi {
   async queryCallbackByPage(request: $_model.QueryCallbackByPageRequest): Promise<$_model.QueryCallbackByPageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryCallbackByPageWithOptions(request, runtime);
+  }
+
+  /**
+   * 停止在线测试
+   * 
+   * @param request - StopOnlineTestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopOnlineTestResponse
+   */
+  async stopOnlineTestWithOptions(request: $_model.StopOnlineTestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopOnlineTestResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopOnlineTest",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopOnlineTestResponse>(await this.callApi(params, req, runtime), new $_model.StopOnlineTestResponse({}));
+  }
+
+  /**
+   * 停止在线测试
+   * 
+   * @param request - StopOnlineTestRequest
+   * @returns StopOnlineTestResponse
+   */
+  async stopOnlineTest(request: $_model.StopOnlineTestRequest): Promise<$_model.StopOnlineTestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopOnlineTestWithOptions(request, runtime);
   }
 
   /**
@@ -4091,6 +4617,238 @@ export default class Client extends OpenApi {
   async updateKeywordLib(request: $_model.UpdateKeywordLibRequest): Promise<$_model.UpdateKeywordLibResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateKeywordLibWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量反馈任务
+   * 
+   * @param request - UpdateOssCheckResultsBatchFeedbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOssCheckResultsBatchFeedbackResponse
+   */
+  async updateOssCheckResultsBatchFeedbackWithOptions(request: $_model.UpdateOssCheckResultsBatchFeedbackRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateOssCheckResultsBatchFeedbackResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.feedback)) {
+      query["Feedback"] = request.feedback;
+    }
+
+    if (!$dara.isNull(request.items)) {
+      query["Items"] = request.items;
+    }
+
+    if (!$dara.isNull(request.parentTaskId)) {
+      query["ParentTaskId"] = request.parentTaskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateOssCheckResultsBatchFeedback",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateOssCheckResultsBatchFeedbackResponse>(await this.callApi(params, req, runtime), new $_model.UpdateOssCheckResultsBatchFeedbackResponse({}));
+  }
+
+  /**
+   * 批量反馈任务
+   * 
+   * @param request - UpdateOssCheckResultsBatchFeedbackRequest
+   * @returns UpdateOssCheckResultsBatchFeedbackResponse
+   */
+  async updateOssCheckResultsBatchFeedback(request: $_model.UpdateOssCheckResultsBatchFeedbackRequest): Promise<$_model.UpdateOssCheckResultsBatchFeedbackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateOssCheckResultsBatchFeedbackWithOptions(request, runtime);
+  }
+
+  /**
+   * oss结果反馈
+   * 
+   * @param request - UpdateOssCheckResultsFeedBackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOssCheckResultsFeedBackResponse
+   */
+  async updateOssCheckResultsFeedBackWithOptions(request: $_model.UpdateOssCheckResultsFeedBackRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateOssCheckResultsFeedBackResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.feedback)) {
+      query["Feedback"] = request.feedback;
+    }
+
+    if (!$dara.isNull(request.queryRequestId)) {
+      query["QueryRequestId"] = request.queryRequestId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateOssCheckResultsFeedBack",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateOssCheckResultsFeedBackResponse>(await this.callApi(params, req, runtime), new $_model.UpdateOssCheckResultsFeedBackResponse({}));
+  }
+
+  /**
+   * oss结果反馈
+   * 
+   * @param request - UpdateOssCheckResultsFeedBackRequest
+   * @returns UpdateOssCheckResultsFeedBackResponse
+   */
+  async updateOssCheckResultsFeedBack(request: $_model.UpdateOssCheckResultsFeedBackRequest): Promise<$_model.UpdateOssCheckResultsFeedBackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateOssCheckResultsFeedBackWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量冻结任务
+   * 
+   * @param request - UpdateOssCheckResultsFreezeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOssCheckResultsFreezeResponse
+   */
+  async updateOssCheckResultsFreezeWithOptions(request: $_model.UpdateOssCheckResultsFreezeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateOssCheckResultsFreezeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.freezeItems)) {
+      query["FreezeItems"] = request.freezeItems;
+    }
+
+    if (!$dara.isNull(request.freezeRestorePath)) {
+      query["FreezeRestorePath"] = request.freezeRestorePath;
+    }
+
+    if (!$dara.isNull(request.freezeType)) {
+      query["FreezeType"] = request.freezeType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateOssCheckResultsFreeze",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateOssCheckResultsFreezeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateOssCheckResultsFreezeResponse({}));
+  }
+
+  /**
+   * 批量冻结任务
+   * 
+   * @param request - UpdateOssCheckResultsFreezeRequest
+   * @returns UpdateOssCheckResultsFreezeResponse
+   */
+  async updateOssCheckResultsFreeze(request: $_model.UpdateOssCheckResultsFreezeRequest): Promise<$_model.UpdateOssCheckResultsFreezeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateOssCheckResultsFreezeWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量解冻任务
+   * 
+   * @param request - UpdateOssCheckResultsUnfreezeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOssCheckResultsUnfreezeResponse
+   */
+  async updateOssCheckResultsUnfreezeWithOptions(request: $_model.UpdateOssCheckResultsUnfreezeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateOssCheckResultsUnfreezeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.freezeItems)) {
+      query["FreezeItems"] = request.freezeItems;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateOssCheckResultsUnfreeze",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateOssCheckResultsUnfreezeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateOssCheckResultsUnfreezeResponse({}));
+  }
+
+  /**
+   * 批量解冻任务
+   * 
+   * @param request - UpdateOssCheckResultsUnfreezeRequest
+   * @returns UpdateOssCheckResultsUnfreezeResponse
+   */
+  async updateOssCheckResultsUnfreeze(request: $_model.UpdateOssCheckResultsUnfreezeRequest): Promise<$_model.UpdateOssCheckResultsUnfreezeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateOssCheckResultsUnfreezeWithOptions(request, runtime);
   }
 
   /**

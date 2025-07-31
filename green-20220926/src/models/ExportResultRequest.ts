@@ -29,6 +29,7 @@ export class ExportResultRequest extends $dara.Model {
    */
   regionId?: string;
   sort?: { [key: string]: string };
+  source?: string;
   /**
    * @example
    * 2023-08-11 09:00:19
@@ -42,6 +43,7 @@ export class ExportResultRequest extends $dara.Model {
       query: 'Query',
       regionId: 'RegionId',
       sort: 'Sort',
+      source: 'Source',
       startDate: 'StartDate',
     };
   }
@@ -54,6 +56,7 @@ export class ExportResultRequest extends $dara.Model {
       query: 'string',
       regionId: 'string',
       sort: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      source: 'string',
       startDate: 'string',
     };
   }

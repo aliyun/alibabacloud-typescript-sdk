@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetFeatureConfigRequest extends $dara.Model {
+  query?: string;
   /**
    * @remarks
    * Region ID
@@ -37,6 +38,7 @@ export class GetFeatureConfigRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      query: 'Query',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
       serviceCode: 'ServiceCode',
@@ -46,6 +48,7 @@ export class GetFeatureConfigRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      query: 'string',
       regionId: 'string',
       resourceType: 'string',
       serviceCode: 'string',

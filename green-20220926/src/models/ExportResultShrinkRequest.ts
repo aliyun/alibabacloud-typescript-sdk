@@ -29,6 +29,7 @@ export class ExportResultShrinkRequest extends $dara.Model {
    */
   regionId?: string;
   sortShrink?: string;
+  source?: string;
   /**
    * @example
    * 2023-08-11 09:00:19
@@ -42,6 +43,7 @@ export class ExportResultShrinkRequest extends $dara.Model {
       query: 'Query',
       regionId: 'RegionId',
       sortShrink: 'Sort',
+      source: 'Source',
       startDate: 'StartDate',
     };
   }
@@ -54,6 +56,7 @@ export class ExportResultShrinkRequest extends $dara.Model {
       query: 'string',
       regionId: 'string',
       sortShrink: 'string',
+      source: 'string',
       startDate: 'string',
     };
   }
