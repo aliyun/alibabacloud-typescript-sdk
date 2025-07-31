@@ -289,6 +289,7 @@ export class RunCommandRequest extends $dara.Model {
    * testName
    */
   name?: string;
+  ossOutputDelivery?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -462,6 +463,7 @@ export class RunCommandRequest extends $dara.Model {
       keepCommand: 'KeepCommand',
       launcher: 'Launcher',
       name: 'Name',
+      ossOutputDelivery: 'OssOutputDelivery',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       parameters: 'Parameters',
@@ -496,6 +498,7 @@ export class RunCommandRequest extends $dara.Model {
       keepCommand: 'boolean',
       launcher: 'string',
       name: 'string',
+      ossOutputDelivery: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },

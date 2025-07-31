@@ -271,6 +271,9 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
    * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
    */
   launcher?: string;
+  ossOutputDelivery?: string;
+  ossOutputStatus?: string;
+  ossOutputUri?: string;
   /**
    * @remarks
    * The command output.
@@ -348,6 +351,9 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
       invokeId: 'InvokeId',
       invokeRecordStatus: 'InvokeRecordStatus',
       launcher: 'Launcher',
+      ossOutputDelivery: 'OssOutputDelivery',
+      ossOutputStatus: 'OssOutputStatus',
+      ossOutputUri: 'OssOutputUri',
       output: 'Output',
       repeats: 'Repeats',
       startTime: 'StartTime',
@@ -373,6 +379,9 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
       invokeId: 'string',
       invokeRecordStatus: 'string',
       launcher: 'string',
+      ossOutputDelivery: 'string',
+      ossOutputStatus: 'string',
+      ossOutputUri: 'string',
       output: 'string',
       repeats: 'number',
       startTime: 'string',

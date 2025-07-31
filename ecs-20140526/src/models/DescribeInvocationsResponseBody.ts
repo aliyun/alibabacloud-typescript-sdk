@@ -151,6 +151,8 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeInstances
    * Success
    */
   invocationStatus?: string;
+  ossOutputStatus?: string;
+  ossOutputUri?: string;
   /**
    * @remarks
    * The command output.
@@ -216,6 +218,8 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeInstances
       instanceId: 'InstanceId',
       instanceInvokeStatus: 'InstanceInvokeStatus',
       invocationStatus: 'InvocationStatus',
+      ossOutputStatus: 'OssOutputStatus',
+      ossOutputUri: 'OssOutputUri',
       output: 'Output',
       repeats: 'Repeats',
       startTime: 'StartTime',
@@ -236,6 +240,8 @@ export class DescribeInvocationsResponseBodyInvocationsInvocationInvokeInstances
       instanceId: 'string',
       instanceInvokeStatus: 'string',
       invocationStatus: 'string',
+      ossOutputStatus: 'string',
+      ossOutputUri: 'string',
       output: 'string',
       repeats: 'number',
       startTime: 'string',
@@ -488,6 +494,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.
    * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
    */
   launcher?: string;
+  ossOutputDelivery?: string;
   /**
    * @remarks
    * The custom parameters in the command.
@@ -576,6 +583,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.
       invokeInstances: 'InvokeInstances',
       invokeStatus: 'InvokeStatus',
       launcher: 'Launcher',
+      ossOutputDelivery: 'OssOutputDelivery',
       parameters: 'Parameters',
       repeatMode: 'RepeatMode',
       tags: 'Tags',
@@ -603,6 +611,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $dara.
       invokeInstances: DescribeInvocationsResponseBodyInvocationsInvocationInvokeInstances,
       invokeStatus: 'string',
       launcher: 'string',
+      ossOutputDelivery: 'string',
       parameters: 'string',
       repeatMode: 'string',
       tags: DescribeInvocationsResponseBodyInvocationsInvocationTags,

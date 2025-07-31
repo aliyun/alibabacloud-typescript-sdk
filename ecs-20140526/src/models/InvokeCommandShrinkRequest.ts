@@ -211,6 +211,7 @@ export class InvokeCommandShrinkRequest extends $dara.Model {
    * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
    */
   launcher?: string;
+  ossOutputDelivery?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -362,6 +363,7 @@ export class InvokeCommandShrinkRequest extends $dara.Model {
       frequency: 'Frequency',
       instanceId: 'InstanceId',
       launcher: 'Launcher',
+      ossOutputDelivery: 'OssOutputDelivery',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       parametersShrink: 'Parameters',
@@ -390,6 +392,7 @@ export class InvokeCommandShrinkRequest extends $dara.Model {
       frequency: 'string',
       instanceId: { 'type': 'array', 'itemType': 'string' },
       launcher: 'string',
+      ossOutputDelivery: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       parametersShrink: 'string',

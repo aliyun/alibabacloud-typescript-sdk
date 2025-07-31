@@ -137,7 +137,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ActivateRouterInterface is deprecated
+   * ActivateRouterInterface
+   * 
+   * @deprecated OpenAPI ActivateRouterInterface is deprecated, please use Vpc::2016-04-28::ActivateRouterInterface instead.
    * 
    * @param request - ActivateRouterInterfaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -184,7 +186,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ActivateRouterInterface is deprecated
+   * ActivateRouterInterface
+   * 
+   * @deprecated OpenAPI ActivateRouterInterface is deprecated, please use Vpc::2016-04-28::ActivateRouterInterface instead.
    * 
    * @param request - ActivateRouterInterfaceRequest
    * @returns ActivateRouterInterfaceResponse
@@ -196,7 +200,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI AddBandwidthPackageIps is deprecated
+   * AddBandwidthPackageIps
+   * 
+   * @deprecated OpenAPI AddBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::AddBandwidthPackageIps instead.
    * 
    * @param request - AddBandwidthPackageIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -255,7 +261,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI AddBandwidthPackageIps is deprecated
+   * AddBandwidthPackageIps
+   * 
+   * @deprecated OpenAPI AddBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::AddBandwidthPackageIps instead.
    * 
    * @param request - AddBandwidthPackageIpsRequest
    * @returns AddBandwidthPackageIpsResponse
@@ -504,6 +512,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * AllocateEipAddress
+   * 
    * @remarks
    * > This operation has been upgraded. We recommend that you do not use it. For information about the new version of this operation, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
    * 
@@ -574,6 +584,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * AllocateEipAddress
+   * 
    * @remarks
    * > This operation has been upgraded. We recommend that you do not use it. For information about the new version of this operation, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
    * 
@@ -955,6 +967,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * AssociateEipAddress
+   * 
    * @deprecated OpenAPI AssociateEipAddress is deprecated, please use Vpc::2016-04-28::AssociateEipAddress instead.
    * 
    * @param request - AssociateEipAddressRequest
@@ -1014,6 +1028,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * AssociateEipAddress
+   * 
    * @deprecated OpenAPI AssociateEipAddress is deprecated, please use Vpc::2016-04-28::AssociateEipAddress instead.
    * 
    * @param request - AssociateEipAddressRequest
@@ -1026,7 +1042,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI AssociateHaVip is deprecated
+   * AssociateHaVip
+   * 
+   * @deprecated OpenAPI AssociateHaVip is deprecated, please use Vpc::2016-04-28::AssociateHaVip instead.
    * 
    * @param request - AssociateHaVipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1085,7 +1103,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI AssociateHaVip is deprecated
+   * AssociateHaVip
+   * 
+   * @deprecated OpenAPI AssociateHaVip is deprecated, please use Vpc::2016-04-28::AssociateHaVip instead.
    * 
    * @param request - AssociateHaVipRequest
    * @returns AssociateHaVipResponse
@@ -2225,7 +2245,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CancelPhysicalConnection is deprecated
+   * CancelPhysicalConnection
+   * 
+   * @deprecated OpenAPI CancelPhysicalConnection is deprecated, please use Vpc::2016-04-28::CancelPhysicalConnection instead.
    * 
    * @param request - CancelPhysicalConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2284,7 +2306,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CancelPhysicalConnection is deprecated
+   * CancelPhysicalConnection
+   * 
+   * @deprecated OpenAPI CancelPhysicalConnection is deprecated, please use Vpc::2016-04-28::CancelPhysicalConnection instead.
    * 
    * @param request - CancelPhysicalConnectionRequest
    * @returns CancelPhysicalConnectionResponse
@@ -2420,7 +2444,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ConnectRouterInterface is deprecated
+   * ConnectRouterInterface
+   * 
+   * @deprecated OpenAPI ConnectRouterInterface is deprecated, please use Vpc::2016-04-28::ConnectRouterInterface instead.
    * 
    * @param request - ConnectRouterInterfaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2467,7 +2493,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ConnectRouterInterface is deprecated
+   * ConnectRouterInterface
+   * 
+   * @deprecated OpenAPI ConnectRouterInterface is deprecated, please use Vpc::2016-04-28::ConnectRouterInterface instead.
    * 
    * @param request - ConnectRouterInterfaceRequest
    * @returns ConnectRouterInterfaceResponse
@@ -4075,7 +4103,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreateForwardEntry is deprecated
+   * CreateForwardEntry
+   * 
+   * @deprecated OpenAPI CreateForwardEntry is deprecated, please use Vpc::2016-04-28::CreateForwardEntry instead.
    * 
    * @param request - CreateForwardEntryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4146,7 +4176,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreateForwardEntry is deprecated
+   * CreateForwardEntry
+   * 
+   * @deprecated OpenAPI CreateForwardEntry is deprecated, please use Vpc::2016-04-28::CreateForwardEntry instead.
    * 
    * @param request - CreateForwardEntryRequest
    * @returns CreateForwardEntryResponse
@@ -4158,7 +4190,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreateHaVip is deprecated
+   * CreateHaVip
+   * 
+   * @deprecated OpenAPI CreateHaVip is deprecated, please use Vpc::2016-04-28::CreateHaVip instead.
    * 
    * @param request - CreateHaVipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4221,7 +4255,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreateHaVip is deprecated
+   * CreateHaVip
+   * 
+   * @deprecated OpenAPI CreateHaVip is deprecated, please use Vpc::2016-04-28::CreateHaVip instead.
    * 
    * @param request - CreateHaVipRequest
    * @returns CreateHaVipResponse
@@ -5691,7 +5727,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreateNatGateway is deprecated
+   * CreateNatGateway
+   * 
+   * @deprecated OpenAPI CreateNatGateway is deprecated, please use Vpc::2016-04-28::CreateNatGateway instead.
    * 
    * @param request - CreateNatGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5758,7 +5796,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreateNatGateway is deprecated
+   * CreateNatGateway
+   * 
+   * @deprecated OpenAPI CreateNatGateway is deprecated, please use Vpc::2016-04-28::CreateNatGateway instead.
    * 
    * @param request - CreateNatGatewayRequest
    * @returns CreateNatGatewayResponse
@@ -6062,7 +6102,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreatePhysicalConnection is deprecated
+   * CreatePhysicalConnection
+   * 
+   * @deprecated OpenAPI CreatePhysicalConnection is deprecated, please use Vpc::2016-04-28::CreatePhysicalConnection instead.
    * 
    * @param request - CreatePhysicalConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6161,7 +6203,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreatePhysicalConnection is deprecated
+   * CreatePhysicalConnection
+   * 
+   * @deprecated OpenAPI CreatePhysicalConnection is deprecated, please use Vpc::2016-04-28::CreatePhysicalConnection instead.
    * 
    * @param request - CreatePhysicalConnectionRequest
    * @returns CreatePhysicalConnectionResponse
@@ -6377,7 +6421,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreateRouteEntry is deprecated
+   * CreateRouteEntry
+   * 
+   * @deprecated OpenAPI CreateRouteEntry is deprecated, please use Vpc::2016-04-28::CreateRouteEntry instead.
    * 
    * @param request - CreateRouteEntryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6448,7 +6494,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreateRouteEntry is deprecated
+   * CreateRouteEntry
+   * 
+   * @deprecated OpenAPI CreateRouteEntry is deprecated, please use Vpc::2016-04-28::CreateRouteEntry instead.
    * 
    * @param request - CreateRouteEntryRequest
    * @returns CreateRouteEntryResponse
@@ -6460,7 +6508,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreateRouterInterface is deprecated
+   * CreateRouterInterface
+   * 
+   * @deprecated OpenAPI CreateRouterInterface is deprecated, please use Vpc::2016-04-28::CreateRouterInterface instead.
    * 
    * @param request - CreateRouterInterfaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6595,7 +6645,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreateRouterInterface is deprecated
+   * CreateRouterInterface
+   * 
+   * @deprecated OpenAPI CreateRouterInterface is deprecated, please use Vpc::2016-04-28::CreateRouterInterface instead.
    * 
    * @param request - CreateRouterInterfaceRequest
    * @returns CreateRouterInterfaceResponse
@@ -7247,6 +7299,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateVSwitch
+   * 
    * @deprecated OpenAPI CreateVSwitch is deprecated, please use Vpc::2016-04-28::CreateVSwitch instead.
    * 
    * @param request - CreateVSwitchRequest
@@ -7318,6 +7372,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateVSwitch
+   * 
    * @deprecated OpenAPI CreateVSwitch is deprecated, please use Vpc::2016-04-28::CreateVSwitch instead.
    * 
    * @param request - CreateVSwitchRequest
@@ -7330,7 +7386,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreateVirtualBorderRouter is deprecated
+   * CreateVirtualBorderRouter
+   * 
+   * @deprecated OpenAPI CreateVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::CreateVirtualBorderRouter instead.
    * 
    * @param request - CreateVirtualBorderRouterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7425,7 +7483,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreateVirtualBorderRouter is deprecated
+   * CreateVirtualBorderRouter
+   * 
+   * @deprecated OpenAPI CreateVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::CreateVirtualBorderRouter instead.
    * 
    * @param request - CreateVirtualBorderRouterRequest
    * @returns CreateVirtualBorderRouterResponse
@@ -7437,6 +7497,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateVpc
+   * 
    * @deprecated OpenAPI CreateVpc is deprecated, please use Vpc::2016-04-28::CreateVpc instead.
    * 
    * @param request - CreateVpcRequest
@@ -7504,6 +7566,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateVpc
+   * 
    * @deprecated OpenAPI CreateVpc is deprecated, please use Vpc::2016-04-28::CreateVpc instead.
    * 
    * @param request - CreateVpcRequest
@@ -7516,7 +7580,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeactivateRouterInterface is deprecated
+   * DeactivateRouterInterface
+   * 
+   * @deprecated OpenAPI DeactivateRouterInterface is deprecated, please use Vpc::2016-04-28::DeactivateRouterInterface instead.
    * 
    * @param request - DeactivateRouterInterfaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7563,7 +7629,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeactivateRouterInterface is deprecated
+   * DeactivateRouterInterface
+   * 
+   * @deprecated OpenAPI DeactivateRouterInterface is deprecated, please use Vpc::2016-04-28::DeactivateRouterInterface instead.
    * 
    * @param request - DeactivateRouterInterfaceRequest
    * @returns DeactivateRouterInterfaceResponse
@@ -7773,7 +7841,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteBandwidthPackage is deprecated
+   * DeleteBandwidthPackage
+   * 
+   * @deprecated OpenAPI DeleteBandwidthPackage is deprecated, please use Vpc::2016-04-28::DeleteBandwidthPackage instead.
    * 
    * @param request - DeleteBandwidthPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7824,7 +7894,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteBandwidthPackage is deprecated
+   * DeleteBandwidthPackage
+   * 
+   * @deprecated OpenAPI DeleteBandwidthPackage is deprecated, please use Vpc::2016-04-28::DeleteBandwidthPackage instead.
    * 
    * @param request - DeleteBandwidthPackageRequest
    * @returns DeleteBandwidthPackageResponse
@@ -8202,7 +8274,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteForwardEntry is deprecated
+   * DeleteForwardEntry
+   * 
+   * @deprecated OpenAPI DeleteForwardEntry is deprecated, please use Vpc::2016-04-28::DeleteForwardEntry instead.
    * 
    * @param request - DeleteForwardEntryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8257,7 +8331,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteForwardEntry is deprecated
+   * DeleteForwardEntry
+   * 
+   * @deprecated OpenAPI DeleteForwardEntry is deprecated, please use Vpc::2016-04-28::DeleteForwardEntry instead.
    * 
    * @param request - DeleteForwardEntryRequest
    * @returns DeleteForwardEntryResponse
@@ -8269,7 +8345,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteHaVip is deprecated
+   * DeleteHaVip
+   * 
+   * @deprecated OpenAPI DeleteHaVip is deprecated, please use Vpc::2016-04-28::DeleteHaVip instead.
    * 
    * @param request - DeleteHaVipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8324,7 +8402,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteHaVip is deprecated
+   * DeleteHaVip
+   * 
+   * @deprecated OpenAPI DeleteHaVip is deprecated, please use Vpc::2016-04-28::DeleteHaVip instead.
    * 
    * @param request - DeleteHaVipRequest
    * @returns DeleteHaVipResponse
@@ -9050,7 +9130,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteNatGateway is deprecated
+   * DeleteNatGateway
+   * 
+   * @deprecated OpenAPI DeleteNatGateway is deprecated, please use Vpc::2016-04-28::DeleteNatGateway instead.
    * 
    * @param request - DeleteNatGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9101,7 +9183,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteNatGateway is deprecated
+   * DeleteNatGateway
+   * 
+   * @deprecated OpenAPI DeleteNatGateway is deprecated, please use Vpc::2016-04-28::DeleteNatGateway instead.
    * 
    * @param request - DeleteNatGatewayRequest
    * @returns DeleteNatGatewayResponse
@@ -9282,7 +9366,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeletePhysicalConnection is deprecated
+   * DeletePhysicalConnection
+   * 
+   * @deprecated OpenAPI DeletePhysicalConnection is deprecated, please use Vpc::2016-04-28::DeletePhysicalConnection instead.
    * 
    * @param request - DeletePhysicalConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9337,7 +9423,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeletePhysicalConnection is deprecated
+   * DeletePhysicalConnection
+   * 
+   * @deprecated OpenAPI DeletePhysicalConnection is deprecated, please use Vpc::2016-04-28::DeletePhysicalConnection instead.
    * 
    * @param request - DeletePhysicalConnectionRequest
    * @returns DeletePhysicalConnectionResponse
@@ -9487,7 +9575,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteRouteEntry is deprecated
+   * DeleteRouteEntry
+   * 
+   * @deprecated OpenAPI DeleteRouteEntry is deprecated, please use Vpc::2016-04-28::DeleteRouteEntry instead.
    * 
    * @param request - DeleteRouteEntryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9550,7 +9640,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteRouteEntry is deprecated
+   * DeleteRouteEntry
+   * 
+   * @deprecated OpenAPI DeleteRouteEntry is deprecated, please use Vpc::2016-04-28::DeleteRouteEntry instead.
    * 
    * @param request - DeleteRouteEntryRequest
    * @returns DeleteRouteEntryResponse
@@ -9562,7 +9654,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteRouterInterface is deprecated
+   * DeleteRouterInterface
+   * 
+   * @deprecated OpenAPI DeleteRouterInterface is deprecated, please use Vpc::2016-04-28::DeleteRouterInterface instead.
    * 
    * @param request - DeleteRouterInterfaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9621,7 +9715,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteRouterInterface is deprecated
+   * DeleteRouterInterface
+   * 
+   * @deprecated OpenAPI DeleteRouterInterface is deprecated, please use Vpc::2016-04-28::DeleteRouterInterface instead.
    * 
    * @param request - DeleteRouterInterfaceRequest
    * @returns DeleteRouterInterfaceResponse
@@ -9915,6 +10011,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DeleteVSwitch
+   * 
    * @deprecated OpenAPI DeleteVSwitch is deprecated, please use Vpc::2016-04-28::DeleteVSwitch instead.
    * 
    * @param request - DeleteVSwitchRequest
@@ -9966,6 +10064,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DeleteVSwitch
+   * 
    * @deprecated OpenAPI DeleteVSwitch is deprecated, please use Vpc::2016-04-28::DeleteVSwitch instead.
    * 
    * @param request - DeleteVSwitchRequest
@@ -9978,7 +10078,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteVirtualBorderRouter is deprecated
+   * DeleteVirtualBorderRouter
+   * 
+   * @deprecated OpenAPI DeleteVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::DeleteVirtualBorderRouter instead.
    * 
    * @param request - DeleteVirtualBorderRouterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10037,7 +10139,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteVirtualBorderRouter is deprecated
+   * DeleteVirtualBorderRouter
+   * 
+   * @deprecated OpenAPI DeleteVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::DeleteVirtualBorderRouter instead.
    * 
    * @param request - DeleteVirtualBorderRouterRequest
    * @returns DeleteVirtualBorderRouterResponse
@@ -10182,7 +10286,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeAccessPoints is deprecated
+   * DescribeAccessPoints
+   * 
+   * @deprecated OpenAPI DescribeAccessPoints is deprecated, please use Vpc::2016-04-28::DescribeAccessPoints instead.
    * 
    * @param request - DescribeAccessPointsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10241,7 +10347,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeAccessPoints is deprecated
+   * DescribeAccessPoints
+   * 
+   * @deprecated OpenAPI DescribeAccessPoints is deprecated, please use Vpc::2016-04-28::DescribeAccessPoints instead.
    * 
    * @param request - DescribeAccessPointsRequest
    * @returns DescribeAccessPointsResponse
@@ -11077,7 +11185,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeBandwidthPackages is deprecated
+   * DescribeBandwidthPackages
+   * 
+   * @deprecated OpenAPI DescribeBandwidthPackages is deprecated, please use Vpc::2016-04-28::DescribeBandwidthPackages instead.
    * 
    * @param request - DescribeBandwidthPackagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11140,7 +11250,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeBandwidthPackages is deprecated
+   * DescribeBandwidthPackages
+   * 
+   * @deprecated OpenAPI DescribeBandwidthPackages is deprecated, please use Vpc::2016-04-28::DescribeBandwidthPackages instead.
    * 
    * @param request - DescribeBandwidthPackagesRequest
    * @returns DescribeBandwidthPackagesResponse
@@ -12997,6 +13109,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DescribeEipAddresses
+   * 
    * @deprecated OpenAPI DescribeEipAddresses is deprecated, please use Vpc::2016-04-28::DescribeEipAddresses instead.
    * 
    * @param request - DescribeEipAddressesRequest
@@ -13088,6 +13202,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DescribeEipAddresses
+   * 
    * @deprecated OpenAPI DescribeEipAddresses is deprecated, please use Vpc::2016-04-28::DescribeEipAddresses instead.
    * 
    * @param request - DescribeEipAddressesRequest
@@ -13100,7 +13216,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeEipMonitorData is deprecated
+   * DescribeEipMonitorData
+   * 
+   * @deprecated OpenAPI DescribeEipMonitorData is deprecated, please use Vpc::2016-04-28::DescribeEipMonitorData instead.
    * 
    * @param request - DescribeEipMonitorDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13163,7 +13281,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeEipMonitorData is deprecated
+   * DescribeEipMonitorData
+   * 
+   * @deprecated OpenAPI DescribeEipMonitorData is deprecated, please use Vpc::2016-04-28::DescribeEipMonitorData instead.
    * 
    * @param request - DescribeEipMonitorDataRequest
    * @returns DescribeEipMonitorDataResponse
@@ -13505,7 +13625,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeForwardTableEntries is deprecated
+   * DescribeForwardTableEntries
+   * 
+   * @deprecated OpenAPI DescribeForwardTableEntries is deprecated, please use Vpc::2016-04-28::DescribeForwardTableEntries instead.
    * 
    * @param request - DescribeForwardTableEntriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13568,7 +13690,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeForwardTableEntries is deprecated
+   * DescribeForwardTableEntries
+   * 
+   * @deprecated OpenAPI DescribeForwardTableEntries is deprecated, please use Vpc::2016-04-28::DescribeForwardTableEntries instead.
    * 
    * @param request - DescribeForwardTableEntriesRequest
    * @returns DescribeForwardTableEntriesResponse
@@ -13580,7 +13704,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeHaVips is deprecated
+   * DescribeHaVips
+   * 
+   * @deprecated OpenAPI DescribeHaVips is deprecated, please use Vpc::2016-04-28::DescribeHaVips instead.
    * 
    * @param request - DescribeHaVipsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13639,7 +13765,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeHaVips is deprecated
+   * DescribeHaVips
+   * 
+   * @deprecated OpenAPI DescribeHaVips is deprecated, please use Vpc::2016-04-28::DescribeHaVips instead.
    * 
    * @param request - DescribeHaVipsRequest
    * @returns DescribeHaVipsResponse
@@ -16704,7 +16832,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeNatGateways is deprecated
+   * DescribeNatGateways
+   * 
+   * @deprecated OpenAPI DescribeNatGateways is deprecated, please use Vpc::2016-04-28::DescribeNatGateways instead.
    * 
    * @param request - DescribeNatGatewaysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16767,7 +16897,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeNatGateways is deprecated
+   * DescribeNatGateways
+   * 
+   * @deprecated OpenAPI DescribeNatGateways is deprecated, please use Vpc::2016-04-28::DescribeNatGateways instead.
    * 
    * @param request - DescribeNatGatewaysRequest
    * @returns DescribeNatGatewaysResponse
@@ -17089,7 +17221,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeNewProjectEipMonitorData is deprecated
+   * DescribeNewProjectEipMonitorData
+   * 
+   * @deprecated OpenAPI DescribeNewProjectEipMonitorData is deprecated, please use Vpc::2016-04-28::DescribeEipMonitorData instead.
    * 
    * @param request - DescribeNewProjectEipMonitorDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17152,7 +17286,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeNewProjectEipMonitorData is deprecated
+   * DescribeNewProjectEipMonitorData
+   * 
+   * @deprecated OpenAPI DescribeNewProjectEipMonitorData is deprecated, please use Vpc::2016-04-28::DescribeEipMonitorData instead.
    * 
    * @param request - DescribeNewProjectEipMonitorDataRequest
    * @returns DescribeNewProjectEipMonitorDataResponse
@@ -17164,7 +17300,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribePhysicalConnections is deprecated
+   * DescribePhysicalConnections
+   * 
+   * @deprecated OpenAPI DescribePhysicalConnections is deprecated, please use Vpc::2016-04-28::DescribePhysicalConnections instead.
    * 
    * @param request - DescribePhysicalConnectionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17231,7 +17369,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribePhysicalConnections is deprecated
+   * DescribePhysicalConnections
+   * 
+   * @deprecated OpenAPI DescribePhysicalConnections is deprecated, please use Vpc::2016-04-28::DescribePhysicalConnections instead.
    * 
    * @param request - DescribePhysicalConnectionsRequest
    * @returns DescribePhysicalConnectionsResponse
@@ -18697,7 +18837,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeRouterInterfaces is deprecated
+   * DescribeRouterInterfaces
+   * 
+   * @deprecated OpenAPI DescribeRouterInterfaces is deprecated, please use Vpc::2016-04-28::DescribeRouterInterfaces instead.
    * 
    * @param request - DescribeRouterInterfacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18752,7 +18894,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeRouterInterfaces is deprecated
+   * DescribeRouterInterfaces
+   * 
+   * @deprecated OpenAPI DescribeRouterInterfaces is deprecated, please use Vpc::2016-04-28::DescribeRouterInterfaces instead.
    * 
    * @param request - DescribeRouterInterfacesRequest
    * @returns DescribeRouterInterfacesResponse
@@ -20893,7 +21037,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeVSwitches is deprecated
+   * DescribeVSwitches
+   * 
+   * @deprecated OpenAPI DescribeVSwitches is deprecated, please use Vpc::2016-04-28::DescribeVSwitches instead.
    * 
    * @param request - DescribeVSwitchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20964,7 +21110,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeVSwitches is deprecated
+   * DescribeVSwitches
+   * 
+   * @deprecated OpenAPI DescribeVSwitches is deprecated, please use Vpc::2016-04-28::DescribeVSwitches instead.
    * 
    * @param request - DescribeVSwitchesRequest
    * @returns DescribeVSwitchesResponse
@@ -20976,7 +21124,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeVirtualBorderRouters is deprecated
+   * DescribeVirtualBorderRouters
+   * 
+   * @deprecated OpenAPI DescribeVirtualBorderRouters is deprecated, please use Vpc::2016-04-28::DescribeVirtualBorderRouters instead.
    * 
    * @param request - DescribeVirtualBorderRoutersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21031,7 +21181,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeVirtualBorderRouters is deprecated
+   * DescribeVirtualBorderRouters
+   * 
+   * @deprecated OpenAPI DescribeVirtualBorderRouters is deprecated, please use Vpc::2016-04-28::DescribeVirtualBorderRouters instead.
    * 
    * @param request - DescribeVirtualBorderRoutersRequest
    * @returns DescribeVirtualBorderRoutersResponse
@@ -21043,7 +21195,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeVirtualBorderRoutersForPhysicalConnection is deprecated
+   * DescribeVirtualBorderRoutersForPhysicalConnection
+   * 
+   * @deprecated OpenAPI DescribeVirtualBorderRoutersForPhysicalConnection is deprecated, please use Vpc::2016-04-28::DescribeVirtualBorderRoutersForPhysicalConnection instead.
    * 
    * @param request - DescribeVirtualBorderRoutersForPhysicalConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21102,7 +21256,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DescribeVirtualBorderRoutersForPhysicalConnection is deprecated
+   * DescribeVirtualBorderRoutersForPhysicalConnection
+   * 
+   * @deprecated OpenAPI DescribeVirtualBorderRoutersForPhysicalConnection is deprecated, please use Vpc::2016-04-28::DescribeVirtualBorderRoutersForPhysicalConnection instead.
    * 
    * @param request - DescribeVirtualBorderRoutersForPhysicalConnectionRequest
    * @returns DescribeVirtualBorderRoutersForPhysicalConnectionResponse
@@ -21869,7 +22025,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI EnablePhysicalConnection is deprecated
+   * EnablePhysicalConnection
+   * 
+   * @deprecated OpenAPI EnablePhysicalConnection is deprecated, please use Vpc::2016-04-28::EnablePhysicalConnection instead.
    * 
    * @param request - EnablePhysicalConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21928,7 +22086,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI EnablePhysicalConnection is deprecated
+   * EnablePhysicalConnection
+   * 
+   * @deprecated OpenAPI EnablePhysicalConnection is deprecated, please use Vpc::2016-04-28::EnablePhysicalConnection instead.
    * 
    * @param request - EnablePhysicalConnectionRequest
    * @returns EnablePhysicalConnectionResponse
@@ -22939,6 +23099,10 @@ export default class Client extends OpenApi {
       query["Launcher"] = request.launcher;
     }
 
+    if (!$dara.isNull(request.ossOutputDelivery)) {
+      query["OssOutputDelivery"] = request.ossOutputDelivery;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -23713,7 +23877,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated
+   * ModifyBandwidthPackageSpec
+   * 
+   * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated, please use Vpc::2016-04-28::ModifyBandwidthPackageSpec instead.
    * 
    * @param request - ModifyBandwidthPackageSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23768,7 +23934,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated
+   * ModifyBandwidthPackageSpec
+   * 
+   * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated, please use Vpc::2016-04-28::ModifyBandwidthPackageSpec instead.
    * 
    * @param request - ModifyBandwidthPackageSpecRequest
    * @returns ModifyBandwidthPackageSpecResponse
@@ -25088,7 +25256,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyEipAddressAttribute is deprecated
+   * ModifyEipAddressAttribute
+   * 
+   * @deprecated OpenAPI ModifyEipAddressAttribute is deprecated, please use Vpc::2016-04-28::ModifyEipAddressAttribute instead.
    * 
    * @param request - ModifyEipAddressAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25143,7 +25313,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyEipAddressAttribute is deprecated
+   * ModifyEipAddressAttribute
+   * 
+   * @deprecated OpenAPI ModifyEipAddressAttribute is deprecated, please use Vpc::2016-04-28::ModifyEipAddressAttribute instead.
    * 
    * @param request - ModifyEipAddressAttributeRequest
    * @returns ModifyEipAddressAttributeResponse
@@ -25307,7 +25479,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyForwardEntry is deprecated
+   * ModifyForwardEntry
+   * 
+   * @deprecated OpenAPI ModifyForwardEntry is deprecated, please use Vpc::2016-04-28::ModifyForwardEntry instead.
    * 
    * @param request - ModifyForwardEntryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25382,7 +25556,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyForwardEntry is deprecated
+   * ModifyForwardEntry
+   * 
+   * @deprecated OpenAPI ModifyForwardEntry is deprecated, please use Vpc::2016-04-28::ModifyForwardEntry instead.
    * 
    * @param request - ModifyForwardEntryRequest
    * @returns ModifyForwardEntryResponse
@@ -25394,7 +25570,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyHaVipAttribute is deprecated
+   * ModifyHaVipAttribute
+   * 
+   * @deprecated OpenAPI ModifyHaVipAttribute is deprecated, please use Vpc::2016-04-28::ModifyHaVipAttribute instead.
    * 
    * @param request - ModifyHaVipAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25453,7 +25631,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyHaVipAttribute is deprecated
+   * ModifyHaVipAttribute
+   * 
+   * @deprecated OpenAPI ModifyHaVipAttribute is deprecated, please use Vpc::2016-04-28::ModifyHaVipAttribute instead.
    * 
    * @param request - ModifyHaVipAttributeRequest
    * @returns ModifyHaVipAttributeResponse
@@ -27474,7 +27654,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyPhysicalConnectionAttribute is deprecated
+   * ModifyPhysicalConnectionAttribute
+   * 
+   * @deprecated OpenAPI ModifyPhysicalConnectionAttribute is deprecated, please use Vpc::2016-04-28::ModifyPhysicalConnectionAttribute instead.
    * 
    * @param request - ModifyPhysicalConnectionAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27569,7 +27751,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyPhysicalConnectionAttribute is deprecated
+   * ModifyPhysicalConnectionAttribute
+   * 
+   * @deprecated OpenAPI ModifyPhysicalConnectionAttribute is deprecated, please use Vpc::2016-04-28::ModifyPhysicalConnectionAttribute instead.
    * 
    * @param request - ModifyPhysicalConnectionAttributeRequest
    * @returns ModifyPhysicalConnectionAttributeResponse
@@ -28211,7 +28395,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyRouterInterfaceAttribute is deprecated
+   * ModifyRouterInterfaceAttribute
+   * 
+   * @deprecated OpenAPI ModifyRouterInterfaceAttribute is deprecated, please use Vpc::2016-04-28::ModifyRouterInterfaceAttribute instead.
    * 
    * @param request - ModifyRouterInterfaceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28290,7 +28476,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyRouterInterfaceAttribute is deprecated
+   * ModifyRouterInterfaceAttribute
+   * 
+   * @deprecated OpenAPI ModifyRouterInterfaceAttribute is deprecated, please use Vpc::2016-04-28::ModifyRouterInterfaceAttribute instead.
    * 
    * @param request - ModifyRouterInterfaceAttributeRequest
    * @returns ModifyRouterInterfaceAttributeResponse
@@ -28302,7 +28490,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyRouterInterfaceSpec is deprecated
+   * ModifyRouterInterfaceSpec
+   * 
+   * @deprecated OpenAPI ModifyRouterInterfaceSpec is deprecated, please use Vpc::2016-04-28::ModifyRouterInterfaceSpec instead.
    * 
    * @param request - ModifyRouterInterfaceSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28365,7 +28555,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyRouterInterfaceSpec is deprecated
+   * ModifyRouterInterfaceSpec
+   * 
+   * @deprecated OpenAPI ModifyRouterInterfaceSpec is deprecated, please use Vpc::2016-04-28::ModifyRouterInterfaceSpec instead.
    * 
    * @param request - ModifyRouterInterfaceSpecRequest
    * @returns ModifyRouterInterfaceSpecResponse
@@ -29264,7 +29456,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyVRouterAttribute is deprecated
+   * ModifyVRouterAttribute
+   * 
+   * @deprecated OpenAPI ModifyVRouterAttribute is deprecated, please use Vpc::2016-04-28::ModifyVRouterAttribute instead.
    * 
    * @param request - ModifyVRouterAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29323,7 +29517,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyVRouterAttribute is deprecated
+   * ModifyVRouterAttribute
+   * 
+   * @deprecated OpenAPI ModifyVRouterAttribute is deprecated, please use Vpc::2016-04-28::ModifyVRouterAttribute instead.
    * 
    * @param request - ModifyVRouterAttributeRequest
    * @returns ModifyVRouterAttributeResponse
@@ -29335,7 +29531,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyVSwitchAttribute is deprecated
+   * ModifyVSwitchAttribute
+   * 
+   * @deprecated OpenAPI ModifyVSwitchAttribute is deprecated, please use Vpc::2016-04-28::ModifyVSwitchAttribute instead.
    * 
    * @param request - ModifyVSwitchAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29394,7 +29592,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyVSwitchAttribute is deprecated
+   * ModifyVSwitchAttribute
+   * 
+   * @deprecated OpenAPI ModifyVSwitchAttribute is deprecated, please use Vpc::2016-04-28::ModifyVSwitchAttribute instead.
    * 
    * @param request - ModifyVSwitchAttributeRequest
    * @returns ModifyVSwitchAttributeResponse
@@ -29406,7 +29606,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyVirtualBorderRouterAttribute is deprecated
+   * ModifyVirtualBorderRouterAttribute
+   * 
+   * @deprecated OpenAPI ModifyVirtualBorderRouterAttribute is deprecated, please use Vpc::2016-04-28::ModifyVirtualBorderRouterAttribute instead.
    * 
    * @param request - ModifyVirtualBorderRouterAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29493,7 +29695,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyVirtualBorderRouterAttribute is deprecated
+   * ModifyVirtualBorderRouterAttribute
+   * 
+   * @deprecated OpenAPI ModifyVirtualBorderRouterAttribute is deprecated, please use Vpc::2016-04-28::ModifyVirtualBorderRouterAttribute instead.
    * 
    * @param request - ModifyVirtualBorderRouterAttributeRequest
    * @returns ModifyVirtualBorderRouterAttributeResponse
@@ -29505,7 +29709,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyVpcAttribute is deprecated
+   * ModifyVpcAttribute
+   * 
+   * @deprecated OpenAPI ModifyVpcAttribute is deprecated, please use Vpc::2016-04-28::ModifyVpcAttribute instead.
    * 
    * @param request - ModifyVpcAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29572,7 +29778,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ModifyVpcAttribute is deprecated
+   * ModifyVpcAttribute
+   * 
+   * @deprecated OpenAPI ModifyVpcAttribute is deprecated, please use Vpc::2016-04-28::ModifyVpcAttribute instead.
    * 
    * @param request - ModifyVpcAttributeRequest
    * @returns ModifyVpcAttributeResponse
@@ -30258,7 +30466,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI RecoverVirtualBorderRouter is deprecated
+   * RecoverVirtualBorderRouter
+   * 
+   * @deprecated OpenAPI RecoverVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::RecoverVirtualBorderRouter instead.
    * 
    * @param request - RecoverVirtualBorderRouterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30317,7 +30527,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI RecoverVirtualBorderRouter is deprecated
+   * RecoverVirtualBorderRouter
+   * 
+   * @deprecated OpenAPI RecoverVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::RecoverVirtualBorderRouter instead.
    * 
    * @param request - RecoverVirtualBorderRouterRequest
    * @returns RecoverVirtualBorderRouterResponse
@@ -30653,7 +30865,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ReleaseEipAddress is deprecated
+   * ReleaseEipAddress
+   * 
+   * @deprecated OpenAPI ReleaseEipAddress is deprecated, please use Vpc::2016-04-28::ReleaseEipAddress instead.
    * 
    * @param request - ReleaseEipAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30704,7 +30918,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI ReleaseEipAddress is deprecated
+   * ReleaseEipAddress
+   * 
+   * @deprecated OpenAPI ReleaseEipAddress is deprecated, please use Vpc::2016-04-28::ReleaseEipAddress instead.
    * 
    * @param request - ReleaseEipAddressRequest
    * @returns ReleaseEipAddressResponse
@@ -30775,7 +30991,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI RemoveBandwidthPackageIps is deprecated
+   * RemoveBandwidthPackageIps
+   * 
+   * @deprecated OpenAPI RemoveBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::RemoveBandwidthPackageIps instead.
    * 
    * @param request - RemoveBandwidthPackageIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30834,7 +31052,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI RemoveBandwidthPackageIps is deprecated
+   * RemoveBandwidthPackageIps
+   * 
+   * @deprecated OpenAPI RemoveBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::RemoveBandwidthPackageIps instead.
    * 
    * @param request - RemoveBandwidthPackageIpsRequest
    * @returns RemoveBandwidthPackageIpsResponse
@@ -32399,6 +32619,10 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.ossOutputDelivery)) {
+      query["OssOutputDelivery"] = request.ossOutputDelivery;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -33869,7 +34093,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI TerminatePhysicalConnection is deprecated
+   * TerminatePhysicalConnection
+   * 
+   * @deprecated OpenAPI TerminatePhysicalConnection is deprecated, please use Vpc::2016-04-28::TerminatePhysicalConnection instead.
    * 
    * @param request - TerminatePhysicalConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33928,7 +34154,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI TerminatePhysicalConnection is deprecated
+   * TerminatePhysicalConnection
+   * 
+   * @deprecated OpenAPI TerminatePhysicalConnection is deprecated, please use Vpc::2016-04-28::TerminatePhysicalConnection instead.
    * 
    * @param request - TerminatePhysicalConnectionRequest
    * @returns TerminatePhysicalConnectionResponse
@@ -33940,7 +34168,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI TerminateVirtualBorderRouter is deprecated
+   * TerminateVirtualBorderRouter
+   * 
+   * @deprecated OpenAPI TerminateVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::TerminateVirtualBorderRouter instead.
    * 
    * @param request - TerminateVirtualBorderRouterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33999,7 +34229,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI TerminateVirtualBorderRouter is deprecated
+   * TerminateVirtualBorderRouter
+   * 
+   * @deprecated OpenAPI TerminateVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::TerminateVirtualBorderRouter instead.
    * 
    * @param request - TerminateVirtualBorderRouterRequest
    * @returns TerminateVirtualBorderRouterResponse
@@ -34181,7 +34413,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI UnassociateEipAddress is deprecated
+   * UnassociateEipAddress
+   * 
+   * @deprecated OpenAPI UnassociateEipAddress is deprecated, please use Vpc::2016-04-28::UnassociateEipAddress instead.
    * 
    * @param request - UnassociateEipAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34240,7 +34474,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI UnassociateEipAddress is deprecated
+   * UnassociateEipAddress
+   * 
+   * @deprecated OpenAPI UnassociateEipAddress is deprecated, please use Vpc::2016-04-28::UnassociateEipAddress instead.
    * 
    * @param request - UnassociateEipAddressRequest
    * @returns UnassociateEipAddressResponse
@@ -34252,7 +34488,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI UnassociateHaVip is deprecated
+   * UnassociateHaVip
+   * 
+   * @deprecated OpenAPI UnassociateHaVip is deprecated, please use Vpc::2016-04-28::UnassociateHaVip instead.
    * 
    * @param request - UnassociateHaVipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34315,7 +34553,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI UnassociateHaVip is deprecated
+   * UnassociateHaVip
+   * 
+   * @deprecated OpenAPI UnassociateHaVip is deprecated, please use Vpc::2016-04-28::UnassociateHaVip instead.
    * 
    * @param request - UnassociateHaVipRequest
    * @returns UnassociateHaVipResponse
