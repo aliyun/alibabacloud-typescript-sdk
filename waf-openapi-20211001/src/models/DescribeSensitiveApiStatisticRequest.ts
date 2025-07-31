@@ -87,6 +87,7 @@ export class DescribeSensitiveApiStatisticRequest extends $dara.Model {
    * 1672502400
    */
   startTime?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
@@ -98,6 +99,7 @@ export class DescribeSensitiveApiStatisticRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       startTime: 'StartTime',
+      type: 'Type',
     };
   }
 
@@ -112,6 +114,7 @@ export class DescribeSensitiveApiStatisticRequest extends $dara.Model {
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
       startTime: 'number',
+      type: 'string',
     };
   }
 
