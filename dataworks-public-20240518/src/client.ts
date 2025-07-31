@@ -792,6 +792,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建数据质量告警规则
+   * 
+   * @param tmpReq - CreateDataQualityAlertRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataQualityAlertRuleResponse
+   */
+  async createDataQualityAlertRuleWithOptions(tmpReq: $_model.CreateDataQualityAlertRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataQualityAlertRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDataQualityAlertRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.target)) {
+      request.targetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.target, "Target", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.condition)) {
+      body["Condition"] = request.condition;
+    }
+
+    if (!$dara.isNull(request.notificationShrink)) {
+      body["Notification"] = request.notificationShrink;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.targetShrink)) {
+      body["Target"] = request.targetShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataQualityAlertRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataQualityAlertRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataQualityAlertRuleResponse({}));
+  }
+
+  /**
+   * 创建数据质量告警规则
+   * 
+   * @param request - CreateDataQualityAlertRuleRequest
+   * @returns CreateDataQualityAlertRuleResponse
+   */
+  async createDataQualityAlertRule(request: $_model.CreateDataQualityAlertRuleRequest): Promise<$_model.CreateDataQualityAlertRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataQualityAlertRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a monitor in DataWorks Data Quality.
    * 
    * @remarks
@@ -1123,6 +1187,224 @@ export default class Client extends OpenApi {
   async createDataQualityRuleTemplate(request: $_model.CreateDataQualityRuleTemplateRequest): Promise<$_model.CreateDataQualityRuleTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDataQualityRuleTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据质量监控
+   * 
+   * @param tmpReq - CreateDataQualityScanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataQualityScanResponse
+   */
+  async createDataQualityScanWithOptions(tmpReq: $_model.CreateDataQualityScanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataQualityScanResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDataQualityScanShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.computeResource)) {
+      request.computeResourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.computeResource, "ComputeResource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.hooks)) {
+      request.hooksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hooks, "Hooks", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.runtimeResource)) {
+      request.runtimeResourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runtimeResource, "RuntimeResource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.trigger)) {
+      request.triggerShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.trigger, "Trigger", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.computeResourceShrink)) {
+      body["ComputeResource"] = request.computeResourceShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.hooksShrink)) {
+      body["Hooks"] = request.hooksShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.parametersShrink)) {
+      body["Parameters"] = request.parametersShrink;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.runtimeResourceShrink)) {
+      body["RuntimeResource"] = request.runtimeResourceShrink;
+    }
+
+    if (!$dara.isNull(request.spec)) {
+      body["Spec"] = request.spec;
+    }
+
+    if (!$dara.isNull(request.triggerShrink)) {
+      body["Trigger"] = request.triggerShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataQualityScan",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataQualityScanResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataQualityScanResponse({}));
+  }
+
+  /**
+   * 创建数据质量监控
+   * 
+   * @param request - CreateDataQualityScanRequest
+   * @returns CreateDataQualityScanResponse
+   */
+  async createDataQualityScan(request: $_model.CreateDataQualityScanRequest): Promise<$_model.CreateDataQualityScanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataQualityScanWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据质量监控运行实例
+   * 
+   * @param tmpReq - CreateDataQualityScanRunRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataQualityScanRunResponse
+   */
+  async createDataQualityScanRunWithOptions(tmpReq: $_model.CreateDataQualityScanRunRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataQualityScanRunResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDataQualityScanRunShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.runtimeResource)) {
+      request.runtimeResourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runtimeResource, "RuntimeResource", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataQualityScanId)) {
+      body["DataQualityScanId"] = request.dataQualityScanId;
+    }
+
+    if (!$dara.isNull(request.parametersShrink)) {
+      body["Parameters"] = request.parametersShrink;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.runtimeResourceShrink)) {
+      body["RuntimeResource"] = request.runtimeResourceShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataQualityScanRun",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataQualityScanRunResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataQualityScanRunResponse({}));
+  }
+
+  /**
+   * 创建数据质量监控运行实例
+   * 
+   * @param request - CreateDataQualityScanRunRequest
+   * @returns CreateDataQualityScanRunResponse
+   */
+  async createDataQualityScanRun(request: $_model.CreateDataQualityScanRunRequest): Promise<$_model.CreateDataQualityScanRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataQualityScanRunWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据质量模板
+   * 
+   * @param request - CreateDataQualityTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataQualityTemplateResponse
+   */
+  async createDataQualityTemplateWithOptions(request: $_model.CreateDataQualityTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataQualityTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.spec)) {
+      body["Spec"] = request.spec;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataQualityTemplate",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataQualityTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataQualityTemplateResponse({}));
+  }
+
+  /**
+   * 创建数据质量模板
+   * 
+   * @param request - CreateDataQualityTemplateRequest
+   * @returns CreateDataQualityTemplateResponse
+   */
+  async createDataQualityTemplate(request: $_model.CreateDataQualityTemplateRequest): Promise<$_model.CreateDataQualityTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataQualityTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -2966,6 +3248,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除数据质量告警规则
+   * 
+   * @param request - DeleteDataQualityAlertRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataQualityAlertRuleResponse
+   */
+  async deleteDataQualityAlertRuleWithOptions(request: $_model.DeleteDataQualityAlertRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataQualityAlertRuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataQualityAlertRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataQualityAlertRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataQualityAlertRuleResponse({}));
+  }
+
+  /**
+   * 删除数据质量告警规则
+   * 
+   * @param request - DeleteDataQualityAlertRuleRequest
+   * @returns DeleteDataQualityAlertRuleResponse
+   */
+  async deleteDataQualityAlertRule(request: $_model.DeleteDataQualityAlertRuleRequest): Promise<$_model.DeleteDataQualityAlertRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataQualityAlertRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a data quality monitoring task.
    * 
    * @param request - DeleteDataQualityEvaluationTaskRequest
@@ -3101,6 +3425,94 @@ export default class Client extends OpenApi {
   async deleteDataQualityRuleTemplate(request: $_model.DeleteDataQualityRuleTemplateRequest): Promise<$_model.DeleteDataQualityRuleTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDataQualityRuleTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据质量监控
+   * 
+   * @param request - DeleteDataQualityScanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataQualityScanResponse
+   */
+  async deleteDataQualityScanWithOptions(request: $_model.DeleteDataQualityScanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataQualityScanResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataQualityScan",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataQualityScanResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataQualityScanResponse({}));
+  }
+
+  /**
+   * 删除数据质量监控
+   * 
+   * @param request - DeleteDataQualityScanRequest
+   * @returns DeleteDataQualityScanResponse
+   */
+  async deleteDataQualityScan(request: $_model.DeleteDataQualityScanRequest): Promise<$_model.DeleteDataQualityScanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataQualityScanWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据质量模板
+   * 
+   * @param request - DeleteDataQualityTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataQualityTemplateResponse
+   */
+  async deleteDataQualityTemplateWithOptions(request: $_model.DeleteDataQualityTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataQualityTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataQualityTemplate",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataQualityTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataQualityTemplateResponse({}));
+  }
+
+  /**
+   * 删除数据质量模板
+   * 
+   * @param request - DeleteDataQualityTemplateRequest
+   * @returns DeleteDataQualityTemplateResponse
+   */
+  async deleteDataQualityTemplate(request: $_model.DeleteDataQualityTemplateRequest): Promise<$_model.DeleteDataQualityTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataQualityTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -4636,6 +5048,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询数据质量告警规则详情
+   * 
+   * @param request - GetDataQualityAlertRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataQualityAlertRuleResponse
+   */
+  async getDataQualityAlertRuleWithOptions(request: $_model.GetDataQualityAlertRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataQualityAlertRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataQualityAlertRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataQualityAlertRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetDataQualityAlertRuleResponse({}));
+  }
+
+  /**
+   * 查询数据质量告警规则详情
+   * 
+   * @param request - GetDataQualityAlertRuleRequest
+   * @returns GetDataQualityAlertRuleResponse
+   */
+  async getDataQualityAlertRule(request: $_model.GetDataQualityAlertRuleRequest): Promise<$_model.GetDataQualityAlertRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataQualityAlertRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a monitor.
    * 
    * @param request - GetDataQualityEvaluationTaskRequest
@@ -4797,6 +5251,178 @@ export default class Client extends OpenApi {
   async getDataQualityRuleTemplate(request: $_model.GetDataQualityRuleTemplateRequest): Promise<$_model.GetDataQualityRuleTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDataQualityRuleTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据质量监控详情
+   * 
+   * @param request - GetDataQualityScanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataQualityScanResponse
+   */
+  async getDataQualityScanWithOptions(request: $_model.GetDataQualityScanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataQualityScanResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataQualityScan",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataQualityScanResponse>(await this.callApi(params, req, runtime), new $_model.GetDataQualityScanResponse({}));
+  }
+
+  /**
+   * 获取数据质量监控详情
+   * 
+   * @param request - GetDataQualityScanRequest
+   * @returns GetDataQualityScanResponse
+   */
+  async getDataQualityScan(request: $_model.GetDataQualityScanRequest): Promise<$_model.GetDataQualityScanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataQualityScanWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据质量监控运行实例
+   * 
+   * @param request - GetDataQualityScanRunRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataQualityScanRunResponse
+   */
+  async getDataQualityScanRunWithOptions(request: $_model.GetDataQualityScanRunRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataQualityScanRunResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataQualityScanRun",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataQualityScanRunResponse>(await this.callApi(params, req, runtime), new $_model.GetDataQualityScanRunResponse({}));
+  }
+
+  /**
+   * 创建数据质量监控运行实例
+   * 
+   * @param request - GetDataQualityScanRunRequest
+   * @returns GetDataQualityScanRunResponse
+   */
+  async getDataQualityScanRun(request: $_model.GetDataQualityScanRunRequest): Promise<$_model.GetDataQualityScanRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataQualityScanRunWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据质量监控运行实例
+   * 
+   * @param request - GetDataQualityScanRunLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataQualityScanRunLogResponse
+   */
+  async getDataQualityScanRunLogWithOptions(request: $_model.GetDataQualityScanRunLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataQualityScanRunLogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataQualityScanRunLog",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataQualityScanRunLogResponse>(await this.callApi(params, req, runtime), new $_model.GetDataQualityScanRunLogResponse({}));
+  }
+
+  /**
+   * 创建数据质量监控运行实例
+   * 
+   * @param request - GetDataQualityScanRunLogRequest
+   * @returns GetDataQualityScanRunLogResponse
+   */
+  async getDataQualityScanRunLog(request: $_model.GetDataQualityScanRunLogRequest): Promise<$_model.GetDataQualityScanRunLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataQualityScanRunLogWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询数据质量模板详情
+   * 
+   * @param request - GetDataQualityTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataQualityTemplateResponse
+   */
+  async getDataQualityTemplateWithOptions(request: $_model.GetDataQualityTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataQualityTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataQualityTemplate",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataQualityTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetDataQualityTemplateResponse({}));
+  }
+
+  /**
+   * 查询数据质量模板详情
+   * 
+   * @param request - GetDataQualityTemplateRequest
+   * @returns GetDataQualityTemplateResponse
+   */
+  async getDataQualityTemplate(request: $_model.GetDataQualityTemplateRequest): Promise<$_model.GetDataQualityTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataQualityTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -6964,6 +7590,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询数据质量告警规则列表
+   * 
+   * @param request - ListDataQualityAlertRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataQualityAlertRulesResponse
+   */
+  async listDataQualityAlertRulesWithOptions(request: $_model.ListDataQualityAlertRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataQualityAlertRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dataQualityScanId)) {
+      query["DataQualityScanId"] = request.dataQualityScanId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataQualityAlertRules",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataQualityAlertRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListDataQualityAlertRulesResponse({}));
+  }
+
+  /**
+   * 查询数据质量告警规则列表
+   * 
+   * @param request - ListDataQualityAlertRulesRequest
+   * @returns ListDataQualityAlertRulesResponse
+   */
+  async listDataQualityAlertRules(request: $_model.ListDataQualityAlertRulesRequest): Promise<$_model.ListDataQualityAlertRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataQualityAlertRulesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of instances generated by a data quality monitoring task by page.
    * 
    * @remarks
@@ -7171,6 +7855,196 @@ export default class Client extends OpenApi {
   async listDataQualityRules(request: $_model.ListDataQualityRulesRequest): Promise<$_model.ListDataQualityRulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDataQualityRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询数据质量监控运行实例列表
+   * 
+   * @param request - ListDataQualityScanRunsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataQualityScanRunsResponse
+   */
+  async listDataQualityScanRunsWithOptions(request: $_model.ListDataQualityScanRunsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataQualityScanRunsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.createTimeFrom)) {
+      query["CreateTimeFrom"] = request.createTimeFrom;
+    }
+
+    if (!$dara.isNull(request.createTimeTo)) {
+      query["CreateTimeTo"] = request.createTimeTo;
+    }
+
+    if (!$dara.isNull(request.dataQualityScanId)) {
+      query["DataQualityScanId"] = request.dataQualityScanId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataQualityScanRuns",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataQualityScanRunsResponse>(await this.callApi(params, req, runtime), new $_model.ListDataQualityScanRunsResponse({}));
+  }
+
+  /**
+   * 查询数据质量监控运行实例列表
+   * 
+   * @param request - ListDataQualityScanRunsRequest
+   * @returns ListDataQualityScanRunsResponse
+   */
+  async listDataQualityScanRuns(request: $_model.ListDataQualityScanRunsRequest): Promise<$_model.ListDataQualityScanRunsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataQualityScanRunsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据质量监控详情
+   * 
+   * @param request - ListDataQualityScansRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataQualityScansResponse
+   */
+  async listDataQualityScansWithOptions(request: $_model.ListDataQualityScansRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataQualityScansResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.table)) {
+      query["Table"] = request.table;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataQualityScans",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataQualityScansResponse>(await this.callApi(params, req, runtime), new $_model.ListDataQualityScansResponse({}));
+  }
+
+  /**
+   * 获取数据质量监控详情
+   * 
+   * @param request - ListDataQualityScansRequest
+   * @returns ListDataQualityScansResponse
+   */
+  async listDataQualityScans(request: $_model.ListDataQualityScansRequest): Promise<$_model.ListDataQualityScansResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataQualityScansWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询数据质量模板详情
+   * 
+   * @param request - ListDataQualityTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataQualityTemplatesResponse
+   */
+  async listDataQualityTemplatesWithOptions(request: $_model.ListDataQualityTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataQualityTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataQualityTemplates",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataQualityTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListDataQualityTemplatesResponse({}));
+  }
+
+  /**
+   * 查询数据质量模板详情
+   * 
+   * @param request - ListDataQualityTemplatesRequest
+   * @returns ListDataQualityTemplatesResponse
+   */
+  async listDataQualityTemplates(request: $_model.ListDataQualityTemplatesRequest): Promise<$_model.ListDataQualityTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataQualityTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -11160,6 +12034,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新数据质量告警规则
+   * 
+   * @param tmpReq - UpdateDataQualityAlertRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataQualityAlertRuleResponse
+   */
+  async updateDataQualityAlertRuleWithOptions(tmpReq: $_model.UpdateDataQualityAlertRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataQualityAlertRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateDataQualityAlertRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.target)) {
+      request.targetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.target, "Target", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.condition)) {
+      body["Condition"] = request.condition;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.notificationShrink)) {
+      body["Notification"] = request.notificationShrink;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.targetShrink)) {
+      body["Target"] = request.targetShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataQualityAlertRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataQualityAlertRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataQualityAlertRuleResponse({}));
+  }
+
+  /**
+   * 更新数据质量告警规则
+   * 
+   * @param request - UpdateDataQualityAlertRuleRequest
+   * @returns UpdateDataQualityAlertRuleResponse
+   */
+  async updateDataQualityAlertRule(request: $_model.UpdateDataQualityAlertRuleRequest): Promise<$_model.UpdateDataQualityAlertRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataQualityAlertRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Updates a monitor.
    * 
    * @remarks
@@ -11435,6 +12377,166 @@ export default class Client extends OpenApi {
   async updateDataQualityRuleTemplate(request: $_model.UpdateDataQualityRuleTemplateRequest): Promise<$_model.UpdateDataQualityRuleTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataQualityRuleTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据质量监控
+   * 
+   * @param tmpReq - UpdateDataQualityScanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataQualityScanResponse
+   */
+  async updateDataQualityScanWithOptions(tmpReq: $_model.UpdateDataQualityScanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataQualityScanResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateDataQualityScanShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.computeResource)) {
+      request.computeResourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.computeResource, "ComputeResource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.hooks)) {
+      request.hooksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hooks, "Hooks", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.runtimeResource)) {
+      request.runtimeResourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runtimeResource, "RuntimeResource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.trigger)) {
+      request.triggerShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.trigger, "Trigger", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.computeResourceShrink)) {
+      body["ComputeResource"] = request.computeResourceShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.hooksShrink)) {
+      body["Hooks"] = request.hooksShrink;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.parametersShrink)) {
+      body["Parameters"] = request.parametersShrink;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.runtimeResourceShrink)) {
+      body["RuntimeResource"] = request.runtimeResourceShrink;
+    }
+
+    if (!$dara.isNull(request.spec)) {
+      body["Spec"] = request.spec;
+    }
+
+    if (!$dara.isNull(request.triggerShrink)) {
+      body["Trigger"] = request.triggerShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataQualityScan",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataQualityScanResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataQualityScanResponse({}));
+  }
+
+  /**
+   * 更新数据质量监控
+   * 
+   * @param request - UpdateDataQualityScanRequest
+   * @returns UpdateDataQualityScanResponse
+   */
+  async updateDataQualityScan(request: $_model.UpdateDataQualityScanRequest): Promise<$_model.UpdateDataQualityScanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataQualityScanWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据质量模板
+   * 
+   * @param request - UpdateDataQualityTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataQualityTemplateResponse
+   */
+  async updateDataQualityTemplateWithOptions(request: $_model.UpdateDataQualityTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataQualityTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.spec)) {
+      body["Spec"] = request.spec;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataQualityTemplate",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataQualityTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataQualityTemplateResponse({}));
+  }
+
+  /**
+   * 更新数据质量模板
+   * 
+   * @param request - UpdateDataQualityTemplateRequest
+   * @returns UpdateDataQualityTemplateResponse
+   */
+  async updateDataQualityTemplate(request: $_model.UpdateDataQualityTemplateRequest): Promise<$_model.UpdateDataQualityTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataQualityTemplateWithOptions(request, runtime);
   }
 
   /**
