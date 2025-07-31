@@ -35,6 +35,7 @@ export class DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfoLiveSt
    * {\\"action\\":\\"publish_done\\",\\"app\\":\\"push.example1.com\\"}
    */
   notifyContent?: string;
+  notifyResponse?: string;
   /**
    * @remarks
    * The callback result. Valid values:
@@ -87,6 +88,7 @@ export class DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfoLiveSt
       description: 'Description',
       domainName: 'DomainName',
       notifyContent: 'NotifyContent',
+      notifyResponse: 'NotifyResponse',
       notifyResult: 'NotifyResult',
       notifyTime: 'NotifyTime',
       notifyType: 'NotifyType',
@@ -101,6 +103,7 @@ export class DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfoLiveSt
       description: 'string',
       domainName: 'string',
       notifyContent: 'string',
+      notifyResponse: 'string',
       notifyResult: 'string',
       notifyTime: 'string',
       notifyType: 'string',
