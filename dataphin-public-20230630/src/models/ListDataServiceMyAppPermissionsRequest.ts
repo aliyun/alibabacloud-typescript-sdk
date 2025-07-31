@@ -1,0 +1,95 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class ListDataServiceMyAppPermissionsRequestListQuery extends $dara.Model {
+  /**
+   * @example
+   * test
+   */
+  keyword?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataServiceMyAppPermissionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  listQuery?: ListDataServiceMyAppPermissionsRequestListQuery;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30001011
+   */
+  opTenantId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 102102
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listQuery: 'ListQuery',
+      opTenantId: 'OpTenantId',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listQuery: ListDataServiceMyAppPermissionsRequestListQuery,
+      opTenantId: 'number',
+      projectId: 'number',
+    };
+  }
+
+  validate() {
+    if(this.listQuery && typeof (this.listQuery as any).validate === 'function') {
+      (this.listQuery as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
