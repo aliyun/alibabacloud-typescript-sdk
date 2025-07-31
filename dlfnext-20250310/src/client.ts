@@ -911,6 +911,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看iceberg数据库
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIcebergNamespaceResponse
+   */
+  async getIcebergNamespaceWithOptions(catalogId: string, namespace: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetIcebergNamespaceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIcebergNamespace",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/iceberg/dlf/v1/${$dara.URL.percentEncode(catalogId)}/namespaces/${$dara.URL.percentEncode(namespace)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetIcebergNamespaceResponse>(await this.callApi(params, req, runtime), new $_model.GetIcebergNamespaceResponse({}));
+  }
+
+  /**
+   * 查看iceberg数据库
+   * @returns GetIcebergNamespaceResponse
+   */
+  async getIcebergNamespace(catalogId: string, namespace: string): Promise<$_model.GetIcebergNamespaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getIcebergNamespaceWithOptions(catalogId, namespace, headers, runtime);
+  }
+
+  /**
+   * 查看表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIcebergTableResponse
+   */
+  async getIcebergTableWithOptions(catalogId: string, namespace: string, table: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetIcebergTableResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIcebergTable",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/iceberg/dlf/v1/${$dara.URL.percentEncode(catalogId)}/namespaces/${$dara.URL.percentEncode(namespace)}/tables/${$dara.URL.percentEncode(table)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetIcebergTableResponse>(await this.callApi(params, req, runtime), new $_model.GetIcebergTableResponse({}));
+  }
+
+  /**
+   * 查看表
+   * @returns GetIcebergTableResponse
+   */
+  async getIcebergTable(catalogId: string, namespace: string, table: string): Promise<$_model.GetIcebergTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getIcebergTableWithOptions(catalogId, namespace, table, headers, runtime);
+  }
+
+  /**
    * 查询 DLF 当前地域开通状态
    * 
    * @param headers - map
@@ -1311,6 +1381,161 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDatabasesWithOptions(catalogId, request, headers, runtime);
+  }
+
+  /**
+   * 查看iceberg数据库列表
+   * 
+   * @param request - ListIcebergNamespaceDetailsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIcebergNamespaceDetailsResponse
+   */
+  async listIcebergNamespaceDetailsWithOptions(catalogId: string, request: $_model.ListIcebergNamespaceDetailsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListIcebergNamespaceDetailsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.namespaceNamePattern)) {
+      query["namespaceNamePattern"] = request.namespaceNamePattern;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIcebergNamespaceDetails",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/iceberg/dlf/v1/${$dara.URL.percentEncode(catalogId)}/namespace-details`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListIcebergNamespaceDetailsResponse>(await this.callApi(params, req, runtime), new $_model.ListIcebergNamespaceDetailsResponse({}));
+  }
+
+  /**
+   * 查看iceberg数据库列表
+   * 
+   * @param request - ListIcebergNamespaceDetailsRequest
+   * @returns ListIcebergNamespaceDetailsResponse
+   */
+  async listIcebergNamespaceDetails(catalogId: string, request: $_model.ListIcebergNamespaceDetailsRequest): Promise<$_model.ListIcebergNamespaceDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIcebergNamespaceDetailsWithOptions(catalogId, request, headers, runtime);
+  }
+
+  /**
+   * 查看iceberg表快照列表
+   * 
+   * @param request - ListIcebergSnapshotsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIcebergSnapshotsResponse
+   */
+  async listIcebergSnapshotsWithOptions(catalogId: string, namespace: string, table: string, request: $_model.ListIcebergSnapshotsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListIcebergSnapshotsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIcebergSnapshots",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/iceberg/dlf/v1/${$dara.URL.percentEncode(catalogId)}/namespaces/${$dara.URL.percentEncode(namespace)}/tables/${$dara.URL.percentEncode(table)}/snapshots`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListIcebergSnapshotsResponse>(await this.callApi(params, req, runtime), new $_model.ListIcebergSnapshotsResponse({}));
+  }
+
+  /**
+   * 查看iceberg表快照列表
+   * 
+   * @param request - ListIcebergSnapshotsRequest
+   * @returns ListIcebergSnapshotsResponse
+   */
+  async listIcebergSnapshots(catalogId: string, namespace: string, table: string, request: $_model.ListIcebergSnapshotsRequest): Promise<$_model.ListIcebergSnapshotsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIcebergSnapshotsWithOptions(catalogId, namespace, table, request, headers, runtime);
+  }
+
+  /**
+   * 查看iceberg表详情列表
+   * 
+   * @param request - ListIcebergTableDetailsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIcebergTableDetailsResponse
+   */
+  async listIcebergTableDetailsWithOptions(catalogId: string, namespace: string, request: $_model.ListIcebergTableDetailsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListIcebergTableDetailsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    if (!$dara.isNull(request.tableNamePattern)) {
+      query["tableNamePattern"] = request.tableNamePattern;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIcebergTableDetails",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/iceberg/dlf/v1/${$dara.URL.percentEncode(catalogId)}/namespaces/${$dara.URL.percentEncode(namespace)}/table-details`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListIcebergTableDetailsResponse>(await this.callApi(params, req, runtime), new $_model.ListIcebergTableDetailsResponse({}));
+  }
+
+  /**
+   * 查看iceberg表详情列表
+   * 
+   * @param request - ListIcebergTableDetailsRequest
+   * @returns ListIcebergTableDetailsResponse
+   */
+  async listIcebergTableDetails(catalogId: string, namespace: string, request: $_model.ListIcebergTableDetailsRequest): Promise<$_model.ListIcebergTableDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIcebergTableDetailsWithOptions(catalogId, namespace, request, headers, runtime);
   }
 
   /**
