@@ -643,12 +643,18 @@ export default class Client extends OpenApi {
   /**
    * Associates a domain name with a gateway.
    * 
-   * @param request - AddGatewayDomainRequest
+   * @param tmpReq - AddGatewayDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddGatewayDomainResponse
    */
-  async addGatewayDomainWithOptions(request: $_model.AddGatewayDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddGatewayDomainResponse> {
-    request.validate();
+  async addGatewayDomainWithOptions(tmpReq: $_model.AddGatewayDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddGatewayDomainResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddGatewayDomainShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tlsCipherSuitesConfigJSON)) {
+      request.tlsCipherSuitesConfigJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tlsCipherSuitesConfigJSON, "TlsCipherSuitesConfigJSON", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -676,6 +682,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.protocol)) {
       query["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.tlsCipherSuitesConfigJSONShrink)) {
+      query["TlsCipherSuitesConfigJSON"] = request.tlsCipherSuitesConfigJSONShrink;
     }
 
     if (!$dara.isNull(request.tlsMax)) {
@@ -2567,7 +2577,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateMseServiceApplicationResponse
    */
-  // Deprecated
   async createMseServiceApplicationWithOptions(request: $_model.CreateMseServiceApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMseServiceApplicationResponse> {
     request.validate();
     let query = { };
@@ -3240,6 +3249,88 @@ export default class Client extends OpenApi {
   async createPluginConfig(request: $_model.CreatePluginConfigRequest): Promise<$_model.CreatePluginConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createPluginConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建行为管理
+   * 
+   * @param request - CreateSentinelBlockFallbackDefinitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSentinelBlockFallbackDefinitionResponse
+   */
+  async createSentinelBlockFallbackDefinitionWithOptions(request: $_model.CreateSentinelBlockFallbackDefinitionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSentinelBlockFallbackDefinitionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.fallbackBehavior)) {
+      query["FallbackBehavior"] = request.fallbackBehavior;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceClassification)) {
+      query["ResourceClassification"] = request.resourceClassification;
+    }
+
+    if (!$dara.isNull(request.scenario)) {
+      query["Scenario"] = request.scenario;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSentinelBlockFallbackDefinition",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSentinelBlockFallbackDefinitionResponse>(await this.callApi(params, req, runtime), new $_model.CreateSentinelBlockFallbackDefinitionResponse({}));
+  }
+
+  /**
+   * 创建行为管理
+   * 
+   * @param request - CreateSentinelBlockFallbackDefinitionRequest
+   * @returns CreateSentinelBlockFallbackDefinitionResponse
+   */
+  async createSentinelBlockFallbackDefinition(request: $_model.CreateSentinelBlockFallbackDefinitionRequest): Promise<$_model.CreateSentinelBlockFallbackDefinitionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSentinelBlockFallbackDefinitionWithOptions(request, runtime);
   }
 
   /**
@@ -5657,7 +5748,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetBlackWhiteListResponse
    */
-  // Deprecated
   async getBlackWhiteListWithOptions(request: $_model.GetBlackWhiteListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetBlackWhiteListResponse> {
     request.validate();
     let query = { };
@@ -7849,7 +7939,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAppBySwimmingLaneGroupTagResponse
    */
-  // Deprecated
   async listAppBySwimmingLaneGroupTagWithOptions(request: $_model.ListAppBySwimmingLaneGroupTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAppBySwimmingLaneGroupTagResponse> {
     request.validate();
     let query = { };
@@ -13389,12 +13478,18 @@ export default class Client extends OpenApi {
   /**
    * Modifies the information about the domain name associated with a gateway.
    * 
-   * @param request - UpdateGatewayDomainRequest
+   * @param tmpReq - UpdateGatewayDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateGatewayDomainResponse
    */
-  async updateGatewayDomainWithOptions(request: $_model.UpdateGatewayDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGatewayDomainResponse> {
-    request.validate();
+  async updateGatewayDomainWithOptions(tmpReq: $_model.UpdateGatewayDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGatewayDomainResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateGatewayDomainShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tlsCipherSuitesConfigJSON)) {
+      request.tlsCipherSuitesConfigJSONShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tlsCipherSuitesConfigJSON, "TlsCipherSuitesConfigJSON", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -13422,6 +13517,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.protocol)) {
       query["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.tlsCipherSuitesConfigJSONShrink)) {
+      query["TlsCipherSuitesConfigJSON"] = request.tlsCipherSuitesConfigJSONShrink;
     }
 
     if (!$dara.isNull(request.tlsMax)) {

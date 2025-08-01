@@ -1,7 +1,146 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ImportNacosConfigResponseBodyData } from "./ImportNacosConfigResponseBodyData";
 
+
+export class ImportNacosConfigResponseBodyDataFailData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the group.
+   * 
+   * @example
+   * test2.yaml
+   */
+  dataId?: string;
+  /**
+   * @example
+   * test
+   */
+  group?: string;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+      group: 'Group',
+      reason: 'Reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+      group: 'string',
+      reason: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportNacosConfigResponseBodyDataSkipData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the group.
+   * 
+   * @example
+   * test.yaml
+   */
+  dataId?: string;
+  /**
+   * @remarks
+   * The information about configurations that are failed to be imported.
+   * 
+   * @example
+   * public
+   */
+  group?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+      group: 'Group',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+      group: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportNacosConfigResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The data structure.
+   */
+  failData?: ImportNacosConfigResponseBodyDataFailData[];
+  /**
+   * @remarks
+   * The information about skipped configurations.
+   * 
+   * @example
+   * 10
+   */
+  skipCount?: number;
+  /**
+   * @remarks
+   * The data structure.
+   */
+  skipData?: ImportNacosConfigResponseBodyDataSkipData[];
+  /**
+   * @remarks
+   * The number of configurations that are skipped.
+   * 
+   * @example
+   * 100
+   */
+  succCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failData: 'FailData',
+      skipCount: 'SkipCount',
+      skipData: 'SkipData',
+      succCount: 'SuccCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failData: { 'type': 'array', 'itemType': ImportNacosConfigResponseBodyDataFailData },
+      skipCount: 'number',
+      skipData: { 'type': 'array', 'itemType': ImportNacosConfigResponseBodyDataSkipData },
+      succCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failData)) {
+      $dara.Model.validateArray(this.failData);
+    }
+    if(Array.isArray(this.skipData)) {
+      $dara.Model.validateArray(this.skipData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ImportNacosConfigResponseBody extends $dara.Model {
   /**

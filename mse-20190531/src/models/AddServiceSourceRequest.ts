@@ -1,8 +1,120 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AddServiceSourceRequestIngressOptionsRequest } from "./AddServiceSourceRequestIngressOptionsRequest";
-import { AddServiceSourceRequestToAuthorizeSecurityGroups } from "./AddServiceSourceRequestToAuthorizeSecurityGroups";
 
+
+export class AddServiceSourceRequestIngressOptionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The group to which the service belongs.
+   * 
+   * @example
+   * true
+   */
+  enableIngress?: boolean;
+  /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese. This is the default value.
+   * *   en-US: English.
+   * *   ja: Japanese.
+   * 
+   * @example
+   * true
+   */
+  enableStatus?: boolean;
+  /**
+   * @remarks
+   * An array of service root paths.
+   * 
+   * @example
+   * com.test.xxx
+   */
+  ingressClass?: string;
+  /**
+   * @remarks
+   * The root path of the service.
+   * 
+   * @example
+   * default
+   */
+  watchNamespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableIngress: 'EnableIngress',
+      enableStatus: 'EnableStatus',
+      ingressClass: 'IngressClass',
+      watchNamespace: 'WatchNamespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableIngress: 'boolean',
+      enableStatus: 'boolean',
+      ingressClass: 'string',
+      watchNamespace: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddServiceSourceRequestToAuthorizeSecurityGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the authorization record.
+   * 
+   * @example
+   * rule for xxx
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The authorized port range of the security group. You can select multiple port ranges. Separate each port range with a comma (,).
+   * 
+   * @example
+   * 8080/8080,9000/10000
+   */
+  portRange?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * sg-bp1acepclex0vmi1****
+   */
+  securityGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      portRange: 'PortRange',
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      portRange: 'string',
+      securityGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AddServiceSourceRequest extends $dara.Model {
   /**

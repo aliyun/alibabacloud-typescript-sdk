@@ -2,12 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateIsolationRuleResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * hpn9ac29kz@e31a4b871******
-   */
-  appId?: string;
+export class CreateSentinelBlockFallbackDefinitionResponseBodyData extends $dara.Model {
   /**
    * @example
    * spring-cloud-a
@@ -15,15 +10,19 @@ export class CreateIsolationRuleResponseBodyData extends $dara.Model {
   appName?: string;
   /**
    * @example
-   * true
+   * {"webRespStatusCode":429,"webRespMessage":"test","webFallbackMode":0,"webRespContentType":0}
    */
-  enable?: boolean;
+  fallbackBehavior?: string;
   /**
    * @example
-   * 1
+   * 34726
    */
   id?: number;
-  limitApp?: string;
+  /**
+   * @example
+   * test
+   */
+  name?: string;
   /**
    * @example
    * default
@@ -31,44 +30,35 @@ export class CreateIsolationRuleResponseBodyData extends $dara.Model {
   namespace?: string;
   /**
    * @example
-   * cn-hangzhou
+   * 1
    */
-  regionId?: string;
+  resourceClassification?: number;
   /**
    * @example
-   * /a
+   * 123456
    */
-  resource?: string;
-  /**
-   * @example
-   * 3
-   */
-  threshold?: number;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
       appName: 'AppName',
-      enable: 'Enable',
+      fallbackBehavior: 'FallbackBehavior',
       id: 'Id',
-      limitApp: 'LimitApp',
+      name: 'Name',
       namespace: 'Namespace',
-      regionId: 'RegionId',
-      resource: 'Resource',
-      threshold: 'Threshold',
+      resourceClassification: 'ResourceClassification',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
       appName: 'string',
-      enable: 'boolean',
+      fallbackBehavior: 'string',
       id: 'number',
-      limitApp: 'string',
+      name: 'string',
       namespace: 'string',
-      regionId: 'string',
-      resource: 'string',
-      threshold: 'number',
+      resourceClassification: 'number',
+      userId: 'string',
     };
   }
 
@@ -81,32 +71,38 @@ export class CreateIsolationRuleResponseBodyData extends $dara.Model {
   }
 }
 
-export class CreateIsolationRuleResponseBody extends $dara.Model {
+export class CreateSentinelBlockFallbackDefinitionResponseBody extends $dara.Model {
   /**
    * @example
    * 200
    */
-  code?: string;
-  data?: CreateIsolationRuleResponseBodyData;
+  code?: number;
+  data?: CreateSentinelBlockFallbackDefinitionResponseBodyData;
   /**
    * @example
-   * OK
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
    */
   message?: string;
   /**
    * @example
-   * 4E9FDCFE-0738-493B-B801-82BDFBCB****
+   * ADDD8AB7-8D1C-4697-A83E-410D2607****
    */
   requestId?: string;
   /**
    * @example
    * true
    */
-  success?: boolean;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
@@ -115,11 +111,12 @@ export class CreateIsolationRuleResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      data: CreateIsolationRuleResponseBodyData,
+      code: 'number',
+      data: CreateSentinelBlockFallbackDefinitionResponseBodyData,
+      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
-      success: 'boolean',
+      success: 'string',
     };
   }
 

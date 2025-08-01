@@ -1,7 +1,101 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateOrUpdateSwimmingLaneShrinkRequestEntryRules } from "./CreateOrUpdateSwimmingLaneShrinkRequestEntryRules";
 
+
+export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems extends $dara.Model {
+  cond?: string;
+  datum?: string;
+  divisor?: number;
+  name?: string;
+  nameList?: string[];
+  operator?: string;
+  rate?: number;
+  remainder?: number;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cond: 'Cond',
+      datum: 'Datum',
+      divisor: 'Divisor',
+      name: 'Name',
+      nameList: 'NameList',
+      operator: 'Operator',
+      rate: 'Rate',
+      remainder: 'Remainder',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cond: 'string',
+      datum: 'string',
+      divisor: 'number',
+      name: 'string',
+      nameList: { 'type': 'array', 'itemType': 'string' },
+      operator: 'string',
+      rate: 'number',
+      remainder: 'number',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nameList)) {
+      $dara.Model.validateArray(this.nameList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRules extends $dara.Model {
+  /**
+   * @example
+   * AND
+   */
+  condition?: string;
+  paths?: string[];
+  priority?: number;
+  restItems?: CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      paths: 'Paths',
+      priority: 'Priority',
+      restItems: 'RestItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      paths: { 'type': 'array', 'itemType': 'string' },
+      priority: 'number',
+      restItems: { 'type': 'array', 'itemType': CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.paths)) {
+      $dara.Model.validateArray(this.paths);
+    }
+    if(Array.isArray(this.restItems)) {
+      $dara.Model.validateArray(this.restItems);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   /**

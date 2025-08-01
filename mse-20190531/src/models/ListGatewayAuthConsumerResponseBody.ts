@@ -1,7 +1,181 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListGatewayAuthConsumerResponseBodyData } from "./ListGatewayAuthConsumerResponseBodyData";
 
+
+export class ListGatewayAuthConsumerResponseBodyDataResult extends $dara.Model {
+  /**
+   * @remarks
+   * The status of the consumer. Valid values:
+   * 
+   * *   true: enabled
+   * *   false: disabled
+   * 
+   * @example
+   * true
+   */
+  consumerStatus?: boolean;
+  /**
+   * @remarks
+   * The description of the consumer.
+   * 
+   * @example
+   * Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The unique ID of the gateway.
+   * 
+   * @example
+   * gw-5017305290e14centbrveca****
+   */
+  gatewayUniqueId?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2021-09-13 19:24:23
+   */
+  gmtCreate?: string;
+  /**
+   * @remarks
+   * The modification time.
+   * 
+   * @example
+   * 2022-01-07 18:07:57
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The ID of the consumer.
+   * 
+   * @example
+   * 1
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The name of the consumer.
+   * 
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The creator.
+   * 
+   * @example
+   * 123
+   */
+  primaryUser?: string;
+  /**
+   * @remarks
+   * The authentication type. Valid values:
+   * 
+   * *   JWT
+   * 
+   * @example
+   * JWT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerStatus: 'ConsumerStatus',
+      description: 'Description',
+      gatewayUniqueId: 'GatewayUniqueId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      name: 'Name',
+      primaryUser: 'PrimaryUser',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerStatus: 'boolean',
+      description: 'string',
+      gatewayUniqueId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      name: 'string',
+      primaryUser: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayAuthConsumerResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The returned information.
+   */
+  result?: ListGatewayAuthConsumerResponseBodyDataResult[];
+  /**
+   * @remarks
+   * The total number of returned entries.
+   * 
+   * @example
+   * 9
+   */
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      result: 'Result',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      result: { 'type': 'array', 'itemType': ListGatewayAuthConsumerResponseBodyDataResult },
+      totalSize: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListGatewayAuthConsumerResponseBody extends $dara.Model {
   /**

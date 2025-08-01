@@ -2,36 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddGatewayDomainRequestTlsCipherSuitesConfigJSON extends $dara.Model {
-  configType?: string;
-  tlsCipherSuites?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      configType: 'ConfigType',
-      tlsCipherSuites: 'TlsCipherSuites',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configType: 'string',
-      tlsCipherSuites: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tlsCipherSuites)) {
-      $dara.Model.validateArray(this.tlsCipherSuites);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddGatewayDomainRequest extends $dara.Model {
+export class AddGatewayDomainShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
@@ -98,7 +69,7 @@ export class AddGatewayDomainRequest extends $dara.Model {
    * HTTP
    */
   protocol?: string;
-  tlsCipherSuitesConfigJSON?: AddGatewayDomainRequestTlsCipherSuitesConfigJSON;
+  tlsCipherSuitesConfigJSONShrink?: string;
   /**
    * @remarks
    * The maximum version of Transport Layer Security (TLS).
@@ -124,7 +95,7 @@ export class AddGatewayDomainRequest extends $dara.Model {
       mustHttps: 'MustHttps',
       name: 'Name',
       protocol: 'Protocol',
-      tlsCipherSuitesConfigJSON: 'TlsCipherSuitesConfigJSON',
+      tlsCipherSuitesConfigJSONShrink: 'TlsCipherSuitesConfigJSON',
       tlsMax: 'TlsMax',
       tlsMin: 'TlsMin',
     };
@@ -139,16 +110,13 @@ export class AddGatewayDomainRequest extends $dara.Model {
       mustHttps: 'boolean',
       name: 'string',
       protocol: 'string',
-      tlsCipherSuitesConfigJSON: AddGatewayDomainRequestTlsCipherSuitesConfigJSON,
+      tlsCipherSuitesConfigJSONShrink: 'string',
       tlsMax: 'string',
       tlsMin: 'string',
     };
   }
 
   validate() {
-    if(this.tlsCipherSuitesConfigJSON && typeof (this.tlsCipherSuitesConfigJSON as any).validate === 'function') {
-      (this.tlsCipherSuitesConfigJSON as any).validate();
-    }
     super.validate();
   }
 
