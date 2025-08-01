@@ -47,6 +47,10 @@ export default class Client extends OpenApi {
       body["accountId"] = request.accountId;
     }
 
+    if (!$dara.isNull(request.demandType)) {
+      body["demandType"] = request.demandType;
+    }
+
     if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
     }
@@ -127,6 +131,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.accountId)) {
       body["accountId"] = request.accountId;
+    }
+
+    if (!$dara.isNull(request.demandType)) {
+      body["demandType"] = request.demandType;
     }
 
     if (!$dara.isNull(request.description)) {

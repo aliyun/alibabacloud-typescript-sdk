@@ -11,6 +11,7 @@ export class CreateDemandPlanRequest extends $dara.Model {
    * 1065737167271819
    */
   accountId?: string;
+  demandType?: string;
   description?: string;
   /**
    * @remarks
@@ -46,6 +47,7 @@ export class CreateDemandPlanRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountId: 'accountId',
+      demandType: 'demandType',
       description: 'description',
       name: 'name',
       period: 'period',
@@ -59,6 +61,7 @@ export class CreateDemandPlanRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountId: 'string',
+      demandType: 'string',
       description: 'string',
       name: 'string',
       period: 'string',
