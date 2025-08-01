@@ -34,7 +34,9 @@ export { CreateRegistrationPolicyResponseBodyPolicyLimitDetailLimitCount } from 
 export { CreateRegistrationPolicyResponseBodyPolicyLimitDetail } from './CreateRegistrationPolicyResponseBody';
 export { CreateRegistrationPolicyResponseBodyPolicy } from './CreateRegistrationPolicyResponseBody';
 export { CreateUserGroupRequestAttributes } from './CreateUserGroupRequest';
+export { CreateWmBaseImageRequestImageControlLogoVisibleControlMargin } from './CreateWmBaseImageRequest';
 export { CreateWmBaseImageRequestImageControlLogoVisibleControl } from './CreateWmBaseImageRequest';
+export { CreateWmBaseImageRequestImageControlTextVisibleControlMargin } from './CreateWmBaseImageRequest';
 export { CreateWmBaseImageRequestImageControlTextVisibleControl } from './CreateWmBaseImageRequest';
 export { CreateWmBaseImageRequestImageControl } from './CreateWmBaseImageRequest';
 export { CreateWmBaseImageResponseBodyData } from './CreateWmBaseImageResponseBody';
@@ -45,6 +47,7 @@ export { CreateWmEmbedTaskRequestDocumentControlBackgroundControl } from './Crea
 export { CreateWmEmbedTaskRequestDocumentControl } from './CreateWmEmbedTaskRequest';
 export { CreateWmEmbedTaskResponseBodyData } from './CreateWmEmbedTaskResponseBody';
 export { CreateWmExtractTaskRequestCsvControl } from './CreateWmExtractTaskRequest';
+export { CreateWmExtractTaskRequestImageExtractParamsOpenApi } from './CreateWmExtractTaskRequest';
 export { CreateWmExtractTaskResponseBodyData } from './CreateWmExtractTaskResponseBody';
 export { CreateWmInfoMappingResponseBodyData } from './CreateWmInfoMappingResponseBody';
 export { GetActiveIdpConfigResponseBodyData } from './GetActiveIdpConfigResponseBody';

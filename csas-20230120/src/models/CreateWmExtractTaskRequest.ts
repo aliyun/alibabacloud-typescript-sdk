@@ -82,6 +82,29 @@ export class CreateWmExtractTaskRequestCsvControl extends $dara.Model {
   }
 }
 
+export class CreateWmExtractTaskRequestImageExtractParamsOpenApi extends $dara.Model {
+  srcLogoBase64?: string;
+  static names(): { [key: string]: string } {
+    return {
+      srcLogoBase64: 'SrcLogoBase64',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      srcLogoBase64: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWmExtractTaskRequest extends $dara.Model {
   /**
    * @remarks
@@ -119,6 +142,7 @@ export class CreateWmExtractTaskRequest extends $dara.Model {
    * test-****.pdf
    */
   filename?: string;
+  imageExtractParamsOpenApi?: CreateWmExtractTaskRequestImageExtractParamsOpenApi;
   isClientEmbed?: boolean;
   /**
    * @remarks
@@ -178,6 +202,7 @@ export class CreateWmExtractTaskRequest extends $dara.Model {
       documentIsCapture: 'DocumentIsCapture',
       fileUrl: 'FileUrl',
       filename: 'Filename',
+      imageExtractParamsOpenApi: 'ImageExtractParamsOpenApi',
       isClientEmbed: 'IsClientEmbed',
       videoIsLong: 'VideoIsLong',
       videoSpeed: 'VideoSpeed',
@@ -192,6 +217,7 @@ export class CreateWmExtractTaskRequest extends $dara.Model {
       documentIsCapture: 'boolean',
       fileUrl: 'string',
       filename: 'string',
+      imageExtractParamsOpenApi: CreateWmExtractTaskRequestImageExtractParamsOpenApi,
       isClientEmbed: 'boolean',
       videoIsLong: 'boolean',
       videoSpeed: 'string',
@@ -203,6 +229,9 @@ export class CreateWmExtractTaskRequest extends $dara.Model {
   validate() {
     if(this.csvControl && typeof (this.csvControl as any).validate === 'function') {
       (this.csvControl as any).validate();
+    }
+    if(this.imageExtractParamsOpenApi && typeof (this.imageExtractParamsOpenApi as any).validate === 'function') {
+      (this.imageExtractParamsOpenApi as any).validate();
     }
     super.validate();
   }

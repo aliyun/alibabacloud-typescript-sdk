@@ -59,6 +59,7 @@ export class CreateWmBaseImageShrinkRequest extends $dara.Model {
    * PureWebappInvisible
    */
   wmType?: string;
+  comment?: string;
   static names(): { [key: string]: string } {
     return {
       height: 'Height',
@@ -70,6 +71,7 @@ export class CreateWmBaseImageShrinkRequest extends $dara.Model {
       wmInfoSize: 'WmInfoSize',
       wmInfoUint: 'WmInfoUint',
       wmType: 'WmType',
+      comment: 'comment',
     };
   }
 
@@ -84,6 +86,7 @@ export class CreateWmBaseImageShrinkRequest extends $dara.Model {
       wmInfoSize: 'number',
       wmInfoUint: 'string',
       wmType: 'string',
+      comment: 'string',
     };
   }
 

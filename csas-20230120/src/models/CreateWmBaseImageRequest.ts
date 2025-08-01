@@ -2,9 +2,43 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateWmBaseImageRequestImageControlLogoVisibleControlMargin extends $dara.Model {
+  bottom?: number;
+  left?: number;
+  right?: number;
+  top?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bottom: 'Bottom',
+      left: 'Left',
+      right: 'Right',
+      top: 'Top',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bottom: 'number',
+      left: 'number',
+      right: 'number',
+      top: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWmBaseImageRequestImageControlLogoVisibleControl extends $dara.Model {
   angle?: number;
+  enhance?: boolean;
   logoBase64?: string;
+  margin?: CreateWmBaseImageRequestImageControlLogoVisibleControlMargin;
   mode?: string;
   opacity?: number;
   posAx?: number;
@@ -17,7 +51,9 @@ export class CreateWmBaseImageRequestImageControlLogoVisibleControl extends $dar
   static names(): { [key: string]: string } {
     return {
       angle: 'Angle',
+      enhance: 'Enhance',
       logoBase64: 'LogoBase64',
+      margin: 'Margin',
       mode: 'Mode',
       opacity: 'Opacity',
       posAx: 'PosAx',
@@ -33,7 +69,9 @@ export class CreateWmBaseImageRequestImageControlLogoVisibleControl extends $dar
   static types(): { [key: string]: any } {
     return {
       angle: 'number',
+      enhance: 'boolean',
       logoBase64: 'string',
+      margin: CreateWmBaseImageRequestImageControlLogoVisibleControlMargin,
       mode: 'string',
       opacity: 'number',
       posAx: 'number',
@@ -43,6 +81,41 @@ export class CreateWmBaseImageRequestImageControlLogoVisibleControl extends $dar
       spaceX: 'number',
       spaceY: 'number',
       visible: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.margin && typeof (this.margin as any).validate === 'function') {
+      (this.margin as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmBaseImageRequestImageControlTextVisibleControlMargin extends $dara.Model {
+  bottom?: number;
+  left?: number;
+  right?: number;
+  top?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bottom: 'Bottom',
+      left: 'Left',
+      right: 'Right',
+      top: 'Top',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bottom: 'number',
+      left: 'number',
+      right: 'number',
+      top: 'number',
     };
   }
 
@@ -59,6 +132,7 @@ export class CreateWmBaseImageRequestImageControlTextVisibleControl extends $dar
   angle?: number;
   fontColor?: string;
   fontSize?: number;
+  margin?: CreateWmBaseImageRequestImageControlTextVisibleControlMargin;
   mode?: string;
   opacity?: number;
   posAx?: number;
@@ -74,6 +148,7 @@ export class CreateWmBaseImageRequestImageControlTextVisibleControl extends $dar
       angle: 'Angle',
       fontColor: 'FontColor',
       fontSize: 'FontSize',
+      margin: 'Margin',
       mode: 'Mode',
       opacity: 'Opacity',
       posAx: 'PosAx',
@@ -92,6 +167,7 @@ export class CreateWmBaseImageRequestImageControlTextVisibleControl extends $dar
       angle: 'number',
       fontColor: 'string',
       fontSize: 'number',
+      margin: CreateWmBaseImageRequestImageControlTextVisibleControlMargin,
       mode: 'string',
       opacity: 'number',
       posAx: 'number',
@@ -106,6 +182,9 @@ export class CreateWmBaseImageRequestImageControlTextVisibleControl extends $dar
   }
 
   validate() {
+    if(this.margin && typeof (this.margin as any).validate === 'function') {
+      (this.margin as any).validate();
+    }
     super.validate();
   }
 
@@ -203,6 +282,7 @@ export class CreateWmBaseImageRequest extends $dara.Model {
    * PureWebappInvisible
    */
   wmType?: string;
+  comment?: string;
   static names(): { [key: string]: string } {
     return {
       height: 'Height',
@@ -214,6 +294,7 @@ export class CreateWmBaseImageRequest extends $dara.Model {
       wmInfoSize: 'WmInfoSize',
       wmInfoUint: 'WmInfoUint',
       wmType: 'WmType',
+      comment: 'comment',
     };
   }
 
@@ -228,6 +309,7 @@ export class CreateWmBaseImageRequest extends $dara.Model {
       wmInfoSize: 'number',
       wmInfoUint: 'string',
       wmType: 'string',
+      comment: 'string',
     };
   }
 

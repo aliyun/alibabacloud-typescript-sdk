@@ -945,6 +945,11 @@ export default class Client extends OpenApi {
       request.imageControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageControl, "ImageControl", "json");
     }
 
+    let query = { };
+    if (!$dara.isNull(request.comment)) {
+      query["comment"] = request.comment;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.height)) {
       body["Height"] = request.height;
@@ -983,6 +988,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1123,9 +1129,17 @@ export default class Client extends OpenApi {
       request.csvControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.csvControl, "CsvControl", "json");
     }
 
+    if (!$dara.isNull(tmpReq.imageExtractParamsOpenApi)) {
+      request.imageExtractParamsOpenApiShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageExtractParamsOpenApi, "ImageExtractParamsOpenApi", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.csvControlShrink)) {
       query["CsvControl"] = request.csvControlShrink;
+    }
+
+    if (!$dara.isNull(request.imageExtractParamsOpenApiShrink)) {
+      query["ImageExtractParamsOpenApi"] = request.imageExtractParamsOpenApiShrink;
     }
 
     if (!$dara.isNull(request.isClientEmbed)) {
@@ -4460,7 +4474,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RevokeUserSessionResponse
    */
-  // Deprecated
   async revokeUserSessionWithOptions(request: $_model.RevokeUserSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeUserSessionResponse> {
     request.validate();
     let query = { };

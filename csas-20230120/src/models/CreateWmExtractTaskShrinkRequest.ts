@@ -39,6 +39,7 @@ export class CreateWmExtractTaskShrinkRequest extends $dara.Model {
    * test-****.pdf
    */
   filename?: string;
+  imageExtractParamsOpenApiShrink?: string;
   isClientEmbed?: boolean;
   /**
    * @remarks
@@ -98,6 +99,7 @@ export class CreateWmExtractTaskShrinkRequest extends $dara.Model {
       documentIsCapture: 'DocumentIsCapture',
       fileUrl: 'FileUrl',
       filename: 'Filename',
+      imageExtractParamsOpenApiShrink: 'ImageExtractParamsOpenApi',
       isClientEmbed: 'IsClientEmbed',
       videoIsLong: 'VideoIsLong',
       videoSpeed: 'VideoSpeed',
@@ -112,6 +114,7 @@ export class CreateWmExtractTaskShrinkRequest extends $dara.Model {
       documentIsCapture: 'boolean',
       fileUrl: 'string',
       filename: 'string',
+      imageExtractParamsOpenApiShrink: 'string',
       isClientEmbed: 'boolean',
       videoIsLong: 'boolean',
       videoSpeed: 'string',
