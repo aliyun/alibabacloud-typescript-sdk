@@ -2,21 +2,56 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AsyncCreateClipsTaskResponseBodyData extends $dara.Model {
+export class GetAuditNoteProcessingStatusResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 3f7045e099474ba28ceca1b4eb6d6e21
+   * oss://default/path/to/audit/note
+   */
+  fileKey?: string;
+  /**
+   * @example
+   * 504
+   */
+  fileSize?: number;
+  /**
+   * @example
+   * 错题本2025-07-07_解析结果
+   */
+  noteName?: string;
+  /**
+   * @example
+   * SUCCESSED
+   */
+  status?: string;
+  /**
+   * @example
+   * 111_Default_20250708142918
    */
   taskId?: string;
+  /**
+   * @example
+   * 2024-11-25 11:40:50
+   */
+  updateTime?: number;
   static names(): { [key: string]: string } {
     return {
+      fileKey: 'FileKey',
+      fileSize: 'FileSize',
+      noteName: 'NoteName',
+      status: 'Status',
       taskId: 'TaskId',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      fileKey: 'string',
+      fileSize: 'number',
+      noteName: 'string',
+      status: 'string',
       taskId: 'string',
+      updateTime: 'number',
     };
   }
 
@@ -29,23 +64,35 @@ export class AsyncCreateClipsTaskResponseBodyData extends $dara.Model {
   }
 }
 
-export class AsyncCreateClipsTaskResponseBody extends $dara.Model {
+export class GetAuditNoteProcessingStatusResponseBody extends $dara.Model {
   /**
    * @example
-   * successful
+   * DataNotExists
    */
   code?: string;
-  data?: AsyncCreateClipsTaskResponseBodyData;
+  data?: GetAuditNoteProcessingStatusResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
   /**
    * @remarks
    * Id of the request
    * 
    * @example
-   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   * F2F366D6-E9FE-1006-BB70-2C650896AAB5
    */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -61,7 +108,7 @@ export class AsyncCreateClipsTaskResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: AsyncCreateClipsTaskResponseBodyData,
+      data: GetAuditNoteProcessingStatusResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',

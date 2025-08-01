@@ -558,6 +558,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 是否将本次提交自定义规则库得到的解析结果用于审核任务。由于解析结果可能不满足用户需求，因此我们为您提供了该接口用于二次确认。如果对提交的规则库解析满意，则可以直接将本次提交任务的 TaskId 作为入参，系统会对您上传的规则库做后处理，使它可以被用于审核。反之，您可以重新调用 SubmitAuditNote 接口上传修改之后的规则库。
+   * 
+   * @param request - ConfirmAndPostProcessAuditNoteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfirmAndPostProcessAuditNoteResponse
+   */
+  async confirmAndPostProcessAuditNoteWithOptions(request: $_model.ConfirmAndPostProcessAuditNoteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfirmAndPostProcessAuditNoteResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfirmAndPostProcessAuditNote",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfirmAndPostProcessAuditNoteResponse>(await this.callApi(params, req, runtime), new $_model.ConfirmAndPostProcessAuditNoteResponse({}));
+  }
+
+  /**
+   * 是否将本次提交自定义规则库得到的解析结果用于审核任务。由于解析结果可能不满足用户需求，因此我们为您提供了该接口用于二次确认。如果对提交的规则库解析满意，则可以直接将本次提交任务的 TaskId 作为入参，系统会对您上传的规则库做后处理，使它可以被用于审核。反之，您可以重新调用 SubmitAuditNote 接口上传修改之后的规则库。
+   * 
+   * @param request - ConfirmAndPostProcessAuditNoteRequest
+   * @returns ConfirmAndPostProcessAuditNoteResponse
+   */
+  async confirmAndPostProcessAuditNote(request: $_model.ConfirmAndPostProcessAuditNoteRequest): Promise<$_model.ConfirmAndPostProcessAuditNoteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.confirmAndPostProcessAuditNoteWithOptions(request, runtime);
+  }
+
+  /**
    * 数据集管理-创建
    * 
    * @param tmpReq - CreateDatasetRequest
@@ -759,6 +805,48 @@ export default class Client extends OpenApi {
   async createToken(request: $_model.CreateTokenRequest): Promise<$_model.CreateTokenResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除用户账户下所有可供审核使用的自定义规则库。删除后无法找回，如果您有对规则库存档的需求，请预先使用 DownloadAuditNote 接口保存需要的规则库。
+   * 
+   * @param request - DeleteAuditNoteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAuditNoteResponse
+   */
+  async deleteAuditNoteWithOptions(request: $_model.DeleteAuditNoteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAuditNoteResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAuditNote",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAuditNoteResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAuditNoteResponse({}));
+  }
+
+  /**
+   * 删除用户账户下所有可供审核使用的自定义规则库。删除后无法找回，如果您有对规则库存档的需求，请预先使用 DownloadAuditNote 接口保存需要的规则库。
+   * 
+   * @param request - DeleteAuditNoteRequest
+   * @returns DeleteAuditNoteResponse
+   */
+  async deleteAuditNote(request: $_model.DeleteAuditNoteRequest): Promise<$_model.DeleteAuditNoteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAuditNoteWithOptions(request, runtime);
   }
 
   /**
@@ -1365,6 +1453,52 @@ export default class Client extends OpenApi {
   async documentExtraction(request: $_model.DocumentExtractionRequest): Promise<$_model.DocumentExtractionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.documentExtractionWithOptions(request, runtime);
+  }
+
+  /**
+   * 您可以通过调用该接口下载结构化后的规则库，供您进行进一步处理。该接口同时拥有两个功能：下载未后处理的结构化规则库，或下载当前可用于审核的结构化规则库。具体使用方法，请参考入参说明。
+   * 
+   * @param request - DownloadAuditNoteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DownloadAuditNoteResponse
+   */
+  async downloadAuditNoteWithOptions(request: $_model.DownloadAuditNoteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DownloadAuditNoteResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DownloadAuditNote",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DownloadAuditNoteResponse>(await this.callApi(params, req, runtime), new $_model.DownloadAuditNoteResponse({}));
+  }
+
+  /**
+   * 您可以通过调用该接口下载结构化后的规则库，供您进行进一步处理。该接口同时拥有两个功能：下载未后处理的结构化规则库，或下载当前可用于审核的结构化规则库。具体使用方法，请参考入参说明。
+   * 
+   * @param request - DownloadAuditNoteRequest
+   * @returns DownloadAuditNoteResponse
+   */
+  async downloadAuditNote(request: $_model.DownloadAuditNoteRequest): Promise<$_model.DownloadAuditNoteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.downloadAuditNoteWithOptions(request, runtime);
   }
 
   /**
@@ -2290,6 +2424,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询规则库后处理的进度。与 ConfirmAndPostProcessAuditNote 接口配合使用，供您查询当前后处理任务的状态。
+   * 
+   * @param request - GetAuditNotePostProcessingStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAuditNotePostProcessingStatusResponse
+   */
+  async getAuditNotePostProcessingStatusWithOptions(request: $_model.GetAuditNotePostProcessingStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAuditNotePostProcessingStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAuditNotePostProcessingStatus",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAuditNotePostProcessingStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetAuditNotePostProcessingStatusResponse({}));
+  }
+
+  /**
+   * 查询规则库后处理的进度。与 ConfirmAndPostProcessAuditNote 接口配合使用，供您查询当前后处理任务的状态。
+   * 
+   * @param request - GetAuditNotePostProcessingStatusRequest
+   * @returns GetAuditNotePostProcessingStatusResponse
+   */
+  async getAuditNotePostProcessingStatus(request: $_model.GetAuditNotePostProcessingStatusRequest): Promise<$_model.GetAuditNotePostProcessingStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAuditNotePostProcessingStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户上传规则库的处理状态。通过该接口，用户可以查询到当前规则库上传任务的状态，并获取到解析后的规则库文件大小、存储路径等信息。
+   * 
+   * @param request - GetAuditNoteProcessingStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAuditNoteProcessingStatusResponse
+   */
+  async getAuditNoteProcessingStatusWithOptions(request: $_model.GetAuditNoteProcessingStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAuditNoteProcessingStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAuditNoteProcessingStatus",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAuditNoteProcessingStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetAuditNoteProcessingStatusResponse({}));
+  }
+
+  /**
+   * 查询用户上传规则库的处理状态。通过该接口，用户可以查询到当前规则库上传任务的状态，并获取到解析后的规则库文件大小、存储路径等信息。
+   * 
+   * @param request - GetAuditNoteProcessingStatusRequest
+   * @returns GetAuditNoteProcessingStatusResponse
+   */
+  async getAuditNoteProcessingStatus(request: $_model.GetAuditNoteProcessingStatusRequest): Promise<$_model.GetAuditNoteProcessingStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAuditNoteProcessingStatusWithOptions(request, runtime);
+  }
+
+  /**
    * 获得剪辑任务状态
    * 
    * @param request - GetAutoClipsTaskInfoRequest
@@ -2333,6 +2559,48 @@ export default class Client extends OpenApi {
   async getAutoClipsTaskInfo(request: $_model.GetAutoClipsTaskInfoRequest): Promise<$_model.GetAutoClipsTaskInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAutoClipsTaskInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户当前可供审核的规则库信息，只能查询到当前可用于审核的规则库。如果您想看到自定义规则库的具体内容，请使用 DownloadAuditNote 接口。
+   * 
+   * @param request - GetAvailableAuditNotesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAvailableAuditNotesResponse
+   */
+  async getAvailableAuditNotesWithOptions(request: $_model.GetAvailableAuditNotesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAvailableAuditNotesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAvailableAuditNotes",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAvailableAuditNotesResponse>(await this.callApi(params, req, runtime), new $_model.GetAvailableAuditNotesResponse({}));
+  }
+
+  /**
+   * 查询用户当前可供审核的规则库信息，只能查询到当前可用于审核的规则库。如果您想看到自定义规则库的具体内容，请使用 DownloadAuditNote 接口。
+   * 
+   * @param request - GetAvailableAuditNotesRequest
+   * @returns GetAvailableAuditNotesResponse
+   */
+  async getAvailableAuditNotes(request: $_model.GetAvailableAuditNotesRequest): Promise<$_model.GetAvailableAuditNotesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAvailableAuditNotesWithOptions(request, runtime);
   }
 
   /**
@@ -8665,6 +8933,52 @@ export default class Client extends OpenApi {
   async submitAsyncTask(request: $_model.SubmitAsyncTaskRequest): Promise<$_model.SubmitAsyncTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitAsyncTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙笔为您提供了与公有云“智能审校”模块中相同的上传自定义规则库的功能。由于鉴权限制，用户需要开通阿里云 OSS 服务后，将自定义规则库文件上传到 OSS 中，再使用该文件的 fileKey 作为入参才能顺利调用本接口。该接口在被调用后，会对用户的自定义规则库进行结构化处理，并生成一个 xlsx 格式的结构化解析结果。您可以调用 GetAuditNoteProcessingStatus 接口查询结构化处理状态，也可以调用 DownloadAuditNote 接口获取结构化之后的规则库。接口功能正在迭代中，预计会在未来使用可访问的文件 URL 作为入参。
+   * 
+   * @param request - SubmitAuditNoteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAuditNoteResponse
+   */
+  async submitAuditNoteWithOptions(request: $_model.SubmitAuditNoteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitAuditNoteResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileKey)) {
+      body["FileKey"] = request.fileKey;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitAuditNote",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitAuditNoteResponse>(await this.callApi(params, req, runtime), new $_model.SubmitAuditNoteResponse({}));
+  }
+
+  /**
+   * 妙笔为您提供了与公有云“智能审校”模块中相同的上传自定义规则库的功能。由于鉴权限制，用户需要开通阿里云 OSS 服务后，将自定义规则库文件上传到 OSS 中，再使用该文件的 fileKey 作为入参才能顺利调用本接口。该接口在被调用后，会对用户的自定义规则库进行结构化处理，并生成一个 xlsx 格式的结构化解析结果。您可以调用 GetAuditNoteProcessingStatus 接口查询结构化处理状态，也可以调用 DownloadAuditNote 接口获取结构化之后的规则库。接口功能正在迭代中，预计会在未来使用可访问的文件 URL 作为入参。
+   * 
+   * @param request - SubmitAuditNoteRequest
+   * @returns SubmitAuditNoteResponse
+   */
+  async submitAuditNote(request: $_model.SubmitAuditNoteRequest): Promise<$_model.SubmitAuditNoteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitAuditNoteWithOptions(request, runtime);
   }
 
   /**

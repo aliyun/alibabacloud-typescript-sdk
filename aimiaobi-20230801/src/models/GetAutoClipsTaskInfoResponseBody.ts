@@ -273,6 +273,8 @@ export class GetAutoClipsTaskInfoResponseBody extends $dara.Model {
    */
   code?: string;
   data?: GetAutoClipsTaskInfoResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
   /**
    * @remarks
    * Id of the request
@@ -281,11 +283,15 @@ export class GetAutoClipsTaskInfoResponseBody extends $dara.Model {
    * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
    */
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -293,7 +299,10 @@ export class GetAutoClipsTaskInfoResponseBody extends $dara.Model {
     return {
       code: 'string',
       data: GetAutoClipsTaskInfoResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 

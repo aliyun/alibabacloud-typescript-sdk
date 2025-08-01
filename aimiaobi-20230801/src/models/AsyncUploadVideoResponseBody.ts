@@ -86,6 +86,8 @@ export class AsyncUploadVideoResponseBody extends $dara.Model {
    */
   code?: string;
   data?: AsyncUploadVideoResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
   /**
    * @remarks
    * Id of the request
@@ -94,11 +96,15 @@ export class AsyncUploadVideoResponseBody extends $dara.Model {
    * 94512A33-8EC1-5452-A793-5C91F18ED2F0
    */
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -106,7 +112,10 @@ export class AsyncUploadVideoResponseBody extends $dara.Model {
     return {
       code: 'string',
       data: AsyncUploadVideoResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 

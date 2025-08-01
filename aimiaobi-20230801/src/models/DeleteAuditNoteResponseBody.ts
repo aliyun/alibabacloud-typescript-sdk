@@ -2,50 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AsyncCreateClipsTaskResponseBodyData extends $dara.Model {
+export class DeleteAuditNoteResponseBody extends $dara.Model {
   /**
    * @example
-   * 3f7045e099474ba28ceca1b4eb6d6e21
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AsyncCreateClipsTaskResponseBody extends $dara.Model {
-  /**
-   * @example
-   * successful
+   * DataNotExists
    */
   code?: string;
-  data?: AsyncCreateClipsTaskResponseBodyData;
+  /**
+   * @example
+   * SUCCESSED
+   * 
+   * **if can be null:**
+   * true
+   */
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
   /**
    * @remarks
    * Id of the request
    * 
    * @example
-   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   * F2F366D6-E9FE-1006-BB70-2C650896AAB5
    */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -61,7 +53,7 @@ export class AsyncCreateClipsTaskResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: AsyncCreateClipsTaskResponseBodyData,
+      data: 'string',
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -70,9 +62,6 @@ export class AsyncCreateClipsTaskResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
     super.validate();
   }
 
