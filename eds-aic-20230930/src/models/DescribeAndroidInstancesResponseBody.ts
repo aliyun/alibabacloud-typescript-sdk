@@ -443,6 +443,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * local
    */
   renderingType?: string;
+  serverStatus?: string;
   serverType?: string;
   /**
    * @remarks
@@ -508,6 +509,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       rate: 'Rate',
       regionId: 'RegionId',
       renderingType: 'RenderingType',
+      serverStatus: 'ServerStatus',
       serverType: 'ServerType',
       sessionStatus: 'SessionStatus',
       streamMode: 'StreamMode',
@@ -560,6 +562,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       rate: 'number',
       regionId: 'string',
       renderingType: 'string',
+      serverStatus: 'string',
       serverType: 'string',
       sessionStatus: 'string',
       streamMode: 'number',
