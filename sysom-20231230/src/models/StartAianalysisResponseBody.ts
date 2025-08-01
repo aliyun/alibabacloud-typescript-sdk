@@ -1,7 +1,33 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { StartAIAnalysisResponseBodyData } from "./StartAianalysisResponseBodyData";
 
+
+export class StartAIAnalysisResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 16896fa8-37f6-4c70-bb32-67fa9817d426
+   */
+  analysisId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      analysisId: 'analysis_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysisId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class StartAIAnalysisResponseBody extends $dara.Model {
   /**
