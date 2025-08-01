@@ -3045,6 +3045,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 安装监控插件
+   * 
+   * @param request - InstallMonitorAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InstallMonitorAgentResponse
+   */
+  async installMonitorAgentWithOptions(request: $_model.InstallMonitorAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstallMonitorAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.androidInstanceIds)) {
+      body["AndroidInstanceIds"] = request.androidInstanceIds;
+    }
+
+    if (!$dara.isNull(request.saleMode)) {
+      body["SaleMode"] = request.saleMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InstallMonitorAgent",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InstallMonitorAgentResponse>(await this.callApi(params, req, runtime), new $_model.InstallMonitorAgentResponse({}));
+  }
+
+  /**
+   * 安装监控插件
+   * 
+   * @param request - InstallMonitorAgentRequest
+   * @returns InstallMonitorAgentResponse
+   */
+  async installMonitorAgent(request: $_model.InstallMonitorAgentRequest): Promise<$_model.InstallMonitorAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.installMonitorAgentWithOptions(request, runtime);
+  }
+
+  /**
    * Queries policies.
    * 
    * @param request - ListPolicyGroupsRequest
@@ -4051,6 +4097,10 @@ export default class Client extends OpenApi {
       query["AndroidInstanceIdList"] = request.androidInstanceIdList;
     }
 
+    if (!$dara.isNull(request.autoInstall)) {
+      query["AutoInstall"] = request.autoInstall;
+    }
+
     if (!$dara.isNull(request.sourceFilePath)) {
       query["SourceFilePath"] = request.sourceFilePath;
     }
@@ -4368,6 +4418,52 @@ export default class Client extends OpenApi {
   async uninstallApp(request: $_model.UninstallAppRequest): Promise<$_model.UninstallAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.uninstallAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 卸载监控插件
+   * 
+   * @param request - UninstallMonitorAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UninstallMonitorAgentResponse
+   */
+  async uninstallMonitorAgentWithOptions(request: $_model.UninstallMonitorAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UninstallMonitorAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.androidInstanceIds)) {
+      body["AndroidInstanceIds"] = request.androidInstanceIds;
+    }
+
+    if (!$dara.isNull(request.saleMode)) {
+      body["SaleMode"] = request.saleMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UninstallMonitorAgent",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UninstallMonitorAgentResponse>(await this.callApi(params, req, runtime), new $_model.UninstallMonitorAgentResponse({}));
+  }
+
+  /**
+   * 卸载监控插件
+   * 
+   * @param request - UninstallMonitorAgentRequest
+   * @returns UninstallMonitorAgentResponse
+   */
+  async uninstallMonitorAgent(request: $_model.UninstallMonitorAgentRequest): Promise<$_model.UninstallMonitorAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uninstallMonitorAgentWithOptions(request, runtime);
   }
 
   /**
