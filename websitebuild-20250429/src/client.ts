@@ -226,6 +226,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 图片检索
+   * 
+   * @param tmpReq - SearchImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchImageResponse
+   */
+  async searchImageWithOptions(tmpReq: $_model.SearchImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchImageResponse> {
+    tmpReq.validate();
+    let request = new $_model.SearchImageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "simple");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.colorHex)) {
+      query["ColorHex"] = request.colorHex;
+    }
+
+    if (!$dara.isNull(request.hasPerson)) {
+      query["HasPerson"] = request.hasPerson;
+    }
+
+    if (!$dara.isNull(request.imageCategory)) {
+      query["ImageCategory"] = request.imageCategory;
+    }
+
+    if (!$dara.isNull(request.imageRatio)) {
+      query["ImageRatio"] = request.imageRatio;
+    }
+
+    if (!$dara.isNull(request.maxHeight)) {
+      query["MaxHeight"] = request.maxHeight;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.maxWidth)) {
+      query["MaxWidth"] = request.maxWidth;
+    }
+
+    if (!$dara.isNull(request.minHeight)) {
+      query["MinHeight"] = request.minHeight;
+    }
+
+    if (!$dara.isNull(request.minWidth)) {
+      query["MinWidth"] = request.minWidth;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ossKey)) {
+      query["OssKey"] = request.ossKey;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.text)) {
+      query["Text"] = request.text;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchImage",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchImageResponse>(await this.callApi(params, req, runtime), new $_model.SearchImageResponse({}));
+  }
+
+  /**
+   * 图片检索
+   * 
+   * @param request - SearchImageRequest
+   * @returns SearchImageResponse
+   */
+  async searchImage(request: $_model.SearchImageRequest): Promise<$_model.SearchImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchImageWithOptions(request, runtime);
+  }
+
+  /**
    * 合作伙伴同步应用实例
    * 
    * @param tmpReq - SyncAppInstanceForPartnerRequest

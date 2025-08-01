@@ -1,4 +1,6 @@
 export { GetCreateLogoTaskResponseBodyTask } from './GetCreateLogoTaskResponseBody';
+export { SearchImageResponseBodyImageResponseImageList } from './SearchImageResponseBody';
+export { SearchImageResponseBodyImageResponse } from './SearchImageResponseBody';
 export { SyncAppInstanceForPartnerRequestAppInstanceProfile } from './SyncAppInstanceForPartnerRequest';
 export { SyncAppInstanceForPartnerRequestAppInstance } from './SyncAppInstanceForPartnerRequest';
 export { SyncAppInstanceForPartnerResponseBodyDataAppInstance } from './SyncAppInstanceForPartnerResponseBody';
@@ -15,6 +17,10 @@ export { OperateAppInstanceForPartnerResponse } from './OperateAppInstanceForPar
 export { OperateAppServiceForPartnerRequest } from './OperateAppServiceForPartnerRequest';
 export { OperateAppServiceForPartnerResponseBody } from './OperateAppServiceForPartnerResponseBody';
 export { OperateAppServiceForPartnerResponse } from './OperateAppServiceForPartnerResponse';
+export { SearchImageRequest } from './SearchImageRequest';
+export { SearchImageShrinkRequest } from './SearchImageShrinkRequest';
+export { SearchImageResponseBody } from './SearchImageResponseBody';
+export { SearchImageResponse } from './SearchImageResponse';
 export { SyncAppInstanceForPartnerRequest } from './SyncAppInstanceForPartnerRequest';
 export { SyncAppInstanceForPartnerShrinkRequest } from './SyncAppInstanceForPartnerShrinkRequest';
 export { SyncAppInstanceForPartnerResponseBody } from './SyncAppInstanceForPartnerResponseBody';
