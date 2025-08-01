@@ -45,6 +45,8 @@ export class ListOnlineEvalTasksRequest extends $dara.Model {
    * 50
    */
   pageSize?: number;
+  sortBy?: string;
+  sortOrder?: string;
   static names(): { [key: string]: string } {
     return {
       keyword: 'Keyword',
@@ -52,6 +54,8 @@ export class ListOnlineEvalTasksRequest extends $dara.Model {
       minTime: 'MinTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      sortOrder: 'SortOrder',
     };
   }
 
@@ -62,6 +66,8 @@ export class ListOnlineEvalTasksRequest extends $dara.Model {
       minTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sortBy: 'string',
+      sortOrder: 'string',
     };
   }
 
