@@ -500,6 +500,10 @@ export default class Client extends OpenApi {
   async listOnlineEvalTasksWithOptions(request: $_model.ListOnlineEvalTasksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListOnlineEvalTasksResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
     if (!$dara.isNull(request.keyword)) {
       query["Keyword"] = request.keyword;
     }
@@ -526,6 +530,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sortOrder)) {
       query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

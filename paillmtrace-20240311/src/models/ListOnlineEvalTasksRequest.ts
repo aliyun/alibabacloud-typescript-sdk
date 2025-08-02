@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListOnlineEvalTasksRequest extends $dara.Model {
+  appName?: string;
   /**
    * @remarks
    * Search keyword. It will match on fields such as task name, application name (appName), task description, and evaluation metric name.
@@ -47,8 +48,10 @@ export class ListOnlineEvalTasksRequest extends $dara.Model {
   pageSize?: number;
   sortBy?: string;
   sortOrder?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
+      appName: 'AppName',
       keyword: 'Keyword',
       maxTime: 'MaxTime',
       minTime: 'MinTime',
@@ -56,11 +59,13 @@ export class ListOnlineEvalTasksRequest extends $dara.Model {
       pageSize: 'PageSize',
       sortBy: 'SortBy',
       sortOrder: 'SortOrder',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appName: 'string',
       keyword: 'string',
       maxTime: 'string',
       minTime: 'string',
@@ -68,6 +73,7 @@ export class ListOnlineEvalTasksRequest extends $dara.Model {
       pageSize: 'number',
       sortBy: 'string',
       sortOrder: 'string',
+      status: 'string',
     };
   }
 
