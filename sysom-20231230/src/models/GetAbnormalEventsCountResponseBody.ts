@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAbnormalEventsCountResponseBodyData extends $dara.Model {
+  eventList?: string[];
   /**
    * @example
    * health
@@ -15,6 +16,7 @@ export class GetAbnormalEventsCountResponseBodyData extends $dara.Model {
   value?: number;
   static names(): { [key: string]: string } {
     return {
+      eventList: 'eventList',
       type: 'type',
       value: 'value',
     };
@@ -22,12 +24,16 @@ export class GetAbnormalEventsCountResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      eventList: { 'type': 'array', 'itemType': 'string' },
       type: 'string',
       value: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.eventList)) {
+      $dara.Model.validateArray(this.eventList);
+    }
     super.validate();
   }
 

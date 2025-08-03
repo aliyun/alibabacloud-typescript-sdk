@@ -14,13 +14,11 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
    */
   end?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * i-wz9d00ut2ska3mlyhn6j
    */
   instance?: string;
+  level?: string;
   /**
    * @example
    * default
@@ -42,6 +40,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
       cluster: 'cluster',
       end: 'end',
       instance: 'instance',
+      level: 'level',
       namespace: 'namespace',
       pod: 'pod',
       showPod: 'showPod',
@@ -54,6 +53,7 @@ export class GetAbnormalEventsCountRequest extends $dara.Model {
       cluster: 'string',
       end: 'number',
       instance: 'string',
+      level: 'string',
       namespace: 'string',
       pod: 'string',
       showPod: 'number',

@@ -289,6 +289,10 @@ export default class Client extends OpenApi {
       query["instance"] = request.instance;
     }
 
+    if (!$dara.isNull(request.level)) {
+      query["level"] = request.level;
+    }
+
     if (!$dara.isNull(request.namespace)) {
       query["namespace"] = request.namespace;
     }
@@ -1625,6 +1629,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.end)) {
       query["end"] = request.end;
+    }
+
+    if (!$dara.isNull(request.event)) {
+      query["event"] = request.event;
     }
 
     if (!$dara.isNull(request.instance)) {

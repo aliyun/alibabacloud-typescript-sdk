@@ -18,6 +18,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
    * 1725801327754
    */
   end?: number;
+  event?: string;
   /**
    * @example
    * i-wz9d00ut2ska3mlyhn6j
@@ -58,6 +59,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
       cluster: 'cluster',
       current: 'current',
       end: 'end',
+      event: 'event',
       instance: 'instance',
       level: 'level',
       namespace: 'namespace',
@@ -73,6 +75,7 @@ export class ListAbnormalyEventsRequest extends $dara.Model {
       cluster: 'string',
       current: 'number',
       end: 'number',
+      event: 'string',
       instance: 'string',
       level: 'string',
       namespace: 'string',
