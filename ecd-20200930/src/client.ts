@@ -7551,6 +7551,10 @@ export default class Client extends OpenApi {
       query["DesktopId"] = request.desktopId;
     }
 
+    if (!$dara.isNull(request.needExtraInfo)) {
+      query["NeedExtraInfo"] = request.needExtraInfo;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
