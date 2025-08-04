@@ -1551,6 +1551,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Index文件详情
+   * 
+   * @param request - ListIndexFileDetailsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIndexFileDetailsResponse
+   */
+  async listIndexFileDetailsWithOptions(WorkspaceId: string, request: $_model.ListIndexFileDetailsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListIndexFileDetailsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.documentName)) {
+      query["DocumentName"] = request.documentName;
+    }
+
+    if (!$dara.isNull(request.documentStatus)) {
+      query["DocumentStatus"] = request.documentStatus;
+    }
+
+    if (!$dara.isNull(request.enableNameLike)) {
+      query["EnableNameLike"] = request.enableNameLike;
+    }
+
+    if (!$dara.isNull(request.indexId)) {
+      query["IndexId"] = request.indexId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIndexFileDetails",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/index/list_index_file_detail`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListIndexFileDetailsResponse>(await this.callApi(params, req, runtime), new $_model.ListIndexFileDetailsResponse({}));
+  }
+
+  /**
+   * 查询Index文件详情
+   * 
+   * @param request - ListIndexFileDetailsRequest
+   * @returns ListIndexFileDetailsResponse
+   */
+  async listIndexFileDetails(WorkspaceId: string, request: $_model.ListIndexFileDetailsRequest): Promise<$_model.ListIndexFileDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIndexFileDetailsWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * Lists knowledge bases in a specified workspace.
    * 
    * @remarks
@@ -2238,6 +2303,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAndPublishAgentSelectiveWithOptions(workspaceId, appCode, request, headers, runtime);
+  }
+
+  /**
+   * 更新切片信息
+   * 
+   * @param request - UpdateChunkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateChunkResponse
+   */
+  async updateChunkWithOptions(WorkspaceId: string, request: $_model.UpdateChunkRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateChunkResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chunkId)) {
+      query["ChunkId"] = request.chunkId;
+    }
+
+    if (!$dara.isNull(request.dataId)) {
+      query["DataId"] = request.dataId;
+    }
+
+    if (!$dara.isNull(request.isDisplayedChunkContent)) {
+      query["IsDisplayedChunkContent"] = request.isDisplayedChunkContent;
+    }
+
+    if (!$dara.isNull(request.pipelineId)) {
+      query["PipelineId"] = request.pipelineId;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      query["content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateChunk",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/chunk/update`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateChunkResponse>(await this.callApi(params, req, runtime), new $_model.UpdateChunkResponse({}));
+  }
+
+  /**
+   * 更新切片信息
+   * 
+   * @param request - UpdateChunkRequest
+   * @returns UpdateChunkResponse
+   */
+  async updateChunk(WorkspaceId: string, request: $_model.UpdateChunkRequest): Promise<$_model.UpdateChunkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateChunkWithOptions(WorkspaceId, request, headers, runtime);
   }
 
   /**
