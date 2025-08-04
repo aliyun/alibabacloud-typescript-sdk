@@ -2,6 +2,77 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateAppAgentTemplateRequestAgentSilenceConfig extends $dara.Model {
+  /**
+   * @example
+   * 30
+   */
+  alertTimeout?: number;
+  content?: string;
+  /**
+   * @example
+   * 2
+   */
+  strategy?: number;
+  /**
+   * @example
+   * 30
+   */
+  webhookTriggerTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertTimeout: 'AlertTimeout',
+      content: 'Content',
+      strategy: 'Strategy',
+      webhookTriggerTimeout: 'WebhookTriggerTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertTimeout: 'number',
+      content: 'string',
+      strategy: 'number',
+      webhookTriggerTimeout: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppAgentTemplateRequestAsrConfigVadConfig extends $dara.Model {
+  /**
+   * @example
+   * 1000
+   */
+  interruptSpeechDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interruptSpeechDuration: 'InterruptSpeechDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interruptSpeechDuration: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppAgentTemplateRequestAsrConfigWordWeights extends $dara.Model {
   /**
    * @example
@@ -63,11 +134,13 @@ export class CreateAppAgentTemplateRequestAsrConfig extends $dara.Model {
    * STT
    */
   name?: string;
+  vadConfig?: CreateAppAgentTemplateRequestAsrConfigVadConfig;
   wordWeights?: CreateAppAgentTemplateRequestAsrConfigWordWeights[];
   static names(): { [key: string]: string } {
     return {
       maxSentenceSilence: 'MaxSentenceSilence',
       name: 'Name',
+      vadConfig: 'VadConfig',
       wordWeights: 'WordWeights',
     };
   }
@@ -76,11 +149,15 @@ export class CreateAppAgentTemplateRequestAsrConfig extends $dara.Model {
     return {
       maxSentenceSilence: 'number',
       name: 'string',
+      vadConfig: CreateAppAgentTemplateRequestAsrConfigVadConfig,
       wordWeights: { 'type': 'array', 'itemType': CreateAppAgentTemplateRequestAsrConfigWordWeights },
     };
   }
 
   validate() {
+    if(this.vadConfig && typeof (this.vadConfig as any).validate === 'function') {
+      (this.vadConfig as any).validate();
+    }
     if(Array.isArray(this.wordWeights)) {
       $dara.Model.validateArray(this.wordWeights);
     }
@@ -93,6 +170,7 @@ export class CreateAppAgentTemplateRequestAsrConfig extends $dara.Model {
 }
 
 export class CreateAppAgentTemplateRequestLlmConfig extends $dara.Model {
+  agentAppId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -145,6 +223,7 @@ export class CreateAppAgentTemplateRequestLlmConfig extends $dara.Model {
   vendor?: string;
   static names(): { [key: string]: string } {
     return {
+      agentAppId: 'AgentAppId',
       apiKey: 'ApiKey',
       historyDepth: 'HistoryDepth',
       maxToken: 'MaxToken',
@@ -159,6 +238,7 @@ export class CreateAppAgentTemplateRequestLlmConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentAppId: 'string',
       apiKey: 'string',
       historyDepth: 'number',
       maxToken: 'number',
@@ -262,6 +342,7 @@ export class CreateAppAgentTemplateRequestTtsConfig extends $dara.Model {
 }
 
 export class CreateAppAgentTemplateRequest extends $dara.Model {
+  agentSilenceConfig?: CreateAppAgentTemplateRequestAgentSilenceConfig;
   /**
    * @remarks
    * This parameter is required.
@@ -299,6 +380,7 @@ export class CreateAppAgentTemplateRequest extends $dara.Model {
   type?: number;
   static names(): { [key: string]: string } {
     return {
+      agentSilenceConfig: 'AgentSilenceConfig',
       appId: 'AppId',
       asrConfig: 'AsrConfig',
       chatMode: 'ChatMode',
@@ -313,6 +395,7 @@ export class CreateAppAgentTemplateRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentSilenceConfig: CreateAppAgentTemplateRequestAgentSilenceConfig,
       appId: 'string',
       asrConfig: CreateAppAgentTemplateRequestAsrConfig,
       chatMode: 'number',
@@ -326,6 +409,9 @@ export class CreateAppAgentTemplateRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.agentSilenceConfig && typeof (this.agentSilenceConfig as any).validate === 'function') {
+      (this.agentSilenceConfig as any).validate();
+    }
     if(this.asrConfig && typeof (this.asrConfig as any).validate === 'function') {
       (this.asrConfig as any).validate();
     }

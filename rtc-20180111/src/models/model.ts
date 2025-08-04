@@ -1,6 +1,8 @@
 export { AddRecordTemplateRequestBackgrounds } from './AddRecordTemplateRequest';
 export { AddRecordTemplateRequestClockWidgets } from './AddRecordTemplateRequest';
 export { AddRecordTemplateRequestWatermarks } from './AddRecordTemplateRequest';
+export { CreateAppAgentTemplateRequestAgentSilenceConfig } from './CreateAppAgentTemplateRequest';
+export { CreateAppAgentTemplateRequestAsrConfigVadConfig } from './CreateAppAgentTemplateRequest';
 export { CreateAppAgentTemplateRequestAsrConfigWordWeights } from './CreateAppAgentTemplateRequest';
 export { CreateAppAgentTemplateRequestAsrConfig } from './CreateAppAgentTemplateRequest';
 export { CreateAppAgentTemplateRequestLlmConfig } from './CreateAppAgentTemplateRequest';
@@ -18,6 +20,8 @@ export { DeleteAppStreamingOutTemplateRequestStreamingOutTemplate } from './Dele
 export { DeleteCloudNotePhrasesRequestPhrase } from './DeleteCloudNotePhrasesRequest';
 export { DescribeAllCallbackResponseBodyCallbacksSubEvent } from './DescribeAllCallbackResponseBody';
 export { DescribeAllCallbackResponseBodyCallbacks } from './DescribeAllCallbackResponseBody';
+export { DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig } from './DescribeAppAgentTemplatesResponseBody';
+export { DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfigVadConfig } from './DescribeAppAgentTemplatesResponseBody';
 export { DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfigWordWeights } from './DescribeAppAgentTemplatesResponseBody';
 export { DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig } from './DescribeAppAgentTemplatesResponseBody';
 export { DescribeAppAgentTemplatesResponseBodyTemplatesLlmConfig } from './DescribeAppAgentTemplatesResponseBody';
@@ -130,6 +134,8 @@ export { DescribeUsageOsSdkVersionDistributionStatDataResponseBodyUsageOsSdkVers
 export { DescribeUsageOverallDataResponseBodyUsageOverallDataNodes } from './DescribeUsageOverallDataResponseBody';
 export { DescribeUsageOverallDataResponseBodyUsageOverallData } from './DescribeUsageOverallDataResponseBody';
 export { DescribeUserInfoInChannelResponseBodyProperty } from './DescribeUserInfoInChannelResponseBody';
+export { ModifyAppAgentTemplateRequestAgentSilenceConfig } from './ModifyAppAgentTemplateRequest';
+export { ModifyAppAgentTemplateRequestAsrConfigVadConfig } from './ModifyAppAgentTemplateRequest';
 export { ModifyAppAgentTemplateRequestAsrConfigWordWeights } from './ModifyAppAgentTemplateRequest';
 export { ModifyAppAgentTemplateRequestAsrConfig } from './ModifyAppAgentTemplateRequest';
 export { ModifyAppAgentTemplateRequestLlmConfig } from './ModifyAppAgentTemplateRequest';
@@ -147,7 +153,9 @@ export { RemoveTerminalsResponseBodyTerminals } from './RemoveTerminalsResponseB
 export { RemoveUsersRequestUsers } from './RemoveUsersRequest';
 export { RemoveUsersResponseBodyUsers } from './RemoveUsersResponseBody';
 export { StartAgentRequestRtcConfig } from './StartAgentRequest';
+export { StartAgentRequestVoiceChatConfigASRConfigVadConfig } from './StartAgentRequest';
 export { StartAgentRequestVoiceChatConfigASRConfig } from './StartAgentRequest';
+export { StartAgentRequestVoiceChatConfigAgentSilenceConfig } from './StartAgentRequest';
 export { StartAgentRequestVoiceChatConfigLLMConfig } from './StartAgentRequest';
 export { StartAgentRequestVoiceChatConfigTTSConfig } from './StartAgentRequest';
 export { StartAgentRequestVoiceChatConfig } from './StartAgentRequest';

@@ -2,6 +2,61 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig extends $dara.Model {
+  alertTimeout?: number;
+  content?: string;
+  strategy?: number;
+  webhookTriggerTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertTimeout: 'AlertTimeout',
+      content: 'Content',
+      strategy: 'Strategy',
+      webhookTriggerTimeout: 'WebhookTriggerTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertTimeout: 'number',
+      content: 'string',
+      strategy: 'number',
+      webhookTriggerTimeout: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfigVadConfig extends $dara.Model {
+  interruptSpeechDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interruptSpeechDuration: 'InterruptSpeechDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interruptSpeechDuration: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfigWordWeights extends $dara.Model {
   /**
    * @example
@@ -46,6 +101,7 @@ export class DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig extends $da
    */
   maxSentenceSilence?: number;
   name?: string;
+  vadConfig?: DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfigVadConfig;
   /**
    * @example
    * ecfadace11114cf08a7f07aceee798ad
@@ -56,6 +112,7 @@ export class DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig extends $da
     return {
       maxSentenceSilence: 'MaxSentenceSilence',
       name: 'Name',
+      vadConfig: 'VadConfig',
       vocabularyId: 'VocabularyId',
       wordWeights: 'WordWeights',
     };
@@ -65,12 +122,16 @@ export class DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig extends $da
     return {
       maxSentenceSilence: 'number',
       name: 'string',
+      vadConfig: DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfigVadConfig,
       vocabularyId: 'string',
       wordWeights: { 'type': 'array', 'itemType': DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfigWordWeights },
     };
   }
 
   validate() {
+    if(this.vadConfig && typeof (this.vadConfig as any).validate === 'function') {
+      (this.vadConfig as any).validate();
+    }
     if(Array.isArray(this.wordWeights)) {
       $dara.Model.validateArray(this.wordWeights);
     }
@@ -83,6 +144,7 @@ export class DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig extends $da
 }
 
 export class DescribeAppAgentTemplatesResponseBodyTemplatesLlmConfig extends $dara.Model {
+  agentAppId?: string;
   /**
    * @example
    * qW8GpBOdHK/pv9gdUSVLvQ==
@@ -131,6 +193,7 @@ export class DescribeAppAgentTemplatesResponseBodyTemplatesLlmConfig extends $da
   vendor?: string;
   static names(): { [key: string]: string } {
     return {
+      agentAppId: 'AgentAppId',
       apiKey: 'ApiKey',
       historyDepth: 'HistoryDepth',
       maxToken: 'MaxToken',
@@ -146,6 +209,7 @@ export class DescribeAppAgentTemplatesResponseBodyTemplatesLlmConfig extends $da
 
   static types(): { [key: string]: any } {
     return {
+      agentAppId: 'string',
       apiKey: 'string',
       historyDepth: 'number',
       maxToken: 'number',
@@ -251,6 +315,7 @@ export class DescribeAppAgentTemplatesResponseBodyTemplatesTtsConfig extends $da
 }
 
 export class DescribeAppAgentTemplatesResponseBodyTemplates extends $dara.Model {
+  agentSilenceConfig?: DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig;
   asrConfig?: DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig;
   /**
    * @example
@@ -291,6 +356,7 @@ export class DescribeAppAgentTemplatesResponseBodyTemplates extends $dara.Model 
   type?: number;
   static names(): { [key: string]: string } {
     return {
+      agentSilenceConfig: 'AgentSilenceConfig',
       asrConfig: 'AsrConfig',
       chatMode: 'ChatMode',
       createTime: 'CreateTime',
@@ -306,6 +372,7 @@ export class DescribeAppAgentTemplatesResponseBodyTemplates extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      agentSilenceConfig: DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig,
       asrConfig: DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig,
       chatMode: 'number',
       createTime: 'string',
@@ -320,6 +387,9 @@ export class DescribeAppAgentTemplatesResponseBodyTemplates extends $dara.Model 
   }
 
   validate() {
+    if(this.agentSilenceConfig && typeof (this.agentSilenceConfig as any).validate === 'function') {
+      (this.agentSilenceConfig as any).validate();
+    }
     if(this.asrConfig && typeof (this.asrConfig as any).validate === 'function') {
       (this.asrConfig as any).validate();
     }

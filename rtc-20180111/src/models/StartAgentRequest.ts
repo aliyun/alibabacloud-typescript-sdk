@@ -12,10 +12,12 @@ export class StartAgentRequestRtcConfig extends $dara.Model {
    * 423341
    */
   userId?: string;
+  userInactivityTimeout?: number;
   static names(): { [key: string]: string } {
     return {
       targetUserIds: 'TargetUserIds',
       userId: 'UserId',
+      userInactivityTimeout: 'UserInactivityTimeout',
     };
   }
 
@@ -23,6 +25,7 @@ export class StartAgentRequestRtcConfig extends $dara.Model {
     return {
       targetUserIds: { 'type': 'array', 'itemType': 'string' },
       userId: 'string',
+      userInactivityTimeout: 'number',
     };
   }
 
@@ -30,6 +33,29 @@ export class StartAgentRequestRtcConfig extends $dara.Model {
     if(Array.isArray(this.targetUserIds)) {
       $dara.Model.validateArray(this.targetUserIds);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartAgentRequestVoiceChatConfigASRConfigVadConfig extends $dara.Model {
+  interruptSpeechDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      interruptSpeechDuration: 'InterruptSpeechDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      interruptSpeechDuration: 'number',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -55,6 +81,7 @@ export class StartAgentRequestVoiceChatConfigASRConfig extends $dara.Model {
    * zh
    */
   sourceLanguage?: string;
+  vadConfig?: StartAgentRequestVoiceChatConfigASRConfigVadConfig;
   /**
    * @example
    * vocab-xxx-24ee19fa8cfb4d52902170a0xxxxxxxx
@@ -66,6 +93,7 @@ export class StartAgentRequestVoiceChatConfigASRConfig extends $dara.Model {
       maxSentenceSilence: 'MaxSentenceSilence',
       semanticPunctuationEnabled: 'SemanticPunctuationEnabled',
       sourceLanguage: 'SourceLanguage',
+      vadConfig: 'VadConfig',
       vocabularyId: 'VocabularyId',
     };
   }
@@ -76,6 +104,7 @@ export class StartAgentRequestVoiceChatConfigASRConfig extends $dara.Model {
       maxSentenceSilence: 'number',
       semanticPunctuationEnabled: 'boolean',
       sourceLanguage: 'string',
+      vadConfig: StartAgentRequestVoiceChatConfigASRConfigVadConfig,
       vocabularyId: 'string',
     };
   }
@@ -84,6 +113,44 @@ export class StartAgentRequestVoiceChatConfigASRConfig extends $dara.Model {
     if(Array.isArray(this.languageHints)) {
       $dara.Model.validateArray(this.languageHints);
     }
+    if(this.vadConfig && typeof (this.vadConfig as any).validate === 'function') {
+      (this.vadConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartAgentRequestVoiceChatConfigAgentSilenceConfig extends $dara.Model {
+  alertTimeout?: number;
+  content?: string;
+  enable?: boolean;
+  strategy?: number;
+  webhookTriggerTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertTimeout: 'AlertTimeout',
+      content: 'Content',
+      enable: 'Enable',
+      strategy: 'Strategy',
+      webhookTriggerTimeout: 'WebhookTriggerTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertTimeout: 'number',
+      content: 'string',
+      enable: 'boolean',
+      strategy: 'number',
+      webhookTriggerTimeout: 'number',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -98,6 +165,7 @@ export class StartAgentRequestVoiceChatConfigLLMConfig extends $dara.Model {
    * xxxxxxxxxxx
    */
   apiKey?: string;
+  appId?: string;
   /**
    * @example
    * 3
@@ -113,6 +181,7 @@ export class StartAgentRequestVoiceChatConfigLLMConfig extends $dara.Model {
    * qwen-plus
    */
   model?: string;
+  params?: { [key: string]: any };
   /**
    * @example
    * xxxx
@@ -141,9 +210,11 @@ export class StartAgentRequestVoiceChatConfigLLMConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apiKey: 'ApiKey',
+      appId: 'AppId',
       historyDepth: 'HistoryDepth',
       maxToken: 'MaxToken',
       model: 'Model',
+      params: 'Params',
       prompt: 'Prompt',
       temperature: 'Temperature',
       topP: 'TopP',
@@ -155,9 +226,11 @@ export class StartAgentRequestVoiceChatConfigLLMConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apiKey: 'string',
+      appId: 'string',
       historyDepth: 'number',
       maxToken: 'number',
       model: 'string',
+      params: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       prompt: 'string',
       temperature: 'number',
       topP: 'number',
@@ -167,6 +240,9 @@ export class StartAgentRequestVoiceChatConfigLLMConfig extends $dara.Model {
   }
 
   validate() {
+    if(this.params) {
+      $dara.Model.validateMap(this.params);
+    }
     super.validate();
   }
 
@@ -252,6 +328,7 @@ export class StartAgentRequestVoiceChatConfigTTSConfig extends $dara.Model {
 
 export class StartAgentRequestVoiceChatConfig extends $dara.Model {
   ASRConfig?: StartAgentRequestVoiceChatConfigASRConfig;
+  agentSilenceConfig?: StartAgentRequestVoiceChatConfigAgentSilenceConfig;
   /**
    * @example
    * 1
@@ -268,6 +345,7 @@ export class StartAgentRequestVoiceChatConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       ASRConfig: 'ASRConfig',
+      agentSilenceConfig: 'AgentSilenceConfig',
       chatMode: 'ChatMode',
       greeting: 'Greeting',
       interruptMode: 'InterruptMode',
@@ -279,6 +357,7 @@ export class StartAgentRequestVoiceChatConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       ASRConfig: StartAgentRequestVoiceChatConfigASRConfig,
+      agentSilenceConfig: StartAgentRequestVoiceChatConfigAgentSilenceConfig,
       chatMode: 'number',
       greeting: 'string',
       interruptMode: 'number',
@@ -290,6 +369,9 @@ export class StartAgentRequestVoiceChatConfig extends $dara.Model {
   validate() {
     if(this.ASRConfig && typeof (this.ASRConfig as any).validate === 'function') {
       (this.ASRConfig as any).validate();
+    }
+    if(this.agentSilenceConfig && typeof (this.agentSilenceConfig as any).validate === 'function') {
+      (this.agentSilenceConfig as any).validate();
     }
     if(this.LLMConfig && typeof (this.LLMConfig as any).validate === 'function') {
       (this.LLMConfig as any).validate();

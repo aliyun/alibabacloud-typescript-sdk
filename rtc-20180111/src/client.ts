@@ -150,6 +150,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateAppAgentTemplateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.agentSilenceConfig)) {
+      request.agentSilenceConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentSilenceConfig, "AgentSilenceConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.asrConfig)) {
       request.asrConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.asrConfig, "AsrConfig", "json");
     }
@@ -163,6 +167,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.agentSilenceConfigShrink)) {
+      query["AgentSilenceConfig"] = request.agentSilenceConfigShrink;
+    }
+
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
@@ -4478,6 +4486,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ModifyAppAgentTemplateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.agentSilenceConfig)) {
+      request.agentSilenceConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentSilenceConfig, "AgentSilenceConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.asrConfig)) {
       request.asrConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.asrConfig, "AsrConfig", "json");
     }
@@ -4491,6 +4503,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.agentSilenceConfigShrink)) {
+      query["AgentSilenceConfig"] = request.agentSilenceConfigShrink;
+    }
+
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
