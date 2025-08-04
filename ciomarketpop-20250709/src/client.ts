@@ -68,4 +68,60 @@ export default class Client extends OpenApi {
     return await this.getEveryOneSellsFormListWithOptions(request, runtime);
   }
 
+  /**
+   * 推送钉钉消息
+   * 
+   * @param tmpReq - PushEveryOneSellMsgRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushEveryOneSellMsgResponse
+   */
+  async pushEveryOneSellMsgWithOptions(tmpReq: $_model.PushEveryOneSellMsgRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushEveryOneSellMsgResponse> {
+    tmpReq.validate();
+    let request = new $_model.PushEveryOneSellMsgShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dingIdList)) {
+      request.dingIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dingIdList, "DingIdList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dingIdListShrink)) {
+      body["DingIdList"] = request.dingIdListShrink;
+    }
+
+    if (!$dara.isNull(request.pushMsg)) {
+      body["PushMsg"] = request.pushMsg;
+    }
+
+    if (!$dara.isNull(request.pushType)) {
+      body["PushType"] = request.pushType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PushEveryOneSellMsg",
+      version: "2025-07-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "string",
+    });
+    return $dara.cast<$_model.PushEveryOneSellMsgResponse>(await this.callApi(params, req, runtime), new $_model.PushEveryOneSellMsgResponse({}));
+  }
+
+  /**
+   * 推送钉钉消息
+   * 
+   * @param request - PushEveryOneSellMsgRequest
+   * @returns PushEveryOneSellMsgResponse
+   */
+  async pushEveryOneSellMsg(request: $_model.PushEveryOneSellMsgRequest): Promise<$_model.PushEveryOneSellMsgResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.pushEveryOneSellMsgWithOptions(request, runtime);
+  }
+
 }
