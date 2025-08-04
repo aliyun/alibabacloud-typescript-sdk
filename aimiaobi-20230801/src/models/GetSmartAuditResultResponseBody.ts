@@ -91,6 +91,7 @@ export class GetSmartAuditResultResponseBodyDataErrorItemDetails extends $dara.M
 
 export class GetSmartAuditResultResponseBodyData extends $dara.Model {
   errorItemDetails?: GetSmartAuditResultResponseBodyDataErrorItemDetails[];
+  errorMessage?: string;
   /**
    * @example
    * SUCCESSED
@@ -99,6 +100,7 @@ export class GetSmartAuditResultResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       errorItemDetails: 'ErrorItemDetails',
+      errorMessage: 'ErrorMessage',
       status: 'Status',
     };
   }
@@ -106,6 +108,7 @@ export class GetSmartAuditResultResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       errorItemDetails: { 'type': 'array', 'itemType': GetSmartAuditResultResponseBodyDataErrorItemDetails },
+      errorMessage: 'string',
       status: 'string',
     };
   }

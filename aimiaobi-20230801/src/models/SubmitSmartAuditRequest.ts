@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class SubmitSmartAuditRequestImageUrlList extends $dara.Model {
+  id?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitSmartAuditRequestImageUrls extends $dara.Model {
   id?: string;
   url?: string;
@@ -29,6 +55,7 @@ export class SubmitSmartAuditRequestImageUrls extends $dara.Model {
 }
 
 export class SubmitSmartAuditRequest extends $dara.Model {
+  imageUrlList?: SubmitSmartAuditRequestImageUrlList[];
   subCodes?: string[];
   text?: string;
   /**
@@ -39,6 +66,7 @@ export class SubmitSmartAuditRequest extends $dara.Model {
   imageUrls?: SubmitSmartAuditRequestImageUrls[];
   static names(): { [key: string]: string } {
     return {
+      imageUrlList: 'ImageUrlList',
       subCodes: 'SubCodes',
       text: 'Text',
       workspaceId: 'WorkspaceId',
@@ -48,6 +76,7 @@ export class SubmitSmartAuditRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      imageUrlList: { 'type': 'array', 'itemType': SubmitSmartAuditRequestImageUrlList },
       subCodes: { 'type': 'array', 'itemType': 'string' },
       text: 'string',
       workspaceId: 'string',
@@ -56,6 +85,9 @@ export class SubmitSmartAuditRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.imageUrlList)) {
+      $dara.Model.validateArray(this.imageUrlList);
+    }
     if(Array.isArray(this.subCodes)) {
       $dara.Model.validateArray(this.subCodes);
     }

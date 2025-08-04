@@ -9498,6 +9498,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.SubmitSmartAuditShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.imageUrlList)) {
+      request.imageUrlListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageUrlList, "ImageUrlList", "json");
+    }
+
     if (!$dara.isNull(tmpReq.subCodes)) {
       request.subCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subCodes, "SubCodes", "json");
     }
@@ -9507,6 +9511,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.imageUrlListShrink)) {
+      body["ImageUrlList"] = request.imageUrlListShrink;
+    }
+
     if (!$dara.isNull(request.subCodesShrink)) {
       body["SubCodes"] = request.subCodesShrink;
     }

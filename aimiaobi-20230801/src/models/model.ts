@@ -494,6 +494,7 @@ export { SubmitEnterpriseVocAnalysisTaskRequestFilterTags } from './SubmitEnterp
 export { SubmitEnterpriseVocAnalysisTaskResponseBodyData } from './SubmitEnterpriseVocAnalysisTaskResponseBody';
 export { SubmitExportTermsTaskResponseBodyData } from './SubmitExportTermsTaskResponseBody';
 export { SubmitImportTermsTaskResponseBodyData } from './SubmitImportTermsTaskResponseBody';
+export { SubmitSmartAuditRequestImageUrlList } from './SubmitSmartAuditRequest';
 export { SubmitSmartAuditRequestImageUrls } from './SubmitSmartAuditRequest';
 export { SubmitSmartAuditResponseBodyData } from './SubmitSmartAuditResponseBody';
 export { SubmitSmartClipTaskRequestEditingConfigBackgroundMusicConfig } from './SubmitSmartClipTaskRequest';
