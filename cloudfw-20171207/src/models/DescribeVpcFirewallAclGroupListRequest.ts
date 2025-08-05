@@ -23,6 +23,13 @@ export class DescribeVpcFirewallAclGroupListRequest extends $dara.Model {
    * configured
    */
   firewallConfigureStatus?: string;
+  /**
+   * @remarks
+   * The instance ID of the VPC firewall.
+   * 
+   * @example
+   * vfw-tr-5b202e7f0be64611****
+   */
   firewallId?: string;
   /**
    * @remarks

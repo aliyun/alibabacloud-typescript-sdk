@@ -266,6 +266,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加DNS防火墙ACL
+   * 
+   * @param request - AddDnsFirewallPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDnsFirewallPolicyResponse
+   */
+  async addDnsFirewallPolicyWithOptions(request: $_model.AddDnsFirewallPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddDnsFirewallPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aclAction)) {
+      query["AclAction"] = request.aclAction;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!$dara.isNull(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!$dara.isNull(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!$dara.isNull(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.release)) {
+      query["Release"] = request.release;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddDnsFirewallPolicy",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddDnsFirewallPolicyResponse>(await this.callApi(params, req, runtime), new $_model.AddDnsFirewallPolicyResponse({}));
+  }
+
+  /**
+   * 添加DNS防火墙ACL
+   * 
+   * @param request - AddDnsFirewallPolicyRequest
+   * @returns AddDnsFirewallPolicyResponse
+   */
+  async addDnsFirewallPolicy(request: $_model.AddDnsFirewallPolicyRequest): Promise<$_model.AddDnsFirewallPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addDnsFirewallPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Adds members to Cloud Firewall.
    * 
    * @remarks
@@ -315,6 +401,56 @@ export default class Client extends OpenApi {
   async addInstanceMembers(request: $_model.AddInstanceMembersRequest): Promise<$_model.AddInstanceMembersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.addInstanceMembersWithOptions(request, runtime);
+  }
+
+  /**
+   * 添加私网DNS域名
+   * 
+   * @param request - AddPrivateDnsDomainNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddPrivateDnsDomainNameResponse
+   */
+  async addPrivateDnsDomainNameWithOptions(request: $_model.AddPrivateDnsDomainNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddPrivateDnsDomainNameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessInstanceId)) {
+      query["AccessInstanceId"] = request.accessInstanceId;
+    }
+
+    if (!$dara.isNull(request.domainNameList)) {
+      query["DomainNameList"] = request.domainNameList;
+    }
+
+    if (!$dara.isNull(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddPrivateDnsDomainName",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddPrivateDnsDomainNameResponse>(await this.callApi(params, req, runtime), new $_model.AddPrivateDnsDomainNameResponse({}));
+  }
+
+  /**
+   * 添加私网DNS域名
+   * 
+   * @param request - AddPrivateDnsDomainNameRequest
+   * @returns AddPrivateDnsDomainNameResponse
+   */
+  async addPrivateDnsDomainName(request: $_model.AddPrivateDnsDomainNameRequest): Promise<$_model.AddPrivateDnsDomainNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addPrivateDnsDomainNameWithOptions(request, runtime);
   }
 
   /**
@@ -710,7 +846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建云防火墙SLS日志投递
+   * Create Cloud Firewall SLS Log Delivery
    * 
    * @param request - CreateSlsLogDispatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -745,7 +881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建云防火墙SLS日志投递
+   * Create Cloud Firewall SLS Log Delivery
    * 
    * @param request - CreateSlsLogDispatchRequest
    * @returns CreateSlsLogDispatchResponse
@@ -1023,6 +1159,68 @@ export default class Client extends OpenApi {
   async createVpcFirewallCenConfigure(request: $_model.CreateVpcFirewallCenConfigureRequest): Promise<$_model.CreateVpcFirewallCenConfigureResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createVpcFirewallCenConfigureWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建VPC防火墙手动配置
+   * 
+   * @param request - CreateVpcFirewallCenManualConfigureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVpcFirewallCenManualConfigureResponse
+   */
+  async createVpcFirewallCenManualConfigureWithOptions(request: $_model.CreateVpcFirewallCenManualConfigureRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVpcFirewallCenManualConfigureResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cenId)) {
+      query["CenId"] = request.cenId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcFirewallName)) {
+      query["VpcFirewallName"] = request.vpcFirewallName;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVpcFirewallCenManualConfigure",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVpcFirewallCenManualConfigureResponse>(await this.callApi(params, req, runtime), new $_model.CreateVpcFirewallCenManualConfigureResponse({}));
+  }
+
+  /**
+   * 创建VPC防火墙手动配置
+   * 
+   * @param request - CreateVpcFirewallCenManualConfigureRequest
+   * @returns CreateVpcFirewallCenManualConfigureResponse
+   */
+  async createVpcFirewallCenManualConfigure(request: $_model.CreateVpcFirewallCenManualConfigureRequest): Promise<$_model.CreateVpcFirewallCenManualConfigureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVpcFirewallCenManualConfigureWithOptions(request, runtime);
   }
 
   /**
@@ -1436,6 +1634,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除DNS防火墙规则
+   * 
+   * @param request - DeleteDnsFirewallPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDnsFirewallPolicyResponse
+   */
+  async deleteDnsFirewallPolicyWithOptions(request: $_model.DeleteDnsFirewallPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDnsFirewallPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aclUuid)) {
+      query["AclUuid"] = request.aclUuid;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDnsFirewallPolicy",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDnsFirewallPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDnsFirewallPolicyResponse({}));
+  }
+
+  /**
+   * 删除DNS防火墙规则
+   * 
+   * @param request - DeleteDnsFirewallPolicyRequest
+   * @returns DeleteDnsFirewallPolicyResponse
+   */
+  async deleteDnsFirewallPolicy(request: $_model.DeleteDnsFirewallPolicyRequest): Promise<$_model.DeleteDnsFirewallPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDnsFirewallPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes file download tasks.
    * 
    * @remarks
@@ -1705,6 +1953,148 @@ export default class Client extends OpenApi {
   async deleteNatFirewallControlPolicyBatch(request: $_model.DeleteNatFirewallControlPolicyBatchRequest): Promise<$_model.DeleteNatFirewallControlPolicyBatchResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNatFirewallControlPolicyBatchWithOptions(request, runtime);
+  }
+
+  /**
+   * 清空私网DNS域名
+   * 
+   * @param request - DeletePrivateDnsAllDomainNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePrivateDnsAllDomainNameResponse
+   */
+  async deletePrivateDnsAllDomainNameWithOptions(request: $_model.DeletePrivateDnsAllDomainNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrivateDnsAllDomainNameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessInstanceId)) {
+      query["AccessInstanceId"] = request.accessInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePrivateDnsAllDomainName",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePrivateDnsAllDomainNameResponse>(await this.callApi(params, req, runtime), new $_model.DeletePrivateDnsAllDomainNameResponse({}));
+  }
+
+  /**
+   * 清空私网DNS域名
+   * 
+   * @param request - DeletePrivateDnsAllDomainNameRequest
+   * @returns DeletePrivateDnsAllDomainNameResponse
+   */
+  async deletePrivateDnsAllDomainName(request: $_model.DeletePrivateDnsAllDomainNameRequest): Promise<$_model.DeletePrivateDnsAllDomainNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePrivateDnsAllDomainNameWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除私网DNS域名
+   * 
+   * @param request - DeletePrivateDnsDomainNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePrivateDnsDomainNameResponse
+   */
+  async deletePrivateDnsDomainNameWithOptions(request: $_model.DeletePrivateDnsDomainNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrivateDnsDomainNameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessInstanceId)) {
+      query["AccessInstanceId"] = request.accessInstanceId;
+    }
+
+    if (!$dara.isNull(request.domainNameList)) {
+      query["DomainNameList"] = request.domainNameList;
+    }
+
+    if (!$dara.isNull(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePrivateDnsDomainName",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePrivateDnsDomainNameResponse>(await this.callApi(params, req, runtime), new $_model.DeletePrivateDnsDomainNameResponse({}));
+  }
+
+  /**
+   * 删除私网DNS域名
+   * 
+   * @param request - DeletePrivateDnsDomainNameRequest
+   * @returns DeletePrivateDnsDomainNameResponse
+   */
+  async deletePrivateDnsDomainName(request: $_model.DeletePrivateDnsDomainNameRequest): Promise<$_model.DeletePrivateDnsDomainNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePrivateDnsDomainNameWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除私网DNS终端节点
+   * 
+   * @param request - DeletePrivateDnsEndpointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePrivateDnsEndpointResponse
+   */
+  async deletePrivateDnsEndpointWithOptions(request: $_model.DeletePrivateDnsEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrivateDnsEndpointResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessInstanceId)) {
+      query["AccessInstanceId"] = request.accessInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePrivateDnsEndpoint",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePrivateDnsEndpointResponse>(await this.callApi(params, req, runtime), new $_model.DeletePrivateDnsEndpointResponse({}));
+  }
+
+  /**
+   * 删除私网DNS终端节点
+   * 
+   * @param request - DeletePrivateDnsEndpointRequest
+   * @returns DeletePrivateDnsEndpointResponse
+   */
+  async deletePrivateDnsEndpoint(request: $_model.DeletePrivateDnsEndpointRequest): Promise<$_model.DeletePrivateDnsEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePrivateDnsEndpointWithOptions(request, runtime);
   }
 
   /**
@@ -2035,6 +2425,38 @@ export default class Client extends OpenApi {
   async describeACLProtectTrend(request: $_model.DescribeACLProtectTrendRequest): Promise<$_model.DescribeACLProtectTrendResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeACLProtectTrendWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询AI流量分析开启状态
+   * 
+   * @param request - DescribeAITrafficAnalysisStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAITrafficAnalysisStatusResponse
+   */
+  async describeAITrafficAnalysisStatusWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAITrafficAnalysisStatusResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAITrafficAnalysisStatus",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAITrafficAnalysisStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAITrafficAnalysisStatusResponse({}));
+  }
+
+  /**
+   * 查询AI流量分析开启状态
+   * @returns DescribeAITrafficAnalysisStatusResponse
+   */
+  async describeAITrafficAnalysisStatus(): Promise<$_model.DescribeAITrafficAnalysisStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAITrafficAnalysisStatusWithOptions(runtime);
   }
 
   /**
@@ -2518,6 +2940,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取DNS防火墙ACL列表
+   * 
+   * @param request - DescribeDnsFirewallPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsFirewallPolicyResponse
+   */
+  async describeDnsFirewallPolicyWithOptions(request: $_model.DescribeDnsFirewallPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDnsFirewallPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aclAction)) {
+      query["AclAction"] = request.aclAction;
+    }
+
+    if (!$dara.isNull(request.aclUuid)) {
+      query["AclUuid"] = request.aclUuid;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!$dara.isNull(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.release)) {
+      query["Release"] = request.release;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDnsFirewallPolicy",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDnsFirewallPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDnsFirewallPolicyResponse({}));
+  }
+
+  /**
+   * 获取DNS防火墙ACL列表
+   * 
+   * @param request - DescribeDnsFirewallPolicyRequest
+   * @returns DescribeDnsFirewallPolicyResponse
+   */
+  async describeDnsFirewallPolicy(request: $_model.DescribeDnsFirewallPolicyRequest): Promise<$_model.DescribeDnsFirewallPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDnsFirewallPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Queries Domain Name System (DNS) records.
    * 
    * @remarks
@@ -2531,7 +3039,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDomainResolveResponse
    */
-  // Deprecated
   async describeDomainResolveWithOptions(request: $_model.DescribeDomainResolveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDomainResolveResponse> {
     request.validate();
     let query = { };
@@ -3084,7 +3591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日志服务信息
+   * Get Log Service Information
    * 
    * @param request - DescribeLogStoreInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3107,7 +3614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日志服务信息
+   * Get Log Service Information
    * @returns DescribeLogStoreInfoResponse
    */
   async describeLogStoreInfo(): Promise<$_model.DescribeLogStoreInfoResponse> {
@@ -3434,7 +3941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the destination IP addresses in outbound connections.
+   * Get details of outgoing destination IPs
    * 
    * @param request - DescribeOutgoingDestinationIPRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3517,7 +4024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the destination IP addresses in outbound connections.
+   * Get details of outgoing destination IPs
    * 
    * @param request - DescribeOutgoingDestinationIPRequest
    * @returns DescribeOutgoingDestinationIPResponse
@@ -3908,6 +4415,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询私网DNS域名列表
+   * 
+   * @param request - DescribePrivateDnsDomainNameListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePrivateDnsDomainNameListResponse
+   */
+  async describePrivateDnsDomainNameListWithOptions(request: $_model.DescribePrivateDnsDomainNameListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePrivateDnsDomainNameListResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePrivateDnsDomainNameList",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePrivateDnsDomainNameListResponse>(await this.callApi(params, req, runtime), new $_model.DescribePrivateDnsDomainNameListResponse({}));
+  }
+
+  /**
+   * 查询私网DNS域名列表
+   * 
+   * @param request - DescribePrivateDnsDomainNameListRequest
+   * @returns DescribePrivateDnsDomainNameListResponse
+   */
+  async describePrivateDnsDomainNameList(request: $_model.DescribePrivateDnsDomainNameListRequest): Promise<$_model.DescribePrivateDnsDomainNameListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePrivateDnsDomainNameListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询私网DNS终端节点详情
+   * 
+   * @param request - DescribePrivateDnsEndpointDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePrivateDnsEndpointDetailResponse
+   */
+  async describePrivateDnsEndpointDetailWithOptions(request: $_model.DescribePrivateDnsEndpointDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePrivateDnsEndpointDetailResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePrivateDnsEndpointDetail",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePrivateDnsEndpointDetailResponse>(await this.callApi(params, req, runtime), new $_model.DescribePrivateDnsEndpointDetailResponse({}));
+  }
+
+  /**
+   * 查询私网DNS终端节点详情
+   * 
+   * @param request - DescribePrivateDnsEndpointDetailRequest
+   * @returns DescribePrivateDnsEndpointDetailResponse
+   */
+  async describePrivateDnsEndpointDetail(request: $_model.DescribePrivateDnsEndpointDetailRequest): Promise<$_model.DescribePrivateDnsEndpointDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePrivateDnsEndpointDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询私网DNS终端节点列表
+   * 
+   * @param request - DescribePrivateDnsEndpointListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePrivateDnsEndpointListResponse
+   */
+  async describePrivateDnsEndpointListWithOptions(request: $_model.DescribePrivateDnsEndpointListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePrivateDnsEndpointListResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePrivateDnsEndpointList",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePrivateDnsEndpointListResponse>(await this.callApi(params, req, runtime), new $_model.DescribePrivateDnsEndpointListResponse({}));
+  }
+
+  /**
+   * 查询私网DNS终端节点列表
+   * 
+   * @param request - DescribePrivateDnsEndpointListRequest
+   * @returns DescribePrivateDnsEndpointListResponse
+   */
+  async describePrivateDnsEndpointList(request: $_model.DescribePrivateDnsEndpointListRequest): Promise<$_model.DescribePrivateDnsEndpointListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePrivateDnsEndpointListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of intrusion events.
    * 
    * @remarks
@@ -3924,6 +4545,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.attackApp)) {
       query["AttackApp"] = request.attackApp;
+    }
+
+    if (!$dara.isNull(request.attackAppCategory)) {
+      query["AttackAppCategory"] = request.attackAppCategory;
     }
 
     if (!$dara.isNull(request.attackType)) {
@@ -5784,6 +6409,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the priority of an access control policy.
+   * 
+   * @param request - ModifyControlPolicyPriorityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyControlPolicyPriorityResponse
+   */
+  async modifyControlPolicyPriorityWithOptions(request: $_model.ModifyControlPolicyPriorityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyControlPolicyPriorityResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aclUuid)) {
+      query["AclUuid"] = request.aclUuid;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyControlPolicyPriority",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyControlPolicyPriorityResponse>(await this.callApi(params, req, runtime), new $_model.ModifyControlPolicyPriorityResponse({}));
+  }
+
+  /**
+   * Modifies the priority of an access control policy.
+   * 
+   * @param request - ModifyControlPolicyPriorityRequest
+   * @returns ModifyControlPolicyPriorityResponse
+   */
+  async modifyControlPolicyPriority(request: $_model.ModifyControlPolicyPriorityRequest): Promise<$_model.ModifyControlPolicyPriorityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyControlPolicyPriorityWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the default configuration of the intrusion prevention system (IPS).
    * 
    * @param request - ModifyDefaultIPSConfigRequest
@@ -5847,6 +6518,88 @@ export default class Client extends OpenApi {
   async modifyDefaultIPSConfig(request: $_model.ModifyDefaultIPSConfigRequest): Promise<$_model.ModifyDefaultIPSConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDefaultIPSConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改DNS防火墙规则
+   * 
+   * @param request - ModifyDnsFirewallPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDnsFirewallPolicyResponse
+   */
+  async modifyDnsFirewallPolicyWithOptions(request: $_model.ModifyDnsFirewallPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDnsFirewallPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aclAction)) {
+      query["AclAction"] = request.aclAction;
+    }
+
+    if (!$dara.isNull(request.aclUuid)) {
+      query["AclUuid"] = request.aclUuid;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!$dara.isNull(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.release)) {
+      query["Release"] = request.release;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDnsFirewallPolicy",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDnsFirewallPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDnsFirewallPolicyResponse({}));
+  }
+
+  /**
+   * 修改DNS防火墙规则
+   * 
+   * @param request - ModifyDnsFirewallPolicyRequest
+   * @returns ModifyDnsFirewallPolicyResponse
+   */
+  async modifyDnsFirewallPolicy(request: $_model.ModifyDnsFirewallPolicyRequest): Promise<$_model.ModifyDnsFirewallPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDnsFirewallPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -6281,6 +7034,68 @@ export default class Client extends OpenApi {
   async modifyPolicyAdvancedConfig(request: $_model.ModifyPolicyAdvancedConfigRequest): Promise<$_model.ModifyPolicyAdvancedConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPolicyAdvancedConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改私网DNS终端节点
+   * 
+   * @param request - ModifyPrivateDnsEndpointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPrivateDnsEndpointResponse
+   */
+  async modifyPrivateDnsEndpointWithOptions(request: $_model.ModifyPrivateDnsEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPrivateDnsEndpointResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessInstanceId)) {
+      query["AccessInstanceId"] = request.accessInstanceId;
+    }
+
+    if (!$dara.isNull(request.accessInstanceName)) {
+      query["AccessInstanceName"] = request.accessInstanceName;
+    }
+
+    if (!$dara.isNull(request.primaryDns)) {
+      query["PrimaryDns"] = request.primaryDns;
+    }
+
+    if (!$dara.isNull(request.privateDnsType)) {
+      query["PrivateDnsType"] = request.privateDnsType;
+    }
+
+    if (!$dara.isNull(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    if (!$dara.isNull(request.standbyDns)) {
+      query["StandbyDns"] = request.standbyDns;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyPrivateDnsEndpoint",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyPrivateDnsEndpointResponse>(await this.callApi(params, req, runtime), new $_model.ModifyPrivateDnsEndpointResponse({}));
+  }
+
+  /**
+   * 修改私网DNS终端节点
+   * 
+   * @param request - ModifyPrivateDnsEndpointRequest
+   * @returns ModifyPrivateDnsEndpointResponse
+   */
+  async modifyPrivateDnsEndpoint(request: $_model.ModifyPrivateDnsEndpointRequest): Promise<$_model.ModifyPrivateDnsEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyPrivateDnsEndpointWithOptions(request, runtime);
   }
 
   /**
@@ -7350,6 +8165,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 释放已过期的实例
+   * 
+   * @param request - ReleaseExpiredInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseExpiredInstanceResponse
+   */
+  async releaseExpiredInstanceWithOptions(request: $_model.ReleaseExpiredInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReleaseExpiredInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReleaseExpiredInstance",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReleaseExpiredInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ReleaseExpiredInstanceResponse({}));
+  }
+
+  /**
+   * 释放已过期的实例
+   * 
+   * @param request - ReleaseExpiredInstanceRequest
+   * @returns ReleaseExpiredInstanceResponse
+   */
+  async releaseExpiredInstance(request: $_model.ReleaseExpiredInstanceRequest): Promise<$_model.ReleaseExpiredInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.releaseExpiredInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Releases Cloud Firewall that uses the pay-as-you-go billing method.
    * 
    * @param request - ReleasePostInstanceRequest
@@ -7545,6 +8402,48 @@ export default class Client extends OpenApi {
   async switchSecurityProxy(request: $_model.SwitchSecurityProxyRequest): Promise<$_model.SwitchSecurityProxyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.switchSecurityProxyWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改AI流量分析开启状态
+   * 
+   * @param request - UpdateAITrafficAnalysisStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAITrafficAnalysisStatusResponse
+   */
+  async updateAITrafficAnalysisStatusWithOptions(request: $_model.UpdateAITrafficAnalysisStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAITrafficAnalysisStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAITrafficAnalysisStatus",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAITrafficAnalysisStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAITrafficAnalysisStatusResponse({}));
+  }
+
+  /**
+   * 修改AI流量分析开启状态
+   * 
+   * @param request - UpdateAITrafficAnalysisStatusRequest
+   * @returns UpdateAITrafficAnalysisStatusResponse
+   */
+  async updateAITrafficAnalysisStatus(request: $_model.UpdateAITrafficAnalysisStatusRequest): Promise<$_model.UpdateAITrafficAnalysisStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAITrafficAnalysisStatusWithOptions(request, runtime);
   }
 
 }

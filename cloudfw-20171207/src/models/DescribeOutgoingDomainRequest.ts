@@ -27,6 +27,16 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
    * 1
    */
   currentPage?: string;
+  /**
+   * @remarks
+   * The source of traffic for statistics. Valid values:
+   * 
+   * *   **internet** (default): the Internet firewall.
+   * *   **nat**: NAT firewalls.
+   * 
+   * @example
+   * nat
+   */
   dataType?: string;
   /**
    * @remarks
@@ -46,6 +56,16 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
    * 1656750960
    */
   endTime?: string;
+  /**
+   * @remarks
+   * Specifies whether to collect statistics only on AI service access traffic. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * true
+   */
   isAITraffic?: string;
   /**
    * @remarks
@@ -60,10 +80,10 @@ export class DescribeOutgoingDomainRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The method that is used to sort the results. Valid values:
+   * The method that you want to use to sort the query results. Valid values:
    * 
-   * *   **asc**: the ascending order.
-   * *   **desc** (default): the descending order.
+   * *   **asc**
+   * *   **desc** (default)
    * 
    * @example
    * desc

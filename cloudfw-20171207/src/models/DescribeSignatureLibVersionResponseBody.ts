@@ -1,7 +1,84 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeSignatureLibVersionResponseBodyVersion } from "./DescribeSignatureLibVersionResponseBodyVersion";
 
+
+export class DescribeSignatureLibVersionResponseBodyVersion extends $dara.Model {
+  /**
+   * @remarks
+   * The type.
+   * 
+   * Valid values:
+   * 
+   * *   ips
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     Basic Rules and Virtual Patching
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   intelligence
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     Threat Intelligence
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * ips
+   */
+  type?: string;
+  /**
+   * @remarks
+   * Update time.
+   * 
+   * @example
+   * 1741067915
+   */
+  updateTime?: number;
+  /**
+   * @remarks
+   * The version number.
+   * 
+   * @example
+   * IPS-2307-02
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      updateTime: 'UpdateTime',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      updateTime: 'number',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeSignatureLibVersionResponseBody extends $dara.Model {
   /**
@@ -22,7 +99,7 @@ export class DescribeSignatureLibVersionResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The information about the versions.
+   * The version information.
    */
   version?: DescribeSignatureLibVersionResponseBodyVersion[];
   static names(): { [key: string]: string } {

@@ -140,6 +140,13 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
    * 10.0.2.0/24
    */
   trAttachmentMasterCidr?: string;
+  /**
+   * @remarks
+   * In automatic mode, the primary availability zone of the subnet in the firewall VPC used for connecting to TR.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
   trAttachmentMasterZone?: string;
   /**
    * @remarks
@@ -149,6 +156,13 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
    * 10.0.3.0/24
    */
   trAttachmentSlaveCidr?: string;
+  /**
+   * @remarks
+   * In automatic mode, the backup availability zone for the subnet used to connect TR in the firewall VPC.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
   trAttachmentSlaveZone?: string;
   /**
    * @remarks

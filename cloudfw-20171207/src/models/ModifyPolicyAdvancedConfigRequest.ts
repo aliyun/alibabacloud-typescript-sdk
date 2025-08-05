@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyPolicyAdvancedConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IP addresses. The versions of the IP addresses must be the same. You can specify a maximum of 100 IP addresses.
+   */
   eips?: string[];
   /**
    * @remarks

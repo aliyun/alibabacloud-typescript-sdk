@@ -5,12 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRiskEventGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The names of attacked applications. Set the value in the `["AttackApp1","AttackApp2"]` format.
+   * The names of the attacked applications. Set the value in the `["AttackApp1","AttackApp2"]` format.
    * 
    * @example
    * ["MySql","DNS"]
    */
   attackApp?: string[];
+  /**
+   * @remarks
+   * A list of categories of attacked applications, expressed in the format ["AttackAppCategory1","AttackAppCategory2"].
+   */
+  attackAppCategory?: string[];
   /**
    * @remarks
    * The attack type of the intrusion events. Valid values:
@@ -261,6 +266,7 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       attackApp: 'AttackApp',
+      attackAppCategory: 'AttackAppCategory',
       attackType: 'AttackType',
       buyVersion: 'BuyVersion',
       currentPage: 'CurrentPage',
@@ -289,6 +295,7 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       attackApp: { 'type': 'array', 'itemType': 'string' },
+      attackAppCategory: { 'type': 'array', 'itemType': 'string' },
       attackType: 'string',
       buyVersion: 'number',
       currentPage: 'string',
@@ -317,6 +324,9 @@ export class DescribeRiskEventGroupRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.attackApp)) {
       $dara.Model.validateArray(this.attackApp);
+    }
+    if(Array.isArray(this.attackAppCategory)) {
+      $dara.Model.validateArray(this.attackAppCategory);
     }
     super.validate();
   }
