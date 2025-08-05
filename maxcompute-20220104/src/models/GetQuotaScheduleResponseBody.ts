@@ -1,7 +1,126 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetQuotaScheduleResponseBodyData } from "./GetQuotaScheduleResponseBodyData";
 
+
+export class GetQuotaScheduleResponseBodyDataCondition extends $dara.Model {
+  /**
+   * @remarks
+   * The start time when the quota plan takes effect.
+   * 
+   * @example
+   * 2022-04-25T04:23:04Z
+   */
+  after?: string;
+  /**
+   * @remarks
+   * The time when the quota plan takes effect.
+   * 
+   * @example
+   * 0900
+   */
+  at?: string;
+  static names(): { [key: string]: string } {
+    return {
+      after: 'after',
+      at: 'at',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      after: 'string',
+      at: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaScheduleResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The condition value.
+   */
+  condition?: GetQuotaScheduleResponseBodyDataCondition;
+  /**
+   * @remarks
+   * The ID of the quota plan.
+   * 
+   * @example
+   * 63
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The name of the operator.
+   * 
+   * @example
+   * userA
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * The name of the quota plan.
+   * 
+   * @example
+   * planA
+   */
+  plan?: string;
+  /**
+   * @remarks
+   * The time zone.
+   * 
+   * @example
+   * UTC+8
+   */
+  timezone?: string;
+  /**
+   * @remarks
+   * The type of the quota plan.
+   * 
+   * @example
+   * once
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'condition',
+      id: 'id',
+      operator: 'operator',
+      plan: 'plan',
+      timezone: 'timezone',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: GetQuotaScheduleResponseBodyDataCondition,
+      id: 'string',
+      operator: 'string',
+      plan: 'string',
+      timezone: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.condition && typeof (this.condition as any).validate === 'function') {
+      (this.condition as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetQuotaScheduleResponseBody extends $dara.Model {
   /**

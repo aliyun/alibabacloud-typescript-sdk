@@ -1,7 +1,96 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetQuotaUsageResponseBodyData } from "./GetQuotaUsageResponseBodyData";
 
+
+export class GetQuotaUsageResponseBodyDataPlot extends $dara.Model {
+  /**
+   * @remarks
+   * The title of the chart.
+   * 
+   * @example
+   * request
+   */
+  title?: string;
+  /**
+   * @remarks
+   * The type of the chart.
+   * 
+   * @example
+   * request
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The data metric field.
+   */
+  yAxis?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      title: 'title',
+      type: 'type',
+      yAxis: 'yAxis',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      title: 'string',
+      type: 'string',
+      yAxis: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.yAxis)) {
+      $dara.Model.validateArray(this.yAxis);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQuotaUsageResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The metric results.
+   */
+  metrics?: { [key: string]: any };
+  /**
+   * @remarks
+   * The information about the chart.
+   */
+  plot?: GetQuotaUsageResponseBodyDataPlot[];
+  static names(): { [key: string]: string } {
+    return {
+      metrics: 'metrics',
+      plot: 'plot',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metrics: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      plot: { 'type': 'array', 'itemType': GetQuotaUsageResponseBodyDataPlot },
+    };
+  }
+
+  validate() {
+    if(this.metrics) {
+      $dara.Model.validateMap(this.metrics);
+    }
+    if(Array.isArray(this.plot)) {
+      $dara.Model.validateArray(this.plot);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetQuotaUsageResponseBody extends $dara.Model {
   /**

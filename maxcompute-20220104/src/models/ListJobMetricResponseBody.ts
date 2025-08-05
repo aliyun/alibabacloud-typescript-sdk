@@ -1,7 +1,106 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListJobMetricResponseBodyData } from "./ListJobMetricResponseBodyData";
 
+
+export class ListJobMetricResponseBodyDataMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * Metric related information.
+   */
+  metric?: { [key: string]: string };
+  /**
+   * @remarks
+   * Metric values information.
+   */
+  values?: number[][];
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'metric',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      values: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'number' } },
+    };
+  }
+
+  validate() {
+    if(this.metric) {
+      $dara.Model.validateMap(this.metric);
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobMetricResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The category of the metrics.
+   * 
+   * @example
+   * job
+   */
+  category?: string;
+  /**
+   * @remarks
+   * Metric details.
+   */
+  metrics?: ListJobMetricResponseBodyDataMetrics[];
+  /**
+   * @remarks
+   * The name of observation metric.
+   * 
+   * @example
+   * num
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The monitoring statistical period.Unit:Second(s).
+   * 
+   * @example
+   * 3600
+   */
+  period?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      metrics: 'metrics',
+      name: 'name',
+      period: 'period',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      metrics: { 'type': 'array', 'itemType': ListJobMetricResponseBodyDataMetrics },
+      name: 'string',
+      period: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.metrics)) {
+      $dara.Model.validateArray(this.metrics);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListJobMetricResponseBody extends $dara.Model {
   /**

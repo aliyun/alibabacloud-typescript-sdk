@@ -4257,6 +4257,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - SumStorageMetricsByDateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SumStorageMetricsByDateResponse
+   */
+  async sumStorageMetricsByDateWithOptions(request: $_model.SumStorageMetricsByDateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SumStorageMetricsByDateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      body["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.projectNames)) {
+      body["projectNames"] = request.projectNames;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      body["region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["startDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.statsType)) {
+      body["statsType"] = request.statsType;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SumStorageMetricsByDate",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/storageMetrics/sumByDate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SumStorageMetricsByDateResponse>(await this.callApi(params, req, runtime), new $_model.SumStorageMetricsByDateResponse({}));
+  }
+
+  /**
+   * @param request - SumStorageMetricsByDateRequest
+   * @returns SumStorageMetricsByDateResponse
+   */
+  async sumStorageMetricsByDate(request: $_model.SumStorageMetricsByDateRequest): Promise<$_model.SumStorageMetricsByDateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.sumStorageMetricsByDateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Update the ComputeQuotaPlan.
    * 
    * @remarks

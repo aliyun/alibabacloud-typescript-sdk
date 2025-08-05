@@ -1,7 +1,66 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListUsersByRoleResponseBodyData } from "./ListUsersByRoleResponseBodyData";
 
+
+export class ListUsersByRoleResponseBodyDataUsers extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the user.
+   * 
+   * @example
+   * ALIYUN${account_name}
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersByRoleResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The users.
+   */
+  users?: ListUsersByRoleResponseBodyDataUsers[];
+  static names(): { [key: string]: string } {
+    return {
+      users: 'users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      users: { 'type': 'array', 'itemType': ListUsersByRoleResponseBodyDataUsers },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.users)) {
+      $dara.Model.validateArray(this.users);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListUsersByRoleResponseBody extends $dara.Model {
   /**
