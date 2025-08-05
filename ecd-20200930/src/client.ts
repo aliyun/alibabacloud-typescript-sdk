@@ -16055,6 +16055,11 @@ export default class Client extends OpenApi {
       body["ChargeType"] = request.chargeType;
     }
 
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataDiskList)) {
+      bodyFlat["DataDiskList"] = request.dataDiskList;
+    }
+
     if (!$dara.isNull(request.defaultLanguage)) {
       body["DefaultLanguage"] = request.defaultLanguage;
     }
@@ -16083,7 +16088,6 @@ export default class Client extends OpenApi {
       body["PostPaidAfterUsedUp"] = request.postPaidAfterUsedUp;
     }
 
-    let bodyFlat : {[key: string ]: any} = { };
     if (!$dara.isNull(request.regionConfigList)) {
       bodyFlat["RegionConfigList"] = request.regionConfigList;
     }

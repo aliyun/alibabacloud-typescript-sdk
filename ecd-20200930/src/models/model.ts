@@ -231,6 +231,7 @@ export { ModifyPolicyGroupRequestRevokeAccessPolicyRule } from './ModifyPolicyGr
 export { ModifyPolicyGroupRequestRevokeSecurityPolicyRule } from './ModifyPolicyGroupRequest';
 export { ModifyPolicyGroupRequestUsbSupplyRedirectRule } from './ModifyPolicyGroupRequest';
 export { ModifyResourceCenterPolicyResponseBodyModifyResults } from './ModifyResourceCenterPolicyResponseBody';
+export { ModifyTemplateRequestDataDiskList } from './ModifyTemplateRequest';
 export { ModifyTemplateRequestRegionConfigList } from './ModifyTemplateRequest';
 export { ModifyTemplateRequestResourceTagList } from './ModifyTemplateRequest';
 export { ModifyTemplateRequestSiteConfigList } from './ModifyTemplateRequest';

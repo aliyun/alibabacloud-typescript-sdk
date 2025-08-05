@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ModifyTemplateRequestDataDiskList extends $dara.Model {
+  performanceLevel?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      performanceLevel: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyTemplateRequestRegionConfigList extends $dara.Model {
   /**
    * @example
@@ -135,6 +161,7 @@ export class ModifyTemplateRequest extends $dara.Model {
   autoPay?: boolean;
   autoRenew?: boolean;
   chargeType?: string;
+  dataDiskList?: ModifyTemplateRequestDataDiskList[];
   /**
    * @example
    * zh-CN
@@ -196,6 +223,7 @@ export class ModifyTemplateRequest extends $dara.Model {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       chargeType: 'ChargeType',
+      dataDiskList: 'DataDiskList',
       defaultLanguage: 'DefaultLanguage',
       description: 'Description',
       imageId: 'ImageId',
@@ -221,6 +249,7 @@ export class ModifyTemplateRequest extends $dara.Model {
       autoPay: 'boolean',
       autoRenew: 'boolean',
       chargeType: 'string',
+      dataDiskList: { 'type': 'array', 'itemType': ModifyTemplateRequestDataDiskList },
       defaultLanguage: 'string',
       description: 'string',
       imageId: 'string',
@@ -242,6 +271,9 @@ export class ModifyTemplateRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.dataDiskList)) {
+      $dara.Model.validateArray(this.dataDiskList);
+    }
     if(Array.isArray(this.regionConfigList)) {
       $dara.Model.validateArray(this.regionConfigList);
     }
