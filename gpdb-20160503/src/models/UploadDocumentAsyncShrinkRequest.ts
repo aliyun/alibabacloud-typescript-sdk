@@ -145,6 +145,7 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
    * *   In most cases, you do not need to specify this parameter. The server assigns separators based on the value of the TextSplitterName parameter.
    */
   separatorsShrink?: string;
+  splitterModel?: string;
   /**
    * @remarks
    * The name of the splitter. Valid values:
@@ -185,6 +186,7 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       separatorsShrink: 'Separators',
+      splitterModel: 'SplitterModel',
       textSplitterName: 'TextSplitterName',
       vlEnhance: 'VlEnhance',
       zhTitleEnhance: 'ZhTitleEnhance',
@@ -207,6 +209,7 @@ export class UploadDocumentAsyncShrinkRequest extends $dara.Model {
       ownerId: 'number',
       regionId: 'string',
       separatorsShrink: 'string',
+      splitterModel: 'string',
       textSplitterName: 'string',
       vlEnhance: 'boolean',
       zhTitleEnhance: 'boolean',

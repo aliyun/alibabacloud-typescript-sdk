@@ -13677,6 +13677,10 @@ export default class Client extends OpenApi {
       body["Separators"] = request.separatorsShrink;
     }
 
+    if (!$dara.isNull(request.splitterModel)) {
+      body["SplitterModel"] = request.splitterModel;
+    }
+
     if (!$dara.isNull(request.textSplitterName)) {
       body["TextSplitterName"] = request.textSplitterName;
     }

@@ -145,6 +145,7 @@ export class UploadDocumentAsyncRequest extends $dara.Model {
    * *   In most cases, you do not need to specify this parameter. The server assigns separators based on the value of the TextSplitterName parameter.
    */
   separators?: string[];
+  splitterModel?: string;
   /**
    * @remarks
    * The name of the splitter. Valid values:
@@ -185,6 +186,7 @@ export class UploadDocumentAsyncRequest extends $dara.Model {
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       separators: 'Separators',
+      splitterModel: 'SplitterModel',
       textSplitterName: 'TextSplitterName',
       vlEnhance: 'VlEnhance',
       zhTitleEnhance: 'ZhTitleEnhance',
@@ -207,6 +209,7 @@ export class UploadDocumentAsyncRequest extends $dara.Model {
       ownerId: 'number',
       regionId: 'string',
       separators: { 'type': 'array', 'itemType': 'string' },
+      splitterModel: 'string',
       textSplitterName: 'string',
       vlEnhance: 'boolean',
       zhTitleEnhance: 'boolean',
