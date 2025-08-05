@@ -1596,6 +1596,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取专属ip的预热详情信息
+   * 
+   * @param request - GetDedicatedIpWarmUpDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDedicatedIpWarmUpDetailResponse
+   */
+  async getDedicatedIpWarmUpDetailWithOptions(request: $_model.GetDedicatedIpWarmUpDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDedicatedIpWarmUpDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dedicatedIp)) {
+      query["DedicatedIp"] = request.dedicatedIp;
+    }
+
+    if (!$dara.isNull(request.endDayMark)) {
+      query["EndDayMark"] = request.endDayMark;
+    }
+
+    if (!$dara.isNull(request.esp)) {
+      query["Esp"] = request.esp;
+    }
+
+    if (!$dara.isNull(request.startDayMark)) {
+      query["StartDayMark"] = request.startDayMark;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDedicatedIpWarmUpDetail",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDedicatedIpWarmUpDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetDedicatedIpWarmUpDetailResponse({}));
+  }
+
+  /**
+   * 获取专属ip的预热详情信息
+   * 
+   * @param request - GetDedicatedIpWarmUpDetailRequest
+   * @returns GetDedicatedIpWarmUpDetailResponse
+   */
+  async getDedicatedIpWarmUpDetail(request: $_model.GetDedicatedIpWarmUpDetailRequest): Promise<$_model.GetDedicatedIpWarmUpDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDedicatedIpWarmUpDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取专属ip的预热信息
+   * 
+   * @param request - GetDedicatedIpWarmUpInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDedicatedIpWarmUpInfoResponse
+   */
+  async getDedicatedIpWarmUpInfoWithOptions(request: $_model.GetDedicatedIpWarmUpInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDedicatedIpWarmUpInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dedicatedIp)) {
+      query["DedicatedIp"] = request.dedicatedIp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDedicatedIpWarmUpInfo",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDedicatedIpWarmUpInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetDedicatedIpWarmUpInfoResponse({}));
+  }
+
+  /**
+   * 获取专属ip的预热信息
+   * 
+   * @param request - GetDedicatedIpWarmUpInfoRequest
+   * @returns GetDedicatedIpWarmUpInfoResponse
+   */
+  async getDedicatedIpWarmUpInfo(request: $_model.GetDedicatedIpWarmUpInfoRequest): Promise<$_model.GetDedicatedIpWarmUpInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDedicatedIpWarmUpInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Get IP Protection Information
    * 
    * @param request - GetIpProtectionRequest

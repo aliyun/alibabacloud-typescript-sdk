@@ -21,10 +21,12 @@ export class DedicatedIpListResponseBodyIpsIpExt extends $dara.Model {
    * true
    */
   hasSendMail?: boolean;
+  lastWarmUpTypeChangedTime?: string;
   static names(): { [key: string]: string } {
     return {
       autoRenewal: 'AutoRenewal',
       hasSendMail: 'HasSendMail',
+      lastWarmUpTypeChangedTime: 'LastWarmUpTypeChangedTime',
     };
   }
 
@@ -32,6 +34,7 @@ export class DedicatedIpListResponseBodyIpsIpExt extends $dara.Model {
     return {
       autoRenewal: 'boolean',
       hasSendMail: 'boolean',
+      lastWarmUpTypeChangedTime: 'string',
     };
   }
 
