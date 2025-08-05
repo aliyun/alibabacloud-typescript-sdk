@@ -8060,6 +8060,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
    * 200
    */
   httpStatusCode?: number;
+  initCheckpoint?: string;
   /**
    * @remarks
    * The type of the DTS task. Valid values:
@@ -8290,6 +8291,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
       finishTime: 'FinishTime',
       groupId: 'GroupId',
       httpStatusCode: 'HttpStatusCode',
+      initCheckpoint: 'InitCheckpoint',
       jobType: 'JobType',
       lastUpdateTime: 'LastUpdateTime',
       maxDu: 'MaxDu',
@@ -8352,6 +8354,7 @@ export class DescribeDtsJobDetailResponseBody extends $dara.Model {
       finishTime: 'string',
       groupId: 'string',
       httpStatusCode: 'number',
+      initCheckpoint: 'string',
       jobType: 'string',
       lastUpdateTime: 'string',
       maxDu: 'number',
