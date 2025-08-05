@@ -1,7 +1,116 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListEventBusesResponseBodyData } from "./ListEventBusesResponseBodyData";
 
+
+export class ListEventBusesResponseBodyDataEventBuses extends $dara.Model {
+  /**
+   * @remarks
+   * The timestamp that indicates when the event bus was created.
+   * 
+   * @example
+   * 1607071602000
+   */
+  createTimestamp?: number;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * bus_description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the event bus.
+   * 
+   * @example
+   * acs:eventbridge:cn-hangzhou:123456789098***:eventbus/default
+   */
+  eventBusARN?: string;
+  /**
+   * @remarks
+   * The name of the event bus.
+   * 
+   * @example
+   * default
+   */
+  eventBusName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTimestamp: 'CreateTimestamp',
+      description: 'Description',
+      eventBusARN: 'EventBusARN',
+      eventBusName: 'EventBusName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimestamp: 'number',
+      description: 'string',
+      eventBusARN: 'string',
+      eventBusName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventBusesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The event buses.
+   */
+  eventBuses?: ListEventBusesResponseBodyDataEventBuses[];
+  /**
+   * @remarks
+   * If excess return values exist, this parameter is returned.
+   * 
+   * @example
+   * 10
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 2
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventBuses: 'EventBuses',
+      nextToken: 'NextToken',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventBuses: { 'type': 'array', 'itemType': ListEventBusesResponseBodyDataEventBuses },
+      nextToken: 'string',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.eventBuses)) {
+      $dara.Model.validateArray(this.eventBuses);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListEventBusesResponseBody extends $dara.Model {
   /**

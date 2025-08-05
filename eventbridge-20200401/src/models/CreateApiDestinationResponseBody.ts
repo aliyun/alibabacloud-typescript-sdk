@@ -1,7 +1,36 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateApiDestinationResponseBodyDate } from "./CreateApiDestinationResponseBodyDate";
 
+
+export class CreateApiDestinationResponseBodyDate extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the API destination.
+   * 
+   * @example
+   * ApiDestinationName
+   */
+  apiDestinationName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiDestinationName: 'ApiDestinationName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiDestinationName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateApiDestinationResponseBody extends $dara.Model {
   /**
