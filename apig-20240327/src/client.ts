@@ -3605,7 +3605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消部署HttpApi
+   * Unpublishes an HTTP API.
    * 
    * @param request - UndeployHttpApiRequest
    * @param headers - map
@@ -3650,7 +3650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消部署HttpApi
+   * Unpublishes an HTTP API.
    * 
    * @param request - UndeployHttpApiRequest
    * @returns UndeployHttpApiResponse

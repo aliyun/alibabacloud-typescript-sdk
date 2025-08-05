@@ -204,6 +204,11 @@ export class HttpApiDeployConfig extends $dara.Model {
    */
   gatewayId?: string;
   gatewayInfo?: GatewayInfo;
+  /**
+   * @example
+   * API
+   */
+  gatewayType?: string;
   mock?: HttpApiMockContract;
   policyConfigs?: HttpApiDeployConfigPolicyConfigs[];
   routeBackend?: Backend;
@@ -218,6 +223,7 @@ export class HttpApiDeployConfig extends $dara.Model {
       environmentId: 'environmentId',
       gatewayId: 'gatewayId',
       gatewayInfo: 'gatewayInfo',
+      gatewayType: 'gatewayType',
       mock: 'mock',
       policyConfigs: 'policyConfigs',
       routeBackend: 'routeBackend',
@@ -235,6 +241,7 @@ export class HttpApiDeployConfig extends $dara.Model {
       environmentId: 'string',
       gatewayId: 'string',
       gatewayInfo: GatewayInfo,
+      gatewayType: 'string',
       mock: HttpApiMockContract,
       policyConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfigPolicyConfigs },
       routeBackend: Backend,

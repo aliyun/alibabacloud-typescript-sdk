@@ -15,7 +15,7 @@ export class UndeployHttpApiRequest extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * Route ID. This must be provided when publishing the route of an HTTP API.
+   * The route ID. You must specify this parameter when you unpublish the route of an HTTP API.
    * 
    * @example
    * hr-cr82undlhtgrle***
