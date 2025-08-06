@@ -288,6 +288,7 @@ export class SetApplicationProvisioningConfigRequest extends $dara.Model {
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
+  networkAccessEndpointId?: string;
   /**
    * @remarks
    * Specifies whether to synchronize the password in IDaaS user event callbacks. Valid values:
@@ -322,6 +323,7 @@ export class SetApplicationProvisioningConfigRequest extends $dara.Model {
       applicationId: 'ApplicationId',
       callbackProvisioningConfig: 'CallbackProvisioningConfig',
       instanceId: 'InstanceId',
+      networkAccessEndpointId: 'NetworkAccessEndpointId',
       provisionPassword: 'ProvisionPassword',
       provisionProtocolType: 'ProvisionProtocolType',
       scimProvisioningConfig: 'ScimProvisioningConfig',
@@ -333,6 +335,7 @@ export class SetApplicationProvisioningConfigRequest extends $dara.Model {
       applicationId: 'string',
       callbackProvisioningConfig: SetApplicationProvisioningConfigRequestCallbackProvisioningConfig,
       instanceId: 'string',
+      networkAccessEndpointId: 'string',
       provisionPassword: 'boolean',
       provisionProtocolType: 'string',
       scimProvisioningConfig: SetApplicationProvisioningConfigRequestScimProvisioningConfig,

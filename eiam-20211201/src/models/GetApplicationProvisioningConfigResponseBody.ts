@@ -295,6 +295,7 @@ export class GetApplicationProvisioningConfigResponseBodyApplicationProvisioning
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
+  networkAccessEndpointId?: string;
   /**
    * @remarks
    * The public key endpoint for signature verification of the synchronization callback information.
@@ -347,6 +348,7 @@ export class GetApplicationProvisioningConfigResponseBodyApplicationProvisioning
       callbackProvisioningConfig: 'CallbackProvisioningConfig',
       configOperateMode: 'ConfigOperateMode',
       instanceId: 'InstanceId',
+      networkAccessEndpointId: 'NetworkAccessEndpointId',
       provisionJwksEndpoint: 'ProvisionJwksEndpoint',
       provisionPassword: 'ProvisionPassword',
       provisionProtocolType: 'ProvisionProtocolType',
@@ -361,6 +363,7 @@ export class GetApplicationProvisioningConfigResponseBodyApplicationProvisioning
       callbackProvisioningConfig: GetApplicationProvisioningConfigResponseBodyApplicationProvisioningConfigCallbackProvisioningConfig,
       configOperateMode: 'string',
       instanceId: 'string',
+      networkAccessEndpointId: 'string',
       provisionJwksEndpoint: 'string',
       provisionPassword: 'boolean',
       provisionProtocolType: 'string',

@@ -5541,6 +5541,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.networkAccessEndpointId)) {
+      query["NetworkAccessEndpointId"] = request.networkAccessEndpointId;
+    }
+
     if (!$dara.isNull(request.provisionPassword)) {
       query["ProvisionPassword"] = request.provisionPassword;
     }
