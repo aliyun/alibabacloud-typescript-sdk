@@ -46,6 +46,7 @@ export class ListOnlineEvalTasksRequest extends $dara.Model {
    * 50
    */
   pageSize?: number;
+  samplingMethod?: string;
   sortBy?: string;
   sortOrder?: string;
   status?: string;
@@ -57,6 +58,7 @@ export class ListOnlineEvalTasksRequest extends $dara.Model {
       minTime: 'MinTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      samplingMethod: 'SamplingMethod',
       sortBy: 'SortBy',
       sortOrder: 'SortOrder',
       status: 'Status',
@@ -71,6 +73,7 @@ export class ListOnlineEvalTasksRequest extends $dara.Model {
       minTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      samplingMethod: 'string',
       sortBy: 'string',
       sortOrder: 'string',
       status: 'string',

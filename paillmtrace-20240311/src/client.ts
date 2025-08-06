@@ -524,6 +524,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.samplingMethod)) {
+      query["SamplingMethod"] = request.samplingMethod;
+    }
+
     if (!$dara.isNull(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
