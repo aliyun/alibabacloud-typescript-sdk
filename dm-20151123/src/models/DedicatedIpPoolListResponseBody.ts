@@ -19,10 +19,12 @@ export class DedicatedIpPoolListResponseBodyIpPoolsIps extends $dara.Model {
    * xxx
    */
   ip?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       ip: 'Ip',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -30,6 +32,7 @@ export class DedicatedIpPoolListResponseBodyIpPoolsIps extends $dara.Model {
     return {
       id: 'string',
       ip: 'string',
+      zoneId: 'string',
     };
   }
 

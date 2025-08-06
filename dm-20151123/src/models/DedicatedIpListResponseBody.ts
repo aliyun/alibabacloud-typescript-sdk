@@ -125,6 +125,7 @@ export class DedicatedIpListResponseBodyIps extends $dara.Model {
    * cusSelfManager
    */
   warmupType?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       expiredTime: 'ExpiredTime',
@@ -137,6 +138,7 @@ export class DedicatedIpListResponseBodyIps extends $dara.Model {
       status: 'Status',
       warmupStatus: 'WarmupStatus',
       warmupType: 'WarmupType',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -152,6 +154,7 @@ export class DedicatedIpListResponseBodyIps extends $dara.Model {
       status: 'string',
       warmupStatus: 'string',
       warmupType: 'string',
+      zoneId: 'string',
     };
   }
 
