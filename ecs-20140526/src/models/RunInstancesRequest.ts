@@ -499,6 +499,29 @@ export class RunInstancesRequestArn extends $dara.Model {
   }
 }
 
+export class RunInstancesRequestClockOptions extends $dara.Model {
+  ptpStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ptpStatus: 'PtpStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ptpStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunInstancesRequestDataDisk extends $dara.Model {
   /**
    * @remarks
@@ -1402,6 +1425,7 @@ export class RunInstancesRequest extends $dara.Model {
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
+  clockOptions?: RunInstancesRequestClockOptions;
   /**
    * @remarks
    * The performance mode of the burstable instance. Valid values:
@@ -2096,6 +2120,7 @@ export class RunInstancesRequest extends $dara.Model {
       autoRenew: 'AutoRenew',
       autoRenewPeriod: 'AutoRenewPeriod',
       clientToken: 'ClientToken',
+      clockOptions: 'ClockOptions',
       creditSpecification: 'CreditSpecification',
       dataDisk: 'DataDisk',
       dedicatedHostId: 'DedicatedHostId',
@@ -2178,6 +2203,7 @@ export class RunInstancesRequest extends $dara.Model {
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
       clientToken: 'string',
+      clockOptions: RunInstancesRequestClockOptions,
       creditSpecification: 'string',
       dataDisk: { 'type': 'array', 'itemType': RunInstancesRequestDataDisk },
       dedicatedHostId: 'string',
@@ -2265,6 +2291,9 @@ export class RunInstancesRequest extends $dara.Model {
     }
     if(Array.isArray(this.arn)) {
       $dara.Model.validateArray(this.arn);
+    }
+    if(this.clockOptions && typeof (this.clockOptions as any).validate === 'function') {
+      (this.clockOptions as any).validate();
     }
     if(Array.isArray(this.dataDisk)) {
       $dara.Model.validateArray(this.dataDisk);

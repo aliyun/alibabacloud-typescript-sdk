@@ -32863,6 +32863,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.clockOptions)) {
+      query["ClockOptions"] = request.clockOptions;
+    }
+
     if (!$dara.isNull(request.creditSpecification)) {
       query["CreditSpecification"] = request.creditSpecification;
     }

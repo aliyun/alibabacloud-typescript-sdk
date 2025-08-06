@@ -847,6 +847,7 @@ export { RunInstancesRequestSchedulerOptions } from './RunInstancesRequest';
 export { RunInstancesRequestSecurityOptions } from './RunInstancesRequest';
 export { RunInstancesRequestSystemDisk } from './RunInstancesRequest';
 export { RunInstancesRequestArn } from './RunInstancesRequest';
+export { RunInstancesRequestClockOptions } from './RunInstancesRequest';
 export { RunInstancesRequestDataDisk } from './RunInstancesRequest';
 export { RunInstancesRequestImageOptions } from './RunInstancesRequest';
 export { RunInstancesRequestNetworkInterface } from './RunInstancesRequest';

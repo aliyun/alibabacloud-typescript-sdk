@@ -59,7 +59,7 @@ export class DescribeDeploymentSetsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * Valid values: 1 to 50.
    * 
