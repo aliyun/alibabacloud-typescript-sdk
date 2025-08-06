@@ -4505,6 +4505,10 @@ export default class Client extends OpenApi {
       request.participantIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.participantIds, "participantIds", "json");
     }
 
+    if (!$dara.isNull(tmpReq.remindNotifyConfigs)) {
+      request.remindNotifyConfigsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.remindNotifyConfigs, "remindNotifyConfigs", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.operatorId)) {
       query["operatorId"] = request.operatorId;
@@ -4557,6 +4561,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.priority)) {
       body["priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.remindNotifyConfigsShrink)) {
+      body["remindNotifyConfigs"] = request.remindNotifyConfigsShrink;
+    }
+
+    if (!$dara.isNull(request.reminderTimeStamp)) {
+      body["reminderTimeStamp"] = request.reminderTimeStamp;
     }
 
     if (!$dara.isNull(request.sourceId)) {
@@ -7187,6 +7199,72 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetAssistantCapabilityHeaders({ });
     return await this.getAssistantCapabilityWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @param tmpReq - GetCardTemplateRequest
+   * @param tmpHeader - GetCardTemplateHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCardTemplateResponse
+   */
+  async getCardTemplateWithOptions(tmpReq: $_model.GetCardTemplateRequest, tmpHeader: $_model.GetCardTemplateHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetCardTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetCardTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetCardTemplateShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCardTemplate",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/card/getCardTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCardTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetCardTemplateResponse({}));
+  }
+
+  /**
+   * @param request - GetCardTemplateRequest
+   * @returns GetCardTemplateResponse
+   */
+  async getCardTemplate(request: $_model.GetCardTemplateRequest): Promise<$_model.GetCardTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetCardTemplateHeaders({ });
+    return await this.getCardTemplateWithOptions(request, headers, runtime);
   }
 
   /**

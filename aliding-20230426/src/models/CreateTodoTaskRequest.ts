@@ -182,15 +182,63 @@ export class CreateTodoTaskRequestNotifyConfigs extends $dara.Model {
    * 1
    */
   dingNotify?: string;
+  /**
+   * @example
+   * true
+   */
+  sendAssistantChat?: string;
+  /**
+   * @example
+   * true
+   */
+  sendTodoApn?: string;
   static names(): { [key: string]: string } {
     return {
       dingNotify: 'dingNotify',
+      sendAssistantChat: 'sendAssistantChat',
+      sendTodoApn: 'sendTodoApn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       dingNotify: 'string',
+      sendAssistantChat: 'string',
+      sendTodoApn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskRequestRemindNotifyConfigs extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  dingNotify?: string;
+  /**
+   * @example
+   * true
+   */
+  sendTodoApn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dingNotify: 'dingNotify',
+      sendTodoApn: 'sendTodoApn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingNotify: 'string',
+      sendTodoApn: 'string',
     };
   }
 
@@ -241,6 +289,12 @@ export class CreateTodoTaskRequest extends $dara.Model {
    * 20
    */
   priority?: number;
+  remindNotifyConfigs?: CreateTodoTaskRequestRemindNotifyConfigs;
+  /**
+   * @example
+   * 1754364432000
+   */
+  reminderTimeStamp?: number;
   /**
    * @example
    * isv_dingtalkTodo1
@@ -269,6 +323,8 @@ export class CreateTodoTaskRequest extends $dara.Model {
       operatorId: 'operatorId',
       participantIds: 'participantIds',
       priority: 'priority',
+      remindNotifyConfigs: 'remindNotifyConfigs',
+      reminderTimeStamp: 'reminderTimeStamp',
       sourceId: 'sourceId',
       subject: 'subject',
     };
@@ -289,6 +345,8 @@ export class CreateTodoTaskRequest extends $dara.Model {
       operatorId: 'string',
       participantIds: { 'type': 'array', 'itemType': 'string' },
       priority: 'number',
+      remindNotifyConfigs: CreateTodoTaskRequestRemindNotifyConfigs,
+      reminderTimeStamp: 'number',
       sourceId: 'string',
       subject: 'string',
     };
@@ -315,6 +373,9 @@ export class CreateTodoTaskRequest extends $dara.Model {
     }
     if(Array.isArray(this.participantIds)) {
       $dara.Model.validateArray(this.participantIds);
+    }
+    if(this.remindNotifyConfigs && typeof (this.remindNotifyConfigs as any).validate === 'function') {
+      (this.remindNotifyConfigs as any).validate();
     }
     super.validate();
   }

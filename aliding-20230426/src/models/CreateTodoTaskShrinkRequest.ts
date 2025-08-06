@@ -40,6 +40,12 @@ export class CreateTodoTaskShrinkRequest extends $dara.Model {
    * 20
    */
   priority?: number;
+  remindNotifyConfigsShrink?: string;
+  /**
+   * @example
+   * 1754364432000
+   */
+  reminderTimeStamp?: number;
   /**
    * @example
    * isv_dingtalkTodo1
@@ -68,6 +74,8 @@ export class CreateTodoTaskShrinkRequest extends $dara.Model {
       operatorId: 'operatorId',
       participantIdsShrink: 'participantIds',
       priority: 'priority',
+      remindNotifyConfigsShrink: 'remindNotifyConfigs',
+      reminderTimeStamp: 'reminderTimeStamp',
       sourceId: 'sourceId',
       subject: 'subject',
     };
@@ -88,6 +96,8 @@ export class CreateTodoTaskShrinkRequest extends $dara.Model {
       operatorId: 'string',
       participantIdsShrink: 'string',
       priority: 'number',
+      remindNotifyConfigsShrink: 'string',
+      reminderTimeStamp: 'number',
       sourceId: 'string',
       subject: 'string',
     };
