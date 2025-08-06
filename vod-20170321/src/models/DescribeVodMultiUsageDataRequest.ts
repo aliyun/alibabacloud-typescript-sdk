@@ -1,0 +1,34 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class DescribeVodMultiUsageDataRequest extends $dara.Model {
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  timePoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      timePoint: 'TimePoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      timePoint: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
