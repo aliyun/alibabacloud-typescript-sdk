@@ -2790,6 +2790,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询事件流
+   * 
+   * @param request - UpdateEventStreamingBusinessOptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateEventStreamingBusinessOptionResponse
+   */
+  async updateEventStreamingBusinessOptionWithOptions(request: $_model.UpdateEventStreamingBusinessOptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateEventStreamingBusinessOptionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessMode)) {
+      body["BusinessMode"] = request.businessMode;
+    }
+
+    if (!$dara.isNull(request.eventStreamingName)) {
+      body["EventStreamingName"] = request.eventStreamingName;
+    }
+
+    if (!$dara.isNull(request.maxCapacityUnitCount)) {
+      body["MaxCapacityUnitCount"] = request.maxCapacityUnitCount;
+    }
+
+    if (!$dara.isNull(request.minCapacityUnitCount)) {
+      body["MinCapacityUnitCount"] = request.minCapacityUnitCount;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateEventStreamingBusinessOption",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateEventStreamingBusinessOptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateEventStreamingBusinessOptionResponse({}));
+  }
+
+  /**
+   * 查询事件流
+   * 
+   * @param request - UpdateEventStreamingBusinessOptionRequest
+   * @returns UpdateEventStreamingBusinessOptionResponse
+   */
+  async updateEventStreamingBusinessOption(request: $_model.UpdateEventStreamingBusinessOptionRequest): Promise<$_model.UpdateEventStreamingBusinessOptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateEventStreamingBusinessOptionWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the configurations of an event rule.
    * 
    * @remarks
