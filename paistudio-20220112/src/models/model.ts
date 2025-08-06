@@ -67,6 +67,7 @@ export { AllocateStrategySpec } from './AllocateStrategySpec';
 export { BindingPolicy } from './BindingPolicy';
 export { CacheInfo } from './CacheInfo';
 export { CacheService } from './CacheService';
+export { CapacityLock } from './CapacityLock';
 export { Channel } from './Channel';
 export { ChannelProperty } from './ChannelProperty';
 export { ComponentSpec } from './ComponentSpec';

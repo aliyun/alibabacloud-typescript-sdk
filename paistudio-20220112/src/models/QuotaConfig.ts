@@ -37,6 +37,7 @@ export class QuotaConfig extends $dara.Model {
    * false
    */
   supportRDMA?: boolean;
+  useCase?: string;
   userVpc?: UserVpc;
   static names(): { [key: string]: string } {
     return {
@@ -54,6 +55,7 @@ export class QuotaConfig extends $dara.Model {
       subQuotaPreemptionConfig: 'SubQuotaPreemptionConfig',
       supportGPUDrivers: 'SupportGPUDrivers',
       supportRDMA: 'SupportRDMA',
+      useCase: 'UseCase',
       userVpc: 'UserVpc',
     };
   }
@@ -74,6 +76,7 @@ export class QuotaConfig extends $dara.Model {
       subQuotaPreemptionConfig: SubQuotaPreemptionConfig,
       supportGPUDrivers: { 'type': 'array', 'itemType': 'string' },
       supportRDMA: 'boolean',
+      useCase: 'string',
       userVpc: UserVpc,
     };
   }

@@ -61,6 +61,7 @@ export class ListNodesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  paymentType?: string;
   /**
    * @example
    * quotamtl37ge7gkvdz
@@ -98,6 +99,7 @@ export class ListNodesRequest extends $dara.Model {
       orderStatuses: 'OrderStatuses',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      paymentType: 'PaymentType',
       quotaId: 'QuotaId',
       reasonCodes: 'ReasonCodes',
       resourceGroupIds: 'ResourceGroupIds',
@@ -122,6 +124,7 @@ export class ListNodesRequest extends $dara.Model {
       orderStatuses: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      paymentType: 'string',
       quotaId: 'string',
       reasonCodes: 'string',
       resourceGroupIds: 'string',

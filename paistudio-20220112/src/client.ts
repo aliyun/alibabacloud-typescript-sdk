@@ -1720,6 +1720,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.paymentType)) {
+      query["PaymentType"] = request.paymentType;
+    }
+
     if (!$dara.isNull(request.quotaId)) {
       query["QuotaId"] = request.quotaId;
     }
