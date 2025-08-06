@@ -226,6 +226,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateBusinessOpportunity
+   * 
    * @param request - CreateBusinessOpportunityRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateBusinessOpportunityResponse
@@ -271,6 +273,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateBusinessOpportunity
+   * 
    * @param request - CreateBusinessOpportunityRequest
    * @returns CreateBusinessOpportunityResponse
    */
@@ -368,6 +372,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * GenerateUploadFilePolicy
+   * 
    * @param request - GenerateUploadFilePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateUploadFilePolicyResponse
@@ -405,6 +411,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * GenerateUploadFilePolicy
+   * 
    * @param request - GenerateUploadFilePolicyRequest
    * @returns GenerateUploadFilePolicyResponse
    */
@@ -1075,6 +1083,56 @@ export default class Client extends OpenApi {
   async queryBagRemaining(request: $_model.QueryBagRemainingRequest): Promise<$_model.QueryBagRemainingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryBagRemainingWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询玄坛外呼语音文件
+   * 
+   * @param request - QueryCallRecordListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCallRecordListResponse
+   */
+  async queryCallRecordListWithOptions(request: $_model.QueryCallRecordListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryCallRecordListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.skillType)) {
+      query["SkillType"] = request.skillType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryCallRecordList",
+      version: "2020-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryCallRecordListResponse>(await this.callApi(params, req, runtime), new $_model.QueryCallRecordListResponse({}));
+  }
+
+  /**
+   * 查询玄坛外呼语音文件
+   * 
+   * @param request - QueryCallRecordListRequest
+   * @returns QueryCallRecordListResponse
+   */
+  async queryCallRecordList(request: $_model.QueryCallRecordListRequest): Promise<$_model.QueryCallRecordListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryCallRecordListWithOptions(request, runtime);
   }
 
   /**

@@ -2,27 +2,27 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QueryPartnerIntentionListResponseBodyData extends $dara.Model {
+export class QueryCallRecordListRequest extends $dara.Model {
   /**
-   * @example
-   * I20211117092704000001
+   * @remarks
+   * This parameter is required.
    */
   bizId?: string;
   /**
-   * @example
-   * esp.wangwen
+   * @remarks
+   * This parameter is required.
    */
   bizType?: string;
   /**
-   * @example
-   * 18700000003
+   * @remarks
+   * This parameter is required.
    */
-  mobile?: string;
+  skillType?: number;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
       bizType: 'BizType',
-      mobile: 'Mobile',
+      skillType: 'SkillType',
     };
   }
 
@@ -30,7 +30,7 @@ export class QueryPartnerIntentionListResponseBodyData extends $dara.Model {
     return {
       bizId: 'string',
       bizType: 'string',
-      mobile: 'string',
+      skillType: 'number',
     };
   }
 
