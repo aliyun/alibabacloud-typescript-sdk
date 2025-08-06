@@ -39,6 +39,8 @@ export { GetConsumerProgressResponseBodyConsumerProgressTopicList } from './GetC
 export { GetConsumerProgressResponseBodyConsumerProgress } from './GetConsumerProgressResponseBody';
 export { GetInstanceListRequestTag } from './GetInstanceListRequest';
 export { GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig } from './GetInstanceListResponseBody';
+export { GetInstanceListResponseBodyInstanceListInstanceVOConfluentInstanceComponentsConfluentInstanceComponentVO } from './GetInstanceListResponseBody';
+export { GetInstanceListResponseBodyInstanceListInstanceVOConfluentInstanceComponents } from './GetInstanceListResponseBody';
 export { GetInstanceListResponseBodyInstanceListInstanceVOTagsTagVO } from './GetInstanceListResponseBody';
 export { GetInstanceListResponseBodyInstanceListInstanceVOTags } from './GetInstanceListResponseBody';
 export { GetInstanceListResponseBodyInstanceListInstanceVOUpgradeServiceDetailInfo } from './GetInstanceListResponseBody';

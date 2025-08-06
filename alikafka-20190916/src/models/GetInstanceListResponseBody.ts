@@ -202,6 +202,64 @@ export class GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig ex
   }
 }
 
+export class GetInstanceListResponseBodyInstanceListInstanceVOConfluentInstanceComponentsConfluentInstanceComponentVO extends $dara.Model {
+  componentType?: string;
+  deployModule?: string;
+  pubEndpoint?: string;
+  vpcEndpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      componentType: 'ComponentType',
+      deployModule: 'DeployModule',
+      pubEndpoint: 'PubEndpoint',
+      vpcEndpoint: 'VpcEndpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentType: 'string',
+      deployModule: 'string',
+      pubEndpoint: 'string',
+      vpcEndpoint: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceListResponseBodyInstanceListInstanceVOConfluentInstanceComponents extends $dara.Model {
+  confluentInstanceComponentVO?: GetInstanceListResponseBodyInstanceListInstanceVOConfluentInstanceComponentsConfluentInstanceComponentVO[];
+  static names(): { [key: string]: string } {
+    return {
+      confluentInstanceComponentVO: 'ConfluentInstanceComponentVO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confluentInstanceComponentVO: { 'type': 'array', 'itemType': GetInstanceListResponseBodyInstanceListInstanceVOConfluentInstanceComponentsConfluentInstanceComponentVO },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.confluentInstanceComponentVO)) {
+      $dara.Model.validateArray(this.confluentInstanceComponentVO);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceListResponseBodyInstanceListInstanceVOTagsTagVO extends $dara.Model {
   /**
    * @remarks
@@ -362,6 +420,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $dara.Mod
    * The parameters that are returned for the ApsaraMQ for Confluent instance.
    */
   confluentConfig?: GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig;
+  confluentInstanceComponents?: GetInstanceListResponseBodyInstanceListInstanceVOConfluentInstanceComponents;
   /**
    * @remarks
    * The time when the instance was created. Unit: milliseconds.
@@ -794,6 +853,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $dara.Mod
       autoCreateTopicEnable: 'AutoCreateTopicEnable',
       backupZoneId: 'BackupZoneId',
       confluentConfig: 'ConfluentConfig',
+      confluentInstanceComponents: 'ConfluentInstanceComponents',
       createTime: 'CreateTime',
       defaultPartitionNum: 'DefaultPartitionNum',
       deployType: 'DeployType',
@@ -849,6 +909,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $dara.Mod
       autoCreateTopicEnable: 'boolean',
       backupZoneId: 'string',
       confluentConfig: GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig,
+      confluentInstanceComponents: GetInstanceListResponseBodyInstanceListInstanceVOConfluentInstanceComponents,
       createTime: 'number',
       defaultPartitionNum: 'number',
       deployType: 'number',
@@ -900,6 +961,9 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $dara.Mod
   validate() {
     if(this.confluentConfig && typeof (this.confluentConfig as any).validate === 'function') {
       (this.confluentConfig as any).validate();
+    }
+    if(this.confluentInstanceComponents && typeof (this.confluentInstanceComponents as any).validate === 'function') {
+      (this.confluentInstanceComponents as any).validate();
     }
     if(this.tags && typeof (this.tags as any).validate === 'function') {
       (this.tags as any).validate();
