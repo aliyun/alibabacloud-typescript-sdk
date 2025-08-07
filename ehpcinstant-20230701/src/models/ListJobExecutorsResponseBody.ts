@@ -8,8 +8,10 @@ export class ListJobExecutorsResponseBodyExecutorStatus extends $dara.Model {
   failed?: number;
   initing?: number;
   pending?: number;
+  restarting?: number;
   running?: number;
   succeeded?: number;
+  suspended?: number;
   static names(): { [key: string]: string } {
     return {
       deleted: 'Deleted',
@@ -17,8 +19,10 @@ export class ListJobExecutorsResponseBodyExecutorStatus extends $dara.Model {
       failed: 'Failed',
       initing: 'Initing',
       pending: 'Pending',
+      restarting: 'Restarting',
       running: 'Running',
       succeeded: 'Succeeded',
+      suspended: 'Suspended',
     };
   }
 
@@ -29,8 +33,10 @@ export class ListJobExecutorsResponseBodyExecutorStatus extends $dara.Model {
       failed: 'number',
       initing: 'number',
       pending: 'number',
+      restarting: 'number',
       running: 'number',
       succeeded: 'number',
+      suspended: 'number',
     };
   }
 

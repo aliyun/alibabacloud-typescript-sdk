@@ -31,11 +31,13 @@ export class ListExecutorsResponseBodyExecutorsResourceDisks extends $dara.Model
 export class ListExecutorsResponseBodyExecutorsResource extends $dara.Model {
   cores?: number;
   disks?: ListExecutorsResponseBodyExecutorsResourceDisks[];
+  instanceType?: string;
   memory?: number;
   static names(): { [key: string]: string } {
     return {
       cores: 'Cores',
       disks: 'Disks',
+      instanceType: 'InstanceType',
       memory: 'Memory',
     };
   }
@@ -44,6 +46,7 @@ export class ListExecutorsResponseBodyExecutorsResource extends $dara.Model {
     return {
       cores: 'number',
       disks: { 'type': 'array', 'itemType': ListExecutorsResponseBodyExecutorsResourceDisks },
+      instanceType: 'string',
       memory: 'number',
     };
   }
