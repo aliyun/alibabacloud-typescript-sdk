@@ -53,6 +53,13 @@ export class CreateServiceInstanceRequestCommodity extends $dara.Model {
    * Year
    */
   payPeriodUnit?: string;
+  /**
+   * @remarks
+   * privet offer Id
+   * 
+   * @example
+   * xxxx-xxxx-xxxx-xxxx
+   */
   quotationId?: string;
   static names(): { [key: string]: string } {
     return {

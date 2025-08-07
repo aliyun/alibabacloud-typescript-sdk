@@ -6,7 +6,7 @@ import { CommodityValue } from "./CommodityValue";
 export class GetServiceEstimateCostResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The estimated price.
+   * Alibaba Cloud Marketplace purchase order information.
    * 
    * @example
    * {\\"cmgj00059839\\": {\\"Result\\": {\\"InquiryType\\": \\"Buy\\", \\"Order\\": {\\"Currency\\": \\"CNY\\", \\"DiscountAmount\\": \\"0.0\\", \\"TradeAmount\\": \\"0.01\\", \\"OriginalAmount\\": \\"0.01\\"}}}}

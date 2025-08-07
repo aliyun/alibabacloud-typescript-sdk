@@ -264,6 +264,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create backup for Compute Nest instance
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+   * 
+   * @param request - CreateBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBackupResponse
+   */
+  async createBackupWithOptions(request: $_model.CreateBackupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBackupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBackup",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBackupResponse>(await this.callApi(params, req, runtime), new $_model.CreateBackupResponse({}));
+  }
+
+  /**
+   * Create backup for Compute Nest instance
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+   * 
+   * @param request - CreateBackupRequest
+   * @returns CreateBackupResponse
+   */
+  async createBackup(request: $_model.CreateBackupRequest): Promise<$_model.CreateBackupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBackupWithOptions(request, runtime);
+  }
+
+  /**
+   * Create restore task
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+   * 
+   * @param request - CreateRestoreTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRestoreTaskResponse
+   */
+  async createRestoreTaskWithOptions(request: $_model.CreateRestoreTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRestoreTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
+    if (!$dara.isNull(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRestoreTask",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRestoreTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateRestoreTaskResponse({}));
+  }
+
+  /**
+   * Create restore task
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+   * 
+   * @param request - CreateRestoreTaskRequest
+   * @returns CreateRestoreTaskResponse
+   */
+  async createRestoreTask(request: $_model.CreateRestoreTaskRequest): Promise<$_model.CreateRestoreTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRestoreTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Creates and deploys a service instance.
    * 
    * @param tmpReq - CreateServiceInstanceRequest
@@ -441,6 +549,56 @@ export default class Client extends OpenApi {
   async createServiceUsage(request: $_model.CreateServiceUsageRequest): Promise<$_model.CreateServiceUsageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createServiceUsageWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete Compute Nest instance backups.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+   * 
+   * @param request - DeleteBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBackupResponse
+   */
+  async deleteBackupWithOptions(request: $_model.DeleteBackupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBackupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBackup",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBackupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBackupResponse({}));
+  }
+
+  /**
+   * Delete Compute Nest instance backups.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+   * 
+   * @param request - DeleteBackupRequest
+   * @returns DeleteBackupResponse
+   */
+  async deleteBackup(request: $_model.DeleteBackupRequest): Promise<$_model.DeleteBackupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBackupWithOptions(request, runtime);
   }
 
   /**
@@ -645,6 +803,56 @@ export default class Client extends OpenApi {
   async generateServicePolicy(request: $_model.GenerateServicePolicyRequest): Promise<$_model.GenerateServicePolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.generateServicePolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information about backup task.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+   * 
+   * @param request - GetBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBackupResponse
+   */
+  async getBackupWithOptions(request: $_model.GetBackupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetBackupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBackup",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBackupResponse>(await this.callApi(params, req, runtime), new $_model.GetBackupResponse({}));
+  }
+
+  /**
+   * Queries the information about backup task.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+   * 
+   * @param request - GetBackupRequest
+   * @returns GetBackupResponse
+   */
+  async getBackup(request: $_model.GetBackupRequest): Promise<$_model.GetBackupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getBackupWithOptions(request, runtime);
   }
 
   /**
@@ -1110,6 +1318,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query and list Compute Nest instance backups
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+   * 
+   * @param request - ListBackupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBackupsResponse
+   */
+  async listBackupsWithOptions(request: $_model.ListBackupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBackupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBackups",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBackupsResponse>(await this.callApi(params, req, runtime), new $_model.ListBackupsResponse({}));
+  }
+
+  /**
+   * Query and list Compute Nest instance backups
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+   * 
+   * @param request - ListBackupsRequest
+   * @returns ListBackupsResponse
+   */
+  async listBackups(request: $_model.ListBackupsRequest): Promise<$_model.ListBackupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBackupsWithOptions(request, runtime);
+  }
+
+  /**
    * Query Permission Policy List
    * 
    * @param request - ListPoliciesRequest
@@ -1157,6 +1423,64 @@ export default class Client extends OpenApi {
   async listPolicies(request: $_model.ListPoliciesRequest): Promise<$_model.ListPoliciesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listPoliciesWithOptions(request, runtime);
+  }
+
+  /**
+   * Query and list restore tasks
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+   * 
+   * @param request - ListRestoreTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRestoreTasksResponse
+   */
+  async listRestoreTasksWithOptions(request: $_model.ListRestoreTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRestoreTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRestoreTasks",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRestoreTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListRestoreTasksResponse({}));
+  }
+
+  /**
+   * Query and list restore tasks
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+   * 
+   * @param request - ListRestoreTasksRequest
+   * @returns ListRestoreTasksResponse
+   */
+  async listRestoreTasks(request: $_model.ListRestoreTasksRequest): Promise<$_model.ListRestoreTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRestoreTasksWithOptions(request, runtime);
   }
 
   /**

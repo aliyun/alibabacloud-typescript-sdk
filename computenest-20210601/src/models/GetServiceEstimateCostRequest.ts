@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceEstimateCostRequestCommodity extends $dara.Model {
   /**
    * @remarks
-   * 优惠券ID
+   * The coupon ID.
    * 
    * @example
    * 302070970220
@@ -13,7 +13,7 @@ export class GetServiceEstimateCostRequestCommodity extends $dara.Model {
   couponId?: string;
   /**
    * @remarks
-   * The subscription duration.
+   * The subscription duration of the instance.
    * 
    * @example
    * 1
@@ -31,6 +31,13 @@ export class GetServiceEstimateCostRequestCommodity extends $dara.Model {
    * Year
    */
   payPeriodUnit?: string;
+  /**
+   * @remarks
+   * Marketplace private offer Id
+   * 
+   * @example
+   * 17cde2e8-2f5d-xxxx-xxxx-5120dd215d66
+   */
   quotationId?: string;
   static names(): { [key: string]: string } {
     return {

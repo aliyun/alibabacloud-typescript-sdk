@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class CommodityValueResultOrder extends $dara.Model {
   /**
    * @remarks
-   * 货币代码。
+   * The code of the native currency.
    * 
    * @example
    * CNY
@@ -15,7 +15,7 @@ export class CommodityValueResultOrder extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * 优惠后。
+   * Amount after the discount.
    * 
    * @example
    * 9.99
@@ -23,7 +23,7 @@ export class CommodityValueResultOrder extends $dara.Model {
   tradeAmount?: string;
   /**
    * @remarks
-   * 抵扣金额。
+   * The discount amount.
    * 
    * @example
    * 1.99
@@ -31,7 +31,7 @@ export class CommodityValueResultOrder extends $dara.Model {
   discountAmount?: string;
   /**
    * @remarks
-   * 优惠前。
+   * Amount before the discount.
    * 
    * @example
    * 11.98
@@ -67,12 +67,12 @@ export class CommodityValueResultOrder extends $dara.Model {
 export class CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs extends $dara.Model {
   /**
    * @remarks
-   * 属性类型，可选值：
+   * The type of the attribute. Valid values:
    * 
-   * 1. 1：商品属性 
-   * 2. 2：规格属性 
-   * 3. 3：模块属性 
-   * 4. 4：外部参数（备用）
+   * 1.  1: product
+   * 2.  2\\. specifications
+   * 3.  3: module
+   * 4.  4: external parameters (backup)
    * 
    * @example
    * 3
@@ -80,7 +80,7 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs exte
   type?: number;
   /**
    * @remarks
-   * Name
+   * The attribute name.
    * 
    * @example
    * 20GB
@@ -88,7 +88,7 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs exte
   name?: string;
   /**
    * @remarks
-   * Module attr code
+   * The attribute code.
    * 
    * @example
    * rds_storage
@@ -96,7 +96,7 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs exte
   code?: string;
   /**
    * @remarks
-   * Value
+   * The attribute value.
    * 
    * @example
    * 20
@@ -104,7 +104,7 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs exte
   value?: string;
   /**
    * @remarks
-   * Unit
+   * The unit of the value.
    * 
    * @example
    * GB
@@ -142,7 +142,7 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs exte
 export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.Model {
   /**
    * @remarks
-   * 模块ID。
+   * The module ID.
    * 
    * @example
    * 1234
@@ -150,7 +150,7 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.M
   moduleId?: number;
   /**
    * @remarks
-   * 模块名称。
+   * The module name.
    * 
    * @example
    * Rds
@@ -158,7 +158,7 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.M
   moduleName?: string;
   /**
    * @remarks
-   * 模块代码。
+   * The module code.
    * 
    * @example
    * rds_dbtype
@@ -166,7 +166,7 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.M
   moduleCode?: string;
   /**
    * @remarks
-   * 产品原价（元）。
+   * The original price (RMB).
    * 
    * @example
    * 10.00
@@ -174,7 +174,7 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.M
   totalProductFee?: number;
   /**
    * @remarks
-   * 折扣费用（元）。
+   * The discount amount (RMB).
    * 
    * @example
    * 1.99
@@ -182,7 +182,7 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.M
   discountFee?: number;
   /**
    * @remarks
-   * 实付金额（元）。
+   * The amount actually paid (RMB).
    * 
    * @example
    * 8.01
@@ -190,15 +190,15 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.M
   payFee?: number;
   /**
    * @remarks
-   * 价格单位。
+   * The unit of the price.
    * 
    * @example
-   * 元/GB/小时
+   * Yuan/GB/hour
    */
   priceUnit?: string;
   /**
    * @remarks
-   * 是否计价项。
+   * Indicates whether the item is billed.
    * 
    * @example
    * true
@@ -206,7 +206,7 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.M
   isPricingModule?: boolean;
   /**
    * @remarks
-   * 在订单中是否需要支付。
+   * Indicates whether the order is paid.
    * 
    * @example
    * true
@@ -214,7 +214,7 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.M
   needOrderPay?: boolean;
   /**
    * @remarks
-   * 定价类型。
+   * The pricing type.
    * 
    * @example
    * hourPrice
@@ -222,9 +222,11 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.M
   priceType?: string;
   /**
    * @remarks
-   * 模块属性。
+   * The module attributes.
    */
   moduleAttrs?: CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs[];
+  moduleNameEn?: string;
+  priceUnitEn?: string;
   static names(): { [key: string]: string } {
     return {
       moduleId: 'ModuleId',
@@ -238,6 +240,8 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.M
       needOrderPay: 'NeedOrderPay',
       priceType: 'PriceType',
       moduleAttrs: 'ModuleAttrs',
+      moduleNameEn: 'ModuleNameEn',
+      priceUnitEn: 'PriceUnitEn',
     };
   }
 
@@ -254,6 +258,8 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.M
       needOrderPay: 'boolean',
       priceType: 'string',
       moduleAttrs: { 'type': 'array', 'itemType': CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs },
+      moduleNameEn: 'string',
+      priceUnitEn: 'string',
     };
   }
 
@@ -272,7 +278,7 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.M
 export class CommodityValueResultSubOrdersSubOrder extends $dara.Model {
   /**
    * @remarks
-   * 模块（实例）信息。
+   * The information about the module (instance).
    */
   moduleInstance?: CommodityValueResultSubOrdersSubOrderModuleInstance[];
   static names(): { [key: string]: string } {
@@ -302,7 +308,7 @@ export class CommodityValueResultSubOrdersSubOrder extends $dara.Model {
 export class CommodityValueResultSubOrders extends $dara.Model {
   /**
    * @remarks
-   * 订单子项。
+   * The order sub-item.
    */
   subOrder?: CommodityValueResultSubOrdersSubOrder[];
   static names(): { [key: string]: string } {
@@ -332,7 +338,7 @@ export class CommodityValueResultSubOrders extends $dara.Model {
 export class CommodityValueResultCoupons extends $dara.Model {
   /**
    * @remarks
-   * 可支付金额。
+   * The payable amount.
    * 
    * @example
    * 9.99
@@ -340,23 +346,23 @@ export class CommodityValueResultCoupons extends $dara.Model {
   canPromFee?: number;
   /**
    * @remarks
-   * Coupon Description
+   * The description of the coupon.
    * 
    * @example
-   * 10元优惠券（有效期至2024年9月8日）
+   * CNY 10 coupon (valid until September 8, 2024)
    */
   couponDesc?: string;
   /**
    * @remarks
-   * Coupon Name
+   * The name of the coupon.
    * 
    * @example
-   * 10元优惠券
+   * CNY 10 coupon
    */
   couponName?: string;
   /**
    * @remarks
-   * Coupon OptionNo
+   * The coupon ID.
    * 
    * @example
    * 50008800000xxxx
@@ -364,7 +370,7 @@ export class CommodityValueResultCoupons extends $dara.Model {
   couponOptionNo?: string;
   /**
    * @remarks
-   * 是否选中。
+   * Indicates whether the coupon is selected.
    * 
    * @example
    * true
@@ -402,14 +408,15 @@ export class CommodityValueResultCoupons extends $dara.Model {
 export class CommodityValueResult extends $dara.Model {
   /**
    * @remarks
-   * 订单信息。
+   * The information about the order.
    */
   order?: CommodityValueResultOrder;
   /**
    * @remarks
-   * 询价类型，可选值：
-   * 1. Buy：新购询价。
-   * 2. ModificationBuy：变配询价。
+   * The RFQ type. Valid values:
+   * 
+   * 1.  Buy: price inquiry for new resources.
+   * 2.  ModificationBuy: price inquiry for resource configuration changes.
    * 
    * @example
    * Buy
@@ -417,12 +424,12 @@ export class CommodityValueResult extends $dara.Model {
   inquiryType?: string;
   /**
    * @remarks
-   * 订单子项。
+   * The order sub-items.
    */
   subOrders?: CommodityValueResultSubOrders;
   /**
    * @remarks
-   * 优惠券。
+   * The coupons.
    */
   coupons?: CommodityValueResultCoupons[];
   static names(): { [key: string]: string } {
@@ -464,7 +471,7 @@ export class CommodityValueResult extends $dara.Model {
 export class CommodityValue extends $dara.Model {
   /**
    * @remarks
-   * Result模型。
+   * The result model.
    */
   result?: CommodityValueResult;
   static names(): { [key: string]: string } {
