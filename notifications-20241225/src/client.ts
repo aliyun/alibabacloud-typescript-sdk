@@ -801,6 +801,10 @@ export default class Client extends OpenApi {
       body["TenantCode"] = request.tenantCode;
     }
 
+    if (!$dara.isNull(request.title)) {
+      body["Title"] = request.title;
+    }
+
     if (!$dara.isNull(request.uidType)) {
       body["UidType"] = request.uidType;
     }

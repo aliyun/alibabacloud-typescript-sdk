@@ -15,6 +15,7 @@ export class ReadNumGroupTotalRequest extends $dara.Model {
   cookies?: string;
   srcUrl?: string;
   tenantCode?: string;
+  title?: string;
   uidType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,6 +27,7 @@ export class ReadNumGroupTotalRequest extends $dara.Model {
       cookies: 'Cookies',
       srcUrl: 'SrcUrl',
       tenantCode: 'TenantCode',
+      title: 'Title',
       uidType: 'UidType',
     };
   }
@@ -40,6 +42,7 @@ export class ReadNumGroupTotalRequest extends $dara.Model {
       cookies: 'string',
       srcUrl: 'string',
       tenantCode: 'string',
+      title: 'string',
       uidType: 'string',
     };
   }
