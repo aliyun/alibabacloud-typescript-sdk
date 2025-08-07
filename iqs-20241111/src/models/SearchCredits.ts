@@ -4,15 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchCredits extends $dara.Model {
   genericTextSearch?: number;
+  liteAdvancedTextSearch?: number;
   static names(): { [key: string]: string } {
     return {
       genericTextSearch: 'genericTextSearch',
+      liteAdvancedTextSearch: 'liteAdvancedTextSearch',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       genericTextSearch: 'number',
+      liteAdvancedTextSearch: 'number',
     };
   }
 

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UnifiedPageItem extends $dara.Model {
+  hostAuthorityScore?: number;
   hostLogo?: string;
   hostname?: string;
   images?: string[];
@@ -20,6 +21,7 @@ export class UnifiedPageItem extends $dara.Model {
   title?: string;
   static names(): { [key: string]: string } {
     return {
+      hostAuthorityScore: 'hostAuthorityScore',
       hostLogo: 'hostLogo',
       hostname: 'hostname',
       images: 'images',
@@ -36,6 +38,7 @@ export class UnifiedPageItem extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      hostAuthorityScore: 'number',
       hostLogo: 'string',
       hostname: 'string',
       images: { 'type': 'array', 'itemType': 'string' },

@@ -4,6 +4,7 @@ import { RequestContents } from "./RequestContents";
 
 
 export class UnifiedSearchInput extends $dara.Model {
+  advancedParams?: { [key: string]: any };
   category?: string;
   contents?: RequestContents;
   engineType?: string;
@@ -12,6 +13,7 @@ export class UnifiedSearchInput extends $dara.Model {
   timeRange?: string;
   static names(): { [key: string]: string } {
     return {
+      advancedParams: 'advancedParams',
       category: 'category',
       contents: 'contents',
       engineType: 'engineType',
@@ -23,6 +25,7 @@ export class UnifiedSearchInput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      advancedParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       category: 'string',
       contents: RequestContents,
       engineType: 'string',
@@ -33,6 +36,9 @@ export class UnifiedSearchInput extends $dara.Model {
   }
 
   validate() {
+    if(this.advancedParams) {
+      $dara.Model.validateMap(this.advancedParams);
+    }
     if(this.contents && typeof (this.contents as any).validate === 'function') {
       (this.contents as any).validate();
     }
