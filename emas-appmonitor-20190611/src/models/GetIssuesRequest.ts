@@ -1,8 +1,100 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetIssuesRequestFilter } from "./GetIssuesRequestFilter";
-import { GetIssuesRequestTimeRange } from "./GetIssuesRequestTimeRange";
 
+
+export class GetIssuesRequestFilter extends $dara.Model {
+  /**
+   * @example
+   * erConfig
+   */
+  key?: string;
+  /**
+   * @example
+   * BeginWith
+   */
+  operator?: string;
+  subFilters?: string[];
+  values?: any[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      operator: 'Operator',
+      subFilters: 'SubFilters',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      operator: 'string',
+      subFilters: { 'type': 'array', 'itemType': 'string' },
+      values: { 'type': 'array', 'itemType': 'any' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.subFilters)) {
+      $dara.Model.validateArray(this.subFilters);
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssuesRequestTimeRange extends $dara.Model {
+  /**
+   * @example
+   * 2024-09-04T02:15:00Z
+   */
+  endTime?: number;
+  /**
+   * @example
+   * Host
+   */
+  granularity?: number;
+  /**
+   * @example
+   * day
+   */
+  granularityUnit?: string;
+  /**
+   * @example
+   * 2024-11-05T16:00:00Z
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      granularity: 'Granularity',
+      granularityUnit: 'GranularityUnit',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      granularity: 'number',
+      granularityUnit: 'string',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetIssuesRequest extends $dara.Model {
   /**

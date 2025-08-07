@@ -55,6 +55,10 @@ export default class Client extends OpenApi {
       body["Did"] = request.did;
     }
 
+    if (!$dara.isNull(request.digestHash)) {
+      body["DigestHash"] = request.digestHash;
+    }
+
     if (!$dara.isNull(request.force)) {
       body["Force"] = request.force;
     }

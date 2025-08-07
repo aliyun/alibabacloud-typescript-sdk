@@ -31,6 +31,7 @@ export class GetErrorRequest extends $dara.Model {
    * 233588686
    */
   did?: string;
+  digestHash?: string;
   /**
    * @example
    * false
@@ -52,6 +53,7 @@ export class GetErrorRequest extends $dara.Model {
       bizModule: 'BizModule',
       clientTime: 'ClientTime',
       did: 'Did',
+      digestHash: 'DigestHash',
       force: 'Force',
       os: 'Os',
       uuid: 'Uuid',
@@ -64,6 +66,7 @@ export class GetErrorRequest extends $dara.Model {
       bizModule: 'string',
       clientTime: 'number',
       did: 'string',
+      digestHash: 'string',
       force: 'boolean',
       os: 'string',
       uuid: 'string',
