@@ -412,14 +412,20 @@ export class DescribeDomainDetailResponseBodyRedirectRequestHeaders extends $dar
 }
 
 export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
+  backUpBackendList?: string[];
+  backendList?: string[];
   /**
    * @remarks
    * An array of addresses of origin servers.
+   * 
+   * @deprecated
    */
   backends?: DescribeDomainDetailResponseBodyRedirectBackends[];
   /**
    * @remarks
    * An array of HTTPS listener ports.
+   * 
+   * @deprecated
    */
   backupBackends?: DescribeDomainDetailResponseBodyRedirectBackupBackends[];
   /**
@@ -548,6 +554,8 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   xffProto?: boolean;
   static names(): { [key: string]: string } {
     return {
+      backUpBackendList: 'BackUpBackendList',
+      backendList: 'BackendList',
       backends: 'Backends',
       backupBackends: 'BackupBackends',
       connectTimeout: 'ConnectTimeout',
@@ -568,6 +576,8 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backUpBackendList: { 'type': 'array', 'itemType': 'string' },
+      backendList: { 'type': 'array', 'itemType': 'string' },
       backends: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackends },
       backupBackends: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackupBackends },
       connectTimeout: 'number',
@@ -587,6 +597,12 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.backUpBackendList)) {
+      $dara.Model.validateArray(this.backUpBackendList);
+    }
+    if(Array.isArray(this.backendList)) {
+      $dara.Model.validateArray(this.backendList);
+    }
     if(Array.isArray(this.backends)) {
       $dara.Model.validateArray(this.backends);
     }

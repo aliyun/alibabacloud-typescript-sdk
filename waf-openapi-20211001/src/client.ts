@@ -4488,6 +4488,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询用户防护场景的配置
+   * 
+   * @param request - DescribeDefenseSceneConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDefenseSceneConfigResponse
+   */
+  async describeDefenseSceneConfigWithOptions(request: $_model.DescribeDefenseSceneConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDefenseSceneConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configKey)) {
+      query["ConfigKey"] = request.configKey;
+    }
+
+    if (!$dara.isNull(request.defenseScene)) {
+      query["DefenseScene"] = request.defenseScene;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDefenseSceneConfig",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDefenseSceneConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDefenseSceneConfigResponse({}));
+  }
+
+  /**
+   * 查询用户防护场景的配置
+   * 
+   * @param request - DescribeDefenseSceneConfigRequest
+   * @returns DescribeDefenseSceneConfigResponse
+   */
+  async describeDefenseSceneConfig(request: $_model.DescribeDefenseSceneConfigRequest): Promise<$_model.DescribeDefenseSceneConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDefenseSceneConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a protection rule template.
    * 
    * @param request - DescribeDefenseTemplateRequest
@@ -10097,6 +10155,68 @@ export default class Client extends OpenApi {
   async modifyDefenseRuleStatus(request: $_model.ModifyDefenseRuleStatusRequest): Promise<$_model.ModifyDefenseRuleStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDefenseRuleStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改用户防护场景的配置
+   * 
+   * @param request - ModifyDefenseSceneConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDefenseSceneConfigResponse
+   */
+  async modifyDefenseSceneConfigWithOptions(request: $_model.ModifyDefenseSceneConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDefenseSceneConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configKey)) {
+      query["ConfigKey"] = request.configKey;
+    }
+
+    if (!$dara.isNull(request.configValue)) {
+      query["ConfigValue"] = request.configValue;
+    }
+
+    if (!$dara.isNull(request.defenseScene)) {
+      query["DefenseScene"] = request.defenseScene;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDefenseSceneConfig",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDefenseSceneConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDefenseSceneConfigResponse({}));
+  }
+
+  /**
+   * 修改用户防护场景的配置
+   * 
+   * @param request - ModifyDefenseSceneConfigRequest
+   * @returns ModifyDefenseSceneConfigResponse
+   */
+  async modifyDefenseSceneConfig(request: $_model.ModifyDefenseSceneConfigRequest): Promise<$_model.ModifyDefenseSceneConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDefenseSceneConfigWithOptions(request, runtime);
   }
 
   /**
