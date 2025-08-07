@@ -765,6 +765,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除切片信息
+   * 
+   * @param tmpReq - DeleteChunkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteChunkResponse
+   */
+  async deleteChunkWithOptions(WorkspaceId: string, tmpReq: $_model.DeleteChunkRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteChunkResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteChunkShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.chunkIds)) {
+      request.chunkIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.chunkIds, "ChunkIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chunkIdsShrink)) {
+      query["ChunkIds"] = request.chunkIdsShrink;
+    }
+
+    if (!$dara.isNull(request.pipelineId)) {
+      query["PipelineId"] = request.pipelineId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteChunk",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/chunk/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteChunkResponse>(await this.callApi(params, req, runtime), new $_model.DeleteChunkResponse({}));
+  }
+
+  /**
+   * 删除切片信息
+   * 
+   * @param request - DeleteChunkRequest
+   * @returns DeleteChunkResponse
+   */
+  async deleteChunk(WorkspaceId: string, request: $_model.DeleteChunkRequest): Promise<$_model.DeleteChunkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteChunkWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * 删除文档
    * 
    * @param headers - map
