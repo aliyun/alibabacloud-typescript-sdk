@@ -110,8 +110,6 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
    * @remarks
    * Backup type. Value: **COMPLETE**, indicating a full backup.
    * 
-   * This parameter is required.
-   * 
    * @example
    * COMPLETE
    */
@@ -303,8 +301,6 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
    * @remarks
    * Name of the backup plan. 1 to 64 characters. The name must be unique for each data source type within a single backup vault.
    * 
-   * This parameter is required.
-   * 
    * @example
    * planname
    */
@@ -336,8 +332,6 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
    * 
    * - **startTime**: Start time of the backup, in UNIX timestamp, in seconds.
    * - **interval**: ISO8601 time interval. For example, PT1H indicates an interval of one hour, and P1D indicates an interval of one day.
-   * 
-   * This parameter is required.
    * 
    * @example
    * I|1602673264|P1D
