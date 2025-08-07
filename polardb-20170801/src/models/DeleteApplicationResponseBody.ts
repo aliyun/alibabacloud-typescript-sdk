@@ -2,24 +2,25 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeCharacterSetNameResponseBodyCharacterSetNameItems extends $dara.Model {
-  characterSetName?: string[];
+export class DeleteApplicationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      characterSetName: 'CharacterSetName',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      characterSetName: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.characterSetName)) {
-      $dara.Model.validateArray(this.characterSetName);
-    }
     super.validate();
   }
 

@@ -2,24 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateDBNodesResponseBodyDBNodeIds extends $dara.Model {
-  DBNodeId?: string[];
+export class DeleteApplicationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pa-**************
+   */
+  applicationId?: string;
   static names(): { [key: string]: string } {
     return {
-      DBNodeId: 'DBNodeId',
+      applicationId: 'ApplicationId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      DBNodeId: { 'type': 'array', 'itemType': 'string' },
+      applicationId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.DBNodeId)) {
-      $dara.Model.validateArray(this.DBNodeId);
-    }
     super.validate();
   }
 

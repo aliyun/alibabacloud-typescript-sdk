@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeParameterGroupRequest extends $dara.Model {
+  DBType?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -41,6 +42,7 @@ export class DescribeParameterGroupRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      DBType: 'DBType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       parameterGroupId: 'ParameterGroupId',
@@ -53,6 +55,7 @@ export class DescribeParameterGroupRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      DBType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       parameterGroupId: 'string',

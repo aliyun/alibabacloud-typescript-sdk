@@ -2238,6 +2238,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除PolarDB应用
+   * 
+   * @param request - DeleteApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApplicationResponse
+   */
+  async deleteApplicationWithOptions(request: $_model.DeleteApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApplicationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApplication",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteApplicationResponse>(await this.callApi(params, req, runtime), new $_model.DeleteApplicationResponse({}));
+  }
+
+  /**
+   * 删除PolarDB应用
+   * 
+   * @param request - DeleteApplicationRequest
+   * @returns DeleteApplicationResponse
+   */
+  async deleteApplication(request: $_model.DeleteApplicationRequest): Promise<$_model.DeleteApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteApplicationWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes the backup sets of a PolarDB cluster.
    * 
    * @remarks
@@ -3023,6 +3065,64 @@ export default class Client extends OpenApi {
   async deleteParameterGroup(request: $_model.DeleteParameterGroupRequest): Promise<$_model.DeleteParameterGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取ai容器性能指标
+   * 
+   * @param request - DescribeAIDBClusterPerformanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAIDBClusterPerformanceResponse
+   */
+  async describeAIDBClusterPerformanceWithOptions(request: $_model.DescribeAIDBClusterPerformanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAIDBClusterPerformanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!$dara.isNull(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAIDBClusterPerformance",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAIDBClusterPerformanceResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAIDBClusterPerformanceResponse({}));
+  }
+
+  /**
+   * 获取ai容器性能指标
+   * 
+   * @param request - DescribeAIDBClusterPerformanceRequest
+   * @returns DescribeAIDBClusterPerformanceResponse
+   */
+  async describeAIDBClusterPerformance(request: $_model.DescribeAIDBClusterPerformanceRequest): Promise<$_model.DescribeAIDBClusterPerformanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAIDBClusterPerformanceWithOptions(request, runtime);
   }
 
   /**
@@ -6425,6 +6525,10 @@ export default class Client extends OpenApi {
   async describeParameterGroupWithOptions(request: $_model.DescribeParameterGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeParameterGroupResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.DBType)) {
+      query["DBType"] = request.DBType;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
