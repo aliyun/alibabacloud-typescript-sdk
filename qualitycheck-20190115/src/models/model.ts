@@ -30,6 +30,7 @@ export { GetBusinessCategoryListResponseBodyDataBusinessCategoryBasicInfo } from
 export { GetBusinessCategoryListResponseBodyData } from './GetBusinessCategoryListResponseBody';
 export { GetCustomizationConfigListResponseBodyDataModelCustomizationDataSetPo } from './GetCustomizationConfigListResponseBody';
 export { GetCustomizationConfigListResponseBodyData } from './GetCustomizationConfigListResponseBody';
+export { GetMiningTaskResultResponseBodyDataFilePathList } from './GetMiningTaskResultResponseBody';
 export { GetMiningTaskResultResponseBodyData } from './GetMiningTaskResultResponseBody';
 export { GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltasDeltaSourceLine } from './GetNextResultToVerifyResponseBody';
 export { GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltasDeltaSource } from './GetNextResultToVerifyResponseBody';

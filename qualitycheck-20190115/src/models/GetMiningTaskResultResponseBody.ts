@@ -2,12 +2,39 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetMiningTaskResultResponseBodyDataFilePathList extends $dara.Model {
+  fileType?: string;
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileType: 'FileType',
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileType: 'string',
+      fileUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMiningTaskResultResponseBodyData extends $dara.Model {
   /**
    * @example
    * 123.22.com/manger/static/login-back.jpg
    */
   filePath?: string;
+  filePathList?: GetMiningTaskResultResponseBodyDataFilePathList[];
   /**
    * @example
    * 123.22.com/manger/static/login-back.md
@@ -26,6 +53,7 @@ export class GetMiningTaskResultResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       filePath: 'FilePath',
+      filePathList: 'FilePathList',
       filePathMd: 'FilePathMd',
       taskId: 'TaskId',
       taskStatus: 'TaskStatus',
@@ -35,6 +63,7 @@ export class GetMiningTaskResultResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       filePath: 'string',
+      filePathList: { 'type': 'array', 'itemType': GetMiningTaskResultResponseBodyDataFilePathList },
       filePathMd: 'string',
       taskId: 'string',
       taskStatus: 'string',
@@ -42,6 +71,9 @@ export class GetMiningTaskResultResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.filePathList)) {
+      $dara.Model.validateArray(this.filePathList);
+    }
     super.validate();
   }
 
