@@ -6,16 +6,25 @@ export class QueryCallRecordListRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * P20210928095324000002
    */
   bizId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * esp.bookkeeping
    */
   bizType?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   skillType?: number;
   static names(): { [key: string]: string } {
