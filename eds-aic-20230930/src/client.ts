@@ -286,6 +286,14 @@ export default class Client extends OpenApi {
   async changeCloudPhoneNodeWithOptions(request: $_model.ChangeCloudPhoneNodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeCloudPhoneNodeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.downBandwidthLimit)) {
+      query["DownBandwidthLimit"] = request.downBandwidthLimit;
+    }
+
     if (!$dara.isNull(request.instanceType)) {
       query["InstanceType"] = request.instanceType;
     }
@@ -296,6 +304,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.phoneCount)) {
       query["PhoneCount"] = request.phoneCount;
+    }
+
+    if (!$dara.isNull(request.phoneDataVolume)) {
+      query["PhoneDataVolume"] = request.phoneDataVolume;
+    }
+
+    if (!$dara.isNull(request.upBandwidthLimit)) {
+      query["UpBandwidthLimit"] = request.upBandwidthLimit;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2746,6 +2762,10 @@ export default class Client extends OpenApi {
       query["NodeIds"] = request.nodeIds;
     }
 
+    if (!$dara.isNull(request.phoneDataVolume)) {
+      query["PhoneDataVolume"] = request.phoneDataVolume;
+    }
+
     if (!$dara.isNull(request.shareDataVolume)) {
       query["ShareDataVolume"] = request.shareDataVolume;
     }
@@ -3146,6 +3166,68 @@ export default class Client extends OpenApi {
   async listPolicyGroups(request: $_model.ListPolicyGroupsRequest): Promise<$_model.ListPolicyGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listPolicyGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询资源标签
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: $_model.ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagResources",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResourcesResponse({}));
+  }
+
+  /**
+   * 查询资源标签
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -4365,6 +4447,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 给资源打标签
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagResources",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
+  }
+
+  /**
+   * 给资源打标签
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
    * Uninstalls an app from multiple cloud phone instances.
    * 
    * @remarks
@@ -4464,6 +4596,60 @@ export default class Client extends OpenApi {
   async uninstallMonitorAgent(request: $_model.UninstallMonitorAgentRequest): Promise<$_model.UninstallMonitorAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.uninstallMonitorAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除资源标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(request: $_model.UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UntagResources",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
+  }
+
+  /**
+   * 删除资源标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
   }
 
   /**

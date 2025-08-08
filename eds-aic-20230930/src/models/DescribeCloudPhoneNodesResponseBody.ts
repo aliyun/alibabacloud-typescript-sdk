@@ -91,6 +91,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo extends $
 
 export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   bandwidthPackageId?: string;
+  bandwidthPackageStatus?: string;
   bandwidthPackageType?: string;
   bizTags?: DescribeCloudPhoneNodesResponseBodyNodeModelBizTags[];
   /**
@@ -236,6 +237,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bandwidthPackageId: 'BandwidthPackageId',
+      bandwidthPackageStatus: 'BandwidthPackageStatus',
       bandwidthPackageType: 'BandwidthPackageType',
       bizTags: 'BizTags',
       chargeType: 'ChargeType',
@@ -265,6 +267,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bandwidthPackageId: 'string',
+      bandwidthPackageStatus: 'string',
       bandwidthPackageType: 'string',
       bizTags: { 'type': 'array', 'itemType': DescribeCloudPhoneNodesResponseBodyNodeModelBizTags },
       chargeType: 'string',

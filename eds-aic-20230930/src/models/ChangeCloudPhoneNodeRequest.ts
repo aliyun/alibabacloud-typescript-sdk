@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChangeCloudPhoneNodeRequest extends $dara.Model {
+  autoPay?: boolean;
+  downBandwidthLimit?: number;
   /**
    * @example
    * ac.max
@@ -18,19 +20,29 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
    * 20
    */
   phoneCount?: number;
+  phoneDataVolume?: number;
+  upBandwidthLimit?: number;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
+      downBandwidthLimit: 'DownBandwidthLimit',
       instanceType: 'InstanceType',
       nodeId: 'NodeId',
       phoneCount: 'PhoneCount',
+      phoneDataVolume: 'PhoneDataVolume',
+      upBandwidthLimit: 'UpBandwidthLimit',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
+      downBandwidthLimit: 'number',
       instanceType: 'string',
       nodeId: 'string',
       phoneCount: 'number',
+      phoneDataVolume: 'number',
+      upBandwidthLimit: 'number',
     };
   }
 
