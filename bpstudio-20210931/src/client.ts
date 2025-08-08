@@ -736,6 +736,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取模板变参可选值
+   * 
+   * @param tmpReq - GetLinkageAttributesTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLinkageAttributesTemplateResponse
+   */
+  async getLinkageAttributesTemplateWithOptions(tmpReq: $_model.GetLinkageAttributesTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLinkageAttributesTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetLinkageAttributesTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instances)) {
+      request.instancesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instances, "Instances", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.variables)) {
+      request.variablesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.variables, "Variables", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.areaId)) {
+      body["AreaId"] = request.areaId;
+    }
+
+    if (!$dara.isNull(request.instancesShrink)) {
+      body["Instances"] = request.instancesShrink;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.targetVariable)) {
+      body["TargetVariable"] = request.targetVariable;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.variablesShrink)) {
+      body["Variables"] = request.variablesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLinkageAttributesTemplate",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLinkageAttributesTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetLinkageAttributesTemplateResponse({}));
+  }
+
+  /**
+   * 获取模板变参可选值
+   * 
+   * @param request - GetLinkageAttributesTemplateRequest
+   * @returns GetLinkageAttributesTemplateResponse
+   */
+  async getLinkageAttributesTemplate(request: $_model.GetLinkageAttributesTemplateRequest): Promise<$_model.GetLinkageAttributesTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLinkageAttributesTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the zones where the specified disaster recovery service can be switched.
    * 
    * @remarks

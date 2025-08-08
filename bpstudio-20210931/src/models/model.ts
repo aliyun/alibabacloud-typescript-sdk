@@ -10,6 +10,8 @@ export { GetApplicationVariablesResponseBodyDataVariableList } from './GetApplic
 export { GetApplicationVariablesResponseBodyData } from './GetApplicationVariablesResponseBody';
 export { GetApplicationVariables4FailResponseBodyData } from './GetApplicationVariables4failResponseBody';
 export { GetExecuteOperationResultResponseBodyData } from './GetExecuteOperationResultResponseBody';
+export { GetLinkageAttributesTemplateRequestInstances } from './GetLinkageAttributesTemplateRequest';
+export { GetLinkageAttributesTemplateResponseBodyData } from './GetLinkageAttributesTemplateResponseBody';
 export { GetResource4ModifyRecordResponseBodyData } from './GetResource4modifyRecordResponseBody';
 export { GetResult4QueryInstancePrice4ModifyResponseBodyDataPriceList } from './GetResult4queryInstancePrice4modifyResponseBody';
 export { GetResult4QueryInstancePrice4ModifyResponseBodyData } from './GetResult4queryInstancePrice4modifyResponseBody';
@@ -72,6 +74,10 @@ export { GetExecuteOperationResultResponse } from './GetExecuteOperationResultRe
 export { GetFoTaskStatusRequest } from './GetFoTaskStatusRequest';
 export { GetFoTaskStatusResponseBody } from './GetFoTaskStatusResponseBody';
 export { GetFoTaskStatusResponse } from './GetFoTaskStatusResponse';
+export { GetLinkageAttributesTemplateRequest } from './GetLinkageAttributesTemplateRequest';
+export { GetLinkageAttributesTemplateShrinkRequest } from './GetLinkageAttributesTemplateShrinkRequest';
+export { GetLinkageAttributesTemplateResponseBody } from './GetLinkageAttributesTemplateResponseBody';
+export { GetLinkageAttributesTemplateResponse } from './GetLinkageAttributesTemplateResponse';
 export { GetPotentialFailZonesRequest } from './GetPotentialFailZonesRequest';
 export { GetPotentialFailZonesResponseBody } from './GetPotentialFailZonesResponseBody';
 export { GetPotentialFailZonesResponse } from './GetPotentialFailZonesResponse';
