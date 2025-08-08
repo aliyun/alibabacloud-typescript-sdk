@@ -1,17971 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class AddMdsMiniConfigRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMiniConfigAddJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMiniConfigAddJsonStr: 'MpaasMappcenterMiniConfigAddJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMiniConfigAddJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddMdsMiniConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: AddMdsMiniConfigResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: AddMdsMiniConfigResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddMdsMiniConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddMdsMiniConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddMdsMiniConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelPushSchedulerRequest extends $tea.Model {
-  appId?: string;
-  type?: number;
-  uniqueIds?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      type: 'Type',
-      uniqueIds: 'UniqueIds',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      type: 'number',
-      uniqueIds: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelPushSchedulerResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelPushSchedulerResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelPushSchedulerResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelPushSchedulerResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeMcubeMiniTaskStatusRequest extends $tea.Model {
-  appId?: string;
-  bizType?: string;
-  packageId?: number;
-  taskId?: number;
-  taskStatus?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      bizType: 'BizType',
-      packageId: 'PackageId',
-      taskId: 'TaskId',
-      taskStatus: 'TaskStatus',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      bizType: 'string',
-      packageId: 'number',
-      taskId: 'number',
-      taskStatus: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeMcubeMiniTaskStatusResponseBody extends $tea.Model {
-  changeMiniTaskStatusResult?: ChangeMcubeMiniTaskStatusResponseBodyChangeMiniTaskStatusResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      changeMiniTaskStatusResult: 'ChangeMiniTaskStatusResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      changeMiniTaskStatusResult: ChangeMcubeMiniTaskStatusResponseBodyChangeMiniTaskStatusResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeMcubeMiniTaskStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ChangeMcubeMiniTaskStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ChangeMcubeMiniTaskStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeMcubeNebulaTaskStatusRequest extends $tea.Model {
-  appId?: string;
-  bizType?: string;
-  packageId?: string;
-  taskId?: string;
-  taskStatus?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      bizType: 'BizType',
-      packageId: 'PackageId',
-      taskId: 'TaskId',
-      taskStatus: 'TaskStatus',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      bizType: 'string',
-      packageId: 'string',
-      taskId: 'string',
-      taskStatus: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeMcubeNebulaTaskStatusResponseBody extends $tea.Model {
-  changeMcubeNebulaTaskStatusResult?: ChangeMcubeNebulaTaskStatusResponseBodyChangeMcubeNebulaTaskStatusResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      changeMcubeNebulaTaskStatusResult: 'ChangeMcubeNebulaTaskStatusResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      changeMcubeNebulaTaskStatusResult: ChangeMcubeNebulaTaskStatusResponseBodyChangeMcubeNebulaTaskStatusResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeMcubeNebulaTaskStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ChangeMcubeNebulaTaskStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ChangeMcubeNebulaTaskStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeMcubePublicTaskStatusRequest extends $tea.Model {
-  appId?: string;
-  taskId?: string;
-  taskStatus?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      taskId: 'TaskId',
-      taskStatus: 'TaskStatus',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      taskId: 'string',
-      taskStatus: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeMcubePublicTaskStatusResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: ChangeMcubePublicTaskStatusResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: ChangeMcubePublicTaskStatusResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeMcubePublicTaskStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ChangeMcubePublicTaskStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ChangeMcubePublicTaskStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CopyMcdpGroupRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpGroupCopyJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpGroupCopyJsonStr: 'MpaasMappcenterMcdpGroupCopyJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpGroupCopyJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CopyMcdpGroupResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: CopyMcdpGroupResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: CopyMcdpGroupResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CopyMcdpGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CopyMcdpGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CopyMcdpGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLinkRequest extends $tea.Model {
-  appId?: string;
-  cors?: string;
-  domain?: string;
-  dynamicfield?: string;
-  targetUrl?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      cors: 'Cors',
-      domain: 'Domain',
-      dynamicfield: 'Dynamicfield',
-      targetUrl: 'TargetUrl',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      cors: 'string',
-      domain: 'string',
-      dynamicfield: 'string',
-      targetUrl: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLinkResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: CreateLinkResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: CreateLinkResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLinkResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateLinkResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateLinkResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMasCrowdRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpMasCrowdCreateJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpMasCrowdCreateJsonStr: 'MpaasMappcenterMcdpMasCrowdCreateJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpMasCrowdCreateJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMasCrowdResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: CreateMasCrowdResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: CreateMasCrowdResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMasCrowdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMasCrowdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMasCrowdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMasFunnelRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpMasFunnelCreateJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpMasFunnelCreateJsonStr: 'MpaasMappcenterMcdpMasFunnelCreateJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpMasFunnelCreateJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMasFunnelResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: CreateMasFunnelResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: CreateMasFunnelResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMasFunnelResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMasFunnelResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMasFunnelResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpEventRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpEventCreateJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpEventCreateJsonStr: 'MpaasMappcenterMcdpEventCreateJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpEventCreateJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpEventResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: CreateMcdpEventResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: CreateMcdpEventResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpEventResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcdpEventResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcdpEventResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpEventAttributeRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpEventAttributeCreateJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpEventAttributeCreateJsonStr: 'MpaasMappcenterMcdpEventAttributeCreateJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpEventAttributeCreateJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpEventAttributeResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: CreateMcdpEventAttributeResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: CreateMcdpEventAttributeResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpEventAttributeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcdpEventAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcdpEventAttributeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpGroupRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpGroupCreateJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpGroupCreateJsonStr: 'MpaasMappcenterMcdpGroupCreateJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpGroupCreateJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpGroupResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: CreateMcdpGroupResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: CreateMcdpGroupResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcdpGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcdpGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpMaterialRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpMaterialCreateJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpMaterialCreateJsonStr: 'MpaasMappcenterMcdpMaterialCreateJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpMaterialCreateJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpMaterialResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: CreateMcdpMaterialResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: CreateMcdpMaterialResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpMaterialResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcdpMaterialResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcdpMaterialResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpZoneRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpZoneCreateJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpZoneCreateJsonStr: 'MpaasMappcenterMcdpZoneCreateJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpZoneCreateJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpZoneResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: CreateMcdpZoneResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: CreateMcdpZoneResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpZoneResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcdpZoneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcdpZoneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeMiniAppRequest extends $tea.Model {
-  appId?: string;
-  h5Id?: string;
-  h5Name?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeMiniAppResponseBody extends $tea.Model {
-  createMiniResult?: CreateMcubeMiniAppResponseBodyCreateMiniResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createMiniResult: 'CreateMiniResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createMiniResult: CreateMcubeMiniAppResponseBodyCreateMiniResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeMiniAppResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcubeMiniAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcubeMiniAppResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeMiniTaskRequest extends $tea.Model {
-  appId?: string;
-  greyConfigInfo?: string;
-  greyEndtimeData?: string;
-  greyNum?: number;
-  memo?: string;
-  packageId?: number;
-  publishMode?: number;
-  publishType?: number;
-  tenantId?: string;
-  whitelistIds?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      greyConfigInfo: 'GreyConfigInfo',
-      greyEndtimeData: 'GreyEndtimeData',
-      greyNum: 'GreyNum',
-      memo: 'Memo',
-      packageId: 'PackageId',
-      publishMode: 'PublishMode',
-      publishType: 'PublishType',
-      tenantId: 'TenantId',
-      whitelistIds: 'WhitelistIds',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      greyConfigInfo: 'string',
-      greyEndtimeData: 'string',
-      greyNum: 'number',
-      memo: 'string',
-      packageId: 'number',
-      publishMode: 'number',
-      publishType: 'number',
-      tenantId: 'string',
-      whitelistIds: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeMiniTaskResponseBody extends $tea.Model {
-  createMiniTaskResult?: CreateMcubeMiniTaskResponseBodyCreateMiniTaskResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createMiniTaskResult: 'CreateMiniTaskResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createMiniTaskResult: CreateMcubeMiniTaskResponseBodyCreateMiniTaskResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeMiniTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcubeMiniTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcubeMiniTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeNebulaAppRequest extends $tea.Model {
-  appId?: string;
-  h5Id?: string;
-  h5Name?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeNebulaAppResponseBody extends $tea.Model {
-  createNebulaAppResult?: CreateMcubeNebulaAppResponseBodyCreateNebulaAppResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createNebulaAppResult: 'CreateNebulaAppResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createNebulaAppResult: CreateMcubeNebulaAppResponseBodyCreateNebulaAppResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeNebulaAppResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcubeNebulaAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcubeNebulaAppResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeNebulaResourceRequest extends $tea.Model {
-  appId?: string;
-  autoInstall?: number;
-  clientVersionMax?: string;
-  clientVersionMin?: string;
-  customDomainName?: string;
-  extendInfo?: string;
-  fileUrl?: string;
-  h5Id?: string;
-  h5Name?: string;
-  h5Version?: string;
-  installType?: number;
-  mainUrl?: string;
-  onexFlag?: boolean;
-  platform?: string;
-  repeatNebula?: number;
-  resourceType?: number;
-  subUrl?: string;
-  tenantId?: string;
-  vhost?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      autoInstall: 'AutoInstall',
-      clientVersionMax: 'ClientVersionMax',
-      clientVersionMin: 'ClientVersionMin',
-      customDomainName: 'CustomDomainName',
-      extendInfo: 'ExtendInfo',
-      fileUrl: 'FileUrl',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-      h5Version: 'H5Version',
-      installType: 'InstallType',
-      mainUrl: 'MainUrl',
-      onexFlag: 'OnexFlag',
-      platform: 'Platform',
-      repeatNebula: 'RepeatNebula',
-      resourceType: 'ResourceType',
-      subUrl: 'SubUrl',
-      tenantId: 'TenantId',
-      vhost: 'Vhost',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      autoInstall: 'number',
-      clientVersionMax: 'string',
-      clientVersionMin: 'string',
-      customDomainName: 'string',
-      extendInfo: 'string',
-      fileUrl: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-      h5Version: 'string',
-      installType: 'number',
-      mainUrl: 'string',
-      onexFlag: 'boolean',
-      platform: 'string',
-      repeatNebula: 'number',
-      resourceType: 'number',
-      subUrl: 'string',
-      tenantId: 'string',
-      vhost: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeNebulaResourceResponseBody extends $tea.Model {
-  createMcubeNebulaResourceReslult?: CreateMcubeNebulaResourceResponseBodyCreateMcubeNebulaResourceReslult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createMcubeNebulaResourceReslult: 'CreateMcubeNebulaResourceReslult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createMcubeNebulaResourceReslult: CreateMcubeNebulaResourceResponseBodyCreateMcubeNebulaResourceReslult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeNebulaResourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcubeNebulaResourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcubeNebulaResourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeNebulaTaskRequest extends $tea.Model {
-  appCode?: string;
-  appId?: string;
-  bizType?: string;
-  creator?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  gmtModifiedStr?: string;
-  greyConfigInfo?: string;
-  greyEndtime?: string;
-  greyEndtimeData?: string;
-  greyEndtimeStr?: string;
-  greyNum?: number;
-  greyUrl?: string;
-  id?: number;
-  memo?: string;
-  modifier?: string;
-  packageId?: number;
-  percent?: number;
-  platform?: string;
-  productId?: string;
-  productVersion?: string;
-  publishMode?: number;
-  publishType?: number;
-  releaseVersion?: string;
-  resIds?: string;
-  serialVersionUID?: number;
-  status?: number;
-  syncMode?: string;
-  syncResult?: string;
-  taskName?: string;
-  taskStatus?: number;
-  taskType?: number;
-  taskVersion?: number;
-  tenantId?: string;
-  upgradeNoticeNum?: number;
-  upgradeProgress?: string;
-  whitelistIds?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      appId: 'AppId',
-      bizType: 'BizType',
-      creator: 'Creator',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      gmtModifiedStr: 'GmtModifiedStr',
-      greyConfigInfo: 'GreyConfigInfo',
-      greyEndtime: 'GreyEndtime',
-      greyEndtimeData: 'GreyEndtimeData',
-      greyEndtimeStr: 'GreyEndtimeStr',
-      greyNum: 'GreyNum',
-      greyUrl: 'GreyUrl',
-      id: 'Id',
-      memo: 'Memo',
-      modifier: 'Modifier',
-      packageId: 'PackageId',
-      percent: 'Percent',
-      platform: 'Platform',
-      productId: 'ProductId',
-      productVersion: 'ProductVersion',
-      publishMode: 'PublishMode',
-      publishType: 'PublishType',
-      releaseVersion: 'ReleaseVersion',
-      resIds: 'ResIds',
-      serialVersionUID: 'SerialVersionUID',
-      status: 'Status',
-      syncMode: 'SyncMode',
-      syncResult: 'SyncResult',
-      taskName: 'TaskName',
-      taskStatus: 'TaskStatus',
-      taskType: 'TaskType',
-      taskVersion: 'TaskVersion',
-      tenantId: 'TenantId',
-      upgradeNoticeNum: 'UpgradeNoticeNum',
-      upgradeProgress: 'UpgradeProgress',
-      whitelistIds: 'WhitelistIds',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      appId: 'string',
-      bizType: 'string',
-      creator: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      gmtModifiedStr: 'string',
-      greyConfigInfo: 'string',
-      greyEndtime: 'string',
-      greyEndtimeData: 'string',
-      greyEndtimeStr: 'string',
-      greyNum: 'number',
-      greyUrl: 'string',
-      id: 'number',
-      memo: 'string',
-      modifier: 'string',
-      packageId: 'number',
-      percent: 'number',
-      platform: 'string',
-      productId: 'string',
-      productVersion: 'string',
-      publishMode: 'number',
-      publishType: 'number',
-      releaseVersion: 'string',
-      resIds: 'string',
-      serialVersionUID: 'number',
-      status: 'number',
-      syncMode: 'string',
-      syncResult: 'string',
-      taskName: 'string',
-      taskStatus: 'number',
-      taskType: 'number',
-      taskVersion: 'number',
-      tenantId: 'string',
-      upgradeNoticeNum: 'number',
-      upgradeProgress: 'string',
-      whitelistIds: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeNebulaTaskResponseBody extends $tea.Model {
-  createMcubeNebulaTaskResult?: CreateMcubeNebulaTaskResponseBodyCreateMcubeNebulaTaskResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createMcubeNebulaTaskResult: 'CreateMcubeNebulaTaskResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createMcubeNebulaTaskResult: CreateMcubeNebulaTaskResponseBodyCreateMcubeNebulaTaskResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeNebulaTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcubeNebulaTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcubeNebulaTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeUpgradePackageRequest extends $tea.Model {
-  appId?: string;
-  appVersion?: string;
-  appstoreUrl?: string;
-  bundleId?: string;
-  customDomainName?: string;
-  desc?: string;
-  downloadUrl?: string;
-  fileUrl?: string;
-  iconFileUrl?: string;
-  installAmount?: number;
-  iosSymbolfileUrl?: string;
-  isEnterprise?: number;
-  needCheck?: number;
-  onexFlag?: boolean;
-  platform?: string;
-  tenantId?: string;
-  validDays?: number;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appVersion: 'AppVersion',
-      appstoreUrl: 'AppstoreUrl',
-      bundleId: 'BundleId',
-      customDomainName: 'CustomDomainName',
-      desc: 'Desc',
-      downloadUrl: 'DownloadUrl',
-      fileUrl: 'FileUrl',
-      iconFileUrl: 'IconFileUrl',
-      installAmount: 'InstallAmount',
-      iosSymbolfileUrl: 'IosSymbolfileUrl',
-      isEnterprise: 'IsEnterprise',
-      needCheck: 'NeedCheck',
-      onexFlag: 'OnexFlag',
-      platform: 'Platform',
-      tenantId: 'TenantId',
-      validDays: 'ValidDays',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appVersion: 'string',
-      appstoreUrl: 'string',
-      bundleId: 'string',
-      customDomainName: 'string',
-      desc: 'string',
-      downloadUrl: 'string',
-      fileUrl: 'string',
-      iconFileUrl: 'string',
-      installAmount: 'number',
-      iosSymbolfileUrl: 'string',
-      isEnterprise: 'number',
-      needCheck: 'number',
-      onexFlag: 'boolean',
-      platform: 'string',
-      tenantId: 'string',
-      validDays: 'number',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeUpgradePackageResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: CreateMcubeUpgradePackageResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: CreateMcubeUpgradePackageResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeUpgradePackageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcubeUpgradePackageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcubeUpgradePackageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeUpgradeTaskRequest extends $tea.Model {
-  appId?: string;
-  greyConfigInfo?: string;
-  greyEndtimeData?: string;
-  greyNum?: number;
-  historyForce?: number;
-  memo?: string;
-  packageInfoId?: number;
-  publishMode?: number;
-  publishType?: number;
-  tenantId?: string;
-  upgradeContent?: string;
-  upgradeType?: number;
-  whitelistIds?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      greyConfigInfo: 'GreyConfigInfo',
-      greyEndtimeData: 'GreyEndtimeData',
-      greyNum: 'GreyNum',
-      historyForce: 'HistoryForce',
-      memo: 'Memo',
-      packageInfoId: 'PackageInfoId',
-      publishMode: 'PublishMode',
-      publishType: 'PublishType',
-      tenantId: 'TenantId',
-      upgradeContent: 'UpgradeContent',
-      upgradeType: 'UpgradeType',
-      whitelistIds: 'WhitelistIds',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      greyConfigInfo: 'string',
-      greyEndtimeData: 'string',
-      greyNum: 'number',
-      historyForce: 'number',
-      memo: 'string',
-      packageInfoId: 'number',
-      publishMode: 'number',
-      publishType: 'number',
-      tenantId: 'string',
-      upgradeContent: 'string',
-      upgradeType: 'number',
-      whitelistIds: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeUpgradeTaskResponseBody extends $tea.Model {
-  createTaskResult?: CreateMcubeUpgradeTaskResponseBodyCreateTaskResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTaskResult: 'CreateTaskResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTaskResult: CreateMcubeUpgradeTaskResponseBodyCreateTaskResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeUpgradeTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcubeUpgradeTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcubeUpgradeTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeVhostRequest extends $tea.Model {
-  appId?: string;
-  tenantId?: string;
-  vhost?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      tenantId: 'TenantId',
-      vhost: 'Vhost',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      tenantId: 'string',
-      vhost: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeVhostResponseBody extends $tea.Model {
-  createVhostResult?: CreateMcubeVhostResponseBodyCreateVhostResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createVhostResult: 'CreateVhostResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createVhostResult: CreateMcubeVhostResponseBodyCreateVhostResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeVhostResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcubeVhostResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcubeVhostResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeWhitelistRequest extends $tea.Model {
-  appId?: string;
-  tenantId?: string;
-  whiteListName?: string;
-  whitelistType?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      tenantId: 'TenantId',
-      whiteListName: 'WhiteListName',
-      whitelistType: 'WhitelistType',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      tenantId: 'string',
-      whiteListName: 'string',
-      whitelistType: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeWhitelistResponseBody extends $tea.Model {
-  createWhitelistResult?: CreateMcubeWhitelistResponseBodyCreateWhitelistResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createWhitelistResult: 'CreateWhitelistResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createWhitelistResult: CreateMcubeWhitelistResponseBodyCreateWhitelistResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeWhitelistResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcubeWhitelistResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcubeWhitelistResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeWhitelistForIdeRequest extends $tea.Model {
-  appId?: string;
-  tenantId?: string;
-  userId?: string;
-  whitelistValue?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      tenantId: 'TenantId',
-      userId: 'UserId',
-      whitelistValue: 'WhitelistValue',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      tenantId: 'string',
-      userId: 'string',
-      whitelistValue: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeWhitelistForIdeResponseBody extends $tea.Model {
-  createWhitelistForIdeResult?: CreateMcubeWhitelistForIdeResponseBodyCreateWhitelistForIdeResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createWhitelistForIdeResult: 'CreateWhitelistForIdeResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createWhitelistForIdeResult: CreateMcubeWhitelistForIdeResponseBodyCreateWhitelistForIdeResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeWhitelistForIdeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMcubeWhitelistForIdeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMcubeWhitelistForIdeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMdsMiniprogramTaskRequest extends $tea.Model {
-  appId?: string;
-  greyConfigInfo?: string;
-  greyEndtimeData?: string;
-  greyNum?: string;
-  id?: number;
-  memo?: string;
-  packageId?: number;
-  publishMode?: string;
-  publishType?: number;
-  syncMode?: string;
-  tenantId?: string;
-  whitelistIds?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      greyConfigInfo: 'GreyConfigInfo',
-      greyEndtimeData: 'GreyEndtimeData',
-      greyNum: 'GreyNum',
-      id: 'Id',
-      memo: 'Memo',
-      packageId: 'PackageId',
-      publishMode: 'PublishMode',
-      publishType: 'PublishType',
-      syncMode: 'SyncMode',
-      tenantId: 'TenantId',
-      whitelistIds: 'WhitelistIds',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      greyConfigInfo: 'string',
-      greyEndtimeData: 'string',
-      greyNum: 'string',
-      id: 'number',
-      memo: 'string',
-      packageId: 'number',
-      publishMode: 'string',
-      publishType: 'number',
-      syncMode: 'string',
-      tenantId: 'string',
-      whitelistIds: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMdsMiniprogramTaskResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: CreateMdsMiniprogramTaskResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: CreateMdsMiniprogramTaskResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMdsMiniprogramTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMdsMiniprogramTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMdsMiniprogramTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMsaEnhanceRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMsaEnhanceCreateJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMsaEnhanceCreateJsonStr: 'MpaasMappcenterMsaEnhanceCreateJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMsaEnhanceCreateJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMsaEnhanceResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: CreateMsaEnhanceResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: CreateMsaEnhanceResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMsaEnhanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMsaEnhanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMsaEnhanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOpenGlobalDataRequest extends $tea.Model {
-  appId?: string;
-  appMaxVersion?: string;
-  appMinVersion?: string;
-  bizType?: string;
-  extAttrStr?: string;
-  maxUid?: number;
-  minUid?: number;
-  osType?: string;
-  payload?: string;
-  thirdMsgId?: string;
-  uids?: string;
-  validTimeEnd?: number;
-  validTimeStart?: number;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appMaxVersion: 'AppMaxVersion',
-      appMinVersion: 'AppMinVersion',
-      bizType: 'BizType',
-      extAttrStr: 'ExtAttrStr',
-      maxUid: 'MaxUid',
-      minUid: 'MinUid',
-      osType: 'OsType',
-      payload: 'Payload',
-      thirdMsgId: 'ThirdMsgId',
-      uids: 'Uids',
-      validTimeEnd: 'ValidTimeEnd',
-      validTimeStart: 'ValidTimeStart',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appMaxVersion: 'string',
-      appMinVersion: 'string',
-      bizType: 'string',
-      extAttrStr: 'string',
-      maxUid: 'number',
-      minUid: 'number',
-      osType: 'string',
-      payload: 'string',
-      thirdMsgId: 'string',
-      uids: 'string',
-      validTimeEnd: 'number',
-      validTimeStart: 'number',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOpenGlobalDataResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: boolean;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: 'boolean',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOpenGlobalDataResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateOpenGlobalDataResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateOpenGlobalDataResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOpenSingleDataRequest extends $tea.Model {
-  appId?: string;
-  appMaxVersion?: string;
-  appMinVersion?: string;
-  bizType?: string;
-  checkOnline?: boolean;
-  extAttrStr?: string;
-  linkToken?: string;
-  osType?: string;
-  payload?: string;
-  thirdMsgId?: string;
-  validTimeEnd?: number;
-  validTimeStart?: number;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appMaxVersion: 'AppMaxVersion',
-      appMinVersion: 'AppMinVersion',
-      bizType: 'BizType',
-      checkOnline: 'CheckOnline',
-      extAttrStr: 'ExtAttrStr',
-      linkToken: 'LinkToken',
-      osType: 'OsType',
-      payload: 'Payload',
-      thirdMsgId: 'ThirdMsgId',
-      validTimeEnd: 'ValidTimeEnd',
-      validTimeStart: 'ValidTimeStart',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appMaxVersion: 'string',
-      appMinVersion: 'string',
-      bizType: 'string',
-      checkOnline: 'boolean',
-      extAttrStr: 'string',
-      linkToken: 'string',
-      osType: 'string',
-      payload: 'string',
-      thirdMsgId: 'string',
-      validTimeEnd: 'number',
-      validTimeStart: 'number',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOpenSingleDataResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: boolean;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: 'boolean',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOpenSingleDataResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateOpenSingleDataResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateOpenSingleDataResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCubecardWhitelistContentRequest extends $tea.Model {
-  appId?: string;
-  tenantId?: string;
-  whitelistId?: string;
-  whitelistValue?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      tenantId: 'TenantId',
-      whitelistId: 'WhitelistId',
-      whitelistValue: 'WhitelistValue',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      tenantId: 'string',
-      whitelistId: 'string',
-      whitelistValue: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCubecardWhitelistContentResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: DeleteCubecardWhitelistContentResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: DeleteCubecardWhitelistContentResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCubecardWhitelistContentResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteCubecardWhitelistContentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteCubecardWhitelistContentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpAimRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpAimDeleteJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpAimDeleteJsonStr: 'MpaasMappcenterMcdpAimDeleteJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpAimDeleteJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpAimResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: DeleteMcdpAimResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: DeleteMcdpAimResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpAimResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMcdpAimResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMcdpAimResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpCrowdRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpCrowdDeleteJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpCrowdDeleteJsonStr: 'MpaasMappcenterMcdpCrowdDeleteJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpCrowdDeleteJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpCrowdResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: DeleteMcdpCrowdResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: DeleteMcdpCrowdResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpCrowdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMcdpCrowdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMcdpCrowdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpEventAttributeByIdRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpEventAttributeDeleteJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpEventAttributeDeleteJsonStr: 'MpaasMappcenterMcdpEventAttributeDeleteJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpEventAttributeDeleteJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpEventAttributeByIdResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: DeleteMcdpEventAttributeByIdResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: DeleteMcdpEventAttributeByIdResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpEventAttributeByIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMcdpEventAttributeByIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMcdpEventAttributeByIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpEventByIdRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpEventDeleteJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpEventDeleteJsonStr: 'MpaasMappcenterMcdpEventDeleteJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpEventDeleteJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpEventByIdResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: DeleteMcdpEventByIdResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: DeleteMcdpEventByIdResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpEventByIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMcdpEventByIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMcdpEventByIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpMaterialRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpMaterialDeleteJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpMaterialDeleteJsonStr: 'MpaasMappcenterMcdpMaterialDeleteJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpMaterialDeleteJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpMaterialResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: DeleteMcdpMaterialResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: DeleteMcdpMaterialResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpMaterialResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMcdpMaterialResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMcdpMaterialResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpZoneRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMcdpZoneDeleteJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMcdpZoneDeleteJsonStr: 'MpaasMappcenterMcdpZoneDeleteJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMcdpZoneDeleteJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpZoneResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: DeleteMcdpZoneResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: DeleteMcdpZoneResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpZoneResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMcdpZoneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMcdpZoneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeMiniAppRequest extends $tea.Model {
-  appId?: string;
-  h5Id?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      h5Id: 'H5Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      h5Id: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeMiniAppResponseBody extends $tea.Model {
-  deleteMiniResult?: DeleteMcubeMiniAppResponseBodyDeleteMiniResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deleteMiniResult: 'DeleteMiniResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deleteMiniResult: DeleteMcubeMiniAppResponseBodyDeleteMiniResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeMiniAppResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMcubeMiniAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMcubeMiniAppResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeNebulaAppRequest extends $tea.Model {
-  appId?: string;
-  h5Id?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      h5Id: 'H5Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      h5Id: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeNebulaAppResponseBody extends $tea.Model {
-  deleteMcubeNebulaAppResult?: DeleteMcubeNebulaAppResponseBodyDeleteMcubeNebulaAppResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deleteMcubeNebulaAppResult: 'DeleteMcubeNebulaAppResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deleteMcubeNebulaAppResult: DeleteMcubeNebulaAppResponseBodyDeleteMcubeNebulaAppResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeNebulaAppResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMcubeNebulaAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMcubeNebulaAppResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeUpgradeResourceRequest extends $tea.Model {
-  appId?: string;
-  id?: string;
-  platform?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      id: 'Id',
-      platform: 'Platform',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      id: 'string',
-      platform: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeUpgradeResourceResponseBody extends $tea.Model {
-  deleteResult?: DeleteMcubeUpgradeResourceResponseBodyDeleteResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deleteResult: 'DeleteResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deleteResult: DeleteMcubeUpgradeResourceResponseBodyDeleteResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeUpgradeResourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMcubeUpgradeResourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMcubeUpgradeResourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeWhitelistRequest extends $tea.Model {
-  appId?: string;
-  id?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      id: 'Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      id: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeWhitelistResponseBody extends $tea.Model {
-  deleteWhitelistResult?: DeleteMcubeWhitelistResponseBodyDeleteWhitelistResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deleteWhitelistResult: 'DeleteWhitelistResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deleteWhitelistResult: DeleteMcubeWhitelistResponseBodyDeleteWhitelistResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeWhitelistResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMcubeWhitelistResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMcubeWhitelistResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMdsWhitelistContentRequest extends $tea.Model {
-  appId?: string;
-  tenantId?: string;
-  whitelistId?: string;
-  whitelistValue?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      tenantId: 'TenantId',
-      whitelistId: 'WhitelistId',
-      whitelistValue: 'WhitelistValue',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      tenantId: 'string',
-      whitelistId: 'string',
-      whitelistValue: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMdsWhitelistContentResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: DeleteMdsWhitelistContentResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: DeleteMdsWhitelistContentResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMdsWhitelistContentResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMdsWhitelistContentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMdsWhitelistContentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExistMcubeRsaKeyRequest extends $tea.Model {
-  appId?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExistMcubeRsaKeyResponseBody extends $tea.Model {
-  checkRsaKeyResult?: ExistMcubeRsaKeyResponseBodyCheckRsaKeyResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      checkRsaKeyResult: 'CheckRsaKeyResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkRsaKeyResult: ExistMcubeRsaKeyResponseBodyCheckRsaKeyResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExistMcubeRsaKeyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ExistMcubeRsaKeyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ExistMcubeRsaKeyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportMappCenterAppConfigRequest extends $tea.Model {
-  apkFileUrl?: string;
-  appId?: string;
-  certRsaBase64?: string;
-  identifier?: string;
-  onexFlag?: boolean;
-  systemType?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apkFileUrl: 'ApkFileUrl',
-      appId: 'AppId',
-      certRsaBase64: 'CertRsaBase64',
-      identifier: 'Identifier',
-      onexFlag: 'OnexFlag',
-      systemType: 'SystemType',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apkFileUrl: 'string',
-      appId: 'string',
-      certRsaBase64: 'string',
-      identifier: 'string',
-      onexFlag: 'boolean',
-      systemType: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportMappCenterAppConfigResponseBody extends $tea.Model {
-  exportMappCenterAppConfigResult?: ExportMappCenterAppConfigResponseBodyExportMappCenterAppConfigResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      exportMappCenterAppConfigResult: 'ExportMappCenterAppConfigResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exportMappCenterAppConfigResult: ExportMappCenterAppConfigResponseBodyExportMappCenterAppConfigResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportMappCenterAppConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ExportMappCenterAppConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ExportMappCenterAppConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileTokenForUploadToMsaRequest extends $tea.Model {
-  appId?: string;
-  onexFlag?: boolean;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      onexFlag: 'OnexFlag',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      onexFlag: 'boolean',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileTokenForUploadToMsaResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: GetFileTokenForUploadToMsaResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: GetFileTokenForUploadToMsaResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileTokenForUploadToMsaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFileTokenForUploadToMsaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFileTokenForUploadToMsaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLogUrlInMsaRequest extends $tea.Model {
-  appId?: string;
-  id?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      id: 'Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      id: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLogUrlInMsaResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: GetLogUrlInMsaResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: GetLogUrlInMsaResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLogUrlInMsaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetLogUrlInMsaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetLogUrlInMsaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeFileTokenRequest extends $tea.Model {
-  appId?: string;
-  onexFlag?: boolean;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      onexFlag: 'OnexFlag',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      onexFlag: 'boolean',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeFileTokenResponseBody extends $tea.Model {
-  getFileTokenResult?: GetMcubeFileTokenResponseBodyGetFileTokenResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      getFileTokenResult: 'GetFileTokenResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      getFileTokenResult: GetMcubeFileTokenResponseBodyGetFileTokenResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeFileTokenResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetMcubeFileTokenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMcubeFileTokenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeNebulaResourceRequest extends $tea.Model {
-  appId?: string;
-  id?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      id: 'Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      id: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeNebulaResourceResponseBody extends $tea.Model {
-  getNebulaResourceResult?: GetMcubeNebulaResourceResponseBodyGetNebulaResourceResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      getNebulaResourceResult: 'GetNebulaResourceResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      getNebulaResourceResult: GetMcubeNebulaResourceResponseBodyGetNebulaResourceResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeNebulaResourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetMcubeNebulaResourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMcubeNebulaResourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeNebulaTaskDetailRequest extends $tea.Model {
-  appId?: string;
-  taskId?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      taskId: 'TaskId',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      taskId: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeNebulaTaskDetailResponseBody extends $tea.Model {
-  getMcubeNebulaTaskDetailResult?: GetMcubeNebulaTaskDetailResponseBodyGetMcubeNebulaTaskDetailResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      getMcubeNebulaTaskDetailResult: 'GetMcubeNebulaTaskDetailResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      getMcubeNebulaTaskDetailResult: GetMcubeNebulaTaskDetailResponseBodyGetMcubeNebulaTaskDetailResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeNebulaTaskDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetMcubeNebulaTaskDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMcubeNebulaTaskDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradePackageInfoRequest extends $tea.Model {
-  appId?: string;
-  packageId?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      packageId: 'PackageId',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      packageId: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradePackageInfoResponseBody extends $tea.Model {
-  getPackageResult?: GetMcubeUpgradePackageInfoResponseBodyGetPackageResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      getPackageResult: 'GetPackageResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      getPackageResult: GetMcubeUpgradePackageInfoResponseBodyGetPackageResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradePackageInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetMcubeUpgradePackageInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMcubeUpgradePackageInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradeTaskInfoRequest extends $tea.Model {
-  appId?: string;
-  taskId?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      taskId: 'TaskId',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      taskId: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradeTaskInfoResponseBody extends $tea.Model {
-  getTaskResult?: GetMcubeUpgradeTaskInfoResponseBodyGetTaskResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      getTaskResult: 'GetTaskResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      getTaskResult: GetMcubeUpgradeTaskInfoResponseBodyGetTaskResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradeTaskInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetMcubeUpgradeTaskInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMcubeUpgradeTaskInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMdsMiniConfigRequest extends $tea.Model {
-  appId?: string;
-  h5Id?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      h5Id: 'H5Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      h5Id: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMdsMiniConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: GetMdsMiniConfigResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: GetMdsMiniConfigResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMdsMiniConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetMdsMiniConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMdsMiniConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppDonwloadUrlInMsaRequest extends $tea.Model {
-  appId?: string;
-  id?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      id: 'Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      id: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppDonwloadUrlInMsaResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: GetUserAppDonwloadUrlInMsaResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: GetUserAppDonwloadUrlInMsaResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppDonwloadUrlInMsaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetUserAppDonwloadUrlInMsaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetUserAppDonwloadUrlInMsaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppEnhanceProcessInMsaRequest extends $tea.Model {
-  appId?: string;
-  id?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      id: 'Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      id: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppEnhanceProcessInMsaResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: GetUserAppEnhanceProcessInMsaResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: GetUserAppEnhanceProcessInMsaResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppEnhanceProcessInMsaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetUserAppEnhanceProcessInMsaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetUserAppEnhanceProcessInMsaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppUploadProcessInMsaRequest extends $tea.Model {
-  appId?: string;
-  id?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      id: 'Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      id: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppUploadProcessInMsaResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: GetUserAppUploadProcessInMsaResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: GetUserAppUploadProcessInMsaResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppUploadProcessInMsaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetUserAppUploadProcessInMsaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetUserAppUploadProcessInMsaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMappCenterAppsResponseBody extends $tea.Model {
-  listMappCenterAppResult?: ListMappCenterAppsResponseBodyListMappCenterAppResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      listMappCenterAppResult: 'ListMappCenterAppResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listMappCenterAppResult: ListMappCenterAppsResponseBodyListMappCenterAppResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMappCenterAppsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMappCenterAppsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMappCenterAppsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMappCenterWorkspacesResponseBody extends $tea.Model {
-  listMappCenterWorkspaceResult?: ListMappCenterWorkspacesResponseBodyListMappCenterWorkspaceResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      listMappCenterWorkspaceResult: 'ListMappCenterWorkspaceResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listMappCenterWorkspaceResult: ListMappCenterWorkspacesResponseBodyListMappCenterWorkspaceResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMappCenterWorkspacesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMappCenterWorkspacesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMappCenterWorkspacesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcdpAimRequest extends $tea.Model {
-  appId?: string;
-  emptyTag?: string;
-  keyword?: string;
-  name?: string;
-  pageNo?: number;
-  pageSize?: number;
-  sort?: string;
-  sortField?: string;
-  tenantId?: string;
-  type?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      emptyTag: 'EmptyTag',
-      keyword: 'Keyword',
-      name: 'Name',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      sort: 'Sort',
-      sortField: 'SortField',
-      tenantId: 'TenantId',
-      type: 'Type',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      emptyTag: 'string',
-      keyword: 'string',
-      name: 'string',
-      pageNo: 'number',
-      pageSize: 'number',
-      sort: 'string',
-      sortField: 'string',
-      tenantId: 'string',
-      type: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcdpAimResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: ListMcdpAimResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: ListMcdpAimResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcdpAimResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMcdpAimResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMcdpAimResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniAppsRequest extends $tea.Model {
-  appId?: string;
-  keyword?: string;
-  pageNum?: number;
-  pageSize?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      keyword: 'Keyword',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      keyword: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniAppsResponseBody extends $tea.Model {
-  listMiniResult?: ListMcubeMiniAppsResponseBodyListMiniResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      listMiniResult: 'ListMiniResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listMiniResult: ListMcubeMiniAppsResponseBodyListMiniResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniAppsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMcubeMiniAppsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMcubeMiniAppsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniPackagesRequest extends $tea.Model {
-  appId?: string;
-  h5Id?: string;
-  packageTypes?: string;
-  pageNum?: number;
-  pageSize?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      h5Id: 'H5Id',
-      packageTypes: 'PackageTypes',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      h5Id: 'string',
-      packageTypes: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniPackagesResponseBody extends $tea.Model {
-  listMiniPackageResult?: ListMcubeMiniPackagesResponseBodyListMiniPackageResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      listMiniPackageResult: 'ListMiniPackageResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listMiniPackageResult: ListMcubeMiniPackagesResponseBodyListMiniPackageResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniPackagesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMcubeMiniPackagesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMcubeMiniPackagesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniTasksRequest extends $tea.Model {
-  appId?: string;
-  id?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      id: 'Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      id: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniTasksResponseBody extends $tea.Model {
-  listMiniTaskResult?: ListMcubeMiniTasksResponseBodyListMiniTaskResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      listMiniTaskResult: 'ListMiniTaskResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listMiniTaskResult: ListMcubeMiniTasksResponseBodyListMiniTaskResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniTasksResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMcubeMiniTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMcubeMiniTasksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaAppsRequest extends $tea.Model {
-  appId?: string;
-  keyword?: string;
-  pageNum?: number;
-  pageSize?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      keyword: 'Keyword',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      keyword: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaAppsResponseBody extends $tea.Model {
-  listMcubeNebulaAppsResult?: ListMcubeNebulaAppsResponseBodyListMcubeNebulaAppsResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      listMcubeNebulaAppsResult: 'ListMcubeNebulaAppsResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listMcubeNebulaAppsResult: ListMcubeNebulaAppsResponseBodyListMcubeNebulaAppsResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaAppsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMcubeNebulaAppsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMcubeNebulaAppsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaResourcesRequest extends $tea.Model {
-  appId?: string;
-  h5Id?: string;
-  pageNum?: number;
-  pageSize?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      h5Id: 'H5Id',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      h5Id: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaResourcesResponseBody extends $tea.Model {
-  listMcubeNebulaResourceResult?: ListMcubeNebulaResourcesResponseBodyListMcubeNebulaResourceResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      listMcubeNebulaResourceResult: 'ListMcubeNebulaResourceResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listMcubeNebulaResourceResult: ListMcubeNebulaResourcesResponseBodyListMcubeNebulaResourceResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMcubeNebulaResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMcubeNebulaResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaTasksRequest extends $tea.Model {
-  appId?: string;
-  id?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      id: 'Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      id: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaTasksResponseBody extends $tea.Model {
-  listMcubeNebulaTaskResult?: ListMcubeNebulaTasksResponseBodyListMcubeNebulaTaskResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      listMcubeNebulaTaskResult: 'ListMcubeNebulaTaskResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listMcubeNebulaTaskResult: ListMcubeNebulaTasksResponseBodyListMcubeNebulaTaskResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaTasksResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMcubeNebulaTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMcubeNebulaTasksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeUpgradePackagesRequest extends $tea.Model {
-  appId?: string;
-  pageNum?: number;
-  pageSize?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeUpgradePackagesResponseBody extends $tea.Model {
-  listPackagesResult?: ListMcubeUpgradePackagesResponseBodyListPackagesResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      listPackagesResult: 'ListPackagesResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listPackagesResult: ListMcubeUpgradePackagesResponseBodyListPackagesResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeUpgradePackagesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMcubeUpgradePackagesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMcubeUpgradePackagesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeUpgradeTasksRequest extends $tea.Model {
-  appId?: string;
-  packageId?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      packageId: 'PackageId',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      packageId: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeUpgradeTasksResponseBody extends $tea.Model {
-  listTaskResult?: ListMcubeUpgradeTasksResponseBodyListTaskResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      listTaskResult: 'ListTaskResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listTaskResult: ListMcubeUpgradeTasksResponseBodyListTaskResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeUpgradeTasksResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMcubeUpgradeTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMcubeUpgradeTasksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeWhitelistsRequest extends $tea.Model {
-  appId?: string;
-  pageNum?: number;
-  pageSize?: number;
-  tenantId?: string;
-  whitelistName?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      tenantId: 'TenantId',
-      whitelistName: 'WhitelistName',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      tenantId: 'string',
-      whitelistName: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeWhitelistsResponseBody extends $tea.Model {
-  listWhitelistResult?: ListMcubeWhitelistsResponseBodyListWhitelistResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      listWhitelistResult: 'ListWhitelistResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listWhitelistResult: ListMcubeWhitelistsResponseBodyListWhitelistResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeWhitelistsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMcubeWhitelistsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMcubeWhitelistsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiRequest extends $tea.Model {
-  apiStatus?: string;
-  apiType?: string;
-  appId?: string;
-  format?: string;
-  host?: string;
-  needEncrypt?: string;
-  needEtag?: string;
-  needSign?: string;
-  operationType?: string;
-  optFuzzy?: string;
-  pageIndex?: number;
-  pageSize?: number;
-  sysId?: number;
-  sysName?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiStatus: 'ApiStatus',
-      apiType: 'ApiType',
-      appId: 'AppId',
-      format: 'Format',
-      host: 'Host',
-      needEncrypt: 'NeedEncrypt',
-      needEtag: 'NeedEtag',
-      needSign: 'NeedSign',
-      operationType: 'OperationType',
-      optFuzzy: 'OptFuzzy',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      sysId: 'SysId',
-      sysName: 'SysName',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiStatus: 'string',
-      apiType: 'string',
-      appId: 'string',
-      format: 'string',
-      host: 'string',
-      needEncrypt: 'string',
-      needEtag: 'string',
-      needSign: 'string',
-      operationType: 'string',
-      optFuzzy: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-      sysId: 'number',
-      sysName: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: ListMgsApiResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: ListMgsApiResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMgsApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMgsApiResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LogMsaQueryRequest extends $tea.Model {
-  appId?: string;
-  id?: string;
-  onexFlag?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      id: 'Id',
-      onexFlag: 'OnexFlag',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      id: 'string',
-      onexFlag: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LogMsaQueryResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: LogMsaQueryResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: LogMsaQueryResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LogMsaQueryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: LogMsaQueryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: LogMsaQueryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MTRSOCRServiceRequest extends $tea.Model {
-  appId?: string;
-  imageRaw?: string;
-  mask?: boolean;
-  tenantId?: string;
-  type?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      imageRaw: 'ImageRaw',
-      mask: 'Mask',
-      tenantId: 'TenantId',
-      type: 'Type',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      imageRaw: 'string',
-      mask: 'boolean',
-      tenantId: 'string',
-      type: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MTRSOCRServiceResponseBody extends $tea.Model {
-  code?: string;
-  msg?: string;
-  requestId?: string;
-  result?: string;
-  status?: boolean;
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      msg: 'Msg',
-      requestId: 'RequestId',
-      result: 'Result',
-      status: 'Status',
-      traceId: 'TraceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      msg: 'string',
-      requestId: 'string',
-      result: 'string',
-      status: 'boolean',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MTRSOCRServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: MTRSOCRServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: MTRSOCRServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiAddActiveCodeRequest extends $tea.Model {
-  appId?: string;
-  mpaasMqcpOpenApiAddActiveCodeReqJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMqcpOpenApiAddActiveCodeReqJsonStr: 'MpaasMqcpOpenApiAddActiveCodeReqJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMqcpOpenApiAddActiveCodeReqJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiAddActiveCodeResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiAddActiveCodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenApiAddActiveCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenApiAddActiveCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiAddActiveSceneRequest extends $tea.Model {
-  appId?: string;
-  mpaasMqcpOpenApiAddActiveSceneReqJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMqcpOpenApiAddActiveSceneReqJsonStr: 'MpaasMqcpOpenApiAddActiveSceneReqJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMqcpOpenApiAddActiveSceneReqJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiAddActiveSceneResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiAddActiveSceneResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenApiAddActiveSceneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenApiAddActiveSceneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiCallbackRequest extends $tea.Model {
-  appId?: string;
-  mpaasMqcpOpenApiCallbackRequestJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMqcpOpenApiCallbackRequestJsonStr: 'MpaasMqcpOpenApiCallbackRequestJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMqcpOpenApiCallbackRequestJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiCallbackResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiCallbackResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenApiCallbackResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenApiCallbackResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiDecodeRequest extends $tea.Model {
-  appId?: string;
-  mpaasMqcpOpenApiDecodeRequestJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMqcpOpenApiDecodeRequestJsonStr: 'MpaasMqcpOpenApiDecodeRequestJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMqcpOpenApiDecodeRequestJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiDecodeResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiDecodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenApiDecodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenApiDecodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiDeleteActiveCodeRequest extends $tea.Model {
-  appId?: string;
-  mpaasMqcpOpenApiDeleteActiveCodeReqJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMqcpOpenApiDeleteActiveCodeReqJsonStr: 'MpaasMqcpOpenApiDeleteActiveCodeReqJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMqcpOpenApiDeleteActiveCodeReqJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiDeleteActiveCodeResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiDeleteActiveCodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenApiDeleteActiveCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenApiDeleteActiveCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiEncodeRequest extends $tea.Model {
-  appId?: string;
-  mpaasMqcpOpenApiEncodeRequestJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMqcpOpenApiEncodeRequestJsonStr: 'MpaasMqcpOpenApiEncodeRequestJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMqcpOpenApiEncodeRequestJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiEncodeResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiEncodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenApiEncodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenApiEncodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiQueryActiveCodeRequest extends $tea.Model {
-  appId?: string;
-  mpaasMqcpOpenApiQueryActiveCodeReqJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMqcpOpenApiQueryActiveCodeReqJsonStr: 'MpaasMqcpOpenApiQueryActiveCodeReqJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMqcpOpenApiQueryActiveCodeReqJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiQueryActiveCodeResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiQueryActiveCodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenApiQueryActiveCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenApiQueryActiveCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiQueryActiveSceneRequest extends $tea.Model {
-  appId?: string;
-  mpaasMqcpOpenApiQueryActiveSceneReqJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMqcpOpenApiQueryActiveSceneReqJsonStr: 'MpaasMqcpOpenApiQueryActiveSceneReqJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMqcpOpenApiQueryActiveSceneReqJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiQueryActiveSceneResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiQueryActiveSceneResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenApiQueryActiveSceneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenApiQueryActiveSceneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiUniqueEncodeRequest extends $tea.Model {
-  appId?: string;
-  mpaasMqcpOpenApiUniqueEncodeRequestJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMqcpOpenApiUniqueEncodeRequestJsonStr: 'MpaasMqcpOpenApiUniqueEncodeRequestJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMqcpOpenApiUniqueEncodeRequestJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiUniqueEncodeResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiUniqueEncodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenApiUniqueEncodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenApiUniqueEncodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiUpdateActiveCodeRequest extends $tea.Model {
-  appId?: string;
-  mpaasMqcpOpenApiUpdateActiveCodeReqJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMqcpOpenApiUpdateActiveCodeReqJsonStr: 'MpaasMqcpOpenApiUpdateActiveCodeReqJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMqcpOpenApiUpdateActiveCodeReqJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiUpdateActiveCodeResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiUpdateActiveCodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenApiUpdateActiveCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenApiUpdateActiveCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiUpdateActiveSceneRequest extends $tea.Model {
-  appId?: string;
-  mpaasMqcpOpenApiUpdateActiveSceneReqJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMqcpOpenApiUpdateActiveSceneReqJsonStr: 'MpaasMqcpOpenApiUpdateActiveSceneReqJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMqcpOpenApiUpdateActiveSceneReqJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiUpdateActiveSceneResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenApiUpdateActiveSceneResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenApiUpdateActiveSceneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenApiUpdateActiveSceneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushBindRequest extends $tea.Model {
-  appId?: string;
-  deliveryToken?: string;
-  osType?: number;
-  phoneNumber?: string;
-  userId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      deliveryToken: 'DeliveryToken',
-      osType: 'OsType',
-      phoneNumber: 'PhoneNumber',
-      userId: 'UserId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      deliveryToken: 'string',
-      osType: 'number',
-      phoneNumber: 'string',
-      userId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushBindResponseBody extends $tea.Model {
-  pushResult?: PushBindResponseBodyPushResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pushResult: 'PushResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pushResult: PushBindResponseBodyPushResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushBindResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushBindResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushBindResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushBroadcastRequest extends $tea.Model {
-  androidChannel?: number;
-  appId?: string;
-  bindPeriod?: number;
-  channelId?: string;
-  classification?: string;
-  deliveryType?: number;
-  expiredSeconds?: number;
-  extendedParams?: string;
-  miChannelId?: string;
-  msgkey?: string;
-  notifyType?: string;
-  pushAction?: number;
-  pushStatus?: number;
-  silent?: number;
-  strategyContent?: string;
-  strategyType?: number;
-  taskName?: string;
-  templateKeyValue?: string;
-  templateName?: string;
-  thirdChannelCategory?: { [key: string]: any };
-  unBindPeriod?: number;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidChannel: 'AndroidChannel',
-      appId: 'AppId',
-      bindPeriod: 'BindPeriod',
-      channelId: 'ChannelId',
-      classification: 'Classification',
-      deliveryType: 'DeliveryType',
-      expiredSeconds: 'ExpiredSeconds',
-      extendedParams: 'ExtendedParams',
-      miChannelId: 'MiChannelId',
-      msgkey: 'Msgkey',
-      notifyType: 'NotifyType',
-      pushAction: 'PushAction',
-      pushStatus: 'PushStatus',
-      silent: 'Silent',
-      strategyContent: 'StrategyContent',
-      strategyType: 'StrategyType',
-      taskName: 'TaskName',
-      templateKeyValue: 'TemplateKeyValue',
-      templateName: 'TemplateName',
-      thirdChannelCategory: 'ThirdChannelCategory',
-      unBindPeriod: 'UnBindPeriod',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidChannel: 'number',
-      appId: 'string',
-      bindPeriod: 'number',
-      channelId: 'string',
-      classification: 'string',
-      deliveryType: 'number',
-      expiredSeconds: 'number',
-      extendedParams: 'string',
-      miChannelId: 'string',
-      msgkey: 'string',
-      notifyType: 'string',
-      pushAction: 'number',
-      pushStatus: 'number',
-      silent: 'number',
-      strategyContent: 'string',
-      strategyType: 'number',
-      taskName: 'string',
-      templateKeyValue: 'string',
-      templateName: 'string',
-      thirdChannelCategory: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      unBindPeriod: 'number',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushBroadcastShrinkRequest extends $tea.Model {
-  androidChannel?: number;
-  appId?: string;
-  bindPeriod?: number;
-  channelId?: string;
-  classification?: string;
-  deliveryType?: number;
-  expiredSeconds?: number;
-  extendedParams?: string;
-  miChannelId?: string;
-  msgkey?: string;
-  notifyType?: string;
-  pushAction?: number;
-  pushStatus?: number;
-  silent?: number;
-  strategyContent?: string;
-  strategyType?: number;
-  taskName?: string;
-  templateKeyValue?: string;
-  templateName?: string;
-  thirdChannelCategoryShrink?: string;
-  unBindPeriod?: number;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidChannel: 'AndroidChannel',
-      appId: 'AppId',
-      bindPeriod: 'BindPeriod',
-      channelId: 'ChannelId',
-      classification: 'Classification',
-      deliveryType: 'DeliveryType',
-      expiredSeconds: 'ExpiredSeconds',
-      extendedParams: 'ExtendedParams',
-      miChannelId: 'MiChannelId',
-      msgkey: 'Msgkey',
-      notifyType: 'NotifyType',
-      pushAction: 'PushAction',
-      pushStatus: 'PushStatus',
-      silent: 'Silent',
-      strategyContent: 'StrategyContent',
-      strategyType: 'StrategyType',
-      taskName: 'TaskName',
-      templateKeyValue: 'TemplateKeyValue',
-      templateName: 'TemplateName',
-      thirdChannelCategoryShrink: 'ThirdChannelCategory',
-      unBindPeriod: 'UnBindPeriod',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidChannel: 'number',
-      appId: 'string',
-      bindPeriod: 'number',
-      channelId: 'string',
-      classification: 'string',
-      deliveryType: 'number',
-      expiredSeconds: 'number',
-      extendedParams: 'string',
-      miChannelId: 'string',
-      msgkey: 'string',
-      notifyType: 'string',
-      pushAction: 'number',
-      pushStatus: 'number',
-      silent: 'number',
-      strategyContent: 'string',
-      strategyType: 'number',
-      taskName: 'string',
-      templateKeyValue: 'string',
-      templateName: 'string',
-      thirdChannelCategoryShrink: 'string',
-      unBindPeriod: 'number',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushBroadcastResponseBody extends $tea.Model {
-  pushResult?: PushBroadcastResponseBodyPushResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pushResult: 'PushResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pushResult: PushBroadcastResponseBodyPushResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushBroadcastResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushBroadcastResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushBroadcastResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMultipleRequest extends $tea.Model {
-  activityContentState?: any;
-  activityEvent?: string;
-  appId?: string;
-  channelId?: string;
-  classification?: string;
-  deliveryType?: number;
-  dismissalDate?: number;
-  expiredSeconds?: number;
-  extendedParams?: string;
-  miChannelId?: string;
-  notifyType?: string;
-  pushAction?: number;
-  silent?: number;
-  strategyContent?: string;
-  strategyType?: number;
-  targetMsg?: PushMultipleRequestTargetMsg[];
-  taskName?: string;
-  templateName?: string;
-  thirdChannelCategory?: { [key: string]: any };
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      activityContentState: 'ActivityContentState',
-      activityEvent: 'ActivityEvent',
-      appId: 'AppId',
-      channelId: 'ChannelId',
-      classification: 'Classification',
-      deliveryType: 'DeliveryType',
-      dismissalDate: 'DismissalDate',
-      expiredSeconds: 'ExpiredSeconds',
-      extendedParams: 'ExtendedParams',
-      miChannelId: 'MiChannelId',
-      notifyType: 'NotifyType',
-      pushAction: 'PushAction',
-      silent: 'Silent',
-      strategyContent: 'StrategyContent',
-      strategyType: 'StrategyType',
-      targetMsg: 'TargetMsg',
-      taskName: 'TaskName',
-      templateName: 'TemplateName',
-      thirdChannelCategory: 'ThirdChannelCategory',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activityContentState: 'any',
-      activityEvent: 'string',
-      appId: 'string',
-      channelId: 'string',
-      classification: 'string',
-      deliveryType: 'number',
-      dismissalDate: 'number',
-      expiredSeconds: 'number',
-      extendedParams: 'string',
-      miChannelId: 'string',
-      notifyType: 'string',
-      pushAction: 'number',
-      silent: 'number',
-      strategyContent: 'string',
-      strategyType: 'number',
-      targetMsg: { 'type': 'array', 'itemType': PushMultipleRequestTargetMsg },
-      taskName: 'string',
-      templateName: 'string',
-      thirdChannelCategory: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMultipleShrinkRequest extends $tea.Model {
-  activityContentState?: any;
-  activityEvent?: string;
-  appId?: string;
-  channelId?: string;
-  classification?: string;
-  deliveryType?: number;
-  dismissalDate?: number;
-  expiredSeconds?: number;
-  extendedParams?: string;
-  miChannelId?: string;
-  notifyType?: string;
-  pushAction?: number;
-  silent?: number;
-  strategyContent?: string;
-  strategyType?: number;
-  targetMsg?: PushMultipleShrinkRequestTargetMsg[];
-  taskName?: string;
-  templateName?: string;
-  thirdChannelCategoryShrink?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      activityContentState: 'ActivityContentState',
-      activityEvent: 'ActivityEvent',
-      appId: 'AppId',
-      channelId: 'ChannelId',
-      classification: 'Classification',
-      deliveryType: 'DeliveryType',
-      dismissalDate: 'DismissalDate',
-      expiredSeconds: 'ExpiredSeconds',
-      extendedParams: 'ExtendedParams',
-      miChannelId: 'MiChannelId',
-      notifyType: 'NotifyType',
-      pushAction: 'PushAction',
-      silent: 'Silent',
-      strategyContent: 'StrategyContent',
-      strategyType: 'StrategyType',
-      targetMsg: 'TargetMsg',
-      taskName: 'TaskName',
-      templateName: 'TemplateName',
-      thirdChannelCategoryShrink: 'ThirdChannelCategory',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activityContentState: 'any',
-      activityEvent: 'string',
-      appId: 'string',
-      channelId: 'string',
-      classification: 'string',
-      deliveryType: 'number',
-      dismissalDate: 'number',
-      expiredSeconds: 'number',
-      extendedParams: 'string',
-      miChannelId: 'string',
-      notifyType: 'string',
-      pushAction: 'number',
-      silent: 'number',
-      strategyContent: 'string',
-      strategyType: 'number',
-      targetMsg: { 'type': 'array', 'itemType': PushMultipleShrinkRequestTargetMsg },
-      taskName: 'string',
-      templateName: 'string',
-      thirdChannelCategoryShrink: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMultipleResponseBody extends $tea.Model {
-  pushResult?: PushMultipleResponseBodyPushResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pushResult: 'PushResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pushResult: PushMultipleResponseBodyPushResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMultipleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushMultipleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushMultipleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushReportRequest extends $tea.Model {
-  appId?: string;
-  appVersion?: string;
-  channel?: string;
-  connectType?: string;
-  deliveryToken?: string;
-  imei?: string;
-  imsi?: string;
-  model?: string;
-  osType?: number;
-  pushVersion?: string;
-  thirdChannel?: number;
-  thirdChannelDeviceToken?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appVersion: 'AppVersion',
-      channel: 'Channel',
-      connectType: 'ConnectType',
-      deliveryToken: 'DeliveryToken',
-      imei: 'Imei',
-      imsi: 'Imsi',
-      model: 'Model',
-      osType: 'OsType',
-      pushVersion: 'PushVersion',
-      thirdChannel: 'ThirdChannel',
-      thirdChannelDeviceToken: 'ThirdChannelDeviceToken',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appVersion: 'string',
-      channel: 'string',
-      connectType: 'string',
-      deliveryToken: 'string',
-      imei: 'string',
-      imsi: 'string',
-      model: 'string',
-      osType: 'number',
-      pushVersion: 'string',
-      thirdChannel: 'number',
-      thirdChannelDeviceToken: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushReportResponseBody extends $tea.Model {
-  pushResult?: PushReportResponseBodyPushResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pushResult: 'PushResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pushResult: PushReportResponseBodyPushResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushReportResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushSimpleRequest extends $tea.Model {
-  activityContentState?: any;
-  activityEvent?: string;
-  appId?: string;
-  channelId?: string;
-  classification?: string;
-  content?: string;
-  deliveryType?: number;
-  dismissalDate?: number;
-  expiredSeconds?: number;
-  extendedParams?: string;
-  iconUrls?: string;
-  imageUrls?: string;
-  miChannelId?: string;
-  notifyType?: string;
-  pushAction?: number;
-  pushStyle?: number;
-  silent?: number;
-  smsSignName?: string;
-  smsStrategy?: number;
-  smsTemplateCode?: string;
-  smsTemplateParam?: string;
-  strategyContent?: string;
-  strategyType?: number;
-  targetMsgkey?: string;
-  taskName?: string;
-  thirdChannelCategory?: { [key: string]: any };
-  title?: string;
-  uri?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      activityContentState: 'ActivityContentState',
-      activityEvent: 'ActivityEvent',
-      appId: 'AppId',
-      channelId: 'ChannelId',
-      classification: 'Classification',
-      content: 'Content',
-      deliveryType: 'DeliveryType',
-      dismissalDate: 'DismissalDate',
-      expiredSeconds: 'ExpiredSeconds',
-      extendedParams: 'ExtendedParams',
-      iconUrls: 'IconUrls',
-      imageUrls: 'ImageUrls',
-      miChannelId: 'MiChannelId',
-      notifyType: 'NotifyType',
-      pushAction: 'PushAction',
-      pushStyle: 'PushStyle',
-      silent: 'Silent',
-      smsSignName: 'SmsSignName',
-      smsStrategy: 'SmsStrategy',
-      smsTemplateCode: 'SmsTemplateCode',
-      smsTemplateParam: 'SmsTemplateParam',
-      strategyContent: 'StrategyContent',
-      strategyType: 'StrategyType',
-      targetMsgkey: 'TargetMsgkey',
-      taskName: 'TaskName',
-      thirdChannelCategory: 'ThirdChannelCategory',
-      title: 'Title',
-      uri: 'Uri',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activityContentState: 'any',
-      activityEvent: 'string',
-      appId: 'string',
-      channelId: 'string',
-      classification: 'string',
-      content: 'string',
-      deliveryType: 'number',
-      dismissalDate: 'number',
-      expiredSeconds: 'number',
-      extendedParams: 'string',
-      iconUrls: 'string',
-      imageUrls: 'string',
-      miChannelId: 'string',
-      notifyType: 'string',
-      pushAction: 'number',
-      pushStyle: 'number',
-      silent: 'number',
-      smsSignName: 'string',
-      smsStrategy: 'number',
-      smsTemplateCode: 'string',
-      smsTemplateParam: 'string',
-      strategyContent: 'string',
-      strategyType: 'number',
-      targetMsgkey: 'string',
-      taskName: 'string',
-      thirdChannelCategory: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      title: 'string',
-      uri: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushSimpleShrinkRequest extends $tea.Model {
-  activityContentState?: any;
-  activityEvent?: string;
-  appId?: string;
-  channelId?: string;
-  classification?: string;
-  content?: string;
-  deliveryType?: number;
-  dismissalDate?: number;
-  expiredSeconds?: number;
-  extendedParams?: string;
-  iconUrls?: string;
-  imageUrls?: string;
-  miChannelId?: string;
-  notifyType?: string;
-  pushAction?: number;
-  pushStyle?: number;
-  silent?: number;
-  smsSignName?: string;
-  smsStrategy?: number;
-  smsTemplateCode?: string;
-  smsTemplateParam?: string;
-  strategyContent?: string;
-  strategyType?: number;
-  targetMsgkey?: string;
-  taskName?: string;
-  thirdChannelCategoryShrink?: string;
-  title?: string;
-  uri?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      activityContentState: 'ActivityContentState',
-      activityEvent: 'ActivityEvent',
-      appId: 'AppId',
-      channelId: 'ChannelId',
-      classification: 'Classification',
-      content: 'Content',
-      deliveryType: 'DeliveryType',
-      dismissalDate: 'DismissalDate',
-      expiredSeconds: 'ExpiredSeconds',
-      extendedParams: 'ExtendedParams',
-      iconUrls: 'IconUrls',
-      imageUrls: 'ImageUrls',
-      miChannelId: 'MiChannelId',
-      notifyType: 'NotifyType',
-      pushAction: 'PushAction',
-      pushStyle: 'PushStyle',
-      silent: 'Silent',
-      smsSignName: 'SmsSignName',
-      smsStrategy: 'SmsStrategy',
-      smsTemplateCode: 'SmsTemplateCode',
-      smsTemplateParam: 'SmsTemplateParam',
-      strategyContent: 'StrategyContent',
-      strategyType: 'StrategyType',
-      targetMsgkey: 'TargetMsgkey',
-      taskName: 'TaskName',
-      thirdChannelCategoryShrink: 'ThirdChannelCategory',
-      title: 'Title',
-      uri: 'Uri',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activityContentState: 'any',
-      activityEvent: 'string',
-      appId: 'string',
-      channelId: 'string',
-      classification: 'string',
-      content: 'string',
-      deliveryType: 'number',
-      dismissalDate: 'number',
-      expiredSeconds: 'number',
-      extendedParams: 'string',
-      iconUrls: 'string',
-      imageUrls: 'string',
-      miChannelId: 'string',
-      notifyType: 'string',
-      pushAction: 'number',
-      pushStyle: 'number',
-      silent: 'number',
-      smsSignName: 'string',
-      smsStrategy: 'number',
-      smsTemplateCode: 'string',
-      smsTemplateParam: 'string',
-      strategyContent: 'string',
-      strategyType: 'number',
-      targetMsgkey: 'string',
-      taskName: 'string',
-      thirdChannelCategoryShrink: 'string',
-      title: 'string',
-      uri: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushSimpleResponseBody extends $tea.Model {
-  pushResult?: PushSimpleResponseBodyPushResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pushResult: 'PushResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pushResult: PushSimpleResponseBodyPushResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushSimpleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushSimpleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushSimpleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushTemplateRequest extends $tea.Model {
-  activityContentState?: any;
-  activityEvent?: string;
-  appId?: string;
-  channelId?: string;
-  classification?: string;
-  deliveryType?: number;
-  dismissalDate?: number;
-  expiredSeconds?: number;
-  extendedParams?: string;
-  miChannelId?: string;
-  notifyType?: string;
-  pushAction?: number;
-  silent?: number;
-  smsSignName?: string;
-  smsStrategy?: number;
-  smsTemplateCode?: string;
-  smsTemplateParam?: string;
-  strategyContent?: string;
-  strategyType?: number;
-  targetMsgkey?: string;
-  taskName?: string;
-  templateKeyValue?: string;
-  templateName?: string;
-  thirdChannelCategory?: { [key: string]: any };
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      activityContentState: 'ActivityContentState',
-      activityEvent: 'ActivityEvent',
-      appId: 'AppId',
-      channelId: 'ChannelId',
-      classification: 'Classification',
-      deliveryType: 'DeliveryType',
-      dismissalDate: 'DismissalDate',
-      expiredSeconds: 'ExpiredSeconds',
-      extendedParams: 'ExtendedParams',
-      miChannelId: 'MiChannelId',
-      notifyType: 'NotifyType',
-      pushAction: 'PushAction',
-      silent: 'Silent',
-      smsSignName: 'SmsSignName',
-      smsStrategy: 'SmsStrategy',
-      smsTemplateCode: 'SmsTemplateCode',
-      smsTemplateParam: 'SmsTemplateParam',
-      strategyContent: 'StrategyContent',
-      strategyType: 'StrategyType',
-      targetMsgkey: 'TargetMsgkey',
-      taskName: 'TaskName',
-      templateKeyValue: 'TemplateKeyValue',
-      templateName: 'TemplateName',
-      thirdChannelCategory: 'ThirdChannelCategory',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activityContentState: 'any',
-      activityEvent: 'string',
-      appId: 'string',
-      channelId: 'string',
-      classification: 'string',
-      deliveryType: 'number',
-      dismissalDate: 'number',
-      expiredSeconds: 'number',
-      extendedParams: 'string',
-      miChannelId: 'string',
-      notifyType: 'string',
-      pushAction: 'number',
-      silent: 'number',
-      smsSignName: 'string',
-      smsStrategy: 'number',
-      smsTemplateCode: 'string',
-      smsTemplateParam: 'string',
-      strategyContent: 'string',
-      strategyType: 'number',
-      targetMsgkey: 'string',
-      taskName: 'string',
-      templateKeyValue: 'string',
-      templateName: 'string',
-      thirdChannelCategory: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushTemplateShrinkRequest extends $tea.Model {
-  activityContentState?: any;
-  activityEvent?: string;
-  appId?: string;
-  channelId?: string;
-  classification?: string;
-  deliveryType?: number;
-  dismissalDate?: number;
-  expiredSeconds?: number;
-  extendedParams?: string;
-  miChannelId?: string;
-  notifyType?: string;
-  pushAction?: number;
-  silent?: number;
-  smsSignName?: string;
-  smsStrategy?: number;
-  smsTemplateCode?: string;
-  smsTemplateParam?: string;
-  strategyContent?: string;
-  strategyType?: number;
-  targetMsgkey?: string;
-  taskName?: string;
-  templateKeyValue?: string;
-  templateName?: string;
-  thirdChannelCategoryShrink?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      activityContentState: 'ActivityContentState',
-      activityEvent: 'ActivityEvent',
-      appId: 'AppId',
-      channelId: 'ChannelId',
-      classification: 'Classification',
-      deliveryType: 'DeliveryType',
-      dismissalDate: 'DismissalDate',
-      expiredSeconds: 'ExpiredSeconds',
-      extendedParams: 'ExtendedParams',
-      miChannelId: 'MiChannelId',
-      notifyType: 'NotifyType',
-      pushAction: 'PushAction',
-      silent: 'Silent',
-      smsSignName: 'SmsSignName',
-      smsStrategy: 'SmsStrategy',
-      smsTemplateCode: 'SmsTemplateCode',
-      smsTemplateParam: 'SmsTemplateParam',
-      strategyContent: 'StrategyContent',
-      strategyType: 'StrategyType',
-      targetMsgkey: 'TargetMsgkey',
-      taskName: 'TaskName',
-      templateKeyValue: 'TemplateKeyValue',
-      templateName: 'TemplateName',
-      thirdChannelCategoryShrink: 'ThirdChannelCategory',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activityContentState: 'any',
-      activityEvent: 'string',
-      appId: 'string',
-      channelId: 'string',
-      classification: 'string',
-      deliveryType: 'number',
-      dismissalDate: 'number',
-      expiredSeconds: 'number',
-      extendedParams: 'string',
-      miChannelId: 'string',
-      notifyType: 'string',
-      pushAction: 'number',
-      silent: 'number',
-      smsSignName: 'string',
-      smsStrategy: 'number',
-      smsTemplateCode: 'string',
-      smsTemplateParam: 'string',
-      strategyContent: 'string',
-      strategyType: 'number',
-      targetMsgkey: 'string',
-      taskName: 'string',
-      templateKeyValue: 'string',
-      templateName: 'string',
-      thirdChannelCategoryShrink: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushTemplateResponseBody extends $tea.Model {
-  pushResult?: PushTemplateResponseBodyPushResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pushResult: 'PushResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pushResult: PushTemplateResponseBodyPushResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushTemplateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushUnBindRequest extends $tea.Model {
-  appId?: string;
-  deliveryToken?: string;
-  userId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      deliveryToken: 'DeliveryToken',
-      userId: 'UserId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      deliveryToken: 'string',
-      userId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushUnBindResponseBody extends $tea.Model {
-  pushResult?: PushUnBindResponseBodyPushResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pushResult: 'PushResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pushResult: PushUnBindResponseBodyPushResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushUnBindResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushUnBindResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushUnBindResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryInfoFromMdpRequest extends $tea.Model {
-  appId?: string;
-  mobile?: string;
-  mobileMd5?: string;
-  mobileSha256?: string;
-  riskScene?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mobile: 'Mobile',
-      mobileMd5: 'MobileMd5',
-      mobileSha256: 'MobileSha256',
-      riskScene: 'RiskScene',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mobile: 'string',
-      mobileMd5: 'string',
-      mobileSha256: 'string',
-      riskScene: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryInfoFromMdpResponseBody extends $tea.Model {
-  data?: string;
-  requestId?: string;
-  resultCode?: number;
-  resultMessage?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      requestId: 'string',
-      resultCode: 'number',
-      resultMessage: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryInfoFromMdpResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryInfoFromMdpResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryInfoFromMdpResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryLinkRequest extends $tea.Model {
-  appId?: string;
-  url?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      url: 'Url',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      url: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryLinkResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: QueryLinkResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: QueryLinkResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryLinkResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryLinkResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryLinkResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMappCenterAppRequest extends $tea.Model {
-  appId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMappCenterAppResponseBody extends $tea.Model {
-  queryMappCenterAppResult?: QueryMappCenterAppResponseBodyQueryMappCenterAppResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      queryMappCenterAppResult: 'QueryMappCenterAppResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      queryMappCenterAppResult: QueryMappCenterAppResponseBodyQueryMappCenterAppResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMappCenterAppResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryMappCenterAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryMappCenterAppResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcdpAimRequest extends $tea.Model {
-  appId?: string;
-  id?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      id: 'Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      id: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcdpAimResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: QueryMcdpAimResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: QueryMcdpAimResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcdpAimResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryMcdpAimResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryMcdpAimResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcdpZoneRequest extends $tea.Model {
-  appId?: string;
-  id?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      id: 'Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      id: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcdpZoneResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: QueryMcdpZoneResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: QueryMcdpZoneResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcdpZoneResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryMcdpZoneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryMcdpZoneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeMiniPackageRequest extends $tea.Model {
-  appId?: string;
-  h5Id?: string;
-  id?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      h5Id: 'H5Id',
-      id: 'Id',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      h5Id: 'string',
-      id: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeMiniPackageResponseBody extends $tea.Model {
-  queryMiniPackageResult?: QueryMcubeMiniPackageResponseBodyQueryMiniPackageResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      queryMiniPackageResult: 'QueryMiniPackageResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      queryMiniPackageResult: QueryMcubeMiniPackageResponseBodyQueryMiniPackageResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeMiniPackageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryMcubeMiniPackageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryMcubeMiniPackageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeMiniTaskRequest extends $tea.Model {
-  appId?: string;
-  taskId?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      taskId: 'TaskId',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      taskId: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeMiniTaskResponseBody extends $tea.Model {
-  queryMiniTaskResult?: QueryMcubeMiniTaskResponseBodyQueryMiniTaskResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      queryMiniTaskResult: 'QueryMiniTaskResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      queryMiniTaskResult: QueryMcubeMiniTaskResponseBodyQueryMiniTaskResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeMiniTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryMcubeMiniTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryMcubeMiniTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeVhostRequest extends $tea.Model {
-  appId?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeVhostResponseBody extends $tea.Model {
-  queryVhostResult?: QueryMcubeVhostResponseBodyQueryVhostResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      queryVhostResult: 'QueryVhostResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      queryVhostResult: QueryMcubeVhostResponseBodyQueryVhostResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeVhostResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryMcubeVhostResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryMcubeVhostResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMdsUpgradeTaskDetailRequest extends $tea.Model {
-  appId?: string;
-  taskId?: number;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      taskId: 'TaskId',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      taskId: 'number',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMdsUpgradeTaskDetailResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: QueryMdsUpgradeTaskDetailResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: QueryMdsUpgradeTaskDetailResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMdsUpgradeTaskDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryMdsUpgradeTaskDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryMdsUpgradeTaskDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageRequest extends $tea.Model {
-  apiStatus?: string;
-  apiType?: string;
-  appId?: string;
-  format?: string;
-  host?: string;
-  needEncrypt?: string;
-  needEtag?: string;
-  needSign?: string;
-  operationType?: string;
-  optFuzzy?: string;
-  pageIndex?: number;
-  pageSize?: number;
-  sysId?: number;
-  sysName?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiStatus: 'ApiStatus',
-      apiType: 'ApiType',
-      appId: 'AppId',
-      format: 'Format',
-      host: 'Host',
-      needEncrypt: 'NeedEncrypt',
-      needEtag: 'NeedEtag',
-      needSign: 'NeedSign',
-      operationType: 'OperationType',
-      optFuzzy: 'OptFuzzy',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      sysId: 'SysId',
-      sysName: 'SysName',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiStatus: 'string',
-      apiType: 'string',
-      appId: 'string',
-      format: 'string',
-      host: 'string',
-      needEncrypt: 'string',
-      needEtag: 'string',
-      needSign: 'string',
-      operationType: 'string',
-      optFuzzy: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-      sysId: 'number',
-      sysName: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: QueryMgsApipageResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: QueryMgsApipageResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryMgsApipageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryMgsApipageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestRequest extends $tea.Model {
-  appId?: string;
-  format?: string;
-  id?: number;
-  tenantId?: string;
-  type?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      format: 'Format',
-      id: 'Id',
-      tenantId: 'TenantId',
-      type: 'Type',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      format: 'string',
-      id: 'number',
-      tenantId: 'string',
-      type: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: QueryMgsApirestResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: QueryMgsApirestResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryMgsApirestResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryMgsApirestResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsTestreqbodyautogenRequest extends $tea.Model {
-  appId?: string;
-  format?: string;
-  mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      format: 'Format',
-      mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr: 'MpaasMappcenterMgsTestreqbodyautogenQueryJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      format: 'string',
-      mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsTestreqbodyautogenResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsTestreqbodyautogenResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryMgsTestreqbodyautogenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryMgsTestreqbodyautogenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMpsSchedulerListRequest extends $tea.Model {
-  appId?: string;
-  endTime?: number;
-  pageNumber?: number;
-  pageSize?: number;
-  startTime?: number;
-  type?: number;
-  uniqueId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      startTime: 'StartTime',
-      type: 'Type',
-      uniqueId: 'UniqueId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      endTime: 'number',
-      pageNumber: 'number',
-      pageSize: 'number',
-      startTime: 'number',
-      type: 'number',
-      uniqueId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMpsSchedulerListResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: QueryMpsSchedulerListResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: QueryMpsSchedulerListResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMpsSchedulerListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryMpsSchedulerListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryMpsSchedulerListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisCoreIndexRequest extends $tea.Model {
-  appId?: string;
-  channel?: string;
-  endTime?: number;
-  platform?: string;
-  startTime?: number;
-  taskId?: string;
-  type?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      channel: 'Channel',
-      endTime: 'EndTime',
-      platform: 'Platform',
-      startTime: 'StartTime',
-      taskId: 'TaskId',
-      type: 'Type',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      channel: 'string',
-      endTime: 'number',
-      platform: 'string',
-      startTime: 'number',
-      taskId: 'string',
-      type: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisCoreIndexResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: QueryPushAnalysisCoreIndexResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: QueryPushAnalysisCoreIndexResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisCoreIndexResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryPushAnalysisCoreIndexResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryPushAnalysisCoreIndexResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisTaskDetailRequest extends $tea.Model {
-  appId?: string;
-  taskId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      taskId: 'TaskId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      taskId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisTaskDetailResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: QueryPushAnalysisTaskDetailResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: QueryPushAnalysisTaskDetailResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisTaskDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryPushAnalysisTaskDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryPushAnalysisTaskDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisTaskListRequest extends $tea.Model {
-  appId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  startTime?: number;
-  taskId?: string;
-  taskName?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      startTime: 'StartTime',
-      taskId: 'TaskId',
-      taskName: 'TaskName',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      startTime: 'number',
-      taskId: 'string',
-      taskName: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisTaskListResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: QueryPushAnalysisTaskListResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: QueryPushAnalysisTaskListResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisTaskListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryPushAnalysisTaskListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryPushAnalysisTaskListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushSchedulerListRequest extends $tea.Model {
-  appId?: string;
-  endTime?: number;
-  pageNumber?: number;
-  pageSize?: number;
-  startTime?: number;
-  type?: number;
-  uniqueId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      startTime: 'StartTime',
-      type: 'Type',
-      uniqueId: 'UniqueId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      endTime: 'number',
-      pageNumber: 'number',
-      pageSize: 'number',
-      startTime: 'number',
-      type: 'number',
-      uniqueId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushSchedulerListResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: QueryPushSchedulerListResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: QueryPushSchedulerListResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushSchedulerListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryPushSchedulerListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryPushSchedulerListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokePushMessageRequest extends $tea.Model {
-  appId?: string;
-  messageId?: string;
-  targetId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      messageId: 'MessageId',
-      targetId: 'TargetId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      messageId: 'string',
-      targetId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokePushMessageResponseBody extends $tea.Model {
-  pushResult?: RevokePushMessageResponseBodyPushResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pushResult: 'PushResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pushResult: RevokePushMessageResponseBodyPushResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokePushMessageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RevokePushMessageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RevokePushMessageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokePushTaskRequest extends $tea.Model {
-  appId?: string;
-  taskId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      taskId: 'TaskId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      taskId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokePushTaskResponseBody extends $tea.Model {
-  pushResult?: RevokePushTaskResponseBodyPushResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pushResult: 'PushResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pushResult: RevokePushTaskResponseBodyPushResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokePushTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RevokePushTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RevokePushTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMsaDiffRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMsaDiffRunJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMsaDiffRunJsonStr: 'MpaasMappcenterMsaDiffRunJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMsaDiffRunJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMsaDiffResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: RunMsaDiffResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: RunMsaDiffResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMsaDiffResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RunMsaDiffResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RunMsaDiffResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveMgsApirestRequest extends $tea.Model {
-  appId?: string;
-  mpaasMappcenterMgsApirestSaveJsonStr?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      mpaasMappcenterMgsApirestSaveJsonStr: 'MpaasMappcenterMgsApirestSaveJsonStr',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      mpaasMappcenterMgsApirestSaveJsonStr: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveMgsApirestResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: SaveMgsApirestResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: SaveMgsApirestResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveMgsApirestResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveMgsApirestResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveMgsApirestResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartUserAppAsyncEnhanceInMsaRequest extends $tea.Model {
-  apkProtector?: boolean;
-  appId?: string;
-  assetsFileList?: string;
-  classes?: string;
-  dalvikDebugger?: number;
-  emulatorEnvironment?: number;
-  id?: number;
-  javaHook?: number;
-  memoryDump?: number;
-  nativeDebugger?: number;
-  nativeHook?: number;
-  packageTampered?: number;
-  root?: number;
-  runMode?: string;
-  soFileList?: string;
-  taskType?: string;
-  tenantId?: string;
-  totalSwitch?: boolean;
-  useAShield?: boolean;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apkProtector: 'ApkProtector',
-      appId: 'AppId',
-      assetsFileList: 'AssetsFileList',
-      classes: 'Classes',
-      dalvikDebugger: 'DalvikDebugger',
-      emulatorEnvironment: 'EmulatorEnvironment',
-      id: 'Id',
-      javaHook: 'JavaHook',
-      memoryDump: 'MemoryDump',
-      nativeDebugger: 'NativeDebugger',
-      nativeHook: 'NativeHook',
-      packageTampered: 'PackageTampered',
-      root: 'Root',
-      runMode: 'RunMode',
-      soFileList: 'SoFileList',
-      taskType: 'TaskType',
-      tenantId: 'TenantId',
-      totalSwitch: 'TotalSwitch',
-      useAShield: 'UseAShield',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apkProtector: 'boolean',
-      appId: 'string',
-      assetsFileList: 'string',
-      classes: 'string',
-      dalvikDebugger: 'number',
-      emulatorEnvironment: 'number',
-      id: 'number',
-      javaHook: 'number',
-      memoryDump: 'number',
-      nativeDebugger: 'number',
-      nativeHook: 'number',
-      packageTampered: 'number',
-      root: 'number',
-      runMode: 'string',
-      soFileList: 'string',
-      taskType: 'string',
-      tenantId: 'string',
-      totalSwitch: 'boolean',
-      useAShield: 'boolean',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartUserAppAsyncEnhanceInMsaResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: StartUserAppAsyncEnhanceInMsaResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: StartUserAppAsyncEnhanceInMsaResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartUserAppAsyncEnhanceInMsaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartUserAppAsyncEnhanceInMsaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartUserAppAsyncEnhanceInMsaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMcubeWhitelistRequest extends $tea.Model {
-  appId?: string;
-  id?: string;
-  keyIds?: string;
-  onexFlag?: boolean;
-  ossUrl?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      id: 'Id',
-      keyIds: 'KeyIds',
-      onexFlag: 'OnexFlag',
-      ossUrl: 'OssUrl',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      id: 'string',
-      keyIds: 'string',
-      onexFlag: 'boolean',
-      ossUrl: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMcubeWhitelistResponseBody extends $tea.Model {
-  addWhitelistResult?: UpdateMcubeWhitelistResponseBodyAddWhitelistResult;
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addWhitelistResult: 'AddWhitelistResult',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addWhitelistResult: UpdateMcubeWhitelistResponseBodyAddWhitelistResult,
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMcubeWhitelistResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateMcubeWhitelistResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateMcubeWhitelistResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMpaasAppInfoRequest extends $tea.Model {
-  appId?: string;
-  appName?: string;
-  iconFileUrl?: string;
-  identifier?: string;
-  onexFlag?: boolean;
-  systemType?: string;
-  tenantId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appName: 'AppName',
-      iconFileUrl: 'IconFileUrl',
-      identifier: 'Identifier',
-      onexFlag: 'OnexFlag',
-      systemType: 'SystemType',
-      tenantId: 'TenantId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appName: 'string',
-      iconFileUrl: 'string',
-      identifier: 'string',
-      onexFlag: 'boolean',
-      systemType: 'string',
-      tenantId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMpaasAppInfoResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: UpdateMpaasAppInfoResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: UpdateMpaasAppInfoResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMpaasAppInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateMpaasAppInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateMpaasAppInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadBitcodeToMsaRequest extends $tea.Model {
-  appId?: string;
-  bitcode?: string;
-  codeVersion?: string;
-  license?: string;
-  tenantId?: string;
-  type?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      bitcode: 'Bitcode',
-      codeVersion: 'CodeVersion',
-      license: 'License',
-      tenantId: 'TenantId',
-      type: 'Type',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      bitcode: 'string',
-      codeVersion: 'string',
-      license: 'string',
-      tenantId: 'string',
-      type: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadBitcodeToMsaResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: UploadBitcodeToMsaResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: UploadBitcodeToMsaResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadBitcodeToMsaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UploadBitcodeToMsaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UploadBitcodeToMsaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadMcubeMiniPackageRequest extends $tea.Model {
-  appId?: string;
-  autoInstall?: number;
-  clientVersionMax?: string;
-  clientVersionMin?: string;
-  enableKeepAlive?: string;
-  enableOptionMenu?: string;
-  enableTabBar?: number;
-  extendInfo?: string;
-  h5Id?: string;
-  h5Name?: string;
-  h5Version?: string;
-  iconFileUrl?: string;
-  iconUrl?: string;
-  installType?: number;
-  mainUrl?: string;
-  onexFlag?: boolean;
-  packageType?: number;
-  platform?: string;
-  resourceFileUrl?: string;
-  resourceType?: number;
-  tenantId?: string;
-  userId?: string;
-  uuid?: string;
-  vhost?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      autoInstall: 'AutoInstall',
-      clientVersionMax: 'ClientVersionMax',
-      clientVersionMin: 'ClientVersionMin',
-      enableKeepAlive: 'EnableKeepAlive',
-      enableOptionMenu: 'EnableOptionMenu',
-      enableTabBar: 'EnableTabBar',
-      extendInfo: 'ExtendInfo',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-      h5Version: 'H5Version',
-      iconFileUrl: 'IconFileUrl',
-      iconUrl: 'IconUrl',
-      installType: 'InstallType',
-      mainUrl: 'MainUrl',
-      onexFlag: 'OnexFlag',
-      packageType: 'PackageType',
-      platform: 'Platform',
-      resourceFileUrl: 'ResourceFileUrl',
-      resourceType: 'ResourceType',
-      tenantId: 'TenantId',
-      userId: 'UserId',
-      uuid: 'Uuid',
-      vhost: 'Vhost',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      autoInstall: 'number',
-      clientVersionMax: 'string',
-      clientVersionMin: 'string',
-      enableKeepAlive: 'string',
-      enableOptionMenu: 'string',
-      enableTabBar: 'number',
-      extendInfo: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-      h5Version: 'string',
-      iconFileUrl: 'string',
-      iconUrl: 'string',
-      installType: 'number',
-      mainUrl: 'string',
-      onexFlag: 'boolean',
-      packageType: 'number',
-      platform: 'string',
-      resourceFileUrl: 'string',
-      resourceType: 'number',
-      tenantId: 'string',
-      userId: 'string',
-      uuid: 'string',
-      vhost: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadMcubeMiniPackageResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  uploadMiniPackageResult?: UploadMcubeMiniPackageResponseBodyUploadMiniPackageResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-      uploadMiniPackageResult: 'UploadMiniPackageResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-      uploadMiniPackageResult: UploadMcubeMiniPackageResponseBodyUploadMiniPackageResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadMcubeMiniPackageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UploadMcubeMiniPackageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UploadMcubeMiniPackageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadMcubeRsaKeyRequest extends $tea.Model {
-  appId?: string;
-  fileUrl?: string;
-  onexFlag?: boolean;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      fileUrl: 'FileUrl',
-      onexFlag: 'OnexFlag',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      fileUrl: 'string',
-      onexFlag: 'boolean',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadMcubeRsaKeyResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultMessage?: string;
-  uploadRsaResult?: UploadMcubeRsaKeyResponseBodyUploadRsaResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMessage: 'ResultMessage',
-      uploadRsaResult: 'UploadRsaResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultMessage: 'string',
-      uploadRsaResult: UploadMcubeRsaKeyResponseBodyUploadRsaResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadMcubeRsaKeyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UploadMcubeRsaKeyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UploadMcubeRsaKeyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadUserAppToMsaRequest extends $tea.Model {
-  appId?: string;
-  fileUrl?: string;
-  tenantId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      fileUrl: 'FileUrl',
-      tenantId: 'TenantId',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      fileUrl: 'string',
-      tenantId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadUserAppToMsaResponseBody extends $tea.Model {
-  requestId?: string;
-  resultCode?: string;
-  resultContent?: UploadUserAppToMsaResponseBodyResultContent;
-  resultMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultContent: 'ResultContent',
-      resultMessage: 'ResultMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resultCode: 'string',
-      resultContent: UploadUserAppToMsaResponseBodyResultContent,
-      resultMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadUserAppToMsaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UploadUserAppToMsaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UploadUserAppToMsaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddMdsMiniConfigResponseBodyResultContentData extends $tea.Model {
-  content?: string;
-  errorCode?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      errorCode: 'ErrorCode',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      errorCode: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddMdsMiniConfigResponseBodyResultContent extends $tea.Model {
-  data?: AddMdsMiniConfigResponseBodyResultContentData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: AddMdsMiniConfigResponseBodyResultContentData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeMcubeMiniTaskStatusResponseBodyChangeMiniTaskStatusResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeMcubeNebulaTaskStatusResponseBodyChangeMcubeNebulaTaskStatusResult extends $tea.Model {
-  errorCode?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeMcubePublicTaskStatusResponseBodyResultContent extends $tea.Model {
-  data?: string;
-  errorCode?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      errorCode: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CopyMcdpGroupResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLinkResponseBodyResultContent extends $tea.Model {
-  data?: string;
-  target?: string;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      target: 'Target',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      target: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMasCrowdResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMasFunnelResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpEventResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpEventAttributeResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpGroupResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpMaterialResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcdpZoneResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeMiniAppResponseBodyCreateMiniResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeMiniTaskResponseBodyCreateMiniTaskResult extends $tea.Model {
-  miniTaskId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      miniTaskId: 'MiniTaskId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      miniTaskId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeNebulaAppResponseBodyCreateNebulaAppResult extends $tea.Model {
-  errorCode?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeNebulaResourceResponseBodyCreateMcubeNebulaResourceReslult extends $tea.Model {
-  errorCode?: string;
-  nebulaResourceId?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      nebulaResourceId: 'NebulaResourceId',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      nebulaResourceId: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeNebulaTaskResponseBodyCreateMcubeNebulaTaskResult extends $tea.Model {
-  errorCode?: string;
-  nebulaTaskId?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      nebulaTaskId: 'NebulaTaskId',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      nebulaTaskId: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeUpgradePackageResponseBodyResultContent extends $tea.Model {
-  data?: string;
-  errorCode?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      errorCode: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeUpgradeTaskResponseBodyCreateTaskResult extends $tea.Model {
-  errorCode?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  upgradeTaskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-      upgradeTaskId: 'upgradeTaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-      upgradeTaskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeVhostResponseBodyCreateVhostResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeWhitelistResponseBodyCreateWhitelistResult extends $tea.Model {
-  resultMsg?: string;
-  success?: boolean;
-  whitelistId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-      whitelistId: 'WhitelistId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resultMsg: 'string',
-      success: 'boolean',
-      whitelistId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMcubeWhitelistForIdeResponseBodyCreateWhitelistForIdeResult extends $tea.Model {
-  resultMsg?: string;
-  success?: boolean;
-  whitelistId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-      whitelistId: 'WhitelistId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resultMsg: 'string',
-      success: 'boolean',
-      whitelistId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMdsMiniprogramTaskResponseBodyResultContentData extends $tea.Model {
-  content?: string;
-  errorCode?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      errorCode: 'ErrorCode',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      errorCode: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMdsMiniprogramTaskResponseBodyResultContent extends $tea.Model {
-  data?: CreateMdsMiniprogramTaskResponseBodyResultContentData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateMdsMiniprogramTaskResponseBodyResultContentData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMsaEnhanceResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCubecardWhitelistContentResponseBodyResultContentData extends $tea.Model {
-  content?: string;
-  errorCode?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      errorCode: 'ErrorCode',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      errorCode: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCubecardWhitelistContentResponseBodyResultContent extends $tea.Model {
-  data?: DeleteCubecardWhitelistContentResponseBodyResultContentData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeleteCubecardWhitelistContentResponseBodyResultContentData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpAimResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpCrowdResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpEventAttributeByIdResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpEventByIdResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpMaterialResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcdpZoneResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeMiniAppResponseBodyDeleteMiniResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeNebulaAppResponseBodyDeleteMcubeNebulaAppResult extends $tea.Model {
-  errorCode?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeUpgradeResourceResponseBodyDeleteResult extends $tea.Model {
-  errorCode?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMcubeWhitelistResponseBodyDeleteWhitelistResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMdsWhitelistContentResponseBodyResultContentData extends $tea.Model {
-  content?: string;
-  errorCode?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      errorCode: 'ErrorCode',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      errorCode: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMdsWhitelistContentResponseBodyResultContent extends $tea.Model {
-  data?: DeleteMdsWhitelistContentResponseBodyResultContentData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeleteMdsWhitelistContentResponseBodyResultContentData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExistMcubeRsaKeyResponseBodyCheckRsaKeyResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportMappCenterAppConfigResponseBodyExportMappCenterAppConfigResult extends $tea.Model {
-  configDownloadUrl?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      configDownloadUrl: 'ConfigDownloadUrl',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configDownloadUrl: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileTokenForUploadToMsaResponseBodyResultContentContent extends $tea.Model {
-  accessid?: string;
-  dir?: string;
-  expire?: string;
-  host?: string;
-  policy?: string;
-  signature?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessid: 'Accessid',
-      dir: 'Dir',
-      expire: 'Expire',
-      host: 'Host',
-      policy: 'Policy',
-      signature: 'Signature',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessid: 'string',
-      dir: 'string',
-      expire: 'string',
-      host: 'string',
-      policy: 'string',
-      signature: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileTokenForUploadToMsaResponseBodyResultContent extends $tea.Model {
-  content?: GetFileTokenForUploadToMsaResponseBodyResultContentContent;
-  errorCode?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      errorCode: 'ErrorCode',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: GetFileTokenForUploadToMsaResponseBodyResultContentContent,
-      errorCode: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLogUrlInMsaResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeFileTokenResponseBodyGetFileTokenResultFileToken extends $tea.Model {
-  accessid?: string;
-  dir?: string;
-  expire?: string;
-  host?: string;
-  policy?: string;
-  signature?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessid: 'Accessid',
-      dir: 'Dir',
-      expire: 'Expire',
-      host: 'Host',
-      policy: 'Policy',
-      signature: 'Signature',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessid: 'string',
-      dir: 'string',
-      expire: 'string',
-      host: 'string',
-      policy: 'string',
-      signature: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeFileTokenResponseBodyGetFileTokenResult extends $tea.Model {
-  fileToken?: GetMcubeFileTokenResponseBodyGetFileTokenResultFileToken;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      fileToken: 'FileToken',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileToken: GetMcubeFileTokenResponseBodyGetFileTokenResultFileToken,
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeNebulaResourceResponseBodyGetNebulaResourceResultNebulaResourceInfo extends $tea.Model {
-  appCode?: string;
-  autoInstall?: number;
-  clientVersionMax?: string;
-  clientVersionMin?: string;
-  creator?: string;
-  downloadUrl?: string;
-  extendInfo?: string;
-  extraData?: string;
-  fallbackBaseUrl?: string;
-  fileSize?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  h5Id?: string;
-  h5Name?: string;
-  h5Version?: string;
-  id?: number;
-  installType?: number;
-  mainUrl?: string;
-  memo?: string;
-  metaId?: number;
-  modifier?: string;
-  packageType?: number;
-  platform?: string;
-  publishPeriod?: number;
-  resourceType?: string;
-  status?: number;
-  vhost?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      autoInstall: 'AutoInstall',
-      clientVersionMax: 'ClientVersionMax',
-      clientVersionMin: 'ClientVersionMin',
-      creator: 'Creator',
-      downloadUrl: 'DownloadUrl',
-      extendInfo: 'ExtendInfo',
-      extraData: 'ExtraData',
-      fallbackBaseUrl: 'FallbackBaseUrl',
-      fileSize: 'FileSize',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-      h5Version: 'H5Version',
-      id: 'Id',
-      installType: 'InstallType',
-      mainUrl: 'MainUrl',
-      memo: 'Memo',
-      metaId: 'MetaId',
-      modifier: 'Modifier',
-      packageType: 'PackageType',
-      platform: 'Platform',
-      publishPeriod: 'PublishPeriod',
-      resourceType: 'ResourceType',
-      status: 'Status',
-      vhost: 'Vhost',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      autoInstall: 'number',
-      clientVersionMax: 'string',
-      clientVersionMin: 'string',
-      creator: 'string',
-      downloadUrl: 'string',
-      extendInfo: 'string',
-      extraData: 'string',
-      fallbackBaseUrl: 'string',
-      fileSize: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-      h5Version: 'string',
-      id: 'number',
-      installType: 'number',
-      mainUrl: 'string',
-      memo: 'string',
-      metaId: 'number',
-      modifier: 'string',
-      packageType: 'number',
-      platform: 'string',
-      publishPeriod: 'number',
-      resourceType: 'string',
-      status: 'number',
-      vhost: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeNebulaResourceResponseBodyGetNebulaResourceResult extends $tea.Model {
-  errorCode?: string;
-  nebulaResourceInfo?: GetMcubeNebulaResourceResponseBodyGetNebulaResourceResultNebulaResourceInfo;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      nebulaResourceInfo: 'NebulaResourceInfo',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      nebulaResourceInfo: GetMcubeNebulaResourceResponseBodyGetNebulaResourceResultNebulaResourceInfo,
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeNebulaTaskDetailResponseBodyGetMcubeNebulaTaskDetailResultNebulaTaskDetailRuleJsonList extends $tea.Model {
-  operation?: string;
-  ruleElement?: string;
-  ruleType?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      operation: 'Operation',
-      ruleElement: 'RuleElement',
-      ruleType: 'RuleType',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      operation: 'string',
-      ruleElement: 'string',
-      ruleType: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeNebulaTaskDetailResponseBodyGetMcubeNebulaTaskDetailResultNebulaTaskDetail extends $tea.Model {
-  appCode?: string;
-  appId?: string;
-  atomic?: number;
-  baseInfoId?: number;
-  bizType?: string;
-  creator?: string;
-  cronexpress?: number;
-  downloadUrl?: string;
-  extraData?: string;
-  fileSize?: string;
-  fullRepair?: number;
-  gmtCreate?: string;
-  gmtModified?: string;
-  gmtModifiedStr?: string;
-  greyConfigInfo?: string;
-  greyEndtime?: string;
-  greyEndtimeData?: string;
-  greyEndtimeStr?: string;
-  greyNum?: number;
-  greyUrl?: string;
-  id?: number;
-  issueDesc?: string;
-  memo?: string;
-  modifier?: string;
-  ossPath?: string;
-  packageId?: number;
-  percent?: number;
-  platform?: string;
-  productId?: string;
-  productVersion?: string;
-  publishMode?: number;
-  publishPeriod?: number;
-  publishType?: number;
-  quickRollback?: number;
-  releaseVersion?: string;
-  ruleJsonList?: GetMcubeNebulaTaskDetailResponseBodyGetMcubeNebulaTaskDetailResultNebulaTaskDetailRuleJsonList[];
-  sourceId?: string;
-  sourceName?: string;
-  sourceType?: string;
-  status?: number;
-  syncResult?: string;
-  syncType?: number;
-  taskName?: string;
-  taskStatus?: number;
-  taskType?: number;
-  taskVersion?: number;
-  upgradeNoticeNum?: number;
-  upgradeProgress?: string;
-  whitelistIds?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      appId: 'AppId',
-      atomic: 'Atomic',
-      baseInfoId: 'BaseInfoId',
-      bizType: 'BizType',
-      creator: 'Creator',
-      cronexpress: 'Cronexpress',
-      downloadUrl: 'DownloadUrl',
-      extraData: 'ExtraData',
-      fileSize: 'FileSize',
-      fullRepair: 'FullRepair',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      gmtModifiedStr: 'GmtModifiedStr',
-      greyConfigInfo: 'GreyConfigInfo',
-      greyEndtime: 'GreyEndtime',
-      greyEndtimeData: 'GreyEndtimeData',
-      greyEndtimeStr: 'GreyEndtimeStr',
-      greyNum: 'GreyNum',
-      greyUrl: 'GreyUrl',
-      id: 'Id',
-      issueDesc: 'IssueDesc',
-      memo: 'Memo',
-      modifier: 'Modifier',
-      ossPath: 'OssPath',
-      packageId: 'PackageId',
-      percent: 'Percent',
-      platform: 'Platform',
-      productId: 'ProductId',
-      productVersion: 'ProductVersion',
-      publishMode: 'PublishMode',
-      publishPeriod: 'PublishPeriod',
-      publishType: 'PublishType',
-      quickRollback: 'QuickRollback',
-      releaseVersion: 'ReleaseVersion',
-      ruleJsonList: 'RuleJsonList',
-      sourceId: 'SourceId',
-      sourceName: 'SourceName',
-      sourceType: 'SourceType',
-      status: 'Status',
-      syncResult: 'SyncResult',
-      syncType: 'SyncType',
-      taskName: 'TaskName',
-      taskStatus: 'TaskStatus',
-      taskType: 'TaskType',
-      taskVersion: 'TaskVersion',
-      upgradeNoticeNum: 'UpgradeNoticeNum',
-      upgradeProgress: 'UpgradeProgress',
-      whitelistIds: 'WhitelistIds',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      appId: 'string',
-      atomic: 'number',
-      baseInfoId: 'number',
-      bizType: 'string',
-      creator: 'string',
-      cronexpress: 'number',
-      downloadUrl: 'string',
-      extraData: 'string',
-      fileSize: 'string',
-      fullRepair: 'number',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      gmtModifiedStr: 'string',
-      greyConfigInfo: 'string',
-      greyEndtime: 'string',
-      greyEndtimeData: 'string',
-      greyEndtimeStr: 'string',
-      greyNum: 'number',
-      greyUrl: 'string',
-      id: 'number',
-      issueDesc: 'string',
-      memo: 'string',
-      modifier: 'string',
-      ossPath: 'string',
-      packageId: 'number',
-      percent: 'number',
-      platform: 'string',
-      productId: 'string',
-      productVersion: 'string',
-      publishMode: 'number',
-      publishPeriod: 'number',
-      publishType: 'number',
-      quickRollback: 'number',
-      releaseVersion: 'string',
-      ruleJsonList: { 'type': 'array', 'itemType': GetMcubeNebulaTaskDetailResponseBodyGetMcubeNebulaTaskDetailResultNebulaTaskDetailRuleJsonList },
-      sourceId: 'string',
-      sourceName: 'string',
-      sourceType: 'string',
-      status: 'number',
-      syncResult: 'string',
-      syncType: 'number',
-      taskName: 'string',
-      taskStatus: 'number',
-      taskType: 'number',
-      taskVersion: 'number',
-      upgradeNoticeNum: 'number',
-      upgradeProgress: 'string',
-      whitelistIds: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeNebulaTaskDetailResponseBodyGetMcubeNebulaTaskDetailResult extends $tea.Model {
-  errorCode?: string;
-  nebulaTaskDetail?: GetMcubeNebulaTaskDetailResponseBodyGetMcubeNebulaTaskDetailResultNebulaTaskDetail;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      nebulaTaskDetail: 'NebulaTaskDetail',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      nebulaTaskDetail: GetMcubeNebulaTaskDetailResponseBodyGetMcubeNebulaTaskDetailResultNebulaTaskDetail,
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradePackageInfoResponseBodyGetPackageResultPackageInfoMobileTestFlightConfigDO extends $tea.Model {
-  gmtCreate?: string;
-  gmtModified?: string;
-  id?: number;
-  installAmount?: number;
-  invalidTime?: string;
-  upgradeId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      installAmount: 'InstallAmount',
-      invalidTime: 'InvalidTime',
-      upgradeId: 'UpgradeId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      id: 'number',
-      installAmount: 'number',
-      invalidTime: 'string',
-      upgradeId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradePackageInfoResponseBodyGetPackageResultPackageInfoUpgradeBaseInfoDO extends $tea.Model {
-  allowCreateTask?: boolean;
-  appCode?: string;
-  appstoreUrl?: string;
-  backLog?: string;
-  changeLog?: string;
-  clientFileSize?: number;
-  clientName?: string;
-  cpId?: string;
-  creator?: string;
-  downloadUrl?: string;
-  globalVariables?: string;
-  gmtCreate?: string;
-  gmtCreateStr?: string;
-  gmtModified?: string;
-  gmtModifiedStr?: string;
-  id?: number;
-  innerVersion?: string;
-  iosSymbol?: string;
-  isEnterprise?: number;
-  isRc?: number;
-  isRelease?: number;
-  maxVersion?: string;
-  md5?: string;
-  modifier?: string;
-  needCheck?: number;
-  ossPath?: string;
-  packageType?: string;
-  platform?: string;
-  productId?: string;
-  productName?: string;
-  productVersion?: string;
-  publishPeriod?: number;
-  qrcodeUrl?: string;
-  releaseType?: string;
-  releaseWindow?: string;
-  scmDownloadUrl?: string;
-  serverVersion?: number;
-  verificationCode?: string;
-  verifyResult?: number;
-  versionCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowCreateTask: 'AllowCreateTask',
-      appCode: 'AppCode',
-      appstoreUrl: 'AppstoreUrl',
-      backLog: 'BackLog',
-      changeLog: 'ChangeLog',
-      clientFileSize: 'ClientFileSize',
-      clientName: 'ClientName',
-      cpId: 'CpId',
-      creator: 'Creator',
-      downloadUrl: 'DownloadUrl',
-      globalVariables: 'GlobalVariables',
-      gmtCreate: 'GmtCreate',
-      gmtCreateStr: 'GmtCreateStr',
-      gmtModified: 'GmtModified',
-      gmtModifiedStr: 'GmtModifiedStr',
-      id: 'Id',
-      innerVersion: 'InnerVersion',
-      iosSymbol: 'IosSymbol',
-      isEnterprise: 'IsEnterprise',
-      isRc: 'IsRc',
-      isRelease: 'IsRelease',
-      maxVersion: 'MaxVersion',
-      md5: 'Md5',
-      modifier: 'Modifier',
-      needCheck: 'NeedCheck',
-      ossPath: 'OssPath',
-      packageType: 'PackageType',
-      platform: 'Platform',
-      productId: 'ProductId',
-      productName: 'ProductName',
-      productVersion: 'ProductVersion',
-      publishPeriod: 'PublishPeriod',
-      qrcodeUrl: 'QrcodeUrl',
-      releaseType: 'ReleaseType',
-      releaseWindow: 'ReleaseWindow',
-      scmDownloadUrl: 'ScmDownloadUrl',
-      serverVersion: 'ServerVersion',
-      verificationCode: 'VerificationCode',
-      verifyResult: 'VerifyResult',
-      versionCode: 'VersionCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowCreateTask: 'boolean',
-      appCode: 'string',
-      appstoreUrl: 'string',
-      backLog: 'string',
-      changeLog: 'string',
-      clientFileSize: 'number',
-      clientName: 'string',
-      cpId: 'string',
-      creator: 'string',
-      downloadUrl: 'string',
-      globalVariables: 'string',
-      gmtCreate: 'string',
-      gmtCreateStr: 'string',
-      gmtModified: 'string',
-      gmtModifiedStr: 'string',
-      id: 'number',
-      innerVersion: 'string',
-      iosSymbol: 'string',
-      isEnterprise: 'number',
-      isRc: 'number',
-      isRelease: 'number',
-      maxVersion: 'string',
-      md5: 'string',
-      modifier: 'string',
-      needCheck: 'number',
-      ossPath: 'string',
-      packageType: 'string',
-      platform: 'string',
-      productId: 'string',
-      productName: 'string',
-      productVersion: 'string',
-      publishPeriod: 'number',
-      qrcodeUrl: 'string',
-      releaseType: 'string',
-      releaseWindow: 'string',
-      scmDownloadUrl: 'string',
-      serverVersion: 'number',
-      verificationCode: 'string',
-      verifyResult: 'number',
-      versionCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradePackageInfoResponseBodyGetPackageResultPackageInfo extends $tea.Model {
-  mobileTestFlightConfigDO?: GetMcubeUpgradePackageInfoResponseBodyGetPackageResultPackageInfoMobileTestFlightConfigDO;
-  upgradeBaseInfoDO?: GetMcubeUpgradePackageInfoResponseBodyGetPackageResultPackageInfoUpgradeBaseInfoDO;
-  static names(): { [key: string]: string } {
-    return {
-      mobileTestFlightConfigDO: 'MobileTestFlightConfigDO',
-      upgradeBaseInfoDO: 'UpgradeBaseInfoDO',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mobileTestFlightConfigDO: GetMcubeUpgradePackageInfoResponseBodyGetPackageResultPackageInfoMobileTestFlightConfigDO,
-      upgradeBaseInfoDO: GetMcubeUpgradePackageInfoResponseBodyGetPackageResultPackageInfoUpgradeBaseInfoDO,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradePackageInfoResponseBodyGetPackageResult extends $tea.Model {
-  errorCode?: string;
-  packageInfo?: GetMcubeUpgradePackageInfoResponseBodyGetPackageResultPackageInfo;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      packageInfo: 'PackageInfo',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      packageInfo: GetMcubeUpgradePackageInfoResponseBodyGetPackageResultPackageInfo,
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradeTaskInfoResponseBodyGetTaskResultTaskInfoRuleJsonList extends $tea.Model {
-  operation?: string;
-  ruleElement?: string;
-  ruleType?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      operation: 'Operation',
-      ruleElement: 'RuleElement',
-      ruleType: 'RuleType',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      operation: 'string',
-      ruleElement: 'string',
-      ruleType: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradeTaskInfoResponseBodyGetTaskResultTaskInfoWhitelist extends $tea.Model {
-  appCode?: string;
-  id?: number;
-  idType?: string;
-  platform?: string;
-  status?: number;
-  userType?: string;
-  whiteListCount?: number;
-  whiteListName?: string;
-  whitelistType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      id: 'Id',
-      idType: 'IdType',
-      platform: 'Platform',
-      status: 'Status',
-      userType: 'UserType',
-      whiteListCount: 'WhiteListCount',
-      whiteListName: 'WhiteListName',
-      whitelistType: 'WhitelistType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      id: 'number',
-      idType: 'string',
-      platform: 'string',
-      status: 'number',
-      userType: 'string',
-      whiteListCount: 'number',
-      whiteListName: 'string',
-      whitelistType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradeTaskInfoResponseBodyGetTaskResultTaskInfo extends $tea.Model {
-  appCode?: string;
-  appId?: string;
-  appstoreUrl?: string;
-  creater?: string;
-  creator?: string;
-  downloadUrl?: string;
-  greyConfigInfo?: string;
-  greyEndtimeData?: string;
-  greyNum?: number;
-  historyForce?: number;
-  id?: number;
-  isEnterprise?: number;
-  isOfficial?: number;
-  isRc?: number;
-  isRelease?: number;
-  memo?: string;
-  modifier?: string;
-  netType?: string;
-  osVersion?: string;
-  packageInfoId?: number;
-  packageType?: string;
-  platform?: string;
-  productId?: string;
-  publishMode?: number;
-  publishType?: number;
-  pushContent?: string;
-  qrcodeUrl?: string;
-  ruleJsonList?: GetMcubeUpgradeTaskInfoResponseBodyGetTaskResultTaskInfoRuleJsonList[];
-  silentType?: number;
-  taskStatus?: number;
-  upgradeContent?: string;
-  upgradeType?: number;
-  upgradeValidTime?: number;
-  whitelist?: GetMcubeUpgradeTaskInfoResponseBodyGetTaskResultTaskInfoWhitelist[];
-  whitelistIds?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      appId: 'AppId',
-      appstoreUrl: 'AppstoreUrl',
-      creater: 'Creater',
-      creator: 'Creator',
-      downloadUrl: 'DownloadUrl',
-      greyConfigInfo: 'GreyConfigInfo',
-      greyEndtimeData: 'GreyEndtimeData',
-      greyNum: 'GreyNum',
-      historyForce: 'HistoryForce',
-      id: 'Id',
-      isEnterprise: 'IsEnterprise',
-      isOfficial: 'IsOfficial',
-      isRc: 'IsRc',
-      isRelease: 'IsRelease',
-      memo: 'Memo',
-      modifier: 'Modifier',
-      netType: 'NetType',
-      osVersion: 'OsVersion',
-      packageInfoId: 'PackageInfoId',
-      packageType: 'PackageType',
-      platform: 'Platform',
-      productId: 'ProductId',
-      publishMode: 'PublishMode',
-      publishType: 'PublishType',
-      pushContent: 'PushContent',
-      qrcodeUrl: 'QrcodeUrl',
-      ruleJsonList: 'RuleJsonList',
-      silentType: 'SilentType',
-      taskStatus: 'TaskStatus',
-      upgradeContent: 'UpgradeContent',
-      upgradeType: 'UpgradeType',
-      upgradeValidTime: 'UpgradeValidTime',
-      whitelist: 'Whitelist',
-      whitelistIds: 'WhitelistIds',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      appId: 'string',
-      appstoreUrl: 'string',
-      creater: 'string',
-      creator: 'string',
-      downloadUrl: 'string',
-      greyConfigInfo: 'string',
-      greyEndtimeData: 'string',
-      greyNum: 'number',
-      historyForce: 'number',
-      id: 'number',
-      isEnterprise: 'number',
-      isOfficial: 'number',
-      isRc: 'number',
-      isRelease: 'number',
-      memo: 'string',
-      modifier: 'string',
-      netType: 'string',
-      osVersion: 'string',
-      packageInfoId: 'number',
-      packageType: 'string',
-      platform: 'string',
-      productId: 'string',
-      publishMode: 'number',
-      publishType: 'number',
-      pushContent: 'string',
-      qrcodeUrl: 'string',
-      ruleJsonList: { 'type': 'array', 'itemType': GetMcubeUpgradeTaskInfoResponseBodyGetTaskResultTaskInfoRuleJsonList },
-      silentType: 'number',
-      taskStatus: 'number',
-      upgradeContent: 'string',
-      upgradeType: 'number',
-      upgradeValidTime: 'number',
-      whitelist: { 'type': 'array', 'itemType': GetMcubeUpgradeTaskInfoResponseBodyGetTaskResultTaskInfoWhitelist },
-      whitelistIds: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMcubeUpgradeTaskInfoResponseBodyGetTaskResult extends $tea.Model {
-  errorCode?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  taskInfo?: GetMcubeUpgradeTaskInfoResponseBodyGetTaskResultTaskInfo;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-      taskInfo: 'TaskInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-      taskInfo: GetMcubeUpgradeTaskInfoResponseBodyGetTaskResultTaskInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMdsMiniConfigResponseBodyResultContentDataContentApiConfigList extends $tea.Model {
-  appCode?: string;
-  configStatus?: number;
-  configType?: string;
-  configValue?: string;
-  description?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  h5Id?: string;
-  h5Name?: string;
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      configStatus: 'ConfigStatus',
-      configType: 'ConfigType',
-      configValue: 'ConfigValue',
-      description: 'Description',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      configStatus: 'number',
-      configType: 'string',
-      configValue: 'string',
-      description: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMdsMiniConfigResponseBodyResultContentDataContentPrivilegeSwitch extends $tea.Model {
-  appCode?: string;
-  configStatus?: number;
-  configType?: string;
-  configValue?: string;
-  description?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  h5Id?: string;
-  h5Name?: string;
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      configStatus: 'ConfigStatus',
-      configType: 'ConfigType',
-      configValue: 'ConfigValue',
-      description: 'Description',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      configStatus: 'number',
-      configType: 'string',
-      configValue: 'string',
-      description: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMdsMiniConfigResponseBodyResultContentDataContentServerDomainConfigList extends $tea.Model {
-  appCode?: string;
-  configStatus?: number;
-  configType?: string;
-  configValue?: string;
-  description?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  h5Id?: string;
-  h5Name?: string;
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      configStatus: 'ConfigStatus',
-      configType: 'ConfigType',
-      configValue: 'ConfigValue',
-      description: 'Description',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      configStatus: 'number',
-      configType: 'string',
-      configValue: 'string',
-      description: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMdsMiniConfigResponseBodyResultContentDataContentWebviewDomainConfigList extends $tea.Model {
-  appCode?: string;
-  configStatus?: number;
-  configType?: string;
-  configValue?: string;
-  description?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  h5Id?: string;
-  h5Name?: string;
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      configStatus: 'ConfigStatus',
-      configType: 'ConfigType',
-      configValue: 'ConfigValue',
-      description: 'Description',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      configStatus: 'number',
-      configType: 'string',
-      configValue: 'string',
-      description: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMdsMiniConfigResponseBodyResultContentDataContent extends $tea.Model {
-  apiConfigList?: GetMdsMiniConfigResponseBodyResultContentDataContentApiConfigList[];
-  appCode?: string;
-  enableServerDomainCount?: string;
-  h5Id?: string;
-  h5Name?: string;
-  privilegeSwitch?: GetMdsMiniConfigResponseBodyResultContentDataContentPrivilegeSwitch;
-  serverDomainConfigList?: GetMdsMiniConfigResponseBodyResultContentDataContentServerDomainConfigList[];
-  webviewDomainConfigList?: GetMdsMiniConfigResponseBodyResultContentDataContentWebviewDomainConfigList[];
-  static names(): { [key: string]: string } {
-    return {
-      apiConfigList: 'ApiConfigList',
-      appCode: 'AppCode',
-      enableServerDomainCount: 'EnableServerDomainCount',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-      privilegeSwitch: 'PrivilegeSwitch',
-      serverDomainConfigList: 'ServerDomainConfigList',
-      webviewDomainConfigList: 'WebviewDomainConfigList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiConfigList: { 'type': 'array', 'itemType': GetMdsMiniConfigResponseBodyResultContentDataContentApiConfigList },
-      appCode: 'string',
-      enableServerDomainCount: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-      privilegeSwitch: GetMdsMiniConfigResponseBodyResultContentDataContentPrivilegeSwitch,
-      serverDomainConfigList: { 'type': 'array', 'itemType': GetMdsMiniConfigResponseBodyResultContentDataContentServerDomainConfigList },
-      webviewDomainConfigList: { 'type': 'array', 'itemType': GetMdsMiniConfigResponseBodyResultContentDataContentWebviewDomainConfigList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMdsMiniConfigResponseBodyResultContentData extends $tea.Model {
-  content?: GetMdsMiniConfigResponseBodyResultContentDataContent;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: GetMdsMiniConfigResponseBodyResultContentDataContent,
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMdsMiniConfigResponseBodyResultContent extends $tea.Model {
-  data?: GetMdsMiniConfigResponseBodyResultContentData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetMdsMiniConfigResponseBodyResultContentData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppDonwloadUrlInMsaResponseBodyResultContentData extends $tea.Model {
-  filename?: string;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filename: 'Filename',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filename: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppDonwloadUrlInMsaResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: GetUserAppDonwloadUrlInMsaResponseBodyResultContentData;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetUserAppDonwloadUrlInMsaResponseBodyResultContentData,
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppEnhanceProcessInMsaResponseBodyResultContentDataEnhanceMapping extends $tea.Model {
-  info?: string;
-  reason?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      info: 'Info',
-      reason: 'Reason',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      info: 'string',
-      reason: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppEnhanceProcessInMsaResponseBodyResultContentData extends $tea.Model {
-  afterMd5?: string;
-  afterSize?: number;
-  appCode?: string;
-  appPackage?: string;
-  assetsFileList?: string[];
-  beforeMd5?: string;
-  beforeSize?: number;
-  classForest?: string[];
-  enhanceMapping?: GetUserAppEnhanceProcessInMsaResponseBodyResultContentDataEnhanceMapping[];
-  enhanceRules?: string[];
-  enhancedAssetsFiles?: string[];
-  enhancedClasses?: string[];
-  enhancedSoFiles?: string[];
-  id?: number;
-  label?: string;
-  progress?: number;
-  soFileList?: string[];
-  status?: number;
-  taskType?: string;
-  versionCode?: string;
-  versionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      afterMd5: 'AfterMd5',
-      afterSize: 'AfterSize',
-      appCode: 'AppCode',
-      appPackage: 'AppPackage',
-      assetsFileList: 'AssetsFileList',
-      beforeMd5: 'BeforeMd5',
-      beforeSize: 'BeforeSize',
-      classForest: 'ClassForest',
-      enhanceMapping: 'EnhanceMapping',
-      enhanceRules: 'EnhanceRules',
-      enhancedAssetsFiles: 'EnhancedAssetsFiles',
-      enhancedClasses: 'EnhancedClasses',
-      enhancedSoFiles: 'EnhancedSoFiles',
-      id: 'Id',
-      label: 'Label',
-      progress: 'Progress',
-      soFileList: 'SoFileList',
-      status: 'Status',
-      taskType: 'TaskType',
-      versionCode: 'VersionCode',
-      versionName: 'VersionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      afterMd5: 'string',
-      afterSize: 'number',
-      appCode: 'string',
-      appPackage: 'string',
-      assetsFileList: { 'type': 'array', 'itemType': 'string' },
-      beforeMd5: 'string',
-      beforeSize: 'number',
-      classForest: { 'type': 'array', 'itemType': 'string' },
-      enhanceMapping: { 'type': 'array', 'itemType': GetUserAppEnhanceProcessInMsaResponseBodyResultContentDataEnhanceMapping },
-      enhanceRules: { 'type': 'array', 'itemType': 'string' },
-      enhancedAssetsFiles: { 'type': 'array', 'itemType': 'string' },
-      enhancedClasses: { 'type': 'array', 'itemType': 'string' },
-      enhancedSoFiles: { 'type': 'array', 'itemType': 'string' },
-      id: 'number',
-      label: 'string',
-      progress: 'number',
-      soFileList: { 'type': 'array', 'itemType': 'string' },
-      status: 'number',
-      taskType: 'string',
-      versionCode: 'string',
-      versionName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppEnhanceProcessInMsaResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: GetUserAppEnhanceProcessInMsaResponseBodyResultContentData;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetUserAppEnhanceProcessInMsaResponseBodyResultContentData,
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppUploadProcessInMsaResponseBodyResultContentDataApkInfoEnhanceMapping extends $tea.Model {
-  info?: string;
-  reason?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      info: 'Info',
-      reason: 'Reason',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      info: 'string',
-      reason: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppUploadProcessInMsaResponseBodyResultContentDataApkInfo extends $tea.Model {
-  afterMd5?: string;
-  afterSize?: number;
-  appCode?: string;
-  appPackage?: string;
-  assetsFileList?: string[];
-  beforeMd5?: string;
-  beforeSize?: number;
-  classForest?: string;
-  enhanceMapping?: GetUserAppUploadProcessInMsaResponseBodyResultContentDataApkInfoEnhanceMapping[];
-  enhanceRules?: string[];
-  enhancedAssetsFiles?: string[];
-  enhancedClasses?: string[];
-  enhancedSoFiles?: string[];
-  id?: number;
-  label?: string;
-  progress?: number;
-  soFileList?: string[];
-  status?: number;
-  taskType?: string;
-  versionCode?: string;
-  versionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      afterMd5: 'AfterMd5',
-      afterSize: 'AfterSize',
-      appCode: 'AppCode',
-      appPackage: 'AppPackage',
-      assetsFileList: 'AssetsFileList',
-      beforeMd5: 'BeforeMd5',
-      beforeSize: 'BeforeSize',
-      classForest: 'ClassForest',
-      enhanceMapping: 'EnhanceMapping',
-      enhanceRules: 'EnhanceRules',
-      enhancedAssetsFiles: 'EnhancedAssetsFiles',
-      enhancedClasses: 'EnhancedClasses',
-      enhancedSoFiles: 'EnhancedSoFiles',
-      id: 'Id',
-      label: 'Label',
-      progress: 'Progress',
-      soFileList: 'SoFileList',
-      status: 'Status',
-      taskType: 'TaskType',
-      versionCode: 'VersionCode',
-      versionName: 'VersionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      afterMd5: 'string',
-      afterSize: 'number',
-      appCode: 'string',
-      appPackage: 'string',
-      assetsFileList: { 'type': 'array', 'itemType': 'string' },
-      beforeMd5: 'string',
-      beforeSize: 'number',
-      classForest: 'string',
-      enhanceMapping: { 'type': 'array', 'itemType': GetUserAppUploadProcessInMsaResponseBodyResultContentDataApkInfoEnhanceMapping },
-      enhanceRules: { 'type': 'array', 'itemType': 'string' },
-      enhancedAssetsFiles: { 'type': 'array', 'itemType': 'string' },
-      enhancedClasses: { 'type': 'array', 'itemType': 'string' },
-      enhancedSoFiles: { 'type': 'array', 'itemType': 'string' },
-      id: 'number',
-      label: 'string',
-      progress: 'number',
-      soFileList: { 'type': 'array', 'itemType': 'string' },
-      status: 'number',
-      taskType: 'string',
-      versionCode: 'string',
-      versionName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppUploadProcessInMsaResponseBodyResultContentData extends $tea.Model {
-  apkInfo?: GetUserAppUploadProcessInMsaResponseBodyResultContentDataApkInfo;
-  enhanceTaskId?: number;
-  id?: number;
-  progress?: number;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      apkInfo: 'ApkInfo',
-      enhanceTaskId: 'EnhanceTaskId',
-      id: 'Id',
-      progress: 'Progress',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apkInfo: GetUserAppUploadProcessInMsaResponseBodyResultContentDataApkInfo,
-      enhanceTaskId: 'number',
-      id: 'number',
-      progress: 'number',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserAppUploadProcessInMsaResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: GetUserAppUploadProcessInMsaResponseBodyResultContentData;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetUserAppUploadProcessInMsaResponseBodyResultContentData,
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMappCenterAppsResponseBodyListMappCenterAppResultMappCenterAppListAndroidConfig extends $tea.Model {
-  certRSA?: string;
-  packageName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certRSA: 'CertRSA',
-      packageName: 'PackageName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certRSA: 'string',
-      packageName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMappCenterAppsResponseBodyListMappCenterAppResultMappCenterAppListIosConfig extends $tea.Model {
-  bundleId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bundleId: 'BundleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bundleId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMappCenterAppsResponseBodyListMappCenterAppResultMappCenterAppList extends $tea.Model {
-  androidConfig?: ListMappCenterAppsResponseBodyListMappCenterAppResultMappCenterAppListAndroidConfig;
-  appDesc?: string;
-  appIcon?: string;
-  appId?: string;
-  appName?: string;
-  appSecret?: string;
-  creator?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  id?: number;
-  iosConfig?: ListMappCenterAppsResponseBodyListMappCenterAppResultMappCenterAppListIosConfig;
-  modifier?: string;
-  monitorJson?: string;
-  status?: number;
-  tenantId?: string;
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      androidConfig: 'AndroidConfig',
-      appDesc: 'AppDesc',
-      appIcon: 'AppIcon',
-      appId: 'AppId',
-      appName: 'AppName',
-      appSecret: 'AppSecret',
-      creator: 'Creator',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      iosConfig: 'IosConfig',
-      modifier: 'Modifier',
-      monitorJson: 'MonitorJson',
-      status: 'Status',
-      tenantId: 'TenantId',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidConfig: ListMappCenterAppsResponseBodyListMappCenterAppResultMappCenterAppListAndroidConfig,
-      appDesc: 'string',
-      appIcon: 'string',
-      appId: 'string',
-      appName: 'string',
-      appSecret: 'string',
-      creator: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      id: 'number',
-      iosConfig: ListMappCenterAppsResponseBodyListMappCenterAppResultMappCenterAppListIosConfig,
-      modifier: 'string',
-      monitorJson: 'string',
-      status: 'number',
-      tenantId: 'string',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMappCenterAppsResponseBodyListMappCenterAppResult extends $tea.Model {
-  mappCenterAppList?: ListMappCenterAppsResponseBodyListMappCenterAppResultMappCenterAppList[];
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      mappCenterAppList: 'MappCenterAppList',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mappCenterAppList: { 'type': 'array', 'itemType': ListMappCenterAppsResponseBodyListMappCenterAppResultMappCenterAppList },
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMappCenterWorkspacesResponseBodyListMappCenterWorkspaceResultMappCenterWorkspaceList extends $tea.Model {
-  compatibleId?: string;
-  createTime?: string;
-  displayName?: string;
-  id?: string;
-  region?: string;
-  status?: string;
-  tenantId?: string;
-  type?: string;
-  uid?: number;
-  updateTime?: string;
-  workspaceId?: string;
-  zones?: string;
-  static names(): { [key: string]: string } {
-    return {
-      compatibleId: 'CompatibleId',
-      createTime: 'CreateTime',
-      displayName: 'DisplayName',
-      id: 'Id',
-      region: 'Region',
-      status: 'Status',
-      tenantId: 'TenantId',
-      type: 'Type',
-      uid: 'Uid',
-      updateTime: 'UpdateTime',
-      workspaceId: 'WorkspaceId',
-      zones: 'Zones',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      compatibleId: 'string',
-      createTime: 'string',
-      displayName: 'string',
-      id: 'string',
-      region: 'string',
-      status: 'string',
-      tenantId: 'string',
-      type: 'string',
-      uid: 'number',
-      updateTime: 'string',
-      workspaceId: 'string',
-      zones: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMappCenterWorkspacesResponseBodyListMappCenterWorkspaceResult extends $tea.Model {
-  mappCenterWorkspaceList?: ListMappCenterWorkspacesResponseBodyListMappCenterWorkspaceResultMappCenterWorkspaceList[];
-  resultMsg?: string;
-  success?: boolean;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mappCenterWorkspaceList: 'MappCenterWorkspaceList',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mappCenterWorkspaceList: { 'type': 'array', 'itemType': ListMappCenterWorkspacesResponseBodyListMappCenterWorkspaceResultMappCenterWorkspaceList },
-      resultMsg: 'string',
-      success: 'boolean',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcdpAimResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniAppsResponseBodyListMiniResultMiniProgramList extends $tea.Model {
-  appCode?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  h5Id?: string;
-  h5Name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniAppsResponseBodyListMiniResult extends $tea.Model {
-  currentPage?: number;
-  hasMore?: boolean;
-  miniProgramList?: ListMcubeMiniAppsResponseBodyListMiniResultMiniProgramList[];
-  pageSize?: number;
-  resultMsg?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      hasMore: 'HasMore',
-      miniProgramList: 'MiniProgramList',
-      pageSize: 'PageSize',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      hasMore: 'boolean',
-      miniProgramList: { 'type': 'array', 'itemType': ListMcubeMiniAppsResponseBodyListMiniResultMiniProgramList },
-      pageSize: 'number',
-      resultMsg: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniPackagesResponseBodyListMiniPackageResultMiniPackageList extends $tea.Model {
-  appCode?: string;
-  autoInstall?: number;
-  clientVersionMax?: string;
-  clientVersionMin?: string;
-  downloadUrl?: string;
-  extendInfo?: string;
-  extraData?: string;
-  fallbackBaseUrl?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  h5Id?: string;
-  h5Name?: string;
-  h5Version?: string;
-  id?: number;
-  installType?: number;
-  mainUrl?: string;
-  memo?: string;
-  packageType?: number;
-  platform?: string;
-  publishPeriod?: number;
-  resourceType?: number;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      autoInstall: 'AutoInstall',
-      clientVersionMax: 'ClientVersionMax',
-      clientVersionMin: 'ClientVersionMin',
-      downloadUrl: 'DownloadUrl',
-      extendInfo: 'ExtendInfo',
-      extraData: 'ExtraData',
-      fallbackBaseUrl: 'FallbackBaseUrl',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-      h5Version: 'H5Version',
-      id: 'Id',
-      installType: 'InstallType',
-      mainUrl: 'MainUrl',
-      memo: 'Memo',
-      packageType: 'PackageType',
-      platform: 'Platform',
-      publishPeriod: 'PublishPeriod',
-      resourceType: 'ResourceType',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      autoInstall: 'number',
-      clientVersionMax: 'string',
-      clientVersionMin: 'string',
-      downloadUrl: 'string',
-      extendInfo: 'string',
-      extraData: 'string',
-      fallbackBaseUrl: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-      h5Version: 'string',
-      id: 'number',
-      installType: 'number',
-      mainUrl: 'string',
-      memo: 'string',
-      packageType: 'number',
-      platform: 'string',
-      publishPeriod: 'number',
-      resourceType: 'number',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniPackagesResponseBodyListMiniPackageResult extends $tea.Model {
-  currentPage?: number;
-  hasMore?: boolean;
-  miniPackageList?: ListMcubeMiniPackagesResponseBodyListMiniPackageResultMiniPackageList[];
-  pageSize?: number;
-  resultMsg?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      hasMore: 'HasMore',
-      miniPackageList: 'MiniPackageList',
-      pageSize: 'PageSize',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      hasMore: 'boolean',
-      miniPackageList: { 'type': 'array', 'itemType': ListMcubeMiniPackagesResponseBodyListMiniPackageResultMiniPackageList },
-      pageSize: 'number',
-      resultMsg: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniTasksResponseBodyListMiniTaskResultMiniTaskList extends $tea.Model {
-  appCode?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  greyConfigInfo?: string;
-  greyEndtime?: string;
-  greyEndtimeData?: string;
-  greyNum?: number;
-  id?: number;
-  memo?: string;
-  packageId?: number;
-  platform?: string;
-  productVersion?: string;
-  publishMode?: number;
-  publishType?: number;
-  status?: string;
-  taskStatus?: number;
-  whitelistIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      greyConfigInfo: 'GreyConfigInfo',
-      greyEndtime: 'GreyEndtime',
-      greyEndtimeData: 'GreyEndtimeData',
-      greyNum: 'GreyNum',
-      id: 'Id',
-      memo: 'Memo',
-      packageId: 'PackageId',
-      platform: 'Platform',
-      productVersion: 'ProductVersion',
-      publishMode: 'PublishMode',
-      publishType: 'PublishType',
-      status: 'Status',
-      taskStatus: 'TaskStatus',
-      whitelistIds: 'WhitelistIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      greyConfigInfo: 'string',
-      greyEndtime: 'string',
-      greyEndtimeData: 'string',
-      greyNum: 'number',
-      id: 'number',
-      memo: 'string',
-      packageId: 'number',
-      platform: 'string',
-      productVersion: 'string',
-      publishMode: 'number',
-      publishType: 'number',
-      status: 'string',
-      taskStatus: 'number',
-      whitelistIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeMiniTasksResponseBodyListMiniTaskResult extends $tea.Model {
-  miniTaskList?: ListMcubeMiniTasksResponseBodyListMiniTaskResultMiniTaskList[];
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      miniTaskList: 'MiniTaskList',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      miniTaskList: { 'type': 'array', 'itemType': ListMcubeMiniTasksResponseBodyListMiniTaskResultMiniTaskList },
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaAppsResponseBodyListMcubeNebulaAppsResultNebulaAppInfos extends $tea.Model {
-  h5Id?: string;
-  h5Name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      h5Id: 'string',
-      h5Name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaAppsResponseBodyListMcubeNebulaAppsResult extends $tea.Model {
-  currentPage?: number;
-  errorCode?: string;
-  hasMore?: boolean;
-  nebulaAppInfos?: ListMcubeNebulaAppsResponseBodyListMcubeNebulaAppsResultNebulaAppInfos[];
-  pageSize?: number;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      errorCode: 'ErrorCode',
-      hasMore: 'HasMore',
-      nebulaAppInfos: 'NebulaAppInfos',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      errorCode: 'string',
-      hasMore: 'boolean',
-      nebulaAppInfos: { 'type': 'array', 'itemType': ListMcubeNebulaAppsResponseBodyListMcubeNebulaAppsResultNebulaAppInfos },
-      pageSize: 'number',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaResourcesResponseBodyListMcubeNebulaResourceResultNebulaResourceInfo extends $tea.Model {
-  appCode?: string;
-  autoInstall?: number;
-  clientVersionMax?: string;
-  clientVersionMin?: string;
-  creator?: string;
-  debugUrl?: string;
-  downloadUrl?: string;
-  extendInfo?: string;
-  extraData?: string;
-  fallbackBaseUrl?: string;
-  fileSize?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  h5Id?: string;
-  h5Name?: string;
-  h5Version?: string;
-  id?: number;
-  installType?: number;
-  lazyLoad?: number;
-  mainUrl?: string;
-  md5?: string;
-  memo?: string;
-  metaId?: number;
-  modifier?: string;
-  packageType?: number;
-  platform?: string;
-  publishPeriod?: number;
-  releaseVersion?: string;
-  resourceType?: string;
-  status?: number;
-  vhost?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      autoInstall: 'AutoInstall',
-      clientVersionMax: 'ClientVersionMax',
-      clientVersionMin: 'ClientVersionMin',
-      creator: 'Creator',
-      debugUrl: 'DebugUrl',
-      downloadUrl: 'DownloadUrl',
-      extendInfo: 'ExtendInfo',
-      extraData: 'ExtraData',
-      fallbackBaseUrl: 'FallbackBaseUrl',
-      fileSize: 'FileSize',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-      h5Version: 'H5Version',
-      id: 'Id',
-      installType: 'InstallType',
-      lazyLoad: 'LazyLoad',
-      mainUrl: 'MainUrl',
-      md5: 'Md5',
-      memo: 'Memo',
-      metaId: 'MetaId',
-      modifier: 'Modifier',
-      packageType: 'PackageType',
-      platform: 'Platform',
-      publishPeriod: 'PublishPeriod',
-      releaseVersion: 'ReleaseVersion',
-      resourceType: 'ResourceType',
-      status: 'Status',
-      vhost: 'Vhost',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      autoInstall: 'number',
-      clientVersionMax: 'string',
-      clientVersionMin: 'string',
-      creator: 'string',
-      debugUrl: 'string',
-      downloadUrl: 'string',
-      extendInfo: 'string',
-      extraData: 'string',
-      fallbackBaseUrl: 'string',
-      fileSize: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-      h5Version: 'string',
-      id: 'number',
-      installType: 'number',
-      lazyLoad: 'number',
-      mainUrl: 'string',
-      md5: 'string',
-      memo: 'string',
-      metaId: 'number',
-      modifier: 'string',
-      packageType: 'number',
-      platform: 'string',
-      publishPeriod: 'number',
-      releaseVersion: 'string',
-      resourceType: 'string',
-      status: 'number',
-      vhost: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaResourcesResponseBodyListMcubeNebulaResourceResult extends $tea.Model {
-  currentPage?: number;
-  errorCode?: string;
-  hasMore?: boolean;
-  nebulaResourceInfo?: ListMcubeNebulaResourcesResponseBodyListMcubeNebulaResourceResultNebulaResourceInfo[];
-  pageSize?: number;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      errorCode: 'ErrorCode',
-      hasMore: 'HasMore',
-      nebulaResourceInfo: 'NebulaResourceInfo',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      errorCode: 'string',
-      hasMore: 'boolean',
-      nebulaResourceInfo: { 'type': 'array', 'itemType': ListMcubeNebulaResourcesResponseBodyListMcubeNebulaResourceResultNebulaResourceInfo },
-      pageSize: 'number',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaTasksResponseBodyListMcubeNebulaTaskResultNebulaTaskInfo extends $tea.Model {
-  appCode?: string;
-  bizType?: string;
-  creator?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  gmtModifiedStr?: string;
-  greyConfigInfo?: string;
-  greyEndtime?: string;
-  greyEndtimeData?: string;
-  greyEndtimeStr?: string;
-  greyNum?: number;
-  greyUrl?: string;
-  id?: number;
-  memo?: string;
-  modifier?: string;
-  packageId?: number;
-  percent?: number;
-  platform?: string;
-  productId?: string;
-  productVersion?: string;
-  publishMode?: number;
-  publishType?: number;
-  releaseVersion?: string;
-  status?: number;
-  syncResult?: string;
-  taskName?: string;
-  taskStatus?: number;
-  taskType?: number;
-  taskVersion?: number;
-  upgradeNoticeNum?: number;
-  upgradeProgress?: string;
-  whitelistIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      bizType: 'BizType',
-      creator: 'Creator',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      gmtModifiedStr: 'GmtModifiedStr',
-      greyConfigInfo: 'GreyConfigInfo',
-      greyEndtime: 'GreyEndtime',
-      greyEndtimeData: 'GreyEndtimeData',
-      greyEndtimeStr: 'GreyEndtimeStr',
-      greyNum: 'GreyNum',
-      greyUrl: 'GreyUrl',
-      id: 'Id',
-      memo: 'Memo',
-      modifier: 'Modifier',
-      packageId: 'PackageId',
-      percent: 'Percent',
-      platform: 'Platform',
-      productId: 'ProductId',
-      productVersion: 'ProductVersion',
-      publishMode: 'PublishMode',
-      publishType: 'PublishType',
-      releaseVersion: 'ReleaseVersion',
-      status: 'Status',
-      syncResult: 'SyncResult',
-      taskName: 'TaskName',
-      taskStatus: 'TaskStatus',
-      taskType: 'TaskType',
-      taskVersion: 'TaskVersion',
-      upgradeNoticeNum: 'UpgradeNoticeNum',
-      upgradeProgress: 'UpgradeProgress',
-      whitelistIds: 'WhitelistIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      bizType: 'string',
-      creator: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      gmtModifiedStr: 'string',
-      greyConfigInfo: 'string',
-      greyEndtime: 'string',
-      greyEndtimeData: 'string',
-      greyEndtimeStr: 'string',
-      greyNum: 'number',
-      greyUrl: 'string',
-      id: 'number',
-      memo: 'string',
-      modifier: 'string',
-      packageId: 'number',
-      percent: 'number',
-      platform: 'string',
-      productId: 'string',
-      productVersion: 'string',
-      publishMode: 'number',
-      publishType: 'number',
-      releaseVersion: 'string',
-      status: 'number',
-      syncResult: 'string',
-      taskName: 'string',
-      taskStatus: 'number',
-      taskType: 'number',
-      taskVersion: 'number',
-      upgradeNoticeNum: 'number',
-      upgradeProgress: 'string',
-      whitelistIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeNebulaTasksResponseBodyListMcubeNebulaTaskResult extends $tea.Model {
-  errorCode?: string;
-  nebulaTaskInfo?: ListMcubeNebulaTasksResponseBodyListMcubeNebulaTaskResultNebulaTaskInfo[];
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      nebulaTaskInfo: 'NebulaTaskInfo',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      nebulaTaskInfo: { 'type': 'array', 'itemType': ListMcubeNebulaTasksResponseBodyListMcubeNebulaTaskResultNebulaTaskInfo },
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeUpgradePackagesResponseBodyListPackagesResultPackages extends $tea.Model {
-  allowCreateTask?: boolean;
-  appCode?: string;
-  appstoreUrl?: string;
-  backLog?: string;
-  changeLog?: string;
-  clientFileSize?: number;
-  clientName?: string;
-  cpId?: string;
-  creator?: string;
-  downloadUrl?: string;
-  globalVariables?: string;
-  gmtCreate?: string;
-  gmtCreateStr?: string;
-  gmtModified?: string;
-  gmtModifiedStr?: string;
-  id?: number;
-  innerVersion?: string;
-  iosSymbol?: string;
-  isEnterprise?: number;
-  isRc?: number;
-  isRelease?: number;
-  maxVersion?: string;
-  md5?: string;
-  modifier?: string;
-  needCheck?: number;
-  ossPath?: string;
-  packageType?: string;
-  platform?: string;
-  productId?: string;
-  productName?: string;
-  productVersion?: string;
-  publishPeriod?: number;
-  qrcodeUrl?: string;
-  releaseType?: string;
-  releaseWindow?: string;
-  scmDownloadUrl?: string;
-  serverVersion?: number;
-  verificationCode?: string;
-  verifyResult?: number;
-  versionCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowCreateTask: 'AllowCreateTask',
-      appCode: 'AppCode',
-      appstoreUrl: 'AppstoreUrl',
-      backLog: 'BackLog',
-      changeLog: 'ChangeLog',
-      clientFileSize: 'ClientFileSize',
-      clientName: 'ClientName',
-      cpId: 'CpId',
-      creator: 'Creator',
-      downloadUrl: 'DownloadUrl',
-      globalVariables: 'GlobalVariables',
-      gmtCreate: 'GmtCreate',
-      gmtCreateStr: 'GmtCreateStr',
-      gmtModified: 'GmtModified',
-      gmtModifiedStr: 'GmtModifiedStr',
-      id: 'Id',
-      innerVersion: 'InnerVersion',
-      iosSymbol: 'IosSymbol',
-      isEnterprise: 'IsEnterprise',
-      isRc: 'IsRc',
-      isRelease: 'IsRelease',
-      maxVersion: 'MaxVersion',
-      md5: 'Md5',
-      modifier: 'Modifier',
-      needCheck: 'NeedCheck',
-      ossPath: 'OssPath',
-      packageType: 'PackageType',
-      platform: 'Platform',
-      productId: 'ProductId',
-      productName: 'ProductName',
-      productVersion: 'ProductVersion',
-      publishPeriod: 'PublishPeriod',
-      qrcodeUrl: 'QrcodeUrl',
-      releaseType: 'ReleaseType',
-      releaseWindow: 'ReleaseWindow',
-      scmDownloadUrl: 'ScmDownloadUrl',
-      serverVersion: 'ServerVersion',
-      verificationCode: 'VerificationCode',
-      verifyResult: 'VerifyResult',
-      versionCode: 'VersionCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowCreateTask: 'boolean',
-      appCode: 'string',
-      appstoreUrl: 'string',
-      backLog: 'string',
-      changeLog: 'string',
-      clientFileSize: 'number',
-      clientName: 'string',
-      cpId: 'string',
-      creator: 'string',
-      downloadUrl: 'string',
-      globalVariables: 'string',
-      gmtCreate: 'string',
-      gmtCreateStr: 'string',
-      gmtModified: 'string',
-      gmtModifiedStr: 'string',
-      id: 'number',
-      innerVersion: 'string',
-      iosSymbol: 'string',
-      isEnterprise: 'number',
-      isRc: 'number',
-      isRelease: 'number',
-      maxVersion: 'string',
-      md5: 'string',
-      modifier: 'string',
-      needCheck: 'number',
-      ossPath: 'string',
-      packageType: 'string',
-      platform: 'string',
-      productId: 'string',
-      productName: 'string',
-      productVersion: 'string',
-      publishPeriod: 'number',
-      qrcodeUrl: 'string',
-      releaseType: 'string',
-      releaseWindow: 'string',
-      scmDownloadUrl: 'string',
-      serverVersion: 'number',
-      verificationCode: 'string',
-      verifyResult: 'number',
-      versionCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeUpgradePackagesResponseBodyListPackagesResult extends $tea.Model {
-  currentPage?: number;
-  errorCode?: string;
-  hasMore?: boolean;
-  packages?: ListMcubeUpgradePackagesResponseBodyListPackagesResultPackages[];
-  pageSize?: number;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      errorCode: 'ErrorCode',
-      hasMore: 'HasMore',
-      packages: 'Packages',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      errorCode: 'string',
-      hasMore: 'boolean',
-      packages: { 'type': 'array', 'itemType': ListMcubeUpgradePackagesResponseBodyListPackagesResultPackages },
-      pageSize: 'number',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeUpgradeTasksResponseBodyListTaskResultTaskInfo extends $tea.Model {
-  appCode?: string;
-  creator?: string;
-  devicePercent?: number;
-  executionOrder?: number;
-  gmtCreate?: string;
-  gmtCreateStr?: string;
-  gmtModified?: string;
-  gmtModifiedStr?: string;
-  greyConfigInfo?: string;
-  greyEndtime?: string;
-  greyNotice?: number;
-  greyNum?: number;
-  greyPausePoint?: number;
-  greyPauseType?: number;
-  greyUv?: number;
-  historyForce?: number;
-  huobanNoticeId?: string;
-  huobanUrl?: string;
-  id?: number;
-  innerVersion?: string;
-  isEnterprise?: number;
-  isOfficial?: number;
-  isPush?: number;
-  isRelease?: number;
-  maxVersion?: string;
-  memo?: string;
-  modifier?: string;
-  packageInfoId?: number;
-  platform?: string;
-  productId?: string;
-  productVersion?: string;
-  publishMode?: number;
-  publishType?: number;
-  pushContent?: string;
-  realGreyEndtime?: string;
-  realGreyEndtimeStr?: string;
-  realGreyEndtype?: number;
-  realGreyNum?: number;
-  realGreyUv?: number;
-  silentType?: number;
-  syncResult?: string;
-  taskStatus?: number;
-  upgradeContent?: string;
-  upgradeType?: number;
-  upgradeValidTime?: number;
-  whitelistIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      creator: 'Creator',
-      devicePercent: 'DevicePercent',
-      executionOrder: 'ExecutionOrder',
-      gmtCreate: 'GmtCreate',
-      gmtCreateStr: 'GmtCreateStr',
-      gmtModified: 'GmtModified',
-      gmtModifiedStr: 'GmtModifiedStr',
-      greyConfigInfo: 'GreyConfigInfo',
-      greyEndtime: 'GreyEndtime',
-      greyNotice: 'GreyNotice',
-      greyNum: 'GreyNum',
-      greyPausePoint: 'GreyPausePoint',
-      greyPauseType: 'GreyPauseType',
-      greyUv: 'GreyUv',
-      historyForce: 'HistoryForce',
-      huobanNoticeId: 'HuobanNoticeId',
-      huobanUrl: 'HuobanUrl',
-      id: 'Id',
-      innerVersion: 'InnerVersion',
-      isEnterprise: 'IsEnterprise',
-      isOfficial: 'IsOfficial',
-      isPush: 'IsPush',
-      isRelease: 'IsRelease',
-      maxVersion: 'MaxVersion',
-      memo: 'Memo',
-      modifier: 'Modifier',
-      packageInfoId: 'PackageInfoId',
-      platform: 'Platform',
-      productId: 'ProductId',
-      productVersion: 'ProductVersion',
-      publishMode: 'PublishMode',
-      publishType: 'PublishType',
-      pushContent: 'PushContent',
-      realGreyEndtime: 'RealGreyEndtime',
-      realGreyEndtimeStr: 'RealGreyEndtimeStr',
-      realGreyEndtype: 'RealGreyEndtype',
-      realGreyNum: 'RealGreyNum',
-      realGreyUv: 'RealGreyUv',
-      silentType: 'SilentType',
-      syncResult: 'SyncResult',
-      taskStatus: 'TaskStatus',
-      upgradeContent: 'UpgradeContent',
-      upgradeType: 'UpgradeType',
-      upgradeValidTime: 'UpgradeValidTime',
-      whitelistIds: 'WhitelistIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      creator: 'string',
-      devicePercent: 'number',
-      executionOrder: 'number',
-      gmtCreate: 'string',
-      gmtCreateStr: 'string',
-      gmtModified: 'string',
-      gmtModifiedStr: 'string',
-      greyConfigInfo: 'string',
-      greyEndtime: 'string',
-      greyNotice: 'number',
-      greyNum: 'number',
-      greyPausePoint: 'number',
-      greyPauseType: 'number',
-      greyUv: 'number',
-      historyForce: 'number',
-      huobanNoticeId: 'string',
-      huobanUrl: 'string',
-      id: 'number',
-      innerVersion: 'string',
-      isEnterprise: 'number',
-      isOfficial: 'number',
-      isPush: 'number',
-      isRelease: 'number',
-      maxVersion: 'string',
-      memo: 'string',
-      modifier: 'string',
-      packageInfoId: 'number',
-      platform: 'string',
-      productId: 'string',
-      productVersion: 'string',
-      publishMode: 'number',
-      publishType: 'number',
-      pushContent: 'string',
-      realGreyEndtime: 'string',
-      realGreyEndtimeStr: 'string',
-      realGreyEndtype: 'number',
-      realGreyNum: 'number',
-      realGreyUv: 'number',
-      silentType: 'number',
-      syncResult: 'string',
-      taskStatus: 'number',
-      upgradeContent: 'string',
-      upgradeType: 'number',
-      upgradeValidTime: 'number',
-      whitelistIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeUpgradeTasksResponseBodyListTaskResult extends $tea.Model {
-  errorCode?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  taskInfo?: ListMcubeUpgradeTasksResponseBodyListTaskResultTaskInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-      taskInfo: 'TaskInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-      taskInfo: { 'type': 'array', 'itemType': ListMcubeUpgradeTasksResponseBodyListTaskResultTaskInfo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeWhitelistsResponseBodyListWhitelistResultWhitelists extends $tea.Model {
-  appCode?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  id?: number;
-  whiteListCount?: number;
-  whiteListName?: string;
-  whitelistType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      whiteListCount: 'WhiteListCount',
-      whiteListName: 'WhiteListName',
-      whitelistType: 'WhitelistType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      id: 'number',
-      whiteListCount: 'number',
-      whiteListName: 'string',
-      whitelistType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMcubeWhitelistsResponseBodyListWhitelistResult extends $tea.Model {
-  currentPage?: number;
-  hasMore?: boolean;
-  pageSize?: number;
-  resultMsg?: string;
-  success?: boolean;
-  totalCount?: number;
-  whitelists?: ListMcubeWhitelistsResponseBodyListWhitelistResultWhitelists[];
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      hasMore: 'HasMore',
-      pageSize: 'PageSize',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-      totalCount: 'TotalCount',
-      whitelists: 'Whitelists',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      hasMore: 'boolean',
-      pageSize: 'number',
-      resultMsg: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-      whitelists: { 'type': 'array', 'itemType': ListMcubeWhitelistsResponseBodyListWhitelistResultWhitelists },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponseBodyResultContentValueApiInvokerHttpInvoker extends $tea.Model {
-  charset?: string;
-  contentType?: string;
-  host?: string;
-  method?: string;
-  path?: string;
-  static names(): { [key: string]: string } {
-    return {
-      charset: 'Charset',
-      contentType: 'ContentType',
-      host: 'Host',
-      method: 'Method',
-      path: 'Path',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      charset: 'string',
-      contentType: 'string',
-      host: 'string',
-      method: 'string',
-      path: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponseBodyResultContentValueApiInvoker extends $tea.Model {
-  httpInvoker?: ListMgsApiResponseBodyResultContentValueApiInvokerHttpInvoker;
-  rpcInvoker?: string;
-  static names(): { [key: string]: string } {
-    return {
-      httpInvoker: 'HttpInvoker',
-      rpcInvoker: 'RpcInvoker',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      httpInvoker: ListMgsApiResponseBodyResultContentValueApiInvokerHttpInvoker,
-      rpcInvoker: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponseBodyResultContentValueCacheRule extends $tea.Model {
-  cacheKey?: string;
-  needCache?: boolean;
-  ttl?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cacheKey: 'CacheKey',
-      needCache: 'NeedCache',
-      ttl: 'Ttl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheKey: 'string',
-      needCache: 'boolean',
-      ttl: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponseBodyResultContentValueCircuitBreakerRule extends $tea.Model {
-  appId?: string;
-  defaultResponse?: string;
-  errorThreshold?: number;
-  id?: number;
-  model?: string;
-  openTimeoutSeconds?: number;
-  slowRatioThreshold?: number;
-  switchStatus?: string;
-  windowsInSeconds?: number;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      defaultResponse: 'DefaultResponse',
-      errorThreshold: 'ErrorThreshold',
-      id: 'Id',
-      model: 'Model',
-      openTimeoutSeconds: 'OpenTimeoutSeconds',
-      slowRatioThreshold: 'SlowRatioThreshold',
-      switchStatus: 'SwitchStatus',
-      windowsInSeconds: 'WindowsInSeconds',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      defaultResponse: 'string',
-      errorThreshold: 'number',
-      id: 'number',
-      model: 'string',
-      openTimeoutSeconds: 'number',
-      slowRatioThreshold: 'number',
-      switchStatus: 'string',
-      windowsInSeconds: 'number',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponseBodyResultContentValueHeaderRule extends $tea.Model {
-  headerKey?: string;
-  location?: string;
-  type?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      headerKey: 'HeaderKey',
-      location: 'Location',
-      type: 'Type',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headerKey: 'string',
-      location: 'string',
-      type: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponseBodyResultContentValueHeaderRules extends $tea.Model {
-  headerKey?: string;
-  location?: string;
-  type?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      headerKey: 'HeaderKey',
-      location: 'Location',
-      type: 'Type',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headerKey: 'string',
-      location: 'string',
-      type: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponseBodyResultContentValueLimitRule extends $tea.Model {
-  defaultResponse?: string;
-  i18nResponse?: string;
-  interval?: number;
-  limit?: number;
-  mode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultResponse: 'DefaultResponse',
-      i18nResponse: 'I18nResponse',
-      interval: 'Interval',
-      limit: 'Limit',
-      mode: 'Mode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultResponse: 'string',
-      i18nResponse: 'string',
-      interval: 'number',
-      limit: 'number',
-      mode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponseBodyResultContentValueMigrateRule extends $tea.Model {
-  flowPercent?: number;
-  needMigrate?: boolean;
-  needSwitchCompletely?: boolean;
-  sysId?: number;
-  sysName?: string;
-  upstreamType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowPercent: 'FlowPercent',
-      needMigrate: 'NeedMigrate',
-      needSwitchCompletely: 'NeedSwitchCompletely',
-      sysId: 'SysId',
-      sysName: 'SysName',
-      upstreamType: 'UpstreamType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowPercent: 'number',
-      needMigrate: 'boolean',
-      needSwitchCompletely: 'boolean',
-      sysId: 'number',
-      sysName: 'string',
-      upstreamType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponseBodyResultContentValueMockRule extends $tea.Model {
-  mockData?: string;
-  needMock?: boolean;
-  percentage?: number;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mockData: 'MockData',
-      needMock: 'NeedMock',
-      percentage: 'Percentage',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mockData: 'string',
-      needMock: 'boolean',
-      percentage: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponseBodyResultContentValueRequestParams extends $tea.Model {
-  apiId?: string;
-  appId?: string;
-  defaultValue?: string;
-  description?: string;
-  id?: number;
-  location?: string;
-  name?: string;
-  refType?: string;
-  type?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiId: 'ApiId',
-      appId: 'AppId',
-      defaultValue: 'DefaultValue',
-      description: 'Description',
-      id: 'Id',
-      location: 'Location',
-      name: 'Name',
-      refType: 'RefType',
-      type: 'Type',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiId: 'string',
-      appId: 'string',
-      defaultValue: 'string',
-      description: 'string',
-      id: 'number',
-      location: 'string',
-      name: 'string',
-      refType: 'string',
-      type: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponseBodyResultContentValue extends $tea.Model {
-  apiInvoker?: ListMgsApiResponseBodyResultContentValueApiInvoker;
-  apiName?: string;
-  apiStatus?: string;
-  apiType?: string;
-  appId?: string;
-  authRuleName?: string;
-  cacheRule?: ListMgsApiResponseBodyResultContentValueCacheRule;
-  charset?: string;
-  circuitBreakerRule?: ListMgsApiResponseBodyResultContentValueCircuitBreakerRule;
-  contentType?: string;
-  description?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  headerRule?: ListMgsApiResponseBodyResultContentValueHeaderRule[];
-  headerRules?: ListMgsApiResponseBodyResultContentValueHeaderRules[];
-  host?: string;
-  id?: number;
-  interfaceType?: string;
-  limitRule?: ListMgsApiResponseBodyResultContentValueLimitRule;
-  method?: string;
-  methodName?: string;
-  migrateRule?: ListMgsApiResponseBodyResultContentValueMigrateRule;
-  mockRule?: ListMgsApiResponseBodyResultContentValueMockRule;
-  needETag?: string;
-  needEncrypt?: string;
-  needJsonp?: string;
-  needSign?: string;
-  operationType?: string;
-  paramGetMethod?: string;
-  path?: string;
-  requestBodyModel?: string;
-  requestParams?: ListMgsApiResponseBodyResultContentValueRequestParams[];
-  responseBodyModel?: string;
-  sysId?: number;
-  sysName?: string;
-  timeout?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiInvoker: 'ApiInvoker',
-      apiName: 'ApiName',
-      apiStatus: 'ApiStatus',
-      apiType: 'ApiType',
-      appId: 'AppId',
-      authRuleName: 'AuthRuleName',
-      cacheRule: 'CacheRule',
-      charset: 'Charset',
-      circuitBreakerRule: 'CircuitBreakerRule',
-      contentType: 'ContentType',
-      description: 'Description',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      headerRule: 'HeaderRule',
-      headerRules: 'HeaderRules',
-      host: 'Host',
-      id: 'Id',
-      interfaceType: 'InterfaceType',
-      limitRule: 'LimitRule',
-      method: 'Method',
-      methodName: 'MethodName',
-      migrateRule: 'MigrateRule',
-      mockRule: 'MockRule',
-      needETag: 'NeedETag',
-      needEncrypt: 'NeedEncrypt',
-      needJsonp: 'NeedJsonp',
-      needSign: 'NeedSign',
-      operationType: 'OperationType',
-      paramGetMethod: 'ParamGetMethod',
-      path: 'Path',
-      requestBodyModel: 'RequestBodyModel',
-      requestParams: 'RequestParams',
-      responseBodyModel: 'ResponseBodyModel',
-      sysId: 'SysId',
-      sysName: 'SysName',
-      timeout: 'Timeout',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiInvoker: ListMgsApiResponseBodyResultContentValueApiInvoker,
-      apiName: 'string',
-      apiStatus: 'string',
-      apiType: 'string',
-      appId: 'string',
-      authRuleName: 'string',
-      cacheRule: ListMgsApiResponseBodyResultContentValueCacheRule,
-      charset: 'string',
-      circuitBreakerRule: ListMgsApiResponseBodyResultContentValueCircuitBreakerRule,
-      contentType: 'string',
-      description: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      headerRule: { 'type': 'array', 'itemType': ListMgsApiResponseBodyResultContentValueHeaderRule },
-      headerRules: { 'type': 'array', 'itemType': ListMgsApiResponseBodyResultContentValueHeaderRules },
-      host: 'string',
-      id: 'number',
-      interfaceType: 'string',
-      limitRule: ListMgsApiResponseBodyResultContentValueLimitRule,
-      method: 'string',
-      methodName: 'string',
-      migrateRule: ListMgsApiResponseBodyResultContentValueMigrateRule,
-      mockRule: ListMgsApiResponseBodyResultContentValueMockRule,
-      needETag: 'string',
-      needEncrypt: 'string',
-      needJsonp: 'string',
-      needSign: 'string',
-      operationType: 'string',
-      paramGetMethod: 'string',
-      path: 'string',
-      requestBodyModel: 'string',
-      requestParams: { 'type': 'array', 'itemType': ListMgsApiResponseBodyResultContentValueRequestParams },
-      responseBodyModel: 'string',
-      sysId: 'number',
-      sysName: 'string',
-      timeout: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMgsApiResponseBodyResultContent extends $tea.Model {
-  errorMessage?: string;
-  success?: boolean;
-  value?: ListMgsApiResponseBodyResultContentValue[];
-  static names(): { [key: string]: string } {
-    return {
-      errorMessage: 'ErrorMessage',
-      success: 'Success',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorMessage: 'string',
-      success: 'boolean',
-      value: { 'type': 'array', 'itemType': ListMgsApiResponseBodyResultContentValue },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LogMsaQueryResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushBindResponseBodyPushResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushBroadcastResponseBodyPushResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMultipleRequestTargetMsg extends $tea.Model {
-  extendedParams?: string;
-  msgKey?: string;
-  target?: string;
-  templateKeyValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extendedParams: 'ExtendedParams',
-      msgKey: 'MsgKey',
-      target: 'Target',
-      templateKeyValue: 'TemplateKeyValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extendedParams: 'string',
-      msgKey: 'string',
-      target: 'string',
-      templateKeyValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMultipleShrinkRequestTargetMsg extends $tea.Model {
-  extendedParams?: string;
-  msgKey?: string;
-  target?: string;
-  templateKeyValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extendedParams: 'ExtendedParams',
-      msgKey: 'MsgKey',
-      target: 'Target',
-      templateKeyValue: 'TemplateKeyValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extendedParams: 'string',
-      msgKey: 'string',
-      target: 'string',
-      templateKeyValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMultipleResponseBodyPushResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushReportResponseBodyPushResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushSimpleResponseBodyPushResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushTemplateResponseBodyPushResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushUnBindResponseBodyPushResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryLinkResponseBodyResultContent extends $tea.Model {
-  data?: any;
-  target?: string;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      target: 'Target',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'any',
-      target: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMappCenterAppResponseBodyQueryMappCenterAppResultMappCenterAppAndroidConfig extends $tea.Model {
-  certRSA?: string;
-  packageName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certRSA: 'CertRSA',
-      packageName: 'PackageName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certRSA: 'string',
-      packageName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMappCenterAppResponseBodyQueryMappCenterAppResultMappCenterAppIosConfig extends $tea.Model {
-  bundleId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bundleId: 'BundleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bundleId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMappCenterAppResponseBodyQueryMappCenterAppResultMappCenterApp extends $tea.Model {
-  androidConfig?: QueryMappCenterAppResponseBodyQueryMappCenterAppResultMappCenterAppAndroidConfig;
-  appDesc?: string;
-  appIcon?: string;
-  appId?: string;
-  appName?: string;
-  appSecret?: string;
-  creator?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  id?: number;
-  iosConfig?: QueryMappCenterAppResponseBodyQueryMappCenterAppResultMappCenterAppIosConfig;
-  modifier?: string;
-  monitorJson?: string;
-  status?: number;
-  tenantId?: string;
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      androidConfig: 'AndroidConfig',
-      appDesc: 'AppDesc',
-      appIcon: 'AppIcon',
-      appId: 'AppId',
-      appName: 'AppName',
-      appSecret: 'AppSecret',
-      creator: 'Creator',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      iosConfig: 'IosConfig',
-      modifier: 'Modifier',
-      monitorJson: 'MonitorJson',
-      status: 'Status',
-      tenantId: 'TenantId',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidConfig: QueryMappCenterAppResponseBodyQueryMappCenterAppResultMappCenterAppAndroidConfig,
-      appDesc: 'string',
-      appIcon: 'string',
-      appId: 'string',
-      appName: 'string',
-      appSecret: 'string',
-      creator: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      id: 'number',
-      iosConfig: QueryMappCenterAppResponseBodyQueryMappCenterAppResultMappCenterAppIosConfig,
-      modifier: 'string',
-      monitorJson: 'string',
-      status: 'number',
-      tenantId: 'string',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMappCenterAppResponseBodyQueryMappCenterAppResult extends $tea.Model {
-  mappCenterApp?: QueryMappCenterAppResponseBodyQueryMappCenterAppResultMappCenterApp;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      mappCenterApp: 'MappCenterApp',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mappCenterApp: QueryMappCenterAppResponseBodyQueryMappCenterAppResultMappCenterApp,
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcdpAimResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcdpZoneResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeMiniPackageResponseBodyQueryMiniPackageResultMiniPackageInfo extends $tea.Model {
-  appCode?: string;
-  autoInstall?: number;
-  clientVersionMax?: string;
-  clientVersionMin?: string;
-  downloadUrl?: string;
-  extendInfo?: string;
-  extraData?: string;
-  fallbackBaseUrl?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  h5Id?: string;
-  h5Name?: string;
-  h5Version?: string;
-  id?: number;
-  installType?: number;
-  mainUrl?: string;
-  memo?: string;
-  packageType?: number;
-  platform?: string;
-  publishPeriod?: number;
-  resourceType?: number;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      autoInstall: 'AutoInstall',
-      clientVersionMax: 'ClientVersionMax',
-      clientVersionMin: 'ClientVersionMin',
-      downloadUrl: 'DownloadUrl',
-      extendInfo: 'ExtendInfo',
-      extraData: 'ExtraData',
-      fallbackBaseUrl: 'FallbackBaseUrl',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      h5Id: 'H5Id',
-      h5Name: 'H5Name',
-      h5Version: 'H5Version',
-      id: 'Id',
-      installType: 'InstallType',
-      mainUrl: 'MainUrl',
-      memo: 'Memo',
-      packageType: 'PackageType',
-      platform: 'Platform',
-      publishPeriod: 'PublishPeriod',
-      resourceType: 'ResourceType',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      autoInstall: 'number',
-      clientVersionMax: 'string',
-      clientVersionMin: 'string',
-      downloadUrl: 'string',
-      extendInfo: 'string',
-      extraData: 'string',
-      fallbackBaseUrl: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      h5Id: 'string',
-      h5Name: 'string',
-      h5Version: 'string',
-      id: 'number',
-      installType: 'number',
-      mainUrl: 'string',
-      memo: 'string',
-      packageType: 'number',
-      platform: 'string',
-      publishPeriod: 'number',
-      resourceType: 'number',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeMiniPackageResponseBodyQueryMiniPackageResult extends $tea.Model {
-  miniPackageInfo?: QueryMcubeMiniPackageResponseBodyQueryMiniPackageResultMiniPackageInfo;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      miniPackageInfo: 'MiniPackageInfo',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      miniPackageInfo: QueryMcubeMiniPackageResponseBodyQueryMiniPackageResultMiniPackageInfo,
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeMiniTaskResponseBodyQueryMiniTaskResultMiniTaskInfo extends $tea.Model {
-  appCode?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  greyConfigInfo?: string;
-  greyEndtime?: string;
-  greyEndtimeData?: string;
-  greyNum?: number;
-  id?: number;
-  memo?: string;
-  packageId?: number;
-  platform?: string;
-  productVersion?: string;
-  publishMode?: number;
-  publishType?: number;
-  status?: string;
-  taskStatus?: number;
-  whitelistIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      greyConfigInfo: 'GreyConfigInfo',
-      greyEndtime: 'GreyEndtime',
-      greyEndtimeData: 'GreyEndtimeData',
-      greyNum: 'GreyNum',
-      id: 'Id',
-      memo: 'Memo',
-      packageId: 'PackageId',
-      platform: 'Platform',
-      productVersion: 'ProductVersion',
-      publishMode: 'PublishMode',
-      publishType: 'PublishType',
-      status: 'Status',
-      taskStatus: 'TaskStatus',
-      whitelistIds: 'WhitelistIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      greyConfigInfo: 'string',
-      greyEndtime: 'string',
-      greyEndtimeData: 'string',
-      greyNum: 'number',
-      id: 'number',
-      memo: 'string',
-      packageId: 'number',
-      platform: 'string',
-      productVersion: 'string',
-      publishMode: 'number',
-      publishType: 'number',
-      status: 'string',
-      taskStatus: 'number',
-      whitelistIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeMiniTaskResponseBodyQueryMiniTaskResult extends $tea.Model {
-  miniTaskInfo?: QueryMcubeMiniTaskResponseBodyQueryMiniTaskResultMiniTaskInfo;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      miniTaskInfo: 'MiniTaskInfo',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      miniTaskInfo: QueryMcubeMiniTaskResponseBodyQueryMiniTaskResultMiniTaskInfo,
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMcubeVhostResponseBodyQueryVhostResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContentRuleJsonList extends $tea.Model {
-  operation?: string;
-  ruleElement?: string;
-  ruleType?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      operation: 'Operation',
-      ruleElement: 'RuleElement',
-      ruleType: 'RuleType',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      operation: 'string',
-      ruleElement: 'string',
-      ruleType: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContentWhitelist extends $tea.Model {
-  appCode?: string;
-  business?: string;
-  gmtModified?: string;
-  id?: number;
-  idType?: string;
-  platform?: string;
-  status?: number;
-  whiteListCount?: number;
-  whiteListName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      business: 'Business',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      idType: 'IdType',
-      platform: 'Platform',
-      status: 'Status',
-      whiteListCount: 'WhiteListCount',
-      whiteListName: 'WhiteListName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      business: 'string',
-      gmtModified: 'string',
-      id: 'number',
-      idType: 'string',
-      platform: 'string',
-      status: 'number',
-      whiteListCount: 'number',
-      whiteListName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContent extends $tea.Model {
-  appCode?: string;
-  appId?: string;
-  appstoreurl?: string;
-  channelContains?: string;
-  channelExcludes?: string;
-  cityContains?: string;
-  cityExcludes?: string;
-  creator?: string;
-  deviceGreyNum?: number;
-  devicePercent?: number;
-  downloadUrl?: string;
-  executionOrder?: number;
-  gmtCreateStr?: string;
-  greyConfigInfo?: string;
-  greyEndtimeData?: string;
-  greyNotice?: number;
-  greyNum?: number;
-  greyUv?: number;
-  id?: number;
-  innerVersion?: string;
-  isEnterprise?: number;
-  isOfficial?: number;
-  isPush?: number;
-  isRc?: number;
-  isRelease?: number;
-  memo?: string;
-  mobileModelContains?: string;
-  mobileModelExcludes?: string;
-  modifier?: string;
-  netType?: string;
-  osVersion?: string;
-  packageInfoId?: number;
-  packageType?: string;
-  platform?: string;
-  productId?: string;
-  productVersion?: string;
-  publishMode?: number;
-  publishType?: number;
-  pushContent?: string;
-  qrcodeUrl?: string;
-  releaseType?: string;
-  ruleJsonList?: QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContentRuleJsonList[];
-  silentType?: number;
-  syncMode?: string;
-  syncResult?: string;
-  taskStatus?: number;
-  upgradeContent?: string;
-  upgradeType?: number;
-  upgradeValidTime?: number;
-  whitelist?: QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContentWhitelist[];
-  whitelistIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCode: 'AppCode',
-      appId: 'AppId',
-      appstoreurl: 'Appstoreurl',
-      channelContains: 'ChannelContains',
-      channelExcludes: 'ChannelExcludes',
-      cityContains: 'CityContains',
-      cityExcludes: 'CityExcludes',
-      creator: 'Creator',
-      deviceGreyNum: 'DeviceGreyNum',
-      devicePercent: 'DevicePercent',
-      downloadUrl: 'DownloadUrl',
-      executionOrder: 'ExecutionOrder',
-      gmtCreateStr: 'GmtCreateStr',
-      greyConfigInfo: 'GreyConfigInfo',
-      greyEndtimeData: 'GreyEndtimeData',
-      greyNotice: 'GreyNotice',
-      greyNum: 'GreyNum',
-      greyUv: 'GreyUv',
-      id: 'Id',
-      innerVersion: 'InnerVersion',
-      isEnterprise: 'IsEnterprise',
-      isOfficial: 'IsOfficial',
-      isPush: 'IsPush',
-      isRc: 'IsRc',
-      isRelease: 'IsRelease',
-      memo: 'Memo',
-      mobileModelContains: 'MobileModelContains',
-      mobileModelExcludes: 'MobileModelExcludes',
-      modifier: 'Modifier',
-      netType: 'NetType',
-      osVersion: 'OsVersion',
-      packageInfoId: 'PackageInfoId',
-      packageType: 'PackageType',
-      platform: 'Platform',
-      productId: 'ProductId',
-      productVersion: 'ProductVersion',
-      publishMode: 'PublishMode',
-      publishType: 'PublishType',
-      pushContent: 'PushContent',
-      qrcodeUrl: 'QrcodeUrl',
-      releaseType: 'ReleaseType',
-      ruleJsonList: 'RuleJsonList',
-      silentType: 'SilentType',
-      syncMode: 'SyncMode',
-      syncResult: 'SyncResult',
-      taskStatus: 'TaskStatus',
-      upgradeContent: 'UpgradeContent',
-      upgradeType: 'UpgradeType',
-      upgradeValidTime: 'UpgradeValidTime',
-      whitelist: 'Whitelist',
-      whitelistIds: 'WhitelistIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCode: 'string',
-      appId: 'string',
-      appstoreurl: 'string',
-      channelContains: 'string',
-      channelExcludes: 'string',
-      cityContains: 'string',
-      cityExcludes: 'string',
-      creator: 'string',
-      deviceGreyNum: 'number',
-      devicePercent: 'number',
-      downloadUrl: 'string',
-      executionOrder: 'number',
-      gmtCreateStr: 'string',
-      greyConfigInfo: 'string',
-      greyEndtimeData: 'string',
-      greyNotice: 'number',
-      greyNum: 'number',
-      greyUv: 'number',
-      id: 'number',
-      innerVersion: 'string',
-      isEnterprise: 'number',
-      isOfficial: 'number',
-      isPush: 'number',
-      isRc: 'number',
-      isRelease: 'number',
-      memo: 'string',
-      mobileModelContains: 'string',
-      mobileModelExcludes: 'string',
-      modifier: 'string',
-      netType: 'string',
-      osVersion: 'string',
-      packageInfoId: 'number',
-      packageType: 'string',
-      platform: 'string',
-      productId: 'string',
-      productVersion: 'string',
-      publishMode: 'number',
-      publishType: 'number',
-      pushContent: 'string',
-      qrcodeUrl: 'string',
-      releaseType: 'string',
-      ruleJsonList: { 'type': 'array', 'itemType': QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContentRuleJsonList },
-      silentType: 'number',
-      syncMode: 'string',
-      syncResult: 'string',
-      taskStatus: 'number',
-      upgradeContent: 'string',
-      upgradeType: 'number',
-      upgradeValidTime: 'number',
-      whitelist: { 'type': 'array', 'itemType': QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContentWhitelist },
-      whitelistIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMdsUpgradeTaskDetailResponseBodyResultContentData extends $tea.Model {
-  content?: QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContent;
-  errorCode?: string;
-  requestId?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      errorCode: 'ErrorCode',
-      requestId: 'RequestId',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContent,
-      errorCode: 'string',
-      requestId: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMdsUpgradeTaskDetailResponseBodyResultContent extends $tea.Model {
-  data?: QueryMdsUpgradeTaskDetailResponseBodyResultContentData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: QueryMdsUpgradeTaskDetailResponseBodyResultContentData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponseBodyResultContentListApiInvokerHttpInvoker extends $tea.Model {
-  charset?: string;
-  contentType?: string;
-  host?: string;
-  method?: string;
-  path?: string;
-  static names(): { [key: string]: string } {
-    return {
-      charset: 'Charset',
-      contentType: 'ContentType',
-      host: 'Host',
-      method: 'Method',
-      path: 'Path',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      charset: 'string',
-      contentType: 'string',
-      host: 'string',
-      method: 'string',
-      path: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponseBodyResultContentListApiInvoker extends $tea.Model {
-  httpInvoker?: QueryMgsApipageResponseBodyResultContentListApiInvokerHttpInvoker;
-  rpcInvoker?: string;
-  static names(): { [key: string]: string } {
-    return {
-      httpInvoker: 'HttpInvoker',
-      rpcInvoker: 'RpcInvoker',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      httpInvoker: QueryMgsApipageResponseBodyResultContentListApiInvokerHttpInvoker,
-      rpcInvoker: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponseBodyResultContentListCacheRule extends $tea.Model {
-  cacheKey?: string;
-  needCache?: boolean;
-  ttl?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cacheKey: 'CacheKey',
-      needCache: 'NeedCache',
-      ttl: 'Ttl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheKey: 'string',
-      needCache: 'boolean',
-      ttl: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponseBodyResultContentListCircuitBreakerRule extends $tea.Model {
-  appId?: string;
-  defaultResponse?: string;
-  errorThreshold?: number;
-  id?: number;
-  model?: string;
-  openTimeoutSeconds?: number;
-  slowRatioThreshold?: number;
-  switchStatus?: string;
-  windowsInSeconds?: number;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      defaultResponse: 'DefaultResponse',
-      errorThreshold: 'ErrorThreshold',
-      id: 'Id',
-      model: 'Model',
-      openTimeoutSeconds: 'OpenTimeoutSeconds',
-      slowRatioThreshold: 'SlowRatioThreshold',
-      switchStatus: 'SwitchStatus',
-      windowsInSeconds: 'WindowsInSeconds',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      defaultResponse: 'string',
-      errorThreshold: 'number',
-      id: 'number',
-      model: 'string',
-      openTimeoutSeconds: 'number',
-      slowRatioThreshold: 'number',
-      switchStatus: 'string',
-      windowsInSeconds: 'number',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponseBodyResultContentListHeaderRule extends $tea.Model {
-  headerKey?: string;
-  location?: string;
-  type?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      headerKey: 'HeaderKey',
-      location: 'Location',
-      type: 'Type',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headerKey: 'string',
-      location: 'string',
-      type: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponseBodyResultContentListHeaderRules extends $tea.Model {
-  headerKey?: string;
-  location?: string;
-  type?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      headerKey: 'HeaderKey',
-      location: 'Location',
-      type: 'Type',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headerKey: 'string',
-      location: 'string',
-      type: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponseBodyResultContentListLimitRule extends $tea.Model {
-  defaultResponse?: string;
-  i18nResponse?: string;
-  interval?: number;
-  limit?: number;
-  mode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultResponse: 'DefaultResponse',
-      i18nResponse: 'I18nResponse',
-      interval: 'Interval',
-      limit: 'Limit',
-      mode: 'Mode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultResponse: 'string',
-      i18nResponse: 'string',
-      interval: 'number',
-      limit: 'number',
-      mode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponseBodyResultContentListMigrateRule extends $tea.Model {
-  flowPercent?: number;
-  needMigrate?: boolean;
-  needSwitchCompletely?: boolean;
-  sysId?: number;
-  sysName?: string;
-  upstreamType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowPercent: 'FlowPercent',
-      needMigrate: 'NeedMigrate',
-      needSwitchCompletely: 'NeedSwitchCompletely',
-      sysId: 'SysId',
-      sysName: 'SysName',
-      upstreamType: 'UpstreamType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowPercent: 'number',
-      needMigrate: 'boolean',
-      needSwitchCompletely: 'boolean',
-      sysId: 'number',
-      sysName: 'string',
-      upstreamType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponseBodyResultContentListMockRule extends $tea.Model {
-  mockData?: string;
-  needMock?: boolean;
-  percentage?: number;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mockData: 'MockData',
-      needMock: 'NeedMock',
-      percentage: 'Percentage',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mockData: 'string',
-      needMock: 'boolean',
-      percentage: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponseBodyResultContentListRequestParams extends $tea.Model {
-  apiId?: string;
-  appId?: string;
-  defaultValue?: string;
-  description?: string;
-  id?: number;
-  location?: string;
-  name?: string;
-  refType?: string;
-  type?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiId: 'ApiId',
-      appId: 'AppId',
-      defaultValue: 'DefaultValue',
-      description: 'Description',
-      id: 'Id',
-      location: 'Location',
-      name: 'Name',
-      refType: 'RefType',
-      type: 'Type',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiId: 'string',
-      appId: 'string',
-      defaultValue: 'string',
-      description: 'string',
-      id: 'number',
-      location: 'string',
-      name: 'string',
-      refType: 'string',
-      type: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponseBodyResultContentList extends $tea.Model {
-  apiInvoker?: QueryMgsApipageResponseBodyResultContentListApiInvoker;
-  apiName?: string;
-  apiStatus?: string;
-  apiType?: string;
-  appId?: string;
-  authRuleName?: string;
-  cacheRule?: QueryMgsApipageResponseBodyResultContentListCacheRule;
-  charset?: string;
-  circuitBreakerRule?: QueryMgsApipageResponseBodyResultContentListCircuitBreakerRule;
-  contentType?: string;
-  description?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  headerRule?: QueryMgsApipageResponseBodyResultContentListHeaderRule[];
-  headerRules?: QueryMgsApipageResponseBodyResultContentListHeaderRules[];
-  host?: string;
-  id?: number;
-  interfaceType?: string;
-  limitRule?: QueryMgsApipageResponseBodyResultContentListLimitRule;
-  method?: string;
-  methodName?: string;
-  migrateRule?: QueryMgsApipageResponseBodyResultContentListMigrateRule;
-  mockRule?: QueryMgsApipageResponseBodyResultContentListMockRule;
-  needETag?: string;
-  needEncrypt?: string;
-  needJsonp?: string;
-  needSign?: string;
-  operationType?: string;
-  paramGetMethod?: string;
-  path?: string;
-  requestBodyModel?: string;
-  requestParams?: QueryMgsApipageResponseBodyResultContentListRequestParams[];
-  responseBodyModel?: string;
-  sysId?: number;
-  sysName?: string;
-  timeout?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiInvoker: 'ApiInvoker',
-      apiName: 'ApiName',
-      apiStatus: 'ApiStatus',
-      apiType: 'ApiType',
-      appId: 'AppId',
-      authRuleName: 'AuthRuleName',
-      cacheRule: 'CacheRule',
-      charset: 'Charset',
-      circuitBreakerRule: 'CircuitBreakerRule',
-      contentType: 'ContentType',
-      description: 'Description',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      headerRule: 'HeaderRule',
-      headerRules: 'HeaderRules',
-      host: 'Host',
-      id: 'Id',
-      interfaceType: 'InterfaceType',
-      limitRule: 'LimitRule',
-      method: 'Method',
-      methodName: 'MethodName',
-      migrateRule: 'MigrateRule',
-      mockRule: 'MockRule',
-      needETag: 'NeedETag',
-      needEncrypt: 'NeedEncrypt',
-      needJsonp: 'NeedJsonp',
-      needSign: 'NeedSign',
-      operationType: 'OperationType',
-      paramGetMethod: 'ParamGetMethod',
-      path: 'Path',
-      requestBodyModel: 'RequestBodyModel',
-      requestParams: 'RequestParams',
-      responseBodyModel: 'ResponseBodyModel',
-      sysId: 'SysId',
-      sysName: 'SysName',
-      timeout: 'Timeout',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiInvoker: QueryMgsApipageResponseBodyResultContentListApiInvoker,
-      apiName: 'string',
-      apiStatus: 'string',
-      apiType: 'string',
-      appId: 'string',
-      authRuleName: 'string',
-      cacheRule: QueryMgsApipageResponseBodyResultContentListCacheRule,
-      charset: 'string',
-      circuitBreakerRule: QueryMgsApipageResponseBodyResultContentListCircuitBreakerRule,
-      contentType: 'string',
-      description: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      headerRule: { 'type': 'array', 'itemType': QueryMgsApipageResponseBodyResultContentListHeaderRule },
-      headerRules: { 'type': 'array', 'itemType': QueryMgsApipageResponseBodyResultContentListHeaderRules },
-      host: 'string',
-      id: 'number',
-      interfaceType: 'string',
-      limitRule: QueryMgsApipageResponseBodyResultContentListLimitRule,
-      method: 'string',
-      methodName: 'string',
-      migrateRule: QueryMgsApipageResponseBodyResultContentListMigrateRule,
-      mockRule: QueryMgsApipageResponseBodyResultContentListMockRule,
-      needETag: 'string',
-      needEncrypt: 'string',
-      needJsonp: 'string',
-      needSign: 'string',
-      operationType: 'string',
-      paramGetMethod: 'string',
-      path: 'string',
-      requestBodyModel: 'string',
-      requestParams: { 'type': 'array', 'itemType': QueryMgsApipageResponseBodyResultContentListRequestParams },
-      responseBodyModel: 'string',
-      sysId: 'number',
-      sysName: 'string',
-      timeout: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApipageResponseBodyResultContent extends $tea.Model {
-  current?: number;
-  list?: QueryMgsApipageResponseBodyResultContentList[];
-  pageSize?: number;
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      current: 'Current',
-      list: 'List',
-      pageSize: 'PageSize',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      current: 'number',
-      list: { 'type': 'array', 'itemType': QueryMgsApipageResponseBodyResultContentList },
-      pageSize: 'number',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBodyResultContentValueApiInvokerHttpInvoker extends $tea.Model {
-  charset?: string;
-  contentType?: string;
-  host?: string;
-  method?: string;
-  path?: string;
-  static names(): { [key: string]: string } {
-    return {
-      charset: 'Charset',
-      contentType: 'ContentType',
-      host: 'Host',
-      method: 'Method',
-      path: 'Path',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      charset: 'string',
-      contentType: 'string',
-      host: 'string',
-      method: 'string',
-      path: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBodyResultContentValueApiInvoker extends $tea.Model {
-  httpInvoker?: QueryMgsApirestResponseBodyResultContentValueApiInvokerHttpInvoker;
-  rpcInvoker?: string;
-  static names(): { [key: string]: string } {
-    return {
-      httpInvoker: 'HttpInvoker',
-      rpcInvoker: 'RpcInvoker',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      httpInvoker: QueryMgsApirestResponseBodyResultContentValueApiInvokerHttpInvoker,
-      rpcInvoker: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBodyResultContentValueCacheRule extends $tea.Model {
-  cacheKey?: string;
-  needCache?: boolean;
-  ttl?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cacheKey: 'CacheKey',
-      needCache: 'NeedCache',
-      ttl: 'Ttl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheKey: 'string',
-      needCache: 'boolean',
-      ttl: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBodyResultContentValueCircuitBreakerRule extends $tea.Model {
-  appId?: string;
-  defaultResponse?: string;
-  errorThreshold?: number;
-  id?: number;
-  model?: string;
-  openTimeoutSeconds?: number;
-  slowRatioThreshold?: number;
-  switchStatus?: string;
-  windowsInSeconds?: number;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      defaultResponse: 'DefaultResponse',
-      errorThreshold: 'ErrorThreshold',
-      id: 'Id',
-      model: 'Model',
-      openTimeoutSeconds: 'OpenTimeoutSeconds',
-      slowRatioThreshold: 'SlowRatioThreshold',
-      switchStatus: 'SwitchStatus',
-      windowsInSeconds: 'WindowsInSeconds',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      defaultResponse: 'string',
-      errorThreshold: 'number',
-      id: 'number',
-      model: 'string',
-      openTimeoutSeconds: 'number',
-      slowRatioThreshold: 'number',
-      switchStatus: 'string',
-      windowsInSeconds: 'number',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBodyResultContentValueDefaultLimitRule extends $tea.Model {
-  configId?: number;
-  defaultLimit?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      defaultLimit: 'DefaultLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      defaultLimit: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBodyResultContentValueHeaderRule extends $tea.Model {
-  headerKey?: string;
-  location?: string;
-  type?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      headerKey: 'HeaderKey',
-      location: 'Location',
-      type: 'Type',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headerKey: 'string',
-      location: 'string',
-      type: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBodyResultContentValueHeaderRules extends $tea.Model {
-  headerKey?: string;
-  location?: string;
-  type?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      headerKey: 'HeaderKey',
-      location: 'Location',
-      type: 'Type',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headerKey: 'string',
-      location: 'string',
-      type: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBodyResultContentValueLimitRule extends $tea.Model {
-  defaultResponse?: string;
-  i18nResponse?: string;
-  interval?: number;
-  limit?: number;
-  mode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultResponse: 'DefaultResponse',
-      i18nResponse: 'I18nResponse',
-      interval: 'Interval',
-      limit: 'Limit',
-      mode: 'Mode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultResponse: 'string',
-      i18nResponse: 'string',
-      interval: 'number',
-      limit: 'number',
-      mode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBodyResultContentValueMigrateRule extends $tea.Model {
-  flowPercent?: number;
-  needMigrate?: boolean;
-  needSwitchCompletely?: boolean;
-  sysId?: number;
-  sysName?: string;
-  upstreamType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowPercent: 'FlowPercent',
-      needMigrate: 'NeedMigrate',
-      needSwitchCompletely: 'NeedSwitchCompletely',
-      sysId: 'SysId',
-      sysName: 'SysName',
-      upstreamType: 'UpstreamType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowPercent: 'number',
-      needMigrate: 'boolean',
-      needSwitchCompletely: 'boolean',
-      sysId: 'number',
-      sysName: 'string',
-      upstreamType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBodyResultContentValueMockRule extends $tea.Model {
-  mockData?: string;
-  needMock?: boolean;
-  percentage?: number;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mockData: 'MockData',
-      needMock: 'NeedMock',
-      percentage: 'Percentage',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mockData: 'string',
-      needMock: 'boolean',
-      percentage: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBodyResultContentValueRequestParams extends $tea.Model {
-  apiId?: string;
-  appId?: string;
-  defaultValue?: string;
-  description?: string;
-  id?: number;
-  location?: string;
-  name?: string;
-  refType?: string;
-  type?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiId: 'ApiId',
-      appId: 'AppId',
-      defaultValue: 'DefaultValue',
-      description: 'Description',
-      id: 'Id',
-      location: 'Location',
-      name: 'Name',
-      refType: 'RefType',
-      type: 'Type',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiId: 'string',
-      appId: 'string',
-      defaultValue: 'string',
-      description: 'string',
-      id: 'number',
-      location: 'string',
-      name: 'string',
-      refType: 'string',
-      type: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBodyResultContentValue extends $tea.Model {
-  apiInvoker?: QueryMgsApirestResponseBodyResultContentValueApiInvoker;
-  apiName?: string;
-  apiStatus?: string;
-  apiType?: string;
-  appId?: string;
-  authRuleName?: string;
-  cacheRule?: QueryMgsApirestResponseBodyResultContentValueCacheRule;
-  charset?: string;
-  circuitBreakerRule?: QueryMgsApirestResponseBodyResultContentValueCircuitBreakerRule;
-  contentType?: string;
-  defaultLimitRule?: QueryMgsApirestResponseBodyResultContentValueDefaultLimitRule;
-  description?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  headerRule?: QueryMgsApirestResponseBodyResultContentValueHeaderRule[];
-  headerRules?: QueryMgsApirestResponseBodyResultContentValueHeaderRules[];
-  host?: string;
-  id?: number;
-  interfaceType?: string;
-  limitRule?: QueryMgsApirestResponseBodyResultContentValueLimitRule;
-  method?: string;
-  methodName?: string;
-  migrateRule?: QueryMgsApirestResponseBodyResultContentValueMigrateRule;
-  mockRule?: QueryMgsApirestResponseBodyResultContentValueMockRule;
-  needETag?: string;
-  needEncrypt?: string;
-  needJsonp?: string;
-  needSign?: string;
-  operationType?: string;
-  paramGetMethod?: string;
-  path?: string;
-  requestBodyModel?: string;
-  requestParams?: QueryMgsApirestResponseBodyResultContentValueRequestParams[];
-  responseBodyModel?: string;
-  sysId?: number;
-  sysName?: string;
-  timeout?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiInvoker: 'ApiInvoker',
-      apiName: 'ApiName',
-      apiStatus: 'ApiStatus',
-      apiType: 'ApiType',
-      appId: 'AppId',
-      authRuleName: 'AuthRuleName',
-      cacheRule: 'CacheRule',
-      charset: 'Charset',
-      circuitBreakerRule: 'CircuitBreakerRule',
-      contentType: 'ContentType',
-      defaultLimitRule: 'DefaultLimitRule',
-      description: 'Description',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      headerRule: 'HeaderRule',
-      headerRules: 'HeaderRules',
-      host: 'Host',
-      id: 'Id',
-      interfaceType: 'InterfaceType',
-      limitRule: 'LimitRule',
-      method: 'Method',
-      methodName: 'MethodName',
-      migrateRule: 'MigrateRule',
-      mockRule: 'MockRule',
-      needETag: 'NeedETag',
-      needEncrypt: 'NeedEncrypt',
-      needJsonp: 'NeedJsonp',
-      needSign: 'NeedSign',
-      operationType: 'OperationType',
-      paramGetMethod: 'ParamGetMethod',
-      path: 'Path',
-      requestBodyModel: 'RequestBodyModel',
-      requestParams: 'RequestParams',
-      responseBodyModel: 'ResponseBodyModel',
-      sysId: 'SysId',
-      sysName: 'SysName',
-      timeout: 'Timeout',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiInvoker: QueryMgsApirestResponseBodyResultContentValueApiInvoker,
-      apiName: 'string',
-      apiStatus: 'string',
-      apiType: 'string',
-      appId: 'string',
-      authRuleName: 'string',
-      cacheRule: QueryMgsApirestResponseBodyResultContentValueCacheRule,
-      charset: 'string',
-      circuitBreakerRule: QueryMgsApirestResponseBodyResultContentValueCircuitBreakerRule,
-      contentType: 'string',
-      defaultLimitRule: QueryMgsApirestResponseBodyResultContentValueDefaultLimitRule,
-      description: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      headerRule: { 'type': 'array', 'itemType': QueryMgsApirestResponseBodyResultContentValueHeaderRule },
-      headerRules: { 'type': 'array', 'itemType': QueryMgsApirestResponseBodyResultContentValueHeaderRules },
-      host: 'string',
-      id: 'number',
-      interfaceType: 'string',
-      limitRule: QueryMgsApirestResponseBodyResultContentValueLimitRule,
-      method: 'string',
-      methodName: 'string',
-      migrateRule: QueryMgsApirestResponseBodyResultContentValueMigrateRule,
-      mockRule: QueryMgsApirestResponseBodyResultContentValueMockRule,
-      needETag: 'string',
-      needEncrypt: 'string',
-      needJsonp: 'string',
-      needSign: 'string',
-      operationType: 'string',
-      paramGetMethod: 'string',
-      path: 'string',
-      requestBodyModel: 'string',
-      requestParams: { 'type': 'array', 'itemType': QueryMgsApirestResponseBodyResultContentValueRequestParams },
-      responseBodyModel: 'string',
-      sysId: 'number',
-      sysName: 'string',
-      timeout: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMgsApirestResponseBodyResultContent extends $tea.Model {
-  errorMessage?: string;
-  success?: boolean;
-  value?: QueryMgsApirestResponseBodyResultContentValue;
-  static names(): { [key: string]: string } {
-    return {
-      errorMessage: 'ErrorMessage',
-      success: 'Success',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorMessage: 'string',
-      success: 'boolean',
-      value: QueryMgsApirestResponseBodyResultContentValue,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMpsSchedulerListResponseBodyResultContentDataList extends $tea.Model {
-  createType?: number;
-  deliveryType?: number;
-  executedStatus?: string;
-  gmtCreate?: number;
-  parentId?: string;
-  pushContent?: string;
-  pushTime?: number;
-  pushTitle?: string;
-  strategyType?: number;
-  type?: number;
-  uniqueId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createType: 'CreateType',
-      deliveryType: 'DeliveryType',
-      executedStatus: 'ExecutedStatus',
-      gmtCreate: 'GmtCreate',
-      parentId: 'ParentId',
-      pushContent: 'PushContent',
-      pushTime: 'PushTime',
-      pushTitle: 'PushTitle',
-      strategyType: 'StrategyType',
-      type: 'Type',
-      uniqueId: 'UniqueId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createType: 'number',
-      deliveryType: 'number',
-      executedStatus: 'string',
-      gmtCreate: 'number',
-      parentId: 'string',
-      pushContent: 'string',
-      pushTime: 'number',
-      pushTitle: 'string',
-      strategyType: 'number',
-      type: 'number',
-      uniqueId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMpsSchedulerListResponseBodyResultContentData extends $tea.Model {
-  list?: QueryMpsSchedulerListResponseBodyResultContentDataList[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      list: 'List',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      list: { 'type': 'array', 'itemType': QueryMpsSchedulerListResponseBodyResultContentDataList },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMpsSchedulerListResponseBodyResultContent extends $tea.Model {
-  data?: QueryMpsSchedulerListResponseBodyResultContentData;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: QueryMpsSchedulerListResponseBodyResultContentData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisCoreIndexResponseBodyResultContentData extends $tea.Model {
-  arrivalNum?: number;
-  arrivalRate?: number;
-  ignoreNum?: number;
-  ignoreRate?: number;
-  openNum?: number;
-  openRate?: number;
-  pushNum?: number;
-  pushTotalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      arrivalNum: 'ArrivalNum',
-      arrivalRate: 'ArrivalRate',
-      ignoreNum: 'IgnoreNum',
-      ignoreRate: 'IgnoreRate',
-      openNum: 'OpenNum',
-      openRate: 'OpenRate',
-      pushNum: 'PushNum',
-      pushTotalNum: 'PushTotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      arrivalNum: 'number',
-      arrivalRate: 'number',
-      ignoreNum: 'number',
-      ignoreRate: 'number',
-      openNum: 'number',
-      openRate: 'number',
-      pushNum: 'number',
-      pushTotalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisCoreIndexResponseBodyResultContent extends $tea.Model {
-  data?: QueryPushAnalysisCoreIndexResponseBodyResultContentData;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: QueryPushAnalysisCoreIndexResponseBodyResultContentData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisTaskDetailResponseBodyResultContentData extends $tea.Model {
-  duration?: string;
-  endTime?: number;
-  pushArrivalNum?: number;
-  pushNum?: number;
-  pushSuccessNum?: number;
-  startTime?: number;
-  taskId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      endTime: 'EndTime',
-      pushArrivalNum: 'PushArrivalNum',
-      pushNum: 'PushNum',
-      pushSuccessNum: 'PushSuccessNum',
-      startTime: 'StartTime',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'string',
-      endTime: 'number',
-      pushArrivalNum: 'number',
-      pushNum: 'number',
-      pushSuccessNum: 'number',
-      startTime: 'number',
-      taskId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisTaskDetailResponseBodyResultContent extends $tea.Model {
-  data?: QueryPushAnalysisTaskDetailResponseBodyResultContentData;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: QueryPushAnalysisTaskDetailResponseBodyResultContentData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisTaskListResponseBodyResultContentDataList extends $tea.Model {
-  gmtCreate?: number;
-  taskId?: string;
-  taskName?: string;
-  templateId?: string;
-  templateName?: string;
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreate: 'GmtCreate',
-      taskId: 'TaskId',
-      taskName: 'TaskName',
-      templateId: 'TemplateId',
-      templateName: 'TemplateName',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreate: 'number',
-      taskId: 'string',
-      taskName: 'string',
-      templateId: 'string',
-      templateName: 'string',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisTaskListResponseBodyResultContentData extends $tea.Model {
-  gmtCreate?: number;
-  list?: QueryPushAnalysisTaskListResponseBodyResultContentDataList[];
-  taskId?: string;
-  taskName?: string;
-  templateId?: string;
-  templateName?: string;
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreate: 'GmtCreate',
-      list: 'List',
-      taskId: 'TaskId',
-      taskName: 'TaskName',
-      templateId: 'TemplateId',
-      templateName: 'TemplateName',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreate: 'number',
-      list: { 'type': 'array', 'itemType': QueryPushAnalysisTaskListResponseBodyResultContentDataList },
-      taskId: 'string',
-      taskName: 'string',
-      templateId: 'string',
-      templateName: 'string',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushAnalysisTaskListResponseBodyResultContent extends $tea.Model {
-  data?: QueryPushAnalysisTaskListResponseBodyResultContentData[];
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': QueryPushAnalysisTaskListResponseBodyResultContentData },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushSchedulerListResponseBodyResultContentDataList extends $tea.Model {
-  createType?: number;
-  deliveryType?: number;
-  executedStatus?: string;
-  gmtCreate?: number;
-  parentId?: string;
-  pushContent?: string;
-  pushTime?: number;
-  pushTitle?: string;
-  strategyType?: number;
-  type?: number;
-  uniqueId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createType: 'CreateType',
-      deliveryType: 'DeliveryType',
-      executedStatus: 'ExecutedStatus',
-      gmtCreate: 'GmtCreate',
-      parentId: 'ParentId',
-      pushContent: 'PushContent',
-      pushTime: 'PushTime',
-      pushTitle: 'PushTitle',
-      strategyType: 'StrategyType',
-      type: 'Type',
-      uniqueId: 'UniqueId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createType: 'number',
-      deliveryType: 'number',
-      executedStatus: 'string',
-      gmtCreate: 'number',
-      parentId: 'string',
-      pushContent: 'string',
-      pushTime: 'number',
-      pushTitle: 'string',
-      strategyType: 'number',
-      type: 'number',
-      uniqueId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushSchedulerListResponseBodyResultContentData extends $tea.Model {
-  list?: QueryPushSchedulerListResponseBodyResultContentDataList[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      list: 'List',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      list: { 'type': 'array', 'itemType': QueryPushSchedulerListResponseBodyResultContentDataList },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushSchedulerListResponseBodyResultContent extends $tea.Model {
-  data?: QueryPushSchedulerListResponseBodyResultContentData;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: QueryPushSchedulerListResponseBodyResultContentData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokePushMessageResponseBodyPushResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokePushTaskResponseBodyPushResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMsaDiffResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveMgsApirestResponseBodyResultContent extends $tea.Model {
-  errorMessage?: string;
-  success?: boolean;
-  value?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorMessage: 'ErrorMessage',
-      success: 'Success',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorMessage: 'string',
-      success: 'boolean',
-      value: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartUserAppAsyncEnhanceInMsaResponseBodyResultContentDataEnhanceMapping extends $tea.Model {
-  info?: string;
-  reason?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      info: 'Info',
-      reason: 'Reason',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      info: 'string',
-      reason: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartUserAppAsyncEnhanceInMsaResponseBodyResultContentData extends $tea.Model {
-  afterMd5?: string;
-  afterSize?: number;
-  appCode?: string;
-  appPackage?: string;
-  assetsFileList?: string[];
-  beforeMd5?: string;
-  beforeSize?: number;
-  classForest?: string;
-  enhanceMapping?: StartUserAppAsyncEnhanceInMsaResponseBodyResultContentDataEnhanceMapping[];
-  enhanceRules?: string[];
-  enhancedAssetsFiles?: string[];
-  enhancedClasses?: string[];
-  enhancedSoFiles?: string[];
-  id?: number;
-  label?: string;
-  progress?: number;
-  soFileList?: string[];
-  status?: number;
-  taskType?: string;
-  versionCode?: string;
-  versionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      afterMd5: 'AfterMd5',
-      afterSize: 'AfterSize',
-      appCode: 'AppCode',
-      appPackage: 'AppPackage',
-      assetsFileList: 'AssetsFileList',
-      beforeMd5: 'BeforeMd5',
-      beforeSize: 'BeforeSize',
-      classForest: 'ClassForest',
-      enhanceMapping: 'EnhanceMapping',
-      enhanceRules: 'EnhanceRules',
-      enhancedAssetsFiles: 'EnhancedAssetsFiles',
-      enhancedClasses: 'EnhancedClasses',
-      enhancedSoFiles: 'EnhancedSoFiles',
-      id: 'Id',
-      label: 'Label',
-      progress: 'Progress',
-      soFileList: 'SoFileList',
-      status: 'Status',
-      taskType: 'TaskType',
-      versionCode: 'VersionCode',
-      versionName: 'VersionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      afterMd5: 'string',
-      afterSize: 'number',
-      appCode: 'string',
-      appPackage: 'string',
-      assetsFileList: { 'type': 'array', 'itemType': 'string' },
-      beforeMd5: 'string',
-      beforeSize: 'number',
-      classForest: 'string',
-      enhanceMapping: { 'type': 'array', 'itemType': StartUserAppAsyncEnhanceInMsaResponseBodyResultContentDataEnhanceMapping },
-      enhanceRules: { 'type': 'array', 'itemType': 'string' },
-      enhancedAssetsFiles: { 'type': 'array', 'itemType': 'string' },
-      enhancedClasses: { 'type': 'array', 'itemType': 'string' },
-      enhancedSoFiles: { 'type': 'array', 'itemType': 'string' },
-      id: 'number',
-      label: 'string',
-      progress: 'number',
-      soFileList: { 'type': 'array', 'itemType': 'string' },
-      status: 'number',
-      taskType: 'string',
-      versionCode: 'string',
-      versionName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartUserAppAsyncEnhanceInMsaResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: StartUserAppAsyncEnhanceInMsaResponseBodyResultContentData;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: StartUserAppAsyncEnhanceInMsaResponseBodyResultContentData,
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMcubeWhitelistResponseBodyAddWhitelistResultAddWhitelistInfo extends $tea.Model {
-  failNum?: number;
-  failUserIds?: string;
-  successNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      failNum: 'FailNum',
-      failUserIds: 'FailUserIds',
-      successNum: 'SuccessNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failNum: 'number',
-      failUserIds: 'string',
-      successNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMcubeWhitelistResponseBodyAddWhitelistResult extends $tea.Model {
-  addWhitelistInfo?: UpdateMcubeWhitelistResponseBodyAddWhitelistResultAddWhitelistInfo;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      addWhitelistInfo: 'AddWhitelistInfo',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addWhitelistInfo: UpdateMcubeWhitelistResponseBodyAddWhitelistResultAddWhitelistInfo,
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMpaasAppInfoResponseBodyResultContentData extends $tea.Model {
-  appId?: string;
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMpaasAppInfoResponseBodyResultContent extends $tea.Model {
-  data?: UpdateMpaasAppInfoResponseBodyResultContentData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: UpdateMpaasAppInfoResponseBodyResultContentData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadBitcodeToMsaResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadMcubeMiniPackageResponseBodyUploadMiniPackageResultReturnPackageResult extends $tea.Model {
-  debugUrl?: string;
-  packageId?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      debugUrl: 'DebugUrl',
-      packageId: 'PackageId',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      debugUrl: 'string',
-      packageId: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadMcubeMiniPackageResponseBodyUploadMiniPackageResult extends $tea.Model {
-  resultMsg?: string;
-  returnPackageResult?: UploadMcubeMiniPackageResponseBodyUploadMiniPackageResultReturnPackageResult;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      resultMsg: 'ResultMsg',
-      returnPackageResult: 'ReturnPackageResult',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resultMsg: 'string',
-      returnPackageResult: UploadMcubeMiniPackageResponseBodyUploadMiniPackageResultReturnPackageResult,
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadMcubeRsaKeyResponseBodyUploadRsaResult extends $tea.Model {
-  data?: string;
-  resultMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      resultMsg: 'ResultMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      resultMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadUserAppToMsaResponseBodyResultContentDataApkInfoEnhanceMapping extends $tea.Model {
-  info?: string;
-  reason?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      info: 'Info',
-      reason: 'Reason',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      info: 'string',
-      reason: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadUserAppToMsaResponseBodyResultContentDataApkInfo extends $tea.Model {
-  afterMd5?: string;
-  afterSize?: number;
-  appCode?: string;
-  appPackage?: string;
-  beforeMd5?: string;
-  beforeSize?: number;
-  classForest?: string;
-  enhanceMapping?: UploadUserAppToMsaResponseBodyResultContentDataApkInfoEnhanceMapping;
-  enhanceRules?: string[];
-  enhancedClasses?: string[];
-  id?: number;
-  label?: string;
-  progress?: number;
-  status?: number;
-  taskType?: string;
-  versionCode?: string;
-  versionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      afterMd5: 'AfterMd5',
-      afterSize: 'AfterSize',
-      appCode: 'AppCode',
-      appPackage: 'AppPackage',
-      beforeMd5: 'BeforeMd5',
-      beforeSize: 'BeforeSize',
-      classForest: 'ClassForest',
-      enhanceMapping: 'EnhanceMapping',
-      enhanceRules: 'EnhanceRules',
-      enhancedClasses: 'EnhancedClasses',
-      id: 'Id',
-      label: 'Label',
-      progress: 'Progress',
-      status: 'Status',
-      taskType: 'TaskType',
-      versionCode: 'VersionCode',
-      versionName: 'VersionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      afterMd5: 'string',
-      afterSize: 'number',
-      appCode: 'string',
-      appPackage: 'string',
-      beforeMd5: 'string',
-      beforeSize: 'number',
-      classForest: 'string',
-      enhanceMapping: UploadUserAppToMsaResponseBodyResultContentDataApkInfoEnhanceMapping,
-      enhanceRules: { 'type': 'array', 'itemType': 'string' },
-      enhancedClasses: { 'type': 'array', 'itemType': 'string' },
-      id: 'number',
-      label: 'string',
-      progress: 'number',
-      status: 'number',
-      taskType: 'string',
-      versionCode: 'string',
-      versionName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadUserAppToMsaResponseBodyResultContentData extends $tea.Model {
-  apkInfo?: UploadUserAppToMsaResponseBodyResultContentDataApkInfo;
-  enhanceTaskId?: number;
-  id?: number;
-  progress?: number;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      apkInfo: 'ApkInfo',
-      enhanceTaskId: 'EnhanceTaskId',
-      id: 'Id',
-      progress: 'Progress',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apkInfo: UploadUserAppToMsaResponseBodyResultContentDataApkInfo,
-      enhanceTaskId: 'number',
-      id: 'number',
-      progress: 'number',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadUserAppToMsaResponseBodyResultContent extends $tea.Model {
-  code?: string;
-  data?: UploadUserAppToMsaResponseBodyResultContentData;
-  extra?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      extra: 'Extra',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: UploadUserAppToMsaResponseBodyResultContentData,
-      extra: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
@@ -18030,45 +74,45 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
-   * @param request AddMdsMiniConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddMdsMiniConfigResponse
+   * @param request - AddMdsMiniConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddMdsMiniConfigResponse
    */
-  async addMdsMiniConfigWithOptions(request: AddMdsMiniConfigRequest, runtime: $Util.RuntimeOptions): Promise<AddMdsMiniConfigResponse> {
-    Util.validateModel(request);
+  async addMdsMiniConfigWithOptions(request: $_model.AddMdsMiniConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddMdsMiniConfigResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.mpaasMappcenterMiniConfigAddJsonStr)) {
+    if (!$dara.isNull(request.mpaasMappcenterMiniConfigAddJsonStr)) {
       body["MpaasMappcenterMiniConfigAddJsonStr"] = request.mpaasMappcenterMiniConfigAddJsonStr;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddMdsMiniConfig",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -18079,46 +123,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddMdsMiniConfigResponse>(await this.callApi(params, req, runtime), new AddMdsMiniConfigResponse({}));
+    return $dara.cast<$_model.AddMdsMiniConfigResponse>(await this.callApi(params, req, runtime), new $_model.AddMdsMiniConfigResponse({}));
   }
 
   /**
-   * @param request AddMdsMiniConfigRequest
-   * @return AddMdsMiniConfigResponse
+   * @param request - AddMdsMiniConfigRequest
+   * @returns AddMdsMiniConfigResponse
    */
-  async addMdsMiniConfig(request: AddMdsMiniConfigRequest): Promise<AddMdsMiniConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async addMdsMiniConfig(request: $_model.AddMdsMiniConfigRequest): Promise<$_model.AddMdsMiniConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addMdsMiniConfigWithOptions(request, runtime);
   }
 
   /**
-   * @param request CancelPushSchedulerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelPushSchedulerResponse
+   * @param request - CancelPushSchedulerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelPushSchedulerResponse
    */
-  async cancelPushSchedulerWithOptions(request: CancelPushSchedulerRequest, runtime: $Util.RuntimeOptions): Promise<CancelPushSchedulerResponse> {
-    Util.validateModel(request);
+  async cancelPushSchedulerWithOptions(request: $_model.CancelPushSchedulerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelPushSchedulerResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.uniqueIds)) {
+    if (!$dara.isNull(request.uniqueIds)) {
       body["UniqueIds"] = request.uniqueIds;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelPushScheduler",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -18129,58 +177,58 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelPushSchedulerResponse>(await this.callApi(params, req, runtime), new CancelPushSchedulerResponse({}));
+    return $dara.cast<$_model.CancelPushSchedulerResponse>(await this.callApi(params, req, runtime), new $_model.CancelPushSchedulerResponse({}));
   }
 
   /**
-   * @param request CancelPushSchedulerRequest
-   * @return CancelPushSchedulerResponse
+   * @param request - CancelPushSchedulerRequest
+   * @returns CancelPushSchedulerResponse
    */
-  async cancelPushScheduler(request: CancelPushSchedulerRequest): Promise<CancelPushSchedulerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async cancelPushScheduler(request: $_model.CancelPushSchedulerRequest): Promise<$_model.CancelPushSchedulerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelPushSchedulerWithOptions(request, runtime);
   }
 
   /**
-   * @param request ChangeMcubeMiniTaskStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangeMcubeMiniTaskStatusResponse
+   * @param request - ChangeMcubeMiniTaskStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeMcubeMiniTaskStatusResponse
    */
-  async changeMcubeMiniTaskStatusWithOptions(request: ChangeMcubeMiniTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<ChangeMcubeMiniTaskStatusResponse> {
-    Util.validateModel(request);
+  async changeMcubeMiniTaskStatusWithOptions(request: $_model.ChangeMcubeMiniTaskStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeMcubeMiniTaskStatusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       body["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.packageId)) {
+    if (!$dara.isNull(request.packageId)) {
       body["PackageId"] = request.packageId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.taskStatus)) {
+    if (!$dara.isNull(request.taskStatus)) {
       body["TaskStatus"] = request.taskStatus;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChangeMcubeMiniTaskStatus",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -18191,58 +239,58 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangeMcubeMiniTaskStatusResponse>(await this.callApi(params, req, runtime), new ChangeMcubeMiniTaskStatusResponse({}));
+    return $dara.cast<$_model.ChangeMcubeMiniTaskStatusResponse>(await this.callApi(params, req, runtime), new $_model.ChangeMcubeMiniTaskStatusResponse({}));
   }
 
   /**
-   * @param request ChangeMcubeMiniTaskStatusRequest
-   * @return ChangeMcubeMiniTaskStatusResponse
+   * @param request - ChangeMcubeMiniTaskStatusRequest
+   * @returns ChangeMcubeMiniTaskStatusResponse
    */
-  async changeMcubeMiniTaskStatus(request: ChangeMcubeMiniTaskStatusRequest): Promise<ChangeMcubeMiniTaskStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async changeMcubeMiniTaskStatus(request: $_model.ChangeMcubeMiniTaskStatusRequest): Promise<$_model.ChangeMcubeMiniTaskStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.changeMcubeMiniTaskStatusWithOptions(request, runtime);
   }
 
   /**
-   * @param request ChangeMcubeNebulaTaskStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangeMcubeNebulaTaskStatusResponse
+   * @param request - ChangeMcubeNebulaTaskStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeMcubeNebulaTaskStatusResponse
    */
-  async changeMcubeNebulaTaskStatusWithOptions(request: ChangeMcubeNebulaTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<ChangeMcubeNebulaTaskStatusResponse> {
-    Util.validateModel(request);
+  async changeMcubeNebulaTaskStatusWithOptions(request: $_model.ChangeMcubeNebulaTaskStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeMcubeNebulaTaskStatusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       body["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.packageId)) {
+    if (!$dara.isNull(request.packageId)) {
       body["PackageId"] = request.packageId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.taskStatus)) {
+    if (!$dara.isNull(request.taskStatus)) {
       body["TaskStatus"] = request.taskStatus;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChangeMcubeNebulaTaskStatus",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -18253,50 +301,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangeMcubeNebulaTaskStatusResponse>(await this.callApi(params, req, runtime), new ChangeMcubeNebulaTaskStatusResponse({}));
+    return $dara.cast<$_model.ChangeMcubeNebulaTaskStatusResponse>(await this.callApi(params, req, runtime), new $_model.ChangeMcubeNebulaTaskStatusResponse({}));
   }
 
   /**
-   * @param request ChangeMcubeNebulaTaskStatusRequest
-   * @return ChangeMcubeNebulaTaskStatusResponse
+   * @param request - ChangeMcubeNebulaTaskStatusRequest
+   * @returns ChangeMcubeNebulaTaskStatusResponse
    */
-  async changeMcubeNebulaTaskStatus(request: ChangeMcubeNebulaTaskStatusRequest): Promise<ChangeMcubeNebulaTaskStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async changeMcubeNebulaTaskStatus(request: $_model.ChangeMcubeNebulaTaskStatusRequest): Promise<$_model.ChangeMcubeNebulaTaskStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.changeMcubeNebulaTaskStatusWithOptions(request, runtime);
   }
 
   /**
-   * @param request ChangeMcubePublicTaskStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangeMcubePublicTaskStatusResponse
+   * @param request - ChangeMcubePublicTaskStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeMcubePublicTaskStatusResponse
    */
-  async changeMcubePublicTaskStatusWithOptions(request: ChangeMcubePublicTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<ChangeMcubePublicTaskStatusResponse> {
-    Util.validateModel(request);
+  async changeMcubePublicTaskStatusWithOptions(request: $_model.ChangeMcubePublicTaskStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeMcubePublicTaskStatusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.taskStatus)) {
+    if (!$dara.isNull(request.taskStatus)) {
       body["TaskStatus"] = request.taskStatus;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChangeMcubePublicTaskStatus",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -18307,46 +355,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangeMcubePublicTaskStatusResponse>(await this.callApi(params, req, runtime), new ChangeMcubePublicTaskStatusResponse({}));
+    return $dara.cast<$_model.ChangeMcubePublicTaskStatusResponse>(await this.callApi(params, req, runtime), new $_model.ChangeMcubePublicTaskStatusResponse({}));
   }
 
   /**
-   * @param request ChangeMcubePublicTaskStatusRequest
-   * @return ChangeMcubePublicTaskStatusResponse
+   * @param request - ChangeMcubePublicTaskStatusRequest
+   * @returns ChangeMcubePublicTaskStatusResponse
    */
-  async changeMcubePublicTaskStatus(request: ChangeMcubePublicTaskStatusRequest): Promise<ChangeMcubePublicTaskStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async changeMcubePublicTaskStatus(request: $_model.ChangeMcubePublicTaskStatusRequest): Promise<$_model.ChangeMcubePublicTaskStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.changeMcubePublicTaskStatusWithOptions(request, runtime);
   }
 
   /**
-   * @param request CopyMcdpGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CopyMcdpGroupResponse
+   * @param request - CopyMcdpGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CopyMcdpGroupResponse
    */
-  async copyMcdpGroupWithOptions(request: CopyMcdpGroupRequest, runtime: $Util.RuntimeOptions): Promise<CopyMcdpGroupResponse> {
-    Util.validateModel(request);
+  async copyMcdpGroupWithOptions(request: $_model.CopyMcdpGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CopyMcdpGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.mpaasMappcenterMcdpGroupCopyJsonStr)) {
+    if (!$dara.isNull(request.mpaasMappcenterMcdpGroupCopyJsonStr)) {
       body["MpaasMappcenterMcdpGroupCopyJsonStr"] = request.mpaasMappcenterMcdpGroupCopyJsonStr;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CopyMcdpGroup",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -18357,56 +405,56 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CopyMcdpGroupResponse>(await this.callApi(params, req, runtime), new CopyMcdpGroupResponse({}));
+    return $dara.cast<$_model.CopyMcdpGroupResponse>(await this.callApi(params, req, runtime), new $_model.CopyMcdpGroupResponse({}));
   }
 
   /**
-   * @param request CopyMcdpGroupRequest
-   * @return CopyMcdpGroupResponse
+   * @param request - CopyMcdpGroupRequest
+   * @returns CopyMcdpGroupResponse
    */
-  async copyMcdpGroup(request: CopyMcdpGroupRequest): Promise<CopyMcdpGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async copyMcdpGroup(request: $_model.CopyMcdpGroupRequest): Promise<$_model.CopyMcdpGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.copyMcdpGroupWithOptions(request, runtime);
   }
 
   /**
-   * @summary 创建短链
-   *
-   * @param request CreateLinkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLinkResponse
+   * 创建短链
+   * 
+   * @param request - CreateLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLinkResponse
    */
-  async createLinkWithOptions(request: CreateLinkRequest, runtime: $Util.RuntimeOptions): Promise<CreateLinkResponse> {
-    Util.validateModel(request);
+  async createLinkWithOptions(request: $_model.CreateLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLinkResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.cors)) {
+    if (!$dara.isNull(request.cors)) {
       body["Cors"] = request.cors;
     }
 
-    if (!Util.isUnset(request.domain)) {
+    if (!$dara.isNull(request.domain)) {
       body["Domain"] = request.domain;
     }
 
-    if (!Util.isUnset(request.dynamicfield)) {
+    if (!$dara.isNull(request.dynamicfield)) {
       body["Dynamicfield"] = request.dynamicfield;
     }
 
-    if (!Util.isUnset(request.targetUrl)) {
+    if (!$dara.isNull(request.targetUrl)) {
       body["TargetUrl"] = request.targetUrl;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateLink",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -18417,248 +465,48 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateLinkResponse>(await this.callApi(params, req, runtime), new CreateLinkResponse({}));
+    return $dara.cast<$_model.CreateLinkResponse>(await this.callApi(params, req, runtime), new $_model.CreateLinkResponse({}));
   }
 
   /**
-   * @summary 创建短链
-   *
-   * @param request CreateLinkRequest
-   * @return CreateLinkResponse
+   * 创建短链
+   * 
+   * @param request - CreateLinkRequest
+   * @returns CreateLinkResponse
    */
-  async createLink(request: CreateLinkRequest): Promise<CreateLinkResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createLink(request: $_model.CreateLinkRequest): Promise<$_model.CreateLinkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createLinkWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMasCrowdRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMasCrowdResponse
+   * @param request - CreateMcdpGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcdpGroupResponse
    */
-  async createMasCrowdWithOptions(request: CreateMasCrowdRequest, runtime: $Util.RuntimeOptions): Promise<CreateMasCrowdResponse> {
-    Util.validateModel(request);
+  async createMcdpGroupWithOptions(request: $_model.CreateMcdpGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcdpGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.mpaasMappcenterMcdpMasCrowdCreateJsonStr)) {
-      body["MpaasMappcenterMcdpMasCrowdCreateJsonStr"] = request.mpaasMappcenterMcdpMasCrowdCreateJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateMasCrowd",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateMasCrowdResponse>(await this.callApi(params, req, runtime), new CreateMasCrowdResponse({}));
-  }
-
-  /**
-   * @param request CreateMasCrowdRequest
-   * @return CreateMasCrowdResponse
-   */
-  async createMasCrowd(request: CreateMasCrowdRequest): Promise<CreateMasCrowdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createMasCrowdWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request CreateMasFunnelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMasFunnelResponse
-   */
-  async createMasFunnelWithOptions(request: CreateMasFunnelRequest, runtime: $Util.RuntimeOptions): Promise<CreateMasFunnelResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMappcenterMcdpMasFunnelCreateJsonStr)) {
-      body["MpaasMappcenterMcdpMasFunnelCreateJsonStr"] = request.mpaasMappcenterMcdpMasFunnelCreateJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateMasFunnel",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateMasFunnelResponse>(await this.callApi(params, req, runtime), new CreateMasFunnelResponse({}));
-  }
-
-  /**
-   * @param request CreateMasFunnelRequest
-   * @return CreateMasFunnelResponse
-   */
-  async createMasFunnel(request: CreateMasFunnelRequest): Promise<CreateMasFunnelResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createMasFunnelWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request CreateMcdpEventRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcdpEventResponse
-   */
-  async createMcdpEventWithOptions(request: CreateMcdpEventRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcdpEventResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMappcenterMcdpEventCreateJsonStr)) {
-      body["MpaasMappcenterMcdpEventCreateJsonStr"] = request.mpaasMappcenterMcdpEventCreateJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateMcdpEvent",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateMcdpEventResponse>(await this.callApi(params, req, runtime), new CreateMcdpEventResponse({}));
-  }
-
-  /**
-   * @param request CreateMcdpEventRequest
-   * @return CreateMcdpEventResponse
-   */
-  async createMcdpEvent(request: CreateMcdpEventRequest): Promise<CreateMcdpEventResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createMcdpEventWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request CreateMcdpEventAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcdpEventAttributeResponse
-   */
-  async createMcdpEventAttributeWithOptions(request: CreateMcdpEventAttributeRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcdpEventAttributeResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMappcenterMcdpEventAttributeCreateJsonStr)) {
-      body["MpaasMappcenterMcdpEventAttributeCreateJsonStr"] = request.mpaasMappcenterMcdpEventAttributeCreateJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateMcdpEventAttribute",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateMcdpEventAttributeResponse>(await this.callApi(params, req, runtime), new CreateMcdpEventAttributeResponse({}));
-  }
-
-  /**
-   * @param request CreateMcdpEventAttributeRequest
-   * @return CreateMcdpEventAttributeResponse
-   */
-  async createMcdpEventAttribute(request: CreateMcdpEventAttributeRequest): Promise<CreateMcdpEventAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createMcdpEventAttributeWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request CreateMcdpGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcdpGroupResponse
-   */
-  async createMcdpGroupWithOptions(request: CreateMcdpGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcdpGroupResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMappcenterMcdpGroupCreateJsonStr)) {
+    if (!$dara.isNull(request.mpaasMappcenterMcdpGroupCreateJsonStr)) {
       body["MpaasMappcenterMcdpGroupCreateJsonStr"] = request.mpaasMappcenterMcdpGroupCreateJsonStr;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMcdpGroup",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -18669,46 +517,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMcdpGroupResponse>(await this.callApi(params, req, runtime), new CreateMcdpGroupResponse({}));
+    return $dara.cast<$_model.CreateMcdpGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcdpGroupResponse({}));
   }
 
   /**
-   * @param request CreateMcdpGroupRequest
-   * @return CreateMcdpGroupResponse
+   * @param request - CreateMcdpGroupRequest
+   * @returns CreateMcdpGroupResponse
    */
-  async createMcdpGroup(request: CreateMcdpGroupRequest): Promise<CreateMcdpGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMcdpGroup(request: $_model.CreateMcdpGroupRequest): Promise<$_model.CreateMcdpGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMcdpGroupWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMcdpMaterialRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcdpMaterialResponse
+   * @param request - CreateMcdpMaterialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcdpMaterialResponse
    */
-  async createMcdpMaterialWithOptions(request: CreateMcdpMaterialRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcdpMaterialResponse> {
-    Util.validateModel(request);
+  async createMcdpMaterialWithOptions(request: $_model.CreateMcdpMaterialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcdpMaterialResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.mpaasMappcenterMcdpMaterialCreateJsonStr)) {
+    if (!$dara.isNull(request.mpaasMappcenterMcdpMaterialCreateJsonStr)) {
       body["MpaasMappcenterMcdpMaterialCreateJsonStr"] = request.mpaasMappcenterMcdpMaterialCreateJsonStr;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMcdpMaterial",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -18719,46 +567,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMcdpMaterialResponse>(await this.callApi(params, req, runtime), new CreateMcdpMaterialResponse({}));
+    return $dara.cast<$_model.CreateMcdpMaterialResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcdpMaterialResponse({}));
   }
 
   /**
-   * @param request CreateMcdpMaterialRequest
-   * @return CreateMcdpMaterialResponse
+   * @param request - CreateMcdpMaterialRequest
+   * @returns CreateMcdpMaterialResponse
    */
-  async createMcdpMaterial(request: CreateMcdpMaterialRequest): Promise<CreateMcdpMaterialResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMcdpMaterial(request: $_model.CreateMcdpMaterialRequest): Promise<$_model.CreateMcdpMaterialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMcdpMaterialWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMcdpZoneRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcdpZoneResponse
+   * @param request - CreateMcdpZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcdpZoneResponse
    */
-  async createMcdpZoneWithOptions(request: CreateMcdpZoneRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcdpZoneResponse> {
-    Util.validateModel(request);
+  async createMcdpZoneWithOptions(request: $_model.CreateMcdpZoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcdpZoneResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.mpaasMappcenterMcdpZoneCreateJsonStr)) {
+    if (!$dara.isNull(request.mpaasMappcenterMcdpZoneCreateJsonStr)) {
       body["MpaasMappcenterMcdpZoneCreateJsonStr"] = request.mpaasMappcenterMcdpZoneCreateJsonStr;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMcdpZone",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -18769,50 +617,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMcdpZoneResponse>(await this.callApi(params, req, runtime), new CreateMcdpZoneResponse({}));
+    return $dara.cast<$_model.CreateMcdpZoneResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcdpZoneResponse({}));
   }
 
   /**
-   * @param request CreateMcdpZoneRequest
-   * @return CreateMcdpZoneResponse
+   * @param request - CreateMcdpZoneRequest
+   * @returns CreateMcdpZoneResponse
    */
-  async createMcdpZone(request: CreateMcdpZoneRequest): Promise<CreateMcdpZoneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMcdpZone(request: $_model.CreateMcdpZoneRequest): Promise<$_model.CreateMcdpZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMcdpZoneWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMcubeMiniAppRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcubeMiniAppResponse
+   * @param request - CreateMcubeMiniAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcubeMiniAppResponse
    */
-  async createMcubeMiniAppWithOptions(request: CreateMcubeMiniAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeMiniAppResponse> {
-    Util.validateModel(request);
+  async createMcubeMiniAppWithOptions(request: $_model.CreateMcubeMiniAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcubeMiniAppResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.h5Id)) {
+    if (!$dara.isNull(request.h5Id)) {
       body["H5Id"] = request.h5Id;
     }
 
-    if (!Util.isUnset(request.h5Name)) {
+    if (!$dara.isNull(request.h5Name)) {
       body["H5Name"] = request.h5Name;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMcubeMiniApp",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -18823,74 +671,74 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMcubeMiniAppResponse>(await this.callApi(params, req, runtime), new CreateMcubeMiniAppResponse({}));
+    return $dara.cast<$_model.CreateMcubeMiniAppResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcubeMiniAppResponse({}));
   }
 
   /**
-   * @param request CreateMcubeMiniAppRequest
-   * @return CreateMcubeMiniAppResponse
+   * @param request - CreateMcubeMiniAppRequest
+   * @returns CreateMcubeMiniAppResponse
    */
-  async createMcubeMiniApp(request: CreateMcubeMiniAppRequest): Promise<CreateMcubeMiniAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMcubeMiniApp(request: $_model.CreateMcubeMiniAppRequest): Promise<$_model.CreateMcubeMiniAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMcubeMiniAppWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMcubeMiniTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcubeMiniTaskResponse
+   * @param request - CreateMcubeMiniTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcubeMiniTaskResponse
    */
-  async createMcubeMiniTaskWithOptions(request: CreateMcubeMiniTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeMiniTaskResponse> {
-    Util.validateModel(request);
+  async createMcubeMiniTaskWithOptions(request: $_model.CreateMcubeMiniTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcubeMiniTaskResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.greyConfigInfo)) {
+    if (!$dara.isNull(request.greyConfigInfo)) {
       body["GreyConfigInfo"] = request.greyConfigInfo;
     }
 
-    if (!Util.isUnset(request.greyEndtimeData)) {
+    if (!$dara.isNull(request.greyEndtimeData)) {
       body["GreyEndtimeData"] = request.greyEndtimeData;
     }
 
-    if (!Util.isUnset(request.greyNum)) {
+    if (!$dara.isNull(request.greyNum)) {
       body["GreyNum"] = request.greyNum;
     }
 
-    if (!Util.isUnset(request.memo)) {
+    if (!$dara.isNull(request.memo)) {
       body["Memo"] = request.memo;
     }
 
-    if (!Util.isUnset(request.packageId)) {
+    if (!$dara.isNull(request.packageId)) {
       body["PackageId"] = request.packageId;
     }
 
-    if (!Util.isUnset(request.publishMode)) {
+    if (!$dara.isNull(request.publishMode)) {
       body["PublishMode"] = request.publishMode;
     }
 
-    if (!Util.isUnset(request.publishType)) {
+    if (!$dara.isNull(request.publishType)) {
       body["PublishType"] = request.publishType;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.whitelistIds)) {
+    if (!$dara.isNull(request.whitelistIds)) {
       body["WhitelistIds"] = request.whitelistIds;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMcubeMiniTask",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -18901,50 +749,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMcubeMiniTaskResponse>(await this.callApi(params, req, runtime), new CreateMcubeMiniTaskResponse({}));
+    return $dara.cast<$_model.CreateMcubeMiniTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcubeMiniTaskResponse({}));
   }
 
   /**
-   * @param request CreateMcubeMiniTaskRequest
-   * @return CreateMcubeMiniTaskResponse
+   * @param request - CreateMcubeMiniTaskRequest
+   * @returns CreateMcubeMiniTaskResponse
    */
-  async createMcubeMiniTask(request: CreateMcubeMiniTaskRequest): Promise<CreateMcubeMiniTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMcubeMiniTask(request: $_model.CreateMcubeMiniTaskRequest): Promise<$_model.CreateMcubeMiniTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMcubeMiniTaskWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMcubeNebulaAppRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcubeNebulaAppResponse
+   * @param request - CreateMcubeNebulaAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcubeNebulaAppResponse
    */
-  async createMcubeNebulaAppWithOptions(request: CreateMcubeNebulaAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeNebulaAppResponse> {
-    Util.validateModel(request);
+  async createMcubeNebulaAppWithOptions(request: $_model.CreateMcubeNebulaAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcubeNebulaAppResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.h5Id)) {
+    if (!$dara.isNull(request.h5Id)) {
       body["H5Id"] = request.h5Id;
     }
 
-    if (!Util.isUnset(request.h5Name)) {
+    if (!$dara.isNull(request.h5Name)) {
       body["H5Name"] = request.h5Name;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMcubeNebulaApp",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -18955,110 +803,110 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMcubeNebulaAppResponse>(await this.callApi(params, req, runtime), new CreateMcubeNebulaAppResponse({}));
+    return $dara.cast<$_model.CreateMcubeNebulaAppResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcubeNebulaAppResponse({}));
   }
 
   /**
-   * @param request CreateMcubeNebulaAppRequest
-   * @return CreateMcubeNebulaAppResponse
+   * @param request - CreateMcubeNebulaAppRequest
+   * @returns CreateMcubeNebulaAppResponse
    */
-  async createMcubeNebulaApp(request: CreateMcubeNebulaAppRequest): Promise<CreateMcubeNebulaAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMcubeNebulaApp(request: $_model.CreateMcubeNebulaAppRequest): Promise<$_model.CreateMcubeNebulaAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMcubeNebulaAppWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMcubeNebulaResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcubeNebulaResourceResponse
+   * @param request - CreateMcubeNebulaResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcubeNebulaResourceResponse
    */
-  async createMcubeNebulaResourceWithOptions(request: CreateMcubeNebulaResourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeNebulaResourceResponse> {
-    Util.validateModel(request);
+  async createMcubeNebulaResourceWithOptions(request: $_model.CreateMcubeNebulaResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcubeNebulaResourceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.autoInstall)) {
+    if (!$dara.isNull(request.autoInstall)) {
       body["AutoInstall"] = request.autoInstall;
     }
 
-    if (!Util.isUnset(request.clientVersionMax)) {
+    if (!$dara.isNull(request.clientVersionMax)) {
       body["ClientVersionMax"] = request.clientVersionMax;
     }
 
-    if (!Util.isUnset(request.clientVersionMin)) {
+    if (!$dara.isNull(request.clientVersionMin)) {
       body["ClientVersionMin"] = request.clientVersionMin;
     }
 
-    if (!Util.isUnset(request.customDomainName)) {
+    if (!$dara.isNull(request.customDomainName)) {
       body["CustomDomainName"] = request.customDomainName;
     }
 
-    if (!Util.isUnset(request.extendInfo)) {
+    if (!$dara.isNull(request.extendInfo)) {
       body["ExtendInfo"] = request.extendInfo;
     }
 
-    if (!Util.isUnset(request.fileUrl)) {
+    if (!$dara.isNull(request.fileUrl)) {
       body["FileUrl"] = request.fileUrl;
     }
 
-    if (!Util.isUnset(request.h5Id)) {
+    if (!$dara.isNull(request.h5Id)) {
       body["H5Id"] = request.h5Id;
     }
 
-    if (!Util.isUnset(request.h5Name)) {
+    if (!$dara.isNull(request.h5Name)) {
       body["H5Name"] = request.h5Name;
     }
 
-    if (!Util.isUnset(request.h5Version)) {
+    if (!$dara.isNull(request.h5Version)) {
       body["H5Version"] = request.h5Version;
     }
 
-    if (!Util.isUnset(request.installType)) {
+    if (!$dara.isNull(request.installType)) {
       body["InstallType"] = request.installType;
     }
 
-    if (!Util.isUnset(request.mainUrl)) {
+    if (!$dara.isNull(request.mainUrl)) {
       body["MainUrl"] = request.mainUrl;
     }
 
-    if (!Util.isUnset(request.onexFlag)) {
+    if (!$dara.isNull(request.onexFlag)) {
       body["OnexFlag"] = request.onexFlag;
     }
 
-    if (!Util.isUnset(request.platform)) {
+    if (!$dara.isNull(request.platform)) {
       body["Platform"] = request.platform;
     }
 
-    if (!Util.isUnset(request.repeatNebula)) {
+    if (!$dara.isNull(request.repeatNebula)) {
       body["RepeatNebula"] = request.repeatNebula;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       body["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.subUrl)) {
+    if (!$dara.isNull(request.subUrl)) {
       body["SubUrl"] = request.subUrl;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.vhost)) {
+    if (!$dara.isNull(request.vhost)) {
       body["Vhost"] = request.vhost;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMcubeNebulaResource",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -19069,182 +917,182 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMcubeNebulaResourceResponse>(await this.callApi(params, req, runtime), new CreateMcubeNebulaResourceResponse({}));
+    return $dara.cast<$_model.CreateMcubeNebulaResourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcubeNebulaResourceResponse({}));
   }
 
   /**
-   * @param request CreateMcubeNebulaResourceRequest
-   * @return CreateMcubeNebulaResourceResponse
+   * @param request - CreateMcubeNebulaResourceRequest
+   * @returns CreateMcubeNebulaResourceResponse
    */
-  async createMcubeNebulaResource(request: CreateMcubeNebulaResourceRequest): Promise<CreateMcubeNebulaResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMcubeNebulaResource(request: $_model.CreateMcubeNebulaResourceRequest): Promise<$_model.CreateMcubeNebulaResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMcubeNebulaResourceWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMcubeNebulaTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcubeNebulaTaskResponse
+   * @param request - CreateMcubeNebulaTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcubeNebulaTaskResponse
    */
-  async createMcubeNebulaTaskWithOptions(request: CreateMcubeNebulaTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeNebulaTaskResponse> {
-    Util.validateModel(request);
+  async createMcubeNebulaTaskWithOptions(request: $_model.CreateMcubeNebulaTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcubeNebulaTaskResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appCode)) {
+    if (!$dara.isNull(request.appCode)) {
       body["AppCode"] = request.appCode;
     }
 
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       body["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.creator)) {
+    if (!$dara.isNull(request.creator)) {
       body["Creator"] = request.creator;
     }
 
-    if (!Util.isUnset(request.gmtCreate)) {
+    if (!$dara.isNull(request.gmtCreate)) {
       body["GmtCreate"] = request.gmtCreate;
     }
 
-    if (!Util.isUnset(request.gmtModified)) {
+    if (!$dara.isNull(request.gmtModified)) {
       body["GmtModified"] = request.gmtModified;
     }
 
-    if (!Util.isUnset(request.gmtModifiedStr)) {
+    if (!$dara.isNull(request.gmtModifiedStr)) {
       body["GmtModifiedStr"] = request.gmtModifiedStr;
     }
 
-    if (!Util.isUnset(request.greyConfigInfo)) {
+    if (!$dara.isNull(request.greyConfigInfo)) {
       body["GreyConfigInfo"] = request.greyConfigInfo;
     }
 
-    if (!Util.isUnset(request.greyEndtime)) {
+    if (!$dara.isNull(request.greyEndtime)) {
       body["GreyEndtime"] = request.greyEndtime;
     }
 
-    if (!Util.isUnset(request.greyEndtimeData)) {
+    if (!$dara.isNull(request.greyEndtimeData)) {
       body["GreyEndtimeData"] = request.greyEndtimeData;
     }
 
-    if (!Util.isUnset(request.greyEndtimeStr)) {
+    if (!$dara.isNull(request.greyEndtimeStr)) {
       body["GreyEndtimeStr"] = request.greyEndtimeStr;
     }
 
-    if (!Util.isUnset(request.greyNum)) {
+    if (!$dara.isNull(request.greyNum)) {
       body["GreyNum"] = request.greyNum;
     }
 
-    if (!Util.isUnset(request.greyUrl)) {
+    if (!$dara.isNull(request.greyUrl)) {
       body["GreyUrl"] = request.greyUrl;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.memo)) {
+    if (!$dara.isNull(request.memo)) {
       body["Memo"] = request.memo;
     }
 
-    if (!Util.isUnset(request.modifier)) {
+    if (!$dara.isNull(request.modifier)) {
       body["Modifier"] = request.modifier;
     }
 
-    if (!Util.isUnset(request.packageId)) {
+    if (!$dara.isNull(request.packageId)) {
       body["PackageId"] = request.packageId;
     }
 
-    if (!Util.isUnset(request.percent)) {
+    if (!$dara.isNull(request.percent)) {
       body["Percent"] = request.percent;
     }
 
-    if (!Util.isUnset(request.platform)) {
+    if (!$dara.isNull(request.platform)) {
       body["Platform"] = request.platform;
     }
 
-    if (!Util.isUnset(request.productId)) {
+    if (!$dara.isNull(request.productId)) {
       body["ProductId"] = request.productId;
     }
 
-    if (!Util.isUnset(request.productVersion)) {
+    if (!$dara.isNull(request.productVersion)) {
       body["ProductVersion"] = request.productVersion;
     }
 
-    if (!Util.isUnset(request.publishMode)) {
+    if (!$dara.isNull(request.publishMode)) {
       body["PublishMode"] = request.publishMode;
     }
 
-    if (!Util.isUnset(request.publishType)) {
+    if (!$dara.isNull(request.publishType)) {
       body["PublishType"] = request.publishType;
     }
 
-    if (!Util.isUnset(request.releaseVersion)) {
+    if (!$dara.isNull(request.releaseVersion)) {
       body["ReleaseVersion"] = request.releaseVersion;
     }
 
-    if (!Util.isUnset(request.resIds)) {
+    if (!$dara.isNull(request.resIds)) {
       body["ResIds"] = request.resIds;
     }
 
-    if (!Util.isUnset(request.serialVersionUID)) {
+    if (!$dara.isNull(request.serialVersionUID)) {
       body["SerialVersionUID"] = request.serialVersionUID;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.syncMode)) {
+    if (!$dara.isNull(request.syncMode)) {
       body["SyncMode"] = request.syncMode;
     }
 
-    if (!Util.isUnset(request.syncResult)) {
+    if (!$dara.isNull(request.syncResult)) {
       body["SyncResult"] = request.syncResult;
     }
 
-    if (!Util.isUnset(request.taskName)) {
+    if (!$dara.isNull(request.taskName)) {
       body["TaskName"] = request.taskName;
     }
 
-    if (!Util.isUnset(request.taskStatus)) {
+    if (!$dara.isNull(request.taskStatus)) {
       body["TaskStatus"] = request.taskStatus;
     }
 
-    if (!Util.isUnset(request.taskType)) {
+    if (!$dara.isNull(request.taskType)) {
       body["TaskType"] = request.taskType;
     }
 
-    if (!Util.isUnset(request.taskVersion)) {
+    if (!$dara.isNull(request.taskVersion)) {
       body["TaskVersion"] = request.taskVersion;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.upgradeNoticeNum)) {
+    if (!$dara.isNull(request.upgradeNoticeNum)) {
       body["UpgradeNoticeNum"] = request.upgradeNoticeNum;
     }
 
-    if (!Util.isUnset(request.upgradeProgress)) {
+    if (!$dara.isNull(request.upgradeProgress)) {
       body["UpgradeProgress"] = request.upgradeProgress;
     }
 
-    if (!Util.isUnset(request.whitelistIds)) {
+    if (!$dara.isNull(request.whitelistIds)) {
       body["WhitelistIds"] = request.whitelistIds;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMcubeNebulaTask",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -19255,102 +1103,102 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMcubeNebulaTaskResponse>(await this.callApi(params, req, runtime), new CreateMcubeNebulaTaskResponse({}));
+    return $dara.cast<$_model.CreateMcubeNebulaTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcubeNebulaTaskResponse({}));
   }
 
   /**
-   * @param request CreateMcubeNebulaTaskRequest
-   * @return CreateMcubeNebulaTaskResponse
+   * @param request - CreateMcubeNebulaTaskRequest
+   * @returns CreateMcubeNebulaTaskResponse
    */
-  async createMcubeNebulaTask(request: CreateMcubeNebulaTaskRequest): Promise<CreateMcubeNebulaTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMcubeNebulaTask(request: $_model.CreateMcubeNebulaTaskRequest): Promise<$_model.CreateMcubeNebulaTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMcubeNebulaTaskWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMcubeUpgradePackageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcubeUpgradePackageResponse
+   * @param request - CreateMcubeUpgradePackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcubeUpgradePackageResponse
    */
-  async createMcubeUpgradePackageWithOptions(request: CreateMcubeUpgradePackageRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeUpgradePackageResponse> {
-    Util.validateModel(request);
+  async createMcubeUpgradePackageWithOptions(request: $_model.CreateMcubeUpgradePackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcubeUpgradePackageResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.appVersion)) {
+    if (!$dara.isNull(request.appVersion)) {
       body["AppVersion"] = request.appVersion;
     }
 
-    if (!Util.isUnset(request.appstoreUrl)) {
+    if (!$dara.isNull(request.appstoreUrl)) {
       body["AppstoreUrl"] = request.appstoreUrl;
     }
 
-    if (!Util.isUnset(request.bundleId)) {
+    if (!$dara.isNull(request.bundleId)) {
       body["BundleId"] = request.bundleId;
     }
 
-    if (!Util.isUnset(request.customDomainName)) {
+    if (!$dara.isNull(request.customDomainName)) {
       body["CustomDomainName"] = request.customDomainName;
     }
 
-    if (!Util.isUnset(request.desc)) {
+    if (!$dara.isNull(request.desc)) {
       body["Desc"] = request.desc;
     }
 
-    if (!Util.isUnset(request.downloadUrl)) {
+    if (!$dara.isNull(request.downloadUrl)) {
       body["DownloadUrl"] = request.downloadUrl;
     }
 
-    if (!Util.isUnset(request.fileUrl)) {
+    if (!$dara.isNull(request.fileUrl)) {
       body["FileUrl"] = request.fileUrl;
     }
 
-    if (!Util.isUnset(request.iconFileUrl)) {
+    if (!$dara.isNull(request.iconFileUrl)) {
       body["IconFileUrl"] = request.iconFileUrl;
     }
 
-    if (!Util.isUnset(request.installAmount)) {
+    if (!$dara.isNull(request.installAmount)) {
       body["InstallAmount"] = request.installAmount;
     }
 
-    if (!Util.isUnset(request.iosSymbolfileUrl)) {
+    if (!$dara.isNull(request.iosSymbolfileUrl)) {
       body["IosSymbolfileUrl"] = request.iosSymbolfileUrl;
     }
 
-    if (!Util.isUnset(request.isEnterprise)) {
+    if (!$dara.isNull(request.isEnterprise)) {
       body["IsEnterprise"] = request.isEnterprise;
     }
 
-    if (!Util.isUnset(request.needCheck)) {
+    if (!$dara.isNull(request.needCheck)) {
       body["NeedCheck"] = request.needCheck;
     }
 
-    if (!Util.isUnset(request.onexFlag)) {
+    if (!$dara.isNull(request.onexFlag)) {
       body["OnexFlag"] = request.onexFlag;
     }
 
-    if (!Util.isUnset(request.platform)) {
+    if (!$dara.isNull(request.platform)) {
       body["Platform"] = request.platform;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.validDays)) {
+    if (!$dara.isNull(request.validDays)) {
       body["ValidDays"] = request.validDays;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMcubeUpgradePackage",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -19361,86 +1209,86 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMcubeUpgradePackageResponse>(await this.callApi(params, req, runtime), new CreateMcubeUpgradePackageResponse({}));
+    return $dara.cast<$_model.CreateMcubeUpgradePackageResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcubeUpgradePackageResponse({}));
   }
 
   /**
-   * @param request CreateMcubeUpgradePackageRequest
-   * @return CreateMcubeUpgradePackageResponse
+   * @param request - CreateMcubeUpgradePackageRequest
+   * @returns CreateMcubeUpgradePackageResponse
    */
-  async createMcubeUpgradePackage(request: CreateMcubeUpgradePackageRequest): Promise<CreateMcubeUpgradePackageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMcubeUpgradePackage(request: $_model.CreateMcubeUpgradePackageRequest): Promise<$_model.CreateMcubeUpgradePackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMcubeUpgradePackageWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMcubeUpgradeTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcubeUpgradeTaskResponse
+   * @param request - CreateMcubeUpgradeTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcubeUpgradeTaskResponse
    */
-  async createMcubeUpgradeTaskWithOptions(request: CreateMcubeUpgradeTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeUpgradeTaskResponse> {
-    Util.validateModel(request);
+  async createMcubeUpgradeTaskWithOptions(request: $_model.CreateMcubeUpgradeTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcubeUpgradeTaskResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.greyConfigInfo)) {
+    if (!$dara.isNull(request.greyConfigInfo)) {
       body["GreyConfigInfo"] = request.greyConfigInfo;
     }
 
-    if (!Util.isUnset(request.greyEndtimeData)) {
+    if (!$dara.isNull(request.greyEndtimeData)) {
       body["GreyEndtimeData"] = request.greyEndtimeData;
     }
 
-    if (!Util.isUnset(request.greyNum)) {
+    if (!$dara.isNull(request.greyNum)) {
       body["GreyNum"] = request.greyNum;
     }
 
-    if (!Util.isUnset(request.historyForce)) {
+    if (!$dara.isNull(request.historyForce)) {
       body["HistoryForce"] = request.historyForce;
     }
 
-    if (!Util.isUnset(request.memo)) {
+    if (!$dara.isNull(request.memo)) {
       body["Memo"] = request.memo;
     }
 
-    if (!Util.isUnset(request.packageInfoId)) {
+    if (!$dara.isNull(request.packageInfoId)) {
       body["PackageInfoId"] = request.packageInfoId;
     }
 
-    if (!Util.isUnset(request.publishMode)) {
+    if (!$dara.isNull(request.publishMode)) {
       body["PublishMode"] = request.publishMode;
     }
 
-    if (!Util.isUnset(request.publishType)) {
+    if (!$dara.isNull(request.publishType)) {
       body["PublishType"] = request.publishType;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.upgradeContent)) {
+    if (!$dara.isNull(request.upgradeContent)) {
       body["UpgradeContent"] = request.upgradeContent;
     }
 
-    if (!Util.isUnset(request.upgradeType)) {
+    if (!$dara.isNull(request.upgradeType)) {
       body["UpgradeType"] = request.upgradeType;
     }
 
-    if (!Util.isUnset(request.whitelistIds)) {
+    if (!$dara.isNull(request.whitelistIds)) {
       body["WhitelistIds"] = request.whitelistIds;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMcubeUpgradeTask",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -19451,46 +1299,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMcubeUpgradeTaskResponse>(await this.callApi(params, req, runtime), new CreateMcubeUpgradeTaskResponse({}));
+    return $dara.cast<$_model.CreateMcubeUpgradeTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcubeUpgradeTaskResponse({}));
   }
 
   /**
-   * @param request CreateMcubeUpgradeTaskRequest
-   * @return CreateMcubeUpgradeTaskResponse
+   * @param request - CreateMcubeUpgradeTaskRequest
+   * @returns CreateMcubeUpgradeTaskResponse
    */
-  async createMcubeUpgradeTask(request: CreateMcubeUpgradeTaskRequest): Promise<CreateMcubeUpgradeTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMcubeUpgradeTask(request: $_model.CreateMcubeUpgradeTaskRequest): Promise<$_model.CreateMcubeUpgradeTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMcubeUpgradeTaskWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMcubeVhostRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcubeVhostResponse
+   * @param request - CreateMcubeVhostRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcubeVhostResponse
    */
-  async createMcubeVhostWithOptions(request: CreateMcubeVhostRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeVhostResponse> {
-    Util.validateModel(request);
+  async createMcubeVhostWithOptions(request: $_model.CreateMcubeVhostRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcubeVhostResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.vhost)) {
+    if (!$dara.isNull(request.vhost)) {
       body["Vhost"] = request.vhost;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMcubeVhost",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -19501,50 +1349,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMcubeVhostResponse>(await this.callApi(params, req, runtime), new CreateMcubeVhostResponse({}));
+    return $dara.cast<$_model.CreateMcubeVhostResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcubeVhostResponse({}));
   }
 
   /**
-   * @param request CreateMcubeVhostRequest
-   * @return CreateMcubeVhostResponse
+   * @param request - CreateMcubeVhostRequest
+   * @returns CreateMcubeVhostResponse
    */
-  async createMcubeVhost(request: CreateMcubeVhostRequest): Promise<CreateMcubeVhostResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMcubeVhost(request: $_model.CreateMcubeVhostRequest): Promise<$_model.CreateMcubeVhostResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMcubeVhostWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMcubeWhitelistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcubeWhitelistResponse
+   * @param request - CreateMcubeWhitelistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcubeWhitelistResponse
    */
-  async createMcubeWhitelistWithOptions(request: CreateMcubeWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeWhitelistResponse> {
-    Util.validateModel(request);
+  async createMcubeWhitelistWithOptions(request: $_model.CreateMcubeWhitelistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcubeWhitelistResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.whiteListName)) {
+    if (!$dara.isNull(request.whiteListName)) {
       body["WhiteListName"] = request.whiteListName;
     }
 
-    if (!Util.isUnset(request.whitelistType)) {
+    if (!$dara.isNull(request.whitelistType)) {
       body["WhitelistType"] = request.whitelistType;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMcubeWhitelist",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -19555,50 +1403,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMcubeWhitelistResponse>(await this.callApi(params, req, runtime), new CreateMcubeWhitelistResponse({}));
+    return $dara.cast<$_model.CreateMcubeWhitelistResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcubeWhitelistResponse({}));
   }
 
   /**
-   * @param request CreateMcubeWhitelistRequest
-   * @return CreateMcubeWhitelistResponse
+   * @param request - CreateMcubeWhitelistRequest
+   * @returns CreateMcubeWhitelistResponse
    */
-  async createMcubeWhitelist(request: CreateMcubeWhitelistRequest): Promise<CreateMcubeWhitelistResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMcubeWhitelist(request: $_model.CreateMcubeWhitelistRequest): Promise<$_model.CreateMcubeWhitelistResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMcubeWhitelistWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMcubeWhitelistForIdeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMcubeWhitelistForIdeResponse
+   * @param request - CreateMcubeWhitelistForIdeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcubeWhitelistForIdeResponse
    */
-  async createMcubeWhitelistForIdeWithOptions(request: CreateMcubeWhitelistForIdeRequest, runtime: $Util.RuntimeOptions): Promise<CreateMcubeWhitelistForIdeResponse> {
-    Util.validateModel(request);
+  async createMcubeWhitelistForIdeWithOptions(request: $_model.CreateMcubeWhitelistForIdeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcubeWhitelistForIdeResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.userId)) {
       body["UserId"] = request.userId;
     }
 
-    if (!Util.isUnset(request.whitelistValue)) {
+    if (!$dara.isNull(request.whitelistValue)) {
       body["WhitelistValue"] = request.whitelistValue;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMcubeWhitelistForIde",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -19609,82 +1457,82 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMcubeWhitelistForIdeResponse>(await this.callApi(params, req, runtime), new CreateMcubeWhitelistForIdeResponse({}));
+    return $dara.cast<$_model.CreateMcubeWhitelistForIdeResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcubeWhitelistForIdeResponse({}));
   }
 
   /**
-   * @param request CreateMcubeWhitelistForIdeRequest
-   * @return CreateMcubeWhitelistForIdeResponse
+   * @param request - CreateMcubeWhitelistForIdeRequest
+   * @returns CreateMcubeWhitelistForIdeResponse
    */
-  async createMcubeWhitelistForIde(request: CreateMcubeWhitelistForIdeRequest): Promise<CreateMcubeWhitelistForIdeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMcubeWhitelistForIde(request: $_model.CreateMcubeWhitelistForIdeRequest): Promise<$_model.CreateMcubeWhitelistForIdeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMcubeWhitelistForIdeWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMdsMiniprogramTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMdsMiniprogramTaskResponse
+   * @param request - CreateMdsMiniprogramTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMdsMiniprogramTaskResponse
    */
-  async createMdsMiniprogramTaskWithOptions(request: CreateMdsMiniprogramTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMdsMiniprogramTaskResponse> {
-    Util.validateModel(request);
+  async createMdsMiniprogramTaskWithOptions(request: $_model.CreateMdsMiniprogramTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMdsMiniprogramTaskResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.greyConfigInfo)) {
+    if (!$dara.isNull(request.greyConfigInfo)) {
       body["GreyConfigInfo"] = request.greyConfigInfo;
     }
 
-    if (!Util.isUnset(request.greyEndtimeData)) {
+    if (!$dara.isNull(request.greyEndtimeData)) {
       body["GreyEndtimeData"] = request.greyEndtimeData;
     }
 
-    if (!Util.isUnset(request.greyNum)) {
+    if (!$dara.isNull(request.greyNum)) {
       body["GreyNum"] = request.greyNum;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.memo)) {
+    if (!$dara.isNull(request.memo)) {
       body["Memo"] = request.memo;
     }
 
-    if (!Util.isUnset(request.packageId)) {
+    if (!$dara.isNull(request.packageId)) {
       body["PackageId"] = request.packageId;
     }
 
-    if (!Util.isUnset(request.publishMode)) {
+    if (!$dara.isNull(request.publishMode)) {
       body["PublishMode"] = request.publishMode;
     }
 
-    if (!Util.isUnset(request.publishType)) {
+    if (!$dara.isNull(request.publishType)) {
       body["PublishType"] = request.publishType;
     }
 
-    if (!Util.isUnset(request.syncMode)) {
+    if (!$dara.isNull(request.syncMode)) {
       body["SyncMode"] = request.syncMode;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.whitelistIds)) {
+    if (!$dara.isNull(request.whitelistIds)) {
       body["WhitelistIds"] = request.whitelistIds;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMdsMiniprogramTask",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -19695,136 +1543,90 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMdsMiniprogramTaskResponse>(await this.callApi(params, req, runtime), new CreateMdsMiniprogramTaskResponse({}));
+    return $dara.cast<$_model.CreateMdsMiniprogramTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateMdsMiniprogramTaskResponse({}));
   }
 
   /**
-   * @param request CreateMdsMiniprogramTaskRequest
-   * @return CreateMdsMiniprogramTaskResponse
+   * @param request - CreateMdsMiniprogramTaskRequest
+   * @returns CreateMdsMiniprogramTaskResponse
    */
-  async createMdsMiniprogramTask(request: CreateMdsMiniprogramTaskRequest): Promise<CreateMdsMiniprogramTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createMdsMiniprogramTask(request: $_model.CreateMdsMiniprogramTaskRequest): Promise<$_model.CreateMdsMiniprogramTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMdsMiniprogramTaskWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateMsaEnhanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMsaEnhanceResponse
+   * @param request - CreateOpenGlobalDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOpenGlobalDataResponse
    */
-  async createMsaEnhanceWithOptions(request: CreateMsaEnhanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateMsaEnhanceResponse> {
-    Util.validateModel(request);
+  async createOpenGlobalDataWithOptions(request: $_model.CreateOpenGlobalDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOpenGlobalDataResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.mpaasMappcenterMsaEnhanceCreateJsonStr)) {
-      body["MpaasMappcenterMsaEnhanceCreateJsonStr"] = request.mpaasMappcenterMsaEnhanceCreateJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateMsaEnhance",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateMsaEnhanceResponse>(await this.callApi(params, req, runtime), new CreateMsaEnhanceResponse({}));
-  }
-
-  /**
-   * @param request CreateMsaEnhanceRequest
-   * @return CreateMsaEnhanceResponse
-   */
-  async createMsaEnhance(request: CreateMsaEnhanceRequest): Promise<CreateMsaEnhanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createMsaEnhanceWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request CreateOpenGlobalDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateOpenGlobalDataResponse
-   */
-  async createOpenGlobalDataWithOptions(request: CreateOpenGlobalDataRequest, runtime: $Util.RuntimeOptions): Promise<CreateOpenGlobalDataResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.appMaxVersion)) {
+    if (!$dara.isNull(request.appMaxVersion)) {
       body["AppMaxVersion"] = request.appMaxVersion;
     }
 
-    if (!Util.isUnset(request.appMinVersion)) {
+    if (!$dara.isNull(request.appMinVersion)) {
       body["AppMinVersion"] = request.appMinVersion;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       body["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.extAttrStr)) {
+    if (!$dara.isNull(request.extAttrStr)) {
       body["ExtAttrStr"] = request.extAttrStr;
     }
 
-    if (!Util.isUnset(request.maxUid)) {
+    if (!$dara.isNull(request.maxUid)) {
       body["MaxUid"] = request.maxUid;
     }
 
-    if (!Util.isUnset(request.minUid)) {
+    if (!$dara.isNull(request.minUid)) {
       body["MinUid"] = request.minUid;
     }
 
-    if (!Util.isUnset(request.osType)) {
+    if (!$dara.isNull(request.osType)) {
       body["OsType"] = request.osType;
     }
 
-    if (!Util.isUnset(request.payload)) {
+    if (!$dara.isNull(request.payload)) {
       body["Payload"] = request.payload;
     }
 
-    if (!Util.isUnset(request.thirdMsgId)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.thirdMsgId)) {
       body["ThirdMsgId"] = request.thirdMsgId;
     }
 
-    if (!Util.isUnset(request.uids)) {
+    if (!$dara.isNull(request.uids)) {
       body["Uids"] = request.uids;
     }
 
-    if (!Util.isUnset(request.validTimeEnd)) {
+    if (!$dara.isNull(request.validTimeEnd)) {
       body["ValidTimeEnd"] = request.validTimeEnd;
     }
 
-    if (!Util.isUnset(request.validTimeStart)) {
+    if (!$dara.isNull(request.validTimeStart)) {
       body["ValidTimeStart"] = request.validTimeStart;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateOpenGlobalData",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -19835,82 +1637,86 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateOpenGlobalDataResponse>(await this.callApi(params, req, runtime), new CreateOpenGlobalDataResponse({}));
+    return $dara.cast<$_model.CreateOpenGlobalDataResponse>(await this.callApi(params, req, runtime), new $_model.CreateOpenGlobalDataResponse({}));
   }
 
   /**
-   * @param request CreateOpenGlobalDataRequest
-   * @return CreateOpenGlobalDataResponse
+   * @param request - CreateOpenGlobalDataRequest
+   * @returns CreateOpenGlobalDataResponse
    */
-  async createOpenGlobalData(request: CreateOpenGlobalDataRequest): Promise<CreateOpenGlobalDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createOpenGlobalData(request: $_model.CreateOpenGlobalDataRequest): Promise<$_model.CreateOpenGlobalDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createOpenGlobalDataWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateOpenSingleDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateOpenSingleDataResponse
+   * @param request - CreateOpenSingleDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOpenSingleDataResponse
    */
-  async createOpenSingleDataWithOptions(request: CreateOpenSingleDataRequest, runtime: $Util.RuntimeOptions): Promise<CreateOpenSingleDataResponse> {
-    Util.validateModel(request);
+  async createOpenSingleDataWithOptions(request: $_model.CreateOpenSingleDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOpenSingleDataResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.appMaxVersion)) {
+    if (!$dara.isNull(request.appMaxVersion)) {
       body["AppMaxVersion"] = request.appMaxVersion;
     }
 
-    if (!Util.isUnset(request.appMinVersion)) {
+    if (!$dara.isNull(request.appMinVersion)) {
       body["AppMinVersion"] = request.appMinVersion;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       body["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.checkOnline)) {
+    if (!$dara.isNull(request.checkOnline)) {
       body["CheckOnline"] = request.checkOnline;
     }
 
-    if (!Util.isUnset(request.extAttrStr)) {
+    if (!$dara.isNull(request.extAttrStr)) {
       body["ExtAttrStr"] = request.extAttrStr;
     }
 
-    if (!Util.isUnset(request.linkToken)) {
+    if (!$dara.isNull(request.linkToken)) {
       body["LinkToken"] = request.linkToken;
     }
 
-    if (!Util.isUnset(request.osType)) {
+    if (!$dara.isNull(request.osType)) {
       body["OsType"] = request.osType;
     }
 
-    if (!Util.isUnset(request.payload)) {
+    if (!$dara.isNull(request.payload)) {
       body["Payload"] = request.payload;
     }
 
-    if (!Util.isUnset(request.thirdMsgId)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.thirdMsgId)) {
       body["ThirdMsgId"] = request.thirdMsgId;
     }
 
-    if (!Util.isUnset(request.validTimeEnd)) {
+    if (!$dara.isNull(request.validTimeEnd)) {
       body["ValidTimeEnd"] = request.validTimeEnd;
     }
 
-    if (!Util.isUnset(request.validTimeStart)) {
+    if (!$dara.isNull(request.validTimeStart)) {
       body["ValidTimeStart"] = request.validTimeStart;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateOpenSingleData",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -19921,50 +1727,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateOpenSingleDataResponse>(await this.callApi(params, req, runtime), new CreateOpenSingleDataResponse({}));
+    return $dara.cast<$_model.CreateOpenSingleDataResponse>(await this.callApi(params, req, runtime), new $_model.CreateOpenSingleDataResponse({}));
   }
 
   /**
-   * @param request CreateOpenSingleDataRequest
-   * @return CreateOpenSingleDataResponse
+   * @param request - CreateOpenSingleDataRequest
+   * @returns CreateOpenSingleDataResponse
    */
-  async createOpenSingleData(request: CreateOpenSingleDataRequest): Promise<CreateOpenSingleDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createOpenSingleData(request: $_model.CreateOpenSingleDataRequest): Promise<$_model.CreateOpenSingleDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createOpenSingleDataWithOptions(request, runtime);
   }
 
   /**
-   * @param request DeleteCubecardWhitelistContentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCubecardWhitelistContentResponse
+   * @param request - DeleteCubecardWhitelistContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCubecardWhitelistContentResponse
    */
-  async deleteCubecardWhitelistContentWithOptions(request: DeleteCubecardWhitelistContentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCubecardWhitelistContentResponse> {
-    Util.validateModel(request);
+  async deleteCubecardWhitelistContentWithOptions(request: $_model.DeleteCubecardWhitelistContentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCubecardWhitelistContentResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.whitelistId)) {
+    if (!$dara.isNull(request.whitelistId)) {
       body["WhitelistId"] = request.whitelistId;
     }
 
-    if (!Util.isUnset(request.whitelistValue)) {
+    if (!$dara.isNull(request.whitelistValue)) {
       body["WhitelistValue"] = request.whitelistValue;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteCubecardWhitelistContent",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -19975,46 +1781,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCubecardWhitelistContentResponse>(await this.callApi(params, req, runtime), new DeleteCubecardWhitelistContentResponse({}));
+    return $dara.cast<$_model.DeleteCubecardWhitelistContentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCubecardWhitelistContentResponse({}));
   }
 
   /**
-   * @param request DeleteCubecardWhitelistContentRequest
-   * @return DeleteCubecardWhitelistContentResponse
+   * @param request - DeleteCubecardWhitelistContentRequest
+   * @returns DeleteCubecardWhitelistContentResponse
    */
-  async deleteCubecardWhitelistContent(request: DeleteCubecardWhitelistContentRequest): Promise<DeleteCubecardWhitelistContentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteCubecardWhitelistContent(request: $_model.DeleteCubecardWhitelistContentRequest): Promise<$_model.DeleteCubecardWhitelistContentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCubecardWhitelistContentWithOptions(request, runtime);
   }
 
   /**
-   * @param request DeleteMcdpAimRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMcdpAimResponse
+   * @param request - DeleteMcdpAimRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMcdpAimResponse
    */
-  async deleteMcdpAimWithOptions(request: DeleteMcdpAimRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcdpAimResponse> {
-    Util.validateModel(request);
+  async deleteMcdpAimWithOptions(request: $_model.DeleteMcdpAimRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMcdpAimResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.mpaasMappcenterMcdpAimDeleteJsonStr)) {
+    if (!$dara.isNull(request.mpaasMappcenterMcdpAimDeleteJsonStr)) {
       body["MpaasMappcenterMcdpAimDeleteJsonStr"] = request.mpaasMappcenterMcdpAimDeleteJsonStr;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteMcdpAim",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20025,46 +1831,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteMcdpAimResponse>(await this.callApi(params, req, runtime), new DeleteMcdpAimResponse({}));
+    return $dara.cast<$_model.DeleteMcdpAimResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMcdpAimResponse({}));
   }
 
   /**
-   * @param request DeleteMcdpAimRequest
-   * @return DeleteMcdpAimResponse
+   * @param request - DeleteMcdpAimRequest
+   * @returns DeleteMcdpAimResponse
    */
-  async deleteMcdpAim(request: DeleteMcdpAimRequest): Promise<DeleteMcdpAimResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteMcdpAim(request: $_model.DeleteMcdpAimRequest): Promise<$_model.DeleteMcdpAimResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMcdpAimWithOptions(request, runtime);
   }
 
   /**
-   * @param request DeleteMcdpCrowdRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMcdpCrowdResponse
+   * @param request - DeleteMcdpCrowdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMcdpCrowdResponse
    */
-  async deleteMcdpCrowdWithOptions(request: DeleteMcdpCrowdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcdpCrowdResponse> {
-    Util.validateModel(request);
+  async deleteMcdpCrowdWithOptions(request: $_model.DeleteMcdpCrowdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMcdpCrowdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.mpaasMappcenterMcdpCrowdDeleteJsonStr)) {
+    if (!$dara.isNull(request.mpaasMappcenterMcdpCrowdDeleteJsonStr)) {
       body["MpaasMappcenterMcdpCrowdDeleteJsonStr"] = request.mpaasMappcenterMcdpCrowdDeleteJsonStr;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteMcdpCrowd",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20075,196 +1881,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteMcdpCrowdResponse>(await this.callApi(params, req, runtime), new DeleteMcdpCrowdResponse({}));
+    return $dara.cast<$_model.DeleteMcdpCrowdResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMcdpCrowdResponse({}));
   }
 
   /**
-   * @param request DeleteMcdpCrowdRequest
-   * @return DeleteMcdpCrowdResponse
+   * @param request - DeleteMcdpCrowdRequest
+   * @returns DeleteMcdpCrowdResponse
    */
-  async deleteMcdpCrowd(request: DeleteMcdpCrowdRequest): Promise<DeleteMcdpCrowdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteMcdpCrowd(request: $_model.DeleteMcdpCrowdRequest): Promise<$_model.DeleteMcdpCrowdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMcdpCrowdWithOptions(request, runtime);
   }
 
   /**
-   * @param request DeleteMcdpEventAttributeByIdRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMcdpEventAttributeByIdResponse
+   * @param request - DeleteMcdpZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMcdpZoneResponse
    */
-  async deleteMcdpEventAttributeByIdWithOptions(request: DeleteMcdpEventAttributeByIdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcdpEventAttributeByIdResponse> {
-    Util.validateModel(request);
+  async deleteMcdpZoneWithOptions(request: $_model.DeleteMcdpZoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMcdpZoneResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.mpaasMappcenterMcdpEventAttributeDeleteJsonStr)) {
-      body["MpaasMappcenterMcdpEventAttributeDeleteJsonStr"] = request.mpaasMappcenterMcdpEventAttributeDeleteJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteMcdpEventAttributeById",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteMcdpEventAttributeByIdResponse>(await this.callApi(params, req, runtime), new DeleteMcdpEventAttributeByIdResponse({}));
-  }
-
-  /**
-   * @param request DeleteMcdpEventAttributeByIdRequest
-   * @return DeleteMcdpEventAttributeByIdResponse
-   */
-  async deleteMcdpEventAttributeById(request: DeleteMcdpEventAttributeByIdRequest): Promise<DeleteMcdpEventAttributeByIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteMcdpEventAttributeByIdWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request DeleteMcdpEventByIdRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMcdpEventByIdResponse
-   */
-  async deleteMcdpEventByIdWithOptions(request: DeleteMcdpEventByIdRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcdpEventByIdResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMappcenterMcdpEventDeleteJsonStr)) {
-      body["MpaasMappcenterMcdpEventDeleteJsonStr"] = request.mpaasMappcenterMcdpEventDeleteJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteMcdpEventById",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteMcdpEventByIdResponse>(await this.callApi(params, req, runtime), new DeleteMcdpEventByIdResponse({}));
-  }
-
-  /**
-   * @param request DeleteMcdpEventByIdRequest
-   * @return DeleteMcdpEventByIdResponse
-   */
-  async deleteMcdpEventById(request: DeleteMcdpEventByIdRequest): Promise<DeleteMcdpEventByIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteMcdpEventByIdWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request DeleteMcdpMaterialRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMcdpMaterialResponse
-   */
-  async deleteMcdpMaterialWithOptions(request: DeleteMcdpMaterialRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcdpMaterialResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMappcenterMcdpMaterialDeleteJsonStr)) {
-      body["MpaasMappcenterMcdpMaterialDeleteJsonStr"] = request.mpaasMappcenterMcdpMaterialDeleteJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteMcdpMaterial",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteMcdpMaterialResponse>(await this.callApi(params, req, runtime), new DeleteMcdpMaterialResponse({}));
-  }
-
-  /**
-   * @param request DeleteMcdpMaterialRequest
-   * @return DeleteMcdpMaterialResponse
-   */
-  async deleteMcdpMaterial(request: DeleteMcdpMaterialRequest): Promise<DeleteMcdpMaterialResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteMcdpMaterialWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request DeleteMcdpZoneRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMcdpZoneResponse
-   */
-  async deleteMcdpZoneWithOptions(request: DeleteMcdpZoneRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcdpZoneResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMappcenterMcdpZoneDeleteJsonStr)) {
+    if (!$dara.isNull(request.mpaasMappcenterMcdpZoneDeleteJsonStr)) {
       body["MpaasMappcenterMcdpZoneDeleteJsonStr"] = request.mpaasMappcenterMcdpZoneDeleteJsonStr;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteMcdpZone",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20275,46 +1931,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteMcdpZoneResponse>(await this.callApi(params, req, runtime), new DeleteMcdpZoneResponse({}));
+    return $dara.cast<$_model.DeleteMcdpZoneResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMcdpZoneResponse({}));
   }
 
   /**
-   * @param request DeleteMcdpZoneRequest
-   * @return DeleteMcdpZoneResponse
+   * @param request - DeleteMcdpZoneRequest
+   * @returns DeleteMcdpZoneResponse
    */
-  async deleteMcdpZone(request: DeleteMcdpZoneRequest): Promise<DeleteMcdpZoneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteMcdpZone(request: $_model.DeleteMcdpZoneRequest): Promise<$_model.DeleteMcdpZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMcdpZoneWithOptions(request, runtime);
   }
 
   /**
-   * @param request DeleteMcubeMiniAppRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMcubeMiniAppResponse
+   * @param request - DeleteMcubeMiniAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMcubeMiniAppResponse
    */
-  async deleteMcubeMiniAppWithOptions(request: DeleteMcubeMiniAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcubeMiniAppResponse> {
-    Util.validateModel(request);
+  async deleteMcubeMiniAppWithOptions(request: $_model.DeleteMcubeMiniAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMcubeMiniAppResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.h5Id)) {
+    if (!$dara.isNull(request.h5Id)) {
       body["H5Id"] = request.h5Id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteMcubeMiniApp",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20325,46 +1981,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteMcubeMiniAppResponse>(await this.callApi(params, req, runtime), new DeleteMcubeMiniAppResponse({}));
+    return $dara.cast<$_model.DeleteMcubeMiniAppResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMcubeMiniAppResponse({}));
   }
 
   /**
-   * @param request DeleteMcubeMiniAppRequest
-   * @return DeleteMcubeMiniAppResponse
+   * @param request - DeleteMcubeMiniAppRequest
+   * @returns DeleteMcubeMiniAppResponse
    */
-  async deleteMcubeMiniApp(request: DeleteMcubeMiniAppRequest): Promise<DeleteMcubeMiniAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteMcubeMiniApp(request: $_model.DeleteMcubeMiniAppRequest): Promise<$_model.DeleteMcubeMiniAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMcubeMiniAppWithOptions(request, runtime);
   }
 
   /**
-   * @param request DeleteMcubeNebulaAppRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMcubeNebulaAppResponse
+   * @param request - DeleteMcubeNebulaAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMcubeNebulaAppResponse
    */
-  async deleteMcubeNebulaAppWithOptions(request: DeleteMcubeNebulaAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcubeNebulaAppResponse> {
-    Util.validateModel(request);
+  async deleteMcubeNebulaAppWithOptions(request: $_model.DeleteMcubeNebulaAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMcubeNebulaAppResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.h5Id)) {
+    if (!$dara.isNull(request.h5Id)) {
       body["H5Id"] = request.h5Id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteMcubeNebulaApp",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20375,50 +2031,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteMcubeNebulaAppResponse>(await this.callApi(params, req, runtime), new DeleteMcubeNebulaAppResponse({}));
+    return $dara.cast<$_model.DeleteMcubeNebulaAppResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMcubeNebulaAppResponse({}));
   }
 
   /**
-   * @param request DeleteMcubeNebulaAppRequest
-   * @return DeleteMcubeNebulaAppResponse
+   * @param request - DeleteMcubeNebulaAppRequest
+   * @returns DeleteMcubeNebulaAppResponse
    */
-  async deleteMcubeNebulaApp(request: DeleteMcubeNebulaAppRequest): Promise<DeleteMcubeNebulaAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteMcubeNebulaApp(request: $_model.DeleteMcubeNebulaAppRequest): Promise<$_model.DeleteMcubeNebulaAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMcubeNebulaAppWithOptions(request, runtime);
   }
 
   /**
-   * @param request DeleteMcubeUpgradeResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMcubeUpgradeResourceResponse
+   * @param request - DeleteMcubeUpgradeResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMcubeUpgradeResourceResponse
    */
-  async deleteMcubeUpgradeResourceWithOptions(request: DeleteMcubeUpgradeResourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcubeUpgradeResourceResponse> {
-    Util.validateModel(request);
+  async deleteMcubeUpgradeResourceWithOptions(request: $_model.DeleteMcubeUpgradeResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMcubeUpgradeResourceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.platform)) {
+    if (!$dara.isNull(request.platform)) {
       body["Platform"] = request.platform;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteMcubeUpgradeResource",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20429,46 +2085,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteMcubeUpgradeResourceResponse>(await this.callApi(params, req, runtime), new DeleteMcubeUpgradeResourceResponse({}));
+    return $dara.cast<$_model.DeleteMcubeUpgradeResourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMcubeUpgradeResourceResponse({}));
   }
 
   /**
-   * @param request DeleteMcubeUpgradeResourceRequest
-   * @return DeleteMcubeUpgradeResourceResponse
+   * @param request - DeleteMcubeUpgradeResourceRequest
+   * @returns DeleteMcubeUpgradeResourceResponse
    */
-  async deleteMcubeUpgradeResource(request: DeleteMcubeUpgradeResourceRequest): Promise<DeleteMcubeUpgradeResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteMcubeUpgradeResource(request: $_model.DeleteMcubeUpgradeResourceRequest): Promise<$_model.DeleteMcubeUpgradeResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMcubeUpgradeResourceWithOptions(request, runtime);
   }
 
   /**
-   * @param request DeleteMcubeWhitelistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMcubeWhitelistResponse
+   * @param request - DeleteMcubeWhitelistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMcubeWhitelistResponse
    */
-  async deleteMcubeWhitelistWithOptions(request: DeleteMcubeWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMcubeWhitelistResponse> {
-    Util.validateModel(request);
+  async deleteMcubeWhitelistWithOptions(request: $_model.DeleteMcubeWhitelistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMcubeWhitelistResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteMcubeWhitelist",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20479,50 +2135,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteMcubeWhitelistResponse>(await this.callApi(params, req, runtime), new DeleteMcubeWhitelistResponse({}));
+    return $dara.cast<$_model.DeleteMcubeWhitelistResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMcubeWhitelistResponse({}));
   }
 
   /**
-   * @param request DeleteMcubeWhitelistRequest
-   * @return DeleteMcubeWhitelistResponse
+   * @param request - DeleteMcubeWhitelistRequest
+   * @returns DeleteMcubeWhitelistResponse
    */
-  async deleteMcubeWhitelist(request: DeleteMcubeWhitelistRequest): Promise<DeleteMcubeWhitelistResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteMcubeWhitelist(request: $_model.DeleteMcubeWhitelistRequest): Promise<$_model.DeleteMcubeWhitelistResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMcubeWhitelistWithOptions(request, runtime);
   }
 
   /**
-   * @param request DeleteMdsWhitelistContentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMdsWhitelistContentResponse
+   * @param request - DeleteMdsWhitelistContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMdsWhitelistContentResponse
    */
-  async deleteMdsWhitelistContentWithOptions(request: DeleteMdsWhitelistContentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMdsWhitelistContentResponse> {
-    Util.validateModel(request);
+  async deleteMdsWhitelistContentWithOptions(request: $_model.DeleteMdsWhitelistContentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMdsWhitelistContentResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.whitelistId)) {
+    if (!$dara.isNull(request.whitelistId)) {
       body["WhitelistId"] = request.whitelistId;
     }
 
-    if (!Util.isUnset(request.whitelistValue)) {
+    if (!$dara.isNull(request.whitelistValue)) {
       body["WhitelistValue"] = request.whitelistValue;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteMdsWhitelistContent",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20533,42 +2189,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteMdsWhitelistContentResponse>(await this.callApi(params, req, runtime), new DeleteMdsWhitelistContentResponse({}));
+    return $dara.cast<$_model.DeleteMdsWhitelistContentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMdsWhitelistContentResponse({}));
   }
 
   /**
-   * @param request DeleteMdsWhitelistContentRequest
-   * @return DeleteMdsWhitelistContentResponse
+   * @param request - DeleteMdsWhitelistContentRequest
+   * @returns DeleteMdsWhitelistContentResponse
    */
-  async deleteMdsWhitelistContent(request: DeleteMdsWhitelistContentRequest): Promise<DeleteMdsWhitelistContentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteMdsWhitelistContent(request: $_model.DeleteMdsWhitelistContentRequest): Promise<$_model.DeleteMdsWhitelistContentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMdsWhitelistContentWithOptions(request, runtime);
   }
 
   /**
-   * @param request ExistMcubeRsaKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExistMcubeRsaKeyResponse
+   * @param request - ExistMcubeRsaKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExistMcubeRsaKeyResponse
    */
-  async existMcubeRsaKeyWithOptions(request: ExistMcubeRsaKeyRequest, runtime: $Util.RuntimeOptions): Promise<ExistMcubeRsaKeyResponse> {
-    Util.validateModel(request);
+  async existMcubeRsaKeyWithOptions(request: $_model.ExistMcubeRsaKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExistMcubeRsaKeyResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ExistMcubeRsaKey",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20579,58 +2235,58 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExistMcubeRsaKeyResponse>(await this.callApi(params, req, runtime), new ExistMcubeRsaKeyResponse({}));
+    return $dara.cast<$_model.ExistMcubeRsaKeyResponse>(await this.callApi(params, req, runtime), new $_model.ExistMcubeRsaKeyResponse({}));
   }
 
   /**
-   * @param request ExistMcubeRsaKeyRequest
-   * @return ExistMcubeRsaKeyResponse
+   * @param request - ExistMcubeRsaKeyRequest
+   * @returns ExistMcubeRsaKeyResponse
    */
-  async existMcubeRsaKey(request: ExistMcubeRsaKeyRequest): Promise<ExistMcubeRsaKeyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async existMcubeRsaKey(request: $_model.ExistMcubeRsaKeyRequest): Promise<$_model.ExistMcubeRsaKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.existMcubeRsaKeyWithOptions(request, runtime);
   }
 
   /**
-   * @param request ExportMappCenterAppConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExportMappCenterAppConfigResponse
+   * @param request - ExportMappCenterAppConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportMappCenterAppConfigResponse
    */
-  async exportMappCenterAppConfigWithOptions(request: ExportMappCenterAppConfigRequest, runtime: $Util.RuntimeOptions): Promise<ExportMappCenterAppConfigResponse> {
-    Util.validateModel(request);
+  async exportMappCenterAppConfigWithOptions(request: $_model.ExportMappCenterAppConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExportMappCenterAppConfigResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.apkFileUrl)) {
+    if (!$dara.isNull(request.apkFileUrl)) {
       body["ApkFileUrl"] = request.apkFileUrl;
     }
 
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.certRsaBase64)) {
+    if (!$dara.isNull(request.certRsaBase64)) {
       body["CertRsaBase64"] = request.certRsaBase64;
     }
 
-    if (!Util.isUnset(request.identifier)) {
+    if (!$dara.isNull(request.identifier)) {
       body["Identifier"] = request.identifier;
     }
 
-    if (!Util.isUnset(request.onexFlag)) {
+    if (!$dara.isNull(request.onexFlag)) {
       body["OnexFlag"] = request.onexFlag;
     }
 
-    if (!Util.isUnset(request.systemType)) {
+    if (!$dara.isNull(request.systemType)) {
       body["SystemType"] = request.systemType;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ExportMappCenterAppConfig",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20641,46 +2297,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExportMappCenterAppConfigResponse>(await this.callApi(params, req, runtime), new ExportMappCenterAppConfigResponse({}));
+    return $dara.cast<$_model.ExportMappCenterAppConfigResponse>(await this.callApi(params, req, runtime), new $_model.ExportMappCenterAppConfigResponse({}));
   }
 
   /**
-   * @param request ExportMappCenterAppConfigRequest
-   * @return ExportMappCenterAppConfigResponse
+   * @param request - ExportMappCenterAppConfigRequest
+   * @returns ExportMappCenterAppConfigResponse
    */
-  async exportMappCenterAppConfig(request: ExportMappCenterAppConfigRequest): Promise<ExportMappCenterAppConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async exportMappCenterAppConfig(request: $_model.ExportMappCenterAppConfigRequest): Promise<$_model.ExportMappCenterAppConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.exportMappCenterAppConfigWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetFileTokenForUploadToMsaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFileTokenForUploadToMsaResponse
+   * @param request - GetFileTokenForUploadToMsaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileTokenForUploadToMsaResponse
    */
-  async getFileTokenForUploadToMsaWithOptions(request: GetFileTokenForUploadToMsaRequest, runtime: $Util.RuntimeOptions): Promise<GetFileTokenForUploadToMsaResponse> {
-    Util.validateModel(request);
+  async getFileTokenForUploadToMsaWithOptions(request: $_model.GetFileTokenForUploadToMsaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFileTokenForUploadToMsaResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.onexFlag)) {
+    if (!$dara.isNull(request.onexFlag)) {
       body["OnexFlag"] = request.onexFlag;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetFileTokenForUploadToMsa",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20691,46 +2347,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetFileTokenForUploadToMsaResponse>(await this.callApi(params, req, runtime), new GetFileTokenForUploadToMsaResponse({}));
+    return $dara.cast<$_model.GetFileTokenForUploadToMsaResponse>(await this.callApi(params, req, runtime), new $_model.GetFileTokenForUploadToMsaResponse({}));
   }
 
   /**
-   * @param request GetFileTokenForUploadToMsaRequest
-   * @return GetFileTokenForUploadToMsaResponse
+   * @param request - GetFileTokenForUploadToMsaRequest
+   * @returns GetFileTokenForUploadToMsaResponse
    */
-  async getFileTokenForUploadToMsa(request: GetFileTokenForUploadToMsaRequest): Promise<GetFileTokenForUploadToMsaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getFileTokenForUploadToMsa(request: $_model.GetFileTokenForUploadToMsaRequest): Promise<$_model.GetFileTokenForUploadToMsaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getFileTokenForUploadToMsaWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetLogUrlInMsaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLogUrlInMsaResponse
+   * @param request - GetLogUrlInMsaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLogUrlInMsaResponse
    */
-  async getLogUrlInMsaWithOptions(request: GetLogUrlInMsaRequest, runtime: $Util.RuntimeOptions): Promise<GetLogUrlInMsaResponse> {
-    Util.validateModel(request);
+  async getLogUrlInMsaWithOptions(request: $_model.GetLogUrlInMsaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLogUrlInMsaResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetLogUrlInMsa",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20741,46 +2397,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetLogUrlInMsaResponse>(await this.callApi(params, req, runtime), new GetLogUrlInMsaResponse({}));
+    return $dara.cast<$_model.GetLogUrlInMsaResponse>(await this.callApi(params, req, runtime), new $_model.GetLogUrlInMsaResponse({}));
   }
 
   /**
-   * @param request GetLogUrlInMsaRequest
-   * @return GetLogUrlInMsaResponse
+   * @param request - GetLogUrlInMsaRequest
+   * @returns GetLogUrlInMsaResponse
    */
-  async getLogUrlInMsa(request: GetLogUrlInMsaRequest): Promise<GetLogUrlInMsaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getLogUrlInMsa(request: $_model.GetLogUrlInMsaRequest): Promise<$_model.GetLogUrlInMsaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getLogUrlInMsaWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetMcubeFileTokenRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMcubeFileTokenResponse
+   * @param request - GetMcubeFileTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMcubeFileTokenResponse
    */
-  async getMcubeFileTokenWithOptions(request: GetMcubeFileTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetMcubeFileTokenResponse> {
-    Util.validateModel(request);
+  async getMcubeFileTokenWithOptions(request: $_model.GetMcubeFileTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMcubeFileTokenResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.onexFlag)) {
+    if (!$dara.isNull(request.onexFlag)) {
       body["OnexFlag"] = request.onexFlag;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMcubeFileToken",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20791,46 +2447,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMcubeFileTokenResponse>(await this.callApi(params, req, runtime), new GetMcubeFileTokenResponse({}));
+    return $dara.cast<$_model.GetMcubeFileTokenResponse>(await this.callApi(params, req, runtime), new $_model.GetMcubeFileTokenResponse({}));
   }
 
   /**
-   * @param request GetMcubeFileTokenRequest
-   * @return GetMcubeFileTokenResponse
+   * @param request - GetMcubeFileTokenRequest
+   * @returns GetMcubeFileTokenResponse
    */
-  async getMcubeFileToken(request: GetMcubeFileTokenRequest): Promise<GetMcubeFileTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getMcubeFileToken(request: $_model.GetMcubeFileTokenRequest): Promise<$_model.GetMcubeFileTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getMcubeFileTokenWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetMcubeNebulaResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMcubeNebulaResourceResponse
+   * @param request - GetMcubeNebulaResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMcubeNebulaResourceResponse
    */
-  async getMcubeNebulaResourceWithOptions(request: GetMcubeNebulaResourceRequest, runtime: $Util.RuntimeOptions): Promise<GetMcubeNebulaResourceResponse> {
-    Util.validateModel(request);
+  async getMcubeNebulaResourceWithOptions(request: $_model.GetMcubeNebulaResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMcubeNebulaResourceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMcubeNebulaResource",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20841,46 +2497,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMcubeNebulaResourceResponse>(await this.callApi(params, req, runtime), new GetMcubeNebulaResourceResponse({}));
+    return $dara.cast<$_model.GetMcubeNebulaResourceResponse>(await this.callApi(params, req, runtime), new $_model.GetMcubeNebulaResourceResponse({}));
   }
 
   /**
-   * @param request GetMcubeNebulaResourceRequest
-   * @return GetMcubeNebulaResourceResponse
+   * @param request - GetMcubeNebulaResourceRequest
+   * @returns GetMcubeNebulaResourceResponse
    */
-  async getMcubeNebulaResource(request: GetMcubeNebulaResourceRequest): Promise<GetMcubeNebulaResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getMcubeNebulaResource(request: $_model.GetMcubeNebulaResourceRequest): Promise<$_model.GetMcubeNebulaResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getMcubeNebulaResourceWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetMcubeNebulaTaskDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMcubeNebulaTaskDetailResponse
+   * @param request - GetMcubeNebulaTaskDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMcubeNebulaTaskDetailResponse
    */
-  async getMcubeNebulaTaskDetailWithOptions(request: GetMcubeNebulaTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetMcubeNebulaTaskDetailResponse> {
-    Util.validateModel(request);
+  async getMcubeNebulaTaskDetailWithOptions(request: $_model.GetMcubeNebulaTaskDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMcubeNebulaTaskDetailResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMcubeNebulaTaskDetail",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20891,46 +2547,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMcubeNebulaTaskDetailResponse>(await this.callApi(params, req, runtime), new GetMcubeNebulaTaskDetailResponse({}));
+    return $dara.cast<$_model.GetMcubeNebulaTaskDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetMcubeNebulaTaskDetailResponse({}));
   }
 
   /**
-   * @param request GetMcubeNebulaTaskDetailRequest
-   * @return GetMcubeNebulaTaskDetailResponse
+   * @param request - GetMcubeNebulaTaskDetailRequest
+   * @returns GetMcubeNebulaTaskDetailResponse
    */
-  async getMcubeNebulaTaskDetail(request: GetMcubeNebulaTaskDetailRequest): Promise<GetMcubeNebulaTaskDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getMcubeNebulaTaskDetail(request: $_model.GetMcubeNebulaTaskDetailRequest): Promise<$_model.GetMcubeNebulaTaskDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getMcubeNebulaTaskDetailWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetMcubeUpgradePackageInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMcubeUpgradePackageInfoResponse
+   * @param request - GetMcubeUpgradePackageInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMcubeUpgradePackageInfoResponse
    */
-  async getMcubeUpgradePackageInfoWithOptions(request: GetMcubeUpgradePackageInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMcubeUpgradePackageInfoResponse> {
-    Util.validateModel(request);
+  async getMcubeUpgradePackageInfoWithOptions(request: $_model.GetMcubeUpgradePackageInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMcubeUpgradePackageInfoResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.packageId)) {
+    if (!$dara.isNull(request.packageId)) {
       body["PackageId"] = request.packageId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMcubeUpgradePackageInfo",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20941,46 +2597,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMcubeUpgradePackageInfoResponse>(await this.callApi(params, req, runtime), new GetMcubeUpgradePackageInfoResponse({}));
+    return $dara.cast<$_model.GetMcubeUpgradePackageInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetMcubeUpgradePackageInfoResponse({}));
   }
 
   /**
-   * @param request GetMcubeUpgradePackageInfoRequest
-   * @return GetMcubeUpgradePackageInfoResponse
+   * @param request - GetMcubeUpgradePackageInfoRequest
+   * @returns GetMcubeUpgradePackageInfoResponse
    */
-  async getMcubeUpgradePackageInfo(request: GetMcubeUpgradePackageInfoRequest): Promise<GetMcubeUpgradePackageInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getMcubeUpgradePackageInfo(request: $_model.GetMcubeUpgradePackageInfoRequest): Promise<$_model.GetMcubeUpgradePackageInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getMcubeUpgradePackageInfoWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetMcubeUpgradeTaskInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMcubeUpgradeTaskInfoResponse
+   * @param request - GetMcubeUpgradeTaskInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMcubeUpgradeTaskInfoResponse
    */
-  async getMcubeUpgradeTaskInfoWithOptions(request: GetMcubeUpgradeTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMcubeUpgradeTaskInfoResponse> {
-    Util.validateModel(request);
+  async getMcubeUpgradeTaskInfoWithOptions(request: $_model.GetMcubeUpgradeTaskInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMcubeUpgradeTaskInfoResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMcubeUpgradeTaskInfo",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -20991,46 +2647,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMcubeUpgradeTaskInfoResponse>(await this.callApi(params, req, runtime), new GetMcubeUpgradeTaskInfoResponse({}));
+    return $dara.cast<$_model.GetMcubeUpgradeTaskInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetMcubeUpgradeTaskInfoResponse({}));
   }
 
   /**
-   * @param request GetMcubeUpgradeTaskInfoRequest
-   * @return GetMcubeUpgradeTaskInfoResponse
+   * @param request - GetMcubeUpgradeTaskInfoRequest
+   * @returns GetMcubeUpgradeTaskInfoResponse
    */
-  async getMcubeUpgradeTaskInfo(request: GetMcubeUpgradeTaskInfoRequest): Promise<GetMcubeUpgradeTaskInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getMcubeUpgradeTaskInfo(request: $_model.GetMcubeUpgradeTaskInfoRequest): Promise<$_model.GetMcubeUpgradeTaskInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getMcubeUpgradeTaskInfoWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetMdsMiniConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMdsMiniConfigResponse
+   * @param request - GetMdsMiniConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMdsMiniConfigResponse
    */
-  async getMdsMiniConfigWithOptions(request: GetMdsMiniConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetMdsMiniConfigResponse> {
-    Util.validateModel(request);
+  async getMdsMiniConfigWithOptions(request: $_model.GetMdsMiniConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMdsMiniConfigResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.h5Id)) {
+    if (!$dara.isNull(request.h5Id)) {
       body["H5Id"] = request.h5Id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMdsMiniConfig",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21041,46 +2697,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMdsMiniConfigResponse>(await this.callApi(params, req, runtime), new GetMdsMiniConfigResponse({}));
+    return $dara.cast<$_model.GetMdsMiniConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetMdsMiniConfigResponse({}));
   }
 
   /**
-   * @param request GetMdsMiniConfigRequest
-   * @return GetMdsMiniConfigResponse
+   * @param request - GetMdsMiniConfigRequest
+   * @returns GetMdsMiniConfigResponse
    */
-  async getMdsMiniConfig(request: GetMdsMiniConfigRequest): Promise<GetMdsMiniConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getMdsMiniConfig(request: $_model.GetMdsMiniConfigRequest): Promise<$_model.GetMdsMiniConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getMdsMiniConfigWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetUserAppDonwloadUrlInMsaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserAppDonwloadUrlInMsaResponse
+   * @param request - GetUserAppDonwloadUrlInMsaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserAppDonwloadUrlInMsaResponse
    */
-  async getUserAppDonwloadUrlInMsaWithOptions(request: GetUserAppDonwloadUrlInMsaRequest, runtime: $Util.RuntimeOptions): Promise<GetUserAppDonwloadUrlInMsaResponse> {
-    Util.validateModel(request);
+  async getUserAppDonwloadUrlInMsaWithOptions(request: $_model.GetUserAppDonwloadUrlInMsaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserAppDonwloadUrlInMsaResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetUserAppDonwloadUrlInMsa",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21091,46 +2747,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetUserAppDonwloadUrlInMsaResponse>(await this.callApi(params, req, runtime), new GetUserAppDonwloadUrlInMsaResponse({}));
+    return $dara.cast<$_model.GetUserAppDonwloadUrlInMsaResponse>(await this.callApi(params, req, runtime), new $_model.GetUserAppDonwloadUrlInMsaResponse({}));
   }
 
   /**
-   * @param request GetUserAppDonwloadUrlInMsaRequest
-   * @return GetUserAppDonwloadUrlInMsaResponse
+   * @param request - GetUserAppDonwloadUrlInMsaRequest
+   * @returns GetUserAppDonwloadUrlInMsaResponse
    */
-  async getUserAppDonwloadUrlInMsa(request: GetUserAppDonwloadUrlInMsaRequest): Promise<GetUserAppDonwloadUrlInMsaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getUserAppDonwloadUrlInMsa(request: $_model.GetUserAppDonwloadUrlInMsaRequest): Promise<$_model.GetUserAppDonwloadUrlInMsaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserAppDonwloadUrlInMsaWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetUserAppEnhanceProcessInMsaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserAppEnhanceProcessInMsaResponse
+   * @param request - GetUserAppEnhanceProcessInMsaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserAppEnhanceProcessInMsaResponse
    */
-  async getUserAppEnhanceProcessInMsaWithOptions(request: GetUserAppEnhanceProcessInMsaRequest, runtime: $Util.RuntimeOptions): Promise<GetUserAppEnhanceProcessInMsaResponse> {
-    Util.validateModel(request);
+  async getUserAppEnhanceProcessInMsaWithOptions(request: $_model.GetUserAppEnhanceProcessInMsaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserAppEnhanceProcessInMsaResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetUserAppEnhanceProcessInMsa",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21141,46 +2797,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetUserAppEnhanceProcessInMsaResponse>(await this.callApi(params, req, runtime), new GetUserAppEnhanceProcessInMsaResponse({}));
+    return $dara.cast<$_model.GetUserAppEnhanceProcessInMsaResponse>(await this.callApi(params, req, runtime), new $_model.GetUserAppEnhanceProcessInMsaResponse({}));
   }
 
   /**
-   * @param request GetUserAppEnhanceProcessInMsaRequest
-   * @return GetUserAppEnhanceProcessInMsaResponse
+   * @param request - GetUserAppEnhanceProcessInMsaRequest
+   * @returns GetUserAppEnhanceProcessInMsaResponse
    */
-  async getUserAppEnhanceProcessInMsa(request: GetUserAppEnhanceProcessInMsaRequest): Promise<GetUserAppEnhanceProcessInMsaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getUserAppEnhanceProcessInMsa(request: $_model.GetUserAppEnhanceProcessInMsaRequest): Promise<$_model.GetUserAppEnhanceProcessInMsaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserAppEnhanceProcessInMsaWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetUserAppUploadProcessInMsaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserAppUploadProcessInMsaResponse
+   * @param request - GetUserAppUploadProcessInMsaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserAppUploadProcessInMsaResponse
    */
-  async getUserAppUploadProcessInMsaWithOptions(request: GetUserAppUploadProcessInMsaRequest, runtime: $Util.RuntimeOptions): Promise<GetUserAppUploadProcessInMsaResponse> {
-    Util.validateModel(request);
+  async getUserAppUploadProcessInMsaWithOptions(request: $_model.GetUserAppUploadProcessInMsaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserAppUploadProcessInMsaResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetUserAppUploadProcessInMsa",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21191,26 +2847,26 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetUserAppUploadProcessInMsaResponse>(await this.callApi(params, req, runtime), new GetUserAppUploadProcessInMsaResponse({}));
+    return $dara.cast<$_model.GetUserAppUploadProcessInMsaResponse>(await this.callApi(params, req, runtime), new $_model.GetUserAppUploadProcessInMsaResponse({}));
   }
 
   /**
-   * @param request GetUserAppUploadProcessInMsaRequest
-   * @return GetUserAppUploadProcessInMsaResponse
+   * @param request - GetUserAppUploadProcessInMsaRequest
+   * @returns GetUserAppUploadProcessInMsaResponse
    */
-  async getUserAppUploadProcessInMsa(request: GetUserAppUploadProcessInMsaRequest): Promise<GetUserAppUploadProcessInMsaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getUserAppUploadProcessInMsa(request: $_model.GetUserAppUploadProcessInMsaRequest): Promise<$_model.GetUserAppUploadProcessInMsaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserAppUploadProcessInMsaWithOptions(request, runtime);
   }
 
   /**
-   * @param request ListMappCenterAppsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMappCenterAppsResponse
+   * @param request - ListMappCenterAppsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMappCenterAppsResponse
    */
-  async listMappCenterAppsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListMappCenterAppsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async listMappCenterAppsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListMappCenterAppsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "ListMappCenterApps",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21221,25 +2877,25 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMappCenterAppsResponse>(await this.callApi(params, req, runtime), new ListMappCenterAppsResponse({}));
+    return $dara.cast<$_model.ListMappCenterAppsResponse>(await this.callApi(params, req, runtime), new $_model.ListMappCenterAppsResponse({}));
   }
 
   /**
-   * @return ListMappCenterAppsResponse
+   * @returns ListMappCenterAppsResponse
    */
-  async listMappCenterApps(): Promise<ListMappCenterAppsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listMappCenterApps(): Promise<$_model.ListMappCenterAppsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMappCenterAppsWithOptions(runtime);
   }
 
   /**
-   * @param request ListMappCenterWorkspacesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMappCenterWorkspacesResponse
+   * @param request - ListMappCenterWorkspacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMappCenterWorkspacesResponse
    */
-  async listMappCenterWorkspacesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListMappCenterWorkspacesResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async listMappCenterWorkspacesWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListMappCenterWorkspacesResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "ListMappCenterWorkspaces",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21250,73 +2906,73 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMappCenterWorkspacesResponse>(await this.callApi(params, req, runtime), new ListMappCenterWorkspacesResponse({}));
+    return $dara.cast<$_model.ListMappCenterWorkspacesResponse>(await this.callApi(params, req, runtime), new $_model.ListMappCenterWorkspacesResponse({}));
   }
 
   /**
-   * @return ListMappCenterWorkspacesResponse
+   * @returns ListMappCenterWorkspacesResponse
    */
-  async listMappCenterWorkspaces(): Promise<ListMappCenterWorkspacesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listMappCenterWorkspaces(): Promise<$_model.ListMappCenterWorkspacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMappCenterWorkspacesWithOptions(runtime);
   }
 
   /**
-   * @param request ListMcdpAimRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMcdpAimResponse
+   * @param request - ListMcdpAimRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcdpAimResponse
    */
-  async listMcdpAimWithOptions(request: ListMcdpAimRequest, runtime: $Util.RuntimeOptions): Promise<ListMcdpAimResponse> {
-    Util.validateModel(request);
+  async listMcdpAimWithOptions(request: $_model.ListMcdpAimRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcdpAimResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.emptyTag)) {
+    if (!$dara.isNull(request.emptyTag)) {
       body["EmptyTag"] = request.emptyTag;
     }
 
-    if (!Util.isUnset(request.keyword)) {
+    if (!$dara.isNull(request.keyword)) {
       body["Keyword"] = request.keyword;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       body["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.sort)) {
+    if (!$dara.isNull(request.sort)) {
       body["Sort"] = request.sort;
     }
 
-    if (!Util.isUnset(request.sortField)) {
+    if (!$dara.isNull(request.sortField)) {
       body["SortField"] = request.sortField;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMcdpAim",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21327,54 +2983,54 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMcdpAimResponse>(await this.callApi(params, req, runtime), new ListMcdpAimResponse({}));
+    return $dara.cast<$_model.ListMcdpAimResponse>(await this.callApi(params, req, runtime), new $_model.ListMcdpAimResponse({}));
   }
 
   /**
-   * @param request ListMcdpAimRequest
-   * @return ListMcdpAimResponse
+   * @param request - ListMcdpAimRequest
+   * @returns ListMcdpAimResponse
    */
-  async listMcdpAim(request: ListMcdpAimRequest): Promise<ListMcdpAimResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listMcdpAim(request: $_model.ListMcdpAimRequest): Promise<$_model.ListMcdpAimResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMcdpAimWithOptions(request, runtime);
   }
 
   /**
-   * @param request ListMcubeMiniAppsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMcubeMiniAppsResponse
+   * @param request - ListMcubeMiniAppsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcubeMiniAppsResponse
    */
-  async listMcubeMiniAppsWithOptions(request: ListMcubeMiniAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeMiniAppsResponse> {
-    Util.validateModel(request);
+  async listMcubeMiniAppsWithOptions(request: $_model.ListMcubeMiniAppsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcubeMiniAppsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.keyword)) {
+    if (!$dara.isNull(request.keyword)) {
       body["Keyword"] = request.keyword;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       body["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMcubeMiniApps",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21385,58 +3041,58 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMcubeMiniAppsResponse>(await this.callApi(params, req, runtime), new ListMcubeMiniAppsResponse({}));
+    return $dara.cast<$_model.ListMcubeMiniAppsResponse>(await this.callApi(params, req, runtime), new $_model.ListMcubeMiniAppsResponse({}));
   }
 
   /**
-   * @param request ListMcubeMiniAppsRequest
-   * @return ListMcubeMiniAppsResponse
+   * @param request - ListMcubeMiniAppsRequest
+   * @returns ListMcubeMiniAppsResponse
    */
-  async listMcubeMiniApps(request: ListMcubeMiniAppsRequest): Promise<ListMcubeMiniAppsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listMcubeMiniApps(request: $_model.ListMcubeMiniAppsRequest): Promise<$_model.ListMcubeMiniAppsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMcubeMiniAppsWithOptions(request, runtime);
   }
 
   /**
-   * @param request ListMcubeMiniPackagesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMcubeMiniPackagesResponse
+   * @param request - ListMcubeMiniPackagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcubeMiniPackagesResponse
    */
-  async listMcubeMiniPackagesWithOptions(request: ListMcubeMiniPackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeMiniPackagesResponse> {
-    Util.validateModel(request);
+  async listMcubeMiniPackagesWithOptions(request: $_model.ListMcubeMiniPackagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcubeMiniPackagesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.h5Id)) {
+    if (!$dara.isNull(request.h5Id)) {
       body["H5Id"] = request.h5Id;
     }
 
-    if (!Util.isUnset(request.packageTypes)) {
+    if (!$dara.isNull(request.packageTypes)) {
       body["PackageTypes"] = request.packageTypes;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       body["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMcubeMiniPackages",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21447,46 +3103,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMcubeMiniPackagesResponse>(await this.callApi(params, req, runtime), new ListMcubeMiniPackagesResponse({}));
+    return $dara.cast<$_model.ListMcubeMiniPackagesResponse>(await this.callApi(params, req, runtime), new $_model.ListMcubeMiniPackagesResponse({}));
   }
 
   /**
-   * @param request ListMcubeMiniPackagesRequest
-   * @return ListMcubeMiniPackagesResponse
+   * @param request - ListMcubeMiniPackagesRequest
+   * @returns ListMcubeMiniPackagesResponse
    */
-  async listMcubeMiniPackages(request: ListMcubeMiniPackagesRequest): Promise<ListMcubeMiniPackagesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listMcubeMiniPackages(request: $_model.ListMcubeMiniPackagesRequest): Promise<$_model.ListMcubeMiniPackagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMcubeMiniPackagesWithOptions(request, runtime);
   }
 
   /**
-   * @param request ListMcubeMiniTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMcubeMiniTasksResponse
+   * @param request - ListMcubeMiniTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcubeMiniTasksResponse
    */
-  async listMcubeMiniTasksWithOptions(request: ListMcubeMiniTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeMiniTasksResponse> {
-    Util.validateModel(request);
+  async listMcubeMiniTasksWithOptions(request: $_model.ListMcubeMiniTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcubeMiniTasksResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMcubeMiniTasks",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21497,54 +3153,54 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMcubeMiniTasksResponse>(await this.callApi(params, req, runtime), new ListMcubeMiniTasksResponse({}));
+    return $dara.cast<$_model.ListMcubeMiniTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListMcubeMiniTasksResponse({}));
   }
 
   /**
-   * @param request ListMcubeMiniTasksRequest
-   * @return ListMcubeMiniTasksResponse
+   * @param request - ListMcubeMiniTasksRequest
+   * @returns ListMcubeMiniTasksResponse
    */
-  async listMcubeMiniTasks(request: ListMcubeMiniTasksRequest): Promise<ListMcubeMiniTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listMcubeMiniTasks(request: $_model.ListMcubeMiniTasksRequest): Promise<$_model.ListMcubeMiniTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMcubeMiniTasksWithOptions(request, runtime);
   }
 
   /**
-   * @param request ListMcubeNebulaAppsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMcubeNebulaAppsResponse
+   * @param request - ListMcubeNebulaAppsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcubeNebulaAppsResponse
    */
-  async listMcubeNebulaAppsWithOptions(request: ListMcubeNebulaAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeNebulaAppsResponse> {
-    Util.validateModel(request);
+  async listMcubeNebulaAppsWithOptions(request: $_model.ListMcubeNebulaAppsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcubeNebulaAppsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.keyword)) {
+    if (!$dara.isNull(request.keyword)) {
       body["Keyword"] = request.keyword;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       body["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMcubeNebulaApps",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21555,54 +3211,54 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMcubeNebulaAppsResponse>(await this.callApi(params, req, runtime), new ListMcubeNebulaAppsResponse({}));
+    return $dara.cast<$_model.ListMcubeNebulaAppsResponse>(await this.callApi(params, req, runtime), new $_model.ListMcubeNebulaAppsResponse({}));
   }
 
   /**
-   * @param request ListMcubeNebulaAppsRequest
-   * @return ListMcubeNebulaAppsResponse
+   * @param request - ListMcubeNebulaAppsRequest
+   * @returns ListMcubeNebulaAppsResponse
    */
-  async listMcubeNebulaApps(request: ListMcubeNebulaAppsRequest): Promise<ListMcubeNebulaAppsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listMcubeNebulaApps(request: $_model.ListMcubeNebulaAppsRequest): Promise<$_model.ListMcubeNebulaAppsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMcubeNebulaAppsWithOptions(request, runtime);
   }
 
   /**
-   * @param request ListMcubeNebulaResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMcubeNebulaResourcesResponse
+   * @param request - ListMcubeNebulaResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcubeNebulaResourcesResponse
    */
-  async listMcubeNebulaResourcesWithOptions(request: ListMcubeNebulaResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeNebulaResourcesResponse> {
-    Util.validateModel(request);
+  async listMcubeNebulaResourcesWithOptions(request: $_model.ListMcubeNebulaResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcubeNebulaResourcesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.h5Id)) {
+    if (!$dara.isNull(request.h5Id)) {
       body["H5Id"] = request.h5Id;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       body["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMcubeNebulaResources",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21613,46 +3269,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMcubeNebulaResourcesResponse>(await this.callApi(params, req, runtime), new ListMcubeNebulaResourcesResponse({}));
+    return $dara.cast<$_model.ListMcubeNebulaResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListMcubeNebulaResourcesResponse({}));
   }
 
   /**
-   * @param request ListMcubeNebulaResourcesRequest
-   * @return ListMcubeNebulaResourcesResponse
+   * @param request - ListMcubeNebulaResourcesRequest
+   * @returns ListMcubeNebulaResourcesResponse
    */
-  async listMcubeNebulaResources(request: ListMcubeNebulaResourcesRequest): Promise<ListMcubeNebulaResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listMcubeNebulaResources(request: $_model.ListMcubeNebulaResourcesRequest): Promise<$_model.ListMcubeNebulaResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMcubeNebulaResourcesWithOptions(request, runtime);
   }
 
   /**
-   * @param request ListMcubeNebulaTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMcubeNebulaTasksResponse
+   * @param request - ListMcubeNebulaTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcubeNebulaTasksResponse
    */
-  async listMcubeNebulaTasksWithOptions(request: ListMcubeNebulaTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeNebulaTasksResponse> {
-    Util.validateModel(request);
+  async listMcubeNebulaTasksWithOptions(request: $_model.ListMcubeNebulaTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcubeNebulaTasksResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMcubeNebulaTasks",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21663,50 +3319,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMcubeNebulaTasksResponse>(await this.callApi(params, req, runtime), new ListMcubeNebulaTasksResponse({}));
+    return $dara.cast<$_model.ListMcubeNebulaTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListMcubeNebulaTasksResponse({}));
   }
 
   /**
-   * @param request ListMcubeNebulaTasksRequest
-   * @return ListMcubeNebulaTasksResponse
+   * @param request - ListMcubeNebulaTasksRequest
+   * @returns ListMcubeNebulaTasksResponse
    */
-  async listMcubeNebulaTasks(request: ListMcubeNebulaTasksRequest): Promise<ListMcubeNebulaTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listMcubeNebulaTasks(request: $_model.ListMcubeNebulaTasksRequest): Promise<$_model.ListMcubeNebulaTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMcubeNebulaTasksWithOptions(request, runtime);
   }
 
   /**
-   * @param request ListMcubeUpgradePackagesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMcubeUpgradePackagesResponse
+   * @param request - ListMcubeUpgradePackagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcubeUpgradePackagesResponse
    */
-  async listMcubeUpgradePackagesWithOptions(request: ListMcubeUpgradePackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeUpgradePackagesResponse> {
-    Util.validateModel(request);
+  async listMcubeUpgradePackagesWithOptions(request: $_model.ListMcubeUpgradePackagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcubeUpgradePackagesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       body["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMcubeUpgradePackages",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21717,46 +3373,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMcubeUpgradePackagesResponse>(await this.callApi(params, req, runtime), new ListMcubeUpgradePackagesResponse({}));
+    return $dara.cast<$_model.ListMcubeUpgradePackagesResponse>(await this.callApi(params, req, runtime), new $_model.ListMcubeUpgradePackagesResponse({}));
   }
 
   /**
-   * @param request ListMcubeUpgradePackagesRequest
-   * @return ListMcubeUpgradePackagesResponse
+   * @param request - ListMcubeUpgradePackagesRequest
+   * @returns ListMcubeUpgradePackagesResponse
    */
-  async listMcubeUpgradePackages(request: ListMcubeUpgradePackagesRequest): Promise<ListMcubeUpgradePackagesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listMcubeUpgradePackages(request: $_model.ListMcubeUpgradePackagesRequest): Promise<$_model.ListMcubeUpgradePackagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMcubeUpgradePackagesWithOptions(request, runtime);
   }
 
   /**
-   * @param request ListMcubeUpgradeTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMcubeUpgradeTasksResponse
+   * @param request - ListMcubeUpgradeTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcubeUpgradeTasksResponse
    */
-  async listMcubeUpgradeTasksWithOptions(request: ListMcubeUpgradeTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeUpgradeTasksResponse> {
-    Util.validateModel(request);
+  async listMcubeUpgradeTasksWithOptions(request: $_model.ListMcubeUpgradeTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcubeUpgradeTasksResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.packageId)) {
+    if (!$dara.isNull(request.packageId)) {
       body["PackageId"] = request.packageId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMcubeUpgradeTasks",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21767,54 +3423,54 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMcubeUpgradeTasksResponse>(await this.callApi(params, req, runtime), new ListMcubeUpgradeTasksResponse({}));
+    return $dara.cast<$_model.ListMcubeUpgradeTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListMcubeUpgradeTasksResponse({}));
   }
 
   /**
-   * @param request ListMcubeUpgradeTasksRequest
-   * @return ListMcubeUpgradeTasksResponse
+   * @param request - ListMcubeUpgradeTasksRequest
+   * @returns ListMcubeUpgradeTasksResponse
    */
-  async listMcubeUpgradeTasks(request: ListMcubeUpgradeTasksRequest): Promise<ListMcubeUpgradeTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listMcubeUpgradeTasks(request: $_model.ListMcubeUpgradeTasksRequest): Promise<$_model.ListMcubeUpgradeTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMcubeUpgradeTasksWithOptions(request, runtime);
   }
 
   /**
-   * @param request ListMcubeWhitelistsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMcubeWhitelistsResponse
+   * @param request - ListMcubeWhitelistsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcubeWhitelistsResponse
    */
-  async listMcubeWhitelistsWithOptions(request: ListMcubeWhitelistsRequest, runtime: $Util.RuntimeOptions): Promise<ListMcubeWhitelistsResponse> {
-    Util.validateModel(request);
+  async listMcubeWhitelistsWithOptions(request: $_model.ListMcubeWhitelistsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcubeWhitelistsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       body["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.whitelistName)) {
+    if (!$dara.isNull(request.whitelistName)) {
       body["WhitelistName"] = request.whitelistName;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMcubeWhitelists",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21825,94 +3481,94 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMcubeWhitelistsResponse>(await this.callApi(params, req, runtime), new ListMcubeWhitelistsResponse({}));
+    return $dara.cast<$_model.ListMcubeWhitelistsResponse>(await this.callApi(params, req, runtime), new $_model.ListMcubeWhitelistsResponse({}));
   }
 
   /**
-   * @param request ListMcubeWhitelistsRequest
-   * @return ListMcubeWhitelistsResponse
+   * @param request - ListMcubeWhitelistsRequest
+   * @returns ListMcubeWhitelistsResponse
    */
-  async listMcubeWhitelists(request: ListMcubeWhitelistsRequest): Promise<ListMcubeWhitelistsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listMcubeWhitelists(request: $_model.ListMcubeWhitelistsRequest): Promise<$_model.ListMcubeWhitelistsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMcubeWhitelistsWithOptions(request, runtime);
   }
 
   /**
-   * @param request ListMgsApiRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMgsApiResponse
+   * @param request - ListMgsApiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMgsApiResponse
    */
-  async listMgsApiWithOptions(request: ListMgsApiRequest, runtime: $Util.RuntimeOptions): Promise<ListMgsApiResponse> {
-    Util.validateModel(request);
+  async listMgsApiWithOptions(request: $_model.ListMgsApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMgsApiResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.apiStatus)) {
+    if (!$dara.isNull(request.apiStatus)) {
       body["ApiStatus"] = request.apiStatus;
     }
 
-    if (!Util.isUnset(request.apiType)) {
+    if (!$dara.isNull(request.apiType)) {
       body["ApiType"] = request.apiType;
     }
 
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.format)) {
+    if (!$dara.isNull(request.format)) {
       body["Format"] = request.format;
     }
 
-    if (!Util.isUnset(request.host)) {
+    if (!$dara.isNull(request.host)) {
       body["Host"] = request.host;
     }
 
-    if (!Util.isUnset(request.needEncrypt)) {
+    if (!$dara.isNull(request.needEncrypt)) {
       body["NeedEncrypt"] = request.needEncrypt;
     }
 
-    if (!Util.isUnset(request.needEtag)) {
+    if (!$dara.isNull(request.needEtag)) {
       body["NeedEtag"] = request.needEtag;
     }
 
-    if (!Util.isUnset(request.needSign)) {
+    if (!$dara.isNull(request.needSign)) {
       body["NeedSign"] = request.needSign;
     }
 
-    if (!Util.isUnset(request.operationType)) {
+    if (!$dara.isNull(request.operationType)) {
       body["OperationType"] = request.operationType;
     }
 
-    if (!Util.isUnset(request.optFuzzy)) {
+    if (!$dara.isNull(request.optFuzzy)) {
       body["OptFuzzy"] = request.optFuzzy;
     }
 
-    if (!Util.isUnset(request.pageIndex)) {
+    if (!$dara.isNull(request.pageIndex)) {
       body["PageIndex"] = request.pageIndex;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.sysId)) {
+    if (!$dara.isNull(request.sysId)) {
       body["SysId"] = request.sysId;
     }
 
-    if (!Util.isUnset(request.sysName)) {
+    if (!$dara.isNull(request.sysName)) {
       body["SysName"] = request.sysName;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMgsApi",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -21923,110 +3579,56 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMgsApiResponse>(await this.callApi(params, req, runtime), new ListMgsApiResponse({}));
+    return $dara.cast<$_model.ListMgsApiResponse>(await this.callApi(params, req, runtime), new $_model.ListMgsApiResponse({}));
   }
 
   /**
-   * @param request ListMgsApiRequest
-   * @return ListMgsApiResponse
+   * @param request - ListMgsApiRequest
+   * @returns ListMgsApiResponse
    */
-  async listMgsApi(request: ListMgsApiRequest): Promise<ListMgsApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listMgsApi(request: $_model.ListMgsApiRequest): Promise<$_model.ListMgsApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMgsApiWithOptions(request, runtime);
   }
 
   /**
-   * @param request LogMsaQueryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return LogMsaQueryResponse
+   * OCR通用接口
+   * 
+   * @param request - MTRSOCRServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MTRSOCRServiceResponse
    */
-  async logMsaQueryWithOptions(request: LogMsaQueryRequest, runtime: $Util.RuntimeOptions): Promise<LogMsaQueryResponse> {
-    Util.validateModel(request);
+  async mTRSOCRServiceWithOptions(request: $_model.MTRSOCRServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MTRSOCRServiceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.id)) {
-      body["Id"] = request.id;
-    }
-
-    if (!Util.isUnset(request.onexFlag)) {
-      body["OnexFlag"] = request.onexFlag;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "LogMsaQuery",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<LogMsaQueryResponse>(await this.callApi(params, req, runtime), new LogMsaQueryResponse({}));
-  }
-
-  /**
-   * @param request LogMsaQueryRequest
-   * @return LogMsaQueryResponse
-   */
-  async logMsaQuery(request: LogMsaQueryRequest): Promise<LogMsaQueryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.logMsaQueryWithOptions(request, runtime);
-  }
-
-  /**
-   * @summary OCR通用接口
-   *
-   * @param request MTRSOCRServiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MTRSOCRServiceResponse
-   */
-  async mTRSOCRServiceWithOptions(request: MTRSOCRServiceRequest, runtime: $Util.RuntimeOptions): Promise<MTRSOCRServiceResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.imageRaw)) {
+    if (!$dara.isNull(request.imageRaw)) {
       body["ImageRaw"] = request.imageRaw;
     }
 
-    if (!Util.isUnset(request.mask)) {
+    if (!$dara.isNull(request.mask)) {
       body["Mask"] = request.mask;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "MTRSOCRService",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -22037,650 +3639,60 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<MTRSOCRServiceResponse>(await this.callApi(params, req, runtime), new MTRSOCRServiceResponse({}));
+    return $dara.cast<$_model.MTRSOCRServiceResponse>(await this.callApi(params, req, runtime), new $_model.MTRSOCRServiceResponse({}));
   }
 
   /**
-   * @summary OCR通用接口
-   *
-   * @param request MTRSOCRServiceRequest
-   * @return MTRSOCRServiceResponse
+   * OCR通用接口
+   * 
+   * @param request - MTRSOCRServiceRequest
+   * @returns MTRSOCRServiceResponse
    */
-  async mTRSOCRService(request: MTRSOCRServiceRequest): Promise<MTRSOCRServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async mTRSOCRService(request: $_model.MTRSOCRServiceRequest): Promise<$_model.MTRSOCRServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.mTRSOCRServiceWithOptions(request, runtime);
   }
 
   /**
-   * @summary 新增主扫码
-   *
-   * @param request OpenApiAddActiveCodeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenApiAddActiveCodeResponse
+   * @param request - PushBindRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushBindResponse
    */
-  async openApiAddActiveCodeWithOptions(request: OpenApiAddActiveCodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiAddActiveCodeResponse> {
-    Util.validateModel(request);
+  async pushBindWithOptions(request: $_model.PushBindRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushBindResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.mpaasMqcpOpenApiAddActiveCodeReqJsonStr)) {
-      body["MpaasMqcpOpenApiAddActiveCodeReqJsonStr"] = request.mpaasMqcpOpenApiAddActiveCodeReqJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "OpenApiAddActiveCode",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenApiAddActiveCodeResponse>(await this.callApi(params, req, runtime), new OpenApiAddActiveCodeResponse({}));
-  }
-
-  /**
-   * @summary 新增主扫码
-   *
-   * @param request OpenApiAddActiveCodeRequest
-   * @return OpenApiAddActiveCodeResponse
-   */
-  async openApiAddActiveCode(request: OpenApiAddActiveCodeRequest): Promise<OpenApiAddActiveCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openApiAddActiveCodeWithOptions(request, runtime);
-  }
-
-  /**
-   * @summary 新增场景
-   *
-   * @param request OpenApiAddActiveSceneRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenApiAddActiveSceneResponse
-   */
-  async openApiAddActiveSceneWithOptions(request: OpenApiAddActiveSceneRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiAddActiveSceneResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMqcpOpenApiAddActiveSceneReqJsonStr)) {
-      body["MpaasMqcpOpenApiAddActiveSceneReqJsonStr"] = request.mpaasMqcpOpenApiAddActiveSceneReqJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "OpenApiAddActiveScene",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenApiAddActiveSceneResponse>(await this.callApi(params, req, runtime), new OpenApiAddActiveSceneResponse({}));
-  }
-
-  /**
-   * @summary 新增场景
-   *
-   * @param request OpenApiAddActiveSceneRequest
-   * @return OpenApiAddActiveSceneResponse
-   */
-  async openApiAddActiveScene(request: OpenApiAddActiveSceneRequest): Promise<OpenApiAddActiveSceneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openApiAddActiveSceneWithOptions(request, runtime);
-  }
-
-  /**
-   * @summary 用户注册
-   *
-   * @param request OpenApiCallbackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenApiCallbackResponse
-   */
-  async openApiCallbackWithOptions(request: OpenApiCallbackRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiCallbackResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMqcpOpenApiCallbackRequestJsonStr)) {
-      body["MpaasMqcpOpenApiCallbackRequestJsonStr"] = request.mpaasMqcpOpenApiCallbackRequestJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "OpenApiCallback",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenApiCallbackResponse>(await this.callApi(params, req, runtime), new OpenApiCallbackResponse({}));
-  }
-
-  /**
-   * @summary 用户注册
-   *
-   * @param request OpenApiCallbackRequest
-   * @return OpenApiCallbackResponse
-   */
-  async openApiCallback(request: OpenApiCallbackRequest): Promise<OpenApiCallbackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openApiCallbackWithOptions(request, runtime);
-  }
-
-  /**
-   * @summary 解码
-   *
-   * @param request OpenApiDecodeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenApiDecodeResponse
-   */
-  async openApiDecodeWithOptions(request: OpenApiDecodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiDecodeResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMqcpOpenApiDecodeRequestJsonStr)) {
-      body["MpaasMqcpOpenApiDecodeRequestJsonStr"] = request.mpaasMqcpOpenApiDecodeRequestJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "OpenApiDecode",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenApiDecodeResponse>(await this.callApi(params, req, runtime), new OpenApiDecodeResponse({}));
-  }
-
-  /**
-   * @summary 解码
-   *
-   * @param request OpenApiDecodeRequest
-   * @return OpenApiDecodeResponse
-   */
-  async openApiDecode(request: OpenApiDecodeRequest): Promise<OpenApiDecodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openApiDecodeWithOptions(request, runtime);
-  }
-
-  /**
-   * @summary 删除主扫码
-   *
-   * @param request OpenApiDeleteActiveCodeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenApiDeleteActiveCodeResponse
-   */
-  async openApiDeleteActiveCodeWithOptions(request: OpenApiDeleteActiveCodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiDeleteActiveCodeResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMqcpOpenApiDeleteActiveCodeReqJsonStr)) {
-      body["MpaasMqcpOpenApiDeleteActiveCodeReqJsonStr"] = request.mpaasMqcpOpenApiDeleteActiveCodeReqJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "OpenApiDeleteActiveCode",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenApiDeleteActiveCodeResponse>(await this.callApi(params, req, runtime), new OpenApiDeleteActiveCodeResponse({}));
-  }
-
-  /**
-   * @summary 删除主扫码
-   *
-   * @param request OpenApiDeleteActiveCodeRequest
-   * @return OpenApiDeleteActiveCodeResponse
-   */
-  async openApiDeleteActiveCode(request: OpenApiDeleteActiveCodeRequest): Promise<OpenApiDeleteActiveCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openApiDeleteActiveCodeWithOptions(request, runtime);
-  }
-
-  /**
-   * @summary 编码
-   *
-   * @param request OpenApiEncodeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenApiEncodeResponse
-   */
-  async openApiEncodeWithOptions(request: OpenApiEncodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiEncodeResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMqcpOpenApiEncodeRequestJsonStr)) {
-      body["MpaasMqcpOpenApiEncodeRequestJsonStr"] = request.mpaasMqcpOpenApiEncodeRequestJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "OpenApiEncode",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenApiEncodeResponse>(await this.callApi(params, req, runtime), new OpenApiEncodeResponse({}));
-  }
-
-  /**
-   * @summary 编码
-   *
-   * @param request OpenApiEncodeRequest
-   * @return OpenApiEncodeResponse
-   */
-  async openApiEncode(request: OpenApiEncodeRequest): Promise<OpenApiEncodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openApiEncodeWithOptions(request, runtime);
-  }
-
-  /**
-   * @summary 主扫码查询
-   *
-   * @param request OpenApiQueryActiveCodeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenApiQueryActiveCodeResponse
-   */
-  async openApiQueryActiveCodeWithOptions(request: OpenApiQueryActiveCodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiQueryActiveCodeResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMqcpOpenApiQueryActiveCodeReqJsonStr)) {
-      body["MpaasMqcpOpenApiQueryActiveCodeReqJsonStr"] = request.mpaasMqcpOpenApiQueryActiveCodeReqJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "OpenApiQueryActiveCode",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenApiQueryActiveCodeResponse>(await this.callApi(params, req, runtime), new OpenApiQueryActiveCodeResponse({}));
-  }
-
-  /**
-   * @summary 主扫码查询
-   *
-   * @param request OpenApiQueryActiveCodeRequest
-   * @return OpenApiQueryActiveCodeResponse
-   */
-  async openApiQueryActiveCode(request: OpenApiQueryActiveCodeRequest): Promise<OpenApiQueryActiveCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openApiQueryActiveCodeWithOptions(request, runtime);
-  }
-
-  /**
-   * @summary 查询场景
-   *
-   * @param request OpenApiQueryActiveSceneRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenApiQueryActiveSceneResponse
-   */
-  async openApiQueryActiveSceneWithOptions(request: OpenApiQueryActiveSceneRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiQueryActiveSceneResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMqcpOpenApiQueryActiveSceneReqJsonStr)) {
-      body["MpaasMqcpOpenApiQueryActiveSceneReqJsonStr"] = request.mpaasMqcpOpenApiQueryActiveSceneReqJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "OpenApiQueryActiveScene",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenApiQueryActiveSceneResponse>(await this.callApi(params, req, runtime), new OpenApiQueryActiveSceneResponse({}));
-  }
-
-  /**
-   * @summary 查询场景
-   *
-   * @param request OpenApiQueryActiveSceneRequest
-   * @return OpenApiQueryActiveSceneResponse
-   */
-  async openApiQueryActiveScene(request: OpenApiQueryActiveSceneRequest): Promise<OpenApiQueryActiveSceneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openApiQueryActiveSceneWithOptions(request, runtime);
-  }
-
-  /**
-   * @summary 生成唯一被扫码
-   *
-   * @param request OpenApiUniqueEncodeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenApiUniqueEncodeResponse
-   */
-  async openApiUniqueEncodeWithOptions(request: OpenApiUniqueEncodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiUniqueEncodeResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMqcpOpenApiUniqueEncodeRequestJsonStr)) {
-      body["MpaasMqcpOpenApiUniqueEncodeRequestJsonStr"] = request.mpaasMqcpOpenApiUniqueEncodeRequestJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "OpenApiUniqueEncode",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenApiUniqueEncodeResponse>(await this.callApi(params, req, runtime), new OpenApiUniqueEncodeResponse({}));
-  }
-
-  /**
-   * @summary 生成唯一被扫码
-   *
-   * @param request OpenApiUniqueEncodeRequest
-   * @return OpenApiUniqueEncodeResponse
-   */
-  async openApiUniqueEncode(request: OpenApiUniqueEncodeRequest): Promise<OpenApiUniqueEncodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openApiUniqueEncodeWithOptions(request, runtime);
-  }
-
-  /**
-   * @summary 更新主扫码
-   *
-   * @param request OpenApiUpdateActiveCodeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenApiUpdateActiveCodeResponse
-   */
-  async openApiUpdateActiveCodeWithOptions(request: OpenApiUpdateActiveCodeRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiUpdateActiveCodeResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMqcpOpenApiUpdateActiveCodeReqJsonStr)) {
-      body["MpaasMqcpOpenApiUpdateActiveCodeReqJsonStr"] = request.mpaasMqcpOpenApiUpdateActiveCodeReqJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "OpenApiUpdateActiveCode",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenApiUpdateActiveCodeResponse>(await this.callApi(params, req, runtime), new OpenApiUpdateActiveCodeResponse({}));
-  }
-
-  /**
-   * @summary 更新主扫码
-   *
-   * @param request OpenApiUpdateActiveCodeRequest
-   * @return OpenApiUpdateActiveCodeResponse
-   */
-  async openApiUpdateActiveCode(request: OpenApiUpdateActiveCodeRequest): Promise<OpenApiUpdateActiveCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openApiUpdateActiveCodeWithOptions(request, runtime);
-  }
-
-  /**
-   * @summary 更新场景
-   *
-   * @param request OpenApiUpdateActiveSceneRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenApiUpdateActiveSceneResponse
-   */
-  async openApiUpdateActiveSceneWithOptions(request: OpenApiUpdateActiveSceneRequest, runtime: $Util.RuntimeOptions): Promise<OpenApiUpdateActiveSceneResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.mpaasMqcpOpenApiUpdateActiveSceneReqJsonStr)) {
-      body["MpaasMqcpOpenApiUpdateActiveSceneReqJsonStr"] = request.mpaasMqcpOpenApiUpdateActiveSceneReqJsonStr;
-    }
-
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
-      body["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "OpenApiUpdateActiveScene",
-      version: "2020-10-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenApiUpdateActiveSceneResponse>(await this.callApi(params, req, runtime), new OpenApiUpdateActiveSceneResponse({}));
-  }
-
-  /**
-   * @summary 更新场景
-   *
-   * @param request OpenApiUpdateActiveSceneRequest
-   * @return OpenApiUpdateActiveSceneResponse
-   */
-  async openApiUpdateActiveScene(request: OpenApiUpdateActiveSceneRequest): Promise<OpenApiUpdateActiveSceneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openApiUpdateActiveSceneWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request PushBindRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushBindResponse
-   */
-  async pushBindWithOptions(request: PushBindRequest, runtime: $Util.RuntimeOptions): Promise<PushBindResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.deliveryToken)) {
+    if (!$dara.isNull(request.deliveryToken)) {
       body["DeliveryToken"] = request.deliveryToken;
     }
 
-    if (!Util.isUnset(request.osType)) {
+    if (!$dara.isNull(request.osType)) {
       body["OsType"] = request.osType;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       body["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
       body["UserId"] = request.userId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PushBind",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -22691,124 +3703,136 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PushBindResponse>(await this.callApi(params, req, runtime), new PushBindResponse({}));
+    return $dara.cast<$_model.PushBindResponse>(await this.callApi(params, req, runtime), new $_model.PushBindResponse({}));
   }
 
   /**
-   * @param request PushBindRequest
-   * @return PushBindResponse
+   * @param request - PushBindRequest
+   * @returns PushBindResponse
    */
-  async pushBind(request: PushBindRequest): Promise<PushBindResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async pushBind(request: $_model.PushBindRequest): Promise<$_model.PushBindResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pushBindWithOptions(request, runtime);
   }
 
   /**
-   * @param tmpReq PushBroadcastRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushBroadcastResponse
+   * @param tmpReq - PushBroadcastRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushBroadcastResponse
    */
-  async pushBroadcastWithOptions(tmpReq: PushBroadcastRequest, runtime: $Util.RuntimeOptions): Promise<PushBroadcastResponse> {
-    Util.validateModel(tmpReq);
-    let request = new PushBroadcastShrinkRequest({ });
+  async pushBroadcastWithOptions(tmpReq: $_model.PushBroadcastRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushBroadcastResponse> {
+    tmpReq.validate();
+    let request = new $_model.PushBroadcastShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.thirdChannelCategory)) {
+    if (!$dara.isNull(tmpReq.thirdChannelCategory)) {
       request.thirdChannelCategoryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.thirdChannelCategory, "ThirdChannelCategory", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.androidChannel)) {
+    if (!$dara.isNull(request.androidChannel)) {
       body["AndroidChannel"] = request.androidChannel;
     }
 
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.bindPeriod)) {
+    if (!$dara.isNull(request.bindPeriod)) {
       body["BindPeriod"] = request.bindPeriod;
     }
 
-    if (!Util.isUnset(request.channelId)) {
+    if (!$dara.isNull(request.channelId)) {
       body["ChannelId"] = request.channelId;
     }
 
-    if (!Util.isUnset(request.classification)) {
+    if (!$dara.isNull(request.classification)) {
       body["Classification"] = request.classification;
     }
 
-    if (!Util.isUnset(request.deliveryType)) {
+    if (!$dara.isNull(request.deliveryType)) {
       body["DeliveryType"] = request.deliveryType;
     }
 
-    if (!Util.isUnset(request.expiredSeconds)) {
+    if (!$dara.isNull(request.expiredSeconds)) {
       body["ExpiredSeconds"] = request.expiredSeconds;
     }
 
-    if (!Util.isUnset(request.extendedParams)) {
+    if (!$dara.isNull(request.extendedParams)) {
       body["ExtendedParams"] = request.extendedParams;
     }
 
-    if (!Util.isUnset(request.miChannelId)) {
+    if (!$dara.isNull(request.miChannelId)) {
       body["MiChannelId"] = request.miChannelId;
     }
 
-    if (!Util.isUnset(request.msgkey)) {
+    if (!$dara.isNull(request.msgkey)) {
       body["Msgkey"] = request.msgkey;
     }
 
-    if (!Util.isUnset(request.notifyType)) {
+    if (!$dara.isNull(request.notifyType)) {
       body["NotifyType"] = request.notifyType;
     }
 
-    if (!Util.isUnset(request.pushAction)) {
+    if (!$dara.isNull(request.pushAction)) {
       body["PushAction"] = request.pushAction;
     }
 
-    if (!Util.isUnset(request.pushStatus)) {
+    if (!$dara.isNull(request.pushStatus)) {
       body["PushStatus"] = request.pushStatus;
     }
 
-    if (!Util.isUnset(request.silent)) {
+    if (!$dara.isNull(request.silent)) {
       body["Silent"] = request.silent;
     }
 
-    if (!Util.isUnset(request.strategyContent)) {
+    if (!$dara.isNull(request.strategyContent)) {
       body["StrategyContent"] = request.strategyContent;
     }
 
-    if (!Util.isUnset(request.strategyType)) {
+    if (!$dara.isNull(request.strategyType)) {
       body["StrategyType"] = request.strategyType;
     }
 
-    if (!Util.isUnset(request.taskName)) {
+    if (!$dara.isNull(request.taskName)) {
       body["TaskName"] = request.taskName;
     }
 
-    if (!Util.isUnset(request.templateKeyValue)) {
+    if (!$dara.isNull(request.templateKeyValue)) {
       body["TemplateKeyValue"] = request.templateKeyValue;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       body["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.thirdChannelCategoryShrink)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.thirdChannelCategoryShrink)) {
       body["ThirdChannelCategory"] = request.thirdChannelCategoryShrink;
     }
 
-    if (!Util.isUnset(request.unBindPeriod)) {
+    if (!$dara.isNull(request.transparentMessagePayload)) {
+      body["TransparentMessagePayload"] = request.transparentMessagePayload;
+    }
+
+    if (!$dara.isNull(request.transparentMessageUrgency)) {
+      body["TransparentMessageUrgency"] = request.transparentMessageUrgency;
+    }
+
+    if (!$dara.isNull(request.unBindPeriod)) {
       body["UnBindPeriod"] = request.unBindPeriod;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PushBroadcast",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -22819,116 +3843,128 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PushBroadcastResponse>(await this.callApi(params, req, runtime), new PushBroadcastResponse({}));
+    return $dara.cast<$_model.PushBroadcastResponse>(await this.callApi(params, req, runtime), new $_model.PushBroadcastResponse({}));
   }
 
   /**
-   * @param request PushBroadcastRequest
-   * @return PushBroadcastResponse
+   * @param request - PushBroadcastRequest
+   * @returns PushBroadcastResponse
    */
-  async pushBroadcast(request: PushBroadcastRequest): Promise<PushBroadcastResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async pushBroadcast(request: $_model.PushBroadcastRequest): Promise<$_model.PushBroadcastResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pushBroadcastWithOptions(request, runtime);
   }
 
   /**
-   * @param tmpReq PushMultipleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushMultipleResponse
+   * @param tmpReq - PushMultipleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushMultipleResponse
    */
-  async pushMultipleWithOptions(tmpReq: PushMultipleRequest, runtime: $Util.RuntimeOptions): Promise<PushMultipleResponse> {
-    Util.validateModel(tmpReq);
-    let request = new PushMultipleShrinkRequest({ });
+  async pushMultipleWithOptions(tmpReq: $_model.PushMultipleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushMultipleResponse> {
+    tmpReq.validate();
+    let request = new $_model.PushMultipleShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.thirdChannelCategory)) {
+    if (!$dara.isNull(tmpReq.thirdChannelCategory)) {
       request.thirdChannelCategoryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.thirdChannelCategory, "ThirdChannelCategory", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.activityContentState)) {
+    if (!$dara.isNull(request.activityContentState)) {
       body["ActivityContentState"] = request.activityContentState;
     }
 
-    if (!Util.isUnset(request.activityEvent)) {
+    if (!$dara.isNull(request.activityEvent)) {
       body["ActivityEvent"] = request.activityEvent;
     }
 
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.channelId)) {
+    if (!$dara.isNull(request.channelId)) {
       body["ChannelId"] = request.channelId;
     }
 
-    if (!Util.isUnset(request.classification)) {
+    if (!$dara.isNull(request.classification)) {
       body["Classification"] = request.classification;
     }
 
-    if (!Util.isUnset(request.deliveryType)) {
+    if (!$dara.isNull(request.deliveryType)) {
       body["DeliveryType"] = request.deliveryType;
     }
 
-    if (!Util.isUnset(request.dismissalDate)) {
+    if (!$dara.isNull(request.dismissalDate)) {
       body["DismissalDate"] = request.dismissalDate;
     }
 
-    if (!Util.isUnset(request.expiredSeconds)) {
+    if (!$dara.isNull(request.expiredSeconds)) {
       body["ExpiredSeconds"] = request.expiredSeconds;
     }
 
-    if (!Util.isUnset(request.extendedParams)) {
+    if (!$dara.isNull(request.extendedParams)) {
       body["ExtendedParams"] = request.extendedParams;
     }
 
-    if (!Util.isUnset(request.miChannelId)) {
+    if (!$dara.isNull(request.miChannelId)) {
       body["MiChannelId"] = request.miChannelId;
     }
 
-    if (!Util.isUnset(request.notifyType)) {
+    if (!$dara.isNull(request.notifyType)) {
       body["NotifyType"] = request.notifyType;
     }
 
-    if (!Util.isUnset(request.pushAction)) {
+    if (!$dara.isNull(request.pushAction)) {
       body["PushAction"] = request.pushAction;
     }
 
-    if (!Util.isUnset(request.silent)) {
+    if (!$dara.isNull(request.silent)) {
       body["Silent"] = request.silent;
     }
 
-    if (!Util.isUnset(request.strategyContent)) {
+    if (!$dara.isNull(request.strategyContent)) {
       body["StrategyContent"] = request.strategyContent;
     }
 
-    if (!Util.isUnset(request.strategyType)) {
+    if (!$dara.isNull(request.strategyType)) {
       body["StrategyType"] = request.strategyType;
     }
 
-    if (!Util.isUnset(request.targetMsg)) {
+    if (!$dara.isNull(request.targetMsg)) {
       body["TargetMsg"] = request.targetMsg;
     }
 
-    if (!Util.isUnset(request.taskName)) {
+    if (!$dara.isNull(request.taskName)) {
       body["TaskName"] = request.taskName;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       body["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.thirdChannelCategoryShrink)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.thirdChannelCategoryShrink)) {
       body["ThirdChannelCategory"] = request.thirdChannelCategoryShrink;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.transparentMessagePayload)) {
+      body["TransparentMessagePayload"] = request.transparentMessagePayload;
+    }
+
+    if (!$dara.isNull(request.transparentMessageUrgency)) {
+      body["TransparentMessageUrgency"] = request.transparentMessageUrgency;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PushMultiple",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -22939,82 +3975,86 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PushMultipleResponse>(await this.callApi(params, req, runtime), new PushMultipleResponse({}));
+    return $dara.cast<$_model.PushMultipleResponse>(await this.callApi(params, req, runtime), new $_model.PushMultipleResponse({}));
   }
 
   /**
-   * @param request PushMultipleRequest
-   * @return PushMultipleResponse
+   * @param request - PushMultipleRequest
+   * @returns PushMultipleResponse
    */
-  async pushMultiple(request: PushMultipleRequest): Promise<PushMultipleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async pushMultiple(request: $_model.PushMultipleRequest): Promise<$_model.PushMultipleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pushMultipleWithOptions(request, runtime);
   }
 
   /**
-   * @param request PushReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushReportResponse
+   * @param request - PushReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushReportResponse
    */
-  async pushReportWithOptions(request: PushReportRequest, runtime: $Util.RuntimeOptions): Promise<PushReportResponse> {
-    Util.validateModel(request);
+  async pushReportWithOptions(request: $_model.PushReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushReportResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.appVersion)) {
+    if (!$dara.isNull(request.appVersion)) {
       body["AppVersion"] = request.appVersion;
     }
 
-    if (!Util.isUnset(request.channel)) {
+    if (!$dara.isNull(request.channel)) {
       body["Channel"] = request.channel;
     }
 
-    if (!Util.isUnset(request.connectType)) {
+    if (!$dara.isNull(request.connectType)) {
       body["ConnectType"] = request.connectType;
     }
 
-    if (!Util.isUnset(request.deliveryToken)) {
+    if (!$dara.isNull(request.deliveryToken)) {
       body["DeliveryToken"] = request.deliveryToken;
     }
 
-    if (!Util.isUnset(request.imei)) {
+    if (!$dara.isNull(request.imei)) {
       body["Imei"] = request.imei;
     }
 
-    if (!Util.isUnset(request.imsi)) {
+    if (!$dara.isNull(request.imsi)) {
       body["Imsi"] = request.imsi;
     }
 
-    if (!Util.isUnset(request.model)) {
+    if (!$dara.isNull(request.model)) {
       body["Model"] = request.model;
     }
 
-    if (!Util.isUnset(request.osType)) {
+    if (!$dara.isNull(request.osType)) {
       body["OsType"] = request.osType;
     }
 
-    if (!Util.isUnset(request.pushVersion)) {
+    if (!$dara.isNull(request.pushVersion)) {
       body["PushVersion"] = request.pushVersion;
     }
 
-    if (!Util.isUnset(request.thirdChannel)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.thirdChannel)) {
       body["ThirdChannel"] = request.thirdChannel;
     }
 
-    if (!Util.isUnset(request.thirdChannelDeviceToken)) {
+    if (!$dara.isNull(request.thirdChannelDeviceToken)) {
       body["ThirdChannelDeviceToken"] = request.thirdChannelDeviceToken;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PushReport",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23025,152 +4065,166 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PushReportResponse>(await this.callApi(params, req, runtime), new PushReportResponse({}));
+    return $dara.cast<$_model.PushReportResponse>(await this.callApi(params, req, runtime), new $_model.PushReportResponse({}));
   }
 
   /**
-   * @param request PushReportRequest
-   * @return PushReportResponse
+   * @param request - PushReportRequest
+   * @returns PushReportResponse
    */
-  async pushReport(request: PushReportRequest): Promise<PushReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async pushReport(request: $_model.PushReportRequest): Promise<$_model.PushReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pushReportWithOptions(request, runtime);
   }
 
   /**
-   * @param tmpReq PushSimpleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushSimpleResponse
+   * 极简推送
+   * 
+   * @param tmpReq - PushSimpleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushSimpleResponse
    */
-  async pushSimpleWithOptions(tmpReq: PushSimpleRequest, runtime: $Util.RuntimeOptions): Promise<PushSimpleResponse> {
-    Util.validateModel(tmpReq);
-    let request = new PushSimpleShrinkRequest({ });
+  async pushSimpleWithOptions(tmpReq: $_model.PushSimpleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushSimpleResponse> {
+    tmpReq.validate();
+    let request = new $_model.PushSimpleShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.thirdChannelCategory)) {
+    if (!$dara.isNull(tmpReq.thirdChannelCategory)) {
       request.thirdChannelCategoryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.thirdChannelCategory, "ThirdChannelCategory", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.activityContentState)) {
+    if (!$dara.isNull(request.activityContentState)) {
       body["ActivityContentState"] = request.activityContentState;
     }
 
-    if (!Util.isUnset(request.activityEvent)) {
+    if (!$dara.isNull(request.activityEvent)) {
       body["ActivityEvent"] = request.activityEvent;
     }
 
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.channelId)) {
+    if (!$dara.isNull(request.channelId)) {
       body["ChannelId"] = request.channelId;
     }
 
-    if (!Util.isUnset(request.classification)) {
+    if (!$dara.isNull(request.classification)) {
       body["Classification"] = request.classification;
     }
 
-    if (!Util.isUnset(request.content)) {
+    if (!$dara.isNull(request.content)) {
       body["Content"] = request.content;
     }
 
-    if (!Util.isUnset(request.deliveryType)) {
+    if (!$dara.isNull(request.deliveryType)) {
       body["DeliveryType"] = request.deliveryType;
     }
 
-    if (!Util.isUnset(request.dismissalDate)) {
+    if (!$dara.isNull(request.dismissalDate)) {
       body["DismissalDate"] = request.dismissalDate;
     }
 
-    if (!Util.isUnset(request.expiredSeconds)) {
+    if (!$dara.isNull(request.expiredSeconds)) {
       body["ExpiredSeconds"] = request.expiredSeconds;
     }
 
-    if (!Util.isUnset(request.extendedParams)) {
+    if (!$dara.isNull(request.extendedParams)) {
       body["ExtendedParams"] = request.extendedParams;
     }
 
-    if (!Util.isUnset(request.iconUrls)) {
+    if (!$dara.isNull(request.iconUrls)) {
       body["IconUrls"] = request.iconUrls;
     }
 
-    if (!Util.isUnset(request.imageUrls)) {
+    if (!$dara.isNull(request.imageUrls)) {
       body["ImageUrls"] = request.imageUrls;
     }
 
-    if (!Util.isUnset(request.miChannelId)) {
+    if (!$dara.isNull(request.miChannelId)) {
       body["MiChannelId"] = request.miChannelId;
     }
 
-    if (!Util.isUnset(request.notifyType)) {
+    if (!$dara.isNull(request.notifyType)) {
       body["NotifyType"] = request.notifyType;
     }
 
-    if (!Util.isUnset(request.pushAction)) {
+    if (!$dara.isNull(request.pushAction)) {
       body["PushAction"] = request.pushAction;
     }
 
-    if (!Util.isUnset(request.pushStyle)) {
+    if (!$dara.isNull(request.pushStyle)) {
       body["PushStyle"] = request.pushStyle;
     }
 
-    if (!Util.isUnset(request.silent)) {
+    if (!$dara.isNull(request.silent)) {
       body["Silent"] = request.silent;
     }
 
-    if (!Util.isUnset(request.smsSignName)) {
+    if (!$dara.isNull(request.smsSignName)) {
       body["SmsSignName"] = request.smsSignName;
     }
 
-    if (!Util.isUnset(request.smsStrategy)) {
+    if (!$dara.isNull(request.smsStrategy)) {
       body["SmsStrategy"] = request.smsStrategy;
     }
 
-    if (!Util.isUnset(request.smsTemplateCode)) {
+    if (!$dara.isNull(request.smsTemplateCode)) {
       body["SmsTemplateCode"] = request.smsTemplateCode;
     }
 
-    if (!Util.isUnset(request.smsTemplateParam)) {
+    if (!$dara.isNull(request.smsTemplateParam)) {
       body["SmsTemplateParam"] = request.smsTemplateParam;
     }
 
-    if (!Util.isUnset(request.strategyContent)) {
+    if (!$dara.isNull(request.strategyContent)) {
       body["StrategyContent"] = request.strategyContent;
     }
 
-    if (!Util.isUnset(request.strategyType)) {
+    if (!$dara.isNull(request.strategyType)) {
       body["StrategyType"] = request.strategyType;
     }
 
-    if (!Util.isUnset(request.targetMsgkey)) {
+    if (!$dara.isNull(request.targetMsgkey)) {
       body["TargetMsgkey"] = request.targetMsgkey;
     }
 
-    if (!Util.isUnset(request.taskName)) {
+    if (!$dara.isNull(request.taskName)) {
       body["TaskName"] = request.taskName;
     }
 
-    if (!Util.isUnset(request.thirdChannelCategoryShrink)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.thirdChannelCategoryShrink)) {
       body["ThirdChannelCategory"] = request.thirdChannelCategoryShrink;
     }
 
-    if (!Util.isUnset(request.title)) {
+    if (!$dara.isNull(request.title)) {
       body["Title"] = request.title;
     }
 
-    if (!Util.isUnset(request.uri)) {
+    if (!$dara.isNull(request.transparentMessagePayload)) {
+      body["TransparentMessagePayload"] = request.transparentMessagePayload;
+    }
+
+    if (!$dara.isNull(request.transparentMessageUrgency)) {
+      body["TransparentMessageUrgency"] = request.transparentMessageUrgency;
+    }
+
+    if (!$dara.isNull(request.uri)) {
       body["Uri"] = request.uri;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PushSimple",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23181,136 +4235,150 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PushSimpleResponse>(await this.callApi(params, req, runtime), new PushSimpleResponse({}));
+    return $dara.cast<$_model.PushSimpleResponse>(await this.callApi(params, req, runtime), new $_model.PushSimpleResponse({}));
   }
 
   /**
-   * @param request PushSimpleRequest
-   * @return PushSimpleResponse
+   * 极简推送
+   * 
+   * @param request - PushSimpleRequest
+   * @returns PushSimpleResponse
    */
-  async pushSimple(request: PushSimpleRequest): Promise<PushSimpleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async pushSimple(request: $_model.PushSimpleRequest): Promise<$_model.PushSimpleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pushSimpleWithOptions(request, runtime);
   }
 
   /**
-   * @param tmpReq PushTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushTemplateResponse
+   * @param tmpReq - PushTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushTemplateResponse
    */
-  async pushTemplateWithOptions(tmpReq: PushTemplateRequest, runtime: $Util.RuntimeOptions): Promise<PushTemplateResponse> {
-    Util.validateModel(tmpReq);
-    let request = new PushTemplateShrinkRequest({ });
+  async pushTemplateWithOptions(tmpReq: $_model.PushTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.PushTemplateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.thirdChannelCategory)) {
+    if (!$dara.isNull(tmpReq.thirdChannelCategory)) {
       request.thirdChannelCategoryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.thirdChannelCategory, "ThirdChannelCategory", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.activityContentState)) {
+    if (!$dara.isNull(request.activityContentState)) {
       body["ActivityContentState"] = request.activityContentState;
     }
 
-    if (!Util.isUnset(request.activityEvent)) {
+    if (!$dara.isNull(request.activityEvent)) {
       body["ActivityEvent"] = request.activityEvent;
     }
 
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.channelId)) {
+    if (!$dara.isNull(request.channelId)) {
       body["ChannelId"] = request.channelId;
     }
 
-    if (!Util.isUnset(request.classification)) {
+    if (!$dara.isNull(request.classification)) {
       body["Classification"] = request.classification;
     }
 
-    if (!Util.isUnset(request.deliveryType)) {
+    if (!$dara.isNull(request.deliveryType)) {
       body["DeliveryType"] = request.deliveryType;
     }
 
-    if (!Util.isUnset(request.dismissalDate)) {
+    if (!$dara.isNull(request.dismissalDate)) {
       body["DismissalDate"] = request.dismissalDate;
     }
 
-    if (!Util.isUnset(request.expiredSeconds)) {
+    if (!$dara.isNull(request.expiredSeconds)) {
       body["ExpiredSeconds"] = request.expiredSeconds;
     }
 
-    if (!Util.isUnset(request.extendedParams)) {
+    if (!$dara.isNull(request.extendedParams)) {
       body["ExtendedParams"] = request.extendedParams;
     }
 
-    if (!Util.isUnset(request.miChannelId)) {
+    if (!$dara.isNull(request.miChannelId)) {
       body["MiChannelId"] = request.miChannelId;
     }
 
-    if (!Util.isUnset(request.notifyType)) {
+    if (!$dara.isNull(request.notifyType)) {
       body["NotifyType"] = request.notifyType;
     }
 
-    if (!Util.isUnset(request.pushAction)) {
+    if (!$dara.isNull(request.pushAction)) {
       body["PushAction"] = request.pushAction;
     }
 
-    if (!Util.isUnset(request.silent)) {
+    if (!$dara.isNull(request.silent)) {
       body["Silent"] = request.silent;
     }
 
-    if (!Util.isUnset(request.smsSignName)) {
+    if (!$dara.isNull(request.smsSignName)) {
       body["SmsSignName"] = request.smsSignName;
     }
 
-    if (!Util.isUnset(request.smsStrategy)) {
+    if (!$dara.isNull(request.smsStrategy)) {
       body["SmsStrategy"] = request.smsStrategy;
     }
 
-    if (!Util.isUnset(request.smsTemplateCode)) {
+    if (!$dara.isNull(request.smsTemplateCode)) {
       body["SmsTemplateCode"] = request.smsTemplateCode;
     }
 
-    if (!Util.isUnset(request.smsTemplateParam)) {
+    if (!$dara.isNull(request.smsTemplateParam)) {
       body["SmsTemplateParam"] = request.smsTemplateParam;
     }
 
-    if (!Util.isUnset(request.strategyContent)) {
+    if (!$dara.isNull(request.strategyContent)) {
       body["StrategyContent"] = request.strategyContent;
     }
 
-    if (!Util.isUnset(request.strategyType)) {
+    if (!$dara.isNull(request.strategyType)) {
       body["StrategyType"] = request.strategyType;
     }
 
-    if (!Util.isUnset(request.targetMsgkey)) {
+    if (!$dara.isNull(request.targetMsgkey)) {
       body["TargetMsgkey"] = request.targetMsgkey;
     }
 
-    if (!Util.isUnset(request.taskName)) {
+    if (!$dara.isNull(request.taskName)) {
       body["TaskName"] = request.taskName;
     }
 
-    if (!Util.isUnset(request.templateKeyValue)) {
+    if (!$dara.isNull(request.templateKeyValue)) {
       body["TemplateKeyValue"] = request.templateKeyValue;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       body["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.thirdChannelCategoryShrink)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.thirdChannelCategoryShrink)) {
       body["ThirdChannelCategory"] = request.thirdChannelCategoryShrink;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.transparentMessagePayload)) {
+      body["TransparentMessagePayload"] = request.transparentMessagePayload;
+    }
+
+    if (!$dara.isNull(request.transparentMessageUrgency)) {
+      body["TransparentMessageUrgency"] = request.transparentMessageUrgency;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PushTemplate",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23321,46 +4389,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PushTemplateResponse>(await this.callApi(params, req, runtime), new PushTemplateResponse({}));
+    return $dara.cast<$_model.PushTemplateResponse>(await this.callApi(params, req, runtime), new $_model.PushTemplateResponse({}));
   }
 
   /**
-   * @param request PushTemplateRequest
-   * @return PushTemplateResponse
+   * @param request - PushTemplateRequest
+   * @returns PushTemplateResponse
    */
-  async pushTemplate(request: PushTemplateRequest): Promise<PushTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async pushTemplate(request: $_model.PushTemplateRequest): Promise<$_model.PushTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pushTemplateWithOptions(request, runtime);
   }
 
   /**
-   * @param request PushUnBindRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushUnBindResponse
+   * @param request - PushUnBindRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushUnBindResponse
    */
-  async pushUnBindWithOptions(request: PushUnBindRequest, runtime: $Util.RuntimeOptions): Promise<PushUnBindResponse> {
-    Util.validateModel(request);
+  async pushUnBindWithOptions(request: $_model.PushUnBindRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushUnBindResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.deliveryToken)) {
+    if (!$dara.isNull(request.deliveryToken)) {
       body["DeliveryToken"] = request.deliveryToken;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
       body["UserId"] = request.userId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PushUnBind",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23371,60 +4443,60 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PushUnBindResponse>(await this.callApi(params, req, runtime), new PushUnBindResponse({}));
+    return $dara.cast<$_model.PushUnBindResponse>(await this.callApi(params, req, runtime), new $_model.PushUnBindResponse({}));
   }
 
   /**
-   * @param request PushUnBindRequest
-   * @return PushUnBindResponse
+   * @param request - PushUnBindRequest
+   * @returns PushUnBindResponse
    */
-  async pushUnBind(request: PushUnBindRequest): Promise<PushUnBindResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async pushUnBind(request: $_model.PushUnBindRequest): Promise<$_model.PushUnBindResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pushUnBindWithOptions(request, runtime);
   }
 
   /**
-   * @summary 查询Device+服务的
-   *
-   * @param request QueryInfoFromMdpRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryInfoFromMdpResponse
+   * 查询Device+服务的
+   * 
+   * @param request - QueryInfoFromMdpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryInfoFromMdpResponse
    */
-  async queryInfoFromMdpWithOptions(request: QueryInfoFromMdpRequest, runtime: $Util.RuntimeOptions): Promise<QueryInfoFromMdpResponse> {
-    Util.validateModel(request);
+  async queryInfoFromMdpWithOptions(request: $_model.QueryInfoFromMdpRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryInfoFromMdpResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.mobile)) {
+    if (!$dara.isNull(request.mobile)) {
       body["Mobile"] = request.mobile;
     }
 
-    if (!Util.isUnset(request.mobileMd5)) {
+    if (!$dara.isNull(request.mobileMd5)) {
       body["MobileMd5"] = request.mobileMd5;
     }
 
-    if (!Util.isUnset(request.mobileSha256)) {
+    if (!$dara.isNull(request.mobileSha256)) {
       body["MobileSha256"] = request.mobileSha256;
     }
 
-    if (!Util.isUnset(request.riskScene)) {
+    if (!$dara.isNull(request.mobileSm3)) {
+      body["MobileSm3"] = request.mobileSm3;
+    }
+
+    if (!$dara.isNull(request.riskScene)) {
       body["RiskScene"] = request.riskScene;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
-    }
-
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryInfoFromMdp",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23435,46 +4507,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryInfoFromMdpResponse>(await this.callApi(params, req, runtime), new QueryInfoFromMdpResponse({}));
+    return $dara.cast<$_model.QueryInfoFromMdpResponse>(await this.callApi(params, req, runtime), new $_model.QueryInfoFromMdpResponse({}));
   }
 
   /**
-   * @summary 查询Device+服务的
-   *
-   * @param request QueryInfoFromMdpRequest
-   * @return QueryInfoFromMdpResponse
+   * 查询Device+服务的
+   * 
+   * @param request - QueryInfoFromMdpRequest
+   * @returns QueryInfoFromMdpResponse
    */
-  async queryInfoFromMdp(request: QueryInfoFromMdpRequest): Promise<QueryInfoFromMdpResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryInfoFromMdp(request: $_model.QueryInfoFromMdpRequest): Promise<$_model.QueryInfoFromMdpResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryInfoFromMdpWithOptions(request, runtime);
   }
 
   /**
-   * @summary 查询短链
-   *
-   * @param request QueryLinkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryLinkResponse
+   * 查询短链
+   * 
+   * @param request - QueryLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryLinkResponse
    */
-  async queryLinkWithOptions(request: QueryLinkRequest, runtime: $Util.RuntimeOptions): Promise<QueryLinkResponse> {
-    Util.validateModel(request);
+  async queryLinkWithOptions(request: $_model.QueryLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryLinkResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.url)) {
+    if (!$dara.isNull(request.url)) {
       body["Url"] = request.url;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryLink",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23485,40 +4557,40 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryLinkResponse>(await this.callApi(params, req, runtime), new QueryLinkResponse({}));
+    return $dara.cast<$_model.QueryLinkResponse>(await this.callApi(params, req, runtime), new $_model.QueryLinkResponse({}));
   }
 
   /**
-   * @summary 查询短链
-   *
-   * @param request QueryLinkRequest
-   * @return QueryLinkResponse
+   * 查询短链
+   * 
+   * @param request - QueryLinkRequest
+   * @returns QueryLinkResponse
    */
-  async queryLink(request: QueryLinkRequest): Promise<QueryLinkResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryLink(request: $_model.QueryLinkRequest): Promise<$_model.QueryLinkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryLinkWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryMappCenterAppRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMappCenterAppResponse
+   * @param request - QueryMappCenterAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMappCenterAppResponse
    */
-  async queryMappCenterAppWithOptions(request: QueryMappCenterAppRequest, runtime: $Util.RuntimeOptions): Promise<QueryMappCenterAppResponse> {
-    Util.validateModel(request);
+  async queryMappCenterAppWithOptions(request: $_model.QueryMappCenterAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMappCenterAppResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMappCenterApp",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23529,46 +4601,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMappCenterAppResponse>(await this.callApi(params, req, runtime), new QueryMappCenterAppResponse({}));
+    return $dara.cast<$_model.QueryMappCenterAppResponse>(await this.callApi(params, req, runtime), new $_model.QueryMappCenterAppResponse({}));
   }
 
   /**
-   * @param request QueryMappCenterAppRequest
-   * @return QueryMappCenterAppResponse
+   * @param request - QueryMappCenterAppRequest
+   * @returns QueryMappCenterAppResponse
    */
-  async queryMappCenterApp(request: QueryMappCenterAppRequest): Promise<QueryMappCenterAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryMappCenterApp(request: $_model.QueryMappCenterAppRequest): Promise<$_model.QueryMappCenterAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMappCenterAppWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryMcdpAimRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMcdpAimResponse
+   * @param request - QueryMcdpAimRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMcdpAimResponse
    */
-  async queryMcdpAimWithOptions(request: QueryMcdpAimRequest, runtime: $Util.RuntimeOptions): Promise<QueryMcdpAimResponse> {
-    Util.validateModel(request);
+  async queryMcdpAimWithOptions(request: $_model.QueryMcdpAimRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMcdpAimResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMcdpAim",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23579,46 +4651,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMcdpAimResponse>(await this.callApi(params, req, runtime), new QueryMcdpAimResponse({}));
+    return $dara.cast<$_model.QueryMcdpAimResponse>(await this.callApi(params, req, runtime), new $_model.QueryMcdpAimResponse({}));
   }
 
   /**
-   * @param request QueryMcdpAimRequest
-   * @return QueryMcdpAimResponse
+   * @param request - QueryMcdpAimRequest
+   * @returns QueryMcdpAimResponse
    */
-  async queryMcdpAim(request: QueryMcdpAimRequest): Promise<QueryMcdpAimResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryMcdpAim(request: $_model.QueryMcdpAimRequest): Promise<$_model.QueryMcdpAimResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMcdpAimWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryMcdpZoneRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMcdpZoneResponse
+   * @param request - QueryMcdpZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMcdpZoneResponse
    */
-  async queryMcdpZoneWithOptions(request: QueryMcdpZoneRequest, runtime: $Util.RuntimeOptions): Promise<QueryMcdpZoneResponse> {
-    Util.validateModel(request);
+  async queryMcdpZoneWithOptions(request: $_model.QueryMcdpZoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMcdpZoneResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMcdpZone",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23629,50 +4701,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMcdpZoneResponse>(await this.callApi(params, req, runtime), new QueryMcdpZoneResponse({}));
+    return $dara.cast<$_model.QueryMcdpZoneResponse>(await this.callApi(params, req, runtime), new $_model.QueryMcdpZoneResponse({}));
   }
 
   /**
-   * @param request QueryMcdpZoneRequest
-   * @return QueryMcdpZoneResponse
+   * @param request - QueryMcdpZoneRequest
+   * @returns QueryMcdpZoneResponse
    */
-  async queryMcdpZone(request: QueryMcdpZoneRequest): Promise<QueryMcdpZoneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryMcdpZone(request: $_model.QueryMcdpZoneRequest): Promise<$_model.QueryMcdpZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMcdpZoneWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryMcubeMiniPackageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMcubeMiniPackageResponse
+   * @param request - QueryMcubeMiniPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMcubeMiniPackageResponse
    */
-  async queryMcubeMiniPackageWithOptions(request: QueryMcubeMiniPackageRequest, runtime: $Util.RuntimeOptions): Promise<QueryMcubeMiniPackageResponse> {
-    Util.validateModel(request);
+  async queryMcubeMiniPackageWithOptions(request: $_model.QueryMcubeMiniPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMcubeMiniPackageResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.h5Id)) {
+    if (!$dara.isNull(request.h5Id)) {
       body["H5Id"] = request.h5Id;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMcubeMiniPackage",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23683,46 +4755,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMcubeMiniPackageResponse>(await this.callApi(params, req, runtime), new QueryMcubeMiniPackageResponse({}));
+    return $dara.cast<$_model.QueryMcubeMiniPackageResponse>(await this.callApi(params, req, runtime), new $_model.QueryMcubeMiniPackageResponse({}));
   }
 
   /**
-   * @param request QueryMcubeMiniPackageRequest
-   * @return QueryMcubeMiniPackageResponse
+   * @param request - QueryMcubeMiniPackageRequest
+   * @returns QueryMcubeMiniPackageResponse
    */
-  async queryMcubeMiniPackage(request: QueryMcubeMiniPackageRequest): Promise<QueryMcubeMiniPackageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryMcubeMiniPackage(request: $_model.QueryMcubeMiniPackageRequest): Promise<$_model.QueryMcubeMiniPackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMcubeMiniPackageWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryMcubeMiniTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMcubeMiniTaskResponse
+   * @param request - QueryMcubeMiniTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMcubeMiniTaskResponse
    */
-  async queryMcubeMiniTaskWithOptions(request: QueryMcubeMiniTaskRequest, runtime: $Util.RuntimeOptions): Promise<QueryMcubeMiniTaskResponse> {
-    Util.validateModel(request);
+  async queryMcubeMiniTaskWithOptions(request: $_model.QueryMcubeMiniTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMcubeMiniTaskResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMcubeMiniTask",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23733,42 +4805,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMcubeMiniTaskResponse>(await this.callApi(params, req, runtime), new QueryMcubeMiniTaskResponse({}));
+    return $dara.cast<$_model.QueryMcubeMiniTaskResponse>(await this.callApi(params, req, runtime), new $_model.QueryMcubeMiniTaskResponse({}));
   }
 
   /**
-   * @param request QueryMcubeMiniTaskRequest
-   * @return QueryMcubeMiniTaskResponse
+   * @param request - QueryMcubeMiniTaskRequest
+   * @returns QueryMcubeMiniTaskResponse
    */
-  async queryMcubeMiniTask(request: QueryMcubeMiniTaskRequest): Promise<QueryMcubeMiniTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryMcubeMiniTask(request: $_model.QueryMcubeMiniTaskRequest): Promise<$_model.QueryMcubeMiniTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMcubeMiniTaskWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryMcubeVhostRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMcubeVhostResponse
+   * @param request - QueryMcubeVhostRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMcubeVhostResponse
    */
-  async queryMcubeVhostWithOptions(request: QueryMcubeVhostRequest, runtime: $Util.RuntimeOptions): Promise<QueryMcubeVhostResponse> {
-    Util.validateModel(request);
+  async queryMcubeVhostWithOptions(request: $_model.QueryMcubeVhostRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMcubeVhostResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMcubeVhost",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23779,46 +4851,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMcubeVhostResponse>(await this.callApi(params, req, runtime), new QueryMcubeVhostResponse({}));
+    return $dara.cast<$_model.QueryMcubeVhostResponse>(await this.callApi(params, req, runtime), new $_model.QueryMcubeVhostResponse({}));
   }
 
   /**
-   * @param request QueryMcubeVhostRequest
-   * @return QueryMcubeVhostResponse
+   * @param request - QueryMcubeVhostRequest
+   * @returns QueryMcubeVhostResponse
    */
-  async queryMcubeVhost(request: QueryMcubeVhostRequest): Promise<QueryMcubeVhostResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryMcubeVhost(request: $_model.QueryMcubeVhostRequest): Promise<$_model.QueryMcubeVhostResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMcubeVhostWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryMdsUpgradeTaskDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMdsUpgradeTaskDetailResponse
+   * @param request - QueryMdsUpgradeTaskDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMdsUpgradeTaskDetailResponse
    */
-  async queryMdsUpgradeTaskDetailWithOptions(request: QueryMdsUpgradeTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryMdsUpgradeTaskDetailResponse> {
-    Util.validateModel(request);
+  async queryMdsUpgradeTaskDetailWithOptions(request: $_model.QueryMdsUpgradeTaskDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMdsUpgradeTaskDetailResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMdsUpgradeTaskDetail",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23829,94 +4901,94 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMdsUpgradeTaskDetailResponse>(await this.callApi(params, req, runtime), new QueryMdsUpgradeTaskDetailResponse({}));
+    return $dara.cast<$_model.QueryMdsUpgradeTaskDetailResponse>(await this.callApi(params, req, runtime), new $_model.QueryMdsUpgradeTaskDetailResponse({}));
   }
 
   /**
-   * @param request QueryMdsUpgradeTaskDetailRequest
-   * @return QueryMdsUpgradeTaskDetailResponse
+   * @param request - QueryMdsUpgradeTaskDetailRequest
+   * @returns QueryMdsUpgradeTaskDetailResponse
    */
-  async queryMdsUpgradeTaskDetail(request: QueryMdsUpgradeTaskDetailRequest): Promise<QueryMdsUpgradeTaskDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryMdsUpgradeTaskDetail(request: $_model.QueryMdsUpgradeTaskDetailRequest): Promise<$_model.QueryMdsUpgradeTaskDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMdsUpgradeTaskDetailWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryMgsApipageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMgsApipageResponse
+   * @param request - QueryMgsApipageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMgsApipageResponse
    */
-  async queryMgsApipageWithOptions(request: QueryMgsApipageRequest, runtime: $Util.RuntimeOptions): Promise<QueryMgsApipageResponse> {
-    Util.validateModel(request);
+  async queryMgsApipageWithOptions(request: $_model.QueryMgsApipageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMgsApipageResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.apiStatus)) {
+    if (!$dara.isNull(request.apiStatus)) {
       body["ApiStatus"] = request.apiStatus;
     }
 
-    if (!Util.isUnset(request.apiType)) {
+    if (!$dara.isNull(request.apiType)) {
       body["ApiType"] = request.apiType;
     }
 
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.format)) {
+    if (!$dara.isNull(request.format)) {
       body["Format"] = request.format;
     }
 
-    if (!Util.isUnset(request.host)) {
+    if (!$dara.isNull(request.host)) {
       body["Host"] = request.host;
     }
 
-    if (!Util.isUnset(request.needEncrypt)) {
+    if (!$dara.isNull(request.needEncrypt)) {
       body["NeedEncrypt"] = request.needEncrypt;
     }
 
-    if (!Util.isUnset(request.needEtag)) {
+    if (!$dara.isNull(request.needEtag)) {
       body["NeedEtag"] = request.needEtag;
     }
 
-    if (!Util.isUnset(request.needSign)) {
+    if (!$dara.isNull(request.needSign)) {
       body["NeedSign"] = request.needSign;
     }
 
-    if (!Util.isUnset(request.operationType)) {
+    if (!$dara.isNull(request.operationType)) {
       body["OperationType"] = request.operationType;
     }
 
-    if (!Util.isUnset(request.optFuzzy)) {
+    if (!$dara.isNull(request.optFuzzy)) {
       body["OptFuzzy"] = request.optFuzzy;
     }
 
-    if (!Util.isUnset(request.pageIndex)) {
+    if (!$dara.isNull(request.pageIndex)) {
       body["PageIndex"] = request.pageIndex;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.sysId)) {
+    if (!$dara.isNull(request.sysId)) {
       body["SysId"] = request.sysId;
     }
 
-    if (!Util.isUnset(request.sysName)) {
+    if (!$dara.isNull(request.sysName)) {
       body["SysName"] = request.sysName;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMgsApipage",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23927,54 +4999,54 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMgsApipageResponse>(await this.callApi(params, req, runtime), new QueryMgsApipageResponse({}));
+    return $dara.cast<$_model.QueryMgsApipageResponse>(await this.callApi(params, req, runtime), new $_model.QueryMgsApipageResponse({}));
   }
 
   /**
-   * @param request QueryMgsApipageRequest
-   * @return QueryMgsApipageResponse
+   * @param request - QueryMgsApipageRequest
+   * @returns QueryMgsApipageResponse
    */
-  async queryMgsApipage(request: QueryMgsApipageRequest): Promise<QueryMgsApipageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryMgsApipage(request: $_model.QueryMgsApipageRequest): Promise<$_model.QueryMgsApipageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMgsApipageWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryMgsApirestRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMgsApirestResponse
+   * @param request - QueryMgsApirestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMgsApirestResponse
    */
-  async queryMgsApirestWithOptions(request: QueryMgsApirestRequest, runtime: $Util.RuntimeOptions): Promise<QueryMgsApirestResponse> {
-    Util.validateModel(request);
+  async queryMgsApirestWithOptions(request: $_model.QueryMgsApirestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMgsApirestResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.format)) {
+    if (!$dara.isNull(request.format)) {
       body["Format"] = request.format;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMgsApirest",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -23985,50 +5057,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMgsApirestResponse>(await this.callApi(params, req, runtime), new QueryMgsApirestResponse({}));
+    return $dara.cast<$_model.QueryMgsApirestResponse>(await this.callApi(params, req, runtime), new $_model.QueryMgsApirestResponse({}));
   }
 
   /**
-   * @param request QueryMgsApirestRequest
-   * @return QueryMgsApirestResponse
+   * @param request - QueryMgsApirestRequest
+   * @returns QueryMgsApirestResponse
    */
-  async queryMgsApirest(request: QueryMgsApirestRequest): Promise<QueryMgsApirestResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryMgsApirest(request: $_model.QueryMgsApirestRequest): Promise<$_model.QueryMgsApirestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMgsApirestWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryMgsTestreqbodyautogenRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMgsTestreqbodyautogenResponse
+   * @param request - QueryMgsTestreqbodyautogenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMgsTestreqbodyautogenResponse
    */
-  async queryMgsTestreqbodyautogenWithOptions(request: QueryMgsTestreqbodyautogenRequest, runtime: $Util.RuntimeOptions): Promise<QueryMgsTestreqbodyautogenResponse> {
-    Util.validateModel(request);
+  async queryMgsTestreqbodyautogenWithOptions(request: $_model.QueryMgsTestreqbodyautogenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMgsTestreqbodyautogenResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.format)) {
+    if (!$dara.isNull(request.format)) {
       body["Format"] = request.format;
     }
 
-    if (!Util.isUnset(request.mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr)) {
+    if (!$dara.isNull(request.mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr)) {
       body["MpaasMappcenterMgsTestreqbodyautogenQueryJsonStr"] = request.mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMgsTestreqbodyautogen",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24039,62 +5111,62 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMgsTestreqbodyautogenResponse>(await this.callApi(params, req, runtime), new QueryMgsTestreqbodyautogenResponse({}));
+    return $dara.cast<$_model.QueryMgsTestreqbodyautogenResponse>(await this.callApi(params, req, runtime), new $_model.QueryMgsTestreqbodyautogenResponse({}));
   }
 
   /**
-   * @param request QueryMgsTestreqbodyautogenRequest
-   * @return QueryMgsTestreqbodyautogenResponse
+   * @param request - QueryMgsTestreqbodyautogenRequest
+   * @returns QueryMgsTestreqbodyautogenResponse
    */
-  async queryMgsTestreqbodyautogen(request: QueryMgsTestreqbodyautogenRequest): Promise<QueryMgsTestreqbodyautogenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryMgsTestreqbodyautogen(request: $_model.QueryMgsTestreqbodyautogenRequest): Promise<$_model.QueryMgsTestreqbodyautogenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMgsTestreqbodyautogenWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryMpsSchedulerListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMpsSchedulerListResponse
+   * @param request - QueryMpsSchedulerListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMpsSchedulerListResponse
    */
-  async queryMpsSchedulerListWithOptions(request: QueryMpsSchedulerListRequest, runtime: $Util.RuntimeOptions): Promise<QueryMpsSchedulerListResponse> {
-    Util.validateModel(request);
+  async queryMpsSchedulerListWithOptions(request: $_model.QueryMpsSchedulerListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMpsSchedulerListResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       body["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       body["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.uniqueId)) {
+    if (!$dara.isNull(request.uniqueId)) {
       body["UniqueId"] = request.uniqueId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMpsSchedulerList",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24105,62 +5177,66 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMpsSchedulerListResponse>(await this.callApi(params, req, runtime), new QueryMpsSchedulerListResponse({}));
+    return $dara.cast<$_model.QueryMpsSchedulerListResponse>(await this.callApi(params, req, runtime), new $_model.QueryMpsSchedulerListResponse({}));
   }
 
   /**
-   * @param request QueryMpsSchedulerListRequest
-   * @return QueryMpsSchedulerListResponse
+   * @param request - QueryMpsSchedulerListRequest
+   * @returns QueryMpsSchedulerListResponse
    */
-  async queryMpsSchedulerList(request: QueryMpsSchedulerListRequest): Promise<QueryMpsSchedulerListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryMpsSchedulerList(request: $_model.QueryMpsSchedulerListRequest): Promise<$_model.QueryMpsSchedulerListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMpsSchedulerListWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryPushAnalysisCoreIndexRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryPushAnalysisCoreIndexResponse
+   * @param request - QueryPushAnalysisCoreIndexRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPushAnalysisCoreIndexResponse
    */
-  async queryPushAnalysisCoreIndexWithOptions(request: QueryPushAnalysisCoreIndexRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushAnalysisCoreIndexResponse> {
-    Util.validateModel(request);
+  async queryPushAnalysisCoreIndexWithOptions(request: $_model.QueryPushAnalysisCoreIndexRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPushAnalysisCoreIndexResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.channel)) {
+    if (!$dara.isNull(request.channel)) {
       body["Channel"] = request.channel;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       body["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.platform)) {
+    if (!$dara.isNull(request.platform)) {
       body["Platform"] = request.platform;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       body["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryPushAnalysisCoreIndex",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24171,42 +5247,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryPushAnalysisCoreIndexResponse>(await this.callApi(params, req, runtime), new QueryPushAnalysisCoreIndexResponse({}));
+    return $dara.cast<$_model.QueryPushAnalysisCoreIndexResponse>(await this.callApi(params, req, runtime), new $_model.QueryPushAnalysisCoreIndexResponse({}));
   }
 
   /**
-   * @param request QueryPushAnalysisCoreIndexRequest
-   * @return QueryPushAnalysisCoreIndexResponse
+   * @param request - QueryPushAnalysisCoreIndexRequest
+   * @returns QueryPushAnalysisCoreIndexResponse
    */
-  async queryPushAnalysisCoreIndex(request: QueryPushAnalysisCoreIndexRequest): Promise<QueryPushAnalysisCoreIndexResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryPushAnalysisCoreIndex(request: $_model.QueryPushAnalysisCoreIndexRequest): Promise<$_model.QueryPushAnalysisCoreIndexResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPushAnalysisCoreIndexWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryPushAnalysisTaskDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryPushAnalysisTaskDetailResponse
+   * @param request - QueryPushAnalysisTaskDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPushAnalysisTaskDetailResponse
    */
-  async queryPushAnalysisTaskDetailWithOptions(request: QueryPushAnalysisTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushAnalysisTaskDetailResponse> {
-    Util.validateModel(request);
+  async queryPushAnalysisTaskDetailWithOptions(request: $_model.QueryPushAnalysisTaskDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPushAnalysisTaskDetailResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryPushAnalysisTaskDetail",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24217,58 +5297,62 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryPushAnalysisTaskDetailResponse>(await this.callApi(params, req, runtime), new QueryPushAnalysisTaskDetailResponse({}));
+    return $dara.cast<$_model.QueryPushAnalysisTaskDetailResponse>(await this.callApi(params, req, runtime), new $_model.QueryPushAnalysisTaskDetailResponse({}));
   }
 
   /**
-   * @param request QueryPushAnalysisTaskDetailRequest
-   * @return QueryPushAnalysisTaskDetailResponse
+   * @param request - QueryPushAnalysisTaskDetailRequest
+   * @returns QueryPushAnalysisTaskDetailResponse
    */
-  async queryPushAnalysisTaskDetail(request: QueryPushAnalysisTaskDetailRequest): Promise<QueryPushAnalysisTaskDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryPushAnalysisTaskDetail(request: $_model.QueryPushAnalysisTaskDetailRequest): Promise<$_model.QueryPushAnalysisTaskDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPushAnalysisTaskDetailWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryPushAnalysisTaskListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryPushAnalysisTaskListResponse
+   * @param request - QueryPushAnalysisTaskListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPushAnalysisTaskListResponse
    */
-  async queryPushAnalysisTaskListWithOptions(request: QueryPushAnalysisTaskListRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushAnalysisTaskListResponse> {
-    Util.validateModel(request);
+  async queryPushAnalysisTaskListWithOptions(request: $_model.QueryPushAnalysisTaskListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPushAnalysisTaskListResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       body["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.taskName)) {
+    if (!$dara.isNull(request.taskName)) {
       body["TaskName"] = request.taskName;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryPushAnalysisTaskList",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24279,62 +5363,66 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryPushAnalysisTaskListResponse>(await this.callApi(params, req, runtime), new QueryPushAnalysisTaskListResponse({}));
+    return $dara.cast<$_model.QueryPushAnalysisTaskListResponse>(await this.callApi(params, req, runtime), new $_model.QueryPushAnalysisTaskListResponse({}));
   }
 
   /**
-   * @param request QueryPushAnalysisTaskListRequest
-   * @return QueryPushAnalysisTaskListResponse
+   * @param request - QueryPushAnalysisTaskListRequest
+   * @returns QueryPushAnalysisTaskListResponse
    */
-  async queryPushAnalysisTaskList(request: QueryPushAnalysisTaskListRequest): Promise<QueryPushAnalysisTaskListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryPushAnalysisTaskList(request: $_model.QueryPushAnalysisTaskListRequest): Promise<$_model.QueryPushAnalysisTaskListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPushAnalysisTaskListWithOptions(request, runtime);
   }
 
   /**
-   * @param request QueryPushSchedulerListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryPushSchedulerListResponse
+   * @param request - QueryPushSchedulerListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPushSchedulerListResponse
    */
-  async queryPushSchedulerListWithOptions(request: QueryPushSchedulerListRequest, runtime: $Util.RuntimeOptions): Promise<QueryPushSchedulerListResponse> {
-    Util.validateModel(request);
+  async queryPushSchedulerListWithOptions(request: $_model.QueryPushSchedulerListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPushSchedulerListResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       body["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       body["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.uniqueId)) {
+    if (!$dara.isNull(request.uniqueId)) {
       body["UniqueId"] = request.uniqueId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryPushSchedulerList",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24345,46 +5433,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryPushSchedulerListResponse>(await this.callApi(params, req, runtime), new QueryPushSchedulerListResponse({}));
+    return $dara.cast<$_model.QueryPushSchedulerListResponse>(await this.callApi(params, req, runtime), new $_model.QueryPushSchedulerListResponse({}));
   }
 
   /**
-   * @param request QueryPushSchedulerListRequest
-   * @return QueryPushSchedulerListResponse
+   * @param request - QueryPushSchedulerListRequest
+   * @returns QueryPushSchedulerListResponse
    */
-  async queryPushSchedulerList(request: QueryPushSchedulerListRequest): Promise<QueryPushSchedulerListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryPushSchedulerList(request: $_model.QueryPushSchedulerListRequest): Promise<$_model.QueryPushSchedulerListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPushSchedulerListWithOptions(request, runtime);
   }
 
   /**
-   * @param request RevokePushMessageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RevokePushMessageResponse
+   * @param request - RevokePushMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokePushMessageResponse
    */
-  async revokePushMessageWithOptions(request: RevokePushMessageRequest, runtime: $Util.RuntimeOptions): Promise<RevokePushMessageResponse> {
-    Util.validateModel(request);
+  async revokePushMessageWithOptions(request: $_model.RevokePushMessageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokePushMessageResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.messageId)) {
+    if (!$dara.isNull(request.messageId)) {
       body["MessageId"] = request.messageId;
     }
 
-    if (!Util.isUnset(request.targetId)) {
+    if (!$dara.isNull(request.targetId)) {
       body["TargetId"] = request.targetId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RevokePushMessage",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24395,42 +5487,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RevokePushMessageResponse>(await this.callApi(params, req, runtime), new RevokePushMessageResponse({}));
+    return $dara.cast<$_model.RevokePushMessageResponse>(await this.callApi(params, req, runtime), new $_model.RevokePushMessageResponse({}));
   }
 
   /**
-   * @param request RevokePushMessageRequest
-   * @return RevokePushMessageResponse
+   * @param request - RevokePushMessageRequest
+   * @returns RevokePushMessageResponse
    */
-  async revokePushMessage(request: RevokePushMessageRequest): Promise<RevokePushMessageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async revokePushMessage(request: $_model.RevokePushMessageRequest): Promise<$_model.RevokePushMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.revokePushMessageWithOptions(request, runtime);
   }
 
   /**
-   * @param request RevokePushTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RevokePushTaskResponse
+   * @param request - RevokePushTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokePushTaskResponse
    */
-  async revokePushTaskWithOptions(request: RevokePushTaskRequest, runtime: $Util.RuntimeOptions): Promise<RevokePushTaskResponse> {
-    Util.validateModel(request);
+  async revokePushTaskWithOptions(request: $_model.RevokePushTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokePushTaskResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RevokePushTask",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24441,46 +5537,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RevokePushTaskResponse>(await this.callApi(params, req, runtime), new RevokePushTaskResponse({}));
+    return $dara.cast<$_model.RevokePushTaskResponse>(await this.callApi(params, req, runtime), new $_model.RevokePushTaskResponse({}));
   }
 
   /**
-   * @param request RevokePushTaskRequest
-   * @return RevokePushTaskResponse
+   * @param request - RevokePushTaskRequest
+   * @returns RevokePushTaskResponse
    */
-  async revokePushTask(request: RevokePushTaskRequest): Promise<RevokePushTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async revokePushTask(request: $_model.RevokePushTaskRequest): Promise<$_model.RevokePushTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.revokePushTaskWithOptions(request, runtime);
   }
 
   /**
-   * @param request RunMsaDiffRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RunMsaDiffResponse
+   * @param request - RunMsaDiffRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunMsaDiffResponse
    */
-  async runMsaDiffWithOptions(request: RunMsaDiffRequest, runtime: $Util.RuntimeOptions): Promise<RunMsaDiffResponse> {
-    Util.validateModel(request);
+  async runMsaDiffWithOptions(request: $_model.RunMsaDiffRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunMsaDiffResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.mpaasMappcenterMsaDiffRunJsonStr)) {
+    if (!$dara.isNull(request.mpaasMappcenterMsaDiffRunJsonStr)) {
       body["MpaasMappcenterMsaDiffRunJsonStr"] = request.mpaasMappcenterMsaDiffRunJsonStr;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunMsaDiff",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24491,46 +5587,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunMsaDiffResponse>(await this.callApi(params, req, runtime), new RunMsaDiffResponse({}));
+    return $dara.cast<$_model.RunMsaDiffResponse>(await this.callApi(params, req, runtime), new $_model.RunMsaDiffResponse({}));
   }
 
   /**
-   * @param request RunMsaDiffRequest
-   * @return RunMsaDiffResponse
+   * @param request - RunMsaDiffRequest
+   * @returns RunMsaDiffResponse
    */
-  async runMsaDiff(request: RunMsaDiffRequest): Promise<RunMsaDiffResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async runMsaDiff(request: $_model.RunMsaDiffRequest): Promise<$_model.RunMsaDiffResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.runMsaDiffWithOptions(request, runtime);
   }
 
   /**
-   * @param request SaveMgsApirestRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SaveMgsApirestResponse
+   * @param request - SaveMgsApirestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveMgsApirestResponse
    */
-  async saveMgsApirestWithOptions(request: SaveMgsApirestRequest, runtime: $Util.RuntimeOptions): Promise<SaveMgsApirestResponse> {
-    Util.validateModel(request);
+  async saveMgsApirestWithOptions(request: $_model.SaveMgsApirestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveMgsApirestResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.mpaasMappcenterMgsApirestSaveJsonStr)) {
+    if (!$dara.isNull(request.mpaasMappcenterMgsApirestSaveJsonStr)) {
       body["MpaasMappcenterMgsApirestSaveJsonStr"] = request.mpaasMappcenterMgsApirestSaveJsonStr;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveMgsApirest",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24541,110 +5637,110 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveMgsApirestResponse>(await this.callApi(params, req, runtime), new SaveMgsApirestResponse({}));
+    return $dara.cast<$_model.SaveMgsApirestResponse>(await this.callApi(params, req, runtime), new $_model.SaveMgsApirestResponse({}));
   }
 
   /**
-   * @param request SaveMgsApirestRequest
-   * @return SaveMgsApirestResponse
+   * @param request - SaveMgsApirestRequest
+   * @returns SaveMgsApirestResponse
    */
-  async saveMgsApirest(request: SaveMgsApirestRequest): Promise<SaveMgsApirestResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveMgsApirest(request: $_model.SaveMgsApirestRequest): Promise<$_model.SaveMgsApirestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveMgsApirestWithOptions(request, runtime);
   }
 
   /**
-   * @param request StartUserAppAsyncEnhanceInMsaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartUserAppAsyncEnhanceInMsaResponse
+   * @param request - StartUserAppAsyncEnhanceInMsaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartUserAppAsyncEnhanceInMsaResponse
    */
-  async startUserAppAsyncEnhanceInMsaWithOptions(request: StartUserAppAsyncEnhanceInMsaRequest, runtime: $Util.RuntimeOptions): Promise<StartUserAppAsyncEnhanceInMsaResponse> {
-    Util.validateModel(request);
+  async startUserAppAsyncEnhanceInMsaWithOptions(request: $_model.StartUserAppAsyncEnhanceInMsaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartUserAppAsyncEnhanceInMsaResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.apkProtector)) {
+    if (!$dara.isNull(request.apkProtector)) {
       body["ApkProtector"] = request.apkProtector;
     }
 
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.assetsFileList)) {
+    if (!$dara.isNull(request.assetsFileList)) {
       body["AssetsFileList"] = request.assetsFileList;
     }
 
-    if (!Util.isUnset(request.classes)) {
+    if (!$dara.isNull(request.classes)) {
       body["Classes"] = request.classes;
     }
 
-    if (!Util.isUnset(request.dalvikDebugger)) {
+    if (!$dara.isNull(request.dalvikDebugger)) {
       body["DalvikDebugger"] = request.dalvikDebugger;
     }
 
-    if (!Util.isUnset(request.emulatorEnvironment)) {
+    if (!$dara.isNull(request.emulatorEnvironment)) {
       body["EmulatorEnvironment"] = request.emulatorEnvironment;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.javaHook)) {
+    if (!$dara.isNull(request.javaHook)) {
       body["JavaHook"] = request.javaHook;
     }
 
-    if (!Util.isUnset(request.memoryDump)) {
+    if (!$dara.isNull(request.memoryDump)) {
       body["MemoryDump"] = request.memoryDump;
     }
 
-    if (!Util.isUnset(request.nativeDebugger)) {
+    if (!$dara.isNull(request.nativeDebugger)) {
       body["NativeDebugger"] = request.nativeDebugger;
     }
 
-    if (!Util.isUnset(request.nativeHook)) {
+    if (!$dara.isNull(request.nativeHook)) {
       body["NativeHook"] = request.nativeHook;
     }
 
-    if (!Util.isUnset(request.packageTampered)) {
+    if (!$dara.isNull(request.packageTampered)) {
       body["PackageTampered"] = request.packageTampered;
     }
 
-    if (!Util.isUnset(request.root)) {
+    if (!$dara.isNull(request.root)) {
       body["Root"] = request.root;
     }
 
-    if (!Util.isUnset(request.runMode)) {
+    if (!$dara.isNull(request.runMode)) {
       body["RunMode"] = request.runMode;
     }
 
-    if (!Util.isUnset(request.soFileList)) {
+    if (!$dara.isNull(request.soFileList)) {
       body["SoFileList"] = request.soFileList;
     }
 
-    if (!Util.isUnset(request.taskType)) {
+    if (!$dara.isNull(request.taskType)) {
       body["TaskType"] = request.taskType;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.totalSwitch)) {
+    if (!$dara.isNull(request.totalSwitch)) {
       body["TotalSwitch"] = request.totalSwitch;
     }
 
-    if (!Util.isUnset(request.useAShield)) {
+    if (!$dara.isNull(request.useAShield)) {
       body["UseAShield"] = request.useAShield;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartUserAppAsyncEnhanceInMsa",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24655,58 +5751,124 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartUserAppAsyncEnhanceInMsaResponse>(await this.callApi(params, req, runtime), new StartUserAppAsyncEnhanceInMsaResponse({}));
+    return $dara.cast<$_model.StartUserAppAsyncEnhanceInMsaResponse>(await this.callApi(params, req, runtime), new $_model.StartUserAppAsyncEnhanceInMsaResponse({}));
   }
 
   /**
-   * @param request StartUserAppAsyncEnhanceInMsaRequest
-   * @return StartUserAppAsyncEnhanceInMsaResponse
+   * @param request - StartUserAppAsyncEnhanceInMsaRequest
+   * @returns StartUserAppAsyncEnhanceInMsaResponse
    */
-  async startUserAppAsyncEnhanceInMsa(request: StartUserAppAsyncEnhanceInMsaRequest): Promise<StartUserAppAsyncEnhanceInMsaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async startUserAppAsyncEnhanceInMsa(request: $_model.StartUserAppAsyncEnhanceInMsaRequest): Promise<$_model.StartUserAppAsyncEnhanceInMsaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startUserAppAsyncEnhanceInMsaWithOptions(request, runtime);
   }
 
   /**
-   * @param request UpdateMcubeWhitelistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMcubeWhitelistResponse
+   * 更新短链
+   * 
+   * @param request - UpdateLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLinkResponse
    */
-  async updateMcubeWhitelistWithOptions(request: UpdateMcubeWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMcubeWhitelistResponse> {
-    Util.validateModel(request);
+  async updateLinkWithOptions(request: $_model.UpdateLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLinkResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.id)) {
-      body["Id"] = request.id;
+    if (!$dara.isNull(request.cors)) {
+      body["Cors"] = request.cors;
     }
 
-    if (!Util.isUnset(request.keyIds)) {
-      body["KeyIds"] = request.keyIds;
+    if (!$dara.isNull(request.domain)) {
+      body["Domain"] = request.domain;
     }
 
-    if (!Util.isUnset(request.onexFlag)) {
-      body["OnexFlag"] = request.onexFlag;
+    if (!$dara.isNull(request.dynamicfield)) {
+      body["Dynamicfield"] = request.dynamicfield;
     }
 
-    if (!Util.isUnset(request.ossUrl)) {
-      body["OssUrl"] = request.ossUrl;
+    if (!$dara.isNull(request.targetUrl)) {
+      body["TargetUrl"] = request.targetUrl;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
+    if (!$dara.isNull(request.url)) {
+      body["Url"] = request.url;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateLink",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateLinkResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLinkResponse({}));
+  }
+
+  /**
+   * 更新短链
+   * 
+   * @param request - UpdateLinkRequest
+   * @returns UpdateLinkResponse
+   */
+  async updateLink(request: $_model.UpdateLinkRequest): Promise<$_model.UpdateLinkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateLinkWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - UpdateMcubeWhitelistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMcubeWhitelistResponse
+   */
+  async updateMcubeWhitelistWithOptions(request: $_model.UpdateMcubeWhitelistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMcubeWhitelistResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.keyIds)) {
+      body["KeyIds"] = request.keyIds;
+    }
+
+    if (!$dara.isNull(request.onexFlag)) {
+      body["OnexFlag"] = request.onexFlag;
+    }
+
+    if (!$dara.isNull(request.ossUrl)) {
+      body["OssUrl"] = request.ossUrl;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "UpdateMcubeWhitelist",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24717,58 +5879,58 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateMcubeWhitelistResponse>(await this.callApi(params, req, runtime), new UpdateMcubeWhitelistResponse({}));
+    return $dara.cast<$_model.UpdateMcubeWhitelistResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMcubeWhitelistResponse({}));
   }
 
   /**
-   * @param request UpdateMcubeWhitelistRequest
-   * @return UpdateMcubeWhitelistResponse
+   * @param request - UpdateMcubeWhitelistRequest
+   * @returns UpdateMcubeWhitelistResponse
    */
-  async updateMcubeWhitelist(request: UpdateMcubeWhitelistRequest): Promise<UpdateMcubeWhitelistResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateMcubeWhitelist(request: $_model.UpdateMcubeWhitelistRequest): Promise<$_model.UpdateMcubeWhitelistResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateMcubeWhitelistWithOptions(request, runtime);
   }
 
   /**
-   * @param request UpdateMpaasAppInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMpaasAppInfoResponse
+   * @param request - UpdateMpaasAppInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMpaasAppInfoResponse
    */
-  async updateMpaasAppInfoWithOptions(request: UpdateMpaasAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMpaasAppInfoResponse> {
-    Util.validateModel(request);
+  async updateMpaasAppInfoWithOptions(request: $_model.UpdateMpaasAppInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMpaasAppInfoResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.appName)) {
+    if (!$dara.isNull(request.appName)) {
       body["AppName"] = request.appName;
     }
 
-    if (!Util.isUnset(request.iconFileUrl)) {
+    if (!$dara.isNull(request.iconFileUrl)) {
       body["IconFileUrl"] = request.iconFileUrl;
     }
 
-    if (!Util.isUnset(request.identifier)) {
+    if (!$dara.isNull(request.identifier)) {
       body["Identifier"] = request.identifier;
     }
 
-    if (!Util.isUnset(request.onexFlag)) {
+    if (!$dara.isNull(request.onexFlag)) {
       body["OnexFlag"] = request.onexFlag;
     }
 
-    if (!Util.isUnset(request.systemType)) {
+    if (!$dara.isNull(request.systemType)) {
       body["SystemType"] = request.systemType;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateMpaasAppInfo",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24779,60 +5941,60 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateMpaasAppInfoResponse>(await this.callApi(params, req, runtime), new UpdateMpaasAppInfoResponse({}));
+    return $dara.cast<$_model.UpdateMpaasAppInfoResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMpaasAppInfoResponse({}));
   }
 
   /**
-   * @param request UpdateMpaasAppInfoRequest
-   * @return UpdateMpaasAppInfoResponse
+   * @param request - UpdateMpaasAppInfoRequest
+   * @returns UpdateMpaasAppInfoResponse
    */
-  async updateMpaasAppInfo(request: UpdateMpaasAppInfoRequest): Promise<UpdateMpaasAppInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateMpaasAppInfo(request: $_model.UpdateMpaasAppInfoRequest): Promise<$_model.UpdateMpaasAppInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateMpaasAppInfoWithOptions(request, runtime);
   }
 
   /**
-   * @summary 上传字节码到msa进行加固
-   *
-   * @param request UploadBitcodeToMsaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UploadBitcodeToMsaResponse
+   * 上传字节码到msa进行加固
+   * 
+   * @param request - UploadBitcodeToMsaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadBitcodeToMsaResponse
    */
-  async uploadBitcodeToMsaWithOptions(request: UploadBitcodeToMsaRequest, runtime: $Util.RuntimeOptions): Promise<UploadBitcodeToMsaResponse> {
-    Util.validateModel(request);
+  async uploadBitcodeToMsaWithOptions(request: $_model.UploadBitcodeToMsaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadBitcodeToMsaResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.bitcode)) {
+    if (!$dara.isNull(request.bitcode)) {
       body["Bitcode"] = request.bitcode;
     }
 
-    if (!Util.isUnset(request.codeVersion)) {
+    if (!$dara.isNull(request.codeVersion)) {
       body["CodeVersion"] = request.codeVersion;
     }
 
-    if (!Util.isUnset(request.license)) {
+    if (!$dara.isNull(request.license)) {
       body["License"] = request.license;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UploadBitcodeToMsa",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24843,132 +6005,132 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UploadBitcodeToMsaResponse>(await this.callApi(params, req, runtime), new UploadBitcodeToMsaResponse({}));
+    return $dara.cast<$_model.UploadBitcodeToMsaResponse>(await this.callApi(params, req, runtime), new $_model.UploadBitcodeToMsaResponse({}));
   }
 
   /**
-   * @summary 上传字节码到msa进行加固
-   *
-   * @param request UploadBitcodeToMsaRequest
-   * @return UploadBitcodeToMsaResponse
+   * 上传字节码到msa进行加固
+   * 
+   * @param request - UploadBitcodeToMsaRequest
+   * @returns UploadBitcodeToMsaResponse
    */
-  async uploadBitcodeToMsa(request: UploadBitcodeToMsaRequest): Promise<UploadBitcodeToMsaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async uploadBitcodeToMsa(request: $_model.UploadBitcodeToMsaRequest): Promise<$_model.UploadBitcodeToMsaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.uploadBitcodeToMsaWithOptions(request, runtime);
   }
 
   /**
-   * @param request UploadMcubeMiniPackageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UploadMcubeMiniPackageResponse
+   * @param request - UploadMcubeMiniPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadMcubeMiniPackageResponse
    */
-  async uploadMcubeMiniPackageWithOptions(request: UploadMcubeMiniPackageRequest, runtime: $Util.RuntimeOptions): Promise<UploadMcubeMiniPackageResponse> {
-    Util.validateModel(request);
+  async uploadMcubeMiniPackageWithOptions(request: $_model.UploadMcubeMiniPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadMcubeMiniPackageResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.autoInstall)) {
+    if (!$dara.isNull(request.autoInstall)) {
       body["AutoInstall"] = request.autoInstall;
     }
 
-    if (!Util.isUnset(request.clientVersionMax)) {
+    if (!$dara.isNull(request.clientVersionMax)) {
       body["ClientVersionMax"] = request.clientVersionMax;
     }
 
-    if (!Util.isUnset(request.clientVersionMin)) {
+    if (!$dara.isNull(request.clientVersionMin)) {
       body["ClientVersionMin"] = request.clientVersionMin;
     }
 
-    if (!Util.isUnset(request.enableKeepAlive)) {
+    if (!$dara.isNull(request.enableKeepAlive)) {
       body["EnableKeepAlive"] = request.enableKeepAlive;
     }
 
-    if (!Util.isUnset(request.enableOptionMenu)) {
+    if (!$dara.isNull(request.enableOptionMenu)) {
       body["EnableOptionMenu"] = request.enableOptionMenu;
     }
 
-    if (!Util.isUnset(request.enableTabBar)) {
+    if (!$dara.isNull(request.enableTabBar)) {
       body["EnableTabBar"] = request.enableTabBar;
     }
 
-    if (!Util.isUnset(request.extendInfo)) {
+    if (!$dara.isNull(request.extendInfo)) {
       body["ExtendInfo"] = request.extendInfo;
     }
 
-    if (!Util.isUnset(request.h5Id)) {
+    if (!$dara.isNull(request.h5Id)) {
       body["H5Id"] = request.h5Id;
     }
 
-    if (!Util.isUnset(request.h5Name)) {
+    if (!$dara.isNull(request.h5Name)) {
       body["H5Name"] = request.h5Name;
     }
 
-    if (!Util.isUnset(request.h5Version)) {
+    if (!$dara.isNull(request.h5Version)) {
       body["H5Version"] = request.h5Version;
     }
 
-    if (!Util.isUnset(request.iconFileUrl)) {
+    if (!$dara.isNull(request.iconFileUrl)) {
       body["IconFileUrl"] = request.iconFileUrl;
     }
 
-    if (!Util.isUnset(request.iconUrl)) {
+    if (!$dara.isNull(request.iconUrl)) {
       body["IconUrl"] = request.iconUrl;
     }
 
-    if (!Util.isUnset(request.installType)) {
+    if (!$dara.isNull(request.installType)) {
       body["InstallType"] = request.installType;
     }
 
-    if (!Util.isUnset(request.mainUrl)) {
+    if (!$dara.isNull(request.mainUrl)) {
       body["MainUrl"] = request.mainUrl;
     }
 
-    if (!Util.isUnset(request.onexFlag)) {
+    if (!$dara.isNull(request.onexFlag)) {
       body["OnexFlag"] = request.onexFlag;
     }
 
-    if (!Util.isUnset(request.packageType)) {
+    if (!$dara.isNull(request.packageType)) {
       body["PackageType"] = request.packageType;
     }
 
-    if (!Util.isUnset(request.platform)) {
+    if (!$dara.isNull(request.platform)) {
       body["Platform"] = request.platform;
     }
 
-    if (!Util.isUnset(request.resourceFileUrl)) {
+    if (!$dara.isNull(request.resourceFileUrl)) {
       body["ResourceFileUrl"] = request.resourceFileUrl;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       body["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.userId)) {
       body["UserId"] = request.userId;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    if (!Util.isUnset(request.vhost)) {
+    if (!$dara.isNull(request.vhost)) {
       body["Vhost"] = request.vhost;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UploadMcubeMiniPackage",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -24979,50 +6141,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UploadMcubeMiniPackageResponse>(await this.callApi(params, req, runtime), new UploadMcubeMiniPackageResponse({}));
+    return $dara.cast<$_model.UploadMcubeMiniPackageResponse>(await this.callApi(params, req, runtime), new $_model.UploadMcubeMiniPackageResponse({}));
   }
 
   /**
-   * @param request UploadMcubeMiniPackageRequest
-   * @return UploadMcubeMiniPackageResponse
+   * @param request - UploadMcubeMiniPackageRequest
+   * @returns UploadMcubeMiniPackageResponse
    */
-  async uploadMcubeMiniPackage(request: UploadMcubeMiniPackageRequest): Promise<UploadMcubeMiniPackageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async uploadMcubeMiniPackage(request: $_model.UploadMcubeMiniPackageRequest): Promise<$_model.UploadMcubeMiniPackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.uploadMcubeMiniPackageWithOptions(request, runtime);
   }
 
   /**
-   * @param request UploadMcubeRsaKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UploadMcubeRsaKeyResponse
+   * @param request - UploadMcubeRsaKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadMcubeRsaKeyResponse
    */
-  async uploadMcubeRsaKeyWithOptions(request: UploadMcubeRsaKeyRequest, runtime: $Util.RuntimeOptions): Promise<UploadMcubeRsaKeyResponse> {
-    Util.validateModel(request);
+  async uploadMcubeRsaKeyWithOptions(request: $_model.UploadMcubeRsaKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadMcubeRsaKeyResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.fileUrl)) {
+    if (!$dara.isNull(request.fileUrl)) {
       body["FileUrl"] = request.fileUrl;
     }
 
-    if (!Util.isUnset(request.onexFlag)) {
+    if (!$dara.isNull(request.onexFlag)) {
       body["OnexFlag"] = request.onexFlag;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UploadMcubeRsaKey",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -25033,46 +6195,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UploadMcubeRsaKeyResponse>(await this.callApi(params, req, runtime), new UploadMcubeRsaKeyResponse({}));
+    return $dara.cast<$_model.UploadMcubeRsaKeyResponse>(await this.callApi(params, req, runtime), new $_model.UploadMcubeRsaKeyResponse({}));
   }
 
   /**
-   * @param request UploadMcubeRsaKeyRequest
-   * @return UploadMcubeRsaKeyResponse
+   * @param request - UploadMcubeRsaKeyRequest
+   * @returns UploadMcubeRsaKeyResponse
    */
-  async uploadMcubeRsaKey(request: UploadMcubeRsaKeyRequest): Promise<UploadMcubeRsaKeyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async uploadMcubeRsaKey(request: $_model.UploadMcubeRsaKeyRequest): Promise<$_model.UploadMcubeRsaKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.uploadMcubeRsaKeyWithOptions(request, runtime);
   }
 
   /**
-   * @param request UploadUserAppToMsaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UploadUserAppToMsaResponse
+   * @param request - UploadUserAppToMsaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadUserAppToMsaResponse
    */
-  async uploadUserAppToMsaWithOptions(request: UploadUserAppToMsaRequest, runtime: $Util.RuntimeOptions): Promise<UploadUserAppToMsaResponse> {
-    Util.validateModel(request);
+  async uploadUserAppToMsaWithOptions(request: $_model.UploadUserAppToMsaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadUserAppToMsaResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.fileUrl)) {
+    if (!$dara.isNull(request.fileUrl)) {
       body["FileUrl"] = request.fileUrl;
     }
 
-    if (!Util.isUnset(request.tenantId)) {
+    if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UploadUserAppToMsa",
       version: "2020-10-28",
       protocol: "HTTPS",
@@ -25083,15 +6245,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UploadUserAppToMsaResponse>(await this.callApi(params, req, runtime), new UploadUserAppToMsaResponse({}));
+    return $dara.cast<$_model.UploadUserAppToMsaResponse>(await this.callApi(params, req, runtime), new $_model.UploadUserAppToMsaResponse({}));
   }
 
   /**
-   * @param request UploadUserAppToMsaRequest
-   * @return UploadUserAppToMsaResponse
+   * @param request - UploadUserAppToMsaRequest
+   * @returns UploadUserAppToMsaResponse
    */
-  async uploadUserAppToMsa(request: UploadUserAppToMsaRequest): Promise<UploadUserAppToMsaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async uploadUserAppToMsa(request: $_model.UploadUserAppToMsaRequest): Promise<$_model.UploadUserAppToMsaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.uploadUserAppToMsaWithOptions(request, runtime);
   }
 
