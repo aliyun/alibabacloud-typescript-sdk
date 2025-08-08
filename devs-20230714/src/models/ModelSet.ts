@@ -1,10 +1,9 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ToolsetSpec } from "./ToolsetSpec";
-import { ToolsetStatus } from "./ToolsetStatus";
+import { ModelSetStatus } from "./ModelSetStatus";
 
 
-export class Toolset extends $dara.Model {
+export class ModelSet extends $dara.Model {
   /**
    * @example
    * 2021-11-19T09:34:38Z
@@ -15,27 +14,26 @@ export class Toolset extends $dara.Model {
    * test-description
    */
   description?: string;
-  /**
-   * @example
-   * 1
-   */
   generation?: number;
   /**
    * @example
-   * Toolset
+   * ModelProvider
    */
   kind?: string;
+  /**
+   * @example
+   * key=value
+   */
   labels?: { [key: string]: string };
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * my-toolset
+   * my-modelset
    */
   name?: string;
-  spec?: ToolsetSpec;
-  status?: ToolsetStatus;
+  status?: ModelSetStatus;
   /**
    * @example
    * 1455541096***548
@@ -49,7 +47,6 @@ export class Toolset extends $dara.Model {
       kind: 'kind',
       labels: 'labels',
       name: 'name',
-      spec: 'spec',
       status: 'status',
       uid: 'uid',
     };
@@ -63,8 +60,7 @@ export class Toolset extends $dara.Model {
       kind: 'string',
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       name: 'string',
-      spec: ToolsetSpec,
-      status: ToolsetStatus,
+      status: ModelSetStatus,
       uid: 'string',
     };
   }
@@ -72,9 +68,6 @@ export class Toolset extends $dara.Model {
   validate() {
     if(this.labels) {
       $dara.Model.validateMap(this.labels);
-    }
-    if(this.spec && typeof (this.spec as any).validate === 'function') {
-      (this.spec as any).validate();
     }
     if(this.status && typeof (this.status as any).validate === 'function') {
       (this.status as any).validate();

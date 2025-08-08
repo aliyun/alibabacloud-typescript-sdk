@@ -2,30 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class TemplateStatusLatestDeployment extends $dara.Model {
-  finishedTime?: string;
-  /**
-   * @example
-   * BuildFinished
-   */
+export class ModelSetStatus extends $dara.Model {
+  observedGeneration?: number;
+  observedTime?: string;
   phase?: string;
-  pipelineName?: string;
-  startTime?: string;
   static names(): { [key: string]: string } {
     return {
-      finishedTime: 'finishedTime',
+      observedGeneration: 'observedGeneration',
+      observedTime: 'observedTime',
       phase: 'phase',
-      pipelineName: 'pipelineName',
-      startTime: 'startTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      finishedTime: 'string',
+      observedGeneration: 'number',
+      observedTime: 'string',
       phase: 'string',
-      pipelineName: 'string',
-      startTime: 'string',
     };
   }
 

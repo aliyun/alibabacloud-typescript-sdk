@@ -1,7 +1,42 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { TemplateStatusLatestDeployment } from "./TemplateStatusLatestDeployment";
 
+
+export class TemplateStatusLatestDeployment extends $dara.Model {
+  finishedTime?: string;
+  /**
+   * @example
+   * BuildFinished
+   */
+  phase?: string;
+  pipelineName?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      finishedTime: 'finishedTime',
+      phase: 'phase',
+      pipelineName: 'pipelineName',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      finishedTime: 'string',
+      phase: 'string',
+      pipelineName: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class TemplateStatus extends $dara.Model {
   latestDeployment?: TemplateStatusLatestDeployment;

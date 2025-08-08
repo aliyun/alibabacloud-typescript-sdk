@@ -2,31 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GitLabConfig extends $dara.Model {
-  isFixedIP?: boolean;
+export class APIKeyAuthParameter extends $dara.Model {
+  encrypted?: boolean;
   /**
    * @example
-   * your-token
+   * header
    */
-  token?: string;
+  in?: string;
   /**
    * @example
-   * http://gitlab.c16194660f14898a0810408171302ac.cn-shanghai.alicontainer.com/
+   * Authorization
    */
-  uri?: string;
+  key?: string;
+  /**
+   * @example
+   * mock_value
+   */
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      isFixedIP: 'isFixedIP',
-      token: 'token',
-      uri: 'uri',
+      encrypted: 'encrypted',
+      in: 'in',
+      key: 'key',
+      value: 'value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isFixedIP: 'boolean',
-      token: 'string',
-      uri: 'string',
+      encrypted: 'boolean',
+      in: 'string',
+      key: 'string',
+      value: 'string',
     };
   }
 

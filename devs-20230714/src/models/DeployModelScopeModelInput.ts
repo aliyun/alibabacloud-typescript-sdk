@@ -1,14 +1,352 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DeployModelScopeModelInputConcurrencyConfig } from "./DeployModelScopeModelInputConcurrencyConfig";
-import { DeployModelScopeModelInputGpuConfig } from "./DeployModelScopeModelInputGpuConfig";
-import { DeployModelScopeModelInputHttpTrigger } from "./DeployModelScopeModelInputHttpTrigger";
-import { DeployModelScopeModelInputLogConfig } from "./DeployModelScopeModelInputLogConfig";
-import { DeployModelScopeModelInputModelConfig } from "./DeployModelScopeModelInputModelConfig";
-import { DeployModelScopeModelInputNasConfig } from "./DeployModelScopeModelInputNasConfig";
-import { DeployModelScopeModelInputProvisionConfig } from "./DeployModelScopeModelInputProvisionConfig";
-import { DeployModelScopeModelInputVpcConfig } from "./DeployModelScopeModelInputVpcConfig";
+import { ModelConfig } from "./ModelConfig";
 
+
+export class DeployModelScopeModelInputConcurrencyConfig extends $dara.Model {
+  reservedConcurrency?: number;
+  static names(): { [key: string]: string } {
+    return {
+      reservedConcurrency: 'reservedConcurrency',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reservedConcurrency: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployModelScopeModelInputGpuConfig extends $dara.Model {
+  gpuMemorySize?: number;
+  gpuType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gpuMemorySize: 'gpuMemorySize',
+      gpuType: 'gpuType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gpuMemorySize: 'number',
+      gpuType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployModelScopeModelInputHttpTriggerTriggerConfig extends $dara.Model {
+  authConfig?: string;
+  authType?: string;
+  disableURLInternet?: boolean;
+  dsableURLInternet?: boolean;
+  methods?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      authConfig: 'authConfig',
+      authType: 'authType',
+      disableURLInternet: 'disableURLInternet',
+      dsableURLInternet: 'dsableURLInternet',
+      methods: 'methods',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authConfig: 'string',
+      authType: 'string',
+      disableURLInternet: 'boolean',
+      dsableURLInternet: 'boolean',
+      methods: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.methods)) {
+      $dara.Model.validateArray(this.methods);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployModelScopeModelInputHttpTrigger extends $dara.Model {
+  qualifier?: string;
+  triggerConfig?: DeployModelScopeModelInputHttpTriggerTriggerConfig;
+  static names(): { [key: string]: string } {
+    return {
+      qualifier: 'qualifier',
+      triggerConfig: 'triggerConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qualifier: 'string',
+      triggerConfig: DeployModelScopeModelInputHttpTriggerTriggerConfig,
+    };
+  }
+
+  validate() {
+    if(this.triggerConfig && typeof (this.triggerConfig as any).validate === 'function') {
+      (this.triggerConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployModelScopeModelInputLogConfig extends $dara.Model {
+  enableInstanceMetrics?: boolean;
+  enableRequestMetrics?: boolean;
+  logBeginRule?: string;
+  logstore?: string;
+  project?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableInstanceMetrics: 'enableInstanceMetrics',
+      enableRequestMetrics: 'enableRequestMetrics',
+      logBeginRule: 'logBeginRule',
+      logstore: 'logstore',
+      project: 'project',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableInstanceMetrics: 'boolean',
+      enableRequestMetrics: 'boolean',
+      logBeginRule: 'string',
+      logstore: 'string',
+      project: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployModelScopeModelInputModelConfig extends $dara.Model {
+  framework?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  multiModelConfig?: ModelConfig[];
+  prefix?: string;
+  sourceType?: string;
+  srcModelScopeModelID?: string;
+  srcModelScopeModelRevision?: string;
+  srcModelScopeToken?: string;
+  srcOssBucket?: string;
+  srcOssPath?: string;
+  srcOssRegion?: string;
+  syncStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      framework: 'framework',
+      multiModelConfig: 'multiModelConfig',
+      prefix: 'prefix',
+      sourceType: 'sourceType',
+      srcModelScopeModelID: 'srcModelScopeModelID',
+      srcModelScopeModelRevision: 'srcModelScopeModelRevision',
+      srcModelScopeToken: 'srcModelScopeToken',
+      srcOssBucket: 'srcOssBucket',
+      srcOssPath: 'srcOssPath',
+      srcOssRegion: 'srcOssRegion',
+      syncStrategy: 'syncStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      framework: 'string',
+      multiModelConfig: { 'type': 'array', 'itemType': ModelConfig },
+      prefix: 'string',
+      sourceType: 'string',
+      srcModelScopeModelID: 'string',
+      srcModelScopeModelRevision: 'string',
+      srcModelScopeToken: 'string',
+      srcOssBucket: 'string',
+      srcOssPath: 'string',
+      srcOssRegion: 'string',
+      syncStrategy: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.multiModelConfig)) {
+      $dara.Model.validateArray(this.multiModelConfig);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployModelScopeModelInputNasConfig extends $dara.Model {
+  groupId?: number;
+  mountPoints?: string[];
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'groupId',
+      mountPoints: 'mountPoints',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'number',
+      mountPoints: { 'type': 'array', 'itemType': 'string' },
+      userId: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mountPoints)) {
+      $dara.Model.validateArray(this.mountPoints);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployModelScopeModelInputProvisionConfigScheduledActions extends $dara.Model {
+  endTime?: string;
+  name?: string;
+  scheduleExpression?: string;
+  startTime?: string;
+  target?: number;
+  timeZone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      name: 'name',
+      scheduleExpression: 'scheduleExpression',
+      startTime: 'startTime',
+      target: 'target',
+      timeZone: 'timeZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      name: 'string',
+      scheduleExpression: 'string',
+      startTime: 'string',
+      target: 'number',
+      timeZone: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployModelScopeModelInputProvisionConfig extends $dara.Model {
+  alwaysAllocateGPU?: boolean;
+  scheduledActions?: DeployModelScopeModelInputProvisionConfigScheduledActions[];
+  target?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alwaysAllocateGPU: 'alwaysAllocateGPU',
+      scheduledActions: 'scheduledActions',
+      target: 'target',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alwaysAllocateGPU: 'boolean',
+      scheduledActions: { 'type': 'array', 'itemType': DeployModelScopeModelInputProvisionConfigScheduledActions },
+      target: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.scheduledActions)) {
+      $dara.Model.validateArray(this.scheduledActions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployModelScopeModelInputVpcConfig extends $dara.Model {
+  securityGroupId?: string;
+  vSwitchIds?: string[];
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'securityGroupId',
+      vSwitchIds: 'vSwitchIds',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DeployModelScopeModelInput extends $dara.Model {
   accountID?: string;

@@ -2,20 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeployCustomContainerInputGpuConfig extends $dara.Model {
-  gpuMemorySize?: number;
-  gpuType?: string;
+export class OpenAPIToolMeta extends $dara.Model {
+  method?: string;
+  path?: string;
+  toolId?: string;
+  toolName?: string;
   static names(): { [key: string]: string } {
     return {
-      gpuMemorySize: 'gpuMemorySize',
-      gpuType: 'gpuType',
+      method: 'method',
+      path: 'path',
+      toolId: 'toolId',
+      toolName: 'toolName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gpuMemorySize: 'number',
-      gpuType: 'string',
+      method: 'string',
+      path: 'string',
+      toolId: 'string',
+      toolName: 'string',
     };
   }
 
