@@ -25,6 +25,7 @@ export class ExecuteScriptRequest extends $dara.Model {
    * false
    */
   logic?: boolean;
+  realLoginUserUid?: string;
   /**
    * @remarks
    * The SQL statements to be executed. Data query language (DQL) statements, data definition language (DDL) statements, and data manipulation language (DML) statements are supported. The control mode of the instance that you want to query determines whether you can execute DDL and DML statements.
@@ -49,6 +50,7 @@ export class ExecuteScriptRequest extends $dara.Model {
     return {
       dbId: 'DbId',
       logic: 'Logic',
+      realLoginUserUid: 'RealLoginUserUid',
       script: 'Script',
       tid: 'Tid',
     };
@@ -58,6 +60,7 @@ export class ExecuteScriptRequest extends $dara.Model {
     return {
       dbId: 'number',
       logic: 'boolean',
+      realLoginUserUid: 'string',
       script: 'string',
       tid: 'number',
     };

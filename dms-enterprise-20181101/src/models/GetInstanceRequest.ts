@@ -23,6 +23,7 @@ export class GetInstanceRequest extends $dara.Model {
    * 5432
    */
   port?: number;
+  realLoginUserUid?: string;
   /**
    * @remarks
    * The system ID (SID) of the database instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) operation to obtain the SID.
@@ -43,6 +44,7 @@ export class GetInstanceRequest extends $dara.Model {
     return {
       host: 'Host',
       port: 'Port',
+      realLoginUserUid: 'RealLoginUserUid',
       sid: 'Sid',
       tid: 'Tid',
     };
@@ -52,6 +54,7 @@ export class GetInstanceRequest extends $dara.Model {
     return {
       host: 'string',
       port: 'number',
+      realLoginUserUid: 'string',
       sid: 'string',
       tid: 'number',
     };

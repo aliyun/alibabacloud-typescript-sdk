@@ -36,6 +36,7 @@ export class GenerateSqlFromNLRequest extends $dara.Model {
    * This parameter is required.
    */
   question?: string;
+  realLoginUserUid?: string;
   /**
    * @example
    * users,orders
@@ -49,6 +50,7 @@ export class GenerateSqlFromNLRequest extends $dara.Model {
       level: 'Level',
       model: 'Model',
       question: 'Question',
+      realLoginUserUid: 'RealLoginUserUid',
       tableNames: 'TableNames',
     };
   }
@@ -61,6 +63,7 @@ export class GenerateSqlFromNLRequest extends $dara.Model {
       level: 'string',
       model: 'string',
       question: 'string',
+      realLoginUserUid: 'string',
       tableNames: 'string',
     };
   }

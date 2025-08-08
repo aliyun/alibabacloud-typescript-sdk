@@ -3693,6 +3693,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建工作空间
+   * 
+   * @param request - CreateWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkspaceResponse
+   */
+  async createWorkspaceWithOptions(request: $_model.CreateWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.workspaceName)) {
+      query["WorkspaceName"] = request.workspaceName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWorkspace",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateWorkspaceResponse({}));
+  }
+
+  /**
+   * 创建工作空间
+   * 
+   * @param request - CreateWorkspaceRequest
+   * @returns CreateWorkspaceResponse
+   */
+  async createWorkspace(request: $_model.CreateWorkspaceRequest): Promise<$_model.CreateWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWorkspaceWithOptions(request, runtime);
+  }
+
+  /**
    * 删除权限策略授权
    * 
    * @param request - DeleteAbacAuthorizationRequest
@@ -4815,6 +4875,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除工作空间
+   * 
+   * @param request - DeleteWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkspaceResponse
+   */
+  async deleteWorkspaceWithOptions(request: $_model.DeleteWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWorkspace",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWorkspaceResponse({}));
+  }
+
+  /**
+   * 删除工作空间
+   * 
+   * @param request - DeleteWorkspaceRequest
+   * @returns DeleteWorkspaceResponse
+   */
+  async deleteWorkspace(request: $_model.DeleteWorkspaceRequest): Promise<$_model.DeleteWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWorkspaceWithOptions(request, runtime);
+  }
+
+  /**
    * 用于创建DIFY实例及相关资源，支持自定义配置。
    * 
    * @remarks
@@ -5549,6 +5651,10 @@ export default class Client extends OpenApi {
       query["Logic"] = request.logic;
     }
 
+    if (!$dara.isNull(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
+    }
+
     if (!$dara.isNull(request.script)) {
       query["Script"] = request.script;
     }
@@ -5725,6 +5831,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.question)) {
       query["Question"] = request.question;
+    }
+
+    if (!$dara.isNull(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
     }
 
     if (!$dara.isNull(request.tableNames)) {
@@ -7216,6 +7326,10 @@ export default class Client extends OpenApi {
       query["Port"] = request.port;
     }
 
+    if (!$dara.isNull(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
+    }
+
     if (!$dara.isNull(request.schemaName)) {
       query["SchemaName"] = request.schemaName;
     }
@@ -7366,6 +7480,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.port)) {
       query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
     }
 
     if (!$dara.isNull(request.sid)) {
@@ -7619,6 +7737,10 @@ export default class Client extends OpenApi {
   async getMetaTableDetailInfoWithOptions(request: $_model.GetMetaTableDetailInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMetaTableDetailInfoResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
+    }
+
     if (!$dara.isNull(request.tableGuid)) {
       query["TableGuid"] = request.tableGuid;
     }
@@ -9104,6 +9226,48 @@ export default class Client extends OpenApi {
   async getUserUploadFileJob(request: $_model.GetUserUploadFileJobRequest): Promise<$_model.GetUserUploadFileJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserUploadFileJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取空间描述
+   * 
+   * @param request - GetWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspaceResponse
+   */
+  async getWorkspaceWithOptions(request: $_model.GetWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkspace",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkspaceResponse({}));
+  }
+
+  /**
+   * 获取空间描述
+   * 
+   * @param request - GetWorkspaceRequest
+   * @returns GetWorkspaceResponse
+   */
+  async getWorkspace(request: $_model.GetWorkspaceRequest): Promise<$_model.GetWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWorkspaceWithOptions(request, runtime);
   }
 
   /**
@@ -11532,6 +11696,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
+    }
+
     if (!$dara.isNull(request.region)) {
       query["Region"] = request.region;
     }
@@ -12745,6 +12913,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
+    }
+
     if (!$dara.isNull(request.returnGuid)) {
       query["ReturnGuid"] = request.returnGuid;
     }
@@ -13546,6 +13718,80 @@ export default class Client extends OpenApi {
   async listWorkFlowTemplates(request: $_model.ListWorkFlowTemplatesRequest): Promise<$_model.ListWorkFlowTemplatesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listWorkFlowTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 搜索工作空间列表
+   * 
+   * @param request - ListWorkspacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkspacesResponse
+   */
+  async listWorkspacesWithOptions(request: $_model.ListWorkspacesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkspacesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alreadyJoined)) {
+      query["AlreadyJoined"] = request.alreadyJoined;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!$dara.isNull(request.serviceAccountId)) {
+      query["ServiceAccountId"] = request.serviceAccountId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkspaces",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkspacesResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkspacesResponse({}));
+  }
+
+  /**
+   * 搜索工作空间列表
+   * 
+   * @param request - ListWorkspacesRequest
+   * @returns ListWorkspacesResponse
+   */
+  async listWorkspaces(request: $_model.ListWorkspacesRequest): Promise<$_model.ListWorkspacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWorkspacesWithOptions(request, runtime);
   }
 
   /**
@@ -15246,6 +15492,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
+    }
+
     if (!$dara.isNull(request.searchKey)) {
       query["SearchKey"] = request.searchKey;
     }
@@ -15530,6 +15780,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.port)) {
       query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.realLoginUserUid)) {
+      query["RealLoginUserUid"] = request.realLoginUserUid;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -17720,6 +17974,62 @@ export default class Client extends OpenApi {
   async updateUser(request: $_model.UpdateUserRequest): Promise<$_model.UpdateUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改工作空间
+   * 
+   * @param request - UpdateWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkspaceResponse
+   */
+  async updateWorkspaceWithOptions(request: $_model.UpdateWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceName)) {
+      query["WorkspaceName"] = request.workspaceName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkspace",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWorkspaceResponse({}));
+  }
+
+  /**
+   * 修改工作空间
+   * 
+   * @param request - UpdateWorkspaceRequest
+   * @returns UpdateWorkspaceResponse
+   */
+  async updateWorkspace(request: $_model.UpdateWorkspaceRequest): Promise<$_model.UpdateWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWorkspaceWithOptions(request, runtime);
   }
 
 }

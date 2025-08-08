@@ -39,6 +39,7 @@ export class SimplyAddInstanceRequest extends $dara.Model {
    * 5432
    */
   port?: number;
+  realLoginUserUid?: string;
   static names(): { [key: string]: string } {
     return {
       databasePassword: 'DatabasePassword',
@@ -47,6 +48,7 @@ export class SimplyAddInstanceRequest extends $dara.Model {
       instanceId: 'InstanceId',
       instanceRegion: 'InstanceRegion',
       port: 'Port',
+      realLoginUserUid: 'RealLoginUserUid',
     };
   }
 
@@ -58,6 +60,7 @@ export class SimplyAddInstanceRequest extends $dara.Model {
       instanceId: 'string',
       instanceRegion: 'string',
       port: 'number',
+      realLoginUserUid: 'string',
     };
   }
 

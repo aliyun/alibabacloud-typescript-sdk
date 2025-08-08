@@ -29,6 +29,7 @@ export class ListTablesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  realLoginUserUid?: string;
   /**
    * @remarks
    * Specifies whether to return the GUID of a table. Valid values:
@@ -61,6 +62,7 @@ export class ListTablesRequest extends $dara.Model {
       databaseId: 'DatabaseId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      realLoginUserUid: 'RealLoginUserUid',
       returnGuid: 'ReturnGuid',
       searchName: 'SearchName',
       tid: 'Tid',
@@ -72,6 +74,7 @@ export class ListTablesRequest extends $dara.Model {
       databaseId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      realLoginUserUid: 'string',
       returnGuid: 'boolean',
       searchName: 'string',
       tid: 'number',

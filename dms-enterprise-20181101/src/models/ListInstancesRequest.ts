@@ -79,6 +79,7 @@ export class ListInstancesRequest extends $dara.Model {
    * 50
    */
   pageSize?: number;
+  realLoginUserUid?: string;
   region?: string;
   /**
    * @remarks
@@ -105,6 +106,7 @@ export class ListInstancesRequest extends $dara.Model {
       netType: 'NetType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      realLoginUserUid: 'RealLoginUserUid',
       region: 'Region',
       searchKey: 'SearchKey',
       tid: 'Tid',
@@ -120,6 +122,7 @@ export class ListInstancesRequest extends $dara.Model {
       netType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      realLoginUserUid: 'string',
       region: 'string',
       searchKey: 'string',
       tid: 'number',

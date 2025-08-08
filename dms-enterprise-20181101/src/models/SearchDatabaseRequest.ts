@@ -35,6 +35,7 @@ export class SearchDatabaseRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  realLoginUserUid?: string;
   /**
    * @remarks
    * The keyword that is used to search for databases.
@@ -82,6 +83,7 @@ export class SearchDatabaseRequest extends $dara.Model {
       envType: 'EnvType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      realLoginUserUid: 'RealLoginUserUid',
       searchKey: 'SearchKey',
       searchRange: 'SearchRange',
       searchTarget: 'SearchTarget',
@@ -95,6 +97,7 @@ export class SearchDatabaseRequest extends $dara.Model {
       envType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      realLoginUserUid: 'string',
       searchKey: 'string',
       searchRange: 'string',
       searchTarget: 'string',

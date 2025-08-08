@@ -23,6 +23,7 @@ export class GetDatabaseRequest extends $dara.Model {
    * 3306
    */
   port?: number;
+  realLoginUserUid?: string;
   /**
    * @remarks
    * The name of the database.
@@ -55,6 +56,7 @@ export class GetDatabaseRequest extends $dara.Model {
     return {
       host: 'Host',
       port: 'Port',
+      realLoginUserUid: 'RealLoginUserUid',
       schemaName: 'SchemaName',
       sid: 'Sid',
       tid: 'Tid',
@@ -65,6 +67,7 @@ export class GetDatabaseRequest extends $dara.Model {
     return {
       host: 'string',
       port: 'number',
+      realLoginUserUid: 'string',
       schemaName: 'string',
       sid: 'string',
       tid: 'number',
