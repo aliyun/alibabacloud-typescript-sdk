@@ -1,7 +1,162 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { QueryConversationDetailInfoResponseBodyData } from "./QueryConversationDetailInfoResponseBodyData";
 
+
+export class QueryConversationDetailInfoResponseBodyDataOutputTags extends $dara.Model {
+  /**
+   * @example
+   * d7f3e92b-7947-4c20-bf37-ef66fc71007b
+   */
+  id?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  outputTagDescription?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  outputTagName?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  outputTagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      outputTagDescription: 'OutputTagDescription',
+      outputTagName: 'OutputTagName',
+      outputTagValue: 'OutputTagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      outputTagDescription: 'string',
+      outputTagName: 'string',
+      outputTagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConversationDetailInfoResponseBodyDataVariables extends $dara.Model {
+  /**
+   * @example
+   * 示例值
+   */
+  id?: string;
+  /**
+   * @example
+   * name
+   */
+  key?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  name?: string;
+  /**
+   * @example
+   * false
+   */
+  required?: boolean;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      key: 'Key',
+      name: 'Name',
+      required: 'Required',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      key: 'string',
+      name: 'string',
+      required: 'boolean',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 示例值示例值
+   */
+  conversationRecord?: string;
+  outputTags?: QueryConversationDetailInfoResponseBodyDataOutputTags[];
+  /**
+   * @example
+   * 1212131231231
+   */
+  pickUpTime?: number;
+  /**
+   * @example
+   * https://********
+   */
+  recordingFileDownloadUrl?: string;
+  variables?: QueryConversationDetailInfoResponseBodyDataVariables[];
+  static names(): { [key: string]: string } {
+    return {
+      conversationRecord: 'ConversationRecord',
+      outputTags: 'OutputTags',
+      pickUpTime: 'PickUpTime',
+      recordingFileDownloadUrl: 'RecordingFileDownloadUrl',
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conversationRecord: 'string',
+      outputTags: { 'type': 'array', 'itemType': QueryConversationDetailInfoResponseBodyDataOutputTags },
+      pickUpTime: 'number',
+      recordingFileDownloadUrl: 'string',
+      variables: { 'type': 'array', 'itemType': QueryConversationDetailInfoResponseBodyDataVariables },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.outputTags)) {
+      $dara.Model.validateArray(this.outputTags);
+    }
+    if(Array.isArray(this.variables)) {
+      $dara.Model.validateArray(this.variables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class QueryConversationDetailInfoResponseBody extends $dara.Model {
   /**

@@ -1,7 +1,32 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetQualityRuleTagListResponseBodyData } from "./GetQualityRuleTagListResponseBodyData";
 
+
+export class GetQualityRuleTagListResponseBodyData extends $dara.Model {
+  ruleTagId?: number;
+  ruleTagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleTagId: 'RuleTagId',
+      ruleTagName: 'RuleTagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleTagId: 'number',
+      ruleTagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetQualityRuleTagListResponseBody extends $dara.Model {
   code?: string;

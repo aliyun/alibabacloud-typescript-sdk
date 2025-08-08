@@ -1,7 +1,87 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { InsertAiOutboundPhoneNumsResponseBodyData } from "./InsertAiOutboundPhoneNumsResponseBodyData";
 
+
+export class InsertAiOutboundPhoneNumsResponseBodyDataFailInfo extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  bizData?: string;
+  /**
+   * @example
+   * 号码格式异常
+   */
+  msg?: string;
+  /**
+   * @example
+   * 150****0000
+   */
+  phoneNum?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizData: 'BizData',
+      msg: 'Msg',
+      phoneNum: 'PhoneNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizData: 'string',
+      msg: 'string',
+      phoneNum: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertAiOutboundPhoneNumsResponseBodyData extends $dara.Model {
+  failInfo?: InsertAiOutboundPhoneNumsResponseBodyDataFailInfo[];
+  /**
+   * @example
+   * 7
+   */
+  successCount?: number;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failInfo: 'FailInfo',
+      successCount: 'SuccessCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failInfo: { 'type': 'array', 'itemType': InsertAiOutboundPhoneNumsResponseBodyDataFailInfo },
+      successCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failInfo)) {
+      $dara.Model.validateArray(this.failInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class InsertAiOutboundPhoneNumsResponseBody extends $dara.Model {
   /**

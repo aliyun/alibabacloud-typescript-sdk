@@ -1,7 +1,72 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetDepGroupTreeDataResponseBodyData } from "./GetDepGroupTreeDataResponseBodyData";
 
+
+export class GetDepGroupTreeDataResponseBodyDataGroupDTOS extends $dara.Model {
+  name?: string;
+  /**
+   * @example
+   * 555555
+   */
+  skillGroupId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      skillGroupId: 'SkillGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      skillGroupId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDepGroupTreeDataResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  depGroupId?: string;
+  depGroupName?: string;
+  groupDTOS?: GetDepGroupTreeDataResponseBodyDataGroupDTOS[];
+  static names(): { [key: string]: string } {
+    return {
+      depGroupId: 'DepGroupId',
+      depGroupName: 'DepGroupName',
+      groupDTOS: 'GroupDTOS',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      depGroupId: 'string',
+      depGroupName: 'string',
+      groupDTOS: { 'type': 'array', 'itemType': GetDepGroupTreeDataResponseBodyDataGroupDTOS },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.groupDTOS)) {
+      $dara.Model.validateArray(this.groupDTOS);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetDepGroupTreeDataResponseBody extends $dara.Model {
   /**
