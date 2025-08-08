@@ -13,6 +13,9 @@ export class Table extends $dara.Model {
   path?: string;
   schema?: Schema;
   schemaId?: number;
+  storageAction?: string;
+  storageActionTimestamp?: number;
+  storageClass?: string;
   updatedAt?: number;
   updatedBy?: string;
   static names(): { [key: string]: string } {
@@ -26,6 +29,9 @@ export class Table extends $dara.Model {
       path: 'path',
       schema: 'schema',
       schemaId: 'schemaId',
+      storageAction: 'storageAction',
+      storageActionTimestamp: 'storageActionTimestamp',
+      storageClass: 'storageClass',
       updatedAt: 'updatedAt',
       updatedBy: 'updatedBy',
     };
@@ -42,6 +48,9 @@ export class Table extends $dara.Model {
       path: 'string',
       schema: Schema,
       schemaId: 'number',
+      storageAction: 'string',
+      storageActionTimestamp: 'number',
+      storageClass: 'string',
       updatedAt: 'number',
       updatedBy: 'string',
     };

@@ -128,6 +128,202 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新接收者
+   * 
+   * @param request - AlterReceiverRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AlterReceiverResponse
+   */
+  async alterReceiverWithOptions(receiver: string, request: $_model.AlterReceiverRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AlterReceiverResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.receiverName)) {
+      body["receiverName"] = request.receiverName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AlterReceiver",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/receivers/${$dara.URL.percentEncode(receiver)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.AlterReceiverResponse>(await this.callApi(params, req, runtime), new $_model.AlterReceiverResponse({}));
+  }
+
+  /**
+   * 更新接收者
+   * 
+   * @param request - AlterReceiverRequest
+   * @returns AlterReceiverResponse
+   */
+  async alterReceiver(receiver: string, request: $_model.AlterReceiverRequest): Promise<$_model.AlterReceiverResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.alterReceiverWithOptions(receiver, request, headers, runtime);
+  }
+
+  /**
+   * 更新共享
+   * 
+   * @param request - AlterShareRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AlterShareResponse
+   */
+  async alterShareWithOptions(share: string, request: $_model.AlterShareRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AlterShareResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.shareName)) {
+      body["shareName"] = request.shareName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AlterShare",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/shares/${$dara.URL.percentEncode(share)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.AlterShareResponse>(await this.callApi(params, req, runtime), new $_model.AlterShareResponse({}));
+  }
+
+  /**
+   * 更新共享
+   * 
+   * @param request - AlterShareRequest
+   * @returns AlterShareResponse
+   */
+  async alterShare(share: string, request: $_model.AlterShareRequest): Promise<$_model.AlterShareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.alterShareWithOptions(share, request, headers, runtime);
+  }
+
+  /**
+   * 更新共享中的接收者
+   * 
+   * @param request - AlterShareReceiversRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AlterShareReceiversResponse
+   */
+  async alterShareReceiversWithOptions(share: string, request: $_model.AlterShareReceiversRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AlterShareReceiversResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addedReceivers)) {
+      body["addedReceivers"] = request.addedReceivers;
+    }
+
+    if (!$dara.isNull(request.removedReceivers)) {
+      body["removedReceivers"] = request.removedReceivers;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AlterShareReceivers",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/shares/${$dara.URL.percentEncode(share)}/receivers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.AlterShareReceiversResponse>(await this.callApi(params, req, runtime), new $_model.AlterShareReceiversResponse({}));
+  }
+
+  /**
+   * 更新共享中的接收者
+   * 
+   * @param request - AlterShareReceiversRequest
+   * @returns AlterShareReceiversResponse
+   */
+  async alterShareReceivers(share: string, request: $_model.AlterShareReceiversRequest): Promise<$_model.AlterShareReceiversResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.alterShareReceiversWithOptions(share, request, headers, runtime);
+  }
+
+  /**
+   * 更改共享资源
+   * 
+   * @param request - AlterShareResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AlterShareResourcesResponse
+   */
+  async alterShareResourcesWithOptions(share: string, request: $_model.AlterShareResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AlterShareResourcesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.catalogId)) {
+      body["catalogId"] = request.catalogId;
+    }
+
+    if (!$dara.isNull(request.shareResourceList)) {
+      body["shareResourceList"] = request.shareResourceList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AlterShareResources",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/shares/${$dara.URL.percentEncode(share)}/resources`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.AlterShareResourcesResponse>(await this.callApi(params, req, runtime), new $_model.AlterShareResourcesResponse({}));
+  }
+
+  /**
+   * 更改共享资源
+   * 
+   * @param request - AlterShareResourcesRequest
+   * @returns AlterShareResourcesResponse
+   */
+  async alterShareResources(share: string, request: $_model.AlterShareResourcesRequest): Promise<$_model.AlterShareResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.alterShareResourcesWithOptions(share, request, headers, runtime);
+  }
+
+  /**
    * 更改Table
    * 
    * @param request - AlterTableRequest
@@ -273,12 +469,20 @@ export default class Client extends OpenApi {
   async createCatalogWithOptions(request: $_model.CreateCatalogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCatalogResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.isShared)) {
+      body["isShared"] = request.isShared;
+    }
+
     if (!$dara.isNull(request.name)) {
       body["name"] = request.name;
     }
 
     if (!$dara.isNull(request.options)) {
       body["options"] = request.options;
+    }
+
+    if (!$dara.isNull(request.shareId)) {
+      body["shareId"] = request.shareId;
     }
 
     if (!$dara.isNull(request.type)) {
@@ -365,6 +569,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建接收者
+   * 
+   * @param request - CreateReceiverRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateReceiverResponse
+   */
+  async createReceiverWithOptions(request: $_model.CreateReceiverRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateReceiverResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.receiverName)) {
+      body["receiverName"] = request.receiverName;
+    }
+
+    if (!$dara.isNull(request.receiverTenantId)) {
+      body["receiverTenantId"] = request.receiverTenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateReceiver",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/receivers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.CreateReceiverResponse>(await this.callApi(params, req, runtime), new $_model.CreateReceiverResponse({}));
+  }
+
+  /**
+   * 创建接收者
+   * 
+   * @param request - CreateReceiverRequest
+   * @returns CreateReceiverResponse
+   */
+  async createReceiver(request: $_model.CreateReceiverRequest): Promise<$_model.CreateReceiverResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createReceiverWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建角色
    * 
    * @param request - CreateRoleRequest
@@ -415,6 +672,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createRoleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建共享
+   * 
+   * @param request - CreateShareRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateShareResponse
+   */
+  async createShareWithOptions(request: $_model.CreateShareRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateShareResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.shareName)) {
+      body["shareName"] = request.shareName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateShare",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/shares`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.CreateShareResponse>(await this.callApi(params, req, runtime), new $_model.CreateShareResponse({}));
+  }
+
+  /**
+   * 创建共享
+   * 
+   * @param request - CreateShareRequest
+   * @returns CreateShareResponse
+   */
+  async createShare(request: $_model.CreateShareRequest): Promise<$_model.CreateShareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createShareWithOptions(request, headers, runtime);
   }
 
   /**
@@ -617,6 +923,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除接收者
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DropReceiverResponse
+   */
+  async dropReceiverWithOptions(receiver: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DropReceiverResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DropReceiver",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/receivers/${$dara.URL.percentEncode(receiver)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DropReceiverResponse>(await this.callApi(params, req, runtime), new $_model.DropReceiverResponse({}));
+  }
+
+  /**
+   * 删除接收者
+   * @returns DropReceiverResponse
+   */
+  async dropReceiver(receiver: string): Promise<$_model.DropReceiverResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.dropReceiverWithOptions(receiver, headers, runtime);
+  }
+
+  /**
+   * 删除共享
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DropShareResponse
+   */
+  async dropShareWithOptions(share: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DropShareResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DropShare",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/shares/${$dara.URL.percentEncode(share)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DropShareResponse>(await this.callApi(params, req, runtime), new $_model.DropShareResponse({}));
+  }
+
+  /**
+   * 删除共享
+   * @returns DropShareResponse
+   */
+  async dropShare(share: string): Promise<$_model.DropShareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.dropShareWithOptions(share, headers, runtime);
+  }
+
+  /**
    * 删除表
    * 
    * @param headers - map
@@ -724,13 +1100,21 @@ export default class Client extends OpenApi {
   /**
    * 查看表
    * 
+   * @param request - GetCatalogSummaryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCatalogSummaryResponse
    */
-  async getCatalogSummaryWithOptions(catalogId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCatalogSummaryResponse> {
+  async getCatalogSummaryWithOptions(catalogId: string, request: $_model.GetCatalogSummaryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCatalogSummaryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.date)) {
+      query["date"] = request.date;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetCatalogSummary",
@@ -748,12 +1132,14 @@ export default class Client extends OpenApi {
 
   /**
    * 查看表
+   * 
+   * @param request - GetCatalogSummaryRequest
    * @returns GetCatalogSummaryResponse
    */
-  async getCatalogSummary(catalogId: string): Promise<$_model.GetCatalogSummaryResponse> {
+  async getCatalogSummary(catalogId: string, request: $_model.GetCatalogSummaryRequest): Promise<$_model.GetCatalogSummaryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getCatalogSummaryWithOptions(catalogId, headers, runtime);
+    return await this.getCatalogSummaryWithOptions(catalogId, request, headers, runtime);
   }
 
   /**
@@ -878,13 +1264,21 @@ export default class Client extends OpenApi {
   /**
    * 查看表
    * 
+   * @param request - GetDatabaseSummaryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDatabaseSummaryResponse
    */
-  async getDatabaseSummaryWithOptions(catalogId: string, database: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatabaseSummaryResponse> {
+  async getDatabaseSummaryWithOptions(catalogId: string, database: string, request: $_model.GetDatabaseSummaryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatabaseSummaryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.date)) {
+      query["date"] = request.date;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetDatabaseSummary",
@@ -902,12 +1296,14 @@ export default class Client extends OpenApi {
 
   /**
    * 查看表
+   * 
+   * @param request - GetDatabaseSummaryRequest
    * @returns GetDatabaseSummaryResponse
    */
-  async getDatabaseSummary(catalogId: string, database: string): Promise<$_model.GetDatabaseSummaryResponse> {
+  async getDatabaseSummary(catalogId: string, database: string, request: $_model.GetDatabaseSummaryRequest): Promise<$_model.GetDatabaseSummaryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getDatabaseSummaryWithOptions(catalogId, database, headers, runtime);
+    return await this.getDatabaseSummaryWithOptions(catalogId, database, request, headers, runtime);
   }
 
   /**
@@ -978,6 +1374,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIcebergTableWithOptions(catalogId, namespace, table, headers, runtime);
+  }
+
+  /**
+   * 获取接收者
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetReceiverResponse
+   */
+  async getReceiverWithOptions(receiver: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetReceiverResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetReceiver",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/receivers/${$dara.URL.percentEncode(receiver)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetReceiverResponse>(await this.callApi(params, req, runtime), new $_model.GetReceiverResponse({}));
+  }
+
+  /**
+   * 获取接收者
+   * @returns GetReceiverResponse
+   */
+  async getReceiver(receiver: string): Promise<$_model.GetReceiverResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getReceiverWithOptions(receiver, headers, runtime);
   }
 
   /**
@@ -1061,6 +1492,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取共享
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetShareResponse
+   */
+  async getShareWithOptions(share: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetShareResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetShare",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/shares/${$dara.URL.percentEncode(share)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetShareResponse>(await this.callApi(params, req, runtime), new $_model.GetShareResponse({}));
+  }
+
+  /**
+   * 获取共享
+   * @returns GetShareResponse
+   */
+  async getShare(share: string): Promise<$_model.GetShareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getShareWithOptions(share, headers, runtime);
+  }
+
+  /**
    * 查看表
    * 
    * @param headers - map
@@ -1096,15 +1562,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看表快照
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableSnapshotResponse
+   */
+  async getTableSnapshotWithOptions(catalogId: string, database: string, table: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableSnapshotResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTableSnapshot",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/tables/${$dara.URL.percentEncode(table)}/snapshot`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableSnapshotResponse>(await this.callApi(params, req, runtime), new $_model.GetTableSnapshotResponse({}));
+  }
+
+  /**
+   * 查看表快照
+   * @returns GetTableSnapshotResponse
+   */
+  async getTableSnapshot(catalogId: string, database: string, table: string): Promise<$_model.GetTableSnapshotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTableSnapshotWithOptions(catalogId, database, table, headers, runtime);
+  }
+
+  /**
    * 查看表
    * 
+   * @param request - GetTableSummaryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTableSummaryResponse
    */
-  async getTableSummaryWithOptions(catalogId: string, database: string, table: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableSummaryResponse> {
+  async getTableSummaryWithOptions(catalogId: string, database: string, table: string, request: $_model.GetTableSummaryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableSummaryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.date)) {
+      query["date"] = request.date;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetTableSummary",
@@ -1122,12 +1631,14 @@ export default class Client extends OpenApi {
 
   /**
    * 查看表
+   * 
+   * @param request - GetTableSummaryRequest
    * @returns GetTableSummaryResponse
    */
-  async getTableSummary(catalogId: string, database: string, table: string): Promise<$_model.GetTableSummaryResponse> {
+  async getTableSummary(catalogId: string, database: string, table: string, request: $_model.GetTableSummaryRequest): Promise<$_model.GetTableSummaryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTableSummaryWithOptions(catalogId, database, table, headers, runtime);
+    return await this.getTableSummaryWithOptions(catalogId, database, table, request, headers, runtime);
   }
 
   /**
@@ -1665,6 +2176,157 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取提供的共享列表
+   * 
+   * @param request - ListProvidedSharesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProvidedSharesResponse
+   */
+  async listProvidedSharesWithOptions(request: $_model.ListProvidedSharesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListProvidedSharesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProvidedShares",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/shares/list/provided`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProvidedSharesResponse>(await this.callApi(params, req, runtime), new $_model.ListProvidedSharesResponse({}));
+  }
+
+  /**
+   * 获取提供的共享列表
+   * 
+   * @param request - ListProvidedSharesRequest
+   * @returns ListProvidedSharesResponse
+   */
+  async listProvidedShares(request: $_model.ListProvidedSharesRequest): Promise<$_model.ListProvidedSharesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProvidedSharesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取接收的共享列表
+   * 
+   * @param request - ListReceivedSharesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListReceivedSharesResponse
+   */
+  async listReceivedSharesWithOptions(request: $_model.ListReceivedSharesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListReceivedSharesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListReceivedShares",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/shares/list/received`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListReceivedSharesResponse>(await this.callApi(params, req, runtime), new $_model.ListReceivedSharesResponse({}));
+  }
+
+  /**
+   * 获取接收的共享列表
+   * 
+   * @param request - ListReceivedSharesRequest
+   * @returns ListReceivedSharesResponse
+   */
+  async listReceivedShares(request: $_model.ListReceivedSharesRequest): Promise<$_model.ListReceivedSharesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listReceivedSharesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取接收者列表
+   * 
+   * @param request - ListReceiversRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListReceiversResponse
+   */
+  async listReceiversWithOptions(request: $_model.ListReceiversRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListReceiversResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    if (!$dara.isNull(request.receiverName)) {
+      query["receiverName"] = request.receiverName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListReceivers",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/receivers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListReceiversResponse>(await this.callApi(params, req, runtime), new $_model.ListReceiversResponse({}));
+  }
+
+  /**
+   * 获取接收者列表
+   * 
+   * @param request - ListReceiversRequest
+   * @returns ListReceiversResponse
+   */
+  async listReceivers(request: $_model.ListReceiversRequest): Promise<$_model.ListReceiversResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listReceiversWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取角色用户列表
    * 
    * @param request - ListRoleUsersRequest
@@ -1768,6 +2430,153 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listRolesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取共享中的接收者列表
+   * 
+   * @param request - ListShareReceiversRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListShareReceiversResponse
+   */
+  async listShareReceiversWithOptions(share: string, request: $_model.ListShareReceiversRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListShareReceiversResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListShareReceivers",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/shares/${$dara.URL.percentEncode(share)}/receivers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListShareReceiversResponse>(await this.callApi(params, req, runtime), new $_model.ListShareReceiversResponse({}));
+  }
+
+  /**
+   * 获取共享中的接收者列表
+   * 
+   * @param request - ListShareReceiversRequest
+   * @returns ListShareReceiversResponse
+   */
+  async listShareReceivers(share: string, request: $_model.ListShareReceiversRequest): Promise<$_model.ListShareReceiversResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listShareReceiversWithOptions(share, request, headers, runtime);
+  }
+
+  /**
+   * 获取共享资源列表
+   * 
+   * @param request - ListShareResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListShareResourcesResponse
+   */
+  async listShareResourcesWithOptions(share: string, request: $_model.ListShareResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListShareResourcesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListShareResources",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/share/shares/${$dara.URL.percentEncode(share)}/resources`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListShareResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListShareResourcesResponse({}));
+  }
+
+  /**
+   * 获取共享资源列表
+   * 
+   * @param request - ListShareResourcesRequest
+   * @returns ListShareResourcesResponse
+   */
+  async listShareResources(share: string, request: $_model.ListShareResourcesRequest): Promise<$_model.ListShareResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listShareResourcesWithOptions(share, request, headers, runtime);
+  }
+
+  /**
+   * 查看表快照列表
+   * 
+   * @param request - ListSnapshotsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSnapshotsResponse
+   */
+  async listSnapshotsWithOptions(catalogId: string, database: string, table: string, request: $_model.ListSnapshotsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSnapshotsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSnapshots",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/tables/${$dara.URL.percentEncode(table)}/snapshots`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSnapshotsResponse>(await this.callApi(params, req, runtime), new $_model.ListSnapshotsResponse({}));
+  }
+
+  /**
+   * 查看表快照列表
+   * 
+   * @param request - ListSnapshotsRequest
+   * @returns ListSnapshotsResponse
+   */
+  async listSnapshots(catalogId: string, database: string, table: string, request: $_model.ListSnapshotsRequest): Promise<$_model.ListSnapshotsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSnapshotsWithOptions(catalogId, database, table, request, headers, runtime);
   }
 
   /**
@@ -2033,6 +2842,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.revokeRoleFromUsersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 回滚表
+   * 
+   * @param request - RollbackTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RollbackTableResponse
+   */
+  async rollbackTableWithOptions(catalogId: string, database: string, table: string, request: $_model.RollbackTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RollbackTableResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instant)) {
+      body["instant"] = request.instant;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RollbackTable",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/tables/${$dara.URL.percentEncode(table)}/rollback`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.RollbackTableResponse>(await this.callApi(params, req, runtime), new $_model.RollbackTableResponse({}));
+  }
+
+  /**
+   * 回滚表
+   * 
+   * @param request - RollbackTableRequest
+   * @returns RollbackTableResponse
+   */
+  async rollbackTable(catalogId: string, database: string, table: string, request: $_model.RollbackTableRequest): Promise<$_model.RollbackTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.rollbackTableWithOptions(catalogId, database, table, request, headers, runtime);
   }
 
   /**

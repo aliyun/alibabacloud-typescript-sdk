@@ -15,12 +15,19 @@ export class TableSummary extends $dara.Model {
   databaseName?: string;
   generatedDate?: string;
   lastAccessTime?: number;
+  objTypeArchiveSize?: number;
+  objTypeColdArchiveSize?: number;
+  objTypeIaSize?: number;
+  objTypeStandardSize?: number;
   /**
    * @remarks
    * Creation timestamp in milliseconds
    */
   partitionCount?: number;
   path?: string;
+  storageActionParams?: { [key: string]: string };
+  storageActionTimestamp?: number;
+  storageClass?: string;
   /**
    * @remarks
    * Table name
@@ -32,17 +39,26 @@ export class TableSummary extends $dara.Model {
    */
   totalFileCount?: number;
   totalFileSizeInBytes?: number;
+  updatedAt?: number;
   static names(): { [key: string]: string } {
     return {
       createdAt: 'createdAt',
       databaseName: 'databaseName',
       generatedDate: 'generatedDate',
       lastAccessTime: 'lastAccessTime',
+      objTypeArchiveSize: 'objTypeArchiveSize',
+      objTypeColdArchiveSize: 'objTypeColdArchiveSize',
+      objTypeIaSize: 'objTypeIaSize',
+      objTypeStandardSize: 'objTypeStandardSize',
       partitionCount: 'partitionCount',
       path: 'path',
+      storageActionParams: 'storageActionParams',
+      storageActionTimestamp: 'storageActionTimestamp',
+      storageClass: 'storageClass',
       tableName: 'tableName',
       totalFileCount: 'totalFileCount',
       totalFileSizeInBytes: 'totalFileSizeInBytes',
+      updatedAt: 'updatedAt',
     };
   }
 
@@ -52,15 +68,26 @@ export class TableSummary extends $dara.Model {
       databaseName: 'string',
       generatedDate: 'string',
       lastAccessTime: 'number',
+      objTypeArchiveSize: 'number',
+      objTypeColdArchiveSize: 'number',
+      objTypeIaSize: 'number',
+      objTypeStandardSize: 'number',
       partitionCount: 'number',
       path: 'string',
+      storageActionParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      storageActionTimestamp: 'number',
+      storageClass: 'string',
       tableName: 'string',
       totalFileCount: 'number',
       totalFileSizeInBytes: 'number',
+      updatedAt: 'number',
     };
   }
 
   validate() {
+    if(this.storageActionParams) {
+      $dara.Model.validateMap(this.storageActionParams);
+    }
     super.validate();
   }
 

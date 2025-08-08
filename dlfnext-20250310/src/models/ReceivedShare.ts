@@ -2,31 +2,27 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class Catalog extends $dara.Model {
+export class ReceivedShare extends $dara.Model {
+  catalogName?: string;
+  comment?: string;
   createdAt?: number;
   createdBy?: string;
-  id?: string;
-  isShared?: boolean;
-  name?: string;
-  options?: { [key: string]: string };
   owner?: string;
+  providerTenantId?: number;
   shareId?: string;
-  status?: string;
-  type?: string;
+  shareName?: string;
   updatedAt?: number;
   updatedBy?: string;
   static names(): { [key: string]: string } {
     return {
+      catalogName: 'catalogName',
+      comment: 'comment',
       createdAt: 'createdAt',
       createdBy: 'createdBy',
-      id: 'id',
-      isShared: 'isShared',
-      name: 'name',
-      options: 'options',
       owner: 'owner',
+      providerTenantId: 'providerTenantId',
       shareId: 'shareId',
-      status: 'status',
-      type: 'type',
+      shareName: 'shareName',
       updatedAt: 'updatedAt',
       updatedBy: 'updatedBy',
     };
@@ -34,25 +30,20 @@ export class Catalog extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      catalogName: 'string',
+      comment: 'string',
       createdAt: 'number',
       createdBy: 'string',
-      id: 'string',
-      isShared: 'boolean',
-      name: 'string',
-      options: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       owner: 'string',
+      providerTenantId: 'number',
       shareId: 'string',
-      status: 'string',
-      type: 'string',
+      shareName: 'string',
       updatedAt: 'number',
       updatedBy: 'string',
     };
   }
 
   validate() {
-    if(this.options) {
-      $dara.Model.validateMap(this.options);
-    }
     super.validate();
   }
 

@@ -23,6 +23,9 @@ export class PartitionSummary extends $dara.Model {
    * Partition identifier
    */
   partitionName?: string;
+  storageActionParams?: { [key: string]: string };
+  storageActionTimestamp?: number;
+  storageClass?: string;
   /**
    * @remarks
    * Table name
@@ -45,6 +48,9 @@ export class PartitionSummary extends $dara.Model {
       databaseName: 'databaseName',
       lastAccessTime: 'lastAccessTime',
       partitionName: 'partitionName',
+      storageActionParams: 'storageActionParams',
+      storageActionTimestamp: 'storageActionTimestamp',
+      storageClass: 'storageClass',
       tableName: 'tableName',
       totalFileCount: 'totalFileCount',
       totalFileSizeInBytes: 'totalFileSizeInBytes',
@@ -58,6 +64,9 @@ export class PartitionSummary extends $dara.Model {
       databaseName: 'string',
       lastAccessTime: 'number',
       partitionName: 'string',
+      storageActionParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      storageActionTimestamp: 'number',
+      storageClass: 'string',
       tableName: 'string',
       totalFileCount: 'number',
       totalFileSizeInBytes: 'number',
@@ -66,6 +75,9 @@ export class PartitionSummary extends $dara.Model {
   }
 
   validate() {
+    if(this.storageActionParams) {
+      $dara.Model.validateMap(this.storageActionParams);
+    }
     super.validate();
   }
 

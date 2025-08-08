@@ -12,6 +12,10 @@ export class CatalogSummary extends $dara.Model {
    * Update date of the statistics
    */
   generatedDate?: string;
+  objTypeArchiveSize?: number;
+  objTypeColdArchiveSize?: number;
+  objTypeIaSize?: number;
+  objTypeStandardSize?: number;
   partitionCount?: MoMValues;
   tableCount?: MoMValues;
   throughputMonthly?: number;
@@ -23,6 +27,10 @@ export class CatalogSummary extends $dara.Model {
       databaseCount: 'databaseCount',
       fileAccessCountMonthly: 'fileAccessCountMonthly',
       generatedDate: 'generatedDate',
+      objTypeArchiveSize: 'objTypeArchiveSize',
+      objTypeColdArchiveSize: 'objTypeColdArchiveSize',
+      objTypeIaSize: 'objTypeIaSize',
+      objTypeStandardSize: 'objTypeStandardSize',
       partitionCount: 'partitionCount',
       tableCount: 'tableCount',
       throughputMonthly: 'throughputMonthly',
@@ -37,6 +45,10 @@ export class CatalogSummary extends $dara.Model {
       databaseCount: MoMValues,
       fileAccessCountMonthly: 'number',
       generatedDate: 'string',
+      objTypeArchiveSize: 'number',
+      objTypeColdArchiveSize: 'number',
+      objTypeIaSize: 'number',
+      objTypeStandardSize: 'number',
       partitionCount: MoMValues,
       tableCount: MoMValues,
       throughputMonthly: 'number',

@@ -23,6 +23,10 @@ export class DatabaseSummary extends $dara.Model {
    * Storage location URI
    */
   location?: string;
+  objTypeArchiveSize?: number;
+  objTypeColdArchiveSize?: number;
+  objTypeIaSize?: number;
+  objTypeStandardSize?: number;
   partitionCount?: number;
   /**
    * @remarks
@@ -41,6 +45,10 @@ export class DatabaseSummary extends $dara.Model {
       databaseName: 'databaseName',
       generatedDate: 'generatedDate',
       location: 'location',
+      objTypeArchiveSize: 'objTypeArchiveSize',
+      objTypeColdArchiveSize: 'objTypeColdArchiveSize',
+      objTypeIaSize: 'objTypeIaSize',
+      objTypeStandardSize: 'objTypeStandardSize',
       partitionCount: 'partitionCount',
       tableCount: 'tableCount',
       totalFileCount: 'totalFileCount',
@@ -54,6 +62,10 @@ export class DatabaseSummary extends $dara.Model {
       databaseName: 'string',
       generatedDate: 'string',
       location: 'string',
+      objTypeArchiveSize: 'number',
+      objTypeColdArchiveSize: 'number',
+      objTypeIaSize: 'number',
+      objTypeStandardSize: 'number',
       partitionCount: 'number',
       tableCount: 'number',
       totalFileCount: 'number',

@@ -11,6 +11,9 @@ export class Partition extends $dara.Model {
   lastFileCreationTime?: number;
   recordCount?: number;
   spec?: { [key: string]: any };
+  storageAction?: string;
+  storageActionTimestamp?: number;
+  storageClass?: string;
   updatedAt?: number;
   updatedBy?: string;
   static names(): { [key: string]: string } {
@@ -23,6 +26,9 @@ export class Partition extends $dara.Model {
       lastFileCreationTime: 'lastFileCreationTime',
       recordCount: 'recordCount',
       spec: 'spec',
+      storageAction: 'storageAction',
+      storageActionTimestamp: 'storageActionTimestamp',
+      storageClass: 'storageClass',
       updatedAt: 'updatedAt',
       updatedBy: 'updatedBy',
     };
@@ -38,6 +44,9 @@ export class Partition extends $dara.Model {
       lastFileCreationTime: 'number',
       recordCount: 'number',
       spec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      storageAction: 'string',
+      storageActionTimestamp: 'number',
+      storageClass: 'string',
       updatedAt: 'number',
       updatedBy: 'string',
     };
