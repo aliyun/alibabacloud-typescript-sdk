@@ -1072,6 +1072,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 应用跨地域同步
+   * 
+   * @param tmpReq - SynchronizeAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SynchronizeAppResponse
+   */
+  async synchronizeAppWithOptions(tmpReq: $_model.SynchronizeAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SynchronizeAppResponse> {
+    tmpReq.validate();
+    let request = new $_model.SynchronizeAppShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.targetRegionIds)) {
+      request.targetRegionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targetRegionIds, "TargetRegionIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.targetRegionIdsShrink)) {
+      query["TargetRegionIds"] = request.targetRegionIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SynchronizeApp",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SynchronizeAppResponse>(await this.callApi(params, req, runtime), new $_model.SynchronizeAppResponse({}));
+  }
+
+  /**
+   * 应用跨地域同步
+   * 
+   * @param request - SynchronizeAppRequest
+   * @returns SynchronizeAppResponse
+   */
+  async synchronizeApp(request: $_model.SynchronizeAppRequest): Promise<$_model.SynchronizeAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.synchronizeAppWithOptions(request, runtime);
+  }
+
+  /**
    * 为指定的资源列表统一创建并绑定标签
    * 
    * @param request - TagResourcesRequest
