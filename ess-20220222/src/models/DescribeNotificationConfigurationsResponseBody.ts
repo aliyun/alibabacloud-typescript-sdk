@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNotificationConfigurationsResponseBodyNotificationConfigurationModels extends $dara.Model {
+  messageEncoding?: string;
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the notification recipient. The value is in one of the following formats:
@@ -45,6 +46,7 @@ export class DescribeNotificationConfigurationsResponseBodyNotificationConfigura
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
+      messageEncoding: 'MessageEncoding',
       notificationArn: 'NotificationArn',
       notificationTypes: 'NotificationTypes',
       scalingGroupId: 'ScalingGroupId',
@@ -54,6 +56,7 @@ export class DescribeNotificationConfigurationsResponseBodyNotificationConfigura
 
   static types(): { [key: string]: any } {
     return {
+      messageEncoding: 'string',
       notificationArn: 'string',
       notificationTypes: { 'type': 'array', 'itemType': 'string' },
       scalingGroupId: 'string',

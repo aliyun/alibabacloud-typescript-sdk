@@ -48,7 +48,7 @@ export class ScaleWithAdjustmentRequestLifecycleHookContext extends $dara.Model 
 export class ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars extends $dara.Model {
   /**
    * @remarks
-   * The name of the environment variable. The name must be 1 to 128 characters in length and can contain letters, underscores (_), and digits. The name cannot start with a digit. Specify the value in the `[0-9a-zA-Z]` format.
+   * The name of the environment variable. The name must be 1 to 128 characters in length. Format requirement: `[0-9a-zA-Z]` and underscores (_). It cannot start with a digit.
    * 
    * @example
    * PATH
@@ -88,7 +88,7 @@ export class ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVar
 export class ScaleWithAdjustmentRequestOverridesContainerOverrides extends $dara.Model {
   /**
    * @remarks
-   * The arguments that correspond to the startup commands of the container. You can specify up to 10 arguments.
+   * The argument that corresponds to the startup command of the container. You can specify up to 10 arguments.
    */
   args?: string[];
   /**
@@ -98,7 +98,7 @@ export class ScaleWithAdjustmentRequestOverridesContainerOverrides extends $dara
   commands?: string[];
   /**
    * @remarks
-   * The number of vCPUs that you want to allocate to the container.
+   * The number of vCPUs that you want to allocate to the container. Unit: vCPUs.
    * 
    * @example
    * 2
@@ -119,7 +119,7 @@ export class ScaleWithAdjustmentRequestOverridesContainerOverrides extends $dara
   memory?: number;
   /**
    * @remarks
-   * The container name. If you specify ContainerOverrides, you must also specify Name. ContainerOverrides takes effect only when the container name specified by Name matches that specified in the scaling configuration.
+   * The name of container N. If you specify ContainerOverrides, you must also specify Name. ContainerOverrides takes effect only when the container name specified by Name matches that specified in the scaling configuration.
    * 
    * @example
    * container-1
@@ -173,7 +173,7 @@ export class ScaleWithAdjustmentRequestOverrides extends $dara.Model {
   containerOverrides?: ScaleWithAdjustmentRequestOverridesContainerOverrides[];
   /**
    * @remarks
-   * The number of vCPUs that you want to allocate to the instance.
+   * The number of vCPUs that you want to allocate to the instance. Unit: vCPUs.
    * 
    * @example
    * 2
@@ -187,6 +187,10 @@ export class ScaleWithAdjustmentRequestOverrides extends $dara.Model {
    * 4
    */
   memory?: number;
+  /**
+   * @example
+   * ZWNobyBoZWxsbyBlY3Mh
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -263,6 +267,18 @@ export class ScaleWithAdjustmentRequest extends $dara.Model {
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The execution mode. Valid values:
+   * 
+   * *   None: If this is not specified, auto scaling is performed.
+   * *   PlanOnly: Scaling is not triggered. Only elastic planning is performed. The planning result is returned in PlanResult, including the instance type, zone ID, billing type, and number of created instances.
+   * 
+   * Default value: None.
+   * 
+   * @example
+   * PlanOnly
+   */
   executionMode?: string;
   /**
    * @remarks
@@ -283,6 +299,13 @@ export class ScaleWithAdjustmentRequest extends $dara.Model {
    */
   overrides?: ScaleWithAdjustmentRequestOverrides;
   ownerId?: number;
+  /**
+   * @remarks
+   * Whether the current scale-out task supports concurrency.
+   * 
+   * @example
+   * false
+   */
   parallelTask?: boolean;
   resourceOwnerAccount?: string;
   /**
@@ -297,12 +320,12 @@ export class ScaleWithAdjustmentRequest extends $dara.Model {
   scalingGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to trigger the scaling activity in a synchronous manner. This parameter takes effect only on scaling groups for which you specified an expected number of instances. Valid values:
+   * Specifies whether to trigger the scaling task in a synchronous manner. This parameter takes effect only on scaling groups for which you specified an expected number of instances. Valid Values:
    * 
-   * *   true: triggers the scaling activity in a synchronous manner. A scaling activity is triggered at the time when the scaling rule is executed.
-   * *   false: does not trigger the scaling activity in a synchronous manner. After you change the expected number of instances for the scaling group, Auto Scaling checks whether the total number of instances in the scaling group matches the new expected number and determines whether to trigger the scaling activity based on the check result.
+   * *   true: triggers the scaling task in a synchronous manner. A scaling activity is triggered at the time when the scaling rule is executed.
+   * *   false: does not trigger the scaling task in a synchronous manner. After you change the expected number of instances for the scaling group, Auto Scaling checks whether the total number of instances in the scaling group matches the new expected number and determines whether to trigger the scaling activity based on the check result.
    * 
-   * >  For more information about the expected number of instances feature, see [Expected number of instances](https://help.aliyun.com/document_detail/146231.html).
+   * >  For more information, see [Expected number of instances](https://help.aliyun.com/document_detail/146231.html).
    * 
    * Default value: false.
    * 

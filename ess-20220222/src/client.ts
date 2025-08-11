@@ -1528,6 +1528,10 @@ export default class Client extends OpenApi {
   async createNotificationConfigurationWithOptions(request: $_model.CreateNotificationConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNotificationConfigurationResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.messageEncoding)) {
+      query["MessageEncoding"] = request.messageEncoding;
+    }
+
     if (!$dara.isNull(request.notificationArn)) {
       query["NotificationArn"] = request.notificationArn;
     }
@@ -6395,6 +6399,10 @@ export default class Client extends OpenApi {
   async modifyNotificationConfigurationWithOptions(request: $_model.ModifyNotificationConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyNotificationConfigurationResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.messageEncoding)) {
+      query["MessageEncoding"] = request.messageEncoding;
+    }
+
     if (!$dara.isNull(request.notificationArn)) {
       query["NotificationArn"] = request.notificationArn;
     }

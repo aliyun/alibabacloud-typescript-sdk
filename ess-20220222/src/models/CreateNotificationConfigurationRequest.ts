@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateNotificationConfigurationRequest extends $dara.Model {
+  messageEncoding?: string;
   /**
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the notification recipient. The following list describes the value formats of this parameter:
@@ -63,6 +64,7 @@ export class CreateNotificationConfigurationRequest extends $dara.Model {
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
+      messageEncoding: 'MessageEncoding',
       notificationArn: 'NotificationArn',
       notificationTypes: 'NotificationTypes',
       ownerId: 'OwnerId',
@@ -75,6 +77,7 @@ export class CreateNotificationConfigurationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      messageEncoding: 'string',
       notificationArn: 'string',
       notificationTypes: { 'type': 'array', 'itemType': 'string' },
       ownerId: 'number',

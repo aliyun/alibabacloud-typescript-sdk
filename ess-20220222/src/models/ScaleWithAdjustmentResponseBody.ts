@@ -3,10 +3,52 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ScaleWithAdjustmentResponseBodyPlanResultResourceAllocations extends $dara.Model {
+  /**
+   * @remarks
+   * The number of instances.
+   * 
+   * @example
+   * 1
+   */
   amount?: number;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   **Prepaid**: subscription.
+   * *   **Postpaid**: pay-as-you-go.
+   * 
+   * @example
+   * PostPaid
+   */
   instanceChargeType?: string;
+  /**
+   * @remarks
+   * The instance type.
+   * 
+   * @example
+   * ecs.u1-c1m8.large
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * The spot policy of instances. Valid values:
+   * 
+   * *   NoSpot: The instances are created as pay-as-you-go instances.
+   * *   SpotWithPriceLimit: The instances are created as spot instances for which you can specify the maximum hourly price.
+   * *   SpotAsPriceGo: The instances are spot instances for which the market price at the time of purchase is automatically used as the bid price.
+   * 
+   * @example
+   * NoSpot
+   */
   spotStrategy?: string;
+  /**
+   * @remarks
+   * The ID of the zone.
+   * 
+   * @example
+   * cn-beijing-g
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,6 +80,10 @@ export class ScaleWithAdjustmentResponseBodyPlanResultResourceAllocations extend
 }
 
 export class ScaleWithAdjustmentResponseBodyPlanResult extends $dara.Model {
+  /**
+   * @remarks
+   * The resource allocation information in the elastic planning result.
+   */
   resourceAllocations?: ScaleWithAdjustmentResponseBodyPlanResultResourceAllocations[];
   static names(): { [key: string]: string } {
     return {
@@ -76,6 +122,10 @@ export class ScaleWithAdjustmentResponseBody extends $dara.Model {
    * CapacityChange
    */
   activityType?: string;
+  /**
+   * @remarks
+   * The elastic planning result returned when the ExecutionMode is set to PlanOnly.
+   */
   planResult?: ScaleWithAdjustmentResponseBodyPlanResult;
   /**
    * @remarks
