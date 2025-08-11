@@ -123,9 +123,10 @@ export class ListOrganizationRolesResponseBody extends $dara.Model {
   result?: ListOrganizationRolesResponseBodyResult[];
   /**
    * @remarks
-   * 是否请求成功。取值范围：
-   * - true：请求成功
-   * - false：请求失败
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
    * 
    * @example
    * true

@@ -97,7 +97,7 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
   gmtCreate?: string;
   /**
    * @remarks
-   * 作品修改的毫秒级时间戳。
+   * Millisecond-level timestamp of the work modification.
    * 
    * @example
    * 1572334870000
@@ -105,7 +105,7 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
   gmtModify?: string;
   /**
    * @remarks
-   * 作品修改者的阿里云账户名。
+   * The Alibaba Cloud account name of the work modifier.
    * 
    * @example
    * test

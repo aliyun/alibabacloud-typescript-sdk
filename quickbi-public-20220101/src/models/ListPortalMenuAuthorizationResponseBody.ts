@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPortalMenuAuthorizationResponseBodyResultReceivers extends $dara.Model {
   /**
+   * **if can be null:**
+   * true
+   */
+  authPointsValue?: number;
+  /**
    * @remarks
    * The ID of the authorization object.
    * 
@@ -24,6 +29,7 @@ export class ListPortalMenuAuthorizationResponseBodyResultReceivers extends $dar
   receiverType?: number;
   static names(): { [key: string]: string } {
     return {
+      authPointsValue: 'AuthPointsValue',
       receiverId: 'ReceiverId',
       receiverType: 'ReceiverType',
     };
@@ -31,6 +37,7 @@ export class ListPortalMenuAuthorizationResponseBodyResultReceivers extends $dar
 
   static types(): { [key: string]: any } {
     return {
+      authPointsValue: 'number',
       receiverId: 'string',
       receiverType: 'number',
     };

@@ -67,7 +67,7 @@ export class QueryUserInfoByAccountResponseBodyResult extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * 用户绑定的组织角色ID列表。
+   * List of organization role IDs bound to the user.
    */
   roleIdList?: number[];
   /**

@@ -23,10 +23,10 @@ export class QueryDatasetSmartqStatusResponseBody extends $dara.Model {
   result?: boolean;
   /**
    * @remarks
-   * 是否请求成功。取值范围：
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - true：请求成功
-   * - false：请求失败
+   * *   true: The request was successful.
+   * *   false: The request failed.
    * 
    * @example
    * true

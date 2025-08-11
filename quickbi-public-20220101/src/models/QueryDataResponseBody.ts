@@ -59,6 +59,11 @@ export class QueryDataResponseBodyResultHeaders extends $dara.Model {
    */
   label?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  originalColumn?: string;
+  /**
    * @remarks
    * Field type, used to distinguish between dimension and measure fields.
    * - Dimension: dimension
@@ -75,6 +80,7 @@ export class QueryDataResponseBodyResultHeaders extends $dara.Model {
       dataType: 'DataType',
       granularity: 'Granularity',
       label: 'Label',
+      originalColumn: 'OriginalColumn',
       type: 'Type',
     };
   }
@@ -86,6 +92,7 @@ export class QueryDataResponseBodyResultHeaders extends $dara.Model {
       dataType: 'string',
       granularity: 'string',
       label: 'string',
+      originalColumn: 'string',
       type: 'string',
     };
   }

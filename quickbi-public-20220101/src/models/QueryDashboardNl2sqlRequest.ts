@@ -2,44 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QueryReadableResourcesListByUserIdV2Request extends $dara.Model {
+export class QueryDashboardNl2sqlRequest extends $dara.Model {
   /**
    * @remarks
-   * User ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * asdas*********sdsddf
+   * 3d7ebb8***********500078f4
    */
   userId?: string;
   /**
    * @remarks
-   * Work type. Possible values:
-   * - DATAPRODUCT: Data Portal
-   * - PAGE: Dashboard
-   * - REPORT: Spreadsheet
-   * - dashboardOfflineQuery: Self-service Data Extraction
-   * - SCREEN: Data Wall
-   * - DATAFORM: Data Entry
-   * - ANALYSIS: Ad-hoc Analysis
+   * This parameter is required.
    * 
    * @example
-   * DATAFORM
-   */
-  workType?: string;
-  /**
-   * @remarks
-   * Workspace ID.
-   * 
-   * @example
-   * 95296e95-ca89-4c7d-8af9-dedf0ad0****
+   * 3d7ebb8***********500078f4
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       userId: 'UserId',
-      workType: 'WorkType',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -47,7 +29,6 @@ export class QueryReadableResourcesListByUserIdV2Request extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       userId: 'string',
-      workType: 'string',
       workspaceId: 'string',
     };
   }

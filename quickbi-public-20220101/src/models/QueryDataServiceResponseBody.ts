@@ -42,7 +42,7 @@ export class QueryDataServiceResponseBodyResultHeaders extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * 字段别名，结果参数values中map数据行的key。
+   * Alias for the field, serving as the key in the map data row of the values parameter.
    * 
    * @example
    * area
@@ -98,7 +98,7 @@ export class QueryDataServiceResponseBodyResult extends $dara.Model {
    * The SQL of the query request.
    * 
    * @example
-   * SELECT COMPANY_T_1_.`area` AS D_AREA_2_, COMPANY_T_1_.`city` AS D_CITY_3_, SUM(COMPANY_T_1_.`profit_amt`) AS D_PROFIT_4_ FROM `quickbi_test`.`company_sales_record_copy` AS COMPANY_T_1_ WHERE COMPANY_T_1_.`area` LIKE \\"%华东%\\" GROUP BY COMPANY_T_1_.`area`, COMPANY_T_1_.`city` HAVING SUM(COMPANY_T_1_.`order_amt`) > 1 LIMIT 0, 10
+   * SELECT COMPANY_T_1_.`area` AS D_AREA_2_, COMPANY_T_1_.`city` AS D_CITY_3_, SUM(COMPANY_T_1_.`profit_amt`) AS D_PROFIT_4_ FROM `quickbi_test`.`company_sales_record_copy` AS COMPANY_T_1_   LIMIT 0, 10
    */
   sql?: string;
   /**

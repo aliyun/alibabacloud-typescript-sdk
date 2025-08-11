@@ -614,7 +614,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BatchAddFeishuUsersResponse
    */
-  // Deprecated
   async batchAddFeishuUsersWithOptions(request: $_model.BatchAddFeishuUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchAddFeishuUsersResponse> {
     request.validate();
     let query = { };
@@ -3178,6 +3177,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询仪表板的问数资源信息
+   * 
+   * @param request - QueryDashboardNl2sqlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDashboardNl2sqlResponse
+   */
+  async queryDashboardNl2sqlWithOptions(request: $_model.QueryDashboardNl2sqlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDashboardNl2sqlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryDashboardNl2sql",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryDashboardNl2sqlResponse>(await this.callApi(params, req, runtime), new $_model.QueryDashboardNl2sqlResponse({}));
+  }
+
+  /**
+   * 查询仪表板的问数资源信息
+   * 
+   * @param request - QueryDashboardNl2sqlRequest
+   * @returns QueryDashboardNl2sqlResponse
+   */
+  async queryDashboardNl2sql(request: $_model.QueryDashboardNl2sqlRequest): Promise<$_model.QueryDashboardNl2sqlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryDashboardNl2sqlWithOptions(request, runtime);
+  }
+
+  /**
    * Invoke the open data service API.
    * 
    * @remarks
@@ -3310,7 +3355,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDataServiceResponse
    */
-  // Deprecated
   async queryDataServiceWithOptions(request: $_model.QueryDataServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDataServiceResponse> {
     request.validate();
     let query = { };
@@ -3734,6 +3778,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过数据集ID查询最近一次加速任务
+   * 
+   * @param request - QueryLastAccelerationEngineJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryLastAccelerationEngineJobResponse
+   */
+  async queryLastAccelerationEngineJobWithOptions(request: $_model.QueryLastAccelerationEngineJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryLastAccelerationEngineJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cubeId)) {
+      query["CubeId"] = request.cubeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryLastAccelerationEngineJob",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryLastAccelerationEngineJobResponse>(await this.callApi(params, req, runtime), new $_model.QueryLastAccelerationEngineJobResponse({}));
+  }
+
+  /**
+   * 通过数据集ID查询最近一次加速任务
+   * 
+   * @param request - QueryLastAccelerationEngineJobRequest
+   * @returns QueryLastAccelerationEngineJobResponse
+   */
+  async queryLastAccelerationEngineJob(request: $_model.QueryLastAccelerationEngineJobRequest): Promise<$_model.QueryLastAccelerationEngineJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryLastAccelerationEngineJobWithOptions(request, runtime);
+  }
+
+  /**
    * Check which datasets and analysis themes the user has question authorization for
    * 
    * @param request - QueryLlmCubeWithThemeListByUserIdRequest
@@ -3880,7 +3966,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryReadableResourcesListByUserIdResponse
    */
-  // Deprecated
   async queryReadableResourcesListByUserIdWithOptions(request: $_model.QueryReadableResourcesListByUserIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryReadableResourcesListByUserIdResponse> {
     request.validate();
     let query = { };
@@ -3920,7 +4005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户有权查看的作品列表(新)
+   * Query list of works user has permission to view (new)
    * 
    * @param request - QueryReadableResourcesListByUserIdV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3959,7 +4044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户有权查看的作品列表(新)
+   * Query list of works user has permission to view (new)
    * 
    * @param request - QueryReadableResourcesListByUserIdV2Request
    * @returns QueryReadableResourcesListByUserIdV2Response
