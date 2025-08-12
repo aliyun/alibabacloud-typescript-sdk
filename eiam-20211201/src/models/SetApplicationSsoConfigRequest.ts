@@ -51,6 +51,7 @@ export class SetApplicationSsoConfigRequestOidcSsoConfig extends $dara.Model {
    * 1200
    */
   accessTokenEffectiveTime?: number;
+  allowedPublicClient?: boolean;
   /**
    * @remarks
    * The validity period of the issued code. Unit: seconds. Default value: 60.
@@ -157,6 +158,7 @@ export class SetApplicationSsoConfigRequestOidcSsoConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessTokenEffectiveTime: 'AccessTokenEffectiveTime',
+      allowedPublicClient: 'AllowedPublicClient',
       codeEffectiveTime: 'CodeEffectiveTime',
       customClaims: 'CustomClaims',
       grantScopes: 'GrantScopes',
@@ -177,6 +179,7 @@ export class SetApplicationSsoConfigRequestOidcSsoConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessTokenEffectiveTime: 'number',
+      allowedPublicClient: 'boolean',
       codeEffectiveTime: 'number',
       customClaims: { 'type': 'array', 'itemType': SetApplicationSsoConfigRequestOidcSsoConfigCustomClaims },
       grantScopes: { 'type': 'array', 'itemType': 'string' },

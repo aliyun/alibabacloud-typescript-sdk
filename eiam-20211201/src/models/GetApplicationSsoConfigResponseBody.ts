@@ -51,6 +51,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigOidcSsoConfi
    * 1200
    */
   accessTokenEffectiveTime?: number;
+  allowedPublicClient?: string;
   /**
    * @remarks
    * The validity period of the issued code. Unit: seconds. Default value: 60.
@@ -157,6 +158,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigOidcSsoConfi
   static names(): { [key: string]: string } {
     return {
       accessTokenEffectiveTime: 'AccessTokenEffectiveTime',
+      allowedPublicClient: 'AllowedPublicClient',
       codeEffectiveTime: 'CodeEffectiveTime',
       customClaims: 'CustomClaims',
       grantScopes: 'GrantScopes',
@@ -177,6 +179,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigOidcSsoConfi
   static types(): { [key: string]: any } {
     return {
       accessTokenEffectiveTime: 'number',
+      allowedPublicClient: 'string',
       codeEffectiveTime: 'number',
       customClaims: { 'type': 'array', 'itemType': GetApplicationSsoConfigResponseBodyApplicationSsoConfigOidcSsoConfigCustomClaims },
       grantScopes: { 'type': 'array', 'itemType': 'string' },

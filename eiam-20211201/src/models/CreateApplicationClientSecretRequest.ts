@@ -14,6 +14,11 @@ export class CreateApplicationClientSecretRequest extends $dara.Model {
    */
   applicationId?: string;
   /**
+   * @example
+   * 1735530123762
+   */
+  expirationTime?: number;
+  /**
    * @remarks
    * The ID of the instance.
    * 
@@ -26,6 +31,7 @@ export class CreateApplicationClientSecretRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
+      expirationTime: 'ExpirationTime',
       instanceId: 'InstanceId',
     };
   }
@@ -33,6 +39,7 @@ export class CreateApplicationClientSecretRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
+      expirationTime: 'number',
       instanceId: 'string',
     };
   }

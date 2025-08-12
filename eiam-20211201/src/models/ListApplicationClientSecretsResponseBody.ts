@@ -27,6 +27,7 @@ export class ListApplicationClientSecretsResponseBodyApplicationClientSecrets ex
    * eyJh*****************************************************************************************************OQ
    */
   clientSecret?: string;
+  expirationTime?: number;
   /**
    * @remarks
    * The ID of the instance.
@@ -67,6 +68,7 @@ export class ListApplicationClientSecretsResponseBodyApplicationClientSecrets ex
       applicationId: 'ApplicationId',
       clientId: 'ClientId',
       clientSecret: 'ClientSecret',
+      expirationTime: 'ExpirationTime',
       instanceId: 'InstanceId',
       lastUsedTime: 'LastUsedTime',
       secretId: 'SecretId',
@@ -79,6 +81,7 @@ export class ListApplicationClientSecretsResponseBodyApplicationClientSecrets ex
       applicationId: 'string',
       clientId: 'string',
       clientSecret: 'string',
+      expirationTime: 'number',
       instanceId: 'string',
       lastUsedTime: 'number',
       secretId: 'string',

@@ -365,6 +365,10 @@ export default class Client extends OpenApi {
       query["ApplicationId"] = request.applicationId;
     }
 
+    if (!$dara.isNull(request.expirationTime)) {
+      query["ExpirationTime"] = request.expirationTime;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
