@@ -8,7 +8,6 @@ export class GetUmodelResponseBodyCommonSchemaRef extends $dara.Model {
    * test-job-123123
    */
   group?: string;
-  items?: string[];
   /**
    * @example
    * 5
@@ -17,7 +16,6 @@ export class GetUmodelResponseBodyCommonSchemaRef extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       group: 'group',
-      items: 'items',
       version: 'version',
     };
   }
@@ -25,15 +23,11 @@ export class GetUmodelResponseBodyCommonSchemaRef extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       group: 'string',
-      items: { 'type': 'array', 'itemType': 'string' },
       version: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.items)) {
-      $dara.Model.validateArray(this.items);
-    }
     super.validate();
   }
 

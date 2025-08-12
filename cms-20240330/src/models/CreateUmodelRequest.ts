@@ -2,48 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateUmodelRequestCommonSchemaRef extends $dara.Model {
-  /**
-   * @example
-   * test-job-123
-   */
-  group?: string;
-  items?: string[];
-  /**
-   * @example
-   * 1
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      group: 'group',
-      items: 'items',
-      version: 'version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      group: 'string',
-      items: { 'type': 'array', 'itemType': 'string' },
-      version: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.items)) {
-      $dara.Model.validateArray(this.items);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateUmodelRequest extends $dara.Model {
-  commonSchemaRef?: CreateUmodelRequestCommonSchemaRef[];
   /**
    * @example
    * workspace test
@@ -51,22 +10,17 @@ export class CreateUmodelRequest extends $dara.Model {
   description?: string;
   static names(): { [key: string]: string } {
     return {
-      commonSchemaRef: 'commonSchemaRef',
       description: 'description',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      commonSchemaRef: { 'type': 'array', 'itemType': CreateUmodelRequestCommonSchemaRef },
       description: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.commonSchemaRef)) {
-      $dara.Model.validateArray(this.commonSchemaRef);
-    }
     super.validate();
   }
 

@@ -282,10 +282,6 @@ export default class Client extends OpenApi {
   async createUmodelWithOptions(workspace: string, request: $_model.CreateUmodelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateUmodelResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.commonSchemaRef)) {
-      body["commonSchemaRef"] = request.commonSchemaRef;
-    }
-
     if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
     }
@@ -1109,10 +1105,6 @@ export default class Client extends OpenApi {
   async updateUmodelWithOptions(workspace: string, request: $_model.UpdateUmodelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateUmodelResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.commonSchemaRef)) {
-      body["commonSchemaRef"] = request.commonSchemaRef;
-    }
-
     if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
     }

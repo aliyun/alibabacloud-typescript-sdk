@@ -47,7 +47,6 @@ export { NotifyStrategyForViewRoutes } from './NotifyStrategyForView';
 export { SubscriptionForModifyPushingSetting } from './SubscriptionForModify';
 export { SubscriptionForViewPushingSetting } from './SubscriptionForView';
 export { CreatePrometheusInstanceRequestTags } from './CreatePrometheusInstanceRequest';
-export { CreateUmodelRequestCommonSchemaRef } from './CreateUmodelRequest';
 export { GetServiceResponseBodyService } from './GetServiceResponseBody';
 export { GetServiceObservabilityResponseBodyEntryPointInfo } from './GetServiceObservabilityResponseBody';
 export { GetUmodelResponseBodyCommonSchemaRef } from './GetUmodelResponseBody';
@@ -63,7 +62,6 @@ export { ListAlertActionsResponseBodyAlertActionsWebhookParam } from './ListAler
 export { ListAlertActionsResponseBodyAlertActions } from './ListAlertActionsResponseBody';
 export { ListServicesResponseBodyServices } from './ListServicesResponseBody';
 export { ListWorkspacesResponseBodyWorkspaces } from './ListWorkspacesResponseBody';
-export { UpdateUmodelRequestCommonSchemaRef } from './UpdateUmodelRequest';
 export { AddonMeta } from './AddonMeta';
 export { AlertEventIntegrationPolicyForModify } from './AlertEventIntegrationPolicyForModify';
 export { AlertEventIntegrationPolicyForView } from './AlertEventIntegrationPolicyForView';
