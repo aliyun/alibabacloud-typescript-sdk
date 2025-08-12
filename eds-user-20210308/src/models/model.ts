@@ -102,6 +102,7 @@ export { DescribeOrgByLayerRequest } from './DescribeOrgByLayerRequest';
 export { DescribeOrgByLayerResponseBody } from './DescribeOrgByLayerResponseBody';
 export { DescribeOrgByLayerResponse } from './DescribeOrgByLayerResponse';
 export { DescribeOrgsRequest } from './DescribeOrgsRequest';
+export { DescribeOrgsShrinkRequest } from './DescribeOrgsShrinkRequest';
 export { DescribeOrgsResponseBody } from './DescribeOrgsResponseBody';
 export { DescribeOrgsResponse } from './DescribeOrgsResponse';
 export { DescribeResourceGroupsRequest } from './DescribeResourceGroupsRequest';

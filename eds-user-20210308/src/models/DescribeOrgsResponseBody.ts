@@ -19,6 +19,7 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
    * org****
    */
   orgName?: string;
+  orgNamePath?: string;
   /**
    * @remarks
    * The parent organization ID.
@@ -31,6 +32,7 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
     return {
       orgId: 'OrgId',
       orgName: 'OrgName',
+      orgNamePath: 'OrgNamePath',
       parentOrgId: 'ParentOrgId',
     };
   }
@@ -39,6 +41,7 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
     return {
       orgId: 'string',
       orgName: 'string',
+      orgNamePath: 'string',
       parentOrgId: 'string',
     };
   }

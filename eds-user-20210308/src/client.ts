@@ -822,12 +822,18 @@ export default class Client extends OpenApi {
    * @remarks
    * An organization is in a tree structure. The root organization ID is in the following format: org-aliyun-wy-org-id.
    * 
-   * @param request - DescribeOrgsRequest
+   * @param tmpReq - DescribeOrgsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOrgsResponse
    */
-  async describeOrgsWithOptions(request: $_model.DescribeOrgsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOrgsResponse> {
-    request.validate();
+  async describeOrgsWithOptions(tmpReq: $_model.DescribeOrgsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOrgsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeOrgsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.showExtras)) {
+      request.showExtrasShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.showExtras, "ShowExtras", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
@@ -843,6 +849,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.parentOrgId)) {
       query["ParentOrgId"] = request.parentOrgId;
+    }
+
+    if (!$dara.isNull(request.showExtrasShrink)) {
+      query["ShowExtras"] = request.showExtrasShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

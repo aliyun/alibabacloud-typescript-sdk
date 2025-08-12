@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeOrgsRequest extends $dara.Model {
+export class DescribeOrgsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of entries to return. Valid values: 1 to 100.\\
@@ -36,14 +36,14 @@ export class DescribeOrgsRequest extends $dara.Model {
    * org-****
    */
   parentOrgId?: string;
-  showExtras?: { [key: string]: any };
+  showExtrasShrink?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       orgName: 'OrgName',
       parentOrgId: 'ParentOrgId',
-      showExtras: 'ShowExtras',
+      showExtrasShrink: 'ShowExtras',
     };
   }
 
@@ -53,14 +53,11 @@ export class DescribeOrgsRequest extends $dara.Model {
       nextToken: 'string',
       orgName: 'string',
       parentOrgId: 'string',
-      showExtras: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      showExtrasShrink: 'string',
     };
   }
 
   validate() {
-    if(this.showExtras) {
-      $dara.Model.validateMap(this.showExtras);
-    }
     super.validate();
   }
 
