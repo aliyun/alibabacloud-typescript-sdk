@@ -1135,6 +1135,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询支付宝打赏状态
+   * 
+   * @param request - GetAlipayTransferStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAlipayTransferStatusResponse
+   */
+  async getAlipayTransferStatusWithOptions(request: $_model.GetAlipayTransferStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAlipayTransferStatusResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.code)) {
+      query["code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspace_id"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAlipayTransferStatus",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/openapi/alipay/transfer/status`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAlipayTransferStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetAlipayTransferStatusResponse({}));
+  }
+
+  /**
+   * 查询支付宝打赏状态
+   * 
+   * @param request - GetAlipayTransferStatusRequest
+   * @returns GetAlipayTransferStatusResponse
+   */
+  async getAlipayTransferStatus(request: $_model.GetAlipayTransferStatusRequest): Promise<$_model.GetAlipayTransferStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAlipayTransferStatusWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 支付宝打赏链接
+   * 
+   * @param request - GetAlipayUrlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAlipayUrlResponse
+   */
+  async getAlipayUrlWithOptions(request: $_model.GetAlipayUrlRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAlipayUrlResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      query["app_id"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspace_id"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAlipayUrl",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/openapi/alipay/transfer/url`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAlipayUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetAlipayUrlResponse({}));
+  }
+
+  /**
+   * 支付宝打赏链接
+   * 
+   * @param request - GetAlipayUrlRequest
+   * @returns GetAlipayUrlResponse
+   */
+  async getAlipayUrl(request: $_model.GetAlipayUrlRequest): Promise<$_model.GetAlipayUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAlipayUrlWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the current status of a specified knowledge base creation or add document job.
    * 
    * @remarks
