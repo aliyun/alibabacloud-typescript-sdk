@@ -19,8 +19,10 @@ export class StartRtcCloudRecordingShrinkRequest extends $dara.Model {
    * room1024
    */
   channelId?: string;
+  maxIdleTime?: number;
   mixLayoutParamsShrink?: string;
   mixTranscodeParamsShrink?: string;
+  notifyAuthKey?: string;
   /**
    * @example
    * http://xxxx/test/mycallback
@@ -45,8 +47,10 @@ export class StartRtcCloudRecordingShrinkRequest extends $dara.Model {
     return {
       appId: 'AppId',
       channelId: 'ChannelId',
+      maxIdleTime: 'MaxIdleTime',
       mixLayoutParamsShrink: 'MixLayoutParams',
       mixTranscodeParamsShrink: 'MixTranscodeParams',
+      notifyAuthKey: 'NotifyAuthKey',
       notifyUrl: 'NotifyUrl',
       recordParamsShrink: 'RecordParams',
       storageParamsShrink: 'StorageParams',
@@ -58,8 +62,10 @@ export class StartRtcCloudRecordingShrinkRequest extends $dara.Model {
     return {
       appId: 'string',
       channelId: 'string',
+      maxIdleTime: 'number',
       mixLayoutParamsShrink: 'string',
       mixTranscodeParamsShrink: 'string',
+      notifyAuthKey: 'string',
       notifyUrl: 'string',
       recordParamsShrink: 'string',
       storageParamsShrink: 'string',

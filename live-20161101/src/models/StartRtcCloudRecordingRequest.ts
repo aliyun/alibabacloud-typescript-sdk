@@ -326,6 +326,7 @@ export class StartRtcCloudRecordingRequestStorageParamsFileInfo extends $dara.Mo
    * {AppId}_{ChannelId}_{StartTime}_{UserId}
    */
   fileNamePattern?: string;
+  filePathPrefix?: string[];
   /**
    * @remarks
    * This parameter is required.
@@ -342,6 +343,7 @@ export class StartRtcCloudRecordingRequestStorageParamsFileInfo extends $dara.Mo
   static names(): { [key: string]: string } {
     return {
       fileNamePattern: 'FileNamePattern',
+      filePathPrefix: 'FilePathPrefix',
       format: 'Format',
       sliceNamePattern: 'SliceNamePattern',
     };
@@ -350,12 +352,16 @@ export class StartRtcCloudRecordingRequestStorageParamsFileInfo extends $dara.Mo
   static types(): { [key: string]: any } {
     return {
       fileNamePattern: 'string',
+      filePathPrefix: { 'type': 'array', 'itemType': 'string' },
       format: 'string',
       sliceNamePattern: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.filePathPrefix)) {
+      $dara.Model.validateArray(this.filePathPrefix);
+    }
     super.validate();
   }
 
@@ -404,6 +410,38 @@ export class StartRtcCloudRecordingRequestStorageParamsOSSParams extends $dara.M
   }
 }
 
+export class StartRtcCloudRecordingRequestStorageParamsVodParams extends $dara.Model {
+  autoCompose?: number;
+  composeVodTranscodeGroupId?: string;
+  storageLocation?: string;
+  vodTranscodeGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoCompose: 'AutoCompose',
+      composeVodTranscodeGroupId: 'ComposeVodTranscodeGroupId',
+      storageLocation: 'StorageLocation',
+      vodTranscodeGroupId: 'VodTranscodeGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoCompose: 'number',
+      composeVodTranscodeGroupId: 'string',
+      storageLocation: 'string',
+      vodTranscodeGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartRtcCloudRecordingRequestStorageParams extends $dara.Model {
   fileInfo?: StartRtcCloudRecordingRequestStorageParamsFileInfo[];
   OSSParams?: StartRtcCloudRecordingRequestStorageParamsOSSParams;
@@ -415,11 +453,13 @@ export class StartRtcCloudRecordingRequestStorageParams extends $dara.Model {
    * 1
    */
   storageType?: number;
+  vodParams?: StartRtcCloudRecordingRequestStorageParamsVodParams;
   static names(): { [key: string]: string } {
     return {
       fileInfo: 'FileInfo',
       OSSParams: 'OSSParams',
       storageType: 'StorageType',
+      vodParams: 'VodParams',
     };
   }
 
@@ -428,6 +468,7 @@ export class StartRtcCloudRecordingRequestStorageParams extends $dara.Model {
       fileInfo: { 'type': 'array', 'itemType': StartRtcCloudRecordingRequestStorageParamsFileInfo },
       OSSParams: StartRtcCloudRecordingRequestStorageParamsOSSParams,
       storageType: 'number',
+      vodParams: StartRtcCloudRecordingRequestStorageParamsVodParams,
     };
   }
 
@@ -437,6 +478,9 @@ export class StartRtcCloudRecordingRequestStorageParams extends $dara.Model {
     }
     if(this.OSSParams && typeof (this.OSSParams as any).validate === 'function') {
       (this.OSSParams as any).validate();
+    }
+    if(this.vodParams && typeof (this.vodParams as any).validate === 'function') {
+      (this.vodParams as any).validate();
     }
     super.validate();
   }
@@ -537,8 +581,10 @@ export class StartRtcCloudRecordingRequest extends $dara.Model {
    * room1024
    */
   channelId?: string;
+  maxIdleTime?: number;
   mixLayoutParams?: StartRtcCloudRecordingRequestMixLayoutParams;
   mixTranscodeParams?: StartRtcCloudRecordingRequestMixTranscodeParams;
+  notifyAuthKey?: string;
   /**
    * @example
    * http://xxxx/test/mycallback
@@ -563,8 +609,10 @@ export class StartRtcCloudRecordingRequest extends $dara.Model {
     return {
       appId: 'AppId',
       channelId: 'ChannelId',
+      maxIdleTime: 'MaxIdleTime',
       mixLayoutParams: 'MixLayoutParams',
       mixTranscodeParams: 'MixTranscodeParams',
+      notifyAuthKey: 'NotifyAuthKey',
       notifyUrl: 'NotifyUrl',
       recordParams: 'RecordParams',
       storageParams: 'StorageParams',
@@ -576,8 +624,10 @@ export class StartRtcCloudRecordingRequest extends $dara.Model {
     return {
       appId: 'string',
       channelId: 'string',
+      maxIdleTime: 'number',
       mixLayoutParams: StartRtcCloudRecordingRequestMixLayoutParams,
       mixTranscodeParams: StartRtcCloudRecordingRequestMixTranscodeParams,
+      notifyAuthKey: 'string',
       notifyUrl: 'string',
       recordParams: StartRtcCloudRecordingRequestRecordParams,
       storageParams: StartRtcCloudRecordingRequestStorageParams,

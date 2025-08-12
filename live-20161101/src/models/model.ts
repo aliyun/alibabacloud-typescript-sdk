@@ -339,6 +339,7 @@ export { DescribeRTSNativeSDKFirstFrameDelayResponseBodyFrameDelayData } from '.
 export { DescribeRTSNativeSDKPlayFailStatusResponseBodyPlayFailStatus } from './DescribeRtsnativeSdkplayFailStatusResponseBody';
 export { DescribeRTSNativeSDKPlayTimeResponseBodyPlayTimeData } from './DescribeRtsnativeSdkplayTimeResponseBody';
 export { DescribeRTSNativeSDKVvDataResponseBodyVvData } from './DescribeRtsnativeSdkvvDataResponseBody';
+export { DescribeRtcCloudRecordingFilesResponseBodyTaskInfoRecordFileListVodMediaList } from './DescribeRtcCloudRecordingFilesResponseBody';
 export { DescribeRtcCloudRecordingFilesResponseBodyTaskInfoRecordFileList } from './DescribeRtcCloudRecordingFilesResponseBody';
 export { DescribeRtcCloudRecordingFilesResponseBodyTaskInfo } from './DescribeRtcCloudRecordingFilesResponseBody';
 export { DescribeRtcMPUEventSubResponseBodySubInfo } from './DescribeRtcMpueventSubResponseBody';
@@ -474,6 +475,7 @@ export { StartRtcCloudRecordingRequestMixTranscodeParams } from './StartRtcCloud
 export { StartRtcCloudRecordingRequestRecordParams } from './StartRtcCloudRecordingRequest';
 export { StartRtcCloudRecordingRequestStorageParamsFileInfo } from './StartRtcCloudRecordingRequest';
 export { StartRtcCloudRecordingRequestStorageParamsOSSParams } from './StartRtcCloudRecordingRequest';
+export { StartRtcCloudRecordingRequestStorageParamsVodParams } from './StartRtcCloudRecordingRequest';
 export { StartRtcCloudRecordingRequestStorageParams } from './StartRtcCloudRecordingRequest';
 export { StartRtcCloudRecordingRequestSubscribeParamsSubscribeUserIdList } from './StartRtcCloudRecordingRequest';
 export { StartRtcCloudRecordingRequestSubscribeParams } from './StartRtcCloudRecordingRequest';

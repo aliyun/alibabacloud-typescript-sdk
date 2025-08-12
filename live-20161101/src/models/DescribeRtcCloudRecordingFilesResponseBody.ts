@@ -2,15 +2,52 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeRtcCloudRecordingFilesResponseBodyTaskInfoRecordFileListVodMediaList extends $dara.Model {
+  mediaIds?: string[];
+  mergedIds?: string[];
+  stream?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaIds: 'MediaIds',
+      mergedIds: 'MergedIds',
+      stream: 'Stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaIds: { 'type': 'array', 'itemType': 'string' },
+      mergedIds: { 'type': 'array', 'itemType': 'string' },
+      stream: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mediaIds)) {
+      $dara.Model.validateArray(this.mediaIds);
+    }
+    if(Array.isArray(this.mergedIds)) {
+      $dara.Model.validateArray(this.mergedIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRtcCloudRecordingFilesResponseBodyTaskInfoRecordFileList extends $dara.Model {
   hlsFileList?: string[];
   mp3FileList?: string[];
   mp4FileList?: string[];
+  vodMediaList?: DescribeRtcCloudRecordingFilesResponseBodyTaskInfoRecordFileListVodMediaList[];
   static names(): { [key: string]: string } {
     return {
       hlsFileList: 'HlsFileList',
       mp3FileList: 'Mp3FileList',
       mp4FileList: 'Mp4FileList',
+      vodMediaList: 'VodMediaList',
     };
   }
 
@@ -19,6 +56,7 @@ export class DescribeRtcCloudRecordingFilesResponseBodyTaskInfoRecordFileList ex
       hlsFileList: { 'type': 'array', 'itemType': 'string' },
       mp3FileList: { 'type': 'array', 'itemType': 'string' },
       mp4FileList: { 'type': 'array', 'itemType': 'string' },
+      vodMediaList: { 'type': 'array', 'itemType': DescribeRtcCloudRecordingFilesResponseBodyTaskInfoRecordFileListVodMediaList },
     };
   }
 
@@ -31,6 +69,9 @@ export class DescribeRtcCloudRecordingFilesResponseBodyTaskInfoRecordFileList ex
     }
     if(Array.isArray(this.mp4FileList)) {
       $dara.Model.validateArray(this.mp4FileList);
+    }
+    if(Array.isArray(this.vodMediaList)) {
+      $dara.Model.validateArray(this.vodMediaList);
     }
     super.validate();
   }

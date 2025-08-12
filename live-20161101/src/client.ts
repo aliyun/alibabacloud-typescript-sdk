@@ -27270,12 +27270,20 @@ export default class Client extends OpenApi {
       query["ChannelId"] = request.channelId;
     }
 
+    if (!$dara.isNull(request.maxIdleTime)) {
+      query["MaxIdleTime"] = request.maxIdleTime;
+    }
+
     if (!$dara.isNull(request.mixLayoutParamsShrink)) {
       query["MixLayoutParams"] = request.mixLayoutParamsShrink;
     }
 
     if (!$dara.isNull(request.mixTranscodeParamsShrink)) {
       query["MixTranscodeParams"] = request.mixTranscodeParamsShrink;
+    }
+
+    if (!$dara.isNull(request.notifyAuthKey)) {
+      query["NotifyAuthKey"] = request.notifyAuthKey;
     }
 
     if (!$dara.isNull(request.notifyUrl)) {
