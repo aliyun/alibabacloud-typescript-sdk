@@ -651,6 +651,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
     if (!$dara.isNull(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }

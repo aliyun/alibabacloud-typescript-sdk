@@ -179,6 +179,7 @@ export class ListTracesDatasRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  sessionId?: string;
   /**
    * @remarks
    * The field used to sort the returned results. Valid values: StartTime and Duration.
@@ -242,6 +243,7 @@ export class ListTracesDatasRequest extends $dara.Model {
       ownerSubId: 'OwnerSubId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sessionId: 'SessionId',
       sortBy: 'SortBy',
       sortOrder: 'SortOrder',
       spanIds: 'SpanIds',
@@ -267,6 +269,7 @@ export class ListTracesDatasRequest extends $dara.Model {
       ownerSubId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sessionId: 'string',
       sortBy: 'string',
       sortOrder: 'string',
       spanIds: { 'type': 'array', 'itemType': 'string' },
