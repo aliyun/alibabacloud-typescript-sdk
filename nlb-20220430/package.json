@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/nlb20220430",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
