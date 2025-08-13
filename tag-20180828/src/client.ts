@@ -1,6065 +1,11 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class CreateTagsRequestTagKeyValueParamListTagValueParamList extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the value for tag N.
-   * 
-   * Valid values of N: 1 to 10.
-   * 
-   * @example
-   * Test environment
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The value of tag N.
-   * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
-   * 
-   * Valid values of N: 1 to 10.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      value: 'Value',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTagsRequestTagKeyValueParamList extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the key for tag N.
-   * 
-   * Valid values of N: 1 to 10.
-   * 
-   * @example
-   * Business environment
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The value of tag N.
-   * 
-   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
-   * 
-   * Valid values of N: 1 to 10.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Environment
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The information about the tag values.
-   */
-  tagValueParamList?: CreateTagsRequestTagKeyValueParamListTagValueParamList[];
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      key: 'Key',
-      tagValueParamList: 'TagValueParamList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      key: 'string',
-      tagValueParamList: { 'type': 'array', 'itemType': CreateTagsRequestTagKeyValueParamListTagValueParamList },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tagValueParamList)) {
-      $dara.Model.validateArray(this.tagValueParamList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * China (Hangzhou)
-   */
-  localName?: string;
-  /**
-   * @remarks
-   * The endpoint of the Tag service in the region.
-   * 
-   * @example
-   * tag.aliyuncs.com
-   */
-  regionEndpoint?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      localName: 'LocalName',
-      regionEndpoint: 'RegionEndpoint',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      localName: 'string',
-      regionEndpoint: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegions extends $dara.Model {
-  region?: DescribeRegionsResponseBodyRegionsRegion[];
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.region)) {
-      $dara.Model.validateArray(this.region);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConfigRuleReportResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the report was generated. This value is a UNIX timestamp.
-   * 
-   * @example
-   * 1655089159000
-   */
-  createdTime?: number;
-  /**
-   * @remarks
-   * The ID of the report.
-   * 
-   * @example
-   * crp-ao0786618088006c****
-   */
-  reportId?: string;
-  /**
-   * @remarks
-   * The ID of the object.
-   * 
-   * >  This parameter is returned if you set the `TargetType` and `TargetId` parameters in the current request to the same values as the parameters that are configured when you call the [GenerateConfigRuleReport](https://help.aliyun.com/document_detail/433313.html) operation to generate the report.
-   * 
-   * @example
-   * 154950938137****
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the object. Valid values:
-   * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * 
-   * >  This parameter is returned if you set the `TargetType` and `TargetId` parameters in the current request to the same values as the parameters that are configured when you call the [GenerateConfigRuleReport](https://help.aliyun.com/document_detail/433313.html) operation to generate the report.
-   * 
-   * @example
-   * ACCOUNT
-   */
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      reportId: 'ReportId',
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'number',
-      reportId: 'string',
-      targetId: 'string',
-      targetType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList extends $dara.Model {
-  attachSeq?: number;
-  attachTime?: string;
-  policyId?: string;
-  policyName?: string;
-  targetId?: string;
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attachSeq: 'AttachSeq',
-      attachTime: 'AttachTime',
-      policyId: 'PolicyId',
-      policyName: 'PolicyName',
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attachSeq: 'number',
-      attachTime: 'string',
-      policyId: 'string',
-      policyName: 'string',
-      targetId: 'string',
-      targetType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEffectivePolicyResponseBodyPolicyAttachments extends $dara.Model {
-  policyList?: GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList[];
-  policyType?: string;
-  tagKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyList: 'PolicyList',
-      policyType: 'PolicyType',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyList: { 'type': 'array', 'itemType': GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList },
-      policyType: 'string',
-      tagKey: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.policyList)) {
-      $dara.Model.validateArray(this.policyList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyResponseBodyPolicy extends $dara.Model {
-  /**
-   * @remarks
-   * The document of the tag policy.
-   * 
-   * @example
-   * {\\"tags\\":{\\"CostCenter\\":{\\"tag_value\\":{\\"@@assign\\":[\\"Beijing\\",\\"Shanghai\\"]},\\"tag_key\\":{\\"@@assign\\":\\"CostCenter\\"}}}}
-   */
-  policyContent?: string;
-  /**
-   * @remarks
-   * The description of the tag policy.
-   * 
-   * @example
-   * This is a tag policy example.
-   */
-  policyDesc?: string;
-  /**
-   * @remarks
-   * The name of the tag policy.
-   * 
-   * @example
-   * test
-   */
-  policyName?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. Valid values:
-   * 
-   * *   USER: single-account mode
-   * *   RD: multi-account mode
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * @example
-   * USER
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyContent: 'PolicyContent',
-      policyDesc: 'PolicyDesc',
-      policyName: 'PolicyName',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyContent: 'string',
-      policyDesc: 'string',
-      policyName: 'string',
-      userType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyEnableStatusResponseBodyStatusModels extends $dara.Model {
-  /**
-   * @remarks
-   * The status of the Tag Policy feature. Valid values:
-   * 
-   * *   PendingEnable: The feature is being enabled.
-   * *   Enabled: The feature is enabled.
-   * *   Closing: The feature is being disabled.
-   * *   Disabled: The feature is disabled.
-   * 
-   * @example
-   * Enabled
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. Valid values:
-   * 
-   * *   USER: single-account mode
-   * *   RD: multi-account mode
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * @example
-   * RD
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      userType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConfigRulesForTargetResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the account group.
-   * 
-   * You can use the ID to query the content of the related resource non-compliance report in Cloud Config.
-   * 
-   * >  This parameter is returned only if you use the Tag Policy feature in multi-account mode.
-   * 
-   * @example
-   * ca-efdc33dc9b37002d****
-   */
-  aggregatorId?: string;
-  /**
-   * @remarks
-   * The ID of the rule.
-   * 
-   * @example
-   * cr-0lb4866180880069****
-   */
-  configRuleId?: string;
-  /**
-   * @remarks
-   * The use scenario of the tag policy. Valid values:
-   * 
-   * *   tags: enables tags with specified tag values to be added to resources.
-   * *   rg_inherit: enables resources in a resource group to automatically inherit tags from the resource group.
-   * 
-   * @example
-   * tags
-   */
-  policyType?: string;
-  /**
-   * @remarks
-   * Indicates whether automatic remediation is enabled. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  remediation?: boolean;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * CostCenter
-   */
-  tagKey?: string;
-  /**
-   * @remarks
-   * The tag value for automatic remediation.
-   * 
-   * @example
-   * Project
-   */
-  tagValue?: string;
-  /**
-   * @remarks
-   * The ID of the object.
-   * 
-   * @example
-   * 134254031178****
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the object. Valid values:
-   * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * 
-   * @example
-   * USER
-   */
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aggregatorId: 'AggregatorId',
-      configRuleId: 'ConfigRuleId',
-      policyType: 'PolicyType',
-      remediation: 'Remediation',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aggregatorId: 'string',
-      configRuleId: 'string',
-      policyType: 'string',
-      remediation: 'boolean',
-      tagKey: 'string',
-      tagValue: 'string',
-      targetId: 'string',
-      targetType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPoliciesResponseBodyPolicyList extends $dara.Model {
-  /**
-   * @remarks
-   * The document of the tag policy.
-   * 
-   * @example
-   * {\\"tags\\":{\\"CostCenter\\":{\\"tag_value\\":{\\"@@assign\\":[\\"Beijing\\",\\"Shanghai\\"]},\\"tag_key\\":{\\"@@assign\\":\\"CostCenter\\"}}}}
-   */
-  policyContent?: string;
-  /**
-   * @remarks
-   * The description of the tag policy.
-   * 
-   * @example
-   * This is a tag policy example.
-   */
-  policyDesc?: string;
-  /**
-   * @remarks
-   * The ID of the tag policy.
-   * 
-   * @example
-   * p-de62a0bf400e4b69****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The name of the tag policy.
-   * 
-   * @example
-   * example
-   */
-  policyName?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. Valid values:
-   * 
-   * *   USER: single-account mode
-   * *   RD: multi-account mode
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * @example
-   * USER
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyContent: 'PolicyContent',
-      policyDesc: 'PolicyDesc',
-      policyId: 'PolicyId',
-      policyName: 'PolicyName',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyContent: 'string',
-      policyDesc: 'string',
-      policyId: 'string',
-      policyName: 'string',
-      userType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPoliciesForTargetResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The document of the tag policy.
-   * 
-   * @example
-   * {\\"tags\\":{\\"CostCenter\\":{\\"tag_value\\":{\\"@@assign\\":[\\"Beijing\\",\\"Shanghai\\"]},\\"tag_key\\":{\\"@@assign\\":\\"CostCenter\\"}}}}
-   */
-  policyContent?: string;
-  /**
-   * @remarks
-   * The description of the tag policy.
-   * 
-   * @example
-   * This is a tag policy example.
-   */
-  policyDesc?: string;
-  /**
-   * @remarks
-   * The ID of the tag policy.
-   * 
-   * @example
-   * p-de62a0bf400e4b69****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The name of the tag policy.
-   * 
-   * @example
-   * example
-   */
-  policyName?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. Valid values:
-   * 
-   * *   USER: single-account mode
-   * *   RD: multi-account mode
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * @example
-   * USER
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyContent: 'PolicyContent',
-      policyDesc: 'PolicyDesc',
-      policyId: 'PolicyId',
-      policyName: 'PolicyName',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyContent: 'string',
-      policyDesc: 'string',
-      policyId: 'string',
-      policyName: 'string',
-      userType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourcesByTagRequestTagFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key. This parameter specifies a filter condition for the query.
-   * 
-   * The tag key can be a maximum of 128 characters in length. It cannot contain `http://` or `https://` and cannot start with `acs:` or `aliyun`.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * k1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value. This parameter specifies a filter condition for the query.
-   * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
-   * 
-   * @example
-   * v1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourcesByTagResponseBodyResourcesTags extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the tag. Valid values:
-   * 
-   * *   custom
-   * *   system
-   * 
-   * @example
-   * custom
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * k1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * v1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourcesByTagResponseBodyResources extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the resource.
-   * 
-   * @example
-   * vpc-wz9pifyuw26esxd05****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The information of the tags.
-   * 
-   * This parameter is returned only if the `IncludeAllTags` parameter is set to `True`.
-   */
-  tags?: ListResourcesByTagResponseBodyResourcesTags[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      tags: { 'type': 'array', 'itemType': ListResourcesByTagResponseBodyResourcesTags },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSupportResourceTypesResponseBodySupportResourceTypesSupportItems extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the tag-related capability item is supported. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  support?: boolean;
-  /**
-   * @remarks
-   * The code of the tag-related capability item.
-   * 
-   * @example
-   * TAG_CONSOLE_SUPPORT
-   */
-  supportCode?: string;
-  /**
-   * @remarks
-   * The details of the support for the tag-related capability item.
-   */
-  supportDetails?: { [key: string]: string }[];
-  static names(): { [key: string]: string } {
-    return {
-      support: 'Support',
-      supportCode: 'SupportCode',
-      supportDetails: 'SupportDetails',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      support: 'boolean',
-      supportCode: 'string',
-      supportDetails: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.supportDetails)) {
-      $dara.Model.validateArray(this.supportDetails);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSupportResourceTypesResponseBodySupportResourceTypes extends $dara.Model {
-  /**
-   * @remarks
-   * The resource ARN template.
-   * 
-   * @example
-   * acs:ecs:*:*:instance/${ResourceId}
-   */
-  arnTemplate?: string;
-  /**
-   * @remarks
-   * The service code.
-   * 
-   * @example
-   * ecs
-   */
-  productCode?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * instance
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The supported tag-related capability items.
-   * 
-   * >  This parameter is returned only if the `ShowItems` parameter is set to `true`.
-   */
-  supportItems?: ListSupportResourceTypesResponseBodySupportResourceTypesSupportItems[];
-  static names(): { [key: string]: string } {
-    return {
-      arnTemplate: 'ArnTemplate',
-      productCode: 'ProductCode',
-      resourceType: 'ResourceType',
-      supportItems: 'SupportItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      arnTemplate: 'string',
-      productCode: 'string',
-      resourceType: 'string',
-      supportItems: { 'type': 'array', 'itemType': ListSupportResourceTypesResponseBodySupportResourceTypesSupportItems },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.supportItems)) {
-      $dara.Model.validateArray(this.supportItems);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysRequestTagFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key for a fuzzy query.
-   * 
-   * This parameter is used together with the `FuzzyType` parameter.
-   * 
-   * @example
-   * team
-   */
-  key?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysResponseBodyKeysKey extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the resource tag. Valid values:
-   * 
-   * *   custom
-   * *   system
-   * 
-   * @example
-   * custom
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The description of the tag key.
-   * 
-   * @example
-   * Business team
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * team
-   */
-  key?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      description: 'Description',
-      key: 'Key',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      description: 'string',
-      key: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysResponseBodyKeys extends $dara.Model {
-  key?: ListTagKeysResponseBodyKeysKey[];
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: { 'type': 'array', 'itemType': ListTagKeysResponseBodyKeysKey },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.key)) {
-      $dara.Model.validateArray(this.key);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResourcesTags extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the tag. Valid values:
-   * 
-   * *   Custom
-   * *   System
-   * 
-   * @example
-   * Custom
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * k1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * v1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
-  /**
-   * @remarks
-   * The ARN of the resource.
-   * 
-   * @example
-   * arn:acs:ecs:cn-hangzhou:123456789****:instance/i-bp15hr53jws84akg****
-   */
-  resourceARN?: string;
-  /**
-   * @remarks
-   * The information of the tags.
-   */
-  tags?: ListTagResourcesResponseBodyTagResourcesTags[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceARN: 'ResourceARN',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceARN: 'string',
-      tags: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTags },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagValuesRequestTagFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The tag value for a fuzzy query.
-   * 
-   * This parameter is used together with the `FuzzyType` parameter.
-   * 
-   * @example
-   * v1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagValuesResponseBodyValues extends $dara.Model {
-  value?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      value: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.value)) {
-      $dara.Model.validateArray(this.value);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTargetsForPolicyResponseBodyTargets extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the object.
-   * 
-   * @example
-   * 195320939469****
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the object. Valid values:
-   * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * 
-   * @example
-   * ACCOUNT
-   */
-  targetType?: number;
-  static names(): { [key: string]: string } {
-    return {
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      targetId: 'string',
-      targetType: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBodyFailedResourcesFailedResourceResult extends $dara.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidResourceId.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The specified ResourceIds are not found in our records.
-   */
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBodyFailedResourcesFailedResource extends $dara.Model {
-  /**
-   * @remarks
-   * The ARN of the resource.
-   * 
-   * @example
-   * arn:acs:vpc:cn-hangzhou:123456789****:vpc/vpc-bp19dd90tkt6tz7wu****
-   */
-  resourceARN?: string;
-  /**
-   * @remarks
-   * The information about the error.
-   */
-  result?: TagResourcesResponseBodyFailedResourcesFailedResourceResult;
-  static names(): { [key: string]: string } {
-    return {
-      resourceARN: 'ResourceARN',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceARN: 'string',
-      result: TagResourcesResponseBodyFailedResourcesFailedResourceResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBodyFailedResources extends $dara.Model {
-  failedResource?: TagResourcesResponseBodyFailedResourcesFailedResource[];
-  static names(): { [key: string]: string } {
-    return {
-      failedResource: 'FailedResource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedResource: { 'type': 'array', 'itemType': TagResourcesResponseBodyFailedResourcesFailedResource },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.failedResource)) {
-      $dara.Model.validateArray(this.failedResource);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBodyFailedResourcesFailedResourceResult extends $dara.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidResourceId.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The specified ResourceIds are not found in our records.
-   */
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBodyFailedResourcesFailedResource extends $dara.Model {
-  /**
-   * @remarks
-   * The ARN of the resource.
-   * 
-   * @example
-   * arn:acs:ecs:cn-hangzhou:123456789****:instance/i-xxxxxxxxxx1
-   */
-  resourceARN?: string;
-  /**
-   * @remarks
-   * The information about the error.
-   */
-  result?: UntagResourcesResponseBodyFailedResourcesFailedResourceResult;
-  static names(): { [key: string]: string } {
-    return {
-      resourceARN: 'ResourceARN',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceARN: 'string',
-      result: UntagResourcesResponseBodyFailedResourcesFailedResourceResult,
-    };
-  }
-
-  validate() {
-    if(this.result && typeof (this.result as any).validate === 'function') {
-      (this.result as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBodyFailedResources extends $dara.Model {
-  failedResource?: UntagResourcesResponseBodyFailedResourcesFailedResource[];
-  static names(): { [key: string]: string } {
-    return {
-      failedResource: 'FailedResource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedResource: { 'type': 'array', 'itemType': UntagResourcesResponseBodyFailedResourcesFailedResource },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.failedResource)) {
-      $dara.Model.validateArray(this.failedResource);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachPolicyRequest extends $dara.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The ID of the tag policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * p-de62a0bf400e4b69****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The ID of the object.
-   * 
-   * >  If you use the Tag Policy feature in single-account mode, this parameter is optional. If you use the Tag Policy feature in multi-account mode, this feature is required.
-   * 
-   * @example
-   * 151266687691****
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the object. Valid values:
-   * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * 
-   * >  If you use the Tag Policy feature in single-account mode, this parameter is optional. If you use the Tag Policy feature in multi-account mode, this feature is required. The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * ACCOUNT
-   */
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      policyId: 'PolicyId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      policyId: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      targetId: 'string',
-      targetType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachPolicyResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 4A32F5B0-0B0B-5537-B4A0-7A6E1C3AA96A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachPolicyResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AttachPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AttachPolicyResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCreatedByEnabledRequest extends $dara.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCreatedByEnabledResponseBody extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
-  openStatus?: boolean;
-  /**
-   * @example
-   * 682DD9E1-F530-5D14-A839-A6787FA82B74
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      openStatus: 'OpenStatus',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      openStatus: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCreatedByEnabledResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckCreatedByEnabledResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckCreatedByEnabledResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseCreatedByRequest extends $dara.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseCreatedByResponseBody extends $dara.Model {
-  /**
-   * @example
-   * AECFE0F2-CEC3-5D16-BE4C-E2F95083D063
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseCreatedByResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CloseCreatedByResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CloseCreatedByResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePolicyRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * *   false (default): performs a dry run and performs the actual request.
-   * *   true: performs only a dry run.
-   * 
-   * @example
-   * false
-   */
-  dryRun?: boolean;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The document of the tag policy.
-   * 
-   * For more information about the syntax of a tag policy, see [Syntax of a tag policy](https://help.aliyun.com/document_detail/417436.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * {"tags":{"CostCenter":{"tag_value":{"@@assign":["Beijing","Shanghai"]},"tag_key":{"@@assign":"CostCenter"}}}}
-   */
-  policyContent?: string;
-  /**
-   * @remarks
-   * The description of the tag policy.
-   * 
-   * The description must be 0 to 512 characters in length.
-   * 
-   * @example
-   * This is a tag policy example.
-   */
-  policyDesc?: string;
-  /**
-   * @remarks
-   * The name of the tag policy.
-   * 
-   * The name must be 1 to 128 characters in length and can contain letters, digits, and underscores (_).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  policyName?: string;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. Valid values:
-   * 
-   * *   USER: single-account mode. Set the value to USER if you use an Alibaba Cloud account or a member of a resource directory to call this API operation to create a tag policy for the Alibaba Cloud account or member.
-   * *   RD: multi-account mode. Set the value to RD if you use the management account of a resource directory to call this API operation to create a tag policy for the resource directory.
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * @example
-   * RD
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dryRun: 'DryRun',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      policyContent: 'PolicyContent',
-      policyDesc: 'PolicyDesc',
-      policyName: 'PolicyName',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dryRun: 'boolean',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      policyContent: 'string',
-      policyDesc: 'string',
-      policyName: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      userType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePolicyResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the tag policy.
-   * 
-   * @example
-   * p-5732750813924f90****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The name of the tag policy.
-   * 
-   * @example
-   * test
-   */
-  policyName?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * FDBE270D-C491-5EEC-A5CD-98245422D3F7
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyId: 'PolicyId',
-      policyName: 'PolicyName',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyId: 'string',
-      policyName: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePolicyResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreatePolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreatePolicyResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTagsRequest extends $dara.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * > Only `cn-hangzhou` is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The information about the tags.
-   * 
-   * This parameter is required.
-   */
-  tagKeyValueParamList?: CreateTagsRequestTagKeyValueParamList[];
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      tagKeyValueParamList: 'TagKeyValueParamList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      tagKeyValueParamList: { 'type': 'array', 'itemType': CreateTagsRequestTagKeyValueParamList },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tagKeyValueParamList)) {
-      $dara.Model.validateArray(this.tagKeyValueParamList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTagsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 94E16BB6-3FB6-1297-B5B2-ED2250F437CD
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTagsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateTagsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateTagsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePolicyRequest extends $dara.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The ID of the tag policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * p-557cb141331f41c7****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      policyId: 'PolicyId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      policyId: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePolicyResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 4A32F5B0-0B0B-5537-B4A0-7A6E1C3AA96A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeletePolicyResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeletePolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeletePolicyResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteTagRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * If no tag value is associated with a tag key, you can specify the `Key` parameter without specifying the Value parameter to delete the tag key. Otherwise, you must specify both the `Key` and `Value` parameters to delete a preset tag.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Environment
-   */
-  key?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * >  Only `cn-hangzhou` is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteTagResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 6E27F22C-EDA3-132E-A53F-77DE3BC2343D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteTagResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteTagResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The supported natural language. Valid values:
-   * 
-   * *   zh-CN: Chinese (default value)
-   * *   en-US: English
-   * *   ja: Japanese
-   * 
-   * @example
-   * zh-CN
-   */
-  acceptLanguage?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      acceptLanguage: 'AcceptLanguage',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptLanguage: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information of the regions.
-   */
-  regions?: DescribeRegionsResponseBodyRegions;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 632BBAE2-9C44-4212-8B51-B54742DA9713
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: DescribeRegionsResponseBodyRegions,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.regions && typeof (this.regions as any).validate === 'function') {
-      (this.regions as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRegionsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachPolicyRequest extends $dara.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The ID of the tag policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * p-a3381efe2fe34a75****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The ID of the object.
-   * 
-   * >  If you use the Tag Policy feature in single-account mode, this parameter is optional. If you use the Tag Policy feature in multi-account mode, this feature is required.
-   * 
-   * @example
-   * 151266687691****
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the object. Valid values:
-   * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * 
-   * >  If you use the Tag Policy feature in single-account mode, this parameter is optional. If you use the Tag Policy feature in multi-account mode, this feature is required. The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * ACCOUNT
-   */
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      policyId: 'PolicyId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      policyId: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      targetId: 'string',
-      targetType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachPolicyResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 4A32F5B0-0B0B-5537-B4A0-7A6E1C3AA96A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachPolicyResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetachPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetachPolicyResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisablePolicyTypeRequest extends $dara.Model {
-  openType?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: string;
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      openType: 'OpenType',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      openType: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'string',
-      userType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisablePolicyTypeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 6E27F22C-EDA3-132E-A53F-77DE3BC2343D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisablePolicyTypeResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DisablePolicyTypeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DisablePolicyTypeResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnablePolicyTypeRequest extends $dara.Model {
-  openType?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: string;
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      openType: 'OpenType',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      openType: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'string',
-      userType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnablePolicyTypeResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 6E27F22C-EDA3-132E-A53F-77DE3BC2343D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnablePolicyTypeResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: EnablePolicyTypeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EnablePolicyTypeResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateConfigRuleReportRequest extends $dara.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The ID of the object.
-   * 
-   * @example
-   * 154950938137****
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the object. Valid values:
-   * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * 
-   * >  The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * ACCOUNT
-   */
-  targetType?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. Valid values:
-   * 
-   * *   USER: single-account mode
-   * *   RD: multi-account mode
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * >  This parameter is required if the management account of your resource directory is used to enable the Tag Policy feature in both single-account mode and multi-account mode. The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * USER
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      targetId: 'string',
-      targetType: 'string',
-      userType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateConfigRuleReportResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the resource non-compliance report.
-   * 
-   * @example
-   * crp-ao0786618088006c****
-   */
-  reportId?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 37B2AC06-89D8-5D95-98DF-3E68C12BDE05
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      reportId: 'ReportId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      reportId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateConfigRuleReportResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GenerateConfigRuleReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GenerateConfigRuleReportResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConfigRuleReportRequest extends $dara.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The ID of the object.
-   * 
-   * @example
-   * 154950938137****
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the object. Valid values:
-   * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * 
-   * >  The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * USER
-   */
-  targetType?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. Valid values:
-   * 
-   * *   USER: single-account mode
-   * *   RD: multi-account mode
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * >  The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * USER
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      targetId: 'string',
-      targetType: 'string',
-      userType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConfigRuleReportResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The basic information of the resource non-compliance report that is last generated.
-   */
-  data?: GetConfigRuleReportResponseBodyData;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * A68BD5BC-5B12-5A9B-8AE9-77884886BE10
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * 
-   * *   true: The request is successful.
-   * *   false: The request fails.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetConfigRuleReportResponseBodyData,
-      httpStatusCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConfigRuleReportResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetConfigRuleReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetConfigRuleReportResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEffectivePolicyRequest extends $dara.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  tagKeys?: string[];
-  /**
-   * @remarks
-   * The ID of the object.
-   * 
-   * >  If you use the Tag Policy feature in single-account mode, this parameter is optional. If you use the Tag Policy feature in multi-account mode, this feature is required.
-   * 
-   * @example
-   * 154950938137****
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the object. Valid values:
-   * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * 
-   * >  If you use the Tag Policy feature in single-account mode, this parameter is optional. If you use the Tag Policy feature in multi-account mode, this feature is required. The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * ACCOUNT
-   */
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      tagKeys: 'TagKeys',
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      tagKeys: { 'type': 'array', 'itemType': 'string' },
-      targetId: 'string',
-      targetType: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tagKeys)) {
-      $dara.Model.validateArray(this.tagKeys);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEffectivePolicyResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The effective tag policy.
-   * 
-   * @example
-   * {\\"tags\\":{\\"costcenter\\":{\\"tag_value\\":[\\"Beijing\\",\\"Shanghai\\"],\\"tag_key\\":\\"CostCenter\\"}}}
-   */
-  effectivePolicy?: string;
-  policyAttachments?: GetEffectivePolicyResponseBodyPolicyAttachments[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * BB532282-94F5-5F56-877F-32D5E2A04F3F
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      effectivePolicy: 'EffectivePolicy',
-      policyAttachments: 'PolicyAttachments',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effectivePolicy: 'string',
-      policyAttachments: { 'type': 'array', 'itemType': GetEffectivePolicyResponseBodyPolicyAttachments },
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.policyAttachments)) {
-      $dara.Model.validateArray(this.policyAttachments);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEffectivePolicyResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetEffectivePolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetEffectivePolicyResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyRequest extends $dara.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The ID of the tag policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * p-557cb141331f41c7****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      policyId: 'PolicyId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      policyId: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the tag policy.
-   */
-  policy?: GetPolicyResponseBodyPolicy;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 1E7A4802-AB57-570A-9860-F15B60E1586B
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policy: 'Policy',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policy: GetPolicyResponseBodyPolicy,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.policy && typeof (this.policy as any).validate === 'function') {
-      (this.policy as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetPolicyResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyEnableStatusRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The enabling type. Valid values:
-   * 
-   * *   TAG_POLICY: the Tag Policy feature.
-   * *   VERIFY_NO_TAG: the strong verification feature.
-   * 
-   * @example
-   * TAG_POLICY
-   */
-  openType?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. This parameter specifies a filter condition for the query. Valid values:
-   * 
-   * *   USER: single-account mode
-   * *   RD: multi-account mode
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * >  The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * RD
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      openType: 'OpenType',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      openType: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'string',
-      userType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyEnableStatusResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 6C8DF1B1-C65F-5D3A-9FDA-26A4683BB36B
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information of the Tag Policy feature.
-   */
-  statusModels?: GetPolicyEnableStatusResponseBodyStatusModels[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      statusModels: 'StatusModels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      statusModels: { 'type': 'array', 'itemType': GetPolicyEnableStatusResponseBodyStatusModels },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.statusModels)) {
-      $dara.Model.validateArray(this.statusModels);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyEnableStatusResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetPolicyEnableStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetPolicyEnableStatusResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConfigRulesForTargetRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Default value: 50. Maximum value: 1000.
-   * 
-   * @example
-   * 50
-   */
-  maxResult?: number;
-  /**
-   * @remarks
-   * The token that is used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The use scenario of the tag policy. This parameter specifies a filter condition for the query. Valid values:
-   * 
-   * *   tags: enables tags with specified tag values to be added to resources.
-   * *   rg_inherit: enables resources in a resource group to automatically inherit tags from the resource group.
-   * 
-   * @example
-   * tags
-   */
-  policyType?: string;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The tag key. This parameter specifies a filter condition for the query.
-   * 
-   * @example
-   * CostCenter
-   */
-  tagKey?: string;
-  /**
-   * @remarks
-   * The ID of the object. This parameter specifies a filter condition for the query.
-   * 
-   * @example
-   * 134254031178****
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the object. This parameter specifies a filter condition for the query. Valid values:
-   * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * 
-   * >  The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * ACCOUNT
-   */
-  targetType?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. This parameter specifies a filter condition for the query. Valid values:
-   * 
-   * *   USER: single-account mode
-   * *   RD: multi-account mode
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * >  The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * USER
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResult: 'MaxResult',
-      nextToken: 'NextToken',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      policyType: 'PolicyType',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      tagKey: 'TagKey',
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResult: 'number',
-      nextToken: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      policyType: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      tagKey: 'string',
-      targetId: 'string',
-      targetType: 'string',
-      userType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConfigRulesForTargetResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The tag detection tasks.
-   */
-  data?: ListConfigRulesForTargetResponseBodyData[];
-  /**
-   * @remarks
-   * Indicates whether the next query is required.
-   * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7126AECD-D7AD-5073-8E88-DD2BD1FC139E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': ListConfigRulesForTargetResponseBodyData },
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConfigRulesForTargetResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListConfigRulesForTargetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListConfigRulesForTargetResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPoliciesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Default value: 50. Maximum value: 1000.
-   * 
-   * @example
-   * 50
-   */
-  maxResult?: number;
-  /**
-   * @remarks
-   * The token that is used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The ID of a tag policy. This parameter specifies a filter condition for the query.
-   */
-  policyIds?: string[];
-  /**
-   * @remarks
-   * The name of a tag policy. This parameter specifies a filter condition for the query.
-   */
-  policyNames?: string[];
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. This parameter specifies a filter condition for the query. Valid values:
-   * 
-   * *   USER: single-account mode
-   * *   RD: multi-account mode
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * >  The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * USER
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResult: 'MaxResult',
-      nextToken: 'NextToken',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      policyIds: 'PolicyIds',
-      policyNames: 'PolicyNames',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResult: 'number',
-      nextToken: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      policyIds: { 'type': 'array', 'itemType': 'string' },
-      policyNames: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      userType: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.policyIds)) {
-      $dara.Model.validateArray(this.policyIds);
-    }
-    if(Array.isArray(this.policyNames)) {
-      $dara.Model.validateArray(this.policyNames);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPoliciesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the next query is required.
-   * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The tag policies.
-   */
-  policyList?: ListPoliciesResponseBodyPolicyList[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 72477CFF-5B24-5E30-9861-3DD9C4BD46E5
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      policyList: 'PolicyList',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      policyList: { 'type': 'array', 'itemType': ListPoliciesResponseBodyPolicyList },
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.policyList)) {
-      $dara.Model.validateArray(this.policyList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPoliciesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPoliciesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPoliciesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPoliciesForTargetRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Default value: 50. Maximum value: 1000.
-   * 
-   * @example
-   * 50
-   */
-  maxResult?: number;
-  /**
-   * @remarks
-   * The token that is used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The ID of the object. This parameter specifies a filter condition for the query.
-   * 
-   * @example
-   * 154950938137****
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the object. This parameter specifies a filter condition for the query. Valid values:
-   * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * 
-   * >  The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * ACCOUNT
-   */
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResult: 'MaxResult',
-      nextToken: 'NextToken',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResult: 'number',
-      nextToken: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      targetId: 'string',
-      targetType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPoliciesForTargetResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The tag policies that are attached to the object.
-   */
-  data?: ListPoliciesForTargetResponseBodyData[];
-  /**
-   * @remarks
-   * Indicates whether the next query is required.
-   * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 8C962146-AB38-516C-818C-695D4E9F2EA2
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': ListPoliciesForTargetResponseBodyData },
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPoliciesForTargetResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPoliciesForTargetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPoliciesForTargetResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourcesByTagRequest extends $dara.Model {
-  tagFilter?: ListResourcesByTagRequestTagFilter;
-  /**
-   * @remarks
-   * The type of the query. Valid values:
-   * 
-   * *   EQUAL: exact match for resources to which the specified tag is added. This is the default value.
-   * *   NOT: exact match for resources to which the specified tag is not added.
-   * 
-   * @example
-   * EQUAL
-   */
-  fuzzyType?: string;
-  /**
-   * @remarks
-   * Specifies whether to return the information of tags added to the resources. Valid values:
-   * 
-   * *   False: does not return the information of tags added to the resources. This is the default value.
-   * *   True: returns the information of all tags added to the resources.
-   * 
-   * @example
-   * False
-   */
-  includeAllTags?: boolean;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Default value: 50. Maximum value: 1000.
-   * 
-   * @example
-   * 50
-   */
-  maxResult?: number;
-  /**
-   * @remarks
-   * The token that is used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * For more information about region IDs, see [Endpoints](https://help.aliyun.com/document_detail/2330902.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The resource type. This parameter specifies a filter condition for the query.
-   * 
-   * *   If you set the FuzzyType parameter to EQUAL, you can set this parameter to a value obtained from the response of the [ListSupportResourceTypes](https://help.aliyun.com/document_detail/2330915.html) operation.
-   * *   If you set the FuzzyType parameter to NOT, you can set this parameter to a resource type provided in **Types of resources that support queries based on the NOT operator**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ALIYUN::VPC::VPC
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagFilter: 'TagFilter',
-      fuzzyType: 'FuzzyType',
-      includeAllTags: 'IncludeAllTags',
-      maxResult: 'MaxResult',
-      nextToken: 'NextToken',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagFilter: ListResourcesByTagRequestTagFilter,
-      fuzzyType: 'string',
-      includeAllTags: 'boolean',
-      maxResult: 'number',
-      nextToken: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  validate() {
-    if(this.tagFilter && typeof (this.tagFilter as any).validate === 'function') {
-      (this.tagFilter as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourcesByTagResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the `next query` is required.
-   * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the `next query` is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the `token` used to start the next query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7D61FF74-61C2-5768-B01F-05FC97F24F35
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information of the resources.
-   */
-  resources?: ListResourcesByTagResponseBodyResources[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      resources: 'Resources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      resources: { 'type': 'array', 'itemType': ListResourcesByTagResponseBodyResources },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.resources)) {
-      $dara.Model.validateArray(this.resources);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourcesByTagResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListResourcesByTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListResourcesByTagResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSupportResourceTypesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Maximum value: 1000. Default value: 50.
-   * 
-   * @example
-   * 50
-   */
-  maxResult?: number;
-  /**
-   * @remarks
-   * The token that is used to start the next query.
-   * 
-   * @example
-   * AAAAAYws9fJ0Ur4MGm/5OkDoW/Y3wDNwUdssyKODK****
-   */
-  nextToken?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The service code. This parameter specifies a filter condition for the query.
-   * 
-   * This parameter is obtained from the response.
-   * 
-   * @example
-   * ecs
-   */
-  productCode?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * For more information about region IDs, see [Endpoints](https://help.aliyun.com/document_detail/2330902.html).
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The resource type. This parameter specifies a filter condition for the query.
-   * 
-   * This parameter is obtained from the response.
-   * 
-   * @example
-   * instance
-   */
-  resourceTye?: string;
-  /**
-   * @remarks
-   * Specifies whether to return tag-related capability items. Valid values:
-   * 
-   * *   true: The system returns tag-related capability items.
-   * *   false (default value): The system does not return tag-related capability items.
-   * 
-   * @example
-   * false
-   */
-  showItems?: boolean;
-  /**
-   * @remarks
-   * The code of the tag-related capability item. This parameter specifies a filter condition for the query.
-   * 
-   * For more information, see **Tag-related capability items**.
-   * 
-   * @example
-   * TAG_CONSOLE_SUPPORT
-   */
-  supportCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResult: 'MaxResult',
-      nextToken: 'NextToken',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      productCode: 'ProductCode',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceTye: 'ResourceTye',
-      showItems: 'ShowItems',
-      supportCode: 'SupportCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResult: 'number',
-      nextToken: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      productCode: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceTye: 'string',
-      showItems: 'boolean',
-      supportCode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSupportResourceTypesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the next query is required.
-   * 
-   * *   If the value of this parameter is empty, all results are returned, and the next query is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
-   * 
-   * @example
-   * AAAAAYws9fJ0Ur4MGm****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * ABC71772-F3A1-59CA-B811-4A5B0E0B72F8
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The supported resource types.
-   */
-  supportResourceTypes?: ListSupportResourceTypesResponseBodySupportResourceTypes[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      supportResourceTypes: 'SupportResourceTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      supportResourceTypes: { 'type': 'array', 'itemType': ListSupportResourceTypesResponseBodySupportResourceTypes },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.supportResourceTypes)) {
-      $dara.Model.validateArray(this.supportResourceTypes);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSupportResourceTypesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListSupportResourceTypesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListSupportResourceTypesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysRequest extends $dara.Model {
-  tagFilter?: ListTagKeysRequestTagFilter;
-  /**
-   * @remarks
-   * The type of the resource tags. This parameter specifies a filter condition for the query. Valid values:
-   * 
-   * *   all (default value)
-   * *   custom
-   * *   system
-   * 
-   * >  The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * all
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The type of the query. Valid values:
-   * 
-   * *   EQUAL (default): exact match
-   * *   PREFIX: prefix-based fuzzy match
-   * 
-   * @example
-   * EQUAL
-   */
-  fuzzyType?: string;
-  /**
-   * @remarks
-   * The token that is used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The number of tag keys to return on each page.
-   * 
-   * Maximum value: 1000. Default value: 50.
-   * 
-   * @example
-   * 50
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The category of the tags. This parameter specifies a filter condition for the query. Valid values:
-   * 
-   * *   ResourceTag: resource tags, including custom and system tags. This is the default value.
-   * *   MetaTag: preset tags.
-   * 
-   * >  The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * ResourceTag
-   */
-  queryType?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * For more information about region IDs, see [Endpoints](https://help.aliyun.com/document_detail/2330902.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The resource type. This parameter specifies a filter condition for the query.
-   * 
-   * Format: `ALIYUN::${ProductCode}::${ResourceType}`. All letters in the value of this parameter must be in uppercase.
-   * 
-   * *   `ProductCode`: the service code. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](https://help.aliyun.com/document_detail/2330915.html) operation.
-   * *   `ResourceType`: the resource type. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](https://help.aliyun.com/document_detail/2330915.html) operation.
-   * 
-   * @example
-   * ALIYUN::ECS::INSTANCE
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagFilter: 'TagFilter',
-      category: 'Category',
-      fuzzyType: 'FuzzyType',
-      nextToken: 'NextToken',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      pageSize: 'PageSize',
-      queryType: 'QueryType',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagFilter: ListTagKeysRequestTagFilter,
-      category: 'string',
-      fuzzyType: 'string',
-      nextToken: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      pageSize: 'number',
-      queryType: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  validate() {
-    if(this.tagFilter && typeof (this.tagFilter as any).validate === 'function') {
-      (this.tagFilter as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information of the tag keys.
-   */
-  keys?: ListTagKeysResponseBodyKeys;
-  /**
-   * @remarks
-   * Indicates whether the next query is required. The value of this parameter may be empty.
-   * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * DC09A6AA-2713-4E10-A2E9-E6C5C43A8842
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keys: 'Keys',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keys: ListTagKeysResponseBodyKeys,
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.keys && typeof (this.keys as any).validate === 'function') {
-      (this.keys as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagKeysResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagKeysResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the tag. Valid values:
-   * 
-   * *   Custom
-   * *   System
-   * *   All
-   * 
-   * Default value: All.
-   * 
-   * @example
-   * Custom
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The token that is used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Maximum value: 1000. Default value: 50.
-   * 
-   * @example
-   * 50
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * *   If the resources belong to a service that is centrally deployed, set the value to the region ID of the resources by referring to [Regions supported by tag-related operations on resources of centrally deployed Alibaba Cloud services](https://help.aliyun.com/document_detail/2579691.html).
-   * *   If the resources belong to a service that is not centrally deployed, set the value to the region ID of the resources.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of a resource.
-   * 
-   * @example
-   * arn:acs:ecs:cn-hangzhou:123456789****:instance/i-bp15hr53jws84akg****
-   */
-  resourceARN?: string[];
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The key-value pairs of tags. You can specify 1 to 10 key-value pairs.
-   * 
-   * If you specify multiple tags, the system queries the resources to which all these tags are added.
-   * 
-   * Limits:
-   * 
-   * *   A tag key must be 1 to 128 characters in length.
-   * *   A tag value must be 1 to 128 characters in length.
-   * *   Tag keys and tag values are case-sensitive.
-   * *   Each tag key on a resource can have only one tag value. If you create a tag that has the same key as an existing tag, the value of the existing tag is overwritten.
-   * 
-   * @example
-   * {"k1":"v1","k2":"v2"}
-   */
-  tags?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      nextToken: 'NextToken',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceARN: 'ResourceARN',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      nextToken: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceARN: { 'type': 'array', 'itemType': 'string' },
-      resourceOwnerAccount: 'string',
-      tags: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.resourceARN)) {
-      $dara.Model.validateArray(this.resourceARN);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the `next query` is required.
-   * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the `next query` is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the `token` used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 014738E0-3C7F-47D8-8FB9-469500C6F387
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information of the tags that are added to the resources.
-   */
-  tagResources?: ListTagResourcesResponseBodyTagResources[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      tagResources: 'TagResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tagResources)) {
-      $dara.Model.validateArray(this.tagResources);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagResourcesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagValuesRequest extends $dara.Model {
-  tagFilter?: ListTagValuesRequestTagFilter;
-  /**
-   * @remarks
-   * The type of the query. Valid values:
-   * 
-   * *   EQUAL (default): exact match
-   * *   PREFIX: prefix-based fuzzy match
-   * 
-   * @example
-   * EQUAL
-   */
-  fuzzyType?: string;
-  /**
-   * @remarks
-   * The tag key. This parameter specifies a filter condition for the query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * k1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The token that is used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The number of tag values to return on each page.
-   * 
-   * Maximum value: 1000. Default value: 50.
-   * 
-   * @example
-   * 50
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The category of the tags. This parameter specifies a filter condition for the query. Valid values:
-   * 
-   * *   ResourceTag: resource tags, including custom and system tags. This is the default value.
-   * *   MetaTag: preset tags.
-   * 
-   * >  The value of this parameter is not case-sensitive.
-   * 
-   * @example
-   * ResourceTag
-   */
-  queryType?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * For more information about region IDs, see [Endpoints](https://help.aliyun.com/document_detail/2330902.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The resource type. This parameter specifies a filter condition for the query.
-   * 
-   * Format: `ALIYUN::${ProductCode}::${ResourceType}`. All letters in the value of this parameter must be in uppercase.
-   * 
-   * *   `ProductCode`: the service code. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](https://help.aliyun.com/document_detail/2330915.html) operation.
-   * *   `ResourceType`: the resource type. You can set this field to a value obtained from the response of the [ListSupportResourceTypes](https://help.aliyun.com/document_detail/2330915.html) operation.
-   * 
-   * @example
-   * ALIYUN::ECS::INSTANCE
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagFilter: 'TagFilter',
-      fuzzyType: 'FuzzyType',
-      key: 'Key',
-      nextToken: 'NextToken',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      pageSize: 'PageSize',
-      queryType: 'QueryType',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagFilter: ListTagValuesRequestTagFilter,
-      fuzzyType: 'string',
-      key: 'string',
-      nextToken: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      pageSize: 'number',
-      queryType: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  validate() {
-    if(this.tagFilter && typeof (this.tagFilter as any).validate === 'function') {
-      (this.tagFilter as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagValuesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the next query is required. The value of this parameter may be empty.
-   * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 8989CA7E-D2E0-4B6D-8282-311106E80150
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information of the tag values.
-   */
-  values?: ListTagValuesResponseBodyValues;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      values: ListTagValuesResponseBodyValues,
-    };
-  }
-
-  validate() {
-    if(this.values && typeof (this.values as any).validate === 'function') {
-      (this.values as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagValuesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagValuesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagValuesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTargetsForPolicyRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * Default value: 50. Maximum value: 1000.
-   * 
-   * @example
-   * 50
-   */
-  maxResult?: number;
-  /**
-   * @remarks
-   * The token that is used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The ID of the tag policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * p-de62a0bf400e4b69****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResult: 'MaxResult',
-      nextToken: 'NextToken',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      policyId: 'PolicyId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResult: 'number',
-      nextToken: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      policyId: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTargetsForPolicyResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the object belongs to the resource directory. Valid values:
-   * 
-   * *   true: The object belongs to the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   false: The object does not belong to the resource directory. This value is available if you use the Tag Policy feature in single-account mode.
-   * 
-   * @example
-   * true
-   */
-  isRd?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the next query is required.
-   * 
-   * *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-   * *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the resource directory.
-   * 
-   * >  This parameter is returned only if you use the Tag Policy feature in multi-account mode.
-   * 
-   * @example
-   * rd-3G****
-   */
-  rdId?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 2EE71C8D-6DB8-56AC-8B05-3D4C0116E6A1
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The objects to which the tag policy is attached.
-   */
-  targets?: ListTargetsForPolicyResponseBodyTargets[];
-  static names(): { [key: string]: string } {
-    return {
-      isRd: 'IsRd',
-      nextToken: 'NextToken',
-      rdId: 'RdId',
-      requestId: 'RequestId',
-      targets: 'Targets',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isRd: 'boolean',
-      nextToken: 'string',
-      rdId: 'string',
-      requestId: 'string',
-      targets: { 'type': 'array', 'itemType': ListTargetsForPolicyResponseBodyTargets },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.targets)) {
-      $dara.Model.validateArray(this.targets);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTargetsForPolicyResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTargetsForPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTargetsForPolicyResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to perform a dry run for the request. Valid values:
-   * 
-   * *   false: The system performs the related operation based on the parameter settings in the request. This is the default value.
-   * *   true: The system does not perform the related operation based on the parameter settings in the request but only verifies the parameter settings.
-   * 
-   * @example
-   * false
-   */
-  dryRun?: boolean;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The document of the tag policy.
-   * 
-   * For more information about the syntax of a tag policy, see [Syntax of a tag policy](https://help.aliyun.com/document_detail/417436.html).
-   * 
-   * @example
-   * {"tags":{"CostCenter":{"tag_value":{"@@assign":["Beijing","Shanghai"]},"tag_key":{"@@assign":"CostCenter"}}}}
-   * 
-   * **if can be null:**
-   * true
-   */
-  policyContent?: string;
-  /**
-   * @remarks
-   * The description of the tag policy.
-   * 
-   * The description must be 0 to 512 characters in length.
-   * 
-   * @example
-   * This is a tag policy example.
-   * 
-   * **if can be null:**
-   * true
-   */
-  policyDesc?: string;
-  /**
-   * @remarks
-   * The ID of the tag policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * p-5732750813924f90****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The name of the tag policy.
-   * 
-   * The name must be 1 to 128 characters in length and can contain letters, digits, and underscores (_).
-   * 
-   * @example
-   * test
-   * 
-   * **if can be null:**
-   * true
-   */
-  policyName?: string;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dryRun: 'DryRun',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      policyContent: 'PolicyContent',
-      policyDesc: 'PolicyDesc',
-      policyId: 'PolicyId',
-      policyName: 'PolicyName',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dryRun: 'boolean',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      policyContent: 'string',
-      policyDesc: 'string',
-      policyId: 'string',
-      policyName: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 4A32F5B0-0B0B-5537-B4A0-7A6E1C3AA96A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPolicyResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyPolicyResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenCreatedByRequest extends $dara.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The region ID. Set the value to cn-shanghai.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenCreatedByResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 74F03511-FDFA-54AF-96A4-71575B41E74D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenCreatedByResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenCreatedByResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenCreatedByResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequest extends $dara.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * *   If the resources belong to a service that is centrally deployed, set the value to `cn-hangzhou` or to the region ID of the resources by referring to [Regions supported by tag-related operations on resources of centrally deployed Alibaba Cloud services](https://help.aliyun.com/document_detail/2579691.html).
-   * *   If the resources belong to a service that is not centrally deployed, set the value to the region ID of the resources.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of a resource.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * arn:acs:vpc:cn-hangzhou:123456789****:vpc/vpc-bp19dd90tkt6tz7wu****
-   */
-  resourceARN?: string[];
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The key-value pairs of tags. You can specify 1 to 10 key-value pairs.
-   * 
-   * If you specify multiple tags, the system adds all the tags to the specified resources.
-   * 
-   * Limits:
-   * 
-   * *   A tag key must be 1 to 128 characters in length.
-   * *   A tag value must be 1 to 128 characters in length.
-   * *   Tag keys and tag values are case-sensitive.
-   * *   Each tag key on a resource can have only one tag value. If you create a tag that has the same key as an existing tag, the value of the existing tag is overwritten.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * {"k1":"v1","k2":"v2"}
-   */
-  tags?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceARN: 'ResourceARN',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceARN: { 'type': 'array', 'itemType': 'string' },
-      resourceOwnerAccount: 'string',
-      tags: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.resourceARN)) {
-      $dara.Model.validateArray(this.resourceARN);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the resources to which tags fail to be added.
-   * 
-   * > 
-   * 
-   * *   If tags are added to all resources, the value of `FailedResources` is empty.
-   * 
-   * *   If tags fail to be added to some or all resources, the value of `FailedResources` contains the detailed information about the resources.
-   */
-  failedResources?: TagResourcesResponseBodyFailedResources;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 72086426-9F8C-4A60-852B-864048FD1199
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      failedResources: 'FailedResources',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedResources: TagResourcesResponseBodyFailedResources,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.failedResources && typeof (this.failedResources as any).validate === 'function') {
-      (this.failedResources as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagResourcesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $dara.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * *   If the resources belong to a service that is centrally deployed, set the value to `cn-hangzhou` or to the region ID of the resources by referring to [Regions supported by tag-related operations on resources of centrally deployed Alibaba Cloud services](https://help.aliyun.com/document_detail/2579691.html).
-   * *   If the resources belong to a service that is not centrally deployed, set the value to the region ID of the resources.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of a resource.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * arn:acs:vpc:cn-hangzhou:123456789****:vpc/vpc-bp19dd90tkt6tz7wu****
-   */
-  resourceARN?: string[];
-  resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * The key of tag N.
-   * 
-   * Valid values of N: 1 to 10.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * k1
-   */
-  tagKey?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceARN: 'ResourceARN',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceARN: { 'type': 'array', 'itemType': 'string' },
-      resourceOwnerAccount: 'string',
-      tagKey: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.resourceARN)) {
-      $dara.Model.validateArray(this.resourceARN);
-    }
-    if(Array.isArray(this.tagKey)) {
-      $dara.Model.validateArray(this.tagKey);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the resources from which tags fail to be removed.
-   * 
-   * > 
-   * 
-   * *   If tags are removed from all resources, the value of FailedResources is empty.
-   * 
-   * *   If tags fail to be removed from some or all resources, the value of FailedResources contains the detailed information about the resources.
-   */
-  failedResources?: UntagResourcesResponseBodyFailedResources;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 43D12436-B10F-4469-8136-FD1C5D2B2083
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      failedResources: 'FailedResources',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedResources: UntagResourcesResponseBodyFailedResources,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.failedResources && typeof (this.failedResources as any).validate === 'function') {
-      (this.failedResources as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UntagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagResourcesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
@@ -6129,7 +75,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachPolicyResponse
    */
-  async attachPolicyWithOptions(request: AttachPolicyRequest, runtime: $dara.RuntimeOptions): Promise<AttachPolicyResponse> {
+  async attachPolicyWithOptions(request: $_model.AttachPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachPolicyResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.ownerAccount)) {
@@ -6174,12 +120,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<AttachPolicyResponse>(await this.callApi(params, req, runtime), new AttachPolicyResponse({}));
-    } else {
-      return $dara.cast<AttachPolicyResponse>(await this.execute(params, req, runtime), new AttachPolicyResponse({}));
-    }
-
+    return $dara.cast<$_model.AttachPolicyResponse>(await this.callApi(params, req, runtime), new $_model.AttachPolicyResponse({}));
   }
 
   /**
@@ -6192,7 +133,7 @@ export default class Client extends OpenApi {
    * @param request - AttachPolicyRequest
    * @returns AttachPolicyResponse
    */
-  async attachPolicy(request: AttachPolicyRequest): Promise<AttachPolicyResponse> {
+  async attachPolicy(request: $_model.AttachPolicyRequest): Promise<$_model.AttachPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.attachPolicyWithOptions(request, runtime);
   }
@@ -6204,7 +145,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckCreatedByEnabledResponse
    */
-  async checkCreatedByEnabledWithOptions(request: CheckCreatedByEnabledRequest, runtime: $dara.RuntimeOptions): Promise<CheckCreatedByEnabledResponse> {
+  async checkCreatedByEnabledWithOptions(request: $_model.CheckCreatedByEnabledRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckCreatedByEnabledResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.ownerAccount)) {
@@ -6241,12 +182,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CheckCreatedByEnabledResponse>(await this.callApi(params, req, runtime), new CheckCreatedByEnabledResponse({}));
-    } else {
-      return $dara.cast<CheckCreatedByEnabledResponse>(await this.execute(params, req, runtime), new CheckCreatedByEnabledResponse({}));
-    }
-
+    return $dara.cast<$_model.CheckCreatedByEnabledResponse>(await this.callApi(params, req, runtime), new $_model.CheckCreatedByEnabledResponse({}));
   }
 
   /**
@@ -6255,7 +191,7 @@ export default class Client extends OpenApi {
    * @param request - CheckCreatedByEnabledRequest
    * @returns CheckCreatedByEnabledResponse
    */
-  async checkCreatedByEnabled(request: CheckCreatedByEnabledRequest): Promise<CheckCreatedByEnabledResponse> {
+  async checkCreatedByEnabled(request: $_model.CheckCreatedByEnabledRequest): Promise<$_model.CheckCreatedByEnabledResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkCreatedByEnabledWithOptions(request, runtime);
   }
@@ -6267,7 +203,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CloseCreatedByResponse
    */
-  async closeCreatedByWithOptions(request: CloseCreatedByRequest, runtime: $dara.RuntimeOptions): Promise<CloseCreatedByResponse> {
+  async closeCreatedByWithOptions(request: $_model.CloseCreatedByRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloseCreatedByResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.ownerAccount)) {
@@ -6304,12 +240,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CloseCreatedByResponse>(await this.callApi(params, req, runtime), new CloseCreatedByResponse({}));
-    } else {
-      return $dara.cast<CloseCreatedByResponse>(await this.execute(params, req, runtime), new CloseCreatedByResponse({}));
-    }
-
+    return $dara.cast<$_model.CloseCreatedByResponse>(await this.callApi(params, req, runtime), new $_model.CloseCreatedByResponse({}));
   }
 
   /**
@@ -6318,9 +249,67 @@ export default class Client extends OpenApi {
    * @param request - CloseCreatedByRequest
    * @returns CloseCreatedByResponse
    */
-  async closeCreatedBy(request: CloseCreatedByRequest): Promise<CloseCreatedByResponse> {
+  async closeCreatedBy(request: $_model.CloseCreatedByRequest): Promise<$_model.CloseCreatedByResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.closeCreatedByWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates associated resource tagging rules.
+   * 
+   * @param request - CreateAssociatedResourceRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAssociatedResourceRulesResponse
+   */
+  async createAssociatedResourceRulesWithOptions(request: $_model.CreateAssociatedResourceRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAssociatedResourceRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.createRulesList)) {
+      query["CreateRulesList"] = request.createRulesList;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAssociatedResourceRules",
+      version: "2018-08-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAssociatedResourceRulesResponse>(await this.callApi(params, req, runtime), new $_model.CreateAssociatedResourceRulesResponse({}));
+  }
+
+  /**
+   * Creates associated resource tagging rules.
+   * 
+   * @param request - CreateAssociatedResourceRulesRequest
+   * @returns CreateAssociatedResourceRulesResponse
+   */
+  async createAssociatedResourceRules(request: $_model.CreateAssociatedResourceRulesRequest): Promise<$_model.CreateAssociatedResourceRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAssociatedResourceRulesWithOptions(request, runtime);
   }
 
   /**
@@ -6334,7 +323,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePolicyResponse
    */
-  async createPolicyWithOptions(request: CreatePolicyRequest, runtime: $dara.RuntimeOptions): Promise<CreatePolicyResponse> {
+  async createPolicyWithOptions(request: $_model.CreatePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePolicyResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.dryRun)) {
@@ -6387,12 +376,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreatePolicyResponse>(await this.callApi(params, req, runtime), new CreatePolicyResponse({}));
-    } else {
-      return $dara.cast<CreatePolicyResponse>(await this.execute(params, req, runtime), new CreatePolicyResponse({}));
-    }
-
+    return $dara.cast<$_model.CreatePolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreatePolicyResponse({}));
   }
 
   /**
@@ -6405,7 +389,7 @@ export default class Client extends OpenApi {
    * @param request - CreatePolicyRequest
    * @returns CreatePolicyResponse
    */
-  async createPolicy(request: CreatePolicyRequest): Promise<CreatePolicyResponse> {
+  async createPolicy(request: $_model.CreatePolicyRequest): Promise<$_model.CreatePolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createPolicyWithOptions(request, runtime);
   }
@@ -6422,7 +406,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateTagsResponse
    */
-  async createTagsWithOptions(request: CreateTagsRequest, runtime: $dara.RuntimeOptions): Promise<CreateTagsResponse> {
+  async createTagsWithOptions(request: $_model.CreateTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTagsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.ownerAccount)) {
@@ -6459,12 +443,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateTagsResponse>(await this.callApi(params, req, runtime), new CreateTagsResponse({}));
-    } else {
-      return $dara.cast<CreateTagsResponse>(await this.execute(params, req, runtime), new CreateTagsResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateTagsResponse>(await this.callApi(params, req, runtime), new $_model.CreateTagsResponse({}));
   }
 
   /**
@@ -6478,13 +457,71 @@ export default class Client extends OpenApi {
    * @param request - CreateTagsRequest
    * @returns CreateTagsResponse
    */
-  async createTags(request: CreateTagsRequest): Promise<CreateTagsResponse> {
+  async createTags(request: $_model.CreateTagsRequest): Promise<$_model.CreateTagsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createTagsWithOptions(request, runtime);
   }
 
   /**
-   * 删除策略
+   * Deletes an associated resource tagging rule.
+   * 
+   * @param request - DeleteAssociatedResourceRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAssociatedResourceRuleResponse
+   */
+  async deleteAssociatedResourceRuleWithOptions(request: $_model.DeleteAssociatedResourceRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAssociatedResourceRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.settingName)) {
+      query["SettingName"] = request.settingName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAssociatedResourceRule",
+      version: "2018-08-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAssociatedResourceRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAssociatedResourceRuleResponse({}));
+  }
+
+  /**
+   * Deletes an associated resource tagging rule.
+   * 
+   * @param request - DeleteAssociatedResourceRuleRequest
+   * @returns DeleteAssociatedResourceRuleResponse
+   */
+  async deleteAssociatedResourceRule(request: $_model.DeleteAssociatedResourceRuleRequest): Promise<$_model.DeleteAssociatedResourceRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAssociatedResourceRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a tag policy.
    * 
    * @remarks
    * Before you delete a tag policy, make sure that the tag policy is detached from all objects to which the tag policy is attached. For more information about how to detach a tag policy, see [DetachPolicy](https://help.aliyun.com/document_detail/429724.html).
@@ -6494,7 +531,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePolicyResponse
    */
-  async deletePolicyWithOptions(request: DeletePolicyRequest, runtime: $dara.RuntimeOptions): Promise<DeletePolicyResponse> {
+  async deletePolicyWithOptions(request: $_model.DeletePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePolicyResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.ownerAccount)) {
@@ -6531,16 +568,11 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeletePolicyResponse>(await this.callApi(params, req, runtime), new DeletePolicyResponse({}));
-    } else {
-      return $dara.cast<DeletePolicyResponse>(await this.execute(params, req, runtime), new DeletePolicyResponse({}));
-    }
-
+    return $dara.cast<$_model.DeletePolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeletePolicyResponse({}));
   }
 
   /**
-   * 删除策略
+   * Deletes a tag policy.
    * 
    * @remarks
    * Before you delete a tag policy, make sure that the tag policy is detached from all objects to which the tag policy is attached. For more information about how to detach a tag policy, see [DetachPolicy](https://help.aliyun.com/document_detail/429724.html).
@@ -6549,7 +581,7 @@ export default class Client extends OpenApi {
    * @param request - DeletePolicyRequest
    * @returns DeletePolicyResponse
    */
-  async deletePolicy(request: DeletePolicyRequest): Promise<DeletePolicyResponse> {
+  async deletePolicy(request: $_model.DeletePolicyRequest): Promise<$_model.DeletePolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePolicyWithOptions(request, runtime);
   }
@@ -6564,7 +596,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteTagResponse
    */
-  async deleteTagWithOptions(request: DeleteTagRequest, runtime: $dara.RuntimeOptions): Promise<DeleteTagResponse> {
+  async deleteTagWithOptions(request: $_model.DeleteTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTagResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.key)) {
@@ -6605,12 +637,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteTagResponse>(await this.callApi(params, req, runtime), new DeleteTagResponse({}));
-    } else {
-      return $dara.cast<DeleteTagResponse>(await this.execute(params, req, runtime), new DeleteTagResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteTagResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTagResponse({}));
   }
 
   /**
@@ -6622,7 +649,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteTagRequest
    * @returns DeleteTagResponse
    */
-  async deleteTag(request: DeleteTagRequest): Promise<DeleteTagResponse> {
+  async deleteTag(request: $_model.DeleteTagRequest): Promise<$_model.DeleteTagResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteTagWithOptions(request, runtime);
   }
@@ -6634,7 +661,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRegionsResponse> {
+  async describeRegionsWithOptions(request: $_model.DescribeRegionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.acceptLanguage)) {
@@ -6675,12 +702,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
-    } else {
-      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
   }
 
   /**
@@ -6689,15 +711,16 @@ export default class Client extends OpenApi {
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
    */
-  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
+  async describeRegions(request: $_model.DescribeRegionsRequest): Promise<$_model.DescribeRegionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
   /**
-   * 解除策略绑定
+   * Detaches a tag policy from an object.
    * 
    * @remarks
+   * ###
    * If you use the Tag Policy feature in single-account mode, you can call this API operation to detach a tag policy from the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to detach a tag policy from the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
    * This topic provides an example on how to call the API operation to detach the tag policy with an ID of `p-a3381efe2fe34a75****` from the current logon account. In this example, the Tag Policy feature in single-account mode is used.
    * 
@@ -6705,7 +728,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachPolicyResponse
    */
-  async detachPolicyWithOptions(request: DetachPolicyRequest, runtime: $dara.RuntimeOptions): Promise<DetachPolicyResponse> {
+  async detachPolicyWithOptions(request: $_model.DetachPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachPolicyResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.ownerAccount)) {
@@ -6750,25 +773,21 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DetachPolicyResponse>(await this.callApi(params, req, runtime), new DetachPolicyResponse({}));
-    } else {
-      return $dara.cast<DetachPolicyResponse>(await this.execute(params, req, runtime), new DetachPolicyResponse({}));
-    }
-
+    return $dara.cast<$_model.DetachPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DetachPolicyResponse({}));
   }
 
   /**
-   * 解除策略绑定
+   * Detaches a tag policy from an object.
    * 
    * @remarks
+   * ###
    * If you use the Tag Policy feature in single-account mode, you can call this API operation to detach a tag policy from the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to detach a tag policy from the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
    * This topic provides an example on how to call the API operation to detach the tag policy with an ID of `p-a3381efe2fe34a75****` from the current logon account. In this example, the Tag Policy feature in single-account mode is used.
    * 
    * @param request - DetachPolicyRequest
    * @returns DetachPolicyResponse
    */
-  async detachPolicy(request: DetachPolicyRequest): Promise<DetachPolicyResponse> {
+  async detachPolicy(request: $_model.DetachPolicyRequest): Promise<$_model.DetachPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.detachPolicyWithOptions(request, runtime);
   }
@@ -6780,7 +799,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisablePolicyTypeResponse
    */
-  async disablePolicyTypeWithOptions(request: DisablePolicyTypeRequest, runtime: $dara.RuntimeOptions): Promise<DisablePolicyTypeResponse> {
+  async disablePolicyTypeWithOptions(request: $_model.DisablePolicyTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisablePolicyTypeResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.openType)) {
@@ -6825,12 +844,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DisablePolicyTypeResponse>(await this.callApi(params, req, runtime), new DisablePolicyTypeResponse({}));
-    } else {
-      return $dara.cast<DisablePolicyTypeResponse>(await this.execute(params, req, runtime), new DisablePolicyTypeResponse({}));
-    }
-
+    return $dara.cast<$_model.DisablePolicyTypeResponse>(await this.callApi(params, req, runtime), new $_model.DisablePolicyTypeResponse({}));
   }
 
   /**
@@ -6839,7 +853,7 @@ export default class Client extends OpenApi {
    * @param request - DisablePolicyTypeRequest
    * @returns DisablePolicyTypeResponse
    */
-  async disablePolicyType(request: DisablePolicyTypeRequest): Promise<DisablePolicyTypeResponse> {
+  async disablePolicyType(request: $_model.DisablePolicyTypeRequest): Promise<$_model.DisablePolicyTypeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disablePolicyTypeWithOptions(request, runtime);
   }
@@ -6851,7 +865,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnablePolicyTypeResponse
    */
-  async enablePolicyTypeWithOptions(request: EnablePolicyTypeRequest, runtime: $dara.RuntimeOptions): Promise<EnablePolicyTypeResponse> {
+  async enablePolicyTypeWithOptions(request: $_model.EnablePolicyTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnablePolicyTypeResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.openType)) {
@@ -6896,12 +910,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<EnablePolicyTypeResponse>(await this.callApi(params, req, runtime), new EnablePolicyTypeResponse({}));
-    } else {
-      return $dara.cast<EnablePolicyTypeResponse>(await this.execute(params, req, runtime), new EnablePolicyTypeResponse({}));
-    }
-
+    return $dara.cast<$_model.EnablePolicyTypeResponse>(await this.callApi(params, req, runtime), new $_model.EnablePolicyTypeResponse({}));
   }
 
   /**
@@ -6910,7 +919,7 @@ export default class Client extends OpenApi {
    * @param request - EnablePolicyTypeRequest
    * @returns EnablePolicyTypeResponse
    */
-  async enablePolicyType(request: EnablePolicyTypeRequest): Promise<EnablePolicyTypeResponse> {
+  async enablePolicyType(request: $_model.EnablePolicyTypeRequest): Promise<$_model.EnablePolicyTypeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enablePolicyTypeWithOptions(request, runtime);
   }
@@ -6926,7 +935,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateConfigRuleReportResponse
    */
-  async generateConfigRuleReportWithOptions(request: GenerateConfigRuleReportRequest, runtime: $dara.RuntimeOptions): Promise<GenerateConfigRuleReportResponse> {
+  async generateConfigRuleReportWithOptions(request: $_model.GenerateConfigRuleReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateConfigRuleReportResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.ownerAccount)) {
@@ -6971,12 +980,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GenerateConfigRuleReportResponse>(await this.callApi(params, req, runtime), new GenerateConfigRuleReportResponse({}));
-    } else {
-      return $dara.cast<GenerateConfigRuleReportResponse>(await this.execute(params, req, runtime), new GenerateConfigRuleReportResponse({}));
-    }
-
+    return $dara.cast<$_model.GenerateConfigRuleReportResponse>(await this.callApi(params, req, runtime), new $_model.GenerateConfigRuleReportResponse({}));
   }
 
   /**
@@ -6989,7 +993,7 @@ export default class Client extends OpenApi {
    * @param request - GenerateConfigRuleReportRequest
    * @returns GenerateConfigRuleReportResponse
    */
-  async generateConfigRuleReport(request: GenerateConfigRuleReportRequest): Promise<GenerateConfigRuleReportResponse> {
+  async generateConfigRuleReport(request: $_model.GenerateConfigRuleReportRequest): Promise<$_model.GenerateConfigRuleReportResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.generateConfigRuleReportWithOptions(request, runtime);
   }
@@ -7005,7 +1009,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConfigRuleReportResponse
    */
-  async getConfigRuleReportWithOptions(request: GetConfigRuleReportRequest, runtime: $dara.RuntimeOptions): Promise<GetConfigRuleReportResponse> {
+  async getConfigRuleReportWithOptions(request: $_model.GetConfigRuleReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetConfigRuleReportResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.ownerAccount)) {
@@ -7050,12 +1054,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetConfigRuleReportResponse>(await this.callApi(params, req, runtime), new GetConfigRuleReportResponse({}));
-    } else {
-      return $dara.cast<GetConfigRuleReportResponse>(await this.execute(params, req, runtime), new GetConfigRuleReportResponse({}));
-    }
-
+    return $dara.cast<$_model.GetConfigRuleReportResponse>(await this.callApi(params, req, runtime), new $_model.GetConfigRuleReportResponse({}));
   }
 
   /**
@@ -7068,13 +1067,13 @@ export default class Client extends OpenApi {
    * @param request - GetConfigRuleReportRequest
    * @returns GetConfigRuleReportResponse
    */
-  async getConfigRuleReport(request: GetConfigRuleReportRequest): Promise<GetConfigRuleReportResponse> {
+  async getConfigRuleReport(request: $_model.GetConfigRuleReportRequest): Promise<$_model.GetConfigRuleReportResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getConfigRuleReportWithOptions(request, runtime);
   }
 
   /**
-   * 查询有效策略
+   * Queries the information about the effective policy.
    * 
    * @remarks
    * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -7085,7 +1084,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetEffectivePolicyResponse
    */
-  async getEffectivePolicyWithOptions(request: GetEffectivePolicyRequest, runtime: $dara.RuntimeOptions): Promise<GetEffectivePolicyResponse> {
+  async getEffectivePolicyWithOptions(request: $_model.GetEffectivePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetEffectivePolicyResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.ownerAccount)) {
@@ -7130,16 +1129,11 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetEffectivePolicyResponse>(await this.callApi(params, req, runtime), new GetEffectivePolicyResponse({}));
-    } else {
-      return $dara.cast<GetEffectivePolicyResponse>(await this.execute(params, req, runtime), new GetEffectivePolicyResponse({}));
-    }
-
+    return $dara.cast<$_model.GetEffectivePolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetEffectivePolicyResponse({}));
   }
 
   /**
-   * 查询有效策略
+   * Queries the information about the effective policy.
    * 
    * @remarks
    * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -7149,13 +1143,13 @@ export default class Client extends OpenApi {
    * @param request - GetEffectivePolicyRequest
    * @returns GetEffectivePolicyResponse
    */
-  async getEffectivePolicy(request: GetEffectivePolicyRequest): Promise<GetEffectivePolicyResponse> {
+  async getEffectivePolicy(request: $_model.GetEffectivePolicyRequest): Promise<$_model.GetEffectivePolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getEffectivePolicyWithOptions(request, runtime);
   }
 
   /**
-   * 查询策略
+   * Queries the details of a tag policy.
    * 
    * @remarks
    * This topic provides an example on how to call the API operation to query the details of the tag policy with an ID of `p-557cb141331f41c7****`.
@@ -7164,7 +1158,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPolicyResponse
    */
-  async getPolicyWithOptions(request: GetPolicyRequest, runtime: $dara.RuntimeOptions): Promise<GetPolicyResponse> {
+  async getPolicyWithOptions(request: $_model.GetPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPolicyResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.ownerAccount)) {
@@ -7201,16 +1195,11 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetPolicyResponse>(await this.callApi(params, req, runtime), new GetPolicyResponse({}));
-    } else {
-      return $dara.cast<GetPolicyResponse>(await this.execute(params, req, runtime), new GetPolicyResponse({}));
-    }
-
+    return $dara.cast<$_model.GetPolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetPolicyResponse({}));
   }
 
   /**
-   * 查询策略
+   * Queries the details of a tag policy.
    * 
    * @remarks
    * This topic provides an example on how to call the API operation to query the details of the tag policy with an ID of `p-557cb141331f41c7****`.
@@ -7218,7 +1207,7 @@ export default class Client extends OpenApi {
    * @param request - GetPolicyRequest
    * @returns GetPolicyResponse
    */
-  async getPolicy(request: GetPolicyRequest): Promise<GetPolicyResponse> {
+  async getPolicy(request: $_model.GetPolicyRequest): Promise<$_model.GetPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getPolicyWithOptions(request, runtime);
   }
@@ -7233,7 +1222,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPolicyEnableStatusResponse
    */
-  async getPolicyEnableStatusWithOptions(request: GetPolicyEnableStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetPolicyEnableStatusResponse> {
+  async getPolicyEnableStatusWithOptions(request: $_model.GetPolicyEnableStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPolicyEnableStatusResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.openType)) {
@@ -7278,12 +1267,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetPolicyEnableStatusResponse>(await this.callApi(params, req, runtime), new GetPolicyEnableStatusResponse({}));
-    } else {
-      return $dara.cast<GetPolicyEnableStatusResponse>(await this.execute(params, req, runtime), new GetPolicyEnableStatusResponse({}));
-    }
-
+    return $dara.cast<$_model.GetPolicyEnableStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetPolicyEnableStatusResponse({}));
   }
 
   /**
@@ -7295,9 +1279,79 @@ export default class Client extends OpenApi {
    * @param request - GetPolicyEnableStatusRequest
    * @returns GetPolicyEnableStatusResponse
    */
-  async getPolicyEnableStatus(request: GetPolicyEnableStatusRequest): Promise<GetPolicyEnableStatusResponse> {
+  async getPolicyEnableStatus(request: $_model.GetPolicyEnableStatusRequest): Promise<$_model.GetPolicyEnableStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getPolicyEnableStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Search the rules for associated resources that the user has set up.
+   * 
+   * @param request - ListAssociatedResourceRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAssociatedResourceRulesResponse
+   */
+  async listAssociatedResourceRulesWithOptions(request: $_model.ListAssociatedResourceRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAssociatedResourceRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResult)) {
+      query["MaxResult"] = request.maxResult;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.settingName)) {
+      query["SettingName"] = request.settingName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAssociatedResourceRules",
+      version: "2018-08-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAssociatedResourceRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListAssociatedResourceRulesResponse({}));
+  }
+
+  /**
+   * Search the rules for associated resources that the user has set up.
+   * 
+   * @param request - ListAssociatedResourceRulesRequest
+   * @returns ListAssociatedResourceRulesResponse
+   */
+  async listAssociatedResourceRules(request: $_model.ListAssociatedResourceRulesRequest): Promise<$_model.ListAssociatedResourceRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAssociatedResourceRulesWithOptions(request, runtime);
   }
 
   /**
@@ -7311,7 +1365,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListConfigRulesForTargetResponse
    */
-  async listConfigRulesForTargetWithOptions(request: ListConfigRulesForTargetRequest, runtime: $dara.RuntimeOptions): Promise<ListConfigRulesForTargetResponse> {
+  async listConfigRulesForTargetWithOptions(request: $_model.ListConfigRulesForTargetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListConfigRulesForTargetResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.maxResult)) {
@@ -7372,12 +1426,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListConfigRulesForTargetResponse>(await this.callApi(params, req, runtime), new ListConfigRulesForTargetResponse({}));
-    } else {
-      return $dara.cast<ListConfigRulesForTargetResponse>(await this.execute(params, req, runtime), new ListConfigRulesForTargetResponse({}));
-    }
-
+    return $dara.cast<$_model.ListConfigRulesForTargetResponse>(await this.callApi(params, req, runtime), new $_model.ListConfigRulesForTargetResponse({}));
   }
 
   /**
@@ -7390,7 +1439,7 @@ export default class Client extends OpenApi {
    * @param request - ListConfigRulesForTargetRequest
    * @returns ListConfigRulesForTargetResponse
    */
-  async listConfigRulesForTarget(request: ListConfigRulesForTargetRequest): Promise<ListConfigRulesForTargetResponse> {
+  async listConfigRulesForTarget(request: $_model.ListConfigRulesForTargetRequest): Promise<$_model.ListConfigRulesForTargetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listConfigRulesForTargetWithOptions(request, runtime);
   }
@@ -7406,7 +1455,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPoliciesResponse
    */
-  async listPoliciesWithOptions(request: ListPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<ListPoliciesResponse> {
+  async listPoliciesWithOptions(request: $_model.ListPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPoliciesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.maxResult)) {
@@ -7459,12 +1508,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListPoliciesResponse>(await this.callApi(params, req, runtime), new ListPoliciesResponse({}));
-    } else {
-      return $dara.cast<ListPoliciesResponse>(await this.execute(params, req, runtime), new ListPoliciesResponse({}));
-    }
-
+    return $dara.cast<$_model.ListPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.ListPoliciesResponse({}));
   }
 
   /**
@@ -7477,7 +1521,7 @@ export default class Client extends OpenApi {
    * @param request - ListPoliciesRequest
    * @returns ListPoliciesResponse
    */
-  async listPolicies(request: ListPoliciesRequest): Promise<ListPoliciesResponse> {
+  async listPolicies(request: $_model.ListPoliciesRequest): Promise<$_model.ListPoliciesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listPoliciesWithOptions(request, runtime);
   }
@@ -7493,7 +1537,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPoliciesForTargetResponse
    */
-  async listPoliciesForTargetWithOptions(request: ListPoliciesForTargetRequest, runtime: $dara.RuntimeOptions): Promise<ListPoliciesForTargetResponse> {
+  async listPoliciesForTargetWithOptions(request: $_model.ListPoliciesForTargetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPoliciesForTargetResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.maxResult)) {
@@ -7542,12 +1586,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListPoliciesForTargetResponse>(await this.callApi(params, req, runtime), new ListPoliciesForTargetResponse({}));
-    } else {
-      return $dara.cast<ListPoliciesForTargetResponse>(await this.execute(params, req, runtime), new ListPoliciesForTargetResponse({}));
-    }
-
+    return $dara.cast<$_model.ListPoliciesForTargetResponse>(await this.callApi(params, req, runtime), new $_model.ListPoliciesForTargetResponse({}));
   }
 
   /**
@@ -7560,7 +1599,7 @@ export default class Client extends OpenApi {
    * @param request - ListPoliciesForTargetRequest
    * @returns ListPoliciesForTargetResponse
    */
-  async listPoliciesForTarget(request: ListPoliciesForTargetRequest): Promise<ListPoliciesForTargetResponse> {
+  async listPoliciesForTarget(request: $_model.ListPoliciesForTargetRequest): Promise<$_model.ListPoliciesForTargetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listPoliciesForTargetWithOptions(request, runtime);
   }
@@ -7575,7 +1614,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListResourcesByTagResponse
    */
-  async listResourcesByTagWithOptions(request: ListResourcesByTagRequest, runtime: $dara.RuntimeOptions): Promise<ListResourcesByTagResponse> {
+  async listResourcesByTagWithOptions(request: $_model.ListResourcesByTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListResourcesByTagResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.fuzzyType)) {
@@ -7636,12 +1675,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListResourcesByTagResponse>(await this.callApi(params, req, runtime), new ListResourcesByTagResponse({}));
-    } else {
-      return $dara.cast<ListResourcesByTagResponse>(await this.execute(params, req, runtime), new ListResourcesByTagResponse({}));
-    }
-
+    return $dara.cast<$_model.ListResourcesByTagResponse>(await this.callApi(params, req, runtime), new $_model.ListResourcesByTagResponse({}));
   }
 
   /**
@@ -7653,7 +1687,7 @@ export default class Client extends OpenApi {
    * @param request - ListResourcesByTagRequest
    * @returns ListResourcesByTagResponse
    */
-  async listResourcesByTag(request: ListResourcesByTagRequest): Promise<ListResourcesByTagResponse> {
+  async listResourcesByTag(request: $_model.ListResourcesByTagRequest): Promise<$_model.ListResourcesByTagResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listResourcesByTagWithOptions(request, runtime);
   }
@@ -7671,7 +1705,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSupportResourceTypesResponse
    */
-  async listSupportResourceTypesWithOptions(request: ListSupportResourceTypesRequest, runtime: $dara.RuntimeOptions): Promise<ListSupportResourceTypesResponse> {
+  async listSupportResourceTypesWithOptions(request: $_model.ListSupportResourceTypesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSupportResourceTypesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.maxResult)) {
@@ -7728,12 +1762,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListSupportResourceTypesResponse>(await this.callApi(params, req, runtime), new ListSupportResourceTypesResponse({}));
-    } else {
-      return $dara.cast<ListSupportResourceTypesResponse>(await this.execute(params, req, runtime), new ListSupportResourceTypesResponse({}));
-    }
-
+    return $dara.cast<$_model.ListSupportResourceTypesResponse>(await this.callApi(params, req, runtime), new $_model.ListSupportResourceTypesResponse({}));
   }
 
   /**
@@ -7748,7 +1777,7 @@ export default class Client extends OpenApi {
    * @param request - ListSupportResourceTypesRequest
    * @returns ListSupportResourceTypesResponse
    */
-  async listSupportResourceTypes(request: ListSupportResourceTypesRequest): Promise<ListSupportResourceTypesResponse> {
+  async listSupportResourceTypes(request: $_model.ListSupportResourceTypesRequest): Promise<$_model.ListSupportResourceTypesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listSupportResourceTypesWithOptions(request, runtime);
   }
@@ -7763,7 +1792,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagKeysResponse
    */
-  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $dara.RuntimeOptions): Promise<ListTagKeysResponse> {
+  async listTagKeysWithOptions(request: $_model.ListTagKeysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagKeysResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.category)) {
@@ -7828,12 +1857,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
-    } else {
-      return $dara.cast<ListTagKeysResponse>(await this.execute(params, req, runtime), new ListTagKeysResponse({}));
-    }
-
+    return $dara.cast<$_model.ListTagKeysResponse>(await this.callApi(params, req, runtime), new $_model.ListTagKeysResponse({}));
   }
 
   /**
@@ -7845,7 +1869,7 @@ export default class Client extends OpenApi {
    * @param request - ListTagKeysRequest
    * @returns ListTagKeysResponse
    */
-  async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
+  async listTagKeys(request: $_model.ListTagKeysRequest): Promise<$_model.ListTagKeysResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
   }
@@ -7860,7 +1884,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+  async listTagResourcesWithOptions(request: $_model.ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.category)) {
@@ -7917,12 +1941,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
-    } else {
-      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
-    }
-
+    return $dara.cast<$_model.ListTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResourcesResponse({}));
   }
 
   /**
@@ -7934,7 +1953,7 @@ export default class Client extends OpenApi {
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
    */
-  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+  async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
@@ -7949,7 +1968,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagValuesResponse
    */
-  async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagValuesResponse> {
+  async listTagValuesWithOptions(request: $_model.ListTagValuesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagValuesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.fuzzyType)) {
@@ -8014,12 +2033,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
-    } else {
-      return $dara.cast<ListTagValuesResponse>(await this.execute(params, req, runtime), new ListTagValuesResponse({}));
-    }
-
+    return $dara.cast<$_model.ListTagValuesResponse>(await this.callApi(params, req, runtime), new $_model.ListTagValuesResponse({}));
   }
 
   /**
@@ -8031,7 +2045,7 @@ export default class Client extends OpenApi {
    * @param request - ListTagValuesRequest
    * @returns ListTagValuesResponse
    */
-  async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
+  async listTagValues(request: $_model.ListTagValuesRequest): Promise<$_model.ListTagValuesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
   }
@@ -8047,7 +2061,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTargetsForPolicyResponse
    */
-  async listTargetsForPolicyWithOptions(request: ListTargetsForPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ListTargetsForPolicyResponse> {
+  async listTargetsForPolicyWithOptions(request: $_model.ListTargetsForPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTargetsForPolicyResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.maxResult)) {
@@ -8092,12 +2106,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTargetsForPolicyResponse>(await this.callApi(params, req, runtime), new ListTargetsForPolicyResponse({}));
-    } else {
-      return $dara.cast<ListTargetsForPolicyResponse>(await this.execute(params, req, runtime), new ListTargetsForPolicyResponse({}));
-    }
-
+    return $dara.cast<$_model.ListTargetsForPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ListTargetsForPolicyResponse({}));
   }
 
   /**
@@ -8110,22 +2119,23 @@ export default class Client extends OpenApi {
    * @param request - ListTargetsForPolicyRequest
    * @returns ListTargetsForPolicyResponse
    */
-  async listTargetsForPolicy(request: ListTargetsForPolicyRequest): Promise<ListTargetsForPolicyResponse> {
+  async listTargetsForPolicy(request: $_model.ListTargetsForPolicyRequest): Promise<$_model.ListTargetsForPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTargetsForPolicyWithOptions(request, runtime);
   }
 
   /**
-   * 修改策略
+   * Modifies a tag policy.
    * 
    * @remarks
+   * ### [](#)
    * This topic provides an example on how to call the API operation to change the name of a tag policy to `test`.
    * 
    * @param request - ModifyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyPolicyResponse
    */
-  async modifyPolicyWithOptions(request: ModifyPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ModifyPolicyResponse> {
+  async modifyPolicyWithOptions(request: $_model.ModifyPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPolicyResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.dryRun)) {
@@ -8178,24 +2188,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyPolicyResponse>(await this.callApi(params, req, runtime), new ModifyPolicyResponse({}));
-    } else {
-      return $dara.cast<ModifyPolicyResponse>(await this.execute(params, req, runtime), new ModifyPolicyResponse({}));
-    }
-
+    return $dara.cast<$_model.ModifyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyPolicyResponse({}));
   }
 
   /**
-   * 修改策略
+   * Modifies a tag policy.
    * 
    * @remarks
+   * ### [](#)
    * This topic provides an example on how to call the API operation to change the name of a tag policy to `test`.
    * 
    * @param request - ModifyPolicyRequest
    * @returns ModifyPolicyResponse
    */
-  async modifyPolicy(request: ModifyPolicyRequest): Promise<ModifyPolicyResponse> {
+  async modifyPolicy(request: $_model.ModifyPolicyRequest): Promise<$_model.ModifyPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPolicyWithOptions(request, runtime);
   }
@@ -8210,7 +2216,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenCreatedByResponse
    */
-  async openCreatedByWithOptions(request: OpenCreatedByRequest, runtime: $dara.RuntimeOptions): Promise<OpenCreatedByResponse> {
+  async openCreatedByWithOptions(request: $_model.OpenCreatedByRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OpenCreatedByResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.ownerAccount)) {
@@ -8247,12 +2253,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<OpenCreatedByResponse>(await this.callApi(params, req, runtime), new OpenCreatedByResponse({}));
-    } else {
-      return $dara.cast<OpenCreatedByResponse>(await this.execute(params, req, runtime), new OpenCreatedByResponse({}));
-    }
-
+    return $dara.cast<$_model.OpenCreatedByResponse>(await this.callApi(params, req, runtime), new $_model.OpenCreatedByResponse({}));
   }
 
   /**
@@ -8264,7 +2265,7 @@ export default class Client extends OpenApi {
    * @param request - OpenCreatedByRequest
    * @returns OpenCreatedByResponse
    */
-  async openCreatedBy(request: OpenCreatedByRequest): Promise<OpenCreatedByResponse> {
+  async openCreatedBy(request: $_model.OpenCreatedByRequest): Promise<$_model.OpenCreatedByResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.openCreatedByWithOptions(request, runtime);
   }
@@ -8280,7 +2281,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.ownerAccount)) {
@@ -8325,12 +2326,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
-    } else {
-      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
-    }
-
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
   }
 
   /**
@@ -8343,7 +2339,7 @@ export default class Client extends OpenApi {
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
    */
-  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
@@ -8359,7 +2355,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+  async untagResourcesWithOptions(request: $_model.UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.ownerAccount)) {
@@ -8404,12 +2400,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
-    } else {
-      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
-    }
-
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
   }
 
   /**
@@ -8422,9 +2413,79 @@ export default class Client extends OpenApi {
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
    */
-  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Update the rule for tagging associated resources.
+   * 
+   * @param request - UpdateAssociatedResourceRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAssociatedResourceRuleResponse
+   */
+  async updateAssociatedResourceRuleWithOptions(request: $_model.UpdateAssociatedResourceRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAssociatedResourceRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.existingStatus)) {
+      query["ExistingStatus"] = request.existingStatus;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.settingName)) {
+      query["SettingName"] = request.settingName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.tagKeys)) {
+      query["TagKeys"] = request.tagKeys;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAssociatedResourceRule",
+      version: "2018-08-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAssociatedResourceRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAssociatedResourceRuleResponse({}));
+  }
+
+  /**
+   * Update the rule for tagging associated resources.
+   * 
+   * @param request - UpdateAssociatedResourceRuleRequest
+   * @returns UpdateAssociatedResourceRuleResponse
+   */
+  async updateAssociatedResourceRule(request: $_model.UpdateAssociatedResourceRuleRequest): Promise<$_model.UpdateAssociatedResourceRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAssociatedResourceRuleWithOptions(request, runtime);
   }
 
 }

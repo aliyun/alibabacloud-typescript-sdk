@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/tag20180828",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
