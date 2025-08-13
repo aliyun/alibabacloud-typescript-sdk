@@ -158,18 +158,26 @@ export class ListGatewayResponseBodyDataResultGatewayEntry extends $dara.Model {
   httpPorts?: number[];
   httpsPorts?: number[];
   ipList?: string[];
+  ipv6List?: string[];
   /**
    * @example
    * PUB_NET
    */
   netType?: string;
+  /**
+   * @example
+   * Ready
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       entryDomain: 'EntryDomain',
       httpPorts: 'HttpPorts',
       httpsPorts: 'HttpsPorts',
       ipList: 'IpList',
+      ipv6List: 'Ipv6List',
       netType: 'NetType',
+      status: 'Status',
     };
   }
 
@@ -179,7 +187,9 @@ export class ListGatewayResponseBodyDataResultGatewayEntry extends $dara.Model {
       httpPorts: { 'type': 'array', 'itemType': 'number' },
       httpsPorts: { 'type': 'array', 'itemType': 'number' },
       ipList: { 'type': 'array', 'itemType': 'string' },
+      ipv6List: { 'type': 'array', 'itemType': 'string' },
       netType: 'string',
+      status: 'string',
     };
   }
 
@@ -192,6 +202,9 @@ export class ListGatewayResponseBodyDataResultGatewayEntry extends $dara.Model {
     }
     if(Array.isArray(this.ipList)) {
       $dara.Model.validateArray(this.ipList);
+    }
+    if(Array.isArray(this.ipv6List)) {
+      $dara.Model.validateArray(this.ipv6List);
     }
     super.validate();
   }
