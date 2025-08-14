@@ -33,6 +33,9 @@ export class DescribeInvoiceForIsvResponseBodyResultEvaluateList extends $dara.M
    * 2024091610072000****
    */
   outBizId?: string;
+  productCode?: string;
+  productName?: string;
+  realAliyunId?: string;
   /**
    * @example
    * 102277855749****
@@ -46,6 +49,9 @@ export class DescribeInvoiceForIsvResponseBodyResultEvaluateList extends $dara.M
       id: 'Id',
       orderType: 'OrderType',
       outBizId: 'OutBizId',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      realAliyunId: 'RealAliyunId',
       realAliyunPk: 'RealAliyunPk',
     };
   }
@@ -58,6 +64,9 @@ export class DescribeInvoiceForIsvResponseBodyResultEvaluateList extends $dara.M
       id: 'string',
       orderType: 'string',
       outBizId: 'string',
+      productCode: 'string',
+      productName: 'string',
+      realAliyunId: 'string',
       realAliyunPk: 'string',
     };
   }
@@ -175,6 +184,7 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
    * 102277855749****
    */
   aliyunPk?: string;
+  checkNotice?: string;
   createTimeStr?: string;
   evaluateList?: DescribeInvoiceForIsvResponseBodyResultEvaluateList[];
   /**
@@ -217,9 +227,11 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
    */
   type?: string;
   userAddressDto?: DescribeInvoiceForIsvResponseBodyResultUserAddressDto;
+  userNotice?: string;
   static names(): { [key: string]: string } {
     return {
       aliyunPk: 'AliyunPk',
+      checkNotice: 'CheckNotice',
       createTimeStr: 'CreateTimeStr',
       evaluateList: 'EvaluateList',
       id: 'Id',
@@ -234,12 +246,14 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
       title: 'Title',
       type: 'Type',
       userAddressDto: 'UserAddressDto',
+      userNotice: 'UserNotice',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       aliyunPk: 'string',
+      checkNotice: 'string',
       createTimeStr: 'string',
       evaluateList: { 'type': 'array', 'itemType': DescribeInvoiceForIsvResponseBodyResultEvaluateList },
       id: 'string',
@@ -254,6 +268,7 @@ export class DescribeInvoiceForIsvResponseBodyResult extends $dara.Model {
       title: 'string',
       type: 'string',
       userAddressDto: DescribeInvoiceForIsvResponseBodyResultUserAddressDto,
+      userNotice: 'string',
     };
   }
 
