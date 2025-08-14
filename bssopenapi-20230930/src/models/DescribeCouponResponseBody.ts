@@ -65,6 +65,7 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
    * 2021-03-06T15:12Z
    */
   endTime?: string;
+  firstBuy?: boolean;
   /**
    * @example
    * 2021-03-02T15:12Z
@@ -127,6 +128,7 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
       couponTypeName: 'CouponTypeName',
       currency: 'Currency',
       endTime: 'EndTime',
+      firstBuy: 'FirstBuy',
       gmtCreate: 'GmtCreate',
       itemNames: 'ItemNames',
       moneyLimit: 'MoneyLimit',
@@ -156,6 +158,7 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
       couponTypeName: 'string',
       currency: 'string',
       endTime: 'string',
+      firstBuy: 'boolean',
       gmtCreate: 'string',
       itemNames: { 'type': 'array', 'itemType': 'string' },
       moneyLimit: 'string',

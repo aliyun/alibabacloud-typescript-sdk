@@ -2336,6 +2336,136 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询财务单元分摊规则
+   * 
+   * @param request - QueryCostCenterShareRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCostCenterShareRuleResponse
+   */
+  async queryCostCenterShareRuleWithOptions(request: $_model.QueryCostCenterShareRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryCostCenterShareRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ecIdAccountIds)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIds;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccountId)) {
+      query["OwnerAccountId"] = request.ownerAccountId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryCostCenterShareRule",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryCostCenterShareRuleResponse>(await this.callApi(params, req, runtime), new $_model.QueryCostCenterShareRuleResponse({}));
+  }
+
+  /**
+   * 查询财务单元分摊规则
+   * 
+   * @param request - QueryCostCenterShareRuleRequest
+   * @returns QueryCostCenterShareRuleResponse
+   */
+  async queryCostCenterShareRule(request: $_model.QueryCostCenterShareRuleRequest): Promise<$_model.QueryCostCenterShareRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryCostCenterShareRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改财务单元分摊规则
+   * 
+   * @param tmpReq - SaveCostCenterShareRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveCostCenterShareRuleResponse
+   */
+  async saveCostCenterShareRuleWithOptions(tmpReq: $_model.SaveCostCenterShareRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveCostCenterShareRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.SaveCostCenterShareRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createShareRuleList)) {
+      request.createShareRuleListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createShareRuleList, "CreateShareRuleList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.modifyShareRuleList)) {
+      request.modifyShareRuleListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modifyShareRuleList, "ModifyShareRuleList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.removeShareRuleList)) {
+      request.removeShareRuleListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.removeShareRuleList, "RemoveShareRuleList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.createShareRuleListShrink)) {
+      query["CreateShareRuleList"] = request.createShareRuleListShrink;
+    }
+
+    if (!$dara.isNull(request.modifyShareRuleListShrink)) {
+      query["ModifyShareRuleList"] = request.modifyShareRuleListShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.ownerAccountId)) {
+      query["OwnerAccountId"] = request.ownerAccountId;
+    }
+
+    if (!$dara.isNull(request.removeShareRuleListShrink)) {
+      query["RemoveShareRuleList"] = request.removeShareRuleListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SaveCostCenterShareRule",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SaveCostCenterShareRuleResponse>(await this.callApi(params, req, runtime), new $_model.SaveCostCenterShareRuleResponse({}));
+  }
+
+  /**
+   * 修改财务单元分摊规则
+   * 
+   * @param request - SaveCostCenterShareRuleRequest
+   * @returns SaveCostCenterShareRuleResponse
+   */
+  async saveCostCenterShareRule(request: $_model.SaveCostCenterShareRuleRequest): Promise<$_model.SaveCostCenterShareRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.saveCostCenterShareRuleWithOptions(request, runtime);
+  }
+
+  /**
    * 设置资金账户的信控限额
    * 
    * @param request - SetFundAccountCreditAmountRequest
