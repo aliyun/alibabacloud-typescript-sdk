@@ -1,9 +1,93 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AIAgentRuntimeConfigAvatarChat3D } from "./AiagentRuntimeConfigAvatarChat3d";
-import { AIAgentRuntimeConfigVisionChat } from "./AiagentRuntimeConfigVisionChat";
-import { AIAgentRuntimeConfigVoiceChat } from "./AiagentRuntimeConfigVoiceChat";
 
+
+export class AIAgentRuntimeConfigAvatarChat3D extends $dara.Model {
+  agentUserId?: string;
+  authToken?: string;
+  channelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentUserId: 'AgentUserId',
+      authToken: 'AuthToken',
+      channelId: 'ChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentUserId: 'string',
+      authToken: 'string',
+      channelId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentRuntimeConfigVisionChat extends $dara.Model {
+  agentUserId?: string;
+  authToken?: string;
+  channelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentUserId: 'AgentUserId',
+      authToken: 'AuthToken',
+      channelId: 'ChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentUserId: 'string',
+      authToken: 'string',
+      channelId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentRuntimeConfigVoiceChat extends $dara.Model {
+  agentUserId?: string;
+  authToken?: string;
+  channelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentUserId: 'AgentUserId',
+      authToken: 'AuthToken',
+      channelId: 'ChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentUserId: 'string',
+      authToken: 'string',
+      channelId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AIAgentRuntimeConfig extends $dara.Model {
   agentUserId?: string;

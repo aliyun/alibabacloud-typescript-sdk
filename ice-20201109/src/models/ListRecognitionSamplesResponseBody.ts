@@ -1,7 +1,66 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListRecognitionSamplesResponseBodySamples } from "./ListRecognitionSamplesResponseBodySamples";
 
+
+export class ListRecognitionSamplesResponseBodySamplesSample extends $dara.Model {
+  /**
+   * @example
+   * https://example.com/sample.png
+   */
+  imageUrl?: string;
+  /**
+   * @example
+   * xxxxxxxxxxxxx
+   */
+  sampleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+      sampleId: 'SampleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+      sampleId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecognitionSamplesResponseBodySamples extends $dara.Model {
+  sample?: ListRecognitionSamplesResponseBodySamplesSample[];
+  static names(): { [key: string]: string } {
+    return {
+      sample: 'Sample',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sample: { 'type': 'array', 'itemType': ListRecognitionSamplesResponseBodySamplesSample },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sample)) {
+      $dara.Model.validateArray(this.sample);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListRecognitionSamplesResponseBody extends $dara.Model {
   /**

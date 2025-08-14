@@ -1,14 +1,511 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AIAgentConfigAsrConfig } from "./AiagentConfigAsrConfig";
-import { AIAgentConfigAvatarConfig } from "./AiagentConfigAvatarConfig";
-import { AIAgentConfigInterruptConfig } from "./AiagentConfigInterruptConfig";
-import { AIAgentConfigLlmConfig } from "./AiagentConfigLlmConfig";
-import { AIAgentConfigTtsConfig } from "./AiagentConfigTtsConfig";
-import { AIAgentConfigTurnDetectionConfig } from "./AiagentConfigTurnDetectionConfig";
-import { AIAgentConfigVcrConfig } from "./AiagentConfigVcrConfig";
-import { AIAgentConfigVoiceprintConfig } from "./AiagentConfigVoiceprintConfig";
 
+
+/**
+ */
+export class AIAgentConfigAsrConfig extends $dara.Model {
+  asrHotWords?: string[];
+  asrLanguageId?: string;
+  asrMaxSilence?: number;
+  customParams?: string;
+  vadDuration?: number;
+  vadLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      asrHotWords: 'AsrHotWords',
+      asrLanguageId: 'AsrLanguageId',
+      asrMaxSilence: 'AsrMaxSilence',
+      customParams: 'CustomParams',
+      vadDuration: 'VadDuration',
+      vadLevel: 'VadLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asrHotWords: { 'type': 'array', 'itemType': 'string' },
+      asrLanguageId: 'string',
+      asrMaxSilence: 'number',
+      customParams: 'string',
+      vadDuration: 'number',
+      vadLevel: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.asrHotWords)) {
+      $dara.Model.validateArray(this.asrHotWords);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigAvatarConfig extends $dara.Model {
+  avatarId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatarId: 'AvatarId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatarId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigInterruptConfig extends $dara.Model {
+  enableVoiceInterrupt?: boolean;
+  interruptWords?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      enableVoiceInterrupt: 'EnableVoiceInterrupt',
+      interruptWords: 'InterruptWords',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableVoiceInterrupt: 'boolean',
+      interruptWords: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.interruptWords)) {
+      $dara.Model.validateArray(this.interruptWords);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigLlmConfigFunctionMap extends $dara.Model {
+  function?: string;
+  matchFunction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      function: 'Function',
+      matchFunction: 'MatchFunction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      function: 'string',
+      matchFunction: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigLlmConfigLlmHistory extends $dara.Model {
+  content?: string;
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigLlmConfig extends $dara.Model {
+  bailianAppParams?: string;
+  functionMap?: AIAgentConfigLlmConfigFunctionMap[];
+  llmCompleteReply?: boolean;
+  llmHistory?: AIAgentConfigLlmConfigLlmHistory[];
+  llmHistoryLimit?: number;
+  llmSystemPrompt?: string;
+  openAIExtraQuery?: string;
+  outputMaxDelay?: number;
+  outputMinLength?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bailianAppParams: 'BailianAppParams',
+      functionMap: 'FunctionMap',
+      llmCompleteReply: 'LlmCompleteReply',
+      llmHistory: 'LlmHistory',
+      llmHistoryLimit: 'LlmHistoryLimit',
+      llmSystemPrompt: 'LlmSystemPrompt',
+      openAIExtraQuery: 'OpenAIExtraQuery',
+      outputMaxDelay: 'OutputMaxDelay',
+      outputMinLength: 'OutputMinLength',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bailianAppParams: 'string',
+      functionMap: { 'type': 'array', 'itemType': AIAgentConfigLlmConfigFunctionMap },
+      llmCompleteReply: 'boolean',
+      llmHistory: { 'type': 'array', 'itemType': AIAgentConfigLlmConfigLlmHistory },
+      llmHistoryLimit: 'number',
+      llmSystemPrompt: 'string',
+      openAIExtraQuery: 'string',
+      outputMaxDelay: 'number',
+      outputMinLength: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.functionMap)) {
+      $dara.Model.validateArray(this.functionMap);
+    }
+    if(Array.isArray(this.llmHistory)) {
+      $dara.Model.validateArray(this.llmHistory);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigTtsConfigPronunciationRules extends $dara.Model {
+  pronunciation?: string;
+  type?: string;
+  word?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pronunciation: 'Pronunciation',
+      type: 'Type',
+      word: 'Word',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pronunciation: 'string',
+      type: 'string',
+      word: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigTtsConfig extends $dara.Model {
+  emotion?: string;
+  languageId?: string;
+  modelId?: string;
+  pronunciationRules?: AIAgentConfigTtsConfigPronunciationRules[];
+  speechRate?: number;
+  voiceId?: string;
+  voiceIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      emotion: 'Emotion',
+      languageId: 'LanguageId',
+      modelId: 'ModelId',
+      pronunciationRules: 'PronunciationRules',
+      speechRate: 'SpeechRate',
+      voiceId: 'VoiceId',
+      voiceIdList: 'VoiceIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      emotion: 'string',
+      languageId: 'string',
+      modelId: 'string',
+      pronunciationRules: { 'type': 'array', 'itemType': AIAgentConfigTtsConfigPronunciationRules },
+      speechRate: 'number',
+      voiceId: 'string',
+      voiceIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.pronunciationRules)) {
+      $dara.Model.validateArray(this.pronunciationRules);
+    }
+    if(Array.isArray(this.voiceIdList)) {
+      $dara.Model.validateArray(this.voiceIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigTurnDetectionConfig extends $dara.Model {
+  mode?: string;
+  semanticWaitDuration?: number;
+  turnEndWords?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      mode: 'Mode',
+      semanticWaitDuration: 'SemanticWaitDuration',
+      turnEndWords: 'TurnEndWords',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mode: 'string',
+      semanticWaitDuration: 'number',
+      turnEndWords: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.turnEndWords)) {
+      $dara.Model.validateArray(this.turnEndWords);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigVcrConfigEquipment extends $dara.Model {
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigVcrConfigHeadMotion extends $dara.Model {
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigVcrConfigInvalidFrameMotion extends $dara.Model {
+  callbackDelay?: number;
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      callbackDelay: 'CallbackDelay',
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callbackDelay: 'number',
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigVcrConfigPeopleCount extends $dara.Model {
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigVcrConfigStillFrameMotion extends $dara.Model {
+  callbackDelay?: number;
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      callbackDelay: 'CallbackDelay',
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callbackDelay: 'number',
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigVcrConfig extends $dara.Model {
+  equipment?: AIAgentConfigVcrConfigEquipment;
+  headMotion?: AIAgentConfigVcrConfigHeadMotion;
+  invalidFrameMotion?: AIAgentConfigVcrConfigInvalidFrameMotion;
+  peopleCount?: AIAgentConfigVcrConfigPeopleCount;
+  stillFrameMotion?: AIAgentConfigVcrConfigStillFrameMotion;
+  static names(): { [key: string]: string } {
+    return {
+      equipment: 'Equipment',
+      headMotion: 'HeadMotion',
+      invalidFrameMotion: 'InvalidFrameMotion',
+      peopleCount: 'PeopleCount',
+      stillFrameMotion: 'StillFrameMotion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      equipment: AIAgentConfigVcrConfigEquipment,
+      headMotion: AIAgentConfigVcrConfigHeadMotion,
+      invalidFrameMotion: AIAgentConfigVcrConfigInvalidFrameMotion,
+      peopleCount: AIAgentConfigVcrConfigPeopleCount,
+      stillFrameMotion: AIAgentConfigVcrConfigStillFrameMotion,
+    };
+  }
+
+  validate() {
+    if(this.equipment && typeof (this.equipment as any).validate === 'function') {
+      (this.equipment as any).validate();
+    }
+    if(this.headMotion && typeof (this.headMotion as any).validate === 'function') {
+      (this.headMotion as any).validate();
+    }
+    if(this.invalidFrameMotion && typeof (this.invalidFrameMotion as any).validate === 'function') {
+      (this.invalidFrameMotion as any).validate();
+    }
+    if(this.peopleCount && typeof (this.peopleCount as any).validate === 'function') {
+      (this.peopleCount as any).validate();
+    }
+    if(this.stillFrameMotion && typeof (this.stillFrameMotion as any).validate === 'function') {
+      (this.stillFrameMotion as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigVoiceprintConfig extends $dara.Model {
+  useVoiceprint?: boolean;
+  voiceprintId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      useVoiceprint: 'UseVoiceprint',
+      voiceprintId: 'VoiceprintId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      useVoiceprint: 'boolean',
+      voiceprintId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AIAgentConfig extends $dara.Model {
   asrConfig?: AIAgentConfigAsrConfig;

@@ -1,7 +1,78 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateMediaLiveInputRequestInputSettings } from "./UpdateMediaLiveInputRequestInputSettings";
 
+
+export class UpdateMediaLiveInputRequestInputSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the flow from MediaConnect. This parameter is required when Type is set to MEDIA_CONNECT.
+   * 
+   * @example
+   * ******81-9693-40dc-bbab-db5e49******
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * The output name of the MediaConnect flow. This parameter is required when Type is set to MEDIA_CONNECT.
+   * 
+   * @example
+   * myFlowOutputName
+   */
+  flowOutputName?: string;
+  /**
+   * @remarks
+   * The source URL from which the stream is pulled. This parameter is required for PULL inputs.
+   * 
+   * @example
+   * rtmp://domain/app/stream
+   */
+  sourceUrl?: string;
+  srtLatency?: number;
+  srtMaxBitrate?: number;
+  srtPassphrase?: string;
+  srtPbKeyLen?: number;
+  /**
+   * @remarks
+   * The name of the pushed stream. This parameter is required for PUSH inputs. It can be up to 255 characters in length.
+   * 
+   * @example
+   * mystream
+   */
+  streamName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+      flowOutputName: 'FlowOutputName',
+      sourceUrl: 'SourceUrl',
+      srtLatency: 'SrtLatency',
+      srtMaxBitrate: 'SrtMaxBitrate',
+      srtPassphrase: 'SrtPassphrase',
+      srtPbKeyLen: 'SrtPbKeyLen',
+      streamName: 'StreamName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+      flowOutputName: 'string',
+      sourceUrl: 'string',
+      srtLatency: 'number',
+      srtMaxBitrate: 'number',
+      srtPassphrase: 'string',
+      srtPbKeyLen: 'number',
+      streamName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateMediaLiveInputRequest extends $dara.Model {
   /**

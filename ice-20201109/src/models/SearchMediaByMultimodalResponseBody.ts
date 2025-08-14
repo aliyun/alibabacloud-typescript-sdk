@@ -1,7 +1,96 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SearchMediaByMultimodalResponseBodyMediaList } from "./SearchMediaByMultimodalResponseBodyMediaList";
 
+
+export class SearchMediaByMultimodalResponseBodyMediaListClipInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The start time of the clip.
+   * 
+   * @example
+   * 2
+   */
+  from?: number;
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 1.2
+   */
+  score?: number;
+  /**
+   * @remarks
+   * The end time of the clip.
+   * 
+   * @example
+   * 4
+   */
+  to?: number;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      score: 'Score',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      score: 'number',
+      to: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchMediaByMultimodalResponseBodyMediaList extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the clip.
+   */
+  clipInfo?: SearchMediaByMultimodalResponseBodyMediaListClipInfo[];
+  /**
+   * @remarks
+   * The ID of the media asset.
+   * 
+   * @example
+   * a18936e0e28771edb59ae6f6f47a****
+   */
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clipInfo: 'ClipInfo',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipInfo: { 'type': 'array', 'itemType': SearchMediaByMultimodalResponseBodyMediaListClipInfo },
+      mediaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.clipInfo)) {
+      $dara.Model.validateArray(this.clipInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SearchMediaByMultimodalResponseBody extends $dara.Model {
   /**

@@ -1,9 +1,147 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { QueryIProductionJobResponseBodyInput } from "./QueryIproductionJobResponseBodyInput";
-import { QueryIProductionJobResponseBodyOutput } from "./QueryIproductionJobResponseBodyOutput";
-import { QueryIProductionJobResponseBodyScheduleConfig } from "./QueryIproductionJobResponseBodyScheduleConfig";
 
+
+export class QueryIProductionJobResponseBodyInput extends $dara.Model {
+  /**
+   * @remarks
+   * The input file. If Type is set to OSS, set this parameter to the path of an OSS object. If Type is set to Media, set this parameter to the ID of a media asset. You can specify the path of an OSS object in one of the following formats:
+   * 
+   * 1.  oss://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object bucket in the path specifies an OSS bucket that resides in the same region as the intelligent production job. object in the path specifies the object path in OSS.
+   * 
+   * @example
+   * oss://bucket/object
+   */
+  media?: string;
+  /**
+   * @remarks
+   * The media type. Valid values:
+   * 
+   * 1.  OSS: Object Storage Service (OSS) object
+   * 2.  Media: media asset
+   * 
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryIProductionJobResponseBodyOutput extends $dara.Model {
+  biz?: string;
+  /**
+   * @remarks
+   * The output file. If Type is set to OSS, set this parameter to the path of an OSS object. If Type is set to Media, set this parameter to the ID of a media asset. You can specify the path of an OSS object in one of the following formats:
+   * 
+   * 1.  oss://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object bucket in the path specifies an OSS bucket that resides in the same region as the intelligent production job. object in the path specifies the object path in OSS.
+   * 
+   * @example
+   * oss://bucket/object
+   */
+  media?: string;
+  outputUrl?: string;
+  /**
+   * @remarks
+   * The media type. Valid values:
+   * 
+   * *   OSS: OSS object
+   * *   Media: media asset
+   * 
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      biz: 'Biz',
+      media: 'Media',
+      outputUrl: 'OutputUrl',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      biz: 'string',
+      media: 'string',
+      outputUrl: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryIProductionJobResponseBodyScheduleConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue.
+   * 
+   * @example
+   * a54fdc9c9aab413caef0d1150f565e86
+   */
+  pipelineId?: string;
+  /**
+   * @remarks
+   * The priority of the job in the MPS queue to which the job is added.
+   * 
+   * *   A value of 10 indicates the highest priority.
+   * *   Default value: **6**.
+   * 
+   * @example
+   * 6
+   */
+  priority?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pipelineId: 'PipelineId',
+      priority: 'Priority',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pipelineId: 'string',
+      priority: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class QueryIProductionJobResponseBody extends $dara.Model {
   /**

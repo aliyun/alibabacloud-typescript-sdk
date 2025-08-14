@@ -1,8 +1,100 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SubmitLiveRecordJobRequestRecordOutput } from "./SubmitLiveRecordJobRequestRecordOutput";
-import { SubmitLiveRecordJobRequestStreamInput } from "./SubmitLiveRecordJobRequestStreamInput";
 
+
+export class SubmitLiveRecordJobRequestRecordOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The bucket name.
+   * 
+   * @example
+   * imsbucket1
+   */
+  bucket?: string;
+  /**
+   * @remarks
+   * The endpoint of the storage service.
+   * 
+   * @example
+   * oss-cn-hangzhou.aliyuncs.com
+   */
+  endpoint?: string;
+  /**
+   * @remarks
+   * The type of the storage address.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * oss
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      endpoint: 'Endpoint',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      endpoint: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitLiveRecordJobRequestStreamInput extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the live stream URL. The value can only be rtmp.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rtmp
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The URL of the live stream.
+   * 
+   * @example
+   * rtmp://example.com/live/stream1
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SubmitLiveRecordJobRequest extends $dara.Model {
   /**

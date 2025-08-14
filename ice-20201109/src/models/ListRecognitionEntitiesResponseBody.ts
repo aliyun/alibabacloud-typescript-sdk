@@ -1,7 +1,69 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListRecognitionEntitiesResponseBodyEntities } from "./ListRecognitionEntitiesResponseBodyEntities";
 
+
+export class ListRecognitionEntitiesResponseBodyEntitiesEntity extends $dara.Model {
+  /**
+   * @example
+   * **************544cb84754************
+   */
+  entityId?: string;
+  /**
+   * @example
+   * {}
+   */
+  entityInfo?: string;
+  entityName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      entityInfo: 'EntityInfo',
+      entityName: 'EntityName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      entityInfo: 'string',
+      entityName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecognitionEntitiesResponseBodyEntities extends $dara.Model {
+  entity?: ListRecognitionEntitiesResponseBodyEntitiesEntity[];
+  static names(): { [key: string]: string } {
+    return {
+      entity: 'Entity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entity: { 'type': 'array', 'itemType': ListRecognitionEntitiesResponseBodyEntitiesEntity },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.entity)) {
+      $dara.Model.validateArray(this.entity);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListRecognitionEntitiesResponseBody extends $dara.Model {
   entities?: ListRecognitionEntitiesResponseBodyEntities;

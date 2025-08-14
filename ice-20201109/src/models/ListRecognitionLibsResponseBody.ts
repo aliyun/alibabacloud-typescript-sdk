@@ -1,7 +1,65 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListRecognitionLibsResponseBodyLibs } from "./ListRecognitionLibsResponseBodyLibs";
 
+
+export class ListRecognitionLibsResponseBodyLibsLib extends $dara.Model {
+  libDescription?: string;
+  /**
+   * @example
+   * *************24b47865c6**************
+   */
+  libId?: string;
+  libName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      libDescription: 'LibDescription',
+      libId: 'LibId',
+      libName: 'LibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      libDescription: 'string',
+      libId: 'string',
+      libName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecognitionLibsResponseBodyLibs extends $dara.Model {
+  lib?: ListRecognitionLibsResponseBodyLibsLib[];
+  static names(): { [key: string]: string } {
+    return {
+      lib: 'Lib',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lib: { 'type': 'array', 'itemType': ListRecognitionLibsResponseBodyLibsLib },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.lib)) {
+      $dara.Model.validateArray(this.lib);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListRecognitionLibsResponseBody extends $dara.Model {
   libs?: ListRecognitionLibsResponseBodyLibs;

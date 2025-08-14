@@ -1,8 +1,96 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SubmitMediaCensorJobRequestInput } from "./SubmitMediaCensorJobRequestInput";
-import { SubmitMediaCensorJobRequestScheduleConfig } from "./SubmitMediaCensorJobRequestScheduleConfig";
 
+
+export class SubmitMediaCensorJobRequestInput extends $dara.Model {
+  /**
+   * @remarks
+   * The input file. The file can be an OSS object or a media asset. You can specify the path of an OSS object in one of the following formats:
+   * 
+   * 1\\. oss://bucket/object
+   * 
+   * 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object
+   * 
+   * In the preceding paths, bucket indicates an OSS bucket that resides in the same region as the current project, and object indicates the path of the object in the bucket.
+   * 
+   * @example
+   * 1b1b9cd148034739af413150fded****
+   */
+  media?: string;
+  /**
+   * @remarks
+   * The type of the input file. Valid values:
+   * 
+   * OSS: OSS object.
+   * 
+   * Media: media asset.
+   * 
+   * @example
+   * Media
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMediaCensorJobRequestScheduleConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the job is submitted.
+   * 
+   * @example
+   * 5246b8d12a62433ab77845074039****
+   */
+  pipelineId?: string;
+  /**
+   * @remarks
+   * The job priority. A larger value indicates a higher priority. Valid values: 1 to 10.
+   * 
+   * @example
+   * 6
+   */
+  priority?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pipelineId: 'PipelineId',
+      priority: 'Priority',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pipelineId: 'string',
+      priority: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SubmitMediaCensorJobRequest extends $dara.Model {
   /**

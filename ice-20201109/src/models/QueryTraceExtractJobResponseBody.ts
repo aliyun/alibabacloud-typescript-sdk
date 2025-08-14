@@ -1,7 +1,29 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { QueryTraceExtractJobResponseBodyData } from "./QueryTraceExtractJobResponseBodyData";
 
+
+export class QueryTraceExtractJobResponseBodyData extends $dara.Model {
+  trace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      trace: 'Trace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trace: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class QueryTraceExtractJobResponseBody extends $dara.Model {
   data?: QueryTraceExtractJobResponseBodyData;

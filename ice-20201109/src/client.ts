@@ -911,6 +911,136 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消智能生产任务
+   * 
+   * @param request - CancelIProductionJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelIProductionJobResponse
+   */
+  async cancelIProductionJobWithOptions(request: $_model.CancelIProductionJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelIProductionJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelIProductionJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelIProductionJobResponse>(await this.callApi(params, req, runtime), new $_model.CancelIProductionJobResponse({}));
+  }
+
+  /**
+   * 取消智能生产任务
+   * 
+   * @param request - CancelIProductionJobRequest
+   * @returns CancelIProductionJobResponse
+   */
+  async cancelIProductionJob(request: $_model.CancelIProductionJobRequest): Promise<$_model.CancelIProductionJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelIProductionJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 清除声纹ID对应的声纹
+   * 
+   * @param request - ClearAIAgentVoiceprintRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClearAIAgentVoiceprintResponse
+   */
+  async clearAIAgentVoiceprintWithOptions(request: $_model.ClearAIAgentVoiceprintRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClearAIAgentVoiceprintResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.voiceprintId)) {
+      query["VoiceprintId"] = request.voiceprintId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClearAIAgentVoiceprint",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClearAIAgentVoiceprintResponse>(await this.callApi(params, req, runtime), new $_model.ClearAIAgentVoiceprintResponse({}));
+  }
+
+  /**
+   * 清除声纹ID对应的声纹
+   * 
+   * @param request - ClearAIAgentVoiceprintRequest
+   * @returns ClearAIAgentVoiceprintResponse
+   */
+  async clearAIAgentVoiceprint(request: $_model.ClearAIAgentVoiceprintRequest): Promise<$_model.ClearAIAgentVoiceprintResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clearAIAgentVoiceprintWithOptions(request, runtime);
+  }
+
+  /**
+   * 关闭MediaConnect实例的双流灾备功能
+   * 
+   * @param request - CloseMediaConnectFlowFailoverRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloseMediaConnectFlowFailoverResponse
+   */
+  async closeMediaConnectFlowFailoverWithOptions(request: $_model.CloseMediaConnectFlowFailoverRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloseMediaConnectFlowFailoverResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloseMediaConnectFlowFailover",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloseMediaConnectFlowFailoverResponse>(await this.callApi(params, req, runtime), new $_model.CloseMediaConnectFlowFailoverResponse({}));
+  }
+
+  /**
+   * 关闭MediaConnect实例的双流灾备功能
+   * 
+   * @param request - CloseMediaConnectFlowFailoverRequest
+   * @returns CloseMediaConnectFlowFailoverResponse
+   */
+  async closeMediaConnectFlowFailover(request: $_model.CloseMediaConnectFlowFailoverRequest): Promise<$_model.CloseMediaConnectFlowFailoverResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.closeMediaConnectFlowFailoverWithOptions(request, runtime);
+  }
+
+  /**
    * Submits manual review results for media assets.
    * 
    * @param request - CreateAuditRequest
@@ -5743,6 +5873,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 禁用某个MediaConnect实例的某个输出
+   * 
+   * @param request - ForbidMediaConnectFlowOutputRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ForbidMediaConnectFlowOutputResponse
+   */
+  async forbidMediaConnectFlowOutputWithOptions(request: $_model.ForbidMediaConnectFlowOutputRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ForbidMediaConnectFlowOutputResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.outputName)) {
+      query["OutputName"] = request.outputName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ForbidMediaConnectFlowOutput",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ForbidMediaConnectFlowOutputResponse>(await this.callApi(params, req, runtime), new $_model.ForbidMediaConnectFlowOutputResponse({}));
+  }
+
+  /**
+   * 禁用某个MediaConnect实例的某个输出
+   * 
+   * @param request - ForbidMediaConnectFlowOutputRequest
+   * @returns ForbidMediaConnectFlowOutputResponse
+   */
+  async forbidMediaConnectFlowOutput(request: $_model.ForbidMediaConnectFlowOutputRequest): Promise<$_model.ForbidMediaConnectFlowOutputResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.forbidMediaConnectFlowOutputWithOptions(request, runtime);
+  }
+
+  /**
+   * 转呼通话到目标电话
+   * 
+   * @param request - ForwardAIAgentCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ForwardAIAgentCallResponse
+   */
+  async forwardAIAgentCallWithOptions(request: $_model.ForwardAIAgentCallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ForwardAIAgentCallResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ForwardAIAgentCall",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ForwardAIAgentCallResponse>(await this.callApi(params, req, runtime), new $_model.ForwardAIAgentCallResponse({}));
+  }
+
+  /**
+   * 转呼通话到目标电话
+   * 
+   * @param request - ForwardAIAgentCallRequest
+   * @returns ForwardAIAgentCallResponse
+   */
+  async forwardAIAgentCall(request: $_model.ForwardAIAgentCallRequest): Promise<$_model.ForwardAIAgentCallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.forwardAIAgentCallWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an AI agent. This operation returns the channel in which the AI agent resides, the username of the AI agent in the channel, and the token that you can use to join the channel.
    * 
    * @remarks
@@ -7193,6 +7415,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取MediaConnect可用的区域
+   * 
+   * @param request - GetMediaConnectAvailableRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaConnectAvailableRegionResponse
+   */
+  async getMediaConnectAvailableRegionWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.GetMediaConnectAvailableRegionResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMediaConnectAvailableRegion",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMediaConnectAvailableRegionResponse>(await this.callApi(params, req, runtime), new $_model.GetMediaConnectAvailableRegionResponse({}));
+  }
+
+  /**
+   * 获取MediaConnect可用的区域
+   * @returns GetMediaConnectAvailableRegionResponse
+   */
+  async getMediaConnectAvailableRegion(): Promise<$_model.GetMediaConnectAvailableRegionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMediaConnectAvailableRegionWithOptions(runtime);
+  }
+
+  /**
    * Obtains information about a specific MediaConnect flow.
    * 
    * @remarks
@@ -7240,6 +7494,48 @@ export default class Client extends OpenApi {
   async getMediaConnectFlow(request: $_model.GetMediaConnectFlowRequest): Promise<$_model.GetMediaConnectFlowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getMediaConnectFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取某个MediaConnect实例下的所有output的名字
+   * 
+   * @param request - GetMediaConnectFlowAllOutputNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaConnectFlowAllOutputNameResponse
+   */
+  async getMediaConnectFlowAllOutputNameWithOptions(request: $_model.GetMediaConnectFlowAllOutputNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMediaConnectFlowAllOutputNameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMediaConnectFlowAllOutputName",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMediaConnectFlowAllOutputNameResponse>(await this.callApi(params, req, runtime), new $_model.GetMediaConnectFlowAllOutputNameResponse({}));
+  }
+
+  /**
+   * 获取某个MediaConnect实例下的所有output的名字
+   * 
+   * @param request - GetMediaConnectFlowAllOutputNameRequest
+   * @returns GetMediaConnectFlowAllOutputNameResponse
+   */
+  async getMediaConnectFlowAllOutputName(request: $_model.GetMediaConnectFlowAllOutputNameRequest): Promise<$_model.GetMediaConnectFlowAllOutputNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMediaConnectFlowAllOutputNameWithOptions(request, runtime);
   }
 
   /**
@@ -9050,6 +9346,56 @@ export default class Client extends OpenApi {
   async listAIAgentPhoneNumber(request: $_model.ListAIAgentPhoneNumberRequest): Promise<$_model.ListAIAgentPhoneNumberResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAIAgentPhoneNumberWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新回调配置
+   * 
+   * @param request - ListAIAgentVoiceprintsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAIAgentVoiceprintsResponse
+   */
+  async listAIAgentVoiceprintsWithOptions(request: $_model.ListAIAgentVoiceprintsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAIAgentVoiceprintsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.voiceprintId)) {
+      query["VoiceprintId"] = request.voiceprintId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAIAgentVoiceprints",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAIAgentVoiceprintsResponse>(await this.callApi(params, req, runtime), new $_model.ListAIAgentVoiceprintsResponse({}));
+  }
+
+  /**
+   * 更新回调配置
+   * 
+   * @param request - ListAIAgentVoiceprintsRequest
+   * @returns ListAIAgentVoiceprintsResponse
+   */
+  async listAIAgentVoiceprints(request: $_model.ListAIAgentVoiceprintsRequest): Promise<$_model.ListAIAgentVoiceprintsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAIAgentVoiceprintsWithOptions(request, runtime);
   }
 
   /**
@@ -12473,6 +12819,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 工作流任务实例列表
+   * 
+   * @param request - ListWorkflowTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkflowTasksResponse
+   */
+  async listWorkflowTasksWithOptions(request: $_model.ListWorkflowTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkflowTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endOfCreateTime)) {
+      query["EndOfCreateTime"] = request.endOfCreateTime;
+    }
+
+    if (!$dara.isNull(request.keyText)) {
+      query["KeyText"] = request.keyText;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.startOfCreateTime)) {
+      query["StartOfCreateTime"] = request.startOfCreateTime;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
+    if (!$dara.isNull(request.workflowName)) {
+      query["WorkflowName"] = request.workflowName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkflowTasks",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkflowTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkflowTasksResponse({}));
+  }
+
+  /**
+   * 工作流任务实例列表
+   * 
+   * @param request - ListWorkflowTasksRequest
+   * @returns ListWorkflowTasksResponse
+   */
+  async listWorkflowTasks(request: $_model.ListWorkflowTasksRequest): Promise<$_model.ListWorkflowTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWorkflowTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 开启MediaConnect双流灾备
+   * 
+   * @param request - OpenMediaConnectFlowFailoverRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenMediaConnectFlowFailoverResponse
+   */
+  async openMediaConnectFlowFailoverWithOptions(request: $_model.OpenMediaConnectFlowFailoverRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OpenMediaConnectFlowFailoverResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OpenMediaConnectFlowFailover",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OpenMediaConnectFlowFailoverResponse>(await this.callApi(params, req, runtime), new $_model.OpenMediaConnectFlowFailoverResponse({}));
+  }
+
+  /**
+   * 开启MediaConnect双流灾备
+   * 
+   * @param request - OpenMediaConnectFlowFailoverRequest
+   * @returns OpenMediaConnectFlowFailoverResponse
+   */
+  async openMediaConnectFlowFailover(request: $_model.OpenMediaConnectFlowFailoverRequest): Promise<$_model.OpenMediaConnectFlowFailoverResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.openMediaConnectFlowFailoverWithOptions(request, runtime);
+  }
+
+  /**
    * 查询版权水印提取任务
    * 
    * @param request - QueryCopyrightExtractJobRequest
@@ -13183,6 +13637,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询视频理解任务结果
+   * 
+   * @param tmpReq - QueryVideoCognitionJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryVideoCognitionJobResponse
+   */
+  async queryVideoCognitionJobWithOptions(tmpReq: $_model.QueryVideoCognitionJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryVideoCognitionJobResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryVideoCognitionJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.includeResults)) {
+      request.includeResultsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.includeResults, "IncludeResults", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.includeResultsShrink)) {
+      query["IncludeResults"] = request.includeResultsShrink;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryVideoCognitionJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryVideoCognitionJobResponse>(await this.callApi(params, req, runtime), new $_model.QueryVideoCognitionJobResponse({}));
+  }
+
+  /**
+   * 查询视频理解任务结果
+   * 
+   * @param request - QueryVideoCognitionJobRequest
+   * @returns QueryVideoCognitionJobResponse
+   */
+  async queryVideoCognitionJob(request: $_model.QueryVideoCognitionJobRequest): Promise<$_model.QueryVideoCognitionJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryVideoCognitionJobWithOptions(request, runtime);
+  }
+
+  /**
    * Obtain a new upload credential for a media asset after its upload credential expires.
    * 
    * @remarks
@@ -13388,6 +13898,52 @@ export default class Client extends OpenApi {
   async registerMediaStream(request: $_model.RegisterMediaStreamRequest): Promise<$_model.RegisterMediaStreamResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.registerMediaStreamWithOptions(request, runtime);
+  }
+
+  /**
+   * 恢复某个MediaConnect实例的某个输出
+   * 
+   * @param request - ResumeMediaConnectFlowOutputRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeMediaConnectFlowOutputResponse
+   */
+  async resumeMediaConnectFlowOutputWithOptions(request: $_model.ResumeMediaConnectFlowOutputRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeMediaConnectFlowOutputResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.outputName)) {
+      query["OutputName"] = request.outputName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResumeMediaConnectFlowOutput",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResumeMediaConnectFlowOutputResponse>(await this.callApi(params, req, runtime), new $_model.ResumeMediaConnectFlowOutputResponse({}));
+  }
+
+  /**
+   * 恢复某个MediaConnect实例的某个输出
+   * 
+   * @param request - ResumeMediaConnectFlowOutputRequest
+   * @returns ResumeMediaConnectFlowOutputResponse
+   */
+  async resumeMediaConnectFlowOutput(request: $_model.ResumeMediaConnectFlowOutputRequest): Promise<$_model.ResumeMediaConnectFlowOutputResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resumeMediaConnectFlowOutputWithOptions(request, runtime);
   }
 
   /**
@@ -14338,6 +14894,58 @@ export default class Client extends OpenApi {
   async sendMessageChatText(request: $_model.SendMessageChatTextRequest): Promise<$_model.SendMessageChatTextResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.sendMessageChatTextWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置声纹
+   * 
+   * @param tmpReq - SetAIAgentVoiceprintRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetAIAgentVoiceprintResponse
+   */
+  async setAIAgentVoiceprintWithOptions(tmpReq: $_model.SetAIAgentVoiceprintRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetAIAgentVoiceprintResponse> {
+    tmpReq.validate();
+    let request = new $_model.SetAIAgentVoiceprintShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.inputShrink)) {
+      query["Input"] = request.inputShrink;
+    }
+
+    if (!$dara.isNull(request.voiceprintId)) {
+      query["VoiceprintId"] = request.voiceprintId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetAIAgentVoiceprint",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetAIAgentVoiceprintResponse>(await this.callApi(params, req, runtime), new $_model.SetAIAgentVoiceprintResponse({}));
+  }
+
+  /**
+   * 设置声纹
+   * 
+   * @param request - SetAIAgentVoiceprintRequest
+   * @returns SetAIAgentVoiceprintResponse
+   */
+  async setAIAgentVoiceprint(request: $_model.SetAIAgentVoiceprintRequest): Promise<$_model.SetAIAgentVoiceprintResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setAIAgentVoiceprintWithOptions(request, runtime);
   }
 
   /**
@@ -17820,6 +18428,70 @@ export default class Client extends OpenApi {
   async submitTranscodeJob(request: $_model.SubmitTranscodeJobRequest): Promise<$_model.SubmitTranscodeJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitTranscodeJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交视频理解任务
+   * 
+   * @param tmpReq - SubmitVideoCognitionJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitVideoCognitionJobResponse
+   */
+  async submitVideoCognitionJobWithOptions(tmpReq: $_model.SubmitVideoCognitionJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitVideoCognitionJobResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitVideoCognitionJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.inputShrink)) {
+      query["Input"] = request.inputShrink;
+    }
+
+    if (!$dara.isNull(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitVideoCognitionJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitVideoCognitionJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitVideoCognitionJobResponse({}));
+  }
+
+  /**
+   * 提交视频理解任务
+   * 
+   * @param request - SubmitVideoCognitionJobRequest
+   * @returns SubmitVideoCognitionJobResponse
+   */
+  async submitVideoCognitionJob(request: $_model.SubmitVideoCognitionJobRequest): Promise<$_model.SubmitVideoCognitionJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitVideoCognitionJobWithOptions(request, runtime);
   }
 
   /**
