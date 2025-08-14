@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/docmind-api20220711",
-  "version": "1.4.3",
+  "version": "1.4.8",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -20,10 +20,7 @@
   },
   "dependencies": {
     "@darabonba/typescript": "^1.0.0",
-    "@alicloud/oss-client": "^1.1.2",
-    "@alicloud/openplatform20191219": "2.0.0",
-    "@alicloud/oss-util": "0.0.1",
-    "@alicloud/tea-fileform": "^1.0.0",
+    "@alicloud/credentials": "^2.4.2",
     "@alicloud/openapi-core": "^1.0.0"
   },
   "files": [

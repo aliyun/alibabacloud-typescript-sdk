@@ -1,3787 +1,11 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import OSS, * as $OSS from '@alicloud/oss-client';
-import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
-import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
-import FileForm, * as $FileForm from '@alicloud/tea-fileform';
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
-import { Readable } from 'stream';
 import * as $dara from '@darabonba/typescript';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class GetDocumentConvertResultResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * e6d83e55df218650b9a296bfbc300076
-   */
-  md5?: string;
-  /**
-   * @example
-   * 2355965
-   */
-  size?: number;
-  /**
-   * @example
-   * pdf
-   */
-  type?: string;
-  /**
-   * @example
-   * http://docmind-api-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/convert/docmind-20220816-15bc7965/0.pdf?Expires=1660722412&OSSAccessKeyId=LTAI5tFEK2uEApeeYzxNMEci&Signature=f%2FKluINWMuuVyA5w22Z1wkoRjEg%3D
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      md5: 'Md5',
-      size: 'Size',
-      type: 'Type',
-      url: 'Url',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      md5: 'string',
-      size: 'number',
-      type: 'string',
-      url: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPageNumResponseBodyData extends $dara.Model {
-  pageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDocParserStatusResponseBodyData extends $dara.Model {
-  imageCount?: number;
-  numberOfSuccessfulParsing?: number;
-  pageCountEstimate?: number;
-  paragraphCount?: number;
-  status?: string;
-  tableCount?: number;
-  tokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageCount: 'ImageCount',
-      numberOfSuccessfulParsing: 'NumberOfSuccessfulParsing',
-      pageCountEstimate: 'PageCountEstimate',
-      paragraphCount: 'ParagraphCount',
-      status: 'Status',
-      tableCount: 'TableCount',
-      tokens: 'Tokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageCount: 'number',
-      numberOfSuccessfulParsing: 'number',
-      pageCountEstimate: 'number',
-      paragraphCount: 'number',
-      status: 'string',
-      tableCount: 'number',
-      tokens: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToExcelJobResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220810-7c5f9dd4
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToMarkdownJobResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220810-7c5f9dd4
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToPdfJobResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220810-7c5f9dd4
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToWordJobResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220810-7c5f9dd4
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToExcelJobResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220816-15bc7965
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToImageJobResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220810-7c5f9dd4
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToMarkdownJobResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220816-15bc7965
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToWordJobResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220816-15bc7965
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocParserJobResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220816-15bc7965
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocStructureJobResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220816-15bc7965
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocumentExtractJobResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220816-15bc7965
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTableUnderstandingJobResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220816-15bc7965
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AyncTradeDocumentPackageExtractSmartAppRequest extends $dara.Model {
-  customExtractionRange?: string[];
-  fileName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  fileUrl?: string;
-  option?: string;
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      customExtractionRange: 'CustomExtractionRange',
-      fileName: 'FileName',
-      fileUrl: 'FileUrl',
-      option: 'Option',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customExtractionRange: { 'type': 'array', 'itemType': 'string' },
-      fileName: 'string',
-      fileUrl: 'string',
-      option: 'string',
-      templateName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.customExtractionRange)) {
-      $dara.Model.validateArray(this.customExtractionRange);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AyncTradeDocumentPackageExtractSmartAppShrinkRequest extends $dara.Model {
-  customExtractionRangeShrink?: string;
-  fileName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  fileUrl?: string;
-  option?: string;
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      customExtractionRangeShrink: 'CustomExtractionRange',
-      fileName: 'FileName',
-      fileUrl: 'FileUrl',
-      option: 'Option',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customExtractionRangeShrink: 'string',
-      fileName: 'string',
-      fileUrl: 'string',
-      option: 'string',
-      templateName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AyncTradeDocumentPackageExtractSmartAppResponseBody extends $dara.Model {
-  completed?: boolean;
-  createTime?: string;
-  data?: any;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  status?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      completed: 'Completed',
-      createTime: 'CreateTime',
-      data: 'Data',
-      requestId: 'RequestId',
-      status: 'Status',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      completed: 'boolean',
-      createTime: 'string',
-      data: 'any',
-      requestId: 'string',
-      status: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AyncTradeDocumentPackageExtractSmartAppResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AyncTradeDocumentPackageExtractSmartAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AyncTradeDocumentPackageExtractSmartAppResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocParserResultRequest extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220816-1e89d65c
-   */
-  id?: string;
-  layoutNum?: number;
-  layoutStepSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      layoutNum: 'LayoutNum',
-      layoutStepSize: 'LayoutStepSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      layoutNum: 'number',
-      layoutStepSize: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocParserResultResponseBody extends $dara.Model {
-  code?: string;
-  data?: { [key: string]: any };
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data) {
-      $dara.Model.validateMap(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocParserResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDocParserResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDocParserResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocStructureResultRequest extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220816-1e89d65c
-   */
-  id?: string;
-  imageStrategy?: string;
-  revealMarkdown?: boolean;
-  useUrlResponseBody?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      imageStrategy: 'ImageStrategy',
-      revealMarkdown: 'RevealMarkdown',
-      useUrlResponseBody: 'UseUrlResponseBody',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      imageStrategy: 'string',
-      revealMarkdown: 'boolean',
-      useUrlResponseBody: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocStructureResultResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  completed?: boolean;
-  data?: { [key: string]: any };
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  /**
-   * @example
-   * Success
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      completed: 'Completed',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      completed: 'boolean',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      message: 'string',
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data) {
-      $dara.Model.validateMap(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocStructureResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDocStructureResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDocStructureResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentCompareResultRequest extends $dara.Model {
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentCompareResultResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  completed?: boolean;
-  data?: any;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  /**
-   * @example
-   * Success
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      completed: 'Completed',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      completed: 'boolean',
-      data: 'any',
-      message: 'string',
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentCompareResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDocumentCompareResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDocumentCompareResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentConvertResultRequest extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220816-1e89d65c
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentConvertResultResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  completed?: boolean;
-  data?: GetDocumentConvertResultResponseBodyData[];
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Success
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      completed: 'Completed',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      completed: 'boolean',
-      data: { 'type': 'array', 'itemType': GetDocumentConvertResultResponseBodyData },
-      message: 'string',
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentConvertResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDocumentConvertResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDocumentConvertResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentExtractResultRequest extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220816-1e89d65c
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentExtractResultResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  completed?: boolean;
-  data?: { [key: string]: any };
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  /**
-   * @example
-   * Success
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      completed: 'Completed',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      completed: 'boolean',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      message: 'string',
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data) {
-      $dara.Model.validateMap(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDocumentExtractResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDocumentExtractResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDocumentExtractResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPageNumRequest extends $dara.Model {
-  bizId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPageNumResponseBody extends $dara.Model {
-  data?: GetPageNumResponseBodyData;
-  errorCode?: string;
-  errorMessage?: string;
-  httpCode?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      httpCode: 'HttpCode',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetPageNumResponseBodyData,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPageNumResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetPageNumResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetPageNumResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTableUnderstandingResultRequest extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220816-1e89d65c
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTableUnderstandingResultResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  completed?: boolean;
-  data?: { [key: string]: any };
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  /**
-   * @example
-   * Success
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      completed: 'Completed',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      completed: 'boolean',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      message: 'string',
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data) {
-      $dara.Model.validateMap(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTableUnderstandingResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetTableUnderstandingResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetTableUnderstandingResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDocParserStatusRequest extends $dara.Model {
-  /**
-   * @example
-   * docmind-20220816-1e89d65c
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDocParserStatusResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: QueryDocParserStatusResponseBodyData;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: QueryDocParserStatusResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDocParserStatusResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDocParserStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDocParserStatusResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToExcelJobRequest extends $dara.Model {
-  forceMergeExcel?: boolean;
-  /**
-   * @example
-   * jpg
-   */
-  imageNameExtension?: string;
-  imageNames?: string[];
-  imageUrls?: string[];
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      forceMergeExcel: 'ForceMergeExcel',
-      imageNameExtension: 'ImageNameExtension',
-      imageNames: 'ImageNames',
-      imageUrls: 'ImageUrls',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      forceMergeExcel: 'boolean',
-      imageNameExtension: 'string',
-      imageNames: { 'type': 'array', 'itemType': 'string' },
-      imageUrls: { 'type': 'array', 'itemType': 'string' },
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.imageNames)) {
-      $dara.Model.validateArray(this.imageNames);
-    }
-    if(Array.isArray(this.imageUrls)) {
-      $dara.Model.validateArray(this.imageUrls);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToExcelJobShrinkRequest extends $dara.Model {
-  forceMergeExcel?: boolean;
-  /**
-   * @example
-   * jpg
-   */
-  imageNameExtension?: string;
-  imageNamesShrink?: string;
-  imageUrlsShrink?: string;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      forceMergeExcel: 'ForceMergeExcel',
-      imageNameExtension: 'ImageNameExtension',
-      imageNamesShrink: 'ImageNames',
-      imageUrlsShrink: 'ImageUrls',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      forceMergeExcel: 'boolean',
-      imageNameExtension: 'string',
-      imageNamesShrink: 'string',
-      imageUrlsShrink: 'string',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToExcelJobResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: SubmitConvertImageToExcelJobResponseBodyData;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitConvertImageToExcelJobResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToExcelJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitConvertImageToExcelJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitConvertImageToExcelJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToMarkdownJobRequest extends $dara.Model {
-  /**
-   * @example
-   * jpg
-   */
-  imageNameExtension?: string;
-  imageNames?: string[];
-  imageUrls?: string[];
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageNameExtension: 'ImageNameExtension',
-      imageNames: 'ImageNames',
-      imageUrls: 'ImageUrls',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageNameExtension: 'string',
-      imageNames: { 'type': 'array', 'itemType': 'string' },
-      imageUrls: { 'type': 'array', 'itemType': 'string' },
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.imageNames)) {
-      $dara.Model.validateArray(this.imageNames);
-    }
-    if(Array.isArray(this.imageUrls)) {
-      $dara.Model.validateArray(this.imageUrls);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToMarkdownJobShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * jpg
-   */
-  imageNameExtension?: string;
-  imageNamesShrink?: string;
-  imageUrlsShrink?: string;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageNameExtension: 'ImageNameExtension',
-      imageNamesShrink: 'ImageNames',
-      imageUrlsShrink: 'ImageUrls',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageNameExtension: 'string',
-      imageNamesShrink: 'string',
-      imageUrlsShrink: 'string',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToMarkdownJobResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: SubmitConvertImageToMarkdownJobResponseBodyData;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitConvertImageToMarkdownJobResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToMarkdownJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitConvertImageToMarkdownJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitConvertImageToMarkdownJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToPdfJobRequest extends $dara.Model {
-  /**
-   * @example
-   * JPG
-   */
-  imageNameExtension?: string;
-  imageNames?: string[];
-  imageUrls?: string[];
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageNameExtension: 'ImageNameExtension',
-      imageNames: 'ImageNames',
-      imageUrls: 'ImageUrls',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageNameExtension: 'string',
-      imageNames: { 'type': 'array', 'itemType': 'string' },
-      imageUrls: { 'type': 'array', 'itemType': 'string' },
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.imageNames)) {
-      $dara.Model.validateArray(this.imageNames);
-    }
-    if(Array.isArray(this.imageUrls)) {
-      $dara.Model.validateArray(this.imageUrls);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToPdfJobShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * JPG
-   */
-  imageNameExtension?: string;
-  imageNamesShrink?: string;
-  imageUrlsShrink?: string;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageNameExtension: 'ImageNameExtension',
-      imageNamesShrink: 'ImageNames',
-      imageUrlsShrink: 'ImageUrls',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageNameExtension: 'string',
-      imageNamesShrink: 'string',
-      imageUrlsShrink: 'string',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToPdfJobResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: SubmitConvertImageToPdfJobResponseBodyData;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitConvertImageToPdfJobResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToPdfJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitConvertImageToPdfJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitConvertImageToPdfJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToWordJobRequest extends $dara.Model {
-  /**
-   * @example
-   * jpg
-   */
-  imageNameExtension?: string;
-  imageNames?: string[];
-  imageUrls?: string[];
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageNameExtension: 'ImageNameExtension',
-      imageNames: 'ImageNames',
-      imageUrls: 'ImageUrls',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageNameExtension: 'string',
-      imageNames: { 'type': 'array', 'itemType': 'string' },
-      imageUrls: { 'type': 'array', 'itemType': 'string' },
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.imageNames)) {
-      $dara.Model.validateArray(this.imageNames);
-    }
-    if(Array.isArray(this.imageUrls)) {
-      $dara.Model.validateArray(this.imageUrls);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToWordJobShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * jpg
-   */
-  imageNameExtension?: string;
-  imageNamesShrink?: string;
-  imageUrlsShrink?: string;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageNameExtension: 'ImageNameExtension',
-      imageNamesShrink: 'ImageNames',
-      imageUrlsShrink: 'ImageUrls',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageNameExtension: 'string',
-      imageNamesShrink: 'string',
-      imageUrlsShrink: 'string',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToWordJobResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: SubmitConvertImageToWordJobResponseBodyData;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitConvertImageToWordJobResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertImageToWordJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitConvertImageToWordJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitConvertImageToWordJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToExcelJobRequest extends $dara.Model {
-  /**
-   * @example
-   * convertPdfToExcel.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrl?: string;
-  forceExportInnerImage?: boolean;
-  forceMergeExcel?: boolean;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileUrl: 'FileUrl',
-      forceExportInnerImage: 'ForceExportInnerImage',
-      forceMergeExcel: 'ForceMergeExcel',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileUrl: 'string',
-      forceExportInnerImage: 'boolean',
-      forceMergeExcel: 'boolean',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToExcelJobAdvanceRequest extends $dara.Model {
-  /**
-   * @example
-   * convertPdfToExcel.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrlObject?: Readable;
-  forceExportInnerImage?: boolean;
-  forceMergeExcel?: boolean;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileUrlObject: 'FileUrl',
-      forceExportInnerImage: 'ForceExportInnerImage',
-      forceMergeExcel: 'ForceMergeExcel',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileUrlObject: 'Readable',
-      forceExportInnerImage: 'boolean',
-      forceMergeExcel: 'boolean',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToExcelJobResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: SubmitConvertPdfToExcelJobResponseBodyData;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitConvertPdfToExcelJobResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToExcelJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitConvertPdfToExcelJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitConvertPdfToExcelJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToImageJobRequest extends $dara.Model {
-  /**
-   * @example
-   * convertPdfToImage.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrl?: string;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileUrl: 'FileUrl',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileUrl: 'string',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToImageJobAdvanceRequest extends $dara.Model {
-  /**
-   * @example
-   * convertPdfToImage.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrlObject?: Readable;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileUrlObject: 'FileUrl',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileUrlObject: 'Readable',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToImageJobResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: SubmitConvertPdfToImageJobResponseBodyData;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitConvertPdfToImageJobResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToImageJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitConvertPdfToImageJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitConvertPdfToImageJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToMarkdownJobRequest extends $dara.Model {
-  /**
-   * @example
-   * convertPdfToExcel.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrl?: string;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileUrl: 'FileUrl',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileUrl: 'string',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToMarkdownJobAdvanceRequest extends $dara.Model {
-  /**
-   * @example
-   * convertPdfToExcel.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrlObject?: Readable;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileUrlObject: 'FileUrl',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileUrlObject: 'Readable',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToMarkdownJobResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: SubmitConvertPdfToMarkdownJobResponseBodyData;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitConvertPdfToMarkdownJobResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToMarkdownJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitConvertPdfToMarkdownJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitConvertPdfToMarkdownJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToWordJobRequest extends $dara.Model {
-  /**
-   * @example
-   * covertPdfToWord.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrl?: string;
-  forceExportInnerImage?: boolean;
-  formulaEnhancement?: boolean;
-  option?: string;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileUrl: 'FileUrl',
-      forceExportInnerImage: 'ForceExportInnerImage',
-      formulaEnhancement: 'FormulaEnhancement',
-      option: 'Option',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileUrl: 'string',
-      forceExportInnerImage: 'boolean',
-      formulaEnhancement: 'boolean',
-      option: 'string',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToWordJobAdvanceRequest extends $dara.Model {
-  /**
-   * @example
-   * covertPdfToWord.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrlObject?: Readable;
-  forceExportInnerImage?: boolean;
-  formulaEnhancement?: boolean;
-  option?: string;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileUrlObject: 'FileUrl',
-      forceExportInnerImage: 'ForceExportInnerImage',
-      formulaEnhancement: 'FormulaEnhancement',
-      option: 'Option',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileUrlObject: 'Readable',
-      forceExportInnerImage: 'boolean',
-      formulaEnhancement: 'boolean',
-      option: 'string',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToWordJobResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: SubmitConvertPdfToWordJobResponseBodyData;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitConvertPdfToWordJobResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitConvertPdfToWordJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitConvertPdfToWordJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitConvertPdfToWordJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDigitalDocStructureJobRequest extends $dara.Model {
-  /**
-   * @example
-   * docStructure.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * pdf
-   */
-  fileNameExtension?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrl?: string;
-  imageStrategy?: string;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  revealMarkdown?: boolean;
-  useUrlResponseBody?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileNameExtension: 'FileNameExtension',
-      fileUrl: 'FileUrl',
-      imageStrategy: 'ImageStrategy',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-      revealMarkdown: 'RevealMarkdown',
-      useUrlResponseBody: 'UseUrlResponseBody',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileNameExtension: 'string',
-      fileUrl: 'string',
-      imageStrategy: 'string',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-      revealMarkdown: 'boolean',
-      useUrlResponseBody: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDigitalDocStructureJobAdvanceRequest extends $dara.Model {
-  /**
-   * @example
-   * docStructure.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * pdf
-   */
-  fileNameExtension?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrlObject?: Readable;
-  imageStrategy?: string;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  revealMarkdown?: boolean;
-  useUrlResponseBody?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileNameExtension: 'FileNameExtension',
-      fileUrlObject: 'FileUrl',
-      imageStrategy: 'ImageStrategy',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-      revealMarkdown: 'RevealMarkdown',
-      useUrlResponseBody: 'UseUrlResponseBody',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileNameExtension: 'string',
-      fileUrlObject: 'Readable',
-      imageStrategy: 'string',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-      revealMarkdown: 'boolean',
-      useUrlResponseBody: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDigitalDocStructureJobResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: any;
-  id?: string;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      id: 'Id',
-      message: 'Message',
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'any',
-      id: 'string',
-      message: 'string',
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDigitalDocStructureJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitDigitalDocStructureJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitDigitalDocStructureJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocParserJobRequest extends $dara.Model {
-  /**
-   * @example
-   * docStructure.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * pdf
-   */
-  fileNameExtension?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrl?: string;
-  formulaEnhancement?: boolean;
-  llmEnhancement?: boolean;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileNameExtension: 'FileNameExtension',
-      fileUrl: 'FileUrl',
-      formulaEnhancement: 'FormulaEnhancement',
-      llmEnhancement: 'LlmEnhancement',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileNameExtension: 'string',
-      fileUrl: 'string',
-      formulaEnhancement: 'boolean',
-      llmEnhancement: 'boolean',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocParserJobAdvanceRequest extends $dara.Model {
-  /**
-   * @example
-   * docStructure.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * pdf
-   */
-  fileNameExtension?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrlObject?: Readable;
-  formulaEnhancement?: boolean;
-  llmEnhancement?: boolean;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileNameExtension: 'FileNameExtension',
-      fileUrlObject: 'FileUrl',
-      formulaEnhancement: 'FormulaEnhancement',
-      llmEnhancement: 'LlmEnhancement',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileNameExtension: 'string',
-      fileUrlObject: 'Readable',
-      formulaEnhancement: 'boolean',
-      llmEnhancement: 'boolean',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocParserJobResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: SubmitDocParserJobResponseBodyData;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitDocParserJobResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocParserJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitDocParserJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitDocParserJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocStructureJobRequest extends $dara.Model {
-  allowPptFormat?: boolean;
-  /**
-   * @example
-   * docStructure.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * pdf
-   */
-  fileNameExtension?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrl?: string;
-  formulaEnhancement?: boolean;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  structureType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowPptFormat: 'AllowPptFormat',
-      fileName: 'FileName',
-      fileNameExtension: 'FileNameExtension',
-      fileUrl: 'FileUrl',
-      formulaEnhancement: 'FormulaEnhancement',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-      structureType: 'StructureType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowPptFormat: 'boolean',
-      fileName: 'string',
-      fileNameExtension: 'string',
-      fileUrl: 'string',
-      formulaEnhancement: 'boolean',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-      structureType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocStructureJobAdvanceRequest extends $dara.Model {
-  allowPptFormat?: boolean;
-  /**
-   * @example
-   * docStructure.pdf
-   */
-  fileName?: string;
-  /**
-   * @example
-   * pdf
-   */
-  fileNameExtension?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrlObject?: Readable;
-  formulaEnhancement?: boolean;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  structureType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowPptFormat: 'AllowPptFormat',
-      fileName: 'FileName',
-      fileNameExtension: 'FileNameExtension',
-      fileUrlObject: 'FileUrl',
-      formulaEnhancement: 'FormulaEnhancement',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-      structureType: 'StructureType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowPptFormat: 'boolean',
-      fileName: 'string',
-      fileNameExtension: 'string',
-      fileUrlObject: 'Readable',
-      formulaEnhancement: 'boolean',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-      structureType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocStructureJobResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: SubmitDocStructureJobResponseBodyData;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitDocStructureJobResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocStructureJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitDocStructureJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitDocStructureJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocumentExtractJobRequest extends $dara.Model {
-  fileName?: string;
-  /**
-   * @example
-   * pdf
-   */
-  fileNameExtension?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrl?: string;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileNameExtension: 'FileNameExtension',
-      fileUrl: 'FileUrl',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileNameExtension: 'string',
-      fileUrl: 'string',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocumentExtractJobAdvanceRequest extends $dara.Model {
-  fileName?: string;
-  /**
-   * @example
-   * pdf
-   */
-  fileNameExtension?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrlObject?: Readable;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileNameExtension: 'FileNameExtension',
-      fileUrlObject: 'FileUrl',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileNameExtension: 'string',
-      fileUrlObject: 'Readable',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocumentExtractJobResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: SubmitDocumentExtractJobResponseBodyData;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitDocumentExtractJobResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocumentExtractJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitDocumentExtractJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitDocumentExtractJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTableUnderstandingJobRequest extends $dara.Model {
-  fileName?: string;
-  /**
-   * @example
-   * pdf
-   */
-  fileNameExtension?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrl?: string;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileNameExtension: 'FileNameExtension',
-      fileUrl: 'FileUrl',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileNameExtension: 'string',
-      fileUrl: 'string',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTableUnderstandingJobAdvanceRequest extends $dara.Model {
-  fileName?: string;
-  /**
-   * @example
-   * pdf
-   */
-  fileNameExtension?: string;
-  /**
-   * @example
-   * https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
-   */
-  fileUrlObject?: Readable;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileNameExtension: 'FileNameExtension',
-      fileUrlObject: 'FileUrl',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileNameExtension: 'string',
-      fileUrlObject: 'Readable',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTableUnderstandingJobResponseBody extends $dara.Model {
-  /**
-   * @example
-   * noPermission
-   */
-  code?: string;
-  data?: SubmitTableUnderstandingJobResponseBodyData;
-  /**
-   * @example
-   * You are not authorized to perform this operation.
-   */
-  message?: string;
-  /**
-   * @example
-   * 43A29C77-405E-4CC0-BC55-EE694AD00655
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SubmitTableUnderstandingJobResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTableUnderstandingJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitTableUnderstandingJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitTableUnderstandingJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
@@ -3850,6 +74,42 @@ export default class Client extends OpenApi {
     this._endpoint = this.getEndpoint("docmind-api", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
+    let request_ = new $dara.Request();
+    let boundary = $dara.Form.getBoundary();
+    request_.protocol = "HTTPS";
+    request_.method = "POST";
+    request_.pathname = `/`;
+    request_.headers = {
+      host: String(form["host"]),
+      date: OpenApiUtil.getDateUTCString(),
+      'user-agent': OpenApiUtil.getUserAgent(""),
+    };
+    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+    request_.body = $dara.Form.toFileForm(form, boundary);
+    let response_ = await $dara.doAction(request_);
+
+    let respMap : {[key: string]: any} = null;
+    let bodyStr = await $dara.Stream.readAsString(response_.body);
+    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+      respMap = $dara.XML.parseXml(bodyStr, null);
+      let err = respMap["Error"];
+      throw new $OpenApi.ClientError({
+        code: String(err["Code"]),
+        message: String(err["Message"]),
+        data: {
+          httpCode: response_.statusCode,
+          requestId: String(err["RequestId"]),
+          hostId: String(err["HostId"]),
+        },
+      });
+    }
+
+    respMap = $dara.XML.parseXml(bodyStr, null);
+    return {
+      ...respMap,
+    };
+  }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
     if (!$dara.isNull(endpoint)) {
@@ -3870,9 +130,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AyncTradeDocumentPackageExtractSmartAppResponse
    */
-  async ayncTradeDocumentPackageExtractSmartAppWithOptions(tmpReq: AyncTradeDocumentPackageExtractSmartAppRequest, runtime: $dara.RuntimeOptions): Promise<AyncTradeDocumentPackageExtractSmartAppResponse> {
+  async ayncTradeDocumentPackageExtractSmartAppWithOptions(tmpReq: $_model.AyncTradeDocumentPackageExtractSmartAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AyncTradeDocumentPackageExtractSmartAppResponse> {
     tmpReq.validate();
-    let request = new AyncTradeDocumentPackageExtractSmartAppShrinkRequest({ });
+    let request = new $_model.AyncTradeDocumentPackageExtractSmartAppShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.customExtractionRange)) {
       request.customExtractionRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customExtractionRange, "CustomExtractionRange", "json");
@@ -3913,12 +173,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<AyncTradeDocumentPackageExtractSmartAppResponse>(await this.callApi(params, req, runtime), new AyncTradeDocumentPackageExtractSmartAppResponse({}));
-    } else {
-      return $dara.cast<AyncTradeDocumentPackageExtractSmartAppResponse>(await this.execute(params, req, runtime), new AyncTradeDocumentPackageExtractSmartAppResponse({}));
-    }
-
+    return $dara.cast<$_model.AyncTradeDocumentPackageExtractSmartAppResponse>(await this.callApi(params, req, runtime), new $_model.AyncTradeDocumentPackageExtractSmartAppResponse({}));
   }
 
   /**
@@ -3927,7 +182,7 @@ export default class Client extends OpenApi {
    * @param request - AyncTradeDocumentPackageExtractSmartAppRequest
    * @returns AyncTradeDocumentPackageExtractSmartAppResponse
    */
-  async ayncTradeDocumentPackageExtractSmartApp(request: AyncTradeDocumentPackageExtractSmartAppRequest): Promise<AyncTradeDocumentPackageExtractSmartAppResponse> {
+  async ayncTradeDocumentPackageExtractSmartApp(request: $_model.AyncTradeDocumentPackageExtractSmartAppRequest): Promise<$_model.AyncTradeDocumentPackageExtractSmartAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.ayncTradeDocumentPackageExtractSmartAppWithOptions(request, runtime);
   }
@@ -3939,7 +194,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDocParserResultResponse
    */
-  async getDocParserResultWithOptions(request: GetDocParserResultRequest, runtime: $dara.RuntimeOptions): Promise<GetDocParserResultResponse> {
+  async getDocParserResultWithOptions(request: $_model.GetDocParserResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDocParserResultResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.id)) {
@@ -3968,12 +223,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDocParserResultResponse>(await this.callApi(params, req, runtime), new GetDocParserResultResponse({}));
-    } else {
-      return $dara.cast<GetDocParserResultResponse>(await this.execute(params, req, runtime), new GetDocParserResultResponse({}));
-    }
-
+    return $dara.cast<$_model.GetDocParserResultResponse>(await this.callApi(params, req, runtime), new $_model.GetDocParserResultResponse({}));
   }
 
   /**
@@ -3982,7 +232,7 @@ export default class Client extends OpenApi {
    * @param request - GetDocParserResultRequest
    * @returns GetDocParserResultResponse
    */
-  async getDocParserResult(request: GetDocParserResultRequest): Promise<GetDocParserResultResponse> {
+  async getDocParserResult(request: $_model.GetDocParserResultRequest): Promise<$_model.GetDocParserResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDocParserResultWithOptions(request, runtime);
   }
@@ -3994,7 +244,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDocStructureResultResponse
    */
-  async getDocStructureResultWithOptions(request: GetDocStructureResultRequest, runtime: $dara.RuntimeOptions): Promise<GetDocStructureResultResponse> {
+  async getDocStructureResultWithOptions(request: $_model.GetDocStructureResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDocStructureResultResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.id)) {
@@ -4027,12 +277,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDocStructureResultResponse>(await this.callApi(params, req, runtime), new GetDocStructureResultResponse({}));
-    } else {
-      return $dara.cast<GetDocStructureResultResponse>(await this.execute(params, req, runtime), new GetDocStructureResultResponse({}));
-    }
-
+    return $dara.cast<$_model.GetDocStructureResultResponse>(await this.callApi(params, req, runtime), new $_model.GetDocStructureResultResponse({}));
   }
 
   /**
@@ -4041,7 +286,7 @@ export default class Client extends OpenApi {
    * @param request - GetDocStructureResultRequest
    * @returns GetDocStructureResultResponse
    */
-  async getDocStructureResult(request: GetDocStructureResultRequest): Promise<GetDocStructureResultResponse> {
+  async getDocStructureResult(request: $_model.GetDocStructureResultRequest): Promise<$_model.GetDocStructureResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDocStructureResultWithOptions(request, runtime);
   }
@@ -4053,7 +298,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDocumentCompareResultResponse
    */
-  async getDocumentCompareResultWithOptions(request: GetDocumentCompareResultRequest, runtime: $dara.RuntimeOptions): Promise<GetDocumentCompareResultResponse> {
+  async getDocumentCompareResultWithOptions(request: $_model.GetDocumentCompareResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDocumentCompareResultResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.id)) {
@@ -4074,12 +319,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDocumentCompareResultResponse>(await this.callApi(params, req, runtime), new GetDocumentCompareResultResponse({}));
-    } else {
-      return $dara.cast<GetDocumentCompareResultResponse>(await this.execute(params, req, runtime), new GetDocumentCompareResultResponse({}));
-    }
-
+    return $dara.cast<$_model.GetDocumentCompareResultResponse>(await this.callApi(params, req, runtime), new $_model.GetDocumentCompareResultResponse({}));
   }
 
   /**
@@ -4088,7 +328,7 @@ export default class Client extends OpenApi {
    * @param request - GetDocumentCompareResultRequest
    * @returns GetDocumentCompareResultResponse
    */
-  async getDocumentCompareResult(request: GetDocumentCompareResultRequest): Promise<GetDocumentCompareResultResponse> {
+  async getDocumentCompareResult(request: $_model.GetDocumentCompareResultRequest): Promise<$_model.GetDocumentCompareResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDocumentCompareResultWithOptions(request, runtime);
   }
@@ -4100,7 +340,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDocumentConvertResultResponse
    */
-  async getDocumentConvertResultWithOptions(request: GetDocumentConvertResultRequest, runtime: $dara.RuntimeOptions): Promise<GetDocumentConvertResultResponse> {
+  async getDocumentConvertResultWithOptions(request: $_model.GetDocumentConvertResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDocumentConvertResultResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.id)) {
@@ -4121,12 +361,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDocumentConvertResultResponse>(await this.callApi(params, req, runtime), new GetDocumentConvertResultResponse({}));
-    } else {
-      return $dara.cast<GetDocumentConvertResultResponse>(await this.execute(params, req, runtime), new GetDocumentConvertResultResponse({}));
-    }
-
+    return $dara.cast<$_model.GetDocumentConvertResultResponse>(await this.callApi(params, req, runtime), new $_model.GetDocumentConvertResultResponse({}));
   }
 
   /**
@@ -4135,7 +370,7 @@ export default class Client extends OpenApi {
    * @param request - GetDocumentConvertResultRequest
    * @returns GetDocumentConvertResultResponse
    */
-  async getDocumentConvertResult(request: GetDocumentConvertResultRequest): Promise<GetDocumentConvertResultResponse> {
+  async getDocumentConvertResult(request: $_model.GetDocumentConvertResultRequest): Promise<$_model.GetDocumentConvertResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDocumentConvertResultWithOptions(request, runtime);
   }
@@ -4147,7 +382,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDocumentExtractResultResponse
    */
-  async getDocumentExtractResultWithOptions(request: GetDocumentExtractResultRequest, runtime: $dara.RuntimeOptions): Promise<GetDocumentExtractResultResponse> {
+  async getDocumentExtractResultWithOptions(request: $_model.GetDocumentExtractResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDocumentExtractResultResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.id)) {
@@ -4168,12 +403,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDocumentExtractResultResponse>(await this.callApi(params, req, runtime), new GetDocumentExtractResultResponse({}));
-    } else {
-      return $dara.cast<GetDocumentExtractResultResponse>(await this.execute(params, req, runtime), new GetDocumentExtractResultResponse({}));
-    }
-
+    return $dara.cast<$_model.GetDocumentExtractResultResponse>(await this.callApi(params, req, runtime), new $_model.GetDocumentExtractResultResponse({}));
   }
 
   /**
@@ -4182,7 +412,7 @@ export default class Client extends OpenApi {
    * @param request - GetDocumentExtractResultRequest
    * @returns GetDocumentExtractResultResponse
    */
-  async getDocumentExtractResult(request: GetDocumentExtractResultRequest): Promise<GetDocumentExtractResultResponse> {
+  async getDocumentExtractResult(request: $_model.GetDocumentExtractResultRequest): Promise<$_model.GetDocumentExtractResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDocumentExtractResultWithOptions(request, runtime);
   }
@@ -4194,7 +424,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPageNumResponse
    */
-  async getPageNumWithOptions(request: GetPageNumRequest, runtime: $dara.RuntimeOptions): Promise<GetPageNumResponse> {
+  async getPageNumWithOptions(request: $_model.GetPageNumRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPageNumResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.bizId)) {
@@ -4215,12 +445,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetPageNumResponse>(await this.callApi(params, req, runtime), new GetPageNumResponse({}));
-    } else {
-      return $dara.cast<GetPageNumResponse>(await this.execute(params, req, runtime), new GetPageNumResponse({}));
-    }
-
+    return $dara.cast<$_model.GetPageNumResponse>(await this.callApi(params, req, runtime), new $_model.GetPageNumResponse({}));
   }
 
   /**
@@ -4229,7 +454,7 @@ export default class Client extends OpenApi {
    * @param request - GetPageNumRequest
    * @returns GetPageNumResponse
    */
-  async getPageNum(request: GetPageNumRequest): Promise<GetPageNumResponse> {
+  async getPageNum(request: $_model.GetPageNumRequest): Promise<$_model.GetPageNumResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getPageNumWithOptions(request, runtime);
   }
@@ -4241,7 +466,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTableUnderstandingResultResponse
    */
-  async getTableUnderstandingResultWithOptions(request: GetTableUnderstandingResultRequest, runtime: $dara.RuntimeOptions): Promise<GetTableUnderstandingResultResponse> {
+  async getTableUnderstandingResultWithOptions(request: $_model.GetTableUnderstandingResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableUnderstandingResultResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.id)) {
@@ -4262,12 +487,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetTableUnderstandingResultResponse>(await this.callApi(params, req, runtime), new GetTableUnderstandingResultResponse({}));
-    } else {
-      return $dara.cast<GetTableUnderstandingResultResponse>(await this.execute(params, req, runtime), new GetTableUnderstandingResultResponse({}));
-    }
-
+    return $dara.cast<$_model.GetTableUnderstandingResultResponse>(await this.callApi(params, req, runtime), new $_model.GetTableUnderstandingResultResponse({}));
   }
 
   /**
@@ -4276,7 +496,7 @@ export default class Client extends OpenApi {
    * @param request - GetTableUnderstandingResultRequest
    * @returns GetTableUnderstandingResultResponse
    */
-  async getTableUnderstandingResult(request: GetTableUnderstandingResultRequest): Promise<GetTableUnderstandingResultResponse> {
+  async getTableUnderstandingResult(request: $_model.GetTableUnderstandingResultRequest): Promise<$_model.GetTableUnderstandingResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getTableUnderstandingResultWithOptions(request, runtime);
   }
@@ -4288,7 +508,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDocParserStatusResponse
    */
-  async queryDocParserStatusWithOptions(request: QueryDocParserStatusRequest, runtime: $dara.RuntimeOptions): Promise<QueryDocParserStatusResponse> {
+  async queryDocParserStatusWithOptions(request: $_model.QueryDocParserStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDocParserStatusResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.id)) {
@@ -4309,12 +529,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryDocParserStatusResponse>(await this.callApi(params, req, runtime), new QueryDocParserStatusResponse({}));
-    } else {
-      return $dara.cast<QueryDocParserStatusResponse>(await this.execute(params, req, runtime), new QueryDocParserStatusResponse({}));
-    }
-
+    return $dara.cast<$_model.QueryDocParserStatusResponse>(await this.callApi(params, req, runtime), new $_model.QueryDocParserStatusResponse({}));
   }
 
   /**
@@ -4323,7 +538,7 @@ export default class Client extends OpenApi {
    * @param request - QueryDocParserStatusRequest
    * @returns QueryDocParserStatusResponse
    */
-  async queryDocParserStatus(request: QueryDocParserStatusRequest): Promise<QueryDocParserStatusResponse> {
+  async queryDocParserStatus(request: $_model.QueryDocParserStatusRequest): Promise<$_model.QueryDocParserStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDocParserStatusWithOptions(request, runtime);
   }
@@ -4335,9 +550,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitConvertImageToExcelJobResponse
    */
-  async submitConvertImageToExcelJobWithOptions(tmpReq: SubmitConvertImageToExcelJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitConvertImageToExcelJobResponse> {
+  async submitConvertImageToExcelJobWithOptions(tmpReq: $_model.SubmitConvertImageToExcelJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitConvertImageToExcelJobResponse> {
     tmpReq.validate();
-    let request = new SubmitConvertImageToExcelJobShrinkRequest({ });
+    let request = new $_model.SubmitConvertImageToExcelJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.imageNames)) {
       request.imageNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageNames, "ImageNames", "simple");
@@ -4386,12 +601,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitConvertImageToExcelJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertImageToExcelJobResponse({}));
-    } else {
-      return $dara.cast<SubmitConvertImageToExcelJobResponse>(await this.execute(params, req, runtime), new SubmitConvertImageToExcelJobResponse({}));
-    }
-
+    return $dara.cast<$_model.SubmitConvertImageToExcelJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitConvertImageToExcelJobResponse({}));
   }
 
   /**
@@ -4400,7 +610,7 @@ export default class Client extends OpenApi {
    * @param request - SubmitConvertImageToExcelJobRequest
    * @returns SubmitConvertImageToExcelJobResponse
    */
-  async submitConvertImageToExcelJob(request: SubmitConvertImageToExcelJobRequest): Promise<SubmitConvertImageToExcelJobResponse> {
+  async submitConvertImageToExcelJob(request: $_model.SubmitConvertImageToExcelJobRequest): Promise<$_model.SubmitConvertImageToExcelJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitConvertImageToExcelJobWithOptions(request, runtime);
   }
@@ -4412,9 +622,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitConvertImageToMarkdownJobResponse
    */
-  async submitConvertImageToMarkdownJobWithOptions(tmpReq: SubmitConvertImageToMarkdownJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitConvertImageToMarkdownJobResponse> {
+  async submitConvertImageToMarkdownJobWithOptions(tmpReq: $_model.SubmitConvertImageToMarkdownJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitConvertImageToMarkdownJobResponse> {
     tmpReq.validate();
-    let request = new SubmitConvertImageToMarkdownJobShrinkRequest({ });
+    let request = new $_model.SubmitConvertImageToMarkdownJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.imageNames)) {
       request.imageNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageNames, "ImageNames", "simple");
@@ -4459,12 +669,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitConvertImageToMarkdownJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertImageToMarkdownJobResponse({}));
-    } else {
-      return $dara.cast<SubmitConvertImageToMarkdownJobResponse>(await this.execute(params, req, runtime), new SubmitConvertImageToMarkdownJobResponse({}));
-    }
-
+    return $dara.cast<$_model.SubmitConvertImageToMarkdownJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitConvertImageToMarkdownJobResponse({}));
   }
 
   /**
@@ -4473,7 +678,7 @@ export default class Client extends OpenApi {
    * @param request - SubmitConvertImageToMarkdownJobRequest
    * @returns SubmitConvertImageToMarkdownJobResponse
    */
-  async submitConvertImageToMarkdownJob(request: SubmitConvertImageToMarkdownJobRequest): Promise<SubmitConvertImageToMarkdownJobResponse> {
+  async submitConvertImageToMarkdownJob(request: $_model.SubmitConvertImageToMarkdownJobRequest): Promise<$_model.SubmitConvertImageToMarkdownJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitConvertImageToMarkdownJobWithOptions(request, runtime);
   }
@@ -4485,9 +690,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitConvertImageToPdfJobResponse
    */
-  async submitConvertImageToPdfJobWithOptions(tmpReq: SubmitConvertImageToPdfJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitConvertImageToPdfJobResponse> {
+  async submitConvertImageToPdfJobWithOptions(tmpReq: $_model.SubmitConvertImageToPdfJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitConvertImageToPdfJobResponse> {
     tmpReq.validate();
-    let request = new SubmitConvertImageToPdfJobShrinkRequest({ });
+    let request = new $_model.SubmitConvertImageToPdfJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.imageNames)) {
       request.imageNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageNames, "ImageNames", "simple");
@@ -4532,12 +737,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitConvertImageToPdfJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertImageToPdfJobResponse({}));
-    } else {
-      return $dara.cast<SubmitConvertImageToPdfJobResponse>(await this.execute(params, req, runtime), new SubmitConvertImageToPdfJobResponse({}));
-    }
-
+    return $dara.cast<$_model.SubmitConvertImageToPdfJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitConvertImageToPdfJobResponse({}));
   }
 
   /**
@@ -4546,7 +746,7 @@ export default class Client extends OpenApi {
    * @param request - SubmitConvertImageToPdfJobRequest
    * @returns SubmitConvertImageToPdfJobResponse
    */
-  async submitConvertImageToPdfJob(request: SubmitConvertImageToPdfJobRequest): Promise<SubmitConvertImageToPdfJobResponse> {
+  async submitConvertImageToPdfJob(request: $_model.SubmitConvertImageToPdfJobRequest): Promise<$_model.SubmitConvertImageToPdfJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitConvertImageToPdfJobWithOptions(request, runtime);
   }
@@ -4558,9 +758,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitConvertImageToWordJobResponse
    */
-  async submitConvertImageToWordJobWithOptions(tmpReq: SubmitConvertImageToWordJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitConvertImageToWordJobResponse> {
+  async submitConvertImageToWordJobWithOptions(tmpReq: $_model.SubmitConvertImageToWordJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitConvertImageToWordJobResponse> {
     tmpReq.validate();
-    let request = new SubmitConvertImageToWordJobShrinkRequest({ });
+    let request = new $_model.SubmitConvertImageToWordJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.imageNames)) {
       request.imageNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageNames, "ImageNames", "simple");
@@ -4605,12 +805,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitConvertImageToWordJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertImageToWordJobResponse({}));
-    } else {
-      return $dara.cast<SubmitConvertImageToWordJobResponse>(await this.execute(params, req, runtime), new SubmitConvertImageToWordJobResponse({}));
-    }
-
+    return $dara.cast<$_model.SubmitConvertImageToWordJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitConvertImageToWordJobResponse({}));
   }
 
   /**
@@ -4619,7 +814,7 @@ export default class Client extends OpenApi {
    * @param request - SubmitConvertImageToWordJobRequest
    * @returns SubmitConvertImageToWordJobResponse
    */
-  async submitConvertImageToWordJob(request: SubmitConvertImageToWordJobRequest): Promise<SubmitConvertImageToWordJobResponse> {
+  async submitConvertImageToWordJob(request: $_model.SubmitConvertImageToWordJobRequest): Promise<$_model.SubmitConvertImageToWordJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitConvertImageToWordJobWithOptions(request, runtime);
   }
@@ -4631,7 +826,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitConvertPdfToExcelJobResponse
    */
-  async submitConvertPdfToExcelJobWithOptions(request: SubmitConvertPdfToExcelJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitConvertPdfToExcelJobResponse> {
+  async submitConvertPdfToExcelJobWithOptions(request: $_model.SubmitConvertPdfToExcelJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitConvertPdfToExcelJobResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.fileName)) {
@@ -4672,12 +867,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitConvertPdfToExcelJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertPdfToExcelJobResponse({}));
-    } else {
-      return $dara.cast<SubmitConvertPdfToExcelJobResponse>(await this.execute(params, req, runtime), new SubmitConvertPdfToExcelJobResponse({}));
-    }
-
+    return $dara.cast<$_model.SubmitConvertPdfToExcelJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitConvertPdfToExcelJobResponse({}));
   }
 
   /**
@@ -4686,19 +876,27 @@ export default class Client extends OpenApi {
    * @param request - SubmitConvertPdfToExcelJobRequest
    * @returns SubmitConvertPdfToExcelJobResponse
    */
-  async submitConvertPdfToExcelJob(request: SubmitConvertPdfToExcelJobRequest): Promise<SubmitConvertPdfToExcelJobResponse> {
+  async submitConvertPdfToExcelJob(request: $_model.SubmitConvertPdfToExcelJobRequest): Promise<$_model.SubmitConvertPdfToExcelJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitConvertPdfToExcelJobWithOptions(request, runtime);
   }
 
-  async submitConvertPdfToExcelJobAdvance(request: SubmitConvertPdfToExcelJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<SubmitConvertPdfToExcelJobResponse> {
+  async submitConvertPdfToExcelJobAdvance(request: $_model.SubmitConvertPdfToExcelJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitConvertPdfToExcelJobResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -4715,51 +913,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "docmind-api",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "docmind-api",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let submitConvertPdfToExcelJobReq = new SubmitConvertPdfToExcelJobRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let submitConvertPdfToExcelJobReq = new $_model.SubmitConvertPdfToExcelJobRequest({ });
     OpenApiUtil.convert(request, submitConvertPdfToExcelJobReq);
     if (!$dara.isNull(request.fileUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      submitConvertPdfToExcelJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      submitConvertPdfToExcelJobReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let submitConvertPdfToExcelJobResp = await this.submitConvertPdfToExcelJobWithOptions(submitConvertPdfToExcelJobReq, runtime);
@@ -4773,7 +974,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitConvertPdfToImageJobResponse
    */
-  async submitConvertPdfToImageJobWithOptions(request: SubmitConvertPdfToImageJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitConvertPdfToImageJobResponse> {
+  async submitConvertPdfToImageJobWithOptions(request: $_model.SubmitConvertPdfToImageJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitConvertPdfToImageJobResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.fileName)) {
@@ -4806,12 +1007,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitConvertPdfToImageJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertPdfToImageJobResponse({}));
-    } else {
-      return $dara.cast<SubmitConvertPdfToImageJobResponse>(await this.execute(params, req, runtime), new SubmitConvertPdfToImageJobResponse({}));
-    }
-
+    return $dara.cast<$_model.SubmitConvertPdfToImageJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitConvertPdfToImageJobResponse({}));
   }
 
   /**
@@ -4820,19 +1016,27 @@ export default class Client extends OpenApi {
    * @param request - SubmitConvertPdfToImageJobRequest
    * @returns SubmitConvertPdfToImageJobResponse
    */
-  async submitConvertPdfToImageJob(request: SubmitConvertPdfToImageJobRequest): Promise<SubmitConvertPdfToImageJobResponse> {
+  async submitConvertPdfToImageJob(request: $_model.SubmitConvertPdfToImageJobRequest): Promise<$_model.SubmitConvertPdfToImageJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitConvertPdfToImageJobWithOptions(request, runtime);
   }
 
-  async submitConvertPdfToImageJobAdvance(request: SubmitConvertPdfToImageJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<SubmitConvertPdfToImageJobResponse> {
+  async submitConvertPdfToImageJobAdvance(request: $_model.SubmitConvertPdfToImageJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitConvertPdfToImageJobResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -4849,51 +1053,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "docmind-api",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "docmind-api",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let submitConvertPdfToImageJobReq = new SubmitConvertPdfToImageJobRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let submitConvertPdfToImageJobReq = new $_model.SubmitConvertPdfToImageJobRequest({ });
     OpenApiUtil.convert(request, submitConvertPdfToImageJobReq);
     if (!$dara.isNull(request.fileUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      submitConvertPdfToImageJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      submitConvertPdfToImageJobReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let submitConvertPdfToImageJobResp = await this.submitConvertPdfToImageJobWithOptions(submitConvertPdfToImageJobReq, runtime);
@@ -4907,7 +1114,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitConvertPdfToMarkdownJobResponse
    */
-  async submitConvertPdfToMarkdownJobWithOptions(request: SubmitConvertPdfToMarkdownJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitConvertPdfToMarkdownJobResponse> {
+  async submitConvertPdfToMarkdownJobWithOptions(request: $_model.SubmitConvertPdfToMarkdownJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitConvertPdfToMarkdownJobResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.fileName)) {
@@ -4940,12 +1147,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitConvertPdfToMarkdownJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertPdfToMarkdownJobResponse({}));
-    } else {
-      return $dara.cast<SubmitConvertPdfToMarkdownJobResponse>(await this.execute(params, req, runtime), new SubmitConvertPdfToMarkdownJobResponse({}));
-    }
-
+    return $dara.cast<$_model.SubmitConvertPdfToMarkdownJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitConvertPdfToMarkdownJobResponse({}));
   }
 
   /**
@@ -4954,19 +1156,27 @@ export default class Client extends OpenApi {
    * @param request - SubmitConvertPdfToMarkdownJobRequest
    * @returns SubmitConvertPdfToMarkdownJobResponse
    */
-  async submitConvertPdfToMarkdownJob(request: SubmitConvertPdfToMarkdownJobRequest): Promise<SubmitConvertPdfToMarkdownJobResponse> {
+  async submitConvertPdfToMarkdownJob(request: $_model.SubmitConvertPdfToMarkdownJobRequest): Promise<$_model.SubmitConvertPdfToMarkdownJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitConvertPdfToMarkdownJobWithOptions(request, runtime);
   }
 
-  async submitConvertPdfToMarkdownJobAdvance(request: SubmitConvertPdfToMarkdownJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<SubmitConvertPdfToMarkdownJobResponse> {
+  async submitConvertPdfToMarkdownJobAdvance(request: $_model.SubmitConvertPdfToMarkdownJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitConvertPdfToMarkdownJobResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -4983,51 +1193,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "docmind-api",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "docmind-api",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let submitConvertPdfToMarkdownJobReq = new SubmitConvertPdfToMarkdownJobRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let submitConvertPdfToMarkdownJobReq = new $_model.SubmitConvertPdfToMarkdownJobRequest({ });
     OpenApiUtil.convert(request, submitConvertPdfToMarkdownJobReq);
     if (!$dara.isNull(request.fileUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      submitConvertPdfToMarkdownJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      submitConvertPdfToMarkdownJobReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let submitConvertPdfToMarkdownJobResp = await this.submitConvertPdfToMarkdownJobWithOptions(submitConvertPdfToMarkdownJobReq, runtime);
@@ -5041,7 +1254,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitConvertPdfToWordJobResponse
    */
-  async submitConvertPdfToWordJobWithOptions(request: SubmitConvertPdfToWordJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitConvertPdfToWordJobResponse> {
+  async submitConvertPdfToWordJobWithOptions(request: $_model.SubmitConvertPdfToWordJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitConvertPdfToWordJobResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.fileName)) {
@@ -5086,12 +1299,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitConvertPdfToWordJobResponse>(await this.callApi(params, req, runtime), new SubmitConvertPdfToWordJobResponse({}));
-    } else {
-      return $dara.cast<SubmitConvertPdfToWordJobResponse>(await this.execute(params, req, runtime), new SubmitConvertPdfToWordJobResponse({}));
-    }
-
+    return $dara.cast<$_model.SubmitConvertPdfToWordJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitConvertPdfToWordJobResponse({}));
   }
 
   /**
@@ -5100,19 +1308,27 @@ export default class Client extends OpenApi {
    * @param request - SubmitConvertPdfToWordJobRequest
    * @returns SubmitConvertPdfToWordJobResponse
    */
-  async submitConvertPdfToWordJob(request: SubmitConvertPdfToWordJobRequest): Promise<SubmitConvertPdfToWordJobResponse> {
+  async submitConvertPdfToWordJob(request: $_model.SubmitConvertPdfToWordJobRequest): Promise<$_model.SubmitConvertPdfToWordJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitConvertPdfToWordJobWithOptions(request, runtime);
   }
 
-  async submitConvertPdfToWordJobAdvance(request: SubmitConvertPdfToWordJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<SubmitConvertPdfToWordJobResponse> {
+  async submitConvertPdfToWordJobAdvance(request: $_model.SubmitConvertPdfToWordJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitConvertPdfToWordJobResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -5129,51 +1345,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "docmind-api",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "docmind-api",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let submitConvertPdfToWordJobReq = new SubmitConvertPdfToWordJobRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let submitConvertPdfToWordJobReq = new $_model.SubmitConvertPdfToWordJobRequest({ });
     OpenApiUtil.convert(request, submitConvertPdfToWordJobReq);
     if (!$dara.isNull(request.fileUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      submitConvertPdfToWordJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      submitConvertPdfToWordJobReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let submitConvertPdfToWordJobResp = await this.submitConvertPdfToWordJobWithOptions(submitConvertPdfToWordJobReq, runtime);
@@ -5187,7 +1406,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitDigitalDocStructureJobResponse
    */
-  async submitDigitalDocStructureJobWithOptions(request: SubmitDigitalDocStructureJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitDigitalDocStructureJobResponse> {
+  async submitDigitalDocStructureJobWithOptions(request: $_model.SubmitDigitalDocStructureJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDigitalDocStructureJobResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.fileName)) {
@@ -5236,12 +1455,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitDigitalDocStructureJobResponse>(await this.callApi(params, req, runtime), new SubmitDigitalDocStructureJobResponse({}));
-    } else {
-      return $dara.cast<SubmitDigitalDocStructureJobResponse>(await this.execute(params, req, runtime), new SubmitDigitalDocStructureJobResponse({}));
-    }
-
+    return $dara.cast<$_model.SubmitDigitalDocStructureJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitDigitalDocStructureJobResponse({}));
   }
 
   /**
@@ -5250,19 +1464,27 @@ export default class Client extends OpenApi {
    * @param request - SubmitDigitalDocStructureJobRequest
    * @returns SubmitDigitalDocStructureJobResponse
    */
-  async submitDigitalDocStructureJob(request: SubmitDigitalDocStructureJobRequest): Promise<SubmitDigitalDocStructureJobResponse> {
+  async submitDigitalDocStructureJob(request: $_model.SubmitDigitalDocStructureJobRequest): Promise<$_model.SubmitDigitalDocStructureJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitDigitalDocStructureJobWithOptions(request, runtime);
   }
 
-  async submitDigitalDocStructureJobAdvance(request: SubmitDigitalDocStructureJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<SubmitDigitalDocStructureJobResponse> {
+  async submitDigitalDocStructureJobAdvance(request: $_model.SubmitDigitalDocStructureJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDigitalDocStructureJobResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -5279,51 +1501,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "docmind-api",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "docmind-api",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let submitDigitalDocStructureJobReq = new SubmitDigitalDocStructureJobRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let submitDigitalDocStructureJobReq = new $_model.SubmitDigitalDocStructureJobRequest({ });
     OpenApiUtil.convert(request, submitDigitalDocStructureJobReq);
     if (!$dara.isNull(request.fileUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      submitDigitalDocStructureJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      submitDigitalDocStructureJobReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let submitDigitalDocStructureJobResp = await this.submitDigitalDocStructureJobWithOptions(submitDigitalDocStructureJobReq, runtime);
@@ -5337,7 +1562,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitDocParserJobResponse
    */
-  async submitDocParserJobWithOptions(request: SubmitDocParserJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitDocParserJobResponse> {
+  async submitDocParserJobWithOptions(request: $_model.SubmitDocParserJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDocParserJobResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.fileName)) {
@@ -5360,12 +1585,24 @@ export default class Client extends OpenApi {
       query["LlmEnhancement"] = request.llmEnhancement;
     }
 
+    if (!$dara.isNull(request.option)) {
+      query["Option"] = request.option;
+    }
+
     if (!$dara.isNull(request.ossBucket)) {
       query["OssBucket"] = request.ossBucket;
     }
 
     if (!$dara.isNull(request.ossEndpoint)) {
       query["OssEndpoint"] = request.ossEndpoint;
+    }
+
+    if (!$dara.isNull(request.outputHtmlTable)) {
+      query["OutputHtmlTable"] = request.outputHtmlTable;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -5382,12 +1619,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitDocParserJobResponse>(await this.callApi(params, req, runtime), new SubmitDocParserJobResponse({}));
-    } else {
-      return $dara.cast<SubmitDocParserJobResponse>(await this.execute(params, req, runtime), new SubmitDocParserJobResponse({}));
-    }
-
+    return $dara.cast<$_model.SubmitDocParserJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitDocParserJobResponse({}));
   }
 
   /**
@@ -5396,19 +1628,27 @@ export default class Client extends OpenApi {
    * @param request - SubmitDocParserJobRequest
    * @returns SubmitDocParserJobResponse
    */
-  async submitDocParserJob(request: SubmitDocParserJobRequest): Promise<SubmitDocParserJobResponse> {
+  async submitDocParserJob(request: $_model.SubmitDocParserJobRequest): Promise<$_model.SubmitDocParserJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitDocParserJobWithOptions(request, runtime);
   }
 
-  async submitDocParserJobAdvance(request: SubmitDocParserJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<SubmitDocParserJobResponse> {
+  async submitDocParserJobAdvance(request: $_model.SubmitDocParserJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDocParserJobResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -5425,51 +1665,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "docmind-api",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "docmind-api",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let submitDocParserJobReq = new SubmitDocParserJobRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let submitDocParserJobReq = new $_model.SubmitDocParserJobRequest({ });
     OpenApiUtil.convert(request, submitDocParserJobReq);
     if (!$dara.isNull(request.fileUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      submitDocParserJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      submitDocParserJobReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let submitDocParserJobResp = await this.submitDocParserJobWithOptions(submitDocParserJobReq, runtime);
@@ -5483,7 +1726,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitDocStructureJobResponse
    */
-  async submitDocStructureJobWithOptions(request: SubmitDocStructureJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitDocStructureJobResponse> {
+  async submitDocStructureJobWithOptions(request: $_model.SubmitDocStructureJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDocStructureJobResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.allowPptFormat)) {
@@ -5514,6 +1757,10 @@ export default class Client extends OpenApi {
       query["OssEndpoint"] = request.ossEndpoint;
     }
 
+    if (!$dara.isNull(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
     if (!$dara.isNull(request.structureType)) {
       query["StructureType"] = request.structureType;
     }
@@ -5532,12 +1779,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitDocStructureJobResponse>(await this.callApi(params, req, runtime), new SubmitDocStructureJobResponse({}));
-    } else {
-      return $dara.cast<SubmitDocStructureJobResponse>(await this.execute(params, req, runtime), new SubmitDocStructureJobResponse({}));
-    }
-
+    return $dara.cast<$_model.SubmitDocStructureJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitDocStructureJobResponse({}));
   }
 
   /**
@@ -5546,19 +1788,27 @@ export default class Client extends OpenApi {
    * @param request - SubmitDocStructureJobRequest
    * @returns SubmitDocStructureJobResponse
    */
-  async submitDocStructureJob(request: SubmitDocStructureJobRequest): Promise<SubmitDocStructureJobResponse> {
+  async submitDocStructureJob(request: $_model.SubmitDocStructureJobRequest): Promise<$_model.SubmitDocStructureJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitDocStructureJobWithOptions(request, runtime);
   }
 
-  async submitDocStructureJobAdvance(request: SubmitDocStructureJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<SubmitDocStructureJobResponse> {
+  async submitDocStructureJobAdvance(request: $_model.SubmitDocStructureJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDocStructureJobResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -5575,51 +1825,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "docmind-api",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "docmind-api",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let submitDocStructureJobReq = new SubmitDocStructureJobRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let submitDocStructureJobReq = new $_model.SubmitDocStructureJobRequest({ });
     OpenApiUtil.convert(request, submitDocStructureJobReq);
     if (!$dara.isNull(request.fileUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      submitDocStructureJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      submitDocStructureJobReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let submitDocStructureJobResp = await this.submitDocStructureJobWithOptions(submitDocStructureJobReq, runtime);
@@ -5633,7 +1886,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitDocumentExtractJobResponse
    */
-  async submitDocumentExtractJobWithOptions(request: SubmitDocumentExtractJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitDocumentExtractJobResponse> {
+  async submitDocumentExtractJobWithOptions(request: $_model.SubmitDocumentExtractJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDocumentExtractJobResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.fileName)) {
@@ -5670,12 +1923,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitDocumentExtractJobResponse>(await this.callApi(params, req, runtime), new SubmitDocumentExtractJobResponse({}));
-    } else {
-      return $dara.cast<SubmitDocumentExtractJobResponse>(await this.execute(params, req, runtime), new SubmitDocumentExtractJobResponse({}));
-    }
-
+    return $dara.cast<$_model.SubmitDocumentExtractJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitDocumentExtractJobResponse({}));
   }
 
   /**
@@ -5684,19 +1932,27 @@ export default class Client extends OpenApi {
    * @param request - SubmitDocumentExtractJobRequest
    * @returns SubmitDocumentExtractJobResponse
    */
-  async submitDocumentExtractJob(request: SubmitDocumentExtractJobRequest): Promise<SubmitDocumentExtractJobResponse> {
+  async submitDocumentExtractJob(request: $_model.SubmitDocumentExtractJobRequest): Promise<$_model.SubmitDocumentExtractJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitDocumentExtractJobWithOptions(request, runtime);
   }
 
-  async submitDocumentExtractJobAdvance(request: SubmitDocumentExtractJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<SubmitDocumentExtractJobResponse> {
+  async submitDocumentExtractJobAdvance(request: $_model.SubmitDocumentExtractJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDocumentExtractJobResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -5713,51 +1969,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "docmind-api",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "docmind-api",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let submitDocumentExtractJobReq = new SubmitDocumentExtractJobRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let submitDocumentExtractJobReq = new $_model.SubmitDocumentExtractJobRequest({ });
     OpenApiUtil.convert(request, submitDocumentExtractJobReq);
     if (!$dara.isNull(request.fileUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      submitDocumentExtractJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      submitDocumentExtractJobReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let submitDocumentExtractJobResp = await this.submitDocumentExtractJobWithOptions(submitDocumentExtractJobReq, runtime);
@@ -5771,7 +2030,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitTableUnderstandingJobResponse
    */
-  async submitTableUnderstandingJobWithOptions(request: SubmitTableUnderstandingJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitTableUnderstandingJobResponse> {
+  async submitTableUnderstandingJobWithOptions(request: $_model.SubmitTableUnderstandingJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitTableUnderstandingJobResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.fileName)) {
@@ -5808,12 +2067,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitTableUnderstandingJobResponse>(await this.callApi(params, req, runtime), new SubmitTableUnderstandingJobResponse({}));
-    } else {
-      return $dara.cast<SubmitTableUnderstandingJobResponse>(await this.execute(params, req, runtime), new SubmitTableUnderstandingJobResponse({}));
-    }
-
+    return $dara.cast<$_model.SubmitTableUnderstandingJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitTableUnderstandingJobResponse({}));
   }
 
   /**
@@ -5822,19 +2076,27 @@ export default class Client extends OpenApi {
    * @param request - SubmitTableUnderstandingJobRequest
    * @returns SubmitTableUnderstandingJobResponse
    */
-  async submitTableUnderstandingJob(request: SubmitTableUnderstandingJobRequest): Promise<SubmitTableUnderstandingJobResponse> {
+  async submitTableUnderstandingJob(request: $_model.SubmitTableUnderstandingJobRequest): Promise<$_model.SubmitTableUnderstandingJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitTableUnderstandingJobWithOptions(request, runtime);
   }
 
-  async submitTableUnderstandingJobAdvance(request: SubmitTableUnderstandingJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<SubmitTableUnderstandingJobResponse> {
+  async submitTableUnderstandingJobAdvance(request: $_model.SubmitTableUnderstandingJobAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitTableUnderstandingJobResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -5851,51 +2113,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "docmind-api",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "docmind-api",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let submitTableUnderstandingJobReq = new SubmitTableUnderstandingJobRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let submitTableUnderstandingJobReq = new $_model.SubmitTableUnderstandingJobRequest({ });
     OpenApiUtil.convert(request, submitTableUnderstandingJobReq);
     if (!$dara.isNull(request.fileUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      submitTableUnderstandingJobReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      submitTableUnderstandingJobReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let submitTableUnderstandingJobResp = await this.submitTableUnderstandingJobWithOptions(submitTableUnderstandingJobReq, runtime);
