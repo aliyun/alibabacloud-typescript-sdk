@@ -2,76 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara.Model {
-  actionType?: string;
-  autoCreated?: boolean;
-  bakType?: string;
-  destRegion?: string;
-  destType?: string;
-  dumpAction?: string;
-  filterKey?: string;
-  filterType?: string;
-  filterValue?: string;
-  onlyPreserveOneEachDay?: boolean;
-  onlyPreserveOneEachHour?: boolean;
-  policyId?: string;
-  retentionType?: string;
-  retentionValue?: string;
-  srcRegion?: string;
-  srcType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionType: 'ActionType',
-      autoCreated: 'AutoCreated',
-      bakType: 'BakType',
-      destRegion: 'DestRegion',
-      destType: 'DestType',
-      dumpAction: 'DumpAction',
-      filterKey: 'FilterKey',
-      filterType: 'FilterType',
-      filterValue: 'FilterValue',
-      onlyPreserveOneEachDay: 'OnlyPreserveOneEachDay',
-      onlyPreserveOneEachHour: 'OnlyPreserveOneEachHour',
-      policyId: 'PolicyId',
-      retentionType: 'RetentionType',
-      retentionValue: 'RetentionValue',
-      srcRegion: 'SrcRegion',
-      srcType: 'SrcType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionType: 'string',
-      autoCreated: 'boolean',
-      bakType: 'string',
-      destRegion: 'string',
-      destType: 'string',
-      dumpAction: 'string',
-      filterKey: 'string',
-      filterType: 'string',
-      filterValue: 'string',
-      onlyPreserveOneEachDay: 'boolean',
-      onlyPreserveOneEachHour: 'boolean',
-      policyId: 'string',
-      retentionType: 'string',
-      retentionValue: 'string',
-      srcRegion: 'string',
-      srcType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyBackupPolicyRequest extends $dara.Model {
-  advancedDataPolicies?: ModifyBackupPolicyRequestAdvancedDataPolicies[];
+export class ModifyBackupPolicyShrinkRequest extends $dara.Model {
+  advancedDataPoliciesShrink?: string;
   /**
    * @remarks
    * The backup frequency. Default value: Normal. Valid values:
@@ -259,7 +191,7 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      advancedDataPolicies: 'AdvancedDataPolicies',
+      advancedDataPoliciesShrink: 'AdvancedDataPolicies',
       backupFrequency: 'BackupFrequency',
       backupPolicyLevel: 'BackupPolicyLevel',
       backupRetentionPolicyOnClusterDeletion: 'BackupRetentionPolicyOnClusterDeletion',
@@ -283,7 +215,7 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      advancedDataPolicies: { 'type': 'array', 'itemType': ModifyBackupPolicyRequestAdvancedDataPolicies },
+      advancedDataPoliciesShrink: 'string',
       backupFrequency: 'string',
       backupPolicyLevel: 'string',
       backupRetentionPolicyOnClusterDeletion: 'string',
@@ -306,9 +238,6 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.advancedDataPolicies)) {
-      $dara.Model.validateArray(this.advancedDataPolicies);
-    }
     super.validate();
   }
 

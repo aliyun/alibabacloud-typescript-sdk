@@ -14,6 +14,8 @@ export { DescribeAutoRenewAttributeResponseBodyItemsAutoRenewAttribute } from '.
 export { DescribeAutoRenewAttributeResponseBodyItems } from './DescribeAutoRenewAttributeResponseBody';
 export { DescribeBackupLogsResponseBodyItemsBackupLog } from './DescribeBackupLogsResponseBody';
 export { DescribeBackupLogsResponseBodyItems } from './DescribeBackupLogsResponseBody';
+export { DescribeBackupPolicyResponseBodyAdvancedDataPoliciesAdvancedDataPolicy } from './DescribeBackupPolicyResponseBody';
+export { DescribeBackupPolicyResponseBodyAdvancedDataPolicies } from './DescribeBackupPolicyResponseBody';
 export { DescribeBackupTasksResponseBodyItemsBackupJob } from './DescribeBackupTasksResponseBody';
 export { DescribeBackupTasksResponseBodyItems } from './DescribeBackupTasksResponseBody';
 export { DescribeBackupsResponseBodyItemsBackup } from './DescribeBackupsResponseBody';
@@ -92,6 +94,8 @@ export { DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupR
 export { DescribeHALogsResponseBodyHaLogItems } from './DescribeHalogsResponseBody';
 export { DescribeHistoryTasksResponseBodyItems } from './DescribeHistoryTasksResponseBody';
 export { DescribeLicenseOrdersResponseBodyItems } from './DescribeLicenseOrdersResponseBody';
+export { DescribeLogBackupPolicyResponseBodyAdvancedLogPoliciesAdvancedLogPolicy } from './DescribeLogBackupPolicyResponseBody';
+export { DescribeLogBackupPolicyResponseBodyAdvancedLogPolicies } from './DescribeLogBackupPolicyResponseBody';
 export { DescribeMaskingRulesResponseBodyData } from './DescribeMaskingRulesResponseBody';
 export { DescribeMetaListResponseBodyItems } from './DescribeMetaListResponseBody';
 export { DescribeParameterGroupResponseBodyParameterGroupParameterDetail } from './DescribeParameterGroupResponseBody';
@@ -117,6 +121,7 @@ export { DescribeVSwitchesResponseBodyVSwitchs } from './DescribeVswitchesRespon
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBodyTagResourcesTagResource } from './ListTagResourcesResponseBody';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
+export { ModifyBackupPolicyRequestAdvancedDataPolicies } from './ModifyBackupPolicyRequest';
 export { ModifyDBNodesClassRequestDBNode } from './ModifyDbnodesClassRequest';
 export { ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup } from './ModifyGlobalSecurityIpgroupResponseBody';
 export { ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup } from './ModifyGlobalSecurityIpgroupNameResponseBody';
@@ -463,6 +468,7 @@ export { ModifyAutoRenewAttributeRequest } from './ModifyAutoRenewAttributeReque
 export { ModifyAutoRenewAttributeResponseBody } from './ModifyAutoRenewAttributeResponseBody';
 export { ModifyAutoRenewAttributeResponse } from './ModifyAutoRenewAttributeResponse';
 export { ModifyBackupPolicyRequest } from './ModifyBackupPolicyRequest';
+export { ModifyBackupPolicyShrinkRequest } from './ModifyBackupPolicyShrinkRequest';
 export { ModifyBackupPolicyResponseBody } from './ModifyBackupPolicyResponseBody';
 export { ModifyBackupPolicyResponse } from './ModifyBackupPolicyResponse';
 export { ModifyDBClusterRequest } from './ModifyDbclusterRequest';

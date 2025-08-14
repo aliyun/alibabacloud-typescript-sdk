@@ -2,7 +2,78 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeLogBackupPolicyResponseBodyAdvancedLogPoliciesAdvancedLogPolicy extends $dara.Model {
+  destRegion?: string;
+  destType?: string;
+  enableLogBackup?: number;
+  logRetentionType?: string;
+  logRetentionValue?: string;
+  policyId?: string;
+  srcRegion?: string;
+  srcType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destRegion: 'DestRegion',
+      destType: 'DestType',
+      enableLogBackup: 'EnableLogBackup',
+      logRetentionType: 'LogRetentionType',
+      logRetentionValue: 'LogRetentionValue',
+      policyId: 'PolicyId',
+      srcRegion: 'SrcRegion',
+      srcType: 'SrcType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destRegion: 'string',
+      destType: 'string',
+      enableLogBackup: 'number',
+      logRetentionType: 'string',
+      logRetentionValue: 'string',
+      policyId: 'string',
+      srcRegion: 'string',
+      srcType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogBackupPolicyResponseBodyAdvancedLogPolicies extends $dara.Model {
+  advancedLogPolicy?: DescribeLogBackupPolicyResponseBodyAdvancedLogPoliciesAdvancedLogPolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      advancedLogPolicy: 'AdvancedLogPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedLogPolicy: { 'type': 'array', 'itemType': DescribeLogBackupPolicyResponseBodyAdvancedLogPoliciesAdvancedLogPolicy },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.advancedLogPolicy)) {
+      $dara.Model.validateArray(this.advancedLogPolicy);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLogBackupPolicyResponseBody extends $dara.Model {
+  advancedLogPolicies?: DescribeLogBackupPolicyResponseBodyAdvancedLogPolicies;
   /**
    * @remarks
    * Indicates whether the log backup feature is enabled. Valid values:
@@ -57,6 +128,7 @@ export class DescribeLogBackupPolicyResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      advancedLogPolicies: 'AdvancedLogPolicies',
       enableBackupLog: 'EnableBackupLog',
       logBackupAnotherRegionRegion: 'LogBackupAnotherRegionRegion',
       logBackupAnotherRegionRetentionPeriod: 'LogBackupAnotherRegionRetentionPeriod',
@@ -67,6 +139,7 @@ export class DescribeLogBackupPolicyResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      advancedLogPolicies: DescribeLogBackupPolicyResponseBodyAdvancedLogPolicies,
       enableBackupLog: 'number',
       logBackupAnotherRegionRegion: 'string',
       logBackupAnotherRegionRetentionPeriod: 'string',
@@ -76,6 +149,9 @@ export class DescribeLogBackupPolicyResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.advancedLogPolicies && typeof (this.advancedLogPolicies as any).validate === 'function') {
+      (this.advancedLogPolicies as any).validate();
+    }
     super.validate();
   }
 

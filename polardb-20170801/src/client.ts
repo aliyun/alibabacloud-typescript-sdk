@@ -8395,15 +8395,29 @@ export default class Client extends OpenApi {
    * @remarks
    * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
    * 
-   * @param request - ModifyBackupPolicyRequest
+   * @param tmpReq - ModifyBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyBackupPolicyResponse
    */
-  async modifyBackupPolicyWithOptions(request: $_model.ModifyBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyBackupPolicyResponse> {
-    request.validate();
+  async modifyBackupPolicyWithOptions(tmpReq: $_model.ModifyBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyBackupPolicyResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyBackupPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.advancedDataPolicies)) {
+      request.advancedDataPoliciesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.advancedDataPolicies, "AdvancedDataPolicies", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.advancedDataPoliciesShrink)) {
+      query["AdvancedDataPolicies"] = request.advancedDataPoliciesShrink;
+    }
+
     if (!$dara.isNull(request.backupFrequency)) {
       query["BackupFrequency"] = request.backupFrequency;
+    }
+
+    if (!$dara.isNull(request.backupPolicyLevel)) {
+      query["BackupPolicyLevel"] = request.backupPolicyLevel;
     }
 
     if (!$dara.isNull(request.backupRetentionPolicyOnClusterDeletion)) {

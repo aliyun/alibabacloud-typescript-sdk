@@ -2,7 +2,100 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeBackupPolicyResponseBodyAdvancedDataPoliciesAdvancedDataPolicy extends $dara.Model {
+  autoCreated?: boolean;
+  bakType?: string;
+  destRegion?: string;
+  destType?: string;
+  dumpAction?: string;
+  filterKey?: string;
+  filterType?: string;
+  filterValue?: string;
+  onlyPreserveOneEachDay?: boolean;
+  onlyPreserveOneEachHour?: boolean;
+  policyId?: string;
+  retentionType?: string;
+  retentionValue?: string;
+  srcRegion?: string;
+  srcType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoCreated: 'AutoCreated',
+      bakType: 'BakType',
+      destRegion: 'DestRegion',
+      destType: 'DestType',
+      dumpAction: 'DumpAction',
+      filterKey: 'FilterKey',
+      filterType: 'FilterType',
+      filterValue: 'FilterValue',
+      onlyPreserveOneEachDay: 'OnlyPreserveOneEachDay',
+      onlyPreserveOneEachHour: 'OnlyPreserveOneEachHour',
+      policyId: 'PolicyId',
+      retentionType: 'RetentionType',
+      retentionValue: 'RetentionValue',
+      srcRegion: 'SrcRegion',
+      srcType: 'SrcType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoCreated: 'boolean',
+      bakType: 'string',
+      destRegion: 'string',
+      destType: 'string',
+      dumpAction: 'string',
+      filterKey: 'string',
+      filterType: 'string',
+      filterValue: 'string',
+      onlyPreserveOneEachDay: 'boolean',
+      onlyPreserveOneEachHour: 'boolean',
+      policyId: 'string',
+      retentionType: 'string',
+      retentionValue: 'string',
+      srcRegion: 'string',
+      srcType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyResponseBodyAdvancedDataPolicies extends $dara.Model {
+  advancedDataPolicy?: DescribeBackupPolicyResponseBodyAdvancedDataPoliciesAdvancedDataPolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      advancedDataPolicy: 'AdvancedDataPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedDataPolicy: { 'type': 'array', 'itemType': DescribeBackupPolicyResponseBodyAdvancedDataPoliciesAdvancedDataPolicy },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.advancedDataPolicy)) {
+      $dara.Model.validateArray(this.advancedDataPolicy);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBackupPolicyResponseBody extends $dara.Model {
+  advancedDataPolicies?: DescribeBackupPolicyResponseBodyAdvancedDataPolicies;
+  advancedPolicyOption?: string;
   /**
    * @remarks
    * The backup frequency. Default value: Normal. Valid values:
@@ -19,6 +112,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
    * Normal
    */
   backupFrequency?: string;
+  backupPolicyLevel?: string;
   /**
    * @remarks
    * Indicates whether backups are retained when you delete a cluster. Valid values:
@@ -184,7 +278,10 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      advancedDataPolicies: 'AdvancedDataPolicies',
+      advancedPolicyOption: 'AdvancedPolicyOption',
       backupFrequency: 'BackupFrequency',
+      backupPolicyLevel: 'BackupPolicyLevel',
       backupRetentionPolicyOnClusterDeletion: 'BackupRetentionPolicyOnClusterDeletion',
       dataLevel1BackupFrequency: 'DataLevel1BackupFrequency',
       dataLevel1BackupPeriod: 'DataLevel1BackupPeriod',
@@ -203,7 +300,10 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      advancedDataPolicies: DescribeBackupPolicyResponseBodyAdvancedDataPolicies,
+      advancedPolicyOption: 'string',
       backupFrequency: 'string',
+      backupPolicyLevel: 'string',
       backupRetentionPolicyOnClusterDeletion: 'string',
       dataLevel1BackupFrequency: 'string',
       dataLevel1BackupPeriod: 'string',
@@ -221,6 +321,9 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.advancedDataPolicies && typeof (this.advancedDataPolicies as any).validate === 'function') {
+      (this.advancedDataPolicies as any).validate();
+    }
     super.validate();
   }
 
