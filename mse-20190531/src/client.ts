@@ -2832,6 +2832,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建一个MCP Server
+   * 
+   * @param request - CreateNacosMcpServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNacosMcpServerResponse
+   */
+  async createNacosMcpServerWithOptions(request: $_model.CreateNacosMcpServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNacosMcpServerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.serverName)) {
+      query["ServerName"] = request.serverName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endpointSpecification)) {
+      body["EndpointSpecification"] = request.endpointSpecification;
+    }
+
+    if (!$dara.isNull(request.serverSpecification)) {
+      body["ServerSpecification"] = request.serverSpecification;
+    }
+
+    if (!$dara.isNull(request.toolSpecification)) {
+      body["ToolSpecification"] = request.toolSpecification;
+    }
+
+    if (!$dara.isNull(request.yamlConfig)) {
+      body["YamlConfig"] = request.yamlConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNacosMcpServer",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateNacosMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.CreateNacosMcpServerResponse({}));
+  }
+
+  /**
+   * 创建一个MCP Server
+   * 
+   * @param request - CreateNacosMcpServerRequest
+   * @returns CreateNacosMcpServerResponse
+   */
+  async createNacosMcpServer(request: $_model.CreateNacosMcpServerRequest): Promise<$_model.CreateNacosMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createNacosMcpServerWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a Nacos service.
    * 
    * @remarks
@@ -4657,6 +4729,60 @@ export default class Client extends OpenApi {
   async deleteNacosInstance(request: $_model.DeleteNacosInstanceRequest): Promise<$_model.DeleteNacosInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNacosInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除一个MCP Server
+   * 
+   * @param request - DeleteNacosMcpServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNacosMcpServerResponse
+   */
+  async deleteNacosMcpServerWithOptions(request: $_model.DeleteNacosMcpServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNacosMcpServerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.mcpServerId)) {
+      query["McpServerId"] = request.mcpServerId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNacosMcpServer",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteNacosMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNacosMcpServerResponse({}));
+  }
+
+  /**
+   * 删除一个MCP Server
+   * 
+   * @param request - DeleteNacosMcpServerRequest
+   * @returns DeleteNacosMcpServerResponse
+   */
+  async deleteNacosMcpServer(request: $_model.DeleteNacosMcpServerRequest): Promise<$_model.DeleteNacosMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteNacosMcpServerWithOptions(request, runtime);
   }
 
   /**
@@ -6822,6 +6948,64 @@ export default class Client extends OpenApi {
   async getNacosHistoryConfig(request: $_model.GetNacosHistoryConfigRequest): Promise<$_model.GetNacosHistoryConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getNacosHistoryConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取MCP Server的详情
+   * 
+   * @param request - GetNacosMcpServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNacosMcpServerResponse
+   */
+  async getNacosMcpServerWithOptions(request: $_model.GetNacosMcpServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNacosMcpServerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.mcpServerId)) {
+      query["McpServerId"] = request.mcpServerId;
+    }
+
+    if (!$dara.isNull(request.mcpServerVersion)) {
+      query["McpServerVersion"] = request.mcpServerVersion;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNacosMcpServer",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNacosMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.GetNacosMcpServerResponse({}));
+  }
+
+  /**
+   * 获取MCP Server的详情
+   * 
+   * @param request - GetNacosMcpServerRequest
+   * @returns GetNacosMcpServerResponse
+   */
+  async getNacosMcpServer(request: $_model.GetNacosMcpServerRequest): Promise<$_model.GetNacosMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNacosMcpServerWithOptions(request, runtime);
   }
 
   /**
@@ -10009,6 +10193,72 @@ export default class Client extends OpenApi {
   async listNacosHistoryConfigs(request: $_model.ListNacosHistoryConfigsRequest): Promise<$_model.ListNacosHistoryConfigsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listNacosHistoryConfigsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取McpServer列表
+   * 
+   * @param request - ListNacosMcpServersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNacosMcpServersResponse
+   */
+  async listNacosMcpServersWithOptions(request: $_model.ListNacosMcpServersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListNacosMcpServersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.search)) {
+      query["Search"] = request.search;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNacosMcpServers",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNacosMcpServersResponse>(await this.callApi(params, req, runtime), new $_model.ListNacosMcpServersResponse({}));
+  }
+
+  /**
+   * 获取McpServer列表
+   * 
+   * @param request - ListNacosMcpServersRequest
+   * @returns ListNacosMcpServersResponse
+   */
+  async listNacosMcpServers(request: $_model.ListNacosMcpServersRequest): Promise<$_model.ListNacosMcpServersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listNacosMcpServersWithOptions(request, runtime);
   }
 
   /**
