@@ -1,7 +1,165 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributes } from "./DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributes";
 
+
+export class DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocksIpv6CidrBlock extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv6 CIDR block of the VPC.
+   * 
+   * @example
+   * 2408:XXXX:0:6a::/56
+   */
+  ipv6CidrBlock?: string;
+  /**
+   * @remarks
+   * The type of the IPv6 CIDR block of the VPC. Valid values:
+   * 
+   * *   BGP (default): Alibaba Cloud Border Gateway Protocol (BGP) IPv6
+   * *   ChinaMobile: China Mobile (single line)
+   * *   ChinaUnicom: China Unicom (single line)
+   * *   ChinaTelecom: China Telecom (single line)
+   * 
+   * >  If you are on the whitelist of single-line bandwidth, you can set this parameter to ChinaTelecom, ChinaUnicom, or ChinaMobile.
+   * 
+   * @example
+   * BGP
+   */
+  ipv6Isp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6CidrBlock: 'Ipv6CidrBlock',
+      ipv6Isp: 'Ipv6Isp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6CidrBlock: 'string',
+      ipv6Isp: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocks extends $dara.Model {
+  ipv6CidrBlock?: DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocksIpv6CidrBlock[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6CidrBlock: 'ipv6CidrBlock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6CidrBlock: { 'type': 'array', 'itemType': DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocksIpv6CidrBlock },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipv6CidrBlock)) {
+      $dara.Model.validateArray(this.ipv6CidrBlock);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesSecondaryCidrBlocks extends $dara.Model {
+  secondaryCidrBlock?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      secondaryCidrBlock: 'secondaryCidrBlock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      secondaryCidrBlock: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.secondaryCidrBlock)) {
+      $dara.Model.validateArray(this.secondaryCidrBlock);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributes extends $dara.Model {
+  /**
+   * @remarks
+   * The IPv4 CIDR block of the VPC.
+   * 
+   * @example
+   * 192.168.0.0/16
+   */
+  cidrBlock?: string;
+  /**
+   * @remarks
+   * The IPv6 CIDR block of the VPC.
+   * 
+   * @example
+   * 2408:XXXX:0:a600::/56
+   */
+  ipv6CidrBlock?: string;
+  /**
+   * @remarks
+   * The IPv6 CIDR blocks of the VPC.
+   */
+  ipv6CidrBlocks?: DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocks;
+  /**
+   * @remarks
+   * The information about the VPC secondary CIDR block.
+   */
+  secondaryCidrBlocks?: DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesSecondaryCidrBlocks;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      ipv6CidrBlock: 'Ipv6CidrBlock',
+      ipv6CidrBlocks: 'Ipv6CidrBlocks',
+      secondaryCidrBlocks: 'SecondaryCidrBlocks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      ipv6CidrBlock: 'string',
+      ipv6CidrBlocks: DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocks,
+      secondaryCidrBlocks: DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesSecondaryCidrBlocks,
+    };
+  }
+
+  validate() {
+    if(this.ipv6CidrBlocks && typeof (this.ipv6CidrBlocks as any).validate === 'function') {
+      (this.ipv6CidrBlocks as any).validate();
+    }
+    if(this.secondaryCidrBlocks && typeof (this.secondaryCidrBlocks as any).validate === 'function') {
+      (this.secondaryCidrBlocks as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeCenAttachedChildInstanceAttributeResponseBody extends $dara.Model {
   /**

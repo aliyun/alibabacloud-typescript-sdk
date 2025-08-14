@@ -1,8 +1,99 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListTransitRoutersRequestFeatureFilter } from "./ListTransitRoutersRequestFeatureFilter";
-import { ListTransitRoutersRequestTag } from "./ListTransitRoutersRequestTag";
 
+
+export class ListTransitRoutersRequestFeatureFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The value of the field that is used to enable or disable a feature of the transit router. Supported fields:
+   * 
+   * *   **Multicast**: the multicast feature.
+   * 
+   * @example
+   * Multicast
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The fields that are used to enable or disable the features of the transit router. The **Multicast** field supports only one value. Valid values:
+   * 
+   * *   **Enabled**: enables multicast.
+   * *   **Disabled**: disables multicast.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTransitRoutersRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys.
+   * 
+   * @example
+   * TagKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * 
+   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * TagValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListTransitRoutersRequest extends $dara.Model {
   /**

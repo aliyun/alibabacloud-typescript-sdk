@@ -1,7 +1,54 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateFlowlogRequestTag } from "./CreateFlowlogRequestTag";
 
+
+export class CreateFlowlogRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag keys.
+   * 
+   * The tag keys cannot be an empty string. The tag keys can be up to 64 characters in length. The tag keys cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * TagKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * TagValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateFlowlogRequest extends $dara.Model {
   /**
@@ -80,8 +127,6 @@ export class CreateFlowlogRequest extends $dara.Model {
    *     *   The name must start and end with a lowercase letter or a digit.
    *     *   The name must be 3 to 63 characters in length,
    * 
-   * This parameter is required.
-   * 
    * @example
    * FlowLogStore
    */
@@ -102,8 +147,6 @@ export class CreateFlowlogRequest extends $dara.Model {
    *     *   The name can contain only lowercase letters, digits, and hyphens (-).
    *     *   The name must start and end with a lowercase letter or a digit.
    *     *   The name must be 3 to 63 characters in length,
-   * 
-   * This parameter is required.
    * 
    * @example
    * FlowLogProject

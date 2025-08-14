@@ -204,7 +204,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddTraficMatchRuleToTrafficMarkingPolicyResponse
    */
-  // Deprecated
   async addTraficMatchRuleToTrafficMarkingPolicyWithOptions(request: $_model.AddTraficMatchRuleToTrafficMarkingPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddTraficMatchRuleToTrafficMarkingPolicyResponse> {
     request.validate();
     let query = { };
@@ -11358,7 +11357,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveTraficMatchRuleFromTrafficMarkingPolicyResponse
    */
-  // Deprecated
   async removeTraficMatchRuleFromTrafficMarkingPolicyWithOptions(request: $_model.RemoveTraficMatchRuleFromTrafficMarkingPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveTraficMatchRuleFromTrafficMarkingPolicyResponse> {
     request.validate();
     let query = { };
@@ -12118,6 +12116,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除PrivateZone
+   * 
    * @param request - UnroutePrivateZoneInCenToVpcRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnroutePrivateZoneInCenToVpcResponse
@@ -12167,6 +12167,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除PrivateZone
+   * 
    * @param request - UnroutePrivateZoneInCenToVpcRequest
    * @returns UnroutePrivateZoneInCenToVpcResponse
    */

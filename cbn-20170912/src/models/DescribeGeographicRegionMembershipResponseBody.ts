@@ -1,7 +1,64 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeGeographicRegionMembershipResponseBodyRegionIds } from "./DescribeGeographicRegionMembershipResponseBodyRegionIds";
 
+
+export class DescribeGeographicRegionMembershipResponseBodyRegionIdsRegionId extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+   * 
+   * @example
+   * us-west-1
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGeographicRegionMembershipResponseBodyRegionIds extends $dara.Model {
+  regionId?: DescribeGeographicRegionMembershipResponseBodyRegionIdsRegionId[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: { 'type': 'array', 'itemType': DescribeGeographicRegionMembershipResponseBodyRegionIdsRegionId },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regionId)) {
+      $dara.Model.validateArray(this.regionId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeGeographicRegionMembershipResponseBody extends $dara.Model {
   /**

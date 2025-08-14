@@ -1,8 +1,104 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateTransitRouterVpcAttachmentShrinkRequestTag } from "./CreateTransitRouterVpcAttachmentShrinkRequestTag";
-import { CreateTransitRouterVpcAttachmentShrinkRequestZoneMappings } from "./CreateTransitRouterVpcAttachmentShrinkRequestZoneMappings";
 
+
+export class CreateTransitRouterVpcAttachmentShrinkRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys.
+   * 
+   * @example
+   * tagtest
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * 
+   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * tagtest
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTransitRouterVpcAttachmentShrinkRequestZoneMappings extends $dara.Model {
+  /**
+   * @remarks
+   * A vSwitch that is deployed in the zone that supports Enterprise Edition transit routers.
+   * 
+   * You can specify vSwitches for at most 10 zones in each call.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp1a214sbus8z3b54****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the zone that supports Enterprise Edition transit routers.
+   * 
+   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the most recent zone list.
+   * 
+   * You can specify at most 10 zones in each call.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
   /**

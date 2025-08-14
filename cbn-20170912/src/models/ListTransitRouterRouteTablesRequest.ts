@@ -1,8 +1,87 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListTransitRouterRouteTablesRequestRouteTableOptions } from "./ListTransitRouterRouteTablesRequestRouteTableOptions";
-import { ListTransitRouterRouteTablesRequestTag } from "./ListTransitRouterRouteTablesRequestTag";
 
+
+export class ListTransitRouterRouteTablesRequestRouteTableOptions extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable equal-cost multi-path (ECMP) routing. Valid values:
+   * 
+   * *   **disable**: disables ECMP routing If you disable ECMP routing, routes that are learned from different regions but have the same prefix and attributes select the transit router with the smallest region ID as the next hop. Region IDs are sorted in alphabetic order. The network latency and bandwidth consumption also vary based on the region. Proceed with caution.
+   * *   **enable**: enables ECMP routing. If you enable ECMP routing, routes that are learned from different regions but have the same prefix and attributes form an ECMP route. The network latency and bandwidth consumption also vary based on the region. Proceed with caution.
+   * 
+   * @example
+   * disable
+   */
+  multiRegionECMP?: string;
+  static names(): { [key: string]: string } {
+    return {
+      multiRegionECMP: 'MultiRegionECMP',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      multiRegionECMP: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTransitRouterRouteTablesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys.
+   * 
+   * @example
+   * test
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * 
+   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListTransitRouterRouteTablesRequest extends $dara.Model {
   /**

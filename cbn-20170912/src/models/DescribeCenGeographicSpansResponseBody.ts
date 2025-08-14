@@ -1,7 +1,82 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeCenGeographicSpansResponseBodyGeographicSpanModels } from "./DescribeCenGeographicSpansResponseBodyGeographicSpanModels";
 
+
+export class DescribeCenGeographicSpansResponseBodyGeographicSpanModelsGeographicSpanModel extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the pair of connected areas.
+   * 
+   * @example
+   * china_asia-pacific
+   */
+  geographicSpanId?: string;
+  /**
+   * @remarks
+   * The ID of the local area.
+   * 
+   * @example
+   * asia-pacific
+   */
+  localGeoRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the peer area.
+   * 
+   * @example
+   * china
+   */
+  oppositeGeoRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      geographicSpanId: 'GeographicSpanId',
+      localGeoRegionId: 'LocalGeoRegionId',
+      oppositeGeoRegionId: 'OppositeGeoRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      geographicSpanId: 'string',
+      localGeoRegionId: 'string',
+      oppositeGeoRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenGeographicSpansResponseBodyGeographicSpanModels extends $dara.Model {
+  geographicSpanModel?: DescribeCenGeographicSpansResponseBodyGeographicSpanModelsGeographicSpanModel[];
+  static names(): { [key: string]: string } {
+    return {
+      geographicSpanModel: 'GeographicSpanModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      geographicSpanModel: { 'type': 'array', 'itemType': DescribeCenGeographicSpansResponseBodyGeographicSpanModelsGeographicSpanModel },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.geographicSpanModel)) {
+      $dara.Model.validateArray(this.geographicSpanModel);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeCenGeographicSpansResponseBody extends $dara.Model {
   /**

@@ -1,8 +1,90 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateTransitRouterMulticastDomainRequestOptions } from "./CreateTransitRouterMulticastDomainRequestOptions";
-import { CreateTransitRouterMulticastDomainRequestTag } from "./CreateTransitRouterMulticastDomainRequestTag";
 
+
+export class CreateTransitRouterMulticastDomainRequestOptions extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the IGMP feature is enabled for the multicast domain. Once enabled, hosts can dynamically join or leave multicast groups by using IGMP protocol. Valid values:
+   * 
+   * *   **enable**: enables IGMP.
+   * *   **disable**(default): disables IGMP.
+   * 
+   * > *   The IGMP feature is in beta testing. To use it, contact your account manager.
+   * > *   If you select this option, you cannot disable IPv6 after the VBR is created.
+   * 
+   * @example
+   * enable
+   */
+  igmpv2Support?: string;
+  static names(): { [key: string]: string } {
+    return {
+      igmpv2Support: 'Igmpv2Support',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      igmpv2Support: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTransitRouterMulticastDomainRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys.
+   * 
+   * @example
+   * TagKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * 
+   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * TagValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateTransitRouterMulticastDomainRequest extends $dara.Model {
   /**
