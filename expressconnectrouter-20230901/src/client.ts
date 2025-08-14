@@ -1872,6 +1872,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改专线网关关联的属性
+   * 
+   * @param request - ModifyExpressConnectRouterAssociationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyExpressConnectRouterAssociationResponse
+   */
+  async modifyExpressConnectRouterAssociationWithOptions(request: $_model.ModifyExpressConnectRouterAssociationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyExpressConnectRouterAssociationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.associationId)) {
+      body["AssociationId"] = request.associationId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      body["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.ecrId)) {
+      body["EcrId"] = request.ecrId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyExpressConnectRouterAssociation",
+      version: "2023-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyExpressConnectRouterAssociationResponse>(await this.callApi(params, req, runtime), new $_model.ModifyExpressConnectRouterAssociationResponse({}));
+  }
+
+  /**
+   * 修改专线网关关联的属性
+   * 
+   * @param request - ModifyExpressConnectRouterAssociationRequest
+   * @returns ModifyExpressConnectRouterAssociationResponse
+   */
+  async modifyExpressConnectRouterAssociation(request: $_model.ModifyExpressConnectRouterAssociationRequest): Promise<$_model.ModifyExpressConnectRouterAssociationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyExpressConnectRouterAssociationWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the route prefixes of a virtual private cloud (VPC) or a transit router (TR) that is associated with an Express Connect router (ECR).
    * 
    * @param request - ModifyExpressConnectRouterAssociationAllowedPrefixRequest
@@ -1935,6 +1993,68 @@ export default class Client extends OpenApi {
   async modifyExpressConnectRouterAssociationAllowedPrefix(request: $_model.ModifyExpressConnectRouterAssociationAllowedPrefixRequest): Promise<$_model.ModifyExpressConnectRouterAssociationAllowedPrefixResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyExpressConnectRouterAssociationAllowedPrefixWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改专线网关子实例的属性
+   * 
+   * @param request - ModifyExpressConnectRouterChildInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyExpressConnectRouterChildInstanceResponse
+   */
+  async modifyExpressConnectRouterChildInstanceWithOptions(request: $_model.ModifyExpressConnectRouterChildInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyExpressConnectRouterChildInstanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.childInstanceId)) {
+      body["ChildInstanceId"] = request.childInstanceId;
+    }
+
+    if (!$dara.isNull(request.childInstanceType)) {
+      body["ChildInstanceType"] = request.childInstanceType;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      body["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.ecrId)) {
+      body["EcrId"] = request.ecrId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyExpressConnectRouterChildInstance",
+      version: "2023-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyExpressConnectRouterChildInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ModifyExpressConnectRouterChildInstanceResponse({}));
+  }
+
+  /**
+   * 修改专线网关子实例的属性
+   * 
+   * @param request - ModifyExpressConnectRouterChildInstanceRequest
+   * @returns ModifyExpressConnectRouterChildInstanceResponse
+   */
+  async modifyExpressConnectRouterChildInstance(request: $_model.ModifyExpressConnectRouterChildInstanceRequest): Promise<$_model.ModifyExpressConnectRouterChildInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyExpressConnectRouterChildInstanceWithOptions(request, runtime);
   }
 
   /**

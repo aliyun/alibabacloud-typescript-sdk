@@ -71,8 +71,6 @@ export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The ECR IDs.
-   * 
-   * This parameter is required.
    */
   resourceId?: string[];
   /**
