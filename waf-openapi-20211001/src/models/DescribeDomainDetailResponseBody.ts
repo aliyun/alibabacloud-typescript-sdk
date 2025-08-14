@@ -308,6 +308,35 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   }
 }
 
+export class DescribeDomainDetailResponseBodyRedirectBackendPorts extends $dara.Model {
+  backendPort?: number;
+  listenPort?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendPort: 'BackendPort',
+      listenPort: 'ListenPort',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendPort: 'number',
+      listenPort: 'number',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDomainDetailResponseBodyRedirectBackends extends $dara.Model {
   /**
    * @remarks
@@ -414,6 +443,7 @@ export class DescribeDomainDetailResponseBodyRedirectRequestHeaders extends $dar
 export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   backUpBackendList?: string[];
   backendList?: string[];
+  backendPorts?: DescribeDomainDetailResponseBodyRedirectBackendPorts[];
   /**
    * @remarks
    * An array of addresses of origin servers.
@@ -556,6 +586,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
     return {
       backUpBackendList: 'BackUpBackendList',
       backendList: 'BackendList',
+      backendPorts: 'BackendPorts',
       backends: 'Backends',
       backupBackends: 'BackupBackends',
       connectTimeout: 'ConnectTimeout',
@@ -578,6 +609,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
     return {
       backUpBackendList: { 'type': 'array', 'itemType': 'string' },
       backendList: { 'type': 'array', 'itemType': 'string' },
+      backendPorts: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackendPorts },
       backends: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackends },
       backupBackends: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackupBackends },
       connectTimeout: 'number',
@@ -602,6 +634,9 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
     }
     if(Array.isArray(this.backendList)) {
       $dara.Model.validateArray(this.backendList);
+    }
+    if(Array.isArray(this.backendPorts)) {
+      $dara.Model.validateArray(this.backendPorts);
     }
     if(Array.isArray(this.backends)) {
       $dara.Model.validateArray(this.backends);

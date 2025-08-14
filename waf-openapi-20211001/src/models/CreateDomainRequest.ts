@@ -240,6 +240,35 @@ export class CreateDomainRequestListen extends $dara.Model {
   }
 }
 
+export class CreateDomainRequestRedirectBackendPorts extends $dara.Model {
+  backendPort?: number;
+  listenPort?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendPort: 'BackendPort',
+      listenPort: 'ListenPort',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendPort: 'number',
+      listenPort: 'number',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDomainRequestRedirectRequestHeaders extends $dara.Model {
   /**
    * @remarks
@@ -281,6 +310,7 @@ export class CreateDomainRequestRedirectRequestHeaders extends $dara.Model {
 }
 
 export class CreateDomainRequestRedirect extends $dara.Model {
+  backendPorts?: CreateDomainRequestRedirectBackendPorts[];
   /**
    * @remarks
    * The IP addresses or domain names of the origin server.
@@ -454,6 +484,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   xffProto?: boolean;
   static names(): { [key: string]: string } {
     return {
+      backendPorts: 'BackendPorts',
       backends: 'Backends',
       backupBackends: 'BackupBackends',
       cnameEnabled: 'CnameEnabled',
@@ -476,6 +507,7 @@ export class CreateDomainRequestRedirect extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backendPorts: { 'type': 'array', 'itemType': CreateDomainRequestRedirectBackendPorts },
       backends: { 'type': 'array', 'itemType': 'string' },
       backupBackends: { 'type': 'array', 'itemType': 'string' },
       cnameEnabled: 'boolean',
@@ -497,6 +529,9 @@ export class CreateDomainRequestRedirect extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.backendPorts)) {
+      $dara.Model.validateArray(this.backendPorts);
+    }
     if(Array.isArray(this.backends)) {
       $dara.Model.validateArray(this.backends);
     }

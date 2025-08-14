@@ -227,6 +227,35 @@ export class ModifyDomainRequestListen extends $dara.Model {
   }
 }
 
+export class ModifyDomainRequestRedirectBackendPorts extends $dara.Model {
+  backendPort?: number;
+  listenPort?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendPort: 'BackendPort',
+      listenPort: 'ListenPort',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendPort: 'number',
+      listenPort: 'number',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDomainRequestRedirectRequestHeaders extends $dara.Model {
   /**
    * @remarks
@@ -268,6 +297,7 @@ export class ModifyDomainRequestRedirectRequestHeaders extends $dara.Model {
 }
 
 export class ModifyDomainRequestRedirect extends $dara.Model {
+  backendPorts?: ModifyDomainRequestRedirectBackendPorts[];
   /**
    * @remarks
    * The IP addresses or domain names of the origin server. You cannot specify both IP addresses and domain names. If you specify domain names, the domain names can be resolved only to IPv4 addresses.
@@ -444,6 +474,7 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   xffProto?: boolean;
   static names(): { [key: string]: string } {
     return {
+      backendPorts: 'BackendPorts',
       backends: 'Backends',
       backupBackends: 'BackupBackends',
       cnameEnabled: 'CnameEnabled',
@@ -466,6 +497,7 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backendPorts: { 'type': 'array', 'itemType': ModifyDomainRequestRedirectBackendPorts },
       backends: { 'type': 'array', 'itemType': 'string' },
       backupBackends: { 'type': 'array', 'itemType': 'string' },
       cnameEnabled: 'boolean',
@@ -487,6 +519,9 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.backendPorts)) {
+      $dara.Model.validateArray(this.backendPorts);
+    }
     if(Array.isArray(this.backends)) {
       $dara.Model.validateArray(this.backends);
     }
