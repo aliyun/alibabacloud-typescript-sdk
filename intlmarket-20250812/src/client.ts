@@ -30,6 +30,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建云市场订单
+   * 
+   * @param request - CreateOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOrderResponse
+   */
+  async createOrderWithOptions(request: $_model.CreateOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOrderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.commodity)) {
+      query["Commodity"] = request.commodity;
+    }
+
+    if (!$dara.isNull(request.orderSouce)) {
+      query["OrderSouce"] = request.orderSouce;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.paymentType)) {
+      query["PaymentType"] = request.paymentType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOrder",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOrderResponse>(await this.callApi(params, req, runtime), new $_model.CreateOrderResponse({}));
+  }
+
+  /**
+   * 创建云市场订单
+   * 
+   * @param request - CreateOrderRequest
+   * @returns CreateOrderResponse
+   */
+  async createOrder(request: $_model.CreateOrderRequest): Promise<$_model.CreateOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createOrderWithOptions(request, runtime);
+  }
+
+  /**
    * 询价
    * 
    * @param request - DescribePriceRequest
