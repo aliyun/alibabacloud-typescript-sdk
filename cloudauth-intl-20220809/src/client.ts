@@ -66,7 +66,64 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 地址核验
+   * 地址相似比对
+   * 
+   * @param request - AddressCompareIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddressCompareIntlResponse
+   */
+  async addressCompareIntlWithOptions(request: $_model.AddressCompareIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddressCompareIntlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.defaultCountry)) {
+      query["DefaultCountry"] = request.defaultCountry;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.text1)) {
+      query["Text1"] = request.text1;
+    }
+
+    if (!$dara.isNull(request.text2)) {
+      query["Text2"] = request.text2;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddressCompareIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddressCompareIntlResponse>(await this.callApi(params, req, runtime), new $_model.AddressCompareIntlResponse({}));
+  }
+
+  /**
+   * 地址相似比对
+   * 
+   * @param request - AddressCompareIntlRequest
+   * @returns AddressCompareIntlResponse
+   */
+  async addressCompareIntl(request: $_model.AddressCompareIntlRequest): Promise<$_model.AddressCompareIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addressCompareIntlWithOptions(request, runtime);
+  }
+
+  /**
+   * Address Verification
+   * 
+   * @remarks
+   * Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
    * 
    * @param request - AddressVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -137,7 +194,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 地址核验
+   * Address Verification
+   * 
+   * @remarks
+   * Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
    * 
    * @param request - AddressVerifyIntlRequest
    * @returns AddressVerifyIntlResponse
@@ -145,6 +205,68 @@ export default class Client extends OpenApi {
   async addressVerifyIntl(request: $_model.AddressVerifyIntlRequest): Promise<$_model.AddressVerifyIntlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.addressVerifyIntlWithOptions(request, runtime);
+  }
+
+  /**
+   * 地址核验
+   * 
+   * @param request - AddressVerifyV2IntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddressVerifyV2IntlResponse
+   */
+  async addressVerifyV2IntlWithOptions(request: $_model.AddressVerifyV2IntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddressVerifyV2IntlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deviceToken)) {
+      query["DeviceToken"] = request.deviceToken;
+    }
+
+    if (!$dara.isNull(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.regCountry)) {
+      query["RegCountry"] = request.regCountry;
+    }
+
+    if (!$dara.isNull(request.text)) {
+      query["Text"] = request.text;
+    }
+
+    if (!$dara.isNull(request.verifyType)) {
+      query["VerifyType"] = request.verifyType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddressVerifyV2Intl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddressVerifyV2IntlResponse>(await this.callApi(params, req, runtime), new $_model.AddressVerifyV2IntlResponse({}));
+  }
+
+  /**
+   * 地址核验
+   * 
+   * @param request - AddressVerifyV2IntlRequest
+   * @returns AddressVerifyV2IntlResponse
+   */
+  async addressVerifyV2Intl(request: $_model.AddressVerifyV2IntlRequest): Promise<$_model.AddressVerifyV2IntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addressVerifyV2IntlWithOptions(request, runtime);
   }
 
   /**
@@ -228,7 +350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 证件OCR识别纯服务端接口
+   * Pure server-side interface for document OCR recognition
    * 
    * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
    * 
@@ -236,7 +358,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CardOcrResponse
    */
-  // Deprecated
   async cardOcrWithOptions(request: $_model.CardOcrRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CardOcrResponse> {
     request.validate();
     let query = { };
@@ -296,7 +417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 证件OCR识别纯服务端接口
+   * Pure server-side interface for document OCR recognition
    * 
    * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
    * 
@@ -310,7 +431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 结果查询
+   * Result Query
    * 
    * @param request - CheckResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -357,7 +478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 结果查询
+   * Result Query
    * 
    * @param request - CheckResultRequest
    * @returns CheckResultResponse
@@ -368,7 +489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 认证日志查询接口
+   * Authentication Log Query Interface
    * 
    * @param request - CheckVerifyLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -403,7 +524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 认证日志查询接口
+   * Authentication Log Query Interface
    * 
    * @param request - CheckVerifyLogRequest
    * @returns CheckVerifyLogResponse
@@ -414,7 +535,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 凭证核验
+   * Credential Verification
+   * 
+   * @remarks
+   * Input credential image information, perform image quality, tampering, and forgery detection, and return the detection results.
    * 
    * @param request - CredentialVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -463,7 +587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 凭证核验
+   * Credential Verification
+   * 
+   * @remarks
+   * Input credential image information, perform image quality, tampering, and forgery detection, and return the detection results.
    * 
    * @param request - CredentialVerifyIntlRequest
    * @returns CredentialVerifyIntlResponse
@@ -624,7 +751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户认证记录结果
+   * Delete user authentication record results
    * 
    * @param request - DeleteVerifyResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -663,7 +790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户认证记录结果
+   * Delete user authentication record results
    * 
    * @param request - DeleteVerifyResultRequest
    * @returns DeleteVerifyResultResponse
@@ -674,7 +801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 卡证ocr纯服务端
+   * Card and document OCR pure server-side
    * 
    * @param request - DocOcrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -747,7 +874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 卡证ocr纯服务端
+   * Card and document OCR pure server-side
    * 
    * @param request - DocOcrRequest
    * @returns DocOcrResponse
@@ -1600,7 +1727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机号三要素国际版接口
+   * International Version of Mobile Three Elements API
    * 
    * @param request - Mobile3MetaVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1647,7 +1774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机号三要素国际版接口
+   * International Version of Mobile Three Elements API
    * 
    * @param request - Mobile3MetaVerifyIntlRequest
    * @returns Mobile3MetaVerifyIntlResponse

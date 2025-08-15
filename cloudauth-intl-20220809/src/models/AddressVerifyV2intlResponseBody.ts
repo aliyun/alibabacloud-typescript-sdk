@@ -2,33 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteVerifyResultResponseBodyResult extends $dara.Model {
+export class AddressVerifyV2IntlResponseBodyResult extends $dara.Model {
   /**
-   * @remarks
-   * Deletion result. Y indicates successful deletion, N indicates failed deletion
-   * 
    * @example
-   * Y/N
+   * 1
    */
-  deleteResult?: string;
+  bizCode?: string;
   /**
-   * @remarks
-   * Unique identifier of the authentication request
-   * 
    * @example
-   * 4ab0b***cbde97
+   * {
+   *   "distanceRange": "0-3000",
+   *   "ispName": "CTCC",
+   *   "phoneStatus": "1"
+   * }
+   */
+  detail?: string;
+  /**
+   * @example
+   * hksb7ba1b28130d24e015d69********
    */
   transactionId?: string;
   static names(): { [key: string]: string } {
     return {
-      deleteResult: 'DeleteResult',
+      bizCode: 'BizCode',
+      detail: 'Detail',
       transactionId: 'TransactionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deleteResult: 'string',
+      bizCode: 'string',
+      detail: 'string',
       transactionId: 'string',
     };
   }
@@ -42,36 +47,26 @@ export class DeleteVerifyResultResponseBodyResult extends $dara.Model {
   }
 }
 
-export class DeleteVerifyResultResponseBody extends $dara.Model {
+export class AddressVerifyV2IntlResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Return code
-   * 
    * @example
-   * 200
+   * Success
    */
   code?: string;
   /**
-   * @remarks
-   * Return message
-   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * ID of this request
+   * Id of the request
    * 
    * @example
-   * 4EB35****87EBA1
+   * 7F971622-38C0-5F56-B2EC-315367979B4F
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Return result
-   */
-  result?: DeleteVerifyResultResponseBodyResult;
+  result?: AddressVerifyV2IntlResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -86,7 +81,7 @@ export class DeleteVerifyResultResponseBody extends $dara.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      result: DeleteVerifyResultResponseBodyResult,
+      result: AddressVerifyV2IntlResponseBodyResult,
     };
   }
 

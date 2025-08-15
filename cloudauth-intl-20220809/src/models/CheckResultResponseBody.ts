@@ -4,37 +4,68 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckResultResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Authentication result.
+   * 
    * @example
    * **
    */
   ekycResult?: string;
   /**
+   * @remarks
+   * Extended basic information.
+   * 
    * @example
    * **
    */
   extBasicInfo?: string;
   /**
+   * @remarks
+   * Face information.
+   * 
    * @example
    * **
    */
   extFaceInfo?: string;
   /**
+   * @remarks
+   * ID information.
+   * 
    * @example
    * **
    */
   extIdInfo?: string;
+  /**
+   * @remarks
+   * Extended information
+   * 
+   * @example
+   * {}
+   */
   extInfo?: string;
   /**
+   * @remarks
+   * Risk information.
+   * 
    * @example
    * **
    */
   extRiskInfo?: string;
   /**
+   * @remarks
+   * Whether the authentication is passed.
+   * 
+   * - Y: Passed
+   * - N: Not passed
+   * 
    * @example
    * Y
    */
   passed?: string;
   /**
+   * @remarks
+   * Sub-result code.
+   * 
    * @example
    * ***
    */
@@ -76,23 +107,33 @@ export class CheckResultResponseBodyResult extends $dara.Model {
 
 export class CheckResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 4EB35****87EBA1
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return result.
+   */
   result?: CheckResultResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

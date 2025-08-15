@@ -2,34 +2,19 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteVerifyResultResponseBodyResult extends $dara.Model {
-  /**
-   * @remarks
-   * Deletion result. Y indicates successful deletion, N indicates failed deletion
-   * 
-   * @example
-   * Y/N
-   */
-  deleteResult?: string;
-  /**
-   * @remarks
-   * Unique identifier of the authentication request
-   * 
-   * @example
-   * 4ab0b***cbde97
-   */
-  transactionId?: string;
+/**
+ */
+export class AddressCompareIntlResponseBodyResult extends $dara.Model {
+  data?: string;
   static names(): { [key: string]: string } {
     return {
-      deleteResult: 'DeleteResult',
-      transactionId: 'TransactionId',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deleteResult: 'string',
-      transactionId: 'string',
+      data: 'string',
     };
   }
 
@@ -42,36 +27,23 @@ export class DeleteVerifyResultResponseBodyResult extends $dara.Model {
   }
 }
 
-export class DeleteVerifyResultResponseBody extends $dara.Model {
+export class AddressCompareIntlResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Return code
-   * 
    * @example
-   * 200
+   * Success
    */
   code?: string;
   /**
-   * @remarks
-   * Return message
-   * 
    * @example
    * success
    */
   message?: string;
   /**
-   * @remarks
-   * ID of this request
-   * 
    * @example
-   * 4EB35****87EBA1
+   * 86C40EC3-5940-5F47-995C-BFE90B70E540
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Return result
-   */
-  result?: DeleteVerifyResultResponseBodyResult;
+  result?: AddressCompareIntlResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -86,7 +58,7 @@ export class DeleteVerifyResultResponseBody extends $dara.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      result: DeleteVerifyResultResponseBodyResult,
+      result: AddressCompareIntlResponseBodyResult,
     };
   }
 

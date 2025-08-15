@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteVerifyResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * Whether to depend on the query interface when deleting data
+   * 
    * @example
    * Y / N
    */
   deleteAfterQuery?: string;
   /**
+   * @remarks
+   * Type of data to be deleted
+   * 
    * @example
    * Img / Text / All
    */
   deleteType?: string;
   /**
+   * @remarks
+   * Unique identifier of the authentication request
+   * 
    * @example
    * 4ab0b***cbde97
    */
