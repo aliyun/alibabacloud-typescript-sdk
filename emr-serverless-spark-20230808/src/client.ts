@@ -1847,6 +1847,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取sql statement内容
+   * 
+   * @param request - ListSqlStatementContentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSqlStatementContentsResponse
+   */
+  async listSqlStatementContentsWithOptions(workspaceId: string, request: $_model.ListSqlStatementContentsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSqlStatementContentsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileName)) {
+      query["fileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSqlStatementContents",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/action/listSqlStatementContents`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSqlStatementContentsResponse>(await this.callApi(params, req, runtime), new $_model.ListSqlStatementContentsResponse({}));
+  }
+
+  /**
+   * 获取sql statement内容
+   * 
+   * @param request - ListSqlStatementContentsRequest
+   * @returns ListSqlStatementContentsResponse
+   */
+  async listSqlStatementContents(workspaceId: string, request: $_model.ListSqlStatementContentsRequest): Promise<$_model.ListSqlStatementContentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSqlStatementContentsWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * Queries the list of queues in a Spark workspace.
    * 
    * @param request - ListWorkspaceQueuesRequest

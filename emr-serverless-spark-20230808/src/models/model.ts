@@ -64,6 +64,7 @@ export { ListSessionClustersResponseBodySessionClustersAutoStartConfiguration } 
 export { ListSessionClustersResponseBodySessionClustersAutoStopConfiguration } from './ListSessionClustersResponseBody';
 export { ListSessionClustersResponseBodySessionClustersStateChangeReason } from './ListSessionClustersResponseBody';
 export { ListSessionClustersResponseBodySessionClusters } from './ListSessionClustersResponseBody';
+export { ListSqlStatementContentsResponseBodySqlStatementContents } from './ListSqlStatementContentsResponseBody';
 export { ListWorkspaceQueuesResponseBodyQueuesAllowActions } from './ListWorkspaceQueuesResponseBody';
 export { ListWorkspaceQueuesResponseBodyQueues } from './ListWorkspaceQueuesResponseBody';
 export { ListWorkspacesRequestTag } from './ListWorkspacesRequest';
@@ -191,6 +192,9 @@ export { ListReleaseVersionsResponse } from './ListReleaseVersionsResponse';
 export { ListSessionClustersRequest } from './ListSessionClustersRequest';
 export { ListSessionClustersResponseBody } from './ListSessionClustersResponseBody';
 export { ListSessionClustersResponse } from './ListSessionClustersResponse';
+export { ListSqlStatementContentsRequest } from './ListSqlStatementContentsRequest';
+export { ListSqlStatementContentsResponseBody } from './ListSqlStatementContentsResponseBody';
+export { ListSqlStatementContentsResponse } from './ListSqlStatementContentsResponse';
 export { ListWorkspaceQueuesRequest } from './ListWorkspaceQueuesRequest';
 export { ListWorkspaceQueuesResponseBody } from './ListWorkspaceQueuesResponseBody';
 export { ListWorkspaceQueuesResponse } from './ListWorkspaceQueuesResponse';
