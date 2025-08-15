@@ -10,11 +10,11 @@ export class CreateInstanceAclRequest extends $dara.Model {
    * The following types of operations are supported based on the resource type:
    * 
    * *   Topic: Pub, Sub, and Pub|Sub
-   * *   Consumer group: Sub
+   * *   Group: Sub
    * 
    * Valid values:
    * 
-   * *   SUB: subscribe
+   * *   Sub: subscribe
    * *   Pub|Sub: publish and subscribe
    * *   Pub: publish
    * 
@@ -41,7 +41,7 @@ export class CreateInstanceAclRequest extends $dara.Model {
   decision?: string;
   /**
    * @remarks
-   * The IP address whitelists.
+   * The IP addresses in the whitelist.
    */
   ipWhitelists?: string[];
   /**

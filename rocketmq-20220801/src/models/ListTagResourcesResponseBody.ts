@@ -1,7 +1,146 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListTagResourcesResponseBodyData } from "./ListTagResourcesResponseBodyData";
 
+
+export class ListTagResourcesResponseBodyDataTagResources extends $dara.Model {
+  /**
+   * @remarks
+   * UID of the resource owner.
+   * 
+   * @example
+   * 1876441048322426
+   */
+  aliUid?: number;
+  /**
+   * @remarks
+   * Tag category.
+   * 
+   * @example
+   * custom
+   */
+  category?: string;
+  /**
+   * @remarks
+   * Resource ID.
+   * 
+   * @example
+   * rmq-cn-pe334n08h08
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * Resource type.
+   * 
+   * @example
+   * instance
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * Visibility scope.
+   * 
+   * @example
+   * public
+   */
+  scope?: string;
+  /**
+   * @remarks
+   * Tag key.
+   * 
+   * @example
+   * key
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * Tag value.
+   * 
+   * @example
+   * value
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'aliUid',
+      category: 'category',
+      resourceId: 'resourceId',
+      resourceType: 'resourceType',
+      scope: 'scope',
+      tagKey: 'tagKey',
+      tagValue: 'tagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'number',
+      category: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      scope: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The position from which the next query starts.
+   * 
+   * @example
+   * d09e2b63e1b12d905b7080ff70
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * F00C6A70-C782-5DD6-9D11-0CFC710100C7
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Resource tag relationships.
+   */
+  tagResources?: ListTagResourcesResponseBodyDataTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      tagResources: 'tagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyDataTagResources },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagResources)) {
+      $dara.Model.validateArray(this.tagResources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**

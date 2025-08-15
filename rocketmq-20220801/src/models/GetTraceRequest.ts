@@ -2,34 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateInstanceRequestTags extends $dara.Model {
-  /**
-   * @remarks
-   * The `key` of the tag.
-   * 
-   * @example
-   * aaa
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The `value` of the tag.
-   * 
-   * @example
-   * bbb
-   */
-  value?: string;
+export class GetTraceRequest extends $dara.Model {
+  endTime?: string;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
-      key: 'key',
-      value: 'value',
+      endTime: 'endTime',
+      startTime: 'startTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
-      value: 'string',
+      endTime: 'string',
+      startTime: 'string',
     };
   }
 

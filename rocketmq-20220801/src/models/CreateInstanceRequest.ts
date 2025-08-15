@@ -1,9 +1,377 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateInstanceRequestNetworkInfo } from "./CreateInstanceRequestNetworkInfo";
-import { CreateInstanceRequestProductInfo } from "./CreateInstanceRequestProductInfo";
-import { CreateInstanceRequestTags } from "./CreateInstanceRequestTags";
 
+
+export class CreateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The Internet bandwidth. Unit: MB/s.
+   * 
+   * This parameter is required only if you set flowOutType to payByBandwidth.
+   * 
+   * Valid values: 1 to 1000.
+   * 
+   * @example
+   * 100
+   */
+  flowOutBandwidth?: number;
+  /**
+   * @remarks
+   * The metering method of Internet usage.
+   * 
+   * Valid values:
+   * 
+   * *   payByBandwidth: pay-by-bandwidth. This value is valid only if you enable Internet access.
+   * *   payByTraffic: pay-by-traffic. This value is valid only if you enable Internet access.
+   * *   uninvolved: No metering method is involved. This value is valid only if you disable Internet access.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * uninvolved
+   */
+  flowOutType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the Internet access feature.
+   * 
+   * Valid values:
+   * 
+   * *   enable
+   * *   disable
+   * 
+   * By default, ApsaraMQ for RocketMQ allows you to access instances in VPCs. If you enable Internet access for an instance, you can access the instance over the Internet. After you enable this feature, you are charged for outbound Internet traffic. For more information, see [Internet access fees](https://help.aliyun.com/document_detail/427240.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * disable
+   */
+  internetSpec?: string;
+  /**
+   * @remarks
+   * The whitelist that includes the CIDR blocks that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only if you use the public endpoint to access the instance.
+   * 
+   * *   If you do not configure an IP address whitelist, all CIDR blocks are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+   * *   If you configure an IP address whitelist, only the CIDR blocks in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+   * 
+   * @deprecated
+   */
+  ipWhitelist?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      flowOutBandwidth: 'flowOutBandwidth',
+      flowOutType: 'flowOutType',
+      internetSpec: 'internetSpec',
+      ipWhitelist: 'ipWhitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowOutBandwidth: 'number',
+      flowOutType: 'string',
+      internetSpec: 'string',
+      ipWhitelist: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipWhitelist)) {
+      $dara.Model.validateArray(this.ipWhitelist);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestNetworkInfoVpcInfoVSwitches extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the vSwitch with which the instance is associated.
+   * 
+   * @example
+   * vsw-uf6gwtbn6etadpv*******
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchId: 'vSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestNetworkInfoVpcInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the security group to which the instance belongs.
+   * 
+   * @example
+   * sg-bp17hpmgz96tvnsdy6so
+   */
+  securityGroupIds?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch with which the instance is associated. If you want to specify multiple vSwitches, separate the vSwitches with vertical bars (|).
+   * 
+   * >  After you create an ApsaraMQ for RocketMQ instance, you cannot change the vSwitch with which the instance is associated. If you want to change the vSwitch with which the instance is associated, you must release the instance and purchase a new instance.
+   * 
+   * >  We recommend that you configure vSwitches instead of this parameter.
+   * 
+   * @example
+   * vsw-uf6gwtbn6etadpv*******
+   * 
+   * @deprecated
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The vSwitches.
+   * 
+   * >  After you create an ApsaraMQ for RocketMQ instance, you cannot change the vSwitch with which the instance is associated. If you want to change the vSwitch with which the instance is associated, you must release the instance and purchase a new instance.
+   * 
+   * >  This parameter is required. We recommend that you configure this parameter instead of vSwitchId.
+   */
+  vSwitches?: CreateInstanceRequestNetworkInfoVpcInfoVSwitches[];
+  /**
+   * @remarks
+   * The ID of the VPC with which the instance to be created is associated.
+   * 
+   * >  After you create an ApsaraMQ for RocketMQ instance, you cannot change the VPC with which the instance is associated. If you want to change the VPC with which the instance is associated, you must release the instance and create a new instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-wz9qt50xhtj9krb******
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupIds: 'securityGroupIds',
+      vSwitchId: 'vSwitchId',
+      vSwitches: 'vSwitches',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupIds: 'string',
+      vSwitchId: 'string',
+      vSwitches: { 'type': 'array', 'itemType': CreateInstanceRequestNetworkInfoVpcInfoVSwitches },
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.vSwitches)) {
+      $dara.Model.validateArray(this.vSwitches);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestNetworkInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The Internet-related configurations.
+   * 
+   * This parameter is required.
+   */
+  internetInfo?: CreateInstanceRequestNetworkInfoInternetInfo;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC)-related configurations.
+   * 
+   * This parameter is required.
+   */
+  vpcInfo?: CreateInstanceRequestNetworkInfoVpcInfo;
+  static names(): { [key: string]: string } {
+    return {
+      internetInfo: 'internetInfo',
+      vpcInfo: 'vpcInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internetInfo: CreateInstanceRequestNetworkInfoInternetInfo,
+      vpcInfo: CreateInstanceRequestNetworkInfoVpcInfo,
+    };
+  }
+
+  validate() {
+    if(this.internetInfo && typeof (this.internetInfo as any).validate === 'function') {
+      (this.internetInfo as any).validate();
+    }
+    if(this.vpcInfo && typeof (this.vpcInfo as any).validate === 'function') {
+      (this.vpcInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestProductInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the elastic TPS feature for the instance.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * After you enable the elastic TPS feature for an ApsaraMQ for RocketMQ instance, you can use a specific amount of TPS that exceeds the specification limit. You are charged for the elastic TPS feature. For more information, see [Computing fees](https://help.aliyun.com/document_detail/427237.html).
+   * 
+   * >  The elastic TPS feature is supported only by instances of specific editions. For more information, see [Instance editions](https://help.aliyun.com/document_detail/444715.html).
+   * 
+   * @example
+   * true
+   */
+  autoScaling?: boolean;
+  /**
+   * @remarks
+   * The retention period of messages. Unit: hours.
+   * 
+   * For information about the valid values of this parameter, see the "Limits on resource quotas" section of the [Limits](https://help.aliyun.com/document_detail/440347.html) topic.
+   * 
+   * ApsaraMQ for RocketMQ supports serverless scaling of message storage. You are charged storage fees based on your actual storage usage. You can change the retention period of messages to manage storage capacity. For more information, see [Storage fees](https://help.aliyun.com/document_detail/427238.html).
+   * 
+   * @example
+   * 72
+   */
+  messageRetentionTime?: number;
+  /**
+   * @remarks
+   * The computing specification that specifies the messaging transactions per second (TPS) of the instance. For more information, see [Instance editions](https://help.aliyun.com/document_detail/444715.html).
+   * 
+   * @example
+   * rmq.s2.2xlarge
+   */
+  msgProcessSpec?: string;
+  /**
+   * @remarks
+   * The ratio of the message sending TPS to the messaging TPS of the instance.
+   * 
+   * For example, if the maximum messaging TPS of an instance is 1,000 and the ratio of the message sending TPS to the messaging TPS of the instance is 0.8, the maximum message sending TPS of the instance is 800 and the maximum message receiving TPS is 200.
+   * 
+   * Valid values: 0 to 1. Default value: 0.5.
+   * 
+   * @example
+   * 0.5
+   */
+  sendReceiveRatio?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the encryption at rest feature.
+   * 
+   * @example
+   * false
+   */
+  storageEncryption?: boolean;
+  /**
+   * @remarks
+   * The key for encryption at rest.
+   * 
+   * @example
+   * xxx
+   */
+  storageSecretKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoScaling: 'autoScaling',
+      messageRetentionTime: 'messageRetentionTime',
+      msgProcessSpec: 'msgProcessSpec',
+      sendReceiveRatio: 'sendReceiveRatio',
+      storageEncryption: 'storageEncryption',
+      storageSecretKey: 'storageSecretKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoScaling: 'boolean',
+      messageRetentionTime: 'number',
+      msgProcessSpec: 'string',
+      sendReceiveRatio: 'number',
+      storageEncryption: 'boolean',
+      storageSecretKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The `key` of the tag.
+   * 
+   * @example
+   * aaa
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The `value` of the tag.
+   * 
+   * @example
+   * bbb
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateInstanceRequest extends $dara.Model {
   /**

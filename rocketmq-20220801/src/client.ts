@@ -1181,7 +1181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询容灾计划详情
+   * Queries the details of a Global Replicator task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1206,7 +1206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询容灾计划详情
+   * Queries the details of a Global Replicator task.
    * @returns GetDisasterRecoveryPlanResponse
    */
   async getDisasterRecoveryPlan(planId: string): Promise<$_model.GetDisasterRecoveryPlanResponse> {
@@ -1474,13 +1474,25 @@ export default class Client extends OpenApi {
   /**
    * Queries the trace of a specific message in a specific topic.
    * 
+   * @param request - GetTraceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTraceResponse
    */
-  async getTraceWithOptions(instanceId: string, topicName: string, messageId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTraceResponse> {
+  async getTraceWithOptions(instanceId: string, topicName: string, messageId: string, request: $_model.GetTraceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTraceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetTrace",
@@ -1498,12 +1510,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the trace of a specific message in a specific topic.
+   * 
+   * @param request - GetTraceRequest
    * @returns GetTraceResponse
    */
-  async getTrace(instanceId: string, topicName: string, messageId: string): Promise<$_model.GetTraceResponse> {
+  async getTrace(instanceId: string, topicName: string, messageId: string, request: $_model.GetTraceRequest): Promise<$_model.GetTraceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTraceWithOptions(instanceId, topicName, messageId, headers, runtime);
+    return await this.getTraceWithOptions(instanceId, topicName, messageId, request, headers, runtime);
   }
 
   /**
@@ -1738,7 +1752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Disaster Recovery Plan Entry List
+   * Queries the Global Replicator tasks of an instance.
    * 
    * @param request - ListDisasterRecoveryItemsRequest
    * @param headers - map
@@ -1783,7 +1797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Disaster Recovery Plan Entry List
+   * Queries the Global Replicator tasks of an instance.
    * 
    * @param request - ListDisasterRecoveryItemsRequest
    * @returns ListDisasterRecoveryItemsResponse
@@ -1795,7 +1809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Disaster Recovery Plan List
+   * Queries Global Replicator tasks.
    * 
    * @param request - ListDisasterRecoveryPlansRequest
    * @param headers - map
@@ -1840,7 +1854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Disaster Recovery Plan List
+   * Queries Global Replicator tasks.
    * 
    * @param request - ListDisasterRecoveryPlansRequest
    * @returns ListDisasterRecoveryPlansResponse

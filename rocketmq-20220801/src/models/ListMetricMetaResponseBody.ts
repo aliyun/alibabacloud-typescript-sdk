@@ -1,7 +1,116 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListMetricMetaResponseBodyData } from "./ListMetricMetaResponseBodyData";
 
+
+export class ListMetricMetaResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * Monitoring item tag
+   * 
+   * @example
+   * Bug
+   */
+  category?: string;
+  /**
+   * @remarks
+   * Monitoring item description
+   * 
+   * @example
+   * Using Serverless Devs to deploy the infrastructure of project:get-userinfo-v1-infrastructure-as-template-project
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Monitoring item name
+   * 
+   * @example
+   * SendMessageCountPerInstance
+   */
+  metricName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      description: 'description',
+      metricName: 'metricName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      description: 'string',
+      metricName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetricMetaResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Paged data
+   */
+  list?: ListMetricMetaResponseBodyDataList[];
+  /**
+   * @remarks
+   * Current page number
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Page size
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Total record count
+   * 
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'list',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListMetricMetaResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListMetricMetaResponseBody extends $dara.Model {
   /**

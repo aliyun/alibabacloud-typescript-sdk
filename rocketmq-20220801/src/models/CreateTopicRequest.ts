@@ -24,6 +24,8 @@ export class CreateTopicRequest extends $dara.Model {
    * 
    * >  The type of messages in the topic must be the same as the type of messages that you want to send. For example, if you create a topic whose message type is ordered messages, you can use the topic to send and receive only ordered messages.
    * 
+   * This parameter is required.
+   * 
    * @example
    * NORMAL
    */
