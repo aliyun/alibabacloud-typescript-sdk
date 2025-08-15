@@ -24,12 +24,10 @@ export class DeleteSecurityProxyRequest extends $dara.Model {
    * proxy-nat00ab412ef93d4275a6b5
    */
   proxyId?: string;
-  trimSql?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
       proxyId: 'ProxyId',
-      trimSql: 'trimSql',
     };
   }
 
@@ -37,7 +35,6 @@ export class DeleteSecurityProxyRequest extends $dara.Model {
     return {
       lang: 'string',
       proxyId: 'string',
-      trimSql: 'string',
     };
   }
 

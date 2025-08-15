@@ -2115,10 +2115,6 @@ export default class Client extends OpenApi {
       query["ProxyId"] = request.proxyId;
     }
 
-    if (!$dara.isNull(request.trimSql)) {
-      query["trimSql"] = request.trimSql;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
