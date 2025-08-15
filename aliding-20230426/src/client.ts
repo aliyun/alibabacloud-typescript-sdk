@@ -3655,6 +3655,85 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateRunResponse
    */
+  async *createRunWithSSE(request: $_model.CreateRunRequest, headers: $_model.CreateRunHeaders, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.CreateRunResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowStructViewContent)) {
+      body["allowStructViewContent"] = request.allowStructViewContent;
+    }
+
+    if (!$dara.isNull(request.assistantId)) {
+      body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.originalAssistantId)) {
+      body["originalAssistantId"] = request.originalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
+      body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
+      body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.threadId)) {
+      body["threadId"] = request.threadId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountId)) {
+      realHeaders["accountId"] = String(headers.accountId);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRun",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/ai/v1/assistant/createRun`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.CreateRunResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.CreateRunResponse({}));
+    }
+  }
+
+  /**
+   * 创建运行
+   * 
+   * @param request - CreateRunRequest
+   * @param headers - CreateRunHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRunResponse
+   */
   async createRunWithOptions(request: $_model.CreateRunRequest, headers: $_model.CreateRunHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRunResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -12505,6 +12584,85 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InvokeAssistantResponse
    */
+  async *invokeAssistantWithSSE(request: $_model.InvokeAssistantRequest, headers: $_model.InvokeAssistantHeaders, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.InvokeAssistantResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assistantId)) {
+      body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.messages)) {
+      body["messages"] = request.messages;
+    }
+
+    if (!$dara.isNull(request.originalAssistantId)) {
+      body["originalAssistantId"] = request.originalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.sourceIdOfOriginalAssistantId)) {
+      body["sourceIdOfOriginalAssistantId"] = request.sourceIdOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.sourceTypeOfOriginalAssistantId)) {
+      body["sourceTypeOfOriginalAssistantId"] = request.sourceTypeOfOriginalAssistantId;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountId)) {
+      realHeaders["accountId"] = String(headers.accountId);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvokeAssistant",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/ai/v1/assistant/invokeAssistant`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.InvokeAssistantResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.InvokeAssistantResponse({}));
+    }
+  }
+
+  /**
+   * 调用助理
+   * 
+   * @param request - InvokeAssistantRequest
+   * @param headers - InvokeAssistantHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokeAssistantResponse
+   */
   async invokeAssistantWithOptions(request: $_model.InvokeAssistantRequest, headers: $_model.InvokeAssistantHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.InvokeAssistantResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -12573,6 +12731,81 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.InvokeAssistantHeaders({ });
     return await this.invokeAssistantWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 调用AI技能
+   * 
+   * @param tmpReq - InvokeSkillRequest
+   * @param tmpHeader - InvokeSkillHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokeSkillResponse
+   */
+  async *invokeSkillWithSSE(tmpReq: $_model.InvokeSkillRequest, tmpHeader: $_model.InvokeSkillHeaders, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.InvokeSkillResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.InvokeSkillShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.InvokeSkillShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    if (!$dara.isNull(request.skillId)) {
+      body["SkillId"] = request.skillId;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["Stream"] = request.stream;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvokeSkill",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/ai/v1/skill/invoke`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.InvokeSkillResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.InvokeSkillResponse({}));
+    }
   }
 
   /**
