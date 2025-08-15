@@ -166,6 +166,7 @@ export { ListUserRolesResponse } from './ListUserRolesResponse';
 export { ListUsersRequest } from './ListUsersRequest';
 export { ListUsersResponseBody } from './ListUsersResponseBody';
 export { ListUsersResponse } from './ListUsersResponse';
+export { RefreshUserSyncResponse } from './RefreshUserSyncResponse';
 export { RevokeRoleFromUsersRequest } from './RevokeRoleFromUsersRequest';
 export { RevokeRoleFromUsersResponse } from './RevokeRoleFromUsersResponse';
 export { RollbackTableRequest } from './RollbackTableRequest';

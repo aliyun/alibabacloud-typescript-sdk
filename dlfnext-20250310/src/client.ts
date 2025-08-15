@@ -2796,6 +2796,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 刷新用户同步
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshUserSyncResponse
+   */
+  async refreshUserSyncWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RefreshUserSyncResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RefreshUserSync",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/auth/usersync`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.RefreshUserSyncResponse>(await this.callApi(params, req, runtime), new $_model.RefreshUserSyncResponse({}));
+  }
+
+  /**
+   * 刷新用户同步
+   * @returns RefreshUserSyncResponse
+   */
+  async refreshUserSync(): Promise<$_model.RefreshUserSyncResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.refreshUserSyncWithOptions(headers, runtime);
+  }
+
+  /**
    * 批量取消授予角色权限给用户
    * 
    * @param request - RevokeRoleFromUsersRequest
