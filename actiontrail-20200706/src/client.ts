@@ -1,1910 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class CreateDeliveryHistoryJobRequest extends $tea.Model {
-  clientToken?: string;
-  trailName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      trailName: 'TrailName',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      trailName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeliveryHistoryJobResponseBody extends $tea.Model {
-  jobId?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeliveryHistoryJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDeliveryHistoryJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDeliveryHistoryJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTrailRequest extends $tea.Model {
-  eventRW?: string;
-  isOrganizationTrail?: boolean;
-  maxComputeProjectArn?: string;
-  maxComputeWriteRoleArn?: string;
-  name?: string;
-  ossBucketName?: string;
-  ossKeyPrefix?: string;
-  ossWriteRoleArn?: string;
-  slsProjectArn?: string;
-  slsWriteRoleArn?: string;
-  trailRegion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventRW: 'EventRW',
-      isOrganizationTrail: 'IsOrganizationTrail',
-      maxComputeProjectArn: 'MaxComputeProjectArn',
-      maxComputeWriteRoleArn: 'MaxComputeWriteRoleArn',
-      name: 'Name',
-      ossBucketName: 'OssBucketName',
-      ossKeyPrefix: 'OssKeyPrefix',
-      ossWriteRoleArn: 'OssWriteRoleArn',
-      slsProjectArn: 'SlsProjectArn',
-      slsWriteRoleArn: 'SlsWriteRoleArn',
-      trailRegion: 'TrailRegion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventRW: 'string',
-      isOrganizationTrail: 'boolean',
-      maxComputeProjectArn: 'string',
-      maxComputeWriteRoleArn: 'string',
-      name: 'string',
-      ossBucketName: 'string',
-      ossKeyPrefix: 'string',
-      ossWriteRoleArn: 'string',
-      slsProjectArn: 'string',
-      slsWriteRoleArn: 'string',
-      trailRegion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTrailResponseBody extends $tea.Model {
-  eventRW?: string;
-  homeRegion?: string;
-  maxComputeProjectArn?: string;
-  maxComputeWriteRoleArn?: string;
-  name?: string;
-  ossBucketName?: string;
-  ossKeyPrefix?: string;
-  ossWriteRoleArn?: string;
-  requestId?: string;
-  slsProjectArn?: string;
-  slsWriteRoleArn?: string;
-  trailRegion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventRW: 'EventRW',
-      homeRegion: 'HomeRegion',
-      maxComputeProjectArn: 'MaxComputeProjectArn',
-      maxComputeWriteRoleArn: 'MaxComputeWriteRoleArn',
-      name: 'Name',
-      ossBucketName: 'OssBucketName',
-      ossKeyPrefix: 'OssKeyPrefix',
-      ossWriteRoleArn: 'OssWriteRoleArn',
-      requestId: 'RequestId',
-      slsProjectArn: 'SlsProjectArn',
-      slsWriteRoleArn: 'SlsWriteRoleArn',
-      trailRegion: 'TrailRegion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventRW: 'string',
-      homeRegion: 'string',
-      maxComputeProjectArn: 'string',
-      maxComputeWriteRoleArn: 'string',
-      name: 'string',
-      ossBucketName: 'string',
-      ossKeyPrefix: 'string',
-      ossWriteRoleArn: 'string',
-      requestId: 'string',
-      slsProjectArn: 'string',
-      slsWriteRoleArn: 'string',
-      trailRegion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTrailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTrailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateTrailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeliveryHistoryJobRequest extends $tea.Model {
-  jobId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeliveryHistoryJobResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeliveryHistoryJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDeliveryHistoryJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDeliveryHistoryJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteTrailRequest extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteTrailResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteTrailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteTrailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteTrailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsRequest extends $tea.Model {
-  acceptLanguage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceptLanguage: 'AcceptLanguage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptLanguage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBody extends $tea.Model {
-  regions?: DescribeRegionsResponseBodyRegions;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: DescribeRegionsResponseBodyRegions,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTrailsRequest extends $tea.Model {
-  includeOrganizationTrail?: boolean;
-  includeShadowTrails?: boolean;
-  nameList?: string;
-  static names(): { [key: string]: string } {
-    return {
-      includeOrganizationTrail: 'IncludeOrganizationTrail',
-      includeShadowTrails: 'IncludeShadowTrails',
-      nameList: 'NameList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      includeOrganizationTrail: 'boolean',
-      includeShadowTrails: 'boolean',
-      nameList: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTrailsResponseBody extends $tea.Model {
-  requestId?: string;
-  trailList?: DescribeTrailsResponseBodyTrailList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      trailList: 'TrailList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      trailList: { 'type': 'array', 'itemType': DescribeTrailsResponseBodyTrailList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTrailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeTrailsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeTrailsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedEventsRequest extends $tea.Model {
-  accessKey?: string;
-  nextToken?: string;
-  pageSize?: string;
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKey: 'AccessKey',
-      nextToken: 'NextToken',
-      pageSize: 'PageSize',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKey: 'string',
-      nextToken: 'string',
-      pageSize: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedEventsResponseBody extends $tea.Model {
-  events?: GetAccessKeyLastUsedEventsResponseBodyEvents[];
-  nextToken?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      events: 'Events',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      events: { 'type': 'array', 'itemType': GetAccessKeyLastUsedEventsResponseBodyEvents },
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAccessKeyLastUsedEventsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccessKeyLastUsedEventsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedInfoRequest extends $tea.Model {
-  accessKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKey: 'AccessKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedInfoResponseBody extends $tea.Model {
-  accessKeyId?: string;
-  accountId?: string;
-  accountType?: string;
-  detail?: string;
-  ownerId?: string;
-  requestId?: string;
-  serviceName?: string;
-  serviceNameCn?: string;
-  serviceNameEn?: string;
-  source?: string;
-  usedTimestamp?: number;
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKeyId: 'AccessKeyId',
-      accountId: 'AccountId',
-      accountType: 'AccountType',
-      detail: 'Detail',
-      ownerId: 'OwnerId',
-      requestId: 'RequestId',
-      serviceName: 'ServiceName',
-      serviceNameCn: 'ServiceNameCn',
-      serviceNameEn: 'ServiceNameEn',
-      source: 'Source',
-      usedTimestamp: 'UsedTimestamp',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKeyId: 'string',
-      accountId: 'string',
-      accountType: 'string',
-      detail: 'string',
-      ownerId: 'string',
-      requestId: 'string',
-      serviceName: 'string',
-      serviceNameCn: 'string',
-      serviceNameEn: 'string',
-      source: 'string',
-      usedTimestamp: 'number',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAccessKeyLastUsedInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccessKeyLastUsedInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedIpsRequest extends $tea.Model {
-  accessKey?: string;
-  nextToken?: string;
-  pageSize?: string;
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKey: 'AccessKey',
-      nextToken: 'NextToken',
-      pageSize: 'PageSize',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKey: 'string',
-      nextToken: 'string',
-      pageSize: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedIpsResponseBody extends $tea.Model {
-  ips?: GetAccessKeyLastUsedIpsResponseBodyIps[];
-  nextToken?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ips: 'Ips',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ips: { 'type': 'array', 'itemType': GetAccessKeyLastUsedIpsResponseBodyIps },
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedIpsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAccessKeyLastUsedIpsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccessKeyLastUsedIpsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedProductsRequest extends $tea.Model {
-  accessKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKey: 'AccessKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedProductsResponseBody extends $tea.Model {
-  products?: GetAccessKeyLastUsedProductsResponseBodyProducts[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      products: 'Products',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      products: { 'type': 'array', 'itemType': GetAccessKeyLastUsedProductsResponseBodyProducts },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedProductsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAccessKeyLastUsedProductsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccessKeyLastUsedProductsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedResourcesRequest extends $tea.Model {
-  accessKey?: string;
-  nextToken?: string;
-  pageSize?: string;
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKey: 'AccessKey',
-      nextToken: 'NextToken',
-      pageSize: 'PageSize',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKey: 'string',
-      nextToken: 'string',
-      pageSize: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedResourcesResponseBody extends $tea.Model {
-  nextToken?: string;
-  requestId?: string;
-  resources?: GetAccessKeyLastUsedResourcesResponseBodyResources[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      resources: 'Resources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      resources: { 'type': 'array', 'itemType': GetAccessKeyLastUsedResourcesResponseBodyResources },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAccessKeyLastUsedResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccessKeyLastUsedResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeliveryHistoryJobRequest extends $tea.Model {
-  jobId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeliveryHistoryJobResponseBody extends $tea.Model {
-  createdTime?: string;
-  endTime?: string;
-  homeRegion?: string;
-  jobId?: number;
-  jobStatus?: number;
-  requestId?: string;
-  startTime?: string;
-  status?: GetDeliveryHistoryJobResponseBodyStatus[];
-  trailName?: string;
-  updatedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      endTime: 'EndTime',
-      homeRegion: 'HomeRegion',
-      jobId: 'JobId',
-      jobStatus: 'JobStatus',
-      requestId: 'RequestId',
-      startTime: 'StartTime',
-      status: 'Status',
-      trailName: 'TrailName',
-      updatedTime: 'UpdatedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      endTime: 'string',
-      homeRegion: 'string',
-      jobId: 'number',
-      jobStatus: 'number',
-      requestId: 'string',
-      startTime: 'string',
-      status: { 'type': 'array', 'itemType': GetDeliveryHistoryJobResponseBodyStatus },
-      trailName: 'string',
-      updatedTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeliveryHistoryJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDeliveryHistoryJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDeliveryHistoryJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGlobalEventsStorageRegionResponseBody extends $tea.Model {
-  requestId?: string;
-  storageRegion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      storageRegion: 'StorageRegion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      storageRegion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGlobalEventsStorageRegionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetGlobalEventsStorageRegionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetGlobalEventsStorageRegionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTrailStatusRequest extends $tea.Model {
-  isOrganizationTrail?: boolean;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isOrganizationTrail: 'IsOrganizationTrail',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isOrganizationTrail: 'boolean',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTrailStatusResponseBody extends $tea.Model {
-  isLogging?: boolean;
-  latestDeliveryError?: string;
-  latestDeliveryLogServiceError?: string;
-  latestDeliveryLogServiceTime?: string;
-  latestDeliveryTime?: string;
-  ossBucketStatus?: boolean;
-  requestId?: string;
-  slsLogStoreStatus?: boolean;
-  startLoggingTime?: string;
-  stopLoggingTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isLogging: 'IsLogging',
-      latestDeliveryError: 'LatestDeliveryError',
-      latestDeliveryLogServiceError: 'LatestDeliveryLogServiceError',
-      latestDeliveryLogServiceTime: 'LatestDeliveryLogServiceTime',
-      latestDeliveryTime: 'LatestDeliveryTime',
-      ossBucketStatus: 'OssBucketStatus',
-      requestId: 'RequestId',
-      slsLogStoreStatus: 'SlsLogStoreStatus',
-      startLoggingTime: 'StartLoggingTime',
-      stopLoggingTime: 'StopLoggingTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isLogging: 'boolean',
-      latestDeliveryError: 'string',
-      latestDeliveryLogServiceError: 'string',
-      latestDeliveryLogServiceTime: 'string',
-      latestDeliveryTime: 'string',
-      ossBucketStatus: 'boolean',
-      requestId: 'string',
-      slsLogStoreStatus: 'boolean',
-      startLoggingTime: 'string',
-      stopLoggingTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTrailStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetTrailStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetTrailStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeliveryHistoryJobsRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeliveryHistoryJobsResponseBody extends $tea.Model {
-  deliveryHistoryJobs?: ListDeliveryHistoryJobsResponseBodyDeliveryHistoryJobs[];
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deliveryHistoryJobs: 'DeliveryHistoryJobs',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deliveryHistoryJobs: { 'type': 'array', 'itemType': ListDeliveryHistoryJobsResponseBodyDeliveryHistoryJobs },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeliveryHistoryJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDeliveryHistoryJobsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDeliveryHistoryJobsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupEventsRequest extends $tea.Model {
-  direction?: string;
-  endTime?: string;
-  lookupAttribute?: LookupEventsRequestLookupAttribute[];
-  maxResults?: string;
-  nextToken?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      direction: 'Direction',
-      endTime: 'EndTime',
-      lookupAttribute: 'LookupAttribute',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      direction: 'string',
-      endTime: 'string',
-      lookupAttribute: { 'type': 'array', 'itemType': LookupEventsRequestLookupAttribute },
-      maxResults: 'string',
-      nextToken: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupEventsResponseBody extends $tea.Model {
-  endTime?: string;
-  events?: { [key: string]: any }[];
-  nextToken?: string;
-  requestId?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      events: 'Events',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      events: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      nextToken: 'string',
-      requestId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LookupEventsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: LookupEventsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartLoggingRequest extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartLoggingResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartLoggingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartLoggingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartLoggingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopLoggingRequest extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopLoggingResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopLoggingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopLoggingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopLoggingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGlobalEventsStorageRegionRequest extends $tea.Model {
-  storageRegion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      storageRegion: 'StorageRegion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      storageRegion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGlobalEventsStorageRegionResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGlobalEventsStorageRegionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateGlobalEventsStorageRegionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateGlobalEventsStorageRegionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTrailRequest extends $tea.Model {
-  eventRW?: string;
-  maxComputeProjectArn?: string;
-  maxComputeWriteRoleArn?: string;
-  name?: string;
-  ossBucketName?: string;
-  ossKeyPrefix?: string;
-  ossWriteRoleArn?: string;
-  slsProjectArn?: string;
-  slsWriteRoleArn?: string;
-  trailRegion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventRW: 'EventRW',
-      maxComputeProjectArn: 'MaxComputeProjectArn',
-      maxComputeWriteRoleArn: 'MaxComputeWriteRoleArn',
-      name: 'Name',
-      ossBucketName: 'OssBucketName',
-      ossKeyPrefix: 'OssKeyPrefix',
-      ossWriteRoleArn: 'OssWriteRoleArn',
-      slsProjectArn: 'SlsProjectArn',
-      slsWriteRoleArn: 'SlsWriteRoleArn',
-      trailRegion: 'TrailRegion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventRW: 'string',
-      maxComputeProjectArn: 'string',
-      maxComputeWriteRoleArn: 'string',
-      name: 'string',
-      ossBucketName: 'string',
-      ossKeyPrefix: 'string',
-      ossWriteRoleArn: 'string',
-      slsProjectArn: 'string',
-      slsWriteRoleArn: 'string',
-      trailRegion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTrailResponseBody extends $tea.Model {
-  eventRW?: string;
-  homeRegion?: string;
-  maxComputeProjectArn?: string;
-  maxComputeWriteRoleArn?: string;
-  name?: string;
-  ossBucketName?: string;
-  ossKeyPrefix?: string;
-  ossWriteRoleArn?: string;
-  requestId?: string;
-  slsProjectArn?: string;
-  slsWriteRoleArn?: string;
-  trailRegion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventRW: 'EventRW',
-      homeRegion: 'HomeRegion',
-      maxComputeProjectArn: 'MaxComputeProjectArn',
-      maxComputeWriteRoleArn: 'MaxComputeWriteRoleArn',
-      name: 'Name',
-      ossBucketName: 'OssBucketName',
-      ossKeyPrefix: 'OssKeyPrefix',
-      ossWriteRoleArn: 'OssWriteRoleArn',
-      requestId: 'RequestId',
-      slsProjectArn: 'SlsProjectArn',
-      slsWriteRoleArn: 'SlsWriteRoleArn',
-      trailRegion: 'TrailRegion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventRW: 'string',
-      homeRegion: 'string',
-      maxComputeProjectArn: 'string',
-      maxComputeWriteRoleArn: 'string',
-      name: 'string',
-      ossBucketName: 'string',
-      ossKeyPrefix: 'string',
-      ossWriteRoleArn: 'string',
-      requestId: 'string',
-      slsProjectArn: 'string',
-      slsWriteRoleArn: 'string',
-      trailRegion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTrailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateTrailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateTrailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
-  localName?: string;
-  regionEndpoint?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      localName: 'LocalName',
-      regionEndpoint: 'RegionEndpoint',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      localName: 'string',
-      regionEndpoint: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
-  region?: DescribeRegionsResponseBodyRegionsRegion[];
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTrailsResponseBodyTrailList extends $tea.Model {
-  createTime?: string;
-  eventRW?: string;
-  homeRegion?: string;
-  isOrganizationTrail?: boolean;
-  maxComputeProjectArn?: string;
-  maxComputeWriteRoleArn?: string;
-  name?: string;
-  organizationId?: string;
-  ossBucketLocation?: string;
-  ossBucketName?: string;
-  ossKeyPrefix?: string;
-  ossWriteRoleArn?: string;
-  region?: string;
-  slsProjectArn?: string;
-  slsWriteRoleArn?: string;
-  startLoggingTime?: string;
-  status?: string;
-  stopLoggingTime?: string;
-  trailArn?: string;
-  trailRegion?: string;
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      eventRW: 'EventRW',
-      homeRegion: 'HomeRegion',
-      isOrganizationTrail: 'IsOrganizationTrail',
-      maxComputeProjectArn: 'MaxComputeProjectArn',
-      maxComputeWriteRoleArn: 'MaxComputeWriteRoleArn',
-      name: 'Name',
-      organizationId: 'OrganizationId',
-      ossBucketLocation: 'OssBucketLocation',
-      ossBucketName: 'OssBucketName',
-      ossKeyPrefix: 'OssKeyPrefix',
-      ossWriteRoleArn: 'OssWriteRoleArn',
-      region: 'Region',
-      slsProjectArn: 'SlsProjectArn',
-      slsWriteRoleArn: 'SlsWriteRoleArn',
-      startLoggingTime: 'StartLoggingTime',
-      status: 'Status',
-      stopLoggingTime: 'StopLoggingTime',
-      trailArn: 'TrailArn',
-      trailRegion: 'TrailRegion',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      eventRW: 'string',
-      homeRegion: 'string',
-      isOrganizationTrail: 'boolean',
-      maxComputeProjectArn: 'string',
-      maxComputeWriteRoleArn: 'string',
-      name: 'string',
-      organizationId: 'string',
-      ossBucketLocation: 'string',
-      ossBucketName: 'string',
-      ossKeyPrefix: 'string',
-      ossWriteRoleArn: 'string',
-      region: 'string',
-      slsProjectArn: 'string',
-      slsWriteRoleArn: 'string',
-      startLoggingTime: 'string',
-      status: 'string',
-      stopLoggingTime: 'string',
-      trailArn: 'string',
-      trailRegion: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedEventsResponseBodyEvents extends $tea.Model {
-  detail?: string;
-  eventName?: string;
-  source?: string;
-  usedTimestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      detail: 'Detail',
-      eventName: 'EventName',
-      source: 'Source',
-      usedTimestamp: 'UsedTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detail: 'string',
-      eventName: 'string',
-      source: 'string',
-      usedTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedIpsResponseBodyIps extends $tea.Model {
-  detail?: string;
-  ip?: string;
-  source?: string;
-  usedTimestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      detail: 'Detail',
-      ip: 'Ip',
-      source: 'Source',
-      usedTimestamp: 'UsedTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detail: 'string',
-      ip: 'string',
-      source: 'string',
-      usedTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedProductsResponseBodyProducts extends $tea.Model {
-  detail?: string;
-  serviceName?: string;
-  serviceNameCn?: string;
-  serviceNameEn?: string;
-  source?: string;
-  usedTimestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      detail: 'Detail',
-      serviceName: 'ServiceName',
-      serviceNameCn: 'ServiceNameCn',
-      serviceNameEn: 'ServiceNameEn',
-      source: 'Source',
-      usedTimestamp: 'UsedTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detail: 'string',
-      serviceName: 'string',
-      serviceNameCn: 'string',
-      serviceNameEn: 'string',
-      source: 'string',
-      usedTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessKeyLastUsedResourcesResponseBodyResources extends $tea.Model {
-  detail?: string;
-  resourceName?: string;
-  resourceType?: string;
-  source?: string;
-  usedTimestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      detail: 'Detail',
-      resourceName: 'ResourceName',
-      resourceType: 'ResourceType',
-      source: 'Source',
-      usedTimestamp: 'UsedTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detail: 'string',
-      resourceName: 'string',
-      resourceType: 'string',
-      source: 'string',
-      usedTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeliveryHistoryJobResponseBodyStatus extends $tea.Model {
-  region?: string;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: 'string',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeliveryHistoryJobsResponseBodyDeliveryHistoryJobs extends $tea.Model {
-  createdTime?: string;
-  endTime?: string;
-  homeRegion?: string;
-  jobId?: number;
-  jobStatus?: number;
-  startTime?: string;
-  trailName?: string;
-  updatedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      endTime: 'EndTime',
-      homeRegion: 'HomeRegion',
-      jobId: 'JobId',
-      jobStatus: 'JobStatus',
-      startTime: 'StartTime',
-      trailName: 'TrailName',
-      updatedTime: 'UpdatedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      endTime: 'string',
-      homeRegion: 'string',
-      jobId: 'number',
-      jobStatus: 'number',
-      startTime: 'string',
-      trailName: 'string',
-      updatedTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupEventsRequestLookupAttribute extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
@@ -1947,42 +52,141 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
-    * Take note of the following limits:
-    * - You must have created and configured a single-account trail to deliver events to Log Service by calling the [CreateTrail](~~212313~~) operation.
-    * - Only one historical event delivery task can be running at a time within an Alibaba Cloud account.
-    * This topic shows you how to create a historical event delivery task for a sample trail named `trail-name`.
-    *
-    * @param request CreateDeliveryHistoryJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDeliveryHistoryJobResponse
+   * 创建高级查询历史记录
+   * 
+   * @param request - CreateAdvancedQueryHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAdvancedQueryHistoryResponse
    */
-  async createDeliveryHistoryJobWithOptions(request: CreateDeliveryHistoryJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeliveryHistoryJobResponse> {
-    Util.validateModel(request);
+  async createAdvancedQueryHistoryWithOptions(request: $_model.CreateAdvancedQueryHistoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAdvancedQueryHistoryResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.querySql)) {
+      query["QuerySql"] = request.querySql;
+    }
+
+    if (!$dara.isNull(request.simpleQuery)) {
+      query["SimpleQuery"] = request.simpleQuery;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAdvancedQueryHistory",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAdvancedQueryHistoryResponse>(await this.callApi(params, req, runtime), new $_model.CreateAdvancedQueryHistoryResponse({}));
+  }
+
+  /**
+   * 创建高级查询历史记录
+   * 
+   * @param request - CreateAdvancedQueryHistoryRequest
+   * @returns CreateAdvancedQueryHistoryResponse
+   */
+  async createAdvancedQueryHistory(request: $_model.CreateAdvancedQueryHistoryRequest): Promise<$_model.CreateAdvancedQueryHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAdvancedQueryHistoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建高级查询模板
+   * 
+   * @param request - CreateAdvancedQueryTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAdvancedQueryTemplateResponse
+   */
+  async createAdvancedQueryTemplateWithOptions(request: $_model.CreateAdvancedQueryTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAdvancedQueryTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.simpleQuery)) {
+      query["SimpleQuery"] = request.simpleQuery;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.templateSql)) {
+      query["TemplateSql"] = request.templateSql;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAdvancedQueryTemplate",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAdvancedQueryTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateAdvancedQueryTemplateResponse({}));
+  }
+
+  /**
+   * 创建高级查询模板
+   * 
+   * @param request - CreateAdvancedQueryTemplateRequest
+   * @returns CreateAdvancedQueryTemplateResponse
+   */
+  async createAdvancedQueryTemplate(request: $_model.CreateAdvancedQueryTemplateRequest): Promise<$_model.CreateAdvancedQueryTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAdvancedQueryTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a data backfill task.
+   * 
+   * @remarks
+   * Limits
+   * *   Make sure that you have created a single-account trail to deliver events to Simple Log Service by calling the [CreateTrail](https://help.aliyun.com/document_detail/212313.html) operation.
+   * *   Only one data backfill task can run at a time within an Alibaba Cloud account.
+   * This topic provides an example on how to create a data backfill task for a trail named `trail-name`.
+   * 
+   * @param request - CreateDeliveryHistoryJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDeliveryHistoryJobResponse
+   */
+  async createDeliveryHistoryJobWithOptions(request: $_model.CreateDeliveryHistoryJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDeliveryHistoryJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.trailName)) {
+    if (!$dara.isNull(request.trailName)) {
       query["TrailName"] = request.trailName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateDeliveryHistoryJob",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -1993,85 +197,102 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateDeliveryHistoryJobResponse>(await this.callApi(params, req, runtime), new CreateDeliveryHistoryJobResponse({}));
+    return $dara.cast<$_model.CreateDeliveryHistoryJobResponse>(await this.callApi(params, req, runtime), new $_model.CreateDeliveryHistoryJobResponse({}));
   }
 
   /**
-    * Take note of the following limits:
-    * - You must have created and configured a single-account trail to deliver events to Log Service by calling the [CreateTrail](~~212313~~) operation.
-    * - Only one historical event delivery task can be running at a time within an Alibaba Cloud account.
-    * This topic shows you how to create a historical event delivery task for a sample trail named `trail-name`.
-    *
-    * @param request CreateDeliveryHistoryJobRequest
-    * @return CreateDeliveryHistoryJobResponse
+   * Creates a data backfill task.
+   * 
+   * @remarks
+   * Limits
+   * *   Make sure that you have created a single-account trail to deliver events to Simple Log Service by calling the [CreateTrail](https://help.aliyun.com/document_detail/212313.html) operation.
+   * *   Only one data backfill task can run at a time within an Alibaba Cloud account.
+   * This topic provides an example on how to create a data backfill task for a trail named `trail-name`.
+   * 
+   * @param request - CreateDeliveryHistoryJobRequest
+   * @returns CreateDeliveryHistoryJobResponse
    */
-  async createDeliveryHistoryJob(request: CreateDeliveryHistoryJobRequest): Promise<CreateDeliveryHistoryJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createDeliveryHistoryJob(request: $_model.CreateDeliveryHistoryJobRequest): Promise<$_model.CreateDeliveryHistoryJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createDeliveryHistoryJobWithOptions(request, runtime);
   }
 
   /**
-    * You can create a trail to deliver events to Log Service, Object Storage Service (OSS), or both. Before you call this operation to create a trail, make sure that the following requirements are met:
-    * *   Deliver events to Log Service: A project is created in Log Service.
-    * **
-    * **Description** After you create a trail to deliver events to Log Service, a Logstore whose name is in the `actiontrail_<Trail name>` format is automatically created and optimally configured for subsequent auditing. Indexes and a dashboard are created for the Logstore to facilitate event queries. You cannot manually write data to the Logstore. This ensures data accuracy. You do not need to create a Logstore in advance.
-    * *   Deliver events to OSS: A bucket is created in OSS. This topic provides an example on how to call the API operation to create a single-account trail named `trail-test` to deliver events to an OSS bucket named `audit-log`.
-    *
-    * @param request CreateTrailRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateTrailResponse
+   * Creates a trail. By default, ActionTrail allows you to query events generated within your Alibaba Cloud account in the last 90 days. To query and analyze events generated more than 90 days ago, create a trail to deliver events to Object Storage Service (OSS), Simple Log Service, or MaxCompute.
+   * 
+   * @remarks
+   * *Operation description**
+   * >By default, a trail that is created by calling an operation is in the Disabled state. You must call the StartLogging operation to enable the trail. This way, ActionTrail can deliver events to the destination cloud service.
+   * **Prerequisites**
+   * Before you create a trail, make sure that at least one of the following storage configurations is complete:
+   * - Deliver events to OSS
+   *   - OSS is activated and a bucket is created.
+   *   
+   * - Deliver events to Simple Log Service
+   *   - Simple Log Service is activated and a project is created.
+   *  >When a trail is created, ActionTrail automatically creates a Logstore named `actiontrail_<Trail name>` in the project. You cannot write data other than the audit data to the Logstore. This ensures the accuracy of the audit data.
+   *     
+   * - Deliver events to MaxCompute
+   *   - MaxCompute is activated.
+   * >When a trail is created, ActionTrail automatically creates a project named `actiontrail_<Account ID>` on the Projects page. You cannot write data other than the audit data to the project. This ensures the accuracy of the audit data.
+   * **Usage Notes**
+   * This topic provides an example on how to create a single-account trail named `trail-test` to deliver events to an OSS bucket named `audit-log`.
+   * 
+   * @param request - CreateTrailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTrailResponse
    */
-  async createTrailWithOptions(request: CreateTrailRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrailResponse> {
-    Util.validateModel(request);
+  async createTrailWithOptions(request: $_model.CreateTrailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTrailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.eventRW)) {
+    if (!$dara.isNull(request.eventRW)) {
       query["EventRW"] = request.eventRW;
     }
 
-    if (!Util.isUnset(request.isOrganizationTrail)) {
+    if (!$dara.isNull(request.isOrganizationTrail)) {
       query["IsOrganizationTrail"] = request.isOrganizationTrail;
     }
 
-    if (!Util.isUnset(request.maxComputeProjectArn)) {
+    if (!$dara.isNull(request.maxComputeProjectArn)) {
       query["MaxComputeProjectArn"] = request.maxComputeProjectArn;
     }
 
-    if (!Util.isUnset(request.maxComputeWriteRoleArn)) {
+    if (!$dara.isNull(request.maxComputeWriteRoleArn)) {
       query["MaxComputeWriteRoleArn"] = request.maxComputeWriteRoleArn;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.ossBucketName)) {
+    if (!$dara.isNull(request.ossBucketName)) {
       query["OssBucketName"] = request.ossBucketName;
     }
 
-    if (!Util.isUnset(request.ossKeyPrefix)) {
+    if (!$dara.isNull(request.ossKeyPrefix)) {
       query["OssKeyPrefix"] = request.ossKeyPrefix;
     }
 
-    if (!Util.isUnset(request.ossWriteRoleArn)) {
+    if (!$dara.isNull(request.ossWriteRoleArn)) {
       query["OssWriteRoleArn"] = request.ossWriteRoleArn;
     }
 
-    if (!Util.isUnset(request.slsProjectArn)) {
+    if (!$dara.isNull(request.slsProjectArn)) {
       query["SlsProjectArn"] = request.slsProjectArn;
     }
 
-    if (!Util.isUnset(request.slsWriteRoleArn)) {
+    if (!$dara.isNull(request.slsWriteRoleArn)) {
       query["SlsWriteRoleArn"] = request.slsWriteRoleArn;
     }
 
-    if (!Util.isUnset(request.trailRegion)) {
+    if (!$dara.isNull(request.trailRegion)) {
       query["TrailRegion"] = request.trailRegion;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateTrail",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2082,42 +303,143 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateTrailResponse>(await this.callApi(params, req, runtime), new CreateTrailResponse({}));
+    return $dara.cast<$_model.CreateTrailResponse>(await this.callApi(params, req, runtime), new $_model.CreateTrailResponse({}));
   }
 
   /**
-    * You can create a trail to deliver events to Log Service, Object Storage Service (OSS), or both. Before you call this operation to create a trail, make sure that the following requirements are met:
-    * *   Deliver events to Log Service: A project is created in Log Service.
-    * **
-    * **Description** After you create a trail to deliver events to Log Service, a Logstore whose name is in the `actiontrail_<Trail name>` format is automatically created and optimally configured for subsequent auditing. Indexes and a dashboard are created for the Logstore to facilitate event queries. You cannot manually write data to the Logstore. This ensures data accuracy. You do not need to create a Logstore in advance.
-    * *   Deliver events to OSS: A bucket is created in OSS. This topic provides an example on how to call the API operation to create a single-account trail named `trail-test` to deliver events to an OSS bucket named `audit-log`.
-    *
-    * @param request CreateTrailRequest
-    * @return CreateTrailResponse
+   * Creates a trail. By default, ActionTrail allows you to query events generated within your Alibaba Cloud account in the last 90 days. To query and analyze events generated more than 90 days ago, create a trail to deliver events to Object Storage Service (OSS), Simple Log Service, or MaxCompute.
+   * 
+   * @remarks
+   * *Operation description**
+   * >By default, a trail that is created by calling an operation is in the Disabled state. You must call the StartLogging operation to enable the trail. This way, ActionTrail can deliver events to the destination cloud service.
+   * **Prerequisites**
+   * Before you create a trail, make sure that at least one of the following storage configurations is complete:
+   * - Deliver events to OSS
+   *   - OSS is activated and a bucket is created.
+   *   
+   * - Deliver events to Simple Log Service
+   *   - Simple Log Service is activated and a project is created.
+   *  >When a trail is created, ActionTrail automatically creates a Logstore named `actiontrail_<Trail name>` in the project. You cannot write data other than the audit data to the Logstore. This ensures the accuracy of the audit data.
+   *     
+   * - Deliver events to MaxCompute
+   *   - MaxCompute is activated.
+   * >When a trail is created, ActionTrail automatically creates a project named `actiontrail_<Account ID>` on the Projects page. You cannot write data other than the audit data to the project. This ensures the accuracy of the audit data.
+   * **Usage Notes**
+   * This topic provides an example on how to create a single-account trail named `trail-test` to deliver events to an OSS bucket named `audit-log`.
+   * 
+   * @param request - CreateTrailRequest
+   * @returns CreateTrailResponse
    */
-  async createTrail(request: CreateTrailRequest): Promise<CreateTrailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createTrail(request: $_model.CreateTrailRequest): Promise<$_model.CreateTrailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createTrailWithOptions(request, runtime);
   }
 
   /**
-    * This topic describes how to delete a sample historical event delivery task whose ID is `16602`.
-    *
-    * @param request DeleteDeliveryHistoryJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDeliveryHistoryJobResponse
+   * 删除高级查询历史记录
+   * 
+   * @param request - DeleteAdvancedQueryHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAdvancedQueryHistoryResponse
    */
-  async deleteDeliveryHistoryJobWithOptions(request: DeleteDeliveryHistoryJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeliveryHistoryJobResponse> {
-    Util.validateModel(request);
+  async deleteAdvancedQueryHistoryWithOptions(request: $_model.DeleteAdvancedQueryHistoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAdvancedQueryHistoryResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.queryId)) {
+      query["QueryId"] = request.queryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAdvancedQueryHistory",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAdvancedQueryHistoryResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAdvancedQueryHistoryResponse({}));
+  }
+
+  /**
+   * 删除高级查询历史记录
+   * 
+   * @param request - DeleteAdvancedQueryHistoryRequest
+   * @returns DeleteAdvancedQueryHistoryResponse
+   */
+  async deleteAdvancedQueryHistory(request: $_model.DeleteAdvancedQueryHistoryRequest): Promise<$_model.DeleteAdvancedQueryHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAdvancedQueryHistoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除高级查询模板
+   * 
+   * @param request - DeleteAdvancedQueryTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAdvancedQueryTemplateResponse
+   */
+  async deleteAdvancedQueryTemplateWithOptions(request: $_model.DeleteAdvancedQueryTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAdvancedQueryTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAdvancedQueryTemplate",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAdvancedQueryTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAdvancedQueryTemplateResponse({}));
+  }
+
+  /**
+   * 删除高级查询模板
+   * 
+   * @param request - DeleteAdvancedQueryTemplateRequest
+   * @returns DeleteAdvancedQueryTemplateResponse
+   */
+  async deleteAdvancedQueryTemplate(request: $_model.DeleteAdvancedQueryTemplateRequest): Promise<$_model.DeleteAdvancedQueryTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAdvancedQueryTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a data backfill task.
+   * 
+   * @remarks
+   * This topic describes how to delete a data backfill task whose ID is `16602`.
+   * 
+   * @param request - DeleteDeliveryHistoryJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDeliveryHistoryJobResponse
+   */
+  async deleteDeliveryHistoryJobWithOptions(request: $_model.DeleteDeliveryHistoryJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDeliveryHistoryJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
       query["JobId"] = request.jobId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDeliveryHistoryJob",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2128,38 +450,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDeliveryHistoryJobResponse>(await this.callApi(params, req, runtime), new DeleteDeliveryHistoryJobResponse({}));
+    return $dara.cast<$_model.DeleteDeliveryHistoryJobResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDeliveryHistoryJobResponse({}));
   }
 
   /**
-    * This topic describes how to delete a sample historical event delivery task whose ID is `16602`.
-    *
-    * @param request DeleteDeliveryHistoryJobRequest
-    * @return DeleteDeliveryHistoryJobResponse
+   * Deletes a data backfill task.
+   * 
+   * @remarks
+   * This topic describes how to delete a data backfill task whose ID is `16602`.
+   * 
+   * @param request - DeleteDeliveryHistoryJobRequest
+   * @returns DeleteDeliveryHistoryJobResponse
    */
-  async deleteDeliveryHistoryJob(request: DeleteDeliveryHistoryJobRequest): Promise<DeleteDeliveryHistoryJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteDeliveryHistoryJob(request: $_model.DeleteDeliveryHistoryJobRequest): Promise<$_model.DeleteDeliveryHistoryJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDeliveryHistoryJobWithOptions(request, runtime);
   }
 
   /**
-    * This topic describes how to delete a sample trail named `trail-test`.
-    *
-    * @param request DeleteTrailRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteTrailResponse
+   * Deletes a trail.
+   * 
+   * @remarks
+   * This topic describes how to delete a sample trail named `trail-test`.
+   * 
+   * @param request - DeleteTrailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTrailResponse
    */
-  async deleteTrailWithOptions(request: DeleteTrailRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrailResponse> {
-    Util.validateModel(request);
+  async deleteTrailWithOptions(request: $_model.DeleteTrailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTrailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteTrail",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2170,38 +498,126 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteTrailResponse>(await this.callApi(params, req, runtime), new DeleteTrailResponse({}));
+    return $dara.cast<$_model.DeleteTrailResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTrailResponse({}));
   }
 
   /**
-    * This topic describes how to delete a sample trail named `trail-test`.
-    *
-    * @param request DeleteTrailRequest
-    * @return DeleteTrailResponse
+   * Deletes a trail.
+   * 
+   * @remarks
+   * This topic describes how to delete a sample trail named `trail-test`.
+   * 
+   * @param request - DeleteTrailRequest
+   * @returns DeleteTrailResponse
    */
-  async deleteTrail(request: DeleteTrailRequest): Promise<DeleteTrailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteTrail(request: $_model.DeleteTrailRequest): Promise<$_model.DeleteTrailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteTrailWithOptions(request, runtime);
   }
 
   /**
-    * For more information, see [Regions and zones](~~40654~~).
-    *
-    * @param request DescribeRegionsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeRegionsResponse
+   * 查询高级查询历史记录
+   * 
+   * @param request - DescribeAdvancedQueryHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAdvancedQueryHistoryResponse
    */
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
+  async describeAdvancedQueryHistoryWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAdvancedQueryHistoryResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAdvancedQueryHistory",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAdvancedQueryHistoryResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAdvancedQueryHistoryResponse({}));
+  }
+
+  /**
+   * 查询高级查询历史记录
+   * @returns DescribeAdvancedQueryHistoryResponse
+   */
+  async describeAdvancedQueryHistory(): Promise<$_model.DescribeAdvancedQueryHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAdvancedQueryHistoryWithOptions(runtime);
+  }
+
+  /**
+   * 查询高级查询模板
+   * 
+   * @param request - DescribeAdvancedQueryTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAdvancedQueryTemplateResponse
+   */
+  async describeAdvancedQueryTemplateWithOptions(request: $_model.DescribeAdvancedQueryTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAdvancedQueryTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.acceptLanguage)) {
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAdvancedQueryTemplate",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAdvancedQueryTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAdvancedQueryTemplateResponse({}));
+  }
+
+  /**
+   * 查询高级查询模板
+   * 
+   * @param request - DescribeAdvancedQueryTemplateRequest
+   * @returns DescribeAdvancedQueryTemplateResponse
+   */
+  async describeAdvancedQueryTemplate(request: $_model.DescribeAdvancedQueryTemplateRequest): Promise<$_model.DescribeAdvancedQueryTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAdvancedQueryTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the Alibaba Cloud regions that are supported by ActionTrail.
+   * 
+   * @remarks
+   * For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegionsWithOptions(request: $_model.DescribeRegionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRegions",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2212,46 +628,190 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
   }
 
   /**
-    * For more information, see [Regions and zones](~~40654~~).
-    *
-    * @param request DescribeRegionsRequest
-    * @return DescribeRegionsResponse
+   * Queries the Alibaba Cloud regions that are supported by ActionTrail.
+   * 
+   * @remarks
+   * For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * 
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
    */
-  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeRegions(request: $_model.DescribeRegionsRequest): Promise<$_model.DescribeRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
   /**
-    * This topic shows you how to query the information about the single-account trails within an Alibaba Cloud account. In this example, the information about a trail named `test-4` is returned.
-    *
-    * @param request DescribeTrailsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeTrailsResponse
+   * 列举资源生命周期事件
+   * 
+   * @param request - DescribeResourceLifeCycleEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeResourceLifeCycleEventsResponse
    */
-  async describeTrailsWithOptions(request: DescribeTrailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrailsResponse> {
-    Util.validateModel(request);
+  async describeResourceLifeCycleEventsWithOptions(request: $_model.DescribeResourceLifeCycleEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceLifeCycleEventsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.includeOrganizationTrail)) {
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeResourceLifeCycleEvents",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeResourceLifeCycleEventsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeResourceLifeCycleEventsResponse({}));
+  }
+
+  /**
+   * 列举资源生命周期事件
+   * 
+   * @param request - DescribeResourceLifeCycleEventsRequest
+   * @returns DescribeResourceLifeCycleEventsResponse
+   */
+  async describeResourceLifeCycleEvents(request: $_model.DescribeResourceLifeCycleEventsRequest): Promise<$_model.DescribeResourceLifeCycleEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeResourceLifeCycleEventsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询所有场景
+   * 
+   * @param request - DescribeScenesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeScenesResponse
+   */
+  async describeScenesWithOptions(request: $_model.DescribeScenesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeScenesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.searchCode)) {
+      query["SearchCode"] = request.searchCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeScenes",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeScenesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeScenesResponse({}));
+  }
+
+  /**
+   * 查询所有场景
+   * 
+   * @param request - DescribeScenesRequest
+   * @returns DescribeScenesResponse
+   */
+  async describeScenes(request: $_model.DescribeScenesRequest): Promise<$_model.DescribeScenesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeScenesWithOptions(request, runtime);
+  }
+
+  /**
+   * 列举所有模版
+   * 
+   * @param request - DescribeSearchTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSearchTemplatesResponse
+   */
+  async describeSearchTemplatesWithOptions(request: $_model.DescribeSearchTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSearchTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSearchTemplates",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSearchTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSearchTemplatesResponse({}));
+  }
+
+  /**
+   * 列举所有模版
+   * 
+   * @param request - DescribeSearchTemplatesRequest
+   * @returns DescribeSearchTemplatesResponse
+   */
+  async describeSearchTemplates(request: $_model.DescribeSearchTemplatesRequest): Promise<$_model.DescribeSearchTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSearchTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries created trails.
+   * 
+   * @remarks
+   * This topic shows you how to query the information about the single-account trails within an Alibaba Cloud account. In this example, the information about a trail named `test-4` is returned.
+   * 
+   * @param request - DescribeTrailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTrailsResponse
+   */
+  async describeTrailsWithOptions(request: $_model.DescribeTrailsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTrailsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.includeOrganizationTrail)) {
       query["IncludeOrganizationTrail"] = request.includeOrganizationTrail;
     }
 
-    if (!Util.isUnset(request.includeShadowTrails)) {
+    if (!$dara.isNull(request.includeShadowTrails)) {
       query["IncludeShadowTrails"] = request.includeShadowTrails;
     }
 
-    if (!Util.isUnset(request.nameList)) {
+    if (!$dara.isNull(request.nameList)) {
       query["NameList"] = request.nameList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeTrails",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2262,50 +822,190 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeTrailsResponse>(await this.callApi(params, req, runtime), new DescribeTrailsResponse({}));
+    return $dara.cast<$_model.DescribeTrailsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTrailsResponse({}));
   }
 
   /**
-    * This topic shows you how to query the information about the single-account trails within an Alibaba Cloud account. In this example, the information about a trail named `test-4` is returned.
-    *
-    * @param request DescribeTrailsRequest
-    * @return DescribeTrailsResponse
+   * Queries created trails.
+   * 
+   * @remarks
+   * This topic shows you how to query the information about the single-account trails within an Alibaba Cloud account. In this example, the information about a trail named `test-4` is returned.
+   * 
+   * @param request - DescribeTrailsRequest
+   * @returns DescribeTrailsResponse
    */
-  async describeTrails(request: DescribeTrailsRequest): Promise<DescribeTrailsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeTrails(request: $_model.DescribeTrailsRequest): Promise<$_model.DescribeTrailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeTrailsWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query only the information about the most recent events that are generated within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. For more information about supported events, see [Alibaba Cloud services and events that are supported by the AccessKey pair audit feature](~~419214~~). Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
-    *
-    * @param request GetAccessKeyLastUsedEventsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetAccessKeyLastUsedEventsResponse
+   * 查询用户告警量
+   * 
+   * @param request - DescribeUserAlertCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserAlertCountResponse
    */
-  async getAccessKeyLastUsedEventsWithOptions(request: GetAccessKeyLastUsedEventsRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedEventsResponse> {
-    Util.validateModel(request);
+  async describeUserAlertCountWithOptions(request: $_model.DescribeUserAlertCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeUserAlertCountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessKey)) {
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUserAlertCount",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeUserAlertCountResponse>(await this.callApi(params, req, runtime), new $_model.DescribeUserAlertCountResponse({}));
+  }
+
+  /**
+   * 查询用户告警量
+   * 
+   * @param request - DescribeUserAlertCountRequest
+   * @returns DescribeUserAlertCountResponse
+   */
+  async describeUserAlertCount(request: $_model.DescribeUserAlertCountRequest): Promise<$_model.DescribeUserAlertCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUserAlertCountWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户日志量
+   * 
+   * @param request - DescribeUserLogCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserLogCountResponse
+   */
+  async describeUserLogCountWithOptions(request: $_model.DescribeUserLogCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeUserLogCountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUserLogCount",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeUserLogCountResponse>(await this.callApi(params, req, runtime), new $_model.DescribeUserLogCountResponse({}));
+  }
+
+  /**
+   * 查询用户日志量
+   * 
+   * @param request - DescribeUserLogCountRequest
+   * @returns DescribeUserLogCountResponse
+   */
+  async describeUserLogCount(request: $_model.DescribeUserLogCountRequest): Promise<$_model.DescribeUserLogCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUserLogCountWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables the Insights feature
+   * 
+   * @param request - EnableInsightRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableInsightResponse
+   */
+  async enableInsightWithOptions(request: $_model.EnableInsightRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableInsightResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.insightType)) {
+      query["InsightType"] = request.insightType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableInsight",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableInsightResponse>(await this.callApi(params, req, runtime), new $_model.EnableInsightResponse({}));
+  }
+
+  /**
+   * Enables the Insights feature
+   * 
+   * @param request - EnableInsightRequest
+   * @returns EnableInsightResponse
+   */
+  async enableInsight(request: $_model.EnableInsightRequest): Promise<$_model.EnableInsightResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableInsightWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information about the most recent events that are generated when a specified AccessKey pair is called to access Alibaba Cloud services.
+   * 
+   * @remarks
+   * You can call this operation to query only the information about the most recent events that are generated within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. For more information about supported events, see [Alibaba Cloud services and events that are supported by the AccessKey pair audit feature](https://help.aliyun.com/document_detail/419214.html). Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+   * 
+   * @param request - GetAccessKeyLastUsedEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccessKeyLastUsedEventsResponse
+   */
+  async getAccessKeyLastUsedEventsWithOptions(request: $_model.GetAccessKeyLastUsedEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAccessKeyLastUsedEventsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessKey)) {
       query["AccessKey"] = request.accessKey;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.serviceName)) {
+    if (!$dara.isNull(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccessKeyLastUsedEvents",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2316,38 +1016,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccessKeyLastUsedEventsResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedEventsResponse({}));
+    return $dara.cast<$_model.GetAccessKeyLastUsedEventsResponse>(await this.callApi(params, req, runtime), new $_model.GetAccessKeyLastUsedEventsResponse({}));
   }
 
   /**
-    * You can call this operation to query only the information about the most recent events that are generated within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. For more information about supported events, see [Alibaba Cloud services and events that are supported by the AccessKey pair audit feature](~~419214~~). Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
-    *
-    * @param request GetAccessKeyLastUsedEventsRequest
-    * @return GetAccessKeyLastUsedEventsResponse
+   * Queries the information about the most recent events that are generated when a specified AccessKey pair is called to access Alibaba Cloud services.
+   * 
+   * @remarks
+   * You can call this operation to query only the information about the most recent events that are generated within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. For more information about supported events, see [Alibaba Cloud services and events that are supported by the AccessKey pair audit feature](https://help.aliyun.com/document_detail/419214.html). Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+   * 
+   * @param request - GetAccessKeyLastUsedEventsRequest
+   * @returns GetAccessKeyLastUsedEventsResponse
    */
-  async getAccessKeyLastUsedEvents(request: GetAccessKeyLastUsedEventsRequest): Promise<GetAccessKeyLastUsedEventsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getAccessKeyLastUsedEvents(request: $_model.GetAccessKeyLastUsedEventsRequest): Promise<$_model.GetAccessKeyLastUsedEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccessKeyLastUsedEventsWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query only the information about the most recent call of a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
-    *
-    * @param request GetAccessKeyLastUsedInfoRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetAccessKeyLastUsedInfoResponse
+   * Queries the information about the most recent call of a specified AccessKey pair.
+   * 
+   * @remarks
+   * You can call this operation to query only the information about the most recent call of a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+   * 
+   * @param request - GetAccessKeyLastUsedInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccessKeyLastUsedInfoResponse
    */
-  async getAccessKeyLastUsedInfoWithOptions(request: GetAccessKeyLastUsedInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedInfoResponse> {
-    Util.validateModel(request);
+  async getAccessKeyLastUsedInfoWithOptions(request: $_model.GetAccessKeyLastUsedInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAccessKeyLastUsedInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessKey)) {
+    if (!$dara.isNull(request.accessKey)) {
       query["AccessKey"] = request.accessKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccessKeyLastUsedInfo",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2358,50 +1064,56 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccessKeyLastUsedInfoResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedInfoResponse({}));
+    return $dara.cast<$_model.GetAccessKeyLastUsedInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetAccessKeyLastUsedInfoResponse({}));
   }
 
   /**
-    * You can call this operation to query only the information about the most recent call of a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
-    *
-    * @param request GetAccessKeyLastUsedInfoRequest
-    * @return GetAccessKeyLastUsedInfoResponse
+   * Queries the information about the most recent call of a specified AccessKey pair.
+   * 
+   * @remarks
+   * You can call this operation to query only the information about the most recent call of a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+   * 
+   * @param request - GetAccessKeyLastUsedInfoRequest
+   * @returns GetAccessKeyLastUsedInfoResponse
    */
-  async getAccessKeyLastUsedInfo(request: GetAccessKeyLastUsedInfoRequest): Promise<GetAccessKeyLastUsedInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getAccessKeyLastUsedInfo(request: $_model.GetAccessKeyLastUsedInfoRequest): Promise<$_model.GetAccessKeyLastUsedInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccessKeyLastUsedInfoWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query only the information about the IP addresses that are most recently used within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
-    *
-    * @param request GetAccessKeyLastUsedIpsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetAccessKeyLastUsedIpsResponse
+   * Queries the information about the IP addresses that are most recently used when an AccessKey pair is called to access Alibaba Cloud services.
+   * 
+   * @remarks
+   * You can call this operation to query only the information about the IP addresses that are most recently used within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+   * 
+   * @param request - GetAccessKeyLastUsedIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccessKeyLastUsedIpsResponse
    */
-  async getAccessKeyLastUsedIpsWithOptions(request: GetAccessKeyLastUsedIpsRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedIpsResponse> {
-    Util.validateModel(request);
+  async getAccessKeyLastUsedIpsWithOptions(request: $_model.GetAccessKeyLastUsedIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAccessKeyLastUsedIpsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessKey)) {
+    if (!$dara.isNull(request.accessKey)) {
       query["AccessKey"] = request.accessKey;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.serviceName)) {
+    if (!$dara.isNull(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccessKeyLastUsedIps",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2412,38 +1124,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccessKeyLastUsedIpsResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedIpsResponse({}));
+    return $dara.cast<$_model.GetAccessKeyLastUsedIpsResponse>(await this.callApi(params, req, runtime), new $_model.GetAccessKeyLastUsedIpsResponse({}));
   }
 
   /**
-    * You can call this operation to query only the information about the IP addresses that are most recently used within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
-    *
-    * @param request GetAccessKeyLastUsedIpsRequest
-    * @return GetAccessKeyLastUsedIpsResponse
+   * Queries the information about the IP addresses that are most recently used when an AccessKey pair is called to access Alibaba Cloud services.
+   * 
+   * @remarks
+   * You can call this operation to query only the information about the IP addresses that are most recently used within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+   * 
+   * @param request - GetAccessKeyLastUsedIpsRequest
+   * @returns GetAccessKeyLastUsedIpsResponse
    */
-  async getAccessKeyLastUsedIps(request: GetAccessKeyLastUsedIpsRequest): Promise<GetAccessKeyLastUsedIpsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getAccessKeyLastUsedIps(request: $_model.GetAccessKeyLastUsedIpsRequest): Promise<$_model.GetAccessKeyLastUsedIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccessKeyLastUsedIpsWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query only the information about Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
-    *
-    * @param request GetAccessKeyLastUsedProductsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetAccessKeyLastUsedProductsResponse
+   * Queries the information about the Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair.
+   * 
+   * @remarks
+   * You can call this operation to query only the information about Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+   * 
+   * @param request - GetAccessKeyLastUsedProductsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccessKeyLastUsedProductsResponse
    */
-  async getAccessKeyLastUsedProductsWithOptions(request: GetAccessKeyLastUsedProductsRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedProductsResponse> {
-    Util.validateModel(request);
+  async getAccessKeyLastUsedProductsWithOptions(request: $_model.GetAccessKeyLastUsedProductsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAccessKeyLastUsedProductsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessKey)) {
+    if (!$dara.isNull(request.accessKey)) {
       query["AccessKey"] = request.accessKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccessKeyLastUsedProducts",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2454,50 +1172,56 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccessKeyLastUsedProductsResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedProductsResponse({}));
+    return $dara.cast<$_model.GetAccessKeyLastUsedProductsResponse>(await this.callApi(params, req, runtime), new $_model.GetAccessKeyLastUsedProductsResponse({}));
   }
 
   /**
-    * You can call this operation to query only the information about Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
-    *
-    * @param request GetAccessKeyLastUsedProductsRequest
-    * @return GetAccessKeyLastUsedProductsResponse
+   * Queries the information about the Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair.
+   * 
+   * @remarks
+   * You can call this operation to query only the information about Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+   * 
+   * @param request - GetAccessKeyLastUsedProductsRequest
+   * @returns GetAccessKeyLastUsedProductsResponse
    */
-  async getAccessKeyLastUsedProducts(request: GetAccessKeyLastUsedProductsRequest): Promise<GetAccessKeyLastUsedProductsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getAccessKeyLastUsedProducts(request: $_model.GetAccessKeyLastUsedProductsRequest): Promise<$_model.GetAccessKeyLastUsedProductsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccessKeyLastUsedProductsWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query only the information about resources that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
-    *
-    * @param request GetAccessKeyLastUsedResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetAccessKeyLastUsedResourcesResponse
+   * Queries the information about the resources that are most recently accessed by using a specified AccessKey pair.
+   * 
+   * @remarks
+   * You can call this operation to query only the information about resources that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+   * 
+   * @param request - GetAccessKeyLastUsedResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccessKeyLastUsedResourcesResponse
    */
-  async getAccessKeyLastUsedResourcesWithOptions(request: GetAccessKeyLastUsedResourcesRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedResourcesResponse> {
-    Util.validateModel(request);
+  async getAccessKeyLastUsedResourcesWithOptions(request: $_model.GetAccessKeyLastUsedResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAccessKeyLastUsedResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessKey)) {
+    if (!$dara.isNull(request.accessKey)) {
       query["AccessKey"] = request.accessKey;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.serviceName)) {
+    if (!$dara.isNull(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccessKeyLastUsedResources",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2508,38 +1232,86 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccessKeyLastUsedResourcesResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedResourcesResponse({}));
+    return $dara.cast<$_model.GetAccessKeyLastUsedResourcesResponse>(await this.callApi(params, req, runtime), new $_model.GetAccessKeyLastUsedResourcesResponse({}));
   }
 
   /**
-    * You can call this operation to query only the information about resources that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
-    *
-    * @param request GetAccessKeyLastUsedResourcesRequest
-    * @return GetAccessKeyLastUsedResourcesResponse
+   * Queries the information about the resources that are most recently accessed by using a specified AccessKey pair.
+   * 
+   * @remarks
+   * You can call this operation to query only the information about resources that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
+   * 
+   * @param request - GetAccessKeyLastUsedResourcesRequest
+   * @returns GetAccessKeyLastUsedResourcesResponse
    */
-  async getAccessKeyLastUsedResources(request: GetAccessKeyLastUsedResourcesRequest): Promise<GetAccessKeyLastUsedResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getAccessKeyLastUsedResources(request: $_model.GetAccessKeyLastUsedResourcesRequest): Promise<$_model.GetAccessKeyLastUsedResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccessKeyLastUsedResourcesWithOptions(request, runtime);
   }
 
   /**
-    * This topic describes how to query the details of a historical event delivery tasks created within your Alibaba Cloud account. In this example, the details of a historical event delivery task whose ID is `16602` are returned. The sample response shows that this task is used to deliver the historical events recorded by the trail named `trail-name` to Log Service and the task is complete.
-    *
-    * @param request GetDeliveryHistoryJobRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetDeliveryHistoryJobResponse
+   * 查询单个高级查询模板
+   * 
+   * @param request - GetAdvancedQueryTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAdvancedQueryTemplateResponse
    */
-  async getDeliveryHistoryJobWithOptions(request: GetDeliveryHistoryJobRequest, runtime: $Util.RuntimeOptions): Promise<GetDeliveryHistoryJobResponse> {
-    Util.validateModel(request);
+  async getAdvancedQueryTemplateWithOptions(request: $_model.GetAdvancedQueryTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAdvancedQueryTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAdvancedQueryTemplate",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAdvancedQueryTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetAdvancedQueryTemplateResponse({}));
+  }
+
+  /**
+   * 查询单个高级查询模板
+   * 
+   * @param request - GetAdvancedQueryTemplateRequest
+   * @returns GetAdvancedQueryTemplateResponse
+   */
+  async getAdvancedQueryTemplate(request: $_model.GetAdvancedQueryTemplateRequest): Promise<$_model.GetAdvancedQueryTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAdvancedQueryTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a data backfill task.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of a data backfill task whose ID is `16602`. The return result shows that historical events for a trail named `trail-name` are delivered to Simple Log Service and the task is complete.
+   * 
+   * @param request - GetDeliveryHistoryJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeliveryHistoryJobResponse
+   */
+  async getDeliveryHistoryJobWithOptions(request: $_model.GetDeliveryHistoryJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeliveryHistoryJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
       query["JobId"] = request.jobId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDeliveryHistoryJob",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2550,31 +1322,37 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDeliveryHistoryJobResponse>(await this.callApi(params, req, runtime), new GetDeliveryHistoryJobResponse({}));
+    return $dara.cast<$_model.GetDeliveryHistoryJobResponse>(await this.callApi(params, req, runtime), new $_model.GetDeliveryHistoryJobResponse({}));
   }
 
   /**
-    * This topic describes how to query the details of a historical event delivery tasks created within your Alibaba Cloud account. In this example, the details of a historical event delivery task whose ID is `16602` are returned. The sample response shows that this task is used to deliver the historical events recorded by the trail named `trail-name` to Log Service and the task is complete.
-    *
-    * @param request GetDeliveryHistoryJobRequest
-    * @return GetDeliveryHistoryJobResponse
+   * Queries the details of a data backfill task.
+   * 
+   * @remarks
+   * This topic provides an example on how to query the details of a data backfill task whose ID is `16602`. The return result shows that historical events for a trail named `trail-name` are delivered to Simple Log Service and the task is complete.
+   * 
+   * @param request - GetDeliveryHistoryJobRequest
+   * @returns GetDeliveryHistoryJobResponse
    */
-  async getDeliveryHistoryJob(request: GetDeliveryHistoryJobRequest): Promise<GetDeliveryHistoryJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getDeliveryHistoryJob(request: $_model.GetDeliveryHistoryJobRequest): Promise<$_model.GetDeliveryHistoryJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDeliveryHistoryJobWithOptions(request, runtime);
   }
 
   /**
-    * By default, global events are stored in the Singapore region.
-    * To obtain the permissions to call the API operation, you must submit a ticket.
-    *
-    * @param request GetGlobalEventsStorageRegionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetGlobalEventsStorageRegionResponse
+   * Queries the region where global events are stored.
+   * 
+   * @remarks
+   * By default, global events are stored in the Singapore region.
+   * To obtain the permissions to call the API operation, you must submit a ticket.
+   * 
+   * @param request - GetGlobalEventsStorageRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGlobalEventsStorageRegionResponse
    */
-  async getGlobalEventsStorageRegionWithOptions(runtime: $Util.RuntimeOptions): Promise<GetGlobalEventsStorageRegionResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getGlobalEventsStorageRegionWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.GetGlobalEventsStorageRegionResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetGlobalEventsStorageRegion",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2585,42 +1363,79 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetGlobalEventsStorageRegionResponse>(await this.callApi(params, req, runtime), new GetGlobalEventsStorageRegionResponse({}));
+    return $dara.cast<$_model.GetGlobalEventsStorageRegionResponse>(await this.callApi(params, req, runtime), new $_model.GetGlobalEventsStorageRegionResponse({}));
   }
 
   /**
-    * By default, global events are stored in the Singapore region.
-    * To obtain the permissions to call the API operation, you must submit a ticket.
-    *
-    * @return GetGlobalEventsStorageRegionResponse
+   * Queries the region where global events are stored.
+   * 
+   * @remarks
+   * By default, global events are stored in the Singapore region.
+   * To obtain the permissions to call the API operation, you must submit a ticket.
+   * @returns GetGlobalEventsStorageRegionResponse
    */
-  async getGlobalEventsStorageRegion(): Promise<GetGlobalEventsStorageRegionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getGlobalEventsStorageRegion(): Promise<$_model.GetGlobalEventsStorageRegionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getGlobalEventsStorageRegionWithOptions(runtime);
   }
 
   /**
-    * This topic describes how to query the status of a sample single-account trail named `trail-test`.
-    *
-    * @param request GetTrailStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetTrailStatusResponse
+   * 操作审计成熟度查询接口
+   * 
+   * @param request - GetGovernanceMetricsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGovernanceMetricsResponse
    */
-  async getTrailStatusWithOptions(request: GetTrailStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetTrailStatusResponse> {
-    Util.validateModel(request);
+  async getGovernanceMetricsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.GetGovernanceMetricsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGovernanceMetrics",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGovernanceMetricsResponse>(await this.callApi(params, req, runtime), new $_model.GetGovernanceMetricsResponse({}));
+  }
+
+  /**
+   * 操作审计成熟度查询接口
+   * @returns GetGovernanceMetricsResponse
+   */
+  async getGovernanceMetrics(): Promise<$_model.GetGovernanceMetricsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGovernanceMetricsWithOptions(runtime);
+  }
+
+  /**
+   * Queries the status of a trail.
+   * 
+   * @remarks
+   * This topic describes how to query the status of a sample single-account trail named `trail-test`.
+   * 
+   * @param request - GetTrailStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTrailStatusResponse
+   */
+  async getTrailStatusWithOptions(request: $_model.GetTrailStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTrailStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.isOrganizationTrail)) {
+    if (!$dara.isNull(request.isOrganizationTrail)) {
       query["IsOrganizationTrail"] = request.isOrganizationTrail;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTrailStatus",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2631,42 +1446,94 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetTrailStatusResponse>(await this.callApi(params, req, runtime), new GetTrailStatusResponse({}));
+    return $dara.cast<$_model.GetTrailStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetTrailStatusResponse({}));
   }
 
   /**
-    * This topic describes how to query the status of a sample single-account trail named `trail-test`.
-    *
-    * @param request GetTrailStatusRequest
-    * @return GetTrailStatusResponse
+   * Queries the status of a trail.
+   * 
+   * @remarks
+   * This topic describes how to query the status of a sample single-account trail named `trail-test`.
+   * 
+   * @param request - GetTrailStatusRequest
+   * @returns GetTrailStatusResponse
    */
-  async getTrailStatus(request: GetTrailStatusRequest): Promise<GetTrailStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getTrailStatus(request: $_model.GetTrailStatusRequest): Promise<$_model.GetTrailStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getTrailStatusWithOptions(request, runtime);
   }
 
   /**
-    * This topic describes how to query the historical event delivery tasks created within your Alibaba Cloud account. In this example, a historical event delivery task whose ID is `16602` is returned. This task is used to deliver historical events for the trail named `trail-name` to Log Service.
-    *
-    * @param request ListDeliveryHistoryJobsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListDeliveryHistoryJobsResponse
+   * 查询数据事件支持的服务与事件名称
+   * 
+   * @param request - ListDataEventServicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataEventServicesResponse
    */
-  async listDeliveryHistoryJobsWithOptions(request: ListDeliveryHistoryJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListDeliveryHistoryJobsResponse> {
-    Util.validateModel(request);
+  async listDataEventServicesWithOptions(request: $_model.ListDataEventServicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataEventServicesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataEventServices",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataEventServicesResponse>(await this.callApi(params, req, runtime), new $_model.ListDataEventServicesResponse({}));
+  }
+
+  /**
+   * 查询数据事件支持的服务与事件名称
+   * 
+   * @param request - ListDataEventServicesRequest
+   * @returns ListDataEventServicesResponse
+   */
+  async listDataEventServices(request: $_model.ListDataEventServicesRequest): Promise<$_model.ListDataEventServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataEventServicesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of data backfill tasks.
+   * 
+   * @remarks
+   * This topic provides an example on how to query a list of data backfill tasks. The returned result shows that a data backfill task with the ID `16602` is used to deliver historical events for a trail named `trail-name` to Simple Log Service.
+   * 
+   * @param request - ListDeliveryHistoryJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDeliveryHistoryJobsResponse
+   */
+  async listDeliveryHistoryJobsWithOptions(request: $_model.ListDeliveryHistoryJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDeliveryHistoryJobsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDeliveryHistoryJobs",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2677,59 +1544,65 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDeliveryHistoryJobsResponse>(await this.callApi(params, req, runtime), new ListDeliveryHistoryJobsResponse({}));
+    return $dara.cast<$_model.ListDeliveryHistoryJobsResponse>(await this.callApi(params, req, runtime), new $_model.ListDeliveryHistoryJobsResponse({}));
   }
 
   /**
-    * This topic describes how to query the historical event delivery tasks created within your Alibaba Cloud account. In this example, a historical event delivery task whose ID is `16602` is returned. This task is used to deliver historical events for the trail named `trail-name` to Log Service.
-    *
-    * @param request ListDeliveryHistoryJobsRequest
-    * @return ListDeliveryHistoryJobsResponse
+   * Queries a list of data backfill tasks.
+   * 
+   * @remarks
+   * This topic provides an example on how to query a list of data backfill tasks. The returned result shows that a data backfill task with the ID `16602` is used to deliver historical events for a trail named `trail-name` to Simple Log Service.
+   * 
+   * @param request - ListDeliveryHistoryJobsRequest
+   * @returns ListDeliveryHistoryJobsResponse
    */
-  async listDeliveryHistoryJobs(request: ListDeliveryHistoryJobsRequest): Promise<ListDeliveryHistoryJobsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listDeliveryHistoryJobs(request: $_model.ListDeliveryHistoryJobsRequest): Promise<$_model.ListDeliveryHistoryJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDeliveryHistoryJobsWithOptions(request, runtime);
   }
 
   /**
-    * When you call this operation to query event details, you can query the event details at most twice per second.
-    * > Do not frequently call this operation. You can create a trail to deliver events to Log Service. Then, you can query event details in near real time by using the real-time log consumption feature of Log Service. For more information, see [Create a single-account trail](~~28810~~), [Create a multi-account trail](~~160661~~), and [Overview](~~28997~~).
-    *
-    * @param request LookupEventsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return LookupEventsResponse
+   * Queries event details.
+   * 
+   * @remarks
+   * When you call this operation to query event details, you can query the event details at most twice per second.
+   * > Do not frequently call this operation. You can create a trail to deliver events to Log Service. Then, you can query event details in near real time by using the real-time log consumption feature of Log Service. For more information, see [Create a single-account trail](https://help.aliyun.com/document_detail/28810.html), [Create a multi-account trail](https://help.aliyun.com/document_detail/160661.html), and [Overview](https://help.aliyun.com/document_detail/28997.html).
+   * 
+   * @param request - LookupEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LookupEventsResponse
    */
-  async lookupEventsWithOptions(request: LookupEventsRequest, runtime: $Util.RuntimeOptions): Promise<LookupEventsResponse> {
-    Util.validateModel(request);
+  async lookupEventsWithOptions(request: $_model.LookupEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LookupEventsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.direction)) {
+    if (!$dara.isNull(request.direction)) {
       query["Direction"] = request.direction;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.lookupAttribute)) {
+    if (!$dara.isNull(request.lookupAttribute)) {
       query["LookupAttribute"] = request.lookupAttribute;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "LookupEvents",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2740,39 +1613,45 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<LookupEventsResponse>(await this.callApi(params, req, runtime), new LookupEventsResponse({}));
+    return $dara.cast<$_model.LookupEventsResponse>(await this.callApi(params, req, runtime), new $_model.LookupEventsResponse({}));
   }
 
   /**
-    * When you call this operation to query event details, you can query the event details at most twice per second.
-    * > Do not frequently call this operation. You can create a trail to deliver events to Log Service. Then, you can query event details in near real time by using the real-time log consumption feature of Log Service. For more information, see [Create a single-account trail](~~28810~~), [Create a multi-account trail](~~160661~~), and [Overview](~~28997~~).
-    *
-    * @param request LookupEventsRequest
-    * @return LookupEventsResponse
+   * Queries event details.
+   * 
+   * @remarks
+   * When you call this operation to query event details, you can query the event details at most twice per second.
+   * > Do not frequently call this operation. You can create a trail to deliver events to Log Service. Then, you can query event details in near real time by using the real-time log consumption feature of Log Service. For more information, see [Create a single-account trail](https://help.aliyun.com/document_detail/28810.html), [Create a multi-account trail](https://help.aliyun.com/document_detail/160661.html), and [Overview](https://help.aliyun.com/document_detail/28997.html).
+   * 
+   * @param request - LookupEventsRequest
+   * @returns LookupEventsResponse
    */
-  async lookupEvents(request: LookupEventsRequest): Promise<LookupEventsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async lookupEvents(request: $_model.LookupEventsRequest): Promise<$_model.LookupEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.lookupEventsWithOptions(request, runtime);
   }
 
   /**
-    * This topic describes how to enable logging for a sample trail named `trail-test`.
-    *
-    * @param request StartLoggingRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StartLoggingResponse
+   * Enables a trail to deliver events to an Object Storage Service (OSS) bucket or a Simple Log Service Logstore.
+   * 
+   * @remarks
+   * This topic describes how to enable logging for a sample trail named `trail-test`.
+   * 
+   * @param request - StartLoggingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartLoggingResponse
    */
-  async startLoggingWithOptions(request: StartLoggingRequest, runtime: $Util.RuntimeOptions): Promise<StartLoggingResponse> {
-    Util.validateModel(request);
+  async startLoggingWithOptions(request: $_model.StartLoggingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartLoggingResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartLogging",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2783,34 +1662,40 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartLoggingResponse>(await this.callApi(params, req, runtime), new StartLoggingResponse({}));
+    return $dara.cast<$_model.StartLoggingResponse>(await this.callApi(params, req, runtime), new $_model.StartLoggingResponse({}));
   }
 
   /**
-    * This topic describes how to enable logging for a sample trail named `trail-test`.
-    *
-    * @param request StartLoggingRequest
-    * @return StartLoggingResponse
+   * Enables a trail to deliver events to an Object Storage Service (OSS) bucket or a Simple Log Service Logstore.
+   * 
+   * @remarks
+   * This topic describes how to enable logging for a sample trail named `trail-test`.
+   * 
+   * @param request - StartLoggingRequest
+   * @returns StartLoggingResponse
    */
-  async startLogging(request: StartLoggingRequest): Promise<StartLoggingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async startLogging(request: $_model.StartLoggingRequest): Promise<$_model.StartLoggingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startLoggingWithOptions(request, runtime);
   }
 
   /**
-    * This topic describes how to disable logging for a sample trail named `trail-test`.
-    *
-    * @param request StopLoggingRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return StopLoggingResponse
+   * Disables a trail to stop the delivery of events to an Object Storage Service (OSS) bucket or a  Simple Log Service Logstore.
+   * 
+   * @remarks
+   * This topic describes how to disable logging for a sample trail named `trail-test`.
+   * 
+   * @param request - StopLoggingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopLoggingResponse
    */
-  async stopLoggingWithOptions(request: StopLoggingRequest, runtime: $Util.RuntimeOptions): Promise<StopLoggingResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async stopLoggingWithOptions(request: $_model.StopLoggingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopLoggingResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopLogging",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2821,40 +1706,100 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StopLoggingResponse>(await this.callApi(params, req, runtime), new StopLoggingResponse({}));
+    return $dara.cast<$_model.StopLoggingResponse>(await this.callApi(params, req, runtime), new $_model.StopLoggingResponse({}));
   }
 
   /**
-    * This topic describes how to disable logging for a sample trail named `trail-test`.
-    *
-    * @param request StopLoggingRequest
-    * @return StopLoggingResponse
+   * Disables a trail to stop the delivery of events to an Object Storage Service (OSS) bucket or a  Simple Log Service Logstore.
+   * 
+   * @remarks
+   * This topic describes how to disable logging for a sample trail named `trail-test`.
+   * 
+   * @param request - StopLoggingRequest
+   * @returns StopLoggingResponse
    */
-  async stopLogging(request: StopLoggingRequest): Promise<StopLoggingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async stopLogging(request: $_model.StopLoggingRequest): Promise<$_model.StopLoggingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.stopLoggingWithOptions(request, runtime);
   }
 
   /**
-    * By default, global events are stored in the Singapore region.
-    * *   To obtain the permissions to call the API operation, you must submit a ticket.
-    * *   Only the China (Hangzhou) region (cn-hangzhou) and the Singapore region (ap-southeast-1) are supported.
-    *
-    * @param request UpdateGlobalEventsStorageRegionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateGlobalEventsStorageRegionResponse
+   * 更新高级查询模板
+   * 
+   * @param request - UpdateAdvancedQueryTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAdvancedQueryTemplateResponse
    */
-  async updateGlobalEventsStorageRegionWithOptions(request: UpdateGlobalEventsStorageRegionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGlobalEventsStorageRegionResponse> {
-    Util.validateModel(request);
+  async updateAdvancedQueryTemplateWithOptions(request: $_model.UpdateAdvancedQueryTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAdvancedQueryTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.storageRegion)) {
+    if (!$dara.isNull(request.simpleQuery)) {
+      query["SimpleQuery"] = request.simpleQuery;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.templateSql)) {
+      query["TemplateSql"] = request.templateSql;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAdvancedQueryTemplate",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAdvancedQueryTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAdvancedQueryTemplateResponse({}));
+  }
+
+  /**
+   * 更新高级查询模板
+   * 
+   * @param request - UpdateAdvancedQueryTemplateRequest
+   * @returns UpdateAdvancedQueryTemplateResponse
+   */
+  async updateAdvancedQueryTemplate(request: $_model.UpdateAdvancedQueryTemplateRequest): Promise<$_model.UpdateAdvancedQueryTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAdvancedQueryTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Specifies the region where you want to store global events.
+   * 
+   * @remarks
+   * By default, global events are stored in the Singapore region.
+   * *   To obtain the permissions to call the API operation, you must submit a ticket.
+   * *   Only the China (Hangzhou) region (cn-hangzhou) and the Singapore region (ap-southeast-1) are supported.
+   * 
+   * @param request - UpdateGlobalEventsStorageRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGlobalEventsStorageRegionResponse
+   */
+  async updateGlobalEventsStorageRegionWithOptions(request: $_model.UpdateGlobalEventsStorageRegionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGlobalEventsStorageRegionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.storageRegion)) {
       query["StorageRegion"] = request.storageRegion;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateGlobalEventsStorageRegion",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2865,76 +1810,82 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateGlobalEventsStorageRegionResponse>(await this.callApi(params, req, runtime), new UpdateGlobalEventsStorageRegionResponse({}));
+    return $dara.cast<$_model.UpdateGlobalEventsStorageRegionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateGlobalEventsStorageRegionResponse({}));
   }
 
   /**
-    * By default, global events are stored in the Singapore region.
-    * *   To obtain the permissions to call the API operation, you must submit a ticket.
-    * *   Only the China (Hangzhou) region (cn-hangzhou) and the Singapore region (ap-southeast-1) are supported.
-    *
-    * @param request UpdateGlobalEventsStorageRegionRequest
-    * @return UpdateGlobalEventsStorageRegionResponse
+   * Specifies the region where you want to store global events.
+   * 
+   * @remarks
+   * By default, global events are stored in the Singapore region.
+   * *   To obtain the permissions to call the API operation, you must submit a ticket.
+   * *   Only the China (Hangzhou) region (cn-hangzhou) and the Singapore region (ap-southeast-1) are supported.
+   * 
+   * @param request - UpdateGlobalEventsStorageRegionRequest
+   * @returns UpdateGlobalEventsStorageRegionResponse
    */
-  async updateGlobalEventsStorageRegion(request: UpdateGlobalEventsStorageRegionRequest): Promise<UpdateGlobalEventsStorageRegionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateGlobalEventsStorageRegion(request: $_model.UpdateGlobalEventsStorageRegionRequest): Promise<$_model.UpdateGlobalEventsStorageRegionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateGlobalEventsStorageRegionWithOptions(request, runtime);
   }
 
   /**
-    * This topic shows you how to change the destination Object Storage Service (OSS) bucket of a sample trail named `trail-test` to `audit-log`.
-    *
-    * @param request UpdateTrailRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateTrailResponse
+   * Updates the configurations of a trail.
+   * 
+   * @remarks
+   * This topic shows you how to change the destination Object Storage Service (OSS) bucket of a sample trail named `trail-test` to `audit-log`.
+   * 
+   * @param request - UpdateTrailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTrailResponse
    */
-  async updateTrailWithOptions(request: UpdateTrailRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTrailResponse> {
-    Util.validateModel(request);
+  async updateTrailWithOptions(request: $_model.UpdateTrailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTrailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.eventRW)) {
+    if (!$dara.isNull(request.eventRW)) {
       query["EventRW"] = request.eventRW;
     }
 
-    if (!Util.isUnset(request.maxComputeProjectArn)) {
+    if (!$dara.isNull(request.maxComputeProjectArn)) {
       query["MaxComputeProjectArn"] = request.maxComputeProjectArn;
     }
 
-    if (!Util.isUnset(request.maxComputeWriteRoleArn)) {
+    if (!$dara.isNull(request.maxComputeWriteRoleArn)) {
       query["MaxComputeWriteRoleArn"] = request.maxComputeWriteRoleArn;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.ossBucketName)) {
+    if (!$dara.isNull(request.ossBucketName)) {
       query["OssBucketName"] = request.ossBucketName;
     }
 
-    if (!Util.isUnset(request.ossKeyPrefix)) {
+    if (!$dara.isNull(request.ossKeyPrefix)) {
       query["OssKeyPrefix"] = request.ossKeyPrefix;
     }
 
-    if (!Util.isUnset(request.ossWriteRoleArn)) {
+    if (!$dara.isNull(request.ossWriteRoleArn)) {
       query["OssWriteRoleArn"] = request.ossWriteRoleArn;
     }
 
-    if (!Util.isUnset(request.slsProjectArn)) {
+    if (!$dara.isNull(request.slsProjectArn)) {
       query["SlsProjectArn"] = request.slsProjectArn;
     }
 
-    if (!Util.isUnset(request.slsWriteRoleArn)) {
+    if (!$dara.isNull(request.slsWriteRoleArn)) {
       query["SlsWriteRoleArn"] = request.slsWriteRoleArn;
     }
 
-    if (!Util.isUnset(request.trailRegion)) {
+    if (!$dara.isNull(request.trailRegion)) {
       query["TrailRegion"] = request.trailRegion;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateTrail",
       version: "2020-07-06",
       protocol: "HTTPS",
@@ -2945,17 +1896,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateTrailResponse>(await this.callApi(params, req, runtime), new UpdateTrailResponse({}));
+    return $dara.cast<$_model.UpdateTrailResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTrailResponse({}));
   }
 
   /**
-    * This topic shows you how to change the destination Object Storage Service (OSS) bucket of a sample trail named `trail-test` to `audit-log`.
-    *
-    * @param request UpdateTrailRequest
-    * @return UpdateTrailResponse
+   * Updates the configurations of a trail.
+   * 
+   * @remarks
+   * This topic shows you how to change the destination Object Storage Service (OSS) bucket of a sample trail named `trail-test` to `audit-log`.
+   * 
+   * @param request - UpdateTrailRequest
+   * @returns UpdateTrailResponse
    */
-  async updateTrail(request: UpdateTrailRequest): Promise<UpdateTrailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateTrail(request: $_model.UpdateTrailRequest): Promise<$_model.UpdateTrailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTrailWithOptions(request, runtime);
   }
 
