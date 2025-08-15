@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAuditTermsResponseBodyData extends $dara.Model {
+  exceptionWord?: string[];
   /**
    * @example
    * 1
@@ -25,6 +26,7 @@ export class ListAuditTermsResponseBodyData extends $dara.Model {
   termsDesc?: string;
   static names(): { [key: string]: string } {
     return {
+      exceptionWord: 'ExceptionWord',
       id: 'Id',
       keyword: 'Keyword',
       suggestWord: 'SuggestWord',
@@ -34,6 +36,7 @@ export class ListAuditTermsResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      exceptionWord: { 'type': 'array', 'itemType': 'string' },
       id: 'string',
       keyword: 'string',
       suggestWord: 'string',
@@ -42,6 +45,9 @@ export class ListAuditTermsResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.exceptionWord)) {
+      $dara.Model.validateArray(this.exceptionWord);
+    }
     super.validate();
   }
 

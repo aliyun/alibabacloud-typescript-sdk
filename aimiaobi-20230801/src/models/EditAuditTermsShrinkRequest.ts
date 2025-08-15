@@ -2,8 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddAuditTermsRequest extends $dara.Model {
-  exceptionWord?: string[];
+export class EditAuditTermsShrinkRequest extends $dara.Model {
+  exceptionWordShrink?: string;
+  /**
+   * @example
+   * 20103
+   */
+  id?: string;
   /**
    * @example
    * 龘
@@ -29,7 +34,8 @@ export class AddAuditTermsRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      exceptionWord: 'ExceptionWord',
+      exceptionWordShrink: 'ExceptionWord',
+      id: 'Id',
       keyword: 'Keyword',
       suggestWord: 'SuggestWord',
       termsDesc: 'TermsDesc',
@@ -39,7 +45,8 @@ export class AddAuditTermsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      exceptionWord: { 'type': 'array', 'itemType': 'string' },
+      exceptionWordShrink: 'string',
+      id: 'string',
       keyword: 'string',
       suggestWord: 'string',
       termsDesc: 'string',
@@ -48,9 +55,6 @@ export class AddAuditTermsRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.exceptionWord)) {
-      $dara.Model.validateArray(this.exceptionWord);
-    }
     super.validate();
   }
 
