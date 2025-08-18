@@ -10,12 +10,18 @@ export class CreateStreamBatchJobMappingResponseBodyData extends $dara.Model {
   fileId?: string;
   /**
    * @example
+   * 123123
+   */
+  jobId?: number;
+  /**
+   * @example
    * /dev/streamJob/7083701105376640?env=DEV&projectId=7081229106458752&tenantId=300001420
    */
   url?: string;
   static names(): { [key: string]: string } {
     return {
       fileId: 'FileId',
+      jobId: 'JobId',
       url: 'Url',
     };
   }
@@ -23,6 +29,7 @@ export class CreateStreamBatchJobMappingResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       fileId: 'string',
+      jobId: 'number',
       url: 'string',
     };
   }
