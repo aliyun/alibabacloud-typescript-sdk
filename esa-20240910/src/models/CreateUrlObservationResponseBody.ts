@@ -7,7 +7,7 @@ export class CreateUrlObservationResponseBody extends $dara.Model {
    * @example
    * 35281609698****
    */
-  configId?: string;
+  configId?: number;
   /**
    * @remarks
    * Id of the request
@@ -25,7 +25,7 @@ export class CreateUrlObservationResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      configId: 'string',
+      configId: 'number',
       requestId: 'string',
     };
   }

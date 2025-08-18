@@ -1,11 +1,515 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateSiteDeliveryTaskRequestHttpDelivery } from "./CreateSiteDeliveryTaskRequestHttpDelivery";
-import { CreateSiteDeliveryTaskRequestKafkaDelivery } from "./CreateSiteDeliveryTaskRequestKafkaDelivery";
-import { CreateSiteDeliveryTaskRequestOssDelivery } from "./CreateSiteDeliveryTaskRequestOssDelivery";
-import { CreateSiteDeliveryTaskRequestS3Delivery } from "./CreateSiteDeliveryTaskRequestS3delivery";
-import { CreateSiteDeliveryTaskRequestSlsDelivery } from "./CreateSiteDeliveryTaskRequestSlsDelivery";
+import { HttpDeliveryHeaderParamValue } from "./HttpDeliveryHeaderParamValue";
+import { HttpDeliveryQueryParamValue } from "./HttpDeliveryQueryParamValue";
 
+
+export class CreateSiteDeliveryTaskRequestHttpDeliveryStandardAuthParam extends $dara.Model {
+  /**
+   * @remarks
+   * The validity period of the signature.
+   * 
+   * >  The value must be greater than 0. We recommend that you specify a value that is greater than 300.
+   * 
+   * @example
+   * 300
+   */
+  expiredTime?: number;
+  /**
+   * @remarks
+   * The private key.
+   * 
+   * @example
+   * ***
+   */
+  privateKey?: string;
+  /**
+   * @remarks
+   * The URI path for server authentication.
+   * 
+   * @example
+   * v1/log/upload
+   */
+  urlPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expiredTime: 'ExpiredTime',
+      privateKey: 'PrivateKey',
+      urlPath: 'UrlPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expiredTime: 'number',
+      privateKey: 'string',
+      urlPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
+  /**
+   * @remarks
+   * The compression method. By default, data is not compressed.
+   * 
+   * @example
+   * gzip
+   */
+  compress?: string;
+  /**
+   * @remarks
+   * The address of the HTTP server.
+   * 
+   * @example
+   * http://xxx.aliyun.com/v1/log/upload
+   */
+  destUrl?: string;
+  /**
+   * @remarks
+   * The custom headers.
+   */
+  headerParam?: { [key: string]: HttpDeliveryHeaderParamValue };
+  lastLogSplit?: boolean;
+  /**
+   * @remarks
+   * The prefix of the log delivery package.
+   * 
+   * @example
+   * cdnVersion:1.0
+   */
+  logBodyPrefix?: string;
+  /**
+   * @remarks
+   * The suffix of the log delivery package.
+   * 
+   * @example
+   * cdnVersion:1.0
+   */
+  logBodySuffix?: string;
+  logSplit?: boolean;
+  logSplitWords?: string;
+  /**
+   * @remarks
+   * The maximum size of data for each delivery. Unit: MB.
+   * 
+   * @example
+   * 5
+   */
+  maxBatchMB?: number;
+  /**
+   * @remarks
+   * The maximum number of entries for each delivery.
+   * 
+   * @example
+   * 1000
+   */
+  maxBatchSize?: number;
+  /**
+   * @remarks
+   * The maximum number of retries.
+   * 
+   * @example
+   * 3
+   */
+  maxRetry?: number;
+  /**
+   * @remarks
+   * The custom query parameters.
+   */
+  queryParam?: { [key: string]: HttpDeliveryQueryParamValue };
+  /**
+   * @remarks
+   * Specifies whether to use server authentication.
+   * 
+   * @example
+   * true
+   */
+  standardAuthOn?: boolean;
+  /**
+   * @remarks
+   * The authentication configurations.
+   */
+  standardAuthParam?: CreateSiteDeliveryTaskRequestHttpDeliveryStandardAuthParam;
+  /**
+   * @remarks
+   * The timeout period. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
+  transformTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      compress: 'Compress',
+      destUrl: 'DestUrl',
+      headerParam: 'HeaderParam',
+      lastLogSplit: 'LastLogSplit',
+      logBodyPrefix: 'LogBodyPrefix',
+      logBodySuffix: 'LogBodySuffix',
+      logSplit: 'LogSplit',
+      logSplitWords: 'LogSplitWords',
+      maxBatchMB: 'MaxBatchMB',
+      maxBatchSize: 'MaxBatchSize',
+      maxRetry: 'MaxRetry',
+      queryParam: 'QueryParam',
+      standardAuthOn: 'StandardAuthOn',
+      standardAuthParam: 'StandardAuthParam',
+      transformTimeout: 'TransformTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compress: 'string',
+      destUrl: 'string',
+      headerParam: { 'type': 'map', 'keyType': 'string', 'valueType': HttpDeliveryHeaderParamValue },
+      lastLogSplit: 'boolean',
+      logBodyPrefix: 'string',
+      logBodySuffix: 'string',
+      logSplit: 'boolean',
+      logSplitWords: 'string',
+      maxBatchMB: 'number',
+      maxBatchSize: 'number',
+      maxRetry: 'number',
+      queryParam: { 'type': 'map', 'keyType': 'string', 'valueType': HttpDeliveryQueryParamValue },
+      standardAuthOn: 'boolean',
+      standardAuthParam: CreateSiteDeliveryTaskRequestHttpDeliveryStandardAuthParam,
+      transformTimeout: 'number',
+    };
+  }
+
+  validate() {
+    if(this.headerParam) {
+      $dara.Model.validateMap(this.headerParam);
+    }
+    if(this.queryParam) {
+      $dara.Model.validateMap(this.queryParam);
+    }
+    if(this.standardAuthParam && typeof (this.standardAuthParam as any).validate === 'function') {
+      (this.standardAuthParam as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteDeliveryTaskRequestKafkaDelivery extends $dara.Model {
+  /**
+   * @remarks
+   * The load balancing method.
+   * 
+   * @example
+   * kafka.LeastBytes
+   */
+  balancer?: string;
+  /**
+   * @remarks
+   * The brokers.
+   */
+  brokers?: string[];
+  /**
+   * @remarks
+   * The compression method.
+   * 
+   * @example
+   * gzip
+   */
+  compress?: string;
+  /**
+   * @remarks
+   * The encryption method.
+   * 
+   * @example
+   * plain
+   */
+  machanismType?: string;
+  /**
+   * @remarks
+   * The password.
+   * 
+   * @example
+   * ***
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The topic.
+   * 
+   * @example
+   * dqc_test2
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable authentication.
+   * 
+   * @example
+   * true
+   */
+  userAuth?: boolean;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * xxx
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      balancer: 'Balancer',
+      brokers: 'Brokers',
+      compress: 'Compress',
+      machanismType: 'MachanismType',
+      password: 'Password',
+      topic: 'Topic',
+      userAuth: 'UserAuth',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      balancer: 'string',
+      brokers: { 'type': 'array', 'itemType': 'string' },
+      compress: 'string',
+      machanismType: 'string',
+      password: 'string',
+      topic: 'string',
+      userAuth: 'boolean',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.brokers)) {
+      $dara.Model.validateArray(this.brokers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteDeliveryTaskRequestOssDelivery extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of your Alibaba Cloud account.
+   * 
+   * @example
+   * 1234***
+   */
+  aliuid?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * test_rlog
+   */
+  bucketName?: string;
+  /**
+   * @remarks
+   * The prefix of the path in which you want to store logs.
+   * 
+   * @example
+   * logriver-test/log
+   */
+  prefixPath?: string;
+  /**
+   * @remarks
+   * The region in which the bucket is located.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliuid: 'Aliuid',
+      bucketName: 'BucketName',
+      prefixPath: 'PrefixPath',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliuid: 'string',
+      bucketName: 'string',
+      prefixPath: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteDeliveryTaskRequestS3Delivery extends $dara.Model {
+  /**
+   * @remarks
+   * The access key ID of your Amazon S3 account.
+   * 
+   * @example
+   * yourAccessKeyID
+   */
+  accessKey?: string;
+  /**
+   * @remarks
+   * The directory in the bucket.
+   * 
+   * @example
+   * logriver-test/log
+   */
+  bucketPath?: string;
+  /**
+   * @remarks
+   * The endpoint. This parameter is required when the S3Cmpt parameter is set to true.
+   * 
+   * @example
+   * https://s3.oss-cn-hangzhou.aliyuncs.com
+   */
+  endpoint?: string;
+  /**
+   * @remarks
+   * The prefix of the path in which you want to store logs.
+   * 
+   * @example
+   * logriver-test/log
+   */
+  prefixPath?: string;
+  /**
+   * @remarks
+   * The region ID of the service.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  /**
+   * @remarks
+   * Specifies whether the service is compatible with Amazon S3.
+   * 
+   * @example
+   * true
+   */
+  s3Cmpt?: boolean;
+  /**
+   * @remarks
+   * The secret access key of your Amazon S3 account.
+   * 
+   * @example
+   * LDSIKh***
+   */
+  secretKey?: string;
+  serverSideEncryption?: boolean;
+  vertifyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      bucketPath: 'BucketPath',
+      endpoint: 'Endpoint',
+      prefixPath: 'PrefixPath',
+      region: 'Region',
+      s3Cmpt: 'S3Cmpt',
+      secretKey: 'SecretKey',
+      serverSideEncryption: 'ServerSideEncryption',
+      vertifyType: 'VertifyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      bucketPath: 'string',
+      endpoint: 'string',
+      prefixPath: 'string',
+      region: 'string',
+      s3Cmpt: 'boolean',
+      secretKey: 'string',
+      serverSideEncryption: 'boolean',
+      vertifyType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteDeliveryTaskRequestSlsDelivery extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the Logstore.
+   * 
+   * @example
+   * accesslog-test
+   */
+  SLSLogStore?: string;
+  /**
+   * @remarks
+   * The name of the SLS project.
+   * 
+   * @example
+   * dcdn-test20240417
+   */
+  SLSProject?: string;
+  /**
+   * @remarks
+   * The region in which the SLS project resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  SLSRegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      SLSLogStore: 'SLSLogStore',
+      SLSProject: 'SLSProject',
+      SLSRegion: 'SLSRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      SLSLogStore: 'string',
+      SLSProject: 'string',
+      SLSRegion: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateSiteDeliveryTaskRequest extends $dara.Model {
   /**

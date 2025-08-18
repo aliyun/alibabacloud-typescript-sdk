@@ -1,10 +1,426 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetLoadBalancerResponseBodyAdaptiveRouting } from "./GetLoadBalancerResponseBodyAdaptiveRouting";
-import { GetLoadBalancerResponseBodyMonitor } from "./GetLoadBalancerResponseBodyMonitor";
-import { GetLoadBalancerResponseBodyRandomSteering } from "./GetLoadBalancerResponseBodyRandomSteering";
-import { GetLoadBalancerResponseBodyRules } from "./GetLoadBalancerResponseBodyRules";
 
+
+export class GetLoadBalancerResponseBodyAdaptiveRouting extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to fail over across pools.
+   * 
+   * - true: Yes.
+   * - false: No.
+   * 
+   * @example
+   * true
+   */
+  failoverAcrossPools?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      failoverAcrossPools: 'FailoverAcrossPools',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failoverAcrossPools: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoadBalancerResponseBodyMonitor extends $dara.Model {
+  /**
+   * @remarks
+   * The number of consecutive failed probes required to consider the target as unhealthy, for example, `5`.
+   * 
+   * @example
+   * 5
+   */
+  consecutiveDown?: number;
+  /**
+   * @remarks
+   * The number of consecutive successful probes required to consider the target as healthy, for example, `3`.
+   * 
+   * @example
+   * 3
+   */
+  consecutiveUp?: number;
+  /**
+   * @remarks
+   * Expected status codes, such as 200, 202, for successful HTTP responses.
+   * 
+   * @example
+   * 200,202
+   */
+  expectedCodes?: string;
+  /**
+   * @remarks
+   * Whether to follow redirects.
+   * 
+   * - true: Yes.
+   * - false: No.
+   * 
+   * @example
+   * true
+   */
+  followRedirects?: boolean;
+  /**
+   * @remarks
+   * The HTTP headers to be included in the probe request.
+   * 
+   * @example
+   * {
+   *         "host": [
+   *             "example1.com",
+   *             "example2.com"
+   *         ]
+   *     }
+   */
+  header?: any;
+  /**
+   * @remarks
+   * Health check interval, in seconds.
+   * 
+   * @example
+   * 60
+   */
+  interval?: number;
+  /**
+   * @remarks
+   * Health check method.
+   * 
+   * @example
+   * GET
+   */
+  method?: string;
+  monitoringRegion?: string;
+  /**
+   * @remarks
+   * Path.
+   * 
+   * @example
+   * /
+   */
+  path?: string;
+  /**
+   * @remarks
+   * Target port.
+   * 
+   * @example
+   * 80
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The timeout for the health check, in seconds.
+   * 
+   * @example
+   * 5
+   */
+  timeout?: number;
+  /**
+   * @remarks
+   * Monitor protocol type, such as HTTP, used for health checks. When the value is `off`, it indicates that no check is performed.
+   * 
+   * @example
+   * HTTP
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consecutiveDown: 'ConsecutiveDown',
+      consecutiveUp: 'ConsecutiveUp',
+      expectedCodes: 'ExpectedCodes',
+      followRedirects: 'FollowRedirects',
+      header: 'Header',
+      interval: 'Interval',
+      method: 'Method',
+      monitoringRegion: 'MonitoringRegion',
+      path: 'Path',
+      port: 'Port',
+      timeout: 'Timeout',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consecutiveDown: 'number',
+      consecutiveUp: 'number',
+      expectedCodes: 'string',
+      followRedirects: 'boolean',
+      header: 'any',
+      interval: 'number',
+      method: 'string',
+      monitoringRegion: 'string',
+      path: 'string',
+      port: 'number',
+      timeout: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoadBalancerResponseBodyRandomSteering extends $dara.Model {
+  /**
+   * @remarks
+   * The default round-robin weight, used for all pools that do not have individually specified weights. The value range is 0-100.
+   * 
+   * @example
+   * 50
+   */
+  defaultWeight?: number;
+  /**
+   * @remarks
+   * Weight configurations for each backend server pool, where the key is the pool ID and the value is the weight coefficient. The weight coefficient represents the relative traffic distribution ratio.
+   */
+  poolWeights?: { [key: string]: number };
+  static names(): { [key: string]: string } {
+    return {
+      defaultWeight: 'DefaultWeight',
+      poolWeights: 'PoolWeights',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultWeight: 'number',
+      poolWeights: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+    };
+  }
+
+  validate() {
+    if(this.poolWeights) {
+      $dara.Model.validateMap(this.poolWeights);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoadBalancerResponseBodyRulesFixedResponse extends $dara.Model {
+  /**
+   * @remarks
+   * The Content-Type field in the HTTP Header.
+   * 
+   * @example
+   * application/json
+   */
+  contentType?: string;
+  /**
+   * @remarks
+   * The location field in the HTTP response.
+   * 
+   * @example
+   * http://www.example.com/index.html
+   */
+  location?: string;
+  /**
+   * @remarks
+   * The body value of the response.
+   * 
+   * @example
+   * Hello World.
+   */
+  messageBody?: string;
+  /**
+   * @remarks
+   * Status code.
+   * 
+   * @example
+   * 200
+   */
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contentType: 'ContentType',
+      location: 'Location',
+      messageBody: 'MessageBody',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentType: 'string',
+      location: 'string',
+      messageBody: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoadBalancerResponseBodyRules extends $dara.Model {
+  /**
+   * @remarks
+   * Executes a specified response after matching the rule.
+   */
+  fixedResponse?: GetLoadBalancerResponseBodyRulesFixedResponse;
+  /**
+   * @remarks
+   * Modifies the load balancer configuration for the corresponding request after matching the rule. The fields in this configuration will override the corresponding fields in the load balancer\\"s configuration.
+   * 
+   * @example
+   * {
+   *             "adaptive_routing": {
+   *                 "failover_across_pools": true
+   *             },
+   *             "sub_region_pools": {
+   *                 "GB": [
+   *                     96228666776****
+   *                 ],
+   *                 "US": [
+   *                     96228666776****
+   *                 ]
+   *             },
+   *             "default_pools": [
+   *                 96228666776****,
+   *                 96228666776****
+   *             ],
+   *             "fallback_pool": 96228666776****,
+   *             "location_strategy": {
+   *                 "mode": "resolver_ip",
+   *                 "prefer_ecs": "always"
+   *             },
+   *             "random_steering": {
+   *                 "default_weight": 30,
+   *                 "pool_weights": {
+   *                     "96228666776****": 70,
+   *                     "96228666776****": 80
+   *                 }
+   *             },
+   *             "region_pools": {
+   *                 "ENAM": [
+   *                     96228666776****,
+   *                     92843536908****
+   *                 ],
+   *                 "WNAM": [
+   *                     92843536908****
+   *                 ]
+   *             },
+   *             "session_affinity": "cookie",
+   *             "session_affinity_attributes": {
+   *                 "drain_duration": 100,
+   *                 "headers": ["none"],
+   *                 "require_all_headers": false,
+   *                 "samesite": "Auto",
+   *                 "secure": "Auto",
+   *                 "zero_downtime_failover": "sticky"
+   *             },
+   *             "session_affinity_ttl": 1800,
+   *             "steering_policy": "dynamic_latency",
+   *             "ttl": 30
+   *         }
+   */
+  overrides?: any;
+  /**
+   * @remarks
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding global configurations. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * 
+   * @example
+   * http.request.uri.path contains "/testing"
+   */
+  rule?: string;
+  /**
+   * @remarks
+   * Rule switch. This parameter is not required when adding global configurations. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
+   * 
+   * @example
+   * off
+   */
+  ruleEnable?: string;
+  /**
+   * @remarks
+   * Rule name. This parameter is not required when adding global configurations.
+   * 
+   * @example
+   * r2
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * Rule execution order. The higher the number, the higher the priority.
+   * 
+   * @example
+   * 1
+   */
+  sequence?: number;
+  /**
+   * @remarks
+   * Whether to terminate the execution of subsequent rules.
+   * 
+   * - true: Yes.
+   * - false: No, default value.
+   * 
+   * @example
+   * true
+   */
+  terminates?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      fixedResponse: 'FixedResponse',
+      overrides: 'Overrides',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      terminates: 'Terminates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fixedResponse: GetLoadBalancerResponseBodyRulesFixedResponse,
+      overrides: 'any',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'number',
+      terminates: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.fixedResponse && typeof (this.fixedResponse as any).validate === 'function') {
+      (this.fixedResponse as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetLoadBalancerResponseBody extends $dara.Model {
   /**

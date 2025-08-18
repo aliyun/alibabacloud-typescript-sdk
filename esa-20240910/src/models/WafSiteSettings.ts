@@ -1,11 +1,278 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { WafSiteSettingsAddBotProtectionHeaders } from "./WafSiteSettingsAddBotProtectionHeaders";
-import { WafSiteSettingsAddSecurityHeaders } from "./WafSiteSettingsAddSecurityHeaders";
-import { WafSiteSettingsBotManagement } from "./WafSiteSettingsBotManagement";
-import { WafSiteSettingsClientIpIdentifier } from "./WafSiteSettingsClientIpIdentifier";
-import { WafSiteSettingsSecurityLevel } from "./WafSiteSettingsSecurityLevel";
 
+
+export class WafSiteSettingsAddBotProtectionHeaders extends $dara.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsAddSecurityHeaders extends $dara.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsBotManagementDefiniteBots extends $dara.Model {
+  action?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      id: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsBotManagementEffectOnStatic extends $dara.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsBotManagementJSDetection extends $dara.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsBotManagementLikelyBots extends $dara.Model {
+  action?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      id: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsBotManagementVerifiedBots extends $dara.Model {
+  action?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      id: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsBotManagement extends $dara.Model {
+  definiteBots?: WafSiteSettingsBotManagementDefiniteBots;
+  effectOnStatic?: WafSiteSettingsBotManagementEffectOnStatic;
+  JSDetection?: WafSiteSettingsBotManagementJSDetection;
+  likelyBots?: WafSiteSettingsBotManagementLikelyBots;
+  verifiedBots?: WafSiteSettingsBotManagementVerifiedBots;
+  static names(): { [key: string]: string } {
+    return {
+      definiteBots: 'DefiniteBots',
+      effectOnStatic: 'EffectOnStatic',
+      JSDetection: 'JSDetection',
+      likelyBots: 'LikelyBots',
+      verifiedBots: 'VerifiedBots',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      definiteBots: WafSiteSettingsBotManagementDefiniteBots,
+      effectOnStatic: WafSiteSettingsBotManagementEffectOnStatic,
+      JSDetection: WafSiteSettingsBotManagementJSDetection,
+      likelyBots: WafSiteSettingsBotManagementLikelyBots,
+      verifiedBots: WafSiteSettingsBotManagementVerifiedBots,
+    };
+  }
+
+  validate() {
+    if(this.definiteBots && typeof (this.definiteBots as any).validate === 'function') {
+      (this.definiteBots as any).validate();
+    }
+    if(this.effectOnStatic && typeof (this.effectOnStatic as any).validate === 'function') {
+      (this.effectOnStatic as any).validate();
+    }
+    if(this.JSDetection && typeof (this.JSDetection as any).validate === 'function') {
+      (this.JSDetection as any).validate();
+    }
+    if(this.likelyBots && typeof (this.likelyBots as any).validate === 'function') {
+      (this.likelyBots as any).validate();
+    }
+    if(this.verifiedBots && typeof (this.verifiedBots as any).validate === 'function') {
+      (this.verifiedBots as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsClientIpIdentifier extends $dara.Model {
+  headers?: string[];
+  mode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'Headers',
+      mode: 'Mode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'array', 'itemType': 'string' },
+      mode: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.headers)) {
+      $dara.Model.validateArray(this.headers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsSecurityLevel extends $dara.Model {
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class WafSiteSettings extends $dara.Model {
   addBotProtectionHeaders?: WafSiteSettingsAddBotProtectionHeaders;

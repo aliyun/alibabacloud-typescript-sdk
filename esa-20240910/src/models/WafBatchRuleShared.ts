@@ -1,8 +1,61 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { WafBatchRuleSharedActions } from "./WafBatchRuleSharedActions";
 import { WafRuleMatch2 } from "./WafRuleMatch2";
 
+
+/**
+ */
+export class WafBatchRuleSharedActionsResponse extends $dara.Model {
+  code?: number;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      id: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafBatchRuleSharedActions extends $dara.Model {
+  response?: WafBatchRuleSharedActionsResponse;
+  static names(): { [key: string]: string } {
+    return {
+      response: 'Response',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      response: WafBatchRuleSharedActionsResponse,
+    };
+  }
+
+  validate() {
+    if(this.response && typeof (this.response as any).validate === 'function') {
+      (this.response as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class WafBatchRuleShared extends $dara.Model {
   action?: string;

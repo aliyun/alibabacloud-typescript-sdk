@@ -1,7 +1,80 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeSiteTopDataResponseBodyData } from "./DescribeSiteTopDataResponseBodyData";
 
+
+export class DescribeSiteTopDataResponseBodyDataDetailData extends $dara.Model {
+  /**
+   * @example
+   * ALL
+   */
+  dimensionValue?: string;
+  /**
+   * @example
+   * 123
+   */
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      dimensionValue: 'DimensionValue',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimensionValue: 'string',
+      value: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTopDataResponseBodyData extends $dara.Model {
+  detailData?: DescribeSiteTopDataResponseBodyDataDetailData[];
+  /**
+   * @example
+   * ALL
+   */
+  dimensionName?: string;
+  /**
+   * @example
+   * Traffic
+   */
+  fieldName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailData: 'DetailData',
+      dimensionName: 'DimensionName',
+      fieldName: 'FieldName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailData: { 'type': 'array', 'itemType': DescribeSiteTopDataResponseBodyDataDetailData },
+      dimensionName: 'string',
+      fieldName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.detailData)) {
+      $dara.Model.validateArray(this.detailData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeSiteTopDataResponseBody extends $dara.Model {
   data?: DescribeSiteTopDataResponseBodyData[];
