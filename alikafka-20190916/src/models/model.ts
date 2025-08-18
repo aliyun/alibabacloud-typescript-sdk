@@ -144,6 +144,9 @@ export { EnableAutoGroupCreationResponse } from './EnableAutoGroupCreationRespon
 export { EnableAutoTopicCreationRequest } from './EnableAutoTopicCreationRequest';
 export { EnableAutoTopicCreationResponseBody } from './EnableAutoTopicCreationResponseBody';
 export { EnableAutoTopicCreationResponse } from './EnableAutoTopicCreationResponse';
+export { FailoverTestRequest } from './FailoverTestRequest';
+export { FailoverTestResponseBody } from './FailoverTestResponseBody';
+export { FailoverTestResponse } from './FailoverTestResponse';
 export { GetAllInstanceIdListRequest } from './GetAllInstanceIdListRequest';
 export { GetAllInstanceIdListResponseBody } from './GetAllInstanceIdListResponseBody';
 export { GetAllInstanceIdListResponse } from './GetAllInstanceIdListResponse';

@@ -1546,6 +1546,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 故障演练
+   * 
+   * @param request - FailoverTestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FailoverTestResponse
+   */
+  async failoverTestWithOptions(request: $_model.FailoverTestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FailoverTestResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configs)) {
+      query["Configs"] = request.configs;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.executeTime)) {
+      query["ExecuteTime"] = request.executeTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FailoverTest",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FailoverTestResponse>(await this.callApi(params, req, runtime), new $_model.FailoverTestResponse({}));
+  }
+
+  /**
+   * 故障演练
+   * 
+   * @param request - FailoverTestRequest
+   * @returns FailoverTestResponse
+   */
+  async failoverTest(request: $_model.FailoverTestRequest): Promise<$_model.FailoverTestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.failoverTestWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the IDs of all instances in the current account.
    * 
    * @param request - GetAllInstanceIdListRequest
