@@ -406,6 +406,121 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建一台或多台研发主机
+   * 
+   * @param request - CreateWuyingServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWuyingServerResponse
+   */
+  async createWuyingServerWithOptions(request: $_model.CreateWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWuyingServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.amount)) {
+      body["Amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.autoPay)) {
+      body["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      body["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      body["ChargeType"] = request.chargeType;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataDisk)) {
+      bodyFlat["DataDisk"] = request.dataDisk;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      body["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      body["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      body["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      body["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      body["PromotionId"] = request.promotionId;
+    }
+
+    if (!$dara.isNull(request.serverInstanceType)) {
+      body["ServerInstanceType"] = request.serverInstanceType;
+    }
+
+    if (!$dara.isNull(request.systemDiskCategory)) {
+      body["SystemDiskCategory"] = request.systemDiskCategory;
+    }
+
+    if (!$dara.isNull(request.systemDiskPerformanceLevel)) {
+      body["SystemDiskPerformanceLevel"] = request.systemDiskPerformanceLevel;
+    }
+
+    if (!$dara.isNull(request.systemDiskSize)) {
+      body["SystemDiskSize"] = request.systemDiskSize;
+    }
+
+    if (!$dara.isNull(request.vSwitchIds)) {
+      body["VSwitchIds"] = request.vSwitchIds;
+    }
+
+    if (!$dara.isNull(request.wuyingServerName)) {
+      body["WuyingServerName"] = request.wuyingServerName;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWuyingServer",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWuyingServerResponse>(await this.callApi(params, req, runtime), new $_model.CreateWuyingServerResponse({}));
+  }
+
+  /**
+   * 创建一台或多台研发主机
+   * 
+   * @param request - CreateWuyingServerRequest
+   * @returns CreateWuyingServerResponse
+   */
+  async createWuyingServer(request: $_model.CreateWuyingServerRequest): Promise<$_model.CreateWuyingServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWuyingServerWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a delivery group that uses the By Resource - Pay-as-you-go billing method.
    * 
    * @remarks
@@ -1558,6 +1673,89 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询研发主机列表
+   * 
+   * @param request - ListWuyingServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWuyingServerResponse
+   */
+  async listWuyingServerWithOptions(request: $_model.ListWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWuyingServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      body["ChargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      body["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.serverInstanceType)) {
+      body["ServerInstanceType"] = request.serverInstanceType;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.wuyingServerIdList)) {
+      bodyFlat["WuyingServerIdList"] = request.wuyingServerIdList;
+    }
+
+    if (!$dara.isNull(request.wuyingServerNameOrId)) {
+      body["WuyingServerNameOrId"] = request.wuyingServerNameOrId;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWuyingServer",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWuyingServerResponse>(await this.callApi(params, req, runtime), new $_model.ListWuyingServerResponse({}));
+  }
+
+  /**
+   * 查询研发主机列表
+   * 
+   * @param request - ListWuyingServerRequest
+   * @returns ListWuyingServerResponse
+   */
+  async listWuyingServer(request: $_model.ListWuyingServerRequest): Promise<$_model.ListWuyingServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWuyingServerWithOptions(request, runtime);
+  }
+
+  /**
    * Closes all sessions in a pay-as-you-go delivery group for which a scheduled scaling policy is used.
    * 
    * @remarks
@@ -1926,6 +2124,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改研发主机属性
+   * 
+   * @param request - ModifyWuyingServerAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWuyingServerAttributeResponse
+   */
+  async modifyWuyingServerAttributeWithOptions(request: $_model.ModifyWuyingServerAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyWuyingServerAttributeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.password)) {
+      body["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.wuyingServerId)) {
+      body["WuyingServerId"] = request.wuyingServerId;
+    }
+
+    if (!$dara.isNull(request.wuyingServerName)) {
+      body["WuyingServerName"] = request.wuyingServerName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyWuyingServerAttribute",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyWuyingServerAttributeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyWuyingServerAttributeResponse({}));
+  }
+
+  /**
+   * 修改研发主机属性
+   * 
+   * @param request - ModifyWuyingServerAttributeRequest
+   * @returns ModifyWuyingServerAttributeResponse
+   */
+  async modifyWuyingServerAttribute(request: $_model.ModifyWuyingServerAttributeRequest): Promise<$_model.ModifyWuyingServerAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyWuyingServerAttributeWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the assigned users that are added to a delivery group by page.
    * 
    * @param request - PageListAppInstanceGroupUserRequest
@@ -2063,6 +2311,209 @@ export default class Client extends OpenApi {
   async renewAppInstanceGroup(request: $_model.RenewAppInstanceGroupRequest): Promise<$_model.RenewAppInstanceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.renewAppInstanceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 续费研发主机
+   * 
+   * @param request - RenewWuyingServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewWuyingServerResponse
+   */
+  async renewWuyingServerWithOptions(request: $_model.RenewWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenewWuyingServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoPay)) {
+      body["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      body["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      body["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      body["PromotionId"] = request.promotionId;
+    }
+
+    if (!$dara.isNull(request.wuyingServerId)) {
+      body["WuyingServerId"] = request.wuyingServerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RenewWuyingServer",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RenewWuyingServerResponse>(await this.callApi(params, req, runtime), new $_model.RenewWuyingServerResponse({}));
+  }
+
+  /**
+   * 续费研发主机
+   * 
+   * @param request - RenewWuyingServerRequest
+   * @returns RenewWuyingServerResponse
+   */
+  async renewWuyingServer(request: $_model.RenewWuyingServerRequest): Promise<$_model.RenewWuyingServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.renewWuyingServerWithOptions(request, runtime);
+  }
+
+  /**
+   * 重启研发主机
+   * 
+   * @param request - RestartWuyingServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartWuyingServerResponse
+   */
+  async restartWuyingServerWithOptions(request: $_model.RestartWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartWuyingServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.wuyingServerIdList)) {
+      bodyFlat["WuyingServerIdList"] = request.wuyingServerIdList;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestartWuyingServer",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestartWuyingServerResponse>(await this.callApi(params, req, runtime), new $_model.RestartWuyingServerResponse({}));
+  }
+
+  /**
+   * 重启研发主机
+   * 
+   * @param request - RestartWuyingServerRequest
+   * @returns RestartWuyingServerResponse
+   */
+  async restartWuyingServer(request: $_model.RestartWuyingServerRequest): Promise<$_model.RestartWuyingServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restartWuyingServerWithOptions(request, runtime);
+  }
+
+  /**
+   * 启动研发主机
+   * 
+   * @param request - StartWuyingServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartWuyingServerResponse
+   */
+  async startWuyingServerWithOptions(request: $_model.StartWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartWuyingServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.wuyingServerIdList)) {
+      bodyFlat["WuyingServerIdList"] = request.wuyingServerIdList;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartWuyingServer",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartWuyingServerResponse>(await this.callApi(params, req, runtime), new $_model.StartWuyingServerResponse({}));
+  }
+
+  /**
+   * 启动研发主机
+   * 
+   * @param request - StartWuyingServerRequest
+   * @returns StartWuyingServerResponse
+   */
+  async startWuyingServer(request: $_model.StartWuyingServerRequest): Promise<$_model.StartWuyingServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startWuyingServerWithOptions(request, runtime);
+  }
+
+  /**
+   * 停止研发主机
+   * 
+   * @param request - StopWuyingServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopWuyingServerResponse
+   */
+  async stopWuyingServerWithOptions(request: $_model.StopWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopWuyingServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.force)) {
+      body["Force"] = request.force;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.wuyingServerIdList)) {
+      bodyFlat["WuyingServerIdList"] = request.wuyingServerIdList;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopWuyingServer",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopWuyingServerResponse>(await this.callApi(params, req, runtime), new $_model.StopWuyingServerResponse({}));
+  }
+
+  /**
+   * 停止研发主机
+   * 
+   * @param request - StopWuyingServerRequest
+   * @returns StopWuyingServerResponse
+   */
+  async stopWuyingServer(request: $_model.StopWuyingServerRequest): Promise<$_model.StopWuyingServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopWuyingServerWithOptions(request, runtime);
   }
 
   /**

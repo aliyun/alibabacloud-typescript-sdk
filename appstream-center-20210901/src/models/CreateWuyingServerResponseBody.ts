@@ -2,28 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyNodePoolAmountResponseBodyData extends $dara.Model {
+export class CreateWuyingServerResponseBodyData extends $dara.Model {
   /**
-   * @remarks
-   * The order ID.
-   * 
    * @example
    * 23429322113****
    */
   orderId?: string;
+  wuyingServerIdList?: string[];
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
+      wuyingServerIdList: 'WuyingServerIdList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       orderId: 'string',
+      wuyingServerIdList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.wuyingServerIdList)) {
+      $dara.Model.validateArray(this.wuyingServerIdList);
+    }
     super.validate();
   }
 
@@ -32,16 +35,9 @@ export class ModifyNodePoolAmountResponseBodyData extends $dara.Model {
   }
 }
 
-export class ModifyNodePoolAmountResponseBody extends $dara.Model {
+export class CreateWuyingServerResponseBody extends $dara.Model {
+  data?: CreateWuyingServerResponseBodyData;
   /**
-   * @remarks
-   * The returned data.
-   */
-  data?: ModifyNodePoolAmountResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -55,7 +51,7 @@ export class ModifyNodePoolAmountResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: ModifyNodePoolAmountResponseBodyData,
+      data: CreateWuyingServerResponseBodyData,
       requestId: 'string',
     };
   }

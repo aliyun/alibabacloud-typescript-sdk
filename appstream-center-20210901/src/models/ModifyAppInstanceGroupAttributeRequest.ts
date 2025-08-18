@@ -1,10 +1,294 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModifyAppInstanceGroupAttributeRequestNetwork } from "./ModifyAppInstanceGroupAttributeRequestNetwork";
-import { ModifyAppInstanceGroupAttributeRequestNodePool } from "./ModifyAppInstanceGroupAttributeRequestNodePool";
-import { ModifyAppInstanceGroupAttributeRequestSecurityPolicy } from "./ModifyAppInstanceGroupAttributeRequestSecurityPolicy";
-import { ModifyAppInstanceGroupAttributeRequestStoragePolicy } from "./ModifyAppInstanceGroupAttributeRequestStoragePolicy";
 
+
+export class ModifyAppInstanceGroupAttributeRequestNetworkDomainRules extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * www.example.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The policy used for the domain name.
+   * 
+   * Valid values:
+   * 
+   * *   allow
+   * *   block
+   * 
+   * @example
+   * block
+   */
+  policy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      policy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeRequestNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name rules.
+   */
+  domainRules?: ModifyAppInstanceGroupAttributeRequestNetworkDomainRules[];
+  static names(): { [key: string]: string } {
+    return {
+      domainRules: 'DomainRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainRules: { 'type': 'array', 'itemType': ModifyAppInstanceGroupAttributeRequestNetworkDomainRules },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.domainRules)) {
+      $dara.Model.validateArray(this.domainRules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeRequestNodePool extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of sessions to which a resource can connect at the same time. If a resource connects to a large number of sessions at the same time, user experience can be compromised. The value range varies based on the resource type. The following items describe the value ranges of different resource types:
+   * 
+   * *   appstreaming.general.4c8g: 1 to 2
+   * *   appstreaming.general.8c16g: 1 to 4
+   * *   appstreaming.vgpu.8c16g.4g: 1 to 4
+   * *   appstreaming.vgpu.8c31g.16g: 1 to 4
+   * *   appstreaming.vgpu.14c93g.12g: 1 to 6
+   * 
+   * @example
+   * 2
+   */
+  nodeCapacity?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-ew7va2g1wl3vm****
+   */
+  nodePoolId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeCapacity: 'NodeCapacity',
+      nodePoolId: 'NodePoolId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeCapacity: 'number',
+      nodePoolId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeRequestSecurityPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to reset after unbinding from a delivery group.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  resetAfterUnbind?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to skip user permission verification.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false: This is the default value.
+   * 
+   * @example
+   * false
+   */
+  skipUserAuthCheck?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      resetAfterUnbind: 'ResetAfterUnbind',
+      skipUserAuthCheck: 'SkipUserAuthCheck',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resetAfterUnbind: 'boolean',
+      skipUserAuthCheck: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the File Storage NAS (NAS) file system used to store user data.
+   * 
+   * @example
+   * 06ae94****
+   */
+  fileSystemId?: string;
+  /**
+   * @remarks
+   * Specifies whether user data roaming is enabled.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  userProfileSwitch?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      userProfileSwitch: 'UserProfileSwitch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      userProfileSwitch: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollow extends $dara.Model {
+  fileSystemId?: string;
+  profileFollowSwitch?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      profileFollowSwitch: 'ProfileFollowSwitch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      profileFollowSwitch: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeRequestStoragePolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The storage types.
+   */
+  storageTypeList?: string[];
+  /**
+   * @remarks
+   * The configurations of user data roaming.
+   */
+  userProfile?: ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile;
+  userProfileFollow?: ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollow;
+  static names(): { [key: string]: string } {
+    return {
+      storageTypeList: 'StorageTypeList',
+      userProfile: 'UserProfile',
+      userProfileFollow: 'UserProfileFollow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageTypeList: { 'type': 'array', 'itemType': 'string' },
+      userProfile: ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile,
+      userProfileFollow: ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollow,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.storageTypeList)) {
+      $dara.Model.validateArray(this.storageTypeList);
+    }
+    if(this.userProfile && typeof (this.userProfile as any).validate === 'function') {
+      (this.userProfile as any).validate();
+    }
+    if(this.userProfileFollow && typeof (this.userProfileFollow as any).validate === 'function') {
+      (this.userProfileFollow as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifyAppInstanceGroupAttributeRequest extends $dara.Model {
   /**
