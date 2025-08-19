@@ -11,7 +11,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-1': "ice.aliyuncs.com",
@@ -8276,7 +8275,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.GetPublicMediaInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetPublicMediaInfoResponse({}));
+    return $dara.cast<$_model.GetPublicMediaInfoResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.GetPublicMediaInfoResponse({}));
   }
 
   /**
@@ -9562,7 +9561,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.ListAllPublicMediaTagsResponse>(await this.callApi(params, req, runtime), new $_model.ListAllPublicMediaTagsResponse({}));
+    return $dara.cast<$_model.ListAllPublicMediaTagsResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.ListAllPublicMediaTagsResponse({}));
   }
 
   /**
@@ -11734,7 +11733,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.ListPublicMediaBasicInfosResponse>(await this.callApi(params, req, runtime), new $_model.ListPublicMediaBasicInfosResponse({}));
+    return $dara.cast<$_model.ListPublicMediaBasicInfosResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.ListPublicMediaBasicInfosResponse({}));
   }
 
   /**
@@ -13863,6 +13862,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.mediaId)) {
       query["MediaId"] = request.mediaId;
+    }
+
+    if (!$dara.isNull(request.streamTags)) {
+      query["StreamTags"] = request.streamTags;
     }
 
     if (!$dara.isNull(request.userData)) {

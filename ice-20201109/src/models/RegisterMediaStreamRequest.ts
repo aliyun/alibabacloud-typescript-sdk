@@ -22,6 +22,7 @@ export class RegisterMediaStreamRequest extends $dara.Model {
    * 5e778ec0027b71ed80a8909598506***
    */
   mediaId?: string;
+  streamTags?: string;
   /**
    * @remarks
    * The user data.
@@ -34,6 +35,7 @@ export class RegisterMediaStreamRequest extends $dara.Model {
     return {
       inputURL: 'InputURL',
       mediaId: 'MediaId',
+      streamTags: 'StreamTags',
       userData: 'UserData',
     };
   }
@@ -42,6 +44,7 @@ export class RegisterMediaStreamRequest extends $dara.Model {
     return {
       inputURL: 'string',
       mediaId: 'string',
+      streamTags: 'string',
       userData: 'string',
     };
   }
