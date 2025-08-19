@@ -1174,6 +1174,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改应用公网配置。
+   * 
+   * @param request - UpdateNetworkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNetworkResponse
+   */
+  async updateNetworkWithOptions(appName: string, request: $_model.UpdateNetworkRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNetworkResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.toArray(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNetwork",
+      version: "2023-06-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/es-serverless/instances/${$dara.URL.percentEncode(appName)}/networks`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNetworkResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNetworkResponse({}));
+  }
+
+  /**
+   * 修改应用公网配置。
+   * 
+   * @param request - UpdateNetworkRequest
+   * @returns UpdateNetworkResponse
+   */
+  async updateNetwork(appName: string, request: $_model.UpdateNetworkRequest): Promise<$_model.UpdateNetworkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateNetworkWithOptions(appName, request, headers, runtime);
+  }
+
+  /**
    * 修改自动备份配置
    * 
    * @param request - UpdateSnapshotSettingRequest
