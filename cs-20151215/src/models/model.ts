@@ -53,6 +53,7 @@ export { DescribeClusterDetailResponseBodyAutoMode } from './DescribeClusterDeta
 export { DescribeClusterDetailResponseBodyControlPlaneConfig } from './DescribeClusterDetailResponseBody';
 export { DescribeClusterDetailResponseBodyOperationPolicyClusterAutoUpgrade } from './DescribeClusterDetailResponseBody';
 export { DescribeClusterDetailResponseBodyOperationPolicy } from './DescribeClusterDetailResponseBody';
+export { DescribeClusterDetailResponseBodyRrsaConfig } from './DescribeClusterDetailResponseBody';
 export { DescribeClusterEventsResponseBodyEventsData } from './DescribeClusterEventsResponseBody';
 export { DescribeClusterEventsResponseBodyEvents } from './DescribeClusterEventsResponseBody';
 export { DescribeClusterEventsResponseBodyPageInfo } from './DescribeClusterEventsResponseBody';
@@ -119,6 +120,7 @@ export { DescribeEventsForRegionResponseBodyEvents } from './DescribeEventsForRe
 export { DescribeEventsForRegionResponseBodyPageInfo } from './DescribeEventsForRegionResponseBody';
 export { DescribeKubernetesVersionMetadataResponseBodyImages } from './DescribeKubernetesVersionMetadataResponse';
 export { DescribeKubernetesVersionMetadataResponseBody } from './DescribeKubernetesVersionMetadataResponse';
+export { DescribeNodePoolVulsResponseBodyVulRecordsVulListPackageList } from './DescribeNodePoolVulsResponseBody';
 export { DescribeNodePoolVulsResponseBodyVulRecordsVulList } from './DescribeNodePoolVulsResponseBody';
 export { DescribeNodePoolVulsResponseBodyVulRecords } from './DescribeNodePoolVulsResponseBody';
 export { DescribePolicyGovernanceInClusterResponseBodyAdmitLogLog } from './DescribePolicyGovernanceInClusterResponseBody';

@@ -520,6 +520,7 @@ export class CreateClusterNodePoolRequestManagementAutoUpgradePolicy extends $da
 }
 
 export class CreateClusterNodePoolRequestManagementAutoVulFixPolicy extends $dara.Model {
+  excludePackages?: string;
   /**
    * @remarks
    * Specifies whether to allow node restart. This parameter takes effect only when `auto_vul_fix` is set to true. Valid values:
@@ -547,6 +548,7 @@ export class CreateClusterNodePoolRequestManagementAutoVulFixPolicy extends $dar
   vulLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      excludePackages: 'exclude_packages',
       restartNode: 'restart_node',
       vulLevel: 'vul_level',
     };
@@ -554,6 +556,7 @@ export class CreateClusterNodePoolRequestManagementAutoVulFixPolicy extends $dar
 
   static types(): { [key: string]: any } {
     return {
+      excludePackages: 'string',
       restartNode: 'boolean',
       vulLevel: 'string',
     };

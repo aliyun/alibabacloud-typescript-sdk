@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeNodePoolVulsResponseBodyVulRecordsVulListPackageList extends $dara.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Model {
   /**
    * @remarks
@@ -46,6 +69,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Mod
    * false
    */
   needReboot?: boolean;
+  packageList?: DescribeNodePoolVulsResponseBodyVulRecordsVulListPackageList[];
   static names(): { [key: string]: string } {
     return {
       aliasName: 'alias_name',
@@ -53,6 +77,7 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Mod
       name: 'name',
       necessity: 'necessity',
       needReboot: 'need_reboot',
+      packageList: 'package_list',
     };
   }
 
@@ -63,12 +88,16 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Mod
       name: 'string',
       necessity: 'string',
       needReboot: 'boolean',
+      packageList: { 'type': 'array', 'itemType': DescribeNodePoolVulsResponseBodyVulRecordsVulListPackageList },
     };
   }
 
   validate() {
     if(Array.isArray(this.cveList)) {
       $dara.Model.validateArray(this.cveList);
+    }
+    if(Array.isArray(this.packageList)) {
+      $dara.Model.validateArray(this.packageList);
     }
     super.validate();
   }

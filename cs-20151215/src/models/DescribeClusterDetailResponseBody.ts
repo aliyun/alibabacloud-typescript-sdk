@@ -360,6 +360,50 @@ export class DescribeClusterDetailResponseBodyOperationPolicy extends $dara.Mode
   }
 }
 
+export class DescribeClusterDetailResponseBodyRrsaConfig extends $dara.Model {
+  audience?: string;
+  enabled?: boolean;
+  issuer?: string;
+  jwksUrl?: string;
+  maxOidcTokenExpiration?: string;
+  oidcArn?: string;
+  oidcName?: string;
+  openApiConfigurationUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audience: 'audience',
+      enabled: 'enabled',
+      issuer: 'issuer',
+      jwksUrl: 'jwks_url',
+      maxOidcTokenExpiration: 'max_oidc_token_expiration',
+      oidcArn: 'oidc_arn',
+      oidcName: 'oidc_name',
+      openApiConfigurationUrl: 'open_api_configuration_url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audience: 'string',
+      enabled: 'boolean',
+      issuer: 'string',
+      jwksUrl: 'string',
+      maxOidcTokenExpiration: 'string',
+      oidcArn: 'string',
+      oidcName: 'string',
+      openApiConfigurationUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterDetailResponseBody extends $dara.Model {
   autoMode?: DescribeClusterDetailResponseBodyAutoMode;
   /**
@@ -457,6 +501,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
    * lb-2zehc05z3b8dwiifh****
    */
   externalLoadbalancerId?: string;
+  extraSans?: string[];
   /**
    * @remarks
    * The initial Kubernetes version of the cluster.
@@ -594,6 +639,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
    * rg-acfmyvw3wjm****
    */
   resourceGroupId?: string;
+  rrsaConfig?: DescribeClusterDetailResponseBodyRrsaConfig;
   /**
    * @remarks
    * The ID of the security group to which the cluster belongs.
@@ -725,6 +771,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
       deletionProtection: 'deletion_protection',
       dockerVersion: 'docker_version',
       externalLoadbalancerId: 'external_loadbalancer_id',
+      extraSans: 'extra_sans',
       initVersion: 'init_version',
       ipStack: 'ip_stack',
       maintenanceWindow: 'maintenance_window',
@@ -741,6 +788,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
       proxyMode: 'proxy_mode',
       regionId: 'region_id',
       resourceGroupId: 'resource_group_id',
+      rrsaConfig: 'rrsa_config',
       securityGroupId: 'security_group_id',
       serviceCidr: 'service_cidr',
       size: 'size',
@@ -771,6 +819,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
       deletionProtection: 'boolean',
       dockerVersion: 'string',
       externalLoadbalancerId: 'string',
+      extraSans: { 'type': 'array', 'itemType': 'string' },
       initVersion: 'string',
       ipStack: 'string',
       maintenanceWindow: MaintenanceWindow,
@@ -787,6 +836,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
       proxyMode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      rrsaConfig: DescribeClusterDetailResponseBodyRrsaConfig,
       securityGroupId: 'string',
       serviceCidr: 'string',
       size: 'number',
@@ -810,6 +860,9 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
     if(this.controlPlaneConfig && typeof (this.controlPlaneConfig as any).validate === 'function') {
       (this.controlPlaneConfig as any).validate();
     }
+    if(Array.isArray(this.extraSans)) {
+      $dara.Model.validateArray(this.extraSans);
+    }
     if(this.maintenanceWindow && typeof (this.maintenanceWindow as any).validate === 'function') {
       (this.maintenanceWindow as any).validate();
     }
@@ -818,6 +871,9 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
     }
     if(this.parameters) {
       $dara.Model.validateMap(this.parameters);
+    }
+    if(this.rrsaConfig && typeof (this.rrsaConfig as any).validate === 'function') {
+      (this.rrsaConfig as any).validate();
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);

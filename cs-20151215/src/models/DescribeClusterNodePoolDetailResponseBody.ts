@@ -407,6 +407,7 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolic
 }
 
 export class DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy extends $dara.Model {
+  excludePackages?: string;
   /**
    * @remarks
    * Whether to allow restarting nodes.
@@ -425,6 +426,7 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy
   vulLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      excludePackages: 'exclude_packages',
       restartNode: 'restart_node',
       vulLevel: 'vul_level',
     };
@@ -432,6 +434,7 @@ export class DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy
 
   static types(): { [key: string]: any } {
     return {
+      excludePackages: 'string',
       restartNode: 'boolean',
       vulLevel: 'string',
     };

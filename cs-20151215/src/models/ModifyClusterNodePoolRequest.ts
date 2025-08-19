@@ -177,6 +177,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $dara.Model {
    * *   The key must be unique and cannot exceed 64 characters in length. The value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
    */
   labels?: Tag[];
+  nodeNameMode?: string;
   /**
    * @remarks
    * Predefined custom data. Nodes automatically run predefined scripts before they are added to the cluster. For more information, see [User-Data script](https://help.aliyun.com/document_detail/49121.html).
@@ -236,6 +237,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $dara.Model {
       cmsEnabled: 'cms_enabled',
       cpuPolicy: 'cpu_policy',
       labels: 'labels',
+      nodeNameMode: 'node_name_mode',
       preUserData: 'pre_user_data',
       runtime: 'runtime',
       runtimeVersion: 'runtime_version',
@@ -250,6 +252,7 @@ export class ModifyClusterNodePoolRequestKubernetesConfig extends $dara.Model {
       cmsEnabled: 'boolean',
       cpuPolicy: 'string',
       labels: { 'type': 'array', 'itemType': Tag },
+      nodeNameMode: 'string',
       preUserData: 'string',
       runtime: 'string',
       runtimeVersion: 'string',
@@ -374,6 +377,7 @@ export class ModifyClusterNodePoolRequestManagementAutoUpgradePolicy extends $da
 }
 
 export class ModifyClusterNodePoolRequestManagementAutoVulFixPolicy extends $dara.Model {
+  excludePackages?: string;
   /**
    * @remarks
    * Specifies whether ACK is allowed to automatically restart nodes after repairing the nodes. Valid values:
@@ -401,6 +405,7 @@ export class ModifyClusterNodePoolRequestManagementAutoVulFixPolicy extends $dar
   vulLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      excludePackages: 'exclude_packages',
       restartNode: 'restart_node',
       vulLevel: 'vul_level',
     };
@@ -408,6 +413,7 @@ export class ModifyClusterNodePoolRequestManagementAutoVulFixPolicy extends $dar
 
   static types(): { [key: string]: any } {
     return {
+      excludePackages: 'string',
       restartNode: 'boolean',
       vulLevel: 'string',
     };
