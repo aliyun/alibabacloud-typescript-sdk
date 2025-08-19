@@ -1565,6 +1565,10 @@ export default class Client extends OpenApi {
   async submitDocParserJobWithOptions(request: $_model.SubmitDocParserJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDocParserJobResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.enhancementMode)) {
+      query["EnhancementMode"] = request.enhancementMode;
+    }
+
     if (!$dara.isNull(request.fileName)) {
       query["FileName"] = request.fileName;
     }

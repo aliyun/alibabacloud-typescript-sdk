@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitDocParserJobAdvanceRequest extends $dara.Model {
+  enhancementMode?: string;
   /**
    * @example
    * docStructure.pdf
@@ -28,6 +29,7 @@ export class SubmitDocParserJobAdvanceRequest extends $dara.Model {
   pageIndex?: string;
   static names(): { [key: string]: string } {
     return {
+      enhancementMode: 'EnhancementMode',
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrlObject: 'FileUrl',
@@ -43,6 +45,7 @@ export class SubmitDocParserJobAdvanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enhancementMode: 'string',
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrlObject: 'Readable',
