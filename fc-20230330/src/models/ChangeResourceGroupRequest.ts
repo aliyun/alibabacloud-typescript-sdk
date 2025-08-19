@@ -1,27 +1,26 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ChangeResourceGroupInput } from "./ChangeResourceGroupInput";
 
 
-/**
- */
-export class DescribeRegionsOutputRegionsRegion extends $dara.Model {
-  localName?: string;
-  regionId?: string;
+export class ChangeResourceGroupRequest extends $dara.Model {
+  body?: ChangeResourceGroupInput;
   static names(): { [key: string]: string } {
     return {
-      localName: 'LocalName',
-      regionId: 'RegionId',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      localName: 'string',
-      regionId: 'string',
+      body: ChangeResourceGroupInput,
     };
   }
 
   validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
     super.validate();
   }
 

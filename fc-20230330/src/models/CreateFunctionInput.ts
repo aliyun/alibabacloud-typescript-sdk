@@ -35,6 +35,9 @@ export class CreateFunctionInput extends $dara.Model {
    * 512
    */
   diskSize?: number;
+  /**
+   * @deprecated
+   */
   enableLongLiving?: boolean;
   environmentVariables?: { [key: string]: string };
   /**
@@ -59,6 +62,7 @@ export class CreateFunctionInput extends $dara.Model {
    * 1
    */
   instanceConcurrency?: number;
+  instanceIsolationMode?: string;
   instanceLifecycleConfig?: InstanceLifecycleConfig;
   /**
    * @example
@@ -93,6 +97,7 @@ export class CreateFunctionInput extends $dara.Model {
    * MCP_SSE
    */
   sessionAffinity?: string;
+  sessionAffinityConfig?: string;
   tags?: Tag[];
   /**
    * @example
@@ -117,6 +122,7 @@ export class CreateFunctionInput extends $dara.Model {
       gpuConfig: 'gpuConfig',
       handler: 'handler',
       instanceConcurrency: 'instanceConcurrency',
+      instanceIsolationMode: 'instanceIsolationMode',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
       internetAccess: 'internetAccess',
       layers: 'layers',
@@ -128,6 +134,7 @@ export class CreateFunctionInput extends $dara.Model {
       role: 'role',
       runtime: 'runtime',
       sessionAffinity: 'sessionAffinity',
+      sessionAffinityConfig: 'sessionAffinityConfig',
       tags: 'tags',
       timeout: 'timeout',
       tracingConfig: 'tracingConfig',
@@ -151,6 +158,7 @@ export class CreateFunctionInput extends $dara.Model {
       gpuConfig: GPUConfig,
       handler: 'string',
       instanceConcurrency: 'number',
+      instanceIsolationMode: 'string',
       instanceLifecycleConfig: InstanceLifecycleConfig,
       internetAccess: 'boolean',
       layers: { 'type': 'array', 'itemType': 'string' },
@@ -162,6 +170,7 @@ export class CreateFunctionInput extends $dara.Model {
       role: 'string',
       runtime: 'string',
       sessionAffinity: 'string',
+      sessionAffinityConfig: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
       timeout: 'number',
       tracingConfig: TracingConfig,

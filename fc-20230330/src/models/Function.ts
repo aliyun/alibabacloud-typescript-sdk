@@ -50,6 +50,9 @@ export class Function extends $dara.Model {
    * 512
    */
   diskSize?: number;
+  /**
+   * @deprecated
+   */
   enableLongLiving?: boolean;
   environmentVariables?: { [key: string]: string };
   /**
@@ -78,6 +81,7 @@ export class Function extends $dara.Model {
    * 1
    */
   instanceConcurrency?: number;
+  instanceIsolationMode?: string;
   instanceLifecycleConfig?: InstanceLifecycleConfig;
   /**
    * @example
@@ -125,11 +129,8 @@ export class Function extends $dara.Model {
    * python3.10
    */
   runtime?: string;
-  /**
-   * @example
-   * MCP_SSE
-   */
   sessionAffinity?: string;
+  sessionAffinityConfig?: string;
   /**
    * @example
    * Pending
@@ -173,6 +174,7 @@ export class Function extends $dara.Model {
       gpuConfig: 'gpuConfig',
       handler: 'handler',
       instanceConcurrency: 'instanceConcurrency',
+      instanceIsolationMode: 'instanceIsolationMode',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
       internetAccess: 'internetAccess',
       invocationRestriction: 'invocationRestriction',
@@ -189,6 +191,7 @@ export class Function extends $dara.Model {
       role: 'role',
       runtime: 'runtime',
       sessionAffinity: 'sessionAffinity',
+      sessionAffinityConfig: 'sessionAffinityConfig',
       state: 'state',
       stateReason: 'stateReason',
       stateReasonCode: 'stateReasonCode',
@@ -219,6 +222,7 @@ export class Function extends $dara.Model {
       gpuConfig: GPUConfig,
       handler: 'string',
       instanceConcurrency: 'number',
+      instanceIsolationMode: 'string',
       instanceLifecycleConfig: InstanceLifecycleConfig,
       internetAccess: 'boolean',
       invocationRestriction: FunctionRestriction,
@@ -235,6 +239,7 @@ export class Function extends $dara.Model {
       role: 'string',
       runtime: 'string',
       sessionAffinity: 'string',
+      sessionAffinityConfig: 'string',
       state: 'string',
       stateReason: 'string',
       stateReasonCode: 'string',

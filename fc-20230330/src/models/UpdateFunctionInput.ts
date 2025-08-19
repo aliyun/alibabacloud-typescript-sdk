@@ -34,6 +34,9 @@ export class UpdateFunctionInput extends $dara.Model {
    * 512
    */
   diskSize?: number;
+  /**
+   * @deprecated
+   */
   enableLongLiving?: boolean;
   environmentVariables?: { [key: string]: string };
   gpuConfig?: GPUConfig;
@@ -47,6 +50,7 @@ export class UpdateFunctionInput extends $dara.Model {
    * 1
    */
   instanceConcurrency?: number;
+  instanceIsolationMode?: string;
   instanceLifecycleConfig?: InstanceLifecycleConfig;
   /**
    * @example
@@ -73,6 +77,7 @@ export class UpdateFunctionInput extends $dara.Model {
    * MCP_SSE
    */
   sessionAffinity?: string;
+  sessionAffinityConfig?: string;
   /**
    * @example
    * 60
@@ -95,6 +100,7 @@ export class UpdateFunctionInput extends $dara.Model {
       gpuConfig: 'gpuConfig',
       handler: 'handler',
       instanceConcurrency: 'instanceConcurrency',
+      instanceIsolationMode: 'instanceIsolationMode',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
       internetAccess: 'internetAccess',
       layers: 'layers',
@@ -105,6 +111,7 @@ export class UpdateFunctionInput extends $dara.Model {
       role: 'role',
       runtime: 'runtime',
       sessionAffinity: 'sessionAffinity',
+      sessionAffinityConfig: 'sessionAffinityConfig',
       timeout: 'timeout',
       tracingConfig: 'tracingConfig',
       vpcConfig: 'vpcConfig',
@@ -126,6 +133,7 @@ export class UpdateFunctionInput extends $dara.Model {
       gpuConfig: GPUConfig,
       handler: 'string',
       instanceConcurrency: 'number',
+      instanceIsolationMode: 'string',
       instanceLifecycleConfig: InstanceLifecycleConfig,
       internetAccess: 'boolean',
       layers: { 'type': 'array', 'itemType': 'string' },
@@ -136,6 +144,7 @@ export class UpdateFunctionInput extends $dara.Model {
       role: 'string',
       runtime: 'string',
       sessionAffinity: 'string',
+      sessionAffinityConfig: 'string',
       timeout: 'number',
       tracingConfig: TracingConfig,
       vpcConfig: VPCConfig,
