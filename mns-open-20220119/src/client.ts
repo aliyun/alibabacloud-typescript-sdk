@@ -574,6 +574,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取事件通知规则
+   * 
+   * @param request - GetEventRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEventRuleResponse
+   */
+  async getEventRuleWithOptions(request: $_model.GetEventRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetEventRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productName)) {
+      query["ProductName"] = request.productName;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetEventRule",
+      version: "2022-01-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetEventRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetEventRuleResponse({}));
+  }
+
+  /**
+   * 获取事件通知规则
+   * 
+   * @param request - GetEventRuleRequest
+   * @returns GetEventRuleResponse
+   */
+  async getEventRule(request: $_model.GetEventRuleRequest): Promise<$_model.GetEventRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getEventRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the attributes of an existing queue.
    * 
    * @param request - GetQueueAttributesRequest
@@ -709,6 +755,86 @@ export default class Client extends OpenApi {
   async getTopicAttributes(request: $_model.GetTopicAttributesRequest): Promise<$_model.GetTopicAttributesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getTopicAttributesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询事件通知列表
+   * 
+   * @param tmpReq - ListEventRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEventRulesResponse
+   */
+  async listEventRulesWithOptions(tmpReq: $_model.ListEventRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListEventRulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListEventRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.subscription)) {
+      request.subscriptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subscription, "Subscription", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productName)) {
+      query["ProductName"] = request.productName;
+    }
+
+    if (!$dara.isNull(request.resourceName)) {
+      query["ResourceName"] = request.resourceName;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.subscriptionShrink)) {
+      query["Subscription"] = request.subscriptionShrink;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      query["TopicName"] = request.topicName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListEventRules",
+      version: "2022-01-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListEventRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListEventRulesResponse({}));
+  }
+
+  /**
+   * 查询事件通知列表
+   * 
+   * @param request - ListEventRulesRequest
+   * @returns ListEventRulesResponse
+   */
+  async listEventRules(request: $_model.ListEventRulesRequest): Promise<$_model.ListEventRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listEventRulesWithOptions(request, runtime);
   }
 
   /**
