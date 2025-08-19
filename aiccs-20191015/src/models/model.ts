@@ -25,6 +25,7 @@ export { GetAiOutboundTaskProgressResponseBodyDataCalloutProgress } from './GetA
 export { GetAiOutboundTaskProgressResponseBodyDataTaskProgress } from './GetAiOutboundTaskProgressResponseBody';
 export { GetAiOutboundTaskProgressResponseBodyData } from './GetAiOutboundTaskProgressResponseBody';
 export { GetAllDepartmentResponseBodyData } from './GetAllDepartmentResponseBody';
+export { GetCallDialogContentResponseBodyData } from './GetCallDialogContentResponseBody';
 export { GetCustomerInfoResponseBodyData } from './GetCustomerInfoResponseBody';
 export { GetDepGroupTreeDataResponseBodyDataGroupDTOS } from './GetDepGroupTreeDataResponseBody';
 export { GetDepGroupTreeDataResponseBodyData } from './GetDepGroupTreeDataResponseBody';
@@ -281,6 +282,9 @@ export { GetAiOutboundTaskProgressResponse } from './GetAiOutboundTaskProgressRe
 export { GetAllDepartmentRequest } from './GetAllDepartmentRequest';
 export { GetAllDepartmentResponseBody } from './GetAllDepartmentResponseBody';
 export { GetAllDepartmentResponse } from './GetAllDepartmentResponse';
+export { GetCallDialogContentRequest } from './GetCallDialogContentRequest';
+export { GetCallDialogContentResponseBody } from './GetCallDialogContentResponseBody';
+export { GetCallDialogContentResponse } from './GetCallDialogContentResponse';
 export { GetCallSoundRecordRequest } from './GetCallSoundRecordRequest';
 export { GetCallSoundRecordResponseBody } from './GetCallSoundRecordResponseBody';
 export { GetCallSoundRecordResponse } from './GetCallSoundRecordResponse';

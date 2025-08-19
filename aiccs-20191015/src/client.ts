@@ -3028,6 +3028,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询对话内容
+   * 
+   * @param request - GetCallDialogContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCallDialogContentResponse
+   */
+  async getCallDialogContentWithOptions(request: $_model.GetCallDialogContentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCallDialogContentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callDate)) {
+      query["CallDate"] = request.callDate;
+    }
+
+    if (!$dara.isNull(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCallDialogContent",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCallDialogContentResponse>(await this.callApi(params, req, runtime), new $_model.GetCallDialogContentResponse({}));
+  }
+
+  /**
+   * 查询对话内容
+   * 
+   * @param request - GetCallDialogContentRequest
+   * @returns GetCallDialogContentResponse
+   */
+  async getCallDialogContent(request: $_model.GetCallDialogContentRequest): Promise<$_model.GetCallDialogContentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCallDialogContentWithOptions(request, runtime);
+  }
+
+  /**
    * 获取通话录音文件
    * 
    * @param request - GetCallSoundRecordRequest
