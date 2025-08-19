@@ -1,0 +1,47 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class DeleteMessageContactResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The deletion status of the contact. Valid values:
+   * 
+   * *   Deleting
+   * *   Deleted
+   * 
+   * @example
+   * Deleting
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
