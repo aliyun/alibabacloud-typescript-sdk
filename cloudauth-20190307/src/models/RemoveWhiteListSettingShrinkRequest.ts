@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RemoveWhiteListSettingShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * IDs of the whitelist to be deleted in bulk.
+   */
   idsShrink?: string;
   /**
+   * @remarks
+   * ServiceCode for the real person cloud product, only value: **antcloudauth**.
+   * 
    * @example
    * antcloudauth
    */

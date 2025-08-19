@@ -1,27 +1,97 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DeepfakeDetectResponseBodyResultObject } from "./DeepfakeDetectResponseBodyResultObject";
 
+
+export class DeepfakeDetectResponseBodyResultObject extends $dara.Model {
+  /**
+   * @remarks
+   * Risk result:
+   * 
+   * - **0**: Low risk
+   * - **1**: High risk
+   * - **2**: Suspicious
+   * 
+   * @example
+   * 1
+   */
+  result?: string;
+  /**
+   * @remarks
+   * Risk score map.
+   */
+  riskScore?: { [key: string]: string };
+  /**
+   * @remarks
+   * Risk tags. Multiple tags are separated by commas (,). Includes:
+   * 
+   * - Suspected deep forgery  SuspectDeepForgery
+   * - Suspected synthetic attack  SuspectPSFace
+   * - Suspected watermark  SuspectWarterMark
+   * - Suspected black industry attack  SuspectTemple
+   * - Suspected generated face  SuspectAIGC Face
+   * - Suspected rephotographed face  SuspectRemake
+   * 
+   * @example
+   * SuspectDeepForgery,SuspectWarterMark
+   */
+  riskTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+      riskScore: 'RiskScore',
+      riskTag: 'RiskTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'string',
+      riskScore: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      riskTag: 'string',
+    };
+  }
+
+  validate() {
+    if(this.riskScore) {
+      $dara.Model.validateMap(this.riskScore);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DeepfakeDetectResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code: 200 indicates success, others indicate failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * Request ID.
    * 
    * @example
    * 8FC3D6AC-9FED-4311-8DA7-C4BF47D9F260
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Returned result information.
+   */
   resultObject?: DeepfakeDetectResponseBodyResultObject;
   static names(): { [key: string]: string } {
     return {

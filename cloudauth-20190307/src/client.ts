@@ -1,10 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import OSS, * as $OSS from '@alicloud/oss-client';
-import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
-import * as $OSSUtil from '@alicloud/oss-util';
-import * as $FileForm from '@alicloud/tea-fileform';
-import OpenApi from '@alicloud/openapi-core';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
 
@@ -20,6 +16,42 @@ export default class Client extends OpenApi {
     this._endpoint = this.getEndpoint("cloudauth", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
+    let request_ = new $dara.Request();
+    let boundary = $dara.Form.getBoundary();
+    request_.protocol = "HTTPS";
+    request_.method = "POST";
+    request_.pathname = `/`;
+    request_.headers = {
+      host: String(form["host"]),
+      date: OpenApiUtil.getDateUTCString(),
+      'user-agent': OpenApiUtil.getUserAgent(""),
+    };
+    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+    request_.body = $dara.Form.toFileForm(form, boundary);
+    let response_ = await $dara.doAction(request_);
+
+    let respMap : {[key: string]: any} = null;
+    let bodyStr = await $dara.Stream.readAsString(response_.body);
+    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+      respMap = $dara.XML.parseXml(bodyStr, null);
+      let err = respMap["Error"];
+      throw new $OpenApi.ClientError({
+        code: String(err["Code"]),
+        message: String(err["Message"]),
+        data: {
+          httpCode: response_.statusCode,
+          requestId: String(err["RequestId"]),
+          hostId: String(err["HostId"]),
+        },
+      });
+    }
+
+    respMap = $dara.XML.parseXml(bodyStr, null);
+    return {
+      ...respMap,
+    };
+  }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
     if (!$dara.isNull(endpoint)) {
@@ -34,7 +66,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增AIGC人脸检测能力
+   * Add AIGC Face Detection Capability
    * 
    * @param request - AIGCFaceVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -91,7 +123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增AIGC人脸检测能力
+   * Add AIGC Face Detection Capability
    * 
    * @param request - AIGCFaceVerifyRequest
    * @returns AIGCFaceVerifyResponse
@@ -102,7 +134,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 银行卡要素核验接口
+   * Bank Card Element Verification Interface
+   * 
+   * @remarks
+   * Bank card verification, including: two elements (name + bank card number), three elements (name + ID number + bank card number), and four elements (name + ID number + mobile phone number + bank card number) consistency verification.
+   * - Service address:
+   *   - Beijing region: cloudauth.cn-beijing.aliyuncs.com (IPv4) or cloudauth-dualstack.cn-beijing.aliyuncs.com (IPv6).
+   *   - Shanghai region: cloudauth.cn-shanghai.aliyuncs.com (IPv4) or cloudauth-dualstack.cn-shanghai.aliyuncs.com (IPv6).
+   * - Request method: POST and GET.
+   * - Transfer protocol: HTTPS.
    * 
    * @param request - BankMetaVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -161,7 +201,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 银行卡要素核验接口
+   * Bank Card Element Verification Interface
+   * 
+   * @remarks
+   * Bank card verification, including: two elements (name + bank card number), three elements (name + ID number + bank card number), and four elements (name + ID number + mobile phone number + bank card number) consistency verification.
+   * - Service address:
+   *   - Beijing region: cloudauth.cn-beijing.aliyuncs.com (IPv4) or cloudauth-dualstack.cn-beijing.aliyuncs.com (IPv6).
+   *   - Shanghai region: cloudauth.cn-shanghai.aliyuncs.com (IPv4) or cloudauth-dualstack.cn-shanghai.aliyuncs.com (IPv6).
+   * - Request method: POST and GET.
+   * - Transfer protocol: HTTPS.
    * 
    * @param request - BankMetaVerifyRequest
    * @returns BankMetaVerifyResponse
@@ -172,6 +220,21 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Financial-grade Pure Server-Side API for Face Comparison.
+   * 
+   * @remarks
+   * - API Name: CompareFaceVerify.
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * - API Description: An interface to achieve real-person authentication through server-side integration.
+   * #### Photo Format Requirements
+   * When performing face comparison, please upload 2 facial photos that meet all the following conditions:
+   * - Recent photo/recent database photo, with a complete, clear, unobstructed face, natural expression, and facing the camera directly.
+   * - Clear photo with normal exposure, no overly dark, overly bright, or halo effects on the face, and no significant angle deviation.
+   * - Resolution not exceeding 1920*1080, at least 640*480, recommended to scale the shorter side to 720 pixels, with a compression ratio greater than 0.9.
+   * - Photo size: <1MB.
+   * - Supports 90, 180, and 270-degree photos; in cases of multiple faces, the largest face will be selected.
+   * 
    * @param request - CompareFaceVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CompareFaceVerifyResponse
@@ -253,6 +316,21 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Financial-grade Pure Server-Side API for Face Comparison.
+   * 
+   * @remarks
+   * - API Name: CompareFaceVerify.
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * - API Description: An interface to achieve real-person authentication through server-side integration.
+   * #### Photo Format Requirements
+   * When performing face comparison, please upload 2 facial photos that meet all the following conditions:
+   * - Recent photo/recent database photo, with a complete, clear, unobstructed face, natural expression, and facing the camera directly.
+   * - Clear photo with normal exposure, no overly dark, overly bright, or halo effects on the face, and no significant angle deviation.
+   * - Resolution not exceeding 1920*1080, at least 640*480, recommended to scale the shorter side to 720 pixels, with a compression ratio greater than 0.9.
+   * - Photo size: <1MB.
+   * - Supports 90, 180, and 270-degree photos; in cases of multiple faces, the largest face will be selected.
+   * 
    * @param request - CompareFaceVerifyRequest
    * @returns CompareFaceVerifyResponse
    */
@@ -262,6 +340,23 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke CompareFaces for face comparison.
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST.
+   * Interface Description: Compares two face images and outputs the similarity score of the faces in the two images as the result.
+   * - At least one of the specified comparison images should be a face photo (FacePic).
+   * - If an image contains multiple faces, the algorithm will automatically select the largest face in the image.
+   * - If one of the two comparison images does not detect a face, the system will return an error message stating \\"No face detected\\".
+   * When uploading images, you need to provide the HTTP address or base64 encoding of the image.
+   * - HTTP Address: A publicly accessible HTTP address. For example, `http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg`.
+   * - Base64 Encoding: An image encoded in base64, formatted as `base64://<base64 string of the image>`.
+   * Image Restrictions
+   * - Does not support relative or absolute paths for local images.
+   * - Please keep the size of a single image within 2MB to avoid timeout during retrieval by the algorithm.
+   * - The body of a single request has a size limit of 8MB; please calculate the total size of all images and other information in the request to ensure it does not exceed this limit.
+   * - When using base64 to transmit images, the request method must be changed to POST; the header description such as `data:image/png;base64,` should be removed from the base64 string of the image.
+   * 
    * @param request - CompareFacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CompareFacesResponse
@@ -303,6 +398,23 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invoke CompareFaces for face comparison.
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST.
+   * Interface Description: Compares two face images and outputs the similarity score of the faces in the two images as the result.
+   * - At least one of the specified comparison images should be a face photo (FacePic).
+   * - If an image contains multiple faces, the algorithm will automatically select the largest face in the image.
+   * - If one of the two comparison images does not detect a face, the system will return an error message stating \\"No face detected\\".
+   * When uploading images, you need to provide the HTTP address or base64 encoding of the image.
+   * - HTTP Address: A publicly accessible HTTP address. For example, `http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg`.
+   * - Base64 Encoding: An image encoded in base64, formatted as `base64://<base64 string of the image>`.
+   * Image Restrictions
+   * - Does not support relative or absolute paths for local images.
+   * - Please keep the size of a single image within 2MB to avoid timeout during retrieval by the algorithm.
+   * - The body of a single request has a size limit of 8MB; please calculate the total size of all images and other information in the request to ensure it does not exceed this limit.
+   * - When using base64 to transmit images, the request method must be changed to POST; the header description such as `data:image/png;base64,` should be removed from the base64 string of the image.
+   * 
    * @param request - CompareFacesRequest
    * @returns CompareFacesResponse
    */
@@ -425,12 +537,20 @@ export default class Client extends OpenApi {
 
   async contrastFaceVerifyAdvance(request: $_model.ContrastFaceVerifyAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ContrastFaceVerifyResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -447,51 +567,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "Cloudauth",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
     let contrastFaceVerifyReq = new $_model.ContrastFaceVerifyRequest({ });
     OpenApiUtil.convert(request, contrastFaceVerifyReq);
     if (!$dara.isNull(request.faceContrastFileObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.faceContrastFileObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      contrastFaceVerifyReq.faceContrastFile = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      contrastFaceVerifyReq.faceContrastFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let contrastFaceVerifyResp = await this.contrastFaceVerifyWithOptions(contrastFaceVerifyReq, runtime);
@@ -607,7 +730,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 商品凭证核验
+   * Product Credential Verification
+   * 
+   * @remarks
+   * Upload e-commerce product images to perform tampering, quality (clarity), and similar image detection, returning risk labels and scores.
    * 
    * @param request - CredentialProductVerifyV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -660,7 +786,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 商品凭证核验
+   * Product Credential Verification
+   * 
+   * @remarks
+   * Upload e-commerce product images to perform tampering, quality (clarity), and similar image detection, returning risk labels and scores.
    * 
    * @param request - CredentialProductVerifyV2Request
    * @returns CredentialProductVerifyV2Response
@@ -672,12 +801,20 @@ export default class Client extends OpenApi {
 
   async credentialProductVerifyV2Advance(request: $_model.CredentialProductVerifyV2AdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CredentialProductVerifyV2Response> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -694,51 +831,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "Cloudauth",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
     let credentialProductVerifyV2Req = new $_model.CredentialProductVerifyV2Request({ });
     OpenApiUtil.convert(request, credentialProductVerifyV2Req);
     if (!$dara.isNull(request.imageFileObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageFileObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      credentialProductVerifyV2Req.imageFile = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      credentialProductVerifyV2Req.imageFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let credentialProductVerifyV2Resp = await this.credentialProductVerifyV2WithOptions(credentialProductVerifyV2Req, runtime);
@@ -848,7 +988,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 凭证核验
+   * Credential Verification
+   * 
+   * @remarks
+   * Input credential image information, perform image tampering and forgery detection, and image semantic understanding. Return the risk detection results.
    * 
    * @param tmpReq - CredentialVerifyV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -943,7 +1086,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 凭证核验
+   * Credential Verification
+   * 
+   * @remarks
+   * Input credential image information, perform image tampering and forgery detection, and image semantic understanding. Return the risk detection results.
    * 
    * @param request - CredentialVerifyV2Request
    * @returns CredentialVerifyV2Response
@@ -955,12 +1101,20 @@ export default class Client extends OpenApi {
 
   async credentialVerifyV2Advance(request: $_model.CredentialVerifyV2AdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CredentialVerifyV2Response> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -977,51 +1131,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "Cloudauth",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
     let credentialVerifyV2Req = new $_model.CredentialVerifyV2Request({ });
     OpenApiUtil.convert(request, credentialVerifyV2Req);
     if (!$dara.isNull(request.imageFileObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageFileObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      credentialVerifyV2Req.imageFile = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      credentialVerifyV2Req.imageFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let credentialVerifyV2Resp = await this.credentialVerifyV2WithOptions(credentialVerifyV2Req, runtime);
@@ -1029,7 +1186,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸凭证核验服务
+   * Face Credential Verification Service
+   * 
+   * @remarks
+   * > The Face Deepfake Detection API is currently in the free public beta stage, which will end on August 30, 2024, at 23:59:59. During the public beta, the QPS (Queries Per Second) cannot exceed 3 times/second.
+   * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+   * - Request method: POST and GET.
+   * - Transfer protocol: HTTPS.
    * 
    * @param request - DeepfakeDetectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1074,7 +1237,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸凭证核验服务
+   * Face Credential Verification Service
+   * 
+   * @remarks
+   * > The Face Deepfake Detection API is currently in the free public beta stage, which will end on August 30, 2024, at 23:59:59. During the public beta, the QPS (Queries Per Second) cannot exceed 3 times/second.
+   * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+   * - Request method: POST and GET.
+   * - Transfer protocol: HTTPS.
    * 
    * @param request - DeepfakeDetectRequest
    * @returns DeepfakeDetectResponse
@@ -1085,7 +1254,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 金融级服务敏感数据删除接口
+   * Financial Level Sensitive Data Deletion Interface
+   * 
+   * @remarks
+   * Deletes all personal information fields in the request, including name, ID number, phone number, IP, images, videos, and device information, etc.
    * 
    * @param request - DeleteFaceVerifyResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1120,7 +1292,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 金融级服务敏感数据删除接口
+   * Financial Level Sensitive Data Deletion Interface
+   * 
+   * @remarks
+   * Deletes all personal information fields in the request, including name, ID number, phone number, IP, images, videos, and device information, etc.
    * 
    * @param request - DeleteFaceVerifyResultRequest
    * @returns DeleteFaceVerifyResultResponse
@@ -1700,7 +1875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 二要素有效期核验接口
+   * Two-Factor Validity Verification API
    * 
    * @param request - Id2MetaPeriodVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1747,7 +1922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 二要素有效期核验接口
+   * Two-Factor Validity Verification API
    * 
    * @param request - Id2MetaPeriodVerifyRequest
    * @returns Id2MetaPeriodVerifyResponse
@@ -1758,7 +1933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 身份二要素标准版
+   * Identity Two-Factor Standard
    * 
    * @param request - Id2MetaStandardVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1797,7 +1972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 身份二要素标准版
+   * Identity Two-Factor Standard
    * 
    * @param request - Id2MetaStandardVerifyRequest
    * @returns Id2MetaStandardVerifyResponse
@@ -1808,7 +1983,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 身份二要素接口
+   * Identity Two-Factor Interface
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+   * - Request method: POST and GET.
+   * - Transfer protocol: HTTPS.
    * 
    * @param request - Id2MetaVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1847,7 +2027,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 身份二要素接口
+   * Identity Two-Factor Interface
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+   * - Request method: POST and GET.
+   * - Transfer protocol: HTTPS.
    * 
    * @param request - Id2MetaVerifyRequest
    * @returns Id2MetaVerifyResponse
@@ -1858,7 +2043,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 身份二要素图片核验
+   * ID Two-Factor Image Verification
+   * 
+   * @remarks
+   * Upload both sides of the ID card, and get the verification result of the two factors from an authoritative data source.
    * 
    * @param request - Id2MetaVerifyWithOCRRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1901,7 +2089,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 身份二要素图片核验
+   * ID Two-Factor Image Verification
+   * 
+   * @remarks
+   * Upload both sides of the ID card, and get the verification result of the two factors from an authoritative data source.
    * 
    * @param request - Id2MetaVerifyWithOCRRequest
    * @returns Id2MetaVerifyWithOCRResponse
@@ -1913,12 +2104,20 @@ export default class Client extends OpenApi {
 
   async id2MetaVerifyWithOCRAdvance(request: $_model.Id2MetaVerifyWithOCRAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.Id2MetaVerifyWithOCRResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -1935,77 +2134,77 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "Cloudauth",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
     let id2MetaVerifyWithOCRReq = new $_model.Id2MetaVerifyWithOCRRequest({ });
     OpenApiUtil.convert(request, id2MetaVerifyWithOCRReq);
     if (!$dara.isNull(request.certFileObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.certFileObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      id2MetaVerifyWithOCRReq.certFile = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      id2MetaVerifyWithOCRReq.certFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     if (!$dara.isNull(request.certNationalFileObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.certNationalFileObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      id2MetaVerifyWithOCRReq.certNationalFile = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      id2MetaVerifyWithOCRReq.certNationalFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let id2MetaVerifyWithOCRResp = await this.id2MetaVerifyWithOCRWithOptions(id2MetaVerifyWithOCRReq, runtime);
@@ -2013,7 +2212,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片核验发起认证请求
+   * Initiate an authentication request for image verification
+   * 
+   * @remarks
+   * Before each authentication, use this interface to obtain the CertifyId, which is used to link various interfaces in the authentication request.
    * 
    * @param request - InitCardVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2080,7 +2282,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片核验发起认证请求
+   * Initiate an authentication request for image verification
+   * 
+   * @remarks
+   * Before each authentication, use this interface to obtain the CertifyId, which is used to link various interfaces in the authentication request.
    * 
    * @param request - InitCardVerifyRequest
    * @returns InitCardVerifyResponse
@@ -2275,7 +2480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增实人白名单
+   * Add Real Person Whitelist
    * 
    * @param request - InsertWhiteListSettingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2326,7 +2531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增实人白名单
+   * Add Real Person Whitelist
    * 
    * @param request - InsertWhiteListSettingRequest
    * @returns InsertWhiteListSettingResponse
@@ -2429,7 +2634,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机二要素核验
+   * Mobile Two-Factor Verification
+   * 
+   * @remarks
+   * Input the phone number and name, verify their authenticity and consistency through authoritative data sources.
    * 
    * @param request - Mobile2MetaVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2468,7 +2676,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机二要素核验
+   * Mobile Two-Factor Verification
+   * 
+   * @remarks
+   * Input the phone number and name, verify their authenticity and consistency through authoritative data sources.
    * 
    * @param request - Mobile2MetaVerifyRequest
    * @returns Mobile2MetaVerifyResponse
@@ -2479,7 +2690,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机号三要素详版_标准版
+   * Detailed Three-Element Verification for Phone Number_Standard Version
+   * 
+   * @remarks
+   * Input the phone number, name, and ID number to verify their authenticity and consistency through authoritative data sources. If they do not match, the reason for the mismatch is returned.
    * 
    * @param request - Mobile3MetaDetailStandardVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2522,7 +2736,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机号三要素详版_标准版
+   * Detailed Three-Element Verification for Phone Number_Standard Version
+   * 
+   * @remarks
+   * Input the phone number, name, and ID number to verify their authenticity and consistency through authoritative data sources. If they do not match, the reason for the mismatch is returned.
    * 
    * @param request - Mobile3MetaDetailStandardVerifyRequest
    * @returns Mobile3MetaDetailStandardVerifyResponse
@@ -2533,7 +2750,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机三要素详版接口
+   * Detailed Mobile Three-Element Verification Interface
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+   * - Request method: POST and GET.
+   * - Transfer protocol: HTTPS.
    * 
    * @param request - Mobile3MetaDetailVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2576,7 +2798,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机三要素详版接口
+   * Detailed Mobile Three-Element Verification Interface
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+   * - Request method: POST and GET.
+   * - Transfer protocol: HTTPS.
    * 
    * @param request - Mobile3MetaDetailVerifyRequest
    * @returns Mobile3MetaDetailVerifyResponse
@@ -2587,7 +2814,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机号三要素简版_标准版
+   * Simplified Three-Element Verification for Phone Number_Standard Version
+   * 
+   * @remarks
+   * Input the phone number, name, and ID number to verify their authenticity and consistency through authoritative data sources.
    * 
    * @param request - Mobile3MetaSimpleStandardVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2630,7 +2860,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机号三要素简版_标准版
+   * Simplified Three-Element Verification for Phone Number_Standard Version
+   * 
+   * @remarks
+   * Input the phone number, name, and ID number to verify their authenticity and consistency through authoritative data sources.
    * 
    * @param request - Mobile3MetaSimpleStandardVerifyRequest
    * @returns Mobile3MetaSimpleStandardVerifyResponse
@@ -2641,7 +2874,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机号三要素简版接口
+   * Mobile Three Elements Simplified Interface
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+   * - Request method: POST and GET.
+   * - Transfer protocol: HTTPS.
    * 
    * @param request - Mobile3MetaSimpleVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2684,7 +2922,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机号三要素简版接口
+   * Mobile Three Elements Simplified Interface
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com (IPv4) or cloudauth-dualstack.aliyuncs.com (IPv6).
+   * - Request method: POST and GET.
+   * - Transfer protocol: HTTPS.
    * 
    * @param request - Mobile3MetaSimpleVerifyRequest
    * @returns Mobile3MetaSimpleVerifyResponse
@@ -2695,7 +2938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 号码检测
+   * Number Detection
    * 
    * @param request - MobileDetectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2730,7 +2973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 号码检测
+   * Number Detection
    * 
    * @param request - MobileDetectRequest
    * @returns MobileDetectResponse
@@ -2741,7 +2984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询手机号在网状态
+   * Query the online status of a mobile number
    * 
    * @param request - MobileOnlineStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2776,7 +3019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询手机号在网状态
+   * Query the online status of a mobile number
    * 
    * @param request - MobileOnlineStatusRequest
    * @returns MobileOnlineStatusResponse
@@ -2787,7 +3030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询手机号在网时长
+   * Query the online duration of a mobile number
    * 
    * @param request - MobileOnlineTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2822,7 +3065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询手机号在网时长
+   * Query the online duration of a mobile number
    * 
    * @param request - MobileOnlineTimeRequest
    * @returns MobileOnlineTimeResponse
@@ -2833,6 +3076,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call ModifyDeviceInfo to update device-related information, such as extending the device authorization validity period, updating the business party\\"s custom business identifier, and device ID. Suitable for scenarios like renewing the device validity period.
+   * 
+   * @remarks
+   * Request Method: Supports sending requests using HTTPS POST and GET methods.
+   * 
    * @param request - ModifyDeviceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDeviceInfoResponse
@@ -2878,6 +3126,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call ModifyDeviceInfo to update device-related information, such as extending the device authorization validity period, updating the business party\\"s custom business identifier, and device ID. Suitable for scenarios like renewing the device validity period.
+   * 
+   * @remarks
+   * Request Method: Supports sending requests using HTTPS POST and GET methods.
+   * 
    * @param request - ModifyDeviceInfoRequest
    * @returns ModifyDeviceInfoResponse
    */
@@ -2887,7 +3140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询实人白名单配置
+   * Paging Query for Real Person Whitelist Configuration
    * 
    * @param request - PageQueryWhiteListSettingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2950,7 +3203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询实人白名单配置
+   * Paging Query for Real Person Whitelist Configuration
    * 
    * @param request - PageQueryWhiteListSettingRequest
    * @returns PageQueryWhiteListSettingResponse
@@ -2961,7 +3214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实人白名单
+   * Delete Real Person Whitelist
    * 
    * @param tmpReq - RemoveWhiteListSettingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3002,7 +3255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实人白名单
+   * Delete Real Person Whitelist
    * 
    * @param request - RemoveWhiteListSettingRequest
    * @returns RemoveWhiteListSettingResponse
@@ -3013,7 +3266,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 车五项信息识别
+   * Five-Item Vehicle Information Recognition
+   * 
+   * @remarks
+   * Query basic vehicle information through the license plate number and vehicle type.
    * 
    * @param request - Vehicle5ItemQueryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3052,7 +3308,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 车五项信息识别
+   * Five-Item Vehicle Information Recognition
+   * 
+   * @remarks
+   * Query basic vehicle information through the license plate number and vehicle type.
    * 
    * @param request - Vehicle5ItemQueryRequest
    * @returns Vehicle5ItemQueryResponse
@@ -3063,7 +3322,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 车辆投保日期查询
+   * Vehicle Insurance Date Inquiry
+   * 
+   * @remarks
+   * Query the vehicle insurance date through the license plate number, vehicle type, and vehicle identification number (VIN).
    * 
    * @param request - VehicleInsureQueryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3106,7 +3368,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 车辆投保日期查询
+   * Vehicle Insurance Date Inquiry
+   * 
+   * @remarks
+   * Query the vehicle insurance date through the license plate number, vehicle type, and vehicle identification number (VIN).
    * 
    * @param request - VehicleInsureQueryRequest
    * @returns VehicleInsureQueryResponse
@@ -3117,7 +3382,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 车辆要素核验
+   * Vehicle Element Verification
+   * 
+   * @remarks
+   * Verifies the consistency of name, ID number, vehicle license plate, and vehicle type.
    * 
    * @param request - VehicleMetaVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3168,7 +3436,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 车辆要素核验
+   * Vehicle Element Verification
+   * 
+   * @remarks
+   * Verifies the consistency of name, ID number, vehicle license plate, and vehicle type.
    * 
    * @param request - VehicleMetaVerifyRequest
    * @returns VehicleMetaVerifyResponse
@@ -3179,7 +3450,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 车辆要素核验增强版
+   * Enhanced Vehicle Element Verification
+   * 
+   * @remarks
+   * Verifies the consistency of name, ID number, license plate number, and vehicle type, and supports returning detailed vehicle information.
    * 
    * @param request - VehicleMetaVerifyV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3230,7 +3504,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 车辆要素核验增强版
+   * Enhanced Vehicle Element Verification
+   * 
+   * @remarks
+   * Verifies the consistency of name, ID number, license plate number, and vehicle type, and supports returning detailed vehicle information.
    * 
    * @param request - VehicleMetaVerifyV2Request
    * @returns VehicleMetaVerifyV2Response
@@ -3241,7 +3518,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 车辆信息识别
+   * Vehicle Information Recognition
+   * 
+   * @remarks
+   * Query detailed vehicle information through the license plate number and vehicle type.
    * 
    * @param request - VehicleQueryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3280,7 +3560,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 车辆信息识别
+   * Vehicle Information Recognition
+   * 
+   * @remarks
+   * Query detailed vehicle information through the license plate number and vehicle type.
    * 
    * @param request - VehicleQueryRequest
    * @returns VehicleQueryResponse

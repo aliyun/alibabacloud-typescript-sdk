@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialProductVerifyV2Request extends $dara.Model {
   /**
    * @remarks
+   * Credential name: Only supports value 0501 (product image).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CredentialProductVerifyV2Request extends $dara.Model {
   credName?: string;
   /**
    * @remarks
+   * Credential type: Only supports value 05 (product image).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,18 +24,34 @@ export class CredentialProductVerifyV2Request extends $dara.Model {
    */
   credType?: string;
   /**
+   * @remarks
+   * InputStream object of the image.
+   * 
    * @example
    * https://aliyundoc.com/picture*****.jpeg
    */
   imageFile?: string;
   /**
+   * @remarks
+   * URL of the image.
+   * 
    * @example
    * https://aliyundoc.com/picture*****.jpeg
    */
   imageUrl?: string;
+  /**
+   * @remarks
+   * Merchant ID.
+   * 
+   * @example
+   * 无。
+   */
   merchantId?: string;
   /**
    * @remarks
+   * Invocation mode:
+   * Only supports value ANTI_FAKE_CHECK.
+   * 
    * This parameter is required.
    * 
    * @example

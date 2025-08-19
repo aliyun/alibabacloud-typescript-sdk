@@ -4,29 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class InsertWhiteListSettingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code: 200 for success, others for failure.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * Request ID
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Returned result
+   * 
    * @example
    * true
    */
   resultObject?: boolean;
   /**
+   * @remarks
+   * Indicates whether the response was successful.
+   * 
    * @example
    * true
    */
