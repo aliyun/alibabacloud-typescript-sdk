@@ -99,6 +99,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
     if (!$dara.isNull(request.nodeId)) {
       query["NodeId"] = request.nodeId;
     }

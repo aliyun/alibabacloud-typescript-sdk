@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AicsOpenApiInvokeShrinkRequest extends $dara.Model {
+  jobId?: string;
   /**
    * @example
    * 119397
@@ -28,6 +29,7 @@ export class AicsOpenApiInvokeShrinkRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      jobId: 'JobId',
       nodeId: 'NodeId',
       paramShrink: 'Param',
       serviceId: 'ServiceId',
@@ -37,6 +39,7 @@ export class AicsOpenApiInvokeShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      jobId: 'string',
       nodeId: 'string',
       paramShrink: 'string',
       serviceId: 'string',
