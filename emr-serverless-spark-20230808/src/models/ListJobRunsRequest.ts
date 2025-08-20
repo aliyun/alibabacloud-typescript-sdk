@@ -123,6 +123,7 @@ export class ListJobRunsRequestTags extends $dara.Model {
 }
 
 export class ListJobRunsRequest extends $dara.Model {
+  applicationConfigs?: string;
   /**
    * @remarks
    * The ID of the user who created the job.
@@ -201,6 +202,7 @@ export class ListJobRunsRequest extends $dara.Model {
    * dev_queue
    */
   resourceQueueId?: string;
+  runtimeConfigs?: string;
   /**
    * @remarks
    * The range of start time.
@@ -221,6 +223,7 @@ export class ListJobRunsRequest extends $dara.Model {
   tags?: ListJobRunsRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      applicationConfigs: 'applicationConfigs',
       creator: 'creator',
       endTime: 'endTime',
       isWorkflow: 'isWorkflow',
@@ -232,6 +235,7 @@ export class ListJobRunsRequest extends $dara.Model {
       nextToken: 'nextToken',
       regionId: 'regionId',
       resourceQueueId: 'resourceQueueId',
+      runtimeConfigs: 'runtimeConfigs',
       startTime: 'startTime',
       states: 'states',
       tags: 'tags',
@@ -240,6 +244,7 @@ export class ListJobRunsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applicationConfigs: 'string',
       creator: 'string',
       endTime: ListJobRunsRequestEndTime,
       isWorkflow: 'string',
@@ -251,6 +256,7 @@ export class ListJobRunsRequest extends $dara.Model {
       nextToken: 'string',
       regionId: 'string',
       resourceQueueId: 'string',
+      runtimeConfigs: 'string',
       startTime: ListJobRunsRequestStartTime,
       states: { 'type': 'array', 'itemType': 'string' },
       tags: { 'type': 'array', 'itemType': ListJobRunsRequestTags },

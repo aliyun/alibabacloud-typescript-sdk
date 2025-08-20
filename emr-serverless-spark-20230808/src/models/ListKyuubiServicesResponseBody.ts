@@ -29,6 +29,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
    * kyuubi.conf.key1=value2
    */
   kyuubiConfigs?: string;
+  kyuubiReleaseVersion?: string;
   /**
    * @remarks
    * KyuubiServer ID。
@@ -85,6 +86,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
       creator: 'creator',
       innerEndpoint: 'innerEndpoint',
       kyuubiConfigs: 'kyuubiConfigs',
+      kyuubiReleaseVersion: 'kyuubiReleaseVersion',
       kyuubiServiceId: 'kyuubiServiceId',
       name: 'name',
       publicEndpoint: 'publicEndpoint',
@@ -104,6 +106,7 @@ export class ListKyuubiServicesResponseBodyDataKyuubiServices extends $dara.Mode
       creator: 'string',
       innerEndpoint: 'string',
       kyuubiConfigs: 'string',
+      kyuubiReleaseVersion: 'string',
       kyuubiServiceId: 'string',
       name: 'string',
       publicEndpoint: 'string',

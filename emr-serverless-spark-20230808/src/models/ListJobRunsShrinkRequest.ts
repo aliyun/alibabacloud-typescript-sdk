@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListJobRunsShrinkRequest extends $dara.Model {
+  applicationConfigs?: string;
   /**
    * @remarks
    * The ID of the user who created the job.
@@ -81,6 +82,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
    * dev_queue
    */
   resourceQueueId?: string;
+  runtimeConfigs?: string;
   /**
    * @remarks
    * The range of start time.
@@ -101,6 +103,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationConfigs: 'applicationConfigs',
       creator: 'creator',
       endTimeShrink: 'endTime',
       isWorkflow: 'isWorkflow',
@@ -112,6 +115,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
       nextToken: 'nextToken',
       regionId: 'regionId',
       resourceQueueId: 'resourceQueueId',
+      runtimeConfigs: 'runtimeConfigs',
       startTimeShrink: 'startTime',
       statesShrink: 'states',
       tagsShrink: 'tags',
@@ -120,6 +124,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applicationConfigs: 'string',
       creator: 'string',
       endTimeShrink: 'string',
       isWorkflow: 'string',
@@ -131,6 +136,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
       nextToken: 'string',
       regionId: 'string',
       resourceQueueId: 'string',
+      runtimeConfigs: 'string',
       startTimeShrink: 'string',
       statesShrink: 'string',
       tagsShrink: 'string',

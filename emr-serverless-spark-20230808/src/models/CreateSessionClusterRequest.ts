@@ -147,6 +147,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
    * The automatic termination configuration.
    */
   autoStopConfiguration?: CreateSessionClusterRequestAutoStopConfiguration;
+  clientToken?: string;
   /**
    * @remarks
    * The version of the Spark engine.
@@ -220,6 +221,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
       applicationConfigs: 'applicationConfigs',
       autoStartConfiguration: 'autoStartConfiguration',
       autoStopConfiguration: 'autoStopConfiguration',
+      clientToken: 'clientToken',
       displayReleaseVersion: 'displayReleaseVersion',
       envId: 'envId',
       fusion: 'fusion',
@@ -237,6 +239,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
       applicationConfigs: { 'type': 'array', 'itemType': CreateSessionClusterRequestApplicationConfigs },
       autoStartConfiguration: CreateSessionClusterRequestAutoStartConfiguration,
       autoStopConfiguration: CreateSessionClusterRequestAutoStopConfiguration,
+      clientToken: 'string',
       displayReleaseVersion: 'string',
       envId: 'string',
       fusion: 'boolean',

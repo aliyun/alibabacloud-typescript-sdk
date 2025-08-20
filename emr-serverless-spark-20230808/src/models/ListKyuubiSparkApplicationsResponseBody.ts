@@ -35,6 +35,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
    * 2025-02-12 20:02:02
    */
   endTime?: string;
+  exitReason?: string;
   latestSqlStatementStatus?: string;
   /**
    * @remarks
@@ -91,6 +92,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
       applicationName: 'applicationName',
       cuHours: 'cuHours',
       endTime: 'endTime',
+      exitReason: 'exitReason',
       latestSqlStatementStatus: 'latestSqlStatementStatus',
       mbSeconds: 'mbSeconds',
       resourceQueueId: 'resourceQueueId',
@@ -107,6 +109,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
       applicationName: 'string',
       cuHours: 'number',
       endTime: 'string',
+      exitReason: 'string',
       latestSqlStatementStatus: 'string',
       mbSeconds: 'number',
       resourceQueueId: 'string',

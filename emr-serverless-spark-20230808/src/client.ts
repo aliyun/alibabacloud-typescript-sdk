@@ -454,6 +454,10 @@ export default class Client extends OpenApi {
       body["autoStopConfiguration"] = request.autoStopConfiguration;
     }
 
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.displayReleaseVersion)) {
       body["displayReleaseVersion"] = request.displayReleaseVersion;
     }
@@ -1312,6 +1316,10 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applicationConfigs)) {
+      query["applicationConfigs"] = request.applicationConfigs;
+    }
+
     if (!$dara.isNull(request.creator)) {
       query["creator"] = request.creator;
     }
@@ -1354,6 +1362,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceQueueId)) {
       query["resourceQueueId"] = request.resourceQueueId;
+    }
+
+    if (!$dara.isNull(request.runtimeConfigs)) {
+      query["runtimeConfigs"] = request.runtimeConfigs;
     }
 
     if (!$dara.isNull(request.startTimeShrink)) {
@@ -1714,6 +1726,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLogContentsWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 查询用户列表
+   * 
+   * @param request - ListMembersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMembersResponse
+   */
+  async listMembersWithOptions(workspaceId: string, request: $_model.ListMembersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMembersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMembers",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/auth/${$dara.URL.percentEncode(workspaceId)}/members`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMembersResponse>(await this.callApi(params, req, runtime), new $_model.ListMembersResponse({}));
+  }
+
+  /**
+   * 查询用户列表
+   * 
+   * @param request - ListMembersRequest
+   * @returns ListMembersResponse
+   */
+  async listMembers(workspaceId: string, request: $_model.ListMembersRequest): Promise<$_model.ListMembersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMembersWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**

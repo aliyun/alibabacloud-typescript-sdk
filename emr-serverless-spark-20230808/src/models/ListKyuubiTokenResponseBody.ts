@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
+  accountNames?: string[];
   /**
    * @example
    * 2025-02-11T02:23:02Z
@@ -23,6 +24,7 @@ export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
    * 1740366232121
    */
   lastUsedTime?: number;
+  memberArns?: string[];
   /**
    * @example
    * dev_serveless_spark
@@ -43,10 +45,12 @@ export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
   tokenId?: string;
   static names(): { [key: string]: string } {
     return {
+      accountNames: 'accountNames',
       createTime: 'createTime',
       createdBy: 'createdBy',
       expireTime: 'expireTime',
       lastUsedTime: 'lastUsedTime',
+      memberArns: 'memberArns',
       name: 'name',
       token: 'token',
       tokenId: 'tokenId',
@@ -55,10 +59,12 @@ export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountNames: { 'type': 'array', 'itemType': 'string' },
       createTime: 'number',
       createdBy: 'string',
       expireTime: 'number',
       lastUsedTime: 'number',
+      memberArns: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
       token: 'string',
       tokenId: 'string',
@@ -66,6 +72,12 @@ export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.accountNames)) {
+      $dara.Model.validateArray(this.accountNames);
+    }
+    if(Array.isArray(this.memberArns)) {
+      $dara.Model.validateArray(this.memberArns);
+    }
     super.validate();
   }
 
