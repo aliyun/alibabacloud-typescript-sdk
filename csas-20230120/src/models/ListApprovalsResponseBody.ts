@@ -97,6 +97,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
    */
   approvalId?: string;
   approvalProgresses?: ListApprovalsResponseBodyApprovalsApprovalProgresses[];
+  approvalType?: number;
   /**
    * @example
    * 2022-11-15 22:11:55
@@ -152,6 +153,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
       approvalDetail: 'ApprovalDetail',
       approvalId: 'ApprovalId',
       approvalProgresses: 'ApprovalProgresses',
+      approvalType: 'ApprovalType',
       createTime: 'CreateTime',
       creatorDepartment: 'CreatorDepartment',
       creatorDevTag: 'CreatorDevTag',
@@ -174,6 +176,7 @@ export class ListApprovalsResponseBodyApprovals extends $dara.Model {
       approvalDetail: 'string',
       approvalId: 'string',
       approvalProgresses: { 'type': 'array', 'itemType': ListApprovalsResponseBodyApprovalsApprovalProgresses },
+      approvalType: 'number',
       createTime: 'string',
       creatorDepartment: 'string',
       creatorDevTag: 'string',

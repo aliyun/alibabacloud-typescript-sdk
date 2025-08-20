@@ -3,7 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateApprovalProcessShrinkRequest extends $dara.Model {
+  approvalType?: number;
   description?: string;
+  eventLabel?: string;
+  externalConfig?: string;
+  matchSchemaConfigsShrink?: string;
   matchSchemasShrink?: string;
   /**
    * @remarks
@@ -17,7 +21,11 @@ export class UpdateApprovalProcessShrinkRequest extends $dara.Model {
   processNodes?: string[][];
   static names(): { [key: string]: string } {
     return {
+      approvalType: 'ApprovalType',
       description: 'Description',
+      eventLabel: 'EventLabel',
+      externalConfig: 'ExternalConfig',
+      matchSchemaConfigsShrink: 'MatchSchemaConfigs',
       matchSchemasShrink: 'MatchSchemas',
       processId: 'ProcessId',
       processName: 'ProcessName',
@@ -27,7 +35,11 @@ export class UpdateApprovalProcessShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      approvalType: 'number',
       description: 'string',
+      eventLabel: 'string',
+      externalConfig: 'string',
+      matchSchemaConfigsShrink: 'string',
       matchSchemasShrink: 'string',
       processId: 'string',
       processName: 'string',

@@ -4527,8 +4527,29 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.UpdateApprovalProcessShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.matchSchemaConfigs)) {
+      request.matchSchemaConfigsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.matchSchemaConfigs, "MatchSchemaConfigs", "json");
+    }
+
     if (!$dara.isNull(tmpReq.matchSchemas)) {
       request.matchSchemasShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.matchSchemas, "MatchSchemas", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.approvalType)) {
+      query["ApprovalType"] = request.approvalType;
+    }
+
+    if (!$dara.isNull(request.eventLabel)) {
+      query["EventLabel"] = request.eventLabel;
+    }
+
+    if (!$dara.isNull(request.externalConfig)) {
+      query["ExternalConfig"] = request.externalConfig;
+    }
+
+    if (!$dara.isNull(request.matchSchemaConfigsShrink)) {
+      query["MatchSchemaConfigs"] = request.matchSchemaConfigsShrink;
     }
 
     let body : {[key: string ]: any} = { };
@@ -4558,6 +4579,7 @@ export default class Client extends OpenApi {
       ...OpenApiUtil.query(bodyFlat),
     };
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({

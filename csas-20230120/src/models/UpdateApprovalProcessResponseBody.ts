@@ -2,7 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap extends $dara.Model {
+  displayField?: string;
+  displayFieldValue?: string;
+  systemField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
+      systemField: 'SystemField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayField: 'string',
+      displayFieldValue: 'string',
+      systemField: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApprovalProcessResponseBodyProcessAppUninstallPolicies extends $dara.Model {
+  externalProcessId?: string;
+  fieldMap?: UpdateApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap[];
   policyIds?: string[];
   /**
    * @example
@@ -11,6 +42,8 @@ export class UpdateApprovalProcessResponseBodyProcessAppUninstallPolicies extend
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalProcessId: 'ExternalProcessId',
+      fieldMap: 'FieldMap',
       policyIds: 'PolicyIds',
       schemaId: 'SchemaId',
     };
@@ -18,15 +51,49 @@ export class UpdateApprovalProcessResponseBodyProcessAppUninstallPolicies extend
 
   static types(): { [key: string]: any } {
     return {
+      externalProcessId: 'string',
+      fieldMap: { 'type': 'array', 'itemType': UpdateApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap },
       policyIds: { 'type': 'array', 'itemType': 'string' },
       schemaId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.fieldMap)) {
+      $dara.Model.validateArray(this.fieldMap);
+    }
     if(Array.isArray(this.policyIds)) {
       $dara.Model.validateArray(this.policyIds);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPoliciesFieldMap extends $dara.Model {
+  displayField?: string;
+  displayFieldValue?: string;
+  systemField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
+      systemField: 'SystemField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayField: 'string',
+      displayFieldValue: 'string',
+      systemField: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -36,6 +103,8 @@ export class UpdateApprovalProcessResponseBodyProcessAppUninstallPolicies extend
 }
 
 export class UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies extends $dara.Model {
+  externalProcessId?: string;
+  fieldMap?: UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPoliciesFieldMap[];
   policyIds?: string[];
   /**
    * @example
@@ -44,6 +113,8 @@ export class UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies 
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalProcessId: 'ExternalProcessId',
+      fieldMap: 'FieldMap',
       policyIds: 'PolicyIds',
       schemaId: 'SchemaId',
     };
@@ -51,15 +122,49 @@ export class UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies 
 
   static types(): { [key: string]: any } {
     return {
+      externalProcessId: 'string',
+      fieldMap: { 'type': 'array', 'itemType': UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPoliciesFieldMap },
       policyIds: { 'type': 'array', 'itemType': 'string' },
       schemaId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.fieldMap)) {
+      $dara.Model.validateArray(this.fieldMap);
+    }
     if(Array.isArray(this.policyIds)) {
       $dara.Model.validateArray(this.policyIds);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessDlpSendPoliciesFieldMap extends $dara.Model {
+  displayField?: string;
+  displayFieldValue?: string;
+  systemField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
+      systemField: 'SystemField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayField: 'string',
+      displayFieldValue: 'string',
+      systemField: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -69,6 +174,8 @@ export class UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies 
 }
 
 export class UpdateApprovalProcessResponseBodyProcessDlpSendPolicies extends $dara.Model {
+  externalProcessId?: string;
+  fieldMap?: UpdateApprovalProcessResponseBodyProcessDlpSendPoliciesFieldMap[];
   policyIds?: string[];
   /**
    * @example
@@ -77,6 +184,8 @@ export class UpdateApprovalProcessResponseBodyProcessDlpSendPolicies extends $da
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalProcessId: 'ExternalProcessId',
+      fieldMap: 'FieldMap',
       policyIds: 'PolicyIds',
       schemaId: 'SchemaId',
     };
@@ -84,15 +193,49 @@ export class UpdateApprovalProcessResponseBodyProcessDlpSendPolicies extends $da
 
   static types(): { [key: string]: any } {
     return {
+      externalProcessId: 'string',
+      fieldMap: { 'type': 'array', 'itemType': UpdateApprovalProcessResponseBodyProcessDlpSendPoliciesFieldMap },
       policyIds: { 'type': 'array', 'itemType': 'string' },
       schemaId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.fieldMap)) {
+      $dara.Model.validateArray(this.fieldMap);
+    }
     if(Array.isArray(this.policyIds)) {
       $dara.Model.validateArray(this.policyIds);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessDomainBlacklistPoliciesFieldMap extends $dara.Model {
+  displayField?: string;
+  displayFieldValue?: string;
+  systemField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
+      systemField: 'SystemField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayField: 'string',
+      displayFieldValue: 'string',
+      systemField: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -102,6 +245,8 @@ export class UpdateApprovalProcessResponseBodyProcessDlpSendPolicies extends $da
 }
 
 export class UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies extends $dara.Model {
+  externalProcessId?: string;
+  fieldMap?: UpdateApprovalProcessResponseBodyProcessDomainBlacklistPoliciesFieldMap[];
   policyIds?: string[];
   /**
    * @example
@@ -110,6 +255,8 @@ export class UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies ext
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalProcessId: 'ExternalProcessId',
+      fieldMap: 'FieldMap',
       policyIds: 'PolicyIds',
       schemaId: 'SchemaId',
     };
@@ -117,15 +264,49 @@ export class UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies ext
 
   static types(): { [key: string]: any } {
     return {
+      externalProcessId: 'string',
+      fieldMap: { 'type': 'array', 'itemType': UpdateApprovalProcessResponseBodyProcessDomainBlacklistPoliciesFieldMap },
       policyIds: { 'type': 'array', 'itemType': 'string' },
       schemaId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.fieldMap)) {
+      $dara.Model.validateArray(this.fieldMap);
+    }
     if(Array.isArray(this.policyIds)) {
       $dara.Model.validateArray(this.policyIds);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessDomainWhitelistPoliciesFieldMap extends $dara.Model {
+  displayField?: string;
+  displayFieldValue?: string;
+  systemField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
+      systemField: 'SystemField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayField: 'string',
+      displayFieldValue: 'string',
+      systemField: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -135,6 +316,8 @@ export class UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies ext
 }
 
 export class UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies extends $dara.Model {
+  externalProcessId?: string;
+  fieldMap?: UpdateApprovalProcessResponseBodyProcessDomainWhitelistPoliciesFieldMap[];
   policyIds?: string[];
   /**
    * @example
@@ -143,6 +326,8 @@ export class UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies ext
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalProcessId: 'ExternalProcessId',
+      fieldMap: 'FieldMap',
       policyIds: 'PolicyIds',
       schemaId: 'SchemaId',
     };
@@ -150,15 +335,49 @@ export class UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies ext
 
   static types(): { [key: string]: any } {
     return {
+      externalProcessId: 'string',
+      fieldMap: { 'type': 'array', 'itemType': UpdateApprovalProcessResponseBodyProcessDomainWhitelistPoliciesFieldMap },
       policyIds: { 'type': 'array', 'itemType': 'string' },
       schemaId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.fieldMap)) {
+      $dara.Model.validateArray(this.fieldMap);
+    }
     if(Array.isArray(this.policyIds)) {
       $dara.Model.validateArray(this.policyIds);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessEndpointHardeningPoliciesFieldMap extends $dara.Model {
+  displayField?: string;
+  displayFieldValue?: string;
+  systemField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
+      systemField: 'SystemField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayField: 'string',
+      displayFieldValue: 'string',
+      systemField: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -168,10 +387,14 @@ export class UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies ext
 }
 
 export class UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies extends $dara.Model {
+  externalProcessId?: string;
+  fieldMap?: UpdateApprovalProcessResponseBodyProcessEndpointHardeningPoliciesFieldMap[];
   policyIds?: string[];
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalProcessId: 'ExternalProcessId',
+      fieldMap: 'FieldMap',
       policyIds: 'PolicyIds',
       schemaId: 'SchemaId',
     };
@@ -179,12 +402,17 @@ export class UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies e
 
   static types(): { [key: string]: any } {
     return {
+      externalProcessId: 'string',
+      fieldMap: { 'type': 'array', 'itemType': UpdateApprovalProcessResponseBodyProcessEndpointHardeningPoliciesFieldMap },
       policyIds: { 'type': 'array', 'itemType': 'string' },
       schemaId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.fieldMap)) {
+      $dara.Model.validateArray(this.fieldMap);
+    }
     if(Array.isArray(this.policyIds)) {
       $dara.Model.validateArray(this.policyIds);
     }
@@ -196,7 +424,38 @@ export class UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies e
   }
 }
 
+export class UpdateApprovalProcessResponseBodyProcessPeripheraBlockPoliciesFieldMap extends $dara.Model {
+  displayField?: string;
+  displayFieldValue?: string;
+  systemField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
+      systemField: 'SystemField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayField: 'string',
+      displayFieldValue: 'string',
+      systemField: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies extends $dara.Model {
+  externalProcessId?: string;
+  fieldMap?: UpdateApprovalProcessResponseBodyProcessPeripheraBlockPoliciesFieldMap[];
   policyIds?: string[];
   /**
    * @example
@@ -205,6 +464,8 @@ export class UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies exte
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalProcessId: 'ExternalProcessId',
+      fieldMap: 'FieldMap',
       policyIds: 'PolicyIds',
       schemaId: 'SchemaId',
     };
@@ -212,12 +473,17 @@ export class UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies exte
 
   static types(): { [key: string]: any } {
     return {
+      externalProcessId: 'string',
+      fieldMap: { 'type': 'array', 'itemType': UpdateApprovalProcessResponseBodyProcessPeripheraBlockPoliciesFieldMap },
       policyIds: { 'type': 'array', 'itemType': 'string' },
       schemaId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.fieldMap)) {
+      $dara.Model.validateArray(this.fieldMap);
+    }
     if(Array.isArray(this.policyIds)) {
       $dara.Model.validateArray(this.policyIds);
     }
@@ -259,7 +525,38 @@ export class UpdateApprovalProcessResponseBodyProcessProcessNodes extends $dara.
   }
 }
 
+export class UpdateApprovalProcessResponseBodyProcessSoftwareBlockPoliciesFieldMap extends $dara.Model {
+  displayField?: string;
+  displayFieldValue?: string;
+  systemField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
+      systemField: 'SystemField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayField: 'string',
+      displayFieldValue: 'string',
+      systemField: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies extends $dara.Model {
+  externalProcessId?: string;
+  fieldMap?: UpdateApprovalProcessResponseBodyProcessSoftwareBlockPoliciesFieldMap[];
   policyIds?: string[];
   /**
    * @example
@@ -268,6 +565,8 @@ export class UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies exten
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalProcessId: 'ExternalProcessId',
+      fieldMap: 'FieldMap',
       policyIds: 'PolicyIds',
       schemaId: 'SchemaId',
     };
@@ -275,12 +574,17 @@ export class UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies exten
 
   static types(): { [key: string]: any } {
     return {
+      externalProcessId: 'string',
+      fieldMap: { 'type': 'array', 'itemType': UpdateApprovalProcessResponseBodyProcessSoftwareBlockPoliciesFieldMap },
       policyIds: { 'type': 'array', 'itemType': 'string' },
       schemaId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.fieldMap)) {
+      $dara.Model.validateArray(this.fieldMap);
+    }
     if(Array.isArray(this.policyIds)) {
       $dara.Model.validateArray(this.policyIds);
     }
@@ -292,11 +596,44 @@ export class UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies exten
   }
 }
 
+export class UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPoliciesFieldMap extends $dara.Model {
+  displayField?: string;
+  displayFieldValue?: string;
+  systemField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
+      systemField: 'SystemField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayField: 'string',
+      displayFieldValue: 'string',
+      systemField: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies extends $dara.Model {
+  externalProcessId?: string;
+  fieldMap?: UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPoliciesFieldMap[];
   policyIds?: string[];
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalProcessId: 'ExternalProcessId',
+      fieldMap: 'FieldMap',
       policyIds: 'PolicyIds',
       schemaId: 'SchemaId',
     };
@@ -304,12 +641,17 @@ export class UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies e
 
   static types(): { [key: string]: any } {
     return {
+      externalProcessId: 'string',
+      fieldMap: { 'type': 'array', 'itemType': UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPoliciesFieldMap },
       policyIds: { 'type': 'array', 'itemType': 'string' },
       schemaId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.fieldMap)) {
+      $dara.Model.validateArray(this.fieldMap);
+    }
     if(Array.isArray(this.policyIds)) {
       $dara.Model.validateArray(this.policyIds);
     }
@@ -323,6 +665,7 @@ export class UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies e
 
 export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
   appUninstallPolicies?: UpdateApprovalProcessResponseBodyProcessAppUninstallPolicies;
+  approvalType?: number;
   /**
    * @example
    * 2022-07-11 15:31:39
@@ -334,6 +677,8 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
   domainBlacklistPolicies?: UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies;
   domainWhitelistPolicies?: UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies;
   endpointHardeningPolicies?: UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies;
+  eventLabel?: string;
+  externalConfig?: string;
   peripheraBlockPolicies?: UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies;
   /**
    * @example
@@ -347,6 +692,7 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appUninstallPolicies: 'AppUninstallPolicies',
+      approvalType: 'ApprovalType',
       createTime: 'CreateTime',
       description: 'Description',
       deviceRegistrationPolicies: 'DeviceRegistrationPolicies',
@@ -354,6 +700,8 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
       domainBlacklistPolicies: 'DomainBlacklistPolicies',
       domainWhitelistPolicies: 'DomainWhitelistPolicies',
       endpointHardeningPolicies: 'EndpointHardeningPolicies',
+      eventLabel: 'EventLabel',
+      externalConfig: 'ExternalConfig',
       peripheraBlockPolicies: 'PeripheraBlockPolicies',
       processId: 'ProcessId',
       processName: 'ProcessName',
@@ -366,6 +714,7 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appUninstallPolicies: UpdateApprovalProcessResponseBodyProcessAppUninstallPolicies,
+      approvalType: 'number',
       createTime: 'string',
       description: 'string',
       deviceRegistrationPolicies: UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies,
@@ -373,6 +722,8 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
       domainBlacklistPolicies: UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies,
       domainWhitelistPolicies: UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies,
       endpointHardeningPolicies: UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies,
+      eventLabel: 'string',
+      externalConfig: 'string',
       peripheraBlockPolicies: UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies,
       processId: 'string',
       processName: 'string',

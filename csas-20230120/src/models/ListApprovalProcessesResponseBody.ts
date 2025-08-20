@@ -323,6 +323,7 @@ export class ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies
 
 export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
   appUninstallPolicies?: ListApprovalProcessesResponseBodyProcessesAppUninstallPolicies;
+  approvalType?: number;
   /**
    * @example
    * 2024-02-27 14:04:27
@@ -347,6 +348,7 @@ export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appUninstallPolicies: 'AppUninstallPolicies',
+      approvalType: 'ApprovalType',
       createTime: 'CreateTime',
       description: 'Description',
       deviceRegistrationPolicies: 'DeviceRegistrationPolicies',
@@ -366,6 +368,7 @@ export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appUninstallPolicies: ListApprovalProcessesResponseBodyProcessesAppUninstallPolicies,
+      approvalType: 'number',
       createTime: 'string',
       description: 'string',
       deviceRegistrationPolicies: ListApprovalProcessesResponseBodyProcessesDeviceRegistrationPolicies,

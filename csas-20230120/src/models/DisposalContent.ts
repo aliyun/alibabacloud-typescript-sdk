@@ -9,6 +9,7 @@ export class DisposalContent extends $dara.Model {
    */
   alertContent?: string;
   alertContentEn?: string;
+  alertIntervalSeconds?: number;
   /**
    * **if can be null:**
    * true
@@ -27,10 +28,12 @@ export class DisposalContent extends $dara.Model {
    */
   notifyActions?: string[];
   prohibitActions?: string[];
+  prohibitSoftwareIds?: string[];
   static names(): { [key: string]: string } {
     return {
       alertContent: 'AlertContent',
       alertContentEn: 'AlertContentEn',
+      alertIntervalSeconds: 'AlertIntervalSeconds',
       alertTitle: 'AlertTitle',
       alertTitleEn: 'AlertTitleEn',
       nacDemotionPolicyIds: 'NacDemotionPolicyIds',
@@ -38,6 +41,7 @@ export class DisposalContent extends $dara.Model {
       noticeContentEn: 'NoticeContentEn',
       notifyActions: 'NotifyActions',
       prohibitActions: 'ProhibitActions',
+      prohibitSoftwareIds: 'ProhibitSoftwareIds',
     };
   }
 
@@ -45,6 +49,7 @@ export class DisposalContent extends $dara.Model {
     return {
       alertContent: 'string',
       alertContentEn: 'string',
+      alertIntervalSeconds: 'number',
       alertTitle: 'string',
       alertTitleEn: 'string',
       nacDemotionPolicyIds: { 'type': 'array', 'itemType': 'string' },
@@ -52,6 +57,7 @@ export class DisposalContent extends $dara.Model {
       noticeContentEn: 'string',
       notifyActions: { 'type': 'array', 'itemType': 'string' },
       prohibitActions: { 'type': 'array', 'itemType': 'string' },
+      prohibitSoftwareIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -64,6 +70,9 @@ export class DisposalContent extends $dara.Model {
     }
     if(Array.isArray(this.prohibitActions)) {
       $dara.Model.validateArray(this.prohibitActions);
+    }
+    if(Array.isArray(this.prohibitSoftwareIds)) {
+      $dara.Model.validateArray(this.prohibitSoftwareIds);
     }
     super.validate();
   }
