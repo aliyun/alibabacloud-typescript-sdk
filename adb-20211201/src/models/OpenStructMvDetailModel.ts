@@ -1,7 +1,38 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { OpenStructMvDetailModelBaseTableInfos } from "./OpenStructMvDetailModelBaseTableInfos";
 
+
+export class OpenStructMvDetailModelBaseTableInfos extends $dara.Model {
+  baseTableIsMv?: boolean;
+  schemaName?: string;
+  tableEngine?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseTableIsMv: 'BaseTableIsMv',
+      schemaName: 'SchemaName',
+      tableEngine: 'TableEngine',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseTableIsMv: 'boolean',
+      schemaName: 'string',
+      tableEngine: 'string',
+      tableName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class OpenStructMvDetailModel extends $dara.Model {
   baseTableInfos?: OpenStructMvDetailModelBaseTableInfos[];
@@ -16,6 +47,7 @@ export class OpenStructMvDetailModel extends $dara.Model {
   refreshState?: string;
   remoteSize?: number;
   resourceGroup?: string;
+  tableEngine?: string;
   updatedAt?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,6 +63,7 @@ export class OpenStructMvDetailModel extends $dara.Model {
       refreshState: 'RefreshState',
       remoteSize: 'RemoteSize',
       resourceGroup: 'ResourceGroup',
+      tableEngine: 'TableEngine',
       updatedAt: 'UpdatedAt',
     };
   }
@@ -49,6 +82,7 @@ export class OpenStructMvDetailModel extends $dara.Model {
       refreshState: 'string',
       remoteSize: 'number',
       resourceGroup: 'string',
+      tableEngine: 'string',
       updatedAt: 'string',
     };
   }

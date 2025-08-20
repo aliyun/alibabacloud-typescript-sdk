@@ -1,8 +1,116 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateApsSlsADBJobRequestColumns } from "./CreateApsSlsAdbjobRequestColumns";
-import { CreateApsSlsADBJobRequestUnixTimestampConvert } from "./CreateApsSlsAdbjobRequestUnixTimestampConvert";
 
+
+export class CreateApsSlsADBJobRequestColumns extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the mapping.
+   * 
+   * @example
+   * test
+   */
+  mapName?: string;
+  /**
+   * @remarks
+   * The type of the mapping.
+   * 
+   * @example
+   * int
+   */
+  mapType?: string;
+  /**
+   * @remarks
+   * The name of the column.
+   * 
+   * @example
+   * id
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The data type of the column.
+   * 
+   * @example
+   * bigint
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mapName: 'MapName',
+      mapType: 'MapType',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mapName: 'string',
+      mapType: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApsSlsADBJobRequestUnixTimestampConvert extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the conversion of timestamps.
+   * 
+   * @example
+   * false
+   */
+  convert?: string;
+  /**
+   * @remarks
+   * The format of the timestamp.
+   * 
+   * @example
+   * yyyyMMdd
+   */
+  format?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the timestamp conversion.
+   * 
+   * @example
+   * false
+   */
+  transform?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      convert: 'Convert',
+      format: 'Format',
+      transform: 'Transform',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      convert: 'string',
+      format: 'string',
+      transform: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateApsSlsADBJobRequest extends $dara.Model {
   /**

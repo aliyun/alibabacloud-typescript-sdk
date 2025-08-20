@@ -1,13 +1,459 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateApsDatasoureRequestDatabricksInfo } from "./CreateApsDatasoureRequestDatabricksInfo";
-import { CreateApsDatasoureRequestHiveInfo } from "./CreateApsDatasoureRequestHiveInfo";
-import { CreateApsDatasoureRequestKafkaInfo } from "./CreateApsDatasoureRequestKafkaInfo";
-import { CreateApsDatasoureRequestPolarDBMysqlInfo } from "./CreateApsDatasoureRequestPolarDbmysqlInfo";
-import { CreateApsDatasoureRequestPolarDBXInfo } from "./CreateApsDatasoureRequestPolarDbxinfo";
-import { CreateApsDatasoureRequestRdsMysqlInfo } from "./CreateApsDatasoureRequestRdsMysqlInfo";
-import { CreateApsDatasoureRequestSlsInfo } from "./CreateApsDatasoureRequestSlsInfo";
 
+
+export class CreateApsDatasoureRequestDatabricksInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The token that is used to access Databricks.
+   * 
+   * @example
+   * ******
+   */
+  accessToken?: string;
+  /**
+   * @remarks
+   * The URL of the workspace.
+   * 
+   * @example
+   * xxxxx
+   */
+  workspaceURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      workspaceURL: 'WorkspaceURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      workspaceURL: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApsDatasoureRequestHiveInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * ******
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The configuration of the host.
+   * 
+   * @example
+   * ******
+   */
+  hostConfig?: string;
+  /**
+   * @remarks
+   * The URL of the Hive Metastore.
+   * 
+   * @example
+   * ******
+   */
+  metaStoreUri?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-uf*******h
+   */
+  securityGroup?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-bp1*****k
+   */
+  vswitch?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      hostConfig: 'HostConfig',
+      metaStoreUri: 'MetaStoreUri',
+      securityGroup: 'SecurityGroup',
+      vswitch: 'Vswitch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      hostConfig: 'string',
+      metaStoreUri: 'string',
+      securityGroup: 'string',
+      vswitch: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApsDatasoureRequestKafkaInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Apache Kafka instance.
+   * 
+   * @example
+   * ******
+   */
+  kafkaClusterId?: string;
+  /**
+   * @remarks
+   * The topic of the Apache Kafka instance.
+   * 
+   * @example
+   * test
+   */
+  kafkaTopic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      kafkaClusterId: 'KafkaClusterId',
+      kafkaTopic: 'KafkaTopic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kafkaClusterId: 'string',
+      kafkaTopic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the data source is a cross-account resource. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
+  across?: boolean;
+  /**
+   * @remarks
+   * The name of the cross-account role.
+   * 
+   * @example
+   * test-role
+   */
+  acrossRole?: string;
+  /**
+   * @remarks
+   * The cross-account UID.
+   * 
+   * @example
+   * 123456789*
+   */
+  acrossUid?: string;
+  /**
+   * @remarks
+   * The URL used to connect to the custom ApsaraDB RDS for MySQL instance.
+   * 
+   * @example
+   * ****
+   */
+  connectUrl?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * pc-bp*********
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The password.
+   * 
+   * @example
+   * ***
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-******
+   */
+  securityGroup?: string;
+  /**
+   * @remarks
+   * The username used to access the instance.
+   * 
+   * @example
+   * test-user-name
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      across: 'Across',
+      acrossRole: 'AcrossRole',
+      acrossUid: 'AcrossUid',
+      connectUrl: 'ConnectUrl',
+      instanceId: 'InstanceId',
+      password: 'Password',
+      regionId: 'RegionId',
+      securityGroup: 'SecurityGroup',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      across: 'boolean',
+      acrossRole: 'string',
+      acrossUid: 'string',
+      connectUrl: 'string',
+      instanceId: 'string',
+      password: 'string',
+      regionId: 'string',
+      securityGroup: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApsDatasoureRequestPolarDBXInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * -
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The URL used to connect to the read-only instance.
+   * 
+   * @example
+   * ******
+   */
+  connectUrl?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rm-xxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The password of the database account of the instance.
+   * 
+   * @example
+   * ******
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-******
+   */
+  securityGroup?: string;
+  /**
+   * @remarks
+   * The name of the database account of the instance.
+   * 
+   * @example
+   * user
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectUrl: 'ConnectUrl',
+      instanceId: 'InstanceId',
+      password: 'Password',
+      regionId: 'RegionId',
+      securityGroup: 'SecurityGroup',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectUrl: 'string',
+      instanceId: 'string',
+      password: 'string',
+      regionId: 'string',
+      securityGroup: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the data source is a cross-account resource.
+   * 
+   * @example
+   * false
+   */
+  across?: boolean;
+  /**
+   * @remarks
+   * The name of the cross-account role.
+   * 
+   * @example
+   * yyy
+   */
+  acrossRole?: string;
+  /**
+   * @remarks
+   * The cross-account UID.
+   * 
+   * @example
+   * xxxx
+   */
+  acrossUid?: string;
+  /**
+   * @remarks
+   * The SLS project.
+   * 
+   * @example
+   * test-project
+   */
+  project?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  /**
+   * @remarks
+   * The name of the SLS Logstore.
+   * 
+   * @example
+   * test-store
+   */
+  store?: string;
+  static names(): { [key: string]: string } {
+    return {
+      across: 'Across',
+      acrossRole: 'AcrossRole',
+      acrossUid: 'AcrossUid',
+      project: 'Project',
+      sourceRegionId: 'SourceRegionId',
+      store: 'Store',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      across: 'boolean',
+      acrossRole: 'string',
+      acrossUid: 'string',
+      project: 'string',
+      sourceRegionId: 'string',
+      store: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateApsDatasoureRequest extends $dara.Model {
   /**

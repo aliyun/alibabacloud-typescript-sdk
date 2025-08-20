@@ -1,8 +1,181 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateDBResourceGroupRequestRayConfig } from "./CreateDbresourceGroupRequestRayConfig";
-import { CreateDBResourceGroupRequestRules } from "./CreateDbresourceGroupRequestRules";
 
+
+export class CreateDBResourceGroupRequestRayConfigWorkerGroups extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  allocateUnit?: string;
+  /**
+   * @example
+   * test
+   */
+  groupName?: string;
+  /**
+   * @example
+   * 2
+   */
+  maxWorkerQuantity?: number;
+  /**
+   * @example
+   * 1
+   */
+  minWorkerQuantity?: number;
+  /**
+   * @example
+   * 100G
+   */
+  workerDiskCapacity?: string;
+  /**
+   * @example
+   * xlarge
+   */
+  workerSpecName?: string;
+  /**
+   * @example
+   * GPU
+   */
+  workerSpecType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocateUnit: 'AllocateUnit',
+      groupName: 'GroupName',
+      maxWorkerQuantity: 'MaxWorkerQuantity',
+      minWorkerQuantity: 'MinWorkerQuantity',
+      workerDiskCapacity: 'WorkerDiskCapacity',
+      workerSpecName: 'WorkerSpecName',
+      workerSpecType: 'WorkerSpecType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocateUnit: 'string',
+      groupName: 'string',
+      maxWorkerQuantity: 'number',
+      minWorkerQuantity: 'number',
+      workerDiskCapacity: 'string',
+      workerSpecName: 'string',
+      workerSpecType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
+  /**
+   * @example
+   * BASIC
+   */
+  category?: string;
+  enableUserEni?: boolean;
+  headAllocateUnit?: string;
+  headDiskCapacity?: string;
+  /**
+   * @example
+   * xlarge
+   */
+  headSpec?: string;
+  headSpecType?: string;
+  workerGroups?: CreateDBResourceGroupRequestRayConfigWorkerGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      enableUserEni: 'EnableUserEni',
+      headAllocateUnit: 'HeadAllocateUnit',
+      headDiskCapacity: 'HeadDiskCapacity',
+      headSpec: 'HeadSpec',
+      headSpecType: 'HeadSpecType',
+      workerGroups: 'WorkerGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      enableUserEni: 'boolean',
+      headAllocateUnit: 'string',
+      headDiskCapacity: 'string',
+      headSpec: 'string',
+      headSpecType: 'string',
+      workerGroups: { 'type': 'array', 'itemType': CreateDBResourceGroupRequestRayConfigWorkerGroups },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.workerGroups)) {
+      $dara.Model.validateArray(this.workerGroups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBResourceGroupRequestRules extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the resource group.
+   * 
+   * *   The name can be up to 255 characters in length.
+   * *   The name must start with a letter or digit.
+   * *   The name can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * @example
+   * test_group
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * The execution duration of the query. Unit: milliseconds.
+   * 
+   * @example
+   * 180000
+   */
+  queryTime?: string;
+  /**
+   * @remarks
+   * The name of the resource group to which you want to resubmit the query job.
+   * 
+   * @example
+   * job
+   */
+  targetGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      queryTime: 'QueryTime',
+      targetGroupName: 'TargetGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      queryTime: 'string',
+      targetGroupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateDBResourceGroupRequest extends $dara.Model {
   /**

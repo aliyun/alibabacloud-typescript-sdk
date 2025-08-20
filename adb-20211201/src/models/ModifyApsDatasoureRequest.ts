@@ -1,11 +1,279 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModifyApsDatasoureRequestKafkaInfo } from "./ModifyApsDatasoureRequestKafkaInfo";
-import { ModifyApsDatasoureRequestLakehouseId } from "./ModifyApsDatasoureRequestLakehouseId";
-import { ModifyApsDatasoureRequestPolarDBMysqlInfo } from "./ModifyApsDatasoureRequestPolarDbmysqlInfo";
-import { ModifyApsDatasoureRequestRdsMysqlInfo } from "./ModifyApsDatasoureRequestRdsMysqlInfo";
-import { ModifyApsDatasoureRequestSlsInfo } from "./ModifyApsDatasoureRequestSlsInfo";
 
+
+export class ModifyApsDatasoureRequestKafkaInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Kafka instance.
+   * 
+   * @example
+   * -
+   */
+  kafkaClusterId?: string;
+  /**
+   * @remarks
+   * The topic of the Kafka instance.
+   * 
+   * @example
+   * test-topic
+   */
+  kafkaTopic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      kafkaClusterId: 'KafkaClusterId',
+      kafkaTopic: 'KafkaTopic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kafkaClusterId: 'string',
+      kafkaTopic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsDatasoureRequestLakehouseId extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the security group.
+   * 
+   * @example
+   * sg-******
+   */
+  securityGroup?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * @example
+   * vpc-******
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * The name of the vSwitch.
+   * 
+   * @example
+   * vsw-******
+   */
+  vswitch?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroup: 'SecurityGroup',
+      vpcId: 'VpcId',
+      vswitch: 'Vswitch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroup: 'string',
+      vpcId: 'string',
+      vswitch: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter is no longer supported.
+   * 
+   * @example
+   * -
+   */
+  connectUrl?: string;
+  /**
+   * @remarks
+   * The parameter is no longer supported.
+   * 
+   * @example
+   * -
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The parameter is no longer supported.
+   * 
+   * @example
+   * -
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The parameter is no longer supported.
+   * 
+   * @example
+   * -
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectUrl: 'ConnectUrl',
+      password: 'Password',
+      regionId: 'RegionId',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectUrl: 'string',
+      password: 'string',
+      regionId: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter is no longer supported.
+   * 
+   * @example
+   * -
+   */
+  connectUrl?: string;
+  /**
+   * @remarks
+   * The parameter is no longer supported.
+   * 
+   * @example
+   * -
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The parameter is no longer supported.
+   * 
+   * @example
+   * -
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The parameter is no longer supported.
+   * 
+   * @example
+   * -
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectUrl: 'ConnectUrl',
+      password: 'Password',
+      regionId: 'RegionId',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectUrl: 'string',
+      password: 'string',
+      regionId: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApsDatasoureRequestSlsInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to use a cross-account resource as the data source. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
+  across?: boolean;
+  /**
+   * @remarks
+   * The name of the cross-account role.
+   * 
+   * @example
+   * test-role
+   */
+  acrossRole?: string;
+  /**
+   * @remarks
+   * The cross-account UID.
+   * 
+   * @example
+   * 123456
+   */
+  acrossUid?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
+  sourceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      across: 'Across',
+      acrossRole: 'AcrossRole',
+      acrossUid: 'AcrossUid',
+      sourceRegionId: 'SourceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      across: 'boolean',
+      acrossRole: 'string',
+      acrossUid: 'string',
+      sourceRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifyApsDatasoureRequest extends $dara.Model {
   /**

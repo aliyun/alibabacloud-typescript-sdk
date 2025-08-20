@@ -1,9 +1,86 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { FiltersExecutionTimeRange } from "./FiltersExecutionTimeRange";
-import { FiltersSubmitTimeRange } from "./FiltersSubmitTimeRange";
-import { FiltersTermiatedTimeRange } from "./FiltersTermiatedTimeRange";
 
+
+/**
+ */
+export class FiltersExecutionTimeRange extends $dara.Model {
+  maxTimeInSeconds?: number;
+  minTimeInSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxTimeInSeconds: 'MaxTimeInSeconds',
+      minTimeInSeconds: 'MinTimeInSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxTimeInSeconds: 'number',
+      minTimeInSeconds: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FiltersSubmitTimeRange extends $dara.Model {
+  maxTimeInMills?: number;
+  minTimeInMills?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxTimeInMills: 'MaxTimeInMills',
+      minTimeInMills: 'MinTimeInMills',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxTimeInMills: 'number',
+      minTimeInMills: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FiltersTermiatedTimeRange extends $dara.Model {
+  maxTimeInMills?: number;
+  minTimeInMills?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxTimeInMills: 'MaxTimeInMills',
+      minTimeInMills: 'MinTimeInMills',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxTimeInMills: 'number',
+      minTimeInMills: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class Filters extends $dara.Model {
   appIdRegex?: string;

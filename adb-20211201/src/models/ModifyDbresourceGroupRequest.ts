@@ -1,8 +1,141 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModifyDBResourceGroupRequestRayConfig } from "./ModifyDbresourceGroupRequestRayConfig";
-import { ModifyDBResourceGroupRequestRules } from "./ModifyDbresourceGroupRequestRules";
 
+
+export class ModifyDBResourceGroupRequestRayConfigWorkerGroups extends $dara.Model {
+  allocateUnit?: string;
+  groupName?: string;
+  maxWorkerQuantity?: number;
+  minWorkerQuantity?: number;
+  workerDiskCapacity?: string;
+  workerSpecName?: string;
+  workerSpecType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocateUnit: 'AllocateUnit',
+      groupName: 'GroupName',
+      maxWorkerQuantity: 'MaxWorkerQuantity',
+      minWorkerQuantity: 'MinWorkerQuantity',
+      workerDiskCapacity: 'WorkerDiskCapacity',
+      workerSpecName: 'WorkerSpecName',
+      workerSpecType: 'WorkerSpecType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocateUnit: 'string',
+      groupName: 'string',
+      maxWorkerQuantity: 'number',
+      minWorkerQuantity: 'number',
+      workerDiskCapacity: 'string',
+      workerSpecName: 'string',
+      workerSpecType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBResourceGroupRequestRayConfig extends $dara.Model {
+  category?: string;
+  enableUserEni?: boolean;
+  headAllocateUnit?: string;
+  headDiskCapacity?: string;
+  headSpec?: string;
+  headSpecType?: string;
+  workerGroups?: ModifyDBResourceGroupRequestRayConfigWorkerGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      enableUserEni: 'EnableUserEni',
+      headAllocateUnit: 'HeadAllocateUnit',
+      headDiskCapacity: 'HeadDiskCapacity',
+      headSpec: 'HeadSpec',
+      headSpecType: 'HeadSpecType',
+      workerGroups: 'WorkerGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      enableUserEni: 'boolean',
+      headAllocateUnit: 'string',
+      headDiskCapacity: 'string',
+      headSpec: 'string',
+      headSpecType: 'string',
+      workerGroups: { 'type': 'array', 'itemType': ModifyDBResourceGroupRequestRayConfigWorkerGroups },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.workerGroups)) {
+      $dara.Model.validateArray(this.workerGroups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBResourceGroupRequestRules extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the resource group.
+   * 
+   * @example
+   * user_default
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * The execution duration of the query. Unit: milliseconds.
+   * 
+   * @example
+   * 180000
+   */
+  queryTime?: string;
+  /**
+   * @remarks
+   * The name of the destination resource group.
+   * 
+   * @example
+   * job
+   */
+  targetGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      queryTime: 'QueryTime',
+      targetGroupName: 'TargetGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      queryTime: 'string',
+      targetGroupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifyDBResourceGroupRequest extends $dara.Model {
   /**

@@ -1,7 +1,76 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeTableDetailResponseBodyItems } from "./DescribeTableDetailResponseBodyItems";
 
+
+export class DescribeTableDetailResponseBodyItemsShard extends $dara.Model {
+  /**
+   * @remarks
+   * The shard ID. Only the numeric part of the shard name is returned.
+   * 
+   * @example
+   * 1
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The number of rows in the table.
+   * 
+   * @example
+   * 9484858
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTableDetailResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The queried shards.
+   */
+  shard?: DescribeTableDetailResponseBodyItemsShard[];
+  static names(): { [key: string]: string } {
+    return {
+      shard: 'Shard',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shard: { 'type': 'array', 'itemType': DescribeTableDetailResponseBodyItemsShard },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.shard)) {
+      $dara.Model.validateArray(this.shard);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeTableDetailResponseBody extends $dara.Model {
   /**

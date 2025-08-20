@@ -30,6 +30,11 @@ export class Detail extends $dara.Model {
   estimateExecutionCpuTimeInSeconds?: number;
   /**
    * @example
+   * 36000
+   */
+  executionDurationInMillis?: number;
+  /**
+   * @example
    * s202204291426hzpre60cfa*****-0003
    */
   lastAttemptId?: string;
@@ -48,6 +53,19 @@ export class Detail extends $dara.Model {
    * spark-rg
    */
   resourceGroupName?: string;
+  /**
+   * @example
+   * 36000
+   */
+  resourceProvisioningDurationInMillis?: number;
+  /**
+   * @example
+   * 36000
+   * 
+   * **if can be null:**
+   * false
+   */
+  runningStartTimeInMillis?: number;
   /**
    * @example
    * 1651213645010
@@ -75,10 +93,13 @@ export class Detail extends $dara.Model {
       data: 'Data',
       durationInMillis: 'DurationInMillis',
       estimateExecutionCpuTimeInSeconds: 'EstimateExecutionCpuTimeInSeconds',
+      executionDurationInMillis: 'ExecutionDurationInMillis',
       lastAttemptId: 'LastAttemptId',
       lastUpdatedTimeInMillis: 'LastUpdatedTimeInMillis',
       logRootPath: 'LogRootPath',
       resourceGroupName: 'ResourceGroupName',
+      resourceProvisioningDurationInMillis: 'ResourceProvisioningDurationInMillis',
+      runningStartTimeInMillis: 'RunningStartTimeInMillis',
       startedTimeInMillis: 'StartedTimeInMillis',
       submittedTimeInMillis: 'SubmittedTimeInMillis',
       terminatedTimeInMillis: 'TerminatedTimeInMillis',
@@ -93,10 +114,13 @@ export class Detail extends $dara.Model {
       data: 'string',
       durationInMillis: 'number',
       estimateExecutionCpuTimeInSeconds: 'number',
+      executionDurationInMillis: 'number',
       lastAttemptId: 'string',
       lastUpdatedTimeInMillis: 'number',
       logRootPath: 'string',
       resourceGroupName: 'string',
+      resourceProvisioningDurationInMillis: 'number',
+      runningStartTimeInMillis: 'number',
       startedTimeInMillis: 'number',
       submittedTimeInMillis: 'number',
       terminatedTimeInMillis: 'number',
