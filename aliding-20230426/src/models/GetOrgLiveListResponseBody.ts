@@ -9,6 +9,7 @@ export class GetOrgLiveListResponseBodyResultNewLiveLiveList extends $dara.Model
    */
   anchorNickname?: string;
   anchorUnionId?: string;
+  anchorUnionIdInAlibaba?: string;
   /**
    * @example
    * ersqqdddf
@@ -43,6 +44,7 @@ export class GetOrgLiveListResponseBodyResultNewLiveLiveList extends $dara.Model
     return {
       anchorNickname: 'AnchorNickname',
       anchorUnionId: 'AnchorUnionId',
+      anchorUnionIdInAlibaba: 'AnchorUnionIdInAlibaba',
       anchorUserId: 'AnchorUserId',
       liveEndTime: 'LiveEndTime',
       liveStartTime: 'LiveStartTime',
@@ -56,6 +58,7 @@ export class GetOrgLiveListResponseBodyResultNewLiveLiveList extends $dara.Model
     return {
       anchorNickname: 'string',
       anchorUnionId: 'string',
+      anchorUnionIdInAlibaba: 'string',
       anchorUserId: 'string',
       liveEndTime: 'number',
       liveStartTime: 'number',
@@ -142,6 +145,7 @@ export class GetOrgLiveListResponseBodyResultUpdateLiveLiveList extends $dara.Mo
    */
   anchorNickname?: string;
   anchorUnionId?: string;
+  anchorUnionIdInAlibaba?: string;
   /**
    * @example
    * 012345
@@ -171,6 +175,7 @@ export class GetOrgLiveListResponseBodyResultUpdateLiveLiveList extends $dara.Mo
     return {
       anchorNickname: 'AnchorNickname',
       anchorUnionId: 'AnchorUnionId',
+      anchorUnionIdInAlibaba: 'AnchorUnionIdInAlibaba',
       anchorUserId: 'AnchorUserId',
       liveEndTime: 'LiveEndTime',
       liveStartTime: 'LiveStartTime',
@@ -183,6 +188,7 @@ export class GetOrgLiveListResponseBodyResultUpdateLiveLiveList extends $dara.Mo
     return {
       anchorNickname: 'string',
       anchorUnionId: 'string',
+      anchorUnionIdInAlibaba: 'string',
       anchorUserId: 'string',
       liveEndTime: 'number',
       liveStartTime: 'number',
