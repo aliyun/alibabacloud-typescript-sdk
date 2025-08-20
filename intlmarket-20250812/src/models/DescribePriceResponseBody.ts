@@ -10,6 +10,7 @@ export class DescribePriceResponseBodyCoupons extends $dara.Model {
    * CanPromFee
    */
   canPromFee?: number;
+  couponDesc?: string;
   /**
    * @example
    * CouponName
@@ -38,6 +39,7 @@ export class DescribePriceResponseBodyCoupons extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       canPromFee: 'CanPromFee',
+      couponDesc: 'CouponDesc',
       couponName: 'CouponName',
       couponOptionCode: 'CouponOptionCode',
       couponOptionNo: 'CouponOptionNo',
@@ -49,6 +51,7 @@ export class DescribePriceResponseBodyCoupons extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       canPromFee: 'number',
+      couponDesc: 'string',
       couponName: 'string',
       couponOptionCode: 'string',
       couponOptionNo: 'string',
