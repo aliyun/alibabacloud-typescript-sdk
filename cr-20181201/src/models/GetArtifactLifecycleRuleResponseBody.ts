@@ -2,6 +2,93 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetArtifactLifecycleRuleResponseBodyPoliciesCondition extends $dara.Model {
+  lastPullOlderThanDays?: number;
+  lastPushOlderThanDays?: number;
+  latestTagCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lastPullOlderThanDays: 'LastPullOlderThanDays',
+      lastPushOlderThanDays: 'LastPushOlderThanDays',
+      latestTagCount: 'LatestTagCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lastPullOlderThanDays: 'number',
+      lastPushOlderThanDays: 'number',
+      latestTagCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactLifecycleRuleResponseBodyPoliciesFilter extends $dara.Model {
+  tagWildcard?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagWildcard: 'TagWildcard',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagWildcard: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactLifecycleRuleResponseBodyPolicies extends $dara.Model {
+  condition?: GetArtifactLifecycleRuleResponseBodyPoliciesCondition;
+  filter?: GetArtifactLifecycleRuleResponseBodyPoliciesFilter;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      filter: 'Filter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: GetArtifactLifecycleRuleResponseBodyPoliciesCondition,
+      filter: GetArtifactLifecycleRuleResponseBodyPoliciesFilter,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.condition && typeof (this.condition as any).validate === 'function') {
+      (this.condition as any).validate();
+    }
+    if(this.filter && typeof (this.filter as any).validate === 'function') {
+      (this.filter as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -78,6 +165,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
    * 1701878400000
    */
   nextTime?: number;
+  policies?: GetArtifactLifecycleRuleResponseBodyPolicies[];
   /**
    * @remarks
    * The name of the image repository.
@@ -145,6 +233,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
       modifiedTime: 'ModifiedTime',
       namespaceName: 'NamespaceName',
       nextTime: 'NextTime',
+      policies: 'Policies',
       repoName: 'RepoName',
       requestId: 'RequestId',
       retentionTagCount: 'RetentionTagCount',
@@ -166,6 +255,7 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
       modifiedTime: 'number',
       namespaceName: 'string',
       nextTime: 'number',
+      policies: { 'type': 'array', 'itemType': GetArtifactLifecycleRuleResponseBodyPolicies },
       repoName: 'string',
       requestId: 'string',
       retentionTagCount: 'number',
@@ -177,6 +267,9 @@ export class GetArtifactLifecycleRuleResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.policies)) {
+      $dara.Model.validateArray(this.policies);
+    }
     super.validate();
   }
 

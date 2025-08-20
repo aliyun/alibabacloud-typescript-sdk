@@ -1,7 +1,46 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListInstanceRegionResponseBodyRegions } from "./ListInstanceRegionResponseBodyRegions";
 
+
+export class ListInstanceRegionResponseBodyRegions extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * China (Shenzhen)
+   */
+  localName?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'LocalName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListInstanceRegionResponseBody extends $dara.Model {
   /**

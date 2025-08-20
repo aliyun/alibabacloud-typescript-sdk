@@ -23,7 +23,7 @@ export class ListRepoTagRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page. Maximum value: 100.
    * 
    * @example
    * 30

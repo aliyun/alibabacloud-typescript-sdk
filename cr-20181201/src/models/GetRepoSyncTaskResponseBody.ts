@@ -1,9 +1,226 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetRepoSyncTaskResponseBodyImageFrom } from "./GetRepoSyncTaskResponseBodyImageFrom";
-import { GetRepoSyncTaskResponseBodyImageTo } from "./GetRepoSyncTaskResponseBodyImageTo";
-import { GetRepoSyncTaskResponseBodyLayerTasks } from "./GetRepoSyncTaskResponseBodyLayerTasks";
 
+
+export class GetRepoSyncTaskResponseBodyImageFrom extends $dara.Model {
+  /**
+   * @remarks
+   * The tag of the image.
+   * 
+   * @example
+   * master
+   */
+  imageTag?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * cri-sgedpenzw80e****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The name of the image repository.
+   * 
+   * @example
+   * test
+   */
+  repoName?: string;
+  /**
+   * @remarks
+   * The name of the namespace.
+   * 
+   * @example
+   * test
+   */
+  repoNamespaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageTag: 'ImageTag',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageTag: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepoSyncTaskResponseBodyImageTo extends $dara.Model {
+  /**
+   * @remarks
+   * The tag of the image.
+   * 
+   * @example
+   * master
+   */
+  imageTag?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * cri-leqzomz5vijc****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * eu-west-1
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The name of the image repository.
+   * 
+   * @example
+   * test
+   */
+  repoName?: string;
+  /**
+   * @remarks
+   * The name of the namespace.
+   * 
+   * @example
+   * test
+   */
+  repoNamespaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageTag: 'ImageTag',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageTag: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepoSyncTaskResponseBodyLayerTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The digest of the artifact.
+   * 
+   * @example
+   * sha256:36fb85fcb5e919cb60e782397a6be04201868fe7b38ef7669fc01caec1c8fc4e
+   */
+  artifactDigest?: string;
+  /**
+   * @remarks
+   * The digest of the image layer.
+   * 
+   * @example
+   * sha256:36fb85fcb5e919cb60e782397a6be04201868fe7b38ef7669fc01caec1c8fc4e
+   */
+  digest?: string;
+  /**
+   * @remarks
+   * The size of synchronized image layers.
+   * 
+   * @example
+   * 23655489
+   */
+  size?: number;
+  /**
+   * @remarks
+   * The ID of the synchronization task for the image layer.
+   * 
+   * @example
+   * rslt-074x4q20fx2d****
+   */
+  syncLayerTaskId?: string;
+  /**
+   * @remarks
+   * The size of the image layer that is synchronized.
+   * 
+   * @example
+   * 23655489
+   */
+  syncedSize?: number;
+  /**
+   * @remarks
+   * The status of the synchronization task. Valid values:
+   * 
+   * @example
+   * SUCCESS
+   */
+  taskStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifactDigest: 'ArtifactDigest',
+      digest: 'Digest',
+      size: 'Size',
+      syncLayerTaskId: 'SyncLayerTaskId',
+      syncedSize: 'SyncedSize',
+      taskStatus: 'TaskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactDigest: 'string',
+      digest: 'string',
+      size: 'number',
+      syncLayerTaskId: 'string',
+      syncedSize: 'number',
+      taskStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetRepoSyncTaskResponseBody extends $dara.Model {
   /**
