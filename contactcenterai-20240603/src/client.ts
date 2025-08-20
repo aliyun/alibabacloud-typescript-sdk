@@ -718,6 +718,121 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通用图片分析
+   * 
+   * @param request - GeneralAnalyzeImageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GeneralAnalyzeImageResponse
+   */
+  async *generalAnalyzeImageWithSSE(workspaceId: string, appId: string, request: $_model.GeneralAnalyzeImageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.GeneralAnalyzeImageResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.customPrompt)) {
+      body["customPrompt"] = request.customPrompt;
+    }
+
+    if (!$dara.isNull(request.imageUrls)) {
+      body["imageUrls"] = request.imageUrls;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.templateIds)) {
+      body["templateIds"] = request.templateIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GeneralAnalyzeImage",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ccai/app/${$dara.URL.percentEncode(appId)}/generalanalyzeImage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.GeneralAnalyzeImageResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.GeneralAnalyzeImageResponse({}));
+    }
+  }
+
+  /**
+   * 通用图片分析
+   * 
+   * @param request - GeneralAnalyzeImageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GeneralAnalyzeImageResponse
+   */
+  async generalAnalyzeImageWithOptions(workspaceId: string, appId: string, request: $_model.GeneralAnalyzeImageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GeneralAnalyzeImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.customPrompt)) {
+      body["customPrompt"] = request.customPrompt;
+    }
+
+    if (!$dara.isNull(request.imageUrls)) {
+      body["imageUrls"] = request.imageUrls;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.templateIds)) {
+      body["templateIds"] = request.templateIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GeneralAnalyzeImage",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ccai/app/${$dara.URL.percentEncode(appId)}/generalanalyzeImage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GeneralAnalyzeImageResponse>(await this.callApi(params, req, runtime), new $_model.GeneralAnalyzeImageResponse({}));
+  }
+
+  /**
+   * 通用图片分析
+   * 
+   * @param request - GeneralAnalyzeImageRequest
+   * @returns GeneralAnalyzeImageResponse
+   */
+  async generalAnalyzeImage(workspaceId: string, appId: string, request: $_model.GeneralAnalyzeImageRequest): Promise<$_model.GeneralAnalyzeImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.generalAnalyzeImageWithOptions(workspaceId, appId, request, headers, runtime);
+  }
+
+  /**
    * 语音文件调用大模型获取结果
    * 
    * @param tmpReq - GetTaskResultRequest
