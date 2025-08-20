@@ -1,6 +1,15 @@
 export { CreateChatSessionResponseBodyDataAvatarAssets } from './CreateChatSessionResponseBody';
 export { CreateChatSessionResponseBodyDataRtcParams } from './CreateChatSessionResponseBody';
 export { CreateChatSessionResponseBodyData } from './CreateChatSessionResponseBody';
+export { ChatSessionInfo } from './ChatSessionInfo';
+export { CloseChatInstanceSessionsRequest } from './CloseChatInstanceSessionsRequest';
+export { CloseChatInstanceSessionsShrinkRequest } from './CloseChatInstanceSessionsShrinkRequest';
+export { CloseChatInstanceSessionsResponseBody } from './CloseChatInstanceSessionsResponseBody';
+export { CloseChatInstanceSessionsResponse } from './CloseChatInstanceSessionsResponse';
 export { CreateChatSessionRequest } from './CreateChatSessionRequest';
 export { CreateChatSessionResponseBody } from './CreateChatSessionResponseBody';
 export { CreateChatSessionResponse } from './CreateChatSessionResponse';
+export { QueryChatInstanceSessionsRequest } from './QueryChatInstanceSessionsRequest';
+export { QueryChatInstanceSessionsShrinkRequest } from './QueryChatInstanceSessionsShrinkRequest';
+export { QueryChatInstanceSessionsResponseBody } from './QueryChatInstanceSessionsResponseBody';
+export { QueryChatInstanceSessionsResponse } from './QueryChatInstanceSessionsResponse';
