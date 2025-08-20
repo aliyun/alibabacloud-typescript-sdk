@@ -1,8 +1,111 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateStackRequestParameters } from "./CreateStackRequestParameters";
-import { CreateStackRequestTags } from "./CreateStackRequestTags";
 
+
+export class CreateStackRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The key of parameter N that is defined in the template. If you do not specify the name and value of a parameter, ROS uses the default name and value that are specified in the template.
+   * 
+   * Maximum value of N: 200.\\
+   * The name must be 1 to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * > The Parameters parameter is optional. If you specify Parameters, you must specify Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * InstanceId
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N that is defined in the template.
+   * 
+   * Maximum value of N: 200.\\
+   * The value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * > The Parameters parameter is optional. If you specify Parameters, you must specify Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-xxxxxx
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N that you want to add to the stack.
+   * 
+   * Valid values of N: 1 to 20.
+   * 
+   * > - The Tags parameter is optional. If you specify Tags, you must specify Tags.N.Key.
+   * > -  The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N that you want to add to the stack.
+   * 
+   * Valid values of N: 1 to 20.
+   * 
+   * > The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateStackRequest extends $dara.Model {
   /**

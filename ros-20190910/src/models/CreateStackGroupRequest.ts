@@ -1,9 +1,154 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateStackGroupRequestAutoDeployment } from "./CreateStackGroupRequestAutoDeployment";
-import { CreateStackGroupRequestParameters } from "./CreateStackGroupRequestParameters";
-import { CreateStackGroupRequestTags } from "./CreateStackGroupRequestTags";
 
+
+export class CreateStackGroupRequestAutoDeployment extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether automatic deployment is enabled.
+   * 
+   * Valid values:
+   * 
+   * *   true: Automatic deployment is enabled. If you add a member account to the folder to which the stack group belongs after you enable automatic deployment, ROS automatically adds the stacks in the stack group to the member account. If you remove a member account from the folder, ROS automatically deletes the stacks from the member account.
+   * *   false: Automatic deployment is disabled. After you disable automatic deployment, the stacks remain unchanged when you add member accounts to or remove member accounts from the folder.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the stacks within a member account are retained when you remove the member account from the folder.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * > You must specify RetainStacksOnAccountRemoval if Enabled is set to true.
+   * 
+   * @example
+   * true
+   */
+  retainStacksOnAccountRemoval?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      retainStacksOnAccountRemoval: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackGroupRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The key of parameter N. If you do not specify the key and value of a parameter, ROS uses the default name and value that are defined in the template.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * > Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterKey.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * > Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackGroupRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the stack group.
+   * 
+   * > Tags is optional. If you want to specify Tags, you must also specify Tags.N.Key.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the stack group.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateStackGroupRequest extends $dara.Model {
   /**

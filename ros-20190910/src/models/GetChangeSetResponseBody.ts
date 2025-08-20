@@ -1,9 +1,164 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetChangeSetResponseBodyLog } from "./GetChangeSetResponseBodyLog";
-import { GetChangeSetResponseBodyParameters } from "./GetChangeSetResponseBodyParameters";
-import { GetChangeSetResponseBodyTags } from "./GetChangeSetResponseBodyTags";
 
+
+export class GetChangeSetResponseBodyLogTerraformLogs extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the Terraform command that is run. Valid values:
+   * 
+   * *   apply
+   * *   plan
+   * *   destroy
+   * *   version
+   * 
+   * For more information about Terraform commands, see [Command](https://www.terraform.io/cli/commands).
+   * 
+   * @example
+   * apply
+   */
+  command?: string;
+  /**
+   * @remarks
+   * The content of the output stream that is returned after the command is run.
+   * 
+   * @example
+   * Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The output stream. Valid values:
+   * 
+   * *   stdout: standard output stream
+   * *   stderr: standard error stream
+   * 
+   * @example
+   * stdout
+   */
+  stream?: string;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      content: 'Content',
+      stream: 'Stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      content: 'string',
+      stream: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChangeSetResponseBodyLog extends $dara.Model {
+  /**
+   * @remarks
+   * The Terraform logs. This parameter is returned only for change sets of Terraform stacks.
+   * 
+   * > This parameter is not returned for change sets that are in the Creating state. This parameter indicates the logs of the change set creation operation for Terraform stacks.
+   */
+  terraformLogs?: GetChangeSetResponseBodyLogTerraformLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      terraformLogs: 'TerraformLogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      terraformLogs: { 'type': 'array', 'itemType': GetChangeSetResponseBodyLogTerraformLogs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.terraformLogs)) {
+      $dara.Model.validateArray(this.terraformLogs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChangeSetResponseBodyParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the parameter.
+   * 
+   * @example
+   * ALIYUN::Region
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of the parameter.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChangeSetResponseBodyTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetChangeSetResponseBody extends $dara.Model {
   /**

@@ -1,9 +1,141 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateStackGroupRequestAutoDeployment } from "./UpdateStackGroupRequestAutoDeployment";
-import { UpdateStackGroupRequestDeploymentTargets } from "./UpdateStackGroupRequestDeploymentTargets";
-import { UpdateStackGroupRequestParameters } from "./UpdateStackGroupRequestParameters";
 
+
+export class UpdateStackGroupRequestAutoDeployment extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the members in the resource directory. You can specify a maximum of 20 member IDs.
+   * 
+   * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](https://help.aliyun.com/document_detail/111624.html).
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The IDs of the members in the resource directory. You can specify a maximum of 20 member IDs.
+   * 
+   * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](https://help.aliyun.com/document_detail/111624.html).
+   * 
+   * @example
+   * true
+   */
+  retainStacksOnAccountRemoval?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      retainStacksOnAccountRemoval: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackGroupRequestDeploymentTargets extends $dara.Model {
+  /**
+   * @remarks
+   * The list of one or more Alibaba Cloud accounts with which you want to share or unshare the template.
+   */
+  accountIds?: string[];
+  /**
+   * @remarks
+   * The ID of the operation.
+   */
+  rdFolderIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      rdFolderIds: 'RdFolderIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(Array.isArray(this.rdFolderIds)) {
+      $dara.Model.validateArray(this.rdFolderIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackGroupRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to retain stacks in a member when you remove the member from the folder.
+   * 
+   * Valid values:
+   * 
+   * *   true: retains the stacks.
+   * *   false: deletes the stacks.
+   * 
+   * >  This parameter is required if the Enabled parameter is set to true.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The folders in which you want to use service-managed permissions to update stacks.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateStackGroupRequest extends $dara.Model {
   /**

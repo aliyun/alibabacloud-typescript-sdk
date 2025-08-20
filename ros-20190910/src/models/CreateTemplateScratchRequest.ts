@@ -1,11 +1,267 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateTemplateScratchRequestPreferenceParameters } from "./CreateTemplateScratchRequestPreferenceParameters";
-import { CreateTemplateScratchRequestSourceResourceGroup } from "./CreateTemplateScratchRequestSourceResourceGroup";
-import { CreateTemplateScratchRequestSourceResources } from "./CreateTemplateScratchRequestSourceResources";
-import { CreateTemplateScratchRequestSourceTag } from "./CreateTemplateScratchRequestSourceTag";
-import { CreateTemplateScratchRequestTags } from "./CreateTemplateScratchRequestTags";
 
+
+export class CreateTemplateScratchRequestPreferenceParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * For more information about the valid values of ParameterKey, see the "**Additional information about request parameters**" section of this topic.
+   * 
+   * > 
+   * 
+   * *   PreferenceParameters is optional. If you specify PreferenceParameters, you must specify ParameterKey and ParameterValue.
+   * 
+   * *   You must set ParameterKey to DeletionPolicy when TemplateScratchType is set to ResourceImport.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DeletionPolicy
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The parameter value. The value is an assignment to the parameter key.
+   * 
+   * For more information about the valid values of ParameterValue, see the "**Additional information about request parameters**" section of this topic.
+   * 
+   * >  PreferenceParameters is optional. If you specify PreferenceParameters, you must specify ParameterKey and ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Retain
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchRequestSourceResourceGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the source resource group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rg-acfmzawhxxc****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The resource types for filtering resources.
+   */
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceTypeFilter)) {
+      $dara.Model.validateArray(this.resourceTypeFilter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchRequestSourceResources extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID of the resource.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
+   * 
+   * > 
+   * 
+   * *   This parameter takes effect only when TemplateScratchType is set to ArchitectureDetection.
+   * 
+   * *   The region ID of a global resource is `global`. For example, the region ID of the ALIYUN::CDN::Domain global resource is `global`.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The related resource type filters.
+   */
+  relatedResourceTypeFilter?: string[];
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp1m6fww66xbntjyc****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ALIYUN::ECS::VPC
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      relatedResourceTypeFilter: 'RelatedResourceTypeFilter',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      relatedResourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.relatedResourceTypeFilter)) {
+      $dara.Model.validateArray(this.relatedResourceTypeFilter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchRequestSourceTag extends $dara.Model {
+  /**
+   * @remarks
+   * The source tags that consist of key-value pairs. If you want to specify only the tag key, you must leave the tag value empty. Example: `{"TagKey": ""}`.
+   * 
+   * You can add up to 10 source tags.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"a": "b"}
+   */
+  resourceTags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The resource types for filtering resources.
+   */
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceTags: 'ResourceTags',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.resourceTags) {
+      $dara.Model.validateMap(this.resourceTags);
+    }
+    if(Array.isArray(this.resourceTypeFilter)) {
+      $dara.Model.validateArray(this.resourceTypeFilter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource scenario.
+   * 
+   * > Tags is optional. If you want to specify Tags, you must specify Key.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the resource scenario.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateTemplateScratchRequest extends $dara.Model {
   /**

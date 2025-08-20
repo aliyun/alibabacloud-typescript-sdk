@@ -4970,6 +4970,10 @@ export default class Client extends OpenApi {
       query["TimeoutInMinutes"] = request.timeoutInMinutes;
     }
 
+    if (!$dara.isNull(request.usePreviousParameters)) {
+      query["UsePreviousParameters"] = request.usePreviousParameters;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;

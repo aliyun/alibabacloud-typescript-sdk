@@ -1,8 +1,100 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateStackInstancesRequestDeploymentTargets } from "./CreateStackInstancesRequestDeploymentTargets";
-import { CreateStackInstancesRequestParameterOverrides } from "./CreateStackInstancesRequestParameterOverrides";
 
+
+export class CreateStackInstancesRequestDeploymentTargets extends $dara.Model {
+  accountIds?: string[];
+  /**
+   * @remarks
+   * The folder IDs of the resource directory. You can add up to five folder IDs.
+   * 
+   * You can create stacks within all the member accounts in the specified folders. If you create stacks in the Root folder, the stacks are created within all member accounts in the resource directory.
+   * 
+   * > To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information about a folder](https://help.aliyun.com/document_detail/111223.html).
+   */
+  rdFolderIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      rdFolderIds: 'RdFolderIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(Array.isArray(this.rdFolderIds)) {
+      $dara.Model.validateArray(this.rdFolderIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackInstancesRequestParameterOverrides extends $dara.Model {
+  /**
+   * @remarks
+   * The key of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the name that you specified when you created the stack group.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * >-   ParameterOverrides is optional.
+   * >-   If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Amount
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The value of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the value that you specify when you create the stack group.
+   * 
+   * Maximum value of N: 200.
+   * 
+   * >-  ParameterOverrides is optional.
+   * >-  If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateStackInstancesRequest extends $dara.Model {
   /**

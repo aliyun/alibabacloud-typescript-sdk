@@ -1,11 +1,530 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetStackResponseBodyLog } from "./GetStackResponseBodyLog";
-import { GetStackResponseBodyOperationInfo } from "./GetStackResponseBodyOperationInfo";
-import { GetStackResponseBodyParameters } from "./GetStackResponseBodyParameters";
-import { GetStackResponseBodyResourceProgress } from "./GetStackResponseBodyResourceProgress";
-import { GetStackResponseBodyTags } from "./GetStackResponseBodyTags";
 
+
+export class GetStackResponseBodyLogResourceLogsLogs extends $dara.Model {
+  /**
+   * @remarks
+   * The content of a resource log.
+   * 
+   * @example
+   * []
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The keywords of a resource log.
+   */
+  keys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      keys: 'Keys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      keys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.keys)) {
+      $dara.Model.validateArray(this.keys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyLogResourceLogs extends $dara.Model {
+  /**
+   * @remarks
+   * All the logs that are associated with the resources.
+   */
+  logs?: GetStackResponseBodyLogResourceLogsLogs[];
+  /**
+   * @remarks
+   * The name of the resource that is defined in the template.
+   * 
+   * @example
+   * MyResourceCleaner
+   */
+  resourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logs: 'Logs',
+      resourceName: 'ResourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logs: { 'type': 'array', 'itemType': GetStackResponseBodyLogResourceLogsLogs },
+      resourceName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.logs)) {
+      $dara.Model.validateArray(this.logs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyLogTerraformLogs extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the Terraform command that is run. Valid values:
+   * 
+   * *   apply
+   * *   plan
+   * *   destroy
+   * *   version
+   * 
+   * For more information about Terraform commands, see [Basic CLI Features](https://www.terraform.io/cli/commands).
+   * 
+   * @example
+   * apply
+   */
+  command?: string;
+  /**
+   * @remarks
+   * The content of the output stream that is returned after the command is run.
+   * 
+   * @example
+   * Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The output stream. Valid values:
+   * 
+   * *   stdout: standard output stream
+   * *   stderr: standard error stream
+   * 
+   * @example
+   * stdout
+   */
+  stream?: string;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      content: 'Content',
+      stream: 'Stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      content: 'string',
+      stream: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyLog extends $dara.Model {
+  /**
+   * @remarks
+   * The logs of resources in the stack. This parameter is returned if LogOption is set to Resource or All.
+   * 
+   * >  The logs are returned only for resources of specific types, such as the `ALIYUN::ROS::ResourceCleaner` type.
+   */
+  resourceLogs?: GetStackResponseBodyLogResourceLogs[];
+  /**
+   * @remarks
+   * The logs generated when the Terraform stack is run. This parameter is returned only for a Terraform stack. This parameter is returned if LogOption is left empty or set to Stack or All.
+   * 
+   * >  This parameter is not returned for a running stack. The logs are generated from the most recent operation on the stack, such as the creation, resumed creation, update, or deletion operation.
+   */
+  terraformLogs?: GetStackResponseBodyLogTerraformLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceLogs: 'ResourceLogs',
+      terraformLogs: 'TerraformLogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceLogs: { 'type': 'array', 'itemType': GetStackResponseBodyLogResourceLogs },
+      terraformLogs: { 'type': 'array', 'itemType': GetStackResponseBodyLogTerraformLogs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceLogs)) {
+      $dara.Model.validateArray(this.resourceLogs);
+    }
+    if(Array.isArray(this.terraformLogs)) {
+      $dara.Model.validateArray(this.terraformLogs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyOperationInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the API operation that belongs to another Alibaba Cloud service.
+   * 
+   * @example
+   * DeleteSecurityGroup
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * DependencyViolation
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The logical ID of the resource on which the operation error occurs.
+   * 
+   * @example
+   * EcsSecurityGroup
+   */
+  logicalResourceId?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * There is still instance(s) in the specified security group.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request that is initiated to call the API operation of another Alibaba Cloud service.
+   * 
+   * @example
+   * 071D6166-3F6B-5C7B-A1F0-0113FBB643A8
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The type of the resource on which the operation error occurs.
+   * 
+   * @example
+   * ALIYUN::ECS::SecurityGroup
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      code: 'Code',
+      logicalResourceId: 'LogicalResourceId',
+      message: 'Message',
+      requestId: 'RequestId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      code: 'string',
+      logicalResourceId: 'string',
+      message: 'string',
+      requestId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * @example
+   * ALIYUN::Region
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The parameter value.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyResourceProgressInProgressResourceDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The desired progress value of the resource.
+   * 
+   * @example
+   * 10
+   */
+  progressTargetValue?: number;
+  /**
+   * @remarks
+   * The current progress value of the resource.
+   * 
+   * @example
+   * 5
+   */
+  progressValue?: number;
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * WaitCondition
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ALIYUN::ROS::WaitCondition
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      progressTargetValue: 'ProgressTargetValue',
+      progressValue: 'ProgressValue',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      progressTargetValue: 'number',
+      progressValue: 'number',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyResourceProgress extends $dara.Model {
+  /**
+   * @remarks
+   * The number of resources that failed to be created.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * 
+   * @example
+   * 0
+   */
+  failedResourceCount?: number;
+  /**
+   * @remarks
+   * The number of resources that are being created.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * 
+   * @example
+   * 1
+   */
+  inProgressResourceCount?: number;
+  /**
+   * @remarks
+   * The progress details of resources that are being created.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   */
+  inProgressResourceDetails?: GetStackResponseBodyResourceProgressInProgressResourceDetails[];
+  /**
+   * @remarks
+   * The number of resources to be created.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * 
+   * @example
+   * 0
+   */
+  pendingResourceCount?: number;
+  /**
+   * @remarks
+   * The creation or rollback progress of the stack, in percentage. Valid values: 0 to 100.
+   * 
+   * The value progressively increases from 0 to 100 during a stack creation operation. If the stack is created, the value reaches 100. If the stack fails to be created, a rollback is started for the stack resources, and the value progressively increases from the percentage of the remaining progress (100 - Progress value generated when the stack fails to be created). The value increases to 100 when the stack resources are rolled back. This parameter indicates the creation progress during a stack creation operation and indicates the rollback progress during a stack rollback operation.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `PercentageOnly`.
+   * 
+   * @example
+   * 100
+   */
+  stackActionProgress?: number;
+  /**
+   * @remarks
+   * The overall creation progress of the stack, in percentage. Valid values: 0 to 100.
+   * 
+   * The value progressively increases from 0 to 100 during a stack creation operation. If the stack is created, the value reaches 100. If the stack fails to be created, a rollback is started for the stack resources, and the value progressively decreases. The value decreases to 0 when the stack resources are rolled back. This parameter indicates only the overall creation progress, regardless of whether during a stack creation or rollback operation.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `PercentageOnly`.
+   * 
+   * @example
+   * 100
+   */
+  stackOperationProgress?: number;
+  /**
+   * @remarks
+   * The number of resources that are created.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * 
+   * @example
+   * 1
+   */
+  successResourceCount?: number;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * >  This parameter is returned only if `ShowResourceProgress` is set to `EnabledIfCreateStack`.
+   * 
+   * @example
+   * 2
+   */
+  totalResourceCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedResourceCount: 'FailedResourceCount',
+      inProgressResourceCount: 'InProgressResourceCount',
+      inProgressResourceDetails: 'InProgressResourceDetails',
+      pendingResourceCount: 'PendingResourceCount',
+      stackActionProgress: 'StackActionProgress',
+      stackOperationProgress: 'StackOperationProgress',
+      successResourceCount: 'SuccessResourceCount',
+      totalResourceCount: 'TotalResourceCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedResourceCount: 'number',
+      inProgressResourceCount: 'number',
+      inProgressResourceDetails: { 'type': 'array', 'itemType': GetStackResponseBodyResourceProgressInProgressResourceDetails },
+      pendingResourceCount: 'number',
+      stackActionProgress: 'number',
+      stackOperationProgress: 'number',
+      successResourceCount: 'number',
+      totalResourceCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inProgressResourceDetails)) {
+      $dara.Model.validateArray(this.inProgressResourceDetails);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the stack.
+   * 
+   * @example
+   * usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the stack.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetStackResponseBody extends $dara.Model {
   /**
