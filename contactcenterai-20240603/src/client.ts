@@ -37,6 +37,92 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AnalyzeAudioSyncResponse
    */
+  async *analyzeAudioSyncWithSSE(workspaceId: string, appId: string, request: $_model.AnalyzeAudioSyncRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.AnalyzeAudioSyncResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoryTags)) {
+      body["categoryTags"] = request.categoryTags;
+    }
+
+    if (!$dara.isNull(request.customPrompt)) {
+      body["customPrompt"] = request.customPrompt;
+    }
+
+    if (!$dara.isNull(request.fields)) {
+      body["fields"] = request.fields;
+    }
+
+    if (!$dara.isNull(request.modelCode)) {
+      body["modelCode"] = request.modelCode;
+    }
+
+    if (!$dara.isNull(request.responseFormatType)) {
+      body["responseFormatType"] = request.responseFormatType;
+    }
+
+    if (!$dara.isNull(request.resultTypes)) {
+      body["resultTypes"] = request.resultTypes;
+    }
+
+    if (!$dara.isNull(request.serviceInspection)) {
+      body["serviceInspection"] = request.serviceInspection;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.templateIds)) {
+      body["templateIds"] = request.templateIds;
+    }
+
+    if (!$dara.isNull(request.transcription)) {
+      body["transcription"] = request.transcription;
+    }
+
+    if (!$dara.isNull(request.variables)) {
+      body["variables"] = request.variables;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AnalyzeAudioSync",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ccai/app/${$dara.URL.percentEncode(appId)}/analyzeAudioSync`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.AnalyzeAudioSyncResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.AnalyzeAudioSyncResponse({}));
+    }
+  }
+
+  /**
+   * 语音文件分析任务极速版
+   * 
+   * @param request - AnalyzeAudioSyncRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AnalyzeAudioSyncResponse
+   */
   async analyzeAudioSyncWithOptions(workspaceId: string, appId: string, request: $_model.AnalyzeAudioSyncRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AnalyzeAudioSyncResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -112,6 +198,104 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.analyzeAudioSyncWithOptions(workspaceId, appId, request, headers, runtime);
+  }
+
+  /**
+   * 根据类型调用大模型
+   * 
+   * @param request - AnalyzeConversationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AnalyzeConversationResponse
+   */
+  async *analyzeConversationWithSSE(workspaceId: string, appId: string, request: $_model.AnalyzeConversationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.AnalyzeConversationResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoryTags)) {
+      body["categoryTags"] = request.categoryTags;
+    }
+
+    if (!$dara.isNull(request.customPrompt)) {
+      body["customPrompt"] = request.customPrompt;
+    }
+
+    if (!$dara.isNull(request.dialogue)) {
+      body["dialogue"] = request.dialogue;
+    }
+
+    if (!$dara.isNull(request.examples)) {
+      body["examples"] = request.examples;
+    }
+
+    if (!$dara.isNull(request.fields)) {
+      body["fields"] = request.fields;
+    }
+
+    if (!$dara.isNull(request.modelCode)) {
+      body["modelCode"] = request.modelCode;
+    }
+
+    if (!$dara.isNull(request.responseFormatType)) {
+      body["responseFormatType"] = request.responseFormatType;
+    }
+
+    if (!$dara.isNull(request.resultTypes)) {
+      body["resultTypes"] = request.resultTypes;
+    }
+
+    if (!$dara.isNull(request.sceneName)) {
+      body["sceneName"] = request.sceneName;
+    }
+
+    if (!$dara.isNull(request.serviceInspection)) {
+      body["serviceInspection"] = request.serviceInspection;
+    }
+
+    if (!$dara.isNull(request.sourceCallerUid)) {
+      body["sourceCallerUid"] = request.sourceCallerUid;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.timeConstraintList)) {
+      body["timeConstraintList"] = request.timeConstraintList;
+    }
+
+    if (!$dara.isNull(request.userProfiles)) {
+      body["userProfiles"] = request.userProfiles;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AnalyzeConversation",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ccai/app/${$dara.URL.percentEncode(appId)}/analyze_conversation`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.AnalyzeConversationResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.AnalyzeConversationResponse({}));
+    }
   }
 
   /**
@@ -209,6 +393,64 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.analyzeConversationWithOptions(workspaceId, appId, request, headers, runtime);
+  }
+
+  /**
+   * 图片分析
+   * 
+   * @param request - AnalyzeImageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AnalyzeImageResponse
+   */
+  async *analyzeImageWithSSE(workspaceId: string, appId: string, request: $_model.AnalyzeImageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.AnalyzeImageResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.imageUrls)) {
+      body["imageUrls"] = request.imageUrls;
+    }
+
+    if (!$dara.isNull(request.responseFormatType)) {
+      body["responseFormatType"] = request.responseFormatType;
+    }
+
+    if (!$dara.isNull(request.resultTypes)) {
+      body["resultTypes"] = request.resultTypes;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AnalyzeImage",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ccai/app/${$dara.URL.percentEncode(appId)}/analyzeImage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.AnalyzeImageResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.AnalyzeImageResponse({}));
+    }
   }
 
   /**
@@ -632,6 +874,80 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunCompletionResponse
    */
+  async *runCompletionWithSSE(workspaceId: string, appId: string, request: $_model.RunCompletionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunCompletionResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dialogue)) {
+      body["Dialogue"] = request.dialogue;
+    }
+
+    if (!$dara.isNull(request.fields)) {
+      body["Fields"] = request.fields;
+    }
+
+    if (!$dara.isNull(request.modelCode)) {
+      body["ModelCode"] = request.modelCode;
+    }
+
+    if (!$dara.isNull(request.serviceInspection)) {
+      body["ServiceInspection"] = request.serviceInspection;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["Stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.templateIds)) {
+      body["TemplateIds"] = request.templateIds;
+    }
+
+    if (!$dara.isNull(request.responseFormatType)) {
+      body["responseFormatType"] = request.responseFormatType;
+    }
+
+    if (!$dara.isNull(request.variables)) {
+      body["variables"] = request.variables;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunCompletion",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ccai/app/${$dara.URL.percentEncode(appId)}/completion`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunCompletionResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunCompletionResponse({}));
+    }
+  }
+
+  /**
+   * CCAI服务面API
+   * 
+   * @param request - RunCompletionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunCompletionResponse
+   */
   async runCompletionWithOptions(workspaceId: string, appId: string, request: $_model.RunCompletionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunCompletionResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -695,6 +1011,64 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runCompletionWithOptions(workspaceId, appId, request, headers, runtime);
+  }
+
+  /**
+   * CCAI服务面API
+   * 
+   * @param request - RunCompletionMessageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunCompletionMessageResponse
+   */
+  async *runCompletionMessageWithSSE(workspaceId: string, appId: string, request: $_model.RunCompletionMessageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunCompletionMessageResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.messages)) {
+      body["Messages"] = request.messages;
+    }
+
+    if (!$dara.isNull(request.modelCode)) {
+      body["ModelCode"] = request.modelCode;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["Stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.responseFormatType)) {
+      body["responseFormatType"] = request.responseFormatType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunCompletionMessage",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ccai/app/${$dara.URL.percentEncode(appId)}/completion_message`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunCompletionMessageResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunCompletionMessageResponse({}));
+    }
   }
 
   /**
