@@ -1,3523 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class AppUseTimeReportHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AppUseTimeReportRequest extends $tea.Model {
-  deviceInfo?: AppUseTimeReportRequestDeviceInfo;
-  payload?: AppUseTimeReportRequestPayload;
-  userInfo?: AppUseTimeReportRequestUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      payload: 'Payload',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: AppUseTimeReportRequestDeviceInfo,
-      payload: AppUseTimeReportRequestPayload,
-      userInfo: AppUseTimeReportRequestUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AppUseTimeReportShrinkRequest extends $tea.Model {
-  deviceInfoShrink?: string;
-  payloadShrink?: string;
-  userInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfoShrink: 'DeviceInfo',
-      payloadShrink: 'Payload',
-      userInfoShrink: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfoShrink: 'string',
-      payloadShrink: 'string',
-      userInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AppUseTimeReportResponseBody extends $tea.Model {
-  retCode?: number;
-  retMsg?: string;
-  retValue?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      retCode: 'RetCode',
-      retMsg: 'RetMsg',
-      retValue: 'RetValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      retCode: 'number',
-      retMsg: 'string',
-      retValue: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AppUseTimeReportResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AppUseTimeReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AppUseTimeReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CallBackThirdRightSendPlanHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CallBackThirdRightSendPlanRequest extends $tea.Model {
-  bizGroup?: string;
-  bizType?: string;
-  cardType?: number;
-  errorMsg?: string;
-  extendInfo?: { [key: string]: any };
-  genieOpenId?: string;
-  receiveStatus?: number;
-  sn?: string;
-  supplierId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizGroup: 'BizGroup',
-      bizType: 'BizType',
-      cardType: 'CardType',
-      errorMsg: 'ErrorMsg',
-      extendInfo: 'ExtendInfo',
-      genieOpenId: 'GenieOpenId',
-      receiveStatus: 'ReceiveStatus',
-      sn: 'Sn',
-      supplierId: 'SupplierId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizGroup: 'string',
-      bizType: 'string',
-      cardType: 'number',
-      errorMsg: 'string',
-      extendInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      genieOpenId: 'string',
-      receiveStatus: 'number',
-      sn: 'string',
-      supplierId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CallBackThirdRightSendPlanShrinkRequest extends $tea.Model {
-  bizGroup?: string;
-  bizType?: string;
-  cardType?: number;
-  errorMsg?: string;
-  extendInfoShrink?: string;
-  genieOpenId?: string;
-  receiveStatus?: number;
-  sn?: string;
-  supplierId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizGroup: 'BizGroup',
-      bizType: 'BizType',
-      cardType: 'CardType',
-      errorMsg: 'ErrorMsg',
-      extendInfoShrink: 'ExtendInfo',
-      genieOpenId: 'GenieOpenId',
-      receiveStatus: 'ReceiveStatus',
-      sn: 'Sn',
-      supplierId: 'SupplierId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizGroup: 'string',
-      bizType: 'string',
-      cardType: 'number',
-      errorMsg: 'string',
-      extendInfoShrink: 'string',
-      genieOpenId: 'string',
-      receiveStatus: 'number',
-      sn: 'string',
-      supplierId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CallBackThirdRightSendPlanResponseBody extends $tea.Model {
-  retCode?: string;
-  retMsg?: string;
-  retValue?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      retCode: 'RetCode',
-      retMsg: 'RetMsg',
-      retValue: 'RetValue',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      retCode: 'string',
-      retMsg: 'string',
-      retValue: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CallBackThirdRightSendPlanResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CallBackThirdRightSendPlanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CallBackThirdRightSendPlanResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckThirdRightSendPlanHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckThirdRightSendPlanRequest extends $tea.Model {
-  bizGroup?: string;
-  bizType?: string;
-  extendInfo?: { [key: string]: any };
-  sn?: string;
-  supplierId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizGroup: 'BizGroup',
-      bizType: 'BizType',
-      extendInfo: 'ExtendInfo',
-      sn: 'Sn',
-      supplierId: 'SupplierId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizGroup: 'string',
-      bizType: 'string',
-      extendInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      sn: 'string',
-      supplierId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckThirdRightSendPlanShrinkRequest extends $tea.Model {
-  bizGroup?: string;
-  bizType?: string;
-  extendInfoShrink?: string;
-  sn?: string;
-  supplierId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizGroup: 'BizGroup',
-      bizType: 'BizType',
-      extendInfoShrink: 'ExtendInfo',
-      sn: 'Sn',
-      supplierId: 'SupplierId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizGroup: 'string',
-      bizType: 'string',
-      extendInfoShrink: 'string',
-      sn: 'string',
-      supplierId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckThirdRightSendPlanResponseBody extends $tea.Model {
-  retCode?: number;
-  retMsg?: string;
-  retValue?: CheckThirdRightSendPlanResponseBodyRetValue;
-  static names(): { [key: string]: string } {
-    return {
-      retCode: 'RetCode',
-      retMsg: 'RetMsg',
-      retValue: 'RetValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      retCode: 'number',
-      retMsg: 'string',
-      retValue: CheckThirdRightSendPlanResponseBodyRetValue,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckThirdRightSendPlanResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckThirdRightSendPlanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckThirdRightSendPlanResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateReminderHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateReminderRequest extends $tea.Model {
-  deviceInfo?: CreateReminderRequestDeviceInfo;
-  payload?: CreateReminderRequestPayload;
-  userInfo?: CreateReminderRequestUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      payload: 'Payload',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: CreateReminderRequestDeviceInfo,
-      payload: CreateReminderRequestPayload,
-      userInfo: CreateReminderRequestUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateReminderShrinkRequest extends $tea.Model {
-  deviceInfoShrink?: string;
-  payloadShrink?: string;
-  userInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfoShrink: 'DeviceInfo',
-      payloadShrink: 'Payload',
-      userInfoShrink: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfoShrink: 'string',
-      payloadShrink: 'string',
-      userInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateReminderResponseBody extends $tea.Model {
-  errorCode?: string;
-  errorMsg?: string;
-  model?: number;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      model: 'Model',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMsg: 'string',
-      model: 'number',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateReminderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateReminderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateReminderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteReminderHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteReminderRequest extends $tea.Model {
-  deviceInfo?: DeleteReminderRequestDeviceInfo;
-  payload?: DeleteReminderRequestPayload;
-  userInfo?: DeleteReminderRequestUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      payload: 'Payload',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: DeleteReminderRequestDeviceInfo,
-      payload: DeleteReminderRequestPayload,
-      userInfo: DeleteReminderRequestUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteReminderShrinkRequest extends $tea.Model {
-  deviceInfoShrink?: string;
-  payloadShrink?: string;
-  userInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfoShrink: 'DeviceInfo',
-      payloadShrink: 'Payload',
-      userInfoShrink: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfoShrink: 'string',
-      payloadShrink: 'string',
-      userInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteReminderResponseBody extends $tea.Model {
-  errorCode?: number;
-  errorMsg?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'number',
-      errorMsg: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteReminderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteReminderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteReminderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountForAppHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountForAppRequest extends $tea.Model {
-  deviceInfo?: GetAccountForAppRequestDeviceInfo;
-  payload?: GetAccountForAppRequestPayload;
-  userInfo?: GetAccountForAppRequestUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      payload: 'Payload',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: GetAccountForAppRequestDeviceInfo,
-      payload: GetAccountForAppRequestPayload,
-      userInfo: GetAccountForAppRequestUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountForAppShrinkRequest extends $tea.Model {
-  deviceInfoShrink?: string;
-  payloadShrink?: string;
-  userInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfoShrink: 'DeviceInfo',
-      payloadShrink: 'Payload',
-      userInfoShrink: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfoShrink: 'string',
-      payloadShrink: 'string',
-      userInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountForAppResponseBody extends $tea.Model {
-  retCode?: number;
-  retMsg?: string;
-  retValue?: GetAccountForAppResponseBodyRetValue;
-  static names(): { [key: string]: string } {
-    return {
-      retCode: 'RetCode',
-      retMsg: 'RetMsg',
-      retValue: 'RetValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      retCode: 'number',
-      retMsg: 'string',
-      retValue: GetAccountForAppResponseBodyRetValue,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountForAppResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAccountForAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccountForAppResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBusAppConfigHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBusAppConfigRequest extends $tea.Model {
-  deviceInfo?: GetBusAppConfigRequestDeviceInfo;
-  payload?: GetBusAppConfigRequestPayload;
-  userInfo?: GetBusAppConfigRequestUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      payload: 'Payload',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: GetBusAppConfigRequestDeviceInfo,
-      payload: GetBusAppConfigRequestPayload,
-      userInfo: GetBusAppConfigRequestUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBusAppConfigShrinkRequest extends $tea.Model {
-  deviceInfoShrink?: string;
-  payloadShrink?: string;
-  userInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfoShrink: 'DeviceInfo',
-      payloadShrink: 'Payload',
-      userInfoShrink: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfoShrink: 'string',
-      payloadShrink: 'string',
-      userInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBusAppConfigResponseBody extends $tea.Model {
-  retCode?: number;
-  retMsg?: string;
-  retValue?: GetBusAppConfigResponseBodyRetValue;
-  static names(): { [key: string]: string } {
-    return {
-      retCode: 'RetCode',
-      retMsg: 'RetMsg',
-      retValue: 'RetValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      retCode: 'number',
-      retMsg: 'string',
-      retValue: GetBusAppConfigResponseBodyRetValue,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBusAppConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetBusAppConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetBusAppConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPhoneNumberHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPhoneNumberRequest extends $tea.Model {
-  deviceInfo?: GetPhoneNumberRequestDeviceInfo;
-  userInfo?: GetPhoneNumberRequestUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: GetPhoneNumberRequestDeviceInfo,
-      userInfo: GetPhoneNumberRequestUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPhoneNumberShrinkRequest extends $tea.Model {
-  deviceInfoShrink?: string;
-  userInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfoShrink: 'DeviceInfo',
-      userInfoShrink: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfoShrink: 'string',
-      userInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPhoneNumberResponseBody extends $tea.Model {
-  phoneNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      phoneNumber: 'phoneNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      phoneNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPhoneNumberResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetPhoneNumberResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetPhoneNumberResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReminderHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReminderRequest extends $tea.Model {
-  deviceInfo?: GetReminderRequestDeviceInfo;
-  payload?: GetReminderRequestPayload;
-  userInfo?: GetReminderRequestUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      payload: 'Payload',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: GetReminderRequestDeviceInfo,
-      payload: GetReminderRequestPayload,
-      userInfo: GetReminderRequestUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReminderShrinkRequest extends $tea.Model {
-  deviceInfoShrink?: string;
-  payloadShrink?: string;
-  userInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfoShrink: 'DeviceInfo',
-      payloadShrink: 'Payload',
-      userInfoShrink: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfoShrink: 'string',
-      payloadShrink: 'string',
-      userInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReminderResponseBody extends $tea.Model {
-  errorCode?: number;
-  errorMsg?: string;
-  model?: GetReminderResponseBodyModel;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      model: 'Model',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'number',
-      errorMsg: 'string',
-      model: GetReminderResponseBodyModel,
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReminderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetReminderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetReminderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRemindersHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRemindersRequest extends $tea.Model {
-  deviceInfo?: ListRemindersRequestDeviceInfo;
-  payload?: ListRemindersRequestPayload;
-  userInfo?: ListRemindersRequestUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      payload: 'Payload',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: ListRemindersRequestDeviceInfo,
-      payload: ListRemindersRequestPayload,
-      userInfo: ListRemindersRequestUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRemindersShrinkRequest extends $tea.Model {
-  deviceInfoShrink?: string;
-  payloadShrink?: string;
-  userInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfoShrink: 'DeviceInfo',
-      payloadShrink: 'Payload',
-      userInfoShrink: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfoShrink: 'string',
-      payloadShrink: 'string',
-      userInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRemindersResponseBody extends $tea.Model {
-  errorCode?: number;
-  errorMsg?: string;
-  model?: ListRemindersResponseBodyModel;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      model: 'Model',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'number',
-      errorMsg: 'string',
-      model: ListRemindersResponseBodyModel,
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRemindersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListRemindersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListRemindersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PullCashierHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PullCashierRequest extends $tea.Model {
-  deviceInfo?: PullCashierRequestDeviceInfo;
-  payload?: PullCashierRequestPayload;
-  userInfo?: PullCashierRequestUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      payload: 'Payload',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: PullCashierRequestDeviceInfo,
-      payload: PullCashierRequestPayload,
-      userInfo: PullCashierRequestUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PullCashierShrinkRequest extends $tea.Model {
-  deviceInfoShrink?: string;
-  payloadShrink?: string;
-  userInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfoShrink: 'DeviceInfo',
-      payloadShrink: 'Payload',
-      userInfoShrink: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfoShrink: 'string',
-      payloadShrink: 'string',
-      userInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PullCashierResponseBody extends $tea.Model {
-  retCode?: number;
-  retMsg?: string;
-  retValue?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      retCode: 'RetCode',
-      retMsg: 'RetMsg',
-      retValue: 'RetValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      retCode: 'number',
-      retMsg: 'string',
-      retValue: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PullCashierResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PullCashierResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PullCashierResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNotificationsHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNotificationsRequest extends $tea.Model {
-  notificationUnicastRequest?: PushNotificationsRequestNotificationUnicastRequest;
-  tenantInfo?: PushNotificationsRequestTenantInfo;
-  static names(): { [key: string]: string } {
-    return {
-      notificationUnicastRequest: 'NotificationUnicastRequest',
-      tenantInfo: 'TenantInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      notificationUnicastRequest: PushNotificationsRequestNotificationUnicastRequest,
-      tenantInfo: PushNotificationsRequestTenantInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNotificationsShrinkRequest extends $tea.Model {
-  notificationUnicastRequestShrink?: string;
-  tenantInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      notificationUnicastRequestShrink: 'NotificationUnicastRequest',
-      tenantInfoShrink: 'TenantInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      notificationUnicastRequestShrink: 'string',
-      tenantInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNotificationsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendNotificationsHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendNotificationsRequest extends $tea.Model {
-  deviceInfo?: SendNotificationsRequestDeviceInfo;
-  notificationUnicastRequest?: SendNotificationsRequestNotificationUnicastRequest;
-  tenantInfo?: SendNotificationsRequestTenantInfo;
-  userInfo?: SendNotificationsRequestUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      notificationUnicastRequest: 'NotificationUnicastRequest',
-      tenantInfo: 'TenantInfo',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: SendNotificationsRequestDeviceInfo,
-      notificationUnicastRequest: SendNotificationsRequestNotificationUnicastRequest,
-      tenantInfo: SendNotificationsRequestTenantInfo,
-      userInfo: SendNotificationsRequestUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendNotificationsShrinkRequest extends $tea.Model {
-  deviceInfoShrink?: string;
-  notificationUnicastRequestShrink?: string;
-  tenantInfoShrink?: string;
-  userInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfoShrink: 'DeviceInfo',
-      notificationUnicastRequestShrink: 'NotificationUnicastRequest',
-      tenantInfoShrink: 'TenantInfo',
-      userInfoShrink: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfoShrink: 'string',
-      notificationUnicastRequestShrink: 'string',
-      tenantInfoShrink: 'string',
-      userInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendNotificationsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateReminderHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateReminderRequest extends $tea.Model {
-  deviceInfo?: UpdateReminderRequestDeviceInfo;
-  payload?: UpdateReminderRequestPayload;
-  userInfo?: UpdateReminderRequestUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      payload: 'Payload',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: UpdateReminderRequestDeviceInfo,
-      payload: UpdateReminderRequestPayload,
-      userInfo: UpdateReminderRequestUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateReminderShrinkRequest extends $tea.Model {
-  deviceInfoShrink?: string;
-  payloadShrink?: string;
-  userInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfoShrink: 'DeviceInfo',
-      payloadShrink: 'Payload',
-      userInfoShrink: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfoShrink: 'string',
-      payloadShrink: 'string',
-      userInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateReminderResponseBody extends $tea.Model {
-  errorCode?: number;
-  errorMsg?: string;
-  model?: number;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      model: 'Model',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'number',
-      errorMsg: 'string',
-      model: 'number',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateReminderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateReminderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateReminderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoAppReportHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoAppReportRequest extends $tea.Model {
-  deviceInfo?: VideoAppReportRequestDeviceInfo;
-  payload?: VideoAppReportRequestPayload;
-  userInfo?: VideoAppReportRequestUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      payload: 'Payload',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: VideoAppReportRequestDeviceInfo,
-      payload: VideoAppReportRequestPayload,
-      userInfo: VideoAppReportRequestUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoAppReportShrinkRequest extends $tea.Model {
-  deviceInfoShrink?: string;
-  payloadShrink?: string;
-  userInfoShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfoShrink: 'DeviceInfo',
-      payloadShrink: 'Payload',
-      userInfoShrink: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfoShrink: 'string',
-      payloadShrink: 'string',
-      userInfoShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoAppReportResponseBody extends $tea.Model {
-  retCode?: number;
-  retMsg?: string;
-  retValue?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      retCode: 'RetCode',
-      retMsg: 'RetMsg',
-      retValue: 'RetValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      retCode: 'number',
-      retMsg: 'string',
-      retValue: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoAppReportResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: VideoAppReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VideoAppReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WakeUpAppHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  xAcsAligenieAccessToken?: string;
-  authorization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
-      authorization: 'Authorization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAligenieAccessToken: 'string',
-      authorization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WakeUpAppRequest extends $tea.Model {
-  isDebug?: boolean;
-  path?: string;
-  targetInfo?: WakeUpAppRequestTargetInfo;
-  static names(): { [key: string]: string } {
-    return {
-      isDebug: 'IsDebug',
-      path: 'Path',
-      targetInfo: 'TargetInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isDebug: 'boolean',
-      path: 'string',
-      targetInfo: WakeUpAppRequestTargetInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WakeUpAppResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AppUseTimeReportRequestDeviceInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AppUseTimeReportRequestPayload extends $tea.Model {
-  action?: string;
-  isPrivilege?: number;
-  resourceId?: string;
-  resourceType?: number;
-  stepCode?: string;
-  vipType?: number;
-  originUuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      isPrivilege: 'IsPrivilege',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      stepCode: 'StepCode',
-      vipType: 'VipType',
-      originUuid: 'originUuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      isPrivilege: 'number',
-      resourceId: 'string',
-      resourceType: 'number',
-      stepCode: 'string',
-      vipType: 'number',
-      originUuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AppUseTimeReportRequestUserInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckThirdRightSendPlanResponseBodyRetValue extends $tea.Model {
-  activateDate?: string;
-  cardType?: number;
-  channelCode?: string;
-  channelName?: string;
-  extendInfo?: { [key: string]: any };
-  requestId?: string;
-  rightsExpiredDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      activateDate: 'ActivateDate',
-      cardType: 'CardType',
-      channelCode: 'ChannelCode',
-      channelName: 'ChannelName',
-      extendInfo: 'ExtendInfo',
-      requestId: 'RequestId',
-      rightsExpiredDate: 'RightsExpiredDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activateDate: 'string',
-      cardType: 'number',
-      channelCode: 'string',
-      channelName: 'string',
-      extendInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      requestId: 'string',
-      rightsExpiredDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateReminderRequestDeviceInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateReminderRequestPayloadRecurrenceRule extends $tea.Model {
-  day?: number;
-  daysOfMonth?: number[];
-  daysOfWeek?: number[];
-  endDateTime?: number;
-  freq?: string;
-  hour?: number;
-  minute?: number;
-  month?: number;
-  second?: number;
-  startDateTime?: number;
-  year?: number;
-  static names(): { [key: string]: string } {
-    return {
-      day: 'Day',
-      daysOfMonth: 'DaysOfMonth',
-      daysOfWeek: 'DaysOfWeek',
-      endDateTime: 'EndDateTime',
-      freq: 'Freq',
-      hour: 'Hour',
-      minute: 'Minute',
-      month: 'Month',
-      second: 'Second',
-      startDateTime: 'StartDateTime',
-      year: 'Year',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      day: 'number',
-      daysOfMonth: { 'type': 'array', 'itemType': 'number' },
-      daysOfWeek: { 'type': 'array', 'itemType': 'number' },
-      endDateTime: 'number',
-      freq: 'string',
-      hour: 'number',
-      minute: 'number',
-      month: 'number',
-      second: 'number',
-      startDateTime: 'number',
-      year: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateReminderRequestPayload extends $tea.Model {
-  content?: string;
-  isDebug?: boolean;
-  recurrenceRule?: CreateReminderRequestPayloadRecurrenceRule;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      isDebug: 'IsDebug',
-      recurrenceRule: 'RecurrenceRule',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      isDebug: 'boolean',
-      recurrenceRule: CreateReminderRequestPayloadRecurrenceRule,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateReminderRequestUserInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteReminderRequestDeviceInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteReminderRequestPayload extends $tea.Model {
-  id?: number;
-  isDebug?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      isDebug: 'IsDebug',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      isDebug: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteReminderRequestUserInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountForAppRequestDeviceInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountForAppRequestPayload extends $tea.Model {
-  phone?: string;
-  originUuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      phone: 'Phone',
-      originUuid: 'originUuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      phone: 'string',
-      originUuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountForAppRequestUserInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountForAppResponseBodyRetValue extends $tea.Model {
-  isVip?: boolean;
-  strVipExpire?: string;
-  vipExpireAt?: number;
-  static names(): { [key: string]: string } {
-    return {
-      isVip: 'IsVip',
-      strVipExpire: 'StrVipExpire',
-      vipExpireAt: 'VipExpireAt',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isVip: 'boolean',
-      strVipExpire: 'string',
-      vipExpireAt: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBusAppConfigRequestDeviceInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBusAppConfigRequestPayload extends $tea.Model {
-  originUuid?: string;
-  phone?: string;
-  static names(): { [key: string]: string } {
-    return {
-      originUuid: 'originUuid',
-      phone: 'phone',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      originUuid: 'string',
-      phone: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBusAppConfigRequestUserInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBusAppConfigResponseBodyRetValue extends $tea.Model {
-  cashier?: string;
-  shoppingBar?: string;
-  shoppingWindow?: string;
-  vipLabel?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cashier: 'Cashier',
-      shoppingBar: 'ShoppingBar',
-      shoppingWindow: 'ShoppingWindow',
-      vipLabel: 'VipLabel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cashier: 'string',
-      shoppingBar: 'string',
-      shoppingWindow: 'string',
-      vipLabel: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPhoneNumberRequestDeviceInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPhoneNumberRequestUserInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReminderRequestDeviceInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReminderRequestPayload extends $tea.Model {
-  id?: number;
-  isDebug?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      isDebug: 'IsDebug',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      isDebug: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReminderRequestUserInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReminderResponseBodyModelRemindResponsesRecurrenceRule extends $tea.Model {
-  day?: number;
-  daysOfMonth?: number[];
-  daysOfWeek?: number[];
-  endDateTime?: string;
-  freq?: string;
-  hour?: number;
-  minute?: number;
-  month?: number;
-  second?: number;
-  startDateTime?: string;
-  year?: number;
-  static names(): { [key: string]: string } {
-    return {
-      day: 'Day',
-      daysOfMonth: 'DaysOfMonth',
-      daysOfWeek: 'DaysOfWeek',
-      endDateTime: 'EndDateTime',
-      freq: 'Freq',
-      hour: 'Hour',
-      minute: 'Minute',
-      month: 'Month',
-      second: 'Second',
-      startDateTime: 'StartDateTime',
-      year: 'Year',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      day: 'number',
-      daysOfMonth: { 'type': 'array', 'itemType': 'number' },
-      daysOfWeek: { 'type': 'array', 'itemType': 'number' },
-      endDateTime: 'string',
-      freq: 'string',
-      hour: 'number',
-      minute: 'number',
-      month: 'number',
-      second: 'number',
-      startDateTime: 'string',
-      year: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReminderResponseBodyModelRemindResponses extends $tea.Model {
-  actionTopic?: string;
-  dayDesc?: string;
-  recurrenceRule?: GetReminderResponseBodyModelRemindResponsesRecurrenceRule;
-  remindId?: number;
-  remindTime?: string;
-  repeatCount?: number;
-  week?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionTopic: 'ActionTopic',
-      dayDesc: 'DayDesc',
-      recurrenceRule: 'RecurrenceRule',
-      remindId: 'RemindId',
-      remindTime: 'RemindTime',
-      repeatCount: 'RepeatCount',
-      week: 'Week',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionTopic: 'string',
-      dayDesc: 'string',
-      recurrenceRule: GetReminderResponseBodyModelRemindResponsesRecurrenceRule,
-      remindId: 'number',
-      remindTime: 'string',
-      repeatCount: 'number',
-      week: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReminderResponseBodyModel extends $tea.Model {
-  remindResponses?: GetReminderResponseBodyModelRemindResponses[];
-  static names(): { [key: string]: string } {
-    return {
-      remindResponses: 'RemindResponses',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      remindResponses: { 'type': 'array', 'itemType': GetReminderResponseBodyModelRemindResponses },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRemindersRequestDeviceInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRemindersRequestPayload extends $tea.Model {
-  isDebug?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      isDebug: 'IsDebug',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isDebug: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRemindersRequestUserInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRemindersResponseBodyModelRemindResponsesRecurrenceRule extends $tea.Model {
-  day?: number;
-  daysOfMonth?: number[];
-  daysOfWeek?: number[];
-  endDateTime?: string;
-  freq?: string;
-  hour?: number;
-  minute?: number;
-  month?: number;
-  second?: number;
-  startDateTime?: string;
-  year?: number;
-  static names(): { [key: string]: string } {
-    return {
-      day: 'Day',
-      daysOfMonth: 'DaysOfMonth',
-      daysOfWeek: 'DaysOfWeek',
-      endDateTime: 'EndDateTime',
-      freq: 'Freq',
-      hour: 'Hour',
-      minute: 'Minute',
-      month: 'Month',
-      second: 'Second',
-      startDateTime: 'StartDateTime',
-      year: 'Year',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      day: 'number',
-      daysOfMonth: { 'type': 'array', 'itemType': 'number' },
-      daysOfWeek: { 'type': 'array', 'itemType': 'number' },
-      endDateTime: 'string',
-      freq: 'string',
-      hour: 'number',
-      minute: 'number',
-      month: 'number',
-      second: 'number',
-      startDateTime: 'string',
-      year: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRemindersResponseBodyModelRemindResponses extends $tea.Model {
-  actionTopic?: string;
-  dayDesc?: string;
-  recurrenceRule?: ListRemindersResponseBodyModelRemindResponsesRecurrenceRule;
-  remindId?: number;
-  remindTime?: string;
-  repeatCount?: number;
-  week?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionTopic: 'ActionTopic',
-      dayDesc: 'DayDesc',
-      recurrenceRule: 'RecurrenceRule',
-      remindId: 'RemindId',
-      remindTime: 'RemindTime',
-      repeatCount: 'RepeatCount',
-      week: 'Week',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionTopic: 'string',
-      dayDesc: 'string',
-      recurrenceRule: ListRemindersResponseBodyModelRemindResponsesRecurrenceRule,
-      remindId: 'number',
-      remindTime: 'string',
-      repeatCount: 'number',
-      week: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRemindersResponseBodyModel extends $tea.Model {
-  remindResponses?: ListRemindersResponseBodyModelRemindResponses[];
-  static names(): { [key: string]: string } {
-    return {
-      remindResponses: 'RemindResponses',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      remindResponses: { 'type': 'array', 'itemType': ListRemindersResponseBodyModelRemindResponses },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PullCashierRequestDeviceInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PullCashierRequestPayload extends $tea.Model {
-  originUuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      originUuid: 'originUuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      originUuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PullCashierRequestUserInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNotificationsRequestNotificationUnicastRequestSendTarget extends $tea.Model {
-  targetIdentity?: string;
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      targetIdentity: 'TargetIdentity',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      targetIdentity: 'string',
-      targetType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNotificationsRequestNotificationUnicastRequest extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  isDebug?: boolean;
-  messageTemplateId?: string;
-  organizationId?: string;
-  placeHolder?: { [key: string]: string };
-  sendTarget?: PushNotificationsRequestNotificationUnicastRequestSendTarget;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      isDebug: 'IsDebug',
-      messageTemplateId: 'MessageTemplateId',
-      organizationId: 'OrganizationId',
-      placeHolder: 'PlaceHolder',
-      sendTarget: 'SendTarget',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      isDebug: 'boolean',
-      messageTemplateId: 'string',
-      organizationId: 'string',
-      placeHolder: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      sendTarget: PushNotificationsRequestNotificationUnicastRequestSendTarget,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNotificationsRequestTenantInfo extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendNotificationsRequestDeviceInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendNotificationsRequestNotificationUnicastRequestSendTarget extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendNotificationsRequestNotificationUnicastRequest extends $tea.Model {
-  isDebug?: boolean;
-  messageTemplateId?: string;
-  placeHolder?: { [key: string]: string };
-  sendTarget?: SendNotificationsRequestNotificationUnicastRequestSendTarget;
-  static names(): { [key: string]: string } {
-    return {
-      isDebug: 'IsDebug',
-      messageTemplateId: 'MessageTemplateId',
-      placeHolder: 'PlaceHolder',
-      sendTarget: 'SendTarget',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isDebug: 'boolean',
-      messageTemplateId: 'string',
-      placeHolder: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      sendTarget: SendNotificationsRequestNotificationUnicastRequestSendTarget,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendNotificationsRequestTenantInfo extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendNotificationsRequestUserInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateReminderRequestDeviceInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateReminderRequestPayloadRecurrenceRule extends $tea.Model {
-  day?: number;
-  daysOfMonth?: number[];
-  daysOfWeek?: number[];
-  endDateTime?: number;
-  freq?: string;
-  hour?: number;
-  minute?: number;
-  month?: number;
-  second?: number;
-  startDateTime?: number;
-  year?: number;
-  static names(): { [key: string]: string } {
-    return {
-      day: 'Day',
-      daysOfMonth: 'DaysOfMonth',
-      daysOfWeek: 'DaysOfWeek',
-      endDateTime: 'EndDateTime',
-      freq: 'Freq',
-      hour: 'Hour',
-      minute: 'Minute',
-      month: 'Month',
-      second: 'Second',
-      startDateTime: 'StartDateTime',
-      year: 'Year',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      day: 'number',
-      daysOfMonth: { 'type': 'array', 'itemType': 'number' },
-      daysOfWeek: { 'type': 'array', 'itemType': 'number' },
-      endDateTime: 'number',
-      freq: 'string',
-      hour: 'number',
-      minute: 'number',
-      month: 'number',
-      second: 'number',
-      startDateTime: 'number',
-      year: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateReminderRequestPayload extends $tea.Model {
-  content?: string;
-  id?: number;
-  isDebug?: boolean;
-  recurrenceRule?: UpdateReminderRequestPayloadRecurrenceRule;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      id: 'Id',
-      isDebug: 'IsDebug',
-      recurrenceRule: 'RecurrenceRule',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      id: 'number',
-      isDebug: 'boolean',
-      recurrenceRule: UpdateReminderRequestPayloadRecurrenceRule,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateReminderRequestUserInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoAppReportRequestDeviceInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoAppReportRequestPayload extends $tea.Model {
-  endTime?: number;
-  isLogin?: boolean;
-  isVip?: boolean;
-  loginNick?: string;
-  originUuid?: string;
-  phone?: string;
-  pkgName?: string;
-  startTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'endTime',
-      isLogin: 'isLogin',
-      isVip: 'isVip',
-      loginNick: 'loginNick',
-      originUuid: 'originUuid',
-      phone: 'phone',
-      pkgName: 'pkgName',
-      startTime: 'startTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'number',
-      isLogin: 'boolean',
-      isVip: 'boolean',
-      loginNick: 'string',
-      originUuid: 'string',
-      phone: 'string',
-      pkgName: 'string',
-      startTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoAppReportRequestUserInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  id?: string;
-  idType?: string;
-  organizationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      id: 'Id',
-      idType: 'IdType',
-      organizationId: 'OrganizationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      id: 'string',
-      idType: 'string',
-      organizationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WakeUpAppRequestTargetInfo extends $tea.Model {
-  encodeKey?: string;
-  encodeType?: string;
-  organizationId?: string;
-  targetIdentity?: string;
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encodeKey: 'EncodeKey',
-      encodeType: 'EncodeType',
-      organizationId: 'OrganizationId',
-      targetIdentity: 'TargetIdentity',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encodeKey: 'string',
-      encodeType: 'string',
-      organizationId: 'string',
-      targetIdentity: 'string',
-      targetType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -3526,64 +18,72 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async appUseTimeReportWithOptions(tmpReq: AppUseTimeReportRequest, headers: AppUseTimeReportHeaders, runtime: $Util.RuntimeOptions): Promise<AppUseTimeReportResponse> {
-    Util.validateModel(tmpReq);
-    let request = new AppUseTimeReportShrinkRequest({ });
+  /**
+   * 应用使用时长上报
+   * 
+   * @param tmpReq - AppUseTimeReportRequest
+   * @param headers - AppUseTimeReportHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AppUseTimeReportResponse
+   */
+  async appUseTimeReportWithOptions(tmpReq: $_model.AppUseTimeReportRequest, headers: $_model.AppUseTimeReportHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.AppUseTimeReportResponse> {
+    tmpReq.validate();
+    let request = new $_model.AppUseTimeReportShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.deviceInfo)) {
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
       request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.payload)) {
+    if (!$dara.isNull(tmpReq.payload)) {
       request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userInfo)) {
+    if (!$dara.isNull(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceInfoShrink)) {
+    if (!$dara.isNull(request.deviceInfoShrink)) {
       body["DeviceInfo"] = request.deviceInfoShrink;
     }
 
-    if (!Util.isUnset(request.payloadShrink)) {
+    if (!$dara.isNull(request.payloadShrink)) {
       body["Payload"] = request.payloadShrink;
     }
 
-    if (!Util.isUnset(request.userInfoShrink)) {
+    if (!$dara.isNull(request.userInfoShrink)) {
       body["UserInfo"] = request.userInfoShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AppUseTimeReport",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -3594,78 +94,92 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AppUseTimeReportResponse>(await this.callApi(params, req, runtime), new AppUseTimeReportResponse({}));
+    return $dara.cast<$_model.AppUseTimeReportResponse>(await this.callApi(params, req, runtime), new $_model.AppUseTimeReportResponse({}));
   }
 
-  async appUseTimeReport(request: AppUseTimeReportRequest): Promise<AppUseTimeReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new AppUseTimeReportHeaders({ });
+  /**
+   * 应用使用时长上报
+   * 
+   * @param request - AppUseTimeReportRequest
+   * @returns AppUseTimeReportResponse
+   */
+  async appUseTimeReport(request: $_model.AppUseTimeReportRequest): Promise<$_model.AppUseTimeReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.AppUseTimeReportHeaders({ });
     return await this.appUseTimeReportWithOptions(request, headers, runtime);
   }
 
-  async callBackThirdRightSendPlanWithOptions(tmpReq: CallBackThirdRightSendPlanRequest, headers: CallBackThirdRightSendPlanHeaders, runtime: $Util.RuntimeOptions): Promise<CallBackThirdRightSendPlanResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CallBackThirdRightSendPlanShrinkRequest({ });
+  /**
+   * 三方领取回调接口
+   * 
+   * @param tmpReq - CallBackThirdRightSendPlanRequest
+   * @param headers - CallBackThirdRightSendPlanHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CallBackThirdRightSendPlanResponse
+   */
+  async callBackThirdRightSendPlanWithOptions(tmpReq: $_model.CallBackThirdRightSendPlanRequest, headers: $_model.CallBackThirdRightSendPlanHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CallBackThirdRightSendPlanResponse> {
+    tmpReq.validate();
+    let request = new $_model.CallBackThirdRightSendPlanShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.extendInfo)) {
+    if (!$dara.isNull(tmpReq.extendInfo)) {
       request.extendInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extendInfo, "ExtendInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.bizGroup)) {
+    if (!$dara.isNull(request.bizGroup)) {
       query["BizGroup"] = request.bizGroup;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.cardType)) {
+    if (!$dara.isNull(request.cardType)) {
       query["CardType"] = request.cardType;
     }
 
-    if (!Util.isUnset(request.errorMsg)) {
+    if (!$dara.isNull(request.errorMsg)) {
       query["ErrorMsg"] = request.errorMsg;
     }
 
-    if (!Util.isUnset(request.extendInfoShrink)) {
+    if (!$dara.isNull(request.extendInfoShrink)) {
       query["ExtendInfo"] = request.extendInfoShrink;
     }
 
-    if (!Util.isUnset(request.genieOpenId)) {
+    if (!$dara.isNull(request.genieOpenId)) {
       query["GenieOpenId"] = request.genieOpenId;
     }
 
-    if (!Util.isUnset(request.receiveStatus)) {
+    if (!$dara.isNull(request.receiveStatus)) {
       query["ReceiveStatus"] = request.receiveStatus;
     }
 
-    if (!Util.isUnset(request.sn)) {
+    if (!$dara.isNull(request.sn)) {
       query["Sn"] = request.sn;
     }
 
-    if (!Util.isUnset(request.supplierId)) {
+    if (!$dara.isNull(request.supplierId)) {
       query["SupplierId"] = request.supplierId;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CallBackThirdRightSendPlan",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -3676,62 +190,76 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CallBackThirdRightSendPlanResponse>(await this.callApi(params, req, runtime), new CallBackThirdRightSendPlanResponse({}));
+    return $dara.cast<$_model.CallBackThirdRightSendPlanResponse>(await this.callApi(params, req, runtime), new $_model.CallBackThirdRightSendPlanResponse({}));
   }
 
-  async callBackThirdRightSendPlan(request: CallBackThirdRightSendPlanRequest): Promise<CallBackThirdRightSendPlanResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CallBackThirdRightSendPlanHeaders({ });
+  /**
+   * 三方领取回调接口
+   * 
+   * @param request - CallBackThirdRightSendPlanRequest
+   * @returns CallBackThirdRightSendPlanResponse
+   */
+  async callBackThirdRightSendPlan(request: $_model.CallBackThirdRightSendPlanRequest): Promise<$_model.CallBackThirdRightSendPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.CallBackThirdRightSendPlanHeaders({ });
     return await this.callBackThirdRightSendPlanWithOptions(request, headers, runtime);
   }
 
-  async checkThirdRightSendPlanWithOptions(tmpReq: CheckThirdRightSendPlanRequest, headers: CheckThirdRightSendPlanHeaders, runtime: $Util.RuntimeOptions): Promise<CheckThirdRightSendPlanResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CheckThirdRightSendPlanShrinkRequest({ });
+  /**
+   * 商业化移动屏三方app领卡校验
+   * 
+   * @param tmpReq - CheckThirdRightSendPlanRequest
+   * @param headers - CheckThirdRightSendPlanHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckThirdRightSendPlanResponse
+   */
+  async checkThirdRightSendPlanWithOptions(tmpReq: $_model.CheckThirdRightSendPlanRequest, headers: $_model.CheckThirdRightSendPlanHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CheckThirdRightSendPlanResponse> {
+    tmpReq.validate();
+    let request = new $_model.CheckThirdRightSendPlanShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.extendInfo)) {
+    if (!$dara.isNull(tmpReq.extendInfo)) {
       request.extendInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extendInfo, "ExtendInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.bizGroup)) {
+    if (!$dara.isNull(request.bizGroup)) {
       query["BizGroup"] = request.bizGroup;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.extendInfoShrink)) {
+    if (!$dara.isNull(request.extendInfoShrink)) {
       query["ExtendInfo"] = request.extendInfoShrink;
     }
 
-    if (!Util.isUnset(request.sn)) {
+    if (!$dara.isNull(request.sn)) {
       query["Sn"] = request.sn;
     }
 
-    if (!Util.isUnset(request.supplierId)) {
+    if (!$dara.isNull(request.supplierId)) {
       query["SupplierId"] = request.supplierId;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckThirdRightSendPlan",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -3742,62 +270,76 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CheckThirdRightSendPlanResponse>(await this.callApi(params, req, runtime), new CheckThirdRightSendPlanResponse({}));
+    return $dara.cast<$_model.CheckThirdRightSendPlanResponse>(await this.callApi(params, req, runtime), new $_model.CheckThirdRightSendPlanResponse({}));
   }
 
-  async checkThirdRightSendPlan(request: CheckThirdRightSendPlanRequest): Promise<CheckThirdRightSendPlanResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CheckThirdRightSendPlanHeaders({ });
+  /**
+   * 商业化移动屏三方app领卡校验
+   * 
+   * @param request - CheckThirdRightSendPlanRequest
+   * @returns CheckThirdRightSendPlanResponse
+   */
+  async checkThirdRightSendPlan(request: $_model.CheckThirdRightSendPlanRequest): Promise<$_model.CheckThirdRightSendPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.CheckThirdRightSendPlanHeaders({ });
     return await this.checkThirdRightSendPlanWithOptions(request, headers, runtime);
   }
 
-  async createReminderWithOptions(tmpReq: CreateReminderRequest, headers: CreateReminderHeaders, runtime: $Util.RuntimeOptions): Promise<CreateReminderResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateReminderShrinkRequest({ });
+  /**
+   * 创建提醒
+   * 
+   * @param tmpReq - CreateReminderRequest
+   * @param headers - CreateReminderHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateReminderResponse
+   */
+  async createReminderWithOptions(tmpReq: $_model.CreateReminderRequest, headers: $_model.CreateReminderHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateReminderResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateReminderShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.deviceInfo)) {
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
       request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.payload)) {
+    if (!$dara.isNull(tmpReq.payload)) {
       request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userInfo)) {
+    if (!$dara.isNull(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceInfoShrink)) {
+    if (!$dara.isNull(request.deviceInfoShrink)) {
       body["DeviceInfo"] = request.deviceInfoShrink;
     }
 
-    if (!Util.isUnset(request.payloadShrink)) {
+    if (!$dara.isNull(request.payloadShrink)) {
       body["Payload"] = request.payloadShrink;
     }
 
-    if (!Util.isUnset(request.userInfoShrink)) {
+    if (!$dara.isNull(request.userInfoShrink)) {
       body["UserInfo"] = request.userInfoShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateReminder",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -3808,62 +350,76 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateReminderResponse>(await this.callApi(params, req, runtime), new CreateReminderResponse({}));
+    return $dara.cast<$_model.CreateReminderResponse>(await this.callApi(params, req, runtime), new $_model.CreateReminderResponse({}));
   }
 
-  async createReminder(request: CreateReminderRequest): Promise<CreateReminderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new CreateReminderHeaders({ });
+  /**
+   * 创建提醒
+   * 
+   * @param request - CreateReminderRequest
+   * @returns CreateReminderResponse
+   */
+  async createReminder(request: $_model.CreateReminderRequest): Promise<$_model.CreateReminderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.CreateReminderHeaders({ });
     return await this.createReminderWithOptions(request, headers, runtime);
   }
 
-  async deleteReminderWithOptions(tmpReq: DeleteReminderRequest, headers: DeleteReminderHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteReminderResponse> {
-    Util.validateModel(tmpReq);
-    let request = new DeleteReminderShrinkRequest({ });
+  /**
+   * 删除提醒
+   * 
+   * @param tmpReq - DeleteReminderRequest
+   * @param headers - DeleteReminderHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteReminderResponse
+   */
+  async deleteReminderWithOptions(tmpReq: $_model.DeleteReminderRequest, headers: $_model.DeleteReminderHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteReminderResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteReminderShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.deviceInfo)) {
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
       request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.payload)) {
+    if (!$dara.isNull(tmpReq.payload)) {
       request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userInfo)) {
+    if (!$dara.isNull(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceInfoShrink)) {
+    if (!$dara.isNull(request.deviceInfoShrink)) {
       query["DeviceInfo"] = request.deviceInfoShrink;
     }
 
-    if (!Util.isUnset(request.payloadShrink)) {
+    if (!$dara.isNull(request.payloadShrink)) {
       query["Payload"] = request.payloadShrink;
     }
 
-    if (!Util.isUnset(request.userInfoShrink)) {
+    if (!$dara.isNull(request.userInfoShrink)) {
       query["UserInfo"] = request.userInfoShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteReminder",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -3874,62 +430,76 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteReminderResponse>(await this.callApi(params, req, runtime), new DeleteReminderResponse({}));
+    return $dara.cast<$_model.DeleteReminderResponse>(await this.callApi(params, req, runtime), new $_model.DeleteReminderResponse({}));
   }
 
-  async deleteReminder(request: DeleteReminderRequest): Promise<DeleteReminderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new DeleteReminderHeaders({ });
+  /**
+   * 删除提醒
+   * 
+   * @param request - DeleteReminderRequest
+   * @returns DeleteReminderResponse
+   */
+  async deleteReminder(request: $_model.DeleteReminderRequest): Promise<$_model.DeleteReminderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.DeleteReminderHeaders({ });
     return await this.deleteReminderWithOptions(request, headers, runtime);
   }
 
-  async getAccountForAppWithOptions(tmpReq: GetAccountForAppRequest, headers: GetAccountForAppHeaders, runtime: $Util.RuntimeOptions): Promise<GetAccountForAppResponse> {
-    Util.validateModel(tmpReq);
-    let request = new GetAccountForAppShrinkRequest({ });
+  /**
+   * 获取会员信息
+   * 
+   * @param tmpReq - GetAccountForAppRequest
+   * @param headers - GetAccountForAppHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccountForAppResponse
+   */
+  async getAccountForAppWithOptions(tmpReq: $_model.GetAccountForAppRequest, headers: $_model.GetAccountForAppHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetAccountForAppResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetAccountForAppShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.deviceInfo)) {
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
       request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.payload)) {
+    if (!$dara.isNull(tmpReq.payload)) {
       request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userInfo)) {
+    if (!$dara.isNull(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceInfoShrink)) {
+    if (!$dara.isNull(request.deviceInfoShrink)) {
       query["DeviceInfo"] = request.deviceInfoShrink;
     }
 
-    if (!Util.isUnset(request.payloadShrink)) {
+    if (!$dara.isNull(request.payloadShrink)) {
       query["Payload"] = request.payloadShrink;
     }
 
-    if (!Util.isUnset(request.userInfoShrink)) {
+    if (!$dara.isNull(request.userInfoShrink)) {
       query["UserInfo"] = request.userInfoShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccountForApp",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -3940,62 +510,76 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetAccountForAppResponse>(await this.callApi(params, req, runtime), new GetAccountForAppResponse({}));
+    return $dara.cast<$_model.GetAccountForAppResponse>(await this.callApi(params, req, runtime), new $_model.GetAccountForAppResponse({}));
   }
 
-  async getAccountForApp(request: GetAccountForAppRequest): Promise<GetAccountForAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetAccountForAppHeaders({ });
+  /**
+   * 获取会员信息
+   * 
+   * @param request - GetAccountForAppRequest
+   * @returns GetAccountForAppResponse
+   */
+  async getAccountForApp(request: $_model.GetAccountForAppRequest): Promise<$_model.GetAccountForAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetAccountForAppHeaders({ });
     return await this.getAccountForAppWithOptions(request, headers, runtime);
   }
 
-  async getBusAppConfigWithOptions(tmpReq: GetBusAppConfigRequest, headers: GetBusAppConfigHeaders, runtime: $Util.RuntimeOptions): Promise<GetBusAppConfigResponse> {
-    Util.validateModel(tmpReq);
-    let request = new GetBusAppConfigShrinkRequest({ });
+  /**
+   * 获取应用配置
+   * 
+   * @param tmpReq - GetBusAppConfigRequest
+   * @param headers - GetBusAppConfigHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBusAppConfigResponse
+   */
+  async getBusAppConfigWithOptions(tmpReq: $_model.GetBusAppConfigRequest, headers: $_model.GetBusAppConfigHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetBusAppConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetBusAppConfigShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.deviceInfo)) {
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
       request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.payload)) {
+    if (!$dara.isNull(tmpReq.payload)) {
       request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userInfo)) {
+    if (!$dara.isNull(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceInfoShrink)) {
+    if (!$dara.isNull(request.deviceInfoShrink)) {
       query["DeviceInfo"] = request.deviceInfoShrink;
     }
 
-    if (!Util.isUnset(request.payloadShrink)) {
+    if (!$dara.isNull(request.payloadShrink)) {
       query["Payload"] = request.payloadShrink;
     }
 
-    if (!Util.isUnset(request.userInfoShrink)) {
+    if (!$dara.isNull(request.userInfoShrink)) {
       query["UserInfo"] = request.userInfoShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetBusAppConfig",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -4006,54 +590,68 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetBusAppConfigResponse>(await this.callApi(params, req, runtime), new GetBusAppConfigResponse({}));
+    return $dara.cast<$_model.GetBusAppConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetBusAppConfigResponse({}));
   }
 
-  async getBusAppConfig(request: GetBusAppConfigRequest): Promise<GetBusAppConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetBusAppConfigHeaders({ });
+  /**
+   * 获取应用配置
+   * 
+   * @param request - GetBusAppConfigRequest
+   * @returns GetBusAppConfigResponse
+   */
+  async getBusAppConfig(request: $_model.GetBusAppConfigRequest): Promise<$_model.GetBusAppConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetBusAppConfigHeaders({ });
     return await this.getBusAppConfigWithOptions(request, headers, runtime);
   }
 
-  async getPhoneNumberWithOptions(tmpReq: GetPhoneNumberRequest, headers: GetPhoneNumberHeaders, runtime: $Util.RuntimeOptions): Promise<GetPhoneNumberResponse> {
-    Util.validateModel(tmpReq);
-    let request = new GetPhoneNumberShrinkRequest({ });
+  /**
+   * 用户手机号获取
+   * 
+   * @param tmpReq - GetPhoneNumberRequest
+   * @param headers - GetPhoneNumberHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPhoneNumberResponse
+   */
+  async getPhoneNumberWithOptions(tmpReq: $_model.GetPhoneNumberRequest, headers: $_model.GetPhoneNumberHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetPhoneNumberResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetPhoneNumberShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.deviceInfo)) {
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
       request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userInfo)) {
+    if (!$dara.isNull(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceInfoShrink)) {
+    if (!$dara.isNull(request.deviceInfoShrink)) {
       query["DeviceInfo"] = request.deviceInfoShrink;
     }
 
-    if (!Util.isUnset(request.userInfoShrink)) {
+    if (!$dara.isNull(request.userInfoShrink)) {
       query["UserInfo"] = request.userInfoShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetPhoneNumber",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -4064,62 +662,76 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetPhoneNumberResponse>(await this.callApi(params, req, runtime), new GetPhoneNumberResponse({}));
+    return $dara.cast<$_model.GetPhoneNumberResponse>(await this.callApi(params, req, runtime), new $_model.GetPhoneNumberResponse({}));
   }
 
-  async getPhoneNumber(request: GetPhoneNumberRequest): Promise<GetPhoneNumberResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetPhoneNumberHeaders({ });
+  /**
+   * 用户手机号获取
+   * 
+   * @param request - GetPhoneNumberRequest
+   * @returns GetPhoneNumberResponse
+   */
+  async getPhoneNumber(request: $_model.GetPhoneNumberRequest): Promise<$_model.GetPhoneNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetPhoneNumberHeaders({ });
     return await this.getPhoneNumberWithOptions(request, headers, runtime);
   }
 
-  async getReminderWithOptions(tmpReq: GetReminderRequest, headers: GetReminderHeaders, runtime: $Util.RuntimeOptions): Promise<GetReminderResponse> {
-    Util.validateModel(tmpReq);
-    let request = new GetReminderShrinkRequest({ });
+  /**
+   * 查询提醒
+   * 
+   * @param tmpReq - GetReminderRequest
+   * @param headers - GetReminderHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetReminderResponse
+   */
+  async getReminderWithOptions(tmpReq: $_model.GetReminderRequest, headers: $_model.GetReminderHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetReminderResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetReminderShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.deviceInfo)) {
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
       request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.payload)) {
+    if (!$dara.isNull(tmpReq.payload)) {
       request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userInfo)) {
+    if (!$dara.isNull(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceInfoShrink)) {
+    if (!$dara.isNull(request.deviceInfoShrink)) {
       query["DeviceInfo"] = request.deviceInfoShrink;
     }
 
-    if (!Util.isUnset(request.payloadShrink)) {
+    if (!$dara.isNull(request.payloadShrink)) {
       query["Payload"] = request.payloadShrink;
     }
 
-    if (!Util.isUnset(request.userInfoShrink)) {
+    if (!$dara.isNull(request.userInfoShrink)) {
       query["UserInfo"] = request.userInfoShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetReminder",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -4130,62 +742,76 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetReminderResponse>(await this.callApi(params, req, runtime), new GetReminderResponse({}));
+    return $dara.cast<$_model.GetReminderResponse>(await this.callApi(params, req, runtime), new $_model.GetReminderResponse({}));
   }
 
-  async getReminder(request: GetReminderRequest): Promise<GetReminderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetReminderHeaders({ });
+  /**
+   * 查询提醒
+   * 
+   * @param request - GetReminderRequest
+   * @returns GetReminderResponse
+   */
+  async getReminder(request: $_model.GetReminderRequest): Promise<$_model.GetReminderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetReminderHeaders({ });
     return await this.getReminderWithOptions(request, headers, runtime);
   }
 
-  async listRemindersWithOptions(tmpReq: ListRemindersRequest, headers: ListRemindersHeaders, runtime: $Util.RuntimeOptions): Promise<ListRemindersResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListRemindersShrinkRequest({ });
+  /**
+   * 查询提醒列表
+   * 
+   * @param tmpReq - ListRemindersRequest
+   * @param headers - ListRemindersHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRemindersResponse
+   */
+  async listRemindersWithOptions(tmpReq: $_model.ListRemindersRequest, headers: $_model.ListRemindersHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListRemindersResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListRemindersShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.deviceInfo)) {
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
       request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.payload)) {
+    if (!$dara.isNull(tmpReq.payload)) {
       request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userInfo)) {
+    if (!$dara.isNull(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceInfoShrink)) {
+    if (!$dara.isNull(request.deviceInfoShrink)) {
       query["DeviceInfo"] = request.deviceInfoShrink;
     }
 
-    if (!Util.isUnset(request.payloadShrink)) {
+    if (!$dara.isNull(request.payloadShrink)) {
       query["Payload"] = request.payloadShrink;
     }
 
-    if (!Util.isUnset(request.userInfoShrink)) {
+    if (!$dara.isNull(request.userInfoShrink)) {
       query["UserInfo"] = request.userInfoShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListReminders",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -4196,62 +822,76 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListRemindersResponse>(await this.callApi(params, req, runtime), new ListRemindersResponse({}));
+    return $dara.cast<$_model.ListRemindersResponse>(await this.callApi(params, req, runtime), new $_model.ListRemindersResponse({}));
   }
 
-  async listReminders(request: ListRemindersRequest): Promise<ListRemindersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListRemindersHeaders({ });
+  /**
+   * 查询提醒列表
+   * 
+   * @param request - ListRemindersRequest
+   * @returns ListRemindersResponse
+   */
+  async listReminders(request: $_model.ListRemindersRequest): Promise<$_model.ListRemindersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ListRemindersHeaders({ });
     return await this.listRemindersWithOptions(request, headers, runtime);
   }
 
-  async pullCashierWithOptions(tmpReq: PullCashierRequest, headers: PullCashierHeaders, runtime: $Util.RuntimeOptions): Promise<PullCashierResponse> {
-    Util.validateModel(tmpReq);
-    let request = new PullCashierShrinkRequest({ });
+  /**
+   * 拉取收银台
+   * 
+   * @param tmpReq - PullCashierRequest
+   * @param headers - PullCashierHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PullCashierResponse
+   */
+  async pullCashierWithOptions(tmpReq: $_model.PullCashierRequest, headers: $_model.PullCashierHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.PullCashierResponse> {
+    tmpReq.validate();
+    let request = new $_model.PullCashierShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.deviceInfo)) {
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
       request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.payload)) {
+    if (!$dara.isNull(tmpReq.payload)) {
       request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userInfo)) {
+    if (!$dara.isNull(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceInfoShrink)) {
+    if (!$dara.isNull(request.deviceInfoShrink)) {
       query["DeviceInfo"] = request.deviceInfoShrink;
     }
 
-    if (!Util.isUnset(request.payloadShrink)) {
+    if (!$dara.isNull(request.payloadShrink)) {
       query["Payload"] = request.payloadShrink;
     }
 
-    if (!Util.isUnset(request.userInfoShrink)) {
+    if (!$dara.isNull(request.userInfoShrink)) {
       query["UserInfo"] = request.userInfoShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PullCashier",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -4262,54 +902,68 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<PullCashierResponse>(await this.callApi(params, req, runtime), new PullCashierResponse({}));
+    return $dara.cast<$_model.PullCashierResponse>(await this.callApi(params, req, runtime), new $_model.PullCashierResponse({}));
   }
 
-  async pullCashier(request: PullCashierRequest): Promise<PullCashierResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PullCashierHeaders({ });
+  /**
+   * 拉取收银台
+   * 
+   * @param request - PullCashierRequest
+   * @returns PullCashierResponse
+   */
+  async pullCashier(request: $_model.PullCashierRequest): Promise<$_model.PullCashierResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.PullCashierHeaders({ });
     return await this.pullCashierWithOptions(request, headers, runtime);
   }
 
-  async pushNotificationsWithOptions(tmpReq: PushNotificationsRequest, headers: PushNotificationsHeaders, runtime: $Util.RuntimeOptions): Promise<PushNotificationsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new PushNotificationsShrinkRequest({ });
+  /**
+   * 猫精系统消息推送
+   * 
+   * @param tmpReq - PushNotificationsRequest
+   * @param headers - PushNotificationsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushNotificationsResponse
+   */
+  async pushNotificationsWithOptions(tmpReq: $_model.PushNotificationsRequest, headers: $_model.PushNotificationsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.PushNotificationsResponse> {
+    tmpReq.validate();
+    let request = new $_model.PushNotificationsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.notificationUnicastRequest)) {
+    if (!$dara.isNull(tmpReq.notificationUnicastRequest)) {
       request.notificationUnicastRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notificationUnicastRequest, "NotificationUnicastRequest", "json");
     }
 
-    if (!Util.isUnset(tmpReq.tenantInfo)) {
+    if (!$dara.isNull(tmpReq.tenantInfo)) {
       request.tenantInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantInfo, "TenantInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.notificationUnicastRequestShrink)) {
+    if (!$dara.isNull(request.notificationUnicastRequestShrink)) {
       body["NotificationUnicastRequest"] = request.notificationUnicastRequestShrink;
     }
 
-    if (!Util.isUnset(request.tenantInfoShrink)) {
+    if (!$dara.isNull(request.tenantInfoShrink)) {
       body["TenantInfo"] = request.tenantInfoShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PushNotifications",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -4320,70 +974,84 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "none",
     });
-    return $tea.cast<PushNotificationsResponse>(await this.callApi(params, req, runtime), new PushNotificationsResponse({}));
+    return $dara.cast<$_model.PushNotificationsResponse>(await this.callApi(params, req, runtime), new $_model.PushNotificationsResponse({}));
   }
 
-  async pushNotifications(request: PushNotificationsRequest): Promise<PushNotificationsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new PushNotificationsHeaders({ });
+  /**
+   * 猫精系统消息推送
+   * 
+   * @param request - PushNotificationsRequest
+   * @returns PushNotificationsResponse
+   */
+  async pushNotifications(request: $_model.PushNotificationsRequest): Promise<$_model.PushNotificationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.PushNotificationsHeaders({ });
     return await this.pushNotificationsWithOptions(request, headers, runtime);
   }
 
-  async sendNotificationsWithOptions(tmpReq: SendNotificationsRequest, headers: SendNotificationsHeaders, runtime: $Util.RuntimeOptions): Promise<SendNotificationsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new SendNotificationsShrinkRequest({ });
+  /**
+   * 消息推送服务（普通版）
+   * 
+   * @param tmpReq - SendNotificationsRequest
+   * @param headers - SendNotificationsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendNotificationsResponse
+   */
+  async sendNotificationsWithOptions(tmpReq: $_model.SendNotificationsRequest, headers: $_model.SendNotificationsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.SendNotificationsResponse> {
+    tmpReq.validate();
+    let request = new $_model.SendNotificationsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.deviceInfo)) {
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
       request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.notificationUnicastRequest)) {
+    if (!$dara.isNull(tmpReq.notificationUnicastRequest)) {
       request.notificationUnicastRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notificationUnicastRequest, "NotificationUnicastRequest", "json");
     }
 
-    if (!Util.isUnset(tmpReq.tenantInfo)) {
+    if (!$dara.isNull(tmpReq.tenantInfo)) {
       request.tenantInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantInfo, "TenantInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userInfo)) {
+    if (!$dara.isNull(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceInfoShrink)) {
+    if (!$dara.isNull(request.deviceInfoShrink)) {
       body["DeviceInfo"] = request.deviceInfoShrink;
     }
 
-    if (!Util.isUnset(request.notificationUnicastRequestShrink)) {
+    if (!$dara.isNull(request.notificationUnicastRequestShrink)) {
       body["NotificationUnicastRequest"] = request.notificationUnicastRequestShrink;
     }
 
-    if (!Util.isUnset(request.tenantInfoShrink)) {
+    if (!$dara.isNull(request.tenantInfoShrink)) {
       body["TenantInfo"] = request.tenantInfoShrink;
     }
 
-    if (!Util.isUnset(request.userInfoShrink)) {
+    if (!$dara.isNull(request.userInfoShrink)) {
       body["UserInfo"] = request.userInfoShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendNotifications",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -4394,62 +1062,166 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "none",
     });
-    return $tea.cast<SendNotificationsResponse>(await this.callApi(params, req, runtime), new SendNotificationsResponse({}));
+    return $dara.cast<$_model.SendNotificationsResponse>(await this.callApi(params, req, runtime), new $_model.SendNotificationsResponse({}));
   }
 
-  async sendNotifications(request: SendNotificationsRequest): Promise<SendNotificationsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new SendNotificationsHeaders({ });
+  /**
+   * 消息推送服务（普通版）
+   * 
+   * @param request - SendNotificationsRequest
+   * @returns SendNotificationsResponse
+   */
+  async sendNotifications(request: $_model.SendNotificationsRequest): Promise<$_model.SendNotificationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.SendNotificationsHeaders({ });
     return await this.sendNotificationsWithOptions(request, headers, runtime);
   }
 
-  async updateReminderWithOptions(tmpReq: UpdateReminderRequest, headers: UpdateReminderHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateReminderResponse> {
-    Util.validateModel(tmpReq);
-    let request = new UpdateReminderShrinkRequest({ });
+  /**
+   * 三方即时信息数据变更事件推送
+   * 
+   * @param request - ThirdImmediateMsgPushRequest
+   * @param headers - ThirdImmediateMsgPushHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ThirdImmediateMsgPushResponse
+   */
+  async thirdImmediateMsgPushWithOptions(request: $_model.ThirdImmediateMsgPushRequest, headers: $_model.ThirdImmediateMsgPushHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ThirdImmediateMsgPushResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.changeDetail)) {
+      query["ChangeDetail"] = request.changeDetail;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.psgIds)) {
+      query["PsgIds"] = request.psgIds;
+    }
+
+    if (!$dara.isNull(request.trafficChangeType)) {
+      query["TrafficChangeType"] = request.trafficChangeType;
+    }
+
+    if (!$dara.isNull(request.trafficChangeTypeDesc)) {
+      query["TrafficChangeTypeDesc"] = request.trafficChangeTypeDesc;
+    }
+
+    if (!$dara.isNull(request.trafficJourneyIds)) {
+      query["TrafficJourneyIds"] = request.trafficJourneyIds;
+    }
+
+    if (!$dara.isNull(request.trafficSubOrderIds)) {
+      query["TrafficSubOrderIds"] = request.trafficSubOrderIds;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ThirdImmediateMsgPush",
+      version: "iap_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/iap/thirdImmediateMsgPush`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ThirdImmediateMsgPushResponse>(await this.callApi(params, req, runtime), new $_model.ThirdImmediateMsgPushResponse({}));
+  }
+
+  /**
+   * 三方即时信息数据变更事件推送
+   * 
+   * @param request - ThirdImmediateMsgPushRequest
+   * @returns ThirdImmediateMsgPushResponse
+   */
+  async thirdImmediateMsgPush(request: $_model.ThirdImmediateMsgPushRequest): Promise<$_model.ThirdImmediateMsgPushResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ThirdImmediateMsgPushHeaders({ });
+    return await this.thirdImmediateMsgPushWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新提醒
+   * 
+   * @param tmpReq - UpdateReminderRequest
+   * @param headers - UpdateReminderHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateReminderResponse
+   */
+  async updateReminderWithOptions(tmpReq: $_model.UpdateReminderRequest, headers: $_model.UpdateReminderHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateReminderResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateReminderShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.deviceInfo)) {
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
       request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.payload)) {
+    if (!$dara.isNull(tmpReq.payload)) {
       request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userInfo)) {
+    if (!$dara.isNull(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceInfoShrink)) {
+    if (!$dara.isNull(request.deviceInfoShrink)) {
       body["DeviceInfo"] = request.deviceInfoShrink;
     }
 
-    if (!Util.isUnset(request.payloadShrink)) {
+    if (!$dara.isNull(request.payloadShrink)) {
       body["Payload"] = request.payloadShrink;
     }
 
-    if (!Util.isUnset(request.userInfoShrink)) {
+    if (!$dara.isNull(request.userInfoShrink)) {
       body["UserInfo"] = request.userInfoShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateReminder",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -4460,62 +1232,76 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateReminderResponse>(await this.callApi(params, req, runtime), new UpdateReminderResponse({}));
+    return $dara.cast<$_model.UpdateReminderResponse>(await this.callApi(params, req, runtime), new $_model.UpdateReminderResponse({}));
   }
 
-  async updateReminder(request: UpdateReminderRequest): Promise<UpdateReminderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new UpdateReminderHeaders({ });
+  /**
+   * 更新提醒
+   * 
+   * @param request - UpdateReminderRequest
+   * @returns UpdateReminderResponse
+   */
+  async updateReminder(request: $_model.UpdateReminderRequest): Promise<$_model.UpdateReminderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.UpdateReminderHeaders({ });
     return await this.updateReminderWithOptions(request, headers, runtime);
   }
 
-  async videoAppReportWithOptions(tmpReq: VideoAppReportRequest, headers: VideoAppReportHeaders, runtime: $Util.RuntimeOptions): Promise<VideoAppReportResponse> {
-    Util.validateModel(tmpReq);
-    let request = new VideoAppReportShrinkRequest({ });
+  /**
+   * 视频类应用会员信息上报
+   * 
+   * @param tmpReq - VideoAppReportRequest
+   * @param headers - VideoAppReportHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VideoAppReportResponse
+   */
+  async videoAppReportWithOptions(tmpReq: $_model.VideoAppReportRequest, headers: $_model.VideoAppReportHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.VideoAppReportResponse> {
+    tmpReq.validate();
+    let request = new $_model.VideoAppReportShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.deviceInfo)) {
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
       request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.payload)) {
+    if (!$dara.isNull(tmpReq.payload)) {
       request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userInfo)) {
+    if (!$dara.isNull(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.deviceInfoShrink)) {
+    if (!$dara.isNull(request.deviceInfoShrink)) {
       body["DeviceInfo"] = request.deviceInfoShrink;
     }
 
-    if (!Util.isUnset(request.payloadShrink)) {
+    if (!$dara.isNull(request.payloadShrink)) {
       body["Payload"] = request.payloadShrink;
     }
 
-    if (!Util.isUnset(request.userInfoShrink)) {
+    if (!$dara.isNull(request.userInfoShrink)) {
       body["UserInfo"] = request.userInfoShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "VideoAppReport",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -4526,48 +1312,62 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VideoAppReportResponse>(await this.callApi(params, req, runtime), new VideoAppReportResponse({}));
+    return $dara.cast<$_model.VideoAppReportResponse>(await this.callApi(params, req, runtime), new $_model.VideoAppReportResponse({}));
   }
 
-  async videoAppReport(request: VideoAppReportRequest): Promise<VideoAppReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new VideoAppReportHeaders({ });
+  /**
+   * 视频类应用会员信息上报
+   * 
+   * @param request - VideoAppReportRequest
+   * @returns VideoAppReportResponse
+   */
+  async videoAppReport(request: $_model.VideoAppReportRequest): Promise<$_model.VideoAppReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.VideoAppReportHeaders({ });
     return await this.videoAppReportWithOptions(request, headers, runtime);
   }
 
-  async wakeUpAppWithOptions(request: WakeUpAppRequest, headers: WakeUpAppHeaders, runtime: $Util.RuntimeOptions): Promise<WakeUpAppResponse> {
-    Util.validateModel(request);
+  /**
+   * 猫精应用唤起
+   * 
+   * @param request - WakeUpAppRequest
+   * @param headers - WakeUpAppHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WakeUpAppResponse
+   */
+  async wakeUpAppWithOptions(request: $_model.WakeUpAppRequest, headers: $_model.WakeUpAppHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.WakeUpAppResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.isDebug)) {
+    if (!$dara.isNull(request.isDebug)) {
       body["IsDebug"] = request.isDebug;
     }
 
-    if (!Util.isUnset(request.path)) {
+    if (!$dara.isNull(request.path)) {
       body["Path"] = request.path;
     }
 
-    if (!Util.isUnset(request.targetInfo)) {
+    if (!$dara.isNull(request.targetInfo)) {
       body["TargetInfo"] = request.targetInfo;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
-    if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "WakeUpApp",
       version: "iap_1.0",
       protocol: "HTTPS",
@@ -4578,12 +1378,18 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<WakeUpAppResponse>(await this.callApi(params, req, runtime), new WakeUpAppResponse({}));
+    return $dara.cast<$_model.WakeUpAppResponse>(await this.callApi(params, req, runtime), new $_model.WakeUpAppResponse({}));
   }
 
-  async wakeUpApp(request: WakeUpAppRequest): Promise<WakeUpAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new WakeUpAppHeaders({ });
+  /**
+   * 猫精应用唤起
+   * 
+   * @param request - WakeUpAppRequest
+   * @returns WakeUpAppResponse
+   */
+  async wakeUpApp(request: $_model.WakeUpAppRequest): Promise<$_model.WakeUpAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.WakeUpAppHeaders({ });
     return await this.wakeUpAppWithOptions(request, headers, runtime);
   }
 
