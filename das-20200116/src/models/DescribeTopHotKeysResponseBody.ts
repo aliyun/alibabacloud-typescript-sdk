@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTopHotKeysResponseBodyDataHotKey extends $dara.Model {
+  category?: string;
   /**
    * @remarks
    * The database in which the key is stored.
@@ -19,6 +20,7 @@ export class DescribeTopHotKeysResponseBodyDataHotKey extends $dara.Model {
    * 5500~6000
    */
   hot?: string;
+  inBytes?: number;
   /**
    * @remarks
    * The key.
@@ -51,25 +53,32 @@ export class DescribeTopHotKeysResponseBodyDataHotKey extends $dara.Model {
    * r-x****-db-0
    */
   nodeId?: string;
+  outBytes?: number;
   static names(): { [key: string]: string } {
     return {
+      category: 'Category',
       db: 'Db',
       hot: 'Hot',
+      inBytes: 'InBytes',
       key: 'Key',
       keyType: 'KeyType',
       lfu: 'Lfu',
       nodeId: 'NodeId',
+      outBytes: 'OutBytes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      category: 'string',
       db: 'number',
       hot: 'string',
+      inBytes: 'number',
       key: 'string',
       keyType: 'string',
       lfu: 'number',
       nodeId: 'string',
+      outBytes: 'number',
     };
   }
 

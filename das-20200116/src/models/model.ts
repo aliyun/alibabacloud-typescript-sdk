@@ -42,6 +42,8 @@ export { DescribeErrorLogRecordsResponseBodyDataLogs } from './DescribeErrorLogR
 export { DescribeErrorLogRecordsResponseBodyData } from './DescribeErrorLogRecordsResponseBody';
 export { DescribeHotBigKeysResponseBodyDataBigKeysBigKey } from './DescribeHotBigKeysResponseBody';
 export { DescribeHotBigKeysResponseBodyDataBigKeys } from './DescribeHotBigKeysResponseBody';
+export { DescribeHotBigKeysResponseBodyDataHighTrafficKeysHighTrafficKey } from './DescribeHotBigKeysResponseBody';
+export { DescribeHotBigKeysResponseBodyDataHighTrafficKeys } from './DescribeHotBigKeysResponseBody';
 export { DescribeHotBigKeysResponseBodyDataHotKeysHotKey } from './DescribeHotBigKeysResponseBody';
 export { DescribeHotBigKeysResponseBodyDataHotKeys } from './DescribeHotBigKeysResponseBody';
 export { DescribeHotBigKeysResponseBodyData } from './DescribeHotBigKeysResponseBody';

@@ -98,6 +98,76 @@ export class DescribeHotBigKeysResponseBodyDataBigKeys extends $dara.Model {
   }
 }
 
+export class DescribeHotBigKeysResponseBodyDataHighTrafficKeysHighTrafficKey extends $dara.Model {
+  db?: number;
+  hot?: string;
+  key?: string;
+  keyType?: string;
+  nodeId?: string;
+  size?: number;
+  inBytes?: number;
+  outBytes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      db: 'Db',
+      hot: 'Hot',
+      key: 'Key',
+      keyType: 'KeyType',
+      nodeId: 'NodeId',
+      size: 'Size',
+      inBytes: 'inBytes',
+      outBytes: 'outBytes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      db: 'number',
+      hot: 'string',
+      key: 'string',
+      keyType: 'string',
+      nodeId: 'string',
+      size: 'number',
+      inBytes: 'number',
+      outBytes: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHotBigKeysResponseBodyDataHighTrafficKeys extends $dara.Model {
+  highTrafficKey?: DescribeHotBigKeysResponseBodyDataHighTrafficKeysHighTrafficKey[];
+  static names(): { [key: string]: string } {
+    return {
+      highTrafficKey: 'HighTrafficKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      highTrafficKey: { 'type': 'array', 'itemType': DescribeHotBigKeysResponseBodyDataHighTrafficKeysHighTrafficKey },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.highTrafficKey)) {
+      $dara.Model.validateArray(this.highTrafficKey);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHotBigKeysResponseBodyDataHotKeysHotKey extends $dara.Model {
   /**
    * @remarks
@@ -147,6 +217,7 @@ export class DescribeHotBigKeysResponseBodyDataHotKeysHotKey extends $dara.Model
    * r-x****-db-0
    */
   nodeId?: string;
+  size?: number;
   static names(): { [key: string]: string } {
     return {
       db: 'Db',
@@ -155,6 +226,7 @@ export class DescribeHotBigKeysResponseBodyDataHotKeysHotKey extends $dara.Model
       keyType: 'KeyType',
       lfu: 'Lfu',
       nodeId: 'NodeId',
+      size: 'Size',
     };
   }
 
@@ -166,6 +238,7 @@ export class DescribeHotBigKeysResponseBodyDataHotKeysHotKey extends $dara.Model
       keyType: 'string',
       lfu: 'number',
       nodeId: 'string',
+      size: 'number',
     };
   }
 
@@ -218,6 +291,8 @@ export class DescribeHotBigKeysResponseBodyData extends $dara.Model {
    * The list of large keys.
    */
   bigKeys?: DescribeHotBigKeysResponseBodyDataBigKeys;
+  highTrafficKeyMsg?: string;
+  highTrafficKeys?: DescribeHotBigKeysResponseBodyDataHighTrafficKeys;
   /**
    * @remarks
    * The reason why the hot key failed to be queried.
@@ -235,6 +310,8 @@ export class DescribeHotBigKeysResponseBodyData extends $dara.Model {
     return {
       bigKeyMsg: 'BigKeyMsg',
       bigKeys: 'BigKeys',
+      highTrafficKeyMsg: 'HighTrafficKeyMsg',
+      highTrafficKeys: 'HighTrafficKeys',
       hotKeyMsg: 'HotKeyMsg',
       hotKeys: 'HotKeys',
     };
@@ -244,6 +321,8 @@ export class DescribeHotBigKeysResponseBodyData extends $dara.Model {
     return {
       bigKeyMsg: 'string',
       bigKeys: DescribeHotBigKeysResponseBodyDataBigKeys,
+      highTrafficKeyMsg: 'string',
+      highTrafficKeys: DescribeHotBigKeysResponseBodyDataHighTrafficKeys,
       hotKeyMsg: 'string',
       hotKeys: DescribeHotBigKeysResponseBodyDataHotKeys,
     };
@@ -252,6 +331,9 @@ export class DescribeHotBigKeysResponseBodyData extends $dara.Model {
   validate() {
     if(this.bigKeys && typeof (this.bigKeys as any).validate === 'function') {
       (this.bigKeys as any).validate();
+    }
+    if(this.highTrafficKeys && typeof (this.highTrafficKeys as any).validate === 'function') {
+      (this.highTrafficKeys as any).validate();
     }
     if(this.hotKeys && typeof (this.hotKeys as any).validate === 'function') {
       (this.hotKeys as any).validate();
