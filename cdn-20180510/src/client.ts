@@ -2004,7 +2004,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCdnCertificateListResponse
    */
-  // Deprecated
   async describeCdnCertificateListWithOptions(request: $_model.DescribeCdnCertificateListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCdnCertificateListResponse> {
     request.validate();
     let query = { };
