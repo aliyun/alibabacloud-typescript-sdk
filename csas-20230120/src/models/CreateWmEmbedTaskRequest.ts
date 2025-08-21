@@ -246,6 +246,258 @@ export class CreateWmEmbedTaskRequestDocumentControl extends $dara.Model {
   }
 }
 
+export class CreateWmEmbedTaskRequestImageControlLogoVisibleControlMargin extends $dara.Model {
+  bottom?: number;
+  left?: number;
+  right?: number;
+  top?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bottom: 'Bottom',
+      left: 'Left',
+      right: 'Right',
+      top: 'Top',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bottom: 'number',
+      left: 'number',
+      right: 'number',
+      top: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestImageControlLogoVisibleControl extends $dara.Model {
+  angle?: number;
+  logoBase64?: string;
+  margin?: CreateWmEmbedTaskRequestImageControlLogoVisibleControlMargin;
+  mode?: string;
+  opacity?: number;
+  posAx?: number;
+  posAy?: number;
+  posX?: number;
+  posY?: number;
+  spaceX?: number;
+  spaceY?: number;
+  visible?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      logoBase64: 'LogoBase64',
+      margin: 'Margin',
+      mode: 'Mode',
+      opacity: 'Opacity',
+      posAx: 'PosAx',
+      posAy: 'PosAy',
+      posX: 'PosX',
+      posY: 'PosY',
+      spaceX: 'SpaceX',
+      spaceY: 'SpaceY',
+      visible: 'Visible',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      logoBase64: 'string',
+      margin: CreateWmEmbedTaskRequestImageControlLogoVisibleControlMargin,
+      mode: 'string',
+      opacity: 'number',
+      posAx: 'number',
+      posAy: 'number',
+      posX: 'number',
+      posY: 'number',
+      spaceX: 'number',
+      spaceY: 'number',
+      visible: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.margin && typeof (this.margin as any).validate === 'function') {
+      (this.margin as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestImageControlMetadataControl extends $dara.Model {
+  enable?: boolean;
+  xmpKvBase64?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      xmpKvBase64: 'XmpKvBase64',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      xmpKvBase64: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestImageControlTextVisibleControlMargin extends $dara.Model {
+  bottom?: number;
+  left?: number;
+  right?: number;
+  top?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bottom: 'Bottom',
+      left: 'Left',
+      right: 'Right',
+      top: 'Top',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bottom: 'number',
+      left: 'number',
+      right: 'number',
+      top: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestImageControlTextVisibleControl extends $dara.Model {
+  angle?: number;
+  fontColor?: string;
+  fontSize?: number;
+  margin?: CreateWmEmbedTaskRequestImageControlTextVisibleControlMargin;
+  mode?: string;
+  opacity?: number;
+  posAx?: number;
+  posAy?: number;
+  posX?: number;
+  posY?: number;
+  spaceX?: number;
+  spaceY?: number;
+  visible?: boolean;
+  visibleText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      margin: 'Margin',
+      mode: 'Mode',
+      opacity: 'Opacity',
+      posAx: 'PosAx',
+      posAy: 'PosAy',
+      posX: 'PosX',
+      posY: 'PosY',
+      spaceX: 'SpaceX',
+      spaceY: 'SpaceY',
+      visible: 'Visible',
+      visibleText: 'VisibleText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      fontColor: 'string',
+      fontSize: 'number',
+      margin: CreateWmEmbedTaskRequestImageControlTextVisibleControlMargin,
+      mode: 'string',
+      opacity: 'number',
+      posAx: 'number',
+      posAy: 'number',
+      posX: 'number',
+      posY: 'number',
+      spaceX: 'number',
+      spaceY: 'number',
+      visible: 'boolean',
+      visibleText: 'string',
+    };
+  }
+
+  validate() {
+    if(this.margin && typeof (this.margin as any).validate === 'function') {
+      (this.margin as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestImageControl extends $dara.Model {
+  logoVisibleControl?: CreateWmEmbedTaskRequestImageControlLogoVisibleControl;
+  metadataControl?: CreateWmEmbedTaskRequestImageControlMetadataControl;
+  textVisibleControl?: CreateWmEmbedTaskRequestImageControlTextVisibleControl;
+  static names(): { [key: string]: string } {
+    return {
+      logoVisibleControl: 'LogoVisibleControl',
+      metadataControl: 'MetadataControl',
+      textVisibleControl: 'TextVisibleControl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logoVisibleControl: CreateWmEmbedTaskRequestImageControlLogoVisibleControl,
+      metadataControl: CreateWmEmbedTaskRequestImageControlMetadataControl,
+      textVisibleControl: CreateWmEmbedTaskRequestImageControlTextVisibleControl,
+    };
+  }
+
+  validate() {
+    if(this.logoVisibleControl && typeof (this.logoVisibleControl as any).validate === 'function') {
+      (this.logoVisibleControl as any).validate();
+    }
+    if(this.metadataControl && typeof (this.metadataControl as any).validate === 'function') {
+      (this.metadataControl as any).validate();
+    }
+    if(this.textVisibleControl && typeof (this.textVisibleControl as any).validate === 'function') {
+      (this.textVisibleControl as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWmEmbedTaskRequest extends $dara.Model {
   csvControl?: CreateWmEmbedTaskRequestCsvControl;
   documentControl?: CreateWmEmbedTaskRequestDocumentControl;
@@ -265,6 +517,7 @@ export class CreateWmEmbedTaskRequest extends $dara.Model {
    * abc****.pdf
    */
   filename?: string;
+  imageControl?: CreateWmEmbedTaskRequestImageControl;
   /**
    * @example
    * 95
@@ -314,6 +567,7 @@ export class CreateWmEmbedTaskRequest extends $dara.Model {
       documentControl: 'DocumentControl',
       fileUrl: 'FileUrl',
       filename: 'Filename',
+      imageControl: 'ImageControl',
       imageEmbedJpegQuality: 'ImageEmbedJpegQuality',
       imageEmbedLevel: 'ImageEmbedLevel',
       videoBitrate: 'VideoBitrate',
@@ -331,6 +585,7 @@ export class CreateWmEmbedTaskRequest extends $dara.Model {
       documentControl: CreateWmEmbedTaskRequestDocumentControl,
       fileUrl: 'string',
       filename: 'string',
+      imageControl: CreateWmEmbedTaskRequestImageControl,
       imageEmbedJpegQuality: 'number',
       imageEmbedLevel: 'number',
       videoBitrate: 'string',
@@ -348,6 +603,9 @@ export class CreateWmEmbedTaskRequest extends $dara.Model {
     }
     if(this.documentControl && typeof (this.documentControl as any).validate === 'function') {
       (this.documentControl as any).validate();
+    }
+    if(this.imageControl && typeof (this.imageControl as any).validate === 'function') {
+      (this.imageControl as any).validate();
     }
     super.validate();
   }

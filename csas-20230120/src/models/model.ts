@@ -45,6 +45,12 @@ export { CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleCont
 export { CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl } from './CreateWmEmbedTaskRequest';
 export { CreateWmEmbedTaskRequestDocumentControlBackgroundControl } from './CreateWmEmbedTaskRequest';
 export { CreateWmEmbedTaskRequestDocumentControl } from './CreateWmEmbedTaskRequest';
+export { CreateWmEmbedTaskRequestImageControlLogoVisibleControlMargin } from './CreateWmEmbedTaskRequest';
+export { CreateWmEmbedTaskRequestImageControlLogoVisibleControl } from './CreateWmEmbedTaskRequest';
+export { CreateWmEmbedTaskRequestImageControlMetadataControl } from './CreateWmEmbedTaskRequest';
+export { CreateWmEmbedTaskRequestImageControlTextVisibleControlMargin } from './CreateWmEmbedTaskRequest';
+export { CreateWmEmbedTaskRequestImageControlTextVisibleControl } from './CreateWmEmbedTaskRequest';
+export { CreateWmEmbedTaskRequestImageControl } from './CreateWmEmbedTaskRequest';
 export { CreateWmEmbedTaskResponseBodyData } from './CreateWmEmbedTaskResponseBody';
 export { CreateWmExtractTaskRequestCsvControl } from './CreateWmExtractTaskRequest';
 export { CreateWmExtractTaskRequestImageExtractParamsOpenApi } from './CreateWmExtractTaskRequest';

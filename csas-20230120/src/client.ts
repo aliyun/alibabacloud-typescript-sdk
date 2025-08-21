@@ -1035,6 +1035,10 @@ export default class Client extends OpenApi {
       request.documentControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentControl, "DocumentControl", "json");
     }
 
+    if (!$dara.isNull(tmpReq.imageControl)) {
+      request.imageControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageControl, "ImageControl", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.csvControlShrink)) {
       query["CsvControl"] = request.csvControlShrink;
@@ -1051,6 +1055,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.filename)) {
       body["Filename"] = request.filename;
+    }
+
+    if (!$dara.isNull(request.imageControlShrink)) {
+      body["ImageControl"] = request.imageControlShrink;
     }
 
     if (!$dara.isNull(request.imageEmbedJpegQuality)) {

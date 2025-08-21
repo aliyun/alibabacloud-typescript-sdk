@@ -21,6 +21,7 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
    * abc****.pdf
    */
   filename?: string;
+  imageControlShrink?: string;
   /**
    * @example
    * 95
@@ -70,6 +71,7 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
       documentControlShrink: 'DocumentControl',
       fileUrl: 'FileUrl',
       filename: 'Filename',
+      imageControlShrink: 'ImageControl',
       imageEmbedJpegQuality: 'ImageEmbedJpegQuality',
       imageEmbedLevel: 'ImageEmbedLevel',
       videoBitrate: 'VideoBitrate',
@@ -87,6 +89,7 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
       documentControlShrink: 'string',
       fileUrl: 'string',
       filename: 'string',
+      imageControlShrink: 'string',
       imageEmbedJpegQuality: 'number',
       imageEmbedLevel: 'number',
       videoBitrate: 'string',
