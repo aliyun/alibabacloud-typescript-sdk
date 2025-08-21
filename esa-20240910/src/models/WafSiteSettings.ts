@@ -48,6 +48,35 @@ export class WafSiteSettingsAddSecurityHeaders extends $dara.Model {
   }
 }
 
+export class WafSiteSettingsBandwidthAbuseProtection extends $dara.Model {
+  action?: string;
+  id?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      id: 'Id',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      id: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WafSiteSettingsBotManagementDefiniteBots extends $dara.Model {
   action?: string;
   id?: number;
@@ -251,6 +280,29 @@ export class WafSiteSettingsClientIpIdentifier extends $dara.Model {
   }
 }
 
+export class WafSiteSettingsDisableSecurityModule extends $dara.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WafSiteSettingsSecurityLevel extends $dara.Model {
   value?: string;
   static names(): { [key: string]: string } {
@@ -277,15 +329,19 @@ export class WafSiteSettingsSecurityLevel extends $dara.Model {
 export class WafSiteSettings extends $dara.Model {
   addBotProtectionHeaders?: WafSiteSettingsAddBotProtectionHeaders;
   addSecurityHeaders?: WafSiteSettingsAddSecurityHeaders;
+  bandwidthAbuseProtection?: WafSiteSettingsBandwidthAbuseProtection;
   botManagement?: WafSiteSettingsBotManagement;
   clientIpIdentifier?: WafSiteSettingsClientIpIdentifier;
+  disableSecurityModule?: WafSiteSettingsDisableSecurityModule;
   securityLevel?: WafSiteSettingsSecurityLevel;
   static names(): { [key: string]: string } {
     return {
       addBotProtectionHeaders: 'AddBotProtectionHeaders',
       addSecurityHeaders: 'AddSecurityHeaders',
+      bandwidthAbuseProtection: 'BandwidthAbuseProtection',
       botManagement: 'BotManagement',
       clientIpIdentifier: 'ClientIpIdentifier',
+      disableSecurityModule: 'DisableSecurityModule',
       securityLevel: 'SecurityLevel',
     };
   }
@@ -294,8 +350,10 @@ export class WafSiteSettings extends $dara.Model {
     return {
       addBotProtectionHeaders: WafSiteSettingsAddBotProtectionHeaders,
       addSecurityHeaders: WafSiteSettingsAddSecurityHeaders,
+      bandwidthAbuseProtection: WafSiteSettingsBandwidthAbuseProtection,
       botManagement: WafSiteSettingsBotManagement,
       clientIpIdentifier: WafSiteSettingsClientIpIdentifier,
+      disableSecurityModule: WafSiteSettingsDisableSecurityModule,
       securityLevel: WafSiteSettingsSecurityLevel,
     };
   }
@@ -307,11 +365,17 @@ export class WafSiteSettings extends $dara.Model {
     if(this.addSecurityHeaders && typeof (this.addSecurityHeaders as any).validate === 'function') {
       (this.addSecurityHeaders as any).validate();
     }
+    if(this.bandwidthAbuseProtection && typeof (this.bandwidthAbuseProtection as any).validate === 'function') {
+      (this.bandwidthAbuseProtection as any).validate();
+    }
     if(this.botManagement && typeof (this.botManagement as any).validate === 'function') {
       (this.botManagement as any).validate();
     }
     if(this.clientIpIdentifier && typeof (this.clientIpIdentifier as any).validate === 'function') {
       (this.clientIpIdentifier as any).validate();
+    }
+    if(this.disableSecurityModule && typeof (this.disableSecurityModule as any).validate === 'function') {
+      (this.disableSecurityModule as any).validate();
     }
     if(this.securityLevel && typeof (this.securityLevel as any).validate === 'function') {
       (this.securityLevel as any).validate();

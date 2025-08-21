@@ -163,6 +163,7 @@ export class ListRecordsResponseBodyRecordsData extends $dara.Model {
    * issue
    */
   tag?: string;
+  tags?: { [key: string]: any };
   /**
    * @remarks
    * The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
@@ -216,6 +217,7 @@ export class ListRecordsResponseBodyRecordsData extends $dara.Model {
       priority: 'Priority',
       selector: 'Selector',
       tag: 'Tag',
+      tags: 'Tags',
       type: 'Type',
       usage: 'Usage',
       value: 'Value',
@@ -235,6 +237,7 @@ export class ListRecordsResponseBodyRecordsData extends $dara.Model {
       priority: 'number',
       selector: 'number',
       tag: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       type: 'number',
       usage: 'number',
       value: 'string',
@@ -243,6 +246,9 @@ export class ListRecordsResponseBodyRecordsData extends $dara.Model {
   }
 
   validate() {
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
+    }
     super.validate();
   }
 
