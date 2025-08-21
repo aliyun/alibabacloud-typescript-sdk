@@ -11,7 +11,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("vs", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -6048,6 +6047,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.patchId)) {
+      query["PatchId"] = request.patchId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -6627,6 +6630,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.patchId)) {
+      query["PatchId"] = request.patchId;
     }
 
     if (!$dara.isNull(request.projectId)) {
@@ -8347,6 +8354,10 @@ export default class Client extends OpenApi {
       query["ClientParams"] = request.clientParamsShrink;
     }
 
+    if (!$dara.isNull(request.patchId)) {
+      query["PatchId"] = request.patchId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -9135,6 +9146,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.patchId)) {
+      query["PatchId"] = request.patchId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
@@ -9220,12 +9235,18 @@ export default class Client extends OpenApi {
   /**
    * 更新云应用信息
    * 
-   * @param request - UpdateCloudAppInfoRequest
+   * @param tmpReq - UpdateCloudAppInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudAppInfoResponse
    */
-  async updateCloudAppInfoWithOptions(request: $_model.UpdateCloudAppInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCloudAppInfoResponse> {
-    request.validate();
+  async updateCloudAppInfoWithOptions(tmpReq: $_model.UpdateCloudAppInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCloudAppInfoResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateCloudAppInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.patch)) {
+      request.patchShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.patch, "Patch", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
@@ -9233,6 +9254,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.patchShrink)) {
+      query["Patch"] = request.patchShrink;
+    }
+
+    if (!$dara.isNull(request.stablePatchId)) {
+      query["StablePatchId"] = request.stablePatchId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

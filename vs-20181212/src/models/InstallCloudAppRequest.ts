@@ -13,6 +13,11 @@ export class InstallCloudAppRequest extends $dara.Model {
   appId?: string;
   pageNumber?: number;
   pageSize?: number;
+  /**
+   * @example
+   * patch-7bdf679812484df08a956b73e0b3bdf6
+   */
+  patchId?: string;
   projectId?: string;
   /**
    * @example
@@ -25,6 +30,7 @@ export class InstallCloudAppRequest extends $dara.Model {
       appId: 'AppId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      patchId: 'PatchId',
       projectId: 'ProjectId',
       renderingInstanceId: 'RenderingInstanceId',
       renderingInstanceIds: 'RenderingInstanceIds',
@@ -36,6 +42,7 @@ export class InstallCloudAppRequest extends $dara.Model {
       appId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      patchId: 'string',
       projectId: 'string',
       renderingInstanceId: 'string',
       renderingInstanceIds: { 'type': 'array', 'itemType': 'string' },

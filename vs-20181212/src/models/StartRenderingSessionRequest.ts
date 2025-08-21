@@ -45,6 +45,11 @@ export class StartRenderingSessionRequest extends $dara.Model {
   clientId?: string;
   clientParams?: StartRenderingSessionRequestClientParams;
   /**
+   * @example
+   * patch-03fa76e8e13a49b63456b063dgh309b4
+   */
+  patchId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -57,6 +62,7 @@ export class StartRenderingSessionRequest extends $dara.Model {
       appId: 'AppId',
       clientId: 'ClientId',
       clientParams: 'ClientParams',
+      patchId: 'PatchId',
       projectId: 'ProjectId',
     };
   }
@@ -66,6 +72,7 @@ export class StartRenderingSessionRequest extends $dara.Model {
       appId: 'string',
       clientId: 'string',
       clientParams: StartRenderingSessionRequestClientParams,
+      patchId: 'string',
       projectId: 'string',
     };
   }

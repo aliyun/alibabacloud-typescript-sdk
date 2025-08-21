@@ -29,6 +29,11 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @example
+   * patch-7bdf679812484df08a956b73e0b3bdf6
+   */
+  patchId?: string;
   projectId?: string;
   /**
    * @example
@@ -44,6 +49,7 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
       endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      patchId: 'PatchId',
       projectId: 'ProjectId',
       renderingInstanceId: 'RenderingInstanceId',
       startTime: 'StartTime',
@@ -58,6 +64,7 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
       endTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      patchId: 'string',
       projectId: 'string',
       renderingInstanceId: 'string',
       startTime: 'string',

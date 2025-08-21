@@ -132,6 +132,7 @@ export { StartRenderingSessionResponseBodyPortMappings } from './StartRenderingS
 export { StartRenderingSessionResponseBodyStateInfo } from './StartRenderingSessionResponseBody';
 export { UninstallCloudAppResponseBodyFailedInstances } from './UninstallCloudAppResponseBody';
 export { UninstallCloudAppResponseBodySuccessInstances } from './UninstallCloudAppResponseBody';
+export { UpdateCloudAppInfoRequestPatch } from './UpdateCloudAppInfoRequest';
 export { UpdateRenderingInstanceConfigurationRequestConfigurationAttributes } from './UpdateRenderingInstanceConfigurationRequest';
 export { UpdateRenderingInstanceConfigurationRequestConfiguration } from './UpdateRenderingInstanceConfigurationRequest';
 export { UpdateRenderingInstanceSettingsRequestSettings } from './UpdateRenderingInstanceSettingsRequest';
@@ -661,6 +662,7 @@ export { UnlockDeviceRequest } from './UnlockDeviceRequest';
 export { UnlockDeviceResponseBody } from './UnlockDeviceResponseBody';
 export { UnlockDeviceResponse } from './UnlockDeviceResponse';
 export { UpdateCloudAppInfoRequest } from './UpdateCloudAppInfoRequest';
+export { UpdateCloudAppInfoShrinkRequest } from './UpdateCloudAppInfoShrinkRequest';
 export { UpdateCloudAppInfoResponseBody } from './UpdateCloudAppInfoResponseBody';
 export { UpdateCloudAppInfoResponse } from './UpdateCloudAppInfoResponse';
 export { UpdateFileInfoRequest } from './UpdateFileInfoRequest';

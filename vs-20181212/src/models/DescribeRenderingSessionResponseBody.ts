@@ -177,6 +177,11 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
   hostname?: string;
   isp?: string;
   location?: DescribeRenderingSessionResponseBodyLocation;
+  /**
+   * @example
+   * patch-03fa76e8e13a49b6a966b063d9d309b4
+   */
+  patchId?: string;
   portMappings?: DescribeRenderingSessionResponseBodyPortMappings[];
   renderingInstanceId?: string;
   /**
@@ -203,6 +208,7 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
       hostname: 'Hostname',
       isp: 'Isp',
       location: 'Location',
+      patchId: 'PatchId',
       portMappings: 'PortMappings',
       renderingInstanceId: 'RenderingInstanceId',
       requestId: 'RequestId',
@@ -220,6 +226,7 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
       hostname: 'string',
       isp: 'string',
       location: DescribeRenderingSessionResponseBodyLocation,
+      patchId: 'string',
       portMappings: { 'type': 'array', 'itemType': DescribeRenderingSessionResponseBodyPortMappings },
       renderingInstanceId: 'string',
       requestId: 'string',

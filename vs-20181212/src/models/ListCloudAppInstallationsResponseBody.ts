@@ -25,6 +25,11 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
   installationTime?: string;
   /**
    * @example
+   * patch-7bdf679812484df08a956b73e0b3bdf6
+   */
+  patchId?: string;
+  /**
+   * @example
    * render-9f8c57355d224ad7beaf95e145f22111
    */
   renderingInstanceId?: string;
@@ -49,6 +54,7 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
       appName: 'AppName',
       appVersion: 'AppVersion',
       installationTime: 'InstallationTime',
+      patchId: 'PatchId',
       renderingInstanceId: 'RenderingInstanceId',
       status: 'Status',
       statusDescription: 'StatusDescription',
@@ -62,6 +68,7 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
       appName: 'string',
       appVersion: 'string',
       installationTime: 'string',
+      patchId: 'string',
       renderingInstanceId: 'string',
       status: 'string',
       statusDescription: 'string',

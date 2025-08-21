@@ -18,6 +18,11 @@ export class StartRenderingSessionShrinkRequest extends $dara.Model {
   clientId?: string;
   clientParamsShrink?: string;
   /**
+   * @example
+   * patch-03fa76e8e13a49b63456b063dgh309b4
+   */
+  patchId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -30,6 +35,7 @@ export class StartRenderingSessionShrinkRequest extends $dara.Model {
       appId: 'AppId',
       clientId: 'ClientId',
       clientParamsShrink: 'ClientParams',
+      patchId: 'PatchId',
       projectId: 'ProjectId',
     };
   }
@@ -39,6 +45,7 @@ export class StartRenderingSessionShrinkRequest extends $dara.Model {
       appId: 'string',
       clientId: 'string',
       clientParamsShrink: 'string',
+      patchId: 'string',
       projectId: 'string',
     };
   }

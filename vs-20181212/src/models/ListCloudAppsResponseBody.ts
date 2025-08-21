@@ -27,6 +27,11 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   pkgType?: string;
   /**
    * @example
+   * patch-7bdf679812484df08a956b73e0b3bdf6
+   */
+  stablePatchId?: string;
+  /**
+   * @example
    * Success
    */
   status?: string;
@@ -53,6 +58,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
       description: 'Description',
       pkgFormat: 'PkgFormat',
       pkgType: 'PkgType',
+      stablePatchId: 'StablePatchId',
       status: 'Status',
       statusDescription: 'StatusDescription',
       updateTime: 'UpdateTime',
@@ -68,6 +74,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
       description: 'string',
       pkgFormat: 'string',
       pkgType: 'string',
+      stablePatchId: 'string',
       status: 'string',
       statusDescription: 'string',
       updateTime: 'string',

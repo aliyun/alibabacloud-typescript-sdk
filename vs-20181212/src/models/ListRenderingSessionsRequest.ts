@@ -25,6 +25,11 @@ export class ListRenderingSessionsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @example
+   * patch-03fa76e8e13a49b6a966b063d9d309b4
+   */
+  patchId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -51,6 +56,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
       endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      patchId: 'PatchId',
       projectId: 'ProjectId',
       renderingInstanceId: 'RenderingInstanceId',
       sessionId: 'SessionId',
@@ -66,6 +72,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
       endTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      patchId: 'string',
       projectId: 'string',
       renderingInstanceId: 'string',
       sessionId: 'string',
