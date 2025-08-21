@@ -1,9 +1,155 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateLogstashRequestNetworkConfig } from "./CreateLogstashRequestNetworkConfig";
-import { CreateLogstashRequestNodeSpec } from "./CreateLogstashRequestNodeSpec";
-import { CreateLogstashRequestPaymentInfo } from "./CreateLogstashRequestPaymentInfo";
 
+
+export class CreateLogstashRequestNetworkConfig extends $dara.Model {
+  /**
+   * @example
+   * vpc
+   */
+  type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp16k1dvzxtmagcva****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
+  vsArea?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp1k4ec6s7sjdbudw****
+   */
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+      vpcId: 'vpcId',
+      vsArea: 'vsArea',
+      vswitchId: 'vswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      vpcId: 'string',
+      vsArea: 'string',
+      vswitchId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLogstashRequestNodeSpec extends $dara.Model {
+  /**
+   * @example
+   * 50
+   */
+  disk?: number;
+  /**
+   * @example
+   * cloud_ssd
+   */
+  diskType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * logstash.n4.small
+   */
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disk: 'disk',
+      diskType: 'diskType',
+      spec: 'spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disk: 'number',
+      diskType: 'string',
+      spec: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLogstashRequestPaymentInfo extends $dara.Model {
+  /**
+   * @example
+   * 3
+   */
+  autoRenewDuration?: number;
+  /**
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @example
+   * false
+   */
+  isAutoRenew?: boolean;
+  /**
+   * @example
+   * Month
+   */
+  pricingCycle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenewDuration: 'autoRenewDuration',
+      duration: 'duration',
+      isAutoRenew: 'isAutoRenew',
+      pricingCycle: 'pricingCycle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenewDuration: 'number',
+      duration: 'number',
+      isAutoRenew: 'boolean',
+      pricingCycle: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateLogstashRequest extends $dara.Model {
   /**

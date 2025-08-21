@@ -1,7 +1,100 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpgradeEngineVersionResponseBodyResult } from "./UpgradeEngineVersionResponseBodyResult";
 
+
+export class UpgradeEngineVersionResponseBodyResultValidateResult extends $dara.Model {
+  /**
+   * @example
+   * ClusterStatusNotHealth
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * The cluster status is not health
+   */
+  errorMsg?: string;
+  /**
+   * @remarks
+   * The verification is passed. Valid values:
+   * 
+   * *   success: through
+   * *   failed: failed
+   * 
+   * @example
+   * clusterStatus
+   */
+  errorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      errorType: 'errorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      errorType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeEngineVersionResponseBodyResult extends $dara.Model {
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The error message returned.
+   */
+  validateResult?: UpgradeEngineVersionResponseBodyResultValidateResult[];
+  /**
+   * @remarks
+   * The error code returned if the request failed.
+   * 
+   * @example
+   * checkClusterHealth
+   */
+  validateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      validateResult: 'validateResult',
+      validateType: 'validateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      validateResult: { 'type': 'array', 'itemType': UpgradeEngineVersionResponseBodyResultValidateResult },
+      validateType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.validateResult)) {
+      $dara.Model.validateArray(this.validateResult);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpgradeEngineVersionResponseBody extends $dara.Model {
   /**

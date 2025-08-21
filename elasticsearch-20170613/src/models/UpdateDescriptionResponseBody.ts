@@ -1,7 +1,33 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateDescriptionResponseBodyResult } from "./UpdateDescriptionResponseBodyResult";
 
+
+export class UpdateDescriptionResponseBodyResult extends $dara.Model {
+  /**
+   * @example
+   * aliyunes_test_name
+   */
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateDescriptionResponseBody extends $dara.Model {
   /**

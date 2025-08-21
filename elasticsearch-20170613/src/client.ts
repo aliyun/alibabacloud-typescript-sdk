@@ -11,7 +11,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("elasticsearch", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -339,7 +338,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<$_model.CapacityPlanResponse>(await this.callApi(params, req, runtime), new $_model.CapacityPlanResponse({}));
+    return $dara.cast<$_model.CapacityPlanResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.CapacityPlanResponse({}));
   }
 
   /**
@@ -2283,6 +2282,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看备份设置
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSnapshotSettingResponse
@@ -2306,6 +2307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看备份设置
    * @returns DescribeSnapshotSettingResponse
    */
   async describeSnapshotSetting(InstanceId: string): Promise<$_model.DescribeSnapshotSettingResponse> {
@@ -2701,6 +2703,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * GetEmonAlarmRecordStatisticsDistribute
+   * 
+   * @param request - GetEmonAlarmRecordStatisticsDistributeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEmonAlarmRecordStatisticsDistributeResponse
+   */
+  async getEmonAlarmRecordStatisticsDistributeWithOptions(request: $_model.GetEmonAlarmRecordStatisticsDistributeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetEmonAlarmRecordStatisticsDistributeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.body)) {
+      query["body"] = request.body;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["groupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.timeEnd)) {
+      query["timeEnd"] = request.timeEnd;
+    }
+
+    if (!$dara.isNull(request.timeStart)) {
+      query["timeStart"] = request.timeStart;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetEmonAlarmRecordStatisticsDistribute",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/emon/alarm-record-statistics/distribute`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetEmonAlarmRecordStatisticsDistributeResponse>(await this.callApi(params, req, runtime), new $_model.GetEmonAlarmRecordStatisticsDistributeResponse({}));
+  }
+
+  /**
+   * GetEmonAlarmRecordStatisticsDistribute
+   * 
+   * @param request - GetEmonAlarmRecordStatisticsDistributeRequest
+   * @returns GetEmonAlarmRecordStatisticsDistributeResponse
+   */
+  async getEmonAlarmRecordStatisticsDistribute(request: $_model.GetEmonAlarmRecordStatisticsDistributeRequest): Promise<$_model.GetEmonAlarmRecordStatisticsDistributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getEmonAlarmRecordStatisticsDistributeWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取高级监控报警自定义Grafana监控报警项
    * 
    * @param request - GetEmonGrafanaAlertsRequest
@@ -2710,9 +2769,14 @@ export default class Client extends OpenApi {
    */
   async getEmonGrafanaAlertsWithOptions(ProjectId: string, request: $_model.GetEmonGrafanaAlertsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetEmonGrafanaAlertsResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.body)) {
+      query["body"] = request.body;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
-      body: request.body,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetEmonGrafanaAlerts",
@@ -2750,9 +2814,14 @@ export default class Client extends OpenApi {
    */
   async getEmonGrafanaDashboardsWithOptions(ProjectId: string, request: $_model.GetEmonGrafanaDashboardsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetEmonGrafanaDashboardsResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.body)) {
+      query["body"] = request.body;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
-      body: request.body,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetEmonGrafanaDashboards",
@@ -2781,6 +2850,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * GetEmonMonitorData
+   * 
    * @param request - GetEmonMonitorDataRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2788,9 +2859,14 @@ export default class Client extends OpenApi {
    */
   async getEmonMonitorDataWithOptions(ProjectId: string, request: $_model.GetEmonMonitorDataRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetEmonMonitorDataResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.body)) {
+      query["body"] = request.body;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
-      body: request.body,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetEmonMonitorData",
@@ -2807,6 +2883,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * GetEmonMonitorData
+   * 
    * @param request - GetEmonMonitorDataRequest
    * @returns GetEmonMonitorDataResponse
    */
@@ -3934,6 +4012,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询数据流
+   * 
    * @param request - ListDataStreamsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3969,6 +4049,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询数据流
+   * 
    * @param request - ListDataStreamsRequest
    * @returns ListDataStreamsResponse
    */
@@ -4439,6 +4521,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询ecs实例
+   * 
    * @remarks
    * *Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
    * 
@@ -4493,6 +4577,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询ecs实例
+   * 
    * @remarks
    * *Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
    * 
@@ -5229,6 +5315,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListPipeline
+   * 
    * @param request - ListPipelineRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5268,6 +5356,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListPipeline
+   * 
    * @param request - ListPipelineRequest
    * @returns ListPipelineResponse
    */
@@ -6128,6 +6218,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * PostEmonTryAlarmRule
+   * 
    * @param request - PostEmonTryAlarmRuleRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6135,9 +6227,14 @@ export default class Client extends OpenApi {
    */
   async postEmonTryAlarmRuleWithOptions(ProjectId: string, AlarmGroupId: string, request: $_model.PostEmonTryAlarmRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PostEmonTryAlarmRuleResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.body)) {
+      query["body"] = request.body;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
-      body: request.body,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "PostEmonTryAlarmRule",
@@ -6154,6 +6251,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * PostEmonTryAlarmRule
+   * 
    * @param request - PostEmonTryAlarmRuleRequest
    * @returns PostEmonTryAlarmRuleResponse
    */
@@ -7327,10 +7426,13 @@ export default class Client extends OpenApi {
       query["TagKeys"] = request.tagKeys;
     }
 
+    if (!$dara.isNull(request.body)) {
+      query["body"] = request.body;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: request.body,
     });
     let params = new $OpenApiUtil.Params({
       action: "UntagResources",
@@ -7596,7 +7698,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateBlackIpsResponse
    */
-  // Deprecated
   async updateBlackIpsWithOptions(InstanceId: string, request: $_model.UpdateBlackIpsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateBlackIpsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };

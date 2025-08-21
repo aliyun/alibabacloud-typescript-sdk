@@ -1,11 +1,148 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { LogstashEndpointList } from "./LogstashEndpointList";
-import { LogstashNetworkConfig } from "./LogstashNetworkConfig";
-import { LogstashNodeSpec } from "./LogstashNodeSpec";
-import { LogstashTags } from "./LogstashTags";
-import { LogstashZoneInfos } from "./LogstashZoneInfos";
 
+
+export class LogstashEndpointList extends $dara.Model {
+  host?: string;
+  port?: number;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'host',
+      port: 'port',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      port: 'number',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogstashNetworkConfig extends $dara.Model {
+  type?: string;
+  vpcId?: string;
+  vsArea?: string;
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+      vpcId: 'vpcId',
+      vsArea: 'vsArea',
+      vswitchId: 'vswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      vpcId: 'string',
+      vsArea: 'string',
+      vswitchId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogstashNodeSpec extends $dara.Model {
+  disk?: number;
+  diskType?: string;
+  spec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disk: 'disk',
+      diskType: 'diskType',
+      spec: 'spec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disk: 'number',
+      diskType: 'string',
+      spec: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogstashTags extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'tagKey',
+      tagValue: 'tagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogstashZoneInfos extends $dara.Model {
+  status?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class Logstash extends $dara.Model {
   config?: { [key: string]: string };

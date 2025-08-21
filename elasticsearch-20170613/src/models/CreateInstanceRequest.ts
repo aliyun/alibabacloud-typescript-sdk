@@ -7,9 +7,34 @@ import { MasterNodeConfiguration } from "./MasterNodeConfiguration";
 import { NetworkConfig } from "./NetworkConfig";
 import { NodeSpec } from "./NodeSpec";
 import { PaymentInfo } from "./PaymentInfo";
-import { CreateInstanceRequestTags } from "./CreateInstanceRequestTags";
 import { WarmNodeConfiguration } from "./WarmNodeConfiguration";
 
+
+export class CreateInstanceRequestTags extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'tagKey',
+      tagValue: 'tagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateInstanceRequest extends $dara.Model {
   clientNodeConfiguration?: ClientNodeConfiguration;

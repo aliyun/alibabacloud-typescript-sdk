@@ -1,8 +1,97 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListPluginsResponseBodyHeaders } from "./ListPluginsResponseBodyHeaders";
-import { ListPluginsResponseBodyResult } from "./ListPluginsResponseBodyResult";
 
+
+export class ListPluginsResponseBodyHeaders extends $dara.Model {
+  /**
+   * @remarks
+   * The address of the plug-in description document.
+   * 
+   * @example
+   * 2
+   */
+  xTotalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      xTotalCount: 'X-Total-Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      xTotalCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPluginsResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The source type of the plug-in.
+   * 
+   * @example
+   * IK analysis plug-in for Elasticsearch.
+   */
+  description?: string;
+  /**
+   * @example
+   * analysis-ik
+   */
+  name?: string;
+  /**
+   * @example
+   * SYSTEM
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The name of the plug-in.
+   * 
+   * @example
+   * https://xxxx.html
+   */
+  specificationUrl?: string;
+  /**
+   * @example
+   * INSTALLED
+   */
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      name: 'name',
+      source: 'source',
+      specificationUrl: 'specificationUrl',
+      state: 'state',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      source: 'string',
+      specificationUrl: 'string',
+      state: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListPluginsResponseBody extends $dara.Model {
   /**

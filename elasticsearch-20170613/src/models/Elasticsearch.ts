@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ElasticsearchAdvancedSetting } from "./ElasticsearchAdvancedSetting";
 import { DictInfo } from "./DictInfo";
 import { ClientNodeConfiguration } from "./ClientNodeConfiguration";
 import { ElasticDataNodeConfiguration } from "./ElasticDataNodeConfiguration";
@@ -13,6 +12,29 @@ import { Tag } from "./Tag";
 import { WarmNodeConfiguration } from "./WarmNodeConfiguration";
 import { ZoneInfo } from "./ZoneInfo";
 
+
+export class ElasticsearchAdvancedSetting extends $dara.Model {
+  gcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gcName: 'gcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gcName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class Elasticsearch extends $dara.Model {
   advancedDedicateMaster?: boolean;
