@@ -102,6 +102,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建执行计划创建执行计划
+   * 
+   * @param tmpReq - CreateActionPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateActionPlanResponse
+   */
+  async createActionPlanWithOptions(tmpReq: $_model.CreateActionPlanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateActionPlanResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateActionPlanShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.regions)) {
+      request.regionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regions, "Regions", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.resources)) {
+      request.resourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resources, "Resources", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.actionPlanName)) {
+      query["ActionPlanName"] = request.actionPlanName;
+    }
+
+    if (!$dara.isNull(request.allocationSpec)) {
+      query["AllocationSpec"] = request.allocationSpec;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.desiredCapacity)) {
+      query["DesiredCapacity"] = request.desiredCapacity;
+    }
+
+    if (!$dara.isNull(request.level)) {
+      query["Level"] = request.level;
+    }
+
+    if (!$dara.isNull(request.prologScript)) {
+      query["PrologScript"] = request.prologScript;
+    }
+
+    if (!$dara.isNull(request.regionsShrink)) {
+      query["Regions"] = request.regionsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.resourcesShrink)) {
+      query["Resources"] = request.resourcesShrink;
+    }
+
+    if (!$dara.isNull(request.script)) {
+      query["Script"] = request.script;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateActionPlan",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateActionPlanResponse>(await this.callApi(params, req, runtime), new $_model.CreateActionPlanResponse({}));
+  }
+
+  /**
+   * 创建执行计划创建执行计划
+   * 
+   * @param request - CreateActionPlanRequest
+   * @returns CreateActionPlanResponse
+   */
+  async createActionPlan(request: $_model.CreateActionPlanRequest): Promise<$_model.CreateActionPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createActionPlanWithOptions(request, runtime);
+  }
+
+  /**
    * 提交任务
    * 
    * @param tmpReq - CreateJobRequest
@@ -239,6 +327,48 @@ export default class Client extends OpenApi {
   async createPool(request: $_model.CreatePoolRequest): Promise<$_model.CreatePoolResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createPoolWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除执行计划
+   * 
+   * @param request - DeleteActionPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteActionPlanResponse
+   */
+  async deleteActionPlanWithOptions(request: $_model.DeleteActionPlanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteActionPlanResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.actionPlanId)) {
+      query["ActionPlanId"] = request.actionPlanId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteActionPlan",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteActionPlanResponse>(await this.callApi(params, req, runtime), new $_model.DeleteActionPlanResponse({}));
+  }
+
+  /**
+   * 删除执行计划
+   * 
+   * @param request - DeleteActionPlanRequest
+   * @returns DeleteActionPlanResponse
+   */
+  async deleteActionPlan(request: $_model.DeleteActionPlanRequest): Promise<$_model.DeleteActionPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteActionPlanWithOptions(request, runtime);
   }
 
   /**
@@ -460,6 +590,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询执行计划详情
+   * 
+   * @param request - GetActionPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetActionPlanResponse
+   */
+  async getActionPlanWithOptions(request: $_model.GetActionPlanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetActionPlanResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.actionPlanId)) {
+      query["ActionPlanId"] = request.actionPlanId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetActionPlan",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetActionPlanResponse>(await this.callApi(params, req, runtime), new $_model.GetActionPlanResponse({}));
+  }
+
+  /**
+   * 查询执行计划详情
+   * 
+   * @param request - GetActionPlanRequest
+   * @returns GetActionPlanResponse
+   */
+  async getActionPlan(request: $_model.GetActionPlanRequest): Promise<$_model.GetActionPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getActionPlanWithOptions(request, runtime);
+  }
+
+  /**
    * 查看应用版本列表
    * 
    * @param request - GetAppVersionsRequest
@@ -659,6 +831,112 @@ export default class Client extends OpenApi {
   async getPool(request: $_model.GetPoolRequest): Promise<$_model.GetPoolResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getPoolWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询执行计划的执行情况。
+   * 
+   * @param request - ListActionPlanActivitiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListActionPlanActivitiesResponse
+   */
+  async listActionPlanActivitiesWithOptions(request: $_model.ListActionPlanActivitiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListActionPlanActivitiesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.actionPlanId)) {
+      query["ActionPlanId"] = request.actionPlanId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListActionPlanActivities",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListActionPlanActivitiesResponse>(await this.callApi(params, req, runtime), new $_model.ListActionPlanActivitiesResponse({}));
+  }
+
+  /**
+   * 查询执行计划的执行情况。
+   * 
+   * @param request - ListActionPlanActivitiesRequest
+   * @returns ListActionPlanActivitiesResponse
+   */
+  async listActionPlanActivities(request: $_model.ListActionPlanActivitiesRequest): Promise<$_model.ListActionPlanActivitiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listActionPlanActivitiesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询执行计划列表
+   * 
+   * @param tmpReq - ListActionPlansRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListActionPlansResponse
+   */
+  async listActionPlansWithOptions(tmpReq: $_model.ListActionPlansRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListActionPlansResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListActionPlansShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.actionPlanIds)) {
+      request.actionPlanIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actionPlanIds, "ActionPlanIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.actionPlanIdsShrink)) {
+      query["ActionPlanIds"] = request.actionPlanIdsShrink;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListActionPlans",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListActionPlansResponse>(await this.callApi(params, req, runtime), new $_model.ListActionPlansResponse({}));
+  }
+
+  /**
+   * 查询执行计划列表
+   * 
+   * @param request - ListActionPlansRequest
+   * @returns ListActionPlansResponse
+   */
+  async listActionPlans(request: $_model.ListActionPlansRequest): Promise<$_model.ListActionPlansResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listActionPlansWithOptions(request, runtime);
   }
 
   /**
@@ -1225,6 +1503,56 @@ export default class Client extends OpenApi {
   async unTagResources(request: $_model.UnTagResourcesRequest): Promise<$_model.UnTagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.unTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新执行计划
+   * 
+   * @param request - UpdateActionPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateActionPlanResponse
+   */
+  async updateActionPlanWithOptions(request: $_model.UpdateActionPlanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateActionPlanResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.actionPlanId)) {
+      query["ActionPlanId"] = request.actionPlanId;
+    }
+
+    if (!$dara.isNull(request.desiredCapacity)) {
+      query["DesiredCapacity"] = request.desiredCapacity;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateActionPlan",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateActionPlanResponse>(await this.callApi(params, req, runtime), new $_model.UpdateActionPlanResponse({}));
+  }
+
+  /**
+   * 更新执行计划
+   * 
+   * @param request - UpdateActionPlanRequest
+   * @returns UpdateActionPlanResponse
+   */
+  async updateActionPlan(request: $_model.UpdateActionPlanRequest): Promise<$_model.UpdateActionPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateActionPlanWithOptions(request, runtime);
   }
 
   /**
