@@ -30,6 +30,7 @@ export class DescribeDDosAllEventListRequest extends $dara.Model {
    * defense
    */
   eventType?: string;
+  ip?: string;
   /**
    * @remarks
    * The number of the page to return.
@@ -64,6 +65,7 @@ export class DescribeDDosAllEventListRequest extends $dara.Model {
     return {
       endTime: 'EndTime',
       eventType: 'EventType',
+      ip: 'Ip',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       startTime: 'StartTime',
@@ -74,6 +76,7 @@ export class DescribeDDosAllEventListRequest extends $dara.Model {
     return {
       endTime: 'number',
       eventType: 'string',
+      ip: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       startTime: 'number',

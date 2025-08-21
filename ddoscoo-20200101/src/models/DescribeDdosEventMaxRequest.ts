@@ -13,6 +13,7 @@ export class DescribeDDosEventMaxRequest extends $dara.Model {
    * 1604073600
    */
   endTime?: number;
+  ip?: string;
   /**
    * @remarks
    * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
@@ -26,6 +27,7 @@ export class DescribeDDosEventMaxRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      ip: 'Ip',
       startTime: 'StartTime',
     };
   }
@@ -33,6 +35,7 @@ export class DescribeDDosEventMaxRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'number',
+      ip: 'string',
       startTime: 'number',
     };
   }

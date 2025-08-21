@@ -1344,7 +1344,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateWebCCRuleResponse
    */
-  // Deprecated
   async createWebCCRuleWithOptions(request: $_model.CreateWebCCRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWebCCRuleResponse> {
     request.validate();
     let query = { };
@@ -1944,7 +1943,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteWebCCRuleResponse
    */
-  // Deprecated
   async deleteWebCCRuleWithOptions(request: $_model.DeleteWebCCRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWebCCRuleResponse> {
     request.validate();
     let query = { };
@@ -2269,6 +2267,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.ip)) {
+      query["Ip"] = request.ip;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -2792,6 +2794,10 @@ export default class Client extends OpenApi {
       query["EventType"] = request.eventType;
     }
 
+    if (!$dara.isNull(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -3025,6 +3031,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.ip)) {
+      query["Ip"] = request.ip;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -7180,7 +7190,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeWebCCRulesResponse
    */
-  // Deprecated
   async describeWebCCRulesWithOptions(request: $_model.DescribeWebCCRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeWebCCRulesResponse> {
     request.validate();
     let query = { };
@@ -9738,7 +9747,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyWebCCRuleResponse
    */
-  // Deprecated
   async modifyWebCCRuleWithOptions(request: $_model.ModifyWebCCRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyWebCCRuleResponse> {
     request.validate();
     let query = { };
