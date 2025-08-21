@@ -1,5867 +1,11 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class CheckCertificateResponseBodyDevelopmentCertInfo extends $dara.Model {
-  /**
-   * @example
-   * 1470024000000
-   */
-  exipreTime?: number;
-  /**
-   * @example
-   * EXPIRED
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      exipreTime: 'ExipreTime',
-      status: 'Status',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      exipreTime: 'number',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCertificateResponseBodyProductionCertInfo extends $dara.Model {
-  /**
-   * @example
-   * 1764561600000
-   */
-  exipreTime?: number;
-  /**
-   * @example
-   * OK
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      exipreTime: 'ExipreTime',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exipreTime: 'number',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDevicesResponseBodyDeviceCheckInfosDeviceCheckInfo extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
-  available?: boolean;
-  /**
-   * @example
-   * ae296f3b04a58a05b30c95f****
-   */
-  deviceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      available: 'Available',
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      available: 'boolean',
-      deviceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDevicesResponseBodyDeviceCheckInfos extends $dara.Model {
-  deviceCheckInfo?: CheckDevicesResponseBodyDeviceCheckInfosDeviceCheckInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      deviceCheckInfo: 'DeviceCheckInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceCheckInfo: { 'type': 'array', 'itemType': CheckDevicesResponseBodyDeviceCheckInfosDeviceCheckInfo },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.deviceCheckInfo)) {
-      $dara.Model.validateArray(this.deviceCheckInfo);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSummaryAppsResponseBodySummaryAppInfosSummaryAppInfo extends $dara.Model {
-  /**
-   * @example
-   * 23****07
-   */
-  appKey?: number;
-  /**
-   * @example
-   * abc
-   */
-  appName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      appName: 'AppName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      appName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSummaryAppsResponseBodySummaryAppInfos extends $dara.Model {
-  summaryAppInfo?: ListSummaryAppsResponseBodySummaryAppInfosSummaryAppInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      summaryAppInfo: 'SummaryAppInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      summaryAppInfo: { 'type': 'array', 'itemType': ListSummaryAppsResponseBodySummaryAppInfosSummaryAppInfo },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.summaryAppInfo)) {
-      $dara.Model.validateArray(this.summaryAppInfo);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsResponseBodyTagInfosTagInfo extends $dara.Model {
-  /**
-   * @example
-   * test_tag2
-   */
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagName: 'TagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsResponseBodyTagInfos extends $dara.Model {
-  tagInfo?: ListTagsResponseBodyTagInfosTagInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      tagInfo: 'TagInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagInfo: { 'type': 'array', 'itemType': ListTagsResponseBodyTagInfosTagInfo },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tagInfo)) {
-      $dara.Model.validateArray(this.tagInfo);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MassPushRequestPushTask extends $dara.Model {
-  /**
-   * @example
-   * com.alibaba.cloudpushdemo.bizactivity
-   */
-  androidActivity?: string;
-  /**
-   * @example
-   * 99
-   */
-  androidBadgeAddNum?: number;
-  androidBadgeClass?: string;
-  /**
-   * @example
-   * 99
-   */
-  androidBadgeSetNum?: number;
-  androidBigBody?: string;
-  /**
-   * @example
-   * https://imag.example.com/image.png
-   */
-  androidBigPictureUrl?: string;
-  androidBigTitle?: string;
-  /**
-   * @example
-   * {"key1":"value1","api_name":"PushNoticeToAndroidRequest"}
-   */
-  androidExtParameters?: string;
-  androidHonorTargetUserType?: number;
-  /**
-   * @example
-   * RCP4C123456
-   */
-  androidHuaweiReceiptId?: string;
-  /**
-   * @example
-   * 1
-   */
-  androidHuaweiTargetUserType?: number;
-  /**
-   * @example
-   * https://imag.example.com/image.png
-   */
-  androidImageUrl?: string;
-  androidInboxBody?: string;
-  /**
-   * @example
-   * VOIP
-   */
-  androidMessageHuaweiCategory?: string;
-  /**
-   * @example
-   * HIGH
-   */
-  androidMessageHuaweiUrgency?: string;
-  androidMessageOppoCategory?: string;
-  androidMessageOppoNotifyLevel?: number;
-  /**
-   * @example
-   * TODO
-   */
-  androidMessageVivoCategory?: string;
-  androidMusic?: string;
-  /**
-   * @example
-   * 0
-   */
-  androidNotificationBarPriority?: number;
-  /**
-   * @example
-   * 2
-   */
-  androidNotificationBarType?: number;
-  /**
-   * @example
-   * 1
-   */
-  androidNotificationChannel?: string;
-  /**
-   * @example
-   * group-1
-   */
-  androidNotificationGroup?: string;
-  /**
-   * @example
-   * LOW
-   */
-  androidNotificationHonorChannel?: string;
-  /**
-   * @example
-   * LOW
-   */
-  androidNotificationHuaweiChannel?: string;
-  /**
-   * @example
-   * 100001
-   */
-  androidNotificationNotifyId?: number;
-  androidNotificationThreadId?: string;
-  /**
-   * @example
-   * 0
-   */
-  androidNotificationVivoChannel?: string;
-  /**
-   * @example
-   * michannel
-   */
-  androidNotificationXiaomiChannel?: string;
-  /**
-   * @example
-   * VIBRATE
-   */
-  androidNotifyType?: string;
-  /**
-   * @example
-   * APPLICATION
-   */
-  androidOpenType?: string;
-  /**
-   * @example
-   * https://xxxx.xxx
-   */
-  androidOpenUrl?: string;
-  /**
-   * @example
-   * com.alibaba.cloudpushdemo.bizactivity
-   */
-  androidPopupActivity?: string;
-  /**
-   * @example
-   * hello
-   */
-  androidPopupBody?: string;
-  /**
-   * @example
-   * hello
-   */
-  androidPopupTitle?: string;
-  /**
-   * @example
-   * true
-   */
-  androidRemind?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  androidRenderStyle?: string;
-  androidTargetUserType?: number;
-  /**
-   * @example
-   * 1
-   */
-  androidVivoPushMode?: number;
-  androidVivoReceiptId?: string;
-  /**
-   * @deprecated
-   */
-  androidXiaoMiActivity?: string;
-  /**
-   * @deprecated
-   */
-  androidXiaoMiNotifyBody?: string;
-  /**
-   * @deprecated
-   */
-  androidXiaoMiNotifyTitle?: string;
-  /**
-   * @example
-   * https://f6.market.xiaomi.com/download/MiPass/aaa/bbb.png
-   * 
-   * @deprecated
-   */
-  androidXiaomiBigPictureUrl?: string;
-  /**
-   * @example
-   * https://imag.example.com/image.png
-   * 
-   * @deprecated
-   */
-  androidXiaomiImageUrl?: string;
-  /**
-   * @example
-   * hello
-   */
-  body?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  deviceType?: string;
-  /**
-   * @example
-   * 2019-02-20T00:00:00Z
-   */
-  expireTime?: string;
-  harmonyAction?: string;
-  harmonyActionType?: string;
-  harmonyBadgeAddNum?: number;
-  harmonyBadgeSetNum?: number;
-  harmonyCategory?: string;
-  harmonyExtParameters?: string;
-  harmonyExtensionExtraData?: string;
-  harmonyExtensionPush?: boolean;
-  harmonyImageUrl?: string;
-  harmonyInboxContent?: string;
-  harmonyNotificationSlotType?: string;
-  harmonyNotifyId?: number;
-  harmonyReceiptId?: string;
-  harmonyRemind?: boolean;
-  harmonyRemindBody?: string;
-  harmonyRemindTitle?: string;
-  harmonyRenderStyle?: string;
-  harmonyTestMessage?: boolean;
-  harmonyUri?: string;
-  /**
-   * @example
-   * 123
-   */
-  jobKey?: string;
-  /**
-   * @example
-   * 2019-02-20T00:00:00Z
-   */
-  pushTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * MESSAGE
-   */
-  pushType?: string;
-  /**
-   * @example
-   * accs,huawei,xiaomi
-   */
-  sendChannels?: string;
-  /**
-   * @example
-   * 0
-   * 
-   * @deprecated
-   */
-  sendSpeed?: number;
-  /**
-   * @example
-   * true
-   */
-  storeOffline?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DEVICE
-   */
-  target?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * deviceid1,deviceid2
-   */
-  targetValue?: string;
-  /**
-   * @example
-   * title
-   */
-  title?: string;
-  /**
-   * @example
-   * false
-   */
-  trim?: boolean;
-  /**
-   * @example
-   * DEV
-   */
-  iOSApnsEnv?: string;
-  /**
-   * @example
-   * 0
-   */
-  iOSBadge?: number;
-  /**
-   * @example
-   * true
-   */
-  iOSBadgeAutoIncrement?: boolean;
-  /**
-   * @example
-   * {“attachment”: “https://xxxx.xxx/notification_pic.png"}
-   */
-  iOSExtParameters?: string;
-  /**
-   * @example
-   * active
-   */
-  iOSInterruptionLevel?: string;
-  iOSLiveActivityAttributes?: string;
-  iOSLiveActivityAttributesType?: string;
-  iOSLiveActivityContentState?: string;
-  iOSLiveActivityDismissalDate?: number;
-  iOSLiveActivityEvent?: string;
-  iOSLiveActivityId?: string;
-  iOSLiveActivityStaleDate?: number;
-  /**
-   * @example
-   * ””
-   */
-  iOSMusic?: string;
-  /**
-   * @example
-   * true
-   */
-  iOSMutableContent?: boolean;
-  /**
-   * @example
-   * ios
-   */
-  iOSNotificationCategory?: string;
-  /**
-   * @example
-   * ZD2011
-   */
-  iOSNotificationCollapseId?: string;
-  /**
-   * @example
-   * abc
-   */
-  iOSNotificationThreadId?: string;
-  /**
-   * @example
-   * 0.01
-   */
-  iOSRelevanceScore?: number;
-  /**
-   * @example
-   * true
-   */
-  iOSRemind?: boolean;
-  iOSRemindBody?: string;
-  /**
-   * @example
-   * true
-   */
-  iOSSilentNotification?: boolean;
-  /**
-   * @example
-   * subtitle
-   */
-  iOSSubtitle?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidActivity: 'AndroidActivity',
-      androidBadgeAddNum: 'AndroidBadgeAddNum',
-      androidBadgeClass: 'AndroidBadgeClass',
-      androidBadgeSetNum: 'AndroidBadgeSetNum',
-      androidBigBody: 'AndroidBigBody',
-      androidBigPictureUrl: 'AndroidBigPictureUrl',
-      androidBigTitle: 'AndroidBigTitle',
-      androidExtParameters: 'AndroidExtParameters',
-      androidHonorTargetUserType: 'AndroidHonorTargetUserType',
-      androidHuaweiReceiptId: 'AndroidHuaweiReceiptId',
-      androidHuaweiTargetUserType: 'AndroidHuaweiTargetUserType',
-      androidImageUrl: 'AndroidImageUrl',
-      androidInboxBody: 'AndroidInboxBody',
-      androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
-      androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
-      androidMessageOppoCategory: 'AndroidMessageOppoCategory',
-      androidMessageOppoNotifyLevel: 'AndroidMessageOppoNotifyLevel',
-      androidMessageVivoCategory: 'AndroidMessageVivoCategory',
-      androidMusic: 'AndroidMusic',
-      androidNotificationBarPriority: 'AndroidNotificationBarPriority',
-      androidNotificationBarType: 'AndroidNotificationBarType',
-      androidNotificationChannel: 'AndroidNotificationChannel',
-      androidNotificationGroup: 'AndroidNotificationGroup',
-      androidNotificationHonorChannel: 'AndroidNotificationHonorChannel',
-      androidNotificationHuaweiChannel: 'AndroidNotificationHuaweiChannel',
-      androidNotificationNotifyId: 'AndroidNotificationNotifyId',
-      androidNotificationThreadId: 'AndroidNotificationThreadId',
-      androidNotificationVivoChannel: 'AndroidNotificationVivoChannel',
-      androidNotificationXiaomiChannel: 'AndroidNotificationXiaomiChannel',
-      androidNotifyType: 'AndroidNotifyType',
-      androidOpenType: 'AndroidOpenType',
-      androidOpenUrl: 'AndroidOpenUrl',
-      androidPopupActivity: 'AndroidPopupActivity',
-      androidPopupBody: 'AndroidPopupBody',
-      androidPopupTitle: 'AndroidPopupTitle',
-      androidRemind: 'AndroidRemind',
-      androidRenderStyle: 'AndroidRenderStyle',
-      androidTargetUserType: 'AndroidTargetUserType',
-      androidVivoPushMode: 'AndroidVivoPushMode',
-      androidVivoReceiptId: 'AndroidVivoReceiptId',
-      androidXiaoMiActivity: 'AndroidXiaoMiActivity',
-      androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
-      androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
-      androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
-      androidXiaomiImageUrl: 'AndroidXiaomiImageUrl',
-      body: 'Body',
-      deviceType: 'DeviceType',
-      expireTime: 'ExpireTime',
-      harmonyAction: 'HarmonyAction',
-      harmonyActionType: 'HarmonyActionType',
-      harmonyBadgeAddNum: 'HarmonyBadgeAddNum',
-      harmonyBadgeSetNum: 'HarmonyBadgeSetNum',
-      harmonyCategory: 'HarmonyCategory',
-      harmonyExtParameters: 'HarmonyExtParameters',
-      harmonyExtensionExtraData: 'HarmonyExtensionExtraData',
-      harmonyExtensionPush: 'HarmonyExtensionPush',
-      harmonyImageUrl: 'HarmonyImageUrl',
-      harmonyInboxContent: 'HarmonyInboxContent',
-      harmonyNotificationSlotType: 'HarmonyNotificationSlotType',
-      harmonyNotifyId: 'HarmonyNotifyId',
-      harmonyReceiptId: 'HarmonyReceiptId',
-      harmonyRemind: 'HarmonyRemind',
-      harmonyRemindBody: 'HarmonyRemindBody',
-      harmonyRemindTitle: 'HarmonyRemindTitle',
-      harmonyRenderStyle: 'HarmonyRenderStyle',
-      harmonyTestMessage: 'HarmonyTestMessage',
-      harmonyUri: 'HarmonyUri',
-      jobKey: 'JobKey',
-      pushTime: 'PushTime',
-      pushType: 'PushType',
-      sendChannels: 'SendChannels',
-      sendSpeed: 'SendSpeed',
-      storeOffline: 'StoreOffline',
-      target: 'Target',
-      targetValue: 'TargetValue',
-      title: 'Title',
-      trim: 'Trim',
-      iOSApnsEnv: 'iOSApnsEnv',
-      iOSBadge: 'iOSBadge',
-      iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
-      iOSExtParameters: 'iOSExtParameters',
-      iOSInterruptionLevel: 'iOSInterruptionLevel',
-      iOSLiveActivityAttributes: 'iOSLiveActivityAttributes',
-      iOSLiveActivityAttributesType: 'iOSLiveActivityAttributesType',
-      iOSLiveActivityContentState: 'iOSLiveActivityContentState',
-      iOSLiveActivityDismissalDate: 'iOSLiveActivityDismissalDate',
-      iOSLiveActivityEvent: 'iOSLiveActivityEvent',
-      iOSLiveActivityId: 'iOSLiveActivityId',
-      iOSLiveActivityStaleDate: 'iOSLiveActivityStaleDate',
-      iOSMusic: 'iOSMusic',
-      iOSMutableContent: 'iOSMutableContent',
-      iOSNotificationCategory: 'iOSNotificationCategory',
-      iOSNotificationCollapseId: 'iOSNotificationCollapseId',
-      iOSNotificationThreadId: 'iOSNotificationThreadId',
-      iOSRelevanceScore: 'iOSRelevanceScore',
-      iOSRemind: 'iOSRemind',
-      iOSRemindBody: 'iOSRemindBody',
-      iOSSilentNotification: 'iOSSilentNotification',
-      iOSSubtitle: 'iOSSubtitle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidActivity: 'string',
-      androidBadgeAddNum: 'number',
-      androidBadgeClass: 'string',
-      androidBadgeSetNum: 'number',
-      androidBigBody: 'string',
-      androidBigPictureUrl: 'string',
-      androidBigTitle: 'string',
-      androidExtParameters: 'string',
-      androidHonorTargetUserType: 'number',
-      androidHuaweiReceiptId: 'string',
-      androidHuaweiTargetUserType: 'number',
-      androidImageUrl: 'string',
-      androidInboxBody: 'string',
-      androidMessageHuaweiCategory: 'string',
-      androidMessageHuaweiUrgency: 'string',
-      androidMessageOppoCategory: 'string',
-      androidMessageOppoNotifyLevel: 'number',
-      androidMessageVivoCategory: 'string',
-      androidMusic: 'string',
-      androidNotificationBarPriority: 'number',
-      androidNotificationBarType: 'number',
-      androidNotificationChannel: 'string',
-      androidNotificationGroup: 'string',
-      androidNotificationHonorChannel: 'string',
-      androidNotificationHuaweiChannel: 'string',
-      androidNotificationNotifyId: 'number',
-      androidNotificationThreadId: 'string',
-      androidNotificationVivoChannel: 'string',
-      androidNotificationXiaomiChannel: 'string',
-      androidNotifyType: 'string',
-      androidOpenType: 'string',
-      androidOpenUrl: 'string',
-      androidPopupActivity: 'string',
-      androidPopupBody: 'string',
-      androidPopupTitle: 'string',
-      androidRemind: 'boolean',
-      androidRenderStyle: 'string',
-      androidTargetUserType: 'number',
-      androidVivoPushMode: 'number',
-      androidVivoReceiptId: 'string',
-      androidXiaoMiActivity: 'string',
-      androidXiaoMiNotifyBody: 'string',
-      androidXiaoMiNotifyTitle: 'string',
-      androidXiaomiBigPictureUrl: 'string',
-      androidXiaomiImageUrl: 'string',
-      body: 'string',
-      deviceType: 'string',
-      expireTime: 'string',
-      harmonyAction: 'string',
-      harmonyActionType: 'string',
-      harmonyBadgeAddNum: 'number',
-      harmonyBadgeSetNum: 'number',
-      harmonyCategory: 'string',
-      harmonyExtParameters: 'string',
-      harmonyExtensionExtraData: 'string',
-      harmonyExtensionPush: 'boolean',
-      harmonyImageUrl: 'string',
-      harmonyInboxContent: 'string',
-      harmonyNotificationSlotType: 'string',
-      harmonyNotifyId: 'number',
-      harmonyReceiptId: 'string',
-      harmonyRemind: 'boolean',
-      harmonyRemindBody: 'string',
-      harmonyRemindTitle: 'string',
-      harmonyRenderStyle: 'string',
-      harmonyTestMessage: 'boolean',
-      harmonyUri: 'string',
-      jobKey: 'string',
-      pushTime: 'string',
-      pushType: 'string',
-      sendChannels: 'string',
-      sendSpeed: 'number',
-      storeOffline: 'boolean',
-      target: 'string',
-      targetValue: 'string',
-      title: 'string',
-      trim: 'boolean',
-      iOSApnsEnv: 'string',
-      iOSBadge: 'number',
-      iOSBadgeAutoIncrement: 'boolean',
-      iOSExtParameters: 'string',
-      iOSInterruptionLevel: 'string',
-      iOSLiveActivityAttributes: 'string',
-      iOSLiveActivityAttributesType: 'string',
-      iOSLiveActivityContentState: 'string',
-      iOSLiveActivityDismissalDate: 'number',
-      iOSLiveActivityEvent: 'string',
-      iOSLiveActivityId: 'string',
-      iOSLiveActivityStaleDate: 'number',
-      iOSMusic: 'string',
-      iOSMutableContent: 'boolean',
-      iOSNotificationCategory: 'string',
-      iOSNotificationCollapseId: 'string',
-      iOSNotificationThreadId: 'string',
-      iOSRelevanceScore: 'number',
-      iOSRemind: 'boolean',
-      iOSRemindBody: 'string',
-      iOSSilentNotification: 'boolean',
-      iOSSubtitle: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MassPushResponseBodyMessageIds extends $dara.Model {
-  messageId?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.messageId)) {
-      $dara.Model.validateArray(this.messageId);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAliasesResponseBodyAliasInfosAliasInfo extends $dara.Model {
-  /**
-   * @example
-   * test_alias1
-   */
-  aliasName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliasName: 'AliasName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliasName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAliasesResponseBodyAliasInfos extends $dara.Model {
-  aliasInfo?: QueryAliasesResponseBodyAliasInfosAliasInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      aliasInfo: 'AliasInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliasInfo: { 'type': 'array', 'itemType': QueryAliasesResponseBodyAliasInfosAliasInfo },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.aliasInfo)) {
-      $dara.Model.validateArray(this.aliasInfo);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceInfoResponseBodyDeviceInfo extends $dara.Model {
-  /**
-   * @example
-   * test@aliyun.com
-   */
-  account?: string;
-  /**
-   * @example
-   * test_alias,test_alias2
-   */
-  alias?: string;
-  brand?: string;
-  /**
-   * @example
-   * a64ae296f3b04a58a05b30c95****
-   */
-  deviceId?: string;
-  /**
-   * @example
-   * 5ecc7b4012aaa801b63******5543ccbda6b4930d09629e936e1ac4b762a7df
-   */
-  deviceToken?: string;
-  /**
-   * @example
-   * iOS
-   */
-  deviceType?: string;
-  /**
-   * @example
-   * 2018-03-27T02:19:40Z
-   */
-  lastOnlineTime?: string;
-  model?: string;
-  /**
-   * @example
-   * false
-   */
-  online?: boolean;
-  /**
-   * @example
-   * 133********
-   */
-  phoneNumber?: string;
-  /**
-   * @example
-   * true
-   */
-  pushEnabled?: boolean;
-  /**
-   * @example
-   * test_tag,test_tag2
-   */
-  tags?: string;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      alias: 'Alias',
-      brand: 'Brand',
-      deviceId: 'DeviceId',
-      deviceToken: 'DeviceToken',
-      deviceType: 'DeviceType',
-      lastOnlineTime: 'LastOnlineTime',
-      model: 'Model',
-      online: 'Online',
-      phoneNumber: 'PhoneNumber',
-      pushEnabled: 'PushEnabled',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      alias: 'string',
-      brand: 'string',
-      deviceId: 'string',
-      deviceToken: 'string',
-      deviceType: 'string',
-      lastOnlineTime: 'string',
-      model: 'string',
-      online: 'boolean',
-      phoneNumber: 'string',
-      pushEnabled: 'boolean',
-      tags: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
-  count?: number;
-  /**
-   * @example
-   * iOS
-   */
-  deviceType?: string;
-  /**
-   * @example
-   * 2016-07-28T16:00:00Z
-   */
-  time?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      deviceType: 'DeviceType',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      deviceType: 'string',
-      time: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceStatResponseBodyAppDeviceStats extends $dara.Model {
-  appDeviceStat?: QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat[];
-  static names(): { [key: string]: string } {
-    return {
-      appDeviceStat: 'AppDeviceStat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appDeviceStat: { 'type': 'array', 'itemType': QueryDeviceStatResponseBodyAppDeviceStatsAppDeviceStat },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.appDeviceStat)) {
-      $dara.Model.validateArray(this.appDeviceStat);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAccountResponseBodyDeviceIds extends $dara.Model {
-  deviceId?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.deviceId)) {
-      $dara.Model.validateArray(this.deviceId);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAliasResponseBodyDeviceIds extends $dara.Model {
-  deviceId?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.deviceId)) {
-      $dara.Model.validateArray(this.deviceId);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushRecordsResponseBodyPushInfosPushInfo extends $dara.Model {
-  /**
-   * @example
-   * 333526247
-   */
-  appKey?: number;
-  /**
-   * @example
-   * abcd
-   */
-  body?: string;
-  /**
-   * @example
-   * ANDROID
-   */
-  deviceType?: string;
-  /**
-   * @example
-   * 510431
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 2021-09-15T02:05:24Z
-   */
-  pushTime?: string;
-  /**
-   * @example
-   * NOTICE
-   */
-  pushType?: string;
-  /**
-   * @example
-   * DEVICE
-   */
-  source?: string;
-  /**
-   * @example
-   * SENT
-   */
-  status?: string;
-  /**
-   * @example
-   * DEVICE
-   */
-  target?: string;
-  /**
-   * @example
-   * sssss
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      body: 'Body',
-      deviceType: 'DeviceType',
-      messageId: 'MessageId',
-      pushTime: 'PushTime',
-      pushType: 'PushType',
-      source: 'Source',
-      status: 'Status',
-      target: 'Target',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      body: 'string',
-      deviceType: 'string',
-      messageId: 'string',
-      pushTime: 'string',
-      pushType: 'string',
-      source: 'string',
-      status: 'string',
-      target: 'string',
-      title: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushRecordsResponseBodyPushInfos extends $dara.Model {
-  pushInfo?: QueryPushRecordsResponseBodyPushInfosPushInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      pushInfo: 'PushInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pushInfo: { 'type': 'array', 'itemType': QueryPushRecordsResponseBodyPushInfosPushInfo },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.pushInfo)) {
-      $dara.Model.validateArray(this.pushInfo);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByAppResponseBodyAppPushStatsAppPushStat extends $dara.Model {
-  /**
-   * @example
-   * 120
-   */
-  acceptCount?: number;
-  /**
-   * @example
-   * 10
-   */
-  deletedCount?: number;
-  /**
-   * @example
-   * 30
-   */
-  openedCount?: number;
-  /**
-   * @example
-   * 60
-   */
-  receivedCount?: number;
-  /**
-   * @example
-   * 100
-   */
-  sentCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  smsFailedCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  smsReceiveFailedCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  smsReceiveSuccessCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  smsSentCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  smsSkipCount?: number;
-  /**
-   * @example
-   * 2016-07-25T00:00:00Z
-   */
-  time?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceptCount: 'AcceptCount',
-      deletedCount: 'DeletedCount',
-      openedCount: 'OpenedCount',
-      receivedCount: 'ReceivedCount',
-      sentCount: 'SentCount',
-      smsFailedCount: 'SmsFailedCount',
-      smsReceiveFailedCount: 'SmsReceiveFailedCount',
-      smsReceiveSuccessCount: 'SmsReceiveSuccessCount',
-      smsSentCount: 'SmsSentCount',
-      smsSkipCount: 'SmsSkipCount',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptCount: 'number',
-      deletedCount: 'number',
-      openedCount: 'number',
-      receivedCount: 'number',
-      sentCount: 'number',
-      smsFailedCount: 'number',
-      smsReceiveFailedCount: 'number',
-      smsReceiveSuccessCount: 'number',
-      smsSentCount: 'number',
-      smsSkipCount: 'number',
-      time: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByAppResponseBodyAppPushStats extends $dara.Model {
-  appPushStat?: QueryPushStatByAppResponseBodyAppPushStatsAppPushStat[];
-  static names(): { [key: string]: string } {
-    return {
-      appPushStat: 'AppPushStat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appPushStat: { 'type': 'array', 'itemType': QueryPushStatByAppResponseBodyAppPushStatsAppPushStat },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.appPushStat)) {
-      $dara.Model.validateArray(this.appPushStat);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByMsgResponseBodyPushStatsPushStat extends $dara.Model {
-  /**
-   * @example
-   * 120
-   */
-  acceptCount?: number;
-  /**
-   * @example
-   * 10
-   */
-  deletedCount?: number;
-  /**
-   * @example
-   * 510427
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 30
-   */
-  openedCount?: number;
-  /**
-   * @example
-   * 60
-   */
-  receivedCount?: number;
-  /**
-   * @example
-   * 100
-   */
-  sentCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  smsFailedCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  smsReceiveFailedCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  smsReceiveSuccessCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  smsSentCount?: number;
-  /**
-   * @example
-   * 0
-   */
-  smsSkipCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      acceptCount: 'AcceptCount',
-      deletedCount: 'DeletedCount',
-      messageId: 'MessageId',
-      openedCount: 'OpenedCount',
-      receivedCount: 'ReceivedCount',
-      sentCount: 'SentCount',
-      smsFailedCount: 'SmsFailedCount',
-      smsReceiveFailedCount: 'SmsReceiveFailedCount',
-      smsReceiveSuccessCount: 'SmsReceiveSuccessCount',
-      smsSentCount: 'SmsSentCount',
-      smsSkipCount: 'SmsSkipCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptCount: 'number',
-      deletedCount: 'number',
-      messageId: 'string',
-      openedCount: 'number',
-      receivedCount: 'number',
-      sentCount: 'number',
-      smsFailedCount: 'number',
-      smsReceiveFailedCount: 'number',
-      smsReceiveSuccessCount: 'number',
-      smsSentCount: 'number',
-      smsSkipCount: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByMsgResponseBodyPushStats extends $dara.Model {
-  pushStat?: QueryPushStatByMsgResponseBodyPushStatsPushStat[];
-  static names(): { [key: string]: string } {
-    return {
-      pushStat: 'PushStat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pushStat: { 'type': 'array', 'itemType': QueryPushStatByMsgResponseBodyPushStatsPushStat },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.pushStat)) {
-      $dara.Model.validateArray(this.pushStat);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTagsResponseBodyTagInfosTagInfo extends $dara.Model {
-  /**
-   * @example
-   * test_tag2
-   */
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagName: 'TagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTagsResponseBodyTagInfos extends $dara.Model {
-  tagInfo?: QueryTagsResponseBodyTagInfosTagInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      tagInfo: 'TagInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagInfo: { 'type': 'array', 'itemType': QueryTagsResponseBodyTagInfosTagInfo },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tagInfo)) {
-      $dara.Model.validateArray(this.tagInfo);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryUniqueDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
-  count?: number;
-  /**
-   * @example
-   * 2016-07-25T00:00:00Z
-   */
-  time?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      time: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryUniqueDeviceStatResponseBodyAppDeviceStats extends $dara.Model {
-  appDeviceStat?: QueryUniqueDeviceStatResponseBodyAppDeviceStatsAppDeviceStat[];
-  static names(): { [key: string]: string } {
-    return {
-      appDeviceStat: 'AppDeviceStat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appDeviceStat: { 'type': 'array', 'itemType': QueryUniqueDeviceStatResponseBodyAppDeviceStatsAppDeviceStat },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.appDeviceStat)) {
-      $dara.Model.validateArray(this.appDeviceStat);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindAliasRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test_alias
-   */
-  aliasName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e2ba19de97604f55b16557673****
-   */
-  deviceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliasName: 'AliasName',
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliasName: 'string',
-      appKey: 'number',
-      deviceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindAliasResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 159E4422-6624-4750-8943-DFD98D34858C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindAliasResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BindAliasResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BindAliasResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindPhoneRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 27725900
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eb5f741d83d04d34807d229999eefa52
-   */
-  deviceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1381111****
-   */
-  phoneNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-      phoneNumber: 'PhoneNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceId: 'string',
-      phoneNumber: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindPhoneResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0D1126F0-F8FF-513D-BAFA-F140447BDED4
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindPhoneResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BindPhoneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BindPhoneResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindTagRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e2ba19de97604f55b16557673****
-   */
-  clientKey?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DEVICE
-   */
-  keyType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test_tag,test_tag2
-   */
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      clientKey: 'ClientKey',
-      keyType: 'KeyType',
-      tagName: 'TagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      clientKey: 'string',
-      keyType: 'string',
-      tagName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindTagResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 82FD0A09-5BB8-40FB-8221-9A11FE92D620
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindTagResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BindTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BindTagResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelPushRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 501029
-   */
-  messageId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      messageId: 'MessageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      messageId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelPushResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelPushResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelPushResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelPushResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCertificateRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCertificateResponseBody extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
-  android?: boolean;
-  developmentCertInfo?: CheckCertificateResponseBodyDevelopmentCertInfo;
-  /**
-   * @example
-   * true
-   */
-  IOS?: boolean;
-  productionCertInfo?: CheckCertificateResponseBodyProductionCertInfo;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      android: 'Android',
-      developmentCertInfo: 'DevelopmentCertInfo',
-      IOS: 'IOS',
-      productionCertInfo: 'ProductionCertInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      android: 'boolean',
-      developmentCertInfo: CheckCertificateResponseBodyDevelopmentCertInfo,
-      IOS: 'boolean',
-      productionCertInfo: CheckCertificateResponseBodyProductionCertInfo,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.developmentCertInfo && typeof (this.developmentCertInfo as any).validate === 'function') {
-      (this.developmentCertInfo as any).validate();
-    }
-    if(this.productionCertInfo && typeof (this.productionCertInfo as any).validate === 'function') {
-      (this.productionCertInfo as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCertificateResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckCertificateResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDeviceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23419851
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ae296f3b04a58a05b30c95f****
-   */
-  deviceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDeviceResponseBody extends $dara.Model {
-  /**
-   * @example
-   * ture
-   */
-  available?: boolean;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      available: 'Available',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      available: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDeviceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckDeviceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckDeviceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDevicesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23419851
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ae296f3b04a58a05b30c95f****,ae296f3b04a58a05b30c95f****,ae296f3b04a58a05b30c95f****
-   */
-  deviceIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceIds: 'DeviceIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceIds: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDevicesResponseBody extends $dara.Model {
-  deviceCheckInfos?: CheckDevicesResponseBodyDeviceCheckInfos;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceCheckInfos: 'DeviceCheckInfos',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceCheckInfos: CheckDevicesResponseBodyDeviceCheckInfos,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.deviceCheckInfos && typeof (this.deviceCheckInfos as any).validate === 'function') {
-      (this.deviceCheckInfos as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDevicesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckDevicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckDevicesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompleteContinuouslyPushRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 4010290149170430
-   */
-  messageId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      messageId: 'MessageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      messageId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompleteContinuouslyPushResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 4010290149170430
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompleteContinuouslyPushResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CompleteContinuouslyPushResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CompleteContinuouslyPushResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContinuouslyPushRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 500131
-   */
-  messageId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DEVICE
-   */
-  target?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a692961a92534047ad3625****
-   */
-  targetValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      messageId: 'MessageId',
-      target: 'Target',
-      targetValue: 'TargetValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      messageId: 'string',
-      target: 'string',
-      targetValue: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContinuouslyPushResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 500131
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContinuouslyPushResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ContinuouslyPushResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ContinuouslyPushResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSummaryAppsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  summaryAppInfos?: ListSummaryAppsResponseBodySummaryAppInfos;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      summaryAppInfos: 'SummaryAppInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      summaryAppInfos: ListSummaryAppsResponseBodySummaryAppInfos,
-    };
-  }
-
-  validate() {
-    if(this.summaryAppInfos && typeof (this.summaryAppInfos as any).validate === 'function') {
-      (this.summaryAppInfos as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSummaryAppsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListSummaryAppsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListSummaryAppsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 6EEF262B-EA7D-41DC-89B9-20F3D1E28194
-   */
-  requestId?: string;
-  tagInfos?: ListTagsResponseBodyTagInfos;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tagInfos: 'TagInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tagInfos: ListTagsResponseBodyTagInfos,
-    };
-  }
-
-  validate() {
-    if(this.tagInfos && typeof (this.tagInfos as any).validate === 'function') {
-      (this.tagInfos as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MassPushRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  idempotentToken?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  pushTask?: MassPushRequestPushTask[];
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      idempotentToken: 'IdempotentToken',
-      pushTask: 'PushTask',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      idempotentToken: 'string',
-      pushTask: { 'type': 'array', 'itemType': MassPushRequestPushTask },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.pushTask)) {
-      $dara.Model.validateArray(this.pushTask);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MassPushResponseBody extends $dara.Model {
-  messageIds?: MassPushResponseBodyMessageIds;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageIds: 'MessageIds',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageIds: MassPushResponseBodyMessageIds,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.messageIds && typeof (this.messageIds as any).validate === 'function') {
-      (this.messageIds as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MassPushResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: MassPushResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: MassPushResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushRequest extends $dara.Model {
-  /**
-   * @example
-   * com.alibaba.cloudpushdemo.bizactivity
-   */
-  androidActivity?: string;
-  androidBadgeAddNum?: number;
-  androidBadgeClass?: string;
-  androidBadgeSetNum?: number;
-  androidBigBody?: string;
-  /**
-   * @example
-   * https://imag.example.com/image.png
-   */
-  androidBigPictureUrl?: string;
-  androidBigTitle?: string;
-  /**
-   * @example
-   * {"key1":"value1","api_name":"PushNoticeToAndroidRequest"}
-   */
-  androidExtParameters?: string;
-  androidHonorTargetUserType?: number;
-  /**
-   * @example
-   * RCP4C123456
-   */
-  androidHuaweiReceiptId?: string;
-  /**
-   * @example
-   * 0
-   */
-  androidHuaweiTargetUserType?: number;
-  /**
-   * @example
-   * https://imag.example.com/image.png
-   */
-  androidImageUrl?: string;
-  androidInboxBody?: string;
-  /**
-   * @example
-   * VOIP
-   */
-  androidMessageHuaweiCategory?: string;
-  /**
-   * @example
-   * HIGH
-   */
-  androidMessageHuaweiUrgency?: string;
-  androidMessageOppoCategory?: string;
-  androidMessageOppoNotifyLevel?: number;
-  /**
-   * @example
-   * TODO
-   */
-  androidMessageVivoCategory?: string;
-  androidMusic?: string;
-  /**
-   * @example
-   * 0
-   */
-  androidNotificationBarPriority?: number;
-  /**
-   * @example
-   * 2
-   */
-  androidNotificationBarType?: number;
-  /**
-   * @example
-   * 1
-   */
-  androidNotificationChannel?: string;
-  /**
-   * @example
-   * group-1
-   */
-  androidNotificationGroup?: string;
-  /**
-   * @example
-   * LOW
-   */
-  androidNotificationHonorChannel?: string;
-  /**
-   * @example
-   * LOW
-   */
-  androidNotificationHuaweiChannel?: string;
-  /**
-   * @example
-   * 100001
-   */
-  androidNotificationNotifyId?: number;
-  androidNotificationThreadId?: string;
-  /**
-   * @example
-   * classification
-   */
-  androidNotificationVivoChannel?: string;
-  /**
-   * @example
-   * michannel
-   */
-  androidNotificationXiaomiChannel?: string;
-  /**
-   * @example
-   * BOTH
-   */
-  androidNotifyType?: string;
-  /**
-   * @example
-   * APPLICATION
-   */
-  androidOpenType?: string;
-  /**
-   * @example
-   * https://xxxx.xxx
-   */
-  androidOpenUrl?: string;
-  /**
-   * @example
-   * com.alibaba.cloudpushdemo.bizactivity
-   */
-  androidPopupActivity?: string;
-  /**
-   * @example
-   * hello
-   */
-  androidPopupBody?: string;
-  /**
-   * @example
-   * hello
-   */
-  androidPopupTitle?: string;
-  /**
-   * @example
-   * true
-   */
-  androidRemind?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  androidRenderStyle?: number;
-  androidTargetUserType?: number;
-  /**
-   * @example
-   * 0
-   */
-  androidVivoPushMode?: number;
-  androidVivoReceiptId?: string;
-  /**
-   * @deprecated
-   */
-  androidXiaoMiActivity?: string;
-  /**
-   * @deprecated
-   */
-  androidXiaoMiNotifyBody?: string;
-  /**
-   * @deprecated
-   */
-  androidXiaoMiNotifyTitle?: string;
-  /**
-   * @example
-   * https://f6.market.xiaomi.com/download/MiPass/aaa/bbb.png
-   * 
-   * @deprecated
-   */
-  androidXiaomiBigPictureUrl?: string;
-  /**
-   * @example
-   * https://imag.example.com/image.png
-   * 
-   * @deprecated
-   */
-  androidXiaomiImageUrl?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @example
-   * hello
-   */
-  body?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  deviceType?: string;
-  /**
-   * @example
-   * 2019-02-20T00:00:00Z
-   */
-  expireTime?: string;
-  harmonyAction?: string;
-  harmonyActionType?: string;
-  harmonyBadgeAddNum?: number;
-  harmonyBadgeSetNum?: number;
-  harmonyCategory?: string;
-  harmonyExtParameters?: string;
-  harmonyExtensionExtraData?: string;
-  harmonyExtensionPush?: boolean;
-  harmonyImageUrl?: string;
-  harmonyInboxContent?: string;
-  harmonyNotificationSlotType?: string;
-  harmonyNotifyId?: number;
-  harmonyReceiptId?: string;
-  harmonyRemind?: boolean;
-  harmonyRemindBody?: string;
-  harmonyRemindTitle?: string;
-  harmonyRenderStyle?: string;
-  harmonyTestMessage?: boolean;
-  harmonyUri?: string;
-  idempotentToken?: string;
-  /**
-   * @example
-   * 123
-   */
-  jobKey?: string;
-  /**
-   * @example
-   * 2019-02-20T00:00:00Z
-   */
-  pushTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * MESSAGE
-   */
-  pushType?: string;
-  /**
-   * @example
-   * accs,huawei,xiaomi
-   */
-  sendChannels?: string;
-  /**
-   * @example
-   * 0
-   * 
-   * @deprecated
-   */
-  sendSpeed?: number;
-  /**
-   * @example
-   * 15
-   */
-  smsDelaySecs?: number;
-  /**
-   * @example
-   * key1=value1
-   */
-  smsParams?: string;
-  /**
-   * @example
-   * 0
-   */
-  smsSendPolicy?: number;
-  smsSignName?: string;
-  smsTemplateName?: string;
-  /**
-   * @example
-   * false
-   */
-  storeOffline?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  target?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  targetValue?: string;
-  /**
-   * @example
-   * title
-   */
-  title?: string;
-  /**
-   * @example
-   * false
-   */
-  trim?: boolean;
-  /**
-   * @example
-   * DEV
-   */
-  iOSApnsEnv?: string;
-  /**
-   * @example
-   * 0
-   */
-  iOSBadge?: number;
-  /**
-   * @example
-   * true
-   */
-  iOSBadgeAutoIncrement?: boolean;
-  /**
-   * @example
-   * {“attachment”: “https://xxxx.xxx/notification_pic.png"}
-   */
-  iOSExtParameters?: string;
-  /**
-   * @example
-   * active
-   */
-  iOSInterruptionLevel?: string;
-  iOSLiveActivityAttributes?: string;
-  iOSLiveActivityAttributesType?: string;
-  iOSLiveActivityContentState?: string;
-  iOSLiveActivityDismissalDate?: number;
-  iOSLiveActivityEvent?: string;
-  iOSLiveActivityId?: string;
-  iOSLiveActivityStaleDate?: number;
-  /**
-   * @example
-   * ""
-   */
-  iOSMusic?: string;
-  /**
-   * @example
-   * true
-   */
-  iOSMutableContent?: boolean;
-  /**
-   * @example
-   * ios
-   */
-  iOSNotificationCategory?: string;
-  /**
-   * @example
-   * ZD2011
-   */
-  iOSNotificationCollapseId?: string;
-  /**
-   * @example
-   * abc
-   */
-  iOSNotificationThreadId?: string;
-  /**
-   * @example
-   * 0.01
-   */
-  iOSRelevanceScore?: number;
-  /**
-   * @example
-   * true
-   */
-  iOSRemind?: boolean;
-  iOSRemindBody?: string;
-  /**
-   * @example
-   * true
-   */
-  iOSSilentNotification?: boolean;
-  /**
-   * @example
-   * su\\"b
-   */
-  iOSSubtitle?: string;
-  static names(): { [key: string]: string } {
-    return {
-      androidActivity: 'AndroidActivity',
-      androidBadgeAddNum: 'AndroidBadgeAddNum',
-      androidBadgeClass: 'AndroidBadgeClass',
-      androidBadgeSetNum: 'AndroidBadgeSetNum',
-      androidBigBody: 'AndroidBigBody',
-      androidBigPictureUrl: 'AndroidBigPictureUrl',
-      androidBigTitle: 'AndroidBigTitle',
-      androidExtParameters: 'AndroidExtParameters',
-      androidHonorTargetUserType: 'AndroidHonorTargetUserType',
-      androidHuaweiReceiptId: 'AndroidHuaweiReceiptId',
-      androidHuaweiTargetUserType: 'AndroidHuaweiTargetUserType',
-      androidImageUrl: 'AndroidImageUrl',
-      androidInboxBody: 'AndroidInboxBody',
-      androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
-      androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
-      androidMessageOppoCategory: 'AndroidMessageOppoCategory',
-      androidMessageOppoNotifyLevel: 'AndroidMessageOppoNotifyLevel',
-      androidMessageVivoCategory: 'AndroidMessageVivoCategory',
-      androidMusic: 'AndroidMusic',
-      androidNotificationBarPriority: 'AndroidNotificationBarPriority',
-      androidNotificationBarType: 'AndroidNotificationBarType',
-      androidNotificationChannel: 'AndroidNotificationChannel',
-      androidNotificationGroup: 'AndroidNotificationGroup',
-      androidNotificationHonorChannel: 'AndroidNotificationHonorChannel',
-      androidNotificationHuaweiChannel: 'AndroidNotificationHuaweiChannel',
-      androidNotificationNotifyId: 'AndroidNotificationNotifyId',
-      androidNotificationThreadId: 'AndroidNotificationThreadId',
-      androidNotificationVivoChannel: 'AndroidNotificationVivoChannel',
-      androidNotificationXiaomiChannel: 'AndroidNotificationXiaomiChannel',
-      androidNotifyType: 'AndroidNotifyType',
-      androidOpenType: 'AndroidOpenType',
-      androidOpenUrl: 'AndroidOpenUrl',
-      androidPopupActivity: 'AndroidPopupActivity',
-      androidPopupBody: 'AndroidPopupBody',
-      androidPopupTitle: 'AndroidPopupTitle',
-      androidRemind: 'AndroidRemind',
-      androidRenderStyle: 'AndroidRenderStyle',
-      androidTargetUserType: 'AndroidTargetUserType',
-      androidVivoPushMode: 'AndroidVivoPushMode',
-      androidVivoReceiptId: 'AndroidVivoReceiptId',
-      androidXiaoMiActivity: 'AndroidXiaoMiActivity',
-      androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
-      androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
-      androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
-      androidXiaomiImageUrl: 'AndroidXiaomiImageUrl',
-      appKey: 'AppKey',
-      body: 'Body',
-      deviceType: 'DeviceType',
-      expireTime: 'ExpireTime',
-      harmonyAction: 'HarmonyAction',
-      harmonyActionType: 'HarmonyActionType',
-      harmonyBadgeAddNum: 'HarmonyBadgeAddNum',
-      harmonyBadgeSetNum: 'HarmonyBadgeSetNum',
-      harmonyCategory: 'HarmonyCategory',
-      harmonyExtParameters: 'HarmonyExtParameters',
-      harmonyExtensionExtraData: 'HarmonyExtensionExtraData',
-      harmonyExtensionPush: 'HarmonyExtensionPush',
-      harmonyImageUrl: 'HarmonyImageUrl',
-      harmonyInboxContent: 'HarmonyInboxContent',
-      harmonyNotificationSlotType: 'HarmonyNotificationSlotType',
-      harmonyNotifyId: 'HarmonyNotifyId',
-      harmonyReceiptId: 'HarmonyReceiptId',
-      harmonyRemind: 'HarmonyRemind',
-      harmonyRemindBody: 'HarmonyRemindBody',
-      harmonyRemindTitle: 'HarmonyRemindTitle',
-      harmonyRenderStyle: 'HarmonyRenderStyle',
-      harmonyTestMessage: 'HarmonyTestMessage',
-      harmonyUri: 'HarmonyUri',
-      idempotentToken: 'IdempotentToken',
-      jobKey: 'JobKey',
-      pushTime: 'PushTime',
-      pushType: 'PushType',
-      sendChannels: 'SendChannels',
-      sendSpeed: 'SendSpeed',
-      smsDelaySecs: 'SmsDelaySecs',
-      smsParams: 'SmsParams',
-      smsSendPolicy: 'SmsSendPolicy',
-      smsSignName: 'SmsSignName',
-      smsTemplateName: 'SmsTemplateName',
-      storeOffline: 'StoreOffline',
-      target: 'Target',
-      targetValue: 'TargetValue',
-      title: 'Title',
-      trim: 'Trim',
-      iOSApnsEnv: 'iOSApnsEnv',
-      iOSBadge: 'iOSBadge',
-      iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
-      iOSExtParameters: 'iOSExtParameters',
-      iOSInterruptionLevel: 'iOSInterruptionLevel',
-      iOSLiveActivityAttributes: 'iOSLiveActivityAttributes',
-      iOSLiveActivityAttributesType: 'iOSLiveActivityAttributesType',
-      iOSLiveActivityContentState: 'iOSLiveActivityContentState',
-      iOSLiveActivityDismissalDate: 'iOSLiveActivityDismissalDate',
-      iOSLiveActivityEvent: 'iOSLiveActivityEvent',
-      iOSLiveActivityId: 'iOSLiveActivityId',
-      iOSLiveActivityStaleDate: 'iOSLiveActivityStaleDate',
-      iOSMusic: 'iOSMusic',
-      iOSMutableContent: 'iOSMutableContent',
-      iOSNotificationCategory: 'iOSNotificationCategory',
-      iOSNotificationCollapseId: 'iOSNotificationCollapseId',
-      iOSNotificationThreadId: 'iOSNotificationThreadId',
-      iOSRelevanceScore: 'iOSRelevanceScore',
-      iOSRemind: 'iOSRemind',
-      iOSRemindBody: 'iOSRemindBody',
-      iOSSilentNotification: 'iOSSilentNotification',
-      iOSSubtitle: 'iOSSubtitle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      androidActivity: 'string',
-      androidBadgeAddNum: 'number',
-      androidBadgeClass: 'string',
-      androidBadgeSetNum: 'number',
-      androidBigBody: 'string',
-      androidBigPictureUrl: 'string',
-      androidBigTitle: 'string',
-      androidExtParameters: 'string',
-      androidHonorTargetUserType: 'number',
-      androidHuaweiReceiptId: 'string',
-      androidHuaweiTargetUserType: 'number',
-      androidImageUrl: 'string',
-      androidInboxBody: 'string',
-      androidMessageHuaweiCategory: 'string',
-      androidMessageHuaweiUrgency: 'string',
-      androidMessageOppoCategory: 'string',
-      androidMessageOppoNotifyLevel: 'number',
-      androidMessageVivoCategory: 'string',
-      androidMusic: 'string',
-      androidNotificationBarPriority: 'number',
-      androidNotificationBarType: 'number',
-      androidNotificationChannel: 'string',
-      androidNotificationGroup: 'string',
-      androidNotificationHonorChannel: 'string',
-      androidNotificationHuaweiChannel: 'string',
-      androidNotificationNotifyId: 'number',
-      androidNotificationThreadId: 'string',
-      androidNotificationVivoChannel: 'string',
-      androidNotificationXiaomiChannel: 'string',
-      androidNotifyType: 'string',
-      androidOpenType: 'string',
-      androidOpenUrl: 'string',
-      androidPopupActivity: 'string',
-      androidPopupBody: 'string',
-      androidPopupTitle: 'string',
-      androidRemind: 'boolean',
-      androidRenderStyle: 'number',
-      androidTargetUserType: 'number',
-      androidVivoPushMode: 'number',
-      androidVivoReceiptId: 'string',
-      androidXiaoMiActivity: 'string',
-      androidXiaoMiNotifyBody: 'string',
-      androidXiaoMiNotifyTitle: 'string',
-      androidXiaomiBigPictureUrl: 'string',
-      androidXiaomiImageUrl: 'string',
-      appKey: 'number',
-      body: 'string',
-      deviceType: 'string',
-      expireTime: 'string',
-      harmonyAction: 'string',
-      harmonyActionType: 'string',
-      harmonyBadgeAddNum: 'number',
-      harmonyBadgeSetNum: 'number',
-      harmonyCategory: 'string',
-      harmonyExtParameters: 'string',
-      harmonyExtensionExtraData: 'string',
-      harmonyExtensionPush: 'boolean',
-      harmonyImageUrl: 'string',
-      harmonyInboxContent: 'string',
-      harmonyNotificationSlotType: 'string',
-      harmonyNotifyId: 'number',
-      harmonyReceiptId: 'string',
-      harmonyRemind: 'boolean',
-      harmonyRemindBody: 'string',
-      harmonyRemindTitle: 'string',
-      harmonyRenderStyle: 'string',
-      harmonyTestMessage: 'boolean',
-      harmonyUri: 'string',
-      idempotentToken: 'string',
-      jobKey: 'string',
-      pushTime: 'string',
-      pushType: 'string',
-      sendChannels: 'string',
-      sendSpeed: 'number',
-      smsDelaySecs: 'number',
-      smsParams: 'string',
-      smsSendPolicy: 'number',
-      smsSignName: 'string',
-      smsTemplateName: 'string',
-      storeOffline: 'boolean',
-      target: 'string',
-      targetValue: 'string',
-      title: 'string',
-      trim: 'boolean',
-      iOSApnsEnv: 'string',
-      iOSBadge: 'number',
-      iOSBadgeAutoIncrement: 'boolean',
-      iOSExtParameters: 'string',
-      iOSInterruptionLevel: 'string',
-      iOSLiveActivityAttributes: 'string',
-      iOSLiveActivityAttributesType: 'string',
-      iOSLiveActivityContentState: 'string',
-      iOSLiveActivityDismissalDate: 'number',
-      iOSLiveActivityEvent: 'string',
-      iOSLiveActivityId: 'string',
-      iOSLiveActivityStaleDate: 'number',
-      iOSMusic: 'string',
-      iOSMutableContent: 'boolean',
-      iOSNotificationCategory: 'string',
-      iOSNotificationCollapseId: 'string',
-      iOSNotificationThreadId: 'string',
-      iOSRelevanceScore: 'number',
-      iOSRemind: 'boolean',
-      iOSRemindBody: 'string',
-      iOSSilentNotification: 'boolean',
-      iOSSubtitle: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 501029
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMessageToAndroidRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * my body
-   */
-  body?: string;
-  /**
-   * @example
-   * 123
-   */
-  jobKey?: string;
-  storeOffline?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  target?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * all
-   */
-  targetValue?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * my title
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      body: 'Body',
-      jobKey: 'JobKey',
-      storeOffline: 'StoreOffline',
-      target: 'Target',
-      targetValue: 'TargetValue',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      body: 'string',
-      jobKey: 'string',
-      storeOffline: 'boolean',
-      target: 'string',
-      targetValue: 'string',
-      title: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMessageToAndroidResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 501029
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMessageToAndroidResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushMessageToAndroidResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushMessageToAndroidResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMessageToiOSRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 24780725
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * my body
-   */
-  body?: string;
-  /**
-   * @example
-   * 123
-   */
-  jobKey?: string;
-  storeOffline?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  target?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * all
-   */
-  targetValue?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * my title
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      body: 'Body',
-      jobKey: 'JobKey',
-      storeOffline: 'StoreOffline',
-      target: 'Target',
-      targetValue: 'TargetValue',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      body: 'string',
-      jobKey: 'string',
-      storeOffline: 'boolean',
-      target: 'string',
-      targetValue: 'string',
-      title: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMessageToiOSResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 501029
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushMessageToiOSResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushMessageToiOSResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushMessageToiOSResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNoticeToAndroidRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * body
-   */
-  body?: string;
-  /**
-   * @example
-   * {"key1":"value1","api_name":"PushNoticeToAndroidRequest"}
-   */
-  extParameters?: string;
-  /**
-   * @example
-   * 123
-   */
-  jobKey?: string;
-  storeOffline?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  target?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  targetValue?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * title
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      body: 'Body',
-      extParameters: 'ExtParameters',
-      jobKey: 'JobKey',
-      storeOffline: 'StoreOffline',
-      target: 'Target',
-      targetValue: 'TargetValue',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      body: 'string',
-      extParameters: 'string',
-      jobKey: 'string',
-      storeOffline: 'boolean',
-      target: 'string',
-      targetValue: 'string',
-      title: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNoticeToAndroidResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 501029
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNoticeToAndroidResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushNoticeToAndroidResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushNoticeToAndroidResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNoticeToiOSRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DEV
-   */
-  apnsEnv?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 24780725
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Hello World
-   */
-  body?: string;
-  /**
-   * @example
-   * {"k1":"ios","k2":"v2"}
-   */
-  extParameters?: string;
-  /**
-   * @example
-   * 123
-   */
-  jobKey?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  target?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ALL
-   */
-  targetValue?: string;
-  /**
-   * @example
-   * title
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apnsEnv: 'ApnsEnv',
-      appKey: 'AppKey',
-      body: 'Body',
-      extParameters: 'ExtParameters',
-      jobKey: 'JobKey',
-      target: 'Target',
-      targetValue: 'TargetValue',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apnsEnv: 'string',
-      appKey: 'number',
-      body: 'string',
-      extParameters: 'string',
-      jobKey: 'string',
-      target: 'string',
-      targetValue: 'string',
-      title: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNoticeToiOSResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  messageId?: string;
-  /**
-   * @example
-   * 501029
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PushNoticeToiOSResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PushNoticeToiOSResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PushNoticeToiOSResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAliasesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e2ba19de97604f55b165576****
-   */
-  deviceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAliasesResponseBody extends $dara.Model {
-  aliasInfos?: QueryAliasesResponseBodyAliasInfos;
-  /**
-   * @example
-   * 159E4422-6624-4750-8943-DFD98D34858C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliasInfos: 'AliasInfos',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliasInfos: QueryAliasesResponseBodyAliasInfos,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.aliasInfos && typeof (this.aliasInfos as any).validate === 'function') {
-      (this.aliasInfos as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAliasesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryAliasesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryAliasesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceInfoRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23419851
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a64ae296f3b04a58a05b30c9****
-   */
-  deviceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceInfoResponseBody extends $dara.Model {
-  deviceInfo?: QueryDeviceInfoResponseBodyDeviceInfo;
-  /**
-   * @example
-   * 6EEF262B-EA7D-41DC-89B9-20F3D1E28194
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceInfo: 'DeviceInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceInfo: QueryDeviceInfoResponseBodyDeviceInfo,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.deviceInfo && typeof (this.deviceInfo as any).validate === 'function') {
-      (this.deviceInfo as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceInfoResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDeviceInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDeviceInfoResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceStatRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @example
-   * iOS
-   */
-  deviceType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2016-07-29T00:00:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * TOTAL
-   */
-  queryType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2016-07-28T00:00:00Z
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceType: 'DeviceType',
-      endTime: 'EndTime',
-      queryType: 'QueryType',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceType: 'string',
-      endTime: 'string',
-      queryType: 'string',
-      startTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceStatResponseBody extends $dara.Model {
-  appDeviceStats?: QueryDeviceStatResponseBodyAppDeviceStats;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appDeviceStats: 'AppDeviceStats',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appDeviceStats: QueryDeviceStatResponseBodyAppDeviceStats,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.appDeviceStats && typeof (this.appDeviceStats as any).validate === 'function') {
-      (this.appDeviceStats as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeviceStatResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDeviceStatResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDeviceStatResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAccountRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * accountName
-   */
-  account?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'string',
-      appKey: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAccountResponseBody extends $dara.Model {
-  deviceIds?: QueryDevicesByAccountResponseBodyDeviceIds;
-  /**
-   * @example
-   * A8A24108-2AD0-4F6E-81C7-A8A24C2C2AD0
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceIds: 'DeviceIds',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceIds: QueryDevicesByAccountResponseBodyDeviceIds,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.deviceIds && typeof (this.deviceIds as any).validate === 'function') {
-      (this.deviceIds as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAccountResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDevicesByAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDevicesByAccountResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAliasRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * aliasName
-   */
-  alias?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  static names(): { [key: string]: string } {
-    return {
-      alias: 'Alias',
-      appKey: 'AppKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alias: 'string',
-      appKey: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAliasResponseBody extends $dara.Model {
-  deviceIds?: QueryDevicesByAliasResponseBodyDeviceIds;
-  /**
-   * @example
-   * 6A9FD644-35A5-40E4-89B0-2021CAEDC1B4
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceIds: 'DeviceIds',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceIds: QueryDevicesByAliasResponseBodyDeviceIds,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.deviceIds && typeof (this.deviceIds as any).validate === 'function') {
-      (this.deviceIds as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDevicesByAliasResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDevicesByAliasResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDevicesByAliasResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushRecordsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 333526247
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2021-09-29T06:24:58Z
-   */
-  endTime?: string;
-  keyword?: string;
-  /**
-   * @example
-   * FFPpkmhCPm*****************xjk=
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 8
-   */
-  page?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * NOTICE
-   */
-  pushType?: string;
-  /**
-   * @example
-   * API
-   */
-  source?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2021-09-15T02:05:24Z
-   */
-  startTime?: string;
-  /**
-   * @example
-   * DEVICE
-   */
-  target?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      endTime: 'EndTime',
-      keyword: 'Keyword',
-      nextToken: 'NextToken',
-      page: 'Page',
-      pageSize: 'PageSize',
-      pushType: 'PushType',
-      source: 'Source',
-      startTime: 'StartTime',
-      target: 'Target',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      endTime: 'string',
-      keyword: 'string',
-      nextToken: 'string',
-      page: 'number',
-      pageSize: 'number',
-      pushType: 'string',
-      source: 'string',
-      startTime: 'string',
-      target: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushRecordsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * i91D***********kXIh/dVBEQ==
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 11
-   */
-  page?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  pushInfos?: QueryPushRecordsResponseBodyPushInfos;
-  /**
-   * @example
-   * 9B24B396-249D-55E4-8CA1-66C9B50BB734
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 193
-   */
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      page: 'Page',
-      pageSize: 'PageSize',
-      pushInfos: 'PushInfos',
-      requestId: 'RequestId',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      page: 'number',
-      pageSize: 'number',
-      pushInfos: QueryPushRecordsResponseBodyPushInfos,
-      requestId: 'string',
-      total: 'number',
-    };
-  }
-
-  validate() {
-    if(this.pushInfos && typeof (this.pushInfos as any).validate === 'function') {
-      (this.pushInfos as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushRecordsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryPushRecordsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryPushRecordsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByAppRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2016-07-29T00:00:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DAY
-   */
-  granularity?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2016-07-25T00:00:00Z
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      endTime: 'EndTime',
-      granularity: 'Granularity',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      endTime: 'string',
-      granularity: 'string',
-      startTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByAppResponseBody extends $dara.Model {
-  appPushStats?: QueryPushStatByAppResponseBodyAppPushStats;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appPushStats: 'AppPushStats',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appPushStats: QueryPushStatByAppResponseBodyAppPushStats,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.appPushStats && typeof (this.appPushStats as any).validate === 'function') {
-      (this.appPushStats as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByAppResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryPushStatByAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryPushStatByAppResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByMsgRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 510427
-   */
-  messageId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      messageId: 'MessageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      messageId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByMsgResponseBody extends $dara.Model {
-  pushStats?: QueryPushStatByMsgResponseBodyPushStats;
-  /**
-   * @example
-   * CF195C34-98FB-491A-98D7-19CBC1FA880B
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pushStats: 'PushStats',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pushStats: QueryPushStatByMsgResponseBodyPushStats,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.pushStats && typeof (this.pushStats as any).validate === 'function') {
-      (this.pushStats as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPushStatByMsgResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryPushStatByMsgResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryPushStatByMsgResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTagsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e2ba19de97604f55b165576****
-   */
-  clientKey?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DEVICE
-   */
-  keyType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      clientKey: 'ClientKey',
-      keyType: 'KeyType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      clientKey: 'string',
-      keyType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTagsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * D68AE5C6-8AAF-46C9-B627-3FDACD1A4168
-   */
-  requestId?: string;
-  tagInfos?: QueryTagsResponseBodyTagInfos;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tagInfos: 'TagInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tagInfos: QueryTagsResponseBodyTagInfos,
-    };
-  }
-
-  validate() {
-    if(this.tagInfos && typeof (this.tagInfos as any).validate === 'function') {
-      (this.tagInfos as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTagsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryTagsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryTagsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryUniqueDeviceStatRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2016-07-26T00:00:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DAY
-   */
-  granularity?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2016-07-25T00:00:00Z
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      endTime: 'EndTime',
-      granularity: 'Granularity',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      endTime: 'string',
-      granularity: 'string',
-      startTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryUniqueDeviceStatResponseBody extends $dara.Model {
-  appDeviceStats?: QueryUniqueDeviceStatResponseBodyAppDeviceStats;
-  /**
-   * @example
-   * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appDeviceStats: 'AppDeviceStats',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appDeviceStats: QueryUniqueDeviceStatResponseBodyAppDeviceStats,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.appDeviceStats && typeof (this.appDeviceStats as any).validate === 'function') {
-      (this.appDeviceStats as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryUniqueDeviceStatResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryUniqueDeviceStatResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryUniqueDeviceStatResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveTagRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test_tag
-   */
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      tagName: 'TagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      tagName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveTagResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 23000F3C-0EFE-4C89-82EE-E04F42D37B3C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveTagResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RemoveTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RemoveTagResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindAliasRequest extends $dara.Model {
-  /**
-   * @example
-   * test_alias
-   */
-  aliasName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e2ba19de97604f55b16557673****
-   */
-  deviceId?: string;
-  /**
-   * @example
-   * true
-   */
-  unbindAll?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      aliasName: 'AliasName',
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-      unbindAll: 'UnbindAll',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliasName: 'string',
-      appKey: 'number',
-      deviceId: 'string',
-      unbindAll: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindAliasResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 159E4422-6624-4750-8943-DFD98D34858C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindAliasResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnbindAliasResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnbindAliasResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindPhoneRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eb5f741d83d04d34807d229999eefa52
-   */
-  deviceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      deviceId: 'DeviceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      deviceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindPhoneResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 0D1126F0-F8FF-513D-BAFA-F140447BDED4
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindPhoneResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnbindPhoneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnbindPhoneResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindTagRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * e2ba19de97604f55b16557673****
-   */
-  clientKey?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * DEVICE
-   */
-  keyType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test_tag1,test_tag2
-   */
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      clientKey: 'ClientKey',
-      keyType: 'KeyType',
-      tagName: 'TagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      clientKey: 'string',
-      keyType: 'string',
-      tagName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindTagResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 159E4422-6624-4750-8943-DFD98D34858C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindTagResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnbindTagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnbindTagResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
@@ -5948,7 +92,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindAliasResponse
    */
-  async bindAliasWithOptions(request: BindAliasRequest, runtime: $dara.RuntimeOptions): Promise<BindAliasResponse> {
+  async bindAliasWithOptions(request: $_model.BindAliasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindAliasResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.aliasName)) {
@@ -5977,12 +121,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<BindAliasResponse>(await this.callApi(params, req, runtime), new BindAliasResponse({}));
-    } else {
-      return $dara.cast<BindAliasResponse>(await this.execute(params, req, runtime), new BindAliasResponse({}));
-    }
-
+    return $dara.cast<$_model.BindAliasResponse>(await this.callApi(params, req, runtime), new $_model.BindAliasResponse({}));
   }
 
   /**
@@ -5991,7 +130,7 @@ export default class Client extends OpenApi {
    * @param request - BindAliasRequest
    * @returns BindAliasResponse
    */
-  async bindAlias(request: BindAliasRequest): Promise<BindAliasResponse> {
+  async bindAlias(request: $_model.BindAliasRequest): Promise<$_model.BindAliasResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.bindAliasWithOptions(request, runtime);
   }
@@ -6003,7 +142,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindPhoneResponse
    */
-  async bindPhoneWithOptions(request: BindPhoneRequest, runtime: $dara.RuntimeOptions): Promise<BindPhoneResponse> {
+  async bindPhoneWithOptions(request: $_model.BindPhoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindPhoneResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -6032,12 +171,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<BindPhoneResponse>(await this.callApi(params, req, runtime), new BindPhoneResponse({}));
-    } else {
-      return $dara.cast<BindPhoneResponse>(await this.execute(params, req, runtime), new BindPhoneResponse({}));
-    }
-
+    return $dara.cast<$_model.BindPhoneResponse>(await this.callApi(params, req, runtime), new $_model.BindPhoneResponse({}));
   }
 
   /**
@@ -6046,7 +180,7 @@ export default class Client extends OpenApi {
    * @param request - BindPhoneRequest
    * @returns BindPhoneResponse
    */
-  async bindPhone(request: BindPhoneRequest): Promise<BindPhoneResponse> {
+  async bindPhone(request: $_model.BindPhoneRequest): Promise<$_model.BindPhoneResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.bindPhoneWithOptions(request, runtime);
   }
@@ -6058,7 +192,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindTagResponse
    */
-  async bindTagWithOptions(request: BindTagRequest, runtime: $dara.RuntimeOptions): Promise<BindTagResponse> {
+  async bindTagWithOptions(request: $_model.BindTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindTagResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -6091,12 +225,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<BindTagResponse>(await this.callApi(params, req, runtime), new BindTagResponse({}));
-    } else {
-      return $dara.cast<BindTagResponse>(await this.execute(params, req, runtime), new BindTagResponse({}));
-    }
-
+    return $dara.cast<$_model.BindTagResponse>(await this.callApi(params, req, runtime), new $_model.BindTagResponse({}));
   }
 
   /**
@@ -6105,7 +234,7 @@ export default class Client extends OpenApi {
    * @param request - BindTagRequest
    * @returns BindTagResponse
    */
-  async bindTag(request: BindTagRequest): Promise<BindTagResponse> {
+  async bindTag(request: $_model.BindTagRequest): Promise<$_model.BindTagResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.bindTagWithOptions(request, runtime);
   }
@@ -6117,7 +246,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelPushResponse
    */
-  async cancelPushWithOptions(request: CancelPushRequest, runtime: $dara.RuntimeOptions): Promise<CancelPushResponse> {
+  async cancelPushWithOptions(request: $_model.CancelPushRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelPushResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -6142,12 +271,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CancelPushResponse>(await this.callApi(params, req, runtime), new CancelPushResponse({}));
-    } else {
-      return $dara.cast<CancelPushResponse>(await this.execute(params, req, runtime), new CancelPushResponse({}));
-    }
-
+    return $dara.cast<$_model.CancelPushResponse>(await this.callApi(params, req, runtime), new $_model.CancelPushResponse({}));
   }
 
   /**
@@ -6156,7 +280,7 @@ export default class Client extends OpenApi {
    * @param request - CancelPushRequest
    * @returns CancelPushResponse
    */
-  async cancelPush(request: CancelPushRequest): Promise<CancelPushResponse> {
+  async cancelPush(request: $_model.CancelPushRequest): Promise<$_model.CancelPushResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelPushWithOptions(request, runtime);
   }
@@ -6166,7 +290,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckCertificateResponse
    */
-  async checkCertificateWithOptions(request: CheckCertificateRequest, runtime: $dara.RuntimeOptions): Promise<CheckCertificateResponse> {
+  async checkCertificateWithOptions(request: $_model.CheckCertificateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckCertificateResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -6187,19 +311,14 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CheckCertificateResponse>(await this.callApi(params, req, runtime), new CheckCertificateResponse({}));
-    } else {
-      return $dara.cast<CheckCertificateResponse>(await this.execute(params, req, runtime), new CheckCertificateResponse({}));
-    }
-
+    return $dara.cast<$_model.CheckCertificateResponse>(await this.callApi(params, req, runtime), new $_model.CheckCertificateResponse({}));
   }
 
   /**
    * @param request - CheckCertificateRequest
    * @returns CheckCertificateResponse
    */
-  async checkCertificate(request: CheckCertificateRequest): Promise<CheckCertificateResponse> {
+  async checkCertificate(request: $_model.CheckCertificateRequest): Promise<$_model.CheckCertificateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkCertificateWithOptions(request, runtime);
   }
@@ -6213,8 +332,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckDeviceResponse
    */
-  // Deprecated
-  async checkDeviceWithOptions(request: CheckDeviceRequest, runtime: $dara.RuntimeOptions): Promise<CheckDeviceResponse> {
+  async checkDeviceWithOptions(request: $_model.CheckDeviceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckDeviceResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -6239,12 +357,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CheckDeviceResponse>(await this.callApi(params, req, runtime), new CheckDeviceResponse({}));
-    } else {
-      return $dara.cast<CheckDeviceResponse>(await this.execute(params, req, runtime), new CheckDeviceResponse({}));
-    }
-
+    return $dara.cast<$_model.CheckDeviceResponse>(await this.callApi(params, req, runtime), new $_model.CheckDeviceResponse({}));
   }
 
   /**
@@ -6256,7 +369,7 @@ export default class Client extends OpenApi {
    * @returns CheckDeviceResponse
    */
   // Deprecated
-  async checkDevice(request: CheckDeviceRequest): Promise<CheckDeviceResponse> {
+  async checkDevice(request: $_model.CheckDeviceRequest): Promise<$_model.CheckDeviceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkDeviceWithOptions(request, runtime);
   }
@@ -6268,7 +381,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckDevicesResponse
    */
-  async checkDevicesWithOptions(request: CheckDevicesRequest, runtime: $dara.RuntimeOptions): Promise<CheckDevicesResponse> {
+  async checkDevicesWithOptions(request: $_model.CheckDevicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckDevicesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -6293,12 +406,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CheckDevicesResponse>(await this.callApi(params, req, runtime), new CheckDevicesResponse({}));
-    } else {
-      return $dara.cast<CheckDevicesResponse>(await this.execute(params, req, runtime), new CheckDevicesResponse({}));
-    }
-
+    return $dara.cast<$_model.CheckDevicesResponse>(await this.callApi(params, req, runtime), new $_model.CheckDevicesResponse({}));
   }
 
   /**
@@ -6307,7 +415,7 @@ export default class Client extends OpenApi {
    * @param request - CheckDevicesRequest
    * @returns CheckDevicesResponse
    */
-  async checkDevices(request: CheckDevicesRequest): Promise<CheckDevicesResponse> {
+  async checkDevices(request: $_model.CheckDevicesRequest): Promise<$_model.CheckDevicesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkDevicesWithOptions(request, runtime);
   }
@@ -6319,7 +427,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CompleteContinuouslyPushResponse
    */
-  async completeContinuouslyPushWithOptions(request: CompleteContinuouslyPushRequest, runtime: $dara.RuntimeOptions): Promise<CompleteContinuouslyPushResponse> {
+  async completeContinuouslyPushWithOptions(request: $_model.CompleteContinuouslyPushRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CompleteContinuouslyPushResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -6344,12 +452,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CompleteContinuouslyPushResponse>(await this.callApi(params, req, runtime), new CompleteContinuouslyPushResponse({}));
-    } else {
-      return $dara.cast<CompleteContinuouslyPushResponse>(await this.execute(params, req, runtime), new CompleteContinuouslyPushResponse({}));
-    }
-
+    return $dara.cast<$_model.CompleteContinuouslyPushResponse>(await this.callApi(params, req, runtime), new $_model.CompleteContinuouslyPushResponse({}));
   }
 
   /**
@@ -6358,7 +461,7 @@ export default class Client extends OpenApi {
    * @param request - CompleteContinuouslyPushRequest
    * @returns CompleteContinuouslyPushResponse
    */
-  async completeContinuouslyPush(request: CompleteContinuouslyPushRequest): Promise<CompleteContinuouslyPushResponse> {
+  async completeContinuouslyPush(request: $_model.CompleteContinuouslyPushRequest): Promise<$_model.CompleteContinuouslyPushResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.completeContinuouslyPushWithOptions(request, runtime);
   }
@@ -6370,7 +473,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ContinuouslyPushResponse
    */
-  async continuouslyPushWithOptions(request: ContinuouslyPushRequest, runtime: $dara.RuntimeOptions): Promise<ContinuouslyPushResponse> {
+  async continuouslyPushWithOptions(request: $_model.ContinuouslyPushRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ContinuouslyPushResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -6403,12 +506,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ContinuouslyPushResponse>(await this.callApi(params, req, runtime), new ContinuouslyPushResponse({}));
-    } else {
-      return $dara.cast<ContinuouslyPushResponse>(await this.execute(params, req, runtime), new ContinuouslyPushResponse({}));
-    }
-
+    return $dara.cast<$_model.ContinuouslyPushResponse>(await this.callApi(params, req, runtime), new $_model.ContinuouslyPushResponse({}));
   }
 
   /**
@@ -6417,7 +515,7 @@ export default class Client extends OpenApi {
    * @param request - ContinuouslyPushRequest
    * @returns ContinuouslyPushResponse
    */
-  async continuouslyPush(request: ContinuouslyPushRequest): Promise<ContinuouslyPushResponse> {
+  async continuouslyPush(request: $_model.ContinuouslyPushRequest): Promise<$_model.ContinuouslyPushResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.continuouslyPushWithOptions(request, runtime);
   }
@@ -6432,7 +530,7 @@ export default class Client extends OpenApi {
    * @returns ListSummaryAppsResponse
    */
   // Deprecated
-  async listSummaryAppsWithOptions(runtime: $dara.RuntimeOptions): Promise<ListSummaryAppsResponse> {
+  async listSummaryAppsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListSummaryAppsResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({ });
     let params = new $OpenApiUtil.Params({
       action: "ListSummaryApps",
@@ -6445,12 +543,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListSummaryAppsResponse>(await this.callApi(params, req, runtime), new ListSummaryAppsResponse({}));
-    } else {
-      return $dara.cast<ListSummaryAppsResponse>(await this.execute(params, req, runtime), new ListSummaryAppsResponse({}));
-    }
-
+    return $dara.cast<$_model.ListSummaryAppsResponse>(await this.callApi(params, req, runtime), new $_model.ListSummaryAppsResponse({}));
   }
 
   /**
@@ -6460,7 +553,7 @@ export default class Client extends OpenApi {
    * @returns ListSummaryAppsResponse
    */
   // Deprecated
-  async listSummaryApps(): Promise<ListSummaryAppsResponse> {
+  async listSummaryApps(): Promise<$_model.ListSummaryAppsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listSummaryAppsWithOptions(runtime);
   }
@@ -6472,7 +565,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagsResponse
    */
-  async listTagsWithOptions(request: ListTagsRequest, runtime: $dara.RuntimeOptions): Promise<ListTagsResponse> {
+  async listTagsWithOptions(request: $_model.ListTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -6493,12 +586,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTagsResponse>(await this.callApi(params, req, runtime), new ListTagsResponse({}));
-    } else {
-      return $dara.cast<ListTagsResponse>(await this.execute(params, req, runtime), new ListTagsResponse({}));
-    }
-
+    return $dara.cast<$_model.ListTagsResponse>(await this.callApi(params, req, runtime), new $_model.ListTagsResponse({}));
   }
 
   /**
@@ -6507,7 +595,7 @@ export default class Client extends OpenApi {
    * @param request - ListTagsRequest
    * @returns ListTagsResponse
    */
-  async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
+  async listTags(request: $_model.ListTagsRequest): Promise<$_model.ListTagsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagsWithOptions(request, runtime);
   }
@@ -6519,7 +607,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns MassPushResponse
    */
-  async massPushWithOptions(request: MassPushRequest, runtime: $dara.RuntimeOptions): Promise<MassPushResponse> {
+  async massPushWithOptions(request: $_model.MassPushRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MassPushResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -6550,12 +638,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<MassPushResponse>(await this.callApi(params, req, runtime), new MassPushResponse({}));
-    } else {
-      return $dara.cast<MassPushResponse>(await this.execute(params, req, runtime), new MassPushResponse({}));
-    }
-
+    return $dara.cast<$_model.MassPushResponse>(await this.callApi(params, req, runtime), new $_model.MassPushResponse({}));
   }
 
   /**
@@ -6564,7 +647,7 @@ export default class Client extends OpenApi {
    * @param request - MassPushRequest
    * @returns MassPushResponse
    */
-  async massPush(request: MassPushRequest): Promise<MassPushResponse> {
+  async massPush(request: $_model.MassPushRequest): Promise<$_model.MassPushResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.massPushWithOptions(request, runtime);
   }
@@ -6576,7 +659,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushResponse
    */
-  async pushWithOptions(request: PushRequest, runtime: $dara.RuntimeOptions): Promise<PushResponse> {
+  async pushWithOptions(request: $_model.PushRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.androidActivity)) {
@@ -6629,6 +712,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.androidInboxBody)) {
       query["AndroidInboxBody"] = request.androidInboxBody;
+    }
+
+    if (!$dara.isNull(request.androidMeizuNoticeMsgType)) {
+      query["AndroidMeizuNoticeMsgType"] = request.androidMeizuNoticeMsgType;
     }
 
     if (!$dara.isNull(request.androidMessageHuaweiCategory)) {
@@ -7017,12 +1104,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PushResponse>(await this.callApi(params, req, runtime), new PushResponse({}));
-    } else {
-      return $dara.cast<PushResponse>(await this.execute(params, req, runtime), new PushResponse({}));
-    }
-
+    return $dara.cast<$_model.PushResponse>(await this.callApi(params, req, runtime), new $_model.PushResponse({}));
   }
 
   /**
@@ -7031,7 +1113,7 @@ export default class Client extends OpenApi {
    * @param request - PushRequest
    * @returns PushResponse
    */
-  async push(request: PushRequest): Promise<PushResponse> {
+  async push(request: $_model.PushRequest): Promise<$_model.PushResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.pushWithOptions(request, runtime);
   }
@@ -7043,7 +1125,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushMessageToAndroidResponse
    */
-  async pushMessageToAndroidWithOptions(request: PushMessageToAndroidRequest, runtime: $dara.RuntimeOptions): Promise<PushMessageToAndroidResponse> {
+  async pushMessageToAndroidWithOptions(request: $_model.PushMessageToAndroidRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushMessageToAndroidResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -7088,12 +1170,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PushMessageToAndroidResponse>(await this.callApi(params, req, runtime), new PushMessageToAndroidResponse({}));
-    } else {
-      return $dara.cast<PushMessageToAndroidResponse>(await this.execute(params, req, runtime), new PushMessageToAndroidResponse({}));
-    }
-
+    return $dara.cast<$_model.PushMessageToAndroidResponse>(await this.callApi(params, req, runtime), new $_model.PushMessageToAndroidResponse({}));
   }
 
   /**
@@ -7102,7 +1179,7 @@ export default class Client extends OpenApi {
    * @param request - PushMessageToAndroidRequest
    * @returns PushMessageToAndroidResponse
    */
-  async pushMessageToAndroid(request: PushMessageToAndroidRequest): Promise<PushMessageToAndroidResponse> {
+  async pushMessageToAndroid(request: $_model.PushMessageToAndroidRequest): Promise<$_model.PushMessageToAndroidResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.pushMessageToAndroidWithOptions(request, runtime);
   }
@@ -7114,7 +1191,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushMessageToiOSResponse
    */
-  async pushMessageToiOSWithOptions(request: PushMessageToiOSRequest, runtime: $dara.RuntimeOptions): Promise<PushMessageToiOSResponse> {
+  async pushMessageToiOSWithOptions(request: $_model.PushMessageToiOSRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushMessageToiOSResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -7159,12 +1236,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PushMessageToiOSResponse>(await this.callApi(params, req, runtime), new PushMessageToiOSResponse({}));
-    } else {
-      return $dara.cast<PushMessageToiOSResponse>(await this.execute(params, req, runtime), new PushMessageToiOSResponse({}));
-    }
-
+    return $dara.cast<$_model.PushMessageToiOSResponse>(await this.callApi(params, req, runtime), new $_model.PushMessageToiOSResponse({}));
   }
 
   /**
@@ -7173,7 +1245,7 @@ export default class Client extends OpenApi {
    * @param request - PushMessageToiOSRequest
    * @returns PushMessageToiOSResponse
    */
-  async pushMessageToiOS(request: PushMessageToiOSRequest): Promise<PushMessageToiOSResponse> {
+  async pushMessageToiOS(request: $_model.PushMessageToiOSRequest): Promise<$_model.PushMessageToiOSResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.pushMessageToiOSWithOptions(request, runtime);
   }
@@ -7185,7 +1257,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushNoticeToAndroidResponse
    */
-  async pushNoticeToAndroidWithOptions(request: PushNoticeToAndroidRequest, runtime: $dara.RuntimeOptions): Promise<PushNoticeToAndroidResponse> {
+  async pushNoticeToAndroidWithOptions(request: $_model.PushNoticeToAndroidRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushNoticeToAndroidResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -7234,12 +1306,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PushNoticeToAndroidResponse>(await this.callApi(params, req, runtime), new PushNoticeToAndroidResponse({}));
-    } else {
-      return $dara.cast<PushNoticeToAndroidResponse>(await this.execute(params, req, runtime), new PushNoticeToAndroidResponse({}));
-    }
-
+    return $dara.cast<$_model.PushNoticeToAndroidResponse>(await this.callApi(params, req, runtime), new $_model.PushNoticeToAndroidResponse({}));
   }
 
   /**
@@ -7248,7 +1315,7 @@ export default class Client extends OpenApi {
    * @param request - PushNoticeToAndroidRequest
    * @returns PushNoticeToAndroidResponse
    */
-  async pushNoticeToAndroid(request: PushNoticeToAndroidRequest): Promise<PushNoticeToAndroidResponse> {
+  async pushNoticeToAndroid(request: $_model.PushNoticeToAndroidRequest): Promise<$_model.PushNoticeToAndroidResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.pushNoticeToAndroidWithOptions(request, runtime);
   }
@@ -7260,7 +1327,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushNoticeToiOSResponse
    */
-  async pushNoticeToiOSWithOptions(request: PushNoticeToiOSRequest, runtime: $dara.RuntimeOptions): Promise<PushNoticeToiOSResponse> {
+  async pushNoticeToiOSWithOptions(request: $_model.PushNoticeToiOSRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushNoticeToiOSResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.apnsEnv)) {
@@ -7309,12 +1376,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PushNoticeToiOSResponse>(await this.callApi(params, req, runtime), new PushNoticeToiOSResponse({}));
-    } else {
-      return $dara.cast<PushNoticeToiOSResponse>(await this.execute(params, req, runtime), new PushNoticeToiOSResponse({}));
-    }
-
+    return $dara.cast<$_model.PushNoticeToiOSResponse>(await this.callApi(params, req, runtime), new $_model.PushNoticeToiOSResponse({}));
   }
 
   /**
@@ -7323,7 +1385,7 @@ export default class Client extends OpenApi {
    * @param request - PushNoticeToiOSRequest
    * @returns PushNoticeToiOSResponse
    */
-  async pushNoticeToiOS(request: PushNoticeToiOSRequest): Promise<PushNoticeToiOSResponse> {
+  async pushNoticeToiOS(request: $_model.PushNoticeToiOSRequest): Promise<$_model.PushNoticeToiOSResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.pushNoticeToiOSWithOptions(request, runtime);
   }
@@ -7335,7 +1397,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryAliasesResponse
    */
-  async queryAliasesWithOptions(request: QueryAliasesRequest, runtime: $dara.RuntimeOptions): Promise<QueryAliasesResponse> {
+  async queryAliasesWithOptions(request: $_model.QueryAliasesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAliasesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -7360,12 +1422,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryAliasesResponse>(await this.callApi(params, req, runtime), new QueryAliasesResponse({}));
-    } else {
-      return $dara.cast<QueryAliasesResponse>(await this.execute(params, req, runtime), new QueryAliasesResponse({}));
-    }
-
+    return $dara.cast<$_model.QueryAliasesResponse>(await this.callApi(params, req, runtime), new $_model.QueryAliasesResponse({}));
   }
 
   /**
@@ -7374,7 +1431,7 @@ export default class Client extends OpenApi {
    * @param request - QueryAliasesRequest
    * @returns QueryAliasesResponse
    */
-  async queryAliases(request: QueryAliasesRequest): Promise<QueryAliasesResponse> {
+  async queryAliases(request: $_model.QueryAliasesRequest): Promise<$_model.QueryAliasesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryAliasesWithOptions(request, runtime);
   }
@@ -7386,7 +1443,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDeviceInfoResponse
    */
-  async queryDeviceInfoWithOptions(request: QueryDeviceInfoRequest, runtime: $dara.RuntimeOptions): Promise<QueryDeviceInfoResponse> {
+  async queryDeviceInfoWithOptions(request: $_model.QueryDeviceInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDeviceInfoResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -7411,12 +1468,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryDeviceInfoResponse>(await this.callApi(params, req, runtime), new QueryDeviceInfoResponse({}));
-    } else {
-      return $dara.cast<QueryDeviceInfoResponse>(await this.execute(params, req, runtime), new QueryDeviceInfoResponse({}));
-    }
-
+    return $dara.cast<$_model.QueryDeviceInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryDeviceInfoResponse({}));
   }
 
   /**
@@ -7425,7 +1477,7 @@ export default class Client extends OpenApi {
    * @param request - QueryDeviceInfoRequest
    * @returns QueryDeviceInfoResponse
    */
-  async queryDeviceInfo(request: QueryDeviceInfoRequest): Promise<QueryDeviceInfoResponse> {
+  async queryDeviceInfo(request: $_model.QueryDeviceInfoRequest): Promise<$_model.QueryDeviceInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDeviceInfoWithOptions(request, runtime);
   }
@@ -7437,7 +1489,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDeviceStatResponse
    */
-  async queryDeviceStatWithOptions(request: QueryDeviceStatRequest, runtime: $dara.RuntimeOptions): Promise<QueryDeviceStatResponse> {
+  async queryDeviceStatWithOptions(request: $_model.QueryDeviceStatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDeviceStatResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -7474,12 +1526,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryDeviceStatResponse>(await this.callApi(params, req, runtime), new QueryDeviceStatResponse({}));
-    } else {
-      return $dara.cast<QueryDeviceStatResponse>(await this.execute(params, req, runtime), new QueryDeviceStatResponse({}));
-    }
-
+    return $dara.cast<$_model.QueryDeviceStatResponse>(await this.callApi(params, req, runtime), new $_model.QueryDeviceStatResponse({}));
   }
 
   /**
@@ -7488,7 +1535,7 @@ export default class Client extends OpenApi {
    * @param request - QueryDeviceStatRequest
    * @returns QueryDeviceStatResponse
    */
-  async queryDeviceStat(request: QueryDeviceStatRequest): Promise<QueryDeviceStatResponse> {
+  async queryDeviceStat(request: $_model.QueryDeviceStatRequest): Promise<$_model.QueryDeviceStatResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDeviceStatWithOptions(request, runtime);
   }
@@ -7500,7 +1547,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDevicesByAccountResponse
    */
-  async queryDevicesByAccountWithOptions(request: QueryDevicesByAccountRequest, runtime: $dara.RuntimeOptions): Promise<QueryDevicesByAccountResponse> {
+  async queryDevicesByAccountWithOptions(request: $_model.QueryDevicesByAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDevicesByAccountResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.account)) {
@@ -7525,12 +1572,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryDevicesByAccountResponse>(await this.callApi(params, req, runtime), new QueryDevicesByAccountResponse({}));
-    } else {
-      return $dara.cast<QueryDevicesByAccountResponse>(await this.execute(params, req, runtime), new QueryDevicesByAccountResponse({}));
-    }
-
+    return $dara.cast<$_model.QueryDevicesByAccountResponse>(await this.callApi(params, req, runtime), new $_model.QueryDevicesByAccountResponse({}));
   }
 
   /**
@@ -7539,7 +1581,7 @@ export default class Client extends OpenApi {
    * @param request - QueryDevicesByAccountRequest
    * @returns QueryDevicesByAccountResponse
    */
-  async queryDevicesByAccount(request: QueryDevicesByAccountRequest): Promise<QueryDevicesByAccountResponse> {
+  async queryDevicesByAccount(request: $_model.QueryDevicesByAccountRequest): Promise<$_model.QueryDevicesByAccountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDevicesByAccountWithOptions(request, runtime);
   }
@@ -7551,7 +1593,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDevicesByAliasResponse
    */
-  async queryDevicesByAliasWithOptions(request: QueryDevicesByAliasRequest, runtime: $dara.RuntimeOptions): Promise<QueryDevicesByAliasResponse> {
+  async queryDevicesByAliasWithOptions(request: $_model.QueryDevicesByAliasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDevicesByAliasResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.alias)) {
@@ -7576,12 +1618,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryDevicesByAliasResponse>(await this.callApi(params, req, runtime), new QueryDevicesByAliasResponse({}));
-    } else {
-      return $dara.cast<QueryDevicesByAliasResponse>(await this.execute(params, req, runtime), new QueryDevicesByAliasResponse({}));
-    }
-
+    return $dara.cast<$_model.QueryDevicesByAliasResponse>(await this.callApi(params, req, runtime), new $_model.QueryDevicesByAliasResponse({}));
   }
 
   /**
@@ -7590,7 +1627,7 @@ export default class Client extends OpenApi {
    * @param request - QueryDevicesByAliasRequest
    * @returns QueryDevicesByAliasResponse
    */
-  async queryDevicesByAlias(request: QueryDevicesByAliasRequest): Promise<QueryDevicesByAliasResponse> {
+  async queryDevicesByAlias(request: $_model.QueryDevicesByAliasRequest): Promise<$_model.QueryDevicesByAliasResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDevicesByAliasWithOptions(request, runtime);
   }
@@ -7600,7 +1637,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPushRecordsResponse
    */
-  async queryPushRecordsWithOptions(request: QueryPushRecordsRequest, runtime: $dara.RuntimeOptions): Promise<QueryPushRecordsResponse> {
+  async queryPushRecordsWithOptions(request: $_model.QueryPushRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPushRecordsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -7657,19 +1694,14 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryPushRecordsResponse>(await this.callApi(params, req, runtime), new QueryPushRecordsResponse({}));
-    } else {
-      return $dara.cast<QueryPushRecordsResponse>(await this.execute(params, req, runtime), new QueryPushRecordsResponse({}));
-    }
-
+    return $dara.cast<$_model.QueryPushRecordsResponse>(await this.callApi(params, req, runtime), new $_model.QueryPushRecordsResponse({}));
   }
 
   /**
    * @param request - QueryPushRecordsRequest
    * @returns QueryPushRecordsResponse
    */
-  async queryPushRecords(request: QueryPushRecordsRequest): Promise<QueryPushRecordsResponse> {
+  async queryPushRecords(request: $_model.QueryPushRecordsRequest): Promise<$_model.QueryPushRecordsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPushRecordsWithOptions(request, runtime);
   }
@@ -7681,7 +1713,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPushStatByAppResponse
    */
-  async queryPushStatByAppWithOptions(request: QueryPushStatByAppRequest, runtime: $dara.RuntimeOptions): Promise<QueryPushStatByAppResponse> {
+  async queryPushStatByAppWithOptions(request: $_model.QueryPushStatByAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPushStatByAppResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -7714,12 +1746,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryPushStatByAppResponse>(await this.callApi(params, req, runtime), new QueryPushStatByAppResponse({}));
-    } else {
-      return $dara.cast<QueryPushStatByAppResponse>(await this.execute(params, req, runtime), new QueryPushStatByAppResponse({}));
-    }
-
+    return $dara.cast<$_model.QueryPushStatByAppResponse>(await this.callApi(params, req, runtime), new $_model.QueryPushStatByAppResponse({}));
   }
 
   /**
@@ -7728,7 +1755,7 @@ export default class Client extends OpenApi {
    * @param request - QueryPushStatByAppRequest
    * @returns QueryPushStatByAppResponse
    */
-  async queryPushStatByApp(request: QueryPushStatByAppRequest): Promise<QueryPushStatByAppResponse> {
+  async queryPushStatByApp(request: $_model.QueryPushStatByAppRequest): Promise<$_model.QueryPushStatByAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPushStatByAppWithOptions(request, runtime);
   }
@@ -7740,7 +1767,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPushStatByMsgResponse
    */
-  async queryPushStatByMsgWithOptions(request: QueryPushStatByMsgRequest, runtime: $dara.RuntimeOptions): Promise<QueryPushStatByMsgResponse> {
+  async queryPushStatByMsgWithOptions(request: $_model.QueryPushStatByMsgRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPushStatByMsgResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -7765,12 +1792,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryPushStatByMsgResponse>(await this.callApi(params, req, runtime), new QueryPushStatByMsgResponse({}));
-    } else {
-      return $dara.cast<QueryPushStatByMsgResponse>(await this.execute(params, req, runtime), new QueryPushStatByMsgResponse({}));
-    }
-
+    return $dara.cast<$_model.QueryPushStatByMsgResponse>(await this.callApi(params, req, runtime), new $_model.QueryPushStatByMsgResponse({}));
   }
 
   /**
@@ -7779,7 +1801,7 @@ export default class Client extends OpenApi {
    * @param request - QueryPushStatByMsgRequest
    * @returns QueryPushStatByMsgResponse
    */
-  async queryPushStatByMsg(request: QueryPushStatByMsgRequest): Promise<QueryPushStatByMsgResponse> {
+  async queryPushStatByMsg(request: $_model.QueryPushStatByMsgRequest): Promise<$_model.QueryPushStatByMsgResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPushStatByMsgWithOptions(request, runtime);
   }
@@ -7791,7 +1813,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTagsResponse
    */
-  async queryTagsWithOptions(request: QueryTagsRequest, runtime: $dara.RuntimeOptions): Promise<QueryTagsResponse> {
+  async queryTagsWithOptions(request: $_model.QueryTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTagsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -7820,12 +1842,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryTagsResponse>(await this.callApi(params, req, runtime), new QueryTagsResponse({}));
-    } else {
-      return $dara.cast<QueryTagsResponse>(await this.execute(params, req, runtime), new QueryTagsResponse({}));
-    }
-
+    return $dara.cast<$_model.QueryTagsResponse>(await this.callApi(params, req, runtime), new $_model.QueryTagsResponse({}));
   }
 
   /**
@@ -7834,7 +1851,7 @@ export default class Client extends OpenApi {
    * @param request - QueryTagsRequest
    * @returns QueryTagsResponse
    */
-  async queryTags(request: QueryTagsRequest): Promise<QueryTagsResponse> {
+  async queryTags(request: $_model.QueryTagsRequest): Promise<$_model.QueryTagsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTagsWithOptions(request, runtime);
   }
@@ -7846,7 +1863,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryUniqueDeviceStatResponse
    */
-  async queryUniqueDeviceStatWithOptions(request: QueryUniqueDeviceStatRequest, runtime: $dara.RuntimeOptions): Promise<QueryUniqueDeviceStatResponse> {
+  async queryUniqueDeviceStatWithOptions(request: $_model.QueryUniqueDeviceStatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryUniqueDeviceStatResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -7879,12 +1896,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryUniqueDeviceStatResponse>(await this.callApi(params, req, runtime), new QueryUniqueDeviceStatResponse({}));
-    } else {
-      return $dara.cast<QueryUniqueDeviceStatResponse>(await this.execute(params, req, runtime), new QueryUniqueDeviceStatResponse({}));
-    }
-
+    return $dara.cast<$_model.QueryUniqueDeviceStatResponse>(await this.callApi(params, req, runtime), new $_model.QueryUniqueDeviceStatResponse({}));
   }
 
   /**
@@ -7893,7 +1905,7 @@ export default class Client extends OpenApi {
    * @param request - QueryUniqueDeviceStatRequest
    * @returns QueryUniqueDeviceStatResponse
    */
-  async queryUniqueDeviceStat(request: QueryUniqueDeviceStatRequest): Promise<QueryUniqueDeviceStatResponse> {
+  async queryUniqueDeviceStat(request: $_model.QueryUniqueDeviceStatRequest): Promise<$_model.QueryUniqueDeviceStatResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryUniqueDeviceStatWithOptions(request, runtime);
   }
@@ -7905,7 +1917,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveTagResponse
    */
-  async removeTagWithOptions(request: RemoveTagRequest, runtime: $dara.RuntimeOptions): Promise<RemoveTagResponse> {
+  async removeTagWithOptions(request: $_model.RemoveTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveTagResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -7930,12 +1942,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RemoveTagResponse>(await this.callApi(params, req, runtime), new RemoveTagResponse({}));
-    } else {
-      return $dara.cast<RemoveTagResponse>(await this.execute(params, req, runtime), new RemoveTagResponse({}));
-    }
-
+    return $dara.cast<$_model.RemoveTagResponse>(await this.callApi(params, req, runtime), new $_model.RemoveTagResponse({}));
   }
 
   /**
@@ -7944,7 +1951,7 @@ export default class Client extends OpenApi {
    * @param request - RemoveTagRequest
    * @returns RemoveTagResponse
    */
-  async removeTag(request: RemoveTagRequest): Promise<RemoveTagResponse> {
+  async removeTag(request: $_model.RemoveTagRequest): Promise<$_model.RemoveTagResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeTagWithOptions(request, runtime);
   }
@@ -7956,7 +1963,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindAliasResponse
    */
-  async unbindAliasWithOptions(request: UnbindAliasRequest, runtime: $dara.RuntimeOptions): Promise<UnbindAliasResponse> {
+  async unbindAliasWithOptions(request: $_model.UnbindAliasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindAliasResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.aliasName)) {
@@ -7989,12 +1996,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UnbindAliasResponse>(await this.callApi(params, req, runtime), new UnbindAliasResponse({}));
-    } else {
-      return $dara.cast<UnbindAliasResponse>(await this.execute(params, req, runtime), new UnbindAliasResponse({}));
-    }
-
+    return $dara.cast<$_model.UnbindAliasResponse>(await this.callApi(params, req, runtime), new $_model.UnbindAliasResponse({}));
   }
 
   /**
@@ -8003,7 +2005,7 @@ export default class Client extends OpenApi {
    * @param request - UnbindAliasRequest
    * @returns UnbindAliasResponse
    */
-  async unbindAlias(request: UnbindAliasRequest): Promise<UnbindAliasResponse> {
+  async unbindAlias(request: $_model.UnbindAliasRequest): Promise<$_model.UnbindAliasResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindAliasWithOptions(request, runtime);
   }
@@ -8015,7 +2017,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindPhoneResponse
    */
-  async unbindPhoneWithOptions(request: UnbindPhoneRequest, runtime: $dara.RuntimeOptions): Promise<UnbindPhoneResponse> {
+  async unbindPhoneWithOptions(request: $_model.UnbindPhoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindPhoneResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -8040,12 +2042,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UnbindPhoneResponse>(await this.callApi(params, req, runtime), new UnbindPhoneResponse({}));
-    } else {
-      return $dara.cast<UnbindPhoneResponse>(await this.execute(params, req, runtime), new UnbindPhoneResponse({}));
-    }
-
+    return $dara.cast<$_model.UnbindPhoneResponse>(await this.callApi(params, req, runtime), new $_model.UnbindPhoneResponse({}));
   }
 
   /**
@@ -8054,7 +2051,7 @@ export default class Client extends OpenApi {
    * @param request - UnbindPhoneRequest
    * @returns UnbindPhoneResponse
    */
-  async unbindPhone(request: UnbindPhoneRequest): Promise<UnbindPhoneResponse> {
+  async unbindPhone(request: $_model.UnbindPhoneRequest): Promise<$_model.UnbindPhoneResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindPhoneWithOptions(request, runtime);
   }
@@ -8066,7 +2063,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindTagResponse
    */
-  async unbindTagWithOptions(request: UnbindTagRequest, runtime: $dara.RuntimeOptions): Promise<UnbindTagResponse> {
+  async unbindTagWithOptions(request: $_model.UnbindTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindTagResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.appKey)) {
@@ -8099,12 +2096,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UnbindTagResponse>(await this.callApi(params, req, runtime), new UnbindTagResponse({}));
-    } else {
-      return $dara.cast<UnbindTagResponse>(await this.execute(params, req, runtime), new UnbindTagResponse({}));
-    }
-
+    return $dara.cast<$_model.UnbindTagResponse>(await this.callApi(params, req, runtime), new $_model.UnbindTagResponse({}));
   }
 
   /**
@@ -8113,7 +2105,7 @@ export default class Client extends OpenApi {
    * @param request - UnbindTagRequest
    * @returns UnbindTagResponse
    */
-  async unbindTag(request: UnbindTagRequest): Promise<UnbindTagResponse> {
+  async unbindTag(request: $_model.UnbindTagRequest): Promise<$_model.UnbindTagResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindTagWithOptions(request, runtime);
   }
