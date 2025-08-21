@@ -1,7 +1,167 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeEnsEipAddressesResponseBodyEipAddresses } from "./DescribeEnsEipAddressesResponseBodyEipAddresses";
 
+
+export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag extends $dara.Model {
+  key?: string;
+  /**
+   * @deprecated
+   */
+  tagKey?: string;
+  /**
+   * @deprecated
+   */
+  tagValue?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags extends $dara.Model {
+  tag?: DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $dara.Model {
+  allocationId?: string;
+  allocationTime?: string;
+  bandwidth?: number;
+  chargeType?: string;
+  description?: string;
+  ensRegionId?: string;
+  instanceId?: string;
+  instanceType?: string;
+  internetChargeType?: string;
+  ipAddress?: string;
+  ipStatus?: string;
+  isp?: string;
+  name?: string;
+  standby?: boolean;
+  status?: string;
+  tags?: DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags;
+  static names(): { [key: string]: string } {
+    return {
+      allocationId: 'AllocationId',
+      allocationTime: 'AllocationTime',
+      bandwidth: 'Bandwidth',
+      chargeType: 'ChargeType',
+      description: 'Description',
+      ensRegionId: 'EnsRegionId',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      internetChargeType: 'InternetChargeType',
+      ipAddress: 'IpAddress',
+      ipStatus: 'IpStatus',
+      isp: 'Isp',
+      name: 'Name',
+      standby: 'Standby',
+      status: 'Status',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationId: 'string',
+      allocationTime: 'string',
+      bandwidth: 'number',
+      chargeType: 'string',
+      description: 'string',
+      ensRegionId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      internetChargeType: 'string',
+      ipAddress: 'string',
+      ipStatus: 'string',
+      isp: 'string',
+      name: 'string',
+      standby: 'boolean',
+      status: 'string',
+      tags: DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags,
+    };
+  }
+
+  validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsEipAddressesResponseBodyEipAddresses extends $dara.Model {
+  eipAddress?: DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress[];
+  static names(): { [key: string]: string } {
+    return {
+      eipAddress: 'EipAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eipAddress: { 'type': 'array', 'itemType': DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.eipAddress)) {
+      $dara.Model.validateArray(this.eipAddress);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeEnsEipAddressesResponseBody extends $dara.Model {
   /**

@@ -11,6 +11,8 @@ export class DeployInstanceSDGRequest extends $dara.Model {
    * shared
    */
   deploymentType?: string;
+  diskAccessProtocol?: string;
+  diskType?: string;
   /**
    * @remarks
    * The IDs of the instances. The value is a JSON array that consists of up to 100 IDs.
@@ -31,6 +33,8 @@ export class DeployInstanceSDGRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       deploymentType: 'DeploymentType',
+      diskAccessProtocol: 'DiskAccessProtocol',
+      diskType: 'DiskType',
       instanceIds: 'InstanceIds',
       SDGId: 'SDGId',
     };
@@ -39,6 +43,8 @@ export class DeployInstanceSDGRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       deploymentType: 'string',
+      diskAccessProtocol: 'string',
+      diskType: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       SDGId: 'string',
     };

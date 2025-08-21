@@ -1,9 +1,159 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunInstancesRequestDataDisk } from "./RunInstancesRequestDataDisk";
-import { RunInstancesRequestSystemDisk } from "./RunInstancesRequestSystemDisk";
-import { RunInstancesRequestTag } from "./RunInstancesRequestTag";
 
+
+export class RunInstancesRequestDataDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The category of the disk. Valid values:
+   * 
+   * *   **cloud_efficiency**: ultra disk.
+   * *   **cloud_ssd**: all-flash disk.
+   * *   **local_hdd**: local HDD.
+   * *   **local_ssd**: local SSD.
+   * 
+   * @example
+   * cloud_efficiency
+   */
+  category?: string;
+  /**
+   * @remarks
+   * Specifies whether to encrypt the disk. Valid values:
+   * 
+   * *   true.
+   * *   false (default).
+   * 
+   * @example
+   * false
+   */
+  encrypted?: boolean;
+  /**
+   * @remarks
+   * The ID of the Key Management Service (KMS) key that is used for the disk. Valid values:
+   * 
+   * *   true.
+   * *   false (default).
+   * 
+   * >  If you set the Encrypted parameter to true, the default service key is used when the KMSKeyId parameter is empty.
+   * 
+   * @example
+   * false
+   */
+  KMSKeyId?: string;
+  /**
+   * @remarks
+   * The size of a data disk. Unit: GiB.
+   * 
+   * @example
+   * 20
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      encrypted: 'Encrypted',
+      KMSKeyId: 'KMSKeyId',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      encrypted: 'boolean',
+      KMSKeyId: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestSystemDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The category of the system disk.
+   * 
+   * @example
+   * local_ssd
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The size of the system disk. Unit: GiB.
+   * 
+   * @example
+   * 50
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunInstancesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * team
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * tagValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunInstancesRequest extends $dara.Model {
   /**
@@ -78,6 +228,7 @@ export class RunInstancesRequest extends $dara.Model {
    * The specifications of data disks.
    */
   dataDisk?: RunInstancesRequestDataDisk[];
+  deletionProtection?: boolean;
   /**
    * @remarks
    * The ID of the node.
@@ -396,6 +547,7 @@ export class RunInstancesRequest extends $dara.Model {
       billingCycle: 'BillingCycle',
       carrier: 'Carrier',
       dataDisk: 'DataDisk',
+      deletionProtection: 'DeletionProtection',
       ensRegionId: 'EnsRegionId',
       hostName: 'HostName',
       imageId: 'ImageId',
@@ -439,6 +591,7 @@ export class RunInstancesRequest extends $dara.Model {
       billingCycle: 'string',
       carrier: 'string',
       dataDisk: { 'type': 'array', 'itemType': RunInstancesRequestDataDisk },
+      deletionProtection: 'boolean',
       ensRegionId: 'string',
       hostName: 'string',
       imageId: 'string',

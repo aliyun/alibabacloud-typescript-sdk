@@ -1,9 +1,108 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribePriceRequestDataDisk } from "./DescribePriceRequestDataDisk";
-import { DescribePriceRequestSystemDisk } from "./DescribePriceRequestSystemDisk";
-import { DescribePriceRequestDataDisks } from "./DescribePriceRequestDataDisks";
 
+
+export class DescribePriceRequestDataDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The size of the data disk. Unit: GB. If you specify this parameter, this parameter takes precedence over the Size property in DataDisks.
+   * 
+   * @example
+   * 50
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceRequestSystemDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The size of the system disk. Unit: GB.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceRequestDataDisks extends $dara.Model {
+  /**
+   * @remarks
+   * The category of the disk.
+   * 
+   * @example
+   * cloud_efficiency
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The size of the data disk. Unit: GB.
+   * 
+   * @example
+   * 50
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribePriceRequest extends $dara.Model {
   dataDisk?: DescribePriceRequestDataDisk[];

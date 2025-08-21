@@ -1,7 +1,62 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeImageSharePermissionResponseBodyAccounts } from "./DescribeImageSharePermissionResponseBodyAccounts";
 
+
+export class DescribeImageSharePermissionResponseBodyAccountsAccount extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account with which you share the image.
+   * 
+   * @example
+   * 1515285523xxxx
+   */
+  aliyunUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunUid: 'AliyunUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunUid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageSharePermissionResponseBodyAccounts extends $dara.Model {
+  account?: DescribeImageSharePermissionResponseBodyAccountsAccount[];
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: { 'type': 'array', 'itemType': DescribeImageSharePermissionResponseBodyAccountsAccount },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.account)) {
+      $dara.Model.validateArray(this.account);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeImageSharePermissionResponseBody extends $dara.Model {
   /**

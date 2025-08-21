@@ -10,6 +10,7 @@ export class PreloadRegionSDGRequest extends $dara.Model {
    * This parameter is required.
    */
   destinationRegionIds?: string[];
+  diskType?: string;
   /**
    * @remarks
    * An array that consists of queried namespaces.
@@ -38,6 +39,7 @@ export class PreloadRegionSDGRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       destinationRegionIds: 'DestinationRegionIds',
+      diskType: 'DiskType',
       namespaces: 'Namespaces',
       redundantNum: 'RedundantNum',
       SDGId: 'SDGId',
@@ -47,6 +49,7 @@ export class PreloadRegionSDGRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       destinationRegionIds: { 'type': 'array', 'itemType': 'string' },
+      diskType: 'string',
       namespaces: { 'type': 'array', 'itemType': 'string' },
       redundantNum: 'number',
       SDGId: 'string',

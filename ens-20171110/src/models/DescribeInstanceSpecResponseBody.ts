@@ -1,7 +1,92 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeInstanceSpecResponseBodyInstanceSpecs } from "./DescribeInstanceSpecResponseBodyInstanceSpecs";
 
+
+export class DescribeInstanceSpecResponseBodyInstanceSpecsInstanceSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CPU cores.
+   * 
+   * @example
+   * 1
+   */
+  core?: string;
+  /**
+   * @remarks
+   * The display name of the instance type.
+   * 
+   * @example
+   * Computational 1C2G
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * The type of the instance.
+   * 
+   * @example
+   * ens.sn1.stiny
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The memory size. Unit: MB.
+   * 
+   * @example
+   * 2048
+   */
+  memory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      core: 'Core',
+      displayName: 'DisplayName',
+      instanceType: 'InstanceType',
+      memory: 'Memory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      core: 'string',
+      displayName: 'string',
+      instanceType: 'string',
+      memory: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSpecResponseBodyInstanceSpecs extends $dara.Model {
+  instanceSpec?: DescribeInstanceSpecResponseBodyInstanceSpecsInstanceSpec[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceSpec: 'InstanceSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceSpec: { 'type': 'array', 'itemType': DescribeInstanceSpecResponseBodyInstanceSpecsInstanceSpec },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceSpec)) {
+      $dara.Model.validateArray(this.instanceSpec);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeInstanceSpecResponseBody extends $dara.Model {
   /**

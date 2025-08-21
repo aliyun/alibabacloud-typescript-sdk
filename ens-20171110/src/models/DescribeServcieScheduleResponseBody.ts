@@ -1,7 +1,152 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeServcieScheduleResponseBodyPodAbstractInfo } from "./DescribeServcieScheduleResponseBodyPodAbstractInfo";
 
+
+export class DescribeServcieScheduleResponseBodyPodAbstractInfoContainerStatusesContainerStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the container.
+   * 
+   * @example
+   * container_e79_1638372147094_158091_02_000001
+   */
+  containerId?: string;
+  /**
+   * @remarks
+   * The name of the container.
+   * 
+   * @example
+   * nginx
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containerId: 'ContainerId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerId: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServcieScheduleResponseBodyPodAbstractInfoContainerStatuses extends $dara.Model {
+  containerStatus?: DescribeServcieScheduleResponseBodyPodAbstractInfoContainerStatusesContainerStatus[];
+  static names(): { [key: string]: string } {
+    return {
+      containerStatus: 'ContainerStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerStatus: { 'type': 'array', 'itemType': DescribeServcieScheduleResponseBodyPodAbstractInfoContainerStatusesContainerStatus },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.containerStatus)) {
+      $dara.Model.validateArray(this.containerStatus);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServcieScheduleResponseBodyPodAbstractInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the container service.
+   * 
+   * @example
+   * android
+   */
+  containerService?: boolean;
+  /**
+   * @remarks
+   * The information about the container.
+   */
+  containerStatuses?: DescribeServcieScheduleResponseBodyPodAbstractInfoContainerStatuses;
+  /**
+   * @remarks
+   * The name of the pod.
+   * 
+   * @example
+   * gcs-prod-websocket-eip-telecom
+   */
+  name?: boolean;
+  /**
+   * @remarks
+   * The name of the namespace.
+   * 
+   * @example
+   * default-aliyun
+   */
+  namespace?: boolean;
+  /**
+   * @remarks
+   * The pod scope.
+   * 
+   * @example
+   * FDN
+   */
+  resourceScope?: boolean;
+  /**
+   * @remarks
+   * The status of the pod.
+   * 
+   * @example
+   * RUNNING
+   */
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      containerService: 'ContainerService',
+      containerStatuses: 'ContainerStatuses',
+      name: 'Name',
+      namespace: 'Namespace',
+      resourceScope: 'ResourceScope',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerService: 'boolean',
+      containerStatuses: DescribeServcieScheduleResponseBodyPodAbstractInfoContainerStatuses,
+      name: 'boolean',
+      namespace: 'boolean',
+      resourceScope: 'boolean',
+      status: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.containerStatuses && typeof (this.containerStatuses as any).validate === 'function') {
+      (this.containerStatuses as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeServcieScheduleResponseBody extends $dara.Model {
   /**

@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AttachInstanceSDGShrinkRequest extends $dara.Model {
+  diskAccessProtocol?: string;
+  diskType?: string;
   /**
    * @remarks
    * The IDs of the instances.
@@ -23,6 +25,8 @@ export class AttachInstanceSDGShrinkRequest extends $dara.Model {
   SDGId?: string;
   static names(): { [key: string]: string } {
     return {
+      diskAccessProtocol: 'DiskAccessProtocol',
+      diskType: 'DiskType',
       instanceIdsShrink: 'InstanceIds',
       loadOptShrink: 'LoadOpt',
       SDGId: 'SDGId',
@@ -31,6 +35,8 @@ export class AttachInstanceSDGShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      diskAccessProtocol: 'string',
+      diskType: 'string',
       instanceIdsShrink: 'string',
       loadOptShrink: 'string',
       SDGId: 'string',

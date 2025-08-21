@@ -33,6 +33,7 @@ export class ImportImageShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   imageName?: string;
+  licenseType?: string;
   /**
    * @example
    * tmp-hybrid
@@ -62,9 +63,6 @@ export class ImportImageShrinkRequest extends $dara.Model {
    */
   OSVersion?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * centos
    */
@@ -81,6 +79,7 @@ export class ImportImageShrinkRequest extends $dara.Model {
       diskDeviceMappingShrink: 'DiskDeviceMapping',
       imageFormat: 'ImageFormat',
       imageName: 'ImageName',
+      licenseType: 'LicenseType',
       OSSBucket: 'OSSBucket',
       OSSObject: 'OSSObject',
       OSSRegion: 'OSSRegion',
@@ -98,6 +97,7 @@ export class ImportImageShrinkRequest extends $dara.Model {
       diskDeviceMappingShrink: 'string',
       imageFormat: 'string',
       imageName: 'string',
+      licenseType: 'string',
       OSSBucket: 'string',
       OSSObject: 'string',
       OSSRegion: 'string',

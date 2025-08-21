@@ -1,7 +1,46 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunInstancesShrinkRequestTag } from "./RunInstancesShrinkRequestTag";
 
+
+export class RunInstancesShrinkRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * team
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * tagValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunInstancesShrinkRequest extends $dara.Model {
   /**
@@ -76,6 +115,7 @@ export class RunInstancesShrinkRequest extends $dara.Model {
    * The specifications of data disks.
    */
   dataDiskShrink?: string;
+  deletionProtection?: boolean;
   /**
    * @remarks
    * The ID of the node.
@@ -394,6 +434,7 @@ export class RunInstancesShrinkRequest extends $dara.Model {
       billingCycle: 'BillingCycle',
       carrier: 'Carrier',
       dataDiskShrink: 'DataDisk',
+      deletionProtection: 'DeletionProtection',
       ensRegionId: 'EnsRegionId',
       hostName: 'HostName',
       imageId: 'ImageId',
@@ -437,6 +478,7 @@ export class RunInstancesShrinkRequest extends $dara.Model {
       billingCycle: 'string',
       carrier: 'string',
       dataDiskShrink: 'string',
+      deletionProtection: 'boolean',
       ensRegionId: 'string',
       hostName: 'string',
       imageId: 'string',

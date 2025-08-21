@@ -1,9 +1,42 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { AttachInstanceSDGRequestLoadOpt } from "./AttachInstanceSdgrequestLoadOpt";
 
+
+export class AttachInstanceSDGRequestLoadOpt extends $dara.Model {
+  blockRwSplit?: boolean;
+  blockRwSplitSize?: number;
+  cache?: boolean;
+  cacheSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockRwSplit: 'BlockRwSplit',
+      blockRwSplitSize: 'BlockRwSplitSize',
+      cache: 'Cache',
+      cacheSize: 'CacheSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockRwSplit: 'boolean',
+      blockRwSplitSize: 'number',
+      cache: 'boolean',
+      cacheSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AttachInstanceSDGRequest extends $dara.Model {
+  diskAccessProtocol?: string;
+  diskType?: string;
   /**
    * @remarks
    * The IDs of the instances.
@@ -24,6 +57,8 @@ export class AttachInstanceSDGRequest extends $dara.Model {
   SDGId?: string;
   static names(): { [key: string]: string } {
     return {
+      diskAccessProtocol: 'DiskAccessProtocol',
+      diskType: 'DiskType',
       instanceIds: 'InstanceIds',
       loadOpt: 'LoadOpt',
       SDGId: 'SDGId',
@@ -32,6 +67,8 @@ export class AttachInstanceSDGRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      diskAccessProtocol: 'string',
+      diskType: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       loadOpt: AttachInstanceSDGRequestLoadOpt,
       SDGId: 'string',

@@ -541,6 +541,14 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.diskAccessProtocol)) {
+      query["DiskAccessProtocol"] = request.diskAccessProtocol;
+    }
+
+    if (!$dara.isNull(request.diskType)) {
+      query["DiskType"] = request.diskType;
+    }
+
     if (!$dara.isNull(request.instanceIdsShrink)) {
       query["InstanceIds"] = request.instanceIdsShrink;
     }
@@ -4875,6 +4883,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.deploymentType)) {
       query["DeploymentType"] = request.deploymentType;
+    }
+
+    if (!$dara.isNull(request.diskAccessProtocol)) {
+      query["DiskAccessProtocol"] = request.diskAccessProtocol;
+    }
+
+    if (!$dara.isNull(request.diskType)) {
+      query["DiskType"] = request.diskType;
     }
 
     if (!$dara.isNull(request.instanceIdsShrink)) {
@@ -10729,6 +10745,10 @@ export default class Client extends OpenApi {
       query["ImageName"] = request.imageName;
     }
 
+    if (!$dara.isNull(request.licenseType)) {
+      query["LicenseType"] = request.licenseType;
+    }
+
     if (!$dara.isNull(request.OSSBucket)) {
       query["OSSBucket"] = request.OSSBucket;
     }
@@ -11756,6 +11776,10 @@ export default class Client extends OpenApi {
   async modifyInstanceAttributeWithOptions(request: $_model.ModifyInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceAttributeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
+    }
+
     if (!$dara.isNull(request.hostName)) {
       query["HostName"] = request.hostName;
     }
@@ -12495,6 +12519,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.destinationRegionIdsShrink)) {
       query["DestinationRegionIds"] = request.destinationRegionIdsShrink;
+    }
+
+    if (!$dara.isNull(request.diskType)) {
+      query["DiskType"] = request.diskType;
     }
 
     if (!$dara.isNull(request.namespacesShrink)) {
@@ -14337,6 +14365,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dataDiskShrink)) {
       query["DataDisk"] = request.dataDiskShrink;
+    }
+
+    if (!$dara.isNull(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
     }
 
     if (!$dara.isNull(request.ensRegionId)) {

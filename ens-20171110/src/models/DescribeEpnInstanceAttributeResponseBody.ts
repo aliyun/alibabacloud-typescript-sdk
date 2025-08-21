@@ -1,9 +1,204 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeEpnInstanceAttributeResponseBodyConfVersions } from "./DescribeEpnInstanceAttributeResponseBodyConfVersions";
-import { DescribeEpnInstanceAttributeResponseBodyInstances } from "./DescribeEpnInstanceAttributeResponseBodyInstances";
-import { DescribeEpnInstanceAttributeResponseBodyVSwitches } from "./DescribeEpnInstanceAttributeResponseBodyVswitches";
 
+
+export class DescribeEpnInstanceAttributeResponseBodyConfVersions extends $dara.Model {
+  /**
+   * @remarks
+   * The version number.
+   * 
+   * @example
+   * 2017-10-11
+   */
+  confVersion?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * @example
+   * cn-chengdu-telecom
+   */
+  ensRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confVersion: 'ConfVersion',
+      ensRegionId: 'EnsRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confVersion: 'string',
+      ensRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEpnInstanceAttributeResponseBodyInstances extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * @example
+   * cn-chengdu-telecom-4
+   */
+  ensRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * epn-xxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * epn-test
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The ISP. Valid values:
+   * 
+   * *   cmcc: China Mobile
+   * *   unicom: China Unicom
+   * *   telecom: China Telecom
+   * 
+   * @example
+   * cmcc
+   */
+  isp?: string;
+  /**
+   * @remarks
+   * The private IP address.
+   * 
+   * @example
+   * 192.168.1.12
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The public IP address.
+   * 
+   * @example
+   * 20.3.XX.XX
+   */
+  publicIpAddress?: string;
+  /**
+   * @remarks
+   * The status of the instance. Valid values:
+   * 
+   * *   Running
+   * *   Stopped
+   * *   Expired
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      isp: 'Isp',
+      privateIpAddress: 'PrivateIpAddress',
+      publicIpAddress: 'PublicIpAddress',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      isp: 'string',
+      privateIpAddress: 'string',
+      publicIpAddress: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEpnInstanceAttributeResponseBodyVSwitches extends $dara.Model {
+  /**
+   * @remarks
+   * The CIDR block.
+   * 
+   * @example
+   * 10.0.0.1/24
+   */
+  cidrBlock?: string;
+  /**
+   * @remarks
+   * The ID of the node.
+   * 
+   * @example
+   * cn-chengdu-telecom-4
+   */
+  ensRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vs-xxxx
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The name of the vSwitch.
+   * 
+   * @example
+   * vs-test
+   */
+  vSwitchName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      ensRegionId: 'EnsRegionId',
+      vSwitchId: 'VSwitchId',
+      vSwitchName: 'VSwitchName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      ensRegionId: 'string',
+      vSwitchId: 'string',
+      vSwitchName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeEpnInstanceAttributeResponseBody extends $dara.Model {
   /**

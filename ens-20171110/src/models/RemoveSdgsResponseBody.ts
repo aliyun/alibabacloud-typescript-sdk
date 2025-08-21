@@ -1,7 +1,120 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RemoveSDGsResponseBodyData } from "./RemoveSdgsResponseBodyData";
 
+
+export class RemoveSDGsResponseBodyDataResultFailedItems extends $dara.Model {
+  /**
+   * @example
+   * sdg not found
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * aic-xxxxx-0
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errMessage: 'ErrMessage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errMessage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveSDGsResponseBodyDataResult extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  failedCount?: number;
+  failedItems?: RemoveSDGsResponseBodyDataResultFailedItems[];
+  /**
+   * @example
+   * 1
+   */
+  successCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedCount: 'FailedCount',
+      failedItems: 'FailedItems',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCount: 'number',
+      failedItems: { 'type': 'array', 'itemType': RemoveSDGsResponseBodyDataResultFailedItems },
+      successCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failedItems)) {
+      $dara.Model.validateArray(this.failedItems);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveSDGsResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  result?: RemoveSDGsResponseBodyDataResult;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      result: RemoveSDGsResponseBodyDataResult,
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.result && typeof (this.result as any).validate === 'function') {
+      (this.result as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RemoveSDGsResponseBody extends $dara.Model {
   data?: RemoveSDGsResponseBodyData;

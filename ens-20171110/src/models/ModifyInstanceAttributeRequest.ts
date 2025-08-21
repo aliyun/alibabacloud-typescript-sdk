@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyInstanceAttributeRequest extends $dara.Model {
+  deletionProtection?: boolean;
   /**
    * @remarks
    * The hostname of the Elastic Compute Service (ECS) instance. The value can be 2 to 64 characters in length. You can use periods (.) to separate the value into multiple segments. Each segment can contain letters, digits, hyphens (-), and periods. Consecutive periods or hyphens are not allowed. The name cannot start or end with a period (.) or a hyphen (-).
@@ -51,6 +52,7 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      deletionProtection: 'DeletionProtection',
       hostName: 'HostName',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
@@ -61,6 +63,7 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deletionProtection: 'boolean',
       hostName: 'string',
       instanceId: 'string',
       instanceName: 'string',

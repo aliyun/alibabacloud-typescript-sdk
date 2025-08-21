@@ -10,6 +10,7 @@ export class PreloadRegionSDGShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   destinationRegionIdsShrink?: string;
+  diskType?: string;
   /**
    * @remarks
    * An array that consists of queried namespaces.
@@ -38,6 +39,7 @@ export class PreloadRegionSDGShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       destinationRegionIdsShrink: 'DestinationRegionIds',
+      diskType: 'DiskType',
       namespacesShrink: 'Namespaces',
       redundantNum: 'RedundantNum',
       SDGId: 'SDGId',
@@ -47,6 +49,7 @@ export class PreloadRegionSDGShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       destinationRegionIdsShrink: 'string',
+      diskType: 'string',
       namespacesShrink: 'string',
       redundantNum: 'number',
       SDGId: 'string',

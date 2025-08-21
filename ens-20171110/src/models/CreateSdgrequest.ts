@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSDGRequest extends $dara.Model {
+  billingCycle?: string;
   /**
    * @remarks
    * The description of the SDG.
@@ -13,6 +14,7 @@ export class CreateSDGRequest extends $dara.Model {
    * Testing SDGs
    */
   description?: string;
+  diskType?: string;
   /**
    * @remarks
    * The ID of the SDG from which you want to create an SDG.
@@ -57,7 +59,9 @@ export class CreateSDGRequest extends $dara.Model {
   size?: string;
   static names(): { [key: string]: string } {
     return {
+      billingCycle: 'BillingCycle',
       description: 'Description',
+      diskType: 'DiskType',
       fromSDGId: 'FromSDGId',
       instanceId: 'InstanceId',
       size: 'Size',
@@ -66,7 +70,9 @@ export class CreateSDGRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      billingCycle: 'string',
       description: 'string',
+      diskType: 'string',
       fromSDGId: 'string',
       instanceId: 'string',
       size: 'string',
