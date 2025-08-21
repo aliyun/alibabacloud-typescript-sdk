@@ -213,6 +213,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    * true
    */
   isMultiTenant?: boolean;
+  protocolVersion?: string;
   /**
    * @remarks
    * The callback URL.
@@ -253,6 +254,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
       delegatedScope: 'DelegatedScope',
       displayName: 'DisplayName',
       isMultiTenant: 'IsMultiTenant',
+      protocolVersion: 'ProtocolVersion',
       redirectUris: 'RedirectUris',
       refreshTokenValidity: 'RefreshTokenValidity',
       secretRequired: 'SecretRequired',
@@ -271,6 +273,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
       delegatedScope: GetApplicationResponseBodyApplicationDelegatedScope,
       displayName: 'string',
       isMultiTenant: 'boolean',
+      protocolVersion: 'string',
       redirectUris: GetApplicationResponseBodyApplicationRedirectUris,
       refreshTokenValidity: 'number',
       secretRequired: 'boolean',

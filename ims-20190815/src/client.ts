@@ -399,6 +399,10 @@ export default class Client extends OpenApi {
       query["PredefinedScopes"] = request.predefinedScopes;
     }
 
+    if (!$dara.isNull(request.protocolVersion)) {
+      query["ProtocolVersion"] = request.protocolVersion;
+    }
+
     if (!$dara.isNull(request.redirectUris)) {
       query["RedirectUris"] = request.redirectUris;
     }

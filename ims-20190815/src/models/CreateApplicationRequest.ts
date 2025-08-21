@@ -74,6 +74,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * aliuid
    */
   predefinedScopes?: string;
+  protocolVersion?: string;
   /**
    * @remarks
    * The callback URL.
@@ -135,6 +136,7 @@ export class CreateApplicationRequest extends $dara.Model {
       displayName: 'DisplayName',
       isMultiTenant: 'IsMultiTenant',
       predefinedScopes: 'PredefinedScopes',
+      protocolVersion: 'ProtocolVersion',
       redirectUris: 'RedirectUris',
       refreshTokenValidity: 'RefreshTokenValidity',
       requiredScopes: 'RequiredScopes',
@@ -150,6 +152,7 @@ export class CreateApplicationRequest extends $dara.Model {
       displayName: 'string',
       isMultiTenant: 'boolean',
       predefinedScopes: 'string',
+      protocolVersion: 'string',
       redirectUris: 'string',
       refreshTokenValidity: 'number',
       requiredScopes: 'string',

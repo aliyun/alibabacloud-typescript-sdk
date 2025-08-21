@@ -11,6 +11,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
    * 2
    */
   accessKeysPerUserQuota?: number;
+  accountAccessKeysPerAccountQuota?: number;
   /**
    * @remarks
    * The maximum number of custom policies that can be added to a RAM user group.
@@ -190,6 +191,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessKeysPerUserQuota: 'AccessKeysPerUserQuota',
+      accountAccessKeysPerAccountQuota: 'AccountAccessKeysPerAccountQuota',
       attachedPoliciesPerGroupQuota: 'AttachedPoliciesPerGroupQuota',
       attachedPoliciesPerRoleQuota: 'AttachedPoliciesPerRoleQuota',
       attachedPoliciesPerUserQuota: 'AttachedPoliciesPerUserQuota',
@@ -218,6 +220,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessKeysPerUserQuota: 'number',
+      accountAccessKeysPerAccountQuota: 'number',
       attachedPoliciesPerGroupQuota: 'number',
       attachedPoliciesPerRoleQuota: 'number',
       attachedPoliciesPerUserQuota: 'number',

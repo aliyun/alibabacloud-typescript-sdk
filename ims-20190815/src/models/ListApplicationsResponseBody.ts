@@ -213,6 +213,7 @@ export class ListApplicationsResponseBodyApplicationsApplication extends $dara.M
    * true
    */
   isMultiTenant?: boolean;
+  protocolVersion?: string;
   /**
    * @remarks
    * The callback URLs.
@@ -253,6 +254,7 @@ export class ListApplicationsResponseBodyApplicationsApplication extends $dara.M
       delegatedScope: 'DelegatedScope',
       displayName: 'DisplayName',
       isMultiTenant: 'IsMultiTenant',
+      protocolVersion: 'ProtocolVersion',
       redirectUris: 'RedirectUris',
       refreshTokenValidity: 'RefreshTokenValidity',
       secretRequired: 'SecretRequired',
@@ -271,6 +273,7 @@ export class ListApplicationsResponseBodyApplicationsApplication extends $dara.M
       delegatedScope: ListApplicationsResponseBodyApplicationsApplicationDelegatedScope,
       displayName: 'string',
       isMultiTenant: 'boolean',
+      protocolVersion: 'string',
       redirectUris: ListApplicationsResponseBodyApplicationsApplicationRedirectUris,
       refreshTokenValidity: 'number',
       secretRequired: 'boolean',
