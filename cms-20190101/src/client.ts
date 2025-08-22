@@ -807,6 +807,10 @@ export default class Client extends OpenApi {
       query["Address"] = request.address;
     }
 
+    if (!$dara.isNull(request.agentGroup)) {
+      query["AgentGroup"] = request.agentGroup;
+    }
+
     if (!$dara.isNull(request.ispCities)) {
       query["IspCities"] = request.ispCities;
     }

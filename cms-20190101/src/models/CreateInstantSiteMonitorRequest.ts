@@ -13,6 +13,7 @@ export class CreateInstantSiteMonitorRequest extends $dara.Model {
    * http://www.aliyun.com
    */
   address?: string;
+  agentGroup?: string;
   /**
    * @remarks
    * The detection points. If you leave this parameter empty, the system randomly selects three detection points.
@@ -73,6 +74,7 @@ export class CreateInstantSiteMonitorRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       address: 'Address',
+      agentGroup: 'AgentGroup',
       ispCities: 'IspCities',
       optionsJson: 'OptionsJson',
       randomIspCity: 'RandomIspCity',
@@ -85,6 +87,7 @@ export class CreateInstantSiteMonitorRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       address: 'string',
+      agentGroup: 'string',
       ispCities: 'string',
       optionsJson: 'string',
       randomIspCity: 'number',
