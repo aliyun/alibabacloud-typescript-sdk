@@ -11,7 +11,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-2-pop': "arms.aliyuncs.com",
@@ -7659,6 +7658,18 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.appType)) {
       query["AppType"] = request.appType;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!$dara.isNull(request.pid)) {

@@ -178,6 +178,7 @@ export { GetRumExceptionStackResponseBodyDataThreadInfoList } from './GetRumExce
 export { GetRumExceptionStackResponseBodyData } from './GetRumExceptionStackResponseBody';
 export { GetRumOcuStatisticDataRequestFilter } from './GetRumOcuStatisticDataRequest';
 export { GetRumOcuStatisticDataResponseBodyData } from './GetRumOcuStatisticDataResponseBody';
+export { GetRumUploadFilesResponseBodyDataFileList } from './GetRumUploadFilesResponseBody';
 export { GetRumUploadFilesResponseBodyData } from './GetRumUploadFilesResponseBody';
 export { GetSourceMapInfoResponseBodySourceMapList } from './GetSourceMapInfoResponseBody';
 export { GetStackResponseBodyStackInfoExtInfo } from './GetStackResponseBody';

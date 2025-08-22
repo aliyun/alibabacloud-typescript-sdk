@@ -2,46 +2,11 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetRumUploadFilesResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The file name.
-   * 
-   * @example
-   * test.js.map
-   */
+export class GetRumUploadFilesResponseBodyDataFileList extends $dara.Model {
   fileName?: string;
-  /**
-   * @remarks
-   * The time when the file was last modified. The value is a timestamp.
-   * 
-   * @example
-   * 1682863151000
-   */
   lastModifiedTime?: any;
-  /**
-   * @remarks
-   * The size of the file. Unit: bytes.
-   * 
-   * @example
-   * 1000
-   */
   size?: string;
-  /**
-   * @remarks
-   * The file ID.
-   * 
-   * @example
-   * cxxxerfewrfwerfwerffvrt
-   */
   uuid?: string;
-  /**
-   * @remarks
-   * The version number of the file.
-   * 
-   * @example
-   * 1.0.0
-   */
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -72,6 +37,35 @@ export class GetRumUploadFilesResponseBodyData extends $dara.Model {
   }
 }
 
+export class GetRumUploadFilesResponseBodyData extends $dara.Model {
+  fileList?: GetRumUploadFilesResponseBodyDataFileList[];
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileList: 'FileList',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileList: { 'type': 'array', 'itemType': GetRumUploadFilesResponseBodyDataFileList },
+      nextToken: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.fileList)) {
+      $dara.Model.validateArray(this.fileList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRumUploadFilesResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -85,7 +79,7 @@ export class GetRumUploadFilesResponseBody extends $dara.Model {
    * @remarks
    * The queried files.
    */
-  data?: GetRumUploadFilesResponseBodyData[];
+  data?: GetRumUploadFilesResponseBodyData;
   /**
    * @remarks
    * The HTTP status code.
@@ -135,7 +129,7 @@ export class GetRumUploadFilesResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: { 'type': 'array', 'itemType': GetRumUploadFilesResponseBodyData },
+      data: GetRumUploadFilesResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -144,8 +138,8 @@ export class GetRumUploadFilesResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
     }
     super.validate();
   }

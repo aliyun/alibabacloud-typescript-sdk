@@ -11,11 +11,12 @@ export class GetRumUploadFilesRequest extends $dara.Model {
    * source-map
    */
   appType?: string;
+  fileName?: string;
+  nextToken?: string;
+  pageSize?: number;
   /**
    * @remarks
    * The process ID (PID) of the application.
-   * 
-   * This parameter is required.
    * 
    * @example
    * aoxxxxxly@741623b4e91****
@@ -42,6 +43,9 @@ export class GetRumUploadFilesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appType: 'AppType',
+      fileName: 'FileName',
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
       pid: 'Pid',
       regionId: 'RegionId',
       versionId: 'VersionId',
@@ -51,6 +55,9 @@ export class GetRumUploadFilesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appType: 'string',
+      fileName: 'string',
+      nextToken: 'string',
+      pageSize: 'number',
       pid: 'string',
       regionId: 'string',
       versionId: 'string',
