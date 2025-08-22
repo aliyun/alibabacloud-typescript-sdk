@@ -191,6 +191,10 @@ export default class Client extends OpenApi {
       body["comment"] = request.comment;
     }
 
+    if (!$dara.isNull(request.enableWrite)) {
+      body["enableWrite"] = request.enableWrite;
+    }
+
     if (!$dara.isNull(request.shareName)) {
       body["shareName"] = request.shareName;
     }
@@ -687,6 +691,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.comment)) {
       body["comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.enableWrite)) {
+      body["enableWrite"] = request.enableWrite;
     }
 
     if (!$dara.isNull(request.shareName)) {

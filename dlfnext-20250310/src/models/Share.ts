@@ -6,6 +6,7 @@ export class Share extends $dara.Model {
   comment?: string;
   createdAt?: number;
   createdBy?: string;
+  enableWrite?: boolean;
   owner?: string;
   providerTenantId?: number;
   shareId?: string;
@@ -17,6 +18,7 @@ export class Share extends $dara.Model {
       comment: 'comment',
       createdAt: 'createdAt',
       createdBy: 'createdBy',
+      enableWrite: 'enableWrite',
       owner: 'owner',
       providerTenantId: 'providerTenantId',
       shareId: 'shareId',
@@ -31,6 +33,7 @@ export class Share extends $dara.Model {
       comment: 'string',
       createdAt: 'number',
       createdBy: 'string',
+      enableWrite: 'boolean',
       owner: 'string',
       providerTenantId: 'number',
       shareId: 'string',

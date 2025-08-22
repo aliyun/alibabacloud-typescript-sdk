@@ -8,6 +8,7 @@ export class CreateShareRequest extends $dara.Model {
    * demo
    */
   comment?: string;
+  enableWrite?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -19,6 +20,7 @@ export class CreateShareRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       comment: 'comment',
+      enableWrite: 'enableWrite',
       shareName: 'shareName',
     };
   }
@@ -26,6 +28,7 @@ export class CreateShareRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       comment: 'string',
+      enableWrite: 'boolean',
       shareName: 'string',
     };
   }

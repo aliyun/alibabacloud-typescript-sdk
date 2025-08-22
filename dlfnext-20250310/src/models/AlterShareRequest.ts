@@ -8,6 +8,7 @@ export class AlterShareRequest extends $dara.Model {
    * description
    */
   comment?: string;
+  enableWrite?: boolean;
   /**
    * @example
    * share_name
@@ -16,6 +17,7 @@ export class AlterShareRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       comment: 'comment',
+      enableWrite: 'enableWrite',
       shareName: 'shareName',
     };
   }
@@ -23,6 +25,7 @@ export class AlterShareRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       comment: 'string',
+      enableWrite: 'boolean',
       shareName: 'string',
     };
   }

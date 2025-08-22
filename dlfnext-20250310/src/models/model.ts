@@ -30,6 +30,7 @@ export { Receiver } from './Receiver';
 export { Role } from './Role';
 export { Schema } from './Schema';
 export { Share } from './Share';
+export { ShareOptions } from './ShareOptions';
 export { ShareResource } from './ShareResource';
 export { Snapshot } from './Snapshot';
 export { Table } from './Table';
