@@ -22,6 +22,7 @@ export class GetLoginTokenShrinkRequest extends $dara.Model {
    * f4a0dc8e-1702-4728-9a60-95b27a35****
    */
   clientId?: string;
+  clientName?: string;
   /**
    * @remarks
    * The operating system (OS) of the device that runs an Alibaba Cloud Workspace client.
@@ -183,6 +184,7 @@ export class GetLoginTokenShrinkRequest extends $dara.Model {
       authenticationCode: 'AuthenticationCode',
       availableFeaturesShrink: 'AvailableFeatures',
       clientId: 'ClientId',
+      clientName: 'ClientName',
       clientOS: 'ClientOS',
       clientType: 'ClientType',
       clientVersion: 'ClientVersion',
@@ -207,6 +209,7 @@ export class GetLoginTokenShrinkRequest extends $dara.Model {
       authenticationCode: 'string',
       availableFeaturesShrink: 'string',
       clientId: 'string',
+      clientName: 'string',
       clientOS: 'string',
       clientType: 'string',
       clientVersion: 'string',

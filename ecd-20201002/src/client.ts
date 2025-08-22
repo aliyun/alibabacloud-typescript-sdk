@@ -11,7 +11,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ecd", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -86,7 +85,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.ApproveFotaUpdateResponse>(await this.callApi(params, req, runtime), new $_model.ApproveFotaUpdateResponse({}));
+    return $dara.cast<$_model.ApproveFotaUpdateResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.ApproveFotaUpdateResponse({}));
   }
 
   /**
@@ -156,7 +155,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.ChangePasswordResponse>(await this.callApi(params, req, runtime), new $_model.ChangePasswordResponse({}));
+    return $dara.cast<$_model.ChangePasswordResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.ChangePasswordResponse({}));
   }
 
   /**
@@ -216,7 +215,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.DeleteFingerPrintTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFingerPrintTemplateResponse({}));
+    return $dara.cast<$_model.DeleteFingerPrintTemplateResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.DeleteFingerPrintTemplateResponse({}));
   }
 
   /**
@@ -264,7 +263,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.DescribeDirectoriesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDirectoriesResponse({}));
+    return $dara.cast<$_model.DescribeDirectoriesResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.DescribeDirectoriesResponse({}));
   }
 
   /**
@@ -318,7 +317,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.DescribeFingerPrintTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeFingerPrintTemplatesResponse({}));
+    return $dara.cast<$_model.DescribeFingerPrintTemplatesResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.DescribeFingerPrintTemplatesResponse({}));
   }
 
   /**
@@ -434,7 +433,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.DescribeGlobalDesktopsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeGlobalDesktopsResponse({}));
+    return $dara.cast<$_model.DescribeGlobalDesktopsResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.DescribeGlobalDesktopsResponse({}));
   }
 
   /**
@@ -480,7 +479,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.DescribeOfficeSitesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOfficeSitesResponse({}));
+    return $dara.cast<$_model.DescribeOfficeSitesResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.DescribeOfficeSitesResponse({}));
   }
 
   /**
@@ -522,7 +521,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.DescribeRegionsResponse({}));
   }
 
   /**
@@ -590,7 +589,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.DescribeSnapshotsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSnapshotsResponse({}));
+    return $dara.cast<$_model.DescribeSnapshotsResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.DescribeSnapshotsResponse({}));
   }
 
   /**
@@ -732,7 +731,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.DescribeUserResourcesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeUserResourcesResponse({}));
+    return $dara.cast<$_model.DescribeUserResourcesResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.DescribeUserResourcesResponse({}));
   }
 
   /**
@@ -798,7 +797,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.EncryptPasswordResponse>(await this.callApi(params, req, runtime), new $_model.EncryptPasswordResponse({}));
+    return $dara.cast<$_model.EncryptPasswordResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.EncryptPasswordResponse({}));
   }
 
   /**
@@ -856,7 +855,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.GetCloudDriveServiceMountTokenResponse>(await this.callApi(params, req, runtime), new $_model.GetCloudDriveServiceMountTokenResponse({}));
+    return $dara.cast<$_model.GetCloudDriveServiceMountTokenResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.GetCloudDriveServiceMountTokenResponse({}));
   }
 
   /**
@@ -871,6 +870,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获得连接凭证
+   * 
    * @param request - GetConnectionTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConnectionTicketResponse
@@ -952,10 +953,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new $_model.GetConnectionTicketResponse({}));
+    return $dara.cast<$_model.GetConnectionTicketResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.GetConnectionTicketResponse({}));
   }
 
   /**
+   * 获得连接凭证
+   * 
    * @param request - GetConnectionTicketRequest
    * @returns GetConnectionTicketResponse
    */
@@ -990,6 +993,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientName)) {
+      query["ClientName"] = request.clientName;
     }
 
     if (!$dara.isNull(request.clientOS)) {
@@ -1070,7 +1077,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.GetLoginTokenResponse>(await this.callApi(params, req, runtime), new $_model.GetLoginTokenResponse({}));
+    return $dara.cast<$_model.GetLoginTokenResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.GetLoginTokenResponse({}));
   }
 
   /**
@@ -1120,7 +1127,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.IsKeepAliveResponse>(await this.callApi(params, req, runtime), new $_model.IsKeepAliveResponse({}));
+    return $dara.cast<$_model.IsKeepAliveResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.IsKeepAliveResponse({}));
   }
 
   /**
@@ -1170,7 +1177,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.QueryEdsAgentReportConfigResponse>(await this.callApi(params, req, runtime), new $_model.QueryEdsAgentReportConfigResponse({}));
+    return $dara.cast<$_model.QueryEdsAgentReportConfigResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.QueryEdsAgentReportConfigResponse({}));
   }
 
   /**
@@ -1252,7 +1259,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.RebootDesktopsResponse>(await this.callApi(params, req, runtime), new $_model.RebootDesktopsResponse({}));
+    return $dara.cast<$_model.RebootDesktopsResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.RebootDesktopsResponse({}));
   }
 
   /**
@@ -1316,7 +1323,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.RefreshLoginTokenResponse>(await this.callApi(params, req, runtime), new $_model.RefreshLoginTokenResponse({}));
+    return $dara.cast<$_model.RefreshLoginTokenResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.RefreshLoginTokenResponse({}));
   }
 
   /**
@@ -1368,7 +1375,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.ReportEdsAgentInfoResponse>(await this.callApi(params, req, runtime), new $_model.ReportEdsAgentInfoResponse({}));
+    return $dara.cast<$_model.ReportEdsAgentInfoResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.ReportEdsAgentInfoResponse({}));
   }
 
   /**
@@ -1428,7 +1435,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.ReportSessionStatusResponse>(await this.callApi(params, req, runtime), new $_model.ReportSessionStatusResponse({}));
+    return $dara.cast<$_model.ReportSessionStatusResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.ReportSessionStatusResponse({}));
   }
 
   /**
@@ -1492,7 +1499,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.ResetPasswordResponse>(await this.callApi(params, req, runtime), new $_model.ResetPasswordResponse({}));
+    return $dara.cast<$_model.ResetPasswordResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.ResetPasswordResponse({}));
   }
 
   /**
@@ -1558,7 +1565,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.ResetSnapshotResponse>(await this.callApi(params, req, runtime), new $_model.ResetSnapshotResponse({}));
+    return $dara.cast<$_model.ResetSnapshotResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.ResetSnapshotResponse({}));
   }
 
   /**
@@ -1628,7 +1635,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.SendTokenCodeResponse>(await this.callApi(params, req, runtime), new $_model.SendTokenCodeResponse({}));
+    return $dara.cast<$_model.SendTokenCodeResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.SendTokenCodeResponse({}));
   }
 
   /**
@@ -1704,7 +1711,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.SetFingerPrintTemplateResponse>(await this.callApi(params, req, runtime), new $_model.SetFingerPrintTemplateResponse({}));
+    return $dara.cast<$_model.SetFingerPrintTemplateResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.SetFingerPrintTemplateResponse({}));
   }
 
   /**
@@ -1766,7 +1773,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.SetFingerPrintTemplateDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.SetFingerPrintTemplateDescriptionResponse({}));
+    return $dara.cast<$_model.SetFingerPrintTemplateDescriptionResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.SetFingerPrintTemplateDescriptionResponse({}));
   }
 
   /**
@@ -1841,7 +1848,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.StartDesktopsResponse>(await this.callApi(params, req, runtime), new $_model.StartDesktopsResponse({}));
+    return $dara.cast<$_model.StartDesktopsResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.StartDesktopsResponse({}));
   }
 
   /**
@@ -1912,7 +1919,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.StartRecordContentResponse>(await this.callApi(params, req, runtime), new $_model.StartRecordContentResponse({}));
+    return $dara.cast<$_model.StartRecordContentResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.StartRecordContentResponse({}));
   }
 
   /**
@@ -1995,7 +2002,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.StopDesktopsResponse>(await this.callApi(params, req, runtime), new $_model.StopDesktopsResponse({}));
+    return $dara.cast<$_model.StopDesktopsResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.StopDesktopsResponse({}));
   }
 
   /**
@@ -2062,7 +2069,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.StopRecordContentResponse>(await this.callApi(params, req, runtime), new $_model.StopRecordContentResponse({}));
+    return $dara.cast<$_model.StopRecordContentResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.StopRecordContentResponse({}));
   }
 
   /**
@@ -2126,7 +2133,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.UnbindUserDesktopResponse>(await this.callApi(params, req, runtime), new $_model.UnbindUserDesktopResponse({}));
+    return $dara.cast<$_model.UnbindUserDesktopResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.UnbindUserDesktopResponse({}));
   }
 
   /**
@@ -2194,7 +2201,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.VerifyCredentialResponse>(await this.callApi(params, req, runtime), new $_model.VerifyCredentialResponse({}));
+    return $dara.cast<$_model.VerifyCredentialResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.VerifyCredentialResponse({}));
   }
 
   /**
