@@ -18,6 +18,11 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
   appName?: string;
   /**
    * @example
+   * 1
+   */
+  appType?: number;
+  /**
+   * @example
    * 1827811800555555
    */
   creator?: string;
@@ -67,6 +72,7 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
     return {
       accessToken: 'AccessToken',
       appName: 'AppName',
+      appType: 'AppType',
       creator: 'Creator',
       enableLog: 'EnableLog',
       executorNum: 'ExecutorNum',
@@ -85,6 +91,7 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
     return {
       accessToken: 'string',
       appName: 'string',
+      appType: 'number',
       creator: 'string',
       enableLog: 'boolean',
       executorNum: 'number',

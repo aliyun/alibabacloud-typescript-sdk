@@ -17,6 +17,11 @@ export class CreateAppRequest extends $dara.Model {
    */
   appName?: string;
   /**
+   * @example
+   * 1
+   */
+  appType?: number;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -44,6 +49,7 @@ export class CreateAppRequest extends $dara.Model {
     return {
       accessToken: 'AccessToken',
       appName: 'AppName',
+      appType: 'AppType',
       clusterId: 'ClusterId',
       enableLog: 'EnableLog',
       labelRouteStrategy: 'LabelRouteStrategy',
@@ -56,6 +62,7 @@ export class CreateAppRequest extends $dara.Model {
     return {
       accessToken: 'string',
       appName: 'string',
+      appType: 'number',
       clusterId: 'string',
       enableLog: 'boolean',
       labelRouteStrategy: 'number',

@@ -125,6 +125,11 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
    * 1963096506470832
    */
   updater?: string;
+  /**
+   * @example
+   * 1
+   */
+  weight?: number;
   xattrs?: string;
   static names(): { [key: string]: string } {
     return {
@@ -158,6 +163,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       timeZone: 'TimeZone',
       timezone: 'Timezone',
       updater: 'Updater',
+      weight: 'Weight',
       xattrs: 'Xattrs',
     };
   }
@@ -194,6 +200,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       timeZone: 'string',
       timezone: 'string',
       updater: 'string',
+      weight: 'number',
       xattrs: 'string',
     };
   }

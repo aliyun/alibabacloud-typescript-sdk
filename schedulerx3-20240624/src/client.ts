@@ -47,6 +47,10 @@ export default class Client extends OpenApi {
       body["AppName"] = request.appName;
     }
 
+    if (!$dara.isNull(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
     if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
@@ -275,6 +279,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.timezone)) {
       body["Timezone"] = request.timezone;
+    }
+
+    if (!$dara.isNull(request.weight)) {
+      body["Weight"] = request.weight;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2127,6 +2135,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.timezone)) {
       body["Timezone"] = request.timezone;
+    }
+
+    if (!$dara.isNull(request.weight)) {
+      body["Weight"] = request.weight;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

@@ -38,6 +38,11 @@ export class ListExecutorsResponseBodyData extends $dara.Model {
    * 2.0.2
    */
   version?: string;
+  /**
+   * @example
+   * 1
+   */
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
       address: 'Address',
@@ -47,6 +52,7 @@ export class ListExecutorsResponseBodyData extends $dara.Model {
       online: 'Online',
       port: 'Port',
       version: 'Version',
+      weight: 'Weight',
     };
   }
 
@@ -59,6 +65,7 @@ export class ListExecutorsResponseBodyData extends $dara.Model {
       online: 'boolean',
       port: 'number',
       version: 'string',
+      weight: 'number',
     };
   }
 

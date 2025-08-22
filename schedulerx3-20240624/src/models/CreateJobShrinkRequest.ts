@@ -117,6 +117,11 @@ export class CreateJobShrinkRequest extends $dara.Model {
    * GMT+8
    */
   timezone?: string;
+  /**
+   * @example
+   * 1
+   */
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -142,6 +147,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
       timeExpression: 'TimeExpression',
       timeType: 'TimeType',
       timezone: 'Timezone',
+      weight: 'Weight',
     };
   }
 
@@ -170,6 +176,7 @@ export class CreateJobShrinkRequest extends $dara.Model {
       timeExpression: 'string',
       timeType: 'number',
       timezone: 'string',
+      weight: 'number',
     };
   }
 
