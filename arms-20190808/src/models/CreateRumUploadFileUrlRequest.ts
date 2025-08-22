@@ -33,8 +33,6 @@ export class CreateRumUploadFileUrlRequest extends $dara.Model {
    * @remarks
    * The process ID (PID) of the application.
    * 
-   * This parameter is required.
-   * 
    * @example
    * iioe7jcnuk@582846f37******
    */
@@ -49,6 +47,7 @@ export class CreateRumUploadFileUrlRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  serviceId?: string;
   /**
    * @remarks
    * The file type. Valid values: source-map: SourceMap files. mapping: symbol table files for Android. dsym: dSYM files for iOS.
@@ -73,6 +72,7 @@ export class CreateRumUploadFileUrlRequest extends $dara.Model {
    * 1.0.0
    */
   versionId?: string;
+  workspace?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -80,9 +80,11 @@ export class CreateRumUploadFileUrlRequest extends $dara.Model {
       fileName: 'FileName',
       pid: 'Pid',
       regionId: 'RegionId',
+      serviceId: 'ServiceId',
       sourcemapType: 'SourcemapType',
       uuid: 'Uuid',
       versionId: 'VersionId',
+      workspace: 'Workspace',
     };
   }
 
@@ -93,9 +95,11 @@ export class CreateRumUploadFileUrlRequest extends $dara.Model {
       fileName: 'string',
       pid: 'string',
       regionId: 'string',
+      serviceId: 'string',
       sourcemapType: 'string',
       uuid: 'string',
       versionId: 'string',
+      workspace: 'string',
     };
   }
 

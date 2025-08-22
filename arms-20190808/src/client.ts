@@ -2935,6 +2935,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     if (!$dara.isNull(request.sourcemapType)) {
       query["SourcemapType"] = request.sourcemapType;
     }
@@ -2945,6 +2949,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.versionId)) {
       query["VersionId"] = request.versionId;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["Workspace"] = request.workspace;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4751,12 +4759,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     if (!$dara.isNull(request.uuid)) {
       query["Uuid"] = request.uuid;
     }
 
     if (!$dara.isNull(request.versionId)) {
       query["VersionId"] = request.versionId;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["Workspace"] = request.workspace;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -7554,8 +7570,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     if (!$dara.isNull(request.sourcemapType)) {
       query["SourcemapType"] = request.sourcemapType;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["Workspace"] = request.workspace;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -7680,8 +7704,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     if (!$dara.isNull(request.versionId)) {
       query["VersionId"] = request.versionId;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["Workspace"] = request.workspace;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

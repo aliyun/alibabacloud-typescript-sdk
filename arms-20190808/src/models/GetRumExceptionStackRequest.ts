@@ -45,8 +45,6 @@ export class GetRumExceptionStackRequest extends $dara.Model {
    * @remarks
    * The application ID.
    * 
-   * This parameter is required.
-   * 
    * @example
    * atxxxxzkcf@d8deedfa9bf****
    */
@@ -59,6 +57,7 @@ export class GetRumExceptionStackRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  serviceId?: string;
   /**
    * @remarks
    * The parsing type. Valid values:
@@ -73,6 +72,7 @@ export class GetRumExceptionStackRequest extends $dara.Model {
    * source-map
    */
   sourcemapType?: string;
+  workspace?: string;
   static names(): { [key: string]: string } {
     return {
       exceptionBinaryImages: 'ExceptionBinaryImages',
@@ -81,7 +81,9 @@ export class GetRumExceptionStackRequest extends $dara.Model {
       extraInfo: 'ExtraInfo',
       pid: 'Pid',
       regionId: 'RegionId',
+      serviceId: 'ServiceId',
       sourcemapType: 'SourcemapType',
+      workspace: 'Workspace',
     };
   }
 
@@ -93,7 +95,9 @@ export class GetRumExceptionStackRequest extends $dara.Model {
       extraInfo: 'string',
       pid: 'string',
       regionId: 'string',
+      serviceId: 'string',
       sourcemapType: 'string',
+      workspace: 'string',
     };
   }
 

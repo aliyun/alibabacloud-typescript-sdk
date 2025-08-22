@@ -32,6 +32,7 @@ export class GetRumUploadFilesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  serviceId?: string;
   /**
    * @remarks
    * The version number of the files. If you do not specify this parameter, all versions of the files are returned by default.
@@ -40,6 +41,7 @@ export class GetRumUploadFilesRequest extends $dara.Model {
    * 1.0.0
    */
   versionId?: string;
+  workspace?: string;
   static names(): { [key: string]: string } {
     return {
       appType: 'AppType',
@@ -48,7 +50,9 @@ export class GetRumUploadFilesRequest extends $dara.Model {
       pageSize: 'PageSize',
       pid: 'Pid',
       regionId: 'RegionId',
+      serviceId: 'ServiceId',
       versionId: 'VersionId',
+      workspace: 'Workspace',
     };
   }
 
@@ -60,7 +64,9 @@ export class GetRumUploadFilesRequest extends $dara.Model {
       pageSize: 'number',
       pid: 'string',
       regionId: 'string',
+      serviceId: 'string',
       versionId: 'string',
+      workspace: 'string',
     };
   }
 

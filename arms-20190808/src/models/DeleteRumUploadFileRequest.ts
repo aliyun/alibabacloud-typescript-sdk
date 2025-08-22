@@ -31,8 +31,6 @@ export class DeleteRumUploadFileRequest extends $dara.Model {
    * @remarks
    * The application ID.
    * 
-   * This parameter is required.
-   * 
    * @example
    * atc889zkcf@d8deedfa9bf****
    */
@@ -47,6 +45,7 @@ export class DeleteRumUploadFileRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  serviceId?: string;
   /**
    * @remarks
    * The file ID.
@@ -63,14 +62,17 @@ export class DeleteRumUploadFileRequest extends $dara.Model {
    * 1.0.0
    */
   versionId?: string;
+  workspace?: string;
   static names(): { [key: string]: string } {
     return {
       batchItems: 'BatchItems',
       fileName: 'FileName',
       pid: 'Pid',
       regionId: 'RegionId',
+      serviceId: 'ServiceId',
       uuid: 'Uuid',
       versionId: 'VersionId',
+      workspace: 'Workspace',
     };
   }
 
@@ -80,8 +82,10 @@ export class DeleteRumUploadFileRequest extends $dara.Model {
       fileName: 'string',
       pid: 'string',
       regionId: 'string',
+      serviceId: 'string',
       uuid: 'string',
       versionId: 'string',
+      workspace: 'string',
     };
   }
 
