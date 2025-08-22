@@ -2,63 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateAndroidInstanceGroupRequestNetworkInfo extends $dara.Model {
-  autoPay?: boolean;
-  autoRenew?: boolean;
-  bandwidthPackageName?: string;
-  cidrBlock?: string;
-  internetChargeType?: string;
-  ipRatio?: number;
-  isp?: string;
-  limitedBandwidth?: number;
-  payType?: string;
-  period?: number;
-  periodUnit?: string;
-  visibleType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoPay: 'AutoPay',
-      autoRenew: 'AutoRenew',
-      bandwidthPackageName: 'BandwidthPackageName',
-      cidrBlock: 'CidrBlock',
-      internetChargeType: 'InternetChargeType',
-      ipRatio: 'IpRatio',
-      isp: 'Isp',
-      limitedBandwidth: 'LimitedBandwidth',
-      payType: 'PayType',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      visibleType: 'VisibleType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoPay: 'boolean',
-      autoRenew: 'boolean',
-      bandwidthPackageName: 'string',
-      cidrBlock: 'string',
-      internetChargeType: 'string',
-      ipRatio: 'number',
-      isp: 'string',
-      limitedBandwidth: 'number',
-      payType: 'string',
-      period: 'number',
-      periodUnit: 'string',
-      visibleType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAndroidInstanceGroupRequestTag extends $dara.Model {
+export class CreateAndroidInstanceGroupShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -98,7 +42,7 @@ export class CreateAndroidInstanceGroupRequestTag extends $dara.Model {
   }
 }
 
-export class CreateAndroidInstanceGroupRequest extends $dara.Model {
+export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The number of instance groups. Default value: 1. Maximum value: 1.
@@ -250,7 +194,7 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
    * kp-7o9xywwfutc1l****
    */
   keyPairId?: string;
-  networkInfo?: CreateAndroidInstanceGroupRequestNetworkInfo;
+  networkInfoShrink?: string;
   networkType?: string;
   /**
    * @remarks
@@ -305,7 +249,7 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
    * @remarks
    * The tags
    */
-  tag?: CreateAndroidInstanceGroupRequestTag[];
+  tag?: CreateAndroidInstanceGroupShrinkRequestTag[];
   /**
    * @remarks
    * The ID of the vSwitch. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/448774.html) operation to query vSwitches.
@@ -334,7 +278,7 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
       instanceGroupSpec: 'InstanceGroupSpec',
       ipv6Bandwidth: 'Ipv6Bandwidth',
       keyPairId: 'KeyPairId',
-      networkInfo: 'NetworkInfo',
+      networkInfoShrink: 'NetworkInfo',
       networkType: 'NetworkType',
       numberOfInstances: 'NumberOfInstances',
       officeSiteId: 'OfficeSiteId',
@@ -363,22 +307,19 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
       instanceGroupSpec: 'string',
       ipv6Bandwidth: 'number',
       keyPairId: 'string',
-      networkInfo: CreateAndroidInstanceGroupRequestNetworkInfo,
+      networkInfoShrink: 'string',
       networkType: 'string',
       numberOfInstances: 'number',
       officeSiteId: 'string',
       period: 'number',
       periodUnit: 'string',
       policyGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateAndroidInstanceGroupRequestTag },
+      tag: { 'type': 'array', 'itemType': CreateAndroidInstanceGroupShrinkRequestTag },
       vSwitchId: 'string',
     };
   }
 
   validate() {
-    if(this.networkInfo && typeof (this.networkInfo as any).validate === 'function') {
-      (this.networkInfo as any).validate();
-    }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
     }

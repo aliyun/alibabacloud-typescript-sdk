@@ -11,7 +11,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eds-aic", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -408,12 +407,18 @@ export default class Client extends OpenApi {
    * *   If the billing method of an instance group is PrePaid, AutoPay is set to false by default. In this case, you need to go to [Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually complete the payment.
    * *   You can also set AutoPay to true based on your business requirements.
    * 
-   * @param request - CreateAndroidInstanceGroupRequest
+   * @param tmpReq - CreateAndroidInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAndroidInstanceGroupResponse
    */
-  async createAndroidInstanceGroupWithOptions(request: $_model.CreateAndroidInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAndroidInstanceGroupResponse> {
-    request.validate();
+  async createAndroidInstanceGroupWithOptions(tmpReq: $_model.CreateAndroidInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAndroidInstanceGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAndroidInstanceGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.networkInfo)) {
+      request.networkInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networkInfo, "NetworkInfo", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.amount)) {
       query["Amount"] = request.amount;
@@ -425,6 +430,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.bandwidthPackageId)) {
+      query["BandwidthPackageId"] = request.bandwidthPackageId;
+    }
+
+    if (!$dara.isNull(request.bandwidthPackageType)) {
+      query["BandwidthPackageType"] = request.bandwidthPackageType;
     }
 
     if (!$dara.isNull(request.bizRegionId)) {
@@ -465,6 +478,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.keyPairId)) {
       query["KeyPairId"] = request.keyPairId;
+    }
+
+    if (!$dara.isNull(request.networkInfoShrink)) {
+      query["NetworkInfo"] = request.networkInfoShrink;
+    }
+
+    if (!$dara.isNull(request.networkType)) {
+      query["NetworkType"] = request.networkType;
     }
 
     if (!$dara.isNull(request.numberOfInstances)) {
@@ -1530,6 +1551,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4766,6 +4791,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceIdList)) {
       query["InstanceIdList"] = request.instanceIdList;
+    }
+
+    if (!$dara.isNull(request.reset)) {
+      query["Reset"] = request.reset;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

@@ -459,6 +459,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    */
   sessionStatus?: string;
   streamMode?: number;
+  systemVersion?: string;
   /**
    * @remarks
    * The tags.
@@ -513,6 +514,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       serverType: 'ServerType',
       sessionStatus: 'SessionStatus',
       streamMode: 'StreamMode',
+      systemVersion: 'SystemVersion',
       tags: 'Tags',
       upBandwidthLimit: 'UpBandwidthLimit',
       vSwitchId: 'VSwitchId',
@@ -566,6 +568,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       serverType: 'string',
       sessionStatus: 'string',
       streamMode: 'number',
+      systemVersion: 'string',
       tags: { 'type': 'array', 'itemType': DescribeAndroidInstancesResponseBodyInstanceModelTags },
       upBandwidthLimit: 'number',
       vSwitchId: 'string',

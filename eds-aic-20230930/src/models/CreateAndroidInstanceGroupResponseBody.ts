@@ -42,6 +42,32 @@ export class CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos extends $d
   }
 }
 
+export class CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel extends $dara.Model {
+  bandwidthPackageId?: string;
+  bandwidthPackageOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthPackageId: 'BandwidthPackageId',
+      bandwidthPackageOrderId: 'BandwidthPackageOrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthPackageId: 'string',
+      bandwidthPackageOrderId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAndroidInstanceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -53,6 +79,7 @@ export class CreateAndroidInstanceGroupResponseBody extends $dara.Model {
    * The instance groups.
    */
   instanceGroupInfos?: CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos[];
+  networkPackageOrderModel?: CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel;
   /**
    * @remarks
    * The ID of the order.
@@ -73,6 +100,7 @@ export class CreateAndroidInstanceGroupResponseBody extends $dara.Model {
     return {
       instanceGroupIds: 'InstanceGroupIds',
       instanceGroupInfos: 'InstanceGroupInfos',
+      networkPackageOrderModel: 'NetworkPackageOrderModel',
       orderId: 'OrderId',
       requestId: 'RequestId',
     };
@@ -82,6 +110,7 @@ export class CreateAndroidInstanceGroupResponseBody extends $dara.Model {
     return {
       instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
       instanceGroupInfos: { 'type': 'array', 'itemType': CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos },
+      networkPackageOrderModel: CreateAndroidInstanceGroupResponseBodyNetworkPackageOrderModel,
       orderId: 'string',
       requestId: 'string',
     };
@@ -93,6 +122,9 @@ export class CreateAndroidInstanceGroupResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.instanceGroupInfos)) {
       $dara.Model.validateArray(this.instanceGroupInfos);
+    }
+    if(this.networkPackageOrderModel && typeof (this.networkPackageOrderModel as any).validate === 'function') {
+      (this.networkPackageOrderModel as any).validate();
     }
     super.validate();
   }

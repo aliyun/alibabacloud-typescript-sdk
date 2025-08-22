@@ -9,10 +9,12 @@ export class UpdateInstanceImageRequest extends $dara.Model {
    */
   imageId?: string;
   instanceIdList?: string[];
+  reset?: boolean;
   static names(): { [key: string]: string } {
     return {
       imageId: 'ImageId',
       instanceIdList: 'InstanceIdList',
+      reset: 'Reset',
     };
   }
 
@@ -20,6 +22,7 @@ export class UpdateInstanceImageRequest extends $dara.Model {
     return {
       imageId: 'string',
       instanceIdList: { 'type': 'array', 'itemType': 'string' },
+      reset: 'boolean',
     };
   }
 

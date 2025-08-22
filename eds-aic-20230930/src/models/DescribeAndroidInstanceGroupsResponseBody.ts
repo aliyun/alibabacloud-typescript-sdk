@@ -42,6 +42,32 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks ex
   }
 }
 
+export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends $dara.Model {
   /**
    * @remarks
@@ -69,6 +95,9 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * 5
    */
   availableInstanceAmount?: number;
+  bandwidthPackageId?: string;
+  bandwidthPackageStatus?: string;
+  bandwidthPackageType?: string;
   /**
    * @remarks
    * The billing method.
@@ -196,6 +225,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * 8
    */
   memory?: number;
+  networkType?: string;
   /**
    * @remarks
    * The number of instances in the instance group.
@@ -274,6 +304,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * Android 12
    */
   systemVersion?: string;
+  tags?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags[];
   /**
    * @remarks
    * The ID of the vSwitch.
@@ -287,6 +318,9 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       appInstanceGroupId: 'AppInstanceGroupId',
       architectureType: 'ArchitectureType',
       availableInstanceAmount: 'AvailableInstanceAmount',
+      bandwidthPackageId: 'BandwidthPackageId',
+      bandwidthPackageStatus: 'BandwidthPackageStatus',
+      bandwidthPackageType: 'BandwidthPackageType',
       chargeType: 'ChargeType',
       cpu: 'Cpu',
       disks: 'Disks',
@@ -304,6 +338,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       instanceGroupStatus: 'InstanceGroupStatus',
       ipv6Bandwidth: 'Ipv6Bandwidth',
       memory: 'Memory',
+      networkType: 'NetworkType',
       numberOfInstances: 'NumberOfInstances',
       officeSiteId: 'OfficeSiteId',
       policyGroupId: 'PolicyGroupId',
@@ -313,6 +348,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       resolutionWidth: 'ResolutionWidth',
       saleMode: 'SaleMode',
       systemVersion: 'SystemVersion',
+      tags: 'Tags',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -322,6 +358,9 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       appInstanceGroupId: 'string',
       architectureType: 'string',
       availableInstanceAmount: 'number',
+      bandwidthPackageId: 'string',
+      bandwidthPackageStatus: 'string',
+      bandwidthPackageType: 'string',
       chargeType: 'string',
       cpu: 'string',
       disks: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks },
@@ -339,6 +378,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       instanceGroupStatus: 'string',
       ipv6Bandwidth: 'number',
       memory: 'number',
+      networkType: 'string',
       numberOfInstances: 'string',
       officeSiteId: 'string',
       policyGroupId: 'string',
@@ -348,6 +388,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       resolutionWidth: 'number',
       saleMode: 'string',
       systemVersion: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags },
       vSwitchId: 'string',
     };
   }
@@ -355,6 +396,9 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   validate() {
     if(Array.isArray(this.disks)) {
       $dara.Model.validateArray(this.disks);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeAndroidInstanceGroupsRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   /**
    * @remarks
@@ -101,6 +127,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
    * CREATING
    */
   status?: string;
+  tags?: DescribeAndroidInstanceGroupsRequestTags[];
   static names(): { [key: string]: string } {
     return {
       bizRegionId: 'BizRegionId',
@@ -113,6 +140,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
       policyGroupId: 'PolicyGroupId',
       saleMode: 'SaleMode',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -128,12 +156,16 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
       policyGroupId: 'string',
       saleMode: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsRequestTags },
     };
   }
 
   validate() {
     if(Array.isArray(this.instanceGroupIds)) {
       $dara.Model.validateArray(this.instanceGroupIds);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
