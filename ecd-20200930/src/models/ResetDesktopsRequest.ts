@@ -32,6 +32,7 @@ export class ResetDesktopsRequest extends $dara.Model {
    * m-4zfb6zj728hhr****
    */
   imageId?: string;
+  lastRetryTime?: number;
   /**
    * @remarks
    * The billing method of the cloud computer share.
@@ -93,6 +94,7 @@ export class ResetDesktopsRequest extends $dara.Model {
       desktopGroupIds: 'DesktopGroupIds',
       desktopId: 'DesktopId',
       imageId: 'ImageId',
+      lastRetryTime: 'LastRetryTime',
       payType: 'PayType',
       regionId: 'RegionId',
       resetScope: 'ResetScope',
@@ -106,6 +108,7 @@ export class ResetDesktopsRequest extends $dara.Model {
       desktopGroupIds: { 'type': 'array', 'itemType': 'string' },
       desktopId: { 'type': 'array', 'itemType': 'string' },
       imageId: 'string',
+      lastRetryTime: 'number',
       payType: 'string',
       regionId: 'string',
       resetScope: 'string',

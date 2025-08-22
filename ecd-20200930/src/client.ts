@@ -11,7 +11,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ecd", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -17109,6 +17108,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.imageId)) {
       query["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.lastRetryTime)) {
+      query["LastRetryTime"] = request.lastRetryTime;
     }
 
     if (!$dara.isNull(request.payType)) {
