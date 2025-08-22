@@ -8,6 +8,7 @@ import { LocalMountSpec } from "./LocalMountSpec";
 import { ResourceConfig } from "./ResourceConfig";
 import { ServiceSpec } from "./ServiceSpec";
 import { SpotSpec } from "./SpotSpec";
+import { SystemDisk } from "./SystemDisk";
 
 
 export class JobSpec extends $dara.Model {
@@ -40,6 +41,7 @@ export class JobSpec extends $dara.Model {
   restartPolicy?: string;
   serviceSpec?: ServiceSpec;
   spotSpec?: SpotSpec;
+  systemDisk?: SystemDisk;
   /**
    * @example
    * Worker
@@ -68,6 +70,7 @@ export class JobSpec extends $dara.Model {
       restartPolicy: 'RestartPolicy',
       serviceSpec: 'ServiceSpec',
       spotSpec: 'SpotSpec',
+      systemDisk: 'SystemDisk',
       type: 'Type',
       useSpotInstance: 'UseSpotInstance',
     };
@@ -89,6 +92,7 @@ export class JobSpec extends $dara.Model {
       restartPolicy: 'string',
       serviceSpec: ServiceSpec,
       spotSpec: SpotSpec,
+      systemDisk: SystemDisk,
       type: 'string',
       useSpotInstance: 'boolean',
     };
@@ -118,6 +122,9 @@ export class JobSpec extends $dara.Model {
     }
     if(this.spotSpec && typeof (this.spotSpec as any).validate === 'function') {
       (this.spotSpec as any).validate();
+    }
+    if(this.systemDisk && typeof (this.systemDisk as any).validate === 'function') {
+      (this.systemDisk as any).validate();
     }
     super.validate();
   }

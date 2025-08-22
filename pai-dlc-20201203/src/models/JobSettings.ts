@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DataJuicerConfig } from "./DataJuicerConfig";
 
 
 export class JobSettings extends $dara.Model {
@@ -15,6 +16,7 @@ export class JobSettings extends $dara.Model {
    * SilkFlow
    */
   caller?: string;
+  dataJuicerConfig?: DataJuicerConfig;
   /**
    * @example
    * false
@@ -30,6 +32,7 @@ export class JobSettings extends $dara.Model {
    * true
    */
   enableCPUAffinity?: boolean;
+  enableDSWDev?: boolean;
   /**
    * @example
    * false
@@ -92,9 +95,11 @@ export class JobSettings extends $dara.Model {
       allocateAllRDMADevices: 'AllocateAllRDMADevices',
       businessUserId: 'BusinessUserId',
       caller: 'Caller',
+      dataJuicerConfig: 'DataJuicerConfig',
       disableEcsStockCheck: 'DisableEcsStockCheck',
       driver: 'Driver',
       enableCPUAffinity: 'EnableCPUAffinity',
+      enableDSWDev: 'EnableDSWDev',
       enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
       enableOssAppend: 'EnableOssAppend',
       enableRDMA: 'EnableRDMA',
@@ -116,9 +121,11 @@ export class JobSettings extends $dara.Model {
       allocateAllRDMADevices: 'boolean',
       businessUserId: 'string',
       caller: 'string',
+      dataJuicerConfig: DataJuicerConfig,
       disableEcsStockCheck: 'boolean',
       driver: 'string',
       enableCPUAffinity: 'boolean',
+      enableDSWDev: 'boolean',
       enableErrorMonitoringInAIMaster: 'boolean',
       enableOssAppend: 'boolean',
       enableRDMA: 'boolean',
@@ -137,6 +144,9 @@ export class JobSettings extends $dara.Model {
   validate() {
     if(this.advancedSettings) {
       $dara.Model.validateMap(this.advancedSettings);
+    }
+    if(this.dataJuicerConfig && typeof (this.dataJuicerConfig as any).validate === 'function') {
+      (this.dataJuicerConfig as any).validate();
     }
     if(this.tags) {
       $dara.Model.validateMap(this.tags);
