@@ -8,6 +8,7 @@ export class CreateReportDefinitionRequest extends $dara.Model {
    * 2025-05
    */
   beginBillingCycle?: string;
+  includeMembers?: string;
   /**
    * @example
    * project
@@ -23,6 +24,7 @@ export class CreateReportDefinitionRequest extends $dara.Model {
    * 2684201000001
    */
   nbid?: string;
+  notSendOnNoData?: string;
   /**
    * @example
    * sh-bill
@@ -51,31 +53,41 @@ export class CreateReportDefinitionRequest extends $dara.Model {
    * BillingItemDetailForBillingPeriod
    */
   reportType?: string;
+  sendWithAttach?: string;
+  splitFileOnUserId?: string;
   static names(): { [key: string]: string } {
     return {
       beginBillingCycle: 'BeginBillingCycle',
+      includeMembers: 'IncludeMembers',
       mcProject: 'McProject',
       mcTableName: 'McTableName',
       nbid: 'Nbid',
+      notSendOnNoData: 'NotSendOnNoData',
       ossBucketName: 'OssBucketName',
       ossBucketOwnerAccountId: 'OssBucketOwnerAccountId',
       ossBucketPath: 'OssBucketPath',
       reportSourceType: 'ReportSourceType',
       reportType: 'ReportType',
+      sendWithAttach: 'SendWithAttach',
+      splitFileOnUserId: 'SplitFileOnUserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       beginBillingCycle: 'string',
+      includeMembers: 'string',
       mcProject: 'string',
       mcTableName: 'string',
       nbid: 'string',
+      notSendOnNoData: 'string',
       ossBucketName: 'string',
       ossBucketOwnerAccountId: 'number',
       ossBucketPath: 'string',
       reportSourceType: 'string',
       reportType: 'string',
+      sendWithAttach: 'string',
+      splitFileOnUserId: 'string',
     };
   }
 

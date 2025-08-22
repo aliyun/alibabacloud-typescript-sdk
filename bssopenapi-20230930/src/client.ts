@@ -597,8 +597,16 @@ export default class Client extends OpenApi {
       query["BeginBillingCycle"] = request.beginBillingCycle;
     }
 
+    if (!$dara.isNull(request.includeMembers)) {
+      query["IncludeMembers"] = request.includeMembers;
+    }
+
     if (!$dara.isNull(request.nbid)) {
       query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.notSendOnNoData)) {
+      query["NotSendOnNoData"] = request.notSendOnNoData;
     }
 
     if (!$dara.isNull(request.ossBucketName)) {
@@ -615,6 +623,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.reportType)) {
       query["ReportType"] = request.reportType;
+    }
+
+    if (!$dara.isNull(request.sendWithAttach)) {
+      query["SendWithAttach"] = request.sendWithAttach;
+    }
+
+    if (!$dara.isNull(request.splitFileOnUserId)) {
+      query["SplitFileOnUserId"] = request.splitFileOnUserId;
     }
 
     let body : {[key: string ]: any} = { };
