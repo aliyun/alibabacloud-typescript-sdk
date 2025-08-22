@@ -5,6 +5,7 @@ import { ResourceAmount } from "./ResourceAmount";
 
 export class QuotaDetails extends $dara.Model {
   actualMinQuota?: ResourceAmount;
+  allocatableQuota?: ResourceAmount;
   allocatedQuota?: ResourceAmount;
   ancestorsAllocatedQuota?: ResourceAmount;
   descendantsAllocatedQuota?: ResourceAmount;
@@ -12,10 +13,12 @@ export class QuotaDetails extends $dara.Model {
   requestedQuota?: ResourceAmount;
   selfAllocatedQuota?: ResourceAmount;
   selfSubmittedQuota?: ResourceAmount;
+  systemReservedQuota?: ResourceAmount;
   usedQuota?: ResourceAmount;
   static names(): { [key: string]: string } {
     return {
       actualMinQuota: 'ActualMinQuota',
+      allocatableQuota: 'AllocatableQuota',
       allocatedQuota: 'AllocatedQuota',
       ancestorsAllocatedQuota: 'AncestorsAllocatedQuota',
       descendantsAllocatedQuota: 'DescendantsAllocatedQuota',
@@ -23,6 +26,7 @@ export class QuotaDetails extends $dara.Model {
       requestedQuota: 'RequestedQuota',
       selfAllocatedQuota: 'SelfAllocatedQuota',
       selfSubmittedQuota: 'SelfSubmittedQuota',
+      systemReservedQuota: 'SystemReservedQuota',
       usedQuota: 'UsedQuota',
     };
   }
@@ -30,6 +34,7 @@ export class QuotaDetails extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       actualMinQuota: ResourceAmount,
+      allocatableQuota: ResourceAmount,
       allocatedQuota: ResourceAmount,
       ancestorsAllocatedQuota: ResourceAmount,
       descendantsAllocatedQuota: ResourceAmount,
@@ -37,6 +42,7 @@ export class QuotaDetails extends $dara.Model {
       requestedQuota: ResourceAmount,
       selfAllocatedQuota: ResourceAmount,
       selfSubmittedQuota: ResourceAmount,
+      systemReservedQuota: ResourceAmount,
       usedQuota: ResourceAmount,
     };
   }
@@ -44,6 +50,9 @@ export class QuotaDetails extends $dara.Model {
   validate() {
     if(this.actualMinQuota && typeof (this.actualMinQuota as any).validate === 'function') {
       (this.actualMinQuota as any).validate();
+    }
+    if(this.allocatableQuota && typeof (this.allocatableQuota as any).validate === 'function') {
+      (this.allocatableQuota as any).validate();
     }
     if(this.allocatedQuota && typeof (this.allocatedQuota as any).validate === 'function') {
       (this.allocatedQuota as any).validate();
@@ -65,6 +74,9 @@ export class QuotaDetails extends $dara.Model {
     }
     if(this.selfSubmittedQuota && typeof (this.selfSubmittedQuota as any).validate === 'function') {
       (this.selfSubmittedQuota as any).validate();
+    }
+    if(this.systemReservedQuota && typeof (this.systemReservedQuota as any).validate === 'function') {
+      (this.systemReservedQuota as any).validate();
     }
     if(this.usedQuota && typeof (this.usedQuota as any).validate === 'function') {
       (this.usedQuota as any).validate();

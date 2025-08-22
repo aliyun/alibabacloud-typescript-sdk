@@ -37,6 +37,8 @@ export class GetResourceGroupMachineGroupResponseBodyTags extends $dara.Model {
 }
 
 export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
+  allocatableCpu?: string;
+  allocatableMemory?: string;
   /**
    * @example
    * 2
@@ -133,9 +135,13 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
    */
   status?: string;
   supportedDrivers?: string[];
+  systemReservedCpu?: string;
+  systemReservedMemory?: string;
   tags?: GetResourceGroupMachineGroupResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
+      allocatableCpu: 'AllocatableCpu',
+      allocatableMemory: 'AllocatableMemory',
       cpu: 'Cpu',
       defaultDriver: 'DefaultDriver',
       ecsCount: 'EcsCount',
@@ -156,12 +162,16 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
       resourceGroupID: 'ResourceGroupID',
       status: 'Status',
       supportedDrivers: 'SupportedDrivers',
+      systemReservedCpu: 'SystemReservedCpu',
+      systemReservedMemory: 'SystemReservedMemory',
       tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      allocatableCpu: 'string',
+      allocatableMemory: 'string',
       cpu: 'string',
       defaultDriver: 'string',
       ecsCount: 'number',
@@ -182,6 +192,8 @@ export class GetResourceGroupMachineGroupResponseBody extends $dara.Model {
       resourceGroupID: 'string',
       status: 'string',
       supportedDrivers: { 'type': 'array', 'itemType': 'string' },
+      systemReservedCpu: 'string',
+      systemReservedMemory: 'string',
       tags: { 'type': 'array', 'itemType': GetResourceGroupMachineGroupResponseBodyTags },
     };
   }

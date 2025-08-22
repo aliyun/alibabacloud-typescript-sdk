@@ -6,6 +6,8 @@ import { UserInfo } from "./UserInfo";
 
 export class Node extends $dara.Model {
   acceleratorType?: string;
+  allocatableCPU?: string;
+  allocatableMemory?: string;
   availabilityZone?: string;
   boundQuotas?: QuotaIdName[];
   CPU?: string;
@@ -35,11 +37,15 @@ export class Node extends $dara.Model {
   requestMemory?: string;
   resourceGroupId?: string;
   resourceGroupName?: string;
+  systemReservedCPU?: string;
+  systemReservedMemory?: string;
   users?: UserInfo[];
   workloadNum?: number;
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
+      allocatableCPU: 'AllocatableCPU',
+      allocatableMemory: 'AllocatableMemory',
       availabilityZone: 'AvailabilityZone',
       boundQuotas: 'BoundQuotas',
       CPU: 'CPU',
@@ -69,6 +75,8 @@ export class Node extends $dara.Model {
       requestMemory: 'RequestMemory',
       resourceGroupId: 'ResourceGroupId',
       resourceGroupName: 'ResourceGroupName',
+      systemReservedCPU: 'SystemReservedCPU',
+      systemReservedMemory: 'SystemReservedMemory',
       users: 'Users',
       workloadNum: 'WorkloadNum',
     };
@@ -77,6 +85,8 @@ export class Node extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       acceleratorType: 'string',
+      allocatableCPU: 'string',
+      allocatableMemory: 'string',
       availabilityZone: 'string',
       boundQuotas: { 'type': 'array', 'itemType': QuotaIdName },
       CPU: 'string',
@@ -106,6 +116,8 @@ export class Node extends $dara.Model {
       requestMemory: 'string',
       resourceGroupId: 'string',
       resourceGroupName: 'string',
+      systemReservedCPU: 'string',
+      systemReservedMemory: 'string',
       users: { 'type': 'array', 'itemType': UserInfo },
       workloadNum: 'number',
     };

@@ -8,6 +8,8 @@ export class NodeType extends $dara.Model {
    * CPU
    */
   acceleratorType?: string;
+  allocatableCPU?: string;
+  allocatableMemory?: string;
   /**
    * @example
    * 16
@@ -34,27 +36,37 @@ export class NodeType extends $dara.Model {
    * ecs.g6.4xlarge
    */
   nodeType?: string;
+  systemReservedCPU?: string;
+  systemReservedMemory?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
+      allocatableCPU: 'AllocatableCPU',
+      allocatableMemory: 'AllocatableMemory',
       CPU: 'CPU',
       GPU: 'GPU',
       GPUMemory: 'GPUMemory',
       GPUType: 'GPUType',
       memory: 'Memory',
       nodeType: 'NodeType',
+      systemReservedCPU: 'SystemReservedCPU',
+      systemReservedMemory: 'SystemReservedMemory',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acceleratorType: 'string',
+      allocatableCPU: 'string',
+      allocatableMemory: 'string',
       CPU: 'string',
       GPU: 'string',
       GPUMemory: 'string',
       GPUType: 'string',
       memory: 'string',
       nodeType: 'string',
+      systemReservedCPU: 'string',
+      systemReservedMemory: 'string',
     };
   }
 

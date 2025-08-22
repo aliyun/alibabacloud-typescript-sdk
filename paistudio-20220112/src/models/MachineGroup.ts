@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MachineGroup extends $dara.Model {
+  allocatableCpu?: number;
+  allocatableMemory?: number;
   cpu?: number;
   creatorID?: string;
   /**
@@ -37,8 +39,12 @@ export class MachineGroup extends $dara.Model {
   resourceType?: string;
   status?: string;
   supportedDrivers?: string[];
+  systemReservedCpu?: number;
+  systemReservedMemory?: number;
   static names(): { [key: string]: string } {
     return {
+      allocatableCpu: 'AllocatableCpu',
+      allocatableMemory: 'AllocatableMemory',
       cpu: 'Cpu',
       creatorID: 'CreatorID',
       defaultDriver: 'DefaultDriver',
@@ -65,11 +71,15 @@ export class MachineGroup extends $dara.Model {
       resourceType: 'ResourceType',
       status: 'Status',
       supportedDrivers: 'SupportedDrivers',
+      systemReservedCpu: 'SystemReservedCpu',
+      systemReservedMemory: 'SystemReservedMemory',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      allocatableCpu: 'number',
+      allocatableMemory: 'number',
       cpu: 'number',
       creatorID: 'string',
       defaultDriver: 'string',
@@ -96,6 +106,8 @@ export class MachineGroup extends $dara.Model {
       resourceType: 'string',
       status: 'string',
       supportedDrivers: { 'type': 'array', 'itemType': 'string' },
+      systemReservedCpu: 'number',
+      systemReservedMemory: 'number',
     };
   }
 
