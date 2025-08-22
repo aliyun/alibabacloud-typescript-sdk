@@ -48,6 +48,7 @@ export class UpdateMessageQueueRouteRequest extends $dara.Model {
    * Server
    */
   filterSide?: string;
+  grayBaseTags?: string[];
   /**
    * @example
    * default
@@ -75,6 +76,7 @@ export class UpdateMessageQueueRouteRequest extends $dara.Model {
       appName: 'AppName',
       enable: 'Enable',
       filterSide: 'FilterSide',
+      grayBaseTags: 'GrayBaseTags',
       namespace: 'Namespace',
       region: 'Region',
       tags: 'Tags',
@@ -88,6 +90,7 @@ export class UpdateMessageQueueRouteRequest extends $dara.Model {
       appName: 'string',
       enable: 'boolean',
       filterSide: 'string',
+      grayBaseTags: { 'type': 'array', 'itemType': 'string' },
       namespace: 'string',
       region: 'string',
       tags: { 'type': 'array', 'itemType': 'string' },
@@ -95,6 +98,9 @@ export class UpdateMessageQueueRouteRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.grayBaseTags)) {
+      $dara.Model.validateArray(this.grayBaseTags);
+    }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }

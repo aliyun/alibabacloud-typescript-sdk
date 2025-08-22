@@ -48,6 +48,7 @@ export class UpdateMessageQueueRouteShrinkRequest extends $dara.Model {
    * Server
    */
   filterSide?: string;
+  grayBaseTagsShrink?: string;
   /**
    * @example
    * default
@@ -75,6 +76,7 @@ export class UpdateMessageQueueRouteShrinkRequest extends $dara.Model {
       appName: 'AppName',
       enable: 'Enable',
       filterSide: 'FilterSide',
+      grayBaseTagsShrink: 'GrayBaseTags',
       namespace: 'Namespace',
       region: 'Region',
       tagsShrink: 'Tags',
@@ -88,6 +90,7 @@ export class UpdateMessageQueueRouteShrinkRequest extends $dara.Model {
       appName: 'string',
       enable: 'boolean',
       filterSide: 'string',
+      grayBaseTagsShrink: 'string',
       namespace: 'string',
       region: 'string',
       tagsShrink: 'string',

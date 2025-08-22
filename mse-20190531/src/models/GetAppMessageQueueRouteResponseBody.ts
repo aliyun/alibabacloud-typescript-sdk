@@ -30,6 +30,7 @@ export class GetAppMessageQueueRouteResponseBodyData extends $dara.Model {
    * Server
    */
   filterSide?: string;
+  grayBaseTags?: string[];
   /**
    * @remarks
    * The region ID.
@@ -48,6 +49,7 @@ export class GetAppMessageQueueRouteResponseBodyData extends $dara.Model {
       appId: 'AppId',
       enable: 'Enable',
       filterSide: 'FilterSide',
+      grayBaseTags: 'GrayBaseTags',
       region: 'Region',
       tags: 'Tags',
     };
@@ -58,12 +60,16 @@ export class GetAppMessageQueueRouteResponseBodyData extends $dara.Model {
       appId: 'string',
       enable: 'boolean',
       filterSide: 'string',
+      grayBaseTags: { 'type': 'array', 'itemType': 'string' },
       region: 'string',
       tags: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.grayBaseTags)) {
+      $dara.Model.validateArray(this.grayBaseTags);
+    }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }

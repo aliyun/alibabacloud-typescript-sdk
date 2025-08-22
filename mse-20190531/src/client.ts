@@ -11,7 +11,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("mse", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -15212,6 +15211,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.UpdateMessageQueueRouteShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.grayBaseTags)) {
+      request.grayBaseTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.grayBaseTags, "GrayBaseTags", "json");
+    }
+
     if (!$dara.isNull(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
@@ -15235,6 +15238,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.filterSide)) {
       query["FilterSide"] = request.filterSide;
+    }
+
+    if (!$dara.isNull(request.grayBaseTagsShrink)) {
+      query["GrayBaseTags"] = request.grayBaseTagsShrink;
     }
 
     if (!$dara.isNull(request.namespace)) {
