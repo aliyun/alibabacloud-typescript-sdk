@@ -1510,6 +1510,10 @@ export default class Client extends OpenApi {
       query["DocumentNumber"] = request.documentNumber;
     }
 
+    if (!$dara.isNull(request.editOcrResult)) {
+      query["EditOcrResult"] = request.editOcrResult;
+    }
+
     if (!$dara.isNull(request.experienceCode)) {
       query["ExperienceCode"] = request.experienceCode;
     }

@@ -12,9 +12,6 @@ export class AddressVerifyV2IntlRequest extends $dara.Model {
    */
   deviceToken?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 1872334****
    */
@@ -32,15 +29,8 @@ export class AddressVerifyV2IntlRequest extends $dara.Model {
    * This parameter is required.
    */
   regCountry?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   text?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * HOME
    */

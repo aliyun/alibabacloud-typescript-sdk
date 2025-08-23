@@ -26,6 +26,7 @@ export class InitializeRequest extends $dara.Model {
   docType?: string;
   docVideo?: string;
   documentNumber?: string;
+  editOcrResult?: string;
   experienceCode?: string;
   facePictureBase64?: string;
   /**
@@ -115,6 +116,7 @@ export class InitializeRequest extends $dara.Model {
       docType: 'DocType',
       docVideo: 'DocVideo',
       documentNumber: 'DocumentNumber',
+      editOcrResult: 'EditOcrResult',
       experienceCode: 'ExperienceCode',
       facePictureBase64: 'FacePictureBase64',
       facePictureUrl: 'FacePictureUrl',
@@ -160,6 +162,7 @@ export class InitializeRequest extends $dara.Model {
       docType: 'string',
       docVideo: 'string',
       documentNumber: 'string',
+      editOcrResult: 'string',
       experienceCode: 'string',
       facePictureBase64: 'string',
       facePictureUrl: 'string',
