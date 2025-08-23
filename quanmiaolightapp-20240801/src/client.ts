@@ -336,6 +336,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取文件内容
+   * 
+   * @param request - GetFileContentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileContentResponse
+   */
+  async getFileContentWithOptions(workspaceId: string, request: $_model.GetFileContentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetFileContentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileKey)) {
+      body["fileKey"] = request.fileKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFileContent",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/getFileContent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFileContentResponse>(await this.callApi(params, req, runtime), new $_model.GetFileContentResponse({}));
+  }
+
+  /**
+   * 获取文件内容
+   * 
+   * @param request - GetFileContentRequest
+   * @returns GetFileContentResponse
+   */
+  async getFileContent(workspaceId: string, request: $_model.GetFileContentRequest): Promise<$_model.GetFileContentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getFileContentWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 获取挖掘分析任务结果
    * 
    * @param request - GetTagMiningAnalysisTaskRequest
@@ -627,6 +672,98 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunEnterpriseVocAnalysisResponse
    */
+  async *runEnterpriseVocAnalysisWithSSE(workspaceId: string, tmpReq: $_model.RunEnterpriseVocAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunEnterpriseVocAnalysisResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunEnterpriseVocAnalysisShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterTags)) {
+      request.filterTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterTags, "filterTags", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.akProxy)) {
+      body["akProxy"] = request.akProxy;
+    }
+
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.extraInfo)) {
+      body["extraInfo"] = request.extraInfo;
+    }
+
+    if (!$dara.isNull(request.filterTagsShrink)) {
+      body["filterTags"] = request.filterTagsShrink;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.outputFormat)) {
+      body["outputFormat"] = request.outputFormat;
+    }
+
+    if (!$dara.isNull(request.sourceTrace)) {
+      body["sourceTrace"] = request.sourceTrace;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.taskDescription)) {
+      body["taskDescription"] = request.taskDescription;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunEnterpriseVocAnalysis",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runEnterpriseVocAnalysis`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunEnterpriseVocAnalysisResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunEnterpriseVocAnalysisResponse({}));
+    }
+  }
+
+  /**
+   * 企业VOC分析
+   * 
+   * @param tmpReq - RunEnterpriseVocAnalysisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunEnterpriseVocAnalysisResponse
+   */
   async runEnterpriseVocAnalysisWithOptions(workspaceId: string, tmpReq: $_model.RunEnterpriseVocAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunEnterpriseVocAnalysisResponse> {
     tmpReq.validate();
     let request = new $_model.RunEnterpriseVocAnalysisShrinkRequest({ });
@@ -718,6 +855,76 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunEssayCorrectionResponse
    */
+  async *runEssayCorrectionWithSSE(workspaceId: string, request: $_model.RunEssayCorrectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunEssayCorrectionResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.answer)) {
+      body["answer"] = request.answer;
+    }
+
+    if (!$dara.isNull(request.grade)) {
+      body["grade"] = request.grade;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.otherReviewPoints)) {
+      body["otherReviewPoints"] = request.otherReviewPoints;
+    }
+
+    if (!$dara.isNull(request.question)) {
+      body["question"] = request.question;
+    }
+
+    if (!$dara.isNull(request.subject)) {
+      body["subject"] = request.subject;
+    }
+
+    if (!$dara.isNull(request.totalScore)) {
+      body["totalScore"] = request.totalScore;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunEssayCorrection",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runEssayCorrection`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunEssayCorrectionResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunEssayCorrectionResponse({}));
+    }
+  }
+
+  /**
+   * 作业批改
+   * 
+   * @param request - RunEssayCorrectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunEssayCorrectionResponse
+   */
   async runEssayCorrectionWithOptions(workspaceId: string, request: $_model.RunEssayCorrectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunEssayCorrectionResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -777,6 +984,114 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runEssayCorrectionWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 轻应用-热点播报-问答
+   * 
+   * @param tmpReq - RunHotTopicChatRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunHotTopicChatResponse
+   */
+  async *runHotTopicChatWithSSE(workspaceId: string, tmpReq: $_model.RunHotTopicChatRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunHotTopicChatResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunHotTopicChatShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.generateOptions)) {
+      request.generateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.generateOptions, "generateOptions", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.hotTopics)) {
+      request.hotTopicsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hotTopics, "hotTopics", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.messages)) {
+      request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "messages", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.stepForBroadcastContentConfig)) {
+      request.stepForBroadcastContentConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stepForBroadcastContentConfig, "stepForBroadcastContentConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.category)) {
+      body["category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.generateOptionsShrink)) {
+      body["generateOptions"] = request.generateOptionsShrink;
+    }
+
+    if (!$dara.isNull(request.hotTopicVersion)) {
+      body["hotTopicVersion"] = request.hotTopicVersion;
+    }
+
+    if (!$dara.isNull(request.hotTopicsShrink)) {
+      body["hotTopics"] = request.hotTopicsShrink;
+    }
+
+    if (!$dara.isNull(request.imageCount)) {
+      body["imageCount"] = request.imageCount;
+    }
+
+    if (!$dara.isNull(request.messagesShrink)) {
+      body["messages"] = request.messagesShrink;
+    }
+
+    if (!$dara.isNull(request.modelCustomPromptTemplate)) {
+      body["modelCustomPromptTemplate"] = request.modelCustomPromptTemplate;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.originalSessionId)) {
+      body["originalSessionId"] = request.originalSessionId;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.stepForBroadcastContentConfigShrink)) {
+      body["stepForBroadcastContentConfig"] = request.stepForBroadcastContentConfigShrink;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunHotTopicChat",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runHotTopicChat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunHotTopicChatResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunHotTopicChatResponse({}));
+    }
   }
 
   /**
@@ -894,6 +1209,70 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunHotTopicSummaryResponse
    */
+  async *runHotTopicSummaryWithSSE(workspaceId: string, tmpReq: $_model.RunHotTopicSummaryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunHotTopicSummaryResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunHotTopicSummaryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.stepForCustomSummaryStyleConfig)) {
+      request.stepForCustomSummaryStyleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stepForCustomSummaryStyleConfig, "stepForCustomSummaryStyleConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.topicIds)) {
+      request.topicIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topicIds, "topicIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hotTopicVersion)) {
+      body["hotTopicVersion"] = request.hotTopicVersion;
+    }
+
+    if (!$dara.isNull(request.stepForCustomSummaryStyleConfigShrink)) {
+      body["stepForCustomSummaryStyleConfig"] = request.stepForCustomSummaryStyleConfigShrink;
+    }
+
+    if (!$dara.isNull(request.topicIdsShrink)) {
+      body["topicIds"] = request.topicIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunHotTopicSummary",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runHotTopicSummary`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunHotTopicSummaryResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunHotTopicSummaryResponse({}));
+    }
+  }
+
+  /**
+   * 轻应用-热点播报-热点摘要生成
+   * 
+   * @param tmpReq - RunHotTopicSummaryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunHotTopicSummaryResponse
+   */
   async runHotTopicSummaryWithOptions(workspaceId: string, tmpReq: $_model.RunHotTopicSummaryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunHotTopicSummaryResponse> {
     tmpReq.validate();
     let request = new $_model.RunHotTopicSummaryShrinkRequest({ });
@@ -947,6 +1326,70 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runHotTopicSummaryWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 营销信息抽取服务
+   * 
+   * @param tmpReq - RunMarketingInformationExtractRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunMarketingInformationExtractResponse
+   */
+  async *runMarketingInformationExtractWithSSE(workspaceId: string, tmpReq: $_model.RunMarketingInformationExtractRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunMarketingInformationExtractResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunMarketingInformationExtractShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sourceMaterials)) {
+      request.sourceMaterialsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceMaterials, "sourceMaterials", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.customPrompt)) {
+      body["customPrompt"] = request.customPrompt;
+    }
+
+    if (!$dara.isNull(request.extractType)) {
+      body["extractType"] = request.extractType;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.sourceMaterialsShrink)) {
+      body["sourceMaterials"] = request.sourceMaterialsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunMarketingInformationExtract",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runMarketingInformationExtract`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunMarketingInformationExtractResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunMarketingInformationExtractResponse({}));
+    }
   }
 
   /**
@@ -1020,6 +1463,80 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunMarketingInformationWritingResponse
    */
+  async *runMarketingInformationWritingWithSSE(workspaceId: string, request: $_model.RunMarketingInformationWritingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunMarketingInformationWritingResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.customLimitation)) {
+      body["customLimitation"] = request.customLimitation;
+    }
+
+    if (!$dara.isNull(request.customPrompt)) {
+      body["customPrompt"] = request.customPrompt;
+    }
+
+    if (!$dara.isNull(request.inputExample)) {
+      body["inputExample"] = request.inputExample;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.outputExample)) {
+      body["outputExample"] = request.outputExample;
+    }
+
+    if (!$dara.isNull(request.sourceMaterial)) {
+      body["sourceMaterial"] = request.sourceMaterial;
+    }
+
+    if (!$dara.isNull(request.writingType)) {
+      body["writingType"] = request.writingType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunMarketingInformationWriting",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runMarketingInformationWriting`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunMarketingInformationWritingResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunMarketingInformationWritingResponse({}));
+    }
+  }
+
+  /**
+   * 营销文案写作服务
+   * 
+   * @param request - RunMarketingInformationWritingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunMarketingInformationWritingResponse
+   */
   async runMarketingInformationWritingWithOptions(workspaceId: string, request: $_model.RunMarketingInformationWritingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunMarketingInformationWritingResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -1083,6 +1600,86 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runMarketingInformationWritingWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 轻应用-网络内容审核
+   * 
+   * @param tmpReq - RunNetworkContentAuditRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunNetworkContentAuditResponse
+   */
+  async *runNetworkContentAuditWithSSE(workspaceId: string, tmpReq: $_model.RunNetworkContentAuditRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunNetworkContentAuditResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunNetworkContentAuditShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.businessType)) {
+      body["businessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.extraInfo)) {
+      body["extraInfo"] = request.extraInfo;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.outputFormat)) {
+      body["outputFormat"] = request.outputFormat;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.taskDescription)) {
+      body["taskDescription"] = request.taskDescription;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunNetworkContentAudit",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runNetworkContentAudit`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunNetworkContentAuditResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunNetworkContentAuditResponse({}));
+    }
   }
 
   /**
@@ -1172,6 +1769,60 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunOcrParseResponse
    */
+  async *runOcrParseWithSSE(workspaceId: string, request: $_model.RunOcrParseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunOcrParseResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileKey)) {
+      body["fileKey"] = request.fileKey;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      body["url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunOcrParse",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runOcrParse`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunOcrParseResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunOcrParseResponse({}));
+    }
+  }
+
+  /**
+   * 作业批改
+   * 
+   * @param request - RunOcrParseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunOcrParseResponse
+   */
   async runOcrParseWithOptions(workspaceId: string, request: $_model.RunOcrParseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunOcrParseResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -1215,6 +1866,56 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runOcrParseWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 长剧本创作
+   * 
+   * @param request - RunScriptChatRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunScriptChatResponse
+   */
+  async *runScriptChatWithSSE(workspaceId: string, request: $_model.RunScriptChatRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunScriptChatResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunScriptChat",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runScriptChat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunScriptChatResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunScriptChatResponse({}));
+    }
   }
 
   /**
@@ -1274,6 +1975,60 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunScriptContinueResponse
    */
+  async *runScriptContinueWithSSE(workspaceId: string, request: $_model.RunScriptContinueRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunScriptContinueResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scriptSummary)) {
+      body["scriptSummary"] = request.scriptSummary;
+    }
+
+    if (!$dara.isNull(request.scriptTypeKeyword)) {
+      body["scriptTypeKeyword"] = request.scriptTypeKeyword;
+    }
+
+    if (!$dara.isNull(request.userProvidedContent)) {
+      body["userProvidedContent"] = request.userProvidedContent;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunScriptContinue",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runScriptContinue`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunScriptContinueResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunScriptContinueResponse({}));
+    }
+  }
+
+  /**
+   * 剧本续写
+   * 
+   * @param request - RunScriptContinueRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunScriptContinueResponse
+   */
   async runScriptContinueWithOptions(workspaceId: string, request: $_model.RunScriptContinueRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunScriptContinueResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -1317,6 +2072,76 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runScriptContinueWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 剧本策划
+   * 
+   * @param request - RunScriptPlanningRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunScriptPlanningResponse
+   */
+  async *runScriptPlanningWithSSE(workspaceId: string, request: $_model.RunScriptPlanningRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunScriptPlanningResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.additionalNote)) {
+      body["additionalNote"] = request.additionalNote;
+    }
+
+    if (!$dara.isNull(request.dialogueInScene)) {
+      body["dialogueInScene"] = request.dialogueInScene;
+    }
+
+    if (!$dara.isNull(request.plotConflict)) {
+      body["plotConflict"] = request.plotConflict;
+    }
+
+    if (!$dara.isNull(request.scriptName)) {
+      body["scriptName"] = request.scriptName;
+    }
+
+    if (!$dara.isNull(request.scriptShotCount)) {
+      body["scriptShotCount"] = request.scriptShotCount;
+    }
+
+    if (!$dara.isNull(request.scriptSummary)) {
+      body["scriptSummary"] = request.scriptSummary;
+    }
+
+    if (!$dara.isNull(request.scriptTypeKeyword)) {
+      body["scriptTypeKeyword"] = request.scriptTypeKeyword;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunScriptPlanning",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runScriptPlanning`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunScriptPlanningResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunScriptPlanningResponse({}));
+    }
   }
 
   /**
@@ -1396,6 +2221,52 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunScriptRefineResponse
    */
+  async *runScriptRefineWithSSE(workspaceId: string, request: $_model.RunScriptRefineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunScriptRefineResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunScriptRefine",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runScriptRefine`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunScriptRefineResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunScriptRefineResponse({}));
+    }
+  }
+
+  /**
+   * 剧本对话内容的整理
+   * 
+   * @param request - RunScriptRefineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunScriptRefineResponse
+   */
   async runScriptRefineWithOptions(workspaceId: string, request: $_model.RunScriptRefineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunScriptRefineResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -1431,6 +2302,82 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runScriptRefineWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 文体学习和写作推理服务
+   * 
+   * @param tmpReq - RunStyleWritingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunStyleWritingResponse
+   */
+  async *runStyleWritingWithSSE(workspaceId: string, tmpReq: $_model.RunStyleWritingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunStyleWritingResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunStyleWritingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.learningSamples)) {
+      request.learningSamplesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.learningSamples, "learningSamples", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.referenceMaterials)) {
+      request.referenceMaterialsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.referenceMaterials, "referenceMaterials", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.learningSamplesShrink)) {
+      body["learningSamples"] = request.learningSamplesShrink;
+    }
+
+    if (!$dara.isNull(request.processStage)) {
+      body["processStage"] = request.processStage;
+    }
+
+    if (!$dara.isNull(request.referenceMaterialsShrink)) {
+      body["referenceMaterials"] = request.referenceMaterialsShrink;
+    }
+
+    if (!$dara.isNull(request.styleFeature)) {
+      body["styleFeature"] = request.styleFeature;
+    }
+
+    if (!$dara.isNull(request.useSearch)) {
+      body["useSearch"] = request.useSearch;
+    }
+
+    if (!$dara.isNull(request.writingTheme)) {
+      body["writingTheme"] = request.writingTheme;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunStyleWriting",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runStyleWriting`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunStyleWritingResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunStyleWritingResponse({}));
+    }
   }
 
   /**
@@ -1516,6 +2463,86 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunTagMiningAnalysisResponse
    */
+  async *runTagMiningAnalysisWithSSE(workspaceId: string, tmpReq: $_model.RunTagMiningAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunTagMiningAnalysisResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunTagMiningAnalysisShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.businessType)) {
+      body["businessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.extraInfo)) {
+      body["extraInfo"] = request.extraInfo;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.outputFormat)) {
+      body["outputFormat"] = request.outputFormat;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.taskDescription)) {
+      body["taskDescription"] = request.taskDescription;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunTagMiningAnalysis",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runTagMiningAnalysis`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunTagMiningAnalysisResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunTagMiningAnalysisResponse({}));
+    }
+  }
+
+  /**
+   * 轻应用-标签挖掘
+   * 
+   * @param tmpReq - RunTagMiningAnalysisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunTagMiningAnalysisResponse
+   */
   async runTagMiningAnalysisWithOptions(workspaceId: string, tmpReq: $_model.RunTagMiningAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunTagMiningAnalysisResponse> {
     tmpReq.validate();
     let request = new $_model.RunTagMiningAnalysisShrinkRequest({ });
@@ -1585,6 +2612,158 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runTagMiningAnalysisWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 轻应用-视频理解
+   * 
+   * @param tmpReq - RunVideoAnalysisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunVideoAnalysisResponse
+   */
+  async *runVideoAnalysisWithSSE(workspaceId: string, tmpReq: $_model.RunVideoAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunVideoAnalysisResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunVideoAnalysisShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.excludeGenerateOptions)) {
+      request.excludeGenerateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeGenerateOptions, "excludeGenerateOptions", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.frameSampleMethod)) {
+      request.frameSampleMethodShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.frameSampleMethod, "frameSampleMethod", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.generateOptions)) {
+      request.generateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.generateOptions, "generateOptions", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.textProcessTasks)) {
+      request.textProcessTasksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.textProcessTasks, "textProcessTasks", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.videoCaptionInfo)) {
+      request.videoCaptionInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoCaptionInfo, "videoCaptionInfo", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.videoRoles)) {
+      request.videoRolesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoRoles, "videoRoles", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoRoleRecognitionVideoUrl)) {
+      body["autoRoleRecognitionVideoUrl"] = request.autoRoleRecognitionVideoUrl;
+    }
+
+    if (!$dara.isNull(request.excludeGenerateOptionsShrink)) {
+      body["excludeGenerateOptions"] = request.excludeGenerateOptionsShrink;
+    }
+
+    if (!$dara.isNull(request.faceIdentitySimilarityMinScore)) {
+      body["faceIdentitySimilarityMinScore"] = request.faceIdentitySimilarityMinScore;
+    }
+
+    if (!$dara.isNull(request.frameSampleMethodShrink)) {
+      body["frameSampleMethod"] = request.frameSampleMethodShrink;
+    }
+
+    if (!$dara.isNull(request.generateOptionsShrink)) {
+      body["generateOptions"] = request.generateOptionsShrink;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.modelCustomPromptTemplate)) {
+      body["modelCustomPromptTemplate"] = request.modelCustomPromptTemplate;
+    }
+
+    if (!$dara.isNull(request.modelCustomPromptTemplateId)) {
+      body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.originalSessionId)) {
+      body["originalSessionId"] = request.originalSessionId;
+    }
+
+    if (!$dara.isNull(request.snapshotInterval)) {
+      body["snapshotInterval"] = request.snapshotInterval;
+    }
+
+    if (!$dara.isNull(request.splitInterval)) {
+      body["splitInterval"] = request.splitInterval;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.textProcessTasksShrink)) {
+      body["textProcessTasks"] = request.textProcessTasksShrink;
+    }
+
+    if (!$dara.isNull(request.videoCaptionInfoShrink)) {
+      body["videoCaptionInfo"] = request.videoCaptionInfoShrink;
+    }
+
+    if (!$dara.isNull(request.videoExtraInfo)) {
+      body["videoExtraInfo"] = request.videoExtraInfo;
+    }
+
+    if (!$dara.isNull(request.videoModelCustomPromptTemplate)) {
+      body["videoModelCustomPromptTemplate"] = request.videoModelCustomPromptTemplate;
+    }
+
+    if (!$dara.isNull(request.videoModelId)) {
+      body["videoModelId"] = request.videoModelId;
+    }
+
+    if (!$dara.isNull(request.videoRolesShrink)) {
+      body["videoRoles"] = request.videoRolesShrink;
+    }
+
+    if (!$dara.isNull(request.videoShotFaceIdentityCount)) {
+      body["videoShotFaceIdentityCount"] = request.videoShotFaceIdentityCount;
+    }
+
+    if (!$dara.isNull(request.videoUrl)) {
+      body["videoUrl"] = request.videoUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunVideoAnalysis",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runVideoAnalysis`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunVideoAnalysisResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunVideoAnalysisResponse({}));
+    }
   }
 
   /**

@@ -13,6 +13,7 @@ export { GetEnterpriseVocAnalysisTaskResponseBodyDataUsage } from './GetEnterpri
 export { GetEnterpriseVocAnalysisTaskResponseBodyData } from './GetEnterpriseVocAnalysisTaskResponseBody';
 export { GetEssayCorrectionTaskResponseBodyDataResults } from './GetEssayCorrectionTaskResponseBody';
 export { GetEssayCorrectionTaskResponseBodyData } from './GetEssayCorrectionTaskResponseBody';
+export { GetFileContentResponseBodyData } from './GetFileContentResponseBody';
 export { GetTagMiningAnalysisTaskResponseBodyDataResultsHeader } from './GetTagMiningAnalysisTaskResponseBody';
 export { GetTagMiningAnalysisTaskResponseBodyDataResultsPayloadOutput } from './GetTagMiningAnalysisTaskResponseBody';
 export { GetTagMiningAnalysisTaskResponseBodyDataResultsPayloadUsage } from './GetTagMiningAnalysisTaskResponseBody';
@@ -193,6 +194,9 @@ export { GetEnterpriseVocAnalysisTaskResponse } from './GetEnterpriseVocAnalysis
 export { GetEssayCorrectionTaskRequest } from './GetEssayCorrectionTaskRequest';
 export { GetEssayCorrectionTaskResponseBody } from './GetEssayCorrectionTaskResponseBody';
 export { GetEssayCorrectionTaskResponse } from './GetEssayCorrectionTaskResponse';
+export { GetFileContentRequest } from './GetFileContentRequest';
+export { GetFileContentResponseBody } from './GetFileContentResponseBody';
+export { GetFileContentResponse } from './GetFileContentResponse';
 export { GetTagMiningAnalysisTaskRequest } from './GetTagMiningAnalysisTaskRequest';
 export { GetTagMiningAnalysisTaskResponseBody } from './GetTagMiningAnalysisTaskResponseBody';
 export { GetTagMiningAnalysisTaskResponse } from './GetTagMiningAnalysisTaskResponse';
