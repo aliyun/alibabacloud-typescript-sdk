@@ -2,7 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser extends $dara.Model {
+  displayName?: string;
+  displayNameNew?: string;
+  endUser?: string;
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      displayNameNew: 'DisplayNameNew',
+      endUser: 'EndUser',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      displayNameNew: 'string',
+      endUser: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dara.Model {
+  adUser?: DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser;
   /**
    * @remarks
    * The number of consecutive failures to bind the virtual MFA device, or the number of failures on the verification of the virtual MFA device.
@@ -95,6 +128,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      adUser: 'AdUser',
       consecutiveFails: 'ConsecutiveFails',
       directoryId: 'DirectoryId',
       endUserId: 'EndUserId',
@@ -108,6 +142,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
 
   static types(): { [key: string]: any } {
     return {
+      adUser: DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser,
       consecutiveFails: 'number',
       directoryId: 'string',
       endUserId: 'string',
@@ -120,6 +155,9 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   }
 
   validate() {
+    if(this.adUser && typeof (this.adUser as any).validate === 'function') {
+      (this.adUser as any).validate();
+    }
     super.validate();
   }
 

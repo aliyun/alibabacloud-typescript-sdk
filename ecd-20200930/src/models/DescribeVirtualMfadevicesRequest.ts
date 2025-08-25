@@ -11,6 +11,7 @@ export class DescribeVirtualMFADevicesRequest extends $dara.Model {
    * testuser
    */
   endUserId?: string[];
+  filter?: string;
   /**
    * @remarks
    * The number of entries per page. Valid values: 1 to 500. Default value: 100.
@@ -48,6 +49,7 @@ export class DescribeVirtualMFADevicesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       endUserId: 'EndUserId',
+      filter: 'Filter',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       officeSiteId: 'OfficeSiteId',
@@ -58,6 +60,7 @@ export class DescribeVirtualMFADevicesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       endUserId: { 'type': 'array', 'itemType': 'string' },
+      filter: 'string',
       maxResults: 'number',
       nextToken: 'string',
       officeSiteId: 'string',

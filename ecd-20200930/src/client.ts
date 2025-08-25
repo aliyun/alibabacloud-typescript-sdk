@@ -11134,6 +11134,10 @@ export default class Client extends OpenApi {
       query["EndUserId"] = request.endUserId;
     }
 
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }

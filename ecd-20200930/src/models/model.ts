@@ -185,6 +185,7 @@ export { DescribeUsersInGroupResponseBodyEndUsersUserSetPropertiesModelsProperty
 export { DescribeUsersInGroupResponseBodyEndUsersUserSetPropertiesModels } from './DescribeUsersInGroupResponseBody';
 export { DescribeUsersInGroupResponseBodyEndUsers } from './DescribeUsersInGroupResponseBody';
 export { DescribeUsersPasswordResponseBodyDesktopUsers } from './DescribeUsersPasswordResponseBody';
+export { DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser } from './DescribeVirtualMfadevicesResponseBody';
 export { DescribeVirtualMFADevicesResponseBodyVirtualMFADevices } from './DescribeVirtualMfadevicesResponseBody';
 export { DescribeZonesResponseBodyZones } from './DescribeZonesResponseBody';
 export { DisconnectDesktopSessionsRequestSessions } from './DisconnectDesktopSessionsRequest';
