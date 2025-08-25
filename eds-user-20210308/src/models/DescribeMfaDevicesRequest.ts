@@ -19,6 +19,7 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
    * test
    */
   endUserIds?: string[];
+  filter?: string;
   /**
    * @remarks
    * The maximum number of entries to return. Valid values: 1 to 500.\\
@@ -48,6 +49,7 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
     return {
       adDomain: 'AdDomain',
       endUserIds: 'EndUserIds',
+      filter: 'Filter',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       serialNumbers: 'SerialNumbers',
@@ -58,6 +60,7 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
     return {
       adDomain: 'string',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
+      filter: 'string',
       maxResults: 'number',
       nextToken: 'string',
       serialNumbers: { 'type': 'array', 'itemType': 'string' },

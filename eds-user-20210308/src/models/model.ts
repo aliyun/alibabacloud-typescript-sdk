@@ -12,6 +12,7 @@ export { CreateUsersResponseBodyCreateResult } from './CreateUsersResponseBody';
 export { DescribeGroupUserResponseBodyGroups } from './DescribeGroupUserResponseBody';
 export { DescribeGroupUserResponseBodyUsers } from './DescribeGroupUserResponseBody';
 export { DescribeGroupsResponseBodyGroups } from './DescribeGroupsResponseBody';
+export { DescribeMfaDevicesResponseBodyMfaDevicesAdUser } from './DescribeMfaDevicesResponseBody';
 export { DescribeMfaDevicesResponseBodyMfaDevices } from './DescribeMfaDevicesResponseBody';
 export { DescribeOrgByLayerResponseBodyOrgs } from './DescribeOrgByLayerResponseBody';
 export { DescribeOrgsResponseBodyOrgs } from './DescribeOrgsResponseBody';
