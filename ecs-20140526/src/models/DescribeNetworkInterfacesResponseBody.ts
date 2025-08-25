@@ -509,7 +509,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
   attachment?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetAttachment;
   /**
    * @remarks
-   * The time when the ENI was created.
+   * The time when the security group was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2019-12-25T12:31:31Z

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceTypesRequest extends $dara.Model {
+  additionalAttributes?: string[];
   /**
    * @remarks
    * The CPU architecture. Valid values:
@@ -434,6 +435,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      additionalAttributes: 'AdditionalAttributes',
       cpuArchitecture: 'CpuArchitecture',
       cpuArchitectures: 'CpuArchitectures',
       GPUSpec: 'GPUSpec',
@@ -486,6 +488,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      additionalAttributes: { 'type': 'array', 'itemType': 'string' },
       cpuArchitecture: 'string',
       cpuArchitectures: { 'type': 'array', 'itemType': 'string' },
       GPUSpec: 'string',
@@ -537,6 +540,9 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.additionalAttributes)) {
+      $dara.Model.validateArray(this.additionalAttributes);
+    }
     if(Array.isArray(this.cpuArchitectures)) {
       $dara.Model.validateArray(this.cpuArchitectures);
     }

@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyInstanceNetworkOptionsResponseBody extends $dara.Model {
+export class ModifyInstanceClockOptionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -13,12 +13,12 @@ export class ModifyInstanceNetworkOptionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the redeployment task.
+   * The ID of the modification task.
    * 
-   * You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the redeployment result.
+   * You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the modification results.
    * 
    * @example
-   * t-bp198jigq7l0h5ac****
+   * t-bp1hvgwromzv32iq****
    */
   taskId?: string;
   static names(): { [key: string]: string } {

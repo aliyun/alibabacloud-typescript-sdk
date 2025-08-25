@@ -205,6 +205,20 @@ export class DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigs extend
 }
 
 export class DescribeCloudAssistantSettingsResponseBodySessionManagerConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specify whether to enable Cloud Assistant Session Manager. Valid values:
+   * 
+   * *   true: Enables the feature.
+   * *   false: Disables the feature.
+   * 
+   * Note:
+   * 
+   * *   The feature applies to all regions.
+   * 
+   * @example
+   * true
+   */
   sessionManagerEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -335,6 +349,10 @@ export class DescribeCloudAssistantSettingsResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Cloud Assistant Session Manager configuration.
+   */
   sessionManagerConfig?: DescribeCloudAssistantSettingsResponseBodySessionManagerConfig;
   /**
    * @remarks

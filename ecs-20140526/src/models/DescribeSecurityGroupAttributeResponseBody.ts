@@ -308,6 +308,32 @@ export class DescribeSecurityGroupAttributeResponseBodyPermissions extends $dara
   }
 }
 
+export class DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds extends $dara.Model {
+  snapshotPolicyId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      snapshotPolicyId: 'SnapshotPolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      snapshotPolicyId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.snapshotPolicyId)) {
+      $dara.Model.validateArray(this.snapshotPolicyId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -373,6 +399,7 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
    * SecurityGroupName Sample
    */
   securityGroupName?: string;
+  snapshotPolicyIds?: DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds;
   /**
    * @remarks
    * The ID of the VPC. If a VPC ID is returned, the network type of the security group is VPC. If no VPC ID is returned, the network type of the security group is classic network.
@@ -391,6 +418,7 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
       requestId: 'RequestId',
       securityGroupId: 'SecurityGroupId',
       securityGroupName: 'SecurityGroupName',
+      snapshotPolicyIds: 'SnapshotPolicyIds',
       vpcId: 'VpcId',
     };
   }
@@ -405,6 +433,7 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
       requestId: 'string',
       securityGroupId: 'string',
       securityGroupName: 'string',
+      snapshotPolicyIds: DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds,
       vpcId: 'string',
     };
   }
@@ -412,6 +441,9 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
   validate() {
     if(this.permissions && typeof (this.permissions as any).validate === 'function') {
       (this.permissions as any).validate();
+    }
+    if(this.snapshotPolicyIds && typeof (this.snapshotPolicyIds as any).validate === 'function') {
+      (this.snapshotPolicyIds as any).validate();
     }
     super.validate();
   }

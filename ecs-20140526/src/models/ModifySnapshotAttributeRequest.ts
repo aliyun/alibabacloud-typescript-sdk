@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySnapshotAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with [http:// or https://](http://https://。).
+   * The snapshot description. It can be empty or up to 256 characters in length. It cannot start with http:// or https://.
    * 
    * @example
    * testDescription

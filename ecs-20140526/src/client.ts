@@ -15461,6 +15461,10 @@ export default class Client extends OpenApi {
   async describeInstanceTypesWithOptions(request: $_model.DescribeInstanceTypesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceTypesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.additionalAttributes)) {
+      query["AdditionalAttributes"] = request.additionalAttributes;
+    }
+
     if (!$dara.isNull(request.cpuArchitecture)) {
       query["CpuArchitecture"] = request.cpuArchitecture;
     }
@@ -19061,6 +19065,10 @@ export default class Client extends OpenApi {
   async describeSecurityGroupAttributeWithOptions(request: $_model.DescribeSecurityGroupAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSecurityGroupAttributeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.attribute)) {
+      query["Attribute"] = request.attribute;
+    }
+
     if (!$dara.isNull(request.direction)) {
       query["Direction"] = request.direction;
     }
@@ -26488,6 +26496,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the instance clock options.
+   * 
+   * @remarks
+   * When you call this operation, note that:
+   * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
+   * *   To modify the PtpStatus parameter, you must specify the parameter. The instance types that are supported. You can query the instance type list ([DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) ).
+   * 
+   * @param request - ModifyInstanceClockOptionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceClockOptionsResponse
+   */
+  async modifyInstanceClockOptionsWithOptions(request: $_model.ModifyInstanceClockOptionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceClockOptionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.ptpStatus)) {
+      query["PtpStatus"] = request.ptpStatus;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceClockOptions",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstanceClockOptionsResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceClockOptionsResponse({}));
+  }
+
+  /**
+   * Modifies the instance clock options.
+   * 
+   * @remarks
+   * When you call this operation, note that:
+   * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
+   * *   To modify the PtpStatus parameter, you must specify the parameter. The instance types that are supported. You can query the instance type list ([DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) ).
+   * 
+   * @param request - ModifyInstanceClockOptionsRequest
+   * @returns ModifyInstanceClockOptionsResponse
+   */
+  async modifyInstanceClockOptions(request: $_model.ModifyInstanceClockOptionsRequest): Promise<$_model.ModifyInstanceClockOptionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInstanceClockOptionsWithOptions(request, runtime);
+  }
+
+  /**
    * Changes the deployment set of an Elastic Compute Service (ECS) instance or migrates an ECS instance to a dedicated host. You can change the instance type of an ECS instance when you migrate the instance.
    * 
    * @remarks
@@ -26766,7 +26858,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例网络选项
+   * Modifies instance network configurations.
+   * 
+   * @remarks
+   * When you call this operation, take note of the following item:
+   * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
+   * *   You can modify only one attribute at a time. If you modify multiple attributes, call this operation multiple times.
+   * *   To modify the BandwidthWeighting, you must specify the specifications of the instance. The instance types that are supported. You can query the instance type list (DescribeInstanceTypes).
    * 
    * @param request - ModifyInstanceNetworkOptionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26813,7 +26911,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例网络选项
+   * Modifies instance network configurations.
+   * 
+   * @remarks
+   * When you call this operation, take note of the following item:
+   * *   This is an asynchronous operation. The ID of the asynchronous task is returned after the call. Query the asynchronous task result to determine whether the execution is complete.
+   * *   You can modify only one attribute at a time. If you modify multiple attributes, call this operation multiple times.
+   * *   To modify the BandwidthWeighting, you must specify the specifications of the instance. The instance types that are supported. You can query the instance type list (DescribeInstanceTypes).
    * 
    * @param request - ModifyInstanceNetworkOptionsRequest
    * @returns ModifyInstanceNetworkOptionsResponse
@@ -29094,11 +29198,9 @@ export default class Client extends OpenApi {
    * Changes the type of a snapshot. You can call this operation to convert a standard snapshot into an archive snapshot.
    * 
    * @remarks
-   *   Archive snapshots cannot be restored to standard snapshots.
+   *   Archived snapshots cannot be restored to standard snapshots.
    * *   You can archive only standard snapshots that have been retained for at least 14 days.
-   * *   You cannot archive encrypted snapshots.
    * *   You cannot archive snapshots that are shared to you, snapshots managed by Cloud Backup, or snapshots in cloud boxes.
-   * *   The archive snapshot feature is available only in the China (Hohhot), Malaysia (Kuala Lumpur), South Korea (Seoul), Philippines (Manila), Thailand (Bangkok), and Mexico regions. The availability of the feature in other regions is subject to notice.
    * 
    * @param request - ModifySnapshotCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29156,11 +29258,9 @@ export default class Client extends OpenApi {
    * Changes the type of a snapshot. You can call this operation to convert a standard snapshot into an archive snapshot.
    * 
    * @remarks
-   *   Archive snapshots cannot be restored to standard snapshots.
+   *   Archived snapshots cannot be restored to standard snapshots.
    * *   You can archive only standard snapshots that have been retained for at least 14 days.
-   * *   You cannot archive encrypted snapshots.
    * *   You cannot archive snapshots that are shared to you, snapshots managed by Cloud Backup, or snapshots in cloud boxes.
-   * *   The archive snapshot feature is available only in the China (Hohhot), Malaysia (Kuala Lumpur), South Korea (Seoul), Philippines (Manila), Thailand (Bangkok), and Mexico regions. The availability of the feature in other regions is subject to notice.
    * 
    * @param request - ModifySnapshotCategoryRequest
    * @returns ModifySnapshotCategoryResponse

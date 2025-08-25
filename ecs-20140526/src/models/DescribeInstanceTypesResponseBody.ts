@@ -305,6 +305,119 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCa
   }
 }
 
+export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeightingWeightingInfosWeightingInfo extends $dara.Model {
+  ebsBandwidth?: number;
+  ebsBurstBandwidth?: number;
+  name?: string;
+  vpcBandwidth?: number;
+  vpcBurstBandwidth?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ebsBandwidth: 'EbsBandwidth',
+      ebsBurstBandwidth: 'EbsBurstBandwidth',
+      name: 'Name',
+      vpcBandwidth: 'VpcBandwidth',
+      vpcBurstBandwidth: 'VpcBurstBandwidth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ebsBandwidth: 'number',
+      ebsBurstBandwidth: 'number',
+      name: 'string',
+      vpcBandwidth: 'number',
+      vpcBurstBandwidth: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeightingWeightingInfos extends $dara.Model {
+  weightingInfo?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeightingWeightingInfosWeightingInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      weightingInfo: 'WeightingInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      weightingInfo: { 'type': 'array', 'itemType': DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeightingWeightingInfosWeightingInfo },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.weightingInfo)) {
+      $dara.Model.validateArray(this.weightingInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeighting extends $dara.Model {
+  weightingInfos?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeightingWeightingInfos;
+  static names(): { [key: string]: string } {
+    return {
+      weightingInfos: 'WeightingInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      weightingInfos: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeightingWeightingInfos,
+    };
+  }
+
+  validate() {
+    if(this.weightingInfos && typeof (this.weightingInfos as any).validate === 'function') {
+      (this.weightingInfos as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo extends $dara.Model {
+  bandwidthWeighting?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeighting;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthWeighting: 'BandwidthWeighting',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthWeighting: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeighting,
+    };
+  }
+
+  validate() {
+    if(this.bandwidthWeighting && typeof (this.bandwidthWeighting as any).validate === 'function') {
+      (this.bandwidthWeighting as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeSupportedBootModes extends $dara.Model {
   supportedBootMode?: string[];
   static names(): { [key: string]: string } {
@@ -651,6 +764,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
    * true
    */
   networkEncryptionSupport?: boolean;
+  networkInfo?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo;
   /**
    * @remarks
    * Indicates whether cloud disks can be attached by using the NVMe protocol. Valid values:
@@ -749,6 +863,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
       networkCardQuantity: 'NetworkCardQuantity',
       networkCards: 'NetworkCards',
       networkEncryptionSupport: 'NetworkEncryptionSupport',
+      networkInfo: 'NetworkInfo',
       nvmeSupport: 'NvmeSupport',
       physicalProcessorModel: 'PhysicalProcessorModel',
       primaryEniQueueNumber: 'PrimaryEniQueueNumber',
@@ -798,6 +913,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
       networkCardQuantity: 'number',
       networkCards: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCards,
       networkEncryptionSupport: 'boolean',
+      networkInfo: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo,
       nvmeSupport: 'string',
       physicalProcessorModel: 'string',
       primaryEniQueueNumber: 'number',
@@ -823,6 +939,9 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
     }
     if(this.networkCards && typeof (this.networkCards as any).validate === 'function') {
       (this.networkCards as any).validate();
+    }
+    if(this.networkInfo && typeof (this.networkInfo as any).validate === 'function') {
+      (this.networkInfo as any).validate();
     }
     if(this.supportedBootModes && typeof (this.supportedBootModes as any).validate === 'function') {
       (this.supportedBootModes as any).validate();

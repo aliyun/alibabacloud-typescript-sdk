@@ -433,6 +433,10 @@ export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeCpuOptions } 
 export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeEnhancedNetwork } from './DescribeInstanceTypesResponseBody';
 export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCardsNetworkCardInfo } from './DescribeInstanceTypesResponseBody';
 export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkCards } from './DescribeInstanceTypesResponseBody';
+export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeightingWeightingInfosWeightingInfo } from './DescribeInstanceTypesResponseBody';
+export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeightingWeightingInfos } from './DescribeInstanceTypesResponseBody';
+export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeighting } from './DescribeInstanceTypesResponseBody';
+export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo } from './DescribeInstanceTypesResponseBody';
 export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeSupportedBootModes } from './DescribeInstanceTypesResponseBody';
 export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceType } from './DescribeInstanceTypesResponseBody';
 export { DescribeInstanceTypesResponseBodyInstanceTypes } from './DescribeInstanceTypesResponseBody';
@@ -654,6 +658,7 @@ export { DescribeSavingsPlanPriceResponseBodyPriceInfoRules } from './DescribeSa
 export { DescribeSavingsPlanPriceResponseBodyPriceInfo } from './DescribeSavingsPlanPriceResponseBody';
 export { DescribeSecurityGroupAttributeResponseBodyPermissionsPermission } from './DescribeSecurityGroupAttributeResponseBody';
 export { DescribeSecurityGroupAttributeResponseBodyPermissions } from './DescribeSecurityGroupAttributeResponseBody';
+export { DescribeSecurityGroupAttributeResponseBodySnapshotPolicyIds } from './DescribeSecurityGroupAttributeResponseBody';
 export { DescribeSecurityGroupReferencesResponseBodySecurityGroupReferencesSecurityGroupReferenceReferencingSecurityGroupsReferencingSecurityGroup } from './DescribeSecurityGroupReferencesResponseBody';
 export { DescribeSecurityGroupReferencesResponseBodySecurityGroupReferencesSecurityGroupReferenceReferencingSecurityGroups } from './DescribeSecurityGroupReferencesResponseBody';
 export { DescribeSecurityGroupReferencesResponseBodySecurityGroupReferencesSecurityGroupReference } from './DescribeSecurityGroupReferencesResponseBody';
@@ -1712,6 +1717,9 @@ export { ModifyInstanceAutoRenewAttributeResponse } from './ModifyInstanceAutoRe
 export { ModifyInstanceChargeTypeRequest } from './ModifyInstanceChargeTypeRequest';
 export { ModifyInstanceChargeTypeResponseBody } from './ModifyInstanceChargeTypeResponseBody';
 export { ModifyInstanceChargeTypeResponse } from './ModifyInstanceChargeTypeResponse';
+export { ModifyInstanceClockOptionsRequest } from './ModifyInstanceClockOptionsRequest';
+export { ModifyInstanceClockOptionsResponseBody } from './ModifyInstanceClockOptionsResponseBody';
+export { ModifyInstanceClockOptionsResponse } from './ModifyInstanceClockOptionsResponse';
 export { ModifyInstanceDeploymentRequest } from './ModifyInstanceDeploymentRequest';
 export { ModifyInstanceDeploymentResponseBody } from './ModifyInstanceDeploymentResponseBody';
 export { ModifyInstanceDeploymentResponse } from './ModifyInstanceDeploymentResponse';

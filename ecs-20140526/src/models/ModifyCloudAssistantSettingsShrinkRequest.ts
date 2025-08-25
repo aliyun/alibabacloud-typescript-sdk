@@ -27,6 +27,10 @@ export class ModifyCloudAssistantSettingsShrinkRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Cloud Assistant Session Manager configuration.
+   */
   sessionManagerConfigShrink?: string;
   /**
    * @remarks

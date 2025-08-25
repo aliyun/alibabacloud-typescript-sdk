@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecurityGroupAttributeRequest extends $dara.Model {
   /**
    * @remarks
+   * The attributes of the security group. Valid value: snapshotPolicyIds: queries information about snapshot policies associated with a security group.
+   * 
+   * @example
+   * snapshotPolicyIds
+   */
+  attribute?: string;
+  /**
+   * @remarks
    * The direction in which the security group rule is applied. Valid values:
    * 
    * *   egress: outbound
@@ -87,6 +95,7 @@ export class DescribeSecurityGroupAttributeRequest extends $dara.Model {
   securityGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      attribute: 'Attribute',
       direction: 'Direction',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -102,6 +111,7 @@ export class DescribeSecurityGroupAttributeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attribute: 'string',
       direction: 'string',
       maxResults: 'number',
       nextToken: 'string',
