@@ -6264,6 +6264,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新应用的指定ClientSecret的到期时间
+   * 
+   * @param request - UpdateApplicationClientSecretExpirationTimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationClientSecretExpirationTimeResponse
+   */
+  async updateApplicationClientSecretExpirationTimeWithOptions(request: $_model.UpdateApplicationClientSecretExpirationTimeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApplicationClientSecretExpirationTimeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.expirationTime)) {
+      query["ExpirationTime"] = request.expirationTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.secretId)) {
+      query["SecretId"] = request.secretId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApplicationClientSecretExpirationTime",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApplicationClientSecretExpirationTimeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApplicationClientSecretExpirationTimeResponse({}));
+  }
+
+  /**
+   * 更新应用的指定ClientSecret的到期时间
+   * 
+   * @param request - UpdateApplicationClientSecretExpirationTimeRequest
+   * @returns UpdateApplicationClientSecretExpirationTimeResponse
+   */
+  async updateApplicationClientSecretExpirationTime(request: $_model.UpdateApplicationClientSecretExpirationTimeRequest): Promise<$_model.UpdateApplicationClientSecretExpirationTimeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApplicationClientSecretExpirationTimeWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the description of an Employee Identity and Access Management (EIAM) application.
    * 
    * @param request - UpdateApplicationDescriptionRequest
