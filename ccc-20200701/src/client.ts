@@ -868,7 +868,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AssignUsersResponse
    */
-  // Deprecated
   async assignUsersWithOptions(request: $_model.AssignUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AssignUsersResponse> {
     request.validate();
     let query = { };
@@ -1880,7 +1879,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateCustomCallTaggingResponse
    */
-  // Deprecated
   async createCustomCallTaggingWithOptions(request: $_model.CreateCustomCallTaggingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomCallTaggingResponse> {
     request.validate();
     let query = { };
@@ -3120,7 +3118,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExportCustomCallTaggingResponse
    */
-  // Deprecated
   async exportCustomCallTaggingWithOptions(request: $_model.ExportCustomCallTaggingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExportCustomCallTaggingResponse> {
     request.validate();
     let query = { };
@@ -4144,6 +4141,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取IVR轨迹小结
+   * 
    * @param request - GetIvrTrackingSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetIvrTrackingSummaryResponse
@@ -4177,6 +4176,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取IVR轨迹小结
+   * 
    * @param request - GetIvrTrackingSummaryRequest
    * @returns GetIvrTrackingSummaryResponse
    */
@@ -5248,7 +5249,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ImportCustomCallTaggingResponse
    */
-  // Deprecated
   async importCustomCallTaggingWithOptions(request: $_model.ImportCustomCallTaggingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportCustomCallTaggingResponse> {
     request.validate();
     let query = { };
@@ -5393,6 +5393,60 @@ export default class Client extends OpenApi {
   async importDocuments(request: $_model.ImportDocumentsRequest): Promise<$_model.ImportDocumentsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.importDocumentsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ImportRamUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportRamUsersResponse
+   */
+  async importRamUsersWithOptions(request: $_model.ImportRamUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportRamUsersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ramIdList)) {
+      query["RamIdList"] = request.ramIdList;
+    }
+
+    if (!$dara.isNull(request.roleId)) {
+      query["RoleId"] = request.roleId;
+    }
+
+    if (!$dara.isNull(request.skillLevelList)) {
+      query["SkillLevelList"] = request.skillLevelList;
+    }
+
+    if (!$dara.isNull(request.workMode)) {
+      query["WorkMode"] = request.workMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportRamUsers",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportRamUsersResponse>(await this.callApi(params, req, runtime), new $_model.ImportRamUsersResponse({}));
+  }
+
+  /**
+   * @param request - ImportRamUsersRequest
+   * @returns ImportRamUsersResponse
+   */
+  async importRamUsers(request: $_model.ImportRamUsersRequest): Promise<$_model.ImportRamUsersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.importRamUsersWithOptions(request, runtime);
   }
 
   /**
@@ -5738,7 +5792,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAgentStatesResponse
    */
-  // Deprecated
   async listAgentStatesWithOptions(request: $_model.ListAgentStatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentStatesResponse> {
     request.validate();
     let query = { };
@@ -5810,7 +5863,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAgentSummaryReportsSinceMidnightResponse
    */
-  // Deprecated
   async listAgentSummaryReportsSinceMidnightWithOptions(request: $_model.ListAgentSummaryReportsSinceMidnightRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentSummaryReportsSinceMidnightResponse> {
     request.validate();
     let query = OpenApiUtil.query(request.toMap());
@@ -6786,7 +6838,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCustomCallTaggingResponse
    */
-  // Deprecated
   async listCustomCallTaggingWithOptions(request: $_model.ListCustomCallTaggingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomCallTaggingResponse> {
     request.validate();
     let query = { };
@@ -7061,6 +7112,66 @@ export default class Client extends OpenApi {
   async listFlashSmsApplications(request: $_model.ListFlashSmsApplicationsRequest): Promise<$_model.ListFlashSmsApplicationsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFlashSmsApplicationsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - ListFlashSmsSettingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlashSmsSettingsResponse
+   */
+  async listFlashSmsSettingsWithOptions(tmpReq: $_model.ListFlashSmsSettingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlashSmsSettingsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListFlashSmsSettingsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.skillGroupIdList)) {
+      request.skillGroupIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.skillGroupIdList, "SkillGroupIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.skillGroupIdListShrink)) {
+      query["SkillGroupIdList"] = request.skillGroupIdListShrink;
+    }
+
+    if (!$dara.isNull(request.skillGroupName)) {
+      query["SkillGroupName"] = request.skillGroupName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFlashSmsSettings",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFlashSmsSettingsResponse>(await this.callApi(params, req, runtime), new $_model.ListFlashSmsSettingsResponse({}));
+  }
+
+  /**
+   * @param request - ListFlashSmsSettingsRequest
+   * @returns ListFlashSmsSettingsResponse
+   */
+  async listFlashSmsSettings(request: $_model.ListFlashSmsSettingsRequest): Promise<$_model.ListFlashSmsSettingsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFlashSmsSettingsWithOptions(request, runtime);
   }
 
   /**
@@ -7722,7 +7833,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListLegacyAgentEventLogsResponse
    */
-  // Deprecated
   async listLegacyAgentEventLogsWithOptions(request: $_model.ListLegacyAgentEventLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLegacyAgentEventLogsResponse> {
     request.validate();
     let query = { };
@@ -7790,7 +7900,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListLegacyAgentStatusLogsResponse
    */
-  // Deprecated
   async listLegacyAgentStatusLogsWithOptions(request: $_model.ListLegacyAgentStatusLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLegacyAgentStatusLogsResponse> {
     request.validate();
     let query = { };
@@ -8628,7 +8737,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSkillGroupStatesResponse
    */
-  // Deprecated
   async listSkillGroupStatesWithOptions(request: $_model.ListSkillGroupStatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSkillGroupStatesResponse> {
     request.validate();
     let query = OpenApiUtil.query(request.toMap());
@@ -8672,7 +8780,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSkillGroupSummaryReportsSinceMidnightResponse
    */
-  // Deprecated
   async listSkillGroupSummaryReportsSinceMidnightWithOptions(request: $_model.ListSkillGroupSummaryReportsSinceMidnightRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSkillGroupSummaryReportsSinceMidnightResponse> {
     request.validate();
     let query = OpenApiUtil.query(request.toMap());
