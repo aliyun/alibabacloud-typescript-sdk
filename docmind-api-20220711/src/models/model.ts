@@ -9,6 +9,8 @@ export { SubmitConvertPdfToExcelJobResponseBodyData } from './SubmitConvertPdfTo
 export { SubmitConvertPdfToImageJobResponseBodyData } from './SubmitConvertPdfToImageJobResponseBody';
 export { SubmitConvertPdfToMarkdownJobResponseBodyData } from './SubmitConvertPdfToMarkdownJobResponseBody';
 export { SubmitConvertPdfToWordJobResponseBodyData } from './SubmitConvertPdfToWordJobResponseBody';
+export { SubmitDocParserJobRequestMultimediaParameters } from './SubmitDocParserJobRequest';
+export { SubmitDocParserJobAdvanceRequestMultimediaParameters } from './SubmitDocParserJobAdvanceRequest';
 export { SubmitDocParserJobResponseBodyData } from './SubmitDocParserJobResponseBody';
 export { SubmitDocStructureJobResponseBodyData } from './SubmitDocStructureJobResponseBody';
 export { SubmitDocumentExtractJobResponseBodyData } from './SubmitDocumentExtractJobResponseBody';
@@ -79,6 +81,7 @@ export { SubmitDigitalDocStructureJobResponseBody } from './SubmitDigitalDocStru
 export { SubmitDigitalDocStructureJobResponse } from './SubmitDigitalDocStructureJobResponse';
 export { SubmitDocParserJobRequest } from './SubmitDocParserJobRequest';
 export { SubmitDocParserJobAdvanceRequest } from './SubmitDocParserJobAdvanceRequest';
+export { SubmitDocParserJobShrinkRequest } from './SubmitDocParserJobShrinkRequest';
 export { SubmitDocParserJobResponseBody } from './SubmitDocParserJobResponseBody';
 export { SubmitDocParserJobResponse } from './SubmitDocParserJobResponse';
 export { SubmitDocStructureJobRequest } from './SubmitDocStructureJobRequest';

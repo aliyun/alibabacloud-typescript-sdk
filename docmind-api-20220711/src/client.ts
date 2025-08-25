@@ -1558,12 +1558,18 @@ export default class Client extends OpenApi {
   /**
    * 文档智能解析流式输出
    * 
-   * @param request - SubmitDocParserJobRequest
+   * @param tmpReq - SubmitDocParserJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitDocParserJobResponse
    */
-  async submitDocParserJobWithOptions(request: $_model.SubmitDocParserJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDocParserJobResponse> {
-    request.validate();
+  async submitDocParserJobWithOptions(tmpReq: $_model.SubmitDocParserJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDocParserJobResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitDocParserJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.multimediaParameters)) {
+      request.multimediaParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.multimediaParameters, "MultimediaParameters", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.enhancementMode)) {
       query["EnhancementMode"] = request.enhancementMode;
@@ -1587,6 +1593,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.llmEnhancement)) {
       query["LlmEnhancement"] = request.llmEnhancement;
+    }
+
+    if (!$dara.isNull(request.multimediaParametersShrink)) {
+      query["MultimediaParameters"] = request.multimediaParametersShrink;
     }
 
     if (!$dara.isNull(request.option)) {

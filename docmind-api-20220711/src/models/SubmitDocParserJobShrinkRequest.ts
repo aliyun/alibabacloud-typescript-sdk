@@ -2,33 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SubmitDocParserJobRequestMultimediaParameters extends $dara.Model {
-  enableSynopsisParse?: boolean;
-  vlParsePrompt?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enableSynopsisParse: 'EnableSynopsisParse',
-      vlParsePrompt: 'VlParsePrompt',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableSynopsisParse: 'boolean',
-      vlParsePrompt: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDocParserJobRequest extends $dara.Model {
+export class SubmitDocParserJobShrinkRequest extends $dara.Model {
   enhancementMode?: string;
   /**
    * @example
@@ -47,7 +21,7 @@ export class SubmitDocParserJobRequest extends $dara.Model {
   fileUrl?: string;
   formulaEnhancement?: boolean;
   llmEnhancement?: boolean;
-  multimediaParameters?: SubmitDocParserJobRequestMultimediaParameters;
+  multimediaParametersShrink?: string;
   option?: string;
   ossBucket?: string;
   ossEndpoint?: string;
@@ -61,7 +35,7 @@ export class SubmitDocParserJobRequest extends $dara.Model {
       fileUrl: 'FileUrl',
       formulaEnhancement: 'FormulaEnhancement',
       llmEnhancement: 'LlmEnhancement',
-      multimediaParameters: 'MultimediaParameters',
+      multimediaParametersShrink: 'MultimediaParameters',
       option: 'Option',
       ossBucket: 'OssBucket',
       ossEndpoint: 'OssEndpoint',
@@ -78,7 +52,7 @@ export class SubmitDocParserJobRequest extends $dara.Model {
       fileUrl: 'string',
       formulaEnhancement: 'boolean',
       llmEnhancement: 'boolean',
-      multimediaParameters: SubmitDocParserJobRequestMultimediaParameters,
+      multimediaParametersShrink: 'string',
       option: 'string',
       ossBucket: 'string',
       ossEndpoint: 'string',
@@ -88,9 +62,6 @@ export class SubmitDocParserJobRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.multimediaParameters && typeof (this.multimediaParameters as any).validate === 'function') {
-      (this.multimediaParameters as any).validate();
-    }
     super.validate();
   }
 

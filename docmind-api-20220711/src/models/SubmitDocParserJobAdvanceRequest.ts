@@ -3,6 +3,32 @@ import { Readable } from 'stream';
 import * as $dara from '@darabonba/typescript';
 
 
+export class SubmitDocParserJobAdvanceRequestMultimediaParameters extends $dara.Model {
+  enableSynopsisParse?: boolean;
+  vlParsePrompt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableSynopsisParse: 'EnableSynopsisParse',
+      vlParsePrompt: 'VlParsePrompt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableSynopsisParse: 'boolean',
+      vlParsePrompt: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitDocParserJobAdvanceRequest extends $dara.Model {
   enhancementMode?: string;
   /**
@@ -22,6 +48,7 @@ export class SubmitDocParserJobAdvanceRequest extends $dara.Model {
   fileUrlObject?: Readable;
   formulaEnhancement?: boolean;
   llmEnhancement?: boolean;
+  multimediaParameters?: SubmitDocParserJobAdvanceRequestMultimediaParameters;
   option?: string;
   ossBucket?: string;
   ossEndpoint?: string;
@@ -35,6 +62,7 @@ export class SubmitDocParserJobAdvanceRequest extends $dara.Model {
       fileUrlObject: 'FileUrl',
       formulaEnhancement: 'FormulaEnhancement',
       llmEnhancement: 'LlmEnhancement',
+      multimediaParameters: 'MultimediaParameters',
       option: 'Option',
       ossBucket: 'OssBucket',
       ossEndpoint: 'OssEndpoint',
@@ -51,6 +79,7 @@ export class SubmitDocParserJobAdvanceRequest extends $dara.Model {
       fileUrlObject: 'Readable',
       formulaEnhancement: 'boolean',
       llmEnhancement: 'boolean',
+      multimediaParameters: SubmitDocParserJobAdvanceRequestMultimediaParameters,
       option: 'string',
       ossBucket: 'string',
       ossEndpoint: 'string',
@@ -60,6 +89,9 @@ export class SubmitDocParserJobAdvanceRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.multimediaParameters && typeof (this.multimediaParameters as any).validate === 'function') {
+      (this.multimediaParameters as any).validate();
+    }
     super.validate();
   }
 
