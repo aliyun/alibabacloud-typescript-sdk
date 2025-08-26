@@ -2,26 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateAirflowLoginTokenRequest extends $dara.Model {
+export class GetDataLakeCatalogRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Airflow instance. You can view the instance ID on the [Airflow Instances](https://help.aliyun.com/document_detail/2881043.html) page.
-   * 
    * This parameter is required.
    * 
    * @example
-   * af-b3a7f110a6vmvn7xxxxxx
+   * hive
+   * 
+   * **if can be null:**
+   * false
    */
-  airflowId?: string;
+  catalogName?: string;
+  /**
+   * @example
+   * 3****
+   */
+  tid?: number;
+  /**
+   * @example
+   * 12****
+   */
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
-      airflowId: 'AirflowId',
+      catalogName: 'CatalogName',
+      tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      airflowId: 'string',
+      catalogName: 'string',
+      tid: 'number',
+      workspaceId: 'number',
     };
   }
 

@@ -2,26 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateAirflowLoginTokenRequest extends $dara.Model {
+export class DeleteAirflowRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Airflow instance. You can view the instance ID on the [Airflow Instances](https://help.aliyun.com/document_detail/2881043.html) page.
-   * 
    * This parameter is required.
    * 
    * @example
-   * af-b3a7f110a6vmvn7xxxxxx
+   * af-test****
    */
   airflowId?: string;
+  /**
+   * @example
+   * token-****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 86302423828****
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       airflowId: 'AirflowId',
+      clientToken: 'ClientToken',
+      workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       airflowId: 'string',
+      clientToken: 'string',
+      workspaceId: 'string',
     };
   }
 

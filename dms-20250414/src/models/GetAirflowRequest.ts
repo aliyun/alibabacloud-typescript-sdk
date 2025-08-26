@@ -2,30 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
-export class CreateAirflowLoginTokenResponseBodyData extends $dara.Model {
+export class GetAirflowRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * https://data-dms.aliyuncs.com/airflow/x/xxxx/af-ehrmszbxxxxxxx
+   * af-b3a7f110a6vmvn7****
    */
-  host?: string;
+  airflowId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * f432d77de03b6b95fc24f91414e29c
+   * 8630242382****
    */
-  token?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      host: 'Host',
-      token: 'Token',
+      airflowId: 'AirflowId',
+      workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      host: 'string',
-      token: 'string',
+      airflowId: 'string',
+      workspaceId: 'string',
     };
   }
 
