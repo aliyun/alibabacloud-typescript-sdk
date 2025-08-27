@@ -4143,6 +4143,10 @@ export default class Client extends OpenApi {
   async runCommandWithOptions(request: $_model.RunCommandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunCommandResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentType)) {
+      query["AgentType"] = request.agentType;
+    }
+
     if (!$dara.isNull(request.commandContent)) {
       query["CommandContent"] = request.commandContent;
     }

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunCommandRequest extends $dara.Model {
+  agentType?: string;
   /**
    * @remarks
    * The content of the command.
@@ -41,6 +42,7 @@ export class RunCommandRequest extends $dara.Model {
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
+      agentType: 'AgentType',
       commandContent: 'CommandContent',
       contentEncoding: 'ContentEncoding',
       instanceIds: 'InstanceIds',
@@ -50,6 +52,7 @@ export class RunCommandRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentType: 'string',
       commandContent: 'string',
       contentEncoding: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
