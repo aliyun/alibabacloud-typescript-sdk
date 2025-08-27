@@ -187,6 +187,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
    * 2022-11-24T11:20:00Z
    */
   switchTime?: string;
+  taskParams?: string;
   /**
    * @remarks
    * The task type.
@@ -236,6 +237,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
       status: 'Status',
       subInsNames: 'SubInsNames',
       switchTime: 'SwitchTime',
+      taskParams: 'TaskParams',
       taskType: 'TaskType',
       taskTypeEn: 'TaskTypeEn',
       taskTypeZh: 'TaskTypeZh',
@@ -267,6 +269,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
       status: 'number',
       subInsNames: { 'type': 'array', 'itemType': 'string' },
       switchTime: 'string',
+      taskParams: 'string',
       taskType: 'string',
       taskTypeEn: 'string',
       taskTypeZh: 'string',

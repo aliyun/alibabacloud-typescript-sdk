@@ -143,6 +143,10 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   replicationFactor?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  targetHiddenZoneId?: string;
+  targetSecondaryZoneId?: string;
+  targetVswitchId?: string;
+  targetZoneId?: string;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -160,6 +164,10 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
       replicationFactor: 'ReplicationFactor',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      targetHiddenZoneId: 'TargetHiddenZoneId',
+      targetSecondaryZoneId: 'TargetSecondaryZoneId',
+      targetVswitchId: 'TargetVswitchId',
+      targetZoneId: 'TargetZoneId',
     };
   }
 
@@ -180,6 +188,10 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
       replicationFactor: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      targetHiddenZoneId: 'string',
+      targetSecondaryZoneId: 'string',
+      targetVswitchId: 'string',
+      targetZoneId: 'string',
     };
   }
 

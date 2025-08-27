@@ -136,6 +136,10 @@ export class ModifyNodeSpecRequest extends $dara.Model {
    * 2022-01-05T03:18:53Z
    */
   switchTime?: string;
+  targetHiddenZoneId?: string;
+  targetSecondaryZoneId?: string;
+  targetVswitchId?: string;
+  targetZoneId?: string;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -155,6 +159,10 @@ export class ModifyNodeSpecRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       switchTime: 'SwitchTime',
+      targetHiddenZoneId: 'TargetHiddenZoneId',
+      targetSecondaryZoneId: 'TargetSecondaryZoneId',
+      targetVswitchId: 'TargetVswitchId',
+      targetZoneId: 'TargetZoneId',
     };
   }
 
@@ -177,6 +185,10 @@ export class ModifyNodeSpecRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       switchTime: 'string',
+      targetHiddenZoneId: 'string',
+      targetSecondaryZoneId: 'string',
+      targetVswitchId: 'string',
+      targetZoneId: 'string',
     };
   }
 

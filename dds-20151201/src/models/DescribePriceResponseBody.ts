@@ -1366,6 +1366,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInsta
    * 0.0
    */
   totalProductFee?: number;
+  unitPriceUnit4Buy?: string;
   /**
    * @remarks
    * The price type.
@@ -1399,6 +1400,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInsta
       standDiscountPrice: 'StandDiscountPrice',
       standPrice: 'StandPrice',
       totalProductFee: 'TotalProductFee',
+      unitPriceUnit4Buy: 'UnitPriceUnit4Buy',
       priceType: 'priceType',
       priceUnit: 'priceUnit',
     };
@@ -1421,6 +1423,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInsta
       standDiscountPrice: 'number',
       standPrice: 'number',
       totalProductFee: 'number',
+      unitPriceUnit4Buy: 'string',
       priceType: 'string',
       priceUnit: 'string',
     };

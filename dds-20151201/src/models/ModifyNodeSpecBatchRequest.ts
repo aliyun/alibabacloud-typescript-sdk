@@ -104,6 +104,10 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  targetHiddenZoneId?: string;
+  targetSecondaryZoneId?: string;
+  targetVswitchId?: string;
+  targetZoneId?: string;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -119,6 +123,10 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      targetHiddenZoneId: 'TargetHiddenZoneId',
+      targetSecondaryZoneId: 'TargetSecondaryZoneId',
+      targetVswitchId: 'TargetVswitchId',
+      targetZoneId: 'TargetZoneId',
     };
   }
 
@@ -137,6 +145,10 @@ export class ModifyNodeSpecBatchRequest extends $dara.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      targetHiddenZoneId: 'string',
+      targetSecondaryZoneId: 'string',
+      targetVswitchId: 'string',
+      targetZoneId: 'string',
     };
   }
 

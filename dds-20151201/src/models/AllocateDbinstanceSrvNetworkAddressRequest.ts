@@ -2,47 +2,50 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeInstanceRecoverTimeRequest extends $dara.Model {
+export class AllocateDBInstanceSrvNetworkAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * dds-bpxxxxxxxx
+   * dds-2ze5eb9514e31364
    */
   DBInstanceId?: string;
-  destRegion?: string;
+  /**
+   * @example
+   * d-bp1b7bb3bbe****
+   */
+  nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  securityToken?: string;
-  srcRegion?: string;
+  /**
+   * @example
+   * vpc
+   */
+  srvConnectionType?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
-      destRegion: 'DestRegion',
+      nodeId: 'NodeId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-      srcRegion: 'SrcRegion',
+      srvConnectionType: 'SrvConnectionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
-      destRegion: 'string',
+      nodeId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      securityToken: 'string',
-      srcRegion: 'string',
+      srvConnectionType: 'string',
     };
   }
 

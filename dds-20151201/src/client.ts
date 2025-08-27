@@ -37,7 +37,7 @@ export default class Client extends OpenApi {
       'ap-south-1': "mongodb.ap-south-1.aliyuncs.com",
       'me-east-1': "mongodb.me-east-1.aliyuncs.com",
       'cn-hangzhou-finance': "mongodb.aliyuncs.com",
-      'cn-shanghai-finance-1': "mongodb.aliyuncs.com",
+      'cn-shanghai-finance-1': "mongodb.cn-shanghai-finance-1.aliyuncs.com",
       'cn-shenzhen-finance-1': "mongodb.cn-shenzhen-finance-1.aliyuncs.com",
       'cn-north-2-gov-1': "mongodb.cn-north-2-gov-1.aliyuncs.com",
       'ap-northeast-2-pop': "mongodb.aliyuncs.com",
@@ -72,7 +72,6 @@ export default class Client extends OpenApi {
       'cn-zhengzhou-nebula-1': "mongodb.aliyuncs.com",
       'eu-west-1-oxs': "mongodb.aliyuncs.com",
       'rus-west-1-pop': "mongodb.aliyuncs.com",
-      'na-south-1': "mongodb.na-south-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dds", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -89,6 +88,68 @@ export default class Client extends OpenApi {
     }
 
     return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * @param request - AllocateDBInstanceSrvNetworkAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AllocateDBInstanceSrvNetworkAddressResponse
+   */
+  async allocateDBInstanceSrvNetworkAddressWithOptions(request: $_model.AllocateDBInstanceSrvNetworkAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AllocateDBInstanceSrvNetworkAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.srvConnectionType)) {
+      query["SrvConnectionType"] = request.srvConnectionType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AllocateDBInstanceSrvNetworkAddress",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AllocateDBInstanceSrvNetworkAddressResponse>(await this.callApi(params, req, runtime), new $_model.AllocateDBInstanceSrvNetworkAddressResponse({}));
+  }
+
+  /**
+   * @param request - AllocateDBInstanceSrvNetworkAddressRequest
+   * @returns AllocateDBInstanceSrvNetworkAddressResponse
+   */
+  async allocateDBInstanceSrvNetworkAddress(request: $_model.AllocateDBInstanceSrvNetworkAddressRequest): Promise<$_model.AllocateDBInstanceSrvNetworkAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.allocateDBInstanceSrvNetworkAddressWithOptions(request, runtime);
   }
 
   /**
@@ -5660,6 +5721,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!$dara.isNull(request.roleARN)) {
+      query["RoleARN"] = request.roleARN;
+    }
+
     if (!$dara.isNull(request.targetRegionId)) {
       query["TargetRegionId"] = request.targetRegionId;
     }
@@ -7383,6 +7448,22 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!$dara.isNull(request.targetHiddenZoneId)) {
+      query["TargetHiddenZoneId"] = request.targetHiddenZoneId;
+    }
+
+    if (!$dara.isNull(request.targetSecondaryZoneId)) {
+      query["TargetSecondaryZoneId"] = request.targetSecondaryZoneId;
+    }
+
+    if (!$dara.isNull(request.targetVswitchId)) {
+      query["TargetVswitchId"] = request.targetVswitchId;
+    }
+
+    if (!$dara.isNull(request.targetZoneId)) {
+      query["TargetZoneId"] = request.targetZoneId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7955,6 +8036,22 @@ export default class Client extends OpenApi {
       query["SwitchTime"] = request.switchTime;
     }
 
+    if (!$dara.isNull(request.targetHiddenZoneId)) {
+      query["TargetHiddenZoneId"] = request.targetHiddenZoneId;
+    }
+
+    if (!$dara.isNull(request.targetSecondaryZoneId)) {
+      query["TargetSecondaryZoneId"] = request.targetSecondaryZoneId;
+    }
+
+    if (!$dara.isNull(request.targetVswitchId)) {
+      query["TargetVswitchId"] = request.targetVswitchId;
+    }
+
+    if (!$dara.isNull(request.targetZoneId)) {
+      query["TargetZoneId"] = request.targetZoneId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8052,6 +8149,22 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.targetHiddenZoneId)) {
+      query["TargetHiddenZoneId"] = request.targetHiddenZoneId;
+    }
+
+    if (!$dara.isNull(request.targetSecondaryZoneId)) {
+      query["TargetSecondaryZoneId"] = request.targetSecondaryZoneId;
+    }
+
+    if (!$dara.isNull(request.targetVswitchId)) {
+      query["TargetVswitchId"] = request.targetVswitchId;
+    }
+
+    if (!$dara.isNull(request.targetZoneId)) {
+      query["TargetZoneId"] = request.targetZoneId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -8385,6 +8498,72 @@ export default class Client extends OpenApi {
   async modifySecurityIps(request: $_model.ModifySecurityIpsRequest): Promise<$_model.ModifySecurityIpsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifySecurityIpsWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改MongoDB实例的SRV连接地址
+   * 
+   * @param request - ModifySrvNetworkAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySrvNetworkAddressResponse
+   */
+  async modifySrvNetworkAddressWithOptions(request: $_model.ModifySrvNetworkAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySrvNetworkAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.connectionType)) {
+      query["ConnectionType"] = request.connectionType;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.newConnectionString)) {
+      query["NewConnectionString"] = request.newConnectionString;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySrvNetworkAddress",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySrvNetworkAddressResponse>(await this.callApi(params, req, runtime), new $_model.ModifySrvNetworkAddressResponse({}));
+  }
+
+  /**
+   * 修改MongoDB实例的SRV连接地址
+   * 
+   * @param request - ModifySrvNetworkAddressRequest
+   * @returns ModifySrvNetworkAddressResponse
+   */
+  async modifySrvNetworkAddress(request: $_model.ModifySrvNetworkAddressRequest): Promise<$_model.ModifySrvNetworkAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySrvNetworkAddressWithOptions(request, runtime);
   }
 
   /**

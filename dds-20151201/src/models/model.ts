@@ -155,6 +155,9 @@ export { ListTagResourcesResponseBodyTagResourcesTagResource } from './ListTagRe
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
 export { ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup } from './ModifyGlobalSecurityIpgroupNameResponseBody';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
+export { AllocateDBInstanceSrvNetworkAddressRequest } from './AllocateDbinstanceSrvNetworkAddressRequest';
+export { AllocateDBInstanceSrvNetworkAddressResponseBody } from './AllocateDbinstanceSrvNetworkAddressResponseBody';
+export { AllocateDBInstanceSrvNetworkAddressResponse } from './AllocateDbinstanceSrvNetworkAddressResponse';
 export { AllocateNodePrivateNetworkAddressRequest } from './AllocateNodePrivateNetworkAddressRequest';
 export { AllocateNodePrivateNetworkAddressResponseBody } from './AllocateNodePrivateNetworkAddressResponseBody';
 export { AllocateNodePrivateNetworkAddressResponse } from './AllocateNodePrivateNetworkAddressResponse';
@@ -467,6 +470,9 @@ export { ModifySecurityGroupConfigurationResponse } from './ModifySecurityGroupC
 export { ModifySecurityIpsRequest } from './ModifySecurityIpsRequest';
 export { ModifySecurityIpsResponseBody } from './ModifySecurityIpsResponseBody';
 export { ModifySecurityIpsResponse } from './ModifySecurityIpsResponse';
+export { ModifySrvNetworkAddressRequest } from './ModifySrvNetworkAddressRequest';
+export { ModifySrvNetworkAddressResponseBody } from './ModifySrvNetworkAddressResponseBody';
+export { ModifySrvNetworkAddressResponse } from './ModifySrvNetworkAddressResponse';
 export { ModifyTaskInfoRequest } from './ModifyTaskInfoRequest';
 export { ModifyTaskInfoResponseBody } from './ModifyTaskInfoResponseBody';
 export { ModifyTaskInfoResponse } from './ModifyTaskInfoResponse';

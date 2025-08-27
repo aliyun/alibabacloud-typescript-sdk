@@ -13,27 +13,33 @@ export class DescribeClusterRecoverTimeRequest extends $dara.Model {
    * dds-bp18f7d6b6a7****
    */
   DBInstanceId?: string;
+  destRegion?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  srcRegion?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
+      destRegion: 'DestRegion',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      srcRegion: 'SrcRegion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
+      destRegion: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      srcRegion: 'string',
     };
   }
 

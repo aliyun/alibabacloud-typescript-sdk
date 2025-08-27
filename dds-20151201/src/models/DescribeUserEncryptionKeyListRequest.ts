@@ -17,6 +17,7 @@ export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  roleARN?: string;
   /**
    * @remarks
    * The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent zone list.
@@ -32,6 +33,7 @@ export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      roleARN: 'RoleARN',
       targetRegionId: 'TargetRegionId',
     };
   }
@@ -43,6 +45,7 @@ export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      roleARN: 'string',
       targetRegionId: 'string',
     };
   }
