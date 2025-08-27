@@ -1,7 +1,62 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { TrainStationSearchResponseBodyModule } from "./TrainStationSearchResponseBodyModule";
 
+
+export class TrainStationSearchResponseBodyModuleCities extends $dara.Model {
+  /**
+   * @example
+   * hz
+   */
+  code?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrainStationSearchResponseBodyModule extends $dara.Model {
+  cities?: TrainStationSearchResponseBodyModuleCities[];
+  static names(): { [key: string]: string } {
+    return {
+      cities: 'cities',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cities: { 'type': 'array', 'itemType': TrainStationSearchResponseBodyModuleCities },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cities)) {
+      $dara.Model.validateArray(this.cities);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class TrainStationSearchResponseBody extends $dara.Model {
   /**

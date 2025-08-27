@@ -1,8 +1,112 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { HotelOrderPreValidateRequestDailyList } from "./HotelOrderPreValidateRequestDailyList";
-import { HotelOrderPreValidateRequestOccupantInfoList } from "./HotelOrderPreValidateRequestOccupantInfoList";
 
+
+export class HotelOrderPreValidateRequestDailyList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  board?: string;
+  /**
+   * @example
+   * 100
+   */
+  price?: number;
+  /**
+   * @example
+   * 2022-05-15
+   */
+  rateStartTime?: string;
+  /**
+   * @example
+   * 10
+   */
+  roomCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      board: 'board',
+      price: 'price',
+      rateStartTime: 'rate_start_time',
+      roomCount: 'room_count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      board: 'string',
+      price: 'number',
+      rateStartTime: 'string',
+      roomCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderPreValidateRequestOccupantInfoList extends $dara.Model {
+  /**
+   * @example
+   * 232871871822
+   */
+  cardNo?: string;
+  /**
+   * @example
+   * 1
+   */
+  cardType?: number;
+  name?: string;
+  /**
+   * @example
+   * 12392827121
+   */
+  phone?: string;
+  /**
+   * @example
+   * 128918
+   */
+  staffNo?: string;
+  /**
+   * @example
+   * 1
+   */
+  userType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cardNo: 'card_no',
+      cardType: 'card_type',
+      name: 'name',
+      phone: 'phone',
+      staffNo: 'staff_no',
+      userType: 'user_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardNo: 'string',
+      cardType: 'number',
+      name: 'string',
+      phone: 'string',
+      staffNo: 'string',
+      userType: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class HotelOrderPreValidateRequest extends $dara.Model {
   /**

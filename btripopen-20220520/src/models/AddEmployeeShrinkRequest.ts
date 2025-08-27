@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddEmployeeShrinkRequest extends $dara.Model {
+  accountEmail?: string;
+  accountPhone?: string;
   attribute?: string;
   /**
    * @example
@@ -90,6 +92,8 @@ export class AddEmployeeShrinkRequest extends $dara.Model {
   userNick?: string;
   static names(): { [key: string]: string } {
     return {
+      accountEmail: 'account_email',
+      accountPhone: 'account_phone',
       attribute: 'attribute',
       avatar: 'avatar',
       baseCityCodeListShrink: 'base_city_code_list',
@@ -117,6 +121,8 @@ export class AddEmployeeShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountEmail: 'string',
+      accountPhone: 'string',
       attribute: 'string',
       avatar: 'string',
       baseCityCodeListShrink: 'string',

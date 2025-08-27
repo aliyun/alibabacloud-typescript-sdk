@@ -1,9 +1,328 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { HotelOrderCreateRequestInvoiceInfo } from "./HotelOrderCreateRequestInvoiceInfo";
-import { HotelOrderCreateRequestOccupantInfoList } from "./HotelOrderCreateRequestOccupantInfoList";
-import { HotelOrderCreateRequestPromotionInfo } from "./HotelOrderCreateRequestPromotionInfo";
 
+
+export class HotelOrderCreateRequestInvoiceInfo extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
+  buyerAdd?: string;
+  /**
+   * @example
+   * demo
+   */
+  buyerBankAcc?: string;
+  /**
+   * @example
+   * demo
+   */
+  buyerBankAdd?: string;
+  /**
+   * @example
+   * 0571-82321777
+   */
+  buyerPhone?: string;
+  /**
+   * @example
+   * 1
+   */
+  buyerTaxNum?: string;
+  deliveryAddress?: string;
+  deliveryArea?: string;
+  deliveryCity?: string;
+  deliveryProvince?: string;
+  deliveryStreet?: string;
+  /**
+   * @example
+   * demo
+   */
+  email?: string;
+  /**
+   * @example
+   * 1
+   */
+  invoiceMaterial?: number;
+  /**
+   * @example
+   * demo
+   */
+  invoiceTitle?: string;
+  /**
+   * @example
+   * 1
+   */
+  invoiceType?: number;
+  receiverName?: string;
+  /**
+   * @example
+   * 0571-82321777
+   */
+  receiverPhone?: string;
+  /**
+   * @example
+   * demo
+   */
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buyerAdd: 'buyer_add',
+      buyerBankAcc: 'buyer_bank_acc',
+      buyerBankAdd: 'buyer_bank_add',
+      buyerPhone: 'buyer_phone',
+      buyerTaxNum: 'buyer_tax_num',
+      deliveryAddress: 'delivery_address',
+      deliveryArea: 'delivery_area',
+      deliveryCity: 'delivery_city',
+      deliveryProvince: 'delivery_province',
+      deliveryStreet: 'delivery_street',
+      email: 'email',
+      invoiceMaterial: 'invoice_material',
+      invoiceTitle: 'invoice_title',
+      invoiceType: 'invoice_type',
+      receiverName: 'receiver_name',
+      receiverPhone: 'receiver_phone',
+      remark: 'remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buyerAdd: 'string',
+      buyerBankAcc: 'string',
+      buyerBankAdd: 'string',
+      buyerPhone: 'string',
+      buyerTaxNum: 'string',
+      deliveryAddress: 'string',
+      deliveryArea: 'string',
+      deliveryCity: 'string',
+      deliveryProvince: 'string',
+      deliveryStreet: 'string',
+      email: 'string',
+      invoiceMaterial: 'number',
+      invoiceTitle: 'string',
+      invoiceType: 'number',
+      receiverName: 'string',
+      receiverPhone: 'string',
+      remark: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderCreateRequestOccupantInfoList extends $dara.Model {
+  /**
+   * @example
+   * 124231213
+   */
+  cardNo?: string;
+  /**
+   * @example
+   * 1
+   */
+  cardType?: number;
+  /**
+   * @example
+   * 1
+   */
+  customerType?: number;
+  /**
+   * @example
+   * 123112
+   */
+  departmentId?: string;
+  departmentName?: string;
+  /**
+   * @example
+   * demo
+   */
+  email?: string;
+  /**
+   * @example
+   * 1
+   */
+  employeeType?: number;
+  /**
+   * @example
+   * san
+   */
+  firstName?: string;
+  /**
+   * @example
+   * zhang
+   */
+  lastName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 18277123451
+   */
+  phone?: string;
+  roomNo?: number;
+  /**
+   * @example
+   * 87817182
+   */
+  staffNo?: string;
+  /**
+   * @example
+   * 1
+   */
+  userType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cardNo: 'card_no',
+      cardType: 'card_type',
+      customerType: 'customer_type',
+      departmentId: 'department_id',
+      departmentName: 'department_name',
+      email: 'email',
+      employeeType: 'employee_type',
+      firstName: 'first_name',
+      lastName: 'last_name',
+      name: 'name',
+      phone: 'phone',
+      roomNo: 'room_no',
+      staffNo: 'staff_no',
+      userType: 'user_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardNo: 'string',
+      cardType: 'number',
+      customerType: 'number',
+      departmentId: 'string',
+      departmentName: 'string',
+      email: 'string',
+      employeeType: 'number',
+      firstName: 'string',
+      lastName: 'string',
+      name: 'string',
+      phone: 'string',
+      roomNo: 'number',
+      staffNo: 'string',
+      userType: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderCreateRequestPromotionInfoPromotionDetailInfoList extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  checkStatus?: boolean;
+  /**
+   * @example
+   * true
+   */
+  needCheck?: boolean;
+  promotionCode?: string;
+  /**
+   * @example
+   * 23778127
+   */
+  promotionId?: string;
+  promotionName?: string;
+  /**
+   * @example
+   * 100
+   */
+  promotionPrice?: number;
+  /**
+   * @example
+   * 1
+   */
+  promotionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkStatus: 'check_status',
+      needCheck: 'need_check',
+      promotionCode: 'promotion_code',
+      promotionId: 'promotion_id',
+      promotionName: 'promotion_name',
+      promotionPrice: 'promotion_price',
+      promotionType: 'promotion_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkStatus: 'boolean',
+      needCheck: 'boolean',
+      promotionCode: 'string',
+      promotionId: 'string',
+      promotionName: 'string',
+      promotionPrice: 'number',
+      promotionType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderCreateRequestPromotionInfo extends $dara.Model {
+  promotionDetailInfoList?: HotelOrderCreateRequestPromotionInfoPromotionDetailInfoList[];
+  /**
+   * @example
+   * 100
+   */
+  promotionTotalPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      promotionDetailInfoList: 'promotion_detail_info_list',
+      promotionTotalPrice: 'promotion_total_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      promotionDetailInfoList: { 'type': 'array', 'itemType': HotelOrderCreateRequestPromotionInfoPromotionDetailInfoList },
+      promotionTotalPrice: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.promotionDetailInfoList)) {
+      $dara.Model.validateArray(this.promotionDetailInfoList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class HotelOrderCreateRequest extends $dara.Model {
   /**

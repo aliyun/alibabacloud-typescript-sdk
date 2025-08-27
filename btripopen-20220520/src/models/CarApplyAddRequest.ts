@@ -1,7 +1,73 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CarApplyAddRequestTravelerStandard } from "./CarApplyAddRequestTravelerStandard";
 
+
+export class CarApplyAddRequestTravelerStandardCarCitySet extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  cityCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  cityName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'city_code',
+      cityName: 'city_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CarApplyAddRequestTravelerStandard extends $dara.Model {
+  carCitySet?: CarApplyAddRequestTravelerStandardCarCitySet[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      carCitySet: 'car_city_set',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      carCitySet: { 'type': 'array', 'itemType': CarApplyAddRequestTravelerStandardCarCitySet },
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.carCitySet)) {
+      $dara.Model.validateArray(this.carCitySet);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CarApplyAddRequest extends $dara.Model {
   /**

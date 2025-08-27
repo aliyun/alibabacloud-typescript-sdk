@@ -179,6 +179,14 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountEmail)) {
+      body["account_email"] = request.accountEmail;
+    }
+
+    if (!$dara.isNull(request.accountPhone)) {
+      body["account_phone"] = request.accountPhone;
+    }
+
     if (!$dara.isNull(request.attribute)) {
       body["attribute"] = request.attribute;
     }
@@ -10802,6 +10810,172 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 国际机票改签申请
+   * 
+   * @param tmpReq - IntlFlightReShopApplyRequest
+   * @param headers - IntlFlightReShopApplyHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IntlFlightReShopApplyResponse
+   */
+  async intlFlightReShopApplyWithOptions(tmpReq: $_model.IntlFlightReShopApplyRequest, headers: $_model.IntlFlightReShopApplyHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IntlFlightReShopApplyResponse> {
+    tmpReq.validate();
+    let request = new $_model.IntlFlightReShopApplyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.selectedJourneys)) {
+      request.selectedJourneysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.selectedJourneys, "selected_journeys", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.selectedPassengers)) {
+      request.selectedPassengersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.selectedPassengers, "selected_passengers", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.asyncApplyKey)) {
+      body["async_apply_key"] = request.asyncApplyKey;
+    }
+
+    if (!$dara.isNull(request.asyncApplyMode)) {
+      body["async_apply_mode"] = request.asyncApplyMode;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.outOrderId)) {
+      body["out_order_id"] = request.outOrderId;
+    }
+
+    if (!$dara.isNull(request.outReShopApplyId)) {
+      body["out_re_shop_apply_id"] = request.outReShopApplyId;
+    }
+
+    if (!$dara.isNull(request.passengerJourneyGroupKey)) {
+      body["passenger_journey_group_key"] = request.passengerJourneyGroupKey;
+    }
+
+    if (!$dara.isNull(request.reShopReasonCode)) {
+      body["re_shop_reason_code"] = request.reShopReasonCode;
+    }
+
+    if (!$dara.isNull(request.selectedJourneysShrink)) {
+      body["selected_journeys"] = request.selectedJourneysShrink;
+    }
+
+    if (!$dara.isNull(request.selectedPassengersShrink)) {
+      body["selected_passengers"] = request.selectedPassengersShrink;
+    }
+
+    if (!$dara.isNull(request.userIntentionMemo)) {
+      body["user_intention_memo"] = request.userIntentionMemo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IntlFlightReShopApply",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/intl-flight/v1/flights/action/reshop/apply`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IntlFlightReShopApplyResponse>(await this.callApi(params, req, runtime), new $_model.IntlFlightReShopApplyResponse({}));
+  }
+
+  /**
+   * 国际机票改签申请
+   * 
+   * @param request - IntlFlightReShopApplyRequest
+   * @returns IntlFlightReShopApplyResponse
+   */
+  async intlFlightReShopApply(request: $_model.IntlFlightReShopApplyRequest): Promise<$_model.IntlFlightReShopApplyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.IntlFlightReShopApplyHeaders({ });
+    return await this.intlFlightReShopApplyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 国际机票改签取消
+   * 
+   * @param request - IntlFlightReShopCancelRequest
+   * @param headers - IntlFlightReShopCancelHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IntlFlightReShopCancelResponse
+   */
+  async intlFlightReShopCancelWithOptions(request: $_model.IntlFlightReShopCancelRequest, headers: $_model.IntlFlightReShopCancelHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IntlFlightReShopCancelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.outOrderId)) {
+      body["out_order_id"] = request.outOrderId;
+    }
+
+    if (!$dara.isNull(request.outReShopApplyId)) {
+      body["out_re_shop_apply_id"] = request.outReShopApplyId;
+    }
+
+    if (!$dara.isNull(request.reShopApplyId)) {
+      body["re_shop_apply_id"] = request.reShopApplyId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IntlFlightReShopCancel",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/intl-flight/v1/flights/action/reshop/cancel`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IntlFlightReShopCancelResponse>(await this.callApi(params, req, runtime), new $_model.IntlFlightReShopCancelResponse({}));
+  }
+
+  /**
+   * 国际机票改签取消
+   * 
+   * @param request - IntlFlightReShopCancelRequest
+   * @returns IntlFlightReShopCancelResponse
+   */
+  async intlFlightReShopCancel(request: $_model.IntlFlightReShopCancelRequest): Promise<$_model.IntlFlightReShopCancelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.IntlFlightReShopCancelHeaders({ });
+    return await this.intlFlightReShopCancelWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 国际机票改签咨询
    * 
    * @param request - IntlFlightReShopConsultRequest
@@ -10812,18 +10986,6 @@ export default class Client extends OpenApi {
   async intlFlightReShopConsultWithOptions(request: $_model.IntlFlightReShopConsultRequest, headers: $_model.IntlFlightReShopConsultHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IntlFlightReShopConsultResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.btripUserId)) {
-      query["btrip_user_id"] = request.btripUserId;
-    }
-
-    if (!$dara.isNull(request.buyerName)) {
-      query["buyer_name"] = request.buyerName;
-    }
-
-    if (!$dara.isNull(request.isvName)) {
-      query["isv_name"] = request.isvName;
-    }
-
     if (!$dara.isNull(request.orderId)) {
       query["order_id"] = request.orderId;
     }
@@ -10869,6 +11031,350 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.IntlFlightReShopConsultHeaders({ });
     return await this.intlFlightReShopConsultWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 国际机票改签详情
+   * 
+   * @param request - IntlFlightReShopDetailRequest
+   * @param headers - IntlFlightReShopDetailHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IntlFlightReShopDetailResponse
+   */
+  async intlFlightReShopDetailWithOptions(request: $_model.IntlFlightReShopDetailRequest, headers: $_model.IntlFlightReShopDetailHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IntlFlightReShopDetailResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.orderId)) {
+      query["order_id"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.outOrderId)) {
+      query["out_order_id"] = request.outOrderId;
+    }
+
+    if (!$dara.isNull(request.outReShopApplyId)) {
+      query["out_re_shop_apply_id"] = request.outReShopApplyId;
+    }
+
+    if (!$dara.isNull(request.reShopApplyId)) {
+      query["re_shop_apply_id"] = request.reShopApplyId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IntlFlightReShopDetail",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/intl-flight/v1/flights/action/reshop/detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IntlFlightReShopDetailResponse>(await this.callApi(params, req, runtime), new $_model.IntlFlightReShopDetailResponse({}));
+  }
+
+  /**
+   * 国际机票改签详情
+   * 
+   * @param request - IntlFlightReShopDetailRequest
+   * @returns IntlFlightReShopDetailResponse
+   */
+  async intlFlightReShopDetail(request: $_model.IntlFlightReShopDetailRequest): Promise<$_model.IntlFlightReShopDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.IntlFlightReShopDetailHeaders({ });
+    return await this.intlFlightReShopDetailWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 国际机票改签支付
+   * 
+   * @param request - IntlFlightReShopPayRequest
+   * @param headers - IntlFlightReShopPayHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IntlFlightReShopPayResponse
+   */
+  async intlFlightReShopPayWithOptions(request: $_model.IntlFlightReShopPayRequest, headers: $_model.IntlFlightReShopPayHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IntlFlightReShopPayResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.outOrderId)) {
+      body["out_order_id"] = request.outOrderId;
+    }
+
+    if (!$dara.isNull(request.outReShopApplyId)) {
+      body["out_re_shop_apply_id"] = request.outReShopApplyId;
+    }
+
+    if (!$dara.isNull(request.reShopApplyId)) {
+      body["re_shop_apply_id"] = request.reShopApplyId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IntlFlightReShopPay",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/intl-flight/v1/flights/action/reshop/pay`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IntlFlightReShopPayResponse>(await this.callApi(params, req, runtime), new $_model.IntlFlightReShopPayResponse({}));
+  }
+
+  /**
+   * 国际机票改签支付
+   * 
+   * @param request - IntlFlightReShopPayRequest
+   * @returns IntlFlightReShopPayResponse
+   */
+  async intlFlightReShopPay(request: $_model.IntlFlightReShopPayRequest): Promise<$_model.IntlFlightReShopPayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.IntlFlightReShopPayHeaders({ });
+    return await this.intlFlightReShopPayWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 国际机票退票申请
+   * 
+   * @param tmpReq - IntlFlightRefundApplyRequest
+   * @param headers - IntlFlightRefundApplyHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IntlFlightRefundApplyResponse
+   */
+  async intlFlightRefundApplyWithOptions(tmpReq: $_model.IntlFlightRefundApplyRequest, headers: $_model.IntlFlightRefundApplyHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IntlFlightRefundApplyResponse> {
+    tmpReq.validate();
+    let request = new $_model.IntlFlightRefundApplyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.refundSegmentList)) {
+      request.refundSegmentListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.refundSegmentList, "refund_segment_list", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.selectedPassengers)) {
+      request.selectedPassengersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.selectedPassengers, "selected_passengers", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.orderId)) {
+      body["order_id"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.outOrderId)) {
+      body["out_order_id"] = request.outOrderId;
+    }
+
+    if (!$dara.isNull(request.outRefundApplyId)) {
+      body["out_refund_apply_id"] = request.outRefundApplyId;
+    }
+
+    if (!$dara.isNull(request.passengerJourneyGroupKey)) {
+      body["passenger_journey_group_key"] = request.passengerJourneyGroupKey;
+    }
+
+    if (!$dara.isNull(request.refundReasonCode)) {
+      body["refund_reason_code"] = request.refundReasonCode;
+    }
+
+    if (!$dara.isNull(request.refundSegmentListShrink)) {
+      body["refund_segment_list"] = request.refundSegmentListShrink;
+    }
+
+    if (!$dara.isNull(request.selectedPassengersShrink)) {
+      body["selected_passengers"] = request.selectedPassengersShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IntlFlightRefundApply",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/intl-flight/v1/flights/action/refund/apply`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IntlFlightRefundApplyResponse>(await this.callApi(params, req, runtime), new $_model.IntlFlightRefundApplyResponse({}));
+  }
+
+  /**
+   * 国际机票退票申请
+   * 
+   * @param request - IntlFlightRefundApplyRequest
+   * @returns IntlFlightRefundApplyResponse
+   */
+  async intlFlightRefundApply(request: $_model.IntlFlightRefundApplyRequest): Promise<$_model.IntlFlightRefundApplyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.IntlFlightRefundApplyHeaders({ });
+    return await this.intlFlightRefundApplyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 国际机票退票咨询
+   * 
+   * @param request - IntlFlightRefundConsultRequest
+   * @param headers - IntlFlightRefundConsultHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IntlFlightRefundConsultResponse
+   */
+  async intlFlightRefundConsultWithOptions(request: $_model.IntlFlightRefundConsultRequest, headers: $_model.IntlFlightRefundConsultHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IntlFlightRefundConsultResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.orderId)) {
+      query["order_id"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.outOrderId)) {
+      query["out_order_id"] = request.outOrderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IntlFlightRefundConsult",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/intl-flight/v1/flights/action/refund/consult`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IntlFlightRefundConsultResponse>(await this.callApi(params, req, runtime), new $_model.IntlFlightRefundConsultResponse({}));
+  }
+
+  /**
+   * 国际机票退票咨询
+   * 
+   * @param request - IntlFlightRefundConsultRequest
+   * @returns IntlFlightRefundConsultResponse
+   */
+  async intlFlightRefundConsult(request: $_model.IntlFlightRefundConsultRequest): Promise<$_model.IntlFlightRefundConsultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.IntlFlightRefundConsultHeaders({ });
+    return await this.intlFlightRefundConsultWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 国际机票退票详情
+   * 
+   * @param request - IntlFlightRefundDetailRequest
+   * @param headers - IntlFlightRefundDetailHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IntlFlightRefundDetailResponse
+   */
+  async intlFlightRefundDetailWithOptions(request: $_model.IntlFlightRefundDetailRequest, headers: $_model.IntlFlightRefundDetailHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.IntlFlightRefundDetailResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.orderId)) {
+      query["order_id"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.outOrderId)) {
+      query["out_order_id"] = request.outOrderId;
+    }
+
+    if (!$dara.isNull(request.outRefundApplyId)) {
+      query["out_refund_apply_id"] = request.outRefundApplyId;
+    }
+
+    if (!$dara.isNull(request.refundApplyId)) {
+      query["refund_apply_id"] = request.refundApplyId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "IntlFlightRefundDetail",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/intl-flight/v1/flights/action/refund/detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.IntlFlightRefundDetailResponse>(await this.callApi(params, req, runtime), new $_model.IntlFlightRefundDetailResponse({}));
+  }
+
+  /**
+   * 国际机票退票详情
+   * 
+   * @param request - IntlFlightRefundDetailRequest
+   * @returns IntlFlightRefundDetailResponse
+   */
+  async intlFlightRefundDetail(request: $_model.IntlFlightRefundDetailRequest): Promise<$_model.IntlFlightRefundDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.IntlFlightRefundDetailHeaders({ });
+    return await this.intlFlightRefundDetailWithOptions(request, headers, runtime);
   }
 
   /**
@@ -14854,6 +15360,262 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增差旅标准关联人员实体
+   * 
+   * @param tmpReq - TravelStandardRelateAddRequest
+   * @param headers - TravelStandardRelateAddHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TravelStandardRelateAddResponse
+   */
+  async travelStandardRelateAddWithOptions(tmpReq: $_model.TravelStandardRelateAddRequest, headers: $_model.TravelStandardRelateAddHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.TravelStandardRelateAddResponse> {
+    tmpReq.validate();
+    let request = new $_model.TravelStandardRelateAddShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.addList)) {
+      request.addListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addList, "add_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addListShrink)) {
+      body["add_list"] = request.addListShrink;
+    }
+
+    if (!$dara.isNull(request.fromGroup)) {
+      body["from_group"] = request.fromGroup;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      body["rule_id"] = request.ruleId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TravelStandardRelateAdd",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/travel-manage/v1/standards/add-relate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TravelStandardRelateAddResponse>(await this.callApi(params, req, runtime), new $_model.TravelStandardRelateAddResponse({}));
+  }
+
+  /**
+   * 新增差旅标准关联人员实体
+   * 
+   * @param request - TravelStandardRelateAddRequest
+   * @returns TravelStandardRelateAddResponse
+   */
+  async travelStandardRelateAdd(request: $_model.TravelStandardRelateAddRequest): Promise<$_model.TravelStandardRelateAddResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.TravelStandardRelateAddHeaders({ });
+    return await this.travelStandardRelateAddWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除差旅标准关联人员实体
+   * 
+   * @param tmpReq - TravelStandardRelateDeleteRequest
+   * @param headers - TravelStandardRelateDeleteHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TravelStandardRelateDeleteResponse
+   */
+  async travelStandardRelateDeleteWithOptions(tmpReq: $_model.TravelStandardRelateDeleteRequest, headers: $_model.TravelStandardRelateDeleteHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.TravelStandardRelateDeleteResponse> {
+    tmpReq.validate();
+    let request = new $_model.TravelStandardRelateDeleteShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.removeList)) {
+      request.removeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.removeList, "remove_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fromGroup)) {
+      body["from_group"] = request.fromGroup;
+    }
+
+    if (!$dara.isNull(request.removeListShrink)) {
+      body["remove_list"] = request.removeListShrink;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      body["rule_id"] = request.ruleId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TravelStandardRelateDelete",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/travel-manage/v1/standards/delete-relate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TravelStandardRelateDeleteResponse>(await this.callApi(params, req, runtime), new $_model.TravelStandardRelateDeleteResponse({}));
+  }
+
+  /**
+   * 删除差旅标准关联人员实体
+   * 
+   * @param request - TravelStandardRelateDeleteRequest
+   * @returns TravelStandardRelateDeleteResponse
+   */
+  async travelStandardRelateDelete(request: $_model.TravelStandardRelateDeleteRequest): Promise<$_model.TravelStandardRelateDeleteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.TravelStandardRelateDeleteHeaders({ });
+    return await this.travelStandardRelateDeleteWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询差旅标准关联人员实体
+   * 
+   * @param request - TravelStandardRelateQueryRequest
+   * @param headers - TravelStandardRelateQueryHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TravelStandardRelateQueryResponse
+   */
+  async travelStandardRelateQueryWithOptions(request: $_model.TravelStandardRelateQueryRequest, headers: $_model.TravelStandardRelateQueryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.TravelStandardRelateQueryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fromGroup)) {
+      query["from_group"] = request.fromGroup;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["rule_id"] = request.ruleId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TravelStandardRelateQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/travel-manage/v1/standards/query-relate`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TravelStandardRelateQueryResponse>(await this.callApi(params, req, runtime), new $_model.TravelStandardRelateQueryResponse({}));
+  }
+
+  /**
+   * 查询差旅标准关联人员实体
+   * 
+   * @param request - TravelStandardRelateQueryRequest
+   * @returns TravelStandardRelateQueryResponse
+   */
+  async travelStandardRelateQuery(request: $_model.TravelStandardRelateQueryRequest): Promise<$_model.TravelStandardRelateQueryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.TravelStandardRelateQueryHeaders({ });
+    return await this.travelStandardRelateQueryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新差旅标准绑定员工类型
+   * 
+   * @param request - TravelStandardScopeSaveRequest
+   * @param headers - TravelStandardScopeSaveHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TravelStandardScopeSaveResponse
+   */
+  async travelStandardScopeSaveWithOptions(request: $_model.TravelStandardScopeSaveRequest, headers: $_model.TravelStandardScopeSaveHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.TravelStandardScopeSaveResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fromGroup)) {
+      query["from_group"] = request.fromGroup;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["rule_id"] = request.ruleId;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      query["scope"] = request.scope;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = String(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TravelStandardScopeSave",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/travel-manage/v1/standards/save-scope`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TravelStandardScopeSaveResponse>(await this.callApi(params, req, runtime), new $_model.TravelStandardScopeSaveResponse({}));
+  }
+
+  /**
+   * 更新差旅标准绑定员工类型
+   * 
+   * @param request - TravelStandardScopeSaveRequest
+   * @returns TravelStandardScopeSaveResponse
+   */
+  async travelStandardScopeSave(request: $_model.TravelStandardScopeSaveRequest): Promise<$_model.TravelStandardScopeSaveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.TravelStandardScopeSaveHeaders({ });
+    return await this.travelStandardScopeSaveWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询业务流程
    * 
    * @param request - TripBusinessInstanceQueryRequest
@@ -15210,6 +15972,14 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountEmail)) {
+      body["account_email"] = request.accountEmail;
+    }
+
+    if (!$dara.isNull(request.accountPhone)) {
+      body["account_phone"] = request.accountPhone;
+    }
+
     if (!$dara.isNull(request.attribute)) {
       body["attribute"] = request.attribute;
     }

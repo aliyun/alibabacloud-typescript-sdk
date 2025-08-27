@@ -27,10 +27,6 @@ export class ExternalUserAddShrinkRequest extends $dara.Model {
    * 13438009765
    */
   phone?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   realName?: string;
   /**
    * @example
