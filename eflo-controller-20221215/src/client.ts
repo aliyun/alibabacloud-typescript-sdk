@@ -130,7 +130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 断开连接
+   * Disconnect Connection
    * 
    * @param request - CloseSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -165,7 +165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 断开连接
+   * Disconnect Connection
    * 
    * @param request - CloseSessionRequest
    * @returns CloseSessionResponse
@@ -176,7 +176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Lingjun cluster.
+   * Create a large-scale computing cluster
    * 
    * @param tmpReq - CreateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -271,7 +271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Lingjun cluster.
+   * Create a large-scale computing cluster
    * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
@@ -436,7 +436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建集群下的节点分组
+   * Create Node Group under Cluster
    * 
    * @param tmpReq - CreateNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -485,7 +485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建集群下的节点分组
+   * Create Node Group under Cluster
    * 
    * @param request - CreateNodeGroupRequest
    * @returns CreateNodeGroupResponse
@@ -752,7 +752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询灵骏集群详情。
+   * Queries information about a Lingjun cluster.
    * 
    * @param request - DescribeClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -783,7 +783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询灵骏集群详情。
+   * Queries information about a Lingjun cluster.
    * 
    * @param request - DescribeClusterRequest
    * @returns DescribeClusterResponse
@@ -896,7 +896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网络测试结果
+   * Query Network Test Result
    * 
    * @param request - DescribeNetTestResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -927,7 +927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网络测试结果
+   * Query Network Test Result
    * 
    * @param request - DescribeNetTestResultRequest
    * @returns DescribeNetTestResultResponse
@@ -977,6 +977,48 @@ export default class Client extends OpenApi {
   async describeNode(request: $_model.DescribeNodeRequest): Promise<$_model.DescribeNodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeNodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建Web Terminal会话
+   * 
+   * @param request - DescribeNodeTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNodeTypeResponse
+   */
+  async describeNodeTypeWithOptions(request: $_model.DescribeNodeTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNodeTypeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nodeType)) {
+      body["NodeType"] = request.nodeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNodeType",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeNodeTypeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeNodeTypeResponse({}));
+  }
+
+  /**
+   * 创建Web Terminal会话
+   * 
+   * @param request - DescribeNodeTypeRequest
+   * @returns DescribeNodeTypeResponse
+   */
+  async describeNodeType(request: $_model.DescribeNodeTypeRequest): Promise<$_model.DescribeNodeTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeNodeTypeWithOptions(request, runtime);
   }
 
   /**
@@ -1194,7 +1236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales out a cluster.
+   * Cluster Scaling
    * 
    * @param tmpReq - ExtendClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1259,7 +1301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales out a cluster.
+   * Cluster Scaling
    * 
    * @param request - ExtendClusterRequest
    * @returns ExtendClusterResponse
@@ -1390,7 +1432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 诊断任务列表
+   * List of Diagnostic Tasks
    * 
    * @param request - ListDiagnosticResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1433,7 +1475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 诊断任务列表
+   * List of Diagnostic Tasks
    * 
    * @param request - ListDiagnosticResultsRequest
    * @returns ListDiagnosticResultsResponse
@@ -1562,7 +1604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用HPNZone和机型查询机型网络配置
+   * Query machine network configuration using HPNZone and machine type
    * 
    * @param tmpReq - ListMachineNetworkInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1599,7 +1641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用HPNZone和机型查询机型网络配置
+   * Query machine network configuration using HPNZone and machine type
    * 
    * @param request - ListMachineNetworkInfoRequest
    * @returns ListMachineNetworkInfoResponse
@@ -1824,7 +1866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户可以使用的集群类型
+   * Query the cluster types available to the user
    * 
    * @param request - ListUserClusterTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1847,7 +1889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户可以使用的集群类型
+   * Query the cluster types available to the user
    * @returns ListUserClusterTypesResponse
    */
   async listUserClusterTypes(): Promise<$_model.ListUserClusterTypesResponse> {
@@ -2514,10 +2556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a node group.
-   * 
-   * @remarks
-   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+   * Update Node Group
    * 
    * @param request - UpdateNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2572,10 +2611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a node group.
-   * 
-   * @remarks
-   * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+   * Update Node Group
    * 
    * @param request - UpdateNodeGroupRequest
    * @returns UpdateNodeGroupResponse

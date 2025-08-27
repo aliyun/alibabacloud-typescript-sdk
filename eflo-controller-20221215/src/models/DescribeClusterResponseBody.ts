@@ -1,21 +1,94 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeClusterResponseBodyComponents } from "./DescribeClusterResponseBodyComponents";
-import { DescribeClusterResponseBodyNetworks } from "./DescribeClusterResponseBodyNetworks";
 
+
+export class DescribeClusterResponseBodyComponents extends $dara.Model {
+  /**
+   * @remarks
+   * The component ID.
+   * 
+   * @example
+   * i149549021660892626529
+   */
+  componentId?: string;
+  /**
+   * @remarks
+   * The component type.
+   * 
+   * Valid values:
+   * 
+   * *   ARMS
+   * *   ACKEdge
+   * 
+   * @example
+   * ACKEdge
+   */
+  componentType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      componentId: 'ComponentId',
+      componentType: 'ComponentType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentId: 'string',
+      componentType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterResponseBodyNetworks extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the CIDR block for the cluster.
+   * 
+   * @example
+   * vpd-iqd7xunc
+   */
+  vpdId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpdId: 'VpdId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpdId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 集群描述
+   * The cluster description.
    * 
    * @example
-   * 测试集群
+   * Test cluster
    */
   clusterDescription?: string;
   /**
    * @remarks
-   * 集群id
+   * The cluster ID.
    * 
    * @example
    * i116913051662373010974
@@ -23,7 +96,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 集群名称
+   * The cluster name.
    * 
    * @example
    * Eflo-YJ-Test-Cluster
@@ -31,7 +104,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * 集群类型
+   * The cluster type.
    * 
    * @example
    * AckEdgePro
@@ -39,12 +112,12 @@ export class DescribeClusterResponseBody extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * 组件信息
+   * The component information.
    */
   components?: DescribeClusterResponseBodyComponents[];
   /**
    * @remarks
-   * 计算网络的IP类型
+   * The IP type of the computing network.
    * 
    * @example
    * IPv4
@@ -52,7 +125,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   computingIpVersion?: string;
   /**
    * @remarks
-   * 创建时间
+   * The creation time.
    * 
    * @example
    * 2022-06-08T07:05:11Z
@@ -60,7 +133,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * 集群编号
+   * The cluster number.
    * 
    * @example
    * A2
@@ -68,12 +141,12 @@ export class DescribeClusterResponseBody extends $dara.Model {
   hpnZone?: string;
   /**
    * @remarks
-   * 网络信息
+   * The network information.
    */
   networks?: DescribeClusterResponseBodyNetworks;
   /**
    * @remarks
-   * 节点数
+   * The number of nodes.
    * 
    * @example
    * 2
@@ -81,7 +154,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * 节点组数量
+   * The number of node groups.
    * 
    * @example
    * 2
@@ -89,7 +162,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   nodeGroupCount?: number;
   /**
    * @remarks
-   * 网络接口巨帧
+   * The status of Jumbo Frames for the elastic network interface (ENI).
    * 
    * @example
    * unsupported
@@ -97,7 +170,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   openEniJumboFrame?: string;
   /**
    * @remarks
-   * 集群状态
+   * The cluster status.
    * 
    * @example
    * running
@@ -105,7 +178,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   operatingState?: string;
   /**
    * @remarks
-   * 请求id。
+   * The request ID.
    * 
    * @example
    * 887FA855-89F4-5DB3-B305-C5879EC480E6
@@ -113,7 +186,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 资源组id
+   * The resource group ID.
    * 
    * @example
    * rg-aek2k3rqlvv6ytq
@@ -121,7 +194,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * 任务id
+   * The job ID.
    * 
    * @example
    * i152609221670466904596
@@ -129,7 +202,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * 更新时间
+   * The update time.
    * 
    * @example
    * 2022-08-23T06:36:17.000Z
@@ -137,7 +210,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * 专有网络ID
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-0jlkqysom5dmcviymep3f

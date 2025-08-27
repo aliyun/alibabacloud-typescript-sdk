@@ -2,34 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListClusterNodesRequestTags extends $dara.Model {
+export class DescribeNodeTypeRequest extends $dara.Model {
   /**
-   * @remarks
-   * The tag key for the node.
-   * 
    * @example
-   * aa_key
+   * standard
    */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value for the node.
-   * 
-   * @example
-   * aa_value
-   */
-  value?: string;
+  nodeType?: string;
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
-      value: 'Value',
+      nodeType: 'NodeType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
-      value: 'string',
+      nodeType: 'string',
     };
   }
 

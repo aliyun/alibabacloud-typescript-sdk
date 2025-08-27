@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateNodeGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether file storage mounting is supported.
+   * Whether file storage mounting is supported
    * 
    * @example
    * True
@@ -13,28 +13,31 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   fileSystemMountEnabled?: boolean;
   /**
    * @remarks
-   * The default image ID of the node group. if you do not set this parameter, the image ID will not change.
+   * The default image ID of the node group. If not set, it will not change.
    * 
    * @example
-   * i123847249284734
+   * i1232142432432
    */
   imageId?: string;
   /**
    * @remarks
-   * The name of the key pair.
+   * Key pair name.
    * 
    * @example
-   * sc-key
+   * test
    */
   keyPairName?: string;
   /**
    * @remarks
-   * 节点组内机器的登录密码
+   * Login password for machines within the node group
+   * 
+   * @example
+   * LoginPassword
    */
   loginPassword?: string;
   /**
    * @remarks
-   * The node group name
+   * Node group name
    * 
    * @example
    * test-update
@@ -42,7 +45,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   newNodeGroupName?: string;
   /**
    * @remarks
-   * The node group ID.
+   * Node group ID
    * 
    * @example
    * i120021051733814190732
@@ -50,7 +53,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
-   * The custom script.
+   * User-defined script
    * 
    * @example
    * #!/bin/bash

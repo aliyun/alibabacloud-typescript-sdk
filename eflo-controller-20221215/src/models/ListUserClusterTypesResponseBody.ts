@@ -1,11 +1,57 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListUserClusterTypesResponseBodyClusterTypes } from "./ListUserClusterTypesResponseBodyClusterTypes";
 
+
+export class ListUserClusterTypesResponseBodyClusterTypes extends $dara.Model {
+  /**
+   * @remarks
+   * The access type of cluster type
+   * 
+   * @example
+   * Public
+   */
+  accessType?: string;
+  /**
+   * @remarks
+   * The name of cluster type
+   * 
+   * @example
+   * AckEdgePro
+   */
+  typeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessType: 'AccessType',
+      typeName: 'TypeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessType: 'string',
+      typeName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListUserClusterTypesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of cluster types. Number of elements in the array: 1 to 100.
+   */
   clusterTypes?: ListUserClusterTypesResponseBodyClusterTypes[];
   /**
+   * @remarks
+   * NextToken for the next page. Include this value when requesting the next page.
+   * 
    * @example
    * 3a6b93229825ac667104463b56790c91
    */

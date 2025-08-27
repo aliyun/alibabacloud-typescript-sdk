@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The node group ID.
+   * Node group ID
    * 
    * @example
    * ng-ec3c96ff0aa4c60d
    */
   nodeGroupId?: string;
   /**
+   * @remarks
+   * NodeGroupName
+   * 
    * @example
    * emr-default
    */
   nodeGroupName?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 887FA855-89F4-5DB3-B305-C5879EC480E6
