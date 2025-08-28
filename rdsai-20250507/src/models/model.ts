@@ -1,4 +1,5 @@
 export { DescribeAppInstancesResponseBodyInstances } from './DescribeAppInstancesResponseBody';
+export { DescribeInstanceAuthInfoResponseBodyApiKeys } from './DescribeInstanceAuthInfoResponseBody';
 export { DescribeInstanceEndpointsResponseBodyInstanceEndpoints } from './DescribeInstanceEndpointsResponseBody';
 export { DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups } from './DescribeInstanceIpWhitelistResponseBody';
 export { CreateAppInstanceRequest } from './CreateAppInstanceRequest';
@@ -13,6 +14,9 @@ export { DescribeAppInstanceAttributeResponse } from './DescribeAppInstanceAttri
 export { DescribeAppInstancesRequest } from './DescribeAppInstancesRequest';
 export { DescribeAppInstancesResponseBody } from './DescribeAppInstancesResponseBody';
 export { DescribeAppInstancesResponse } from './DescribeAppInstancesResponse';
+export { DescribeInstanceAuthInfoRequest } from './DescribeInstanceAuthInfoRequest';
+export { DescribeInstanceAuthInfoResponseBody } from './DescribeInstanceAuthInfoResponseBody';
+export { DescribeInstanceAuthInfoResponse } from './DescribeInstanceAuthInfoResponse';
 export { DescribeInstanceEndpointsRequest } from './DescribeInstanceEndpointsRequest';
 export { DescribeInstanceEndpointsResponseBody } from './DescribeInstanceEndpointsResponseBody';
 export { DescribeInstanceEndpointsResponse } from './DescribeInstanceEndpointsResponse';

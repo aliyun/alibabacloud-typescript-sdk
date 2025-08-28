@@ -266,6 +266,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看实例认证信息
+   * 
+   * @param request - DescribeInstanceAuthInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceAuthInfoResponse
+   */
+  async describeInstanceAuthInfoWithOptions(request: $_model.DescribeInstanceAuthInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceAuthInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstanceAuthInfo",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInstanceAuthInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInstanceAuthInfoResponse({}));
+  }
+
+  /**
+   * 查看实例认证信息
+   * 
+   * @param request - DescribeInstanceAuthInfoRequest
+   * @returns DescribeInstanceAuthInfoResponse
+   */
+  async describeInstanceAuthInfo(request: $_model.DescribeInstanceAuthInfoRequest): Promise<$_model.DescribeInstanceAuthInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInstanceAuthInfoWithOptions(request, runtime);
+  }
+
+  /**
    * 查看服务连接信息
    * 
    * @param request - DescribeInstanceEndpointsRequest
