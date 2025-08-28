@@ -27,6 +27,12 @@ export class CreateNatIpRequest extends $dara.Model {
    */
   dryRun?: boolean;
   /**
+   * @example
+   * null
+   */
+  ipv4Prefix?: string;
+  ipv4PrefixCount?: number;
+  /**
    * @remarks
    * The ID of the Virtual Private Cloud (VPC) NAT gateway for which you want to create the NAT IP address.
    * 
@@ -96,6 +102,8 @@ export class CreateNatIpRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      ipv4Prefix: 'Ipv4Prefix',
+      ipv4PrefixCount: 'Ipv4PrefixCount',
       natGatewayId: 'NatGatewayId',
       natIp: 'NatIp',
       natIpCidr: 'NatIpCidr',
@@ -113,6 +121,8 @@ export class CreateNatIpRequest extends $dara.Model {
     return {
       clientToken: 'string',
       dryRun: 'boolean',
+      ipv4Prefix: 'string',
+      ipv4PrefixCount: 'number',
       natGatewayId: 'string',
       natIp: 'string',
       natIpCidr: 'string',

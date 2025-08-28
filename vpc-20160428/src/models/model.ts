@@ -183,6 +183,8 @@ export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayForwardTableIds } f
 export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayFullNatTableIds } from './DescribeNatGatewaysResponseBody';
 export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpListsIpList } from './DescribeNatGatewaysResponseBody';
 export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpLists } from './DescribeNatGatewaysResponseBody';
+export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixListIpPrefixList } from './DescribeNatGatewaysResponseBody';
+export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixList } from './DescribeNatGatewaysResponseBody';
 export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayNatGatewayPrivateInfo } from './DescribeNatGatewaysResponseBody';
 export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewaySnatTableIds } from './DescribeNatGatewaysResponseBody';
 export { DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayTagsTag } from './DescribeNatGatewaysResponseBody';
@@ -303,6 +305,8 @@ export { DescribeVpcAttributeResponseBodyTagsTag } from './DescribeVpcAttributeR
 export { DescribeVpcAttributeResponseBodyTags } from './DescribeVpcAttributeResponseBody';
 export { DescribeVpcAttributeResponseBodyUserCidrs } from './DescribeVpcAttributeResponseBody';
 export { DescribeVpcAttributeResponseBodyVSwitchIds } from './DescribeVpcAttributeResponseBody';
+export { DescribeVpcGrantRulesToEcrRequestTags } from './DescribeVpcGrantRulesToEcrRequest';
+export { DescribeVpcGrantRulesToEcrResponseBodyGrantRuleModels } from './DescribeVpcGrantRulesToEcrResponseBody';
 export { DescribeVpcsRequestTag } from './DescribeVpcsRequest';
 export { DescribeVpcsResponseBodyVpcsVpcIpv6CidrBlocksIpv6CidrBlock } from './DescribeVpcsResponseBody';
 export { DescribeVpcsResponseBodyVpcsVpcIpv6CidrBlocks } from './DescribeVpcsResponseBody';
@@ -1135,6 +1139,9 @@ export { DescribeVirtualBorderRoutersForPhysicalConnectionResponse } from './Des
 export { DescribeVpcAttributeRequest } from './DescribeVpcAttributeRequest';
 export { DescribeVpcAttributeResponseBody } from './DescribeVpcAttributeResponseBody';
 export { DescribeVpcAttributeResponse } from './DescribeVpcAttributeResponse';
+export { DescribeVpcGrantRulesToEcrRequest } from './DescribeVpcGrantRulesToEcrRequest';
+export { DescribeVpcGrantRulesToEcrResponseBody } from './DescribeVpcGrantRulesToEcrResponseBody';
+export { DescribeVpcGrantRulesToEcrResponse } from './DescribeVpcGrantRulesToEcrResponse';
 export { DescribeVpcsRequest } from './DescribeVpcsRequest';
 export { DescribeVpcsResponseBody } from './DescribeVpcsResponseBody';
 export { DescribeVpcsResponse } from './DescribeVpcsResponse';

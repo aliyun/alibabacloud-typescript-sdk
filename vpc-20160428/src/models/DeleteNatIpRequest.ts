@@ -26,11 +26,11 @@ export class DeleteNatIpRequest extends $dara.Model {
    * false
    */
   dryRun?: boolean;
+  ipv4Prefix?: string;
+  natGatewayId?: string;
   /**
    * @remarks
    * The ID of the NAT IP address that you want to delete.
-   * 
-   * This parameter is required.
    * 
    * @example
    * vpcnatip-gw8y7q3cpk3fggs87****
@@ -56,6 +56,8 @@ export class DeleteNatIpRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      ipv4Prefix: 'Ipv4Prefix',
+      natGatewayId: 'NatGatewayId',
       natIpId: 'NatIpId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -69,6 +71,8 @@ export class DeleteNatIpRequest extends $dara.Model {
     return {
       clientToken: 'string',
       dryRun: 'boolean',
+      ipv4Prefix: 'string',
+      natGatewayId: 'string',
       natIpId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

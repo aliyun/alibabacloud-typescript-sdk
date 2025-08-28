@@ -41,6 +41,10 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
    * myFlowlog
    */
   flowLogName?: string;
+  /**
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
   ownerAccount?: string;
   ownerId?: number;

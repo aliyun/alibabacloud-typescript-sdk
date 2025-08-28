@@ -8,7 +8,8 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddressOperationLock
    * The reason why the EIP is locked. Valid values:
    * 
    * *   **financial**: The EIP is locked due to overdue payments.
-   * *   **security**: The EIP is locked for security reasons.
+   * *   **security**: The instance is locked for security purposes.
+   * *   **sharedPool**: The shared IP address pool is locked due to overdue payments.
    * 
    * @example
    * financial
@@ -215,10 +216,11 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $dar
   bizType?: string;
   /**
    * @remarks
-   * The service state of the EIP. Valid values:
+   * The service status of the EIP. Valid values:
    * 
    * *   **Normal**
-   * *   **FinancialLocked**
+   * *   **OperationLock**
+   * *   **Unactivated**
    * 
    * @example
    * Normal

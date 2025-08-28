@@ -26,6 +26,15 @@ export class DeleteIpv4GatewayRequest extends $dara.Model {
    * false
    */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * Select the public network mode of the VPC after deleting the IPv4 gateway. The values are:
+   * - **private**: Default value, after deleting the IPv4 gateway, the VPC will become a pure private VPC without public network access capability. 
+   * - **public**: After deleting the IPv4 gateway, the VPC\\"s public network access is no longer centrally controlled by the IPv4 gateway, and instances with public IPs bound can access the public network by default.
+   * 
+   * @example
+   * public
+   */
   internetMode?: string;
   /**
    * @remarks

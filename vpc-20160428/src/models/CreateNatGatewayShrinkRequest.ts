@@ -131,6 +131,7 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
    * PayByLcu
    */
   internetChargeType?: string;
+  ipv4Prefix?: string;
   /**
    * @remarks
    * The name of the NAT gateway.
@@ -143,6 +144,7 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
    * fortest
    */
   name?: string;
+  natIp?: string;
   /**
    * @remarks
    * The type of NAT gateway. Set the value to **Enhanced**, which specifies enhanced NAT gateway.
@@ -255,7 +257,9 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
       icmpReplyEnabled: 'IcmpReplyEnabled',
       instanceChargeType: 'InstanceChargeType',
       internetChargeType: 'InternetChargeType',
+      ipv4Prefix: 'Ipv4Prefix',
       name: 'Name',
+      natIp: 'NatIp',
       natType: 'NatType',
       networkType: 'NetworkType',
       ownerAccount: 'OwnerAccount',
@@ -284,7 +288,9 @@ export class CreateNatGatewayShrinkRequest extends $dara.Model {
       icmpReplyEnabled: 'boolean',
       instanceChargeType: 'string',
       internetChargeType: 'string',
+      ipv4Prefix: 'string',
       name: 'string',
+      natIp: 'string',
       natType: 'string',
       networkType: 'string',
       ownerAccount: 'string',

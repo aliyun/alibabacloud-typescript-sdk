@@ -80,6 +80,10 @@ export class DescribeTagsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource IDs.
+   */
   resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -99,6 +103,10 @@ export class DescribeTagsRequest extends $dara.Model {
    * VPC
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: DescribeTagsRequestTag[];
   static names(): { [key: string]: string } {
     return {

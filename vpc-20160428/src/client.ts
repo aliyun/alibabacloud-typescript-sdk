@@ -5936,8 +5936,16 @@ export default class Client extends OpenApi {
       query["InternetChargeType"] = request.internetChargeType;
     }
 
+    if (!$dara.isNull(request.ipv4Prefix)) {
+      query["Ipv4Prefix"] = request.ipv4Prefix;
+    }
+
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.natIp)) {
+      query["NatIp"] = request.natIp;
     }
 
     if (!$dara.isNull(request.natType)) {
@@ -6057,6 +6065,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.ipv4Prefix)) {
+      query["Ipv4Prefix"] = request.ipv4Prefix;
+    }
+
+    if (!$dara.isNull(request.ipv4PrefixCount)) {
+      query["Ipv4PrefixCount"] = request.ipv4PrefixCount;
     }
 
     if (!$dara.isNull(request.natGatewayId)) {
@@ -11625,6 +11641,14 @@ export default class Client extends OpenApi {
       query["DryRun"] = request.dryRun;
     }
 
+    if (!$dara.isNull(request.ipv4Prefix)) {
+      query["Ipv4Prefix"] = request.ipv4Prefix;
+    }
+
+    if (!$dara.isNull(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
     if (!$dara.isNull(request.natIpId)) {
       query["NatIpId"] = request.natIpId;
     }
@@ -15493,7 +15517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about flow logs.
+   * Query flow logs.
    * 
    * @param request - DescribeFlowLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15596,7 +15620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about flow logs.
+   * Query flow logs.
    * 
    * @param request - DescribeFlowLogsRequest
    * @returns DescribeFlowLogsResponse
@@ -18533,7 +18557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询满足筛选条件的标签列表。
+   * Queries tags that meet the specified filter conditions.
    * 
    * @remarks
    *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
@@ -18606,7 +18630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询满足筛选条件的标签列表。
+   * Queries tags that meet the specified filter conditions.
    * 
    * @remarks
    *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
@@ -18623,7 +18647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询路由器列表
+   * Queries vRouters in a region.
    * 
    * @param request - DescribeVRoutersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18682,7 +18706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询路由器列表
+   * Queries vRouters in a region.
    * 
    * @param request - DescribeVRoutersRequest
    * @returns DescribeVRoutersResponse
@@ -19232,6 +19256,96 @@ export default class Client extends OpenApi {
   async describeVpcAttribute(request: $_model.DescribeVpcAttributeRequest): Promise<$_model.DescribeVpcAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeVpcAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询VPC跨账号授权给ECR
+   * 
+   * @param request - DescribeVpcGrantRulesToEcrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVpcGrantRulesToEcrResponse
+   */
+  async describeVpcGrantRulesToEcrWithOptions(request: $_model.DescribeVpcGrantRulesToEcrRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVpcGrantRulesToEcrResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ecrInstanceId)) {
+      query["EcrInstanceId"] = request.ecrInstanceId;
+    }
+
+    if (!$dara.isNull(request.ecrOwnerId)) {
+      query["EcrOwnerId"] = request.ecrOwnerId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVpcGrantRulesToEcr",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVpcGrantRulesToEcrResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVpcGrantRulesToEcrResponse({}));
+  }
+
+  /**
+   * 查询VPC跨账号授权给ECR
+   * 
+   * @param request - DescribeVpcGrantRulesToEcrRequest
+   * @returns DescribeVpcGrantRulesToEcrResponse
+   */
+  async describeVpcGrantRulesToEcr(request: $_model.DescribeVpcGrantRulesToEcrRequest): Promise<$_model.DescribeVpcGrantRulesToEcrResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVpcGrantRulesToEcrWithOptions(request, runtime);
   }
 
   /**

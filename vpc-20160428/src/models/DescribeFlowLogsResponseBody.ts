@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFlowLogsResponseBodyFlowLogsFlowLogTagsTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N.
+   * Tag key.
    * 
    * @example
    * FinanceDept
@@ -13,7 +13,7 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLogTagsTag extends $dara.Mo
   key?: string;
   /**
    * @remarks
-   * The value of tag N.
+   * Tag value.
    * 
    * @example
    * FinanceJoshua
@@ -105,10 +105,10 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
   aggregationInterval?: number;
   /**
    * @remarks
-   * The business status of the flow log. Valid values:
+   * The business status. Values:
    * 
-   * *   **Normal**
-   * *   **FinancialLocked**
+   * - **Normal**: Normal status.
+   * - **FinancialLocked**: Locked due to unpaid bills.
    * 
    * @example
    * Normal
@@ -116,7 +116,7 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
   businessStatus?: string;
   /**
    * @remarks
-   * The time when the flow log was created.
+   * The creation time of the flow log.
    * 
    * @example
    * 2022-01-21T03:08:50Z
@@ -132,11 +132,10 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * If the flow log failed to be delivered, you can troubleshoot based on the following error messages that may be returned:
-   * 
-   * *   **UnavaliableTarget**: The Logstore of SLS is unavailable and cannot receive logs. Check whether the Logstore is available.
-   * *   **ProjectNotExist**: The project of SLS does not exist. We recommend that you delete the project and create a new one.
-   * *   **UnknownError**: An internal error occurred. Try again later.
+   * When log delivery fails, you can troubleshoot based on the error messages. Possible error messages include:
+   * - **UnavaliableTarget**: The Logstore of the Log Service SLS is unavailable and cannot receive logs. It is recommended to check if the corresponding Logstore actually exists and is accessible. 
+   * - **ProjectNotExist**: The Project of the Log Service SLS does not exist. It is suggested to delete the original flow log and create a new one pointing to an existing Project. 
+   * - **UnknownError**: An internal error has occurred. Please try again later.
    * 
    * @example
    * UnavaliableTarget
@@ -144,9 +143,9 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
   flowLogDeliverErrorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the flow log is delivered. Valid values:
-   * - **SUCCESS** 
-   * - **FAILED**
+   * The delivery status of the flow log, with values:
+   * - **SUCCESS**: Delivery succeeded. 
+   * - **FAILED**: Delivery failed.
    * 
    * @example
    * FAILED
@@ -168,10 +167,17 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
    * myFlowlog
    */
   flowLogName?: string;
+  /**
+   * @remarks
+   * The type of IP address for collecting flow log traffic.
+   * 
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
   /**
    * @remarks
-   * The Logstore that stores the captured traffic data.
+   * The Logstore where the captured traffic is stored.
    * 
    * @example
    * FlowLogStore
@@ -179,7 +185,7 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The project that manages the captured traffic data.
+   * The Project that manages the captured traffic.
    * 
    * @example
    * FlowLogProject
@@ -187,7 +193,7 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The region ID of the flow log.
+   * The region ID to which the flow log belongs.
    * 
    * @example
    * cn-hangzhou
@@ -203,7 +209,7 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the resource from which traffic is captured.
+   * The resource ID of the traffic captured by the flow log.
    * 
    * @example
    * eni-askldfas****
@@ -211,11 +217,11 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource from which traffic is captured. Valid values:
+   * The resource type of the traffic captured by the flow log:
    * 
-   * *   **NetworkInterface**: ENI
-   * *   **VSwitch**: all ENIs in a vSwitch
-   * *   **VPC**: all ENIs in a VPC
+   * - **NetworkInterface**: Elastic network interface.
+   * - **VSwitch**: All elastic network interfaces within a VSwitch.
+   * - **VPC**: All elastic network interfaces within a VPC.
    * 
    * @example
    * NetworkInterface
@@ -224,11 +230,9 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
   /**
    * @remarks
    * The hosting type of the cloud service.
-   * 
-   * *   This parameter can be empty, which indicates that the flow log is created by the user.
-   * *   If this parameter is not empty, the value is set to **sls**. The value sls indicates that the flow log is created in the Simple Log Service (SLS) console.
-   * 
-   * > A flow log that is created in the SLS console can be displayed in the VPC list. However, you cannot modify, start, stop, or delete the flow log in the VPC console. If you want to manage the flow log, you can log on to the [SLS console](https://sls.console.aliyun.com) and perform required operations.
+   * - It can be empty, indicating that the flow log was created by the user. 
+   * - When not empty, the only supported value is: **sls**, indicating that the flow log was created through the Log Service console.
+   * > Flow log instances created through the Log Service console can be displayed in the VPC list, but they cannot be modified, started, stopped, or deleted within the VPC. If you need to perform these operations on the flow log, you can log in to the [Log Service console](https://sls.console.aliyun.com) to modify, start, stop, or delete it.
    * 
    * @example
    * sls
@@ -236,11 +240,12 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The status of the flow log. Valid values:
+   * The status of the flow log. Values:
+   * - **Active**: The flow log is in an active state.
    * 
-   * *   **Active**
-   * *   **Activating**
-   * *   **Inactive**
+   * - **Activating**: The flow log is being created.
+   * 
+   * - **Inactive**: The flow log is in an inactive state.
    * 
    * @example
    * Active
@@ -248,26 +253,24 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of tags.
+   * List of tags
    */
   tags?: DescribeFlowLogsResponseBodyFlowLogsFlowLogTags;
   /**
    * @remarks
-   * The sampling scope of the traffic that is collected. Valid values:
+   * The path of the captured traffic. Values:
    * 
-   * *   **all** (default value): all traffic
-   * *   **internetGateway**: Internet traffic
-   * 
-   * > By default, the traffic path feature is unavailable. To use this feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex).
+   * - **all**: Indicates full collection.
+   * - **internetGateway**: Indicates public network traffic collection.
    */
   trafficPath?: DescribeFlowLogsResponseBodyFlowLogsFlowLogTrafficPath;
   /**
    * @remarks
-   * The type of traffic that is captured by the flow log. Valid values:
+   * The type of traffic captured by the flow log. Values:
    * 
-   * *   **All**: all traffic
-   * *   **Allow**: traffic that is allowed by access control
-   * *   **Drop**: traffic that is denied by access control
+   * - **All**: All traffic.
+   * - **Allow**: Traffic allowed by access control.
+   * - **Drop**: Traffic denied by access control.
    * 
    * @example
    * All
@@ -367,12 +370,12 @@ export class DescribeFlowLogsResponseBodyFlowLogs extends $dara.Model {
 export class DescribeFlowLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the flow logs.
+   * List of flow logs.
    */
   flowLogs?: DescribeFlowLogsResponseBodyFlowLogs;
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -380,7 +383,7 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page in a paginated query.
    * 
    * @example
    * 20
@@ -396,10 +399,9 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true
@@ -407,7 +409,7 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The number of flow logs that are queried.
+   * The number of entries in the queried flow log list.
    * 
    * @example
    * 1

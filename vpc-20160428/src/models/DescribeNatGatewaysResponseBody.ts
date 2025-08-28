@@ -184,6 +184,55 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpLists extends
   }
 }
 
+export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixListIpPrefixList extends $dara.Model {
+  ipPrefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipPrefix: 'IpPrefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipPrefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixList extends $dara.Model {
+  ipPrefixList?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixListIpPrefixList[];
+  static names(): { [key: string]: string } {
+    return {
+      ipPrefixList: 'IpPrefixList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipPrefixList: { 'type': 'array', 'itemType': DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixListIpPrefixList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipPrefixList)) {
+      $dara.Model.validateArray(this.ipPrefixList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayNatGatewayPrivateInfo extends $dara.Model {
   /**
    * @remarks
@@ -508,6 +557,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.
    * The list of elastic IP addresses (EIPs) that are associated with the Internet NAT gateway.
    */
   ipLists?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpLists;
+  ipPrefixList?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixList;
   /**
    * @remarks
    * The name of the NAT gateway.
@@ -659,6 +709,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.
       instanceChargeType: 'InstanceChargeType',
       internetChargeType: 'InternetChargeType',
       ipLists: 'IpLists',
+      ipPrefixList: 'IpPrefixList',
       name: 'Name',
       natGatewayId: 'NatGatewayId',
       natGatewayPrivateInfo: 'NatGatewayPrivateInfo',
@@ -695,6 +746,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.
       instanceChargeType: 'string',
       internetChargeType: 'string',
       ipLists: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpLists,
+      ipPrefixList: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayIpPrefixList,
       name: 'string',
       natGatewayId: 'string',
       natGatewayPrivateInfo: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayNatGatewayPrivateInfo,
@@ -725,6 +777,9 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.
     }
     if(this.ipLists && typeof (this.ipLists as any).validate === 'function') {
       (this.ipLists as any).validate();
+    }
+    if(this.ipPrefixList && typeof (this.ipPrefixList as any).validate === 'function') {
+      (this.ipPrefixList as any).validate();
     }
     if(this.natGatewayPrivateInfo && typeof (this.natGatewayPrivateInfo as any).validate === 'function') {
       (this.natGatewayPrivateInfo as any).validate();

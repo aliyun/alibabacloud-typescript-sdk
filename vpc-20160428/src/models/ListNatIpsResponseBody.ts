@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListNatIpsResponseBodyNatIps extends $dara.Model {
+  ipv4Prefix?: string;
   /**
    * @remarks
    * Indicates whether the IP address is the default IP address of the NAT gateway. Valid values:
@@ -79,6 +80,7 @@ export class ListNatIpsResponseBodyNatIps extends $dara.Model {
   natIpStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      ipv4Prefix: 'Ipv4Prefix',
       isDefault: 'IsDefault',
       natGatewayId: 'NatGatewayId',
       natIp: 'NatIp',
@@ -92,6 +94,7 @@ export class ListNatIpsResponseBodyNatIps extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ipv4Prefix: 'string',
       isDefault: 'boolean',
       natGatewayId: 'string',
       natIp: 'string',

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFlowLogsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the resource. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The key of the tag. Up to 20 tag keys are supported. If you need to pass this value, it cannot be an empty string.
    * 
-   * The tag key can be at most 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag key can have up to 128 characters and cannot start with `aliyun` or `acs:`. It also cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class DescribeFlowLogsRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The value of the tag. Up to 20 tag values are supported. If you need to pass this value, it can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag value cannot contain `http://` or `https://`.
+   * A tag value can have up to 128 characters and cannot start with `aliyun` or `acs:`. It also cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -51,7 +51,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
    * @remarks
    * The description of the flow log.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+   * The description must be 1 to 256 characters long and cannot start with `http://` or `https://`.
    * 
    * @example
    * This is my Flowlog.
@@ -69,7 +69,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
    * @remarks
    * The name of the flow log.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+   * The name must be 1 to 128 characters long and cannot start with `http://` or `https://`.
    * 
    * @example
    * myFlowlog
@@ -77,7 +77,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   flowLogName?: string;
   /**
    * @remarks
-   * The Logstore that stores the captured traffic data.
+   * The Logstore that stores the captured traffic.
    * 
    * @example
    * FlowLogStore
@@ -87,7 +87,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number, with a default value of **1**.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: **50**. Default value: **20**.
+   * The number of items per page in a paginated query, with a maximum value of **50** and a default value of **20**.
    * 
    * @example
    * 20
@@ -103,7 +103,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The project that manages the captured traffic data.
+   * The Project that manages the captured traffic.
    * 
    * @example
    * FlowLogProject
@@ -113,7 +113,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
    * @remarks
    * The region ID of the flow log.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can obtain the region ID by calling the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) interface.
    * 
    * This parameter is required.
    * 
@@ -123,7 +123,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the flow log belongs.
+   * The resource group ID of the flow log.
    * 
    * @example
    * rg-bp67acfmxazb4ph****
@@ -131,7 +131,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the resource from which traffic is captured.
+   * The resource ID of the traffic to capture.
    * 
    * @example
    * eni-askldfas****
@@ -141,11 +141,10 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of resource from which traffic is captured. Valid values:
-   * 
-   * *   **NetworkInterface**: elastic network interface (ENI)
-   * *   **VSwitch**: all ENIs in a vSwitch
-   * *   **VPC**: all ENIs in a virtual private cloud (VPC)
+   * The resource type of the traffic to capture. Values:
+   * - **NetworkInterface**: Elastic Network Interface (ENI).
+   * - **VSwitch**: All ENIs within a VSwitch.
+   * - **VPC**: All ENIs within a VPC.
    * 
    * @example
    * NetworkInterface
@@ -153,11 +152,10 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The status of the flow log. Valid values:
-   * 
-   * *   **Active**
-   * *   **Activating**
-   * *   **Inactive**
+   * The status of the flow log. Values:
+   * - **Active**: The flow log is in an active state.
+   * - **Activating**: The flow log is being created.
+   * - **Inactive**: The flow log is in an inactive state.
    * 
    * @example
    * Active
@@ -170,11 +168,10 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   tags?: DescribeFlowLogsRequestTags[];
   /**
    * @remarks
-   * The type of traffic that is captured. Valid values:
-   * 
-   * *   **All**: all traffic
-   * *   **Allow**: traffic that is allowed by access control
-   * *   **Drop**: traffic that is denied by access control
+   * The type of traffic to collect. Values:
+   * - **All**: All traffic.
+   * - **Allow**: Traffic allowed by access control.
+   * - **Drop**: Traffic denied by access control.
    * 
    * @example
    * All
@@ -182,7 +179,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   trafficType?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the flow log belongs.
+   * The ID of the VPC for which you want to view the flow log.
    * 
    * @example
    * vpc-bp1nwd16gvo1wgs****

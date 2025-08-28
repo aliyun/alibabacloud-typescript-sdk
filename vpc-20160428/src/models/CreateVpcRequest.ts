@@ -137,7 +137,21 @@ export class CreateVpcRequest extends $dara.Model {
    * 2408:XXXX:0:6a::/56
    */
   ipv6CidrBlock?: string;
+  /**
+   * @remarks
+   * Add an IPv6 CIDR block from the IPAM pool to the VPC by entering a mask.
+   * 
+   * @example
+   * 56
+   */
   ipv6CidrMask?: number;
+  /**
+   * @remarks
+   * The ID of the IP Address Manager (IPAM) pool of the IPv6 type.
+   * 
+   * @example
+   * ipam-pool-bp1aq51kkfh477z03****
+   */
   ipv6IpamPoolId?: string;
   /**
    * @remarks

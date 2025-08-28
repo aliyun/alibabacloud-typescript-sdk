@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateVpcCidrBlockRequest extends $dara.Model {
   /**
    * @remarks
-   * The IPv6 CIDR block to be added.
+   * The IPv6 CIDR block that you want to add to the VPC.
    * 
-   * >  You must and can specify only one of **SecondaryCidrBlock** and **Ipv6CidrBlock**.
+   * >  You can specify only one of **SecondaryCidrBlock** and **Ipv6CidrBlock**.
    * 
    * @example
    * 2408:XXXX:0:6a::/56
@@ -26,12 +26,21 @@ export class AssociateVpcCidrBlockRequest extends $dara.Model {
   ipVersion?: string;
   /**
    * @remarks
-   * The ID of the IP Address Manager (IPAM) pool that contains IPv4 addresses.
+   * The ID of the IPAM pool.
    * 
    * @example
    * ipam-pool-sycmt3p2a9v63i****
    */
   ipamPoolId?: string;
+  /**
+   * @remarks
+   * Add an IPv6 CIDR block from the IPAM pool to the VPC by entering a mask.
+   * 
+   * >  To add an IPv6 CIDR block to a VPC, specify at least one of the IPv6CidrBlock and Ipv6CidrMask parameters.
+   * 
+   * @example
+   * 56
+   */
   ipv6CidrMask?: number;
   /**
    * @remarks
@@ -82,10 +91,9 @@ export class AssociateVpcCidrBlockRequest extends $dara.Model {
   secondaryCidrBlock?: string;
   /**
    * @remarks
-   * Add secondary CIDR blocks to the VPC from the IPAM pool by entering a mask.
+   * Add an IPv4 CIDR block from the IPAM pool to the VPC by specifying a mask.
    * 
-   * > 
-   * > To add a secondary CIDR block to the VPC using the specified IPAM pool, you must specify at least one of the parameters, SecondaryCidrBlock or SecondaryCidrMask.
+   * >  If you use an IPAM pool, you must specify at least one of SecondaryCidrBlock and SecondaryCidrMask.
    * 
    * @example
    * 16

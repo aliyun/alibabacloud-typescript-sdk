@@ -55,7 +55,7 @@ export class DescribeVRoutersResponseBodyVRoutersVRouter extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the route table in the vRouter.
+   * The IDs of the route tables.
    */
   routeTableIds?: DescribeVRoutersResponseBodyVRoutersVRouterRouteTableIds;
   /**
