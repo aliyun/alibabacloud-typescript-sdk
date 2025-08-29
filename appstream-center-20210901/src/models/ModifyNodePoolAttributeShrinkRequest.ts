@@ -4,6 +4,14 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyNodePoolAttributeShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+   * 
+   * Valid values:
+   * 
+   * *   cn-shanghai: China (Shanghai)
+   * *   cn-hangzhou: China (Hangzhou)
+   * 
    * @example
    * cn-hangzhou
    */
@@ -13,6 +21,10 @@ export class ModifyNodePoolAttributeShrinkRequest extends $dara.Model {
    * 2
    */
   nodeCapacity?: number;
+  /**
+   * @remarks
+   * The auto scaling policy used by the delivery group.
+   */
   nodePoolStrategyShrink?: string;
   /**
    * @example
@@ -21,7 +33,11 @@ export class ModifyNodePoolAttributeShrinkRequest extends $dara.Model {
   poolId?: string;
   /**
    * @remarks
-   * 产品类型。
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
    * 
    * @example
    * CloudApp

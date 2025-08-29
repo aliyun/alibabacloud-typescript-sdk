@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods extends $dara.Model {
   /**
    * @remarks
-   * 资源数量。
+   * The number of resources.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTi
   amount?: number;
   /**
    * @remarks
-   * 结束时间。格式为HH:mm。
+   * The end of the time period during which the scaling policy is executed. Format: HH:mm.
    * 
    * @example
    * 15:00
@@ -21,7 +21,7 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTi
   endTime?: string;
   /**
    * @remarks
-   * 开始时间。格式为HH:mm。
+   * The beginning of the time period during which the scaling policy is executed. Format: HH:mm.
    * 
    * @example
    * 12:00
@@ -55,7 +55,11 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTi
 export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules extends $dara.Model {
   /**
    * @remarks
-   * 策略执行周期的类型。必须同时指定`RecurrenceType`和`RecurrenceValues`。
+   * The schedule type of the scaling policy. This parameter must be configured together with `RecurrenceValues`.``
+   * 
+   * Valid values:
+   * 
+   * *   weekly: The scaling policy is executed on specific days each week.
    * 
    * @example
    * weekly
@@ -63,18 +67,18 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules e
   recurrenceType?: string;
   /**
    * @remarks
-   * 策略执行周期的数值列表。
+   * The days of each week on which the scaling policy is executed.
    */
   recurrenceValues?: number[];
   /**
    * @remarks
-   * 策略执行周期的时间段列表。时间段设置要求：
+   * The time periods during which the scaling policy can be executed. The time periods must meet the following requirements:
    * 
-   * - 最多可添加3个时间段。
-   * - 时间段之间不重叠。
-   * - 时间段之间的间隔大于或等于5分钟。
-   * - 单个时间段的时长大于或等于15分钟。
-   * - 所有时间段累计不跨天。
+   * *   Up to three time periods can be added.
+   * *   Time periods cannot be overlapped.
+   * *   The interval between two consecutive time periods must be greater than or equal to 5 minutes.
+   * *   Each time period must be greater than or equal to 15 minutes.
+   * *   The total length of the time periods that you specify cannot be greater than a day.
    */
   timerPeriods?: ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods[];
   static names(): { [key: string]: string } {
@@ -109,19 +113,30 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules e
 }
 
 export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of idle sessions. After you specify a value for this parameter, auto scaling is triggered only if the number of idle sessions in the delivery group is smaller than the specified value and the session usage exceeds the value specified for `ScalingUsageThreshold`. Otherwise, the system determines that the idle sessions in the delivery group are sufficient and does not perform auto scaling.`` You can use this parameter to flexibly manage auto scaling and reduce costs.
+   * 
+   * @example
+   * 3
+   */
   maxIdleAppInstanceAmount?: number;
   /**
+   * @remarks
+   * The maximum number of resources that can be created for scale-out. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_USAGE`.
+   * 
    * @example
    * 10
    */
   maxScalingAmount?: number;
   /**
    * @remarks
-   * 购买资源的数量。取值范围：1~100。
+   * The number of resources to purchase. Valid values: 1 to 100.
    * 
    * > 
-   * - 若为包年包月资源，则该参数不可修改。
-   * - 若为按量付费资源，则当弹性模式（`StrategyType`）为固定数量（`NODE_FIXED`）或自动扩缩容（`NODE_SCALING_BY_USAGE`）时该参数可修改。
+   * 
+   * *   If you use subscription resources, you cannot modify this parameter.
+   * *   If you use pay-as-you-go resources, you can modify this parameter only if you set `StrategyType` to `NODE_FIXED` or `NODE_SCALING_BY_USAGE`.
    * 
    * @example
    * 1
@@ -129,27 +144,39 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model 
   nodeAmount?: number;
   /**
    * @remarks
-   * 策略执行周期列表。`StrategyType`（弹性模式）设为`NODE_SCALING_BY_SCHEDULE`（定时扩缩容）时，该字段必填。
+   * The intervals at which the scaling policy is executed. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
    */
   recurrenceSchedules?: ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules[];
   /**
+   * @remarks
+   * The maximum retention period of a resource to which no session is connected. If no session is connected to a resource, the resource is automatically scaled in after the specified retention period elapses. Valid values: 5 to 120. Default value: 5. Unit: minutes. If one of the following situations occurs, the resource is not scaled in.
+   * 
+   * *   If a scale-out is automatically triggered after the resource is scaled in, the scale-in is not executed. This prevents repeated scale-in and scale-out.
+   * *   If a scale-out is automatically triggered due to an increase in the number of sessions during the specified period of time, the resource is not scaled in and the countdown restarts.
+   * 
    * @example
    * 5
    */
   scalingDownAfterIdleMinutes?: number;
   /**
+   * @remarks
+   * The number of resources that are created each time resources are scaled out. Valid values: 1 to 10. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_USAGE`.
+   * 
    * @example
    * 2
    */
   scalingStep?: number;
   /**
+   * @remarks
+   * The upper limit of session usage. If the session usage exceeds the specified upper limit, auto scaling is automatically triggered. The session usage is calculated by using the following formula: `Session usage = Number of current sessions/(Total number of resources × Number of concurrent sessions) × 100%`. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_USAGE`. Valid values: 0 to 100. Default value: 85.
+   * 
    * @example
    * 85
    */
   scalingUsageThreshold?: string;
   /**
    * @remarks
-   * 策略失效日期。格式为：yyyy-MM-dd。失效日期与生效日期的间隔必须介于7天到1年之间（含7天和1年）。`StrategyType`（弹性模式）设为`NODE_SCALING_BY_SCHEDULE`（定时扩缩容）时，该字段必填。
+   * The expiration date of the scaling policy. Format: yyyy-MM-dd. The interval between the expiration date and the effective date must be from 7 days to 1 year. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
    * 
    * @example
    * 2023-01-19
@@ -157,16 +184,35 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model 
   strategyDisableDate?: string;
   /**
    * @remarks
-   * 策略生效日期。格式为：yyyy-MM-dd。该日期必须大于或等于当前日期。`StrategyType`（弹性模式）设为`NODE_SCALING_BY_SCHEDULE`（定时扩缩容）时，该字段必填。
+   * The effective date of the scaling policy. Format: yyyy-MM-dd. The date must be the same as or later than the current date. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
    * 
    * @example
    * 2023-01-05
    */
   strategyEnableDate?: string;
+  /**
+   * @remarks
+   * The scaling mode.
+   * 
+   * > 
+   * 
+   * *   `NODE_FIXED`: no scaling. This value is applicable to pay-as-you-go resources and subscription resources.
+   * *   `NODE_SCALING_BY_USAGE`: auto scaling. This value is applicable to pay-as-you-go resources and subscription resources.
+   * *   `NODE_SCALING_BY_SCHEDULE`: scheduled scaling. This value is applicable only to pay-as-you-go resources.
+   * 
+   * Valid values:
+   * 
+   * *   NODE_FIXED: no scaling
+   * *   NODE_SCALING_BY_SCHEDULE: scheduled scaling
+   * *   NODE_SCALING_BY_USAGE: auto scaling
+   * 
+   * @example
+   * NODE_FIXED
+   */
   strategyType?: string;
   /**
    * @remarks
-   * 是否开启资源预热策略。`StrategyType`（弹性模式）设为`NODE_SCALING_BY_SCHEDULE`（定时扩缩容）时，该字段必填。
+   * Specifies whether to enable the warmup policy for resources. This parameter is required only if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
    * 
    * @example
    * false
@@ -218,6 +264,14 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model 
 
 export class ModifyNodePoolAttributeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+   * 
+   * Valid values:
+   * 
+   * *   cn-shanghai: China (Shanghai)
+   * *   cn-hangzhou: China (Hangzhou)
+   * 
    * @example
    * cn-hangzhou
    */
@@ -227,6 +281,10 @@ export class ModifyNodePoolAttributeRequest extends $dara.Model {
    * 2
    */
   nodeCapacity?: number;
+  /**
+   * @remarks
+   * The auto scaling policy used by the delivery group.
+   */
   nodePoolStrategy?: ModifyNodePoolAttributeRequestNodePoolStrategy;
   /**
    * @example
@@ -235,7 +293,11 @@ export class ModifyNodePoolAttributeRequest extends $dara.Model {
   poolId?: string;
   /**
    * @remarks
-   * 产品类型。
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
    * 
    * @example
    * CloudApp

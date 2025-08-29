@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWuyingServerRequest extends $dara.Model {
+  addVirtualNodePoolStatusList?: string[];
   /**
    * @example
    * cn-hangzhou
@@ -43,6 +44,7 @@ export class ListWuyingServerRequest extends $dara.Model {
    * RUNNING
    */
   status?: string;
+  virtualNodePoolId?: string;
   wuyingServerIdList?: string[];
   /**
    * @example
@@ -51,6 +53,7 @@ export class ListWuyingServerRequest extends $dara.Model {
   wuyingServerNameOrId?: string;
   static names(): { [key: string]: string } {
     return {
+      addVirtualNodePoolStatusList: 'AddVirtualNodePoolStatusList',
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
       imageId: 'ImageId',
@@ -59,6 +62,7 @@ export class ListWuyingServerRequest extends $dara.Model {
       pageSize: 'PageSize',
       serverInstanceType: 'ServerInstanceType',
       status: 'Status',
+      virtualNodePoolId: 'VirtualNodePoolId',
       wuyingServerIdList: 'WuyingServerIdList',
       wuyingServerNameOrId: 'WuyingServerNameOrId',
     };
@@ -66,6 +70,7 @@ export class ListWuyingServerRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addVirtualNodePoolStatusList: { 'type': 'array', 'itemType': 'string' },
       bizRegionId: 'string',
       chargeType: 'string',
       imageId: 'string',
@@ -74,12 +79,16 @@ export class ListWuyingServerRequest extends $dara.Model {
       pageSize: 'number',
       serverInstanceType: 'string',
       status: 'string',
+      virtualNodePoolId: 'string',
       wuyingServerIdList: { 'type': 'array', 'itemType': 'string' },
       wuyingServerNameOrId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.addVirtualNodePoolStatusList)) {
+      $dara.Model.validateArray(this.addVirtualNodePoolStatusList);
+    }
     if(Array.isArray(this.wuyingServerIdList)) {
       $dara.Model.validateArray(this.wuyingServerIdList);
     }

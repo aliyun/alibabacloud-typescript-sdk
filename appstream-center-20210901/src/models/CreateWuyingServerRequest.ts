@@ -121,6 +121,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
    */
   systemDiskSize?: number;
   vSwitchIds?: string[];
+  virtualNodePoolId?: string;
   /**
    * @example
    * exampleServerName
@@ -145,6 +146,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
       systemDiskPerformanceLevel: 'SystemDiskPerformanceLevel',
       systemDiskSize: 'SystemDiskSize',
       vSwitchIds: 'VSwitchIds',
+      virtualNodePoolId: 'VirtualNodePoolId',
       wuyingServerName: 'WuyingServerName',
     };
   }
@@ -168,6 +170,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
       systemDiskPerformanceLevel: 'string',
       systemDiskSize: 'number',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      virtualNodePoolId: 'string',
       wuyingServerName: 'string',
     };
   }

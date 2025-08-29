@@ -133,6 +133,7 @@ export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo 
 }
 
 export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
+  addVirtualNodePoolStatus?: string;
   /**
    * @example
    * cn-hangzhou
@@ -186,6 +187,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * Linux
    */
   osType?: string;
+  securityGroupIds?: string[];
   serverInstanceTypeInfo?: ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo;
   /**
    * @example
@@ -207,6 +209,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * 100
    */
   systemDiskSize?: number;
+  virtualNodePoolId?: string;
   /**
    * @example
    * ws-0byd****8wn2lwi
@@ -219,6 +222,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   wuyingServerName?: string;
   static names(): { [key: string]: string } {
     return {
+      addVirtualNodePoolStatus: 'AddVirtualNodePoolStatus',
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
       createTime: 'CreateTime',
@@ -232,11 +236,13 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       officeSiteName: 'OfficeSiteName',
       officeSiteType: 'OfficeSiteType',
       osType: 'OsType',
+      securityGroupIds: 'SecurityGroupIds',
       serverInstanceTypeInfo: 'ServerInstanceTypeInfo',
       status: 'Status',
       systemDiskCategory: 'SystemDiskCategory',
       systemDiskPerformanceLevel: 'SystemDiskPerformanceLevel',
       systemDiskSize: 'SystemDiskSize',
+      virtualNodePoolId: 'VirtualNodePoolId',
       wuyingServerId: 'WuyingServerId',
       wuyingServerName: 'WuyingServerName',
     };
@@ -244,6 +250,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addVirtualNodePoolStatus: 'string',
       bizRegionId: 'string',
       chargeType: 'string',
       createTime: 'string',
@@ -257,11 +264,13 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       officeSiteName: 'string',
       officeSiteType: 'string',
       osType: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
       serverInstanceTypeInfo: ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo,
       status: 'string',
       systemDiskCategory: 'string',
       systemDiskPerformanceLevel: 'string',
       systemDiskSize: 'number',
+      virtualNodePoolId: 'string',
       wuyingServerId: 'string',
       wuyingServerName: 'string',
     };
@@ -273,6 +282,9 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
     }
     if(Array.isArray(this.instanceInfoList)) {
       $dara.Model.validateArray(this.instanceInfoList);
+    }
+    if(Array.isArray(this.securityGroupIds)) {
+      $dara.Model.validateArray(this.securityGroupIds);
     }
     if(this.serverInstanceTypeInfo && typeof (this.serverInstanceTypeInfo as any).validate === 'function') {
       (this.serverInstanceTypeInfo as any).validate();
