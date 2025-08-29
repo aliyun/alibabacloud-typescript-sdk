@@ -118,6 +118,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   controlType?: string;
   description?: string;
   effectiveSceneIds?: number[];
+  effectiveSceneNameList?: string[];
   effectiveSceneNames?: number[];
   endTime?: string;
   everPublished?: boolean;
@@ -138,6 +139,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
   sceneId?: string;
   sceneName?: string;
   serviceId?: string;
+  serviceIdList?: number[];
   serviceIds?: string[];
   startTime?: string;
   statisBahaviorConditionExpress?: string;
@@ -157,6 +159,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
       controlType: 'ControlType',
       description: 'Description',
       effectiveSceneIds: 'EffectiveSceneIds',
+      effectiveSceneNameList: 'EffectiveSceneNameList',
       effectiveSceneNames: 'EffectiveSceneNames',
       endTime: 'EndTime',
       everPublished: 'EverPublished',
@@ -177,6 +180,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
       sceneId: 'SceneId',
       sceneName: 'SceneName',
       serviceId: 'ServiceId',
+      serviceIdList: 'ServiceIdList',
       serviceIds: 'ServiceIds',
       startTime: 'StartTime',
       statisBahaviorConditionExpress: 'StatisBahaviorConditionExpress',
@@ -199,6 +203,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
       controlType: 'string',
       description: 'string',
       effectiveSceneIds: { 'type': 'array', 'itemType': 'number' },
+      effectiveSceneNameList: { 'type': 'array', 'itemType': 'string' },
       effectiveSceneNames: { 'type': 'array', 'itemType': 'number' },
       endTime: 'string',
       everPublished: 'boolean',
@@ -219,6 +224,7 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
       sceneId: 'string',
       sceneName: 'string',
       serviceId: 'string',
+      serviceIdList: { 'type': 'array', 'itemType': 'number' },
       serviceIds: { 'type': 'array', 'itemType': 'string' },
       startTime: 'string',
       statisBahaviorConditionExpress: 'string',
@@ -237,8 +243,14 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
     if(Array.isArray(this.effectiveSceneIds)) {
       $dara.Model.validateArray(this.effectiveSceneIds);
     }
+    if(Array.isArray(this.effectiveSceneNameList)) {
+      $dara.Model.validateArray(this.effectiveSceneNameList);
+    }
     if(Array.isArray(this.effectiveSceneNames)) {
       $dara.Model.validateArray(this.effectiveSceneNames);
+    }
+    if(Array.isArray(this.serviceIdList)) {
+      $dara.Model.validateArray(this.serviceIdList);
     }
     if(Array.isArray(this.serviceIds)) {
       $dara.Model.validateArray(this.serviceIds);
