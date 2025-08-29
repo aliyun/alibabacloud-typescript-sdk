@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListParamsRequest extends $dara.Model {
+  encrypted?: boolean;
   /**
    * @example
    * Daily
@@ -41,6 +42,7 @@ export class ListParamsRequest extends $dara.Model {
   sceneId?: string;
   static names(): { [key: string]: string } {
     return {
+      encrypted: 'Encrypted',
       environment: 'Environment',
       instanceId: 'InstanceId',
       name: 'Name',
@@ -52,6 +54,7 @@ export class ListParamsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      encrypted: 'boolean',
       environment: 'string',
       instanceId: 'string',
       name: 'string',

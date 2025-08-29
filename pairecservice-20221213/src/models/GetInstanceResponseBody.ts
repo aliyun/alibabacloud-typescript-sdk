@@ -1,8 +1,187 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetInstanceResponseBodyConfig } from "./GetInstanceResponseBodyConfig";
-import { GetInstanceResponseBodyOperatingTool } from "./GetInstanceResponseBodyOperatingTool";
 
+
+export class GetInstanceResponseBodyConfigDataManagements extends $dara.Model {
+  /**
+   * @example
+   * storage
+   */
+  componentCode?: string;
+  meta?: { [key: string]: any };
+  /**
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      componentCode: 'ComponentCode',
+      meta: 'Meta',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentCode: 'string',
+      meta: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.meta) {
+      $dara.Model.validateMap(this.meta);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyConfigEngines extends $dara.Model {
+  /**
+   * @example
+   * feature
+   */
+  componentCode?: string;
+  meta?: { [key: string]: any };
+  /**
+   * @example
+   * Hologres
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      componentCode: 'ComponentCode',
+      meta: 'Meta',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentCode: 'string',
+      meta: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.meta) {
+      $dara.Model.validateMap(this.meta);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyConfigMonitors extends $dara.Model {
+  /**
+   * @example
+   * featuresets
+   */
+  componentCode?: string;
+  meta?: { [key: string]: any };
+  /**
+   * @example
+   * Platform
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      componentCode: 'ComponentCode',
+      meta: 'Meta',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentCode: 'string',
+      meta: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.meta) {
+      $dara.Model.validateMap(this.meta);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyConfig extends $dara.Model {
+  dataManagements?: GetInstanceResponseBodyConfigDataManagements[];
+  engines?: GetInstanceResponseBodyConfigEngines[];
+  monitors?: GetInstanceResponseBodyConfigMonitors[];
+  static names(): { [key: string]: string } {
+    return {
+      dataManagements: 'DataManagements',
+      engines: 'Engines',
+      monitors: 'Monitors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataManagements: { 'type': 'array', 'itemType': GetInstanceResponseBodyConfigDataManagements },
+      engines: { 'type': 'array', 'itemType': GetInstanceResponseBodyConfigEngines },
+      monitors: { 'type': 'array', 'itemType': GetInstanceResponseBodyConfigMonitors },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dataManagements)) {
+      $dara.Model.validateArray(this.dataManagements);
+    }
+    if(Array.isArray(this.engines)) {
+      $dara.Model.validateArray(this.engines);
+    }
+    if(Array.isArray(this.monitors)) {
+      $dara.Model.validateArray(this.monitors);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyOperatingTool extends $dara.Model {
+  isEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      isEnable: 'IsEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isEnable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetInstanceResponseBody extends $dara.Model {
   /**

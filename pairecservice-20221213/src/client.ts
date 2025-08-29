@@ -1639,6 +1639,10 @@ export default class Client extends OpenApi {
       body["SceneId"] = request.sceneId;
     }
 
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
     if (!$dara.isNull(request.value)) {
       body["Value"] = request.value;
     }
@@ -2211,6 +2215,10 @@ export default class Client extends OpenApi {
       body["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.effectiveSceneIds)) {
+      body["EffectiveSceneIds"] = request.effectiveSceneIds;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       body["EndTime"] = request.endTime;
     }
@@ -2261,6 +2269,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.serviceId)) {
       body["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.serviceIds)) {
+      body["ServiceIds"] = request.serviceIds;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -3186,6 +3198,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTrafficControlTaskWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
+   * 生成算法定制脚本
+   * 
+   * @param request - GenerateAlgorithmCustomizationScriptRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateAlgorithmCustomizationScriptResponse
+   */
+  async generateAlgorithmCustomizationScriptWithOptions(AlgorithmCustomizationId: string, request: $_model.GenerateAlgorithmCustomizationScriptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateAlgorithmCustomizationScriptResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deployMode)) {
+      body["DeployMode"] = request.deployMode;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.moduleFieldTypes)) {
+      body["ModuleFieldTypes"] = request.moduleFieldTypes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateAlgorithmCustomizationScript",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/algorithmcustomizations/${$dara.URL.percentEncode(AlgorithmCustomizationId)}/action/generatescript`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateAlgorithmCustomizationScriptResponse>(await this.callApi(params, req, runtime), new $_model.GenerateAlgorithmCustomizationScriptResponse({}));
+  }
+
+  /**
+   * 生成算法定制脚本
+   * 
+   * @param request - GenerateAlgorithmCustomizationScriptRequest
+   * @returns GenerateAlgorithmCustomizationScriptResponse
+   */
+  async generateAlgorithmCustomizationScript(AlgorithmCustomizationId: string, request: $_model.GenerateAlgorithmCustomizationScriptRequest): Promise<$_model.GenerateAlgorithmCustomizationScriptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.generateAlgorithmCustomizationScriptWithOptions(AlgorithmCustomizationId, request, headers, runtime);
   }
 
   /**
@@ -5174,6 +5239,10 @@ export default class Client extends OpenApi {
   async listParamsWithOptions(request: $_model.ListParamsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListParamsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.encrypted)) {
+      query["Encrypted"] = request.encrypted;
+    }
+
     if (!$dara.isNull(request.environment)) {
       query["Environment"] = request.environment;
     }
@@ -8061,6 +8130,10 @@ export default class Client extends OpenApi {
       body["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.effectiveSceneIds)) {
+      body["EffectiveSceneIds"] = request.effectiveSceneIds;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       body["EndTime"] = request.endTime;
     }
@@ -8111,6 +8184,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.serviceId)) {
       body["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.serviceIds)) {
+      body["ServiceIds"] = request.serviceIds;
     }
 
     if (!$dara.isNull(request.startTime)) {

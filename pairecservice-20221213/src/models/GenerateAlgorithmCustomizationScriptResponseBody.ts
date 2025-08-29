@@ -2,28 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateSceneRequestFlows extends $dara.Model {
+export class GenerateAlgorithmCustomizationScriptResponseBody extends $dara.Model {
   /**
    * @example
-   * liuliang1
+   * 4
    */
-  flowCode?: string;
+  logId?: string;
   /**
    * @example
-   * 流量1
+   * oss:xxxx
    */
-  flowName?: string;
+  ossAddress?: string;
+  /**
+   * @example
+   * 6CF1E160-3F36-5E73-A170-C75504F05BBC
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      flowCode: 'FlowCode',
-      flowName: 'FlowName',
+      logId: 'LogId',
+      ossAddress: 'OssAddress',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      flowCode: 'string',
-      flowName: 'string',
+      logId: 'string',
+      ossAddress: 'string',
+      requestId: 'string',
     };
   }
 

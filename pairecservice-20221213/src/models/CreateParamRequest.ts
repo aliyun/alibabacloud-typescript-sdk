@@ -23,6 +23,7 @@ export class CreateParamRequest extends $dara.Model {
    * 4
    */
   sceneId?: string;
+  type?: string;
   /**
    * @example
    * house
@@ -34,6 +35,7 @@ export class CreateParamRequest extends $dara.Model {
       instanceId: 'InstanceId',
       name: 'Name',
       sceneId: 'SceneId',
+      type: 'Type',
       value: 'Value',
     };
   }
@@ -44,6 +46,7 @@ export class CreateParamRequest extends $dara.Model {
       instanceId: 'string',
       name: 'string',
       sceneId: 'string',
+      type: 'string',
       value: 'string',
     };
   }

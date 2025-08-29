@@ -1,9 +1,105 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { QuerySampleConsistencyJobDifferenceResponseBodyDifferenceHistogram } from "./QuerySampleConsistencyJobDifferenceResponseBodyDifferenceHistogram";
-import { QuerySampleConsistencyJobDifferenceResponseBodyNumberFeatureDifferences } from "./QuerySampleConsistencyJobDifferenceResponseBodyNumberFeatureDifferences";
-import { QuerySampleConsistencyJobDifferenceResponseBodyStringFeatureDifferences } from "./QuerySampleConsistencyJobDifferenceResponseBodyStringFeatureDifferences";
 
+
+export class QuerySampleConsistencyJobDifferenceResponseBodyDifferenceHistogram extends $dara.Model {
+  abscissa?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abscissa: 'Abscissa',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abscissa: 'string',
+      value: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySampleConsistencyJobDifferenceResponseBodyNumberFeatureDifferences extends $dara.Model {
+  diffValue?: number;
+  itemId?: string;
+  replyTableFeatureValue?: number;
+  requestId?: string;
+  sampleTableFeatureValue?: number;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diffValue: 'DiffValue',
+      itemId: 'ItemId',
+      replyTableFeatureValue: 'ReplyTableFeatureValue',
+      requestId: 'RequestId',
+      sampleTableFeatureValue: 'SampleTableFeatureValue',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diffValue: 'number',
+      itemId: 'string',
+      replyTableFeatureValue: 'number',
+      requestId: 'string',
+      sampleTableFeatureValue: 'number',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySampleConsistencyJobDifferenceResponseBodyStringFeatureDifferences extends $dara.Model {
+  itemId?: string;
+  replyTableFeatureValue?: string;
+  requestId?: string;
+  sampleTableFeatureValue?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      itemId: 'ItemId',
+      replyTableFeatureValue: 'ReplyTableFeatureValue',
+      requestId: 'RequestId',
+      sampleTableFeatureValue: 'SampleTableFeatureValue',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemId: 'string',
+      replyTableFeatureValue: 'string',
+      requestId: 'string',
+      sampleTableFeatureValue: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class QuerySampleConsistencyJobDifferenceResponseBody extends $dara.Model {
   differenceHistogram?: QuerySampleConsistencyJobDifferenceResponseBodyDifferenceHistogram[];
