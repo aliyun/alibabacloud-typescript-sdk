@@ -5312,6 +5312,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据转交任务ID查询转交任务的进度
+   * 
+   * @param request - GetTransferInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTransferInfoResponse
+   */
+  async getTransferInfoWithOptions(request: $_model.GetTransferInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTransferInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.proposalId)) {
+      query["ProposalId"] = request.proposalId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTransferInfo",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTransferInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetTransferInfoResponse({}));
+  }
+
+  /**
+   * 根据转交任务ID查询转交任务的进度
+   * 
+   * @param request - GetTransferInfoRequest
+   * @returns GetTransferInfoResponse
+   */
+  async getTransferInfo(request: $_model.GetTransferInfoRequest): Promise<$_model.GetTransferInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTransferInfoWithOptions(request, runtime);
+  }
+
+  /**
    * 获取自定义函数详情。
    * 
    * @param request - GetUdfRequest
@@ -8198,6 +8244,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重新转交运行失败的转交任务
+   * 
+   * @param tmpReq - RetryTransferOwnershipRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetryTransferOwnershipResponse
+   */
+  async retryTransferOwnershipWithOptions(tmpReq: $_model.RetryTransferOwnershipRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RetryTransferOwnershipResponse> {
+    tmpReq.validate();
+    let request = new $_model.RetryTransferOwnershipShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.privilegeTransferRecord)) {
+      request.privilegeTransferRecordShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.privilegeTransferRecord, "PrivilegeTransferRecord", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.privilegeTransferRecordShrink)) {
+      body["PrivilegeTransferRecord"] = request.privilegeTransferRecordShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RetryTransferOwnership",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RetryTransferOwnershipResponse>(await this.callApi(params, req, runtime), new $_model.RetryTransferOwnershipResponse({}));
+  }
+
+  /**
+   * 重新转交运行失败的转交任务
+   * 
+   * @param request - RetryTransferOwnershipRequest
+   * @returns RetryTransferOwnershipResponse
+   */
+  async retryTransferOwnership(request: $_model.RetryTransferOwnershipRequest): Promise<$_model.RetryTransferOwnershipResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.retryTransferOwnershipWithOptions(request, runtime);
+  }
+
+  /**
    * 回收API授权。
    * 
    * @param tmpReq - RevokeDataServiceApiRequest
@@ -8411,6 +8511,60 @@ export default class Client extends OpenApi {
   async submitBatchTask(request: $_model.SubmitBatchTaskRequest): Promise<$_model.SubmitBatchTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitBatchTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 一键转交负责人
+   * 
+   * @param tmpReq - TransferOwnershipForAllObjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransferOwnershipForAllObjectResponse
+   */
+  async transferOwnershipForAllObjectWithOptions(tmpReq: $_model.TransferOwnershipForAllObjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TransferOwnershipForAllObjectResponse> {
+    tmpReq.validate();
+    let request = new $_model.TransferOwnershipForAllObjectShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.privilegeTransferRecord)) {
+      request.privilegeTransferRecordShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.privilegeTransferRecord, "PrivilegeTransferRecord", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.privilegeTransferRecordShrink)) {
+      body["PrivilegeTransferRecord"] = request.privilegeTransferRecordShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TransferOwnershipForAllObject",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TransferOwnershipForAllObjectResponse>(await this.callApi(params, req, runtime), new $_model.TransferOwnershipForAllObjectResponse({}));
+  }
+
+  /**
+   * 一键转交负责人
+   * 
+   * @param request - TransferOwnershipForAllObjectRequest
+   * @returns TransferOwnershipForAllObjectResponse
+   */
+  async transferOwnershipForAllObject(request: $_model.TransferOwnershipForAllObjectRequest): Promise<$_model.TransferOwnershipForAllObjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.transferOwnershipForAllObjectWithOptions(request, runtime);
   }
 
   /**
