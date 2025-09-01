@@ -184,6 +184,52 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateCopilotStreamResponseResponse
    */
+  async *generateCopilotStreamResponseWithSSE(request: $_model.GenerateCopilotStreamResponseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.GenerateCopilotStreamResponseResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.llmParamString)) {
+      body["llmParamString"] = request.llmParamString;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateCopilotStreamResponse",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/copilot/generate_copilot_stream_response`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.GenerateCopilotStreamResponseResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.GenerateCopilotStreamResponseResponse({}));
+    }
+  }
+
+  /**
+   * 流式copilot服务接口
+   * 
+   * @param request - GenerateCopilotStreamResponseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateCopilotStreamResponseResponse
+   */
   async generateCopilotStreamResponseWithOptions(request: $_model.GenerateCopilotStreamResponseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateCopilotStreamResponseResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -1085,6 +1131,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["region"] = request.region;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

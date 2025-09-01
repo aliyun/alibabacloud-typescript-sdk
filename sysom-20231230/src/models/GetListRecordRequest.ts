@@ -13,10 +13,12 @@ export class GetListRecordRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
       current: 'current',
       pageSize: 'pageSize',
+      region: 'region',
     };
   }
 
@@ -24,6 +26,7 @@ export class GetListRecordRequest extends $dara.Model {
     return {
       current: 'number',
       pageSize: 'number',
+      region: 'string',
     };
   }
 
