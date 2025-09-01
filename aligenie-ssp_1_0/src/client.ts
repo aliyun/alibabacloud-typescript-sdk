@@ -5267,6 +5267,10 @@ export default class Client extends OpenApi {
       query["PsgIds"] = request.psgIds;
     }
 
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
     if (!$dara.isNull(request.trafficChangeType)) {
       query["TrafficChangeType"] = request.trafficChangeType;
     }

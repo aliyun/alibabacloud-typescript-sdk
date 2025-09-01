@@ -25,6 +25,11 @@ export class ThirdImmediateMsgPushRequest extends $dara.Model {
   psgIds?: string;
   /**
    * @example
+   * source
+   */
+  source?: string;
+  /**
+   * @example
    * trafficChangeType
    */
   trafficChangeType?: string;
@@ -54,6 +59,7 @@ export class ThirdImmediateMsgPushRequest extends $dara.Model {
       changeDetail: 'ChangeDetail',
       orderId: 'OrderId',
       psgIds: 'PsgIds',
+      source: 'Source',
       trafficChangeType: 'TrafficChangeType',
       trafficChangeTypeDesc: 'TrafficChangeTypeDesc',
       trafficJourneyIds: 'TrafficJourneyIds',
@@ -68,6 +74,7 @@ export class ThirdImmediateMsgPushRequest extends $dara.Model {
       changeDetail: 'string',
       orderId: 'string',
       psgIds: 'string',
+      source: 'string',
       trafficChangeType: 'string',
       trafficChangeTypeDesc: 'string',
       trafficJourneyIds: 'string',
