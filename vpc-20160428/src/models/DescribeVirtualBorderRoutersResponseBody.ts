@@ -534,6 +534,7 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
    * 300
    */
   minTxInterval?: number;
+  mtu?: number;
   /**
    * @remarks
    * The VBR name.
@@ -759,6 +760,7 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
       localIpv6GatewayIp: 'LocalIpv6GatewayIp',
       minRxInterval: 'MinRxInterval',
       minTxInterval: 'MinTxInterval',
+      mtu: 'Mtu',
       name: 'Name',
       PConnVbrChargeType: 'PConnVbrChargeType',
       PConnVbrExpireTime: 'PConnVbrExpireTime',
@@ -805,6 +807,7 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
       localIpv6GatewayIp: 'string',
       minRxInterval: 'number',
       minTxInterval: 'number',
+      mtu: 'number',
       name: 'string',
       PConnVbrChargeType: 'string',
       PConnVbrExpireTime: 'string',

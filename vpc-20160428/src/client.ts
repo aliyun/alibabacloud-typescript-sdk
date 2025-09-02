@@ -6477,6 +6477,14 @@ export default class Client extends OpenApi {
       query["AutoPay"] = request.autoPay;
     }
 
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.autoRenewDuration)) {
+      query["AutoRenewDuration"] = request.autoRenewDuration;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -28265,6 +28273,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.minTxInterval)) {
       query["MinTxInterval"] = request.minTxInterval;
+    }
+
+    if (!$dara.isNull(request.mtu)) {
+      query["Mtu"] = request.mtu;
     }
 
     if (!$dara.isNull(request.name)) {

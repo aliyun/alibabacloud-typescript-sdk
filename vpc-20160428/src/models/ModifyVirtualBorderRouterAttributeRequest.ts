@@ -112,6 +112,7 @@ export class ModifyVirtualBorderRouterAttributeRequest extends $dara.Model {
    * 300
    */
   minTxInterval?: number;
+  mtu?: number;
   /**
    * @remarks
    * The name of the VBR.
@@ -223,6 +224,7 @@ export class ModifyVirtualBorderRouterAttributeRequest extends $dara.Model {
       localIpv6GatewayIp: 'LocalIpv6GatewayIp',
       minRxInterval: 'MinRxInterval',
       minTxInterval: 'MinTxInterval',
+      mtu: 'Mtu',
       name: 'Name',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -252,6 +254,7 @@ export class ModifyVirtualBorderRouterAttributeRequest extends $dara.Model {
       localIpv6GatewayIp: 'string',
       minRxInterval: 'number',
       minTxInterval: 'number',
+      mtu: 'number',
       name: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

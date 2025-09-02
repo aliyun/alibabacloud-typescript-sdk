@@ -14,6 +14,8 @@ export class CreatePhysicalConnectionOccupancyOrderRequest extends $dara.Model {
    * false
    */
   autoPay?: boolean;
+  autoRenew?: boolean;
+  autoRenewDuration?: number;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -85,6 +87,8 @@ export class CreatePhysicalConnectionOccupancyOrderRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      autoRenewDuration: 'AutoRenewDuration',
       clientToken: 'ClientToken',
       instanceChargeType: 'InstanceChargeType',
       ownerAccount: 'OwnerAccount',
@@ -101,6 +105,8 @@ export class CreatePhysicalConnectionOccupancyOrderRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+      autoRenew: 'boolean',
+      autoRenewDuration: 'number',
       clientToken: 'string',
       instanceChargeType: 'string',
       ownerAccount: 'string',
