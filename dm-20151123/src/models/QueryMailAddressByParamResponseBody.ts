@@ -19,6 +19,8 @@ export class QueryMailAddressByParamResponseBodyDataMailAddress extends $dara.Mo
    * 0
    */
   accountStatus?: string;
+  configSetId?: string;
+  configSetName?: string;
   /**
    * @remarks
    * Creation time
@@ -106,6 +108,8 @@ export class QueryMailAddressByParamResponseBodyDataMailAddress extends $dara.Mo
     return {
       accountName: 'AccountName',
       accountStatus: 'AccountStatus',
+      configSetId: 'ConfigSetId',
+      configSetName: 'ConfigSetName',
       createTime: 'CreateTime',
       dailyCount: 'DailyCount',
       dailyReqCount: 'DailyReqCount',
@@ -123,6 +127,8 @@ export class QueryMailAddressByParamResponseBodyDataMailAddress extends $dara.Mo
     return {
       accountName: 'string',
       accountStatus: 'string',
+      configSetId: 'string',
+      configSetName: 'string',
       createTime: 'string',
       dailyCount: 'string',
       dailyReqCount: 'string',

@@ -13,6 +13,7 @@ export class GetTrackListRequest extends $dara.Model {
    * test@example.com
    */
   accountName?: string;
+  configSetId?: string;
   dedicatedIp?: string;
   dedicatedIpPoolId?: string;
   /**
@@ -98,6 +99,7 @@ export class GetTrackListRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
+      configSetId: 'ConfigSetId',
       dedicatedIp: 'DedicatedIp',
       dedicatedIpPoolId: 'DedicatedIpPoolId',
       endTime: 'EndTime',
@@ -119,6 +121,7 @@ export class GetTrackListRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
+      configSetId: 'string',
       dedicatedIp: 'string',
       dedicatedIpPoolId: 'string',
       endTime: 'string',

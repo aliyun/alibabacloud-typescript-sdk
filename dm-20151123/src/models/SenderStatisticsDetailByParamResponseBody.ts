@@ -12,6 +12,16 @@ export class SenderStatisticsDetailByParamResponseBodyDataMailDetail extends $da
    */
   accountName?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  configSetId?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  configSetName?: string;
+  /**
    * @remarks
    * Detailed classification of error reasons: - SendOk - SmtpNxBox
    * etc.
@@ -20,6 +30,16 @@ export class SenderStatisticsDetailByParamResponseBodyDataMailDetail extends $da
    * SendOk
    */
   errorClassification?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  ipPoolId?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  ipPoolName?: string;
   /**
    * @remarks
    * Update time
@@ -71,7 +91,11 @@ export class SenderStatisticsDetailByParamResponseBodyDataMailDetail extends $da
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
+      configSetId: 'ConfigSetId',
+      configSetName: 'ConfigSetName',
       errorClassification: 'ErrorClassification',
+      ipPoolId: 'IpPoolId',
+      ipPoolName: 'IpPoolName',
       lastUpdateTime: 'LastUpdateTime',
       message: 'Message',
       status: 'Status',
@@ -84,7 +108,11 @@ export class SenderStatisticsDetailByParamResponseBodyDataMailDetail extends $da
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
+      configSetId: 'string',
+      configSetName: 'string',
       errorClassification: 'string',
+      ipPoolId: 'string',
+      ipPoolName: 'string',
       lastUpdateTime: 'string',
       message: 'string',
       status: 'number',

@@ -11,6 +11,8 @@ export class QueryTaskByParamResponseBodyDataTask extends $dara.Model {
    * 0
    */
   addressType?: string;
+  configSetId?: string;
+  configSetName?: string;
   /**
    * @remarks
    * Creation time
@@ -94,6 +96,8 @@ export class QueryTaskByParamResponseBodyDataTask extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       addressType: 'AddressType',
+      configSetId: 'ConfigSetId',
+      configSetName: 'ConfigSetName',
       createTime: 'CreateTime',
       ipPoolId: 'IpPoolId',
       ipPoolName: 'IpPoolName',
@@ -110,6 +114,8 @@ export class QueryTaskByParamResponseBodyDataTask extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       addressType: 'string',
+      configSetId: 'string',
+      configSetName: 'string',
       createTime: 'string',
       ipPoolId: 'string',
       ipPoolName: 'string',

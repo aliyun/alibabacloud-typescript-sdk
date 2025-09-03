@@ -14,6 +14,11 @@ export class SenderStatisticsDetailByParamRequest extends $dara.Model {
    */
   accountName?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  configSetId?: string;
+  /**
    * @remarks
    * End time. The span between start and end times cannot exceed 30 days, format: yyyy-MM-dd HH:mm.
    * 
@@ -21,6 +26,11 @@ export class SenderStatisticsDetailByParamRequest extends $dara.Model {
    * 2021-04-29 00:00
    */
   endTime?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  ipPoolId?: string;
   /**
    * @remarks
    * Specifies the number of results to return in this request. Range is 1~100.
@@ -80,7 +90,9 @@ export class SenderStatisticsDetailByParamRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
+      configSetId: 'ConfigSetId',
       endTime: 'EndTime',
+      ipPoolId: 'IpPoolId',
       length: 'Length',
       nextStart: 'NextStart',
       ownerId: 'OwnerId',
@@ -96,7 +108,9 @@ export class SenderStatisticsDetailByParamRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountName: 'string',
+      configSetId: 'string',
       endTime: 'string',
+      ipPoolId: 'string',
       length: 'number',
       nextStart: 'string',
       ownerId: 'number',

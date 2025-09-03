@@ -1011,6 +1011,10 @@ export default class Client extends OpenApi {
   async dedicatedIpPoolListWithOptions(request: $_model.DedicatedIpPoolListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DedicatedIpPoolListResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.all)) {
+      query["All"] = request.all;
+    }
+
     if (!$dara.isNull(request.keyword)) {
       query["Keyword"] = request.keyword;
     }
@@ -1855,6 +1859,10 @@ export default class Client extends OpenApi {
       query["AccountName"] = request.accountName;
     }
 
+    if (!$dara.isNull(request.configSetId)) {
+      query["ConfigSetId"] = request.configSetId;
+    }
+
     if (!$dara.isNull(request.dedicatedIp)) {
       query["DedicatedIp"] = request.dedicatedIp;
     }
@@ -1955,6 +1963,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.configSetId)) {
+      query["ConfigSetId"] = request.configSetId;
     }
 
     if (!$dara.isNull(request.dedicatedIp)) {
@@ -3157,8 +3169,16 @@ export default class Client extends OpenApi {
       query["AccountName"] = request.accountName;
     }
 
+    if (!$dara.isNull(request.configSetId)) {
+      query["ConfigSetId"] = request.configSetId;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.ipPoolId)) {
+      query["IpPoolId"] = request.ipPoolId;
     }
 
     if (!$dara.isNull(request.length)) {
