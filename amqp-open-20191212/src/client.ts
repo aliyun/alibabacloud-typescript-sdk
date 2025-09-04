@@ -39,6 +39,10 @@ export default class Client extends OpenApi {
   async createAccountWithOptions(request: $_model.CreateAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAccountResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
     if (!$dara.isNull(request.accountAccessKey)) {
       query["accountAccessKey"] = request.accountAccessKey;
     }

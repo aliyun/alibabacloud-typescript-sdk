@@ -46,6 +46,11 @@ export class CreateAccountResponseBodyData extends $dara.Model {
    */
   password?: string;
   /**
+   * @example
+   * ***环境
+   */
+  remark?: string;
+  /**
    * @remarks
    * The created static username.
    * 
@@ -60,6 +65,7 @@ export class CreateAccountResponseBodyData extends $dara.Model {
       instanceId: 'InstanceId',
       masterUId: 'MasterUId',
       password: 'Password',
+      remark: 'Remark',
       userName: 'UserName',
     };
   }
@@ -71,6 +77,7 @@ export class CreateAccountResponseBodyData extends $dara.Model {
       instanceId: 'string',
       masterUId: 'number',
       password: 'string',
+      remark: 'string',
       userName: 'string',
     };
   }

@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAccountRequest extends $dara.Model {
   /**
+   * @example
+   * ***环境
+   */
+  remark?: string;
+  /**
    * @remarks
    * The AccessKey ID of your Alibaba Cloud account or RAM user. For information about how to obtain an AccessKey pair, see [Create an AccessKey pair](https://help.aliyun.com/document_detail/116401.html).
    * 
@@ -75,6 +80,7 @@ export class CreateAccountRequest extends $dara.Model {
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      remark: 'Remark',
       accountAccessKey: 'accountAccessKey',
       createTimestamp: 'createTimestamp',
       instanceId: 'instanceId',
@@ -86,6 +92,7 @@ export class CreateAccountRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      remark: 'string',
       accountAccessKey: 'string',
       createTimestamp: 'number',
       instanceId: 'string',

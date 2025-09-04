@@ -59,6 +59,11 @@ export class DataValue extends $dara.Model {
    * 1671175303522
    */
   createTimestamp?: number;
+  /**
+   * @example
+   * ***环境
+   */
+  remark?: string;
   static names(): { [key: string]: string } {
     return {
       masterUid: 'masterUid',
@@ -68,6 +73,7 @@ export class DataValue extends $dara.Model {
       password: 'password',
       deleted: 'deleted',
       createTimestamp: 'createTimestamp',
+      remark: 'Remark',
     };
   }
 
@@ -80,6 +86,7 @@ export class DataValue extends $dara.Model {
       password: 'string',
       deleted: 'number',
       createTimestamp: 'number',
+      remark: 'string',
     };
   }
 
