@@ -309,6 +309,10 @@ export default class Client extends OpenApi {
       query["PhoneDataVolume"] = request.phoneDataVolume;
     }
 
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
     if (!$dara.isNull(request.upBandwidthLimit)) {
       query["UpBandwidthLimit"] = request.upBandwidthLimit;
     }
@@ -506,6 +510,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.policyGroupId)) {
       query["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
     }
 
     if (!$dara.isNull(request.tag)) {
@@ -749,6 +757,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.phoneDataVolume)) {
       query["PhoneDataVolume"] = request.phoneDataVolume;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
     }
 
     if (!$dara.isNull(request.resolutionHeight)) {
@@ -2791,6 +2803,10 @@ export default class Client extends OpenApi {
       query["PhoneDataVolume"] = request.phoneDataVolume;
     }
 
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
     if (!$dara.isNull(request.shareDataVolume)) {
       query["ShareDataVolume"] = request.shareDataVolume;
     }
@@ -3553,6 +3569,10 @@ export default class Client extends OpenApi {
       query["PeriodUnit"] = request.periodUnit;
     }
 
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3989,6 +4009,10 @@ export default class Client extends OpenApi {
       query["PeriodUnit"] = request.periodUnit;
     }
 
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4029,6 +4053,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -4852,6 +4880,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceGroupId)) {
       query["InstanceGroupId"] = request.instanceGroupId;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

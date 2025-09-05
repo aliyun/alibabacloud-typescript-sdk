@@ -57,6 +57,7 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
    * Month
    */
   periodUnit?: string;
+  promotionId?: string;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -65,6 +66,7 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
       instanceGroupIds: 'InstanceGroupIds',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      promotionId: 'PromotionId',
     };
   }
 
@@ -76,6 +78,7 @@ export class ModifyInstanceChargeTypeRequest extends $dara.Model {
       instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
       period: 'number',
       periodUnit: 'string',
+      promotionId: 'string',
     };
   }
 

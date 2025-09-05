@@ -46,6 +46,7 @@ export class RenewCloudPhoneNodesRequest extends $dara.Model {
    * Month
    */
   periodUnit?: string;
+  promotionId?: string;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -53,6 +54,7 @@ export class RenewCloudPhoneNodesRequest extends $dara.Model {
       nodeIds: 'NodeIds',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      promotionId: 'PromotionId',
     };
   }
 
@@ -63,6 +65,7 @@ export class RenewCloudPhoneNodesRequest extends $dara.Model {
       nodeIds: { 'type': 'array', 'itemType': 'string' },
       period: 'number',
       periodUnit: 'string',
+      promotionId: 'string',
     };
   }
 

@@ -42,12 +42,14 @@ export class RenewAndroidInstanceGroupsRequest extends $dara.Model {
    * Month
    */
   periodUnit?: string;
+  promotionId?: string;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
       instanceGroupIds: 'InstanceGroupIds',
       period: 'Period',
       periodUnit: 'PeriodUnit',
+      promotionId: 'PromotionId',
     };
   }
 
@@ -57,6 +59,7 @@ export class RenewAndroidInstanceGroupsRequest extends $dara.Model {
       instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
       period: 'number',
       periodUnit: 'string',
+      promotionId: 'string',
     };
   }
 

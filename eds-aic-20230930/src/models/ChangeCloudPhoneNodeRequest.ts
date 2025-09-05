@@ -21,6 +21,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
    */
   phoneCount?: number;
   phoneDataVolume?: number;
+  promotionId?: string;
   upBandwidthLimit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30,6 +31,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
       nodeId: 'NodeId',
       phoneCount: 'PhoneCount',
       phoneDataVolume: 'PhoneDataVolume',
+      promotionId: 'PromotionId',
       upBandwidthLimit: 'UpBandwidthLimit',
     };
   }
@@ -42,6 +44,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
       nodeId: 'string',
       phoneCount: 'number',
       phoneDataVolume: 'number',
+      promotionId: 'string',
       upBandwidthLimit: 'number',
     };
   }

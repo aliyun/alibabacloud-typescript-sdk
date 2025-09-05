@@ -245,6 +245,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
    * pg-b7bxrrwxkijjh****
    */
   policyGroupId?: string;
+  promotionId?: string;
   /**
    * @remarks
    * The tags
@@ -285,6 +286,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
       period: 'Period',
       periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
+      promotionId: 'PromotionId',
       tag: 'Tag',
       vSwitchId: 'VSwitchId',
     };
@@ -314,6 +316,7 @@ export class CreateAndroidInstanceGroupShrinkRequest extends $dara.Model {
       period: 'number',
       periodUnit: 'string',
       policyGroupId: 'string',
+      promotionId: 'string',
       tag: { 'type': 'array', 'itemType': CreateAndroidInstanceGroupShrinkRequestTag },
       vSwitchId: 'string',
     };
