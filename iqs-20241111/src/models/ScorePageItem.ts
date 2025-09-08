@@ -20,6 +20,7 @@ export class ScorePageItem extends $dara.Model {
    * baijiahao.baidu.com
    */
   displayLink?: string;
+  hostAuthorityScore?: number;
   /**
    * @example
    * https://s2.zimgs.cn/ims?kt=url&at=smstruct&key=aHR0cHM6Ly9ndy5hbGljZG4uY29tL0wxLzcyMy8xNTY1MjU2NjAwLzJhL2YwL2I0LzJhZjBiNDQxMGI5YmVlMDVjOGVlNGJmODk3MTNkNTFjLnBuZw==&sign=yx:CUlNNQVJQjFrk3Kxt2F3KWhTOFU=&tv=400_400
@@ -107,6 +108,7 @@ export class ScorePageItem extends $dara.Model {
     return {
       cardType: 'cardType',
       displayLink: 'displayLink',
+      hostAuthorityScore: 'hostAuthorityScore',
       hostLogo: 'hostLogo',
       hostname: 'hostname',
       htmlSnippet: 'htmlSnippet',
@@ -130,6 +132,7 @@ export class ScorePageItem extends $dara.Model {
     return {
       cardType: 'string',
       displayLink: 'string',
+      hostAuthorityScore: 'number',
       hostLogo: 'string',
       hostname: 'string',
       htmlSnippet: 'string',
