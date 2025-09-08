@@ -166,12 +166,14 @@ export class DescribeMultimodalModerationResultResponseBodyDataMainData extends 
 
 export class DescribeMultimodalModerationResultResponseBodyData extends $dara.Model {
   commentDatas?: DescribeMultimodalModerationResultResponseBodyDataCommentDatas[];
+  dataId?: string;
   mainData?: DescribeMultimodalModerationResultResponseBodyDataMainData;
   reqId?: string;
   riskLevel?: string;
   static names(): { [key: string]: string } {
     return {
       commentDatas: 'CommentDatas',
+      dataId: 'DataId',
       mainData: 'MainData',
       reqId: 'ReqId',
       riskLevel: 'RiskLevel',
@@ -181,6 +183,7 @@ export class DescribeMultimodalModerationResultResponseBodyData extends $dara.Mo
   static types(): { [key: string]: any } {
     return {
       commentDatas: { 'type': 'array', 'itemType': DescribeMultimodalModerationResultResponseBodyDataCommentDatas },
+      dataId: 'string',
       mainData: DescribeMultimodalModerationResultResponseBodyDataMainData,
       reqId: 'string',
       riskLevel: 'string',
