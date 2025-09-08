@@ -37,6 +37,68 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AiSearchResponse
    */
+  async *aiSearchWithSSE(request: $_model.AiSearchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.AiSearchResponse, any, unknown> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.industry)) {
+      query["industry"] = request.industry;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.timeRange)) {
+      query["timeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AiSearch",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v3/linkedRetrieval/commands/aiSearch`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.AiSearchResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.AiSearchResponse({}));
+    }
+  }
+
+  /**
+   * AI搜索流式接口
+   * 
+   * @param request - AiSearchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AiSearchResponse
+   */
   async aiSearchWithOptions(request: $_model.AiSearchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AiSearchResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
