@@ -57,6 +57,7 @@ export class InitFaceVerifyRequest extends $dara.Model {
   mobile?: string;
   mode?: string;
   model?: string;
+  needMultiFaceCheck?: string;
   /**
    * @example
    * cn-shanghai-aliyun-cloudauth-xxxxx
@@ -124,6 +125,7 @@ export class InitFaceVerifyRequest extends $dara.Model {
       mobile: 'Mobile',
       mode: 'Mode',
       model: 'Model',
+      needMultiFaceCheck: 'NeedMultiFaceCheck',
       ossBucketName: 'OssBucketName',
       ossObjectName: 'OssObjectName',
       outerOrderNo: 'OuterOrderNo',
@@ -166,6 +168,7 @@ export class InitFaceVerifyRequest extends $dara.Model {
       mobile: 'string',
       mode: 'string',
       model: 'string',
+      needMultiFaceCheck: 'string',
       ossBucketName: 'string',
       ossObjectName: 'string',
       outerOrderNo: 'string',

@@ -2377,6 +2377,10 @@ export default class Client extends OpenApi {
       query["Mode"] = request.mode;
     }
 
+    if (!$dara.isNull(request.needMultiFaceCheck)) {
+      query["NeedMultiFaceCheck"] = request.needMultiFaceCheck;
+    }
+
     if (!$dara.isNull(request.ossBucketName)) {
       query["OssBucketName"] = request.ossBucketName;
     }
